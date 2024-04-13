@@ -3,14 +3,14 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "ah" = (
 /obj/structure/janitorialcart/full,
 /obj/item/clothing/gloves/janitor/unathi,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -33,7 +33,7 @@
 	pixel_y = 16
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -64,7 +64,7 @@
 	name = "key - room five";
 	key_data = "room_five"
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -79,7 +79,7 @@
 	name = "igs - ouerea_bar_patron";
 	identifier = "ouerea_bar_patron"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -87,19 +87,19 @@
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "dK" = (
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
 "dM" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -108,7 +108,7 @@
 /obj/structure/bedsheetbin{
 	pixel_y = 10
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -117,20 +117,20 @@
 	dir = 4
 	},
 /obj/structure/railing/fence,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "eO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
 "fj" = (
 /obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -143,7 +143,7 @@
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -159,7 +159,7 @@
 	dir = 6
 	},
 /obj/item/device/radio/phone,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -170,13 +170,13 @@
 /obj/structure/weapon_rack/pump{
 	pixel_y = 25
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "hh" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -192,13 +192,13 @@
 	pixel_x = -28;
 	pixel_y = -3
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "if" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -209,7 +209,7 @@
 /obj/machinery/vending/boozeomat{
 	req_access = null
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -231,7 +231,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -240,7 +240,7 @@
 	name = "igs - ouerea_bar_server";
 	identifier = "ouerea_bar_server"
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -252,7 +252,7 @@
 /obj/machinery/chemical_dispenser/bar_alc/full{
 	dir = 4
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -261,7 +261,7 @@
 	req_access = null;
 	pixel_y = 30
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -273,7 +273,7 @@
 /area/ouerea_bar)
 "nY" = (
 /obj/structure/railing/fence,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -283,14 +283,14 @@
 	name = "igs - ouerea_bar_server";
 	identifier = "ouerea_bar_server"
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
 "ox" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -314,7 +314,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -326,14 +326,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "pw" = (
 /obj/item/mop,
 /obj/item/reagent_containers/glass/bucket,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -341,13 +341,13 @@
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "pL" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -355,7 +355,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -369,7 +369,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -387,7 +387,7 @@
 /area/ouerea_bar)
 "rv" = (
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -396,13 +396,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
 "tN" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -429,7 +429,7 @@
 	dir = 4
 	},
 /obj/item/reagent_containers/glass/rag,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -437,7 +437,7 @@
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -445,7 +445,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -473,7 +473,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -490,14 +490,14 @@
 	name = "room two";
 	initial_lock_value = "room_two"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "xK" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -507,13 +507,13 @@
 	dir = 4
 	},
 /obj/item/material/ashtray,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "xV" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -524,7 +524,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -534,13 +534,13 @@
 	name = "igs - ouerea_bar_patron";
 	identifier = "ouerea_bar_patron"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "yx" = (
 /obj/structure/bed/stool,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -548,7 +548,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -557,7 +557,7 @@
 	name = "room five";
 	initial_lock_value = "room_five"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -571,14 +571,14 @@
 	name = "room four";
 	initial_lock_value = "room_four"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "zJ" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -587,7 +587,7 @@
 	dir = 8
 	},
 /obj/machinery/chem_master/condimaster,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -596,7 +596,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -615,7 +615,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -633,7 +633,7 @@
 	dir = 8
 	},
 /obj/structure/railing/fence,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -656,7 +656,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -672,7 +672,7 @@
 /obj/structure/sign/flag/ouerea/old/large/west{
 	pixel_x = -32
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -688,7 +688,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -697,7 +697,7 @@
 	name = "room three";
 	initial_lock_value = "room_three"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -705,7 +705,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -723,7 +723,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -733,7 +733,7 @@
 	dir = 4
 	},
 /obj/item/device/hand_labeler,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -748,7 +748,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -758,13 +758,13 @@
 	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/shaker,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "FD" = (
 /obj/structure/toilet,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -778,7 +778,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -808,19 +808,19 @@
 /obj/item/clothing/suit/unathi/robe/robe_coat/orange,
 /obj/item/clothing/suit/unathi/robe/robe_coat,
 /obj/item/clothing/suit/unathi/robe/robe_coat/red,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
 "Ii" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "IT" = (
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -840,7 +840,7 @@
 /area/ouerea_bar)
 "Jt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -872,7 +872,7 @@
 	name = "storeroom";
 	initial_lock_value = "storeroom"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -881,14 +881,14 @@
 	dir = 1
 	},
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Mu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -897,7 +897,7 @@
 	dir = 8
 	},
 /obj/machinery/chem_heater,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -905,7 +905,7 @@
 /obj/structure/sign/flag/ouerea/old/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -913,7 +913,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -923,7 +923,7 @@
 	dir = 4
 	},
 /obj/item/material/ashtray/bronze,
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -949,7 +949,7 @@
 /obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -957,7 +957,7 @@
 /obj/machinery/atm{
 	pixel_y = 25
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -970,24 +970,24 @@
 	dir = 4;
 	pixel_x = 12
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
 "TY" = (
 /obj/machinery/media/jukebox,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Ud" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Uh" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -997,7 +997,7 @@
 	dir = 8;
 	pixel_x = -12
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)
@@ -1006,7 +1006,7 @@
 	name = "igs - ouerea_bar_innkeeper";
 	identifier = "ouerea_bar_innkeeper"
 	},
-/turf/simulated/floor/lino{
+/turf/simulated/floor/exoplanet/lino{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -1031,7 +1031,7 @@
 /area/ouerea_bar)
 "WV" = (
 /obj/machinery/washing_machine,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -1045,7 +1045,7 @@
 /obj/item/storage/box/shotgunshells,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/flame/lighter/zippo,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -1054,14 +1054,14 @@
 	dir = 1
 	},
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
 "Yx" = (
 /obj/structure/railing/fence,
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -1070,7 +1070,7 @@
 	name = "room one";
 	initial_lock_value = "room_one"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -1078,7 +1078,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_bar)
@@ -1117,7 +1117,7 @@
 	pixel_y = 5
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/ouerea_bar)

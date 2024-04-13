@@ -9,13 +9,13 @@
 	name = "igs - moghes_gawgaryn_rider";
 	identifier = "moghes_gawgaryn_rider"
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_gawgaryn_bikers)
 "d" = (
 /obj/structure/simple_door/iron,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_gawgaryn_bikers)
@@ -73,7 +73,7 @@
 /obj/item/ammo_magazine/tempestsmg,
 /obj/item/gun/projectile/shotgun/wallgun,
 /obj/item/storage/box/wallgunammo,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_gawgaryn_bikers)
@@ -168,7 +168,7 @@
 	},
 /area/moghes_gawgaryn_bikers)
 "P" = (
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_gawgaryn_bikers)

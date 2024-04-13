@@ -23,7 +23,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -45,7 +45,7 @@
 /area/ouerea_autakh)
 "be" = (
 /obj/structure/bed/stool/chair/sofa/pew/right,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/exoplanet/marble/dark,
 /area/ouerea_autakh)
 "bp" = (
 /turf/simulated/floor/exoplanet/grass{
@@ -58,17 +58,17 @@
 	req_access = list(217);
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "ds" = (
 /obj/machinery/optable,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "dP" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -83,7 +83,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -125,7 +125,7 @@
 /area/ouerea_autakh)
 "iC" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -135,16 +135,16 @@
 	},
 /obj/item/storage/box/shotgunshells,
 /obj/item/gun/projectile/shotgun/doublebarrel,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "jc" = (
 /obj/machinery/light,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "kd" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -152,7 +152,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -160,7 +160,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/exoplanet/marble/dark,
 /area/ouerea_autakh)
 "mv" = (
 /turf/simulated/wall/marble,
@@ -168,7 +168,7 @@
 "nO" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -176,7 +176,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -185,7 +185,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "oK" = (
 /obj/effect/floor_decal/corner/orange{
@@ -205,12 +205,12 @@
 "pU" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/fancy/tray,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "qq" = (
 /obj/structure/table/rack,
 /obj/random/sword,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -229,7 +229,7 @@
 /obj/item/ammo_casing/a762,
 /obj/item/ammo_casing/a762,
 /obj/item/ammo_casing/a762,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -239,13 +239,13 @@
 	req_access = list(217);
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "rQ" = (
 /obj/structure/bed/stool/chair/sofa/pew/left,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/exoplanet/marble/dark,
 /area/ouerea_autakh)
 "to" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -253,7 +253,7 @@
 	},
 /obj/random/civgun,
 /obj/random/civgun,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -265,7 +265,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -274,7 +274,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -287,7 +287,7 @@
 /obj/structure/table/stone/marble,
 /obj/item/flame/candle,
 /obj/item/nullrod/shaman,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "xe" = (
 /obj/effect/floor_decal/corner/orange{
@@ -306,7 +306,7 @@
 /obj/item/clothing/accessory/holster/armpit,
 /obj/item/clothing/accessory/holster/armpit,
 /obj/item/clothing/accessory/holster/armpit,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -324,7 +324,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -340,11 +340,11 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/exoplanet/marble/dark,
 /area/ouerea_autakh)
 "Ai" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -362,7 +362,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -374,13 +374,13 @@
 	name = "igs - ouerea_autakh";
 	identifier = "ouerea_autakh"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "Bt" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -388,7 +388,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -422,11 +422,11 @@
 /obj/item/organ/external/hand/right/autakh/security,
 /obj/item/organ/external/hand/right/autakh/tool/mining,
 /obj/item/organ/external/hand/right/autakh/tool,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "Fo" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -456,7 +456,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -469,7 +469,7 @@
 /obj/structure/table/rack,
 /obj/random/firstaid,
 /obj/random/firstaid,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -489,7 +489,7 @@
 	},
 /area/ouerea_autakh)
 "LR" = (
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "LV" = (
 /obj/structure/closet/cabinet,
@@ -513,13 +513,13 @@
 	},
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/shoes/sandals/caligae,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "Mj" = (
 /obj/machinery/vending/boozeomat/merchant,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -538,7 +538,7 @@
 /area/ouerea_autakh)
 "Nr" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -546,7 +546,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -565,7 +565,7 @@
 	pixel_x = 32;
 	pixel_y = -8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -591,14 +591,14 @@
 	},
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/shoes/sandals/caligae,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "Qy" = (
 /obj/structure/table/rack,
 /obj/random/custom_ka,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
@@ -611,18 +611,18 @@
 /obj/item/device/versebook/autakh,
 /obj/item/device/versebook/autakh,
 /obj/item/device/versebook/autakh,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "SL" = (
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_autakh)
 "Th" = (
 /obj/structure/table/stone/marble,
 /obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 "UL" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -630,7 +630,7 @@
 	},
 /area/ouerea_autakh)
 "Vb" = (
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/exoplanet/marble/dark,
 /area/ouerea_autakh)
 "Wz" = (
 /obj/effect/floor_decal/corner/orange{
@@ -654,14 +654,14 @@
 /area/ouerea_autakh)
 "Zc" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/marble/dark,
+/turf/simulated/floor/exoplanet/marble/dark,
 /area/ouerea_autakh)
 "Zd" = (
 /obj/structure/table/stone/marble,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
-/turf/simulated/floor/marble,
+/turf/simulated/floor/exoplanet/marble,
 /area/ouerea_autakh)
 
 (1,1,1) = {"

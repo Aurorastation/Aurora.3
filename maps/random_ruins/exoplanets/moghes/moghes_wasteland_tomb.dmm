@@ -1,12 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "at" = (
 /obj/structure/monolith/unathitomb/death,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "aD" = (
-/turf/simulated/floor/gold{
+/turf/simulated/floor/exoplanet/gold{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -14,33 +14,33 @@
 /obj/structure/sign/flag/unathi_tapestry/city/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "aX" = (
 /obj/structure/table/stone/marble,
 /obj/item/stack/material/gold/full,
-/turf/simulated/floor/gold{
+/turf/simulated/floor/exoplanet/gold{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "bt" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/sword/longsword,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "cy" = (
 /obj/structure/unathi_statue/robe,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "cC" = (
 /obj/structure/unathi_statue/crown,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -48,14 +48,14 @@
 /obj/structure/sign/flag/unathi_tapestry/unathi/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "dD" = (
 /obj/structure/table/stone/marble,
 /obj/item/stack/material/diamond/full,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -64,20 +64,20 @@
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "gr" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "iY" = (
 /obj/structure/unathi_statue/robe,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -86,13 +86,13 @@
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "jI" = (
 /obj/structure/unathi_statue/warrior,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -100,7 +100,7 @@
 /turf/simulated/wall/sandstonediamond,
 /area/moghes_wasteland_tomb)
 "pu" = (
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -108,7 +108,7 @@
 /obj/structure/sign/flag/unathi_tapestry/unathi/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/gold{
+/turf/simulated/floor/exoplanet/gold{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -116,7 +116,7 @@
 /obj/item/material/sword/khopesh,
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -124,7 +124,7 @@
 /obj/structure/table/stone/marble,
 /obj/structure/sign/flag/unathi_tapestry/crown,
 /obj/item/material/scythe/sickle/warsickle/bronze,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -132,7 +132,7 @@
 /obj/item/material/sword/axe,
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -140,13 +140,13 @@
 /obj/structure/sign/flag/unathi_tapestry/brothers/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "wq" = (
 /obj/structure/monolith/unathitomb,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -154,20 +154,20 @@
 /obj/item/material/twohanded/spear/steel,
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "yo" = (
 /obj/structure/monolith/unathitomb/lineage,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "zp" = (
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -175,13 +175,13 @@
 /obj/structure/sign/flag/unathi_tapestry/wall/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "Aa" = (
 /obj/structure/monolith/unathitomb,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -190,7 +190,7 @@
 	pixel_y = 32;
 	stand_icon = "banner"
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -198,7 +198,7 @@
 /obj/item/material/sword/axe,
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -206,26 +206,26 @@
 /obj/item/material/sword/longsword,
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "ET" = (
 /obj/structure/simple_door/sandstone,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "EZ" = (
 /obj/structure/unathi_pillar,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "FN" = (
 /obj/structure/table/stone/marble,
 /obj/item/stack/material/gold/full,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -234,7 +234,7 @@
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -243,7 +243,7 @@
 	pixel_y = -32;
 	stand_icon = "banner"
 	},
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -254,7 +254,7 @@
 /area/moghes)
 "Hg" = (
 /obj/structure/monolith/unathitomb/lineage,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -263,7 +263,7 @@
 	pixel_y = -32;
 	stand_icon = "banner"
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -273,20 +273,20 @@
 	trapped = 1
 	},
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "Ld" = (
 /obj/structure/table/stone/marble,
 /obj/item/stack/material/diamond/full,
-/turf/simulated/floor/gold{
+/turf/simulated/floor/exoplanet/gold{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "LQ" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -294,18 +294,18 @@
 /obj/structure/sign/flag/unathi_tapestry/unathi/west{
 	pixel_x = -32
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "Ma" = (
 /obj/structure/simple_door/sandstone,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "Mq" = (
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -313,7 +313,7 @@
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -321,19 +321,19 @@
 /obj/item/material/twohanded/pike/halberd,
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "Nr" = (
 /obj/structure/unathi_statue/warrior/right,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "NJ" = (
 /obj/structure/monolith/unathitomb/king,
-/turf/simulated/floor/silver{
+/turf/simulated/floor/exoplanet/silver{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -341,7 +341,7 @@
 /obj/structure/sign/flag/unathi_tapestry/unathi/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -350,13 +350,13 @@
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
 /obj/item/material/twohanded/pike/halberd/warscythe/bronze,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "TB" = (
 /obj/structure/sign/flag/unathi_tapestry/moon,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
@@ -369,13 +369,13 @@
 /obj/item/material/twohanded/spear/steel,
 /obj/effect/landmark/corpse/ancient_unathi,
 /obj/structure/closet/sarcophagus/random,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)
 "XB" = (
 /obj/structure/sign/flag/unathi_tapestry,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_tomb)

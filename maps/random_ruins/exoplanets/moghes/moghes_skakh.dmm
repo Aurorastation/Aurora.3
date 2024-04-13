@@ -4,7 +4,7 @@
 /area/moghes_skakh)
 "b" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -14,7 +14,7 @@
 	name = "pew";
 	desc = "A pew, how holy!"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -25,7 +25,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -37,14 +37,14 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
 "g" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/hatchet/unathiknife,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -58,7 +58,7 @@
 	identifier = "moghes_skakh_faithful";
 	name = "igs - moghes_skakh_faithful"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -72,7 +72,7 @@
 "k" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -81,7 +81,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -90,7 +90,7 @@
 	dir = 10
 	},
 /obj/structure/bookcase,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -98,7 +98,7 @@
 /obj/structure/bed/stool/chair/padded/brown{
 	dir = 1
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -112,7 +112,7 @@
 /area/moghes_skakh)
 "q" = (
 /obj/structure/bed/stool/chair/office/dark,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -153,7 +153,7 @@
 /obj/item/clothing/suit/unathi/robe/robe_coat/red,
 /obj/item/clothing/suit/unathi/robe/robe_coat/orange,
 /obj/item/clothing/suit/unathi/robe/robe_coat/blue,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -165,7 +165,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -180,7 +180,7 @@
 /obj/item/device/versebook/skakh,
 /obj/item/device/versebook/skakh,
 /obj/item/device/versebook/skakh,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -188,12 +188,12 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
 "w" = (
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -202,7 +202,7 @@
 	dir = 10
 	},
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -214,7 +214,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -229,14 +229,14 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
 "A" = (
 /obj/structure/table/stone/marble,
 /obj/item/flame/candle,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -247,7 +247,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -255,13 +255,13 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
 "D" = (
 /obj/machinery/light,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -275,14 +275,14 @@
 	identifier = "moghes_skakh_faithful";
 	name = "igs - moghes_skakh_faithful"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
 "F" = (
 /obj/structure/table/wood,
 /obj/item/device/radio/phone,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -290,7 +290,7 @@
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -307,7 +307,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 2
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -319,7 +319,7 @@
 	identifier = "moghes_skakh";
 	name = "igs - moghes_skakh"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -331,7 +331,7 @@
 	identifier = "moghes_skakh_priest";
 	name = "igs - moghes_skakh_priest"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -344,7 +344,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -357,7 +357,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -368,14 +368,14 @@
 	},
 /area/moghes_skakh)
 "P" = (
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
 "Q" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -389,7 +389,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -399,7 +399,7 @@
 	name = "pew";
 	desc = "A pew, how holy!"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -410,7 +410,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -418,7 +418,7 @@
 /obj/structure/bed/stool/chair/sofa/right/red{
 	dir = 4
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -429,7 +429,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -437,7 +437,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -445,7 +445,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -453,7 +453,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
@@ -464,7 +464,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)

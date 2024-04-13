@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "bi" = (
 /obj/machinery/light,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -10,7 +10,7 @@
 	name = "Cell Three";
 	initial_lock_value = "cells"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -27,7 +27,7 @@
 /obj/structure/bed/stool/chair/sofa/right/brown{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -35,12 +35,12 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "dV" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -48,7 +48,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -64,7 +64,7 @@
 	name = "Cell Two";
 	initial_lock_value = "cells"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -72,7 +72,7 @@
 /obj/structure/table/rack,
 /obj/item/watertank,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -82,7 +82,7 @@
 	pixel_y = -6;
 	pixel_x = -12
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -100,7 +100,7 @@
 	key_data = "cells"
 	},
 /obj/item/storage/box/zipties,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -116,7 +116,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -124,7 +124,7 @@
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -132,14 +132,14 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "mB" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -147,7 +147,7 @@
 /obj/structure/bed/stool/chair/sofa/left/brown{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -155,7 +155,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -172,7 +172,7 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -180,7 +180,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/fountain/white,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -190,7 +190,7 @@
 	pixel_y = 4
 	},
 /obj/item/paper/fluff/moghes_diona_ad,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -210,7 +210,7 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/exoplanet/moghes)
 "qX" = (
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -220,7 +220,7 @@
 	name = "igs - moghes_diona";
 	identifier = "moghes_diona"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -236,7 +236,7 @@
 /obj/item/seeds/replicapod,
 /obj/item/seeds/replicapod,
 /obj/item/seeds/replicapod,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -245,14 +245,14 @@
 	name = "Cell One";
 	initial_lock_value = "cells"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "tj" = (
 /obj/structure/table/wood,
 /obj/item/paper/fluff/moghes_diona_ad,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -275,7 +275,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -284,7 +284,7 @@
 /area/exoplanet/moghes)
 "xB" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -298,7 +298,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -312,13 +312,13 @@
 /area/exoplanet/moghes)
 "zs" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "zL" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -328,7 +328,7 @@
 "BA" = (
 /obj/structure/table/wood,
 /obj/item/paper/fluff/moghes_diona_ad,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -354,7 +354,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
 /obj/item/toy/plushie/nymph,
 /obj/item/cane/concealed,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -362,7 +362,7 @@
 /obj/structure/table/wood,
 /obj/item/paper/fluff/moghes_diona_ad,
 /obj/item/paper/fluff/moghes_diona_ad,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -378,7 +378,7 @@
 "EL" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -387,7 +387,7 @@
 	name = "igs - moghes_diona_assistant";
 	identifier = "moghes_diona_assistant"
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -400,7 +400,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -418,7 +418,7 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -427,7 +427,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -442,14 +442,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "Mf" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -458,13 +458,13 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "NG" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -473,7 +473,7 @@
 	name = "igs - moghes_diona";
 	identifier = "moghes_diona"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -490,7 +490,7 @@
 /obj/item/saddle,
 /obj/item/saddle,
 /obj/item/saddle,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -518,7 +518,7 @@
 	name = "igs - moghes_diona_trader";
 	identifier = "moghes_diona_trader"
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -535,7 +535,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -548,7 +548,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -562,7 +562,7 @@
 /obj/structure/bed/stool/chair/padded/beige{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -574,13 +574,13 @@
 /area/exoplanet/moghes)
 "TX" = (
 /obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "Ux" = (
 /obj/effect/map_effect/window_spawner/full/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -589,7 +589,7 @@
 	dir = 1;
 	pixel_y = 30
 	},
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -602,7 +602,7 @@
 "Xc" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -611,13 +611,13 @@
 	dir = 8
 	},
 /obj/machinery/light,
-/turf/simulated/floor/carpet/red{
+/turf/simulated/floor/exoplanet/carpet/red{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
 "YK" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)
@@ -630,7 +630,7 @@
 /area/exoplanet/moghes)
 "ZA" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 303.15
 	},
 /area/moghes_diona_traders)

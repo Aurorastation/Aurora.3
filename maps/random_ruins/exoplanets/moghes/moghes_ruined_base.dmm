@@ -8,7 +8,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -27,13 +27,13 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "cr" = (
 /obj/structure/toilet,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -41,7 +41,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -53,7 +53,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -64,7 +64,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -78,7 +78,7 @@
 	},
 /obj/item/gun/projectile/pistol/spitter,
 /obj/item/gun/projectile/pistol/spitter,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -87,7 +87,7 @@
 /obj/machinery/bodyscanner{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -98,14 +98,14 @@
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "fh" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -116,20 +116,20 @@
 	req_access = list(113);
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "hQ" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/light,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "is" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -138,19 +138,19 @@
 /obj/item/material/sword/sabre{
 	name = "ceremonial sabre"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/template_noop)
 "jM" = (
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
 "jO" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "ms" = (
 /obj/machinery/light{
@@ -164,7 +164,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -173,7 +173,7 @@
 	name = "Armory";
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -184,7 +184,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
 /obj/effect/landmark/corpse/hegemony_soldier,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -193,7 +193,7 @@
 /obj/structure/sign/flag/hegemony/large/south{
 	pixel_y = -32
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -201,7 +201,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/template_noop)
@@ -209,20 +209,20 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
 "pw" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/template_noop)
 "py" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -230,7 +230,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -255,7 +255,7 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -273,7 +273,7 @@
 	icon_state = "stamp-ce";
 	name = "izweski hegemony rubber stamp"
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -281,7 +281,7 @@
 /obj/structure/closet/crate{
 	name = "footlocker"
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -292,7 +292,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/tray,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -303,7 +303,7 @@
 /area/template_noop)
 "vn" = (
 /obj/effect/landmark/corpse/hegemony_soldier,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -311,7 +311,7 @@
 /obj/structure/sign/flag/hegemony/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -322,12 +322,12 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "ww" = (
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -354,18 +354,18 @@
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "xm" = (
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/template_noop)
 "xH" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -374,7 +374,7 @@
 	name = "Captain's Quarters";
 	req_one_access = list(113)
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "za" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -383,7 +383,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -391,7 +391,7 @@
 /obj/machinery/door/airlock/medical{
 	name = "Healer's Bay"
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -400,7 +400,7 @@
 	req_access = list(113);
 	name = "Barracks"
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -409,7 +409,7 @@
 	name = "footlocker"
 	},
 /obj/machinery/light,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -420,7 +420,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -429,14 +429,14 @@
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
 "DE" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -447,7 +447,7 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -459,26 +459,26 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "Gl" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/curtain/open/medical,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
 "HZ" = (
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/template_noop)
 "Jv" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/table/steel,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -495,7 +495,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -505,7 +505,7 @@
 	pixel_y = 14;
 	density = 0
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -514,13 +514,13 @@
 	name = "Checkpoint";
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "MM" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -534,7 +534,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -542,7 +542,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -550,7 +550,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -558,7 +558,7 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -566,7 +566,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -575,19 +575,19 @@
 /obj/structure/curtain/open/bed,
 /obj/item/bedsheet/black,
 /obj/effect/landmark/corpse/hegemony_soldier,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "RO" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "RQ" = (
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -595,7 +595,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -611,7 +611,7 @@
 	dir = 8
 	},
 /obj/item/folder/yellow,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -619,7 +619,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/iv_drip,
 /obj/item/tank/oxygen,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -627,7 +627,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -636,7 +636,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -645,12 +645,12 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "TL" = (
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "TZ" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -660,7 +660,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -669,7 +669,7 @@
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -683,7 +683,7 @@
 	pixel_y = 4;
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -704,7 +704,7 @@
 /obj/structure/sign/flag/hegemony/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/template_noop)
 "Vl" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -715,7 +715,7 @@
 	dir = 5
 	},
 /obj/item/gun/projectile/automatic/tempestsmg,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -725,7 +725,7 @@
 	dir = 8;
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -735,7 +735,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -744,7 +744,7 @@
 	name = "Captain's Quarters";
 	req_one_access = list(113)
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -763,7 +763,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -772,13 +772,13 @@
 	name = "Briefing Room";
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/template_noop)
 "Za" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/template_noop)

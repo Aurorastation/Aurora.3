@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aj" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -26,7 +26,7 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -36,7 +36,7 @@
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/large/radiation,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -44,7 +44,7 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/iv_drip,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -61,13 +61,13 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "aQ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -75,7 +75,7 @@
 /obj/machinery/door/airlock/medical{
 	name = "Healer's Bay"
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -83,7 +83,7 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -91,7 +91,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -111,14 +111,14 @@
 /obj/structure/sign/flag/hegemony/large/south{
 	pixel_y = -32
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "ca" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/light,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -128,7 +128,7 @@
 	},
 /obj/machinery/light,
 /obj/item/device/geiger,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -147,7 +147,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -158,13 +158,13 @@
 /obj/effect/floor_decal/concrete{
 	dir = 5
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
 "ev" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -175,7 +175,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 10
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -184,7 +184,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -192,7 +192,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -200,7 +200,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -209,7 +209,7 @@
 /obj/item/material/sword/sabre{
 	name = "ceremonial sabre"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -228,7 +228,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -243,14 +243,14 @@
 	pixel_y = 14;
 	density = 0
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "hF" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/optable,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -264,12 +264,12 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "hK" = (
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -277,7 +277,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -285,7 +285,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/iv_drip,
 /obj/item/tank/oxygen,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -302,7 +302,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -311,7 +311,7 @@
 /obj/machinery/body_scanconsole{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -322,20 +322,20 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "kJ" = (
 /obj/structure/toilet,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "kY" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/curtain/open/medical,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -346,7 +346,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -354,7 +354,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 5
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -363,7 +363,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -374,12 +374,12 @@
 /obj/effect/floor_decal/concrete{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
 "nY" = (
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -389,7 +389,7 @@
 	dir = 8;
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -397,7 +397,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/black,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -406,7 +406,7 @@
 	name = "Armory";
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -429,12 +429,12 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "pU" = (
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -455,7 +455,7 @@
 /obj/structure/sign/flag/hegemony/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
 "qY" = (
 /turf/simulated/wall/concrete,
@@ -464,7 +464,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -472,7 +472,7 @@
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -483,7 +483,7 @@
 	req_access = list(113);
 	pixel_y = -24
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -494,7 +494,7 @@
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/table/steel,
 /obj/item/storage/box/fancy/tray,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -505,13 +505,13 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "tA" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -520,7 +520,7 @@
 	id = "hegemony_base_garage";
 	name = "Garage"
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -530,7 +530,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -547,7 +547,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -559,14 +559,14 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "xq" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -583,7 +583,7 @@
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -594,7 +594,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -603,7 +603,7 @@
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -611,7 +611,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "hegemony_base_entry"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -620,7 +620,7 @@
 	pixel_x = 28;
 	pixel_y = -3
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -629,14 +629,14 @@
 	req_access = list(113);
 	name = "Barracks"
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "Cr" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/table/steel,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -644,7 +644,7 @@
 /obj/structure/sink{
 	pixel_y = 22
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -664,7 +664,7 @@
 /obj/machinery/bodyscanner{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -678,7 +678,7 @@
 	name = "Briefing Room";
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -692,7 +692,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -700,7 +700,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -708,24 +708,24 @@
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
 "GC" = (
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "GG" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
 "Hb" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -737,7 +737,7 @@
 	dir = 1
 	},
 /obj/item/device/geiger,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -746,7 +746,7 @@
 	department = "Hegemony Base"
 	},
 /obj/structure/table/wood,
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -773,7 +773,7 @@
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -782,12 +782,12 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
 "Ie" = (
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -795,7 +795,7 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -803,7 +803,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -814,7 +814,7 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -828,7 +828,7 @@
 	pixel_y = 4;
 	pixel_x = -5
 	},
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -839,14 +839,14 @@
 	icon_state = "stamp-ce";
 	name = "izweski hegemony rubber stamp"
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "KQ" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/bed/roller,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -865,12 +865,12 @@
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "MQ" = (
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
 "MR" = (
 /obj/structure/table/rack,
@@ -878,7 +878,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -886,7 +886,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -895,7 +895,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -904,7 +904,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -923,7 +923,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -938,7 +938,7 @@
 	name = "Checkpoint";
 	req_access = list(113)
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -948,7 +948,7 @@
 	dir = 8
 	},
 /obj/item/folder/yellow,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -957,7 +957,7 @@
 	name = "Captain's Quarters";
 	req_one_access = list(113)
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -966,13 +966,13 @@
 	dir = 8
 	},
 /obj/structure/curtain/open/shower,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "QF" = (
 /obj/vehicle/bike/speeder/izweski,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -980,7 +980,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 10
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -993,7 +993,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
-/turf/simulated/floor/tiled/white{
+/turf/simulated/floor/exoplanet/tiled/white{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1002,7 +1002,7 @@
 	name = "footlocker"
 	},
 /obj/item/device/geiger,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1013,7 +1013,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1021,7 +1021,7 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/reagent_dispensers/watertank,
 /obj/machinery/light,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1033,7 +1033,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/concrete,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 315.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1042,7 +1042,7 @@
 	name = "Captain's Quarters";
 	req_one_access = list(113)
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
 "VU" = (
 /obj/machinery/button/remote/blast_door{
@@ -1051,13 +1051,13 @@
 	req_access = list(113);
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
 "Wb" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1069,12 +1069,12 @@
 	identifier = "hegemony_wasteland_commander";
 	name = "igs - hegemony_wasteland_commander"
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/moghes/hegemony_wasteland)
 "XI" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1082,7 +1082,7 @@
 /obj/structure/sign/flag/hegemony/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/wood/birch{
+/turf/simulated/floor/exoplanet/wood/birch{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1094,7 +1094,7 @@
 	name = "igs - hegemony_wasteland_soldier";
 	identifier = "hegemony_wasteland_soldier"
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1110,7 +1110,7 @@
 	dir = 5
 	},
 /obj/item/gun/projectile/heavysniper/unathi,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)
@@ -1119,7 +1119,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 303.15
 	},
 /area/moghes/hegemony_wasteland)

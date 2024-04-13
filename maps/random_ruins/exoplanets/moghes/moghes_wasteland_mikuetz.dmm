@@ -20,7 +20,7 @@
 	name = "igs - moghes_mikuetz";
 	identifier = "moghes_mikuetz"
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -35,7 +35,7 @@
 /area/moghes_mikuetz)
 "h" = (
 /obj/structure/curtain,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -44,7 +44,7 @@
 	name = "igs - moghes_mikuetz";
 	identifier = "moghes_mikuetz"
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -82,7 +82,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -91,7 +91,7 @@
 /obj/item/gun/energy/vaurca/thermaldrill,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/electrical,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -109,7 +109,7 @@
 /obj/item/saddle,
 /obj/item/device/binoculars/spyglass,
 /obj/item/device/binoculars/spyglass,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -168,7 +168,7 @@
 /obj/item/clothing/head/shroud/brown,
 /obj/item/clothing/glasses/welding,
 /obj/item/clothing/glasses/welding,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -191,12 +191,12 @@
 /obj/item/gun/energy/vaurca/blaster,
 /obj/item/grenade/chem_grenade/incendiary,
 /obj/item/grenade/chem_grenade/incendiary,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
 "H" = (
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -209,7 +209,7 @@
 /obj/item/storage/firstaid/adv,
 /obj/item/storage/firstaid/radiation,
 /obj/item/storage/firstaid/radiation,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -217,7 +217,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -226,7 +226,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -255,7 +255,7 @@
 /obj/item/device/synthesized_instrument/synthesizer,
 /obj/item/device/synthesized_instrument/trumpet,
 /obj/item/device/synthesized_instrument/violin,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)
@@ -297,7 +297,7 @@
 /obj/item/reagent_containers/food/snacks/grown/kois,
 /obj/item/reagent_containers/food/snacks/grown/kois,
 /obj/item/reagent_containers/food/snacks/grown/kois,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_mikuetz)

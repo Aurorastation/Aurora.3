@@ -58,7 +58,7 @@
 /obj/item/storage/box/wallgunammo,
 /obj/item/gun/projectile/automatic/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -94,7 +94,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -105,13 +105,13 @@
 /area/moghes_queendom)
 "q" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
 "r" = (
 /obj/item/bedsheet/brown,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -135,7 +135,7 @@
 	name = "igs - moghes_queendom";
 	identifier = "moghes_queendom"
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -167,7 +167,7 @@
 /obj/item/device/geiger,
 /obj/item/device/geiger,
 /obj/item/device/geiger,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -185,18 +185,18 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
 "J" = (
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
 "M" = (
 /obj/structure/curtain,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -210,7 +210,7 @@
 	dir = 4
 	},
 /obj/item/material/hatchet/lumber,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -221,7 +221,7 @@
 /obj/item/storage/firstaid,
 /obj/random/firstaid,
 /obj/structure/closet/crate,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)
@@ -247,7 +247,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes_queendom)

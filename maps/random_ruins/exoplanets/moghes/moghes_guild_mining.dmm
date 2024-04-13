@@ -2,13 +2,13 @@
 "aN" = (
 /obj/structure/table/steel,
 /obj/structure/reagent_dispensers/keg/xuizikeg,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "aT" = (
 /obj/machinery/appliance/cooker/grill,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -21,13 +21,13 @@
 /obj/structure/table/rack,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "cd" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -41,7 +41,7 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -51,13 +51,13 @@
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/gun/custom_ka/frame01/prebuilt,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "gx" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -73,13 +73,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "hr" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -88,7 +88,7 @@
 	pixel_y = 32;
 	id = "stacking_1"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -96,7 +96,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -111,7 +111,7 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/adv,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -129,7 +129,7 @@
 	dir = 8;
 	id = "processing_1"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -138,7 +138,7 @@
 	id = "processing_1";
 	pixel_y = 28
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -155,7 +155,7 @@
 	status = 2
 	},
 /obj/item/clothing/shoes/sandals/caligae/socks,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -169,7 +169,7 @@
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -180,7 +180,7 @@
 /obj/item/device/radio/off,
 /obj/item/device/radio/off,
 /obj/machinery/light,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -203,7 +203,7 @@
 /obj/item/wrench,
 /obj/item/wrench,
 /obj/item/wrench,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -220,7 +220,7 @@
 /obj/machinery/mineral/unloading_machine{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -236,7 +236,7 @@
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -255,14 +255,14 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "wo" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/drinkingglasses,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -272,7 +272,7 @@
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -283,7 +283,7 @@
 /obj/item/device/analyzer,
 /obj/item/device/analyzer,
 /obj/machinery/light,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -296,7 +296,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -304,13 +304,13 @@
 /obj/machinery/door/airlock/multi_tile{
 	name = "Refinery"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "zd" = (
 /obj/machinery/vending/dinnerware/plastic,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -324,7 +324,7 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -338,7 +338,7 @@
 "CT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -350,7 +350,7 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -359,7 +359,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -369,7 +369,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -388,7 +388,7 @@
 /obj/machinery/mineral/stacking_machine{
 	id = "stacking_1"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -398,7 +398,7 @@
 	pixel_x = 4;
 	pixel_y = 24
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -407,7 +407,7 @@
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -415,7 +415,7 @@
 /obj/machinery/door/airlock{
 	name = "Mess Hall"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -426,7 +426,7 @@
 /obj/machinery/door/airlock{
 	name = "Living Quarters"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -435,7 +435,7 @@
 /obj/machinery/mining/brace{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -443,7 +443,7 @@
 /obj/machinery/door/airlock{
 	name = "Equipment Storage"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -453,7 +453,7 @@
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -467,32 +467,32 @@
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "Ob" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "Or" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "OB" = (
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "PC" = (
 /obj/machinery/light,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -504,7 +504,7 @@
 	name = "igs - moghes_guild_miner";
 	identifier = "moghes_guild_miner"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -514,7 +514,7 @@
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -525,7 +525,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -547,7 +547,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -558,14 +558,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
 "Vx" = (
 /obj/machinery/cell_charger,
 /obj/structure/table/steel,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -573,7 +573,7 @@
 /obj/machinery/conveyor_switch{
 	id = "moghes_heph_base"
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -586,7 +586,7 @@
 	},
 /obj/item/storage/backpack/satchel/eng,
 /obj/item/clothing/shoes/sandals/caligae/socks,
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -599,7 +599,7 @@
 	dir = 4;
 	pixel_x = 15
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)
@@ -613,7 +613,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
+/turf/simulated/floor/exoplanet/concrete{
 	temperature = 303.15
 	},
 /area/moghes_guild_mining)

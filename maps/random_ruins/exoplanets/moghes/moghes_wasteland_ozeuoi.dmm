@@ -4,7 +4,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -19,13 +19,13 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "fF" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -33,7 +33,7 @@
 /obj/structure/table/rack,
 /obj/random/tool,
 /obj/random/tool,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -41,7 +41,7 @@
 /obj/machinery/door/blast/shutters{
 	id = "ozeuoi_bikes"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -50,20 +50,20 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "iU" = (
 /obj/structure/bed/stool/bar,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "iY" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -71,7 +71,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -82,13 +82,13 @@
 	icon_state = "cover_1";
 	maxhealth = 120
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "kF" = (
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -101,7 +101,7 @@
 /obj/item/material/hatchet/machete/steel,
 /obj/item/material/hatchet/machete/steel,
 /obj/random/melee,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -127,13 +127,13 @@
 /obj/machinery/door/blast/shutters{
 	id = "ozeuoi_water"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "oJ" = (
 /obj/structure/closet/crate,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -155,7 +155,7 @@
 /obj/item/gun/projectile/pistol/spitter,
 /obj/item/ammo_magazine/spitterpistol,
 /obj/item/ammo_magazine/spitterpistol,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -164,7 +164,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -173,7 +173,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -188,13 +188,13 @@
 	check_arrest = 0;
 	check_records = 0
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "wI" = (
 /obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -209,14 +209,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "yO" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -224,18 +224,18 @@
 /obj/machinery/door/blast/shutters{
 	id = "ozeuoi_gate"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "zb" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "zx" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -248,7 +248,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -274,32 +274,32 @@
 /obj/item/device/multitool,
 /obj/item/device/multitool,
 /obj/item/device/multitool,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "Eg" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "ED" = (
 /obj/vehicle/bike/motor/sand,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "EG" = (
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "ER" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -312,7 +312,7 @@
 /obj/item/device/geiger,
 /obj/item/device/geiger,
 /obj/item/device/geiger,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -326,7 +326,7 @@
 	icon_state = "cover_1";
 	maxhealth = 120
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -335,7 +335,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -347,7 +347,7 @@
 /obj/item/ammo_magazine/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
 /obj/item/ammo_magazine/crackrifle,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -365,7 +365,7 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -379,7 +379,7 @@
 /obj/item/clothing/glasses/safety/goggles/wasteland,
 /obj/item/clothing/glasses/safety/goggles/wasteland,
 /obj/item/clothing/glasses/safety/goggles/wasteland,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -388,13 +388,13 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "Ku" = (
 /obj/structure/simple_door/iron,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -426,7 +426,7 @@
 	icon_state = "cover_1";
 	maxhealth = 120
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -440,7 +440,7 @@
 	icon_state = "cover_1";
 	maxhealth = 120
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -455,7 +455,7 @@
 "MV" = (
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/salvage,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -464,14 +464,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "Pp" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -483,7 +483,7 @@
 	icon_state = "cover_1";
 	maxhealth = 120
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -491,7 +491,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -503,7 +503,7 @@
 	name = "igs - moghes_ozeuoi";
 	identifier = "moghes_ozeuoi"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -514,7 +514,7 @@
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/full,
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -534,13 +534,13 @@
 	icon_state = "cover_1";
 	maxhealth = 120
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
 "WE" = (
 /obj/machinery/light,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)
@@ -548,7 +548,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_ozeuoi)

@@ -12,3 +12,11 @@
 
 /turf/simulated/floor/exoplanet/wood/bamboo
 	initial_flooring = /singleton/flooring/wood/bamboo
+	color = WOOD_COLOR_PALE2
+
+/turf/simulated/floor/exoplanet/wood/birch
+	initial_flooring = /singleton/flooring/wood/birch
+
+/turf/simulated/floor/exoplanet/wood/walnut
+	initial_flooring = /singleton/flooring/wood/walnut
+	color = WOOD_COLOR_CHOCOLATE

@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /obj/structure/sign/moghes_memorial,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -13,13 +13,13 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/hegemony,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
 "g" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -34,7 +34,7 @@
 	dir = 8
 	},
 /obj/structure/sign/flag/hegemony,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -42,12 +42,12 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
 "E" = (
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -59,7 +59,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -67,7 +67,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -76,13 +76,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
 "T" = (
 /obj/item/flame/candle,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
@@ -91,14 +91,14 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)
 "X" = (
 /obj/item/material/hatchet/unathiknife,
 /obj/item/flame/candle,
-/turf/simulated/floor/marble/dark{
+/turf/simulated/floor/exoplanet/marble/dark{
 	temperature = 303.15
 	},
 /area/template_noop)

@@ -9,12 +9,12 @@
 	name = "igs - moghes_siakh";
 	identifier = "moghes_siakh"
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
 "v" = (
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -34,7 +34,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -69,7 +69,7 @@
 /obj/item/device/versebook/siakh,
 /obj/item/device/versebook/siakh,
 /obj/item/device/versebook/siakh,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -81,13 +81,13 @@
 /obj/random/civgun/rifle,
 /obj/item/clothing/suit/armor/unathi,
 /obj/item/clothing/suit/armor/unathi,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
 "Z" = (
 /obj/structure/bonfire/light_up,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)

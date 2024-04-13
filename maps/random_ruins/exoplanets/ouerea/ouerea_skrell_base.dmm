@@ -9,7 +9,7 @@
 /obj/structure/sign/flag/nralakk/large/west{
 	pixel_x = -32
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "bX" = (
 /turf/simulated/floor/exoplanet/water/shallow{
@@ -30,13 +30,13 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "eI" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "ff" = (
 /obj/structure/sign/flag/nralakk/large/south{
@@ -49,7 +49,7 @@
 	dir = 10
 	},
 /obj/machinery/light/skrell,
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "fU" = (
 /obj/effect/floor_decal/corner/purple{
@@ -58,7 +58,7 @@
 /obj/structure/sign/flag/nralakk/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "hD" = (
 /turf/simulated/floor/shuttle/skrell,
@@ -80,7 +80,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "jD" = (
 /obj/structure/window/reinforced{
@@ -89,7 +89,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "jQ" = (
 /obj/machinery/light/skrell,
@@ -102,7 +102,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "lB" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
@@ -112,7 +112,7 @@
 /obj/machinery/door/airlock/skrell{
 	name = "Laboratory"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "nw" = (
 /obj/structure/closet/skrell,
@@ -133,7 +133,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "nF" = (
 /obj/effect/floor_decal/corner/purple{
@@ -142,7 +142,7 @@
 /obj/machinery/light/skrell{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "oe" = (
 /obj/structure/closet/skrell,
@@ -176,7 +176,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "rR" = (
 /obj/structure/closet/skrell,
@@ -201,13 +201,13 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "tv" = (
 /obj/machinery/door/airlock/skrell{
 	name = "Medbay"
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "uD" = (
 /obj/structure/table/skrell,
@@ -219,7 +219,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "vt" = (
 /obj/machinery/body_scanconsole{
@@ -228,7 +228,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "wo" = (
 /obj/machinery/light/skrell{
@@ -252,7 +252,7 @@
 /obj/machinery/light/skrell{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "ym" = (
 /obj/structure/table/skrell,
@@ -264,7 +264,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "yK" = (
 /obj/structure/closet/skrell,
@@ -348,7 +348,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Hv" = (
 /obj/structure/closet/skrell,
@@ -374,7 +374,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Ip" = (
 /obj/structure/table/skrell,
@@ -415,7 +415,7 @@
 /obj/machinery/light/skrell{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "MO" = (
 /obj/structure/sign/flag/nralakk/large/north{
@@ -437,10 +437,10 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Nf" = (
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "NM" = (
 /obj/machinery/optable,
@@ -450,7 +450,7 @@
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Pr" = (
 /obj/effect/floor_decal/corner/purple{
@@ -459,7 +459,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 9
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "QN" = (
 /obj/machinery/door/airlock/skrell{
@@ -505,7 +505,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Vk" = (
 /obj/structure/filingcabinet/chestdrawer,
@@ -515,7 +515,7 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "Vz" = (
 /obj/structure/sign/flag/nralakk,
@@ -535,7 +535,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "VT" = (
 /obj/item/material/stool/hover,
@@ -579,7 +579,7 @@
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/exoplanet/tiled/white,
 /area/ouerea_skrell)
 "ZV" = (
 /obj/structure/table/skrell,

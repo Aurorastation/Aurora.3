@@ -9,11 +9,11 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ax" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "aM" = (
 /obj/effect/floor_decal/corner/orange{
@@ -22,7 +22,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "bM" = (
 /obj/machinery/light{
@@ -37,19 +37,19 @@
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
 "bV" = (
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "cs" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "cz" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ed" = (
 /obj/structure/table/rack,
@@ -57,20 +57,20 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "fs" = (
 /turf/simulated/floor/plating,
 /area/ouerea_sol)
 "fP" = (
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "hb" = (
 /obj/structure/closet,
 /obj/item/clothing/under/rank/sol,
 /obj/item/clothing/shoes/jackboots,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "hq" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -82,7 +82,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "hS" = (
 /obj/structure/blocker/steel/fence{
@@ -99,7 +99,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ir" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -143,12 +143,12 @@
 	name = "Commander's Office";
 	req_access = list(203)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "lg" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ll" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -200,7 +200,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "oF" = (
 /obj/structure/blocker/steel/fence,
@@ -210,12 +210,12 @@
 /area/ouerea_sol)
 "pp" = (
 /obj/machinery/door/blast/shutters,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "pq" = (
 /obj/structure/table/steel,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/sol,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "pQ" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -232,13 +232,13 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "qS" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ry" = (
 /obj/structure/closet,
@@ -247,7 +247,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "rF" = (
 /obj/machinery/light{
@@ -276,14 +276,14 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "rZ" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/open/bed,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "sF" = (
 /obj/structure/sign/flag/sol/large/north{
@@ -292,7 +292,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "sG" = (
 /obj/structure/table/rack,
@@ -301,7 +301,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "sS" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -313,7 +313,7 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "sZ" = (
 /obj/structure/sign/flag/sol/large/south{
@@ -322,7 +322,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "uN" = (
 /obj/machinery/light{
@@ -338,7 +338,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "wc" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -353,7 +353,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "xK" = (
 /obj/machinery/light{
@@ -377,13 +377,13 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "zv" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "BE" = (
 /obj/effect/shuttle_landmark/automatic,
@@ -394,19 +394,19 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Du" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "DX" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "DY" = (
 /obj/structure/closet,
@@ -416,7 +416,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "En" = (
 /obj/machinery/light{
@@ -437,13 +437,13 @@
 "Eq" = (
 /obj/structure/table/steel,
 /obj/item/flame/lighter/zippo/sol,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "EG" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ES" = (
 /turf/simulated/floor/exoplanet/grass{
@@ -462,7 +462,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "FR" = (
 /obj/effect/floor_decal/corner/blue{
@@ -472,7 +472,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "FY" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -485,7 +485,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Ga" = (
 /obj/machinery/light{
@@ -504,7 +504,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Gh" = (
 /obj/machinery/light{
@@ -513,7 +513,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Gv" = (
 /obj/effect/floor_decal/corner/orange{
@@ -523,26 +523,26 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Hd" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Hf" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Hj" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Ia" = (
 /obj/machinery/light,
@@ -562,7 +562,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "IL" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -575,7 +575,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Jc" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -591,14 +591,14 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Jv" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Hangar Supplies";
 	req_access = list(203)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "JQ" = (
 /obj/structure/table/steel,
@@ -610,20 +610,20 @@
 	dir = 5
 	},
 /obj/item/paper/sol_ouerea,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Ka" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Kr" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "KA" = (
 /obj/structure/table/rack,
@@ -631,7 +631,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Ln" = (
 /obj/structure/closet/crate{
@@ -641,7 +641,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "MD" = (
 /obj/structure/sign/flag/sol/large/north{
@@ -658,7 +658,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Ns" = (
 /obj/machinery/light,
@@ -670,13 +670,13 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Oq" = (
 /obj/machinery/door/airlock/service{
 	name = "Living Quarters"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "OI" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -686,7 +686,7 @@
 /area/ouerea_sol)
 "Pv" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "PI" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -699,31 +699,31 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "QQ" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Rc" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Sr" = (
 /obj/structure/bed,
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/open/bed,
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Tu" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Tw" = (
 /obj/machinery/light{
@@ -734,13 +734,13 @@
 	},
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "TF" = (
 /obj/structure/sign/flag/sol/large/east{
 	pixel_x = 32
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Uh" = (
 /obj/machinery/light{
@@ -749,7 +749,7 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Up" = (
 /obj/structure/closet/secure_closet/soll_officer{
@@ -764,13 +764,13 @@
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "Uw" = (
 /obj/machinery/door/airlock/highsecurity{
 	req_access = list(203)
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "US" = (
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -784,14 +784,14 @@
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "XH" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "XV" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -806,7 +806,7 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 "ZA" = (
 /obj/machinery/portable_atmospherics/canister/empty/phoron,
@@ -828,7 +828,7 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/exoplanet/tiled,
 /area/ouerea_sol)
 
 (1,1,1) = {"

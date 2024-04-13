@@ -14,7 +14,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -32,7 +32,7 @@
 	name = "igs - moghes_wasteland_priest";
 	identifier = "moghes_wasteland_priest"
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -40,7 +40,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -48,19 +48,19 @@
 /obj/machinery/light/colored/decayed{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "n" = (
-/turf/simulated/floor/carpet/rubber,
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/moghes_wasteland_priests)
 "o" = (
 /obj/structure/chemkit,
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -71,13 +71,13 @@
 /obj/structure/closet/secure_closet/medical2{
 	req_access = null
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "s" = (
 /obj/random/medical,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -87,7 +87,7 @@
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/mask/surgical/w,
 /obj/item/reagent_containers/spray/cleaner,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -96,13 +96,13 @@
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/reagent_containers/spray/cleaner,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "z" = (
 /obj/structure/bed/roller,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -114,7 +114,7 @@
 /obj/item/projectile/beam/pistol/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/clothing/suit/armor/unathi/hegemony,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -122,7 +122,7 @@
 /turf/simulated/wall/rusty,
 /area/moghes_wasteland_priests)
 "H" = (
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -131,13 +131,13 @@
 /obj/item/storage/firstaid/surgery,
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/mask/surgical/w,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "J" = (
 /obj/machinery/iv_drip,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -153,18 +153,18 @@
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
 /obj/item/storage/box/fancy/mre/menu10,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "M" = (
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
 "O" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -176,19 +176,19 @@
 	key_data = "skakhstoreroom"
 	},
 /obj/item/reagent_containers/glass/beaker/large,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "R" = (
 /obj/item/shovel,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "S" = (
 /obj/structure/curtain/medical,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -220,13 +220,13 @@
 /obj/item/device/breath_analyzer,
 /obj/item/device/healthanalyzer,
 /obj/item/device/healthanalyzer,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "U" = (
 /obj/structure/curtain/medical,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -247,13 +247,13 @@
 /obj/item/stack/medical/bruise_pack/full,
 /obj/item/stack/medical/ointment/full,
 /obj/item/device/breath_analyzer,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "W" = (
 /obj/structure/bed/roller,
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -261,12 +261,12 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
 "Y" = (
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)
@@ -275,7 +275,7 @@
 	name = "storeroom";
 	initial_lock_value = "skakhstoreroom"
 	},
-/turf/simulated/floor/tiled/rust{
+/turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
 /area/moghes_wasteland_priests)

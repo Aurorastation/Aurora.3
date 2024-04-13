@@ -10,7 +10,7 @@
 	dir = 1
 	},
 /obj/item/flame/candle,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -18,12 +18,12 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
 "k" = (
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -32,7 +32,7 @@
 	dir = 4
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -44,7 +44,7 @@
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -60,13 +60,13 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
 "F" = (
 /obj/structure/sign/ouerea_memorial,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -82,7 +82,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -94,7 +94,7 @@
 	pixel_y = 25;
 	stand_icon = "banner"
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -107,13 +107,13 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
 "X" = (
 /obj/item/flame/candle,
-/turf/simulated/floor/marble{
+/turf/simulated/floor/exoplanet/marble{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)

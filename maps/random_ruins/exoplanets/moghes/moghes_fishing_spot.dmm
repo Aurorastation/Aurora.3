@@ -2,7 +2,7 @@
 "a" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/snacks/sliceable/sushi_roll,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -10,7 +10,7 @@
 /obj/structure/railing/fence{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -18,7 +18,7 @@
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -29,7 +29,7 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -37,7 +37,7 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -52,7 +52,7 @@
 /obj/item/material/twohanded/spear/steel{
 	name = "fishing spear"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -66,12 +66,12 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
 "M" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -83,7 +83,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)
@@ -103,7 +103,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/exoplanet/moghes)

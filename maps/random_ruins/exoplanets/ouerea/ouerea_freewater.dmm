@@ -4,7 +4,7 @@
 	dir = 1
 	},
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -19,7 +19,7 @@
 /obj/item/modular_computer/laptop/preset/civilian{
 	pixel_y = 10
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -51,7 +51,7 @@
 /obj/item/storage/box/teargas,
 /obj/item/storage/box/handcuffs,
 /obj/item/storage/box/handcuffs,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -59,7 +59,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -73,7 +73,7 @@
 /obj/structure/bed/stool/chair/sofa/green{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -84,7 +84,7 @@
 	pixel_y = 5;
 	pixel_x = 5
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -154,7 +154,7 @@
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice{
 	pixel_y = 5
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -162,7 +162,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "lw" = (
 /obj/machinery/door/blast/shutters{
@@ -185,7 +185,7 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -194,13 +194,13 @@
 /obj/machinery/photocopier/faxmachine{
 	department = "Dagamuir Freewater Base"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "nb" = (
 /obj/machinery/appliance/cooker/oven,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -212,7 +212,7 @@
 /obj/item/clothing/shoes/sandals/caligae,
 /obj/item/clothing/gloves/black/unathi,
 /obj/item/storage/belt/security/tactical,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -220,7 +220,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "oP" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -231,7 +231,7 @@
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -244,7 +244,7 @@
 /obj/item/melee/energy/sword/hegemony,
 /obj/item/melee/energy/sword/hegemony,
 /obj/item/melee/energy/sword/hegemony,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -256,7 +256,7 @@
 /area/ouerea_freewater)
 "pZ" = (
 /obj/machinery/appliance/cooker/fryer,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -283,7 +283,7 @@
 /obj/item/reagent_containers/food/snacks/koiskebab3,
 /obj/item/reagent_containers/food/snacks/koiskebab3,
 /obj/item/reagent_containers/food/snacks/koismuffin,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -291,7 +291,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -299,7 +299,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "sm" = (
 /obj/structure/filingcabinet{
@@ -312,7 +312,7 @@
 	pixel_y = 14;
 	density = 0
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -322,26 +322,26 @@
 	},
 /area/ouerea_freewater)
 "tQ" = (
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "vc" = (
 /obj/structure/bed/stool/bar/padded/green,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "vj" = (
 /obj/structure/table/wood,
 /obj/item/device/radio/phone,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "vN" = (
 /obj/structure/table/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -349,7 +349,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "wC" = (
 /obj/machinery/light{
@@ -371,13 +371,13 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "xo" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -394,18 +394,18 @@
 /obj/structure/bed/stool/chair/sofa/right/green{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "xO" = (
 /obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "xR" = (
 /obj/structure/table/wood,
 /obj/item/newspaper,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -418,7 +418,7 @@
 	name = "igs - ouerea_freewater_boss";
 	identifier = "ouerea_freewater_boss"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -426,7 +426,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -441,7 +441,7 @@
 	pixel_x = 5;
 	pixel_y = 10
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -455,7 +455,7 @@
 /area/ouerea_freewater)
 "zG" = (
 /obj/structure/table/stone/marble,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -473,13 +473,13 @@
 /obj/structure/bed/stool/chair/sofa/left/green{
 	dir = 1
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "Bn" = (
 /obj/structure/reagent_dispensers/water_cooler,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -498,7 +498,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "BX" = (
 /obj/machinery/button/remote/blast_door{
@@ -521,13 +521,13 @@
 /obj/item/clothing/mask/gas/vaurca/tactical,
 /obj/item/clothing/mask/gas/vaurca,
 /obj/item/storage/backpack/cloak/klax,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "Dh" = (
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -557,7 +557,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "FE" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -572,7 +572,7 @@
 /obj/item/clothing/accessory/holster/waist,
 /obj/item/clothing/accessory/holster/hip,
 /obj/item/clothing/accessory/holster/hip,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -586,7 +586,7 @@
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -599,7 +599,7 @@
 /obj/item/shield/riot/tact,
 /obj/item/shield/riot/tact,
 /obj/item/shield/riot/tact,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -607,7 +607,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/random,
 /obj/structure/curtain/open/bed,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -622,7 +622,7 @@
 /obj/structure/sink{
 	pixel_y = 22
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -649,7 +649,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -682,7 +682,7 @@
 /obj/item/clothing/head/helmet/security/generic,
 /obj/item/clothing/head/helmet/security/generic,
 /obj/item/clothing/head/helmet/security/generic,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -692,7 +692,7 @@
 	req_access = null;
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -707,14 +707,14 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
 "NX" = (
 /obj/structure/table/wood,
 /obj/item/deck/cards,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -741,7 +741,7 @@
 /obj/item/stamp/warden{
 	name = "freewater rubber stamp"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -762,7 +762,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -774,7 +774,7 @@
 	name = "igs - ouerea_freewater";
 	identifier = "ouerea_freewater"
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -795,7 +795,7 @@
 "RM" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -819,7 +819,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -831,7 +831,7 @@
 /obj/structure/reagent_dispensers/keg/beerkeg{
 	pixel_x = 6
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -852,7 +852,7 @@
 	pixel_x = 32;
 	pixel_y = 4
 	},
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -866,7 +866,7 @@
 	dir = 1
 	},
 /obj/machinery/vending/dinnerware,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -885,7 +885,7 @@
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/item/clothing/suit/armor/carrier/riot,
 /obj/machinery/light,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -902,7 +902,7 @@
 /area/ouerea_freewater)
 "WI" = (
 /obj/machinery/hologram/holopad,
-/turf/simulated/floor/carpet/red,
+/turf/simulated/floor/exoplanet/carpet/red,
 /area/ouerea_freewater)
 "Xf" = (
 /obj/structure/railing/fence,
@@ -921,7 +921,7 @@
 /area/ouerea_freewater)
 "Yi" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)
@@ -939,7 +939,7 @@
 /area/ouerea_freewater)
 "ZS" = (
 /obj/machinery/appliance/cooker/stove,
-/turf/simulated/floor/wood{
+/turf/simulated/floor/exoplanet/wood{
 	temperature = 298.15
 	},
 /area/ouerea_freewater)

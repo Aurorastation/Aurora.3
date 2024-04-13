@@ -6,7 +6,7 @@
 /area/moghes_reclaimer)
 "e" = (
 /obj/structure/curtain,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -16,7 +16,7 @@
 	name = "igs - moghes_reclaimer";
 	identifier = "moghes_reclaimer"
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -25,7 +25,7 @@
 /area/moghes_reclaimer)
 "m" = (
 /obj/structure/bed/stool/bar/wood,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -43,7 +43,7 @@
 /area/moghes_reclaimer)
 "u" = (
 /obj/machinery/recharger,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -75,7 +75,7 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /obj/item/ammo_magazine/tempestsmg,
 /obj/item/gun/projectile/automatic/tempestsmg,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -87,7 +87,7 @@
 /area/moghes_reclaimer)
 "C" = (
 /obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -100,7 +100,7 @@
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -111,7 +111,7 @@
 /obj/machinery/light/colored/red{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -125,7 +125,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -140,7 +140,7 @@
 /obj/item/weldingtool/largetank,
 /obj/item/storage/toolbox/mechanical,
 /obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)
@@ -151,7 +151,7 @@
 	},
 /area/moghes_reclaimer)
 "V" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes_reclaimer)

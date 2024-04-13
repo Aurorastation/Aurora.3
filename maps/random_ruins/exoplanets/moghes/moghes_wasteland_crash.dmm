@@ -71,7 +71,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/corpse/hegemony_soldier,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -102,7 +102,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -134,7 +134,7 @@
 /area/exoplanet/moghes)
 "B" = (
 /obj/structure/girder,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -152,7 +152,7 @@
 /obj/structure/computerframe{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -178,7 +178,7 @@
 /area/exoplanet/moghes)
 "K" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -200,14 +200,14 @@
 /area/exoplanet/moghes)
 "O" = (
 /obj/structure/computerframe,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
 "P" = (
 /obj/item/material/shard,
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
@@ -226,18 +226,18 @@
 /area/exoplanet/moghes)
 "S" = (
 /obj/effect/landmark/corpse/hegemony_soldier,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
 "T" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
 "U" = (
 /obj/effect/landmark/scorcher,
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)

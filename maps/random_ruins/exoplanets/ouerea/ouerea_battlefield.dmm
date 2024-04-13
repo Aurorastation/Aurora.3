@@ -8,7 +8,7 @@
 /obj/structure/table/standard,
 /obj/item/gun/projectile/colt,
 /obj/item/paper/ouerea_corpse,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -19,7 +19,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 4
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -83,13 +83,13 @@
 	},
 /area/exoplanet/ouerea)
 "E" = (
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
 "G" = (
 /obj/effect/landmark/corpse/ouerea_revolutionary,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -97,7 +97,7 @@
 /obj/item/gun/projectile/automatic/rifle/carbine,
 /obj/structure/table/rack,
 /obj/item/gun/projectile/automatic/rifle/carbine,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -109,7 +109,7 @@
 /area/exoplanet/ouerea)
 "Q" = (
 /obj/structure/sign/flag/ouerea/large/north,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -131,7 +131,7 @@
 "V" = (
 /obj/item/gun/energy/rifle/laser,
 /obj/structure/table/rack,
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)
@@ -139,7 +139,7 @@
 /obj/structure/barricade/metal/wired{
 	dir = 8
 	},
-/turf/simulated/floor/concrete/square{
+/turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},
 /area/exoplanet/ouerea)

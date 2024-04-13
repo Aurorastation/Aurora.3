@@ -26,7 +26,7 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -39,7 +39,7 @@
 /obj/item/storage/firstaid/radiation,
 /obj/item/storage/firstaid/combat,
 /obj/item/storage/firstaid/combat,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -52,7 +52,7 @@
 /obj/structure/sign/flag/hegemony/large/west{
 	pixel_x = -32
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -63,7 +63,7 @@
 /obj/item/clothing/head/helmet/unathi/hegemony,
 /obj/item/device/radio,
 /obj/item/device/geiger,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -74,26 +74,26 @@
 	},
 /area/moghes/kataphract_wasteland)
 "q" = (
-/turf/simulated/floor/tiled/steel{
+/turf/simulated/floor/exoplanet/tiled{
 	temperature = 315.15
 	},
 /area/moghes/kataphract_wasteland)
 "s" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/accessory/poncho/red,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
 "v" = (
 /obj/structure/reagent_dispensers/watertank,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
 "w" = (
 /obj/structure/curtain/open,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -101,7 +101,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -111,7 +111,7 @@
 	name = "igs - moghes_kataphract_wasteland_knight";
 	identifier = "moghes_kataphract_wasteland_knight"
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -127,7 +127,7 @@
 	},
 /area/moghes/kataphract_wasteland)
 "T" = (
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -137,7 +137,7 @@
 	name = "igs - moghes_kataphract_wasteland";
 	identifier = "moghes_kataphract_wasteland"
 	},
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
@@ -158,7 +158,7 @@
 /obj/item/device/geiger,
 /obj/item/device/geiger,
 /obj/item/device/geiger,
-/turf/simulated/floor/carpet/rubber{
+/turf/simulated/floor/exoplanet/carpet/rubber{
 	temperature = 303.15
 	},
 /area/moghes/kataphract_wasteland)
