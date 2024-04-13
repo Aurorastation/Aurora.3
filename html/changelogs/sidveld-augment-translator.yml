@@ -3,4 +3,4 @@ author: SidVeld
 delete-after: True
 
 changes:
-  - rscadd: "Added an augment translator that can translate human languages."
+  - rscadd: "Added a universal augment translator that can be used to understand human languages, but not speak them."
