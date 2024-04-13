@@ -6,7 +6,7 @@
 	icon_state = "ccharger"
 	anchored = TRUE
 	idle_power_usage = 5
-	active_power_usage = 90 KILOWATTS
+	active_power_usage = 90 KILO WATTS
 	power_channel = EQUIP
 	update_icon_on_init = TRUE
 

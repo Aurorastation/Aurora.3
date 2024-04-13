@@ -2,7 +2,10 @@
 	name = "Einstein Engines Shuttle"
 	id = "einstein_shuttle"
 	description = "An Einstein Engines transport shuttle."
-	suffixes = list("ships/konyang/einstein_shuttle/einstein_shuttle.dmm")
+
+	prefix = "ships/konyang/einstein_shuttle/"
+	suffixes = list("einstein_shuttle.dmm")
+
 	spawn_weight = 1
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/einstein_shuttle)
