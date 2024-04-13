@@ -1,3 +1,4 @@
+// Planes, layers, and defaults for _renderer.dm
 /*
 	from stddef.dm, planes & layers built into byond.
 
@@ -15,15 +16,31 @@
 	FLOAT_PLANE = -32767
 */
 
+#define LOWEST_PLANE -200
+
 #define CLICKCATCHER_PLANE -100
 
-#define PLANE_SPACE_BACKGROUND -99
-#define PLANE_SPACE_PARALLAX (PLANE_SPACE_BACKGROUND + 1) // -98
-#define PLANE_SKYBOX (PLANE_SPACE_PARALLAX + 1) // -97
-#define PLANE_SPACE_DUST (PLANE_SPACE_PARALLAX + 1) // -96
-#define PLANE_ABOVE_PARALLAX (PLANE_SPACE_DUST + 1) // -95
+#define SPACE_PLANE -99
+	#define SPACE_LAYER 1
 
-#define DEFAULT_PLANE 0
+#define SKYBOX_PLANE -98
+	#define SKYBOX_LAYER 1
+
+#define DUST_PLANE -97
+	#define DEBRIS_LAYER 1
+	#define DUST_LAYER 2
+
+// Openspace uses planes -80 through -70.
+#define OPENTURF_MAX_PLANE -70
+#define OPENTURF_MAX_DEPTH 10		// The maxiumum number of planes deep we'll go before we just dump everything on the same plane.
+
+#define OVER_OPENSPACE_PLANE -4
+
+#define WARP_EFFECT_PLANE -3
+
+#define BLACKNESS_PLANE 0 //Blackness plane as per DM documentation.
+
+#define DEFAULT_PLANE 1
 	#define PLATING_LAYER 1
 	//ABOVE PLATING
 	#define HOLOMAP_LAYER 1.01
@@ -109,45 +126,68 @@
 	#define OBSERVER_LAYER 5.1
 	#define OBFUSCATION_LAYER 5.2
 
+	#define OVERMAP_SECTOR_LAYER 60
+	#define OVERMAP_IMPORTANT_SECTOR_LAYER 61
+	#define OVERMAP_SHIP_LAYER 62
+	#define OVERMAP_SHUTTLE_LAYER 63
+
 	#define AREA_LAYER 999
 
-//FUTURE OVERMAP_PLANE
-	#define OVERMAP_SECTOR_LAYER 3.15
-	#define OVERMAP_IMPORTANT_SECTOR_LAYER 3.16
-	#define OVERMAP_SHIP_LAYER 3.17
-	#define OVERMAP_SHUTTLE_LAYER 3.18
+#define OBSERVER_PLANE 3
 
-//FUTURE LIGHTING PLANE
-	#define LIGHTBULB_LAYER 10
-	#define LIGHTING_LAYER 11
-	#define ABOVE_LIGHTING_LAYER 12
+#define LIGHTING_PLANE 4
+	#define LIGHTING_LAYER 1
 
-//FUTURE EFFECTS_ABOVE_LIGHTING_PLANE
-	#define EFFECTS_ABOVE_LIGHTING_LAYER 13 // For overlays you want to be above light.
-	#define EYEGLOW_LAYER 14
-	#define BEAM_PROJECTILE_LAYER 15
-	#define SUPERMATTER_WALL_LAYER 16
-	#define SPEECH_INDICATOR_LAYER 17
+#define EFFECTS_ABOVE_LIGHTING_PLANE 5
+	#define EYEGLOW_LAYER 1
+	#define BEAM_PROJECTILE_LAYER 2
+	#define SUPERMATTER_WALL_LAYER 3
+	#define LIGHTNING_LAYER 4
 
-//FUTURE FULLSCREEN_PLANE
-	#define FULLSCREEN_LAYER 18
-	#define DAMAGE_LAYER 19
-	#define IMPAIRED_LAYER 20
-	#define BLIND_LAYER 21
-	#define CRIT_LAYER 22
+#define FULLSCREEN_PLANE 6
+	#define FULLSCREEN_LAYER 1
+	#define DAMAGE_LAYER 2
+	#define IMPAIRED_LAYER 3
+	#define BLIND_LAYER 4
+	#define CRIT_LAYER 5
 
-//FUTURE HUD_PLANE
-	#define UNDER_HUD_LAYER 23
-	#define HUD_BASE_LAYER 24
-	#define HUD_ITEM_LAYER 25
-	#define HUD_ABOVE_ITEM_LAYER 26
-	#define RADIAL_BACKGROUND_LAYER 26.5
-	#define RADIAL_BASE_LAYER 27
-	#define RADIAL_CONTENT_LAYER 28
+#define HUD_PLANE 7
+	#define UNDER_HUD_LAYER 1
+	#define HUD_BASE_LAYER 2
+	#define HUD_ITEM_LAYER 3
+	#define HUD_ABOVE_ITEM_LAYER 4
+	#define RADIAL_BACKGROUND_LAYER 5
+	#define RADIAL_BASE_LAYER 6
+	#define RADIAL_CONTENT_LAYER 7
+
+//-------------------- Rendering ---------------------
+
+/// Semantics - The final compositor or a filter effect renderer
+#define RENDER_GROUP_NONE null
+
+/// Things to be drawn within the game context
+#define RENDER_GROUP_SCENE 990
+
+/// Things to be drawn within the screen context
+#define RENDER_GROUP_SCREEN 995
+
+/// The final render group, for compositing
+#define RENDER_GROUP_FINAL 999
+
+/// Integer (One of `*_PLANE`). The atom's rendering plane. See `code\__defines\__renderer.dm` for a list of valid planes. Also see the DM Reference for `plane var (atom)`.
+/atom/plane = DEFAULT_PLANE
 
 #define DEFAULT_APPEARANCE_FLAGS (PIXEL_SCALE)
 
+#define DEFAULT_RENDERER_APPEARANCE_FLAGS (PLANE_MASTER | NO_CLIENT_COLOR)
+
+/atom/appearance_flags = DEFAULT_APPEARANCE_FLAGS
+/atom/movable/appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND // Most AMs are not visibly bigger than a tile.
+/image/appearance_flags = DEFAULT_APPEARANCE_FLAGS
+/mutable_appearance/appearance_flags = DEFAULT_APPEARANCE_FLAGS // Inherits /image but re docs, subject to change
+
 /atom/proc/hud_layerise()
+	plane = HUD_PLANE
 	layer = HUD_ITEM_LAYER
 
 /image/proc/turf_decal_layerise()

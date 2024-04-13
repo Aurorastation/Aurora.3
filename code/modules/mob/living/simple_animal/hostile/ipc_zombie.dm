@@ -49,7 +49,8 @@
 	icon_state = pick("baseline_grey", "baseline_red", "baseline_green", "baseline_yellow")
 	icon_dead = "[icon_state]_off"
 	screen = pick("screen_blue", "screen_red", "screen_orange", "screen_lumi_eyes", "screen_goggles", "screen_console", "screen_static2", "screen_static3")
-	screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]", EFFECTS_ABOVE_LIGHTING_LAYER)
+	screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+	screen_overlay.plane = plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	screen_overlay.appearance_flags = KEEP_APART
 	add_overlay(screen_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
@@ -57,7 +58,8 @@
 /mob/living/simple_animal/hostile/ipc_zombie/update_icon()
 	cut_overlays()
 	if(screen && stat != DEAD)
-		screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]", EFFECTS_ABOVE_LIGHTING_LAYER)
+		screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
+		screen_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		screen_overlay.appearance_flags = KEEP_APART
 		add_overlay(screen_overlay)
 
