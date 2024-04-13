@@ -479,19 +479,6 @@
 	return data
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
-	if(istype(I, /obj/item/organ/internal/parasite))
-		var/obj/item/organ/internal/parasite/P = I
-		switch(P.stage)
-			if(1)
-				return "Tiny"
-			if(2)
-				return "Small"
-			if(3)
-				return "Large"
-			if(4)
-				return "Massive"
-			else
-				return "Present"
 	if(I.is_broken())
 		return "Severe"
 	if(I.is_bruised())
@@ -613,6 +600,15 @@
 			var/obj/item/organ/internal/appendix/A = O
 			if(A.inflamed)
 				wounds += "inflamed"
+
+		if(istype(O, /obj/item/organ/internal/parasite))
+			var/obj/item/organ/internal/parasite/P = O
+			if(P.stage)
+				wounds += "stage [P.stage]"
+			if(P.parent_organ)
+				wounds += "growing in [P.parent_organ]"
+			if(istype(P, /obj/item/organ/internal/parasite/malignant_tumour) && P.stage >= 4)
+				wounds += "metastasising"
 
 		if(O.status & ORGAN_DEAD)
 			if(O.can_recover())

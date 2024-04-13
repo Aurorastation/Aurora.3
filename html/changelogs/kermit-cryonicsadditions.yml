@@ -1,0 +1,21 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - qol: "Cryotubes apply less stasis at temperatures between 120K and 200K, meaning cryotube beaker mixes are more viable."
+  - rscadd: "Cataleptinol (new recipe: 0.5u phoron, 2u alkysine, 1u clonexadone and a 5u cryosilicate catalyst) has been reworked from the ground up to be more useful and versatile. Cataleptinol will heal brain activity regardless of oxygenation - at cryo temperatures, this is with no consequence; outside of cryogenics, the benefits come with large consequences which will exacerbate any medical conditions."
+  - rscadd: "Cryo/Clonexadone both overdose at 5u. This isn't anything to worry about when using Cryo/Clonexadone in a cryotube; using these two chemicals outside of cryotubes requires much greater care. Added ocular toxicity (eye damage) for use by Cryo/Clonexadone's overdose."
+  - balance: "Significantly nerfs Cryo/Clonexadone's organ healing. It's still there, but pharmacist's can improve upon the organ healing - it's also required due to metabolisation/stasis changes. Cryo/Clonexadone only heals brain damage above the 50% mark."
+  - rscadd: "Renames Cryosurfactant -> Cryosilicate. The recipe now also uses silicate instead of surfactant."
+  - rscadd: "Pyrosilicate and Cryosilicate respectively superheat or supercool the body, making them useful for inducing cryogenic conditions or chemically incinerating someone. Leporazine inhibits these functions."
+  - rscadd: "Adds a chemical effect for blood thinning - essentially an anti-coagzolug effect, it makes you bleed faster. Will prevent coagzolug from working. Currently used by Cataleptinol, Fluvectionem and Synaptizine."
+  - qol: "Bicaridine's AB fixing requires a minimum of 30u (you should still use more than this - every 0.1u above this is another roll of 'will it fix the AB?') instead of a minimum of 50u. Alternatively, you can used bicaridine in a cryotube."
+  - rscadd: "Kelotane can now be used in a cryotube to fix disfiguration. Red Nightshade in cryogenic conditions will restore bone breaks. Peridaxon+Thetamycin combo can de-necrose livers/kidneys in cryogenic conditions."
+  - rscadd: "Overdosing peridaxon results in the developing of benign tumours; benign tumours do not spread or cause collateral damage to organs, they simply cause pain. Ryetalyn will put a tumour into recession."
+  - rscadd: "Genetic damage now results in the developing of malignant tumours; malignant tumours will eventually spread and cause collateral damage to organs. Symptoms will be different depending on the tumour's location. Ryetalyn will put a tumour into recession - some ryetalyn pills can be found in the GTR's Medication Cabinet."
+  - balance: "Limb deformities resulting from genetic damage may occur more often."
+  - imageadd: "Renames Blood Pack -> IV Bag. Adds 'Cryonics Mixture' and 'Other Mixture' IV bag labels."
+  - rscadd: "Cryocells can be deconstructed or have their components upgraded. Upgrading the components increases the effectiveness of the Cryostasis Settings."
+  - bugfix: "Coolant tanks no longer anti-nuke an environment's atmosphere when destroyed."
+  - bugfix: "Cryotubes no longer render synthetics unconscious - IPCs can now bathe in cryotubes to cool off."

@@ -216,7 +216,7 @@
 			if(stat & NOPOWER)
 				return FALSE
 
-			src.use_power_oneoff(2 KILOWATTS)
+			src.use_power_oneoff(2 KILO WATTS)
 
 			//Set it to unwillful sleep
 			occupant_resolved.Sleeping(3.5*seconds_per_tick)

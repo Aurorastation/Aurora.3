@@ -201,3 +201,23 @@
   SimpleMaroon:
   - bugfix: Golden Deep cowls and cube hoods are no longer invisible when worn on
       the ears.
+2024-04-13:
+  Alberyk:
+  - bugfix: Fixed the hailstorm having the wrong gun loaders.
+  CometBlaze:
+  - bugfix: Hoplan Primary Color now uses the correct marking.
+  - bugfix: Removed Hoplan Lights marking.
+  - bugfix: Added the missing torso and arm markings to the list of available markings
+      for baseline frames.
+  - bugfix: Fixed markings for baseline frames using a lighter color than the one
+      selected.
+  - bugfix: Baseline - Primary Color no longer applies markings to the head to prevent
+      issues where the default marking would be layered over the alternative ones.
+  FluffyGhost:
+  - refactor: Implemented SI prefixes (KILO, MEGA, GIGA, TERA etc.).
+  - code_imp: Properly split and use prefixes and suffixes, unit test to verify the
+      file exists and is not empty, and that the format convention is respected.
+  RustingWithYou:
+  - rscadd: The camera MIU is now available in the uplink.
+  - rscadd: TTS accent synthetic vocal cords are now available in loadout.
+  - rscdel: IPCs can no longer take synthetic vocal cords.
