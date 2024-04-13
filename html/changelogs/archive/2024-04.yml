@@ -191,3 +191,13 @@
   - code_imp: Replaces the Dermaline pill bottles in Medbay with Kelotane pill bottles.
       This brings it into line with the existing Bicaridine pill bottles.
   - code_imp: Adds two pill bottles of basic Dexalin to the Medbay Stabilization Kits.
+2024-04-11:
+  FluffyGhost:
+  - code_imp: Updated pygit version to 1.14.1.
+  - code_imp: Updated the changelog system.
+  - code_imp: Updated pyyaml dependency to version 6.0.1
+  Furrycactus:
+  - rscadd: Fixes the missing cable on the Science Chem Lab APC.
+  SimpleMaroon:
+  - bugfix: Golden Deep cowls and cube hoods are no longer invisible when worn on
+      the ears.

@@ -2,7 +2,10 @@
 	name = "empty sector"
 	id = "unathi_pirate"
 	description = "An empty sector."
-	suffixes = list("ships/unathi_pirate/izharshan/unathi_pirate_izharshan.dmm")
+
+	prefix = "ships/unathi_pirate/izharshan/"
+	suffixes = list("unathi_pirate_izharshan.dmm")
+
 	spawn_weight = 1
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)

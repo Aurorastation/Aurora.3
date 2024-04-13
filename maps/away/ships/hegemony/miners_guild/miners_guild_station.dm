@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/miners_guild_station
 	name = "Miners' Guild Outpost"
 	description = "A station constructed by the Unathi Miners' Guild"
-	suffixes = list("ships/hegemony/miners_guild/miners_guild_station.dmm")
+
+	prefix = "ships/hegemony/miners_guild/"
+	suffixes = list("miners_guild_station.dmm")
+
 	spawn_weight = 1
 	ship_cost = 1
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)

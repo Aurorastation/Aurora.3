@@ -2,7 +2,10 @@
 	name = "kataphract ship"
 	id = "awaysite_kataphract_ship"
 	description = "Ship with lizard knights."
-	suffixes = list("ships/kataphracts/kataphract_ship.dmm")
+
+	prefix = "ships/kataphracts/"
+	suffixes = list("kataphract_ship.dmm")
+
 	ship_cost = 1
 	spawn_weight = 1
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
