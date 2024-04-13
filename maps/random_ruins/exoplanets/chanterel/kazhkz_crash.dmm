@@ -78,6 +78,10 @@
 /obj/item/gun/projectile/shotgun/wallgun,
 /turf/simulated/floor/tiled/slate,
 /area/shuttle/kazhkz_crash)
+"eT" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
 "fs" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
 	dir = 1
@@ -98,6 +102,7 @@
 	shuttle_tag = "Crashed Kazhkz Shuttle"
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/floor/plating,
 /area/shuttle/kazhkz_crash)
 "gq" = (
@@ -196,6 +201,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"mv" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/shuttle/kazhkz_crash)
 "mP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -844,6 +853,15 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/kazhkz_crash)
+"Xt" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/machinery/door/blast/regular{
+	id = "kazhkz_crash";
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
 "XG" = (
 /turf/simulated/floor/tiled/slate/airless,
 /area/shuttle/kazhkz_crash)
@@ -1136,7 +1154,7 @@ HN
 DC
 cS
 cS
-cS
+eT
 TJ
 TJ
 TJ
@@ -1367,7 +1385,7 @@ Mq
 Rq
 dD
 Mj
-Em
+Xt
 UK
 TJ
 TJ
@@ -1617,7 +1635,7 @@ cS
 zu
 cS
 cS
-cS
+mv
 UK
 UK
 UK
