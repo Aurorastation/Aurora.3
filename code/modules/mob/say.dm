@@ -80,16 +80,6 @@
 		if(speaking.name == L.name)
 			return TRUE
 
-	// Try to translate with augment if it is installed and not broken.
-	if(ishuman(src))
-		var/mob/living/carbon/human/human = src
-		var/obj/item/organ/internal/augment/translator/translator = human.internal_organs_by_name[BP_AUG_TRANSLATOR]
-
-		if(translator && !translator.is_broken())
-			for(var/language_name in translator.languages)
-				if(speaking.name == language_name)
-					return TRUE
-
 	return FALSE
 
 /*
