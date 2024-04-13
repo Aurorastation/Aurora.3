@@ -175,6 +175,18 @@
 		on_admin_z = TRUE
 		hashatch = FALSE
 
+	if(frequency)
+		set_frequency(frequency)
+
+	//wireless connection
+	if(_wifi_id)
+		wifi_receiver = new(_wifi_id, src)
+
+	update_icon()
+
+	if(SSradio)
+		set_frequency(frequency)
+
 	. = ..()
 
 	//if assembly is given, create the new door from the assembly
@@ -204,6 +216,9 @@
 
 		unres_dir = electronics.unres_dir
 
+		bound_height = assembly.bound_height
+		bound_width = assembly.bound_width
+
 	if (on_admin_z)
 		secured_wires = TRUE
 
@@ -225,6 +240,9 @@
 	update_icon()
 
 /obj/machinery/door/airlock/Destroy()
+	if(frequency && SSradio)
+		SSradio.remove_object(src,frequency)
+
 	QDEL_NULL(wires)
 	QDEL_NULL(wifi_receiver)
 	return ..()
@@ -1856,6 +1874,10 @@ About the new airlock wires panel:
 
 	if(src.close_other != null && istype(src.close_other, /obj/machinery/door/airlock/) && !src.close_other.density)
 		src.close_other.close()
+
+	if(!forced)
+		send_status()
+
 	return ..()
 
 /obj/machinery/door/airlock/can_open(var/forced=0)
@@ -1975,6 +1997,9 @@ About the new airlock wires panel:
 	else
 		playsound(src.loc, close_sound_unpowered, 100, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
+	if(!forced)
+		send_status()
+
 	..()
 
 /obj/machinery/door/airlock/proc/lock(var/forced=0)
@@ -2002,11 +2027,6 @@ About the new airlock wires panel:
 	playsound(src, bolts_rising, 30, 0, extrarange = SILENCED_SOUND_EXTRARANGE)
 	update_icon()
 	return 1
-
-/obj/machinery/door/airlock/allowed(mob/M)
-	if(locked)
-		return 0
-	return ..(M)
 
 // Most doors will never be deconstructed over the course of a round,
 // so as an optimization defer the creation of electronics until

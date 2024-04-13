@@ -44,6 +44,7 @@
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	unbuckle()
 	return ..()
 
 /obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)

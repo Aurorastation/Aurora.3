@@ -1244,10 +1244,6 @@
 		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
 	)
 
-/obj/item/storage/box/produce/fill()
-	. = ..()
-	make_exact_fit()
-
 /obj/item/storage/box/cleaner_tablets
 	name = "\improper Idris cleaner tablets box"
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."

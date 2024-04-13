@@ -23,13 +23,6 @@ var/global/list/can_enter_vent_with = list(
 /mob/living/proc/can_ventcrawl()
 	return 0
 
-/mob/living/LateLogin()
-	..()
-	//login during ventcrawl
-	if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics)) //attach us back into the pipes
-		remove_ventcrawl()
-		add_ventcrawl(loc)
-
 /mob/living/carbon/slime/can_ventcrawl()
 	if(victim)
 		to_chat(src, SPAN_WARNING("You cannot ventcrawl while feeding."))
@@ -89,9 +82,6 @@ var/global/list/can_enter_vent_with = list(
 		pipe = input("Crawl Through Vent", "Pick a pipe") as null|anything in pipes
 	if(canmove && pipe)
 		return pipe
-
-/mob/living/carbon/slime/can_ventcrawl()
-	return 1
 
 /mob/living/simple_animal/borer/can_ventcrawl()
 	return 1

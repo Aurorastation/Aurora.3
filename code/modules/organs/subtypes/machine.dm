@@ -417,10 +417,6 @@
 	vital = TRUE
 	emp_coeff = 0.1
 
-/obj/item/organ/internal/cell/Initialize()
-	robotize()
-	. = ..()
-
 /obj/item/organ/external/head/terminator
 	dislocated = -1
 	can_intake_reagents = 0

@@ -572,10 +572,6 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/weldingtool/Destroy()
-	STOP_PROCESSING(SSprocessing, src)	//Stop processing when destroyed regardless of conditions
-	return ..()
-
 /obj/item/weldingtool/experimental/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/eyeshield))
 		if(eyeshield)

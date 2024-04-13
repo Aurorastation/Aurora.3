@@ -43,6 +43,9 @@
 	if(languages.len == 1 && default_language != languages[1])
 		default_language = languages[1]
 
+	//Technonancer instability
+	handle_instability()
+
 	return 1
 
 /mob/living/proc/handle_breathing()

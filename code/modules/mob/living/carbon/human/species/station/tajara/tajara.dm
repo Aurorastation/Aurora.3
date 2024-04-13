@@ -136,6 +136,3 @@
 		return
 	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
-
-/datum/species/get_species_record_sex(var/mob/living/carbon/human/H)
-	return H.pronouns

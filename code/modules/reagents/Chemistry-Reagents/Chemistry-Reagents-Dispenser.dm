@@ -134,6 +134,8 @@
 
 	var/flammability_divisor = 10
 
+	fallback_specific_heat = 0.605
+
 	var/distillation_point = T0C + 100
 	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
 
@@ -179,41 +181,21 @@
 	if (adj_temp < 0 && M.bodytemperature > targ_temp)
 		M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 
-/singleton/reagent/alcohol
-	name = "Ethanol"
-	description = "A well-known alcohol with a variety of applications."
-	flammability_divisor = 10
+	if(ishuman(M))
+		var/has_valid_aug = FALSE
+		var/obj/item/organ/internal/augment/ethanol_burner/aug = M.internal_organs_by_name[BP_AUG_ETHANOL_BURNER]
+		if(aug && !aug.is_broken())
+			has_valid_aug = TRUE
 
-	taste_description = "pure alcohol"
+		var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
+		if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
+			M.adjustToxLoss(1.5 * removed * (strength / 100))
+		else
+			M.adjustNutritionLoss(-nutriment_factor * removed)
+			M.adjustHydrationLoss(-hydration_factor * removed)
 
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of ethanol"
-	glass_desc = "A well-known alcohol with a variety of applications."
-
-	fallback_specific_heat = 0.605
-
-	distillation_point = T0C + 78.37
-
-/singleton/reagent/alcohol/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-	if(!istype(M))
-		return
-
-	var/has_valid_aug = FALSE
-	var/obj/item/organ/internal/augment/ethanol_burner/aug = M.internal_organs_by_name[BP_AUG_ETHANOL_BURNER]
-	if(aug && !aug.is_broken())
-		has_valid_aug = TRUE
-
-	var/obj/item/organ/internal/parasite/P = M.internal_organs_by_name["blackkois"]
-	if(!has_valid_aug && (alien == IS_VAURCA || (istype(P) && P.stage >= 3)))//Vaurca are damaged instead of getting nutrients, but they can still get drunk
-		M.adjustToxLoss(1.5 * removed * (strength / 100))
-	else
-		M.adjustNutritionLoss(-nutriment_factor * removed)
-		M.adjustHydrationLoss(-hydration_factor * removed)
-
-	if (!has_valid_aug && alien == IS_UNATHI)//unathi are poisoned by alcohol as well
-		M.adjustToxLoss(1.5 * removed * (strength / 100))
-
-	..()
+		if (!has_valid_aug && alien == IS_UNATHI)//unathi are poisoned by alcohol as well
+			M.adjustToxLoss(1.5 * removed * (strength / 100))
 
 /singleton/reagent/alcohol/touch_obj(var/obj/O, var/amount, var/datum/reagents/holder)
 	if(istype(O, /obj/item/paper))

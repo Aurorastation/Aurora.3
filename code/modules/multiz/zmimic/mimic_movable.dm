@@ -4,17 +4,6 @@
 	/// If TRUE, this atom is ignored by Z-Mimic.
 	var/no_z_overlay
 
-/atom/movable/forceMove(atom/dest)
-	. = ..(dest)
-	if (. && bound_overlay)
-		// The overlay will handle cleaning itself up on non-openspace turfs.
-		if (isturf(dest))
-			bound_overlay.forceMove(get_step(src, UP))
-			if (dir != bound_overlay.dir)
-				bound_overlay.set_dir(dir)
-		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
-			qdel(bound_overlay)
-
 /atom/movable/set_dir(ndir)
 	. = ..()
 	if (. && bound_overlay)

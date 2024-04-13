@@ -24,6 +24,10 @@
 	if(src)
 		usr.DblClickOn(src, params)
 
+	if(istype(usr.machine,/obj/machinery/computer/security))
+		var/obj/machinery/computer/security/console = usr.machine
+		console.jump_on_click(usr,src)
+
 /atom/proc/allow_click_through(var/atom/A, var/params, var/mob/user)
 	return FALSE
 
@@ -212,10 +216,13 @@
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
 	if(!(GAME_STATE & RUNLEVELS_PLAYING))
 		to_chat(src, "You cannot attack people before the game has started.")
-		return 0
+		return FALSE
 
 	if(stat)
-		return 0
+		return FALSE
+
+	if(check_sting(src, A))
+		return FALSE
 
 	return 1
 

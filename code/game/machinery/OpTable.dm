@@ -168,11 +168,6 @@
 
 	return istype(mover) && mover.checkpass(PASSTABLE)
 
-/obj/machinery/optable/MouseDrop_T(atom/dropping, mob/user)
-	if(istype(dropping, /obj/item))
-		user.drop_from_inventory(dropping, get_turf(src))
-	..()
-
 /**
  * Refreshes the icon state based on the table status
  */
@@ -271,6 +266,9 @@
 	return TRUE
 
 /obj/machinery/optable/MouseDrop_T(atom/dropping, mob/user)
+	if(istype(dropping, /obj/item))
+		user.drop_from_inventory(dropping, get_turf(src))
+
 	var/mob/living/carbon/patient = dropping
 	//No point if it's not a possible patient
 	if(!istype(patient))

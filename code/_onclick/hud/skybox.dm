@@ -30,9 +30,3 @@
 	. = ..()
 	if(. && client)
 		client.update_skybox(old_z != GET_Z(src))
-
-/mob/forceMove()
-	var/old_z = GET_Z(src)
-	. = ..()
-	if(. && client)
-		client.update_skybox(old_z != GET_Z(src))
