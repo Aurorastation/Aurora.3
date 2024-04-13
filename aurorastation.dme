@@ -2918,6 +2918,7 @@
 #include "code\modules\organs\subtypes\parasite\black_kois.dm"
 #include "code\modules\organs\subtypes\parasite\heart_fluke.dm"
 #include "code\modules\organs\subtypes\parasite\kois.dm"
+#include "code\modules\organs\subtypes\parasite\tumours.dm"
 #include "code\modules\organs\subtypes\parasite\worms.dm"
 #include "code\modules\organs\subtypes\parasite\zombie.dm"
 #include "code\modules\overmap\_defines.dm"
