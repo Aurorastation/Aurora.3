@@ -254,7 +254,6 @@
 /area/shuttle/dominian_shuttle)
 "awG" = (
 /turf/simulated/wall/shuttle/space_ship,
-/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/bridge)
 "aBD" = (
 /obj/machinery/power/apc/east{

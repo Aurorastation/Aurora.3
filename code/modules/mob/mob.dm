@@ -528,16 +528,14 @@
 /client/verb/changes()
 	set name = "Changelog"
 	set category = "OOC"
-	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
-	changelog.send(src)
+	if(!GLOB.changelog_tgui)
+		GLOB.changelog_tgui = new /datum/changelog()
 
-	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
-	changelog_win.set_content(file2text('html/changelog.html'))
-	changelog_win.open()
+	GLOB.changelog_tgui.ui_interact(mob)
 	if(prefs.lastchangelog != GLOB.changelog_hash)
 		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
-		winset(src, "rpane.changelog", "background-color=none;font-style=;")
+		winset(src, "infowindow.changelog", "font-style=;")
 
 /mob/verb/observe()
 	set name = "Observe"

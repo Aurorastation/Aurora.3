@@ -5,7 +5,10 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned_village.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("abandoned_village.dmm")
+
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_village)
 
 /obj/effect/landmark/corpse/konyang_villager

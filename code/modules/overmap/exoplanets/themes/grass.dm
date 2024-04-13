@@ -2,7 +2,7 @@
 	name = "Grasslands" // Not gm_flatgrass, but pretty close
 	surface_turfs = list(
 		/turf/simulated/floor/exoplanet/grass,
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 0.9
 	possible_biomes = list(
@@ -42,7 +42,7 @@
 /datum/exoplanet_theme/grass/marsh
 	name = "Fungal Marsh"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	possible_biomes = list(
 		BIOME_WARM = list(
