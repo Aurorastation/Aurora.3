@@ -216,10 +216,6 @@ var/global/list/limb_icon_cache = list()
 			apply_markings()
 			get_internal_organs_overlay()
 
-			var/emissive_mob_blocker = emissive_blocker(species.icobase, "[icon_name][gender ? "_[gender]" : ""]")
-			AddOverlays(emissive_mob_blocker)
-			mob_icon.Blend(emissive_mob_blocker, ICON_OVERLAY)
-
 			if(body_hair)
 				var/list/limb_icon_cache = SSicon_cache.limb_icons_cache
 				var/cache_key = "[body_hair]-[icon_name]-[hair_color]"
