@@ -85,13 +85,11 @@
 	},
 /area/nka_merchant/hangar)
 "am" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/turf/simulated/floor/tiled{
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/nka_merchant/engineering)
+/area/nka_merchant/engine)
 "ao" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -280,9 +278,11 @@
 	},
 /area/nka_merchant/engineering)
 "aO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
+/obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#BDB6AE";
-	frame_color = "#BDB6AE"
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -345,7 +345,7 @@
 /obj/item/reagent_containers/food/snacks/cone_cake,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/cold/east{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -517,12 +517,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/merchant)
-"bD" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
 "bE" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/plating{
@@ -569,6 +563,9 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/corner/white{
 	dir = 10
+	},
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -626,7 +623,7 @@
 /area/nka_merchant/mess)
 "bY" = (
 /obj/machinery/alarm/cold/south{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -792,7 +789,7 @@
 /area/nka_merchant/mess)
 "cq" = (
 /obj/machinery/alarm/cold/north{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /obj/structure/cable/green{
 	d1 = 4;
@@ -812,6 +809,12 @@
 /obj/item/flame/candle{
 	pixel_y = 5
 	},
+/obj/item/coin/silver,
+/obj/item/coin/silver{
+	pixel_y = -5;
+	pixel_x = -8
+	},
+/obj/item/reagent_containers/food/snacks/grown/mtear,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -866,13 +869,12 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/engine)
 "cH" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/alarm/cold/east{
-	req_one_access = list(212)
-	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 4
 	},
@@ -973,16 +975,11 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/eva)
-"cU" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/mess)
 "cZ" = (
-/obj/effect/floor_decal/corner/dark_blue,
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1042,13 +1039,13 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 6
 	},
-/obj/machinery/alarm/cold/east{
-	req_one_access = list(212)
-	},
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1304,27 +1301,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/nka_merchant/eva)
-"dR" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(213);
-	name = "gun cabinet (rifles)"
-	},
-/obj/effect/floor_decal/industrial/outline/security,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/clothing/accessory/storage/bayonet,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/gun/projectile/shotgun/pump/rifle,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "dV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black,
 /turf/simulated/wall/shuttle/space_ship,
@@ -1368,6 +1344,27 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
+"eg" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(213);
+	name = "gun cabinet (rifles)"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/clothing/accessory/storage/bayonet,
+/obj/item/clothing/accessory/storage/bayonet,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/gun/projectile/shotgun/pump/rifle,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
 "ei" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1438,21 +1435,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/barracks)
-"es" = (
-/obj/machinery/air_sensor,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "merchant_navy_ship_co2";
-	name = "merchant_navy_ship_co2"
-	},
-/turf/simulated/floor/reinforced/carbon_dioxide,
-/area/nka_merchant/engine)
 "et" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/lino/diamond{
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/nka_merchant/mess)
+/area/nka_merchant/engine)
 "ex" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/lightblue{
@@ -1796,6 +1786,27 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engine)
+"gb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8;
+	icon_state = "map-scrubbers"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "gc" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/spacecash/c1000{
@@ -1924,12 +1935,37 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
+"gz" = (
+/obj/machinery/alarm/cold/south{
+	req_one_access = list(213)
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "gB" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant)
+"gD" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/structure/flora/pottedplant/woodyshrub,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
+"gF" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "gK" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -1975,8 +2011,8 @@
 /area/nka_merchant/eva)
 "hc" = (
 /obj/machinery/suit_cycler/offship/nka,
-/obj/effect/floor_decal/corner/white/full{
-	dir = 8
+/obj/effect/floor_decal/corner/white{
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2178,7 +2214,7 @@
 	dir = 5
 	},
 /obj/machinery/alarm/cold/north{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2186,8 +2222,9 @@
 /area/nka_merchant)
 "it" = (
 /obj/machinery/light,
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
+/obj/effect/decal/cleanable/floor_damage/tiled_broken0,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -2233,6 +2270,13 @@
 "iB" = (
 /turf/template_noop,
 /area/space)
+"iJ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/junk,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/nka_merchant/warehouse)
 "iK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -2333,6 +2377,15 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
+"jc" = (
+/obj/machinery/suit_cycler/offship/nka,
+/obj/effect/floor_decal/corner/white/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/eva)
 "je" = (
 /obj/structure/table/standard,
 /obj/machinery/photocopier/faxmachine{
@@ -2458,6 +2511,14 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/space)
+"jD" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/mess)
 "jE" = (
 /obj/structure/table/standard,
 /obj/item/toy/comic/azmarian/issue_4,
@@ -2555,9 +2616,11 @@
 	},
 /area/nka_merchant/mess)
 "kf" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
+/obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#BDB6AE";
-	frame_color = "#BDB6AE"
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
@@ -2573,6 +2636,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
+"kh" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/engineering)
 "kj" = (
 /obj/machinery/door/airlock/glass_mining{
 	req_access = list(213);
@@ -2592,21 +2663,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/merchant)
-"ko" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
 "kr" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -2694,7 +2750,7 @@
 	req_one_access = list(113)
 	},
 /obj/machinery/alarm/cold/north{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -2728,7 +2784,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/cold/north{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -2738,6 +2794,7 @@
 	dir = 4;
 	pixel_x = -32
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2761,9 +2818,6 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/bridge)
 "kL" = (
-/obj/machinery/alarm/cold/east{
-	req_one_access = list(212)
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -2868,7 +2922,7 @@
 	dir = 8
 	},
 /obj/machinery/alarm/cold/west{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /obj/structure/sign/flag/nka/large/north{
 	pixel_y = 32
@@ -2891,16 +2945,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/merchant)
-"lq" = (
-/obj/machinery/atmospherics/unary/outlet_injector{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/large_tank{
-	master_tag = "merchant_navy_ship_co2";
-	name = "merchant_navy_ship_co2"
-	},
-/turf/simulated/floor/reinforced/carbon_dioxide,
-/area/nka_merchant/engine)
 "ls" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2931,6 +2975,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3072,11 +3117,11 @@
 	},
 /area/nka_merchant/engine)
 "mj" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3085,15 +3130,6 @@
 /obj/effect/shuttle_landmark/nka_merchant/nav4,
 /turf/template_noop,
 /area/space)
-"ml" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/machinery/vending/snack,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "ms" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -3127,6 +3163,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
+"mD" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/mess)
 "mE" = (
 /obj/machinery/floodlight,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3186,6 +3230,12 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
+"ng" = (
+/obj/effect/floor_decal/corner/dark_blue,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "ni" = (
 /obj/structure/table/standard,
 /obj/item/storage/toolbox/mechanical,
@@ -3233,8 +3283,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4;
+	icon_state = "map-scrubbers"
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3283,13 +3334,27 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/mess)
-"od" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor{
+"nP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/nka_merchant/warehouse)
+/area/nka_merchant/hangar)
+"nU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/eva)
 "og" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
@@ -3359,6 +3424,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
+"oU" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "pf" = (
 /obj/structure/extinguisher_cabinet/east,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3443,6 +3516,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3481,12 +3555,6 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/engineering)
-"qX" = (
-/obj/effect/decal/cleanable/blood/drip/oil,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3548,35 +3616,21 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
-"rB" = (
-/obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 8
-	},
-/turf/simulated/floor/plating{
+"se" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/lino/diamond{
 	temperature = 278.15
 	},
-/area/nka_merchant/engine)
-"rM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
+/area/nka_merchant/mess)
+"sj" = (
 /obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
+	dir = 6
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/nka_merchant/hangar)
-"sb" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/nka_merchant/eva)
+/area/nka_merchant)
 "sk" = (
 /obj/machinery/atmospherics/binary/pump/fuel/on,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3634,6 +3688,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3667,7 +3722,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/cold/east{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -3677,22 +3732,12 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
-"tH" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+"tW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
-"tO" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/mess)
+/turf/simulated/wall/shuttle/space_ship,
+/area/nka_merchant/engine)
 "tY" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -3711,6 +3756,15 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/hangar)
+"uk" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "uy" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/purple,
@@ -3740,6 +3794,24 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/hangar)
+"uU" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
+"vb" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
 "vi" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
@@ -3871,6 +3943,22 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
+"wN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "wP" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /turf/simulated/floor/tiled{
@@ -4057,6 +4145,25 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
+"yE" = (
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(213);
+	name = "gun cabinet (revolver)"
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/revolver/adhomian,
+/obj/item/gun/projectile/revolver/adhomian,
+/obj/item/gun/projectile/revolver/adhomian,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/obj/item/ammo_magazine/c38,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
 "yK" = (
 /obj/machinery/atmospherics/pipe/tank/air,
 /turf/simulated/floor/plating{
@@ -4088,6 +4195,20 @@
 /obj/effect/landmark/entry_point/starboard,
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/nka_merchant_shuttle)
+"zA" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
+"zG" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "zY" = (
 /obj/machinery/door/airlock/command{
 	req_access = list(213);
@@ -4103,12 +4224,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant)
-"Ac" = (
-/obj/random/junk,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/nka_merchant/warehouse)
 "AB" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
@@ -4118,38 +4233,18 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
-"AL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8;
-	icon_state = "map-scrubbers"
+"AC" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
 	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled{
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/nka_merchant/hangar)
+/area/nka_merchant/engine)
 "AT" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/engine)
-"AW" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
 "AY" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -4160,6 +4255,18 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"Bq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "Bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4173,39 +4280,13 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/nka_merchant/hangar)
-"BG" = (
-/obj/structure/sign/flag/nka/large/south{
-	pixel_y = -32
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
-"BW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "BY" = (
 /obj/structure/railing/mapped,
 /obj/machinery/conveyor{
@@ -4246,6 +4327,15 @@
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant)
+"Cm" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "Co" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4261,26 +4351,9 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/nka_merchant_shuttle)
-"Cs" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 1
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/mess)
 "Df" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/nka_merchant_shuttle)
-"Dl" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 6
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "Do" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4298,6 +4371,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/eva)
+"Dq" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/eva)
 "Dx" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 9
@@ -4306,6 +4387,29 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/captain_quarters)
+"DC" = (
+/obj/random/junk,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/nka_merchant/warehouse)
+"DI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
 "DK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4322,10 +4426,18 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/merchant)
+"DM" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/engineering)
 "DU" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
+/obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#BDB6AE";
-	frame_color = "#BDB6AE"
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /turf/simulated/floor{
 	temperature = 278.15
@@ -4339,6 +4451,14 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"Eb" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/mess)
 "Ed" = (
 /obj/machinery/door/airlock{
 	req_access = list(213);
@@ -4349,6 +4469,18 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
+"Ee" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6;
+	pixel_y = 0
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "Eh" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4360,6 +4492,12 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
+"Ei" = (
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "En" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4545,14 +4683,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
-"FY" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
 "Gj" = (
 /obj/machinery/iff_beacon,
 /obj/structure/railing/mapped{
@@ -4565,15 +4695,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/nka_merchant/bridge)
-"Go" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/nka_merchant/engine)
 "GE" = (
 /obj/item/modular_computer/console/preset/merchant/nka{
 	dir = 8
@@ -4609,6 +4730,13 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
+"GZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/nka_merchant/warehouse)
 "Hg" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/landable/nka_merchant_shuttle,
@@ -4679,32 +4807,22 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
-"Ih" = (
-/obj/machinery/light,
-/obj/effect/decal/cleanable/floor_damage/tiled_broken0,
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 4
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
-"It" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
 "IA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/nka_merchant/eva)
+"IC" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/obj/structure/closet/firecloset,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
 "IJ" = (
 /obj/machinery/pipedispenser/disposal,
 /obj/effect/floor_decal/corner/yellow/full{
@@ -4748,14 +4866,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/warehouse)
-"Jl" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/mess)
 "Jo" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light{
@@ -4774,6 +4884,12 @@
 /obj/item/clothing/mask/breath,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
+"Js" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/nka_merchant/warehouse)
 "Jv" = (
 /obj/item/device/radio,
 /obj/item/device/radio,
@@ -4804,18 +4920,6 @@
 "JO" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/captain_quarters)
-"JU" = (
-/obj/random/dirt_75,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/nka_merchant/warehouse)
-"JW" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/nka_merchant/warehouse)
 "JX" = (
 /obj/machinery/door/airlock{
 	req_access = list(213);
@@ -4868,6 +4972,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
+"Ko" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
+/obj/machinery/alarm/cold/east{
+	req_one_access = list(213)
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/mess)
+"Ky" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "KB" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -4903,18 +5027,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/mess)
-"KW" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/nka_merchant/engine)
-"Lg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/space_ship,
-/area/nka_merchant/engine)
 "Ll" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -4926,16 +5038,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engine)
-"Lq" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/firecloset,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "Ls" = (
 /obj/effect/landmark{
 	name = "carpspawn"
@@ -4963,6 +5065,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/nka_merchant/eva)
+"MY" = (
+/obj/structure/sign/flag/nka/large/south{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant)
 "Ni" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/binary/pump/on{
@@ -4992,9 +5105,7 @@
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/engineering)
 "Nq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 8;
@@ -5002,6 +5113,9 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -5019,15 +5133,6 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
-"Nt" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/structure/flora/pottedplant/woodyshrub,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "NJ" = (
 /obj/machinery/light{
 	dir = 1
@@ -5037,15 +5142,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
-"NU" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/machinery/vending/coffee,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "NZ" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5096,15 +5192,16 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge/secondary)
-"OI" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
+"OG" = (
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 8
 	},
-/obj/random/junk,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "merchant_navy_ship_co2";
+	name = "merchant_navy_ship_co2"
 	},
-/area/nka_merchant)
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/nka_merchant/engine)
 "OJ" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 6
@@ -5130,6 +5227,8 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5155,16 +5254,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
-"OU" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
-	pixel_y = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/nka_merchant/eva)
 "OX" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/black,
 /turf/simulated/wall/shuttle/space_ship,
@@ -5188,25 +5277,21 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
-"Pl" = (
-/obj/effect/floor_decal/corner/dark_blue/full{
-	dir = 1
+"Pm" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
-/obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(213);
-	name = "gun cabinet (revolver)"
-	},
-/obj/effect/floor_decal/industrial/outline/security,
-/obj/item/gun/projectile/revolver/adhomian,
-/obj/item/gun/projectile/revolver/adhomian,
-/obj/item/gun/projectile/revolver/adhomian,
-/obj/item/ammo_magazine/c38,
-/obj/item/ammo_magazine/c38,
-/obj/item/ammo_magazine/c38,
+/obj/machinery/vending/snack,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"Py" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "PJ" = (
 /obj/structure/toilet{
 	dir = 4
@@ -5238,6 +5323,17 @@
 /obj/effect/shuttle_landmark/nka_merchant_shuttle/transit,
 /turf/space/transit/north,
 /area/space)
+"Qa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
 "Qh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -5263,15 +5359,21 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge/secondary)
+"QE" = (
+/obj/random/dirt_75,
+/turf/simulated/floor{
+	temperature = 278.15
+	},
+/area/nka_merchant/warehouse)
 "QK" = (
-/obj/machinery/suit_cycler/offship/nka,
-/obj/effect/floor_decal/corner/white{
+/obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
+/obj/random/junk,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/nka_merchant/eva)
+/area/nka_merchant)
 "RC" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
@@ -5280,6 +5382,12 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/merchant)
+"RI" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/engineering)
 "RM" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -5298,6 +5406,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -5333,17 +5442,15 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engineering)
-"SQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
+"SS" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 10
 	},
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/nka_merchant/engine)
+/area/nka_merchant)
 "Tk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -5356,13 +5463,14 @@
 	},
 /area/nka_merchant/bridge)
 "Tu" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 6
+/obj/machinery/air_sensor,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "merchant_navy_ship_co2";
+	name = "merchant_navy_ship_co2"
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/hangar)
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/nka_merchant/engine)
 "TF" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/black{
 	dir = 8
@@ -5397,21 +5505,23 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engine)
-"TZ" = (
+"Uc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 1
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/engine)
+"Ul" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
 /area/nka_merchant/hangar)
-"Ub" = (
-/obj/machinery/atmospherics/binary/pump/high_power,
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/nka_merchant/engine)
 "Up" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -5422,14 +5532,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/hangar)
-"Uv" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/nka_merchant/engine)
 "UB" = (
 /obj/structure/table/rack,
 /obj/item/inflatable_dispenser,
@@ -5455,12 +5557,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
-"UJ" = (
-/obj/effect/decal/cleanable/floor_damage/rust,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/engineering)
 "UK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
@@ -5493,9 +5589,11 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant)
 "Vv" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor{
+/obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#BDB6AE";
-	frame_color = "#BDB6AE"
+	frame_color = "#BDB6AE";
+	spawn_firedoor = 1;
+	spawn_grille = 1
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
@@ -5505,6 +5603,21 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/bridge)
+"VR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "VT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -5525,7 +5638,11 @@
 	},
 /area/nka_merchant/warehouse)
 "Wr" = (
-/obj/effect/floor_decal/corner/dark_blue/full,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -5551,6 +5668,16 @@
 	temperature = 278.15
 	},
 /area/nka_merchant)
+"WS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/extinguisher_cabinet/east{
+	layer = 3.3;
+	pixel_y = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/nka_merchant/eva)
 "WZ" = (
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/warehouse)
@@ -5577,6 +5704,12 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/barracks)
+"Xh" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/nka_merchant/hangar)
 "Xy" = (
 /obj/structure/closet/walllocker/medical{
 	pixel_x = 32
@@ -5584,7 +5717,7 @@
 /obj/item/storage/firstaid/o2,
 /obj/item/storage/firstaid/regular,
 /obj/machinery/alarm/cold/north{
-	req_one_access = list(212)
+	req_one_access = list(213)
 	},
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
@@ -5605,13 +5738,6 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engine)
-"XV" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/random/junk,
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/nka_merchant/warehouse)
 "Yo" = (
 /obj/item/flame/lighter/adhomai,
 /obj/structure/table/standard,
@@ -5648,14 +5774,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/nka_merchant_shuttle)
 "YB" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4;
+	icon_state = "map_scrubber_on"
 	},
-/obj/random/junk,
-/turf/simulated/floor/tiled{
+/turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/nka_merchant)
+/area/nka_merchant/engine)
 "YM" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -5699,28 +5825,11 @@
 	temperature = 278.15
 	},
 /area/nka_merchant/engine)
-"Zi" = (
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 10
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant)
 "Zr" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/nka_merchant/engine)
-"Zz" = (
-/obj/effect/floor_decal/corner/white{
-	dir = 9
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/nka_merchant/eva)
 "ZX" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
 /obj/machinery/portable_atmospherics/powered/scrubber,
@@ -17116,7 +17225,7 @@ iB
 iB
 YX
 dV
-Uv
+et
 cr
 AT
 AT
@@ -17128,7 +17237,7 @@ pA
 cS
 gN
 lO
-am
+kh
 mK
 fJ
 yr
@@ -17280,7 +17389,7 @@ vo
 Fy
 RS
 Zr
-Go
+AC
 AT
 jA
 vA
@@ -17306,7 +17415,7 @@ Vj
 dd
 fY
 KT
-cU
+mD
 bS
 Fm
 Fm
@@ -17440,13 +17549,13 @@ iB
 iB
 AT
 AT
-rB
+Ky
 Zr
 eD
 AT
 vA
 vA
-sb
+nU
 OZ
 pA
 dI
@@ -17466,9 +17575,9 @@ ij
 dE
 Vj
 ai
-et
+se
 fx
-Jl
+Eb
 dZ
 nA
 kZ
@@ -17604,7 +17713,7 @@ iB
 AT
 aI
 AT
-Lg
+tW
 AT
 hx
 Wx
@@ -17766,10 +17875,10 @@ iB
 AT
 aI
 ga
-lq
+OG
 AT
 xX
-OU
+WS
 IA
 jw
 pA
@@ -17792,7 +17901,7 @@ Vj
 fE
 FH
 nq
-Jl
+Eb
 gi
 cN
 cN
@@ -17926,9 +18035,9 @@ iB
 iB
 iB
 AT
-SQ
-KW
-es
+Qa
+Py
+Tu
 AT
 vA
 vA
@@ -17938,7 +18047,7 @@ pA
 cM
 Sg
 aP
-UJ
+RI
 kV
 fJ
 fJ
@@ -17960,7 +18069,7 @@ eV
 eV
 EU
 Vp
-Lq
+IC
 xc
 ih
 kI
@@ -18092,15 +18201,15 @@ TU
 ga
 fk
 AT
-hc
-Zz
-Zz
+jc
+Dq
+Dq
 cT
 pA
 yK
 GV
 Ni
-qX
+DM
 br
 fJ
 og
@@ -18116,7 +18225,7 @@ PJ
 eB
 eB
 Ed
-Jl
+Eb
 io
 ie
 kg
@@ -18254,7 +18363,7 @@ aI
 AT
 AT
 AT
-QK
+hc
 bq
 gU
 sn
@@ -18272,7 +18381,7 @@ lW
 JX
 eE
 bH
-ml
+Pm
 Vp
 Si
 eB
@@ -18286,7 +18395,7 @@ qY
 Vp
 fv
 Fd
-lu
+MY
 Vp
 pL
 pL
@@ -18412,8 +18521,8 @@ iB
 iB
 iB
 AT
-aI
-Zr
+Uc
+am
 iT
 AT
 dF
@@ -18434,19 +18543,19 @@ Yo
 fJ
 aJ
 xc
-NU
+SS
 Vp
 eF
 eB
 iw
 Vj
-Cs
+Ko
 rp
 pf
 kL
-tO
+jD
 Vp
-YB
+QK
 xc
 ih
 Vp
@@ -18575,10 +18684,10 @@ iB
 AT
 AT
 TU
-Ub
+zA
 wQ
 AT
-QK
+hc
 bq
 fK
 Jv
@@ -18596,7 +18705,7 @@ fJ
 fJ
 fI
 xc
-Nt
+gD
 Vp
 Vj
 Vj
@@ -18610,7 +18719,7 @@ Vj
 Vp
 fI
 xc
-Zi
+vb
 Vp
 Vp
 Vp
@@ -18740,7 +18849,7 @@ gh
 Zr
 iY
 AT
-QK
+hc
 bq
 Do
 gv
@@ -18752,8 +18861,8 @@ aS
 bv
 pA
 ni
-FY
-Wr
+gF
+Ei
 TH
 lt
 tY
@@ -18899,7 +19008,7 @@ iB
 hE
 OX
 kx
-Zr
+am
 iY
 AT
 rq
@@ -19061,7 +19170,7 @@ iB
 vo
 fH
 aI
-Zr
+am
 Zr
 AT
 vA
@@ -19089,13 +19198,13 @@ cm
 cm
 cm
 PV
-Dl
+sj
 Ka
 cm
 EC
 Vp
 nw
-BW
+DI
 ih
 hS
 yv
@@ -19222,22 +19331,22 @@ iB
 iB
 AT
 AT
-SQ
-Zr
+Bq
+YB
 Zr
 AT
 Bv
 tw
 nz
-rM
-rM
-AL
-rM
-rM
+nP
+nP
+gb
+wN
+nP
 cJ
 aC
-rM
-ko
+nP
+VR
 wt
 bY
 TH
@@ -19257,7 +19366,7 @@ wr
 wr
 Vp
 fI
-BW
+DI
 OT
 Vp
 Vp
@@ -19385,19 +19494,19 @@ iB
 iB
 AT
 aI
-Zr
+Ee
 OL
 cG
 Nq
-TZ
+Cm
 fd
 yc
 yc
-tH
+Ul
 yc
 yc
 yc
-yc
+Xh
 yc
 yc
 yc
@@ -19410,7 +19519,7 @@ cQ
 WZ
 ec
 WZ
-JW
+Js
 bM
 wr
 lk
@@ -19420,7 +19529,7 @@ RC
 Vp
 iq
 xc
-BG
+lu
 Vp
 pL
 pL
@@ -19547,7 +19656,7 @@ iB
 iB
 AT
 aI
-Zr
+uk
 jn
 AT
 iU
@@ -19582,7 +19691,7 @@ aw
 Vp
 hV
 jm
-OI
+uU
 Vp
 pL
 pL
@@ -19726,8 +19835,8 @@ EQ
 Df
 uK
 iZ
-bD
-AW
+Xh
+oU
 ac
 bM
 bM
@@ -19870,7 +19979,7 @@ iB
 iB
 iB
 AT
-aI
+Uc
 Zr
 jn
 AT
@@ -19888,8 +19997,8 @@ OP
 Df
 Df
 iZ
-bD
-it
+Xh
+cZ
 WZ
 jJ
 bM
@@ -19904,7 +20013,7 @@ bB
 lS
 ji
 Vp
-dR
+eg
 xc
 ih
 UL
@@ -20033,7 +20142,7 @@ iB
 iB
 AT
 aI
-Zr
+am
 jn
 AT
 En
@@ -20058,7 +20167,7 @@ Er
 Er
 Er
 ey
-JU
+QE
 fA
 wr
 az
@@ -20066,7 +20175,7 @@ FC
 lp
 eA
 Vp
-Pl
+yE
 bV
 iz
 OD
@@ -20195,7 +20304,7 @@ iB
 iB
 AT
 aI
-Zr
+am
 zi
 AT
 iU
@@ -20216,7 +20325,7 @@ yc
 bj
 WZ
 kQ
-od
+GZ
 lR
 bM
 BY
@@ -20358,7 +20467,7 @@ AT
 AT
 gh
 Zr
-Zr
+gz
 AT
 iU
 ht
@@ -20375,14 +20484,14 @@ Df
 uK
 iZ
 yc
-It
+mj
 WZ
 cc
-XV
+iJ
 aU
 bM
 BY
-Ac
+DC
 bM
 wr
 vQ
@@ -20536,8 +20645,8 @@ Co
 sX
 sX
 jy
-cZ
-mj
+ng
+Wr
 WZ
 WZ
 gm
@@ -20680,25 +20789,25 @@ iB
 iB
 ol
 dV
-Zr
+am
 aH
 mg
 AT
 aX
-Tu
-Tu
-Tu
+zG
+zG
+zG
 dA
-Tu
-Tu
-Tu
-Tu
-Tu
-Tu
+zG
+zG
+zG
+zG
+zG
+zG
 dA
-Tu
-Tu
-Ih
+zG
+zG
+it
 TH
 WZ
 WZ
