@@ -10,6 +10,7 @@
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/unathi_pirate_izharshan)
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 0.5, SECTOR_NRRAHRAHUL = 0.5) //Rarer due to actual government/military presence
 
 	unit_test_groups = list(1)
 

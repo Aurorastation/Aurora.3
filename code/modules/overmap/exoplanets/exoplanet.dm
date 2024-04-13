@@ -205,6 +205,7 @@
 	generate_flora()
 	generate_map()
 	generate_features()
+	theme.after_map_generation(src)
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
