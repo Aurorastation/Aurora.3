@@ -1,5 +1,5 @@
 /datum/map_template/ruin/exoplanet/moghes_kung_fu
-	name = "Kung Fu Master"
+	name = "Kis-Khan Master"
 	id = "moghes_kung_fu"
 	description = "A master of the ancient Unathi martial art of Kis-Khan, living in seclusion in the Untouched Lands"
 

@@ -7,14 +7,10 @@
 /area/template_noop)
 "c" = (
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "d" = (
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "i" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
@@ -47,9 +43,7 @@
 /area/template_noop)
 "s" = (
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "t" = (
 /obj/structure/flora/log_bench{
@@ -68,9 +62,7 @@
 /obj/structure/table/steel,
 /obj/item/material/hatchet/butch,
 /obj/effect/decal/fake_object/light_source/invisible,
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "y" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
@@ -96,9 +88,7 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "I" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
@@ -114,9 +104,7 @@
 	name = "igs - moghes_kung_fu";
 	identifier = "moghes_kung_fu"
 	},
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "K" = (
 /obj/structure/flora/log_bench{
@@ -136,9 +124,7 @@
 /area/template_noop)
 "N" = (
 /obj/structure/simple_door/wood,
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "P" = (
 /turf/simulated/wall/wood,
@@ -148,9 +134,7 @@
 /obj/item/device/flashlight/lantern,
 /obj/item/material/hatchet/unathiknife,
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask,
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "S" = (
 /obj/structure/target_stake,
@@ -186,9 +170,7 @@
 	},
 /obj/item/saddle,
 /obj/item/clothing/accessory/storage/knifeharness,
-/turf/simulated/floor/exoplanet/wood/airless{
-	temperature = 303.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/template_noop)
 "Y" = (
 /obj/structure/table/wood,
