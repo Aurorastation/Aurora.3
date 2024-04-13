@@ -840,8 +840,8 @@
 	desc_extended = "Non-commissioned officers form the backbone of the Imperial Army's troops. Typically recruited from Novi Jadran's countryside, they are well-trained \
 	and well-motivated soldiers focused on ensuring their troops' survival and their mission's success."
 	icon = 'icons/clothing/accessories/dominia_nco_badge.dmi'
-	icon_state = "dom_nco"
-	item_state = "dom_nco"
+	icon_state = "dom_backpack_nco"
+	item_state = "dom_backpack_nco"
 
 /obj/item/storage/backpack/dominia
 	name = "imperial army rucksack"
