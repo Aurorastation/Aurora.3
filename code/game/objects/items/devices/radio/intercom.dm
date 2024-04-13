@@ -29,6 +29,7 @@ pixel_x = 8;
 	canhear_range = 2
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
+	z_flags = ZMM_MANGLE_PLANES
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/global/list/screen_overlays

@@ -2,7 +2,7 @@
 	/// The mimic (if any) that's *directly* copying us.
 	var/tmp/atom/movable/openspace/mimic/bound_overlay
 	/// If TRUE, this atom is ignored by Z-Mimic.
-	var/no_z_overlay
+	var/z_flags
 
 /atom/movable/set_dir(ndir)
 	. = ..()
@@ -64,12 +64,8 @@
 	icon_state = "dark"
 	plane = OPENTURF_MAX_PLANE
 	layer = MIMICED_LIGHTING_LAYER
-	blend_mode = BLEND_MULTIPLY
-	color = list(
-		SHADOWER_DARKENING_FACTOR, 0, 0,
-		0, SHADOWER_DARKENING_FACTOR, 0,
-		0, 0, SHADOWER_DARKENING_FACTOR
-	)
+//	blend_mode = BLEND_MULTIPLY
+	color = "#00000033"
 
 /atom/movable/openspace/multiplier/Destroy()
 	var/turf/myturf = loc
@@ -82,9 +78,9 @@
 	appearance = LO
 	layer = MIMICED_LIGHTING_LAYER
 	plane = OPENTURF_MAX_PLANE
-	set_invisibility(101)
-	blend_mode = BLEND_MULTIPLY
+	set_invisibility(0)
 	if (icon_state == null)
+		blend_mode = BLEND_MULTIPLY
 		// We're using a color matrix, so just darken the colors across the board.
 		// Bay stores lights as inverted so the lighting PM can invert it for darksight, but
 		//   we don't have a plane master, so invert it again.
@@ -132,6 +128,7 @@
 	var/mimiced_type
 	var/original_z
 	var/override_depth
+	var/have_performed_fixup = FALSE
 
 /atom/movable/openspace/mimic/Initialize(mapload, ...)
 	. = ..()
@@ -179,7 +176,7 @@
 /atom/movable/openspace/turf_proxy
 	plane = OPENTURF_MAX_PLANE
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	no_z_overlay = TRUE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
+	z_flags = ZMM_IGNORE  // Only one of these should ever be visible at a time, the mimic logic will handle that.
 
 /atom/movable/openspace/turf_proxy/attackby(obj/item/attacking_item, mob/user)
 	loc.attackby(attacking_item, user)

@@ -11,6 +11,7 @@
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	idle_power_usage = 300
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
