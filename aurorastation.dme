@@ -2926,7 +2926,7 @@
 #include "code\modules\organs\subtypes\augment\augments\synthetic_cords.dm"
 #include "code\modules\organs\subtypes\augment\augments\taste_booster.dm"
 #include "code\modules\organs\subtypes\augment\augments\tesla.dm"
-#include "code\modules\organs\subtypes\augment\augments\timepeace.dm"
+#include "code\modules\organs\subtypes\augment\augments\timepiece.dm"
 #include "code\modules\organs\subtypes\augment\augments\translator.dm"
 #include "code\modules\organs\subtypes\augment\augments\zengu_plate.dm"
 #include "code\modules\organs\subtypes\parasite\_parasite.dm"
