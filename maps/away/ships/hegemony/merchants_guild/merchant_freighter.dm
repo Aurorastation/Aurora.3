@@ -2,7 +2,10 @@
 	name = "Merchants' Guild Freighter"
 	id = "merchants_guild"
 	description = "A freighter flying under the banner of the Izweski Hegemony Merchants' Guild."
-	suffixes = list("ships/hegemony/merchants_guild/merchant_freighter.dmm")
+
+	prefix = "ships/hegemony/merchants_guild/"
+	suffixes = list("merchant_freighter.dmm")
+
 	ship_cost = 1
 	spawn_weight = 0 //the merchants guild has gone bankrupt, don't spawn this until we figure out how to rework it.
 

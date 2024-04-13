@@ -2,12 +2,14 @@
 	name = "Hailstorm Ship"
 	id = "hailstorm_ship"
 	description = "A People's Volunteer Spacer Militia ship."
-	suffixes = list("ships/dpra/hailstorm/hailstorm_ship.dmm")
+
+	prefix = "ships/dpra/hailstorm/"
+	suffixes = list("hailstorm_ship.dmm")
+
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
-
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/hailstorm_ship
@@ -73,7 +75,6 @@
 	name = "Hailstorm Ship Navpoint #4"
 	landmark_tag = "nav_hailstorm_ship_4"
 
-
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/hailstorm_shuttle
 	name = "Spacer Militia Shuttle"
@@ -90,7 +91,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/hailstorm_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/hailstorm_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Spacer Militia Shuttle"
 
