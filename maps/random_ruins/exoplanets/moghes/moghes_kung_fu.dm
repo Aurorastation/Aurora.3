@@ -7,7 +7,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_kung_fu.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_kung_fu.dmm")
 
 /datum/ghostspawner/human/moghes_kung_fu
 	name = "Kis-Khan Master"

@@ -7,7 +7,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_gawgaryn_riders.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_gawgaryn_riders.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_gawgaryn_bikers)
 
 /datum/ghostspawner/human/moghes_gawgaryn_rider

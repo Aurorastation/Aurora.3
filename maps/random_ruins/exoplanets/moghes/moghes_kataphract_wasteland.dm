@@ -6,7 +6,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_kataphract_wasteland.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_kataphract_wasteland.dmm")
 	ban_ruins = list("moghes_wasteland_izweski")
 
 /area/moghes/kataphract_wasteland

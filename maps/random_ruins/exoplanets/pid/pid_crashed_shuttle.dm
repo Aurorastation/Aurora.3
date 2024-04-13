@@ -3,7 +3,8 @@
 	id = "pid-crashed_shuttle"
 	description = "A crashed Hegemony shuttle on the moon Pid, filled with k'ois spores."
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("pid/pid_crashed_shuttle.dmm")
+	prefix = "pid/"
+	suffixes = list("pid_crashed_shuttle.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 /obj/effect/landmark/corpse/hegemony_shuttle

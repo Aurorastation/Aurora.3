@@ -3,7 +3,8 @@
 	id = "miners_guild_outpost"
 	description = "A Miners' Guild mining outpost on one of Uueoa-Esa's minor celestial bodies."
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("chanterel/miners_guild_outpost.dmm")
+	prefix = "chanterel/"
+	suffixes = list("miners_guild_outpost.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	spawn_cost = 2
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_guild_mining, /datum/map_template/ruin/exoplanet/moghes_guild_mining, /datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/away_site/miners_guild_station)

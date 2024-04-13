@@ -3,7 +3,8 @@
 	id = "izweski_probe"
 	description = "An ancient Izweski Hegemony space probe."
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("chanterel/izweski_probe.dmm")
+	prefix = "chanterel/"
+	suffixes = list("izweski_probe.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 /obj/structure/survey_probe/hegemony

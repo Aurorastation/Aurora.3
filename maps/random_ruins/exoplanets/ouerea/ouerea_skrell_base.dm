@@ -4,7 +4,8 @@
 	description = "A research base on Ouerea, abandoned by the Nralakk Federtaion"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("ouerea/ouerea_skrell_base.dmm")
+	prefix = "ouerea/"
+	suffixes = list("ouerea_skrell_base.dmm")
 
 /area/ouerea_skrell
 	name = "Nralakk Research Base"

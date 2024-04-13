@@ -1,7 +1,8 @@
 /datum/map_template/ruin/away_site/tret_industrial_complex
 	name = "Tret Industrial Complex"
 	description = "An industrial complex on Tret. Wow."
-	suffixes = list("away_site/uueoaesa/tret/tret_industrial_complex.dmm")
+	prefix = "away_site/uueoaesa/tret/"
+	suffixes = list("tret_industrial_complex.dmm")
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1

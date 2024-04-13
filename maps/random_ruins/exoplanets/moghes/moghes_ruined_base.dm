@@ -4,4 +4,5 @@
 	description = "An Izweski Hegemony military base, fallen to ruin after the Contact War"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_ruined_base.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_ruined_base.dmm")

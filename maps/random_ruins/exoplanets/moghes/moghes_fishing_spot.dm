@@ -4,5 +4,6 @@
 	description = "A peaceful fishing spot"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_fishing_spot.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_fishing_spot.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_fishing_spot)

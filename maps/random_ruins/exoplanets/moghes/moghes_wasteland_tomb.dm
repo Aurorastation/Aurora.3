@@ -4,7 +4,8 @@
 	description = "An ancient Unathi ancestral tomb, now lost to the Wasteland."
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_wasteland_tomb.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_wasteland_tomb.dmm")
 
 /area/moghes_wasteland_tomb
 	name = "Wasteland Tomb"

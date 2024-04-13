@@ -4,7 +4,8 @@
 	description = "A NanoTrasen base, left abandoned."
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("ouerea/ouerea_nt_ruin.dmm")
+	prefix = "ouerea/"
+	suffixes = list("ouerea_nt_ruin.dmm")
 
 /area/ouerea_nt_ruin
 	name = "NanoTrasen Facility"

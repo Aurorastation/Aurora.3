@@ -4,7 +4,8 @@
 	description = "A battlefield of the Contact War, now long forgotten."
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_wasteland_battlefield.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_wasteland_battlefield.dmm")
 
 /obj/effect/landmark/corpse/hegemony_soldier
 	name = "Hegemony Soldier"

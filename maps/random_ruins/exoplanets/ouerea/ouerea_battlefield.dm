@@ -4,7 +4,8 @@
 	description = "A battlefield of the Ouerean Revolution, now long forgotten."
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("ouerea/ouerea_battlefield.dmm")
+	prefix = "ouerea/"
+	suffixes = list("ouerea_battlefield.dmm")
 
 /obj/effect/landmark/corpse/ouerea_revolutionary
 	name = "Ouerean Revolutionary"

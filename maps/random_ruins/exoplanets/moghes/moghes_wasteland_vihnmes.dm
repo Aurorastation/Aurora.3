@@ -8,7 +8,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_wasteland_vihnmes.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_wasteland_vihnmes.dmm")
 	ban_ruins = null //maybe other oasis clan sites here?
 
 /area/moghes_vihnmes

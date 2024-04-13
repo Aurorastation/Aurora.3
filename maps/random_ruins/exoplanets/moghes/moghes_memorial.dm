@@ -4,7 +4,8 @@
 	description = "A memorial site, commemorating the lives lost during the Contact War."
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_memorial.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_memorial.dmm")
 
 /obj/structure/sign/moghes_memorial
 	name = "Contact War memorial"

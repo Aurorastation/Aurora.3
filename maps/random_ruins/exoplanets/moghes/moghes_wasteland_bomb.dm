@@ -4,7 +4,8 @@
 	description = "An unexploded atomic bomb from the days of the Contact War"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_wasteland_bomb.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_wasteland_bomb.dmm")
 
 /obj/structure/moghes_fakenuke
 	name = "unexploded nuclear bomb"

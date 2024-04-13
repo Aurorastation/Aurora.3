@@ -1,7 +1,8 @@
 /datum/map_template/ruin/away_site/omgolo_tourist
 	name = "Omgolo Relaxation Platform"
 	description = "A gas giant. Its planetary ring is home to several mining stations, hidden smuggler outposts, and tourist platforms."
-	suffixes = list("away_site/uueoaesa/omgolo/omgolo_tourist.dmm")
+	prefix = "away_site/uueoaesa/omgolo/"
+	suffixes = list("omgolo_tourist.dmm")
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 2

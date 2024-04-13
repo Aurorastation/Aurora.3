@@ -3,7 +3,8 @@
 	id = "pid-kois_farm"
 	description = "A farm on the moon Pid, operated by K'laxan Vaurca."
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("pid/pid_kois_farm.dmm")
+	prefix = "pid/"
+	suffixes = list("pid_kois_farm.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 /area/pid_kois_farm

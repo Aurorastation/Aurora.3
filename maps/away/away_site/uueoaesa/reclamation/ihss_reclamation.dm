@@ -1,7 +1,8 @@
 /datum/map_template/ruin/away_site/ihss_reclamation
 	name = "IHSS Reclamation"
 	description = "The very first space station constructed by the Unathi, and nearly a century old, the IHSS Reclamation has been extensively refurbished to provide a monitoring and research station for ecological restoration efforts on the Moghresian Wasteland."
-	suffixes = list("away_site/uueoaesa/reclamation/ihss_reclamation.dmm")
+	prefix = "away_site/uueoaesa/reclamation/"
+	suffixes = list("ihss_reclamation.dmm")
 	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1

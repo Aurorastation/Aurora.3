@@ -6,7 +6,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_heph_mining.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_heph_mining.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_heph_mining, /datum/map_template/ruin/exoplanet/moghes_guild_mining, /datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/away_site/cyclops_mining_vessel)
 
 /area/moghes_heph_mining

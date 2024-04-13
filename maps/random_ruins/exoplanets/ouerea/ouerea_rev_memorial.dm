@@ -4,7 +4,8 @@
 	description = "A memorial site, commemorating the blood spilled in the Ouerean Revolution, for the dream of a free Ouerea."
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("ouerea/ouerea_rev_memorial.dmm")
+	prefix = "ouerea/"
+	suffixes = list("ouerea_rev_memorial.dmm")
 
 /obj/structure/sign/ouerea_memorial
 	name = "Ouerean Revolution memorial"

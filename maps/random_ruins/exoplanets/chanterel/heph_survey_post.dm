@@ -3,7 +3,8 @@
 	id = "heph_survey_post"
 	description = "A long-abandoned Hephaestus survey outpost."
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("chanterel/heph_survey_post.dmm")
+	prefix = "chanterel/"
+	suffixes = list("heph_survey_post.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 /area/heph_survey_post

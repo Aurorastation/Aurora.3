@@ -6,7 +6,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("ouerea/ouerea_bar.dmm")
+	prefix = "ouerea/"
+	suffixes = list("ouerea_bar.dmm")
 	ban_ruins = list("moghes_bar")
 
 /area/ouerea_bar

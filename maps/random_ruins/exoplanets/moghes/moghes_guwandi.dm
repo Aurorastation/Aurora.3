@@ -7,7 +7,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED|TEMPLATE_FLAG_ALLOW_DUPLICATES
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_guwandi.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_guwandi.dmm")
 
 /datum/ghostspawner/human/moghes_guwandi
 	short_name = "moghes_guwandi"

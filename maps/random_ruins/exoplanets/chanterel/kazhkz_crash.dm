@@ -5,7 +5,8 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("chanterel/kazhkz_crash.dmm")
+	prefix = "chanterel/"
+	suffixes = list("kazhkz_crash.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kazhkz_crash)
 
 /area/shuttle/kazhkz_crash

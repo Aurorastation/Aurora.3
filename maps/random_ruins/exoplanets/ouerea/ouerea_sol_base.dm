@@ -4,7 +4,8 @@
 	description = "A shuttle port on Ouerea, abandoned by the Sol Alliance"
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("ouerea/ouerea_sol_base.dmm")
+	prefix = "ouerea/"
+	suffixes = list("ouerea_sol_base.dmm")
 
 /area/ouerea_sol
 	name = "Solarian Shuttle Port"

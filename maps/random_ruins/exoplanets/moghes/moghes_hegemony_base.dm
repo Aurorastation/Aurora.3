@@ -6,7 +6,7 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_hegemony_base.dmm")
+	suffixes = list("moghes_hegemony_base.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_hegemony_base)
 
 /area/moghes/hegemony_base

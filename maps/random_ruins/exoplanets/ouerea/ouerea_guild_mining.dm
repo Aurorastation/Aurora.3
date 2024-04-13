@@ -6,7 +6,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("ouerea/ouerea_guild_mining.dmm")
+	prefix = "ouerea/"
+	suffixes = list("ouerea_guild_mining.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_heph_mining, /datum/map_template/ruin/exoplanet/moghes_guild_mining, /datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost)
 
 /area/ouerea_guild_mining

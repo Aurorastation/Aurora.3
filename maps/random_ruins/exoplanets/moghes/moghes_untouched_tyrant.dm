@@ -7,7 +7,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_untouched_tyrant.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_untouched_tyrant.dmm")
 
 /datum/ghostspawner/simplemob/moghes_plains_tyrant
 	short_name = "moghes_plains_tyrant"

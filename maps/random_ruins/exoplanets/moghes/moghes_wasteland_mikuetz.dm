@@ -6,7 +6,8 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("moghes/moghes_wasteland_mikuetz.dmm")
+	prefix = "moghes/"
+	suffixes = list("moghes_wasteland_mikuetz.dmm")
 
 /area/moghes_mikuetz
 	name = "Mi'kuetz Camp"

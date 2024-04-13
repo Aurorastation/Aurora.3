@@ -3,7 +3,8 @@
 	id = "sol_listening_post"
 	description = "An abandoned Solarian listening post in the Uueoa-Esa system."
 	sectors = list(SECTOR_UUEOAESA)
-	suffixes = list("chanterel/sol_listening_post.dmm")
+	prefix = "chanterel/"
+	suffixes = list("sol_listening_post.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
 /area/sol_listening_post
