@@ -439,8 +439,8 @@
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/lemonlime = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz
-	name = "\improper Zo'ra Soda Buzzin' Cola"
-	desc = "A can of cola flavoured Zo'ra Soda energy drink, with V'krexi additives. Guaranteed to overwhelm your taste buds."
+	name = "\improper Buzzin' Cola"
+	desc = "A can of cola flavoured energy drink, with V'krexi additives. Guaranteed to overwhelm your taste buds."
 	icon_state = "buzzinsoda"
 	item_state = "buzzinsoda"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/buzz = 30)

@@ -5879,7 +5879,7 @@
 	taste_description = "electric zestiness"
 
 /singleton/reagent/drink/zorasoda/buzz
-	name = "Zo'ra Buzzin' Cola"
+	name = "Buzzin' Cola"
 	description = "A remarkably bubbly cola flavoured energy drink."
 	color = "#3C090B"
 	taste_description = "a fizzing swarm of cola"
