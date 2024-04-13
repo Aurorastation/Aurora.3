@@ -36,9 +36,7 @@
 	name = "Warehouse";
 	dir = 1
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/turf/simulated/floor/tiled/full,
 /area/nka_merchant/warehouse)
 "ae" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -871,6 +869,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/engine)
 "cH" = (
@@ -1283,6 +1282,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/captain_quarters)
 "dO" = (
@@ -1529,6 +1531,8 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1760,6 +1764,9 @@
 	name = "Airlock Access";
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/eva)
 "fY" = (
@@ -1832,6 +1839,9 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
 	},
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
@@ -2096,9 +2106,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
 /area/nka_merchant/bridge)
 "hS" = (
 /obj/machinery/door/window/eastright{
@@ -2108,6 +2117,8 @@
 /obj/effect/floor_decal/corner/white/full{
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2661,6 +2672,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/merchant)
 "kr" = (
@@ -3167,6 +3181,9 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -3331,6 +3348,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/mess)
@@ -3881,6 +3901,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/eva)
 "wi" = (
@@ -4062,7 +4085,7 @@
 	},
 /area/nka_merchant/barracks)
 "xX" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/atmospherics/portables_connector/aux,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window{
 	req_one_access = list(212)
@@ -4222,6 +4245,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant)
 "AB" = (
@@ -4465,6 +4489,7 @@
 	name = "Crew Quarters";
 	dir = 1
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/freezer{
 	temperature = 278.15
 	},
@@ -4933,6 +4958,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/barracks)
 "Ka" = (
@@ -5102,6 +5128,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/nka_merchant/engineering)
 "Nq" = (
@@ -5188,9 +5217,8 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/full,
 /area/nka_merchant/bridge/secondary)
 "OG" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -5398,6 +5426,8 @@
 /obj/effect/floor_decal/corner/white/full{
 	dir = 8
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -5481,6 +5511,9 @@
 /turf/simulated/wall/shuttle/space_ship,
 /area/nka_merchant/hangar)
 "TN" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
 	},
