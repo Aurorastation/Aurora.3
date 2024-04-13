@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_war_memorial.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_war_memorial.dmm")
 
 /obj/structure/sign/adhomai_memorial
 	name = "memorial monument"

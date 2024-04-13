@@ -2,7 +2,10 @@
 	name = "Abandoned Propellant Depot"
 	description = "Abandoned Propellant Depot."
 	id = "abandoned_propellant_depot"
-	suffixes = list("away_site/abandoned_propellant_depot/abandoned_propellant_depot.dmm")
+
+	prefix = "away_site/abandoned_propellant_depot/"
+	suffixes = list("abandoned_propellant_depot.dmm")
+
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
