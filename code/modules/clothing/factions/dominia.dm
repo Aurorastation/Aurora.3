@@ -855,7 +855,7 @@
 	desc = "A non-commissioned officer's backpack. The radio set built into it allows for individual squads to stay in cohesion."
 	icon = 'icons/clothing/backpacks/dominia_backpack.dmi'
 	icon_state = "dom_backpack_nco"
-	item_state = "dom_backpack_nco_b"
+	item_state = "dom_backpack_nco"
 
 /obj/item/clothing/head/dominian_army
 	name = "imperial army field cap"
