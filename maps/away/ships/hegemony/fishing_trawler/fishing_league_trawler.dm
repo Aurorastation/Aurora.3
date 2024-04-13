@@ -3,7 +3,7 @@
 	id = "fishing_trawler"
 	description = "A freighter sponsored by the Fishing league has been augmented with sharpened pylons designed to harvest carp shoals."
 	prefix = "ships/hegemony/fishing_trawler"
-	suffixes = list("fishing_trawler.dmm")
+	suffixes = list("fishing_league_trawler.dmm")
 	ship_cost = 1
 	spawn_weight = 1
 
