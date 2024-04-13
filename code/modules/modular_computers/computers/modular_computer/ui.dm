@@ -186,7 +186,7 @@
 			toggle_service(params["service_to_toggle"], usr)
 			. = TRUE
 
-	playsound(src, click_sound)
+	playsound(src, click_sound, 50)
 	update_icon()
 
 /obj/item/modular_computer/ui_status(mob/user, datum/ui_state/state)

@@ -9,7 +9,11 @@
 #define COLOR_OLIVE            "#808000"
 #define COLOR_BROWN_ORANGE     "#824b28"
 #define COLOR_DARK_ORANGE      "#b95a00"
+#define COLOR_GRAY70           "#b3b3b3"
+#define COLOR_GRAY60           "#999999"
+#define COLOR_GRAY50           "#7f7f7f"
 #define COLOR_GRAY40           "#666666"
+#define COLOR_GRAY30           "#4d4d4d"
 #define COLOR_GRAY20           "#333333"
 #define COLOR_GRAY15           "#151515"
 #define COLOR_SEDONA           "#cc6600"
@@ -28,6 +32,7 @@
 #define COLOR_PALE_YELLOW      "#c1bb7a"
 #define COLOR_WARM_YELLOW      "#b3863c"
 #define COLOR_YELLOW_ENGI      "#efbf2f"
+#define COLOR_YELLOW_KHAKI     "#cfcf55"
 #define COLOR_GRAY             "#808080"
 #define COLOR_RED_GRAY         "#aa5f61"
 #define COLOR_BROWN            "#b19664"
@@ -39,6 +44,7 @@
 #define COLOR_SUN              "#ec8b2f"
 #define COLOR_PURPLE_GRAY      "#a2819e"
 #define COLOR_BLUE_LIGHT       "#33ccff"
+#define COLOR_NAVY "#000080"
 #define COLOR_RED_LIGHT        "#ff3333"
 #define COLOR_BEIGE            "#ceb689"
 #define COLOR_BABY_BLUE        "#89cff0"
@@ -54,8 +60,10 @@
 #define COLOR_GOLD             "#ffcc33"
 #define COLOR_CLOSET_GOLD      "#6d6133"
 #define COLOR_DARK_RED         "#9d2300"
+#define COLOR_CRIMSON          "#990C0C"
 #define COLOR_BOTTLE_GREEN     "#1f6b4f"
 #define COLOR_PALE_BTL_GREEN   "#57967f"
+#define COLOR_SLATE            "#708090"
 #define COLOR_GUNMETAL         "#545c68"
 #define COLOR_WALL_GUNMETAL    "#353a42"
 #define COLOR_STEEL            "#a8b0b2"
@@ -100,6 +108,7 @@
 #define COLOR_TILED  		   "#737878"
 #define COLOR_TILED_2  		   "#7A6E70"
 
+#define COLOR_CONCRETE 		   "#676661"
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"
@@ -110,7 +119,6 @@
 
 
 // Wood Colours
-
 #define WOOD_COLOR_GENERIC     "#8f5847"
 #define WOOD_COLOR_GENCONTRAST "#683b2e"
 #define WOOD_COLOR_BIRCH       "#d5a66e"

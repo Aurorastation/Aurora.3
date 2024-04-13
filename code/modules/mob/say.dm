@@ -174,7 +174,7 @@
 			L = GLOB.language_keys[language_prefix]
 
 		//Check if we can speak the language, otherwise return null
-		if(can_speak(L))
+		if(istype(L) && can_speak(L))
 			return L
 		else
 			return null

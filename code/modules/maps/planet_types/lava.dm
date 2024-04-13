@@ -7,6 +7,7 @@
 	weather = "Global sub-atmospheric volcanic ambient weather system. Exercise extreme caution with unpredictable volcanic eruption"
 	surfacewater = "Majority superheated methane, silicon and metallic substances, 7% liquid surface area."
 	planetary_area = /area/exoplanet/lava
+	initial_weather_state = /singleton/state/weather/calm/lava_planet
 	rock_colors = list(COLOR_DARK_GRAY)
 	possible_themes = list(/datum/exoplanet_theme/volcanic)
 	features_budget = 4
@@ -14,6 +15,8 @@
 	water_color = null
 	ruin_planet_type = PLANET_LAVA
 	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+
+	unit_test_groups = list(1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/generate_habitability()
 	return HABITABILITY_BAD

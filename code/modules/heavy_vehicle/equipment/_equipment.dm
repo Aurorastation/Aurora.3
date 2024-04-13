@@ -6,14 +6,14 @@
 	icon_state = ""
 	var/on_mech_icon_state
 	matter = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_PLASTIC = 5000, MATERIAL_OSMIUM = 500)
-	force = 10
+	force = 15
 	var/restricted_hardpoints
 	var/mob/living/heavy_vehicle/owner
 	var/list/restricted_software
 	var/mech_layer = MECH_GEAR_LAYER
 	var/equipment_delay = 0
 	var/passive_power_use = 0
-	var/active_power_use = 1 KILOWATTS
+	var/active_power_use = 1 KILO WATTS
 	var/require_adjacent = TRUE
 	var/active = FALSE //For gear that has an active state (ie, floodlights)
 

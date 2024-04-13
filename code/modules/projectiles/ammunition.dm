@@ -108,15 +108,18 @@
 	var/caliber = "357"
 	var/max_ammo = 7
 
-	var/ammo_type = /obj/item/ammo_casing //ammo type that is initially loaded
+	/// Ammo type that is initially loaded
+	var/ammo_type = /obj/item/ammo_casing
 	var/initial_ammo = null
 
-	var/multiple_sprites = 0
+	var/multiple_sprites = FALSE
 	//because BYOND doesn't support numbers as keys in associative lists
 	var/list/icon_keys = list()		//keys
 	var/list/ammo_states = list()	//values
 
-	var/insert_sound = /singleton/sound_category/metal_slide_reload //sound it plays when it gets inserted into a gun.
+	/// sound item plays when it is inserted into a gun.
+	var/insert_sound = /singleton/sound_category/metal_slide_reload
+	/// sound item plays when it is ejected from a gun.
 	var/eject_sound = 'sound/weapons/magazine_eject.ogg'
 
 /obj/item/ammo_magazine/Initialize()

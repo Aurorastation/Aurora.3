@@ -43,6 +43,7 @@
 	req_components = list(
 							"/obj/item/stock_parts/scanning_module" = 2,
 							"/obj/item/stock_parts/console_screen" = 1,
+							"/obj/item/stock_parts/manipulator" = 1,
 							"/obj/item/reagent_containers/glass/beaker/large" = 1)
 
 

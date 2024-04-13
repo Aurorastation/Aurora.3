@@ -73,7 +73,7 @@
 		power_cycle = 0
 
 /obj/machinery/power/am_control_unit/proc/produce_power()
-	playsound(get_turf(src), 'sound/effects/air_seal.ogg', 25, TRUE, environment = SEWER_PIPE)
+	playsound(get_turf(src), 'sound/effects/air_seal.ogg', 25, TRUE)
 	for(var/thing in linked_cores)
 		flick("core2", thing)
 	if(reported_core_efficiency <= 0)
@@ -135,7 +135,7 @@
 /obj/machinery/power/am_control_unit/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
 		if(!anchored)
-			playsound(get_turf(src), attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("<b>[user.name]</b> secures \the [src] to the floor.", \
 				SPAN_NOTICE("You secure the anchor bolts to the floor."), \
 				SPAN_NOTICE("You hear a ratcheting noise."))
@@ -144,7 +144,7 @@
 			check_shield_icons()
 			connect_to_network()
 		else if(!LAZYLEN(linked_shielding))
-			playsound(get_turf(src), attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("<b>[user]</b> unsecures \the [src].", \
 				SPAN_NOTICE("You remove the anchor bolts."), \
 				SPAN_NOTICE("You hear a ratcheting noise."))

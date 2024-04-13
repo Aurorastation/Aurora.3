@@ -25,7 +25,7 @@
 
 /obj/item/lore_radio/attack_self(var/mob/user)
 	if(SSatlas.current_sector?.lore_radio_stations)
-		var/picked_station = tgui_input_list(user, "Select the radio frequency.", "Radio Station Selection", SSatlas.current_sector.lore_radio_stations, current_station)
+		var/picked_station = tgui_input_list(user, "Select the radio frequency:", "Radio Station Selection", SSatlas.current_sector.lore_radio_stations, current_station)
 		if(picked_station)
 			current_station = picked_station
 			if(!receiving)
@@ -52,7 +52,7 @@
 	if(!receiving || radio_station != current_station)
 		return
 
-	var/displayed_message = radio_message ? "<b>[src.name]</b> transmits, \"[radio_message]\"" : "<b>[src]</b> only emits white noise..."
+	var/displayed_message = radio_message ? "\The <b>[src.name]</b> transmits, \"[radio_message]\"" : "\The <b>[src]</b> only emits white noise..."
 	audible_message(displayed_message)
 	if(radio_message)
 		var/list/hearers = get_hearers_in_view(7, src)

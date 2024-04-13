@@ -1,0 +1,503 @@
+2020-04-01:
+  Alberyk:
+  - tweak: Increased the scientist and xenobiologist job minimum age to 30 years old.
+  - tweak: Increased the research director job minimum age to 35 years old.
+  Doxxmedearly:
+  - bugfix: Prosthetic stomachs can now be produced in the mechfab.
+  - bugfix: Prosthetic stomachs now have proper robotic names and sprites.
+  - rscadd: Added Pneumalin, a medication that is targeted to fix lung damage, which
+      should decrease reliance on peridaxon. Make it by using a 1:1:1 ratio of cough
+      syrup, copper, and pulmodeiectionem. Overdoses above 15u, causing a dangerous
+      drop in a person's pulse.
+  - rscdel: Removed inaprovaline. Replaced all bottles and syringes with norepinephrine.
+      Itching and cramps are now relieved by norepinephrine.
+  - tweak: Dylovene is now less effective at treating hallucinations. Use synaptizine.
+  - tweak: Adipemcina no longer relies on or affects a person's nutrition level to
+      function. It also metabolizes a little faster.
+  - tweak: Removed adrenaline effects from norepinephrine.
+  - tweak: Kelotane will no longer heal burns if dermaline is present in a person's
+      system. It will metabolize with no effect until the dermaline is gone.
+  - bugfix: Dermaline now recovers the proper amount of burn damage, instead of being
+      equivalent to kelotane.
+  - bugfix: Deltamivir will no longer cause organ-boiling fevers at 20u dosage. It
+      will still cause a slight fever, so keep that in mind!
+  Geeves:
+  - imageadd: Reverted the TacShield sprite to the old sprite.
+  - tweak: The description for the random visitor anti-no-record-meta ghost role has
+      been improved.
+  - bugfix: Powered crossbows now have the correct sprite.
+  - bugfix: Powered crossbow no longer enable the user to create infinite metal by
+      superheating, breaking, and weldering its ammunition.
+  - bugfix: Reveal runes now reveal runes. Joy.
+  - rscadd: Added an examine to runes that tells you whether you can talismanify them
+      or not, if you're a cultist.
+  - bugfix: Janitorial Cyborgs can no longer delete holograms by running them over.
+      That's fucking funny.
+  YourDaddy117:
+  - imageadd: Adds a new blue security armband to the loadout. Also adds the detective
+      uniforms to the loadout and changes the names of the default detective/forensic
+      tech uniforms.
+  - imagedel: Murders that dumb green trenchcoat.
+2020-04-02:
+  Furrycactus:
+  - maptweak: Adds more belts and stethoscopes to sublevel storage, regular ones and
+      EMT ones too to offer choice. If people run out now then I'll be very concerned.
+  - maptweak: Takes the EMT/Paramedic hyposprays and puts them on the table in their
+      cave, instead of tucked in both the wall lockers.
+  - maptweak: Adds a couple of GPS units to sublevel storage.
+  - rscadd: Adds bandages and ointment to the NanoMed machines.
+  Geeves:
+  - bugfix: You can now rotate anchored chairs, such as comfy chairs and the such.
+  - bugfix: A check for total health no longer counts fire damage twice.
+2020-04-03:
+  Geeves:
+  - rscadd: Added the Drill Technician alt-title to Shaft Miner. They come equipped
+      with a kit to set up a barebones drill mining operation.
+  - rscadd: Shaft Miners now come with a KA kit that allows them to give slight upgrades
+      to their roundstart Kinetic Accelerator.
+  - tweak: Pumping a kinetic accelerator no longer spams your log, only giving a message
+      every ten seconds since the last one. Sound and charge amount remains the same.
+  - bugfix: Fixed being unable to rotate mining braces. Fixed the message saying that
+      you can rotate drill heads.
+  - rscadd: Large mining drills now have lights attached to them, which differ in
+      colour and brightness depending on current activity.
+  - rscadd: Added the Orbital Drill Dropper to the mining vendor, for 3250 mining
+      points a pop.
+  - tweak: Mining light beacons now come in stacks of 25 instead of stacks of 5. This'll
+      make them slightly more useful for showing a taken path.
+  - bugfix: Ore satchels no longer show that they have a warp pack installed on examine,
+      if they do not have one installed.
+  - bugfix: Alt clicking a rotatable item doesn't open the turf menu anymore.
+  - rscadd: Ladders can now be used to grip to prevent floating away, when there isn't
+      gravity or when in space.
+  - rscadd: Mobile ladders can now be alt-clicked to be taken down. Mobile ladders
+      now go into your hands when successfully folded.
+  - bugfix: Psi Ping's description has been fixed to say help intent instead of disarm
+      intent.
+  - bugfix: Blindstrike and commune no longer overlap.
+  - bugfix: Illegal KAs have been fixed and will now work.
+  - rscadd: Illegal KA pump will now store more charge and give a BIG CHARGE to its
+      cell in a single pump.
+  - bugfix: Modular Laser Prototypes now correctly get their attachment sprites on
+      the in-hand sprite.
+  Wowzewow (Wezzy), r4d6:
+  - imageadd: New RPD and RFD derivative sprites (and inhands).
+2020-04-04:
+  BRAINOS, Ferner, Kyres1:
+  - imageadd: Replaced the mining rig sprites with new ones by BRAINOS. Construction
+      states by Kyres1.
+  Geeves:
+  - bugfix: Fixed tacshield sprites not existing.
+  - tweak: Vaurca warriors now need a strangling grip to mandible bite someone. The
+      hard cooldown has increased to ten seconds.
+  - bugfix: Vaurca warriors can no longer do the mandible bite through face-covering
+      helmets and masks.
+  - tweak: Goggle overlays like mesons, thermal and science have been made less extreme.
+  - bugfix: Goggle overlays are now always on-screen, instead of only being a 15x15
+      block around the player.
+  - rscadd: Implemented craftable railings.
+  Goret:
+  - rscadd: Added a Chem Master at the surface garden.
+2020-04-05:
+  Alberyk, Kyres1, Happy_fox:
+  - rscadd: Added z-level interactions to vehicles; hovering vehicles will now run
+      over holes, while non-flying ones will fall. You can also use space bikes to
+      move down and up.
+  - rscadd: 'Added a couple of items seen during the Tajaran Cold War lore arc to
+      the game: monowheels, dynamite, new carpet sprites, padded caps, messa mead
+      keg, schlorrgo, Hadiist lawset, a new bar sign, sugar tree candy and lard.'
+  Doxxmedearly:
+  - tweak: The recipe for Lexorin is now a bit more sane. It is now made with a 1:1:1
+      ratio of tungsten, hydrazine, and ammonia, with 5u of phoron as a catalyst.
+  - rscadd: Alkysine and Imidazoline overdoses now cause minor hallucinations.
+  - rscadd: Dexalin and Dexalin+ now cause brain and eye damage if overdosed.
+  Ferner:
+  - bugfix: Fixed the research shuttle having the wrong console tag.
+  Furrycactus:
+  - rscadd: Added new clothing items for Zeng-Hu contractors; two berets and a labcoat.
+  - spellcheck: Fixed the mislabeling of the alternate Zeng-Hu uniform, it's now named
+      'zeng-hu white uniform' instead of 'zeng-hu black uniform', because it is in
+      fact white and not black.
+  Geeves:
+  - tweak: Tweaked how xenobio spawns in steel, plasteel and phoron, when using slime
+      extracts. They will make more of each now.
+  - rscadd: The gray extract now spawns 4 monkey cubes instead of 3.
+  - rscadd: Injecting phoron into a gold extract now spawns small amounts of gold,
+      silver, and uranium.
+  - rscadd: Slime core batteries now regain 10% of their charge every minute.
+  - tweak: The slime extract EMP now has a five second timer, instead of being instant.
+  - tweak: The oil extract flame now affects a slightly larger area, one tile to a
+      one tile radius.
+  - bugfix: The frost extract now properly chills every in a seven tile radius.
+  - bugfix: Cryopod computers now globally track stored crewmembers.
+  - bugfix: Cryopods now properly store specific items upon its wearer cryoing.
+  - bugfix: Succumbing no longer needs massive brain damage to work, it is much easier
+      to kill yourself.
+  - rscadd: Added a box in the Autolathe Engineering section that can hold the stock
+      parts that goes into machinery.
+  - rscadd: Standard Encryption Keys now come with both Common and Entertainment channels
+      in-built.
+  MattAtlas, Fernerr:
+  - experiment: Shuttle code has been completely reworked.
+  - rscadd: Shuttles can now be modified to have more than one destination.
+  - soundadd: Shuttles now have a takeoff sound.
+  - rscadd: You can now throw mobs against walls to damage them. A lot.
+  - tweak: You now need a neckgrab to throw mobs.
+  - rscadd: BEING UNBUCKLED DURING SHUTTLE LAUNCH IS DANGEROUS! Don't do it.
+  - rscadd: Adminghosts can now interact with all shuttles.
+2020-04-06:
+  Furrycactus:
+  - bugfix: Fixed the white Zeng-Hu beret not having an item sprite.
+  - bugfix: Fixed the worn sprites for nitrile gloves for Unathi and Tajara.
+  Geeves:
+  - tweak: Golems now use descriptors instead of numbers to form their name.
+2020-04-07:
+  Geeves:
+  - rscdel: Dragging a PDA onto itself no longer opens its menu. Over PDA dragging
+      actions still function as normal.
+  - tweak: Dragging an item onto itself, or onto the slot it's equipped to, doesn't
+      drop it to the floor anymore.
+  PoZe:
+  - bugfix: Kinnetic accelerator no longer creates phantom projectile on turf of user.
+2020-04-08:
+  Doxxmedearly:
+  - bugfix: New/unset explosive implants are no longer triggered by literally any
+      word. The default phrase is also harder to just randomly say.
+  Geeves:
+  - rscadd: Mining drills now store their error messages, allowing you to examine
+      it when adjacent and read them.
+  - rscadd: Mining drills now report when their resource fields are depleted.
+  - tweak: It now takes a while to take the mining satchel out of mining drills, to
+      prevent accidental removal.
+  - tweak: Mining drills now use much less charge while working.
+  - tweak: Mining drills now gather resources from a two tile radius around it. It
+      will only make a hole under the drill, however, so keep that in mind.
+  - tweak: Any ore inside the mining drill will be beamed to a connected crate when
+      a bluespace ore satchel is attached.
+  - rscadd: Braces will now automatically face their mining drill when attaching or
+      removing them with a wrench. No need to alt click them many times.
+  - tweak: Upped the gold and silver ore's rate of spawning in asteroid turfs.
+  - bugfix: Fixed Hephaestus Drill Technicians getting the wrong equipment.
+  House_Of_Synth:
+  - tweak: Changed the functionality of the borg sheet holder module. It will now
+      hold sheets and tiles.
+  ReadThisNamePlz:
+  - tweak: Makes Grates cost only one metal rod, and it gives back one metal rod when
+      deconstructed.
+2020-04-09:
+  FearTheBlackout:
+  - rscadd: Adds a Coalition of Colonies flag and banner to the loadout.
+  - imageadd: Adds sprites for the Coalition of Colonies flags, courtesy of Kyres.
+  Ferner:
+  - bugfix: Fixes the research shuttle not leaving the proper turfs behind.
+  Furrycactus:
+  - rscadd: Added another round of contractor clothing. A labcoat for Necropolis medical/research
+      workers, a labcoat for Hephaestus research workers, and a beret for Hephaestus
+      workers.
+  Geeves:
+  - tweak: Mech cargo clamps can now hold up to five items, instead of just one. Alt
+      click to put down something specific, Crtl click to put down the first item
+      in the list of carried stuff.
+  - bugfix: Clamps no longer go into storage bags when clicking on them.
+2020-04-10:
+  Geeves:
+  - rscadd: You now harmlessly kick Schlorrgo on harm intent.
+2020-04-11:
+  Ferner:
+  - bugfix: Fixed the transfer shuttle sending an announcement twice. Fixed the research
+      shuttle not triggering away site ghost spawners. Fixed ert/tcfl shuttles not
+      triggering blastdoors containing their areas.
+  Furrycactus:
+  - maptweak: Fixed the double layered hydro trays in maintenance.
+  - maptweak: Fixed the freezer room for medical's cryo cells.
+  - maptweak: Fixed the mislabeling of the Atmos voidsuits as hardsuits.
+  - maptweak: Added a filing cabinet to the Library desk.
+  - maptweak: Added a cell charger to the Xenoarchaeology Atrium.
+  - maptweak: Added a filing cabinet to the Detective's Office.
+  Goret:
+  - rscadd: 'Added two new hairstyles: Undercut 5 and Swept, Back. Credit to Lauren
+      for the sprites.'
+  - tweak: 'Modified the hairstyles: bob curl 2, unkept and business 1 to 4.'
+  House_Of_Synth:
+  - tweak: Salt shakers, pepper mills and space spices can now be shaken but will
+      emit no noise when empty.
+  - soundadd: Added a shaking sound for when salt shakers, pepper mills and space
+      spices are shaken.
+  Wowzewow (Wezzy):
+  - imageadd: Adds inhands for some welders, drills, and combitools.
+2020-04-12:
+  Geeves:
+  - bugfix: Fixed null emergency shuttles causing runtime errors when the game checks
+      for status displays.
+2020-04-14:
+  Alberyk:
+  - tweak: The emergency shuttle can only be called after one hour into the round.
+      This can be changed on the config file.
+  Geeves:
+  - bugfix: Fixed slime core batteries from charging over their maxcharge cap.
+  - tweak: Increased the slime core battery maxcharge cap from 10K to 15K. Added an
+      informational description to the core.
+  Goret:
+  - bugfix: Crystal artifacts don't show a missing sprite anymore.
+  - bugfix: Thetamycin now metabolise at 0.01u per tick, as it used to be.
+  MattAtlas:
+  - bugfix: The launch CCIA shuttle verb actually works now.
+2020-04-16:
+  Chada-1:
+  - rscadd: Made 'borgo eyes able to glow in the dark via a new _layers definition.
+  Doxxmedearly:
+  - tweak: Synaptizine, methylphenidate, risperidone and olanzapine will reduce overall
+      hallucination duration, reduce frequency of hallucination effects, and sometimes
+      prevent them entirely. Useful!
+  - tweak: Some hallucinogenic drugs and toxins will now increase the duration you
+      hallucinate and make effects happen more frequently.
+  - tweak: Wulumunusha will now cause skrell to experience light hallucinations (as
+      its description implies) at dosages greater than 10u.
+  - bugfix: Fixed null hallucinations causing runtimes. Hopefully.
+  Geeves:
+  - tweak: Elevator doors are now opaque and laser shots will not pass through them.
+  House_Of_Synth:
+  - tweak: The leather jacket in the loadout now has pockets.
+  SpaceBaa:
+  - bugfix: Fixed an issue where drones could not open windoors by walking into them.
+  - bugfix: Fixed a bug where Maintenance Drones could not pull pipe meters.
+  - bugfix: Fixed a bug where the sprite for Maintenance Drone screwdrivers was blank.
+2020-04-17:
+  Alberyk:
+  - rscdel: Removed station engineer alt titles.
+  Goret:
+  - maptweak: Fixed two intercoms being next to each other in the captain's office.
+  - tweak: Bullets are now faster.
+  MattAtlas:
+  - rscadd: Ports a change to the recoil animation from Nebula.
+2020-04-18:
+  Geeves:
+  - rscadd: You can now remove individual items from a tray by having it in one hand,
+      and clicking it with the other empty hand.
+  - rscadd: The sprites on trays are now randomly spread out instead of just going
+      into the centre.
+  - bugfix: Service borgs no longer teleport items using the force when operating
+      the tray.
+  MattAtlas:
+  - spellcheck: Fixed gun fire message wonkiness.
+  SpaceBaa:
+  - bugfix: Mine drones and other bots no longer bleed when shot.
+2020-04-19:
+  Alberyk:
+  - tweak: Some cultural and religious items in the custom loadout can't be renamed
+      anymore.
+  - tweak: Removed the deadly stuff from the vent clog event, replaced some of them
+      with more interesting choices.
+  Chada:
+  - bugfix: Fixed the Off-brand MAD icon_state name in the robots.dmi to line up to
+      the module sprite name..
+  DanseMacabre:
+  - balance: 'The detective''s sidearm has been reworked: It is now a 9mm pistol loading
+      flash ammo by default. You can also rename it, like you could with the revolver.'
+  MattAtlas:
+  - rscadd: Mesons, NVGs, science goggles and such all have scanline effects now.
+  - tweak: Brain health will now decay faster in lower oxygenation levels.
+  - tweak: Brute damage now inflicts slightly more pain.
+  - tweak: Tweaked organ spillover damage code. This will probably have some effects
+      on how damage is calculated, as the old one was not updated.
+  - tweak: Brain scarring can now happen while below 60% blood oxygenation.
+  - tweak: Scarring can now go up to reducing an organ's maximum health by 50%.
+  - tweak: Blue grabs no longer make the grabbed person drop their held things.
+  - rscadd: Choking people now starts a timer, at the end of which the afflicted person
+      will go unconscious.
+  - bugfix: Fixed hearts displaying a positive pulse after the person is dead.
+  - bugfix: Fixed pointblank messages not displaying.
+  SpaceBaa:
+  - tweak: Remains now crumble when touched by robots, or pulled by anyone.
+  - tweak: Robot remains now degrade into a pool of oil instead of nothing.
+2020-04-20:
+  Alberyk:
+  - bugfix: Fixed the pioneer scarf not being colorable.
+  Code by Geeves, Sprites by Happy Fox:
+  - rscadd: Added a special power cell backpack to the mining vendor and RnD protolathe
+      design databank. Give it a try, if you work with power cells a lot.
+  Geeves:
+  - bugfix: Station Blueprints now count asteroid turf as space, this should reduce
+      server crashing when using them.
+  - bugfix: Air alarms and APCs now self-destruct when they detect their area as being
+      within a mine or space area.
+  chada1:
+  - tweak: Moved the help/harm overlays for 'borgs back to add_overlay.
+  - bugfix: Fixed a bug that caused ss_overlays to blank the 'borg eyes if they had
+      another overlay added to them.
+2020-04-21:
+  Chada-1:
+  - rscadd: Added a new animation for the module and sprite selection process, it's
+      a repurpose of the telepad spark animation.
+  - tweak: Lowered the sprite selection tries to 6 from 11, 11 is overkill.
+  Code by Geeves, Sprites by Aticius & Europa Devs:
+  - tweak: Tweaked access checking to check for IDs within your gloves slot.
+  - rscadd: Tech Support now spawns with a wristbound computer.
+  - rscadd: Created a new loadout section just for modular computers.
+  - rscadd: If you have your modular computer, be it a laptop, tablet, or wristbound,
+      in your active hand, ID, or glove slot, it will now allow you use it to access
+      things like airlocks and computer programs.
+  - tweak: Modular tablets now fit in the ID slot.
+  - tweak: Wristbound computers fit in the ID and Gloves slot.
+  - bugfix: Fixed security having access to the investigation department's programs.
+  Geeves:
+  - rscadd: Areas with lightswitches now start with them off, unless someone spawned
+      in at them during round start.
+  - rscadd: Ash and snow now cause footprints when you walk across them.
+  - tweak: Tweaked the robustness of the examine code when your appendages and clothes
+      are covered in fluids like blood, it now somewhat accurately displays what they're
+      stained with.
+2020-04-22:
+  Alberyk:
+  - bugfix: Fixed pAI creating a ghost card when folded.
+  - bugfix: Fixed the tajaran candy not replacing the reagents after being cooked.
+  - bugfix: Fixed a a medical borg icon facing the wrong direction.
+  - bugfix: Fixed not being able to remove wrist computers by dragging them to a hand
+      slot.
+  - bugfix: Fixed magboots eating shoes.
+  Alberyk, Happy_Fox:
+  - rscadd: 'Added a some new options to the custom loadout: bunny slippers, pyjamas
+      and colorable plastic clogs.'
+  Geeves:
+  - tweak: Machine blueprints now no longer need multitools to finalize their direction,
+      you only need to click it with an empty hand.
+  - rscadd: Machine blueprints have received revamped examines, allowing you to see
+      what the next assembly and disassembly step is, as well as what it'll become.
+  - rscadd: Modular computers have gotten a major clean-up. Many programs and interactions
+      should look prettier and feel smoother now.
+  - rscadd: Click dragging most modular computers now open their interface, much like
+      with PDAs.
+  - rscadd: The IRC program now outputs messages to your chat log, much like PDA messaging
+      does. For smaller devices, it must be on your person, whilst larger ones have
+      a radius to it. The IRC program must be open, it doesn't have to be active,
+      for it to work.
+  - tweak: The size of the antag hacked camera program has been brought way down,
+      to make it worth getting, if you wish to do so.
+  - rscadd: Added some new names to the modular computer arcade game.
+  - tweak: Suit sensors can now be run on most regular modular computers, no big change
+      in that department.
+  - rscadd: Computers now ping when they finish downloading programs, letting you
+      know without needing to check them.
+  - tweak: Backup data crystals now have nicer names.
+  - rscadd: Examining a modular computer now shows you its components.
+2020-04-23:
+  Alberyk, Kyres1:
+  - rscadd: Added a couple of augments to the custom loadout.
+  - rscadd: Added tesla limbs for the Tajara species.
+  Doxxmedearly:
+  - tweak: Cows no longer eat eggs and create dough inside themselves. Also added
+      a way to forbid certain foods from being eaten by animals, for the future.
+  Geeves:
+  - bugfix: Footprints now properly carry over into ash turfs.
+  MattAtlas:
+  - bugfix: Fixed laser rifles firing at 5000000 RPM.
+  - bugfix: Fixed safety overlays being wonky.
+2020-04-24:
+  Geeves:
+  - bugfix: Wristbound clicking is now more consistant when it's in the ID slot.
+  - bugfix: Suit sensors now get your ID when it's in your glove slot, your ID slot,
+      or in your hands.
+  - bugfix: Command programs are now named better.
+  - bugfix: Wristbound computers can now be reset by the Tech Support card.
+  - bugfix: Research computers no longer get RD programs.
+  MattAtlas:
+  - rscadd: Ported radials and tooltips from Nebula and TG.
+  - rscdel: Implemented radial menus for borg sprite selection and the RCD.
+  ParadoxSpace:
+  - bugfix: Shells can now get augments.
+  Wowzewow ( Wezzy ):
+  - imageadd: Fixed missing inhands for Kataphract Esword off, Powersword, Null Orb.
+  - imageadd: Made swords contained sprites, and adds some missing sprites. What this
+      means is that you'll be seeing them on your characters a lot more better.
+  - imageadd: New sickle sprite.
+  chada:
+  - bugfix: Bugfixes for custom synths courtesy of Capesh, also updates for Orb sprites.
+2020-04-25:
+  Alberyk:
+  - bugfix: Fixes the eldritch blade having no sprites
+  Geeves:
+  - rscadd: Added optional floating messages above people's heads when they speak.
+      Press Toggle Floating Messages in the OOC tab to enable this.
+  MattAtlas:
+  - rscadd: Ghosts can now jump to emotes.
+  - rscadd: Ghosts now see where people are ghosting from.
+  - tweak: Now only the F in the follow link is a link, to make it easier on the eyes.
+  - spellcheck: Fixed up a few messages and added some bolding.
+  - bugfix: Ghosts can now see follow links properly.
+  ParadoxSpace:
+  - rscdel: Dionae can no longer drop limbs whilst restrained.
+  ReadThisNamePlz:
+  - rscadd: Adds an extra pistol magazine for the IAC Guard
+  - rscadd: Adds energy pistols and holsters to the IAC Doctor and IAC Paramedic
+  Teh Flamin' Taco:
+  - bugfix: NTSL2+ Programs should experience strange computer hopping properties
+      less often.
+  - tweak: NTSL2+ Programs in general run a lot faster.
+  - rscadd: Subspace Transmitters can talk to NTSL2+ via the net.subscribe and net.message
+      functions.
+2020-04-27:
+  Alberyk:
+  - rscadd: Hulks should be immune to pain now.
+  - rscdel: Removed the hulk green overlay.
+  - rscadd: Breaking mineral walls now a chance of creating a cloud of dust.
+  Alberyk, Kyres1:
+  - rscadd: Replaced the mateba sprite, name and description.
+  Geeves:
+  - bugfix: Floating messages now has regular brightness in darkness and properly
+      display over most items.
+  MattAtlas:
+  - rscadd: Armor can once again fully block damage.
+  - bugfix: Republicons no longer bleed.
+  Skull132:
+  - tweak: Medium severity crimes can no longer be fined for.
+  chada:
+  - tweak: Replaced the 'Revolutionaries' with 'The Contenders', a more neutral term
+      that will hopefully make it easier for them to recruit in the Crew.
+  - tweak: Replaced the 'Loyalists' with 'The Fellowship', which should leave them
+      as the more friendly sounding of the two yet still be much less pro-Command.
+  - imageadd: Added two brand new hud icons with these differences in mind. Made better
+      ones afterall and had to change this entry.
+  - tweak: Gave the Contenders and Fellowship both their own uplinks and TC, and I
+      removed the Old Loyalist ability to recruit mindshielded persons and them starting
+      with a Head. This should lead to a more even round.
+2020-04-28:
+  Geeves:
+  - bugfix: Examining someone with a modular computer on their ID or gloves slot will
+      now show the ID info if there's one inside.
+  - bugfix: Security and medical HUDs now get the proper person info if the person
+      has the ID in their modular computer.
+  - tweak: Things that check your ID will now primarily use the ID in your slot, rather
+      than the one in your hands.
+  - rscadd: Tape recorders now come with a portable drive, that when ejected, saves
+      the stored transcript in a digital form.
+  - tweak: Tape recorders now only audibly play back in a 3 tile radius, no more room
+      spam.
+  House_Of_Synth:
+  - tweak: Adds a verb for custodian borgs in the robot commands tab that allows the
+      player to toggle passive cleaning tiles they walk over.
+  MattAtlas:
+  - bugfix: Ghosts now only see bolded emotes when they're near the emoter.
+  chada:
+  - rscadd: Just adjusted the 'borg sprite order and added Sci sprite duplicates of
+      some jani 'borgs for consistency in the sprite use.
+  - tweak: Just converted all of the 'lighting_layer +'s to 'above_lighting_layer's
+2020-04-29:
+  ParadoxSpace:
+  - rscadd: Adds NTSL Interpreter to all modular computers.
+  - rscadd: 128 GQ standard hard drives can now fit in wristbound computers/tablets.
+      Go ask Research for one.
+  - tweak: Games and the news browser are much smaller now.
+2020-04-30:
+  Alberyk, Kyres1:
+  - rscadd: Added new fancy shuttle sprites.
+  MattAtlas:
+  - tweak: Changed how weapons apply their sharp and edge properties. Nothing should
+      change on the frontend but there may be a few bugs.
+  Wowzewow (Wezzy):
+  - imageadd: Tweaks the dark tile sprite.
+  chada:
+  - tweak: Added the fire alarm overlay to the above lighting layer and recolored
+      its frame to be red so it's no longer near invisible on the station walls.
+  nonno:
+  - imageadd: Changing the chemmaster, chemheater, chemdispenser, coffee machine,
+      booze dispenser, soda dispenser to the /tg/ ones which are in 3/4, are animated

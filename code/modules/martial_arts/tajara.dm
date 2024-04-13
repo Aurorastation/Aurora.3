@@ -104,6 +104,7 @@
 	matches or stabbing forward with the claws in typical matches. Modern Baghrariri, or people who fight in the Baghrar style for sport, usually fight with implements that cover and \
 	support their claws to avoid serious bodily damage. Modern Baghrar matches are decided upon with a point scoring system over three 10 minute rounds of fighting, but historical \
 	victories were secured by knocking opponents onto the ground."
+	species_restriction = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 
 #undef EYE_RAKE
 #undef CLAW_PUNCH

@@ -89,7 +89,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	GLOB.moved_event.register(user, src, PROC_REF(update_position))
 	update_icon()
 
-/obj/item/device/gps/dropped(var/mob/user)
+/obj/item/device/gps/dropped(mob/user)
 	..()
 	if(isturf(loc))
 		held_by = null
@@ -316,7 +316,7 @@ GLOBAL_LIST_EMPTY(gps_list)
 	desc = "A static global positioning system."
 	anchored = TRUE
 	unacidable = TRUE
-	layer = 2.1
+	layer = BASE_ABOVE_OBJ_LAYER
 	gpstag = "STAT0"
 
 /obj/item/device/gps/stationary/Initialize()

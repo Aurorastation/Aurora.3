@@ -1,0 +1,45 @@
+2017-11-05:
+  Chaoko99:
+  - wip: 'Hopefully removes all uses of the ''Red Cross'' to avoid committing victimless
+      war crimes. Please report any uses that were missed. To Devs: If you get an
+      error mentioning a missing type path of ''/obj/structure/sign/redcross'', replace
+      it with ''/obj/structure/sign/greencross'''
+  Karolis2011:
+  - bugfix: Modular computers can no longer download programs that can't actually
+      run on them.
+  Printer16:
+  - bugfix: You can now reboot maintenance drones.
+  - bugfix: Universal recorder transcripts are now printed into your hand.
+  - rscadd: Added a stop all sounds verb located in the OOC tab.
+  - bugfix: Shredding ID cards no longer generates paper.
+  - bugfix: Borgs can now fill up buckets/beakers/other containers by using the sink.
+  - tweak: The AI help menu has been updated.
+  - tweak: Updated the NanoUI map.
+  - bugfix: Medbots no longer try to heal IPCs.
+2017-11-11:
+  TheGreatJorge:
+  - bugfix: Turret controls should now work with turrets correctly once again.
+2017-11-20:
+  Alberyk:
+  - rscdel: Removed telecomms being able to identify the speaker's species with precision.
+  Lohikar:
+  - bugfix: Fixed an issue where walking through doors with lights could screw up
+      directional lighting.
+2017-11-30:
+  Alberyk:
+  - bugfix: Fix warrior vaurca being unable to spawn with toeless jackboots.
+  - bugfix: Lowered the Nar'sie's summoning sound.
+  - bugfix: Fixed autohiss applying while speaking Ya'ssa.
+  Lohikar:
+  - bugfix: Stacking units no longer illegally produce unlicenced cyborg glass synthesizers.
+  - rscadd: The stacking machine's UI has been made prettier for no particular reason.
+  MoondancerPony:
+  - bugfix: Removed diona nymph mind control. (Players will no longer aggressively
+      grab themselves when trying to grab a diona nymph.)
+  PoZe:
+  - bugfix: Fixed crates, and lockers interaction with shut welder
+  - tweak: Added ability to weld and cut apart any secure or wall lockers or secure
+      wall lockers.
+  - bugfix: Tesla's Engine APC is no longer affected by power down even
+  - tweak: Tesla coils and grounding rods can now be fully constructed from machine
+      assembly

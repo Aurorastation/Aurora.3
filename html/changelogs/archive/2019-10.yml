@@ -1,0 +1,492 @@
+2019-10-01:
+  Alberyk:
+  - tweak: Rig slowdown is now tied to the module, instead of the chest piece.
+  Fire and Glory:
+  - tweak: Hammers both mundane and powered do 25 damage instead of 20 now.
+  - tweak: Kneebreaker hammer now costs 5 TC instead of 7
+  Geeves:
+  - tweak: Announcements no longer falsely announce gravity loss. (sensor buffs!!!)
+  SonicGotNuked:
+  - rscadd: Readded a nerfed version of the shocker circuit. Now it's made from space
+      China.
+  aleksix:
+  - bugfix: Flower crowns can now be made from non-vendor seeds
+  - bugfix: Integrated Circuits text pad, number pad  and color pad now properly receive
+      input
+2019-10-02:
+  Ferner:
+  - rscadd: Re-added Seasonal Pumpkin Spice Latttes to the coffee vendors. Get them
+      while they're in season!
+  - bugfix: Fixed coffee having no inhand icon.
+  Geeves:
+  - rscadd: Paper printed at various sources have been given a minor colouration to
+      denote their source or department.
+  Karolis2011:
+  - refactor: Computers now support both UI systems.
+  - rscadd: Ported main computer screen to VueUI.
+  - rscadd: Ported computer configurator to VueUI.
+  - rscadd: Ported computer management to VueUI.
+  skull132:
+  - tweak: '''energy field'' type shields (regular hull shields) no longer block air.'
+2019-10-03:
+  MoondancerPony:
+  - bugfix: Fixes wulumunshu overwriting Mindbreaker Toxin.
+  aleksix:
+  - bugfix: Integrated Circuits memory and constant chips now have sprites
+2019-10-04:
+  Karolis2011:
+  - bugfix: VueUI uis, like records, voting and others, now will update once again.
+  Yonnimer:
+  - rscadd: Adds new citizen and religion choices for diona.
+2019-10-05:
+  Ferner:
+  - bugfix: Fixes the longstanding bug wherein newly built air alarms could not control
+      anything in their area.
+  Furrycactus:
+  - maptweak: Gave the Forensic Tech office a solid airlock instead of glass, so that
+      the chromatic windows aren't redundant.
+  - bugfix: Medical staff actually have access to Medbay maintenance now.
+  Geeves, code by WezYo:
+  - rscadd: Aiming at someone with a gun in point blank distance is now possible (as
+      long as you're not on harm intent).
+  Karolis2011:
+  - rscadd: Added theme support to multiple UIs.
+  MattAtlas:
+  - bugfix: Fixes a stunbaton log error.
+  MattAtlas, AmoryBlaine:
+  - rscadd: Added a medical beret to the loadout for all medical jobs.
+  - rscadd: Added a xenobotanist uniform in the xenobotany lockers.
+  - imageadd: Resprited most science and medical uniforms. All the sprites are by
+      AmouryBlaine.
+  PoZe:
+  - spellcheck: Fixed grammar in Malf IC guide.
+  - tweak: Updated Malf IC guide with all abilites. Reformatted it to look better.
+  Wowzewow:
+  - tweak: You can finally move through medical laptops. They're no longer impenetrable,
+      indestructable anchors.
+  - imageadd: Updates sprites of medical laptops and guest pass terminals.
+2019-10-06:
+  MattAtlas:
+  - rscadd: You can no longer select jobs that your character is too young for.
+2019-10-07:
+  Scheveningen:
+  - balance: Almost all stun baton variants in the game have been rebalanced. It is
+      no longer possible to one-shot stun someone with a baton in the face.
+  - balance: Almost all clothing items have had their electroshock resistance modified
+      in some way or another. Unapologetic malf AI nerf, sorry.
+2019-10-08:
+  Geeves:
+  - rscadd: The ninja's suit now comes with a powersink by default, have fun!
+  - tweak: Removed powersink from infiltrator uplink.
+  Geeves, code by BurgerBB:
+  - rscadd: 'Security and Heads of Staff are less likely to gain antag status (Range:
+      25-75%).'
+2019-10-09:
+  Alberyk, Sleepywolf:
+  - rscadd: Added new character customization options for the diona species, such
+      as body markings and some hair options.
+  Karolis2011:
+  - bugfix: Made character preview have white-ish background.
+  MoondancerPony:
+  - bugfix: Job age requirements now take into account alt titles. Alt titles are
+      automatically limited to only ones a character is old enough for.
+  - bugfix: The latejoin screen now shows what alt-title you have selected.
+  - tweak: The occupation preferences screen now functions differently if only one
+      alt-title is available, or if the base job is not available.
+  - backend: Tidies up the job age requirement system.
+  SonicGotNuked:
+  - rscadd: Traitor borgs now can toggle their overclock.
+  - rscadd: Readded the ancient Reset Identity Codes command
+  aleksix:
+  - bugfix: Farmbot UI now properly shows pest eradication status
+  - bugfix: All-In-One Grinders won't show their UI to people outside their range
+      after grinding
+  - bugfix: RnD console now properly disconnects from machines when it's destroyed/dismantled
+2019-10-10:
+  Wowzewow:
+  - rscadd: You can take a pill from pillbottle by using it.
+  aleksix:
+  - bugfix: Zeng-Hu xenobiologists now spawn with complete equipment.
+2019-10-11:
+  otatoh:
+  - bugfix: Fixes an oversight with pen attack to_chat.
+2019-10-12:
+  Geeves:
+  - rscdel: Allows RIGs to splint fractured limbs whenever.
+2019-10-13:
+  Alberyk. BRAINOS:
+  - rscadd: Added a new option for skrell in their xeno loadout.
+  Geeves:
+  - bugfix: Fixes gamemodes not being selected.
+2019-10-14:
+  Geeves:
+  - rscdel: Removed Black K'ois as a possible K'ois mutation.
+  JohnWildkins:
+  - bugfix: Fixed being unable to late-join as alt-title jobs if character age below
+      requirement for main title
+  - bugfix: Fixed 'Your character too young!' warning if late-joining as alt-title
+      younger than main
+2019-10-15:
+  Alberyk:
+  - tweak: Ghost roles will now respect alien whitelist restrictions.
+  Furrycactus:
+  - maptweak: Put two hyposprays in the EMT/Paramedic quarters, one in each wall locker.
+      Added three more hyposprays to the sublevel, enough for each MD slot. Stop fighting
+      over them.
+  JohnWildkins:
+  - bugfix: Photocopier no longer prints half the correct number of copies.
+  - bugfix: You can no longer infinitely tear-off copies of carbon copies. Carbon
+      copies no longer have the remove-copy verb, either.
+  - tweak: Copying paper bundles in the photocopier now prints them sequentially and
+      adds them to the bundle.
+  - bugfix: Copying a paper bundle no longer creates a 'ghost' paper linked to the
+      first page of the copied bundle.
+  - bugfix: You can once again write to normal sheets of paper in paper bundles.
+  - bugfix: Cooking appliances requiring pre-heat (ovens, fryers, etc.) now must actually
+      be pre-heated before use.
+  - bugfix: Oven trays will no longer duplicate messages when inserted.
+  - bugfix: Oven/fryer temperature efficiency now correctly plays a role in time-to-cook.
+  - bugfix: Ovens and fryers now draw the correct amount of power, 6 KW and 12 KW
+      respectively.
+  - bugfix: Upgrading an oven or fryer's scanner module will no longer increase time-to-heat.
+  - tweak: Ovens should now reach minimum operating temperature in approx. 12 minutes,
+      and fryers in around 10. Additionally, they will start at 40% effiency, rather
+      than 0%.
+  - tweak: Upgrading oven/fryer components is now much more effective.
+  - backend: Various minor changes and fixes to appliance behavior, removal of superfluous
+      procs and vars
+  ParadoxSpace:
+  - tweak: Dionae heat resistance has been buffed.
+  - bugfix: Diona chirping emotes are now fixed and not double.
+2019-10-16:
+  Geeves:
+  - tweak: Reinforced walls no longer generate extra rods out of the aether when deconstructed.
+2019-10-17:
+  Geeves:
+  - rscadd: Emergency shields meant to keep hull breaches contained, now prevent air
+      from passing through them.
+  - bugfix: The mecha mounted sleeper now correctly injects reagents into the occupant.
+  - bugfix: Refitted voidsuits now correctly display their in-hand sprites.
+  JohnWildkins:
+  - bugfix: Binoculars now correctly zoom out when the user moves.
+2019-10-18:
+  Alberyk:
+  - tweak: Diona can now be Zeng-Hu, Idris, Necropolis and Hephaestus contractors.
+  - tweak: The config option that adds maintenance access to assistants now takes
+      in consideration the visitor alt title.
+  BurgerBB:
+  - balance: Explosions from APC machine overloads reduced by 66%.
+  - tweak: Increased the size of the warning text saying that AI abilities are on
+      steroids compared to other servers.
+  Geeves:
+  - rscadd: You will now vomit into a sink, disposals bin or toilet if you are in
+      range.
+  JohnWildkins:
+  - bugfix: Fix newscasters not identifying users with their IDs in wallets.
+  Lady Fowl:
+  - rscadd: Adds the ability for clients to set there FPS clientside.
+  Mwahahahaha:
+  - rscadd: Allows arcade sounds to be toggled. Take a look at the ASFX tab!
+  - rscadd: Made accessories like armbands, badges, holsters, medals, stethoscopes,
+      scarves, ribbons, medallions, pins, shoulder capes, bandoliers, contractor cards
+      and patches, as well as ID cards, PDAs and wallets horizontally flippable when
+      worn.
+  - rscadd: Added additional medals and badges, a lanyard, contractor patches, colourable
+      wallets, colourable wallet purses, and some new okayish ID card overlays for
+      in-wallet icons (all except for the medals and most badges are added to the
+      loadout menu; one has been added to arcade prize pool).
+  - rscadd: Added other holsters to HoS and detective lockers.
+  - rscadd: Added holobadges to the loadout list for security roles only (excluding
+      investigative roles).
+  - rscadd: 'Added the ability to customise loadout item names and descriptions. BE
+      CAREFUL: disabling the item will delete its custom name and description!'
+  - rscadd: Added the ability to wear ID cards, wallets (including lanyards), and
+      PDAs over your suit by toggling it.
+  - rscadd: Gave job-restricted loadout items a small descriptor showing what jobs
+      they can be spawned in.
+  - imageadd: Gave the locket an opened sprite.
+  - imageadd: Added ID card on-mob (when it's worn) icon variants for contractor ID
+      cards and reworked the vanilla ones.
+  - soundadd: Made certain accessories have arguably more accurate drop sounds.
+  - tweak: Made simple drop pouches colourable.
+  - tweak: You no longer need a jumpsuit to wear things on the ID slot. They will
+      still drop if you take your clothes off.
+  - bugfix: Fixed missing sprites for some medals and missing direction icons for
+      Lucy stethoscope and bandolier.
+2019-10-19:
+  Ferner:
+  - rscadd: Added a handful new hivebot types and changed their spawn behaviour.
+  - tweak: Tweaked the slime infestation event to be a bit more colorful.
+  - bugfix: Made it so infestation events should no longer trigger outside the station,
+      inside xenobiology cells and some other misc. areas.
+  - bugfix: Fixed the prison break event from not working entirely correctly with
+      virology, added a chance for it to happen at the bridge.
+  - bugfix: Fixed some announcements missing their custom titles. Particularly those
+      used by random events. Tweaked their font and size as well.
+  Furrycactus, AmoryBlaine:
+  - rscadd: Added the rest of the new MedSci uniform sprites by AmoryBlaine.
+  - rscadd: Scientists and Xenobiologists have access to an alternate outfit from
+      the loadout.
+  - rscadd: Added several new coloured labcoats for Medical staff to aid in distinction
+      between roles.
+  - tweak: Medical has been made green once more.
+  Geeves:
+  - rscadd: Forming armblades and flesh riot shields as ling now break cuffs and straitjackets.
+  - rscadd: Changing into a lesser form now uncuffs you.
+  - rscadd: You can use an armblade is a crowbar, to do crowbar based activities.
+  - rscadd: The armblade can be used to slice and dice through non-reinforced walls
+      and girders.
+  JohnWildkins:
+  - bugfix: Fixed an issue where borgs could swap the mode of their inflatable dispenser
+      while deploying one, thereby creating an unrecoverable door or wall.
+  - tweak: Reagent ice now melts at 25 C, allowing drinks requiring it to be made
+      once again.
+  - bugfix: Soda cans (incl. water bottles) can now be filled, and no longer freeze
+      chemistry interfaces when inserted.
+  - bugfix: Custom outputs from cooking appliances (personal pizzas, etc.) should
+      now fit inside storage containers.
+  - bugfix: The oven now pings when a custom output is completed.
+  - bugfix: You can no longer force-feed robots or silicons.
+  - bugfix: Batter can no longer be applied from infinite distance. Lasagna and doner
+      kebab have had their reagents boosted to match their ingredients.
+  - bugfix: AI-intercepted PDA messages now correctly display the recipient or sender.
+  - bugfix: Robotics spray cleaner now starts filled.
+  aleksix:
+  - bugfix: Mask adjustment command now resides in the Object group and is properly
+      capitalized, instead of having a separate category.
+2019-10-20:
+  Ferner:
+  - bugfix: Fixed mechs sometimes teleporting up two levels instead of one when walking
+      up stairs.
+  JohnWildkins:
+  - bugfix: The destination tagger now properly routes to the CMO's office.
+  - bugfix: The mail room is no longer missing emergency shutters.
+  - rscadd: Voidsuits now have an action button to deploy or retract their helmet.
+  Lady Fowl:
+  - rscadd: Add's KoKo bars, a unathi themed candy.
+  Skull132:
+  - rscadd: Added a station procedures book into the security lobby library.
+  - tweak: Resprited the corporate regulation book.
+2019-10-21:
+  Ferner:
+  - bugfix: Fixed mech sounds and some other sounds becoming horribly garbled when
+      played.
+  - tweak: Gunshots and flashbangs can now be heard farther and through walls again.
+  JohnWildkins:
+  - rscadd: Microwave, oven, deep fryer, cereal maker, and candy maker circuit boards
+      added.
+  - rscadd: 'You can now upgrade and deconstruct/reconstruct microwaves and other
+      cooking appliances. Note: advanced parts currently do not affect microwaves,
+      and deconstructing a microwave yields no parts. This will be fixed in the overhaul.'
+  - tweak: Oven efficiency now starts at 70% and grows slower to 100%.
+  - tweak: Oven heat loss due to door open cut down massively, to 1.5x heating from
+      4x.
+  - tweak: Deconstructing a machine now returns cable coil. Wirecutting a blueprint
+      on the cable-coil stage lowers it to the 'secured blueprint' stage, and as such
+      now requires a wrench to remove.
+  - bugfix: Printing a smart-fridge board no longer gives you an operating table circuit
+      board.
+  - bugfix: Deconstructing a machine no longer displays the incorrect icon state.
+  - bugfix: Candy and cereal makers no longer fail to cook.
+  - bugfix: Cent. Com. intercepts are no longer omniscient, and will no longer recommend
+      rehabilitation for mercenaries and other off-station antagonists at round start.
+2019-10-22:
+  Fire and Glory:
+  - imageadd: New Vox sprites for bulletproof vests and riot armor.
+  Lady Fowl:
+  - rscadd: Ports chewing gum and chew.
+  MattAtlas:
+  - rscadd: Added a neural suppressor to surgery operating tables. Putting people
+      on them and clicking the table will activate it, making them fall asleep. No
+      need for anesthetic..
+  ParadoxSpace:
+  - bugfix: Fixes the 'circles' glowing algae for Skrell being slightly crooked.
+  PoZe:
+  - tweak: Enabled Empty Contents verb in Object tab for Bags. Bags have base delay
+      of 0.5 second per item to empty and special bags like Captain, Wizard, Synie,
+      Engineering have 0.8 second delay per item.
+2019-10-23:
+  Geeves:
+  - tweak: Changes the entertainment and medical radio colours to be more distinct.
+  - tweak: Made dosay and devsay more readable. Stop ignoring me, admins, PLEASE,
+      PLEEEEEEEEEEEAAA-
+  - wip: Gnome still not found. Search parties are getting antsy.
+  JohnWildkins:
+  - tweak: All pages of the clipboard are now writable.
+  - tweak: You can now write to a clipboard with an attached pen, without needing
+      to remove it. If a clipboard is empty, you can also attach a pen by clicking
+      on the clipboard with a pen in your active hand.
+  - bugfix: Clipboard UI now updates when papers or a pen is added to the clipboard.
+  - bugfix: 'Clipboard icon now updates when the front page is written on. '
+  Karolis2011:
+  - bugfix: Made new player panel gap consistent.
+  PoZe:
+  - bugfix: Tesla no longer gains energy from just colliding with objects.
+  - bugfix: Fixes sprite for singularity beacon not showing up.
+  - bugfix: Tesla no longer spams admin longs when a new ball is created outside of
+      containment.
+  - bugfix: Telsa looses energy when dropping ball which should be slightly below
+      how much is required for new ball.
+  - tweak: Tesla dissipation rate has been buffed, it now looses energy faster.
+  - tweak: Tesla dissipates every time it zaps something.
+  - tweak: Tesla now melts any object or mob(but not turfs) it touches or when it
+      zaps it while sacrificing a miniball.
+  - rscadd: Added special emergency singularity beacon that is to be used when Singulo/Telsa
+      are on the Loose. When Tesla zaps the beacon, it will discharge all energy into
+      it, dying and destroying beacon.
+2019-10-25:
+  BurgerBB:
+  - backend: Sorted the maintenance loot list in code.
+  - balance: Tweaked nearly all vending machines to have their own contraband and
+      premium items.
+  - balance: Nutrition and hydration loss from low blood reduced from 7 and 3 to 2
+      and 1.
+  Furrycactus:
+  - maptweak: Gave the Supply Department (Cargo + Mining) their own substation, added
+      a new one behind the Bar for the rest of Service and the public halls. Now you
+      can crank the power way up for mining without potentially frying everyone else.
+  JohnWildkins:
+  - tweak: All closed drink containers remain shakeable, but now only carbonated drinks
+      should explode when shook.
+  - backend: Added a tag to track carbonated reagents.
+  MattAtlas:
+  - bugfix: Neural suppressors actually work now.
+  - bugfix: Hulks no longer auto-add a period after their exclamation marks.
+  MoondancerPony:
+  - bugfix: Vaurca no longer exhale leftover phoron from their breath into the air.
+      They also now breathe 1/6 the volume of air at 6x (100%) efficiency, meaning
+      that all the phoron they breathe is converted to CO2.
+  - bugfix: Thoracostomies now work properly.
+  - bugfix: Stops Vaurca from blowing their lungs up by breathing from their tank.
+      Sorry, Voa.
+  PoZe:
+  - bugfix: Animal traps no longer can have more than one prey at a time.
+  - bugfix: Traps now properly trap prey when it is thrown at them.
+  - bugfix: Deconstructing trap with prey inside no longer makes prey anchored to
+      the turf.
+  - bugfix: You cannot buckle a person into a trap.
+  - bugfix: You can no longer deconstruct trap with welder off.
+  - bugfix: Passing throuh trap no longer traps you if it is full.
+  SynysterSparx:
+  - spellcheck: Fixed typos in the cultist tome.
+2019-10-26:
+  Ferner:
+  - tweak: Tweaked the hivebot spawnrate and spawn pattern.
+  - bugfix: Fixed some miscellaneous bugs related to hivebots and added the beacons
+      to the gold slime core blacklist.
+  Geeves:
+  - rscadd: You can now build improvised swords. The hilt determines the integrity
+      thereof, while the blade determines the damage it does.
+  - rscadd: Disarming now takes a portion of your stamina. You cannot disarm if your
+      stamina is near-empty.
+  - rscadd: Disarming someone with a weapon in their hand has a chance for them to
+      retaliate by bashing you with it.
+  JohnWildkins:
+  - bugfix: Hephaestus atmospheric technicians should now spawn with the proper uniform
+      and ID.
+  - rscadd: Add the ability for ore redemption consoles to print yield declaration
+      reports, with a valid inserted ID and prior processed ores.
+  - refactor: (Essentially) all instances of istype checks for tools removed. As such,
+      combitools and impact wrenches should now work for all normal tool uses except
+      mech and RIG crafting.
+  ParadoxSpace:
+  - rscadd: Suit slot items can now support armband and decor slot accessories.
+  - rscadd: You can now have multiple armbands.
+  - rscadd: Shoulder patches are now flippable.
+  PoZe:
+  - bugfix: Tesla no longer melts ashes, emitter beams, its own energy balls and accelerated
+      particles.
+  - bugfix: Tesla now properly consumes accelerated particles.
+  otatoh:
+  - rscadd: Adds a *chitter emote for Vaurca.
+2019-10-27:
+  BurgerBB:
+  - balance: Added a new config setting that subtracts z-level transfer explosion
+      power.
+  Geeves:
+  - tweak: Donk Pockets can now be heated properly in a microwave, they gain additional
+      nutriment, animal protein and healing juice.
+  - tweak: Sin-Pockets now heat properly when used in hand, heats instantly, and gives
+      slightly more hyperzine and synaptizine than before.
+  JohnWildkins:
+  - bugfix: Earmuffs and other equipment that covers both ears no longer duplicate
+      infinite instances of themselves when click+dragged out of their slot.
+  - bugfix: Helmets and other equipment that cover the head now prevent ear equipment
+      from being equipped or unequipped.
+  - bugfix: Seismic charges now correctly have their overlay removed from the object
+      they're placed on when detonated.
+  - bugfix: You can no longer queue up simultaneous limb-breaks while aggressively
+      grabbing someone.
+  - bugfix: Using credit chips at the laptop vendor now correctly updates the credit
+      chips' sprite and examined value.
+  - bugfix: 'Attempting to equip a wielded gun with the equip hotkey (def: E) no longer
+      spams the chat log with error messages.'
+  Lady Fowl:
+  - bugfix: Therapy pods no longer spit components out.
+  MattAtlas:
+  - rscadd: Distress Beacons are here! They replace the standard ERT call with a cool
+      sound effect.
+  - rscadd: Activating a distress beacon is the same as always. Once activated, a
+      random ERT will be selected between, for now, independent neutral mercenaries,
+      TCFL and Nanotrasen ERT.
+  - rscadd: Added a cool new ERT base for outsider ERTs to the centcomm level, courtesy
+      of Fernerr.
+  - rscdel: Removed the Join Response Team verb. All ERTs are now ghost spawners.
+  - bugfix: Merc leaders can now actually use the hardsuit.
+  - rscdel: Merc leaders no longer spawn with items they shouldn't have.
+  ParadoxSpace:
+  - bugfix: Skrell glowing algae actually glows now.
+  synystersparx:
+  - bugfix: Fixed cultist teleport rune. Now uses proper user selected third word.
+  - bugfix: Cultist hide rune can now be imbued into a talisman.
+  - bugfix: Improved prevention of multiple cultist runes on same location.
+  - bugfix: Cultist reveal talisman now works properly.
+2019-10-28:
+  Alberyk:
+  - tweak: Headgear should be a bit less restricting when stopping things from being
+      equipped on the ear slot.
+  - bugfix: Fixed renaming food having no character limit.
+  - tweak: Nutriment should be less effective in recovering blood.
+  BurgerBB:
+  - tweak: Removed, added, and reworked maintenance loot items.
+  Geeves:
+  - bugfix: You can no longer retaliate against disarm attempts with an in-hand grab.
+2019-10-29:
+  Ferner:
+  - bugfix: Fixed an issue with the freelancer merc shuttle that lead to occupants
+      being pulled south.
+  JohnWildkins:
+  - tweak: Pumps can now be unsecured by pipe wrenches.
+2019-10-30:
+  BurgerBB:
+  - maptweak: The station's meteor shield room is no longer connect to the main grid.
+  Doxxmedearly:
+  - rscadd: Adds over twenty-five tea drinks and recipes, for both iced teas and hot
+      teas. Cider, too! Baristas and hipsters rejoice!
+  - rscadd: Adds three alcoholic drinks to accompany the tea and cider. One ethanol-based,
+      one butanol-based, one toothpaste-based (Eugh).
+  - rscadd: Adds tea, green tea, chai tea, and hot cider to the Coffee Master 3000.
+      They are also available at the hot drinks vendors.
+  - rscadd: Adds two cans each of hakhma milk and fermented fatshouter milk to the
+      booze-o-mat to help the bartender mix more drinks.
+  - imageadd: 'Adds around twenty new sprites for many of the new drinks. '
+  - spellcheck: Fixes several typos found in latte descriptions.
+  - tweak: Adjusts the reagent color of Iced Tea from its weird blue to a color closer
+      to its sprite.
+  - tweak: Due to budget cuts, tea from the hot drinks vendor now comes in disposable
+      cups.
+  - bugfix: Fixes pumpkin spice lattes from the hot drinks vendor being vended with
+      regular coffee mixed in it.
+2019-10-31:
+  Alberyk:
+  - tweak: High heels now have a minor slowdown, but are a bit more robust in combat.
+  Geeves:
+  - rscadd: Janitorial staff are now equipped with an Arodentia gun, capable of keeping
+      any well-meaning establishment clear of pests.
+  - rscadd: Janitorial staff now have an armpit holster to keep their Arodentia gun
+      in.
+  - tweak: Arodentia guns have come out of the experimental phase, now featuring new
+      abilities.
+  - tweak: Rats now have their health reduced to reasonable levels.
+  ParadoxSpace & MoondancerPony:
+  - bugfix: Circuit lights no longer have UV.

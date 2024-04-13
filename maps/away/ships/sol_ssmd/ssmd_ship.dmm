@@ -208,21 +208,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/synthroom)
 "aHw" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 8
 	},
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/ssmd,
-/obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/tank/emergency_oxygen/double,
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
-/obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/machinery/suit_cycler/offship/sol/ssmd,
+/obj/effect/floor_decal/industrial/outline/yellow{
+	layer = 2.71
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "aHC" = (
@@ -292,7 +287,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/brig)
 "aLy" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -445,19 +440,14 @@
 /turf/template_noop,
 /area/ship/ssmd_corvette/hangar)
 "bci" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/grey/full,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/ssmd,
-/obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/tank/emergency_oxygen/double,
 /obj/machinery/light/colored/blue{
 	dir = 8
 	},
-/obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/machinery/suit_cycler/offship/sol/ssmd,
+/obj/effect/floor_decal/industrial/outline/yellow{
+	layer = 2.71
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "bdq" = (
@@ -1082,7 +1072,6 @@
 /area/ship/ssmd_corvette/hangar)
 "dgq" = (
 /obj/structure/table/steel,
-/obj/structure/table/steel,
 /obj/structure/window/basic,
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -1706,8 +1695,6 @@
 	name = "Support Synthetic Equipment";
 	pixel_y = -32
 	},
-/obj/item/clothing/suit/space/void/freelancer,
-/obj/item/clothing/head/helmet/space/void/freelancer,
 /obj/item/device/suit_cooling_unit,
 /obj/item/gun/energy/plasmacutter,
 /turf/simulated/floor/tiled/dark,
@@ -2626,18 +2613,13 @@
 /turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "gHC" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/ssmd,
-/obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/machinery/suit_cycler/offship/sol/ssmd,
+/obj/effect/floor_decal/industrial/outline/yellow{
+	layer = 2.71
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "gKp" = (
@@ -2868,21 +2850,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "hBd" = (
-/obj/structure/closet,
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 1
 	},
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/ssmd,
-/obj/item/clothing/head/helmet/space/void/sol/ssmd,
-/obj/item/tank/emergency_oxygen/double,
 /obj/machinery/light/colored/blue{
 	dir = 4
 	},
-/obj/item/device/gps,
-/obj/item/clothing/mask/gas/half,
-/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/machinery/suit_cycler/offship/sol/ssmd,
+/obj/effect/floor_decal/industrial/outline/yellow{
+	layer = 2.71
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "hBs" = (
@@ -3725,7 +3702,9 @@
 /area/ship/ssmd_corvette/francisca)
 "kqx" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/suit_cycler/freelancer,
+/obj/machinery/suit_cycler/engineering/prepared{
+	req_access = list(203)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/synthroom)
 "krH" = (
@@ -6695,7 +6674,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/canteen)
 "upw" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -7075,10 +7054,36 @@
 /turf/simulated/floor/wood/birch,
 /area/ship/ssmd_corvette/starboardfoyer)
 "vwF" = (
-/obj/structure/closet/crate/bin{
-	name = "trashbin"
-	},
 /obj/machinery/firealarm/south,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/structure/closet,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
 /turf/simulated/floor/tiled/dark,
 /area/ship/ssmd_corvette/dorms)
 "vxe" = (
@@ -7349,7 +7354,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
 "wiX" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -35631,7 +35636,7 @@ xyG
 gHC
 eBK
 fRD
-dTw
+vwF
 xyG
 jTb
 hGn
@@ -35888,7 +35893,7 @@ nda
 xWT
 eBK
 ldU
-vwF
+dTw
 xyG
 tHH
 ang

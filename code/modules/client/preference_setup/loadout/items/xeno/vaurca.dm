@@ -230,6 +230,15 @@
 	gear_tweaks += new /datum/gear_tweak/path(lunchboxes)
 	gear_tweaks += new /datum/gear_tweak/contents(lunchables_vaurca(), lunchables_vaurca_snack(), lunchables_drinks(), lunchables_utensil())
 
+/datum/gear/kois_mre
+	display_name = "k'ois MRE"
+	description = "K'ois MRE."
+	cost = 1
+	path = /obj/item/storage/box/fancy/mre/menu12
+	sort_category = "Xenowear - Vaurca"
+	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
+	flags = GEAR_NO_SELECTION
+
 /datum/gear/ears/vaurca
 	abstract_type = /datum/gear/ears/vaurca
 

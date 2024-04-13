@@ -94,7 +94,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		user.visible_message("In a feat of redundancy, <b>[user]</b> lights \the [src] using \the [attacking_item].", range = 3)
 		light()
 
-/obj/item/flame/match/dropped(mob/user as mob)
+/obj/item/flame/match/dropped(mob/user)
 	if(lit)
 		spawn(0)
 			var/turf/location = src.loc	// Light up the turf we land on.
@@ -413,7 +413,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/toxin/tobacco/srendarrs_hand = 5,
 		/singleton/reagent/mental/nicotine = 5
 	)
 
@@ -421,7 +421,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "adhomian menthol cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand, with menthol added."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/toxin/tobacco/srendarrs_hand = 5,
 		/singleton/reagent/mental/nicotine = 5,
 		/singleton/reagent/menthol = 5
 	)

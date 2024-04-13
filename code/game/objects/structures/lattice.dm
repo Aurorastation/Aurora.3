@@ -8,7 +8,7 @@
 	density = FALSE
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = UNDER_PIPE_LAYER //under pipes
+	layer = LATTICE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -85,7 +85,7 @@
 /obj/structure/lattice/catwalk/indoor
 	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
 	can_be_unanchored = TRUE
-	layer = 2.7	// Above wires.
+	layer = CATWALK_LAYER
 
 /obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswelder())
@@ -169,7 +169,7 @@
 	icon_state = "grate_light"
 	base_icon_state = "grate_light"
 	return_amount = 1
-	color = COLOR_GUNMETAL
+	color = COLOR_GRAY50
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old/Initialize()
 	. = ..()
@@ -185,6 +185,12 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal
+	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/slate
+	color = COLOR_SLATE
 
 /obj/structure/lattice/catwalk/indoor/urban
 	name = "grate"

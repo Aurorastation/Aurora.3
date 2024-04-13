@@ -3640,6 +3640,14 @@
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
+"JJ" = (
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 7
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "JQ" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light,
@@ -17574,7 +17582,7 @@ cS
 Vg
 dz
 FW
-dz
+JJ
 uw
 Ll
 pu

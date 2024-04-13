@@ -16,17 +16,9 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"cw" = (
-/obj/structure/simple_door,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
 "ds" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ef" = (
 /obj/item/reagent_containers/glass/bucket/wood{
@@ -36,7 +28,8 @@
 	pixel_x = 9
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -44,11 +37,10 @@
 /area/exoplanet/adhomai)
 "ev" = (
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ew" = (
 /obj/machinery/shower{
@@ -93,13 +85,13 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "gz" = (
 /obj/machinery/vending/cigarette,
-/obj/structure/sign/flag/pra/large/west,
+/obj/structure/sign/flag/pra/large/west{
+	pixel_x = -32
+	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -141,9 +133,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "kI" = (
 /obj/effect/floor_decal/concrete{
@@ -189,9 +179,7 @@
 	},
 /area/exoplanet/adhomai)
 "mC" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "mF" = (
 /obj/effect/decal/cleanable/dirt,
@@ -215,18 +203,11 @@
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
-"nR" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
 "ot" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ov" = (
 /obj/structure/hadii_statue/stone{
@@ -256,16 +237,14 @@
 	},
 /area/exoplanet/adhomai)
 "qI" = (
-/obj/structure/sign/flag/pra/large/north,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
 	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "qW" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "rf" = (
 /obj/structure/closet/crate/freezer,
@@ -318,9 +297,7 @@
 /area/exoplanet/adhomai)
 "vw" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "vB" = (
 /obj/effect/floor_decal/concrete,
@@ -344,7 +321,8 @@
 "wx" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -379,11 +357,10 @@
 /area/exoplanet/adhomai)
 "yd" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "yA" = (
 /obj/effect/floor_decal/concrete/large/cee{
@@ -456,7 +433,8 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
@@ -504,15 +482,15 @@
 /area/exoplanet/adhomai)
 "FM" = (
 /obj/structure/flora/grass/brown,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Gu" = (
 /turf/simulated/wall/wood,
 /area/exoplanet/adhomai)
 "GB" = (
-/obj/structure/sign/flag/pra/large/west,
+/obj/structure/sign/flag/pra/large/west{
+	pixel_x = -32
+	},
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
@@ -577,9 +555,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Jb" = (
 /obj/effect/decal/cleanable/dirt,
@@ -589,17 +565,10 @@
 /area/exoplanet/adhomai)
 "KV" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
-/area/exoplanet/adhomai)
-"Lz" = (
-/obj/effect/floor_decal/concrete{
-	dir = 9
-	},
-/turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
 /area/exoplanet/adhomai)
@@ -653,14 +622,10 @@
 /obj/structure/blocker/steel/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Qe" = (
-/obj/structure/simple_door{
-	initial_lock_value = "labor_barracks"
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
@@ -702,7 +667,8 @@
 "Tp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/item/handcuffs,
 /turf/simulated/floor/concrete/square{
@@ -746,17 +712,14 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Xv" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "XT" = (
 /obj/machinery/door/blast/shutters{
@@ -776,9 +739,7 @@
 	},
 /area/exoplanet/adhomai)
 "Yn" = (
-/obj/structure/simple_door{
-	initial_lock_value = "labor_barracks"
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/concrete/square{
 	temperature = 268.15
 	},
@@ -854,164 +815,164 @@ jg
 Xv
 "}
 (2,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 ds
 jg
 jg
 ot
-nR
-nR
+mC
+mC
 kB
-nR
+mC
 "}
 (3,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 rf
 sS
-Lz
+sS
 GB
 sS
 LT
-nR
+mC
 kB
-nR
+mC
 "}
 (4,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 vw
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Rh
 Sg
 eU
 fq
 Sg
 WK
-nR
+mC
 kB
-nR
+mC
 "}
 (5,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Rh
 Sg
 fq
 fq
 Sg
 WK
-nR
+mC
 kB
-nR
+mC
 "}
 (6,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Xk
 Rh
 Sg
@@ -1021,13 +982,13 @@ Sg
 WK
 Xk
 kB
-nR
+mC
 "}
 (7,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 Gu
@@ -1035,17 +996,17 @@ Gu
 Gu
 Gu
 Xv
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
 Gu
 Gu
 Gu
 Gu
-nR
-nR
-nR
+mC
+mC
+mC
 jg
 Fz
 Sg
@@ -1055,13 +1016,13 @@ Sg
 mR
 jg
 kB
-nR
+mC
 "}
 (8,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 zf
@@ -1071,15 +1032,15 @@ Yn
 yV
 kI
 LT
-nR
+mC
 Gu
 Gu
 HX
 am
 Gu
 Gu
-nR
-nR
+mC
+mC
 IO
 Rh
 Sg
@@ -1089,13 +1050,13 @@ Sg
 WK
 IO
 kB
-nR
+mC
 "}
 (9,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 zf
@@ -1112,41 +1073,41 @@ Wa
 zf
 Pa
 Gu
-nR
-nR
-nR
+mC
+mC
+mC
 Rh
 Sg
 fq
 BZ
 Sg
 WK
-nR
+mC
 kB
-nR
+mC
 "}
 (10,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 zf
 zf
 TQ
 Gu
-nR
+mC
 Rh
 vB
 Zf
-cw
+Yn
 zf
 zf
 zf
 GR
 Gu
-nR
+mC
 BP
 sS
 uU
@@ -1155,22 +1116,22 @@ fq
 fq
 Sg
 WK
-nR
+mC
 kB
-nR
+mC
 "}
 (11,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 wx
 zf
 Gu
 Gu
-nR
+mC
 Rh
 WK
 yd
@@ -1180,7 +1141,7 @@ Wa
 Wa
 Ht
 Gu
-nR
+mC
 Rh
 hm
 pU
@@ -1189,124 +1150,124 @@ pU
 pU
 pU
 ZL
-nR
+mC
 kB
-nR
+mC
 "}
 (12,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 Wa
 zf
 TQ
 Gu
-nR
+mC
 Rh
 WK
-nR
+mC
 Gu
 Gu
 kJ
 xn
 Gu
 Gu
-nR
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 kB
-nR
+mC
 "}
 (13,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 zf
 rM
 Gu
 Gu
-nR
+mC
 Rh
 WK
-nR
-nR
+mC
+mC
 Gu
 Gu
 Gu
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 kB
-nR
+mC
 "}
 (14,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 zh
 zf
 zf
 TQ
 Gu
-nR
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 kB
-nR
+mC
 "}
 (15,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 KV
 Wa
 Gu
 Gu
-nR
+mC
 Rh
 WK
 yd
@@ -1315,32 +1276,32 @@ Gu
 Gu
 Gu
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 kB
-nR
+mC
 "}
 (16,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 IM
 zf
 TQ
 Gu
-nR
+mC
 Rh
 Yc
 Zf
@@ -1349,32 +1310,32 @@ Jb
 TD
 fZ
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
-nR
-nR
+mC
+mC
 jg
 jg
 jg
 jg
-nR
+mC
 kB
-nR
+mC
 "}
 (17,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 zf
 rM
 Gu
 Gu
-nR
+mC
 Rh
 WK
 yd
@@ -1383,42 +1344,42 @@ Gu
 Jb
 Gu
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
-nR
-nR
+mC
+mC
 jg
 Cw
 mF
 jg
 jg
 kB
-nR
+mC
 "}
 (18,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 zf
 zf
 TQ
 Gu
-nR
+mC
 Rh
 WK
-nR
+mC
 Gu
 Rw
 Aq
 ew
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
 yd
@@ -1432,27 +1393,27 @@ kB
 FM
 "}
 (19,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 Tp
 zf
 Gu
 Gu
-nR
+mC
 Rh
 WK
-nR
+mC
 Gu
 Gu
 Aq
 Gu
 Gu
 qI
-nR
+mC
 Rh
 vB
 Zf
@@ -1463,30 +1424,30 @@ zf
 Cc
 jg
 kB
-nR
+mC
 "}
 (20,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 zf
 Wa
 TQ
 Gu
-nR
+mC
 Rh
 WK
-nR
+mC
 Gu
 Rw
 Aq
 ew
 Gu
 mC
-nR
+mC
 Rh
 WK
 yd
@@ -1497,101 +1458,101 @@ zf
 Zi
 jg
 kB
-nR
+mC
 "}
 (21,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 zf
 rM
 Gu
 Gu
-nR
+mC
 Rh
 WK
-nR
+mC
 Gu
 Gu
 Jb
 Gu
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
-nR
-nR
+mC
+mC
 jg
 jg
 jg
 jg
 jg
 kB
-nR
+mC
 "}
 (22,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 mf
 zf
 zf
 TQ
 Gu
-nR
+mC
 Rh
 WK
-nR
+mC
 Gu
 Rw
 Ic
 ew
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 kB
-nR
+mC
 "}
 (23,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 ef
 zf
 Gu
 Gu
-nR
+mC
 Rh
 WK
-nR
+mC
 Gu
 Gu
 Gu
 Gu
 Gu
-nR
-nR
+mC
+mC
 Rh
 WK
-nR
+mC
 jg
 jg
 jg
@@ -1599,33 +1560,33 @@ jg
 jg
 jg
 kB
-nR
+mC
 "}
 (24,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 zf
 zf
 TQ
 Gu
-nR
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Rh
 WK
-nR
+mC
 jg
 YV
 YQ
@@ -1633,33 +1594,33 @@ gz
 uc
 jg
 kB
-nR
+mC
 "}
 (25,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 zf
 rM
 Gu
 Gu
-nR
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Rh
 WK
-nR
+mC
 jg
 zA
 jr
@@ -1667,33 +1628,33 @@ eS
 rM
 jg
 kB
-nR
+mC
 "}
 (26,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Oc
 zf
 zf
 TQ
 Gu
-nR
+mC
 Rh
 WK
-nR
-nR
-nR
+mC
+mC
+mC
 ov
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
 Rh
 WK
-nR
+mC
 jg
 kO
 ko
@@ -1701,54 +1662,54 @@ jg
 aa
 jg
 kB
-nR
+mC
 "}
 (27,1,1) = {"
-nR
+mC
 kB
-nR
-nR
+mC
+mC
 Gu
 Gu
 Gu
 Gu
 Gu
 Gu
-nR
+mC
 Rh
 WK
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Rh
 WK
-nR
+mC
 gm
 xc
 Iv
 ev
 yA
-nR
+mC
 jg
 Xv
 "}
 (28,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Rh
 sQ
 sS
@@ -1772,17 +1733,17 @@ XT
 HM
 "}
 (29,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 Ci
 pU
 pU
@@ -1806,72 +1767,72 @@ OA
 pU
 "}
 (30,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 jg
 Xv
 "}
 (31,1,1) = {"
-nR
+mC
 kB
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
-nR
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
+mC
 kB
-nR
+mC
 "}
 (32,1,1) = {"
 yd

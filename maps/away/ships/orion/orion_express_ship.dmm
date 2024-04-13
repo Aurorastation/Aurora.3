@@ -1168,9 +1168,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -1445,7 +1442,7 @@
 /turf/simulated/floor,
 /area/ship/orion/cargo)
 "gqU" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = list(201)
 	},
 /obj/item/reagent_containers/food/snacks/meat,

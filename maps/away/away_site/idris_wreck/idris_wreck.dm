@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/idris_wreck
 	name = "Wrecked Idris Transport"
 	description = "An Idris vessel, set upon by pirates and left in ruins."
-	suffixes = list("away_site/idris_wreck/idris_wreck.dmm")
+
+	prefix = "away_site/idris_wreck/"
+	suffixes = list("idris_wreck.dmm")
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE) //sectors that an idris ship might be passing through, but frontier enough that it could get raided
 	spawn_weight = 1
 	spawn_cost = 1
@@ -86,6 +89,11 @@
 /obj/effect/landmark/corpse/idris/robot/do_extra_customization(mob/living/carbon/human/M)
 	M.adjustBruteLoss(rand(200,400))
 	M.dir = pick(GLOB.cardinal)
+	var/obj/item/organ/internal/ipc_tag/tag = M.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(M.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_COMPANY
+		tag.citizenship_info = CITIZENSHIP_NONE
 
 /obj/effect/landmark/corpse/idris/captain
 	name = "Idris Captain"

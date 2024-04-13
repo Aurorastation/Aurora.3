@@ -70,6 +70,8 @@
 				continue
 		if(owner_rank < PSI_RANK_HARMONIOUS && (P.ability_flags & PSI_FLAG_ANTAG))
 			continue
+		if(!(owner.mind in loners.current_antagonists) && (P.ability_flags & PSI_FLAG_LONER))
+			continue
 		data["available_psionics"] += list(
 			list(
 				"name" = P.name,

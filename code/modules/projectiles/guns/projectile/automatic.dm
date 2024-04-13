@@ -645,6 +645,31 @@
 	..()
 	icon_state = (ammo_magazine) ? "assassin_smg" : "assassin_smg-empty"
 
+/obj/item/gun/projectile/automatic/tommygun/konyang
+	name = "konyang police submachine gun"
+	desc = "A compact submachine gun made specifically for the Konyang National Police. Takes .45 ammo."
+	desc_extended = "Produced by one of Einstein Engines' local subsidiaries on Konyang, the K45 \"Pogpung\" submachine gun is Taepung Arms' entry into the submachine gun market. \
+	The National Police purchased a large number of K45s for their patrol units due to reports that service revolvers were inadequate at stopping rampant IPCs. The K45-P variant \
+	specially designed for the police forces is chambered in the organization's preferred .45 caliber and is limited to 3-round bursts due to the relatively limited firearms training of \
+	National Police officers."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "k45carbine"
+	item_state = "k45carbine"
+	w_class = ITEMSIZE_NORMAL
+	max_shells = 30
+	load_method = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c45
+	allowed_magazines = list(/obj/item/ammo_magazine/c45m, /obj/item/ammo_magazine/submachinemag)
+
+	firemodes = list(
+		list(mode_name="semiauto",       can_autofire=0, burst=1, fire_delay=ROF_SMG),
+		list(mode_name="3-round bursts", can_autofire=0, burst=3, burst_accuracy=list(1,0,0), dispersion=list(0, 10, 15))
+	)
+
+/obj/item/gun/projectile/automatic/tommygun/konyang/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "k45carbine" : "k45carbine-e"
+
 /obj/item/gun/projectile/automatic/rifle/dnac
 	name = "dNAC-6.5 assault rifle"
 	desc = "A durable, sleek-looking bullpup rifle manufactured by d.N.A Defense & Aerospace for the All-Xanu Armed Forces. This model has been adopted by a majority of the Coalition's military forces as well due to its simplicity and reliability."
@@ -740,7 +765,7 @@
 /obj/item/gun/projectile/automatic/rifle/konyang/k556
 	name = "konyang assault rifle"
 	desc = "The K556 is the standard assault rifle of the Konyang Armed Forces. Sturdy and reliable."
-	desc_extended = "The Zavodskoi-made K556 assault rifle is a new design in use by elements of the Konyang Armed Forces. Light and accurate, it is a weapon of choice for its aerospace branch and special forces."
+	desc_extended = "The K556 assault rifle is a new design in use by elements of the Konyang Armed Forces, designed in-house by the military in partnership with Einstein Engines'local subsidiaries. It has yet to see widespread service as the government is reluctant to spend money on new small arms when they already possess large stockpiles from the colonial period. This has not stopped the Aerospace Forces from making the transition to the new weapon however, as its compact design, light weight, and accuracy make it ideal for use aboard a spacecraft."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k556rifle"
 	item_state = "k556rifle"
@@ -760,8 +785,7 @@
 /obj/item/gun/projectile/automatic/rifle/konyang/konyang47
 	name = "konyang assault carbine"
 	desc = "The Dering-K1 is the carbine version of the K556. Intended to be used by vehicle crews, second line infantry, support crew and staff or when you have limited space to work with."
-	desc_extended = "The Dering K1 battle rifle is a Zavodskoi-produced variant of its standard Solarian counterpart, suited for the needs of the Konyang Armed Forces. \
-	Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
+	desc_extended = "The Dering K1 battle rifle is a standard Solarian M469 given a service extension package by Zavodskoi Interstellar. Many of the rifles bear Konyanger proof marks right next to old Solarian ones, indicating their heritage. Its more robust design is tailored for naval and swamp warfare, while still maintaining the firepower needed for frontline combat operations."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k47"
 	item_state = "k47"
@@ -916,3 +940,51 @@
 	..()
 	icon_state = (ammo_magazine)? "mshotgun" : "mshotgun-empty"
 
+/obj/item/gun/projectile/automatic/rifle/hook_mg
+	name = "unathi hook machine gun"
+	desc = "A ballistic machine gun of Unathi manufacture, often used by the forces of the Traditionalist Coalition during the Contact War."
+	desc_extended = "The Hook Machinegun is a heavy automatic machinegun of Moghesian manufacture. Though the name of the creators of this weapon was lost to the destruction of the nuclear exchange, the Hook was known to be found in the hands of some of the better-equipped forces of the Traditionalist Coalition during the Contact War. \
+	This machine gun is carried on one's shoulder and thus can be used with a single hand. Though it can fire heavy cartridges, it is quite lacking in accuracy."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "hookmg"
+	item_state = "hookmg"
+	caliber = "5.8mm"
+	magazine_type = /obj/item/ammo_magazine/hookmg
+	allowed_magazines = list(/obj/item/ammo_magazine/hookmg)
+	firemodes = list(
+		list(mode_name="short bursts",	burst=5, burst_accuracy = list(1,0,0,-1,-1), dispersion = list(3, 6, 9)),
+		list(mode_name="long bursts",	burst=8, burst_accuracy = list(1,0,0,-1,-1,-1,-2,-2), dispersion = list(8)),
+		list(mode_name="full auto", can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=2, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
+	)
+	slot_flags = null
+	w_class = ITEMSIZE_LARGE
+	accuracy = -2
+	accuracy_wielded = 0
+
+/obj/item/gun/projectile/automatic/rifle/hook_mg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "hookmg" : "hookmg-empty"
+
+/obj/item/gun/projectile/automatic/tempestsmg
+	name = "tempest submachine gun"
+	desc = "The tempest sub-machine gun is a Hegemonic design dating back to the 2350s, though still produced in ample numbers to this day. While rather large and heavy for a weapon of its class, its simplicity and reliability have made it a popular weapon among Unathi for over a century, and the aging weapon was even used as the basis for future designs."
+	magazine_type = /obj/item/ammo_magazine/tempestsmg
+	allowed_magazines = list(/obj/item/ammo_magazine/tempestsmg)
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "tempestsmg"
+	item_state = "tempestsmg"
+	caliber = "11.6mm"
+	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
+	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
+	load_method = MAGAZINE
+	slot_flags = SLOT_BELT|SLOT_BACK|SLOT_S_STORE
+	suppressed = FALSE
+	is_wieldable = TRUE
+	accuracy_wielded = 2
+	can_suppress = TRUE
+	suppressor_x_offset = 10
+	suppressor_y_offset = 1
+
+/obj/item/gun/projectile/automatic/tempestsmg/update_icon()
+	..()
+	icon_state = (ammo_magazine)? "tempestsmg" : "tempestsmg-empty"

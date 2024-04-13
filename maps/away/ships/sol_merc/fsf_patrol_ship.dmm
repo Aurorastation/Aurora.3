@@ -20,13 +20,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "aad" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/door/airlock/security{
-	name = "Messhall";
-	req_access = list(203);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
+/obj/machinery/suit_cycler/offship/sol/fsf,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "aae" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -45,14 +41,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
-"aag" = (
-/obj/machinery/door/airlock/security{
-	name = "Engineering";
-	req_access = list(203);
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/fsf_patrol_ship)
 "aah" = (
 /obj/machinery/door/airlock/security{
 	name = "Engineering";
@@ -68,22 +56,6 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/ship/fsf_patrol_ship)
-"aaj" = (
-/obj/machinery/door/airlock/security{
-	name = "Head";
-	req_access = list(203);
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/fsf_patrol_ship)
-"aak" = (
-/obj/machinery/door/airlock/security{
-	name = "EVA";
-	req_access = list(203);
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "aaI" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -269,7 +241,6 @@
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
@@ -614,7 +585,6 @@
 /area/ship/fsf_patrol_ship)
 "dTw" = (
 /obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
@@ -727,19 +697,12 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship)
 "eOW" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/sol/fsf,
-/obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
-/obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/sol/fsf,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "eTq" = (
@@ -1120,7 +1083,6 @@
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
-	layer = 2.8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/decal/cleanable/dirt,
@@ -1158,7 +1120,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/fsf_shuttle)
 "hsz" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = list(203)
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1170,7 +1132,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1295,7 +1256,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "sfa_patrol_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "sfa_patrol_ship_pump";
 	tag_chamber_sensor = "sfa_patrol_ship_sensor";
@@ -1406,16 +1366,24 @@
 "iQt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
 /obj/machinery/light{
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
 /obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/sol/fsf,
-/obj/item/clothing/head/helmet/space/void/sol/fsf,
 /obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
+/obj/item/clothing/mask/gas/half,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/device/gps,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
+/obj/item/clothing/mask/gas/half,
 /obj/item/clothing/mask/gas/half,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
@@ -1503,10 +1471,6 @@
 	id_tag = "sfa_patrol_ship_pump"
 	},
 /turf/simulated/floor,
-/area/ship/fsf_patrol_ship)
-"jGx" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "jHa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
@@ -1629,7 +1593,6 @@
 	name = "trashbin"
 	},
 /obj/item/clothing/gloves/black_leather{
-	layer = 2.98
 	},
 /turf/simulated/floor/tiled{
 	name = "cooled floor";
@@ -1746,14 +1709,7 @@
 /area/ship/fsf_patrol_ship)
 "lwj" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/sol/fsf,
-/obj/item/clothing/head/helmet/space/void/sol/fsf,
-/obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
+/obj/machinery/suit_cycler/offship/sol/fsf,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "lBQ" = (
@@ -2699,19 +2655,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship)
 "vfY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots,
 /obj/machinery/light{
 	dir = 1;
 	icon_state = "tube_empty"
 	},
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/suit/space/void/sol/fsf,
-/obj/item/clothing/head/helmet/space/void/sol/fsf,
-/obj/item/device/gps,
-/obj/item/clothing/glasses/safety/goggles/tactical,
-/obj/item/clothing/mask/gas/half,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/suit_cycler/offship/sol/fsf,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship)
 "vgc" = (
@@ -32301,9 +32250,9 @@ yjk
 yjk
 mwV
 vOB
-jGx
-jGx
-jGx
+eYk
+eYk
+eYk
 lcg
 yjk
 yjk
@@ -32560,12 +32509,12 @@ eTH
 krH
 krH
 heP
-jGx
-jGx
+eYk
+eYk
 yjk
 vfY
 lwj
-sSs
+aad
 lwj
 eOW
 yjk
@@ -32817,8 +32766,8 @@ eYk
 vCD
 vCD
 lRe
-jGx
-jGx
+eYk
+eYk
 jHa
 sSs
 sSs
@@ -33070,11 +33019,11 @@ lNu
 xto
 dHE
 uHi
-jGx
+eYk
 krH
 krH
 heP
-jGx
+eYk
 aGW
 yjk
 uvX
@@ -33329,8 +33278,8 @@ xto
 yjk
 jdD
 gXx
-jGx
-jGx
+eYk
+eYk
 gXx
 nKS
 yjk
@@ -33586,7 +33535,7 @@ yjk
 yjk
 yjk
 yjk
-aad
+aae
 aae
 yjk
 yjk
@@ -35639,7 +35588,7 @@ sSs
 mEc
 keV
 sSs
-aag
+aah
 hBs
 sSs
 gqO
@@ -37444,7 +37393,7 @@ uYP
 uYP
 uYP
 uYP
-aaj
+aai
 kYY
 kYY
 yjk
@@ -37960,7 +37909,7 @@ uYP
 jxF
 yjk
 yjk
-aak
+aaf
 yjk
 yjk
 yjk

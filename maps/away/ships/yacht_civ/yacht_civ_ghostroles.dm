@@ -14,7 +14,7 @@
 	spawnpoints = list("yacht_civ_crew")
 	max_count = 4
 
-	outfit = /datum/outfit/admin/yacht_civ
+	outfit = /obj/outfit/admin/yacht_civ
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -22,7 +22,7 @@
 	special_role = "Civilian Yacht Crew"
 	respawn_flag = null
 
-/datum/outfit/admin/yacht_civ
+/obj/outfit/admin/yacht_civ
 	name = "Civilian Yacht Crew"
 
 	uniform = list(/obj/item/clothing/under/pj/red, /obj/item/clothing/under/pj/blue)

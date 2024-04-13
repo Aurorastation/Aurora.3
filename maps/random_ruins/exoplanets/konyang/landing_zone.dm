@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED|TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/landing_zone.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("landing_zone.dmm")
 
 /area/konyang_landing_zone
 	name = "SCC Expedition Command Center"
@@ -14,7 +16,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/mineral
-	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
 /area/konyang_landing_zone/command_center
 	name = "SCC Expedition Command Center"

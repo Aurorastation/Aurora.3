@@ -165,17 +165,18 @@
 	qdel(G)
 	return TRUE
 
-/obj/machinery/bodyscanner/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/machinery/bodyscanner/MouseDrop_T(atom/dropping, mob/user)
 	if(!istype(user))
 		return
-	if(!ismob(O))
+
+	if(!ismob(dropping))
 		return
-	var/mob/living/M = O//Theres no reason this shouldn't be /mob/living
+
 	if (occupant)
 		to_chat(user, SPAN_NOTICE("<B>The scanner is already occupied!</B>"))
 		return
 
-	var/mob/living/L = O
+	var/mob/living/L = dropping
 	var/bucklestatus = L.bucklecheck(user)
 	if (!bucklestatus)
 		return
@@ -189,11 +190,11 @@
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled_to
 			LB.user_unbuckle(user)
-		if (M.client)
-			M.client.perspective = EYE_PERSPECTIVE
-			M.client.eye = src
-		M.forceMove(src)
-		occupant = M
+		if (L.client)
+			L.client.perspective = EYE_PERSPECTIVE
+			L.client.eye = src
+		L.forceMove(src)
+		occupant = L
 		update_use_power(POWER_USE_ACTIVE)
 		update_icon()
 		playsound(loc, 'sound/machines/cryopod/cryopod_enter.ogg', 25)
@@ -253,6 +254,7 @@
 	var/has_external_injuries = FALSE
 	density = FALSE
 	anchored = TRUE
+	z_flags = ZMM_MANGLE_PLANES
 	component_types = list(
 			/obj/item/circuitboard/bodyscannerconsole,
 			/obj/item/stock_parts/scanning_module = 2,
@@ -478,19 +480,6 @@
 	return data
 
 /obj/machinery/body_scanconsole/proc/get_internal_damage(var/obj/item/organ/internal/I)
-	if(istype(I, /obj/item/organ/internal/parasite))
-		var/obj/item/organ/internal/parasite/P = I
-		switch(P.stage)
-			if(1)
-				return "Tiny"
-			if(2)
-				return "Small"
-			if(3)
-				return "Large"
-			if(4)
-				return "Massive"
-			else
-				return "Present"
 	if(I.is_broken())
 		return "Severe"
 	if(I.is_bruised())
@@ -565,7 +554,8 @@
 				else if(istype(I, /obj/effect/spider))
 					organic += I
 				else
-					unk += 1
+					if(!istype(I, /obj/item/implant/uplink))
+						unk += 1
 			if (unk)
 				wounds += "unknown objects present"
 			var/friends = length(organic)
@@ -611,6 +601,15 @@
 			var/obj/item/organ/internal/appendix/A = O
 			if(A.inflamed)
 				wounds += "inflamed"
+
+		if(istype(O, /obj/item/organ/internal/parasite))
+			var/obj/item/organ/internal/parasite/P = O
+			if(P.stage)
+				wounds += "stage [P.stage]"
+			if(P.parent_organ)
+				wounds += "growing in [P.parent_organ]"
+			if(istype(P, /obj/item/organ/internal/parasite/malignant_tumour) && P.stage >= 4)
+				wounds += "metastasising"
 
 		if(O.status & ORGAN_DEAD)
 			if(O.can_recover())

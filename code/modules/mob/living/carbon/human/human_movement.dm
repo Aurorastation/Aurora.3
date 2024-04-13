@@ -74,6 +74,9 @@
 			changeling = mind.antag_datums[MODE_CHANGELING]
 		if(!changeling)
 			tally += T.movement_cost
+		if(species && istype(T, /turf/simulated/floor/exoplanet/water))
+			if(species.can_breathe_water())
+				tally -= T.movement_cost
 
 	tally += GLOB.config.human_delay
 
@@ -156,11 +159,11 @@
 			if(S.do_special_footsteps(m_intent))
 				return
 		if (m_intent == M_RUN)
-			playsound(src, is_noisy ? footsound : species.footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, (is_noisy ? footsound : species.footsound), 70, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, is_noisy ? footsound : species.footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, (is_noisy ? footsound : species.footsound), 40, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/proc/handle_leg_damage()
 	if(!can_feel_pain())

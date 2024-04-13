@@ -8,7 +8,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_range = 2
 	throw_speed = 1
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	attack_verb = list("bapped")
 	var/page = 1    // current page
 	var/list/pages = list()  // Ordered list of pages as they are to be displayed. Can be different order than src.contents.
@@ -134,7 +134,14 @@
 	else if(istype(pages[page], /obj/item/photo))
 		var/obj/item/photo/P = W
 		send_rsc(user, P.img, "tmp_photo.png")
-		user << browse(dat + "<html><head><title>[P.name]</title></head>" + "<body style='overflow:hidden'>" + "<div> <img src='tmp_photo.png' width = '180'" + "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" + "</body></html>", "window=[name]")
+
+		dat += "<html><head><title>[P.name]</title></head>" \
+		+ "<body style='overflow:hidden'>" \
+		+ "<div> <img src='tmp_photo.png' width = '180'" \
+		+ "[P.scribble ? "<div> Written on the back:<br><i>[P.scribble]</i>" : null]" \
+		+ "</body></html>"
+
+		show_browser(user, dat, "window=[name]")
 
 /obj/item/paper_bundle/attack_self(mob/user as mob)
 	src.show_content(user)
@@ -178,7 +185,7 @@
 			var/obj/A = pages[page]
 			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 			if(A.type != P.type)
-				usr << browse(null, "window=[name]")
+				show_browser(usr, null, "window=[name]")
 	if(href_list["prev_page"])
 		if(page > 1)
 			var/obj/P = pages[page]
@@ -186,7 +193,7 @@
 			var/obj/A = pages[page]
 			playsound(src.loc, /singleton/sound_category/page_sound, 50, 1)
 			if(A.type != P.type)
-				usr << browse(null, "window=[name]")
+				show_browser(usr, null, "window=[name]")
 	if(href_list["remove"])
 		var/obj/item/W = pages[page]
 		usr.put_in_hands(W)
@@ -199,12 +206,12 @@
 			var/obj/item/paper/P = src[1]
 			if(istype(loc, /obj/item/gripper)) //Hacky but without it there's a ghost icon with grippers and it all spills on the floor.
 				var/obj/item/gripper/G = loc
-				G.drop(get_turf(src), FALSE)
+				G.drop(get_turf(src), usr, FALSE)
 				G.grip_item(P, usr, FALSE)
 			else
 				usr.put_in_hands(P)
 			usr.unset_machine(src)
-			usr << browse(null, "window=[name]")
+			show_browser(usr, null, "window=[name]")
 			qdel(src)
 			return
 
@@ -247,7 +254,7 @@
 	to_chat(usr, "<span class='notice'>You loosen the bundle.</span>")
 	for(var/obj/O in src)
 		O.forceMove(usr.loc)
-		O.layer = initial(O.layer)
+		O.reset_plane_and_layer()
 		O.add_fingerprint(usr)
 	qdel(src)
 	return

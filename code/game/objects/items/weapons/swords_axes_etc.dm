@@ -16,7 +16,7 @@
 	icon_state = "baton"
 	item_state = "classic_baton"
 	slot_flags = SLOT_BELT
-	force = 10
+	force = 15
 	drop_sound = 'sound/items/drop/crowbar.ogg'
 	pickup_sound = 'sound/items/pickup/crowbar.ogg'
 
@@ -58,7 +58,7 @@
 		icon_state = state_extended
 		item_state = state_extended
 		w_class = ITEMSIZE_NORMAL
-		force = 15 //quite robust
+		force = 22 //quite robust
 		attack_verb = list("smacked", "struck", "slapped")
 	else
 		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic baton."), SPAN_NOTICE("You collapse the baton."), SPAN_NOTICE("You hear a click."))
@@ -112,7 +112,7 @@
 	icon_state = "nlom_telebaton_0"
 	item_state = "nlom_telebaton_0"
 	state_extended = "nlom_telebaton_1"
-	force = 5
+	force = 11
 
 /obj/item/melee/telebaton/nlom/do_special_effects(var/mob/living/carbon/human/H)
 	spark(H, 5)

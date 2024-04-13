@@ -142,7 +142,7 @@
 	density = TRUE
 	anchored = TRUE
 	throwpass = TRUE
-	layer = TURF_LAYER
+	layer = BELOW_OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
 
@@ -164,7 +164,8 @@
 		return
 	return
 
-/obj/structure/m_tray/MouseDrop_T(atom/movable/O, mob/user )
+/obj/structure/m_tray/MouseDrop_T(atom/dropping, mob/user)
+	var/atom/movable/O = dropping
 	if(!istype(O, /atom/movable) || O.anchored || get_dist(user, src) > 1 || get_dist(user, O) > 1 || user.contents.Find(src) || user.contents.Find(O))
 		return
 	if(!ismob(O) && !istype(O, /obj/structure/closet/body_bag))

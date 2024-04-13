@@ -83,7 +83,8 @@
 		/obj/item/toy/plushie/squid,
 		/obj/item/toy/plushie/bear,
 		/obj/item/toy/plushie/bearfire,
-		/obj/item/toy/plushie/herring_gull
+		/obj/item/toy/plushie/herring_gull,
+		/obj/item/toy/plushie/cockatoo
 	)
 
 /obj/random/balloon
@@ -242,7 +243,11 @@
 		/obj/structure/largecrate/animal/adhomai/fatshouter = 0.5,
 		/obj/structure/largecrate/animal/adhomai/rafama = 0.5,
 		/obj/structure/largecrate/animal/adhomai/schlorrgo = 0.2,
-		/obj/structure/largecrate/animal/hakhma = 0.5
+		/obj/structure/largecrate/animal/hakhma = 0.5,
+		/obj/structure/largecrate/animal/moghes = 0.5,
+		/obj/structure/largecrate/animal/moghes/warmount = 0.2,
+		/obj/structure/largecrate/animal/moghes/miervesh = 0.5,
+		/obj/structure/largecrate/animal/moghes/otzek = 0.5
 	)
 
 /obj/random/random_flag
@@ -361,7 +366,7 @@
 	desc = "75% chance of spawning dirt, otherwise nothing."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "dirt"
-	layer = ABOVE_CABLE_LAYER // just so it appears under structures in map editor
+	layer = BELOW_OBJ_LAYER // just so it appears under structures in map editor
 	spawn_nothing_percentage = 25
 	spawnlist = list(
 		/obj/effect/decal/cleanable/dirt
@@ -475,3 +480,52 @@
 		if(P in unwanted || ((P in rare) && prob(50)))
 			P = null
 	. = new P(loc)
+
+/obj/random/syrup
+	name = "random syrup"
+	desc = "Contains random bottles of flavored syrup."
+	problist = list(
+		/obj/item/reagent_containers/food/condiment/syrup_chocolate = 2,
+		/obj/item/reagent_containers/food/condiment/syrup_strawberry = 1,
+		/obj/item/reagent_containers/food/condiment/syrup_berry = 0.5,
+		/obj/item/reagent_containers/food/condiment/syrup_raspberry = 0.3,
+		/obj/item/reagent_containers/food/condiment/syrup_blueberry = 0.3,
+		/obj/item/reagent_containers/food/condiment/syrup_blue_raspberry = 0.3,
+		/obj/item/reagent_containers/food/condiment/syrup_ylphaberry = 0.3,
+		/obj/item/reagent_containers/food/condiment/syrup_caramel = 0.5,
+		/obj/item/reagent_containers/food/condiment/syrup_pumpkin = 0.3,
+		/obj/item/reagent_containers/food/condiment/syrup_vanilla = 0.5,
+		/obj/item/reagent_containers/food/condiment/syrup_dirtberry = 0.3
+	)
+
+/obj/random/condiment
+	name = "random condiments and sauces"
+	desc = "Contains random condiments for use in the kitchen."
+	spawn_nothing_percentage = 10
+	problist = list(
+		/obj/item/reagent_containers/food/condiment/ketchup = 2,
+		/obj/item/reagent_containers/food/condiment/mayonnaise = 1.8,
+		/obj/item/reagent_containers/food/condiment/hot_sauce = 1.5,
+		/obj/random/syrup = 1.5,
+		/obj/item/reagent_containers/food/condiment/honey = 1,
+		/obj/item/reagent_containers/food/condiment/soysauce = 1,
+		/obj/item/reagent_containers/food/condiment/garlicsauce = 1,
+		/obj/item/reagent_containers/food/condiment/barbecue = 1,
+		/obj/item/reagent_containers/food/condiment/ntella = 1,
+		/obj/item/reagent_containers/food/condiment/peanut_butter = 1,
+		/obj/item/reagent_containers/food/condiment/cherry_jelly = 1,
+		/obj/item/reagent_containers/food/condiment/grape_jelly = 0.5
+	)
+
+/obj/random/kitchen_staples
+	name = "random kitchen staples"
+	desc = "Contains random ingredients that are handy in the kitchen"
+	spawn_nothing_percentage = 20
+	problist = list(
+		/obj/item/reagent_containers/food/condiment/gelatin = 1,
+		/obj/item/reagent_containers/food/condiment/batter = 1,
+		/obj/item/reagent_containers/food/condiment/syrup_simple = 1,
+		/obj/item/reagent_containers/food/condiment/vanilla = 1,
+		/obj/item/reagent_containers/food/condiment/rice = 1,
+		/obj/item/reagent_containers/food/condiment/cocoa = 1
+	)

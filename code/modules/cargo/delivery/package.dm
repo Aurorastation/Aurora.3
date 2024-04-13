@@ -7,17 +7,20 @@
 	item_state = "express_package"
 	contained_sprite = TRUE
 	w_class = ITEMSIZE_HUGE
-	force = 10
+	force = 15
 
 	slowdown = 1
 
 	var/delivery_point_id = ""
 	var/datum/weakref/delivery_point_sector
+	/// Site name displayed to player when examining the package. This should clearly state where the player should go, and be lore accurate. This is typically overridden by either sectorname or one set by receptacle
+	var/delivery_site = "Unknown"
 	var/delivery_point_coordinates = ""
 
 	var/datum/weakref/associated_delivery_point
 	var/pay_amount = 69420
 
+	/// If true, pay_amount goes into Operations Account
 	var/pays_horizon_account = TRUE
 
 /obj/item/cargo_package/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
@@ -33,16 +36,20 @@
 	associated_delivery_point = WEAKREF(delivery_point)
 	delivery_point_id = delivery_point.delivery_id
 	delivery_point_sector = delivery_point.delivery_sector
+	if(delivery_point.override_name)
+		delivery_site = delivery_point.override_name
 	delivery_point_coordinates = "[delivery_point.x]-[delivery_point.y]"
+	pay_amount = pay_amount * delivery_point.payment_modifier
 
 /obj/item/cargo_package/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(delivery_point_id)
-		var/delivery_site = "Unknown"
-		if(delivery_point_sector)
-			var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
-			if(delivery_sector)
-				delivery_site = delivery_sector.name
+		// if name not already set by cargo receptacle, acquire the sector name instead
+		if(delivery_site == "Unknown")
+			if(delivery_point_sector)
+				var/obj/effect/overmap/visitable/delivery_sector = delivery_point_sector.resolve()
+				if(delivery_sector)
+					delivery_site = delivery_sector.name
 		. += SPAN_NOTICE("The label on the package reads: SITE: <b>[delivery_site]</b> | COORD: <b>[delivery_point_coordinates]</b> | ID: <b>[delivery_point_id]</b>")
 		. += SPAN_NOTICE("The price tag on the package reads: <b>[pay_amount]电</b>.")
 
@@ -79,7 +86,7 @@
 	O.desc = "Your second grip on \the [initial(name)]."
 	user.put_in_inactive_hand(O)
 
-/obj/item/cargo_package/dropped(var/mob/living/user)
+/obj/item/cargo_package/dropped(mob/user)
 	..()
 	item_state = initial(item_state)
 	if(user)
@@ -99,7 +106,8 @@
 
 /obj/item/cargo_package/offship
 	pays_horizon_account = FALSE
-	var/horizon_delivery = FALSE // whether this package is guaranteed to deliver to the horizon or not
+	/// Whether this package is guaranteed to deliver to the horizon or not
+	var/horizon_delivery = FALSE
 
 /obj/item/cargo_package/offship/Initialize(mapload, obj/structure/cargo_receptacle/delivery_point)
 	. = ..()
