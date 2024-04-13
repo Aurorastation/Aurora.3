@@ -159,7 +159,7 @@
 	plant_colors = null//pre colored
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list ()
+	ruin_type_whitelist = list()
 	place_near_main = list(2, 2)
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_habitability()
