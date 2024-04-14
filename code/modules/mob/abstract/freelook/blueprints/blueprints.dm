@@ -19,7 +19,8 @@
 
 /mob/abstract/eye/blueprints/Initialize(mapload, var/list/valid_zs, var/area_p)
 	. = ..(mapload)
-	valid_z_levels = valid_zs.Copy()
+	if(valid_zs)
+		valid_z_levels = valid_zs.Copy()
 	area_prefix = area_p
 	area_name_effect = new(src)
 
