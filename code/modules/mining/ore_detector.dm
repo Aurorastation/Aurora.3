@@ -125,6 +125,7 @@
 			ore_ping.pixel_x = rand(-6, 6)
 			ore_ping.pixel_y = rand(-6, 6)
 			ore_ping.alpha = rand(180, 255)
+			ore_ping.plane = HUD_PLANE
 			pixel_shift_to_turf(ore_ping, our_turf, turf)
 			if(M.client)
 				M.client.images += ore_ping

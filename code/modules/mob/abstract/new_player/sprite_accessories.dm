@@ -6189,6 +6189,7 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Baseline - Raxus Primary Colors"
 	icon = 'icons/mob/human_races/markings_baseline.dmi'
 	icon_state = "raxus_primary"
+	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_RAXUS)
@@ -6208,31 +6209,32 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/marking/baseline_head/hoplan
 	name = "Baseline - Hoplan Primary Colors"
-	icon_state = "indricus_primary"
+	icon_state = "hoplan_primary"
 	robotize_type_required = list(PROSTHETIC_HOPLAN)
-
-/datum/sprite_accessory/marking/baseline_head/hoplan/lights
-	name = "Baseline - Hoplan Lights"
-	icon_state = "hoplan_lights"
 
 /datum/sprite_accessory/marking/baseline_color
 	name = "Baseline - Primary Colors"
 	icon = 'icons/mob/human_races/markings_baseline.dmi'
 	icon_state = "machine_primary"
+	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
-	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST)
 
 /datum/sprite_accessory/marking/baseline_color/arm
 	name = "Baseline - Primary Arm Colors"
-	body_parts = list(BP_R_ARM, BP_L_ARM, BP_R_HAND, BP_L_HAND)
+	body_parts = list(BP_R_ARM,BP_L_ARM,BP_R_HAND,BP_L_HAND)
 
-/datum/sprite_accessory/marking/baseline_color/arm
+/datum/sprite_accessory/marking/baseline_color/leg
 	name = "Baseline - Primary Leg Colors"
-	body_parts = list(BP_R_LEG, BP_L_LEG, BP_R_LEG, BP_L_LEG)
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_R_LEG,BP_L_LEG)
 
-/datum/sprite_accessory/marking/baseline_color/chest
+/datum/sprite_accessory/marking/baseline_color/head
 	name = "Baseline - Primary Head Colors"
 	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/baseline_color/chest
+	name = "Baseline - Primary Chest Colors"
+	body_parts = list(BP_GROIN,BP_CHEST)
 
 //bishop
 /datum/sprite_accessory/marking/bishop_lights

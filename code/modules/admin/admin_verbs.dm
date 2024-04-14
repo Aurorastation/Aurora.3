@@ -746,8 +746,14 @@ var/list/admin_verbs_cciaa = list(
 /client/proc/togglebuildmodeself()
 	set name = "Toggle Build Mode Self"
 	set category = "Special Verbs"
-	if(src.mob)
-		togglebuildmode(src.mob)
+
+	if(!check_rights(R_ADMIN))
+		return
+	var/datum/click_handler/handler = mob.GetClickHandler()
+	if(handler.type == /datum/click_handler/build_mode)
+		usr.PopClickHandler()
+	else
+		usr.PushClickHandler(/datum/click_handler/build_mode)
 	feedback_add_details("admin_verb","TBMS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/object_talk(var/msg as text) // -- TLE

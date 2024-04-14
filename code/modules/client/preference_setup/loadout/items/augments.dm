@@ -29,11 +29,18 @@
 	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_IPC_SHELL)
 
 /datum/gear/augment/synthetic_cords
-	display_name = "synthetic vocal cords"
-	description = "Vocal cords of synthetic nature packed into an augment kit. This allows users who are mute due to structural damage of the throat to speak."
+	display_name = "synthetic vocal cords selection"
+	description = "Vocal cords of synthetic nature packed into an augment kit. This allows users who are mute due to structural damage of the throat to speak. The advanced model allows use of normal accents, while the cheaper basic model will set your accent to text-to-speech."
 	path = /obj/item/organ/internal/augment/synthetic_cords
-	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
+	whitelisted = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER, SPECIES_UNATHI)
 	cost = 1
+
+/datum/gear/augment/synthetic_cords/New()
+	..()
+	var/list/augs = list()
+	augs["synthetic vocal cords, basic"] = /obj/item/organ/internal/augment/synthetic_cords/voice
+	augs["synthetic vocal cords, advanced"] = /obj/item/organ/internal/augment/synthetic_cords
+	gear_tweaks += new /datum/gear_tweak/path(augs)
 
 /datum/gear/augment/combitool
 	display_name = "retractable combitool"

@@ -7,7 +7,9 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_raskariim_hideout.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_raskariim_hideout.dmm")
 
 /area/adhomai_raskariim_hideout
 	name = "Abandoned House"

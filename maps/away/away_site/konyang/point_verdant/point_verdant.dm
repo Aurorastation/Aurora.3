@@ -3,7 +3,10 @@
 	id = "point_verdant"
 	description = "A landing zone designated by local authorities within an SCC-affiliated spaceport. Accommodations have been made to ensure full visitation of any open facilities present."
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("away_site/konyang/point_verdant/point_verdant-1.dmm","away_site/konyang/point_verdant/point_verdant-2.dmm","away_site/konyang/point_verdant/point_verdant-3.dmm")
+
+	prefix = "away_site/konyang/point_verdant/"
+	suffixes = list("point_verdant-1.dmm", "point_verdant-2.dmm", "point_verdant-3.dmm")
+
 	spawn_weight = 1
 	spawn_cost = 1
 	template_flags = TEMPLATE_FLAG_PORT_SPAWN
