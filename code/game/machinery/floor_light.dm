@@ -133,7 +133,9 @@ var/list/floor_light_cache = list()
 				I.color = default_light_colour
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
+			var/mutable_appearance/I_emis = emissive_appearance(icon, "[on_state]")
 			AddOverlays(floor_light_cache[cache_key])
+			AddOverlays(I_emis)
 		else
 			if(damaged == 0) //Needs init.
 				damaged = rand(1,4)
@@ -144,6 +146,8 @@ var/list/floor_light_cache = list()
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
 			AddOverlays(floor_light_cache[cache_key])
+			var/mutable_appearance/I_emis = emissive_appearance(icon, "flicker[damaged]")
+			add_overlay(I_emis)
 	if(stat & BROKEN)
 		icon_state = "broken"
 	else

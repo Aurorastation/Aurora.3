@@ -1126,11 +1126,11 @@ BLIND     // can't see anything
 	mob_overlay = image('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
-	mob_overlay.layer = LIGHTING_LAYER + 1
+	var/mutable_appearance/glow = emissive_appearance('icons/obj/clothing/glasses.dmi', "[icon_state]_eye", -15)
 	if(active && ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
-			H.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
+			H.AddOverlays(list(mob_overlay, glow), ATOM_ICON_CACHE_PROTECTED)
 	update_icon()
 
 /obj/item/clothing/glasses/eyepatch/hud/Initialize()
