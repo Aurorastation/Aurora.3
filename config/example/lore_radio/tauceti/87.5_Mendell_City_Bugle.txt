@@ -3,7 +3,7 @@
 17 degrees and windy tonight as a night of heavy traffic brings closure to the city's bustle once more.
 New this week, the SCC flagship Horizon arrives in Tau Ceti after a lengthy aid campaign to help the Coalition world of Konyang from the Rampancy crisis, a digital pandemic that infected millions of IPCs.
 Thousands of Mendell residents with Konyang ancestry prepare to depart Biesel to say hello to friends and family from home after months of uncertainty.
-The SCC says it plans to moor the Horizon for 'a week or two' before embarking on its mission to explore new frontiers.
+The SCC says it plans to moor the Horizon for a short period of time before embarking on its mission to explore new frontiers.
 Konyang was first affected by the Rampancy crisis in February, when alien transmissions invaded IPCs' minds and turned them feral and deadly.
 These transmissions originated from the Hivebots, an extragalactic robotic faction with unknown, but hostile, intentions.
 Following efforts by the government to quarantine them, a task force was assembled that included the Konyang military, Einstein Engines, the SCC, and an enigmatic ally of also-synthetic origin known as Purpose.
@@ -98,3 +98,13 @@ Featuring personal trainers who worked in the military, they'll be sure to make 
 /'SIR YES SIR!'/
 Inquire today! And get fit quick.
 /Khhztt.../
+87.5, Mendell City Bugle FM. Bringing you the latest news, 24/7, straight from the Capital of the Cosmos.
+/(A bugle sounds triumphantly.)/
+This just in from traffic: three are dead and several are injured after a bus collided with a container truck on the M82 Southbound.
+The bus was servicing the B34N line from Chauncey Avenue to Hastings Station. It was carrying 45 people.
+Traffic cameras show the container truck suddenly losing control and veering from the rightmost lane into the bus, which was two lanes over.
+The accident also took with it a Langenfeld SUV caught in the middle, causing it to spin out. The driver suffered minor injuries.
+Unfortunately, three lost their lives in the accident: a 34-year-old Human, a 22-year-old Unathi, and a Bishop IPC.
+Police are investigating the cause of the truck's sudden loss of control.
+We will report back to you of any updates.
+
