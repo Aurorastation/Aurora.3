@@ -4,7 +4,6 @@
 	possible_origins = list(
 		/singleton/origin_item/origin/coc_grown,
 		/singleton/origin_item/origin/coc_wildborn,
-		/singleton/origin_item/origin/assunzione_dionae ,
 	)
 
 /singleton/origin_item/origin/coc_grown
