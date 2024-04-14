@@ -29,9 +29,7 @@
 /obj/structure/survey_probe/Initialize(mapload)
 	. = ..()
 	if(start_deployed)
-		anchored = TRUE
-		density = TRUE
-		icon_state = "surveying_probe_deployed"
+		deploy()
 
 /obj/structure/survey_probe/attackby(obj/item/item, mob/living/user)
 	if(!timer_id && item.iswrench())
@@ -41,18 +39,14 @@
 				SPAN_NOTICE("You unfasten the locking bolts on \the [src], and it deploys, lowering its devices and drill bits to the ground. It is ready to survey."),
 				)
 			item.play_tool_sound(user, 30)
-			anchored = TRUE
-			density = TRUE
-			icon_state = "surveying_probe_deployed"
+			deploy()
 		else
 			user.visible_message(
 				SPAN_NOTICE("\The [user] fastens the locking bolts on \the [src], stowing it."),
 				SPAN_NOTICE("You fasten the locking bolts \the [src], stowing it. It retracts its devices and drill bits."),
 				)
 			item.play_tool_sound(user, 30)
-			anchored = FALSE
-			density = FALSE
-			icon_state = "surveying_probe"
+			undeploy()
 
 /obj/structure/survey_probe/attack_hand(mob/user as mob)
 	if(timer_id)
@@ -68,6 +62,16 @@
 		icon_state = "surveying_probe_active"
 	else
 		to_chat(user, SPAN_NOTICE("You try to activate \the [src], but its devices and drill bits are not deployed yet."))
+
+/obj/structure/survey_probe/proc/deploy()
+	anchored = TRUE
+	density = TRUE
+	icon_state = "surveying_probe_deployed"
+
+/obj/structure/survey_probe/proc/undeploy()
+	anchored = FALSE
+	density = FALSE
+	icon_state = "surveying_probe"
 
 /obj/structure/survey_probe/proc/survey_end()
 	if(timer_id)
