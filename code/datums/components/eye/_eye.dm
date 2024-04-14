@@ -57,17 +57,16 @@
 
 	if(!isnull(component_eye))
 		UnregisterSignal(component_eye, COMSIG_QDELETING)
+		component_eye.release(current_looker)
 
 	if(!isnull(current_looker))
 		UnregisterSignal(current_looker, COMSIG_MOVABLE_MOVED)
 		UnregisterSignal(current_looker, COMSIG_QDELETING)
 		UnregisterSignal(current_looker, COMSIG_MOB_LOGOUT)
 		UnregisterSignal(current_looker, COMSIG_GLOB_MOB_DEATH)
-
-	component_eye.release(current_looker)
-	if(current_looker.client)
-		current_looker.client.eye = current_looker
-	current_looker.eyeobj = null
+		if(current_looker.client)
+			current_looker.client.eye = current_looker
+		current_looker.eyeobj = null
 	QDEL_NULL(component_eye)
 	if(current_looker)
 		for(var/datum/action/A in actions)
