@@ -4,6 +4,7 @@
 	icon = 'icons/obj/item/tools/blueprints.dmi'
 	icon_state = "blueprints"
 	attack_verb = list("attacked", "bapped", "hit")
+	w_class = ITEMSIZE_SMALL
 	var/list/valid_z_levels = list()
 	var/area_prefix
 
@@ -76,27 +77,34 @@
 	return TRUE
 
 /obj/item/blueprints/shuttle
-	///Name of the blueprints' linked shuttle. Should be preset for mapped-in versions, unless the shuttle spawns on its map z-level.
-	var/shuttle_name
 	desc_info = "These blueprints can be used to modify a shuttle. In order to be used, the shuttle must be located on its \"Open Space\" z-level. Newly-created areas will be automatically added to the shuttle. If all shuttle areas are removed, the shuttle will be destroyed!"
+	///Name of the blueprints' linked shuttle. Mapped-in versions should have this preset, or be mapped into the shuttle area itself.
+	var/shuttle_name
+	///The actual overmap shuttle type, for setting on preset blueprints.
+	var/obj/effect/overmap/visitable/ship/landable/shuttle_type
 
 /obj/item/blueprints/shuttle/set_valid_z_levels()
 	if(SSatlas.current_map.use_overmap)
 		var/area/A = get_area(src)
-		var/obj/effect/overmap/visitable/ship/landable/S
-		for(var/obj/effect/overmap/visitable/ship/landable/landable in SSshuttle.ships)
-			var/datum/shuttle/shuttle = SSshuttle.shuttles[landable.shuttle]
-			if(A in shuttle.shuttle_area)
-				S = landable
-				break
-		if(istype(S) && !isnull(S))
+
+		if(!shuttle_type)
+			for(var/obj/effect/overmap/visitable/ship/landable/landable in SSshuttle.ships)
+				var/datum/shuttle/shuttle = SSshuttle.shuttles[landable.shuttle]
+				if(A in shuttle.shuttle_area)
+					shuttle_type = landable
+					break
+		else
+			var/obj/effect/overmap/visitable/ship/landable/S = SSshuttle.ship_by_type(shuttle_type)
+			shuttle_type = S
+
+		if(istype(shuttle_type) && !isnull(shuttle_type))
 			if(isnull(shuttle_name))
-				shuttle_name = S.shuttle
-			update_linked_name(S, null, S.name)
-			RegisterSignal(S, COMSIG_QDELETING, PROC_REF(on_shuttle_destroy))
-			RegisterSignal(S, COMSIG_BASENAME_SETNAME, PROC_REF(update_linked_name))
-			valid_z_levels += S.map_z
-			area_prefix = S.name
+				shuttle_name = shuttle_type.shuttle
+			update_linked_name(shuttle_type, null, shuttle_type.name)
+			RegisterSignal(shuttle_type, COMSIG_QDELETING, PROC_REF(on_shuttle_destroy))
+			RegisterSignal(shuttle_type, COMSIG_BASENAME_SETNAME, PROC_REF(update_linked_name))
+			valid_z_levels += shuttle_type.map_z
+			area_prefix = shuttle_type.name
 			return TRUE
 	// The blueprints are useless now, but keep them around for fluff.
 	desc = "Some dusty old blueprints. The markings are old, and seem entirely irrelevant for your wherabouts."
@@ -120,3 +128,24 @@
 
 /obj/item/blueprints/shuttle/get_look_args()
 	return list(valid_z_levels, area_prefix, shuttle_name)
+
+/obj/item/blueprints/shuttle/intrepid
+	shuttle_name = "Intrepid"
+	shuttle_type = /obj/effect/overmap/visitable/ship/landable/intrepid
+
+/obj/item/blueprints/shuttle/mining_shuttle
+	shuttle_name = "Spark"
+	shuttle_type = /obj/effect/overmap/visitable/ship/landable/mining_shuttle
+
+/obj/item/blueprints/shuttle/canary
+	shuttle_name = "Canary"
+	shuttle_type = /obj/effect/overmap/visitable/ship/landable/canary
+
+/obj/item/storage/lockbox/shuttle_blueprints //Blueprints for modifying the Horizon's shuttles.
+	name = "shuttle blueprints lockbox"
+	req_access = list(ACCESS_CE)
+	starts_with = list(
+		/obj/item/blueprints/shuttle/intrepid = 1,
+		/obj/item/blueprints/shuttle/mining_shuttle = 1,
+		/obj/item/blueprints/shuttle/canary = 1
+	)
