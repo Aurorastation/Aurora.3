@@ -3,12 +3,16 @@
 	description = "The Rapier-class Frigate is a formidable warship in widespread use by the All-Xanu Spacefleet throughout its expeditionary fleets. \
 	Originating as a robust upgrade package to the venerable Estoc class, the Rapier upgrade program has spared no expense, with thick hull plating, redundant power, life support, and engines, making the Rapier class notoriously survivable. \
 	These same redundancies, designed for greater survivability in a peer-on-peer conflict, make the Rapier an expensive investment, one which has seen the Estoc survive in the navies of other Coalition states."
-	suffixes = list("ships/xanu/xanu_frigate.dmm")
+
+	prefix = "ships/xanu/"
+	suffixes = list("xanu_frigate.dmm")
+
 	sectors = list(ALL_COALITION_SECTORS, SECTOR_BADLANDS)
 	spawn_weight_sector_dependent = list(SECTOR_LIBERTYS_CRADLE = 3)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "xanu_frigate"
+
 	unit_test_groups = list(3)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/xanu_fighter, /datum/shuttle/autodock/overmap/xanu_boarder)
 
@@ -18,7 +22,7 @@
 	Originating as a robust upgrade package to the venerable Estoc class, the Rapier upgrade program has spared no expense, with thick hull plating, redundant power, life support, and engines, making the Rapier class notoriously survivable. \
 	These same redundancies, designed for greater survivability in a peer-on-peer conflict, make the Rapier an expensive investment, one which has seen the Estoc survive in the navies of other Coalition states."
 
-// ship
+//Ship
 
 /obj/effect/overmap/visitable/ship/xanu_frigate
 	name = "Xanu Spacefleet Frigate"

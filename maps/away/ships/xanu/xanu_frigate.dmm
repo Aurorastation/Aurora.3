@@ -7,6 +7,7 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "ab" = (
@@ -2357,7 +2358,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/autolathe,
+/obj/structure/table/rack,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "ia" = (
@@ -3192,6 +3196,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "kN" = (
@@ -6422,7 +6427,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline/security,
 /obj/machinery/atmospherics/binary/pump/supply/on{
 	dir = 1;
 	target_pressure = 500
@@ -8141,6 +8145,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "CF" = (
@@ -13788,20 +13793,12 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/central)
 "Vm" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/recharger{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/machinery/recharger{
-	pixel_x = 5;
-	pixel_y = 2
-	},
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/device/lightreplacer,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/autolathe,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/xanu_frigate/engineering/port)
 "Vn" = (
