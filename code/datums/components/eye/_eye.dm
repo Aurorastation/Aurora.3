@@ -1,7 +1,3 @@
-#define PARENT_TARGET		0
-#define EYE_TARGET			1
-#define COMPONENT_TARGET	2
-
 /datum/component/eye
 	///The actual eye mob linked to the component
 	var/mob/abstract/eye/component_eye
@@ -74,27 +70,6 @@
 
 /datum/component/eye/proc/get_eye_turf()
 	return get_turf(component_eye)
-
-/datum/action/eye
-	action_type = AB_GENERIC
-	check_flags = AB_CHECK_LYING|AB_CHECK_STUNNED
-	var/eye_type = /mob/abstract/eye
-	var/target_type = PARENT_TARGET //The relevant owner of the proc to be called by the action.
-
-/datum/action/eye/New(var/datum/component/eye/eye_component)
-	switch(target_type)
-		if(PARENT_TARGET)
-			return ..(eye_component.parent)
-		if(EYE_TARGET)
-			return ..(eye_component.component_eye)
-		if(COMPONENT_TARGET)
-			return ..(eye_component)
-		else
-			CRASH("Attempted to generate eye action [src] but an improper target_type ([target_type]) was defined.")
-
-/datum/action/eye/CheckRemoval(mob/living/user)
-	if(!user.eyeobj || !istype(user.eyeobj, eye_type))
-		return TRUE
 
 //Every eye created using a subtype of this extension will have this action added for manual unlooking.
 /datum/action/eye/unlook

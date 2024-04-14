@@ -10,6 +10,9 @@
 #define AB_CHECK_ALIVE 8
 #define AB_CHECK_INSIDE 16
 
+#define PARENT_TARGET		0
+#define EYE_TARGET			1
+#define COMPONENT_TARGET	2
 
 /datum/action
 	var/name = "Generic Action"
@@ -288,6 +291,39 @@
 	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
 	target_clothing.action_circuit.activate_pin(1)
 
+/datum/action/eye
+	action_type = AB_GENERIC
+	check_flags = AB_CHECK_LYING|AB_CHECK_STUNNED
+	var/eye_type = /mob/abstract/eye
+	var/target_type = PARENT_TARGET //The relevant owner of the proc to be called by the action.
+
+/datum/action/eye/New(var/datum/component/eye/eye_component)
+	switch(target_type)
+		if(PARENT_TARGET)
+			return ..(eye_component.parent)
+		if(EYE_TARGET)
+			return ..(eye_component.component_eye)
+		if(COMPONENT_TARGET)
+			return ..(eye_component)
+		else
+			CRASH("Attempted to generate eye action [src] but an improper target_type ([target_type]) was defined.")
+
+/datum/action/eye/CheckRemoval(mob/living/user)
+	if(!user.eyeobj || !istype(user.eyeobj, eye_type))
+		return TRUE
+
 #undef AB_WEST_OFFSET
 #undef AB_NORTH_OFFSET
 #undef AB_MAX_COLUMNS
+
+#undef AB_ITEM
+#undef AB_SPELL
+#undef AB_INNATE
+#undef AB_GENERIC
+#undef AB_ITEM_USE_ICON
+
+#undef AB_CHECK_RESTRAINED
+#undef AB_CHECK_STUNNED
+#undef AB_CHECK_LYING
+#undef AB_CHECK_ALIVE
+#undef AB_CHECK_INSIDE
