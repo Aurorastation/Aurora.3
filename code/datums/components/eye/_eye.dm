@@ -54,12 +54,15 @@
 	if(!isnull(parent))
 		UnregisterSignal(parent, COMSIG_QDELETING)
 		UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(current_looker, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(current_looker, COMSIG_QDELETING)
-	UnregisterSignal(component_eye, COMSIG_QDELETING)
 
-	UnregisterSignal(current_looker, COMSIG_MOB_LOGOUT)
-	UnregisterSignal(current_looker, COMSIG_GLOB_MOB_DEATH)
+	if(!isnull(component_eye))
+		UnregisterSignal(component_eye, COMSIG_QDELETING)
+
+	if(!isnull(current_looker))
+		UnregisterSignal(current_looker, COMSIG_MOVABLE_MOVED)
+		UnregisterSignal(current_looker, COMSIG_QDELETING)
+		UnregisterSignal(current_looker, COMSIG_MOB_LOGOUT)
+		UnregisterSignal(current_looker, COMSIG_GLOB_MOB_DEATH)
 
 	component_eye.release(current_looker)
 	if(current_looker.client)
