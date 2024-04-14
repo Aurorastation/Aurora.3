@@ -1,0 +1,1843 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"aV" = (
+/obj/item/tank/oxygen/brown,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"bn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"by" = (
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"bR" = (
+/obj/effect/landmark/corpse/kazhkz_crash,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"cr" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"cS" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"dD" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"eq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"et" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"ez" = (
+/obj/item/gun/projectile/shotgun/wallgun,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"eT" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"fs" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"gq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/multi_tile{
+	name = "Cockpit";
+	insecure = 0
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"gX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"hL" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"ie" = (
+/obj/structure/table/rack,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/unathi_ruin,
+/obj/item/clothing/head/helmet/space/unathi_ruin,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"iw" = (
+/obj/item/paper/fluff/kazhkz_crash_note,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"iU" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"jX" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"kF" = (
+/obj/machinery/atmospherics/portables_connector/scrubber{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"kI" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "kazhkz_crash";
+	name = "Cockpit Shutters"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"lD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Crew Compartment"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"lT" = (
+/obj/effect/landmark/clear,
+/obj/effect/shuttle_landmark/kazhkz_crash{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"ms" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"mv" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"mP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"nJ" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"nK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"nZ" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/northleft,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"ob" = (
+/obj/machinery/computer/ship/sensors{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"pj" = (
+/obj/effect/landmark/corpse/kazhkz_crash/captain,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"pk" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"pC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"pN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"qh" = (
+/obj/structure/closet/toolcloset/empty,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/bag/inflatable,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"qB" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"qC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"sq" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/empty/west{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"sP" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"sU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/obj/item/tank/oxygen/brown,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"to" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"uv" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"vh" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"vj" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"vW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"xk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"xK" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/gun/projectile/automatic/rifle/hook_mg,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"xM" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/landmark/corpse/kazhkz_crash,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"yA" = (
+/obj/machinery/atmospherics/binary/pump/scrubber{
+	dir = 8;
+	name = "scrubbers to waste"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"zb" = (
+/obj/machinery/atmospherics/binary/pump/fuel{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"zg" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"zu" = (
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"Ab" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/landmark/corpse/kazhkz_crash,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"AV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"Bj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/landmark/corpse/kazhkz_crash,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/item/tank/phoron,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"BB" = (
+/obj/machinery/computer/ship/engines{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Cg" = (
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = 21;
+	pixel_y = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Dd" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"Di" = (
+/obj/machinery/power/terminal{
+	dir = 8;
+	layer = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"DC" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/cable,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"DD" = (
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Em" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/machinery/door/blast/regular{
+	id = "kazhkz_crash";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"EN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Fa" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Fj" = (
+/obj/machinery/shipsensors/weak,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"Fl" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Fv" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"FC" = (
+/obj/machinery/computer/shuttle_control/explore/kazhkz_crash{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"FD" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"FO" = (
+/obj/effect/landmark/corpse/kazhkz_crash/captain,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"Gf" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"Gn" = (
+/obj/structure/fuel_port{
+	pixel_y = 30
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"HN" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"IA" = (
+/obj/item/clothing/suit/space/unathi_ruin,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"IJ" = (
+/obj/item/stack/material/steel,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"IK" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"Kv" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"KC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Lm" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Mj" = (
+/obj/machinery/computer/ship/helm{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Mq" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"NS" = (
+/obj/item/clothing/shoes/magboots,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"Pj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+"Pz" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"Qm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Qy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"QA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Rn" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/ammo_magazine/crackrifle,
+/obj/item/storage/box/wallgunammo,
+/obj/item/ammo_magazine/hookmg,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Rq" = (
+/obj/machinery/hologram/holopad/long_range{
+	pixel_x = 16
+	},
+/obj/effect/overmap/visitable/ship/landable/kazhkz_crash,
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Si" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"SZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Ta" = (
+/obj/structure/table/rack,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"TH" = (
+/obj/item/clothing/head/helmet/space/unathi_ruin,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"TJ" = (
+/turf/template_noop,
+/area/template_noop)
+"Ub" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Ut" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"Uy" = (
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"UF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/machinery/door/airlock/hatch{
+	dir = 4;
+	name = "Engineering"
+	},
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"UK" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"UQ" = (
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"VU" = (
+/obj/effect/landmark/corpse/kazhkz_crash,
+/obj/effect/landmark/clear,
+/obj/effect/decal/cleanable/blood/splatter,
+/turf/template_noop,
+/area/template_noop)
+"Wz" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/paper/fluff/kazhkz_crash_plans,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"WE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "airlock_kazhkz_crash";
+	name = "airlock_kazhkz_crash";
+	req_one_access = null;
+	shuttle_tag = "Crashed Kazhkz Shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"Xt" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/scc,
+/obj/machinery/door/blast/regular{
+	id = "kazhkz_crash";
+	dir = 4
+	},
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/kazhkz_crash)
+"XG" = (
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"XR" = (
+/obj/structure/inflatable/wall,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"Yp" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = null
+	},
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/obj/item/clothing/head/helmet/unathi,
+/turf/simulated/floor/tiled/slate,
+/area/shuttle/kazhkz_crash)
+"YL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/inflatable/door,
+/turf/simulated/floor/tiled/slate/airless,
+/area/shuttle/kazhkz_crash)
+"Zu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/kazhkz_crash)
+"ZJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/shuttle/kazhkz_crash)
+
+(1,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(2,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(3,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(4,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(5,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(6,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+cS
+cS
+cS
+cS
+cS
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(7,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Pz
+AV
+HN
+DC
+cS
+cS
+eT
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(8,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Pz
+zg
+jX
+Di
+kF
+by
+cS
+cS
+cS
+cS
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(9,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Pz
+zg
+Gn
+vh
+yA
+et
+gX
+nJ
+Lm
+cS
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(10,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Pz
+FD
+Bj
+pC
+Ut
+Qm
+zb
+Si
+Kv
+cS
+cS
+cS
+cS
+cS
+cS
+Fj
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(11,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+cr
+cS
+qB
+EN
+mP
+SZ
+Qy
+eq
+nZ
+cS
+cS
+xK
+qh
+kI
+cS
+cS
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(12,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Pj
+cS
+cS
+cS
+cS
+UF
+cS
+cS
+cS
+cS
+sq
+DD
+iw
+pj
+BB
+Em
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(13,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+fs
+vj
+pk
+WE
+eq
+Fl
+KC
+uv
+bn
+gq
+Ub
+Mq
+Rq
+dD
+Mj
+Xt
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(14,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+lT
+qC
+vj
+Fv
+vW
+Cg
+QA
+bR
+pN
+ms
+DD
+mP
+Fa
+DD
+dD
+FC
+Em
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(15,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+cS
+cS
+cS
+cS
+cS
+lD
+cS
+cS
+cS
+cS
+DD
+DD
+DD
+ez
+ob
+Em
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(16,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Zu
+cS
+ie
+XG
+XR
+YL
+XR
+Dd
+xM
+cS
+cS
+Rn
+Yp
+Wz
+cS
+cS
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(17,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Pz
+to
+Ta
+aa
+nK
+sU
+xk
+XG
+NS
+cS
+cS
+cS
+cS
+cS
+cS
+UQ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(18,1,1) = {"
+TJ
+TJ
+VU
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+Pz
+sP
+IK
+FO
+XG
+TH
+Ab
+iU
+zu
+zu
+UK
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(19,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+zu
+IA
+IJ
+Uy
+hL
+Gf
+cS
+cS
+zu
+zu
+UK
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(20,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+aV
+ZJ
+cS
+zu
+cS
+cS
+mv
+UK
+UK
+UK
+UK
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(21,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+zu
+zu
+zu
+zu
+cS
+UK
+UK
+UK
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(22,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+UK
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(23,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+VU
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(24,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}
+(25,1,1) = {"
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+TJ
+"}

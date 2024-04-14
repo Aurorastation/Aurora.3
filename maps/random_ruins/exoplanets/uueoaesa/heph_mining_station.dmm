@@ -1,0 +1,4281 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aj" = (
+/turf/simulated/floor/reinforced{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"ap" = (
+/obj/structure/curtain/open/bed,
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - heph_space_miner";
+	identifier = "heph_space_miner"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"as" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"aE" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"aR" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus{
+	color = "#2a2b2e"
+	},
+/obj/item/storage/backpack/heph,
+/obj/item/clothing/under/rank/miner/heph,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/structure/sign/flag/heph/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"aT" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"bp" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/service{
+	name = "Crew Quarters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"bv" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"bx" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/entry)
+"bR" = (
+/turf/template_noop,
+/area/template_noop)
+"cb" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"ci" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	dir = 4
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"cq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"cs" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"ct" = (
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/power/apc/south{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"dl" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering"
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"du" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/reinforced{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"dB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"dI" = (
+/obj/structure/table/rack,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"dJ" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"dQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"dR" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/bed/roller,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"en" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"er" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"ez" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"eC" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"eI" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/sign/flag/heph/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"eX" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"ff" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"fh" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"fs" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"fD" = (
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"fQ" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/medical{
+	name = "Infirmary"
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"fZ" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"ga" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/obj/machinery/light/colored/dying{
+	dir = 8
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"ge" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"gj" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"gk" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"gJ" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"gK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"gN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"gQ" = (
+/obj/machinery/light,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"hr" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"hz" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/iv_drip,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"hS" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"ib" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"ic" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"iT" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"jd" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"jv" = (
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"jw" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"jB" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"jI" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"jQ" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"jV" = (
+/obj/structure/plasticflaps/mining{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"kb" = (
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/machinery/mineral/unloading_machine{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/heph_mining_station/mining)
+"ke" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(216)
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"kq" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"ku" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/high{
+	dir = 1;
+	name = "north bump";
+	pixel_y = 24;
+	req_access = null
+	},
+/obj/structure/table/rack,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/obj/item/device/radio,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"kS" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/highsecurity{
+	name = "Reactor";
+	dir = 4
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"kW" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/closet/crate,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"lb" = (
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/mineral/processing_unit{
+	dir = 8;
+	id = "processing_1"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"lj" = (
+/obj/structure/plasticflaps/mining{
+	dir = 4
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"lo" = (
+/obj/machinery/mech_recharger/hephaestus,
+/mob/living/heavy_vehicle/premade/miner,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"lr" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"lu" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/appliance/cooker/stove,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"lw" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/heph_mining_station/mining)
+"lx" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"lP" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/equipmentstorage)
+"mg" = (
+/obj/machinery/vending/engineering{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"mh" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"ml" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"mD" = (
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/structure/table/rack,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/gun/energy/vaurca/thermaldrill,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"mN" = (
+/obj/structure/table/steel,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"mQ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance{
+	name = "Warehouse";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"mV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"nf" = (
+/obj/machinery/light,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"nk" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/closet/crate/medical,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"nn" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"nt" = (
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"ny" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"nI" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"of" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"oj" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"os" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"ow" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"oA" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/security{
+	name = "Equipment Storage";
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"oL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"pt" = (
+/obj/structure/table/rack,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"pH" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"pL" = (
+/obj/structure/closet/crate/rad{
+	name = "radioactive material crate"
+	},
+/obj/item/stack/material/tritium/full,
+/obj/item/stack/material/tritium/full,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"qg" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"qp" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"qy" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/mineral/stacking_machine{
+	dir = 8;
+	id = "stacking-2"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"qI" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Entry"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"qJ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"rp" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"rB" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/sign/flag/heph/large/east{
+	pixel_x = 32
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"rE" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"rH" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"rO" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"rR" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/stool/bar/padded/orange,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"sc" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/machinery/iv_drip,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"sp" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"sy" = (
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/soup/kois,
+/obj/item/reagent_containers/food/snacks/koisburger,
+/obj/item/reagent_containers/food/snacks/koisburger,
+/obj/item/reagent_containers/food/snacks/koisburger,
+/obj/item/reagent_containers/food/snacks/koissteak,
+/obj/item/reagent_containers/food/snacks/koissteak,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/closet/secure_closet/freezer/kois/spores,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"sD" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/clothing/gloves/latex/nitrile/unathi,
+/obj/item/storage/box/masks,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"sO" = (
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"sP" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"sZ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"ta" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"tf" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Emergency Weaponry";
+	req_access = null
+	},
+/obj/item/gun/energy/laser/shotgun,
+/obj/item/gun/energy/laser/shotgun,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"tp" = (
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/power/apc/west{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"tv" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/eva)
+"tH" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"uu" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"uK" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/quarters)
+"uZ" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/storage)
+"vd" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"vA" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/mining)
+"vT" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"wf" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"wh" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/machinery/body_scanconsole{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"wl" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"wr" = (
+/obj/structure/cable/green,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/machinery/power/apc/south{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"wv" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/item/storage/box/fancy/mre/menu10,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"xc" = (
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 4;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"xs" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"xw" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"xP" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"xW" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/heph_mining_station/mining)
+"yd" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"yG" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"yL" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/plasticflaps/mining{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"zb" = (
+/obj/item/bedsheet/brown,
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - heph_space_miner";
+	identifier = "heph_space_miner"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"zf" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/suit_cycler/mining{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"zj" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/blue,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"zs" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/machinery/iv_drip,
+/obj/structure/sign/flag/heph/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"zu" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/reinforced{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"zT" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = 32;
+	id = "stacking_2"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"zW" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill,
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/obj/machinery/reagentgrinder,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"zX" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"zY" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -8;
+	dir = 2
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"Ad" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor/reinforced{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Ar" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Ax" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"AD" = (
+/obj/machinery/autolathe,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"AH" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"AX" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"Bp" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"BL" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Cl" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"CW" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Dr" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"DY" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"Ec" = (
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/structure/railing/mapped,
+/obj/structure/plasticflaps/mining{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Ef" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/fire,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"Eo" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/ore_box,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/sign/flag/heph/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"EC" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"EI" = (
+/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/sign/flag/heph/large/east{
+	pixel_x = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"EV" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/medbay)
+"EY" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"Fw" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"FB" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"FD" = (
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = 32;
+	id = "stacking_1"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"FX" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window,
+/obj/item/rig/industrial,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"Gf" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"Gn" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"Gp" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"GB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"GS" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/alarm/east{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"Hd" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station)
+"Ho" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"Hy" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"HB" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/portables_connector,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"HC" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/machinery/vending/medical{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"HJ" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"HM" = (
+/obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"HR" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"HV" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Ih" = (
+/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/structure/cable/green{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Il" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/mineral/processing_unit{
+	dir = 8;
+	id = "processing_2"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"IJ" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"IM" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"IQ" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/structure/sign/flag/heph/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"IV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"IY" = (
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Jg" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"JI" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/toxin,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"Kc" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(209)
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"Ko" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus{
+	color = "#2a2b2e"
+	},
+/obj/item/storage/backpack/heph,
+/obj/item/clothing/under/vaurca/gearharness/black,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/reagent_containers/inhaler/phoron_special,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"Kw" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -8
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"KS" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/mask/breath,
+/obj/machinery/light,
+/obj/structure/sign/flag/heph/large/south{
+	pixel_y = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"KW" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"Ld" = (
+/obj/machinery/vending/tool,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Le" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"Lt" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Lu" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/sign/flag/heph/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"LV" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"LX" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"MI" = (
+/turf/simulated/floor/airless,
+/area/heph_mining_station/mining)
+"MN" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/mask/breath,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"Nf" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"NW" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/bed/stool/bar/padded/orange,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"Of" = (
+/obj/machinery/conveyor_switch{
+	id = "heph_mining_station"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/heph_mining_station/mining)
+"Ol" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Oo" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Mess Hall"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"Or" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"OF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"OG" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus{
+	color = "#2a2b2e"
+	},
+/obj/item/storage/backpack/heph,
+/obj/item/clothing/under/rank/miner/heph,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/shoes/workboots/toeless,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"OH" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/mess)
+"Pv" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/material/kitchen/rollingpin,
+/obj/item/material/kitchen/utensil/knife,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"Px" = (
+/obj/structure/cable/green{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/machinery/power/apc/north{
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"PA" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"PF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"PH" = (
+/obj/structure/table/rack,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"PT" = (
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/mineral/stacking_machine{
+	dir = 8;
+	id = "stacking_1"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"PZ" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"Qb" = (
+/obj/machinery/atmospherics/pipe/tank{
+	dir = 1
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Qf" = (
+/obj/structure/table/rack,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 4;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"Qi" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"Qw" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/bed/roller,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"QI" = (
+/obj/machinery/atmospherics/binary/pump/scrubber{
+	dir = 8;
+	name = "scrubbers to waste"
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Ra" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Rb" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Rc" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"Rk" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Rq" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"Ru" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(216)
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"RE" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"RF" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/structure/table/steel,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/clothing/gloves/yellow/specialu,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"RV" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"Sf" = (
+/turf/simulated/wall/shuttle/raider,
+/area/heph_mining_station/engineer)
+"Si" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/mining/drill,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Sk" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"Sw" = (
+/obj/structure/closet,
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus{
+	color = "#2a2b2e"
+	},
+/obj/item/storage/backpack/heph,
+/obj/item/clothing/under/rank/miner/heph,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"SQ" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 4;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"Tr" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 6
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"TV" = (
+/obj/structure/cable/green,
+/obj/machinery/power/terminal,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"Ui" = (
+/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/mech_wreckage/powerloader,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"Vc" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"Vo" = (
+/obj/machinery/mineral/processing_unit_console{
+	pixel_y = 28;
+	id = "processing_1"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Vz" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"VJ" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"VR" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/eva)
+"VW" = (
+/obj/effect/floor_decal/corner/orange,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Wk" = (
+/obj/structure/closet/crate,
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Wy" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/lime{
+	dir = 9
+	},
+/obj/structure/table/steel,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"WC" = (
+/obj/machinery/conveyor{
+	id = "heph_mining_station";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/machinery/mineral/unloading_machine{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/airless,
+/area/heph_mining_station/mining)
+"WM" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/airlock/mining{
+	name = "Processing"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"WT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Xb" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/mineral/processing_unit_console{
+	pixel_y = 28;
+	id = "processing_2"
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Xg" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"Xr" = (
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"Xt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+"XC" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/structure/sign/flag/heph/large/west{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mining)
+"Yq" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass_mining{
+	name = "EVA Storage";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"Yr" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/mess)
+"YB" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/quarters)
+"YF" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/engineer)
+"YH" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"YK" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white{
+	temperature = 303.15
+	},
+/area/heph_mining_station/medbay)
+"Ze" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station)
+"Zq" = (
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"Zt" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1003;
+	master_tag = "airlock_heph_uueoa";
+	name = "airlock_heph_uueoa";
+	req_one_access = list(216)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -24;
+	pixel_y = 32;
+	dir = 4
+	},
+/turf/simulated/floor{
+	temperature = 303.15
+	},
+/area/heph_mining_station/entry)
+"ZH" = (
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/storage)
+"ZK" = (
+/obj/machinery/mech_recharger/hephaestus,
+/mob/living/heavy_vehicle/premade/miner,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/heph_mining_station/equipmentstorage)
+
+(1,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(2,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(3,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(4,1,1) = {"
+bR
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+vA
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(5,1,1) = {"
+bR
+vA
+ta
+XC
+RE
+jQ
+RE
+dQ
+dB
+WT
+FB
+WM
+Ze
+jd
+jd
+Ze
+jd
+jd
+Ze
+jd
+LX
+Hd
+tv
+tv
+tv
+tv
+tv
+bR
+bR
+bR
+bR
+bR
+"}
+(6,1,1) = {"
+bR
+vA
+Ol
+Wk
+Rb
+Rb
+Rb
+Rb
+as
+Bp
+Ru
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+ny
+Hd
+EC
+nn
+nn
+zf
+tv
+bR
+bR
+bR
+bR
+bR
+"}
+(7,1,1) = {"
+bR
+vA
+yL
+Ec
+vA
+Rb
+Rb
+Rb
+Rb
+Rb
+kW
+uZ
+gk
+sy
+cb
+IQ
+wv
+Rc
+Rc
+Hd
+jw
+Hd
+VR
+ic
+mh
+KS
+tv
+bR
+bR
+bR
+bR
+bR
+"}
+(8,1,1) = {"
+bR
+vA
+qy
+PT
+Rb
+Rb
+Rb
+Rb
+Rb
+Rb
+ct
+uZ
+Qi
+YH
+YH
+YH
+HR
+Rc
+Rc
+Hd
+jw
+Hd
+FX
+GB
+mh
+iT
+tv
+bR
+bR
+bR
+bR
+bR
+"}
+(9,1,1) = {"
+bR
+vA
+ow
+IY
+vA
+FD
+Rb
+Rb
+Rb
+Rb
+Si
+uZ
+sZ
+YH
+YH
+YH
+sO
+Rc
+Rc
+Hd
+jw
+Hd
+lr
+eC
+mh
+MN
+tv
+bR
+bR
+bR
+bR
+bR
+"}
+(10,1,1) = {"
+bR
+vA
+ow
+IY
+vA
+zT
+Rb
+Rb
+Rb
+VW
+oj
+uZ
+ib
+dJ
+YH
+zX
+ZH
+Rc
+Rc
+Hd
+jw
+Hd
+of
+Ho
+Vz
+qp
+tv
+bR
+bR
+bR
+bR
+bR
+"}
+(11,1,1) = {"
+bR
+vA
+Il
+lb
+Rb
+Rb
+Rb
+Rb
+VW
+xP
+OH
+OH
+mQ
+OH
+OH
+OH
+OH
+OH
+OH
+Hd
+jw
+Hd
+bx
+Yq
+bx
+bx
+bx
+Rk
+Rk
+Rk
+Rk
+Rk
+"}
+(12,1,1) = {"
+bR
+vA
+ow
+IY
+vA
+Vo
+Rb
+Rb
+Cl
+vA
+OH
+VJ
+Xg
+LV
+Lu
+tp
+VJ
+LV
+VJ
+Hd
+xw
+Hd
+AH
+IJ
+Zq
+Kc
+bx
+Rk
+Rk
+Rk
+Rk
+Rk
+"}
+(13,1,1) = {"
+bR
+vA
+BL
+vd
+vA
+Xb
+Eo
+cs
+Lt
+vA
+zW
+VJ
+Xg
+NW
+NW
+rR
+NW
+NW
+VJ
+Hd
+jw
+Hd
+rO
+IJ
+Zq
+cq
+bx
+bx
+bx
+bx
+bx
+Rk
+"}
+(14,1,1) = {"
+Rk
+vA
+jV
+lj
+vA
+vA
+vA
+vA
+vA
+vA
+Pv
+VJ
+PZ
+Hy
+Hy
+nI
+Hy
+Hy
+Gn
+Oo
+Dr
+qI
+rE
+Vc
+gK
+IV
+oL
+Zt
+IM
+ga
+tH
+Rk
+"}
+(15,1,1) = {"
+Rk
+Of
+kb
+WC
+xW
+Sf
+aj
+aj
+aj
+Sf
+EY
+VJ
+Xg
+lx
+lx
+Jg
+lx
+lx
+VJ
+fh
+jw
+fh
+Zq
+IJ
+Zq
+Zq
+Zq
+yd
+Sk
+vT
+zY
+Rk
+"}
+(16,1,1) = {"
+Rk
+MI
+lw
+lw
+MI
+Sf
+aE
+Ad
+aj
+Sf
+lu
+VJ
+Xg
+NW
+NW
+NW
+NW
+NW
+VJ
+Hd
+ez
+Hd
+Xr
+IJ
+Zq
+xs
+bx
+bx
+bx
+bx
+bx
+Rk
+"}
+(17,1,1) = {"
+Rk
+MI
+MI
+MI
+MI
+Sf
+aj
+zu
+aj
+Sf
+OH
+fZ
+Xg
+Yr
+eI
+GS
+VJ
+Yr
+VJ
+Hd
+ny
+Hd
+uu
+IJ
+HM
+gJ
+bx
+Rk
+Rk
+Rk
+Rk
+Rk
+"}
+(18,1,1) = {"
+aT
+Rk
+Rk
+Rk
+Rk
+Sf
+du
+kS
+du
+Sf
+OH
+OH
+bp
+OH
+OH
+OH
+OH
+OH
+OH
+Hd
+jw
+Hd
+lP
+oA
+lP
+lP
+lP
+Rk
+Rk
+Rk
+Rk
+Rk
+"}
+(19,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+Sf
+pL
+eX
+TV
+Ih
+uK
+wl
+mV
+YB
+AX
+OG
+aR
+Sw
+Ko
+Hd
+jw
+Hd
+PH
+DY
+RV
+pt
+lP
+bR
+bR
+bR
+bR
+bR
+"}
+(20,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+Sf
+Kw
+jv
+jv
+CW
+uK
+PF
+HJ
+ml
+ml
+ml
+ml
+ml
+ml
+Hd
+jw
+Hd
+ku
+hr
+RV
+dI
+lP
+bR
+bR
+bR
+bR
+bR
+"}
+(21,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+Sf
+ke
+Ra
+ge
+gQ
+uK
+uK
+zb
+uK
+zb
+uK
+zb
+uK
+ap
+Hd
+jw
+Hd
+Qf
+Le
+RV
+mD
+lP
+bR
+bR
+bR
+bR
+bR
+"}
+(22,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+Sf
+PA
+hS
+os
+Qb
+uK
+uK
+uK
+uK
+uK
+uK
+uK
+uK
+uK
+Hd
+ny
+Hd
+SQ
+Xt
+RV
+tf
+lP
+bR
+bR
+bR
+bR
+bR
+"}
+(23,1,1) = {"
+Rk
+Rk
+Rk
+Rk
+Rk
+Sf
+pH
+zj
+sp
+YF
+EV
+Wy
+ff
+sD
+nk
+dR
+Qw
+dR
+rH
+Hd
+jw
+Hd
+xc
+rp
+RV
+RV
+lP
+bR
+bR
+bR
+bR
+bR
+"}
+(24,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+HB
+zj
+OF
+er
+EV
+jB
+fD
+fD
+fD
+fD
+fD
+fD
+fs
+Hd
+ez
+Hd
+Ui
+EI
+ZK
+lo
+lP
+bR
+bR
+bR
+bR
+bR
+"}
+(25,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+AD
+Gp
+Ax
+jv
+EV
+hz
+fD
+fD
+fD
+fD
+fD
+fD
+fs
+Hd
+jw
+Hd
+lP
+lP
+lP
+lP
+lP
+bR
+bR
+bR
+bR
+bR
+"}
+(26,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+mN
+ci
+QI
+nf
+EV
+Px
+YK
+Rq
+Fw
+en
+en
+en
+Nf
+fQ
+wf
+wr
+Hd
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(27,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+RF
+Ar
+jI
+bv
+EV
+Or
+fD
+fD
+fD
+fD
+fD
+fD
+fs
+Hd
+yG
+Gf
+Hd
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(28,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+mg
+qJ
+qg
+jv
+EV
+KW
+wh
+HC
+zs
+sc
+JI
+Ef
+Tr
+Hd
+jw
+fh
+Hd
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(29,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+nt
+qJ
+qg
+jv
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+ny
+Hd
+Hd
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(30,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+Ld
+gj
+HV
+sP
+dl
+jd
+jd
+kq
+jd
+rB
+jd
+jd
+kq
+jd
+gN
+Hd
+Hd
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(31,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+Sf
+Sf
+Sf
+Sf
+Sf
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+Hd
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
+(32,1,1) = {"
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+bR
+"}
