@@ -51,9 +51,9 @@
 	return TRUE
 
 /datum/component/eye/proc/unlook()
+	UnregisterSignal(parent, COMSIG_QDELETING)
 	UnregisterSignal(parent, COMSIG_MOVABLE_MOVED)
 	UnregisterSignal(current_looker, COMSIG_MOVABLE_MOVED)
-	UnregisterSignal(parent, COMSIG_QDELETING)
 	UnregisterSignal(current_looker, COMSIG_QDELETING)
 	UnregisterSignal(component_eye, COMSIG_QDELETING)
 
