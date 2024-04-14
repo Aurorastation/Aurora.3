@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/heph_security
 	name = "Hephaestus Security Vessel"
 	description = "A vessel for protecting Hephaestus assets."
-	suffixes = list("ships/heph/heph_security/heph_security.dmm")
+
+	prefix = "ships/heph/heph_security/"
+	suffixes = list("heph_security.dmm")
+
 	sectors = list(SECTOR_BURZSIA, SECTOR_UUEOAESA, SECTOR_TAU_CETI, SECTOR_CORP_ZONE) //Sectors with heavy Hephaestus presence specifically. These guys aren't going to be out patrolling the Badlands, they're going to be sticking close to valuable Heph installations.
 	spawn_weight = 1
 	ship_cost = 1
