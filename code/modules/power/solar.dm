@@ -538,11 +538,11 @@
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 		var/mutable_appearance/image_overlay = overlay_image(src.icon, "broken")
-		add_overlay(image_overlay)
+		AddOverlays(image_overlay)
 		AddOverlays("red_key")
 	else
 		var/mutable_appearance/image_overlay = overlay_image(src.icon, "solar")
-		add_overlay(image_overlay)
+		AddOverlays(image_overlay)
 		AddOverlays("yellow_key")
 
 //

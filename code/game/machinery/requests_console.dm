@@ -138,36 +138,43 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 /obj/machinery/requests_console/update_icon()
 	ClearOverlays()
+	var/mutable_appearance/screen = overlay_image(icon, "req_comp-idle")
+	var/mutable_appearance/screen_hologram = overlay_image(icon, "req_comp-idle")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "req_comp-idle")
+	screen_hologram.filters += filter(type="color", color=list(
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+	))
+	screen.filters += filter(type="color", color=list(
+		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+		0, 0, 0, 1
+	))
+	screen_hologram.blend_mode = BLEND_MULTIPLY
+	screen.blend_mode = BLEND_ADD
 	if(stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 	else
 		switch(newmessagepriority)
 			if(0)
-				AddOverlays(list(
-					overlay_image(icon, "req_comp-idle"),
-					emissive_appearance(icon, "req_comp-idle")
-				))
+				screen = overlay_image(icon, "req_comp-idle")
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(1)
-				AddOverlays(list(
-					overlay_image(icon, "req_comp-alert"),
-					emissive_appearance(icon, "req_comp-alert")
-				))
+				screen = overlay_image(icon, "req_comp-alert")
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(2)
-				add_overlay(list(
-					overlay_image(icon, "req_comp-redalert"),
-					emissive_appearance(icon, "req_comp-redalert")
-				))
+				screen = overlay_image(icon, "req_comp-redalert")
 				set_light(1.4, 1.3, COLOR_ORANGE)
 			if(3)
-				AddOverlays(list(
-					overlay_image(icon, "req_comp-yellowalert"),
-					emissive_appearance(icon, "req_comp-yellowalert")
-				))
+				screen = overlay_image(icon, "req_comp-yellowalert")
 				set_light(1.4, 1.3, COLOR_ORANGE)
-
+		AddOverlays(screen_hologram)
+		AddOverlays(screen)
+		AddOverlays(screen_emis)
 		AddOverlays(overlay_image(icon, "req_comp-scanline"))
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)

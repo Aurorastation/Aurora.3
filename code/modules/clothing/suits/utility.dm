@@ -39,7 +39,7 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "firesuit-emissive", alpha = src.alpha)
-		I.add_overlay(emissive_overlay)
+		I.AddOverlays(emissive_overlay)
 	return I
 
 /obj/item/clothing/suit/fire/atmos
@@ -57,7 +57,7 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "atmos_firesuit-emissive", alpha = src.alpha)
-		I.add_overlay(emissive_overlay)
+		I.AddOverlays(emissive_overlay)
 	return I
 
 /*

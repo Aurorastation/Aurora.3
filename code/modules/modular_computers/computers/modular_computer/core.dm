@@ -189,7 +189,7 @@
 				))
 				I_holographic.blend_mode = BLEND_MULTIPLY
 				I.blend_mode = BLEND_ADD
-				add_overlay(I_holographic)
+				AddOverlays(I_holographic)
 			var/mutable_appearance/E = emissive_appearance(src.icon, icon_state_screensaver)
 			AddOverlays(I)
 			AddOverlays(E)
@@ -224,7 +224,7 @@
 			))
 			state.blend_mode = BLEND_ADD
 			state_holographic.blend_mode = BLEND_MULTIPLY
-			add_overlay(state_holographic)
+			AddOverlays(state_holographic)
 		AddOverlays(list(state, state_key))
 		var/emissive_image = emissive_appearance(src.icon, state_program)
 		var/emissive_image_key = emissive_appearance(src.icon, state_key)

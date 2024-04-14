@@ -164,7 +164,7 @@
 		chosen_icon = force_icon
 		chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 		mob_icon = new /icon(force_icon, chosen_icon_state)
-		add_overlay(emissive_blocker(chosen_icon, chosen_icon_state))
+		AddOverlays(emissive_blocker(chosen_icon, chosen_icon_state))
 		if((painted && skin_color) || robotize_type == PROSTHETIC_SYNTHSKIN)
 			mob_icon.Blend(skin_color, ICON_ADD)
 		if(!isnull(s_tone))

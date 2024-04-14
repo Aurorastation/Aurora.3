@@ -60,7 +60,7 @@
 /obj/effect/temp_visual/constellation/Initialize()
 	. = ..()
 	if(!glow_state)
-		glow_state = make_screen_overlay(icon, icon_state)
+		glow_state = overlay_image(icon, icon_state)
 	AddOverlays(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/attacking_item, mob/user)
