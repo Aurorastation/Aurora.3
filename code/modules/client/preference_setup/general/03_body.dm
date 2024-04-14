@@ -244,25 +244,25 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/status = pref.organ_data[name]
 		var/organ_name = name
 
-		if(status == "cyborg")
+		if(status == ORGAN_PREF_CYBORG)
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[name]])
 				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = GLOB.basic_robolimb
 			out += "<li>- [R.company] [capitalize_first_letters(parse_zone(organ_name))] Prosthesis</li>"
-		else if(status == "amputated")
+		else if(status == ORGAN_PREF_AMPUTATED)
 			out += "<li>- Amputated [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == "mechanical")
+		else if(status == ORGAN_PREF_MECHANICAL)
 			var/datum/robolimb/R
 			if(pref.rlimb_data[name] && GLOB.all_robolimbs[pref.rlimb_data[name]])
 				R = GLOB.all_robolimbs[pref.rlimb_data[name]]
 			else
 				R = GLOB.basic_robolimb
 			out += "<li>- [R.company] Mechanical [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == "nymph")
+		else if(status == ORGAN_PREF_NYMPH)
 			out += "<li>- Diona Nymph [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == "assisted")
+		else if(status == ORGAN_PREF_ASSISTED)
 			switch(organ_name)
 				if(BP_HEART)
 					out += "<li>- Pacemaker-Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
@@ -272,7 +272,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					out += "<li>- Retinal Overlayed [capitalize_first_letters(parse_zone(organ_name))]</li>"
 				else
 					out += "<li>- Mechanically Assisted [capitalize_first_letters(parse_zone(organ_name))]</li>"
-		else if(status == "removed")
+		else if(status == ORGAN_PREF_REMOVED)
 			out += "<li>- Removed [capitalize_first_letters(parse_zone(organ_name))]</li>"
 
 	if(length(pref.organ_data))
@@ -395,6 +395,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(!(mob_species.type in S.species_allowed))
 					continue
+				if(!verify_robolimb_appropriate(S))
+					continue
+
 				valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
 
 			if(valid_hairstyles.len)
@@ -417,6 +420,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					continue
 				if(!(mob_species.type in S.species_allowed))
 					continue
+				if(!verify_robolimb_appropriate(S))
+					continue
 
 				valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
 
@@ -434,6 +439,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(pref.gender == FEMALE && S.gender == MALE)
 					continue
 				if(!(mob_species.type in S.species_allowed))
+					continue
+				if(!verify_robolimb_appropriate(S))
 					continue
 
 				valid_hair_gradients[hair_gradient] = valid_hair_gradients[hair_gradient]
@@ -519,6 +526,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if(pref.gender == FEMALE && S.gender == MALE)
 				continue
 			if(!(mob_species.type in S.species_allowed))
+				continue
+			if(!verify_robolimb_appropriate(S))
 				continue
 
 			valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
@@ -625,6 +634,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				continue
 			if(!(mob_species.type in S.species_allowed))
 				continue
+			if(!verify_robolimb_appropriate(S))
+				continue
 
 			valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
 
@@ -661,9 +672,11 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 		var/datum/species/species = GLOB.all_species[pref.species]
 		for(var/M in usable_markings)
 			var/datum/sprite_accessory/S = usable_markings[M]
-			if(!S.species_allowed.len)
+			if(!length(S.species_allowed))
 				continue
 			else if(!(species.type in S.species_allowed))
+				usable_markings -= M
+			if(!verify_robolimb_appropriate(S))
 				usable_markings -= M
 
 		if (!usable_markings.len)
@@ -707,7 +720,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["limbs"])
-		var/list/acceptable_organ_input = list("Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand")
+		var/list/acceptable_organ_input = list("Head", "Left Leg","Right Leg","Left Arm","Right Arm","Left Foot","Right Foot","Left Hand","Right Hand")
 		var/limb_name = tgui_input_list(user, "Which limb do you want to change?", "Limbs", acceptable_organ_input)
 		if(!limb_name && !CanUseTopic(user)) return TOPIC_NOACTION
 
@@ -746,7 +759,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Upper Body")
 				limb = BP_CHEST
 				carries_organs = 1
-			if(BP_HEAD)
+			if("Head")
 				limb = BP_HEAD
 				carries_organs = 1
 			else
@@ -769,10 +782,10 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					pref.rlimb_data -= third_limb
 
 			if("Amputated")
-				pref.organ_data[limb] = "amputated"
+				pref.organ_data[limb] = ORGAN_PREF_AMPUTATED
 				pref.rlimb_data[limb] = null
 				if(second_limb)
-					pref.organ_data[second_limb] = "amputated"
+					pref.organ_data[second_limb] = ORGAN_PREF_AMPUTATED
 					pref.rlimb_data[second_limb] = null
 
 			if("Prosthesis")
@@ -782,6 +795,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					var/datum/robolimb/M = GLOB.chargen_robolimbs[company]
 					if(!(tmp_species in M.species_can_use))
 						continue
+					if(!(limb in M.allowed_external_organs))
+						continue
 					usable_manufacturers[company] = M
 				if(!usable_manufacturers.len)
 					return
@@ -789,20 +804,22 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(!choice)
 					return
 				pref.rlimb_data[limb] = choice
-				pref.organ_data[limb] = "cyborg"
+				pref.organ_data[limb] = ORGAN_PREF_CYBORG
 				if(second_limb)
 					pref.rlimb_data[second_limb] = choice
-					pref.organ_data[second_limb] = "cyborg"
-				if(third_limb && pref.organ_data[third_limb] == "amputated")
+					pref.organ_data[second_limb] = ORGAN_PREF_CYBORG
+				if(third_limb && pref.organ_data[third_limb] == ORGAN_PREF_AMPUTATED)
 					pref.organ_data[third_limb] = null
 
 			if("Diona Nymph")
-				pref.organ_data[limb] = "nymph"
+				pref.organ_data[limb] = ORGAN_PREF_NYMPH
 				pref.rlimb_data[limb] = null
 				if(second_limb)
-					pref.organ_data[second_limb] = "nymph"
+					pref.organ_data[second_limb] = ORGAN_PREF_NYMPH
 					pref.rlimb_data[second_limb] = null
 
+		// Recheck markings in case we changed prosthetics.
+		recheck_markings_and_facial_hair()
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["organs"])
@@ -828,7 +845,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 			if("Normal")
 				pref.organ_data[organ_name] = null
 			if("Assisted")
-				pref.organ_data[organ_name] = "assisted"
+				pref.organ_data[organ_name] = ORGAN_PREF_ASSISTED
 			if("Mechanical")
 
 				var/tmp_species = pref.species ? pref.species : SPECIES_HUMAN
@@ -837,6 +854,8 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 					var/datum/robolimb/M = GLOB.chargen_robolimbs[company]
 					if(!(tmp_species in M.species_can_use))
 						continue
+					if(!(organ_name in M.allowed_internal_organs))
+						continue
 					usable_manufacturers[company] = M
 				if(!usable_manufacturers.len)
 					return
@@ -844,22 +863,18 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				if(!choice)
 					return
 
-
-				var/datum/robolimb/R = GLOB.all_robolimbs[choice]
-				if(!(organ_name in R.allowed_internal_organs))
-					alert(user, "You can not select this manufacturer for this organ.")
-					return
 				pref.rlimb_data[organ_name] = choice
-				pref.organ_data[organ_name] = "mechanical"
+				pref.organ_data[organ_name] = ORGAN_PREF_MECHANICAL
 
 			if("Removed")
-				pref.organ_data[organ_name] = "removed"
+				pref.organ_data[organ_name] = ORGAN_PREF_REMOVED
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
 	else if(href_list["reset_organs"])
 		pref.organ_data.Cut()
 		pref.rlimb_data.Cut()
+		recheck_markings_and_facial_hair()
 
 		return TOPIC_REFRESH_UPDATE_PREVIEW
 
@@ -958,14 +973,25 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	user << browse(dat.Join(), "window=species;size=700x400")
 
-/*/datum/category_item/player_setup_item/general/body/proc/reset_limbs()
+/// This proc verifies if a sprite accessory can be put on a robolimb, checking its manufacturer.
+/datum/category_item/player_setup_item/general/body/proc/verify_robolimb_appropriate(datum/sprite_accessory/S)
+	var/organ_status = pref.organ_data[S.required_organ]
+	var/robolimb_manufacturer = pref.rlimb_data[S.required_organ]
+	. = check_robolimb_appropriate(S, organ_status, robolimb_manufacturer)
 
-	for(var/organ in pref.organ_data)
-		pref.organ_data[organ] = null
-	while(null in pref.organ_data)
-		pref.organ_data -= null
+/// This proc is used to check markings and facial hair after changing prosthesis.
+/datum/category_item/player_setup_item/general/body/proc/recheck_markings_and_facial_hair()
+	if(length(pref.body_markings))
+		for(var/marking in pref.body_markings)
+			var/datum/sprite_accessory/S = GLOB.body_marking_styles_list[marking]
+			if(!verify_robolimb_appropriate(S))
+				pref.body_markings -= marking
+				to_chat(pref.client, SPAN_WARNING("Removed the [marking] marking as it is not appropriate for your current robo-limb!"))
 
-	for(var/organ in pref.rlimb_data)
-		pref.rlimb_data[organ] = null
-	while(null in pref.rlimb_data)
-		pref.rlimb_data -= null*/
+	if(pref.f_style)
+		var/datum/sprite_accessory/F = GLOB.facial_hair_styles_list[pref.f_style]
+		if(!verify_robolimb_appropriate(F))
+			var/datum/species/user_species = GLOB.all_species[pref.species]
+			var/organ_status = pref.organ_data[F.required_organ]
+			var/robolimb_manufacturer = pref.rlimb_data[F.required_organ]
+			pref.f_style = random_facial_hair_style(pref.gender, user_species.type, organ_status, robolimb_manufacturer)

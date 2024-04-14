@@ -2,7 +2,10 @@
 	name = "drill site"
 	id = "drill_site"
 	description = "A small, abandoned mining drill operation."
-	suffixes = list("lava/drill_site/drill_site.dmm")
+
+	prefix = "lava/drill_site/"
+	suffixes = list("drill_site.dmm")
+
 	spawn_weight = 1
 	spawn_cost = 0.5
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)

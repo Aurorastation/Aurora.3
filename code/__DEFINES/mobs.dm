@@ -146,6 +146,8 @@
 #define BP_ZOMBIE_PARASITE "black tumour"
 #define BP_WORM_HEART "heart fluke"
 #define BP_WORM_NERVE "nerve fluke"
+#define BP_TUMOUR_NONSPREADING "benign tumour"
+#define BP_TUMOUR_SPREADING "malignant tumour"
 
 //Augment organs
 #define BP_AUG_TIMEPIECE    "integrated timepiece"
@@ -420,6 +422,9 @@
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
+#define PROSTHETIC_HOPLAN "Hoplan Head"
+#define PROSTHETIC_RAXUS "Raxus Head"
+#define PROSTHETIC_INDRICUS "Indricus Head"
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10
