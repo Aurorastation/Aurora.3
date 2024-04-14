@@ -10,7 +10,7 @@
 /area/template_noop)
 "J" = (
 /obj/effect/landmark/clear,
-/obj/structure/survey_probe/hegemony,
+/obj/structure/survey_probe/hegemony/old,
 /turf/template_noop,
 /area/template_noop)
 
