@@ -92,7 +92,7 @@
 		background_area = exoplanet.planetary_area
 	for(var/turf/T in A.contents)
 		ChangeArea(T, background_area)
-	if(!locate(/turf in A))
+	if(!locate(/turf) in A)
 		qdel(A)
 
 /mob/abstract/eye/blueprints/proc/edit_area()
