@@ -90,7 +90,7 @@
 		if(!shuttle_type)
 			for(var/obj/effect/overmap/visitable/ship/landable/landable in SSshuttle.ships)
 				var/datum/shuttle/shuttle = SSshuttle.shuttles[landable.shuttle]
-				if(A in shuttle.shuttle_area)
+				if(shuttle && (A in shuttle.shuttle_area))
 					shuttle_type = landable
 					break
 		else
