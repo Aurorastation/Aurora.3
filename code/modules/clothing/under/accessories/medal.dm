@@ -80,6 +80,16 @@
 	icon_state = "silversci"
 	overlay_state = "silversci"
 
+/obj/item/clothing/accessory/medal/silver/konyang
+	name = "\improper Republic of Konyang foreign loyalty medal"
+	desc = "A medal awarded by the Republic of Konyang for unconditional service rendered to the nation that greatly supports its values, institutions, and sovereignty."
+	icon_state = "konyang_loyalty"
+
+/obj/item/clothing/accessory/medal/silver/konyang/wound
+	name = "\improper Republic of Konyang spilled blood medal"
+	desc = "A medal awarded by the Republic of Konyang for heroic sacrifice with great personal disregard for health in defense of the nation and her ideals."
+	icon_state = "konyang_wound"
+
 /obj/item/clothing/accessory/medal/gold
 	name = "gold medal"
 	desc = "A prestigious golden medal."

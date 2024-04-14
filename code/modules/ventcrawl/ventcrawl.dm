@@ -228,12 +228,14 @@ var/global/list/can_enter_vent_with = list(
 	for(var/datum/pipeline/pipeline in network.line_members)
 		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
-				A.pipe_image = image(A, A.loc, layer = ABOVE_LIGHTING_LAYER, dir = A.dir)
+				A.pipe_image = image(A, A.loc, dir = A.dir)
+				A.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
 		if (!V.pipe_image || istype(V, /obj/machinery/atmospherics/unary/vent_pump/))
-			V.pipe_image = image(V, V.loc, layer = ABOVE_LIGHTING_LAYER, dir = V.dir)
+			V.pipe_image = image(V, V.loc, dir = V.dir)
+			V.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		pipes_shown += V.pipe_image
 		client.images += V.pipe_image
 

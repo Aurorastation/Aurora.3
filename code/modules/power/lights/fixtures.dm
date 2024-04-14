@@ -76,7 +76,7 @@
 	icon_state = "floortube_example"
 	base_state = "floortube"
 	desc = "A lighting fixture. This one is set into the floor."
-	layer = TURF_DETAIL_LAYER
+	layer = ABOVE_TILE_LAYER
 	fitting_has_empty_icon = TRUE
 	fitting_is_on_floor = TRUE
 
@@ -100,8 +100,8 @@
 	icon_state = "floor_example"
 	base_state = "floor"
 	desc = "A small lighting fixture. This one is set into the floor."
-	layer = TURF_DETAIL_LAYER
 	fitting_is_on_floor = TRUE
+	layer = ABOVE_TILE_LAYER
 
 /obj/machinery/light/small/emergency
 	icon_state = "bulb_emergency_preview"
@@ -245,9 +245,9 @@
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
 				if (!fitting_is_on_floor)
-					I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+					I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 				else
-					I.layer = layer
+					I.plane = plane
 				add_overlay(I)
 			else
 				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))

@@ -19,6 +19,7 @@
 	bluecrystal_cost = 3
 	item_limit = 2
 	path = /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
+	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. In the short-term, it will save your life; in the long term, the cancerous tumours immediately onset by the drug will invariable cause death down the line."
 
 /datum/uplink_item/item/medical/combathypo
 	name = "Combat Hypospray"

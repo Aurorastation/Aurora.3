@@ -15,8 +15,8 @@
 	telecomms_type = /obj/machinery/telecomms/hub
 	density = TRUE
 	anchored = TRUE
-	idle_power_usage = 1.6 KILOWATTS
-	active_power_usage = 5 KILOWATTS
+	idle_power_usage = 1.6 KILO WATTS
+	active_power_usage = 5 KILO WATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/hub"
 	netspeed = 40
 
