@@ -17,13 +17,11 @@
 		return
 	switch(severity)
 		if(1.0)
-			visible_message(SPAN_DANGER("A hissing noise emerges from \the [src]'s casing..."))
-			addtimer((CALLBACK(src, PROC_REF(explode)), rand(20, 60)))
+			explode()
 			return
 		if(2.0)
 			if(prob(50))
-				visible_message(SPAN_DANGER("A hissing noise emerges from \the [src]'s casing..."))
-				addtimer((CALLBACK(src, PROC_REF(explode)), rand(20, 60)))
+				explode()
 				return
 		if(3.0)
 			return
