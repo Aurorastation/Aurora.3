@@ -171,7 +171,6 @@
 
 /obj/structure/window_frame/shuttle/merc
 	color = "#8b7d86"
-
 /obj/structure/window_frame/shuttle/khaki
 	color = "#ac8b78"
 

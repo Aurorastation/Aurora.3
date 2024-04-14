@@ -304,7 +304,8 @@
 	update_icon()
 
 /obj/item/weldingtool/use_tool(atom/target, mob/living/user, delay, amount, volume, datum/callback/extra_checks)
-	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state, EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/image/welding_sparks = image('icons/effects/effects.dmi', welding_state)
+	welding_sparks.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	target.add_overlay(welding_sparks)
 	. = ..()
 	target.cut_overlay(welding_sparks)

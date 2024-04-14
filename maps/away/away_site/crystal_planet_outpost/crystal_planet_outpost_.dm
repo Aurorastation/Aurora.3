@@ -4,7 +4,10 @@
 	id = "crystal_planet_outpost"
 	spawn_cost = 1
 	spawn_weight = 1
-	suffixes = list("away_site/crystal_planet_outpost/crystal_planet_outpost.dmm")
+
+	prefix = "away_site/crystal_planet_outpost/"
+	suffixes = list("crystal_planet_outpost.dmm")
+
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM, SECTOR_SRANDMARR, SECTOR_TAU_CETI) //it's a whole planet, shouldn't have it in predefined sectors
 	unit_test_groups = list(1)

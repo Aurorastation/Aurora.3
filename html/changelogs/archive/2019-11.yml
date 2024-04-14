@@ -1,0 +1,619 @@
+2019-11-01:
+  Ferner:
+  - tweak: Gave the freelance mercs a headset, switched their id to an agent one,
+      and fixed the leader's rifle being the wrong type.
+  JohnWildkins:
+  - security: Fixed an exploit relating to the anti-spam filter.
+2019-11-02:
+  AmoryBlaine, JohnWildkins:
+  - rscadd: Added an engineering apprentice uniform, and overalls accessories to the
+      miner, atmos tech, chief engineer and engineer lockers, as well as loadouts.
+      They are equivalent to webbing vests.
+  - rscadd: Atmos tech lockers now start with blue hazard vests, and the wardrobe
+      locker includes matching (non fire-safe) hard hats.
+  - rscadd: Added safety goggles with a new sprite with a verb to raise/lower them.
+      The original goggles can be found as 'safety glasses'. Both are available under
+      eyewear in the loadout tab.
+  - imageadd: Updated sprites for the engineer, CE, atmos tech, janitor, CT (incl.
+      an alt uniform in lockers and loadout), quartermaster, and miner jumpsuits.
+      Updated atmos fire suit sprite.
+  - imageadd: New utility belt (incl. alt sprite available in loadout), hard hat,
+      engineering beret, sheet and ore snatcher, and hydrogen ore sprites.
+  - imageadd: New hazard vest sprites. Hazard vests can now be zipped up or left loose
+      with an appropriate verb.
+  - imageadd: New atmos airlock sprites, new mining, atmos, and janitorial locker
+      sprites.
+  BurgerBB:
+  - maptweak: Removed all instances of guaranteed contraband spawn in maintenance.
+  - maptweak: Added additional maintenance loot spawns.
+  Geeves:
+  - tweak: Improved sword parry sounds.
+  - rscdel: Robotics can no longer fabricate knock-off stealth RIGs.
+  - rscadd: You can now use magboots to maintain your balance during shuttle transit.
+  JohnWildkins:
+  - tweak: With the gripper, hitting the drop hotkey (Q) now drops the held item.
+      If there is no held item, the gripper is put away as normal.
+  - tweak: The scientific gripper can now hold slime steroids.
+  - tweak: The chemistry gripper can now hold paper. This is mostly to assist medical
+      borgs handling scans and the like.
+  - bugfix: Modules relying on cyborg synthesizers (nanopaste, ATKs, etc.) now cannot
+      be used once the synthesizer is depleted.
+  - bugfix: Injecting a monkey cube in a cyborg gripper no longer places the monkey
+      inside the gripper's pocket dimension.
+  - bugfix: Service cyborgs can no longer open a plane to infinite grass tiles via
+      their service gripper.
+  - bugfix: Cyborgs can now re-lock secure crates.
+  - bugfix: Clerical cyborgs can now browse paper bundles and pick up duct-taped paper
+      with their gripper.
+  - bugfix: The cyborg module inventory now correctly updates when using the drop
+      hotkey (Q, default) to put away a module.
+  - bugfix: Sec. cadet hazard vests can now be properly zipped/unzipped.
+  - bugfix: Safety goggles can now be properly adjusted.
+  MattAtlas:
+  - tweak: Removed fullblock chance in normal circumstances. This means you shouldn't
+      ever have your armor absorb bullets completely unless your armor is much stronger
+      than the bullet you're receiving.
+  ParadoxSpace:
+  - rscadd: Wulumunusha vine seeds are now in the various seed vendors.
+  - rscadd: The bar/kitchen now get banana juice cartridges in the dispensers.
+  - tweak: Slightly more Dyn seeds in vendors.
+  ParadoxSpace & AmoryBlaine:
+  - rscadd: Adds a helmet and a chest-rig for Paramedics and EMTs. Sprites by the
+      ever-loving AmoryBlaine.
+  - rscadd: Physician lockers now contain HUDpatches.
+  - rscadd: Chest-rigs and Paramedic jackets can now hold blood bags.
+2019-11-03:
+  Geeves:
+  - bugfix: Reverts the sec antag chances changes, gamemodes should be normal again
+      now.
+  - tweak: The supermatter manual has now been updated to include accurate and up
+      to date information that will allow you to set the engine up no problem.
+  JohnWildkins:
+  - refactor: All off-station antags / those with extensive spawned loadouts now use
+      the outfit datum system.
+  - tweak: ERT/Ghost roles should now have a clearer message as to your particular
+      role and objective.
+  - rscadd: NT Asset Protection and Syndicate Commandos (aka 'Deathsquads') have been
+      moved and re-tooled as ghost spawner ERTs. They will only appear upon admin
+      intervention.
+  - tweak: Outfit datums should now take backpack choice into account, if options
+      are provided.
+2019-11-04:
+  Alberyk:
+  - tweak: Robotic simple animals are now damaged by emp.
+  - bugfix: NanoTrasen should not longer deploy deathsquads by accident when using
+      a distress beacon.
+  - bugfix: Fixed wizards not being able to use their artifacts.
+  Doxxmedearly:
+  - rscadd: Added crayon dust to crayons! You can now place crayons in grinders to
+      get dust. Using or eating a crayon will reduce the amount of dust it gives.
+  - rscadd: Added unique flavor descriptions to each color of crayon dust. Sol Marines
+      rejoice!
+  - rscadd: The biogenerator is now able to produce boxes of crayons.
+  - tweak: Regular crayons now effectively have 20 uses, down from 30. Mime and Rainbow
+      crayons are no longer infinite, but last longer than normal crayons (and give
+      more crayon dust!)
+  Ferner:
+  - bugfix: Fixed an issue with hivebot bombers that could lead to infinite recursion.
+  - bugfix: Stopped the supposedly over a century old shire paint kit from appearing
+      in the mining vendor.
+  - tweak: Walls and floors of shuttles are no longer indestructible.
+  - imageadd: Added smooth dark shuttle wall icons and some additional shuttle floor
+      varieties by AmoryBlaine.
+  - rscdel: Deleted the depreceated shuttle turfs and their subtypes.
+  Geeves:
+  - rscadd: Adds the ability to cut door bolts.
+  - rscdel: Adds more examine details to airlocks. (Has maglock, door bolt cover busted,
+      door bolts gone?)
+  ParadoxSpace:
+  - rscadd: Gives IPCs the ability to speak Sol Common.
+2019-11-05:
+  Ferner:
+  - bugfix: Turned off ambient occlusion for shuttle turfs.
+2019-11-06:
+  Alberyk:
+  - tweak: Replace in game references about rig with hardsuit, to make things more
+      consistent.
+  Arrow768:
+  - tweak: Construction Drones can no longer go to the Aurora.
+  - tweak: Mining Drones can no longer go to the Derelict.
+  - tweak: TSC is now restricted to station levels instead of player levels.
+  Doxxmedearly:
+  - rscadd: Card holders now hold cards like they should. Children's card game elitists,
+      rejoice!
+  JohnWildkins:
+  - bugfix: ERTs should no longer stop the emergency shuttle from being called.
+  MoondancerPony:
+  - tweak: Mindslaves are no longer lobotomised; they're more like vampire thralls.
+  - tweak: Extends the cleric resurrection time limit to 30 minutes instead of 5.
+2019-11-08:
+  Alberyk:
+  - bugfix: You can now call the shuttle as the AI once more
+  - bugfix: You can pick up taped papers again.
+  - bugfix: Tweaked golden and silver slimes reactions to be more sane and exclude
+      undesirable results.
+  - bugfix: Fixed certains being able to be lobotomized when they should not.
+  Alberyk, Kyres1:
+  - rscadd: Added the hakhma as one of the animals that you can find in cargo random
+      crates.
+  Ferner:
+  - tweak: The laptop vendor can now be unanchored.
+  Furrycactus:
+  - maptweak: Removed the NT breacher chassis control module from the general EVA
+      storage, it's now in the vault. It's a combat hardsuit, it shouldn't be available
+      to any crewmember with EVA access.
+  - maptweak: Moves the Tesla Bay more northward to make it a bit less effected by
+      Supermatter delaminations.
+  - maptweak: Revamps the sublevel breakroom somewhat to incentivise its use a little
+      more. Foyer is largely untouched, save for moving the box of donk pockets.
+  - maptweak: Adds a substation to Engineering's sublevel.
+  - maptweak: Puts the Tesla Coils and Tesla Ball Generator in their proper positions
+      at roundstart to exponentially cut down on start-up time. Hauling literally
+      everything took forever. Now you only need to haul the grounding rods.
+  - maptweak: Changed the colour of the Tesla output wires to blue instead of red.
+      Pretty colours + differentiating it from the main grid.
+  - maptweak: Makes the Tesla Bay APC a supercap critical APC, like the Supermatter
+      engine room, and like the Gravity Generator, instead of the basic one with a
+      shitty 5000 cap 'heavy-duty' cell.
+  - maptweak: Un-fucks the Engineering Storage area designation. Engineering EVA Storage
+      and Hard Storage no longer share the exact same area designation, both with
+      their own APCs for some reason. They're split into their own respective areas,
+      and Sublevel storage has its own area now too.
+  - maptweak: Gives the Robotics Lab a highcap APC, instead of a 5000 'heavy-duty'
+      cell, because they really need it.
+  - maptweak: Splits the entire 'Robotics Lab' area into 'Robotics Lab', 'Robotics
+      Charging Bay', and 'Cyborgification Bay'. This means three APCs for different
+      objects to draw from, rather than having a cell charger, four exosuit chargers,
+      two borg chargers, and the rest of the robotics equipment being on a single
+      APC with a 5000 cap cell inside it.
+  - maptweak: Renames the 'emergency singularity beacon' in Engineering Hard Storage
+      to 'emergency tesla beacon', for clarity, and because we don't use a Singularity
+      on the Aurora.
+  Geeves:
+  - rscadd: Adds the Kataphracts as an ERT team. A five-man squad of honourbound unathi
+      intent on protecting and assisting the innocent.
+  - tweak: Energy blades no longer get anchored when activated. You can now pick them
+      up whenever.
+  - tweak: The energy cutlass can now be stowed in a belt.
+  - rscadd: Added a drill dropper item. It drops drills. Can't be used near station
+      areas, unless tampered with.
+  - rscadd: Added the drill dropper to the QM locker, to be distributed to trusted
+      miners.
+  - tweak: Ninja now needs 15 players playing before it gets chosen as a gamemode.
+  JohnWildkins:
+  - refactor: Traps have been overhauled on the back-end, and their interactions simplified
+      to the end-user.
+  - tweak: Large traps must now be anchored and then set before use. The process takes
+      three seconds with a wrench and five seconds with an open hand respectively.
+      Large traps can only deploy once anchored.
+  - tweak: You can place someone/thing into a large trap (via buckling) regardless
+      of the trap's deployment.
+  - bugfix: You can once again anchor large traps to the floor with a wrench.
+  - bugfix: Fixed certain parts of the trap capture event not firing depending on
+      the method of capture.
+  - bugfix: You can no longer teleport inside of traps by attempting to sneak through
+      them from a long distance away.
+  ParadoxSpace:
+  - bugfix: Wulumunusha no longer silences you for a crazy amount of time. Is druggy
+      for a bit longer at max.
+  - rscdel: Circuits now produce light again. My mistake.
+  Wowzewow:
+  - imageadd: New sprites for PDAs, IDs, and PDA cartridges.
+  - bugfix: PDA inserting and ejecting stuff should make the correct sounds now.
+2019-11-09:
+  DanseMacabre:
+  - imageadd: Replaced the sprite of the detective's jacket with an alternative version.
+  Geeves:
+  - refactor: --CHANGELING CHANGES--
+  - tweak: Improved sting descriptions.
+  - bugfix: Fixed various typos, made some descriptions more clear.
+  - tweak: Stealthsuck now does toxins instead of genetic damage (randomly between
+      10 and 15).
+  - tweak: Hallucination sting occur 5 - 15 after stinging.
+  - tweak: Hallucinations last a smaller amount of time.
+  - tweak: Epinephrine sacs renamed to Adrenaline Sacs.
+  - tweak: Adrenaline Sacs cost 30 chemicals (was 45) previously.
+  - tweak: Adrenaline Sacs produce low amounts of oxycodone and hyperzine on activation.
+  - tweak: Faster chemical regeneration upgrade now regenerates 2.5 times faster (up
+      from 2).
+  - tweak: Enhanced chemical storage now stores 50 extra (up from 25).
+  - tweak: Armblades now cost 4 genomes (up from 2).
+  - tweak: Rapid regeneration now heals genetic damage as well.
+  - tweak: 'Regenerative stasis now allows you to revive after 10 seconds (from randomly:
+      between 8 and 20 seconds).'
+  - tweak: Adds a text prompt confirmation if you want to go horrorform or not. Die
+      misclicks, die.
+  - tweak: Adds a prompt to let ling know they need to wait a minute before they can
+      stealthsucc again.
+  - tweak: Ling shield does more bashing damage.
+  - tweak: Harm intent clicking on a powered down and bolted airlock with a hammer
+      or fireaxe will now attack it instead of giving the bolt message.
+  - rscdel: Stun talismans no longer floor, only mute and flash. Note, stun runes
+      unaffected.
+  JohnWildkins:
+  - bugfix: Fix raiders/heisters not spawning with editable agent IDs.
+  - bugfix: Fix the Einstein Engines ID not showing up, for real this time.
+  JohnWildkins, Wowzewow, AmoryBlaine:
+  - bugfix: Fixed wallets and lanyards, mining carts, the Einstein Engines ID, pAI
+      cards, and the improvised sword having missing sprites.
+  - tweak: Darker outlines and color tweaks to engineering / cargo outfits, ore +
+      sheet snatchers, the atmos fire helmet, hardhats, and safety goggles.
+  MattAtlas:
+  - rscdel: You can no longer knock someone out with a melee weapon while aiming for
+      the head if they have a helmet on.
+  PoZe, MattAtlas:
+  - rscadd: New human sprites! Your characters will be grey until you select a preset.
+      Please send all feedback regarding human colors to MattAtlas#6970. This is brought
+      to you mainly by PoZe, who did most of the work.
+2019-11-10:
+  Alberyk:
+  - tweak: Tweaked emergency response teams species selections to better reflect lore
+      restrictions.
+  Alberyk, BRAINOS:
+  - rscadd: Added new jackets and pants options to the loadout.
+  - tweak: Changed the bomber jacket sprite.
+  JohnWildkins:
+  - bugfix: Fix certain antags not spawning with their chosen backpack preference.
+  MattAtlas:
+  - bugfix: You can now change your skin preset in the nanoUI selector, like when
+      you spawn as a mercenary or raider.
+  MoondancerPony:
+  - bugfix: Fixes a runtime making syringe lung reinflation not work properly on other
+      people.
+  ParadoxSpace:
+  - rscadd: Adds a fourth Cargo Technician slot.
+2019-11-11:
+  Furrycactus:
+  - maptweak: Moved Telecomms further south, just across from the surface Cargo Bay.
+      Supermatter delaminations might clip the edge of the Fore Solar Array, but otherwise
+      shouldn't entirely decimate Telecomms anymore.
+  JohnWildkins:
+  - bugfix: Fixed a bug where certain antags would spawn with backpacks when they
+      shouldn't, or fail to spawn with their correct back gear.
+  MattAtlas:
+  - bugfix: Backpack preferences properly spawn now.
+2019-11-12:
+  BRAINOS:
+  - tweak: Fixed a small issue with designer jeans covering hands.
+  Geeves:
+  - rscadd: Lowers fireaxe after-click cooldown to 1.2 seconds down from 2.0.
+  - tweak: Allows more suits to wear the fireaxe in the suit slot.
+  - tweak: Raised the temperature resistance of the CE hardsuit.
+  - rscadd: Research now starts at level 3 with most station techs (Not illegal or
+      arcane!).
+  JohnWildkins:
+  - bugfix: Stuttering no longer breaks markup tags (bold, italics, etc.).
+  - backend: Stutter procs merged and refactored; stuttering now properly draws off
+      of the strength of the applied stuttering effect to the affected mob.
+  - rscadd: Stuttering now takes the form of first-phoneme repetition, stammering,
+      word repetition, and sound elongation, as opposed to simple letter duplication.
+  Wowzewow:
+  - imageadd: New sprites for improvised swords, Pesti-shocks, Power drills, and Koko
+      bars.
+  - tweak: Fixes Koko related grammar.
+2019-11-13:
+  Alberyk, BRAINOS:
+  - imageadd: Added a new meat steak sprite.
+  Doxxmedearly:
+  - tweak: Adds a sound effect to decompiler when used on a mob, and enables it to
+      decompile slightly larger pests.
+  Ferner:
+  - tweak: Tweaked the range and heightened the dropoff of some sounds, particularly
+      gunfire. Emitters are also audible through walls again.
+  - bugfix: Xenobotanists will now spawn with the correct uniform.
+  - bugfix: Fixed an issue with single slot ghost spawners being disabled preemptively.
+      Made the Kataphracts truly unathi exclusive.
+  Geeves:
+  - rscadd: You can now crawl under a lot more circumstances, if you click drag yourself
+      while laying down.
+  - tweak: 'Robotics updates:'
+  - rscadd: The phoron generator is now safe to use, it does not pollute the environment.
+  - rscadd: More mechfab things have been split into catagories that make sense. Tech
+      level required for some things have been reduced.
+  - rscadd: Robotics can now print robotic internal organs to replace organic organs.
+  - rscadd: Vampires can now choose whether they want their victims to remember the
+      sucking, or forget and be paralyzed.
+  - rscadd: A new vampire ability has been added, "Touch of Life", which gives the
+      target beneficial chemicals.
+  - bugfix: Coming down from frenzy will not call xenos human anymore.
+2019-11-14:
+  Geeves:
+  - rscadd: Unathi can flick their tongues to get a gas reading of the room.
+  ParadoxSpace:
+  - rscadd: Skrell eyes are now actually black instead of a dark blue.
+  - bugfix: Realigns one of the headtail jewelries.
+  Wowzewow:
+  - bugfix: Fixes Jack O' Lanterns. Carve a pumpkin, shove a candle in it and light
+      it with a lighter.
+  - imageadd: New pumpkin, carved pumpkin, jack o' lantern and candle sprites.
+  Wowzewow(Wezzy):
+  - bugfix: Xenoarcheology depth scanner no longer invisible, with new sprite to boot!
+  - tweak: Clicking on posters with help-intent no longer rips it off the wall like
+      a neanderthal, but instead examines it.
+  - tweak: Tweaks some Christmas and device sprites.
+2019-11-15:
+  BRAINOS:
+  - tweak: Slightly updated the military jackets.
+  Geeves, Kyres1:
+  - rscadd: A new mascot has been introduced to Engineering, Ginny, the baby space
+      carp.
+  JohnWildkins:
+  - bugfix: Fixed alternate utility belt not starting with tools when selected from
+      loadout.
+  - tweak: Alternate utility belt is now free to select. Engineering Apprentices can
+      elect to spawn with one, but it will be empty.
+  - backend: Job outfits now fill utility belts using belt_contents rather than simply
+      spawning sub-types of utility belt.
+  - refactor: Microwaves have been reworked from the ground up on the back-end. Microwaves
+      have been moved to a process-based system for cooking, and behave more similarly
+      to other cooking devices.
+  - rscadd: Microwaves have had their UI rebuilt from scratch in Vue.
+  - rscadd: You can now eject individual ingredients and reagents from a microwave.
+      To perform the latter, you must be holding a reagent container with enough space
+      in your hands.
+  - rscadd: You can now start microwaves by alt-clicking on them.
+  - rscadd: Microwaves can now be upgraded, with matter bins, capacitors, and the
+      micro laser affecting maximum cookable items, power usage, and cook time respectively.
+  - tweak: Microwaves now display their cook time as a progress bar in the UI. Cook
+      time has been reduced across the board.
+  - tweak: Eject verb for microwaves removed. All interfacing should now be done via
+      the UI.
+  - bugfix: Bugs both known and unknown relating to the old UI and general instability
+      of the microwave have been solved, including food duplication.
+  - backend: Vue UI progress bar element now caps width at 100%.
+  - bugfix: Fixed the loadout fixes spewing tools into engineers' backpacks.
+2019-11-16:
+  Ferner:
+  - tweak: Service grippers can now pick up cutlery.
+  - bugfix: Xenobotanists now spawn with the right access again.
+  Geeves:
+  - rscadd: Lighters now have a different colour when on. Welders now produce light.
+  Wowzewow(Wezzy):
+  - bugfix: Fixes hardhat light helmet alignment.
+2019-11-17:
+  Alberyk:
+  - rscdel: Telescience accidents can not create bluespace echos anymore.
+  Arrow768:
+  - bugfix: Fixed nullrod being invisible.
+  Doxxmedearly:
+  - bugfix: IPCs can no longer eat crayons.
+  Ferner:
+  - bugfix: Added the rest of the hivebot beacon types to the gold slime extract blacklist.
+  Geeves:
+  - tweak: You can now choose whether baby carp hide your hair when they're on your
+      head.
+  - rscadd: Antagonist roles are now restricted by player account (on Aurora) age.
+  - tweak: Reassembling a null item now correctly assigns new values to it.
+  - rscdel: You can no longer bonk yourself in the head when blessing people, if you're
+      perfectly sane.
+  - tweak: Chance to prompt the convert path raised to 75% up from 33%. (Cultists
+      should not mess around with chaplains.)
+  - tweak: Damage done by conversions reduced a tad.
+  - tweak: Chance of null rod waving curing some mental traumas raised by 10%.
+  - tweak: You can no longer accidentally bash the shit out of people with the null
+      rod.
+  - tweak: Tapping your rod against the floor now makes a visible message, and reveals
+      runes in a wider radius.
+  - tweak: Bibles now have better descriptors, meme sprites removed.
+  - rscadd: Added new bible types, as well as a generic variant with no face.
+  - rscadd: You can now only bless up to 60u of water, the amount that's in a flask.
+      No more blessing water tanks.
+  - rscadd: Adds craftable burial urns.
+  - rscadd: Added null orb sprite.
+  - rscadd: Added the Catholic Rosary to the Bible and White Bible spawns.
+  MattAtlas:
+  - bugfix: You should no longer randomly spawn without one of your loadout items.
+  - bugfix: You can now actually delete warrants.
+  ParadoxSpace:
+  - rscadd: Adds the Scarab religion to chargen. Humans only right now.
+  Wowzewow:
+  - imageadd: Resprites bedsheets and beds.
+  - rscadd: Adds more functionality to bedsheets. Click to roll them and unroll them
+      to tuck yourself in, Alt-Click to fold them, Drag and Drop onto yourself to
+      pick them up, and you can equip it in your backpack slot to wear it as a cape.
+      Stab a screwdriver in it to make a spooky ghost costume!
+2019-11-19:
+  Aboshehab:
+  - bugfix: Replaces all instances of 'phisical' to 'physical. This includes rebuilding
+      the vueui
+  Alberyk:
+  - tweak: Reduced the amount of holsters that spawns in the head of security and
+      detective's closet"
+  - tweak: The Pesti-Shock gun now fits inside the janibelt.
+  Furrycactus:
+  - maptweak: Added two more Emergency Shield Projectors to Engineering Hard Storage,
+      added four to Atmospherics, and two in the shield control room.
+  - tweak: Reduced the power draw of Emergency Shield Projectors to more reasonable
+      levels, so two don't max out an entire substation.
+  Geeves:
+  - rscadd: Added a new holodeck variant, Dining Hall.
+  JohnWildkins:
+  - bugfix: Fixed an issue where dirtied or broken microwaves would fail to start
+      again, even when cleaned or fixed.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes some accidental sprite changes.
+  - bugfix: Fixes nullorb sprite..
+2019-11-20:
+  Alberyk:
+  - rscdel: Space cleaner should no longer deal toxin damage when sprayed on people.
+  Alberyk, Kyres1:
+  - rscadd: Reworked the changeling lesser form power. It transform the changeling
+      into a small monster, that can ventcrawl and fun fast.
+  MattAtlas:
+  - rscadd: Internal organs will now self-heal below 2 points of damage. Be careful
+      - this doesn't work if you have toxins in your body.
+  - rscadd: Open and retracted incisions will now show damaged organs and broken bones.
+      Spooky!
+2019-11-21:
+  Alberyk, Kyres1:
+  - rscadd: Added a new ghost role for one of the away sites.
+  - rscadd: Species related ert and ghost roles should now get their relevant languages.
+  Geeves:
+  - tweak: Moved tongue flicking from the IC tab to the abilities tab.
+  MattAtlas:
+  - rscdel: Internal bleeding has been removed.
+  - rscadd: It has been replaced with the much more impactful arterial bleeding. They
+      will cause blood squirts in random directions. This is healed via fixovein in
+      surgery or bicaridine overdose. Bandages will stave off some of the bleeding.
+  - tweak: Cutting people's throats now cuts their cartoid artery as well.
+  - rscadd: Added tendon cutting. This will make your limb unusable and is applied
+      on random chance based on damage when someone is damaged. Repaired with fixovein
+      in surgery.
+  - rscadd: You can now click a human's limb to apply pressure on its wounds. This
+      will reduce bleeding.
+  SynysterSparx:
+  - bugfix: Cultist stun runes no longer stun nearby cultists.
+  - tweak: Mute victims of cultist stun rune.
+  - tweak: Extend cultist stun rune stun time to 3.
+  Wowzewow(Wezzy):
+  - rscdel: Expired Halloween candy has been removed from snack machines.
+  - maptweak: The archaic lollipop and gumball machines have been removed.
+  - rscadd: Courtesy of Getmore Corporation, enjoy Carps Ahoy, Tuna snax, Ad-mints,
+      Chewy Fruit gum, and lollipops in your nearest vending machine instead!
+  - rscadd: Lollipops and gum come in wrappers now, due to hygenie concerns.
+  - imageadd: PDA sprites are on lightmode again.
+  - rscadd: You can now put pen-shaped things into the PDA pen slot.
+  - rscadd: New fountain pens! Write like a 19th century person writing a letter like
+      some kind of space hipster!
+  - tweak: PDAs now have color coded pens to go with them as well. Some even have
+      fountain pens!
+  - soundadd: Pen insertion and removal have new sounds.
+2019-11-22:
+  JohnWildkins:
+  - bugfix: Fixed IPCs having no brain, or more accurately, not using it properly.
+      To live.
+  - bugfix: Fix atmos tech utility belt tool overflow on spawn.
+  MattAtlas:
+  - bugfix: IPCs no longer die upon spawning.
+  - bugfix: Fixed cloning instantly killing people.
+  SynysterSparx:
+  - bugfix: Changeling arm can now be used to attack robots. Still able to open robot
+      maintenance hatch and other crowbar things with it if in help mode.
+2019-11-23:
+  Alberyk:
+  - bugfix: Fixed some issues related to the pra space ruin.
+  Brainos, Ferner, Geeves, Kyres1, Poze, Sleepywolfe:
+  - maptweak: Re-mapped the Tau Ceti Foreign Legion base and gave them a few new gizmos
+      and doodads plus the now fixed droppods by Poze, further tweaked by Ferner.
+  - maptweak: Re-mapped some parts of the surface and bridge surface.
+  - rscadd: Rebranded the TCFL Commander to Legate, added some new threads(tweaked
+      by Brainos) for them. Added the TCFL Sentinels, whose mission is to protect
+      BLV The Tower. Summoned via ghostspawner. Added the dropship pilot role.
+  - rscadd: Added the blaster revolver, code and sound provided by Geeves.
+  - imageadd: Added Biesel flag/banner + blaster turret sprites by Kyres1.
+  - imageadd: Added a couple TCFL related posters by Sleepywolfe.
+  - imageadd: Made the telebaton more visible when equipped and no longer just a copy
+      of the nullrod.
+  - bugfix: A bunch of misc mapping bugfixes in places. Tweaked the blaster rifle
+      so accuracy was improved properly when wielded.
+  Chada-1:
+  - imageadd: Recolored and added lots of Landmate and Treadmate 'borg sprites, cleaned
+      up the names some.
+  - tweak: Recolored some basic 'borg sprites.
+  Geeves:
+  - rscadd: There is now a visible message when people go up and down levels.
+  - rscadd: You can now lift people up Z-levels if you have a red grab or higher on
+      them.
+  - rscadd: You can now prevent people from falling down Z-levels if you're within
+      1 tile of them, and have a blue grab or higher on them.
+  MattAtlas, Wezzy:
+  - imageadd: Resprited and renamed the internals box you spawn with. Thank you Wezzy
+      for the sprite.
+  - rscadd: Added a flare to the emergency survival box.
+  MoondancerPony:
+  - bugfix: Actually fixes the runtime with syringes this time.
+  - tweak: Telescience portals now output things on their tile. This fixes a number
+      of bugs.
+  Wowzewow (Wezzy):
+  - imageadd: Adds new radio headset sprites, to match the PDAs.
+  - rscadd: New Bowman headsets! Functionally identical, looks swankier. Can be found
+      in any department locker.
+  Wowzewow (Wezzy), SierraKomodo:
+  - tweak: Swallowing pills now displays a message to people within a 2 tile radius.
+      This message does not tell them what pill you swallowed.
+  - tweak: Initiating a give (Right click > Give) now displays a message that you
+      'hold out an item' to the target.
+2019-11-24:
+  Geeves:
+  - bugfix: Fixes added Z-Level grab stuff.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes some invisible bowman onmob sprites.
+  - bugfix: Fixes medical bedsheets back sprite using a blue cross instead of green.
+2019-11-25:
+  Geeves:
+  - rscadd: Standard Cardox grenades now produce a gas explosion, instead of foaming
+      like a cleaner grenade.
+  - rscadd: Cardox now properly gets rids of K'ois and K'ois plants.
+  MattAtlas:
+  - experiment: Several backend changes regarding human processing.
+  - rscadd: Your heart now handles your blood! If you have no heart, well... you're
+      not gonna bleed, but you're gonna die fast.
+  - bugfix: Fixed a few runtimes.
+  - bugfix: Fixed a few issues with arterial bleeding.
+  - tweak: Some pain messages have been tweaked.
+  - rscadd: You should now lose more or less blood depending on your pulse.
+  - tweak: Losing your lungs and your heart is now more severe. Don't lose either
+      one or you'll have a really hard time living.
+  - rscadd: Removed advanced operating tables. They didn't work.
+  Sue, Alberyk, Datamatt:
+  - rscadd: Modular mechs. They are very different than our old mechs, so expect fun
+      things.
+  - rscdel: All old mechs (including tanks) and their equipment were removed.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes some PDA grammar.
+  - rscadd: You can now switch from writing in cursive to writing normally when using
+      a fountain pen.
+2019-11-26:
+  Aboshehab:
+  - tweak: Adjusted weapon description for a variety of firearms. Namely adding brand
+      name, designer and fluff details reflected off the sprite and mechanical capability.
+  Alberyk:
+  - tweak: Fixed some exosuits not spawning with the right gear.
+  Arrow768:
+  - tweak: No longer autospawns antagonists during gamemodes with autospawn enabled
+      after a evac or transfer shuttle has been called.
+  - tweak: Maint access has been tweaked to only allow engineers and heads of staff
+      global access to maint.
+  Ferner:
+  - rscadd: The Republic of Biesel flags are now available in the loadout too.
+  MattAtlas:
+  - maptweak: Added surgery goggles to the surgery ORs.
+  ParadoxSpace:
+  - rscdel: Echoes no longer have the mass warp ability.
+2019-11-27:
+  MattAtlas:
+  - bugfix: Organ damage surgery works correctly now.
+  - bugfix: Dead people no longer have a pulse.
+2019-11-28:
+  Ferner, Kyres1:
+  - tweak: Slightly tweaked the appearance of the legion rig's shoes.
+  Geeves:
+  - tweak: The guest pass terminal can now give guest passes valid for up to an hour
+      (up from 30 minutes).
+  MattAtlas:
+  - tweak: Gasping no longer applies extreme amounts of losebreath. Aka, you should
+      recover much much sooner from popped lungs after they're healed.
+  - bugfix: Pulse actually fixed now.
+  arrow768:
+  - bugfix: The HoS has access to the maint tunnels again.
+2019-11-30:
+  Aboshehab:
+  - bugfix: Manhacks no longer attack ninjas.
+  - bugfix: Fixed Idris caps not showing on mobs.
+  Doxxmedearly:
+  - rscadd: Allows players to cut down plastic flaps and curtains, using wirecutters
+      or other cutting objects.
+  - rscadd: Allows you to construct all curtains (except plastic curtains) from cloth,
+      requiring two pieces each.
+  - tweak: Most curtains begin anchored (Medical curtains do not). You can anchor
+      and unanchor curtains with a screwdriver.
+  Kaedwuff:
+  - rscadd: Gemstones can now be found in mined rocks! They come in six different
+      flavors and four sizes, with increasing rarity!
+  - rscadd: Gemstones can be sent to centcomm for extra cargo funds. For now, this
+      is their only function.
+  SonicGotNuked:
+  - balance: Reduced Systemoveride time by half
+  Wowzewow:
+  - imageadd: Adds movement states for some animals, and improves sprites of some
+      mobs.
