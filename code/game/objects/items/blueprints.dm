@@ -105,6 +105,7 @@
 /obj/item/blueprints/shuttle/proc/update_linked_name(atom/namee, old_name, new_name)
 	name = "\improper [new_name] blueprints"
 	desc = "Blueprints of \the [new_name]. There are several coffee stains on it."
+	area_prefix = new_name
 
 /obj/item/blueprints/shuttle/proc/on_shuttle_destroy(datum/destroyed)
 	UnregisterSignal(destroyed, COMSIG_QDELETING)
