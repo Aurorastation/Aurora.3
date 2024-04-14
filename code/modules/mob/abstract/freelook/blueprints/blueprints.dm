@@ -26,12 +26,12 @@
 	area_name_effect.maptext_height = 64
 	area_name_effect.maptext_width = 128
 	area_name_effect.layer = FLOAT_LAYER
-	//area_name_effect.plane = HUD_PLANE
+	area_name_effect.plane = HUD_PLANE
 	area_name_effect.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 	area_name_effect.screen_loc = "LEFT+1,BOTTOM+2"
 
 	last_selected_image = image('icons/effects/blueprints.dmi', "selected")
-	last_selected_image.layer = OBSERVER_LAYER //replace with plane = OBSERVER_PLANE
+	last_selected_image.plane = OBSERVER_PLANE
 	last_selected_image.appearance_flags = NO_CLIENT_COLOR
 
 /mob/abstract/eye/blueprints/Destroy()
@@ -239,7 +239,7 @@
 		for(var/turf/T in selected_turfs)
 			var/selection_icon_state = selected_turfs[T] ? "valid" : "invalid"
 			var/image/I = image('icons/effects/blueprints.dmi', T, selection_icon_state)
-			I.layer = HUD_BASE_LAYER //Replace with plane = OBSERVER_PLANE
+			I.plane = OBSERVER_PLANE
 			I.appearance_flags = NO_CLIENT_COLOR
 			selection_images += I
 
