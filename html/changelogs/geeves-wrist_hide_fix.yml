@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - bugfix: "Wristwear now gets properly hidden by overwear that has the HIDEWRISTS flag set."
+  - bugfix: "Spacesuits and voidsuits now hide wristwear."
