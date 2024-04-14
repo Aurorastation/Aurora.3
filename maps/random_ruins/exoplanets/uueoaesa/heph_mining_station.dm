@@ -7,7 +7,7 @@
 	suffixes = list("heph_mining_station.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	spawn_cost = 2
-	ban_ruins = list(/datum/map_template/ruin/exoplanet/guild_mining_station)
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/miners_guild_outpost)
 
 /area/heph_mining_station
 	name = "Hephaestus Mining Station"
