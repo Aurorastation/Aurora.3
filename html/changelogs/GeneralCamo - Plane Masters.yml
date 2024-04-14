@@ -27,7 +27,7 @@
 #################################
 
 # Your name.
-author: FluffyGhost
+author: GeneralCamo
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -38,4 +38,6 @@ delete-after: True
 # Also, all entries are changed into a single [] after a master changelog generation. Just remove the brackets when you add new entries.
 # Please surround your changes in  double quotes ("), as certain characters otherwise screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - code_imp: "Properly split and use prefixes and suffixes, unit test to verify the file exists and is not empty, and that the format convention is respected."
+  - refactor: "Ported plane masters from Bay."
+  - refactor: "Ported some Z-Mimic changes/improvements/bugfixes from Nebula/Bay."
+  - bugfix: "Floor lights no longer render under floor decals."

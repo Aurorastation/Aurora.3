@@ -201,7 +201,7 @@
 	name = "\proper holospace"
 	icon_state = "void"
 	footstep_sound = null
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/tirakqi_cosmocage/update_dirt()

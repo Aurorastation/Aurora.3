@@ -56,7 +56,8 @@
 		icon_state = "ovenopen"
 	cut_overlays()
 	if (!stat)
-		var/glow = image('icons/obj/machinery/cooking_machines.dmi', "oven_on", EFFECTS_ABOVE_LIGHTING_LAYER)
+		var/image/glow = image('icons/obj/machinery/cooking_machines.dmi', "oven_on")
+		glow.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		add_overlay(glow)
 	..()
 
