@@ -141,7 +141,6 @@
 	icon_state = "globe2"
 	color = "#5B8958"
 	planetary_area = /area/exoplanet/grass
-	initial_weather_state = /singleton/state/weather/calm/snow_planet
 	scanimage = "biesel.png"
 	massvolume = "0.95~/1.1"
 	surfacegravity = "0.99"
@@ -151,7 +150,6 @@
 	surfacewater = "Majority potable, 75% surface water. Significant tidal forces from natural satellite"
 	rock_colors = list(COLOR_BROWN)
 	flora_diversity = 0
-	has_trees = FALSE
 	possible_themes = list(/datum/exoplanet_theme/grass/biesel)
 	features_budget = 8
 	surface_color = null//pre colored
