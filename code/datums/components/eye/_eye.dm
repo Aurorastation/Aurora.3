@@ -42,8 +42,8 @@
 	unlook_action.Grant(current_looker)
 
 	//Checks for removing the user from the eye outside of unlook actions.
-	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(unlook), TRUE)
-	RegisterSignal(current_looker, COMSIG_MOVABLE_MOVED, PROC_REF(unlook), TRUE)
+	RegisterSignal(parent, COMSIG_MOVABLE_MOVED, PROC_REF(unlook))
+	RegisterSignal(current_looker, COMSIG_MOVABLE_MOVED, PROC_REF(unlook))
 
 	RegisterSignal(current_looker, COMSIG_QDELETING, PROC_REF(unlook))
 	RegisterSignal(component_eye, COMSIG_QDELETING, PROC_REF(unlook))

@@ -19,10 +19,11 @@
 
 /mob/abstract/eye/blueprints/Initialize(mapload, var/list/valid_zs, var/area_p)
 	. = ..(mapload)
-	valid_z_levels = valid_zs
+	valid_z_levels = valid_zs.Copy()
 	area_prefix = area_p
-	area_name_effect = new()
+	area_name_effect = new(src)
 
+	area_name_effect.icon_state = "nothing"
 	area_name_effect.maptext_height = 64
 	area_name_effect.maptext_width = 128
 	area_name_effect.layer = FLOAT_LAYER
@@ -31,8 +32,8 @@
 	area_name_effect.screen_loc = "LEFT+1,BOTTOM+2"
 
 	last_selected_image = image('icons/effects/blueprints.dmi', "selected")
-	last_selected_image.plane = OBSERVER_PLANE
-	last_selected_image.appearance_flags = NO_CLIENT_COLOR
+	last_selected_image.plane = HUD_PLANE
+	last_selected_image.appearance_flags = NO_CLIENT_COLOR|RESET_COLOR
 
 /mob/abstract/eye/blueprints/Destroy()
 	. = ..()
@@ -127,7 +128,7 @@
 		return
 	if(params["left"])
 		update_selected_turfs(get_turf(A), params)
-	if(params["shift"]) //Shift-click to clear the selection
+	if(params["ctrl"]) //Shift-click to clear the selection
 		remove_selection()
 
 /mob/abstract/eye/blueprints/proc/update_selected_turfs(var/turf/next_selected_turf, var/list/params)
@@ -141,7 +142,7 @@
 		return
 
 	var/list/new_selection = block(last_selected_turf, next_selected_turf)
-	if(params["right"]) //Right-click to remove areas from the selection
+	if(params["shift"]) //Right-click to remove areas from the selection
 		selected_turfs -= new_selection
 	else
 		selected_turfs |= new_selection
@@ -227,6 +228,7 @@
 
 /mob/abstract/eye/blueprints/proc/remove_selection()
 	selected_turfs.Cut()
+	last_selected_turf = null
 	update_images()
 
 /mob/abstract/eye/blueprints/proc/update_images()
@@ -239,7 +241,7 @@
 		for(var/turf/T in selected_turfs)
 			var/selection_icon_state = selected_turfs[T] ? "valid" : "invalid"
 			var/image/I = image('icons/effects/blueprints.dmi', T, selection_icon_state)
-			I.plane = OBSERVER_PLANE
+			I.plane = HUD_PLANE
 			I.appearance_flags = NO_CLIENT_COLOR
 			selection_images += I
 
@@ -248,12 +250,11 @@
 
 /mob/abstract/eye/blueprints/setLoc(T)
 	. = ..()
-	if(.)
-		var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
-		var/area/A = get_area(src)
-		if(!A)
-			return
-		area_name_effect.maptext = "<span style=\"[style]\">[area_prefix], [A.name]</span>"
+	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
+	var/area/A = get_area(src)
+	if(!A)
+		return
+	area_name_effect.maptext = "<span style=\"[style]\">[area_prefix], [A.name]</span>"
 
 /mob/abstract/eye/blueprints/additional_sight_flags()
 	return SEE_TURFS|BLIND
@@ -267,5 +268,58 @@
 	M.clear_fullscreen("blueprints", 0)
 	M.client.screen -= area_name_effect
 	M.remove_client_color(/datum/client_color/monochrome)
+
+//Shuttle blueprint eye
+/mob/abstract/eye/blueprints/shuttle
+	var/shuttle_name
+
+/mob/abstract/eye/blueprints/shuttle/Initialize(mapload, list/valid_zs, area_p, shuttle_name)
+	. = ..()
+	src.shuttle_name = shuttle_name
+
+/mob/abstract/eye/blueprints/shuttle/check_modification_validity()
+	. = TRUE
+	var/area/A = get_area(src)
+	if(!(A.z in valid_z_levels))
+		to_chat(owner, SPAN_WARNING("The markings on this are entirely irrelevant to your whereabouts!"))
+		return FALSE
+	var/datum/shuttle/our_shuttle = SSshuttle.shuttles[shuttle_name]
+	if(!(A in our_shuttle.shuttle_area))
+		to_chat(owner, SPAN_WARNING("That's not a part of the [our_shuttle.name]!"))
+		return FALSE
+	if(!A || (A.area_flags & AREA_FLAG_IS_BACKGROUND))
+		to_chat(owner, SPAN_WARNING("This area is not marked on the blueprints!"))
+		return FALSE
+
+/mob/abstract/eye/blueprints/shuttle/remove_area()
+	var/area/A = get_area(src)
+	if(!check_modification_validity())
+		return
+	if(A.apc)
+		to_chat(owner, SPAN_WARNING("You must remove the APC from this area before you can remove it from the blueprints!"))
+		return
+	var/datum/shuttle/our_shuttle = SSshuttle.shuttles[shuttle_name]
+	if(our_shuttle.shuttle_area.len == 1) //If it's the last shuttle area, make sure that we don't break the shuttle in question.
+		to_chat(owner, SPAN_WARNING("You cannot delete the last area in a shuttle!"))
+		return
+	to_chat(owner, SPAN_NOTICE("You scrub [A.name] off the blueprints."))
+	log_and_message_admins("deleted area [A.name] from [our_shuttle.name] via shuttle blueprints.")
+	var/background_area = /area/space
+	var/obj/effect/overmap/visitable/sector/sector = GLOB.map_sectors["[A.z]"]
+	var/obj/effect/overmap/visitable/sector/exoplanet/exoplanet = sector
+	if(istype(exoplanet))
+		background_area = exoplanet.planetary_area
+	for(var/turf/T in A.contents)
+		ChangeArea(T, background_area)
+	if(!(locate(/turf) in A))
+		qdel(A) // uh oh, is this safe?
+
+/mob/abstract/eye/blueprints/shuttle/finalize_area(area_name)
+	var/area/A = ..(area_name)
+	var/datum/shuttle/our_shuttle = SSshuttle.shuttles[shuttle_name]
+	our_shuttle.shuttle_area += A
+	SSshuttle.shuttle_areas += A
+	RegisterSignal(A, COMSIG_QDELETING, TYPE_PROC_REF(/datum/shuttle, remove_shuttle_area))
+	return A
 
 #undef MAX_AREA_SIZE

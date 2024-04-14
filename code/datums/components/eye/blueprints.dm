@@ -40,6 +40,9 @@
 		return
 	to_chat(current_looker, SPAN_NOTICE("***********************************************************"))
 	to_chat(current_looker, SPAN_NOTICE("Left Click		= Select Area"))
-	to_chat(current_looker, SPAN_NOTICE("Right Click    = Deselect Area"))
-	to_chat(current_looker, SPAN_NOTICE("Shift Click	= Clear Selection"))
+	to_chat(current_looker, SPAN_NOTICE("Shift Click    = Deselect Area"))
+	to_chat(current_looker, SPAN_NOTICE("Control Click	= Clear Selection"))
 	to_chat(current_looker, SPAN_NOTICE("***********************************************************"))
+
+/datum/component/eye/blueprints/shuttle
+	eye_type = /mob/abstract/eye/blueprints/shuttle

@@ -204,6 +204,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		return
 	if(comms_support)
 		update_away_freq(name, get_real_name())
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	name = get_real_name()
 
 /obj/effect/overmap/visitable/proc/get_real_name()
