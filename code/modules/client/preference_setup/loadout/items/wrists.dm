@@ -8,7 +8,7 @@
 
 /datum/gear/wrists/New()
 	..()
-	gear_tweaks += list(gear_tweak_wrist_layer)
+	gear_tweaks += list(GLOB.gear_tweak_wrist_layer)
 
 /datum/gear/wrists/beaded
 	display_name = "beaded bracelet"
@@ -44,7 +44,7 @@
 #define WRISTS_OVER_UNIFORM "Over Uniform"
 #define WRISTS_OVER_SUIT "Over Suit"
 
-var/datum/gear_tweak/wrist_layer/gear_tweak_wrist_layer = new()
+GLOBAL_DATUM_INIT(gear_tweak_wrist_layer, /datum/gear_tweak/wrist_layer, new())
 
 /datum/gear_tweak/wrist_layer
 	var/list/options = list(WRISTS_UNDER = WRISTS_LAYER_UNDER, WRISTS_OVER_UNIFORM = WRISTS_LAYER_UNIFORM, WRISTS_OVER_SUIT = WRISTS_LAYER_OVER)
