@@ -134,3 +134,82 @@
 	canbemoved = FALSE
 	open_sound = 'sound/machines/wooden_closet_open.ogg'
 	close_sound = 'sound/machines/wooden_closet_close.ogg'
+
+/obj/structure/closet/sarcophagus
+	name = "sandstone sarcophagus"
+	desc = "An ancient sarcophagus made of sandstone."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "wc_sarcophagus"
+	dense_when_open = TRUE
+	anchored = TRUE
+	canbemoved = FALSE
+	open_sound = 'sound/effects/stonedoor_openclose.ogg'
+	close_sound = 'sound/effects/stonedoor_openclose.ogg'
+	var/open_state = "wc_sarcophagus_open"
+	var/closed_state = "wc_sarcophagus"
+	var/trapped = FALSE
+	var/triggered = FALSE
+
+/obj/structure/closet/sarcophagus/update_icon()
+	if(!opened)
+		layer = OBJ_LAYER
+		icon_state = closed_state
+
+	else
+		layer = BELOW_OBJ_LAYER
+		icon_state = open_state
+
+/obj/structure/closet/sarcophagus/animate_door(var/closing = FALSE)
+	return
+
+/obj/structure/closet/sarcophagus/attack_hand(mob/user as mob)
+	..()
+	if(ishuman(user))
+		var/mob/living/carbon/human/H = user
+		if(trapped && !triggered)
+			do_trap_effect(H)
+
+/obj/structure/closet/sarcophagus/proc/do_trap_effect(var/mob/living/carbon/human/H)
+	if(triggered)
+		return
+	var/trap = pick("arrow", "fire", "poison")
+	switch(trap)
+		if("arrow")
+			var/turf/T = get_turf(src)
+			var/obj/item/arrow/arrow = new(T)
+			playsound(usr.loc, 'sound/weapons/crossbow.ogg', 75, 1)
+			arrow.throw_at(H, 10, 9, src) //same values as a full draw crossbow shot would have
+
+		if("fire")
+			visible_message(SPAN_DANGER("Flames engulf \the [H]!"))
+			H.adjustFireLoss(30)
+			H.IgniteMob(5)
+
+		if("poison")
+			var/datum/reagents/R = new/datum/reagents(20)
+			R.my_atom = src
+			R.add_reagent(/singleton/reagent/toxin,20)
+			var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/singleton/reagent/toxin) // have to explicitly say the type to avoid issues with warnings
+			S.show_log = 0
+			S.set_up(R, 10, 0, src, 40)
+			S.start()
+			qdel(R)
+
+	triggered = TRUE
+
+/obj/structure/closet/sarcophagus/random/Initialize() //low chance of being trapped
+	. = ..()
+	if(prob(10))
+		trapped = TRUE
+
+/obj/structure/closet/sarcophagus/mador
+	name = "granite sarcophagus"
+	desc = "An ancient sarcophagus made of granite."
+	icon_state = "mador_sarcophagus"
+	closed_state = "mador_sarcophagus"
+	open_state = "mador_sarcophagus_open"
+
+/obj/structure/closet/sarcophagus/mador/random/Initialize()
+	. = ..()
+	if(prob(10))
+		trapped = TRUE
