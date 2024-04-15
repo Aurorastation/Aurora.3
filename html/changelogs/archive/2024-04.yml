@@ -286,3 +286,17 @@
   - bugfix: Coolant tanks no longer anti-nuke an environment's atmosphere when destroyed.
   - bugfix: Cryotubes no longer render synthetics unconscious - IPCs can now bathe
       in cryotubes to cool off.
+2024-04-15:
+  RustingWithYou:
+  - qol: Fuel ports are now buildable and removable.
+  nauticall:
+  - rscadd: Added the All-Xanu Spacefleet Frigate, a massive military offship in use
+      by the navy of Xanu Prime.
+  - rscadd: Added uniforms and an ID variant for Xanu military and Coalition government
+      personnel, respectively.
+  - rscadd: Added new walls/windows for 'Coalition'-type vessels, finished in a light
+      bluish-gray.
+  - rscadd: Added Coalition military mechs, a light variant (in use on the Frigate)
+      and a heavy variant (ERT).
+  - bugfix: Fixed the dNAXS-52 Xanu hardsuit presets being wrongly configured and
+      added a base equipment preset for the hardsuit as well.
