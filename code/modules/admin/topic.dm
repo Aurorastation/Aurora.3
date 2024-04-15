@@ -1065,17 +1065,17 @@
 		show_traitor_panel(M)
 
 	else if(href_list["create_object"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_SPAWN|R_STORYTELLER))
 			return
 		return create_object(usr)
 
 	else if(href_list["create_turf"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_SPAWN|R_STORYTELLER))
 			return
 		return create_turf(usr)
 
 	else if(href_list["create_mob"])
-		if(!check_rights(R_SPAWN))
+		if(!check_rights(R_SPAWN|R_STORYTELLER))
 			return
 		return create_mob(usr)
 

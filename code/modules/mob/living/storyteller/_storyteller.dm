@@ -34,7 +34,7 @@
 				C.add_admin_verbs()
 	return ..()
 
-/mob/living/storyteller/assign_player(mob/user)
+/mob/living/storyteller/LateLogin()
 	. = ..()
 	var/client/C = client
 	if(C)
@@ -52,16 +52,56 @@
 	if (!message)
 		return
 
-	log_say("Ghost/[key] : [message]", ckey = key_name(src))
+	var/msg = sanitize(message)
+	if(!msg)
+		return
 
-	if (client)
-		if(client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
-			to_chat(src, "<span class='warning'>You cannot talk in deadchat (muted).</span>")
-			return
+	log_ooc("(STORYTELLER) [name]/[key] : [msg]",ckey=key_name(src))
 
-	. = say_dead(message)
+	var/list/messageturfs = list() //List of turfs we broadcast to.
+	var/list/messagemobs = list() //List of living mobs nearby who can hear it
+
+	for(var/turf in range(world.view, get_turf(src)))
+		messageturfs += turf
+
+	for(var/mob/M in GLOB.player_list)
+		if(!M.client || istype(M, /mob/abstract/new_player))
+			continue
+		if(isAI(M))
+			var/mob/living/silicon/ai/AI = M
+			if(get_turf(AI.eyeobj) in messageturfs)
+				messagemobs += M
+				continue
+		if(get_turf(M) in messageturfs)
+			messagemobs += M
+
+	var/display_name = key
+	if(client.holder && client.holder.fakekey)
+		display_name = client.holder.fakekey
+
+	msg = process_chat_markup(msg, list("*"))
+
+	var/prefix
+	var/admin_stuff
+	for(var/client/target in GLOB.clients)
+		admin_stuff = ""
+		var/display_remote = FALSE
+		if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
+			display_remote = TRUE
+		if(display_remote)
+			prefix = "(R)"
+			admin_stuff += "/([key])"
+			if(target != client)
+				admin_stuff += "(<A HREF='?src=\ref[target.holder];adminplayerobservejump=\ref[src]'>JMP</A>)"
+		if(target.mob in messagemobs)
+			prefix = ""
+		if((target.mob in messagemobs) || display_remote)
+			to_chat(target, "<span class='storyteller'>" + create_text_tag("STORY", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span>")
 
 /mob/living/storyteller/Move(atom/newloc, direct)
+	return
+
+/mob/living/storyteller/update_dead_sight()
 	return
 
 /mob/living/storyteller/apply_damage(damage, damagetype, def_zone, blocked, used_weapon, damage_flags, armor_pen, silent)

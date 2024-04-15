@@ -512,6 +512,7 @@ var/list/admin_verbs_cciaa = list(
 				remove_verb(src, admin_verbs_paranoid_debug)			//Right now it's just callproc but we can easily add others later on.
 		if(holder.rights & R_POSSESS)		add_verb(src, admin_verbs_possess)
 		if(holder.rights & R_PERMISSIONS)	add_verb(src, admin_verbs_permissions)
+		if(holder.rights & R_STORYTELLER)	add_verb(src, GLOB.storyteller_verbs)
 		if(holder.rights & R_STEALTH)		add_verb(src, /client/proc/stealth)
 		if(holder.rights & R_REJUVINATE)	add_verb(src, admin_verbs_rejuv)
 		if(holder.rights & R_SPAWN)			add_verb(src, admin_verbs_spawn)
@@ -533,6 +534,7 @@ var/list/admin_verbs_cciaa = list(
 	remove_verb(src, admin_verbs_rejuv)
 	remove_verb(src, admin_verbs_spawn)
 	remove_verb(src, debug_verbs)
+	remove_verb(src, GLOB.storyteller_verbs)
 	add_aooc_if_necessary()
 
 /client/proc/hide_most_verbs()//Allows you to keep some functionality while hiding some verbs
