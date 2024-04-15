@@ -120,9 +120,9 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/generate_ground_survey_result()
 	if(prob(1))
-		ground_survey_result += "<br>Unidentified anomalous readings detected in the inner core"
+		ground_survey_result = "<br>Unidentified anomalous readings detected in the inner core"
 	else
-		ground_survey_result += "<br>High concretation of dense metal in the mantle"
+		ground_survey_result = "<br>High concretation of dense metal in the mantle"
 
 // --------------------------------- Adhomai
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
@@ -223,4 +223,4 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_ground_survey_result()
-	ground_survey_result += "<br>High quality minerals detected in the crust and mantle"
+	ground_survey_result = "<br>High quality minerals detected in the crust and mantle"
