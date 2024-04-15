@@ -7,6 +7,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
+"av" = (
+/obj/machinery/porta_turret/ballistic,
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor/asteroid/ash,
+/area/saniorios_outpost/gun)
 "aN" = (
 /obj/item/modular_computer/console,
 /turf/simulated/floor/shuttle/black{
@@ -196,6 +201,9 @@
 /obj/structure/sign/painting_frame/harrlala{
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -212,6 +220,12 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"eK" = (
+/obj/effect/floor_decal/corner/white/full,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "fb" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration/dpra,
@@ -223,6 +237,9 @@
 /obj/item/storage/field_ration/dpra,
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
+	},
+/obj/effect/floor_decal/corner/white/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -299,6 +316,14 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"fA" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost/crew_section)
 "fC" = (
 /obj/machinery/door/airlock/security{
 	name = "Torpedo Hangar";
@@ -499,6 +524,9 @@
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
 "iy" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 6
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -564,6 +592,9 @@
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
 "jo" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -606,6 +637,22 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
+"km" = (
+/obj/effect/floor_decal/corner/white/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
+"ks" = (
+/obj/effect/floor_decal/corner/white/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "kQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -709,6 +756,14 @@
 "mz" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost)
+"mT" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 1
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "nh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -718,6 +773,9 @@
 "nj" = (
 /obj/machinery/alarm/cold/west{
 	req_one_access = list(214)
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 9
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -816,6 +874,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -850,6 +911,9 @@
 /obj/structure/sink/kitchen{
 	dir = 8;
 	pixel_x = 20
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 6
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -959,6 +1023,9 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -991,9 +1058,35 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/armory)
+"tb" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "ty" = (
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
+"tD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 10
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1002,6 +1095,9 @@
 "tF" = (
 /obj/machinery/light{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1028,6 +1124,9 @@
 /obj/item/material/knife,
 /obj/item/material/knife,
 /obj/item/material/knife,
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1097,6 +1196,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/effect/floor_decal/corner/white/full,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1137,6 +1237,9 @@
 /area/space)
 "xe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1198,6 +1301,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1208,6 +1314,11 @@
 /obj/item/clothing/ears/earmuffs,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
+	},
+/obj/machinery/turretid/lethal{
+	dir = 1;
+	pixel_y = -32;
+	req_access = list(214)
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1234,6 +1345,9 @@
 /obj/item/flame/lighter/adhomai,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/white/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1283,6 +1397,14 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/gun)
+"AI" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "AN" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
@@ -1367,6 +1489,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 10
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1545,6 +1670,25 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
+"Fw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 9
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "FO" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
@@ -1590,6 +1734,18 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
+"Gx" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 20
+	},
+/obj/effect/floor_decal/corner/white/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost/crew_section)
 "GI" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan{
 	dir = 1
@@ -1627,6 +1783,12 @@
 	temperature = 278.15
 	},
 /area/space)
+"Hl" = (
+/obj/effect/floor_decal/corner/white/diagonal,
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost/crew_section)
 "Hm" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/cooled,
@@ -1715,6 +1877,7 @@
 /area/space)
 "IF" = (
 /obj/structure/bed/stool/bar/padded/black,
+/obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -1725,6 +1888,9 @@
 	},
 /obj/structure/sign/flag/dpra{
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 5
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -1997,6 +2163,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2032,6 +2199,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2043,12 +2213,39 @@
 /obj/machinery/light/small,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
+"Uf" = (
+/obj/effect/floor_decal/corner/white{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "Un" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/machinery/light/small{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost)
+"UE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 6
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
 /area/saniorios_outpost)
 "UK" = (
 /obj/structure/ship_weapon_dummy,
@@ -2108,6 +2305,9 @@
 /obj/structure/sign/flag/dpra{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2139,6 +2339,21 @@
 "WE" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/crew_section)
+"WI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/white{
+	dir = 5
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "WJ" = (
 /obj/machinery/shower{
 	dir = 1
@@ -2187,6 +2402,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner/white/diagonal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2204,6 +2420,9 @@
 /area/saniorios_outpost/barracks)
 "XD" = (
 /obj/machinery/light,
+/obj/effect/floor_decal/corner/white{
+	dir = 10
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2228,6 +2447,14 @@
 	},
 /turf/simulated/mineral,
 /area/space)
+"Zf" = (
+/obj/effect/floor_decal/corner/white/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "Zp" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
@@ -21399,7 +21626,7 @@ lz
 lz
 lz
 lz
-PQ
+av
 PQ
 PQ
 Kn
@@ -23965,12 +24192,12 @@ SL
 SL
 SL
 mz
-jo
-AO
-jo
+ks
+Fw
+eK
 WE
 zi
-iy
+fA
 tY
 vL
 WE
@@ -24224,10 +24451,10 @@ su
 su
 jo
 AO
-jo
+tb
 WE
 IS
-iy
+Hl
 IF
 se
 WE
@@ -24479,9 +24706,9 @@ Zp
 NA
 rw
 hR
-lY
+WI
 fs
-lY
+tD
 cI
 ph
 WZ
@@ -24738,10 +24965,10 @@ pK
 su
 jo
 AO
-jo
+tb
 WE
 VY
-iy
+Hl
 IF
 er
 WE
@@ -25000,7 +25227,7 @@ WE
 fb
 iy
 pO
-pO
+Gx
 WE
 SL
 SL
@@ -25252,7 +25479,7 @@ wf
 su
 jo
 AO
-jo
+tb
 WE
 WE
 jU
@@ -25766,7 +25993,7 @@ Yj
 su
 jo
 AO
-jo
+tb
 WE
 WJ
 gS
@@ -26023,7 +26250,7 @@ su
 su
 tF
 AO
-jo
+tb
 gS
 gS
 gS
@@ -26257,7 +26484,7 @@ SL
 SL
 SL
 PQ
-PQ
+av
 mz
 iT
 el
@@ -26274,11 +26501,11 @@ ff
 uX
 ZY
 mz
-jo
-jo
+ks
+AI
 nj
-jo
-jo
+AI
+mT
 Gt
 BX
 vW
@@ -26531,13 +26758,13 @@ Kr
 AU
 HG
 oJ
-lY
+WI
 lY
 lY
 lY
 lY
 uY
-jo
+tb
 gS
 gS
 gS
@@ -26788,13 +27015,13 @@ ZY
 uX
 ZY
 mz
-jo
-jo
+km
+Uf
 ty
-jo
-jo
-AO
-jo
+Uf
+Uf
+UE
+Zf
 mz
 SL
 gS
@@ -28312,7 +28539,7 @@ Kn
 Kn
 SL
 SL
-PQ
+av
 PQ
 PQ
 PQ
@@ -29090,7 +29317,7 @@ SL
 PQ
 PQ
 PQ
-PQ
+av
 SL
 SL
 SL
