@@ -1992,7 +1992,9 @@
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/hangar)
 "pW" = (
-/obj/machinery/ammunition_loader/grauwolf,
+/obj/machinery/ammunition_loader/grauwolf{
+	weapon_id = "Gadpathur Patrol Grauwolf"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/grauwolf)
 "pX" = (
@@ -2191,7 +2193,7 @@
 /obj/machinery/ship_weapon/grauwolf{
 	pixel_x = -32;
 	pixel_y = -192;
-	weapon_id = "Elyran Grauwolf Flak Battery"
+	weapon_id = "Gadpathur Patrol Grauwolf"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/armanent/grauwolf)
