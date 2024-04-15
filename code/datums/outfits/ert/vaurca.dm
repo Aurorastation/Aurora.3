@@ -181,9 +181,6 @@
 	var/obj/item/organ/B = new /obj/item/organ/external/hand/right/vaurca/security(H)
 	var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 	B.replaced(H, affectedB)
-	var/obj/item/organ/C = new /obj/item/organ/internal/augment/language/klax(H)
-	var/obj/item/organ/affectedC = H.get_organ(C.parent_organ)
-	C.replaced(H, affectedC)
 	H.update_body()
 	if(H?.shoes)
 		H.shoes.color = "#0e3a11"

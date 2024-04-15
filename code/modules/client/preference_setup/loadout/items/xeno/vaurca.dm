@@ -177,22 +177,6 @@
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
-/datum/gear/augment/language_processor
-	display_name = "language processor"
-	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective Hives."
-	path = /obj/item/organ/internal/augment/language/klax
-	cost = 1
-	sort_category = "Xenowear - Vaurca"
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK)
-	flags = GEAR_NO_SELECTION
-
-/datum/gear/augment/language_processor/New()
-	..()
-	var/list/language_processors = list()
-	language_processors["K'laxan [LANGUAGE_UNATHI] language processor"] = /obj/item/organ/internal/augment/language/klax
-	language_processors["C'thur [LANGUAGE_SKRELLIAN] language processor"] = /obj/item/organ/internal/augment/language/cthur
-	gear_tweaks += new /datum/gear_tweak/path(language_processors)
-
 /datum/gear/augment/auxiliary_processor
 	display_name = "secondary language processor"
 	description = "An augment that allows a vaurca to speak and understand a related language. These are only used by their respective groups, and act as an auxiliary to the hive's main language processor."
