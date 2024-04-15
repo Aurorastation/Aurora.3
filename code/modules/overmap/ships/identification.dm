@@ -5,11 +5,19 @@
 	icon_state = "iff"
 	anchored = TRUE
 	idle_power_usage = 500
+	component_types = list(
+		/obj/item/circuitboard/iff_beacon,
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/stock_parts/subspace/transmitter,
+		/obj/item/stock_parts/capacitor
+	)
 	var/datum/wires/iff/wires
 	var/disabled = FALSE
 	var/obfuscating = FALSE
 	var/can_change_class = TRUE
 	var/can_change_name = TRUE
+	///Linked sensors console
+	var/obj/machinery/computer/ship/sensors/console
 
 /obj/machinery/iff_beacon/Initialize()
 	..()
@@ -22,8 +30,31 @@
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
+/obj/machinery/iff_beacon/Destroy()
+	if(console)
+		console.identification = null
+	return ..()
+
+/obj/machinery/iff_beacon/attempt_hook_up(obj/effect/overmap/visitable/sector)
+	. = ..()
+	if(!.)
+		return
+	find_console()
+
+/obj/machinery/iff_beacon/proc/find_console()
+	if(!linked)
+		return
+	for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
+		if(linked.check_ownership(S))
+			console = S
+			break
+
 /obj/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 	if(panel_open)

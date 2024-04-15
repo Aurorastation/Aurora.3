@@ -87,6 +87,15 @@
 	pixel_x = -64
 	exhaust_offset = 3
 
+/obj/machinery/atmospherics/unary/engine/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine/check_blockage()
 	return 0
 
@@ -231,11 +240,3 @@
 	spawn(20)
 		qdel(src)
 
-/obj/item/circuitboard/unary_atmos/engine//why don't we move this elsewhere?
-	name = T_BOARD("gas thruster")
-	icon_state = "mcontroller"
-	build_path = /obj/machinery/atmospherics/unary/engine
-	origin_tech = list(TECH_POWER = 1, TECH_ENGINEERING = 2)
-	req_components = list(
-		/obj/item/stack/cable_coil = 30,
-		/obj/item/pipe = 2)

@@ -400,7 +400,17 @@
 	var/deep_scan_range = 4 //Maximum range for the range() check in sensors. Basically a way to use range instead of view in this radius.
 	var/deep_scan_toggled = FALSE //When TRUE, this sensor is using long range sensors.
 	var/deep_scan_sensor_name = "High-Power Sensor Array"
+	var/obj/machinery/computer/ship/sensors/console
 	idle_power_usage = 5000
+	component_types = list(
+		/obj/item/circuitboard/shipsensors,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/subspace/analyzer,
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/manipulator = 3
+	)
 
 	var/base_icon_state
 
@@ -408,7 +418,33 @@
 	base_icon_state = icon_state
 	return ..()
 
+/obj/machinery/shipsensors/Destroy()
+	if(console)
+		console.sensors = null //Remove ourselves from the linked console
+		console.find_sensors_and_iff() //Update the sensors so that hopeully the console doesn't shit itself
+	return ..()
+
+/obj/machinery/shipsensors/attempt_hook_up(obj/effect/overmap/visitable/sector)
+	. = ..()
+	if(!.)
+		return
+	find_console()
+
+/obj/machinery/shipsensors/proc/find_console()
+	if(!linked)
+		return
+	for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
+		if(linked.check_ownership(S))
+			console = S
+			break
+
 /obj/machinery/shipsensors/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
 	var/damage = max_health - health
 	if(damage && attacking_item.iswelder())
 
@@ -553,10 +589,26 @@
 	max_range = 7
 	desc = "Miniturized gravity scanner with various other sensors, used to detect irregularities in surrounding space. Can only run in vacuum to protect delicate quantum BS elements."
 	deep_scan_range = 0
+	component_types = list(
+		/obj/item/circuitboard/shipsensors/weak,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/manipulator = 3
+	)
 
 /obj/machinery/shipsensors/weak/scc_shuttle
 	icon_state = "sensors"
 	icon = 'icons/obj/spaceship/scc/helm_pieces.dmi'
+	component_types = list(
+		/obj/item/circuitboard/shipsensors/weak/scc,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/manipulator = 3
+	)
 
 /obj/machinery/shipsensors/strong
 	desc = "An upgrade to the standard ship-mounted sensor array, this beast has massive cooling systems running beneath it, allowing it to run hotter for much longer. Can only run in vacuum to protect delicate quantum BS elements."
@@ -564,10 +616,30 @@
 	max_range = 14
 	deep_scan_range = 6
 	deep_scan_sensor_name = "High-Power Sensor Array"
+	component_types = list(
+		/obj/item/circuitboard/shipsensors/strong,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/subspace/analyzer,
+		/obj/item/stock_parts/manipulator/pico = 3,
+		/obj/item/stock_parts/scanning_module/phasic,
+		/obj/item/stack/cable_coil = 30
+	)
 
 /obj/machinery/shipsensors/strong/scc_shuttle //Exclusively for the Horizon scout shuttle.
 	icon_state = "sensors"
 	icon = 'icons/obj/spaceship/scc/shuttle_sensors.dmi'
+	component_types = list(
+		/obj/item/circuitboard/shipsensors/strong/scc,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/subspace/analyzer,
+		/obj/item/stock_parts/manipulator/pico = 3,
+		/obj/item/stock_parts/scanning_module/phasic,
+		/obj/item/stack/cable_coil = 30
+	)
 
 /obj/machinery/shipsensors/strong/venator
 	name = "venator-class quantum sensor array"
@@ -578,3 +650,15 @@
 	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
 	pixel_y = -32
+	component_types = list(
+		/obj/item/circuitboard/shipsensors/venator,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/subspace/analyzer,
+		/obj/item/stock_parts/subspace/amplifier,
+		/obj/item/stock_parts/manipulator/pico = 4,
+		/obj/item/stock_parts/scanning_module/phasic = 3,
+		/obj/item/bluespace_crystal,
+		/obj/item/stack/cable_coil = 30
+	)
