@@ -10056,6 +10056,10 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/starboard)
+"IQ" = (
+/obj/item/clothing/accessory/storage/white_vest,
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/ship/xanu_frigate/cic)
 "IR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
@@ -11325,12 +11329,22 @@
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
 /obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
+/obj/item/storage/belt/military,
 /obj/item/material/knife/tacknife,
 /obj/item/material/knife/tacknife,
 /obj/item/material/knife/tacknife,
 /obj/item/material/knife/tacknife,
 /obj/item/material/knife/tacknife,
 /obj/item/material/knife/tacknife,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/brown_vest,
+/obj/item/clothing/accessory/storage/white_vest,
+/obj/item/storage/belt/medical/first_responder/combat,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "MY" = (
@@ -46994,7 +47008,7 @@ By
 By
 By
 By
-By
+IQ
 By
 By
 JY
