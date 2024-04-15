@@ -24,12 +24,22 @@
 	anchored = TRUE
 	layer = ABOVE_HUMAN_LAYER
 	interact_offline = TRUE
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/on = 0
 	idle_power_usage = 20
 	active_power_usage = 200
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	clickvol = 30
+
+	component_types = list(
+		/obj/item/circuitboard/cryotube,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/console_screen,
+		/obj/item/reagent_containers/glass/beaker/large
+	)
 
 	var/temperature_archived
 	var/mob/living/carbon/human/occupant = null
@@ -40,8 +50,8 @@
 	var/temperature_warning_threshold = 170
 	var/temperature_danger_threshold = T0C
 
-	var/fast_stasis_mult = 0.8
-	var/slow_stasis_mult = 1.25
+	var/fast_stasis_mult = 0.6
+	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
 	var/global/list/screen_overlays
@@ -343,6 +353,10 @@
 			return
 		occupant.bodytemperature += 2*(air_contents.temperature - occupant.bodytemperature)*current_heat_capacity/(current_heat_capacity + air_contents.heat_capacity())
 		occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
+
+		if(occupant.isSynthetic())
+			return
+
 		occupant.set_stat(UNCONSCIOUS)
 		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/cryoxadone) >= 1
 		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/clonexadone) >= 1
@@ -451,14 +465,29 @@
 	if(loc)
 		return loc.return_air()
 
+/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+
+	return ..()
+
+/obj/machinery/atmospherics/unary/cryo_cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(panel_open)
+		. += "The maintenance hatch is open."
+
 /obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
 	..()
 	var/man_rating = 0
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))
 			man_rating += P.rating
-	fast_stasis_mult = max(1 - (man_rating * 0.06), 0.66)
-	slow_stasis_mult = min(1 + (man_rating * 0.06), 1.5)
+	fast_stasis_mult = max(0.6/man_rating, 0.2)
+	slow_stasis_mult = min(1.6+(man_rating/10), 2)
 
 /datum/data/function/proc/reset()
 	return

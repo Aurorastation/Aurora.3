@@ -43,7 +43,7 @@
 
 /proc/make_screen_overlay(icon, icon_state, brightness_factor = null, glow_radius = 1)
 	var/image/overlay = image(icon, icon_state)
-	overlay.layer = ABOVE_LIGHTING_LAYER
+	overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	var/image/underlay = image(overlay)
 	underlay.alpha = 128
 	underlay.filters = filter(type="bloom", offset=glow_radius, size=glow_radius*2, threshold="#000")

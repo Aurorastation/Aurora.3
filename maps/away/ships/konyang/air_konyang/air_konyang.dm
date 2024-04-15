@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/air_konyang
 	name = "Air Konyang"
 	description = "Air Konyang civilian transport."
-	suffixes = list("ships/konyang/air_konyang/air_konyang.dmm")
+
+	prefix = "ships/konyang/air_konyang/"
+	suffixes = list("air_konyang.dmm")
+
 	sectors = list(SECTOR_HANEUNIM)
 	spawn_weight = 1
 	ship_cost = 1

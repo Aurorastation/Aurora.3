@@ -9,7 +9,7 @@
 	clicksound = /singleton/sound_category/switch_sound
 	var/on = FALSE
 	var/active = 0
-	var/heating_power = 40 KILOWATTS
+	var/heating_power = 40 KILO WATTS
 	var/set_temperature = T0C + 20
 
 	var/obj/item/cell/apc/cell

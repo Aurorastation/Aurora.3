@@ -7,3 +7,10 @@
 	/// See __defines/ruin_tags.dm
 	var/planet_types = ALL_PLANET_TYPES
 	var/ruin_tags = RUIN_ALL_TAGS
+
+/datum/map_template/ruin/exoplanet/New(list/paths, rename)
+
+	//Apply the prefix to the childs
+	prefix = "maps/random_ruins/exoplanets/[prefix]"
+
+	..()
