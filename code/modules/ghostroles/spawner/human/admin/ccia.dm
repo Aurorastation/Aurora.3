@@ -28,6 +28,12 @@
 
 	mob_name_pick_message = "Pick a name."
 
+/datum/ghostspawner/human/admin/corporate/vip
+	short_name = "vip"
+	name = "Very Important Person"
+
+
+
 /datum/ghostspawner/human/admin/corporate/ccia_agent/New()
 	desc = "Board the [SSatlas.current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle."
 	..()

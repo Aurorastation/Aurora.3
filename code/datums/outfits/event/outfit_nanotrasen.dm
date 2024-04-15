@@ -128,6 +128,15 @@
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
+/obj/outfit/admin/nt/vip
+	name = "Very Important Person"
+
+	uniform = /obj/item/clothing/under/suit_jacket/nt_skirtsuit
+	shoes = /obj/item/clothing/shoes/flats
+	gloves = /obj/item/clothing/wrists/watch/gold
+	l_ear = /obj/item/device/radio/headset/ert/ccia
+
+
 /obj/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
 

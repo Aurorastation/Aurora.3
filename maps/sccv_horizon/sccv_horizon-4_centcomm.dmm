@@ -1134,12 +1134,8 @@
 "adh" = (
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
-	brightness_color = "#fa8282";
-	color = "#fa8282";
-	dir = 4;
-	icon_state = "tube1";
-	name = "military spotlight"
+/obj/machinery/light/spot/built{
+	dir = 4
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
@@ -4259,12 +4255,12 @@
 	},
 /area/shuttle/administration)
 "ajA" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 9
+/obj/machinery/computer/shuttle_control/multi{
+	req_access = list(101);
+	shuttle_tag = "Crescent Shuttle"
 	},
-/obj/effect/shuttle_landmark/admin/start,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/turf/template_noop,
+/area/template_noop)
 "ajB" = (
 /obj/machinery/turretid{
 	check_arrest = 0;
@@ -5006,12 +5002,8 @@
 	},
 /obj/effect/decal/warning_stripes,
 /obj/machinery/porta_turret/cannon,
-/obj/machinery/light/spot{
-	brightness_color = "#fa8282";
-	color = "#fa8282";
-	dir = 1;
-	icon_state = "tube1";
-	name = "military spotlight"
+/obj/machinery/light/spot/built{
+	dir = 1
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/administration)
@@ -35682,6 +35674,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"dVb" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/shuttle_landmark/admin/start,
+/turf/unsimulated/floor/plating,
+/area/centcom/specops)
 "dWC" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 5
@@ -51524,11 +51521,11 @@ agi
 agi
 agi
 agi
-ajA
+agi
 ajY
 akJ
 aln
-alR
+dVb
 ajb
 ajb
 anE
@@ -54849,7 +54846,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+ajA
 aaa
 aaa
 aaa
