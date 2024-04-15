@@ -13,6 +13,13 @@
 	starlight_power = 5
 	starlight_range = 2
 
+	lore_radio_stations = list(
+		"17.9 Adhomai Ceti-Connection" = "config/lore_radio/tau_ceti/17.9_Adhomai_Ceti-Connection.txt",
+		"28.1 D6 Citizen Radio" = "config/lore_radio/tau_ceti//28.1_D6_Citizen_Radio.txt",
+		"95.3 QRCC" = "config/lore_radio/konyang/95.3_QRCC.txt"
+	)
+
+
 /datum/space_sector/romanovich
 	name = SECTOR_ROMANOVICH
 	description = "The Romanovich Cloud is a shell of icy, rocky and metallic bodies that orbit very distant Tau Ceti, past even the Dust Belt. Rich in deposits of precious and \
