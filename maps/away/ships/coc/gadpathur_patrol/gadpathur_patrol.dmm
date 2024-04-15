@@ -1339,17 +1339,6 @@
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/hangar)
 "kC" = (
-/obj/machinery/access_button/airlock_interior{
-	dir = 4;
-	pixel_x = -22;
-	pixel_y = -10;
-	master_tag = "gadpathur_corvette_dock"
-	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	dir = 4;
-	pixel_x = -21;
-	id_tag = "gadpathur_corvette_dock_sensor_interior"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
@@ -2760,6 +2749,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 1
 	},
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_gadpathur_patrol_fore";
+	master_tag = "airlock_gadpathur_patrol_fore";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/engineering)
 "vW" = (
@@ -3823,19 +3823,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/atmos)
-"DJ" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -5;
-	pixel_y = 24;
-	id_tag = "gadpathur_corvette_dock_sensor_exterior"
-	},
-/turf/template_noop,
-/area/ship/gadpathur_patrol/exterior)
 "DL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4686,6 +4673,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/thrusters/port)
+"KI" = (
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_gadpathur_patrol_fore";
+	master_tag = "airlock_gadpathur_patrol_fore";
+	req_one_access = null
+	},
+/turf/simulated/floor/plating,
+/area/ship/gadpathur_patrol/engineering)
 "KM" = (
 /obj/structure/bed/padded/bunk,
 /obj/structure/bed/padded{
@@ -5720,11 +5715,16 @@
 /area/ship/gadpathur_patrol/fuel)
 "SK" = (
 /obj/machinery/door/airlock/external/gadpathur,
-/obj/machinery/access_button/airlock_exterior{
-	pixel_x = -26;
-	pixel_y = -7;
-	master_tag = "gadpathur_corvette_dock"
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_gadpathur_patrol_fore";
+	master_tag = "airlock_gadpathur_patrol_fore";
+	req_one_access = null
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/engineering)
 "SN" = (
@@ -6193,15 +6193,20 @@
 	id_tag = "gadpathur_corvette_dock_pump";
 	frequency = 1379
 	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = 6
+	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
-	pixel_x = -18;
-	req_one_access = list(223,224)
+	pixel_y = -6;
+	pixel_x = -20
 	},
-/obj/machinery/airlock_sensor/airlock_interior{
-	dir = 8;
-	pixel_x = 22;
-	id_tag = "gadpathur_corvette_dock_sensor_chamber"
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_gadpathur_patrol_fore";
+	master_tag = "airlock_gadpathur_patrol_fore";
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/engineering)
@@ -34549,7 +34554,7 @@ Zs
 Zs
 Zs
 Zs
-DJ
+ub
 uE
 uE
 uE
@@ -34804,7 +34809,7 @@ ps
 kC
 vR
 WF
-Wl
+KI
 SK
 RP
 xw
