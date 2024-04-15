@@ -4,8 +4,7 @@
 	anchored = TRUE
 	simulated = FALSE
 	screen_loc = "CENTER:-224,CENTER:-224"
-	plane = PLANE_SKYBOX
-	blend_mode = BLEND_MULTIPLY
+	plane = SKYBOX_PLANE
 
 /client
 	var/obj/skybox/skybox
