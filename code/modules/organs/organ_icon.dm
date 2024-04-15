@@ -179,7 +179,7 @@
 			chosen_icon = 'icons/mob/human_races/human/r_human.dmi'
 			chosen_icon_state = "[icon_name][gendered_icon ? "_[gender]" : ""]"
 			mob_icon = new /icon(chosen_icon, chosen_icon_state)
-			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, FLOAT_LAYER)
+			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
 			limb_em_block.dir = dir
 			mob_overlays += list(limb_em_block)
 		else
@@ -227,7 +227,7 @@
 			apply_markings()
 			get_internal_organs_overlay()
 
-			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, FLOAT_LAYER)
+			var/mutable_appearance/limb_em_block = emissive_blocker(chosen_icon, chosen_icon_state, MOB_SHADOW_LAYER)
 			limb_em_block.dir = dir
 			mob_overlays += list(limb_em_block)
 
