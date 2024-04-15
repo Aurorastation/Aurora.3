@@ -118,11 +118,6 @@
 	if(ability_bar)
 		QDEL_NULL(ability_bar)
 
-	if(istype(host,/mob/living/carbon/human))
-		var/mob/living/carbon/human/H = host
-		var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
-		head.implants -= src
-
 	controlling = FALSE
 
 	host.remove_language(LANGUAGE_BORER)
