@@ -805,13 +805,9 @@
 /area/ship/gadpathur_patrol/crew_prep)
 "gX" = (
 /obj/structure/ship_weapon_dummy,
-/obj/machinery/ship_weapon/longbow{
-	weapon_id = "Gadpathur Corvette Longbow Cannon";
-	pixel_y = -320;
-	pixel_x = -64
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/obj/structure/ship_weapon_dummy/barrel,
+/turf/simulated/open/airless,
+/area/ship/gadpathur_patrol/exterior)
 "gZ" = (
 /obj/structure/tank_wall/carbon_dioxide{
 	icon_state = "co2-9"
@@ -2001,9 +1997,7 @@
 /turf/simulated/floor,
 /area/ship/gadpathur_patrol/hangar)
 "pW" = (
-/obj/machinery/ammunition_loader/longbow{
-	weapon_id = "Gadpathur Corvette Longbow Cannon"
-	},
+/obj/machinery/ammunition_loader/grauwolf,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/longbow)
 "pX" = (
@@ -2507,7 +2501,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/gadpathur_patrol/medbay)
 "ti" = (
-/obj/structure/window/shuttle,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#ac8b78";
+	frame_color = "#ac8b78"
+	},
 /obj/structure/grille,
 /obj/effect/landmark/entry_point/port{
 	name = "port, bridge"
@@ -2895,11 +2894,18 @@
 "xd" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow,
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow/ap,
-/obj/item/warhead/longbow,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "xf" = (
@@ -3136,7 +3142,12 @@
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/morgue)
 "zc" = (
-/obj/structure/window/shuttle,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#ac8b78";
+	frame_color = "#ac8b78"
+	},
 /obj/structure/grille,
 /obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor,
@@ -3245,14 +3256,19 @@
 "zI" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/primer/low,
-/obj/item/primer/low,
-/obj/item/primer/low,
-/obj/item/primer/low,
 /obj/structure/sign/securearea{
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
 	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
 	pixel_y = -32
+	},
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/machinery/door/window{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
@@ -5335,7 +5351,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/gadpathur_patrol/sit_room)
 "PX" = (
-/obj/structure/window/shuttle,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#ac8b78";
+	frame_color = "#ac8b78"
+	},
 /obj/structure/grille,
 /turf/simulated/floor,
 /area/shuttle/gadpathur_shuttle)
@@ -6356,11 +6377,12 @@
 "XL" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline/red,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
-/obj/item/ship_ammunition/longbow,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/machinery/door/window{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/ammo)
 "XM" = (
@@ -6420,6 +6442,15 @@
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "sensorshroud"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/ship/gadpathur_patrol/exterior)
+"Yr" = (
+/obj/structure/ship_weapon_dummy,
+/obj/machinery/ship_weapon/grauwolf{
+	pixel_x = -32;
+	pixel_y = -192;
+	weapon_id = "Elyran Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/exterior)
@@ -33509,16 +33540,16 @@ uE
 uE
 uE
 Lb
+li
 Th
 Th
 Th
-Th
 RJ
-RJ
-RJ
-RJ
-RJ
-RL
+fX
+fX
+fX
+fX
+fX
 fX
 uE
 uE
@@ -33766,16 +33797,16 @@ uE
 AU
 px
 RP
+Yr
 Th
 Th
 Th
-Th
-RJ
-RJ
-RJ
-RJ
-RJ
-RJ
+gX
+fX
+fX
+fX
+fX
+fX
 fX
 uE
 uE
@@ -34023,11 +34054,11 @@ uE
 Lb
 LJ
 IM
-gX
+fj
 fj
 Th
 Th
-fX
+RJ
 fX
 fX
 fX
