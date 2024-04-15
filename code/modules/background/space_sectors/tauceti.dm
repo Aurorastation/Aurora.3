@@ -16,7 +16,8 @@
 	lore_radio_stations = list(
 		"17.9 Adhomai Ceti-Connection" = "config/lore_radio/tau_ceti/17.9_Adhomai_Ceti-Connection.txt",
 		"28.1 D6 Citizen Radio" = "config/lore_radio/tau_ceti//28.1_D6_Citizen_Radio.txt",
-		"95.3 QRCC" = "config/lore_radio/konyang/95.3_QRCC.txt"
+		"95.3 QRCC" = "config/lore_radio/tau_ceti/95.3_QRCC.txt",
+		"93.8 Biesellian Song Broadcast" = "config/lore_radio/tau_ceti/93.8_Biesellian_Song_Broadcast.txt"
 	)
 
 
