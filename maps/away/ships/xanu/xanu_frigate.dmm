@@ -9965,6 +9965,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/xanu_frigate/weapon/grauwolf)
+"Iy" = (
+/obj/item/clothing/accessory/storage/white_vest,
+/turf/simulated/wall/shuttle/dark/cardinal/coalition,
+/area/ship/xanu_frigate/cic)
 "Iz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
@@ -10056,10 +10060,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/ship/xanu_frigate/corridor/starboard)
-"IQ" = (
-/obj/item/clothing/accessory/storage/white_vest,
-/turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/ship/xanu_frigate/cic)
 "IR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 10
@@ -11344,7 +11344,7 @@
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/brown_vest,
 /obj/item/clothing/accessory/storage/white_vest,
-/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/first_responder,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/xanu_frigate/cic)
 "MY" = (
@@ -47008,7 +47008,7 @@ By
 By
 By
 By
-IQ
+Iy
 By
 By
 JY
