@@ -63,7 +63,7 @@
 	name = "Gadpathurian Corvette - Light Armanent"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
-/area/ship/gadpathur_patrol/armanent/longbow
+/area/ship/gadpathur_patrol/armanent/grauwolf
 	name = "Gadpathurian Corvette - Main Armanent"
 	sound_environment =  SOUND_AREA_MEDIUM_SOFTFLOOR
 
