@@ -8,7 +8,7 @@
 	slot_flags = SLOT_ICLOTHING
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe
-	name = "\improper Luceian Pyramidical keeper robe"
+	name = "\improper luceian pyramidical keeper robe"
 	desc = "A robe in usage by Keepers of the Luceian faith of Assunzione, commonly in use by the Pyramidical Church. Ornate, stylish, and made of decadent velvet and silk, no expense was spared in making these robes - though they are a bit heavy."
 	desc_extended = "The manufacture of the highly-ornate clergy garb, much like most other religious items of Luceism, is done by highly-skilled, highly-paid artisan tailors who master their craft over years. Tailor shops and businesses must \
 	pass an examination and be granted a license to be able to make these robes, and once they do, the Church sends luxurious materials like silk and velvet, as well as inlays made of real gold. The result is a robe unlike any other, described by \
@@ -20,7 +20,7 @@
 	allowed = list(/obj/item/nullrod/luceiansceptre, /obj/item/storage/assunzionesheath, /obj/item/assunzioneorb)
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/alt
-	name = "\improper Luceian Astructural keeper robe"
+	name = "\improper luceian astructural keeper robe"
 	desc = "A simple linen robe used by ministers of the Astructural chapter of Assunzione. While still decorated with the Eye of Ennoia, it is of far simpler make than its Pyramidical counterpart, owing to the chapter's relative \
 	asceticism and non-desire to decorating its clergy."
 	desc_extended = "Though simple in design, this robe is far from cheap in construction. Astructural robes are designed by tailors with impeccable eyes to detail. The end result is comfortable and flexible while remaining \
