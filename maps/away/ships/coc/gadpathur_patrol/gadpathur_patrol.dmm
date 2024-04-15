@@ -1261,9 +1261,10 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/gadpathur_patrol/armanent/francisca)
 "km" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/thrusters/starboard)
 "kn" = (
@@ -1338,9 +1339,6 @@
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/hangar)
 "kC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 1
-	},
 /obj/machinery/access_button/airlock_interior{
 	dir = 4;
 	pixel_x = -22;
@@ -1351,6 +1349,9 @@
 	dir = 4;
 	pixel_x = -21;
 	id_tag = "gadpathur_corvette_dock_sensor_interior"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/engineering)
@@ -1455,9 +1456,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/exterior)
 "lt" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/thrusters/port)
 "lz" = (
@@ -1485,6 +1487,10 @@
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/structure/window/reinforced{
 	dir = 8
+	},
+/obj/machinery/door/window,
+/obj/structure/window/reinforced{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/eva)
@@ -1885,9 +1891,11 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(223,224)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/light/floor{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/engineering)
@@ -2197,13 +2205,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/armanent/grauwolf)
-"rv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
-/obj/structure/window/reinforced,
-/turf/simulated/floor/plating,
-/area/ship/gadpathur_patrol/eva)
 "rw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -3447,7 +3448,8 @@
 	},
 /area/ship/gadpathur_patrol/thrusters/port)
 "Bm" = (
-/obj/machinery/atmospherics/pipe/tank/air,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/engineering)
 "Br" = (
@@ -4684,10 +4686,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/thrusters/port)
-"KI" = (
-/obj/machinery/atmospherics/pipe/tank/air,
-/turf/simulated/floor/plating,
-/area/ship/gadpathur_patrol/eva)
 "KM" = (
 /obj/structure/bed/padded/bunk,
 /obj/structure/bed/padded{
@@ -5697,16 +5695,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/fuel)
-"SB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window,
-/turf/simulated/floor/plating,
-/area/ship/gadpathur_patrol/eva)
 "SE" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6200,8 +6188,10 @@
 /turf/template_noop,
 /area/ship/gadpathur_patrol/exterior)
 "WF" = (
-/obj/machinery/atmospherics/unary/vent_pump/aux{
-	dir = 1
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1;
+	id_tag = "gadpathur_corvette_dock_pump";
+	frequency = 1379
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 4;
@@ -37646,7 +37636,7 @@ FG
 hh
 cS
 lC
-SB
+cX
 cX
 Td
 QU
@@ -37902,8 +37892,8 @@ kh
 nx
 cL
 cS
-KI
-rv
+So
+So
 iB
 MG
 hl
