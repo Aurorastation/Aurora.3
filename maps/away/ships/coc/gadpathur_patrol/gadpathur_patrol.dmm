@@ -355,7 +355,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "cL" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
@@ -655,7 +655,7 @@
 "fj" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced/airless,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "fl" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
@@ -1388,7 +1388,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "kR" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -1994,7 +1994,7 @@
 "pW" = (
 /obj/machinery/ammunition_loader/grauwolf,
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "pX" = (
 /obj/structure/platform_stairs/south_north_solo{
 	dir = 1
@@ -2194,7 +2194,7 @@
 	weapon_id = "Elyran Grauwolf Flak Battery"
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "rv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -2208,7 +2208,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "ry" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -2689,7 +2689,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "uV" = (
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
 /area/ship/gadpathur_patrol/quarters_bath)
@@ -3061,7 +3061,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "yE" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -3332,7 +3332,7 @@
 "Ah" = (
 /obj/structure/viewport/zavod,
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "Al" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/sign/flag/gadpathur/large/north{
@@ -3390,7 +3390,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "AU" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -4451,13 +4451,13 @@
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "IM" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, main battery"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "IO" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled/white,
@@ -4576,7 +4576,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "JO" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/computer/ship/sensors/terminal,
@@ -4809,7 +4809,7 @@
 /area/ship/gadpathur_patrol/officer_bath)
 "LJ" = (
 /turf/simulated/wall/shuttle/dark/cardinal/gadpathur,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "LK" = (
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
@@ -5060,7 +5060,7 @@
 "NV" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/ship/gadpathur_patrol/armanent/longbow)
+/area/ship/gadpathur_patrol/armanent/grauwolf)
 "NZ" = (
 /obj/structure/sign/directions/cryo{
 	dir = 1;
@@ -33520,7 +33520,7 @@ uE
 uE
 Lb
 li
-Th
+fj
 Th
 Th
 RJ
