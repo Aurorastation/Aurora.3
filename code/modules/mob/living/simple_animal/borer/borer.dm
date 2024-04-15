@@ -50,6 +50,13 @@
 	if(client && host)
 		client.screen += host.healths
 
+/mob/living/simple_animal/borer/assign_player(var/mob/user)
+	var/client/saved_client = user.client
+	ckey = user.ckey
+	resting = FALSE // ghosting sets resting to true
+	saved_client.init_verbs()
+	return src
+
 /mob/living/simple_animal/borer/Initialize()
 	. = ..()
 
