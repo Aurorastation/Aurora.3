@@ -380,7 +380,7 @@
 		return process_hitscan()
 	else
 		generate_muzzle_flash()
-		if(!isprocessing)
+		if(!(datum_flags & DF_ISPROCESSING))
 			START_PROCESSING(SSprojectiles, src)
 		pixel_move(1)	//move it now!
 
