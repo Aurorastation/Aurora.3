@@ -31,8 +31,11 @@
 			attempt_hook_up(my_sector)
 
 /obj/machinery/iff_beacon/Destroy()
+	if(linked)
+		linked = null
 	if(console)
-		console.identification = null
+		console.clear_identification()
+		console.find_sensors_and_iff()
 	return ..()
 
 /obj/machinery/iff_beacon/attempt_hook_up(obj/effect/overmap/visitable/sector)
@@ -47,6 +50,7 @@
 	for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
 		if(linked.check_ownership(S))
 			console = S
+			S.find_sensors_and_iff()
 			break
 
 /obj/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)

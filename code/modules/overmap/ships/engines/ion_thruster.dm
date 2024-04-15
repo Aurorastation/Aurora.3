@@ -44,7 +44,7 @@
 	idle_power_usage = 19600
 	anchored = TRUE
 	component_types = list(
-		/obj/item/circuitboard/engine/ion
+		/obj/item/circuitboard/engine/ion,
 		/obj/item/stack/cable_coil = 2,
 		/obj/item/stock_parts/matter_bin,
 		/obj/item/stock_parts/capacitor = 2

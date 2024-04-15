@@ -46,6 +46,12 @@
 /obj/machinery/computer/ship/sensors/proc/get_sensors()
 	return sensors
 
+/obj/machinery/computer/ship/sensors/proc/clear_sensors()
+	sensors = null
+
+/obj/machinery/computer/ship/sensors/proc/clear_iff()
+	identification = null
+
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
 	if(!.)
@@ -58,10 +64,12 @@
 	for(var/obj/machinery/shipsensors/S in SSmachinery.machinery)
 		if(linked.check_ownership(S))
 			sensors = S
+			sensors.console = src
 			break
 	for(var/obj/machinery/iff_beacon/IB in SSmachinery.machinery)
 		if(linked.check_ownership(IB))
 			identification = IB
+			identification.console = src
 			break
 
 /obj/machinery/computer/ship/sensors/proc/update_sound()
@@ -419,9 +427,10 @@
 	return ..()
 
 /obj/machinery/shipsensors/Destroy()
+	if(linked)
+		linked = null //Remove ourselves so that find_sensors_and_iff doesn't link our console back to a nonexistent machine
 	if(console)
-		console.sensors = null //Remove ourselves from the linked console
-		console.find_sensors_and_iff() //Update the sensors so that hopeully the console doesn't shit itself
+		console.clear_sensors()
 	return ..()
 
 /obj/machinery/shipsensors/attempt_hook_up(obj/effect/overmap/visitable/sector)
