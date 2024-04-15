@@ -481,9 +481,11 @@
 		return
 
 	to_chat(src, SPAN_NOTICE("You succeed in interfacing with the host's zona bovinae, this will be a painful process for them."))
-	host.awaken_psi_basic("something in your head")
-	host.psi.psi_points = 3 /// You don't get a lot at the start.
+	host.psi = new(host)
 	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
+	host.awaken_psi_basic("something in your head")
+	spawn(45)
+		host.psi.psi_points = 3 /// You don't get a lot at the start.
 
 /mob/living/simple_animal/borer/verb/advance_psionics()
 	set category = "Abilities"
