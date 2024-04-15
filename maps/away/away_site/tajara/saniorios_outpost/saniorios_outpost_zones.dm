@@ -20,7 +20,7 @@
 	icon_state = "lounge"
 
 /area/saniorios_outpost/gun
-	name = "Sani'Orios Asteroid Outpost Solars"
+	name = "Sani'Orios Asteroid Outpost Guns"
 	icon_state = "SolarcontrolS"
 
 /area/saniorios_outpost/hangar
