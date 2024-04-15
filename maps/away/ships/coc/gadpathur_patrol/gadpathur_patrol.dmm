@@ -2194,17 +2194,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/ship/gadpathur_patrol/armanent/grauwolf)
-"rv" = (
-/obj/effect/map_effect/marker/airlock{
-	name = "airlock_gadpathur_patrol_fore";
-	master_tag = "airlock_gadpathur_patrol_fore";
-	req_one_access = null
-	},
-/obj/machinery/light/small{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/ship/gadpathur_patrol/engineering)
 "rw" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/window/reinforced{
@@ -3834,6 +3823,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/atmos)
+"DJ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating,
+/area/ship/gadpathur_patrol/brig)
 "DL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4684,6 +4684,17 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/gadpathur_patrol/thrusters/port)
+"KI" = (
+/obj/effect/map_effect/marker/airlock{
+	name = "airlock_gadpathur_patrol_fore";
+	master_tag = "airlock_gadpathur_patrol_fore";
+	req_one_access = null
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/ship/gadpathur_patrol/engineering)
 "KM" = (
 /obj/structure/bed/padded/bunk,
 /obj/structure/bed/padded{
@@ -34812,7 +34823,7 @@ ps
 kC
 vR
 WF
-rv
+KI
 SK
 RP
 xw
@@ -39702,7 +39713,7 @@ rm
 SP
 SE
 EH
-SE
+DJ
 eX
 Jm
 Fn
