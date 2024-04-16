@@ -64,7 +64,8 @@
 			new /datum/stack_recipe("spotlight fixture frame", /obj/item/frame/light/spot, 3),
 			new /datum/stack_recipe("apc frame", /obj/item/frame/apc, 2),
 			new /datum/stack_recipe("air alarm frame", /obj/item/frame/air_alarm, 2),
-			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2)
+			new /datum/stack_recipe("fire alarm frame", /obj/item/frame/fire_alarm, 2),
+			new /datum/stack_recipe("fuel port", /obj/item/fuel_port, 2, time = 2 SECONDS)
 		))
 
 	recipes += new /datum/stack_recipe_list("miscellaneous construction",
