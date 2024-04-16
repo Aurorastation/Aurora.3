@@ -60,10 +60,7 @@
 		H.w_uniform.color = uniform_colour
 	if(H?.shoes)
 		H.shoes.color = uniform_colour
-
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
 	var/obj/item/organ/B = new /obj/item/organ/internal/augment/language/mikuetz(H)
-	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-	A.replaced(H, affected)
+	var/obj/item/organ/external/affected = H.get_organ(B.parent_organ)
 	B.replaced(H, affected)
 	H.update_body()
