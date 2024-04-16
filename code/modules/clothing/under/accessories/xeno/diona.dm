@@ -16,12 +16,12 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 
-/obj/item/clothing/accessory/poncho/eumponcho
-	name = "adorned poncho"
-	desc = "A poncho made of some sort of mesh weave material adorned by a piece of colored fabric wrapped around it."
+/obj/item/clothing/accessory/poncho/hieroaetherian_poncho
+	name = "adorned hieroaetherian poncho"
+	desc = "A Hieroaetherian poncho made of some sort of mesh weave material, adorned by a piece of colored fabric wrapped around it that denotes their home nation."
 	icon = 'icons/obj/diona_items.dmi'
-	icon_state = "eumponcho"
-	item_state = "eumponcho"
+	icon_state = "hieroaetherian_poncho"
+	item_state = "hieroaetherian_poncho"
 	icon_override = null
 	contained_sprite = TRUE
 	build_from_parts = TRUE

@@ -1,0 +1,2192 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"at" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/pistol/sol,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"ax" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"aS" = (
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"be" = (
+/obj/item/bedsheet,
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"bO" = (
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/corner{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner,
+/obj/machinery/stargazer,
+/turf/simulated/floor/carpet/rubber,
+/area/sol_listening_post)
+"ch" = (
+/turf/simulated/wall/r_wall,
+/area/sol_listening_post)
+"cC" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 2117;
+	master_tag = "airlock_sol_uueoa";
+	name = "airlock_sol_uueoa"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = 22;
+	pixel_y = 28
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/sol_listening_post)
+"cM" = (
+/obj/structure/bed/stool/chair/office/dark,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"cT" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"dO" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"dP" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"ej" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"es" = (
+/obj/structure/table/steel,
+/obj/item/paper/fluff/sol_uueoa/entry5,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"eO" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"fI" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/bluegrid/server,
+/area/sol_listening_post)
+"fJ" = (
+/obj/effect/landmark/corpse/unathi_pirate,
+/obj/item/gun/projectile/shotgun/pump/combat,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"fK" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/empty/air,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"fW" = (
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(150)
+	},
+/obj/structure/table/steel,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"gt" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"hp" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"hW" = (
+/obj/machinery/light,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"ij" = (
+/obj/item/modular_computer/console/preset/command{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"iC" = (
+/turf/template_noop,
+/area/template_noop)
+"jb" = (
+/obj/item/gun/projectile/pistol/sol,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"ka" = (
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"kp" = (
+/obj/effect/landmark/corpse/sol_marine_husk,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"ku" = (
+/turf/simulated/floor/bluegrid/server,
+/area/sol_listening_post)
+"kF" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 2117;
+	master_tag = "airlock_sol_uueoa";
+	name = "airlock_sol_uueoa"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/sol_listening_post)
+"kQ" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"kX" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"lm" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"lI" = (
+/obj/machinery/door/airlock/command{
+	dir = 1;
+	name = "Control"
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"lL" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"mv" = (
+/obj/structure/closet/gimmick{
+	name = "solarian supply closet"
+	},
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"mz" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"mY" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 2117;
+	master_tag = "airlock_sol_uueoa";
+	name = "airlock_sol_uueoa"
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -10
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/sol_listening_post)
+"np" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"nB" = (
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(150)
+	},
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"oG" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"pk" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"qK" = (
+/obj/effect/floor_decal/spline/plain/cee,
+/turf/simulated/floor/carpet/rubber,
+/area/sol_listening_post)
+"qS" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"qW" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"rw" = (
+/obj/machinery/door/window{
+	dir = 4;
+	req_access = list(150)
+	},
+/obj/structure/plasticflaps/airtight,
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(150)
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"rO" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/plating,
+/area/sol_listening_post)
+"sa" = (
+/obj/item/modular_computer/console/preset/command,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"sf" = (
+/obj/item/bedsheet,
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/obj/effect/landmark/corpse/sol_marine_husk,
+/obj/effect/decal/cleanable/blood,
+/obj/item/paper/fluff/sol_uueoa/entry4,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"sI" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"tM" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"uG" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/bluegrid,
+/area/sol_listening_post)
+"vb" = (
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"vd" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"vi" = (
+/obj/item/modular_computer/console/preset/command{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"vo" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"wp" = (
+/obj/machinery/door/airlock/command{
+	dir = 8;
+	name = "EVA Storaage"
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"wB" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"xb" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/item/stamp/warden,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"xf" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/ammo_magazine/c762/sol,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/ammo_magazine/mc9mm,
+/obj/item/storage/box/shotgunammo,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"xP" = (
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/sol_listening_post)
+"xT" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"yb" = (
+/obj/effect/landmark/corpse/sol_marine_husk,
+/obj/effect/decal/cleanable/blood,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"yt" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced,
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"yC" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/structure/sign/flag/sol/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"yP" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 6
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"zg" = (
+/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 10
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"zI" = (
+/obj/structure/table/rack,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Ah" = (
+/obj/machinery/suit_cycler,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Bx" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 2117;
+	master_tag = "airlock_sol_uueoa";
+	name = "airlock_sol_uueoa"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/turf/simulated/floor/plating,
+/area/sol_listening_post)
+"BQ" = (
+/obj/structure/closet/gimmick{
+	name = "solarian supply closet"
+	},
+/obj/item/paper/fluff/sol_uueoa/entry2,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"CC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"CF" = (
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"CY" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/spline/plain,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/item/gun/projectile/automatic/c20r/sol,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"Dt" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"Ej" = (
+/obj/machinery/door/airlock/command{
+	dir = 8;
+	name = "Armory"
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Fd" = (
+/obj/machinery/blackbox_recorder,
+/turf/simulated/floor/bluegrid/server,
+/area/sol_listening_post)
+"Fr" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"FB" = (
+/obj/effect/landmark/corpse/unathi_pirate,
+/obj/item/gun/energy/rifle/laser,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"GG" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"GI" = (
+/obj/structure/dispenser/oxygen,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Hs" = (
+/obj/effect/landmark/corpse/unathi_pirate,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Hw" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/item/paper/fluff/sol_uueoa/entry1,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Ic" = (
+/obj/structure/closet/gimmick{
+	name = "solarian supply closet"
+	},
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/under/rank/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/obj/item/clothing/head/sol/marine,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Ij" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/landmark/corpse/sol_officer_husk,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"IO" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"IP" = (
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/sol_listening_post)
+"IX" = (
+/obj/machinery/photocopier,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Jg" = (
+/obj/effect/landmark/corpse/unathi_pirate,
+/obj/item/melee/hammer/powered,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"JX" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 2117;
+	master_tag = "airlock_sol_uueoa";
+	name = "airlock_sol_uueoa"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/sol_listening_post)
+"JY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Ky" = (
+/obj/machinery/door/airlock/command{
+	dir = 8;
+	name = "Lieutenant's Quarters"
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"LC" = (
+/obj/structure/table/steel,
+/obj/machinery/photocopier/faxmachine{
+	req_one_access = list(203)
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"LI" = (
+/obj/structure/table/steel,
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"MC" = (
+/obj/structure/bed,
+/obj/item/bedsheet,
+/obj/structure/curtain/open/bed,
+/obj/item/paper/fluff/sol_uueoa/entry3,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Nx" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"NP" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/machinery/research.dmi';
+	icon_state = "tech_processor";
+	name = "broken-down data processor"
+	},
+/turf/simulated/floor/bluegrid/server,
+/area/sol_listening_post)
+"Ob" = (
+/obj/machinery/door/airlock/command{
+	dir = 8;
+	name = "Barracks"
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Of" = (
+/obj/effect/landmark/corpse/sol_marine_husk,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"Oh" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Ot" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/bluegrid/server,
+/area/sol_listening_post)
+"OR" = (
+/obj/machinery/light,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Pz" = (
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/sol_listening_post)
+"PU" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"Rd" = (
+/obj/machinery/door/window{
+	dir = 8;
+	req_access = list(150)
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"Ri" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"RY" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 2117;
+	master_tag = "airlock_sol_uueoa";
+	name = "airlock_sol_uueoa"
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/sol_listening_post)
+"SI" = (
+/obj/effect/floor_decal/corner_wide/blue,
+/obj/effect/floor_decal/spline/fancy{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"SK" = (
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING' and 'ARMOURY'.";
+	name = "\improper WARNING: ARMOURY sign";
+	pixel_x = 32
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Tb" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Ub" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	req_access = list(203)
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"UA" = (
+/obj/effect/landmark/corpse/sol_marine_husk,
+/obj/effect/decal/cleanable/blood,
+/obj/item/gun/projectile/automatic/rifle/sol,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Vw" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/spline/fancy,
+/turf/simulated/floor/tiled/dark/full,
+/area/sol_listening_post)
+"VQ" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"VV" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/steel,
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+"VY" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/machinery/research.dmi';
+	icon_state = "server";
+	name = "broken-down server"
+	},
+/turf/simulated/floor/bluegrid/server,
+/area/sol_listening_post)
+"Xp" = (
+/obj/structure/table/steel,
+/obj/effect/decal/cleanable/dirt,
+/obj/item/stamp/sol,
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"XE" = (
+/obj/structure/sign/flag/sol/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"Yq" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_blue,
+/area/sol_listening_post)
+"YO" = (
+/obj/machinery/power/apc/empty{
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled,
+/area/sol_listening_post)
+
+(1,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(2,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(3,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(4,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(5,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(6,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+ch
+ch
+ch
+ch
+ch
+iC
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+iC
+iC
+iC
+iC
+"}
+(7,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+ch
+be
+cT
+be
+ch
+iC
+ch
+MC
+aS
+dO
+aS
+aS
+ch
+iC
+iC
+iC
+iC
+"}
+(8,1,1) = {"
+iC
+iC
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+iC
+iC
+iC
+iC
+iC
+iC
+ch
+ch
+cT
+ch
+ch
+iC
+ch
+ch
+BQ
+aS
+aS
+aS
+ch
+iC
+iC
+iC
+iC
+"}
+(9,1,1) = {"
+iC
+ch
+ch
+VY
+Ot
+NP
+Fd
+NP
+Ot
+VY
+VY
+ch
+ch
+iC
+iC
+iC
+iC
+iC
+ch
+be
+cT
+be
+ch
+iC
+ch
+ch
+ch
+ch
+ch
+Ky
+ch
+iC
+iC
+iC
+iC
+"}
+(10,1,1) = {"
+ch
+ch
+VY
+VY
+ku
+ku
+ku
+ku
+ku
+VY
+VY
+ku
+ch
+ch
+iC
+iC
+iC
+iC
+ch
+ch
+cT
+ch
+ch
+iC
+ch
+Hw
+cT
+jb
+aS
+aS
+ch
+iC
+iC
+iC
+iC
+"}
+(11,1,1) = {"
+ch
+ku
+VY
+VY
+ku
+NP
+ku
+NP
+ku
+VY
+VY
+ku
+ku
+ch
+iC
+iC
+iC
+iC
+ch
+sf
+aS
+be
+ch
+iC
+ch
+IX
+Ij
+Xp
+aS
+aS
+ch
+iC
+iC
+iC
+iC
+"}
+(12,1,1) = {"
+ch
+ch
+ch
+rO
+rO
+ch
+rw
+ch
+rO
+rO
+ch
+ch
+ch
+ch
+iC
+iC
+iC
+iC
+ch
+ch
+aS
+ch
+ch
+iC
+ch
+LC
+Tb
+es
+cT
+aS
+ch
+iC
+iC
+iC
+iC
+"}
+(13,1,1) = {"
+ch
+vb
+lL
+vb
+vb
+vb
+vb
+vb
+PU
+vb
+lL
+vb
+vb
+ch
+iC
+iC
+iC
+iC
+ch
+XE
+aS
+Ic
+ch
+iC
+ch
+XE
+aS
+aS
+cT
+aS
+ch
+mz
+iC
+iC
+iC
+"}
+(14,1,1) = {"
+ch
+Ri
+PU
+vb
+vb
+vb
+vb
+Of
+vb
+vb
+LI
+vb
+vb
+ch
+iC
+iC
+iC
+iC
+ch
+aS
+aS
+mv
+ch
+iC
+ch
+aS
+aS
+cT
+cT
+cT
+ch
+FB
+mz
+mz
+iC
+"}
+(15,1,1) = {"
+ch
+cM
+vi
+vb
+SI
+yP
+yP
+yP
+CF
+vb
+sa
+Dt
+ka
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+Ob
+ch
+ch
+ch
+ch
+ch
+ch
+Ky
+ch
+ch
+ch
+mz
+mz
+mz
+mz
+"}
+(16,1,1) = {"
+ch
+YO
+LI
+PU
+zg
+uG
+xP
+uG
+Vw
+Of
+LI
+vb
+vb
+hp
+aS
+aS
+cT
+Yq
+aS
+aS
+aS
+aS
+aS
+UA
+Yq
+aS
+fJ
+aS
+np
+fK
+ch
+ch
+ch
+mz
+mz
+"}
+(17,1,1) = {"
+ch
+cM
+ij
+PU
+zg
+IP
+bO
+qK
+Vw
+Jg
+sa
+GG
+vb
+lI
+aS
+cT
+aS
+aS
+aS
+yb
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+aS
+ej
+CC
+JX
+kF
+RY
+mz
+mz
+"}
+(18,1,1) = {"
+ch
+vb
+LI
+vb
+wB
+uG
+Pz
+uG
+Vw
+vb
+LI
+vb
+vb
+hp
+aS
+aS
+aS
+aS
+aS
+SK
+aS
+SK
+kp
+aS
+aS
+cT
+aS
+aS
+Hs
+aS
+cC
+Bx
+mY
+mz
+mz
+"}
+(19,1,1) = {"
+ch
+cM
+ij
+vb
+vo
+dP
+dP
+dP
+xT
+vb
+sa
+Dt
+ka
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+Ej
+ch
+ch
+ch
+ch
+ch
+ch
+wp
+ch
+ch
+ch
+ch
+ch
+mz
+mz
+"}
+(20,1,1) = {"
+ch
+Ri
+LI
+PU
+vb
+vb
+vb
+vb
+vb
+vb
+vb
+vb
+vb
+ch
+iC
+iC
+iC
+ch
+cT
+cT
+aS
+aS
+aS
+ch
+ch
+aS
+cT
+aS
+aS
+aS
+ch
+mz
+mz
+mz
+mz
+"}
+(21,1,1) = {"
+ch
+vb
+VQ
+vb
+vb
+vb
+vb
+vb
+vb
+vb
+Nx
+vb
+vb
+ch
+iC
+iC
+iC
+ch
+JY
+cT
+aS
+aS
+hW
+ch
+ch
+Fr
+aS
+aS
+aS
+hW
+ch
+mz
+mz
+mz
+iC
+"}
+(22,1,1) = {"
+ch
+ch
+ch
+tM
+tM
+ch
+nB
+ch
+tM
+tM
+ch
+ch
+ch
+ch
+iC
+iC
+iC
+ch
+lm
+xb
+fW
+VV
+Rd
+ch
+ch
+kQ
+aS
+cT
+aS
+sI
+ch
+mz
+iC
+iC
+iC
+"}
+(23,1,1) = {"
+ch
+ku
+VY
+VY
+ku
+NP
+ku
+NP
+ku
+VY
+VY
+ku
+ku
+ch
+iC
+iC
+iC
+ch
+yC
+vb
+ax
+vb
+qS
+ch
+ch
+kX
+aS
+cT
+aS
+yt
+ch
+iC
+iC
+iC
+iC
+"}
+(24,1,1) = {"
+ch
+ch
+VY
+VY
+ku
+ku
+ku
+ku
+ku
+VY
+VY
+ku
+ch
+ch
+iC
+iC
+iC
+ch
+eO
+vb
+PU
+vb
+qS
+ch
+ch
+zI
+Oh
+aS
+aS
+oG
+ch
+iC
+iC
+iC
+iC
+"}
+(25,1,1) = {"
+iC
+ch
+ch
+VY
+fI
+NP
+Fd
+NP
+fI
+VY
+VY
+ch
+ch
+iC
+iC
+iC
+iC
+ch
+pk
+vb
+vb
+vb
+at
+ch
+ch
+Fr
+aS
+aS
+aS
+gt
+ch
+iC
+iC
+iC
+iC
+"}
+(26,1,1) = {"
+iC
+iC
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+iC
+iC
+iC
+iC
+iC
+ch
+vd
+vb
+vb
+vb
+CY
+ch
+ch
+qW
+aS
+Oh
+aS
+OR
+ch
+iC
+iC
+iC
+iC
+"}
+(27,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+ch
+Ub
+IO
+IO
+IO
+xf
+ch
+ch
+GI
+aS
+aS
+aS
+Ah
+ch
+iC
+iC
+iC
+iC
+"}
+(28,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+ch
+iC
+iC
+iC
+iC
+"}
+(29,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(30,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(31,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(32,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(33,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(34,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
+(35,1,1) = {"
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+iC
+"}
