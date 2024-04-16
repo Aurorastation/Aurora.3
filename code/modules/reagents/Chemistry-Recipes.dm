@@ -3811,7 +3811,7 @@
 	id = "flagsdale_mule"
 	result = /singleton/reagent/drink/toothpaste/mouthwash/flagsdale_mule
 	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 1, /singleton/reagent/drink/toothpaste = 1, /singleton/reagent/drink/mintsyrup = 1)
-	result_amount = 5
+	result_amount = 3
 
 /datum/chemical_reaction/drink/thewake
 	name = "The Wake"
