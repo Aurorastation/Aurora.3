@@ -167,7 +167,7 @@ AURORA_ESCAPE_POD(4)
 	name = "Crescent Shuttle"
 	current_location = "nav_admin_start"
 	warmup_time = 10
-	shuttle_area = /area/shuttle/administration
+	shuttle_area = /area/shuttle/admin
 	dock_target = "admin_shuttle"
 	destination_tags = list(
 		"nav_admin_start",
@@ -227,7 +227,7 @@ AURORA_ESCAPE_POD(4)
 	warmup_time = 10
 	shuttle_area = /area/shuttle/specops
 	dock_target = "specops_shuttle_port"
-	waypoint_station = "nav_ert_dock"
+	waypoint_station = "nav_horizon_dock_deck_3_port_5"
 	waypoint_offsite = "nav_ert_start"
 
 /obj/effect/shuttle_landmark/ert/start
@@ -239,7 +239,7 @@ AURORA_ESCAPE_POD(4)
 
 /obj/effect/shuttle_landmark/ert/dock
 	name = "Third Deck Port Dock 3"
-	landmark_tag = "nav_ert_dock"
+	landmark_tag = "nav_horizon_dock_deck_3_port_5"
 	docking_controller = "specops_dock_airlock"
 	special_dock_targets = list("Phoenix Shuttle" = "specops_shuttle_fore")
 	landmark_flags = SLANDMARK_FLAG_AUTOSET

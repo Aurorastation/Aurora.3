@@ -204,11 +204,11 @@
 	name = "Crescent Shuttle"
 	current_location = "nav_admin_start"
 	warmup_time = 10
-	shuttle_area = /area/shuttle/administration
+	shuttle_area = /area/shuttle/admin
 	dock_target = "admin_shuttle"
 	destination_tags = list(
 		"nav_admin_start",
-		"starboard_2"
+		"nav_horizon_dock_deck_3_starboard_2"
 		)
 
 /obj/effect/shuttle_landmark/admin/start
@@ -219,7 +219,7 @@
 	base_area = /area/centcom
 
 /obj/effect/shuttle_landmark/admin/command
-	name = "Command Surface Dock"
-	landmark_tag = "starboard_2"
+	name = "Third Deck Starboard Dock 2"
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2"
 	docking_controller = "admin_shuttle_dock_airlock"
 	landmark_flags = SLANDMARK_FLAG_AUTOSET
