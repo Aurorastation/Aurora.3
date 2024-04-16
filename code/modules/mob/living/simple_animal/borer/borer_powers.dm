@@ -500,8 +500,10 @@
 	host.psi = new(host)
 	host.add_language(LANGUAGE_TCB) // if we don't have TCB, give them TCB | this allows monkey borers to RP
 	host.awaken_psi_basic("something in your head")
-	spawn(45)
-		host.psi.psi_points = 3 /// You don't get a lot at the start.
+	addtimer(CALLBACK(src, PROC_REF(set_starting_psi_points)), 4.7 SECONDS)
+
+/mob/living/simple_animal/borer/proc/set_starting_psi_points()
+	host.psi.psi_points = 3// You don't get a lot at the start.
 
 /mob/living/simple_animal/borer/verb/advance_psionics()
 	set category = "Abilities"
