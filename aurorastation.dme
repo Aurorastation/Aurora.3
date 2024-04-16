@@ -383,6 +383,7 @@
 #include "code\controllers\subsystems\processing\nanoui.dm"
 #include "code\controllers\subsystems\processing\ntsl2.dm"
 #include "code\controllers\subsystems\processing\obj_tab_items.dm"
+#include "code\controllers\subsystems\processing\odyssey.dm"
 #include "code\controllers\subsystems\processing\overmap.dm"
 #include "code\controllers\subsystems\processing\processing.dm"
 #include "code\controllers\subsystems\processing\projectiles.dm"

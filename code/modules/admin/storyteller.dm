@@ -80,8 +80,8 @@ GLOBAL_LIST_INIT(storyteller_verbs, list(
 
 	if(!M)
 		var/list/client_mobs = list()
-		for(var/mob/M in get_mob_with_client_list())
-			client_mobs[M.name] = M
+		for(var/mob/client_mob in get_mob_with_client_list())
+			client_mobs[client_mob.name] = client_mob
 		var/mob_name = tgui_input_list(src, "Who are you narrating to?", "Direct Narrate", client_mobs)
 		if(mob_name)
 			M = client_mobs[mob_name]
