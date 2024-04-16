@@ -376,11 +376,18 @@
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/phoron = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
-	name = "\improper K'laxan Energy Crush"
+	name = "\improper K'lax Energy Crush"
 	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
-	icon_state = "klaxancrush"
-	item_state = "klaxancrush"
+	icon_state = "klaxcrush"
+	item_state = "klaxcrush"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/klax = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi
+	name = "\improper K'lax Xuizi Xplosion"
+	desc = "A can of xuizi flavoured Zo'ra Soda energy drink, with V'krexi additives. A refreshing taste for more than just unathi."
+	icon_state = "klaxxuizi"
+	item_state = "klaxxuizi"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/xuizi = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
 	name = "\improper C'thur Rockin' Raspberry"
@@ -388,6 +395,13 @@
 	icon_state = "cthurberry"
 	item_state = "cthurberry"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/cthur = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn
+	name = "\improper C'thur Dyn-A-Mite"
+	desc = "A can of dyn flavoured Zo'ra Soda energy drink, with V'krexi additives. A blast of flavour, straight from Qerrbalak!"
+	icon_state = "cthurdyn"
+	item_state = "cthurdyn"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/dyn = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
 	name = "\improper Zo'ra Sour Venom Grass"
@@ -409,6 +423,27 @@
 	icon_state = "koistwist"
 	item_state = "koistwist"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/kois = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/mixedberry
+	name = "\improper Zo'ra Soda Caprician Craze"
+	desc = "A can of \"mixed berry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. The number one drink in New Sedantis!"
+	icon_state = "capriciancraze"
+	item_state = "capriciancraze"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/mixedberry = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime
+	name = "\improper Zo'ra Soda Seismic Slammer"
+	desc = "A can of \"lemon-lime\" flavoured Zo'ra Soda energy drink, with V'krexi additives. It'll knock you off your feet!"
+	icon_state = "seismicslammer"
+	item_state = "seismicslammer"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/lemonlime = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz
+	name = "\improper Buzzin' Cola"
+	desc = "A can of cola flavoured energy drink, with V'krexi additives. Guaranteed to overwhelm your taste buds."
+	icon_state = "buzzinsoda"
+	item_state = "buzzinsoda"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/buzz = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Vaurca Drone Fuel"
