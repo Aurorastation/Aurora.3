@@ -7,7 +7,9 @@
 	spawn_cost = 1
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_BURZSIA)
-	suffixes = list("burzsia/burzsia_mining.dmm")
+
+	prefix = "burzsia/"
+	suffixes = list("burzsia_mining.dmm")
 
 /area/burzsia_mining
 	name = "Hephaestus Burzsia Mining Outpost"

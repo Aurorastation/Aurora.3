@@ -1,0 +1,31 @@
+2014-08-02:
+  Whitellama:
+  - bugfix: Arcane tomes can now be stored on bookshelves.
+  - bugfix: Dionaea players no longer crash on death, and now become nymphs properly.
+2014-08-05:
+  HarpyEagle:
+  - tweak: Atmos Rewrite. Many atmos devices now use power according to their load
+      and gas physics
+  - rscadd: Pressure regulator device. Replaces the passive gate and can regulate
+      input or output pressure
+  - rscadd: Gas heaters and gas coolers are now constructable and can be upgraded
+      with parts from research
+  - bugfix: Fixes recharger and cell charger power draw. Rechargers draw 15 kW, wall
+      chargers draw 25 kW, and heavy-duty cell chargers draw 40 kW. Cyborg charging
+      stations draw 75 kW.
+  - bugfix: Laptops, and various other machines, now draw more reasonable amounts
+      of power
+  - bugfix: Machines will periodically update their powered status if moved from a
+      powered to an unpowered area and vice versa
+2014-08-27:
+  Whitellama:
+  - bugfix: Made destination taggers more intuitive so you know when you've tagged
+      something
+  - rscadd: Ported package label and tag sprites
+  - rscadd: Ported using a pen on a package to give it a title, or to write a note
+  - rscadd: Donut boxes and egg boxes can be constructed out of cardboard
+2014-08-31:
+  Whitellama:
+  - bugfix: Matches and candles can be used to burn papers, too.
+  - bugfix: Observers have a bit more time (20 seconds, instead of 7.5) before the
+      Diona join prompt disappears.

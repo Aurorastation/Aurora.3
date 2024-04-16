@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("raskara/raskara_okon.dmm")
+
+	prefix = "raskara/"
+	suffixes = list("raskara_okon.dmm")
 
 /area/raskara_okon
 	name = "Okon 011"

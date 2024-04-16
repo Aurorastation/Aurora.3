@@ -6,7 +6,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED|TEMPLATE_FLAG_SPAWN_GUARANTEED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned/landing_zone.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("landing_zone.dmm")
 
 /area/konyang_landing_zone/command_center_abandoned//Need to differentiate from the normal landing zone area, otherwise this messes stuff up
 	name = "SCC Expedition Command Center"

@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/stranded_police.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("stranded_police.dmm")
 
 /datum/ghostspawner/human/konyang_lostcop
 	short_name = "konyang_lostcop"

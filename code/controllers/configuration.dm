@@ -250,6 +250,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/wikiurl
 	var/forumurl
 	var/forum_passphrase
+	var/rulesurl
 	var/githuburl
 
 	//Alert level description
@@ -645,6 +646,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if ("forumurl")
 					GLOB.config.forumurl = value
+
+				if ("rulesurl")
+					GLOB.config.rulesurl = value
 
 				if ("forum_passphrase")
 					GLOB.config.forum_passphrase = value

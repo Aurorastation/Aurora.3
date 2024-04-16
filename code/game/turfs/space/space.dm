@@ -7,7 +7,7 @@
 	footstep_sound = null //Override to make sure because yeah
 	tracks_footprint = FALSE
 
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
