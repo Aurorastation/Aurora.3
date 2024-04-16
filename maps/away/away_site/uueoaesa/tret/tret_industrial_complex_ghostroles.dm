@@ -67,9 +67,6 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-	A.replaced(H, affected)
 	var/obj/item/organ/B = new /obj/item/organ/internal/augment/tool/drill(H)
 	var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 	B.replaced(H, affectedB)
