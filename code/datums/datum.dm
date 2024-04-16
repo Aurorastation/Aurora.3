@@ -59,7 +59,7 @@
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
-	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
+	SHOULD_NOT_SLEEP(TRUE)
 
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
