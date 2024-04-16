@@ -38,6 +38,14 @@
 	detach()
 	leave_host()
 
+/mob/living/simple_animal/borer/proc/is_held_by(var/mob/living/carbon/M)
+	if (istype(usr.loc, /obj/item/holder))
+		var/obj/item/holder/H = usr.loc
+		if (istype(H.loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/held_by = H.loc
+			return held_by == M
+
+	return FALSE
 
 /mob/living/simple_animal/borer/verb/infest()
 	set category = "Abilities"
@@ -56,6 +64,12 @@
 		if(src.Adjacent(C))
 			choices += C
 
+	if (istype(usr.loc, /obj/item/holder))
+		var/obj/item/holder/H = usr.loc
+		if (istype(H.loc, /mob/living/carbon/human))
+			var/mob/living/carbon/human/held_by = H.loc
+			choices += held_by
+
 	if(!length(choices))
 		to_chat(src, SPAN_NOTICE("There are no viable hosts within range."))
 		return
@@ -73,7 +87,7 @@
 		return
 	if(!M || !src)
 		return
-	if(!Adjacent(M))
+	if(!Adjacent(M) && !is_held_by(M))
 		return
 	if(M.has_brain_worms())
 		to_chat(src, SPAN_WARNING("You cannot infest someone who is already infested!"))
@@ -104,15 +118,16 @@
 	to_chat(src, SPAN_WARNING("You slither up [M] and begin probing at their ear canal..."))
 
 	if(!do_after(src,30))
-		to_chat(src, SPAN_WARNING("As [M] moves away, you are dislodged and fall to the ground."))
-		return
+		if(!is_held_by(M))
+			to_chat(src, SPAN_WARNING("As [M] moves away, you are dislodged and fall to the ground."))
+			return
 	if(!M || !src)
 		return
 	if(src.stat)
 		to_chat(src, SPAN_NOTICE("You cannot infest a target in your current state."))
 		return
 
-	if(M in view(1, src))
+	if((M in view(1, src)) || is_held_by(M))
 		to_chat(src, SPAN_NOTICE("You wiggle into [M]'s ear."))
 		if(!M.stat)
 			to_chat(M, SPAN_DANGER("Something disgusting and slimy wiggles into your ear!"))
