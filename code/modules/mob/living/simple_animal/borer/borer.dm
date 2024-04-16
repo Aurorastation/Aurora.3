@@ -47,8 +47,10 @@
 	..()
 	if(mind)
 		borers.add_antagonist_mind(mind, 1, borers.role_text, borers.welcome_text)
-	if(client && host)
-		client.screen += host.healths
+	if(client)
+		client.init_verbs()
+		if(host)
+			client.screen += host.healths
 
 /mob/living/simple_animal/borer/Initialize()
 	. = ..()
