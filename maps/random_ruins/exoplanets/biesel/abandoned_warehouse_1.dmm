@@ -1,0 +1,674 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"dn" = (
+/turf/simulated/wall,
+/area/space)
+"dJ" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"eA" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"eH" = (
+/obj/effect/decal/remains/lizard,
+/turf/simulated/floor/concrete,
+/area/space)
+"fj" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"hJ" = (
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/concrete,
+/area/space)
+"hR" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"hZ" = (
+/obj/structure/chainlink_fence,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"im" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"iR" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/powercell,
+/turf/simulated/floor/concrete,
+/area/space)
+"jI" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/backpack,
+/turf/simulated/floor/concrete,
+/area/space)
+"kb" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/colored_jumpsuit,
+/turf/simulated/floor/concrete,
+/area/space)
+"ml" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid,
+/turf/simulated/floor/concrete,
+/area/space)
+"os" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/toolbox,
+/turf/simulated/floor/concrete,
+/area/space)
+"qN" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"qX" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/backpack,
+/obj/random/booze,
+/turf/simulated/floor/concrete,
+/area/space)
+"qY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/tool,
+/turf/simulated/floor/concrete,
+/area/space)
+"ra" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/loot,
+/turf/simulated/floor/concrete,
+/area/space)
+"sx" = (
+/obj/random/junk,
+/turf/simulated/floor/concrete,
+/area/space)
+"sF" = (
+/obj/structure/table/steel,
+/obj/random/gloves,
+/turf/simulated/floor/concrete,
+/area/space)
+"yg" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"AY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/backpack,
+/obj/random/junk,
+/turf/simulated/floor/concrete,
+/area/space)
+"Bk" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/booze,
+/turf/simulated/floor/concrete,
+/area/space)
+"BQ" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/tech_supply,
+/turf/simulated/floor/concrete,
+/area/space)
+"Co" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/loot,
+/obj/random/junk,
+/turf/simulated/floor/concrete,
+/area/space)
+"Cx" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/plushie,
+/turf/simulated/floor/concrete,
+/area/space)
+"Eo" = (
+/obj/structure/table/steel,
+/obj/random/mre,
+/turf/simulated/floor/concrete,
+/area/space)
+"FD" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"FT" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/hoodie,
+/turf/simulated/floor/concrete,
+/area/space)
+"Gs" = (
+/obj/structure/chainlink_fence,
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"GY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/softcap,
+/turf/simulated/floor/concrete,
+/area/space)
+"Ha" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/concrete,
+/area/space)
+"Hk" = (
+/turf/template_noop,
+/area/space)
+"Iq" = (
+/obj/machinery/light/broken{
+	dir = 1;
+	pixel_y = 19
+	},
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/concrete,
+/area/space)
+"Is" = (
+/obj/structure/table/steel,
+/obj/random/smalltank,
+/turf/simulated/floor/concrete,
+/area/space)
+"JY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/firstaid,
+/turf/simulated/floor/concrete,
+/area/space)
+"Kk" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/obj/effect/decal/remains/rat,
+/turf/simulated/floor/concrete,
+/area/space)
+"Lr" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/concrete,
+/area/space)
+"Lz" = (
+/obj/machinery/light/broken{
+	dir = 1;
+	pixel_y = 19
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"LN" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/melee,
+/turf/simulated/floor/concrete,
+/area/space)
+"Mj" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"MR" = (
+/turf/simulated/floor/concrete,
+/area/space)
+"Oc" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/belt,
+/obj/random/junk,
+/turf/simulated/floor/concrete,
+/area/space)
+"Or" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/seed,
+/turf/simulated/floor/concrete,
+/area/space)
+"RA" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/concrete,
+/area/space)
+"SX" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"TG" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/concrete,
+/area/space)
+"TY" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/seed,
+/obj/random/junk,
+/obj/random/glowstick,
+/turf/simulated/floor/concrete,
+/area/space)
+"Vn" = (
+/obj/structure/table/steel,
+/obj/random/softcap,
+/turf/simulated/floor/concrete,
+/area/space)
+"WH" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"Yo" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/junk,
+/turf/simulated/floor/concrete,
+/area/space)
+"Yx" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/plushie,
+/obj/random/glowstick,
+/turf/simulated/floor/concrete,
+/area/space)
+"YU" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/belt,
+/turf/simulated/floor/concrete,
+/area/space)
+"Zy" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random/suit,
+/obj/random/tool,
+/turf/simulated/floor/concrete,
+/area/space)
+"ZJ" = (
+/obj/structure/table/steel,
+/obj/effect/decal/remains/lizard,
+/turf/simulated/floor/concrete,
+/area/space)
+
+(1,1,1) = {"
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}
+(2,1,1) = {"
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}
+(3,1,1) = {"
+im
+eA
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}
+(4,1,1) = {"
+im
+eA
+im
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+"}
+(5,1,1) = {"
+im
+eA
+im
+dn
+ZJ
+MR
+sF
+RA
+fj
+fj
+Vn
+Is
+fj
+sx
+Eo
+RA
+ml
+dn
+"}
+(6,1,1) = {"
+im
+eA
+im
+hR
+fj
+sx
+fj
+MR
+fj
+fj
+fj
+MR
+MR
+fj
+fj
+MR
+MR
+dn
+"}
+(7,1,1) = {"
+im
+eA
+im
+dn
+Iq
+MR
+MR
+MR
+fj
+fj
+fj
+MR
+fj
+MR
+MR
+Ha
+TG
+dn
+"}
+(8,1,1) = {"
+im
+eA
+im
+dn
+Ha
+MR
+YU
+qY
+MR
+MR
+Yo
+qX
+MR
+Co
+Yo
+eH
+fj
+dn
+"}
+(9,1,1) = {"
+im
+eA
+im
+dn
+fj
+MR
+GY
+JY
+MR
+Ha
+Oc
+Yo
+fj
+Cx
+FT
+MR
+fj
+dn
+"}
+(10,1,1) = {"
+im
+eA
+im
+dn
+MR
+MR
+Zy
+os
+MR
+fj
+YU
+kb
+fj
+TY
+Or
+MR
+MR
+dn
+"}
+(11,1,1) = {"
+im
+eA
+im
+dn
+Lz
+fj
+BQ
+BQ
+MR
+fj
+Yx
+Cx
+fj
+FT
+AY
+fj
+Mj
+dn
+"}
+(12,1,1) = {"
+im
+eA
+im
+dn
+MR
+MR
+jI
+Bk
+MR
+fj
+Co
+iR
+fj
+LN
+ra
+MR
+MR
+dn
+"}
+(13,1,1) = {"
+im
+eA
+im
+dn
+SX
+fj
+fj
+hJ
+sx
+MR
+MR
+MR
+MR
+fj
+MR
+MR
+Ha
+dn
+"}
+(14,1,1) = {"
+im
+eA
+im
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+dn
+"}
+(15,1,1) = {"
+Hk
+im
+im
+im
+FD
+fj
+Kk
+qN
+fj
+MR
+hZ
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(16,1,1) = {"
+Hk
+im
+im
+im
+fj
+fj
+fj
+hJ
+fj
+fj
+Lr
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(17,1,1) = {"
+Hk
+im
+im
+im
+dJ
+yg
+WH
+WH
+WH
+yg
+Gs
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(18,1,1) = {"
+Hk
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+"}
+(19,1,1) = {"
+Hk
+im
+im
+im
+im
+im
+im
+im
+im
+im
+im
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+Hk
+"}

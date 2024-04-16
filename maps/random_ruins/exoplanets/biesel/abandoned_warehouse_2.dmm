@@ -1,0 +1,578 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"b" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"c" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/concrete,
+/area/space)
+"f" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/plastic,
+/turf/simulated/floor/concrete,
+/area/space)
+"g" = (
+/obj/structure/chainlink_fence,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"i" = (
+/obj/structure/chainlink_fence,
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"j" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/concrete,
+/area/space)
+"k" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/cookingoil,
+/turf/simulated/floor/concrete,
+/area/space)
+"l" = (
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"n" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"o" = (
+/obj/random/junk,
+/turf/simulated/floor/concrete,
+/area/space)
+"r" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/concrete,
+/area/space)
+"t" = (
+/obj/structure/table/steel,
+/obj/random/desktoy,
+/turf/simulated/floor/concrete,
+/area/space)
+"u" = (
+/turf/simulated/floor/concrete,
+/area/space)
+"v" = (
+/obj/structure/table/steel,
+/obj/random/mre,
+/turf/simulated/floor/concrete,
+/area/space)
+"w" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"x" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"y" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/cookingoil,
+/turf/simulated/floor/concrete,
+/area/space)
+"z" = (
+/turf/simulated/wall,
+/area/space)
+"A" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"C" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"D" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"E" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/concrete,
+/area/space)
+"F" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"H" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid,
+/turf/simulated/floor/concrete,
+/area/space)
+"I" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/concrete,
+/area/space)
+"J" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"K" = (
+/obj/structure/table/steel,
+/obj/random/gloves,
+/turf/simulated/floor/concrete,
+/area/space)
+"L" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/concrete,
+/area/space)
+"N" = (
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/concrete,
+/area/space)
+"O" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/plastic,
+/turf/simulated/floor/concrete,
+/area/space)
+"Q" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/concrete,
+/area/space)
+"R" = (
+/obj/structure/table/steel,
+/obj/random/smalltank,
+/turf/simulated/floor/concrete,
+/area/space)
+"T" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate,
+/turf/simulated/floor/concrete,
+/area/space)
+"V" = (
+/turf/template_noop,
+/area/space)
+"X" = (
+/obj/structure/table/steel,
+/obj/random/bandana,
+/turf/simulated/floor/concrete,
+/area/space)
+"Y" = (
+/obj/machinery/light/broken{
+	dir = 1;
+	pixel_y = 19
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"Z" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/concrete,
+/area/space)
+
+(1,1,1) = {"
+a
+a
+a
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+"}
+(2,1,1) = {"
+a
+a
+a
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+"}
+(3,1,1) = {"
+a
+w
+a
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+V
+"}
+(4,1,1) = {"
+a
+w
+a
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+"}
+(5,1,1) = {"
+a
+w
+a
+z
+R
+u
+I
+N
+n
+n
+t
+H
+n
+o
+K
+v
+X
+z
+"}
+(6,1,1) = {"
+a
+w
+a
+F
+n
+o
+n
+u
+n
+n
+n
+u
+u
+n
+n
+u
+u
+z
+"}
+(7,1,1) = {"
+a
+w
+a
+z
+Y
+u
+u
+u
+n
+n
+n
+u
+n
+u
+u
+c
+Z
+z
+"}
+(8,1,1) = {"
+a
+w
+a
+z
+c
+u
+T
+Q
+u
+u
+E
+j
+u
+E
+T
+u
+n
+z
+"}
+(9,1,1) = {"
+a
+w
+a
+z
+n
+u
+Q
+Q
+u
+c
+k
+Q
+n
+f
+Q
+u
+n
+z
+"}
+(10,1,1) = {"
+a
+w
+a
+z
+u
+u
+E
+E
+u
+n
+Q
+Q
+n
+E
+E
+u
+u
+z
+"}
+(11,1,1) = {"
+a
+w
+a
+z
+Y
+n
+j
+Q
+u
+n
+E
+L
+n
+E
+O
+n
+J
+z
+"}
+(12,1,1) = {"
+a
+w
+a
+z
+u
+u
+Q
+y
+u
+n
+f
+E
+n
+Q
+j
+u
+u
+z
+"}
+(13,1,1) = {"
+a
+w
+a
+z
+A
+n
+n
+u
+o
+u
+u
+u
+u
+n
+u
+u
+c
+z
+"}
+(14,1,1) = {"
+a
+w
+a
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+z
+"}
+(15,1,1) = {"
+V
+a
+a
+a
+C
+n
+l
+l
+n
+u
+g
+a
+a
+a
+V
+V
+V
+V
+"}
+(16,1,1) = {"
+V
+a
+a
+a
+n
+n
+n
+u
+n
+n
+r
+a
+a
+a
+V
+V
+V
+V
+"}
+(17,1,1) = {"
+V
+a
+a
+a
+b
+x
+D
+D
+D
+x
+i
+a
+a
+a
+V
+V
+V
+V
+"}
+(18,1,1) = {"
+V
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+V
+V
+V
+V
+"}
+(19,1,1) = {"
+V
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+V
+V
+V
+V
+V
+V
+V
+"}

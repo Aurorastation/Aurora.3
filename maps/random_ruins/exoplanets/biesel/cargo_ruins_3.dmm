@@ -1,0 +1,892 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/asphalt,
+/area/space)
+"b" = (
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/asphalt,
+/area/space)
+"c" = (
+/obj/structure/shipping_container{
+	icon_state = "red2"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"g" = (
+/obj/structure/shipping_container{
+	icon_state = "green2"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"h" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/asphalt,
+/area/space)
+"i" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
+"j" = (
+/obj/effect/decal/curb/corner,
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/concrete,
+/area/space)
+"k" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"l" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/concrete,
+/area/space)
+"n" = (
+/obj/effect/decal/curb,
+/turf/simulated/floor/concrete,
+/area/space)
+"p" = (
+/obj/structure/shipping_container{
+	icon_state = "green3"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"r" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
+"s" = (
+/obj/effect/decal/curb/corner,
+/turf/template_noop,
+/area/space)
+"t" = (
+/obj/structure/shipping_container,
+/turf/simulated/floor/asphalt,
+/area/space)
+"u" = (
+/obj/structure/shipping_container{
+	icon_state = "blue2"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"v" = (
+/obj/structure/crane,
+/turf/simulated/floor/asphalt,
+/area/space)
+"x" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"y" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
+"z" = (
+/obj/structure/shipping_container{
+	icon_state = "grey2"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"A" = (
+/obj/effect/decal/curb/corner{
+	dir = 8
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/concrete,
+/area/space)
+"B" = (
+/obj/structure/shipping_container{
+	icon_state = "blue3"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"D" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"E" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"F" = (
+/obj/effect/decal/curb,
+/turf/template_noop,
+/area/space)
+"G" = (
+/obj/effect/decal/curb{
+	dir = 8
+	},
+/turf/simulated/floor/concrete,
+/area/space)
+"H" = (
+/obj/random/toolbox{
+	pixel_y = 10;
+	pixel_x = 11
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"J" = (
+/obj/structure/shipping_container{
+	icon_state = "red3"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"M" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/asphalt,
+/area/space)
+"N" = (
+/obj/structure/shipping_container{
+	icon_state = "green1"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"O" = (
+/obj/random/junk,
+/turf/simulated/floor/asphalt,
+/area/space)
+"P" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/asphalt,
+/area/space)
+"Q" = (
+/obj/effect/decal/curb/corner{
+	dir = 1
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/concrete,
+/area/space)
+"R" = (
+/obj/effect/decal/curb/corner{
+	dir = 4
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/concrete,
+/area/space)
+"T" = (
+/obj/effect/decal/curb,
+/obj/effect/decal/curb,
+/turf/simulated/floor/concrete,
+/area/space)
+"U" = (
+/obj/effect/decal/curb{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
+"V" = (
+/obj/effect/decal/curb{
+	dir = 4
+	},
+/obj/machinery/light/small/floor,
+/turf/simulated/floor/concrete,
+/area/space)
+"X" = (
+/obj/structure/shipping_container{
+	icon_state = "grey1"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Y" = (
+/obj/structure/shipping_container{
+	icon_state = "red1"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+"Z" = (
+/obj/structure/shipping_container{
+	icon_state = "grey3"
+	},
+/turf/simulated/floor/asphalt,
+/area/space)
+
+(1,1,1) = {"
+r
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+i
+s
+"}
+(2,1,1) = {"
+U
+a
+a
+O
+a
+a
+Y
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+O
+a
+a
+a
+a
+a
+a
+F
+"}
+(3,1,1) = {"
+U
+v
+a
+a
+a
+a
+c
+a
+a
+a
+a
+a
+Y
+a
+a
+X
+a
+a
+a
+a
+a
+Y
+a
+a
+F
+"}
+(4,1,1) = {"
+U
+b
+a
+a
+a
+a
+c
+a
+a
+t
+a
+a
+c
+a
+a
+z
+a
+a
+M
+a
+a
+c
+a
+P
+F
+"}
+(5,1,1) = {"
+U
+a
+a
+a
+a
+a
+J
+a
+a
+u
+a
+a
+c
+a
+a
+z
+a
+a
+Y
+a
+a
+c
+a
+a
+F
+"}
+(6,1,1) = {"
+U
+b
+a
+a
+X
+H
+h
+a
+a
+u
+a
+a
+J
+h
+a
+Z
+a
+a
+c
+a
+a
+J
+a
+a
+F
+"}
+(7,1,1) = {"
+U
+a
+a
+a
+z
+a
+a
+a
+a
+B
+a
+a
+N
+a
+t
+h
+a
+a
+c
+a
+a
+a
+N
+a
+F
+"}
+(8,1,1) = {"
+U
+a
+a
+a
+Z
+a
+a
+a
+a
+a
+a
+a
+g
+a
+u
+a
+a
+a
+c
+a
+a
+a
+g
+a
+F
+"}
+(9,1,1) = {"
+U
+a
+M
+a
+a
+a
+a
+Y
+a
+a
+a
+a
+g
+a
+u
+a
+a
+a
+J
+a
+a
+a
+p
+a
+F
+"}
+(10,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+c
+a
+O
+a
+a
+g
+a
+B
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+"}
+(11,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+c
+a
+a
+a
+a
+p
+a
+a
+a
+M
+a
+O
+a
+a
+a
+a
+a
+F
+"}
+(12,1,1) = {"
+U
+a
+a
+X
+a
+a
+a
+J
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+F
+"}
+(13,1,1) = {"
+U
+a
+a
+z
+a
+a
+a
+a
+a
+a
+P
+a
+a
+a
+a
+a
+a
+a
+a
+a
+v
+a
+a
+a
+F
+"}
+(14,1,1) = {"
+U
+a
+a
+z
+a
+a
+a
+a
+A
+G
+G
+G
+G
+G
+G
+G
+l
+G
+G
+G
+G
+G
+G
+j
+F
+"}
+(15,1,1) = {"
+U
+a
+a
+z
+a
+a
+M
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+b
+a
+a
+n
+F
+"}
+(16,1,1) = {"
+U
+a
+a
+Z
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(17,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(18,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(19,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+T
+F
+"}
+(20,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(21,1,1) = {"
+U
+a
+a
+M
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(22,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(23,1,1) = {"
+U
+a
+O
+a
+a
+a
+a
+a
+D
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+n
+F
+"}
+(24,1,1) = {"
+U
+a
+a
+a
+a
+a
+a
+a
+R
+E
+E
+E
+E
+E
+E
+E
+V
+E
+E
+E
+E
+E
+E
+Q
+F
+"}
+(25,1,1) = {"
+k
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+x
+y
+"}
