@@ -735,6 +735,8 @@
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "dQ" = (
 /obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/survey_probe,
+/obj/structure/survey_probe,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "dS" = (
@@ -1351,8 +1353,9 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "gP" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/structure/survey_probe,
+/obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "gU" = (
@@ -3430,6 +3433,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
+"tv" = (
+/obj/structure/survey_probe,
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/scc_scout_ship_shuttle/cargo)
 "tw" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -4734,6 +4742,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
+"CB" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/survey_probe,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/scc_scout_ship_shuttle/cargo)
 "CP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
@@ -41621,7 +41634,7 @@ SX
 aa
 xG
 FF
-gP
+nB
 CX
 lK
 FN
@@ -42136,7 +42149,7 @@ qJ
 WP
 qA
 dQ
-sN
+tv
 sG
 HR
 SF
@@ -42393,7 +42406,7 @@ aa
 rW
 hd
 gP
-nB
+CB
 Mn
 FN
 FN
