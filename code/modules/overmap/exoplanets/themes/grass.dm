@@ -64,6 +64,27 @@
 		BIOME_HUMID = 1.0
 	)
 
+//biesel
+
+/datum/exoplanet_theme/grass/biesel
+	possible_biomes = list(
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/grass/biesel,
+			BIOME_SEMIARID = /singleton/biome/grass/forest/biesel,
+			BIOME_SUBHUMID = /singleton/biome/grass/forest/biesel
+		),
+		BIOME_WARM = list(
+			BIOME_ARID = /singleton/biome/grass/biesel,
+			BIOME_SEMIARID = /singleton/biome/grass/biesel,
+			BIOME_SUBHUMID = /singleton/biome/grass/riverside/biesel
+		),
+		BIOME_EQUATOR = list(
+			BIOME_ARID = /singleton/biome/grass/biesel,
+			BIOME_SEMIARID = /singleton/biome/grass/riverside/biesel,
+			BIOME_SUBHUMID = /singleton/biome/grass/riverside/biesel
+		)
+	)
+
 /datum/exoplanet_theme/grass/moghes //un-nuked Moghes theme
 	name = "Untouched Lands"
 	mountain_threshold = 0.9

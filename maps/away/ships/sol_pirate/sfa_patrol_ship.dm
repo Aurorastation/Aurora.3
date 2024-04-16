@@ -20,18 +20,39 @@
 //Areas
 /area/ship/sfa_patrol_ship
 	name = "SFA Corvette"
+	requires_power = TRUE
 
-/area/ship/sfa_patrol_ship/medbay
+/area/ship/sfa_patrol_ship/docking
+	name = "SFA Docking Hall"
+
+/area/ship/sfa_patrol_ship/hangar
+	name = "SFA Hangar"
+	ambience = AMBIENCE_HANGAR
+
+/area/ship/sfa_patrol_ship/destroyedmedbay
 	name = "SFA Medbay"
+
+/area/ship/sfa_patrol_ship/kitchenmedbay
+	name = "SFA Kitchen"
+
+/area/ship/sfa_patrol_ship/destroyedrec
+	name = "SFA Rec Room"
 
 /area/ship/sfa_patrol_ship/SFA_Armory
 	name = "SFA Armory"
+	ambience = AMBIENCE_HIGHSEC
+
+/area/ship/sfa_patrol_ship/destroyedammo
+	name = "SFA Ammunition Bay"
 
 /area/ship/sfa_patrol_ship/Engineering
 	name = "SFA Engineering"
 
-/area/ship/sfa_patrol_ship/Telecoms
-	name = "SFA Telecoms"
+/area/ship/sfa_patrol_ship/atmos
+	name = "SFA Atmospherics"
+
+/area/ship/sfa_patrol_ship/Telecomms
+	name = "SFA Telecomms"
 
 /area/ship/sfa_patrol_ship/TreasureRoom
 	name = "SFA Treasure Room"
@@ -39,11 +60,14 @@
 /area/ship/sfa_patrol_ship/Bridge
 	name = "SFA Corvette Bridge"
 
-/area/ship/sfa_patrol_ship/Ammo_Closet
-	name = "SFA Ammo Closet"
+/area/ship/sfa_patrol_ship/custodialammo
+	name = "SFA Custodial"
 
 /area/ship/sfa_patrol_ship/Quarters
 	name = "SFA Crew Quarters"
+
+/area/ship/sfa_patrol_ship/head
+	name = "SFA Head"
 
 /area/ship/sfa_patrol_ship/Officer
 	name = "SFA Officer Quarters"
@@ -90,7 +114,10 @@
 
 	initial_generic_waypoints = list(
 		"nav_sfa_patrol_ship_1",
-		"nav_sfa_patrol_ship_2"
+		"nav_sfa_patrol_ship_2",
+		"nav_sfa_patrol_ship_3",
+		"nav_sfa_patrol_ship_4",
+		"nav_sfa_port_airlock"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -112,8 +139,27 @@
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/sfa_patrol_ship/nav2
-	name = "SFA Corvette - Port Airlock"
+	name = "SFA Corvette - Starboard Side"
 	landmark_tag = "nav_sfa_patrol_ship_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav3
+	name = "SFA Corvette - Aft"
+	landmark_tag = "nav_sfa_patrol_ship_3"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/sfa_patrol_ship/nav4
+	name = "SFA Corvette - Fore"
+	landmark_tag = "nav_sfa_patrol_ship_4"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/sfa_patrol_ship/airlock
+	name = "SFA Corvette - Port Airlock"
+	landmark_tag = "nav_sfa_port_airlock"
+	docking_controller = "airlock_sfa_port_airlock"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
@@ -148,6 +194,7 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/sfa_shuttle)
 	current_location = "nav_hangar_sfa"
+	dock_target = "airlock_sfa_shuttle"
 	landmark_transition = "nav_transit_sfa_shuttle"
 	range = 1
 	fuel_consumption = 2

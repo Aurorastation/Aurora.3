@@ -1276,6 +1276,11 @@
 	desc = "A box containing 5 standstill landmines."
 	starts_with = list(/obj/item/landmine/standstill = 5)
 
+/obj/item/storage/box/landmines/door_rigging
+	name = "box of door rigging landmines"
+	desc = "A box containing 5 door rigging landmines."
+	starts_with = list(/obj/item/landmine/frag/door_rigging = 5)
+
 /obj/item/storage/box/landmines/claymore
 	name = "box of claymore landmines"
 	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
