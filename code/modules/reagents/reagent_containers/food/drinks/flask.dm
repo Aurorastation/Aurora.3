@@ -33,6 +33,7 @@
 	. = ..()
 	cup = new cup_type(src)
 	atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+	update_icon()
 
 /obj/item/reagent_containers/food/drinks/flask/vacuumflask/attack_self(mob/user)
 	if(cup)
