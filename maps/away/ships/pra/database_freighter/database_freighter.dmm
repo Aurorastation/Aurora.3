@@ -337,6 +337,8 @@
 	dir = 8
 	},
 /obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -4651,6 +4653,13 @@
 	temperature = 278.15
 	},
 /area/database_freighter/engineering)
+"So" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/survey_probe/pra,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/database_freighter/hangar)
 "SV" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4702,6 +4711,16 @@
 	temperature = 278.15
 	},
 /area/database_freighter/captain_quarters)
+"To" = (
+/obj/structure/sign/vacuum{
+	pixel_x = 32
+	},
+/obj/structure/survey_probe/pra,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/database_freighter/hangar)
 "Tu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor{
@@ -4966,6 +4985,13 @@
 	temperature = 278.15
 	},
 /area/database_freighter)
+"XH" = (
+/obj/structure/survey_probe/pra,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
+/area/database_freighter/hangar)
 "XZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/wood{
@@ -15164,7 +15190,7 @@ Ni
 pH
 rj
 xw
-Nf
+XH
 Nf
 rH
 Ql
@@ -15326,7 +15352,7 @@ YC
 zh
 uY
 xw
-gT
+To
 Nf
 Nf
 Nf
@@ -15342,7 +15368,7 @@ Nf
 Nf
 Nf
 gT
-Nf
+So
 yo
 cq
 tR

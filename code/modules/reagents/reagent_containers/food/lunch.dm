@@ -96,6 +96,11 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur,
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass,
 	/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/mixedberry,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz
 )
 
 var/list/lunchables_vaurca_ = list(
