@@ -50,6 +50,8 @@
 /obj/item/stack/rods/full,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/stack/material/plasteel/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)
 "ag" = (
@@ -753,6 +755,9 @@
 /obj/item/stack/material/wood/full,
 /obj/structure/extinguisher_cabinet/west,
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/plating,
 /area/ship/idris_cruiser/engineering)
 "dq" = (

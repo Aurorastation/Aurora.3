@@ -828,6 +828,9 @@
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "CJ" = (

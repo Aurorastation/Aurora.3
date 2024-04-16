@@ -2073,6 +2073,9 @@
 /obj/item/circuitboard/exosystem/medical,
 /obj/item/circuitboard/exosystem/utility,
 /obj/item/circuitboard/exosystem/weapons,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "mG" = (
