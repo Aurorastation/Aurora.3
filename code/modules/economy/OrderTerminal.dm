@@ -39,7 +39,7 @@
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
