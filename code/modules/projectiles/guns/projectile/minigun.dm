@@ -119,7 +119,7 @@
 	icon_state = "minigun"
 	item_state = "minigun"
 	contained_sprite = 1
-	caliber = "a762"
+	caliber = CALIBER_BATTLE_RIFLE_SOL
 	magazine_type = null
 	max_shells = 1000
 	fire_sound = 'sound/weapons/gunshot/gunshot_saw.ogg'

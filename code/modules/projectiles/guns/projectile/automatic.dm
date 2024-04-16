@@ -29,7 +29,7 @@
 //Submachine guns and personal defence weapons, go.
 
 /obj/item/gun/projectile/automatic/mini_uzi
-	name = ".45 machine pistol"
+	name = "10mm machine pistol"
 	desc = "A lightweight, fast-firing gun. For when you want someone dead."
 	icon = 'icons/obj/guns/mini-uzi.dmi'
 	icon_state = "mini-uzi"
@@ -39,7 +39,7 @@
 	magazine_type = /obj/item/ammo_magazine/c45uzi
 	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)
 	max_shells = 16
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_COC
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	ammo_type = /obj/item/ammo_casing/c45
 	suppressed = FALSE
@@ -61,7 +61,7 @@
 	item_state = "c20r"
 	w_class = ITEMSIZE_NORMAL
 	force = 10
-	caliber = "10mm"
+	caliber = CALIBER_SERVICE_PISTOL_SOL
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	slot_flags = SLOT_BELT|SLOT_BACK
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
@@ -103,7 +103,7 @@
 	icon = 'icons/obj/guns/xanu_smg.dmi'
 	icon_state = "xanu_smg"
 	item_state = "xanu_smg"
-	caliber = "4.6mm"
+	caliber = CALIBER_SERVICE_PISTOL_COC
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE
@@ -124,7 +124,7 @@
 	icon_state = "wt550"
 	item_state = "wt550"
 	w_class = ITEMSIZE_NORMAL
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SOL
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT
 	ammo_type = "/obj/item/ammo_casing/c9mmr"
@@ -155,7 +155,7 @@
 	icon_state = "pirate_smg"
 	item_state = "pirate_smg"
 	w_class = ITEMSIZE_NORMAL
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL_COC
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_OCLOTHING
 	load_method = MAGAZINE
@@ -182,7 +182,7 @@
 	item_state = "arifle"
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	caliber = "a762"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 4)
 	slot_flags = SLOT_BACK
 	load_method = MAGAZINE
@@ -214,7 +214,7 @@
 	name = "assault rifle"
 	desc = "A durable, rugged-looking automatic weapon of a make popular on the frontier worlds. It is unmarked."
 	desc_extended = "The STS35 is a durable, reliable and cheap to buy fully automatic assault rifle with many licensed manufacturers across \
-	the galaxy. It comes in different versions and calibres, this one uses 7.62 rounds. The manufacturer markings have been filed off."
+	the galaxy. It comes in different versions and calibres, this one uses 5.6mm rounds. The manufacturer markings have been filed off."
 	can_bayonet = TRUE
 	knife_x_offset = 23
 	knife_y_offset = 13
@@ -254,15 +254,15 @@
 	icon_state = (ammo_magazine)? "shorty" : "shorty-empty"
 
 /obj/item/gun/projectile/automatic/rifle/carbine
-	name = "ballistic carbine"
+	name = "ballistic rifle"
 	desc = "A durable, rugged-looking semi-automatic weapon of a make popular on the frontier worlds. Doesn't accept large-capacity magazines. It is unmarked."
 	desc_extended = "The ST24 is often considered the little brother of its larger and fully automatic counterpart, the STS35. It is a \
-	reliable and cheap to buy carbine with many licensed manufacturers across the galaxy. It comes in different versions and calibres, \
-	some even boasting select fire functionality. This one uses 5.56 rounds and is semi-automatic. The manufacturer markings have been filed off."
+	reliable and cheap to buy rifle with many licensed manufacturers across the galaxy. It comes in different versions and calibres, \
+	some even boasting select fire functionality. This one uses 5.6mm rounds and is semi-automatic. The manufacturer markings have been filed off."
 	icon = 'icons/obj/guns/bcarbine.dmi'
 	icon_state = "bcarbine"
 	item_state = "bcarbine"
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	can_bayonet = TRUE
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 1, TECH_ILLEGAL = 3)
 	magazine_type = /obj/item/ammo_magazine/a556/carbine
@@ -324,7 +324,7 @@
 	icon = 'icons/obj/guns/dominia_rifle.dmi'
 	icon_state = "acr"
 	item_state = "acr"
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	ammo_type = /obj/item/ammo_casing/a556
 	magazine_type = /obj/item/ammo_magazine/a556
 	allowed_magazines = list(/obj/item/ammo_magazine/a556)
@@ -336,14 +336,14 @@
 
 /obj/item/gun/projectile/automatic/rifle/z8
 	name = "bullpup assault carbine"
-	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault rifle."
+	desc = "The ZI Bulldog bullpup assault carbine, Zavodskoi Industries' answer to any problem that can be solved by an assault carbine."
 	desc_extended = "It makes you feel like a corporate commando when you hold it."
 	icon = 'icons/obj/guns/carbine.dmi'
 	icon_state = "carbine"
 	item_state = "carbine"
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_COC
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	ammo_type = "/obj/item/ammo_casing/a556"
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
@@ -420,7 +420,7 @@
 	item_state = "arx"
 	w_class = ITEMSIZE_LARGE
 	force = 10
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_COC
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3)
 	ammo_type = /obj/item/ammo_casing/a556
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
@@ -444,7 +444,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/l6_saw
 	name = "light machine gun"
-	desc = "A squad machine gun with a clunky, outdated loading mechanism. Loads from 7.62mm ammunition boxes. Gentlemen, lock and load."
+	desc = "A squad machine gun with a clunky, outdated loading mechanism. Loads from 5.6mm ammunition boxes. Gentlemen, lock and load."
 	desc_extended = "Created by the San Colette Interstellar Armaments Company (CAISC) explicitly for export, the Colettish Armaments Model 75 Export machine gun is a cheap yet outdated method of providing large amounts of firepower to a squad. \
 	The CA-75E is not used by San Colette’s Civil Guard and is typically sold to mercenary groups or other Solarian systems. Since the Solarian Collapse more and more CA-75Es have found themselves in the hands of pirates and rebels in the Corporate Reconstruction Zone, and captured models curiously often have no serial number."
 	icon = 'icons/obj/guns/l6.dmi'
@@ -454,7 +454,7 @@
 	force = 10
 	slot_flags = 0
 	max_shells = 50
-	caliber = "a762"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 1, TECH_ILLEGAL = 2)
 	slot_flags = SLOT_BACK
 	ammo_type = "/obj/item/ammo_casing/a762"
@@ -591,7 +591,7 @@
 	item_state = "tommygun"
 	w_class = ITEMSIZE_NORMAL
 	max_shells = 50
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_SOL
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 2, TECH_ILLEGAL = 5)
 	slot_flags = SLOT_BELT
 	ammo_type = /obj/item/ammo_casing/c45
@@ -678,7 +678,7 @@
 	item_state = "xanu_rifle"
 	magazine_type = /obj/item/ammo_magazine/a65
 	allowed_magazines = list(/obj/item/ammo_magazine/a65)
-	caliber = "a65"
+	caliber = CALIBER_ASSAULT_RIFLE_COC
 
 	firemodes = list(
 		list(mode_name="semiauto",       burst=1, fire_delay=ROF_RIFLE),
@@ -773,7 +773,7 @@
 	w_class = ITEMSIZE_NORMAL
 	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_COC
 	magazine_type = /obj/item/ammo_magazine/a556/k556
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/k556)
 	is_wieldable = TRUE
@@ -793,7 +793,7 @@
 	w_class = ITEMSIZE_LARGE
 	ammo_type = "/obj/item/ammo_casing/a556"
 	handle_casings = EJECT_CASINGS
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_COC
 	magazine_type = /obj/item/ammo_magazine/a556/carbine/konyang47
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/carbine/konyang47)
 	is_wieldable = TRUE
@@ -819,7 +819,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/dominia_carbine
 	name = "dominian carbine"
-	desc = "A carbine variant of the MPR-24/5 with a shorter barrel and folding stock. Loads from 20 round 7.62 magazines."
+	desc = "A carbine variant of the MPR-24/5 with a shorter barrel and folding stock. Loads from 20 round 5.6mm magazines."
 	desc_extended = "The carbine variant of the MPR-24/5 is commonly seen in the hands of vehicle crews, airborne troops, and other units that do not require a \
 	full-length rifle. Paramilitary units, such as the Imperial Fisanduhian Gendarmerie, are armed with these rather than full-length rifles."
 	icon = 'icons/obj/guns/dominia_carbine.dmi'
@@ -829,7 +829,7 @@
 	w_class = ITEMSIZE_LARGE
 	ammo_type = "/obj/item/ammo_casing/a762"
 	handle_casings = EJECT_CASINGS
-	caliber = "a762"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	magazine_type = /obj/item/ammo_magazine/c762/dominia
 	allowed_magazines = list(/obj/item/ammo_magazine/c762/dominia)
 	is_wieldable = TRUE
@@ -847,7 +847,7 @@
 	icon = 'icons/obj/guns/dominia_lmg.dmi'
 	icon_state = "dom_lmg"
 	item_state = "dom_lmg"
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	magazine_type = /obj/item/ammo_magazine/a556/dlmg
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/dlmg)
 	firemodes = list(
@@ -870,7 +870,7 @@
 	w_class = ITEMSIZE_LARGE
 	load_method = MAGAZINE
 	max_shells = 8
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN_MILITARY
 	magazine_type = /obj/item/ammo_magazine/assault_shotgun
 	allowed_magazines = list(/obj/item/ammo_magazine/assault_shotgun)
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 4, TECH_ILLEGAL = 5)
@@ -927,7 +927,7 @@
 	handle_casings = DELETE_CASINGS
 	max_shells = 9
 	auto_eject = 0
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN_MILITARY
 	magazine_type = /obj/item/ammo_magazine/konyang_shotgun
 	allowed_magazines = list(/obj/item/ammo_magazine/konyang_shotgun)
 	is_wieldable = TRUE

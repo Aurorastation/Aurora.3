@@ -55,7 +55,7 @@
 	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN_MILITARY
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	load_method = SINGLE_CASING|SPEEDLOADER
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
@@ -149,7 +149,7 @@
 	is_wieldable = TRUE
 	var/has_wield_state = TRUE
 	slot_flags = SLOT_BACK
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN_MILITARY
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
 	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
@@ -223,7 +223,7 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/pellet
 	load_method = SINGLE_CASING|SPEEDLOADER
 	max_shells = 1
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN_CIVILIAN
 	fire_sound = 'sound/weapons/gunshot/gunshot_shotgun2.ogg'
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
 	var/folded = TRUE

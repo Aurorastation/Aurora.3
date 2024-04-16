@@ -6,7 +6,7 @@
 	item_state = "moistnugget"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	caliber = "a762"
+	caliber = CALIBER_BATTLE_RIFLE_SOL
 	ammo_type = /obj/item/ammo_casing/a762
 	magazine_type = /obj/item/ammo_magazine/boltaction
 	max_shells = 5
@@ -90,7 +90,7 @@
 	icon = 'icons/obj/guns/pipegun.dmi'
 	icon_state = "pipegun"
 	item_state = "pipegun"
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	ammo_type = null
 	magazine_type = null
 	allowed_magazines = list(/obj/item/ammo_magazine/a556/makeshift)
@@ -141,7 +141,7 @@
 	icon = 'icons/obj/guns/dominia_bolt_action.dmi'
 	icon_state = "dom_bolt_action"
 	item_state = "dom_bolt_action"
-	caliber = "a762"
+	caliber = CALIBER_BATTLE_RIFLE_SOL
 	ammo_type = /obj/item/ammo_casing/a762
 	magazine_type = /obj/item/ammo_magazine/boltaction
 	load_method = SPEEDLOADER
@@ -162,7 +162,7 @@
 	icon = 'icons/obj/guns/pockrifle.dmi'
 	icon_state = "pockrifle"
 	item_state = "pockrifle"
-	caliber = "a556"
+	caliber = CALIBER_ASSAULT_RIFLE_SOL
 	handle_casings = HOLD_CASINGS
 	max_shells = 1
 	ammo_type = /obj/item/ammo_casing/a556
@@ -233,7 +233,7 @@
 	slot_flags = SLOT_BACK
 	load_method = SINGLE_CASING|SPEEDLOADER
 	handle_casings = HOLD_CASINGS
-	caliber = "30-06 govt"
+	caliber = CALIBER_ANTIQUE_RIFLE
 	ammo_type = /obj/item/ammo_casing/vintage
 	magazine_type = /obj/item/ammo_magazine/boltaction/vintage
 	can_bayonet = TRUE
@@ -412,7 +412,7 @@
 	item_state = "leveraction"
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
-	caliber = "45-70 govt"
+	caliber = CALIBER_FRONTIER_RIFLE
 	ammo_type = /obj/item/ammo_casing/govt
 	max_shells = 4
 	load_method = SINGLE_CASING

@@ -121,21 +121,25 @@
 				var/obj/item/clothing/G = H.gloves
 				LAZYDISTINCTADD(G.gunshot_residue, chambered.caliber)
 
-	switch(handle_casings)
-		if(DELETE_CASINGS)
-			qdel(chambered)
-		if(EJECT_CASINGS) //eject casing onto ground.
-			chambered.forceMove(get_turf(src))
-			chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
-			playsound(chambered, /singleton/sound_category/casing_drop_sound, 50, FALSE)
-		if(CYCLE_CASINGS) //cycle the casing back to the end.
-			if(ammo_magazine)
-				ammo_magazine.stored_ammo += chambered
-			else
-				loaded += chambered
+	if(chambered.is_caseless)
+		QDEL_NULL(chambered)
+		return
+	else
+		switch(handle_casings)
+			if(DELETE_CASINGS)
+				qdel(chambered)
+			if(EJECT_CASINGS) //eject casing onto ground.
+				chambered.forceMove(get_turf(src))
+				chambered.throw_at(get_ranged_target_turf(get_turf(src),turn(loc.dir,270),1), rand(0,1), 5)
+				playsound(chambered, /singleton/sound_category/casing_drop_sound, 50, FALSE)
+			if(CYCLE_CASINGS) //cycle the casing back to the end.
+				if(ammo_magazine)
+					ammo_magazine.stored_ammo += chambered
+				else
+					loaded += chambered
 
-	if(handle_casings != HOLD_CASINGS)
-		chambered = null
+		if(handle_casings != HOLD_CASINGS)
+			chambered = null
 
 
 //Attempts to load A into src, depending on the type of thing being loaded and the load_method

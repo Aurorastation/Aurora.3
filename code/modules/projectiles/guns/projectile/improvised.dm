@@ -12,7 +12,7 @@
 	recoil = 2
 	accuracy = -1
 	slot_flags = SLOT_BACK
-	caliber = "shotgun"
+	caliber = CALIBER_SHOTGUN_CIVILIAN
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	handle_casings = CYCLE_CASINGS
 	load_method = SINGLE_CASING
@@ -152,7 +152,7 @@
 	icon = 'icons/obj/guns/ipistol.dmi'
 	icon_state = "ipistol"
 	item_state = "ipistol"
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_SOL
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
@@ -233,7 +233,7 @@
 	magazine_type = /obj/item/ammo_magazine/c45uzi
 	allowed_magazines = list(/obj/item/ammo_magazine/c45uzi)
 	max_shells = 16
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_SOL
 	sel_mode = 1
 	accuracy = -1
 	fire_delay = ROF_PISTOL

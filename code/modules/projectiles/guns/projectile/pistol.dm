@@ -1,5 +1,5 @@
 /obj/item/gun/projectile/colt
-	name = ".45 combat pistol"
+	name = "5.7mm combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -8,7 +8,7 @@
 	icon = 'icons/obj/guns/colt.dmi'
 	icon_state = "colt"
 	item_state = "colt"
-	caliber = ".45"
+	caliber = CALIBER_SERVICE_PISTOL_SOL
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -46,7 +46,7 @@
 		return 1
 
 /obj/item/gun/projectile/colt/super
-	name = "ornamental .45 combat pistol"
+	name = "ornamental 5.7mm combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -63,7 +63,7 @@
 		icon_state = "coltsuper-e"
 
 /obj/item/gun/projectile/automatic/lebman
-	name = "automatic .45 combat pistol"
+	name = "automatic 5.7mm combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
@@ -77,7 +77,7 @@
 	load_method = MAGAZINE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 18
-	caliber = ".45"
+	caliber = CALIBER_SERVICE_PISTOL_SOL
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
@@ -90,7 +90,7 @@
 		icon_state = "coltauto-e"
 
 /obj/item/gun/projectile/sec
-	name = "\improper .45 pistol"
+	name = "\improper 10mm pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun.dmi'
@@ -98,7 +98,7 @@
 	item_state = "secgun"
 	magazine_type = /obj/item/ammo_magazine/c45m/rubber
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_COC
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -117,11 +117,11 @@
 	magazine_type = /obj/item/ammo_magazine/c45m
 
 /obj/item/gun/projectile/sec/flash
-	name = ".45 signal pistol"
+	name = "10mm signal pistol"
 	magazine_type = /obj/item/ammo_magazine/c45m/flash
 
 /obj/item/gun/projectile/sec/wood
-	name = "custom .45 pistol"
+	name = "custom 10mm pistol"
 	desc = "A NanoTrasen designed sidearm, found among law enforcement and security forces. It has a wooden grip."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. A trademark of NanoTrasen security forces. This one has a faux wooden grip. It uses .45 rounds."
 	icon = 'icons/obj/guns/secgun_wood.dmi'
@@ -136,7 +136,7 @@
 		icon_state = "secgunwood-e"
 
 /obj/item/gun/projectile/automatic/x9
-	name = "automatic .45 pistol"
+	name = "automatic 10mm pistol"
 	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
@@ -150,7 +150,7 @@
 	load_method = MAGAZINE
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	max_shells = 16
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_COC
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	ammo_type = /obj/item/ammo_casing/c45
 	magazine_type = /obj/item/ammo_magazine/c45m/auto
@@ -176,7 +176,7 @@
 	item_state = "c05r"
 	magazine_type = /obj/item/ammo_magazine/mc10mm
 	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL_COC
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 2)
@@ -210,7 +210,7 @@
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
 	offhand_accuracy = 1
-	caliber = ".45"
+	caliber = CALIBER_PISTOL_SOL
 	suppressed = TRUE
 	can_unsuppress = FALSE
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
@@ -295,7 +295,7 @@
 	w_class = ITEMSIZE_SMALL
 	accuracy = 1
 	offhand_accuracy = 2
-	caliber = "9mm"
+	caliber = CALIBER_PISTOL_SOL
 	suppressed = FALSE
 	can_suppress = TRUE
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 2)
@@ -383,7 +383,7 @@
 	icon = 'icons/obj/guns/leyon.dmi'
 	icon_state = "leyon"
 	item_state = "leyon"
-	caliber = "10mm"
+	caliber = CALIBER_PISTOL_COC
 	w_class = ITEMSIZE_SMALL
 	ammo_type = /obj/item/ammo_casing/c10mm
 	magazine_type = /obj/item/ammo_magazine/mc10mm/leyon
@@ -525,7 +525,7 @@
 	icon = 'icons/obj/guns/xanu_pistol.dmi'
 	icon_state = "xanu_pistol"
 	item_state = "xanu_pistol"
-	caliber = "4.6mm"
+	caliber = CALIBER_SERVICE_PISTOL_COC
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -550,14 +550,14 @@
 /obj/item/gun/projectile/pistol/dominia
 	name = "dominian service pistol"
 	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
-	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 7.62 \
+	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 5.7 \
 	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
 	magazine_type = /obj/item/ammo_magazine/c45m/dominia
 	allowed_magazines = list(/obj/item/ammo_magazine/c45m/dominia)
 	icon = 'icons/obj/guns/dominia_pistol.dmi'
 	icon_state = "dom_pistol"
 	item_state = "dom_pistol"
-	caliber = ".45"
+	caliber = CALIBER_SERVICE_PISTOL_SOL
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	fire_delay = ROF_PISTOL

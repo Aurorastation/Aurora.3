@@ -13,7 +13,7 @@
 	handle_casings = DELETE_CASINGS
 
 	max_shells = 1
-	caliber = "musket"
+	caliber = CALIBER_MUSKET
 
 	slot_flags = SLOT_BACK
 	is_wieldable = TRUE
