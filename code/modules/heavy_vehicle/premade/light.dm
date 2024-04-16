@@ -128,6 +128,19 @@
 	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
 
+/mob/living/heavy_vehicle/premade/light/coalition
+	name = "tomahawk recon exosuit"
+	desc = "A reconnaissance exosuit pioneered by dNA Defense & Aerospace in partnership with Zavodskoi Interstellar for use in Coalition of Colonies mechanized military operations. Based off of the Solarian gremlin-type exosuit design."
+
+	e_color = COLOR_COALITION
+	e_arms = /obj/item/mech_component/manipulators/combat
+	e_head = /obj/item/mech_component/sensors/combat
+	e_legs = /obj/item/mech_component/propulsion/combat
+
+	h_back = /obj/item/mecha_equipment/quick_enter
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
+
 /mob/living/heavy_vehicle/premade/light/salvage
 	name = "exo-stellar salvage exosuit"
 	desc = "An exosuit designed for zero-gravity salvage and recon."
