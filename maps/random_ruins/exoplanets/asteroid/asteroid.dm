@@ -62,7 +62,7 @@
 
 	spawn_weight = 0.5
 	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_WEEPING_STARS, SECTOR_UUEOAESA)
 
 	prefix = "asteroid/sol_ship/"
 	suffixes = list("sol_ship_unique.dmm")
@@ -77,7 +77,7 @@
 
 	spawn_weight = 0.5
 	spawn_cost = 3
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA)
 
 	prefix = "asteroid/skrell_ship/"
 	suffixes = list("skrell_crash_unique.dmm")
@@ -150,7 +150,7 @@
 
 	spawn_weight = 1
 	spawn_cost = 1
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
 
 	prefix = "asteroid/digsite/"
 	suffixes = list("digsite_unique.dmm")
@@ -193,7 +193,7 @@
 	id = "miningoutpost"
 	description = "A long-abandoned mining outpost."
 
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
 
 	prefix = "asteroid/old_outpost/"
 	suffixes = list("old_outpost.dmm")

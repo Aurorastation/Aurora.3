@@ -9373,6 +9373,10 @@
 	dir = 1
 	},
 /obj/item/stack/material/plastic/full,
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
+/obj/item/stack/material/aluminium/full,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/engistorage)
 "VV" = (

@@ -5669,6 +5669,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "UN" = (
