@@ -3,7 +3,7 @@
 	desc = "It's a g-g-g-g-ghooooost!" //jinkies!
 	icon = 'icons/mob/mob.dmi'
 	icon_state = "ghost"
-	layer = 4
+	layer = OBSERVER_PLANE
 	stat = DEAD
 	density = 0
 	canmove = 0
@@ -612,7 +612,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 /mob/abstract/observer/pointed(atom/A as mob|obj|turf in view())
 	if(!..())
 		return 0
-	usr.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
+	src.visible_message("<span class='deadsay'><b>[src]</b> points to [A]</span>")
 	return 1
 
 /mob/abstract/observer/proc/manifest(mob/user)

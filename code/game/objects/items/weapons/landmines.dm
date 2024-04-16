@@ -22,7 +22,7 @@
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
-	layer = TURF_LAYER + 0.2
+	layer = ABOVE_TILE_LAYER
 	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
 
 
@@ -197,6 +197,69 @@
 	qdel(src)
 
 /**
+ * # Door Rigging Landmine
+ *
+ * A landmine that will explode when the door it is attached to opens
+ */
+/obj/item/landmine/frag/door_rigging
+	name = "door rigging landmine"
+	fragment_damage = 20
+
+	///The airlock that we are observing for when it opens, to explode
+	var/obj/machinery/door/airlock/door_rigged
+
+//Prevent this mine to be used like a normal one
+/obj/item/landmine/frag/door_rigging/attack_self(mob/user)
+	to_chat(user, SPAN_ALERT("This landmine is not usable in this way, you need to apply it to a door."))
+	return
+
+/obj/item/landmine/frag/door_rigging/resolve_attackby(atom/A, mob/user, click_parameters)
+	. = ..()
+
+	if(istype(A, /obj/machinery/door/airlock))
+
+		door_rigged = A
+		var/turf/turf_under_door = get_turf(door_rigged)
+
+		//Prevent people from exploding themselves by targeting a door that will open once clicked
+		if(!door_rigged.welded || !door_rigged.density || !istype(turf_under_door) || locate(/obj/item/landmine) in turf_under_door)
+			to_chat(user, SPAN_WARNING("The door is not welded, is open, is already rigged or does not have a turf below it."))
+			door_rigged = null //Clean up the var
+			return
+
+		//Take a little to do this
+		if(!do_after(user, 10 SECONDS, door_rigged))
+			door_rigged = null
+			return
+
+		RegisterSignal(door_rigged, COMSIG_QDELETING, PROC_REF(handle_door_qdel))
+
+		deploy(user)
+		src.forceMove(turf_under_door)
+
+		activate(user)
+
+		START_PROCESSING(SSfast_process, src)
+
+/obj/item/landmine/frag/door_rigging/process(seconds_per_tick)
+	if(QDELETED(door_rigged))
+		STOP_PROCESSING(SSfast_process, src)
+		qdel(src)
+
+	if(!door_rigged.density)
+		STOP_PROCESSING(SSfast_process, src)
+		trigger(null)
+
+///Clear the reference and delete the mine if the door gets deleted
+/obj/item/landmine/frag/door_rigging/proc/handle_door_qdel()
+	SIGNAL_HANDLER
+
+	door_rigged = null
+	STOP_PROCESSING(SSfast_process, src)
+	qdel(src)
+
+
+/**
  * # Radiation Landmine
  *
  * A landmine that irradiates the victim
@@ -286,7 +349,7 @@
 		START_PROCESSING(SSfast_process, src)
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), triggerer, "You feel your [pick("right", "left")] foot step down on a button with a click..., Uh..., Oh...", "Dread", list("Mom..."))
 
-		playsound_allinrange(src, sound('sound/weapons/empty/empty6.ogg'))
+		playsound(src, sound('sound/weapons/empty/empty6.ogg'), 50)
 
 	else
 		late_trigger(locate(engaged_by))

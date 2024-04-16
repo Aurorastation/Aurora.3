@@ -316,7 +316,7 @@
 
 /singleton/recipe/clams_casino
 	appliance = SKILLET
-	reagents = list(/singleton/reagent/spacespice = 2)
+	fruit = list ("bellpepper" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/fish/mollusc,
 		/obj/item/reagent_containers/food/snacks/fish/mollusc,
@@ -346,3 +346,117 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/pazillo
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace so it's not full of juice
+
+//Luna
+/singleton/recipe/traumwurst
+	appliance = SKILLET | SAUCEPAN
+	reagents = list(/singleton/reagent/drink/milk/cream = 5)
+	fruit = list("eggplant" = 1, "plumphelmet" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/sausage,
+		/obj/item/reagent_containers/food/snacks/sausage
+		)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify and replace
+	result = /obj/item/reagent_containers/food/snacks/traumwurst
+
+// Xanu Prime
+
+/singleton/recipe/steakxanu
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/drink/milk/cream = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/steakxanu
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/xanu_curry
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/spacespice = 4, /singleton/reagent/drink/milk = 5, /singleton/reagent/nutriment/rice = 10)
+	fruit = list("garlic" = 1 , "chickpeas" = 1, "onion" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/xanu_curry
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/bunkerbuster
+	appliance = MIX
+	reagents = list(/singleton/reagent/spacespice = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/friedegg/overeasy,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/flatbread
+	)
+	result = /obj/item/reagent_containers/food/snacks/bunkerbuster
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/crozets
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2)
+	fruit = list("tomato" = 1, "chili" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spaghetti,
+		/obj/item/reagent_containers/food/snacks/spreads/lard,
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet
+	)
+	result = /obj/item/reagent_containers/food/snacks/crozets
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/seafoodplatter
+	appliance = MIX
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/alcohol/beer = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+		/obj/item/reagent_containers/food/snacks/clam,
+		/obj/item/reagent_containers/food/snacks/crabmeat
+
+	)
+	result = /obj/item/reagent_containers/food/snacks/seafoodplatter
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/xanuvindaloo
+	appliance = SAUCEPAN | POT
+	fruit = list("tomato" = 1, "chili" = 1)
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/drink/milk/cream = 5, /singleton/reagent/nutriment/vanilla = 3)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/chicken
+	)
+	result = /obj/item/reagent_containers/food/snacks/xanuvindaloo
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+// Himeo
+
+/singleton/recipe/minerpie
+	appliance = SKILLET
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2, /singleton/reagent/drink/milk/cream = 5)
+	fruit = list("onion" = 1, "plumphelmet" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat,
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	result = /obj/item/reagent_containers/food/snacks/minerpie
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/hakhmaparm
+	appliance = SKILLET
+	fruit = list("tomato" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat/hakhma,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/bun,
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/hakhmaparm
+
+/singleton/recipe/steelworkersandwich
+	appliance = SKILLET
+	fruit = list("cabbage" = 1, "tomato" = 1)
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/spacespice = 2)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meatsteak,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+		/obj/item/reagent_containers/food/snacks/fries
+	)
+	result = /obj/item/reagent_containers/food/snacks/steelworkersandwich
+	reagent_mix = RECIPE_REAGENT_REPLACE

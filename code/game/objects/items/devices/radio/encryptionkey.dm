@@ -31,11 +31,15 @@
 	var/turf/T = get_turf(src)
 	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
-		if(V.comms_name)
+		var/freq_name = V.name
+		if(V.freq_name)
+			freq_name = V.freq_name
+			name = "[V.freq_name] encryption key"
+		else if(V.comms_name)
 			name = "[V.comms_name] encryption key"
 
 		channels += list(
-			"[V.name]" = TRUE,
+			"[freq_name]" = TRUE,
 			CHANNEL_HAILING = TRUE
 		)
 
@@ -208,7 +212,7 @@
 
 /obj/item/device/encryptionkey/onlyert
 	name = "\improper ERT radio encryption key"
-	channels = list(CHANNEL_RESPONSE_TEAM = TRUE)
+	channels = list(CHANNEL_RESPONSE_TEAM = TRUE, CHANNEL_HAILING = TRUE)
 
 /obj/item/device/encryptionkey/rev
 	name = "standard encryption key"

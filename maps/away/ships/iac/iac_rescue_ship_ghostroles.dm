@@ -9,7 +9,7 @@
 	spawnpoints = list("iac_volunteer")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/iac_volunteer
+	outfit = /obj/outfit/admin/iac_volunteer
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -18,7 +18,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/iac_volunteer
+/obj/outfit/admin/iac_volunteer
 	name = "IAC Volunteer"
 
 	uniform = /obj/item/clothing/under/rank/iacjumpsuit
@@ -40,7 +40,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless
 	)
 
-/datum/outfit/admin/iac_volunteer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/iac_volunteer/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -48,21 +48,15 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/surname = splittext(H.name, " ")
-		switch(surname)
-			if("K'lax")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
-			if("C'thur")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
 		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+	if(isipc(H))
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data()
 
-/datum/outfit/admin/iac_volunteer/get_id_access()
+/obj/outfit/admin/iac_volunteer/get_id_access()
 	return list(ACCESS_IAC_RESCUE_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/iac_volunteer/technician
@@ -73,7 +67,7 @@
 	spawnpoints = list("iac_technician")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/iac_volunteer/technician
+	outfit = /obj/outfit/admin/iac_volunteer/technician
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -81,7 +75,7 @@
 	special_role = "IAC Technician"
 
 
-/datum/outfit/admin/iac_volunteer/technician
+/obj/outfit/admin/iac_volunteer/technician
 	name = "IAC Technician"
 
 	suit = /obj/item/clothing/suit/storage/hazardvest/iac
@@ -103,7 +97,7 @@
 	spawnpoints = list("iac_coordinator")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/iac_volunteer/coordinator
+	outfit = /obj/outfit/admin/iac_volunteer/coordinator
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -111,7 +105,7 @@
 	special_role = "IAC Coordinator"
 
 
-/datum/outfit/admin/iac_volunteer/coordinator
+/obj/outfit/admin/iac_volunteer/coordinator
 	name = "IAC Coordinator"
 
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/iac

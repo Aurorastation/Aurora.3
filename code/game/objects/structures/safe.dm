@@ -264,7 +264,7 @@ FLOOR SAFES
 	icon_state = "floorsafe"
 	density = 0
 	level = 1	//underfloor
-	layer = 2.5
+	layer = BELOW_OBJ_LAYER
 	drill_x_offset = -1
 	drill_y_offset = 20
 

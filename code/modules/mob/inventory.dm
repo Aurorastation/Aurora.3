@@ -202,7 +202,7 @@ var/list/slot_equipment_priority = list( \
 		W.forceMove(get_turf(src))
 	else
 		W.forceMove(get_turf(W))
-	W.layer = initial(W.layer)
+	W.reset_plane_and_layer()
 	W.dropped(src)
 	return 0
 
@@ -316,7 +316,7 @@ var/list/slot_equipment_priority = list( \
 	src.u_equip(I)
 	if (src.client)
 		src.client.screen -= I
-	I.layer = initial(I.layer)
+	I.reset_plane_and_layer()
 	I.screen_loc = null
 
 	I.on_slotmove(src)
@@ -329,7 +329,7 @@ var/list/slot_equipment_priority = list( \
 	src.u_equip(O)
 	if (src.client)
 		src.client.screen -= O
-	O.layer = initial(O.layer)
+	O.reset_plane_and_layer()
 	O.screen_loc = null
 	if(istype(O, /obj/item))
 		var/obj/item/I = O
@@ -492,7 +492,9 @@ var/list/slot_equipment_priority = list( \
 			. += I
 
 /mob/living/carbon/human/proc/equipOutfit(outfit, visualsOnly = FALSE)
-	var/datum/outfit/O = null
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/obj/outfit/O = null
 
 	if(ispath(outfit))
 		O = new outfit
@@ -506,7 +508,7 @@ var/list/slot_equipment_priority = list( \
 	return O.equip(src, visualsOnly)
 
 /mob/living/carbon/human/proc/preEquipOutfit(outfit, visualsOnly = FALSE)
-	var/datum/outfit/O = null
+	var/obj/outfit/O = null
 
 	if(ispath(outfit))
 		O = new outfit

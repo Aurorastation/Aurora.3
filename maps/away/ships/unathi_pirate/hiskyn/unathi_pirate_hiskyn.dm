@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/hiskyn
 	name = "Hiskyn Revanchists Ship"
 	description = "Ship with pirate lizards."
-	suffixes = list("ships/unathi_pirate/hiskyn/unathi_pirate_hiskyn.dmm")
+
+	prefix = "ships/unathi_pirate/hiskyn/"
+	suffixes = list("unathi_pirate_hiskyn.dmm")
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL)
 	spawn_weight = 1
 	ship_cost = 1

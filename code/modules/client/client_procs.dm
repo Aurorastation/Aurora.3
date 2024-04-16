@@ -236,19 +236,6 @@ var/list/localhost_addresses = list(
 			if ("webint")
 				src.open_webint()
 
-			// Handle the updating of MotD and Memo tabs upon click.
-			if ("updateHashes")
-				var/save = 0
-				if (href_list["#motd-tab"])
-					src.prefs.motd_hash = href_list["#motd-tab"]
-					save = 1
-				if (href_list["#memo-tab"])
-					src.prefs.memo_hash = href_list["#memo-tab"]
-					save = 1
-
-				if (save)
-					src.prefs.save_preferences()
-
 		return
 
 	if (href_list["view_jobban"])
@@ -832,11 +819,6 @@ var/list/localhost_addresses = list(
 			autofire_aiming_at[1] = over_object
 			autofire_aiming_at[2] = params
 		var/mob/living/M = mob
-		if(istype(get_turf(over_object), /atom))
-			var/atom/A = get_turf(over_object)
-			if(src && src.buildmode)
-				build_click(M, src.buildmode, params, A)
-				return
 
 		if(istype(M) && !M.incapacitated())
 			var/obj/item/I = M.get_active_hand()

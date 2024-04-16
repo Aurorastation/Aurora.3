@@ -257,3 +257,9 @@
 	telecrystal_cost = 4
 	bluecrystal_cost = 4
 	path = /obj/item/recharger_backpack/high
+
+/datum/uplink_item/item/tools/camera_mask
+	name = "Camera MIU"
+	desc = "A mask which allows the wearer to view local camera feeds they have access to."
+	telecrystal_cost = 6
+	path = /obj/item/clothing/mask/ai

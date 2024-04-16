@@ -18,7 +18,7 @@
 	if(anchored)
 		add_overlay("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		add_overlay(lights_image)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
@@ -37,7 +37,7 @@
 		return
 
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
 		anchored = !anchored
 		update_icon()
@@ -79,7 +79,7 @@
 	if(anchored)
 		add_overlay("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
-		lights_image.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		add_overlay(lights_image)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/attacking_item, mob/user)
@@ -91,7 +91,7 @@
 		return
 
 	if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "<span class='notice'>You [anchored ? "unfasten" : "fasten"] [src] to the flooring.</span>")
 		anchored = !anchored
 		update_icon()

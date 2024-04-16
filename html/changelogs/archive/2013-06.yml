@@ -1,0 +1,120 @@
+2013-06-01:
+  Chinsky:
+  - rscadd: Bloody footprints! Now stepping in the puddle will dirty your shoes/feet
+      and make you leave bloody footprints for a bit.
+  - rscadd: Blood now dries up after some time. Puddles take ~30 minutes, small things
+      5 minutes.
+  - bugfix: Untreated wounds now heal. No more toe stubs spamming you with pain messages
+      for the rest of the shift.
+  - experiment: On the other side, everything is healed slowly. Maximum you cna squeeze
+      out of first aid is 0.5 health per tick per organ. Lying down makes it faster
+      too, by 1.5x factor.
+  - rscadd: Lids! Click beaker/bottle in hand to put them on/off. Prevent spilling
+  - rscadd: Added 'hailer' to security lockers. If used in hand, says "Halt! Security!".
+      For those who can't run and type.
+2013-06-05:
+  Chinsky:
+  - rscadd: Load bearing equipment - webbings and vests for engineers and sec. Attach
+      to jumpsuit, use 'Look in storage' verb (object tab) to open.
+  Segrain:
+  - rscadd: Exosuits now can open firelocks by walking into them.
+2013-06-06:
+  Asanadas:
+  - rscadd: Added a whimsical suit to the head of personnel's secret clothing locker.
+  Meyar:
+  - bugfix: Disposal's mail routing fixed. Missing pipes replaced.
+  - bugfix: 'Chemistry is once again a part of the disposals delivery circuit. '
+  - bugfix: Added missing sorting junctions to Security and HoS office.
+  - bugfix: Fixed a duplicate sorting junction.
+2013-06-09:
+  Segrain:
+  - bugfix: Emagged supply console can order SpecOp crates again.
+2013-06-11:
+  Meyar:
+  - bugfix: Fixes a security door with a firedoor ontop of it.
+  - bugfix: Fixed a typo relating to the admin Select Equipment Verb. (It's RESPONSE
+      team not RESCUE team)
+  - rscadd: ERT are now automated, from their spawn to their shuttle. Admin intervention
+      no longer required! (Getting to the mechs still requires admin permission generally)
+  - rscadd: Added flashlights to compensate for the weakened PDA lights
+  - tweak: 'ERT Uniforms updated to be in line with Centcom uniforms. No more turtlenecks,
+      no sir. '
+2013-06-12:
+  Zuhayr:
+  - rscadd: Added pneumatic cannon and harpoons.
+  - experiment: Added embedded projectiles. Bullets and thrown weapons may stick in
+      targets. Throwing them by hand won't make them stick, firing them from a cannon
+      might. Implant removal surgery will get rid of shrapnel and stuck items.
+2013-06-13:
+  Kilakk:
+  - rscadd: Added the Xenobiologist job. Has access to the research hallway and to
+      xenobiology.
+  - rscdel: Removed Xenobiology access from Scientists.
+  - rscdel: Removed the Xenobiologist alternate title from Scientists.
+  - rscadd: Added "Xenoarchaeology" to the RD, Scientists, and to the ID computer.
+  - tweak: Changed the Research Outpost doors to use "Xenoarchaeology" access.
+2013-06-18:
+  Segrain:
+  - bugfix: Fixed some bugs in windoor construction.
+  - tweak: Secure windoors are made with rods again.
+  - rscadd: Windoors drop their electronics when broken. Emagged windoors can have
+      theirs removed by crowbar.
+  - rscadd: Airlock electronics can be configured to make door open for any single
+      access on it instead of all of them.
+  - rscadd: Cyborgs can preview their icons before choosing.
+2013-06-21:
+  Jupotter:
+  - bugfix: Fix the robotiscist preview in the char setupe screen
+2013-06-22:
+  Cael_Aislinn:
+  - tweak: The xenoarchaeology depth scanner will now tell you what energy field is
+      required to safely extract a find.
+  - tweak: Excavation picks will now dig faster, and xenoarchaeology as a whole should
+      be easier to do.
+2013-06-23:
+  Segrain:
+  - rscadd: Airlocks of various models can be constructed again.
+  faux:
+  - experiment: There has been a complete medbay renovation spearheaded by Vetinarix.
+      http://baystation12.net/forums/viewtopic.php?f=20&amp;t;=7847 &lt;-- Please
+      put any commentary good or bad, here.
+  - tweak: Some maintenance doors within RnD and Medbay have had their accesses changed.
+      Maintenance doors in the joint areas (leading to the research shuttle, virology,
+      and xenobiology) are now zero access. Which means anyone in those joints can
+      enter the maintenance tunnels. This was done to add additional evacuation locations
+      during radiation storms. Additional maintenance doors were added to the tunnels
+      in these areas to prevent docs and scientists from running about.
+  - tweak: Starboard emergency storage isn't gone now, it's simply located in the
+      escape wing.
+  - experiment: An engineering training room has been added to engineering. This location
+      was previously where surgery was located. If you are new to engineering or need
+      to brush up on your skills, please use this area for testing.
+2013-06-26:
+  Segrain:
+  - bugfix: Autopsy scanner properly displays time of wound infliction and death.
+  - bugfix: Autopsy scanner properly displays wounds by projectile weapons.
+  Whitellama:
+  - bugfix: One-antag rounds (like wizard/ninja) no longer end automatically upon
+      death
+  - wip: Space ninja has been implemented as a voteable gamemode
+  - rscadd: Space ninja spawn landmarks have been implemented (but not yet placed
+      on the map), still spawn at carps-pawns instead. (The code will warn you about
+      this and ask you to report it, it's a known issue.)
+  - rscadd: Five new space ninja directives have been added, old directives have been
+      reworded to be less harsh
+  - wip: Space ninjas have been given their own list as antagonists, and are no longer
+      bundled up with traitors
+  - bugfix: Space ninjas with a "steal a functional AI" objective will now succeed
+      by downloading one into their suits
+  - tweak: Space ninja suits' exploding on death has been nerfed, so as not to cause
+      breaches
+  - rscadd: A few space ninja titles/names have been added and removed to be slightly
+      more believable
+  - bugfix: The antagonist selector no longer chooses jobbanned players when it runs
+      out of willing options
+2013-06-27:
+  Segrain:
+  - bugfix: ID cards properly setup bloodtype, DNA and fingerprints again.
+2013-06-28:
+  Segrain:
+  - rscadd: AIs are now able to examine what they see.

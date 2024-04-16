@@ -10,7 +10,10 @@ SUBSYSTEM_DEF(mobs)
 	var/list/processing = list()
 
 	var/list/all_rats = list()	// Contains all *living* rats.
-	var/list/mannequins = list()	//Contains all mannequins used by character preview
+
+	///Contains all mannequins used by character preview
+	var/list/mob/living/carbon/human/dummy/mannequin/mannequins = list()
+
 	var/list/greatworms = list()
 	var/list/greatasses = list()
 

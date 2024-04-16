@@ -21,8 +21,6 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 
 	// Specific paths excluded
 	var/list/ignore = list(
-		//Never meant to be created, errors out the ass for mobcode reasons
-		/mob/living/carbon,
 		/atom/movable/typing_indicator,
 		//Internal organs
 		/obj/item/organ/external,
@@ -103,6 +101,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 		//The location needs to be the mob, otherwise it stacktrace
 		/obj/aiming_overlay,
 
+		//Requires an owner or stacktrace on creation
+		/atom/movable/flick_visual,
+
 	)
 
 	// Paths and all the subpaths excluded
@@ -158,6 +159,7 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/mob/living/heavy_vehicle)
 	ignore += typesof(/obj/singularity/narsie)
 	ignore += typesof(/obj/screen/ability)
+	ignore += typesof(/obj/effect/bmode)
 
 	// Requires something in icon update or runtimes
 	ignore += typesof(/obj/item/gun/energy/gun/nuclear)

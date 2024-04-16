@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/coalition
+/obj/outfit/admin/ert/coalition
 	name = "Coalition Ranger ERT"
 	uniform = /obj/item/clothing/under/tactical
 	shoes = /obj/item/clothing/shoes/magboots
@@ -23,10 +23,10 @@
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/colt = 1)
 
-/datum/outfit/admin/ert/coalition/get_id_access()
+/obj/outfit/admin/ert/coalition/get_id_access()
 	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY)
 
-/datum/outfit/admin/ert/coalition/medic
+/obj/outfit/admin/ert/coalition/medic
 	name = "Coalition Medic"
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel/med
@@ -55,7 +55,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/datum/outfit/admin/ert/coalition/sapper
+/obj/outfit/admin/ert/coalition/sapper
 	name = "Coalition Sapper"
 	back = /obj/item/storage/backpack/duffel/eng
 	belt = /obj/item/storage/belt/utility/very_full
@@ -72,7 +72,7 @@
 
 	belt_contents = null
 
-/datum/outfit/admin/ert/coalition/leader
+/obj/outfit/admin/ert/coalition/leader
 	name = "Coalition Team Leader"
 	head = null
 	suit = null
@@ -90,7 +90,7 @@
 			/obj/item/grenade/flashbang = 1
 	)
 
-/datum/outfit/admin/ert/konyang
+/obj/outfit/admin/ert/konyang
 	name = "KASF Emergency Responder"
 	uniform = /obj/item/clothing/under/rank/konyang/space
 	suit = /obj/item/clothing/suit/space/void/sol/konyang
@@ -104,7 +104,7 @@
 	mask = /obj/item/clothing/mask/gas/tactical
 	suit_store = /obj/item/gun/projectile/automatic/rifle/konyang/k556
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = /obj/item/gun/projectile/pistol/sol
+	accessory_contents = list(/obj/item/gun/projectile/pistol/sol/konyang = 1)
 	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/ert
 
@@ -116,15 +116,15 @@
 		/obj/item/melee/energy/sword/knife/sol = 1
 	)
 
-/datum/outfit/admin/ert/konyang/get_id_access()
+/obj/outfit/admin/ert/konyang/get_id_access()
 	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY, ACCESS_KONYANG_POLICE)
 
-/datum/outfit/admin/ert/konyang/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/konyang/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(H.isSynthetic())
 		H.equip_to_slot_or_del(new /obj/item/device/suit_cooling_unit(H), slot_back)
 
-/datum/outfit/admin/ert/konyang/medic
+/obj/outfit/admin/ert/konyang/medic
 	name = "KASF Medic"
 	belt = /obj/item/storage/belt/medical/first_responder/combat
 	back = /obj/item/storage/backpack/satchel/med
@@ -153,7 +153,7 @@
 		/obj/item/melee/energy/sword/knife/sol = 1
 	)
 
-/datum/outfit/admin/ert/konyang/sapper
+/obj/outfit/admin/ert/konyang/sapper
 	name = "KASF Sapper"
 	back = /obj/item/storage/backpack/industrial
 	belt = /obj/item/storage/belt/utility/very_full
@@ -166,7 +166,7 @@
 	)
 	backpack_contents = list(
 		/obj/item/ammo_magazine/mc9mm = 3,
-		/obj/item/gun/projectile/pistol/sol = 1,
+		/obj/item/gun/projectile/pistol/sol/konyang = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
 		/obj/item/grenade/frag = 2
@@ -174,6 +174,6 @@
 
 	belt_contents = null
 
-/datum/outfit/admin/ert/konyang/leader
+/obj/outfit/admin/ert/konyang/leader
 	name = "KASF Officer"
 	uniform = /obj/item/clothing/under/rank/konyang/space/officer

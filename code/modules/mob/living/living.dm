@@ -569,23 +569,7 @@ default behaviour is:
 /mob/living/proc/UpdateDamageIcon()
 	return
 
-
-/mob/living/proc/Examine_OOC()
-	set name = "Examine Meta-Info (OOC)"
-	set category = "OOC"
-	set src in view()
-
-	if(GLOB.config.allow_Metadata)
-		if(client)
-			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
-		else
-			to_chat(usr, "[src] does not have any stored infomation!")
-	else
-		to_chat(usr, "OOC Metadata is not supported by this server!")
-
-	return
-
-/mob/living/Move(a, b, flag)
+/mob/living/Move(atom/newloc, direct)
 	if (buckled_to)
 		return
 
@@ -942,8 +926,6 @@ default behaviour is:
 		for(var/a in auras)
 			remove_aura(a)
 
-	QDEL_NULL(ability_master)
-
 	return ..()
 
 /mob/living/proc/nervous_system_failure()
@@ -988,12 +970,12 @@ default behaviour is:
 /mob/living/proc/get_resist_power()
 	return 1
 
-/mob/living/proc/seizure()
+/mob/living/proc/seizure(var/severity_multiplier = 1)
 	if(!paralysis && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(16,24))
-		make_jittery(rand(150,200))
-		adjustHalLoss(rand(50,60))
+		visible_message(SPAN_HIGHDANGER("\The [src] starts having a seizure!"))
+		Paralyse(24*severity_multiplier)
+		make_jittery(200*severity_multiplier)
+		adjustHalLoss(60*severity_multiplier)
 
 /mob/living/proc/InStasis()
 	return FALSE

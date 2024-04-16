@@ -4063,11 +4063,11 @@
 /area/point_verdant/interior/hotel)
 "El" = (
 /obj/structure/table/steel,
-/obj/item/device/radio{
+/obj/item/device/measuring_tape,
+/obj/item/device/radio/hailing{
 	pixel_x = 8;
 	pixel_y = 3
 	},
-/obj/item/device/measuring_tape,
 /turf/simulated/floor/tiled/full,
 /area/point_verdant/interior/spaceport)
 "Em" = (

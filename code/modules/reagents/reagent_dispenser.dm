@@ -309,7 +309,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.isscrewdriver())
 		src.add_fingerprint(user)
-		playsound(src.loc, attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		if(do_after(user, 20))
 			if(!src) return
 			switch (anchored)
@@ -419,11 +419,8 @@
 
 	if(src.loc)
 		var/datum/gas_mixture/env = src.loc.return_air()
-		if(env)
-			if (reagents.total_volume > 750)
-				env.temperature = 0
-			else if (reagents.total_volume > 500)
-				env.temperature -= 100
+		if(env && reagents.total_volume)
+			env.temperature = max(173, env.temperature - (reagents.total_volume/10))
 
 	QDEL_IN(src, 10)
 

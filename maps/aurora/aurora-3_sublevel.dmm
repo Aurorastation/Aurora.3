@@ -2679,7 +2679,6 @@
 /area/rnd/xenoarch_atrium)
 "agF" = (
 /obj/machinery/computer/security/telescreen{
-	layer = 4;
 	name = "Anomaly Observation Screen";
 	network = list("Anomaly Isolation");
 	pixel_y = 26
@@ -3568,10 +3567,6 @@
 /obj/structure/cable/green,
 /obj/machinery/power/smes/buildable{
 	RCon_tag = "Substation - Engineering Sublevel"
-	},
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Engineering Substation";
-	dir = 8
 	},
 /turf/simulated/floor,
 /area/maintenance/substation/engineering_sublevel)
@@ -5258,7 +5253,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_alpha";
-	layer = 3.3;
 	name = "Containment Cell Alpha"
 	},
 /obj/structure/cable/green{
@@ -5297,7 +5291,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_alpha";
-	layer = 3.3;
 	name = "Containment Cell Alpha"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -5349,7 +5342,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_alpha";
-	layer = 3.3;
 	name = "Containment Cell Alpha"
 	},
 /obj/structure/cable/green{
@@ -5542,7 +5534,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_bravo";
-	layer = 3.3;
 	name = "Containment Cell Bravo"
 	},
 /obj/structure/cable/green{
@@ -5636,7 +5627,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_bravo";
-	layer = 3.3;
 	name = "Containment Cell Bravo"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -5664,7 +5654,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_bravo";
-	layer = 3.3;
 	name = "Containment Cell Bravo"
 	},
 /obj/structure/cable/green{
@@ -5964,7 +5953,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_charlie";
-	layer = 3.3;
 	name = "Containment Cell Charlie"
 	},
 /obj/structure/cable/green{
@@ -6102,7 +6090,6 @@
 /area/turret_protected/ai_upload_foyer)
 "anq" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -6596,7 +6583,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_charlie";
-	layer = 3.3;
 	name = "Containment Cell Charlie"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -7062,7 +7048,6 @@
 	name = "dead greimorian"
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/light/small/emergency{
@@ -7107,7 +7092,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_charlie";
-	layer = 3.3;
 	name = "Containment Cell Charlie"
 	},
 /obj/structure/cable/green{
@@ -7432,7 +7416,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_delta";
-	layer = 3.3;
 	name = "Containment Cell Delta"
 	},
 /obj/structure/cable/green{
@@ -7483,7 +7466,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_delta";
-	layer = 3.3;
 	name = "Containment Cell Delta"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -7558,7 +7540,6 @@
 /area/turret_protected/ai_upload_foyer)
 "apl" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
@@ -7692,7 +7673,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
 	id = "ccell_delta";
-	layer = 3.3;
 	name = "Containment Cell Delta"
 	},
 /obj/structure/cable/green{
@@ -7727,7 +7707,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_hotel";
-	layer = 3.3;
 	name = "Containment Cell Hotel"
 	},
 /obj/structure/cable/green,
@@ -7752,7 +7731,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_hotel";
-	layer = 3.3;
 	name = "Containment Cell Hotel"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -7782,7 +7760,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_hotel";
-	layer = 3.3;
 	name = "Containment Cell Hotel"
 	},
 /obj/structure/cable/green,
@@ -7812,7 +7789,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_golf";
-	layer = 3.3;
 	name = "Containment Cell Golf"
 	},
 /obj/structure/cable/green,
@@ -7837,7 +7813,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_golf";
-	layer = 3.3;
 	name = "Containment Cell Golf"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -7867,7 +7842,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_golf";
-	layer = 3.3;
 	name = "Containment Cell Golf"
 	},
 /obj/structure/cable/green,
@@ -7897,7 +7871,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_foxtrot";
-	layer = 3.3;
 	name = "Containment Cell Foxtrot"
 	},
 /obj/structure/cable/green,
@@ -8165,7 +8138,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_foxtrot";
-	layer = 3.3;
 	name = "Containment Cell Foxtrot"
 	},
 /obj/structure/plasticflaps/airtight,
@@ -8195,7 +8167,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_foxtrot";
-	layer = 3.3;
 	name = "Containment Cell Foxtrot"
 	},
 /obj/structure/cable/green,
@@ -8225,7 +8196,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_echo";
-	layer = 3.3;
 	name = "Containment Cell Echo"
 	},
 /obj/structure/cable/green,
@@ -8251,7 +8221,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_echo";
-	layer = 3.3;
 	name = "Containment Cell Echo"
 	},
 /obj/machinery/door/blast/regular{
@@ -8281,7 +8250,6 @@
 /obj/machinery/door/blast/regular{
 	dir = 4;
 	id = "ccell_echo";
-	layer = 3.3;
 	name = "Containment Cell Echo"
 	},
 /obj/machinery/door/blast/regular{
@@ -9883,7 +9851,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/hologram/holopad{
-	layer = 2.5
 	},
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)
@@ -11603,7 +11570,6 @@
 /area/bridge/aibunker)
 "avE" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/structure/closet/emcloset,
@@ -16809,7 +16775,7 @@
 	icon_state = "pipe-c"
 	},
 /obj/machinery/camera/network/research_outpost{
-	c_tag = "Research Sublevel - Xenobiology Cell Alpha";
+	c_tag = "Research Sublevel - Xenobiology Cell Alpha 2";
 	dir = 8;
 	network = list("Research Outpost","Xenobiology")
 	},
@@ -16892,10 +16858,6 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
-	},
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Morgue";
-	dir = 8
 	},
 /obj/machinery/alarm/cold/east,
 /turf/simulated/floor/tiled{
@@ -25185,7 +25147,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/suit/space/void/sci,
 /obj/item/clothing/shoes/magboots,
@@ -29484,7 +29445,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_h";
-	layer = 3.7
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
@@ -32359,7 +32319,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_h";
-	layer = 3.7
 	},
 /turf/simulated/floor/tiled/white,
 /area/maintenance/medsublevel_port)
@@ -33053,7 +33012,6 @@
 /obj/machinery/door/window{
 	base_state = "right";
 	closed_layer = 4.1;
-	layer = 4.1;
 	name = "Remote Mech Storage";
 	req_access = list(20)
 	},
@@ -34142,9 +34100,6 @@
 /obj/item/clothing/gloves/latex/nitrile/tajara,
 /obj/item/clothing/gloves/latex/unathi,
 /obj/item/clothing/gloves/latex/tajara,
-/obj/machinery/camera/network/medbay{
-	c_tag = "Medical - Secondary Storage"
-	},
 /obj/item/clothing/gloves/latex/vaurca,
 /turf/simulated/floor/tiled,
 /area/medical/medbay4)

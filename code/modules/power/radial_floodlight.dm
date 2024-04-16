@@ -42,7 +42,7 @@
 			toggle_active(FALSE)
 		else
 			connect_to_network()
-		playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		return
 	return ..()
 
@@ -62,4 +62,6 @@
 /obj/machinery/power/radial_floodlight/update_icon()
 	cut_overlays()
 	if(on)
-		add_overlay(image(icon, src, "[icon_state]-light", EFFECTS_ABOVE_LIGHTING_LAYER))
+		var/image/light = image(icon, src, "[icon_state]-light")
+		light.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		add_overlay(light)

@@ -413,7 +413,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "adhomian cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/toxin/tobacco/srendarrs_hand = 5,
 		/singleton/reagent/mental/nicotine = 5
 	)
 
@@ -421,7 +421,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	name = "adhomian menthol cigarette"
 	desc = "An adhomian cigarette made from processed S'rendarr's Hand, with menthol added."
 	reagents_to_add = list(
-		/singleton/reagent/toxin/tobacco = 5,
+		/singleton/reagent/toxin/tobacco/srendarrs_hand = 5,
 		/singleton/reagent/mental/nicotine = 5,
 		/singleton/reagent/menthol = 5
 	)

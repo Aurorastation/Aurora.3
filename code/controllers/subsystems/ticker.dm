@@ -4,6 +4,9 @@
 #define SETUP_REVOTE 1
 #define SETUP_REATTEMPT 2
 
+///The time at which the next automatic transfer vote will be called
+GLOBAL_VAR_INIT(next_transfer_time, null)
+
 var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker
@@ -73,6 +76,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	pregame()
 	restart_timeout = GLOB.config.restart_timeout
 
+	//Initialize the auto-transfer time
+	GLOB.next_transfer_time = GLOB.config.vote_autotransfer_initial
+
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/ticker/stat_entry(msg)
@@ -137,10 +143,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	total_players = length(GLOB.player_list)
 
 	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == GLOB.config.vote_autogamemode_timeleft)
-		if (!SSvote.time_remaining)
-			SSvote.autogamemode()
-			pregame_timeleft--
-			return
+		SSvote.autogamemode()
+		pregame_timeleft--
+		return
 
 	if (pregame_timeleft <= 20 && !testmerges_printed)
 		print_testmerges()
@@ -226,6 +231,13 @@ var/datum/controller/subsystem/ticker/SSticker
 					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 			else if(!delay_notified)
 				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+
+	//If we have not finished the game already, and assuming it's time, call the transfer vote as per config
+	if(!game_finished && !mode_finished && !post_game)
+		if(get_round_duration() >= GLOB.next_transfer_time - 600)
+			SSvote.autotransfer()
+			GLOB.next_transfer_time += GLOB.config.vote_autotransfer_interval
+
 	return 1
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
@@ -528,12 +540,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/can_start = src.mode.can_start()
 
 	if(can_start & GAME_FAILURE_NO_PLAYERS)
-		var/list/voted_not_ready = list()
-		for(var/mob/abstract/new_player/player in SSvote.round_voters)
-			if((player.client)&&(!player.ready))
-				voted_not_ready += player.ckey
-		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
-		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
 
 	if(can_start & GAME_FAILURE_NO_ANTAGS)
@@ -591,6 +597,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	return SETUP_OK
 
 /datum/controller/subsystem/ticker/proc/roundstart()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	mode.post_setup()
 	//Cleanup some stuff
 	for(var/obj/effect/landmark/start/S in GLOB.landmarks_list)
@@ -631,7 +639,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	cinematic = new /obj/screen{
 		icon = 'icons/effects/station_explosion.dmi';
 		icon_state = "station_intact";
-		layer = CINEMA_LAYER;
+		layer = HUD_ABOVE_ITEM_LAYER;
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT;
 		screen_loc = "1,0"
 	}

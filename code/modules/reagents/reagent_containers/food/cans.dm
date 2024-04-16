@@ -84,7 +84,7 @@
 			user.visible_message(SPAN_NOTICE("[user] removes \the [name] from the grenade casing."),
 									SPAN_NOTICE("You remove \the [name] from the grenade casing."))
 			new /obj/item/grenade/chem_grenade/large(get_turf(src))
-		playsound(loc, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		update_icon()
 
 	if(istype(attacking_item, /obj/item/steelwool))
@@ -376,11 +376,18 @@
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/phoron = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/klax
-	name = "\improper K'laxan Energy Crush"
+	name = "\improper K'lax Energy Crush"
 	desc = "A can of nitrogen-infused creamy orange zest flavoured Zo'ra Soda energy drink, with V'krexi additives. The smooth taste is engineered to near perfection."
-	icon_state = "klaxancrush"
-	item_state = "klaxancrush"
+	icon_state = "klaxcrush"
+	item_state = "klaxcrush"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/klax = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi
+	name = "\improper K'lax Xuizi Xplosion"
+	desc = "A can of xuizi flavoured Zo'ra Soda energy drink, with V'krexi additives. A refreshing taste for more than just unathi."
+	icon_state = "klaxxuizi"
+	item_state = "klaxxuizi"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/xuizi = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur
 	name = "\improper C'thur Rockin' Raspberry"
@@ -388,6 +395,13 @@
 	icon_state = "cthurberry"
 	item_state = "cthurberry"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/cthur = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn
+	name = "\improper C'thur Dyn-A-Mite"
+	desc = "A can of dyn flavoured Zo'ra Soda energy drink, with V'krexi additives. A blast of flavour, straight from Qerrbalak!"
+	icon_state = "cthurdyn"
+	item_state = "cthurdyn"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/dyn = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass
 	name = "\improper Zo'ra Sour Venom Grass"
@@ -409,6 +423,27 @@
 	icon_state = "koistwist"
 	item_state = "koistwist"
 	reagents_to_add = list(/singleton/reagent/drink/zorasoda/kois = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/mixedberry
+	name = "\improper Zo'ra Soda Caprician Craze"
+	desc = "A can of \"mixed berry\" flavoured Zo'ra Soda energy drink, with V'krexi additives. The number one drink in New Sedantis!"
+	icon_state = "capriciancraze"
+	item_state = "capriciancraze"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/mixedberry = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime
+	name = "\improper Zo'ra Soda Seismic Slammer"
+	desc = "A can of \"lemon-lime\" flavoured Zo'ra Soda energy drink, with V'krexi additives. It'll knock you off your feet!"
+	icon_state = "seismicslammer"
+	item_state = "seismicslammer"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/lemonlime = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz
+	name = "\improper Buzzin' Cola"
+	desc = "A can of cola flavoured energy drink, with V'krexi additives. Guaranteed to overwhelm your taste buds."
+	icon_state = "buzzinsoda"
+	item_state = "buzzinsoda"
+	reagents_to_add = list(/singleton/reagent/drink/zorasoda/buzz = 30)
 
 /obj/item/reagent_containers/food/drinks/cans/zorasoda/drone
 	name = "\improper Vaurca Drone Fuel"
@@ -516,9 +551,87 @@
 	icon_state = "moonlabor"
 	item_state = "moonlabor"
 
+/obj/item/reagent_containers/food/drinks/cans/beer/earthmover
+	name = "\improper Inverkeithing Imports Earthmover"
+	desc = "Himeo's favorite brand of non-mushroom liquor, according to the 2264 Consumer's Census. Rising prices on the import of Virklunder, which held the top point for several years, are probably to blame. \
+	Luckily for Himeo- and the Coalition, where it is exported under the Inverkeithing Import name- this hydroponically-grown dry stout is of a reasonably high quality."
+	icon_state = "earthmover"
+	item_state = "earthmover"
+	reagents_to_add = list(/singleton/reagent/alcohol/ale = 40) // mushroom guinness
+
+/obj/item/reagent_containers/food/drinks/cans/beer/whistlingforest
+	name = "\improper Whistling Forest Pale Ale"
+	desc = "A proud product of the All-Xanu Republic, the Whistling Forest family of pale ales boast a rich history in the coke mines of Himavat City. Tourists take it with ice; locals know better."
+	desc_extended = "A Markhor Interstellar Logistics Group product. Move Mountains with Markhor!"
+	icon_state = "whistlingforest"
+	item_state = "whistlingforest"
+
 /obj/item/reagent_containers/food/drinks/cans/melon_soda
 	name = "Kansumi Melon Soda"
 	desc = "Konyang's favourite melon soda, now available in can form!"
 	icon_state = "melon_soda"
 	item_state = "melon_soda"
 	reagents_to_add = list(/singleton/reagent/drink/melon_soda = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/himeokvass
+	name = "Dorshafen Deluxe"
+	desc = "A can of Himean mushroom kvass. Non-alcoholic, unlike its Fisanduhian cousin, which makes it a workday favorite of railyard workers."
+	icon_state = "dorshdeluxe"
+	reagents_to_add = list(/singleton/reagent/drink/mushroom_kvass = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/galatea
+	name = "Svarog Presents: Gala-Tea!"
+	desc = "A Galatean energy drink, highly regarded among college students. A warning on the can notes that the maximum dosage of this beverage is forty-five units per cycle."
+	icon_state = "galateadrink"
+	reagents_to_add = list(/singleton/reagent/drink/galatea = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/boch
+	name = "Boch Brew Berry Bounty"
+	desc = "A can of Vysokan energy drink, derived from the digestive sac of the boch-zivir. This one is in the typical berry flavor."
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi' // we're not animals
+	icon_state = "bochbrew"
+	drop_sound = 'sound/items/drop/shoes.ogg'
+	pickup_sound = 'sound/items/pickup/shoes.ogg'
+	reagents_to_add = list(/singleton/reagent/drink/bochbrew = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/boch/attack(mob/living/M, mob/user, var/target_zone) // modified can reaction; have you ever seen someone crush a plastic bottle on their head?
+	if(iscarbon(M) && !reagents.total_volume && user.a_intent == I_HURT && target_zone == BP_HEAD)
+		if(M == user)
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [user.get_pronoun("his")] forehead!"), SPAN_NOTICE("You smack the bottle of [src.name] on your forehead."))
+		else
+			user.visible_message(SPAN_WARNING("[user] smacks the bottle of [src.name] against [M]'s forehead!"), SPAN_NOTICE("You whack the bottle of [src.name] on [M]'s forehead."))
+		M.apply_damage(2,DAMAGE_BRUTE,BP_HEAD) // quoth the copy-paste code, 'ouch.'
+		return TRUE
+	. = ..()
+
+/obj/item/reagent_containers/food/drinks/cans/boch/buckthorn
+	name = "Boch Brew Buckthorn Buckwild"
+	desc = "A can of Vysokan energy drink, derived from the digestive sac of the boch-zivir. This one is buckthorn flavored."
+	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi' // if it looks like a bottle it's a bottle
+	icon_state = "bochbrew_buck"
+	reagents_to_add = list(/singleton/reagent/drink/bochbrew/buckthorn = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai
+	name = "Brown Palace Champion Chai"
+	desc = "A Xanan brand of canned chai tea. This one is the standard chai flavor."
+	icon_state = "xanuchai"
+	reagents_to_add = list(/singleton/reagent/drink/tea/chaitea = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai/creme
+	name = "Brown Palace Champion Chai Creme"
+	desc = "A Xanan brand of canned chai tea. This one is a chai latte flavor."
+	icon_state = "xanucreme"
+	reagents_to_add = list(/singleton/reagent/drink/tea/chaitealatte = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai/chocolate
+	name = "Brown Palace Champion Chocolate Chai"
+	desc = "A Xanan brand of canned chai tea. This one is a chocolate chai flavor."
+	icon_state = "xanuchoc"
+	reagents_to_add = list(/singleton/reagent/drink/tea/coco_chaitea = 30)
+
+/obj/item/reagent_containers/food/drinks/cans/xanuchai/neapolitan
+	name = "Brown Palace New Neapolitan"
+	desc = "A Xanan brand of canned chai tea. This one is neapolitan flavored; vanilla, chocolate, and strawberry."
+	icon_state = "xanuneap"
+	reagents_to_add = list(/singleton/reagent/drink/tea/neapolitan_chaitea = 30)
+

@@ -7,7 +7,7 @@
 	spawnpoints = list("izharshan_crew")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/izharshan
+	outfit = /obj/outfit/admin/izharshan
 	possible_species = list(SPECIES_UNATHI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -27,7 +27,7 @@
 
 	spawnpoints = list("izharshan_captain")
 
-	outfit = /datum/outfit/admin/izharshan/captain
+	outfit = /obj/outfit/admin/izharshan/captain
 
 
 	assigned_role = "Izharshan Captain"
@@ -40,7 +40,7 @@
 /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan
 	color = "#eed8c1"
 
-/datum/outfit/admin/izharshan
+/obj/outfit/admin/izharshan
 	name = "Izharshan Crewman"
 
 	uniform = /obj/item/clothing/under/unathi/izharshan
@@ -58,20 +58,21 @@
 		/obj/item/storage/box/survival = 1
 	)
 
-/datum/outfit/admin/izharshan/get_id_access()
+/obj/outfit/admin/izharshan/get_id_access()
 	return list(ACCESS_UNATHI_PIRATE, ACCESS_EXTERNAL_AIRLOCKS)
 
-/datum/outfit/admin/izharshan/captain
+/obj/outfit/admin/izharshan/captain
 	name = "Izharshan Captain"
 
 	suit = /obj/item/clothing/suit/storage/toggle/asymmetriccoat/izharshan
 	gloves = /obj/item/clothing/gloves/orange/unathi
 	accessory = /obj/item/clothing/accessory/holster/thigh
-	accessory_contents = list(/obj/item/gun/energy/pistol/hegemony = 1)
+	accessory_contents = list(/obj/item/gun/projectile/pistol/spitter = 1)
 	head = /obj/item/clothing/head/bandana/pirate
 
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/clothing/suit/space/void/unathi_pirate/captain = 1, //the best way to make sure only the captain takes his suit
-		/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain = 1
+		/obj/item/clothing/head/helmet/space/void/unathi_pirate/captain = 1,
+		/obj/item/ammo_magazine/spitterpistol = 2
 	)

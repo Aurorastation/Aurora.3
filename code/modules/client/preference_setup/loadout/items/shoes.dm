@@ -175,7 +175,7 @@ var/datum/gear_tweak/shoe_layer/gear_tweak_shoe_layer = new()
 	return "Over"
 
 /datum/gear_tweak/shoe_layer/get_metadata(var/user, var/metadata)
-	return input(user, "Choose whether you want the shoe to go over or under the uniform.", "Shoe Layer", metadata) as anything in list("Over", "Under")
+	return tgui_input_list(user, "Choose whether you want the shoe to go over or under the uniform.", "Shoe Layer", list("Over", "Under"), metadata)
 
 /datum/gear_tweak/shoe_layer/tweak_item(var/obj/item/clothing/shoes/S, var/metadata)
 	if(!istype(S))

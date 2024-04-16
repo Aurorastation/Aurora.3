@@ -1667,7 +1667,6 @@
 /area/kataphract_chapter/main_ring)
 "dV" = (
 /obj/structure/table/rack,
-/obj/structure/table/rack,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
@@ -3755,7 +3754,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port_multi{
 	frequency = 1380;
 	id_tag = "kataphract_shuttle";
-	layer = 3.3;
 	master_tag = "kataphract_transport";
 	pixel_x = 27;
 	pixel_y = -2;
@@ -4866,7 +4864,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = -32;
 	pixel_y = 0
@@ -6626,26 +6623,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/hangar)
 "pc" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/kataphract/lead,
-/obj/item/clothing/head/helmet/space/void/kataphract/lead,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/shoes/magboots/hegemony,
-/obj/machinery/door/window{
-	name = "Knight Captain";
-	req_access = list(114)
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/kataphract/lead,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "pf" = (
@@ -7074,6 +7053,12 @@
 /obj/structure/table/rack,
 /obj/item/melee/hammer/powered/hegemony,
 /obj/item/melee/hammer/powered/hegemony,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "sB" = (
@@ -7885,6 +7870,7 @@
 /obj/item/clothing/shoes/magboots/hegemony,
 /obj/item/clothing/glasses/sunglasses/blinders,
 /obj/item/device/gps,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "AG" = (
@@ -8018,7 +8004,6 @@
 "Ci" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -8743,6 +8728,9 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/machinery/button/distress{
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "Jg" = (
@@ -8858,7 +8846,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "kata_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "kata_ship_pump";
 	tag_chamber_sensor = "kata_ship_sensor";
@@ -9941,27 +9928,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "TN" = (
-/obj/structure/table/rack,
-/obj/item/clothing/shoes/magboots/hegemony,
-/obj/item/clothing/suit/space/void/kataphract/spec,
-/obj/item/clothing/head/helmet/space/void/kataphract/spec,
-/obj/item/clothing/mask/breath,
-/obj/machinery/door/window{
-	name = "Specialist";
-	req_one_access = list(114,116)
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/structure/sign/flag/hegemony/large/east,
-/obj/item/device/gps,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/suit_cycler/offship/kataphract/specialist,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "TP" = (
@@ -10067,12 +10036,8 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
 "Vj" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/void/kataphract,
-/obj/item/clothing/head/helmet/space/void/kataphract,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/shoes/magboots/hegemony,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/kataphract,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/commissary)
 "VG" = (

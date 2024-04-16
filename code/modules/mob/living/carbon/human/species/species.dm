@@ -42,8 +42,12 @@
 	var/icon_y_offset = 0
 	var/typing_indicator_x_offset = 0
 	var/typing_indicator_y_offset = 0
+
+	///Horizontal offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_x_offset = null
-	var/floating_chat_y_offset = null
+
+	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
+	var/floating_chat_y_offset = 8
 	var/eyes = "eyes_s"                                  // Icon for eyes.
 	var/eyes_icons = 'icons/mob/human_face/eyes.dmi'     // DMI file for eyes, mostly for none 32x32 species.
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
@@ -391,6 +395,10 @@
 	if(H.internal_organs_by_name) H.internal_organs_by_name.Cut()
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
+
+	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
+	if(armor_component)
+		armor_component.RemoveComponent()
 
 	H.organs = list()
 	H.internal_organs = list()

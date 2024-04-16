@@ -7,7 +7,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/pirate_moonshine.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("pirate_moonshine.dmm")
 
 
 /area/konyang_pirate_moonshine
@@ -30,7 +32,7 @@
 	spawnpoints = list("konyang_moonshine")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/konyang_pirate
+	outfit = /obj/outfit/admin/konyang/pirate
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
