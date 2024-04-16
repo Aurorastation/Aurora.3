@@ -187,6 +187,8 @@
 	if(src.mind)
 		src.mind.special_role = "Borer Husk"
 		src.mind.transfer_to(host)
+		if(host.client)
+			host.client.init_verbs()
 
 	var/obj/item/organ/internal/borer/B = new(H)
 	var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
