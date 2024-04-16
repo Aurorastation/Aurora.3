@@ -121,7 +121,7 @@
 		src.host.status_flags |= PASSEMOTES
 		src.forceMove(M)
 
-		if(client)
+		if(client && host.healths)
 			client.screen += host.healths
 
 		//Update their traitor status.
