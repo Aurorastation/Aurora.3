@@ -43,3 +43,4 @@ changes:
   - bugfix: "Borers can now be removed in surgery, like shrapnel."
   - bugfix: "Borers can now move after devouring a dead host's brain."
   - bugfix: "Borers can now infest a person that is holding them in their hand."
+  - bugfix: "Monkey borers will be able to speak Tau Ceti Basic after using the psionic awakening ability."
