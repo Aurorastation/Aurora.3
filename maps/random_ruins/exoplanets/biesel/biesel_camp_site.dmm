@@ -2,7 +2,7 @@
 "a" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "c" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -19,7 +19,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "e" = (
 /obj/structure/table/standard,
 /obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle{
@@ -31,18 +31,18 @@
 	pixel_y = -7
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "f" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "g" = (
 /obj/structure/bonfire,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "h" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "i" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -52,7 +52,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "k" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/closet/crate/freezer,
@@ -70,7 +70,7 @@
 /obj/item/material/kitchen/utensil/fork/plastic,
 /obj/item/material/kitchen/utensil/fork/plastic,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "l" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/flora/ausbushes/brflowers,
@@ -85,7 +85,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "p" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -93,7 +93,7 @@
 "s" = (
 /obj/structure/reagent_dispensers/keg/beerkeg,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "t" = (
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/space)
@@ -108,7 +108,7 @@
 	pixel_x = 4
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "A" = (
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -128,11 +128,11 @@
 /obj/item/reagent_containers/food/drinks/waterbottle/large,
 /obj/item/reagent_containers/food/drinks/waterbottle/large,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "F" = (
 /obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "G" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/weapons.dmi';
@@ -192,11 +192,11 @@
 	name = "picnic blanket"
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "I" = (
 /obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "J" = (
 /turf/template_noop,
 /area/space)
@@ -223,18 +223,18 @@
 	pixel_y = 2
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "P" = (
 /obj/structure/table/standard,
 /obj/item/material/hatchet/butch,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "S" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 "Y" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle/small/beer/root{
@@ -245,7 +245,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/biesel_camp_site)
 
 (1,1,1) = {"
 J
