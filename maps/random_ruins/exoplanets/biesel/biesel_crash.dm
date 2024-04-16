@@ -1,0 +1,10 @@
+/datum/map_template/ruin/exoplanet/desert_oasis
+	name = "Bieselite Crash"
+	id = "biesel_crash"
+	description = "A recently crashed ship. It looks like the survivors have left by some means."
+
+	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
+	sectors = list(SECTOR_TAU_CETI)
+
+	prefix = "biesel/"
+	suffixes = list("biesel_crash.dmm")
