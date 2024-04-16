@@ -36,9 +36,6 @@ GLOBAL_PROTECT(href_logfile)
 GLOBAL_VAR_INIT(game_version, "Aurorastation")
 GLOBAL_PROTECT(game_version)
 
-GLOBAL_VAR_INIT(changelog_hash, "")
-GLOBAL_PROTECT(changelog_hash)
-
 GLOBAL_VAR_INIT(game_year, (text2num(time2text(world.realtime, "YYYY")) + 442))
 
 GLOBAL_VAR_INIT(round_progressing, 1)

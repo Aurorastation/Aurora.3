@@ -5,7 +5,6 @@
 	icon_state = "scattered"
 	anchored = TRUE
 	density = FALSE
-	layer = ABOVE_CABLE_LAYER
 	var/singleton/reagent/reagent_id
 	var/state = 0
 	var/health = 100

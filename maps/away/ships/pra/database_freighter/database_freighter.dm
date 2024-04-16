@@ -2,7 +2,10 @@
 	name = "Database Freighter"
 	id = "database_freighter"
 	description = "Made from adapted designs of the first freighter Tajara ever worked upon, Database freighters are PRA vessels made specially for gathering information on star systems and what passes through them."
-	suffixes = list("ships/pra/database_freighter/database_freighter.dmm")
+
+	prefix = "ships/pra/database_freighter/"
+	suffixes = list("database_freighter.dmm")
+
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/database_freighter_shuttle)
@@ -111,15 +114,7 @@
 	logging_home_tag = "nav_database_freighter_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/database_freighter_shuttle/hangar
-	name = "Database Freighter Shuttle Hangar"
-	landmark_tag = "nav_database_freighter_shuttle"
-	docking_controller = "database_freighter_shuttle_dock"
-	base_area = /area/database_freighter/hangar
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/database_freighter_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_database_freighter_shuttle"
-	base_turf = /turf/space/transit/north
+/obj/effect/map_effect/marker/airlock/shuttle/database_freighter_shuttle
+	name = "Database Freighter Shuttle"
+	shuttle_tag = "Database Freighter Shuttle"
+	master_tag = "nav_database_freighter_shuttle"

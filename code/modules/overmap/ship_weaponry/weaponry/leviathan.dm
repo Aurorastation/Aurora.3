@@ -12,11 +12,11 @@
 	caliber = SHIP_CALIBER_ZTA
 	firing_effects = FIRING_EFFECT_FLAG_THROW_MOBS|FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	use_power = POWER_USE_OFF //Start off.
-	idle_power_usage = 100 KILOWATTS
-	active_power_usage = 20 MEGAWATTS
+	idle_power_usage = 100 KILO WATTS
+	active_power_usage = 20 MEGA WATTS
 	var/obj/machinery/power/smes/buildable/smes
 
 /obj/machinery/ship_weapon/leviathan/Destroy()

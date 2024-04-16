@@ -37,7 +37,6 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-
 /obj/machinery/computer/ship/sensors/Destroy()
 	QDEL_NULL(sound_token)
 	sensors = null
@@ -576,6 +575,6 @@
 	icon = 'icons/obj/machinery/sensors_venator.dmi'
 	deep_scan_range = 12
 	deep_scan_sensor_name = "Venator-Class Ultra-High Depth Sensors"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
 	pixel_y = -32

@@ -92,6 +92,7 @@
 #define COLOR_DIAMOND          "#d8d4ea"
 #define COLOR_TCFL             "#849bc1"
 #define COLOR_IAC              "#96bcde"
+#define COLOR_COALITION		   "#949ea3"
 #define COLOR_RIPLEY           "#ffbc37"
 #define COLOR_CULT             "#402821"
 #define COLOR_CULT_REINFORCED  "#8f3329"
@@ -108,6 +109,7 @@
 #define COLOR_TILED  		   "#737878"
 #define COLOR_TILED_2  		   "#7A6E70"
 
+#define COLOR_CONCRETE 		   "#676661"
 
 // Blood colors
 #define COLOR_HUMAN_BLOOD      "#A10808"

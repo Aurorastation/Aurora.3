@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/pirate_base
 	name = "pirate base"
 	description = "An asteroid with a occupied hangar carved into it."
-	suffixes = list("away_site/pirate_base/pirate_base.dmm")
+
+	prefix = "away_site/pirate_base/"
+	suffixes = list("pirate_base.dmm")
+
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
