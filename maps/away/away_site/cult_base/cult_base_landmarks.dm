@@ -7,6 +7,18 @@
 
 // --------------------- docks
 
+/obj/effect/shuttle_landmark/cult_base/dock/hangar
+	name = "Dock, Hangar"
+	landmark_tag = "nav_cult_base_dock_hangar"
+	docking_controller = "airlock_cult_base_dock_hangar"
+
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/hangar
+	name = "Dock, Hangar"
+	landmark_tag = "nav_cult_base_dock_hangar"
+	master_tag = "airlock_cult_base_dock_hangar"
+
+// ----
+
 /obj/effect/shuttle_landmark/cult_base/dock/west_1
 	name = "Dock, West 1"
 	landmark_tag = "nav_cult_base_dock_west_1"
@@ -14,7 +26,7 @@
 	dir = EAST
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_1
-	name = "airlock_cult_base_dock_west_1"
+	name = "Dock, West 1"
 	landmark_tag = "nav_cult_base_dock_west_1"
 	master_tag = "airlock_cult_base_dock_west_1"
 
@@ -27,7 +39,7 @@
 	dir = SOUTH
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_2
-	name = "airlock_cult_base_dock_west_2"
+	name = "Dock, West 2"
 	landmark_tag = "nav_cult_base_dock_west_2"
 	master_tag = "airlock_cult_base_dock_west_2"
 
@@ -40,7 +52,7 @@
 	dir = NORTH
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_3
-	name = "airlock_cult_base_dock_west_3"
+	name = "Dock, West 3"
 	landmark_tag = "nav_cult_base_dock_west_3"
 	master_tag = "airlock_cult_base_dock_west_3"
 
@@ -53,7 +65,7 @@
 	dir = NORTH
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_1
-	name = "airlock_cult_base_dock_south_1"
+	name = "Dock, South 1"
 	landmark_tag = "nav_cult_base_dock_south_1"
 	master_tag = "airlock_cult_base_dock_south_1"
 
@@ -66,7 +78,7 @@
 	dir = WEST
 
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2
-	name = "airlock_cult_base_dock_south_2"
+	name = "Dock, South 2"
 	landmark_tag = "nav_cult_base_dock_south_2"
 	master_tag = "airlock_cult_base_dock_south_2"
 
@@ -96,3 +108,5 @@
 	name = "Space, South West, Far"
 	landmark_tag = "nav_cult_base_space_south_west_far"
 	dir = NORTH
+
+// ---------------------

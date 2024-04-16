@@ -1,10 +1,10 @@
 
-// --- base area
+// ---- base area
 
 /area/cult_base
 	name = "Cult Ship (base/abstract)"
 
-// --- docks
+// ---- docks
 
 /area/cult_base/docks_south
 	name = "Docks South"
@@ -14,7 +14,7 @@
 	name = "Docks West"
 	icon_state = "arrivals_dock"
 
-// --- hallways
+// ---- hallways
 
 /area/cult_base/hallways_north
 	name = "Hallways North"
@@ -32,7 +32,7 @@
 	name = "Hallways West"
 	icon_state = "hallC"
 
-// --- living
+// ---- living
 
 /area/cult_base/crew_quarters
 	name = "Crew Quarters"
@@ -54,7 +54,7 @@
 	name = "Mess"
 	icon_state = "courtroom"
 
-// --- engineering
+// ---- engineering
 
 /area/cult_base/engineering
 	name = "Engineering"
@@ -81,7 +81,7 @@
 	name = "Maintenance, Mid"
 	icon_state = "maintenance"
 
-// --- other
+// ---- other
 
 /area/cult_base/bridge
 	name = "Bridge"
@@ -106,6 +106,24 @@
 /area/cult_base/asteroid_inside
 	name = "Asteroid"
 	icon_state = "exterior"
+
+// ---- shuttle
+
+/area/shuttle/cult_base
+	name = "Cult Base (abstract/base)"
+	requires_power = TRUE
+
+/area/shuttle/cult_base/crew
+	name = "Crew and Cockpit"
+	icon_state = "bridge"
+
+/area/shuttle/cult_base/cargo
+	name = "Main/Cargo Area"
+	icon_state = "yellow"
+
+/area/shuttle/cult_base/propulsion
+	name = "Propulsion"
+	icon_state = "engine"
 
 // -------------------------
 

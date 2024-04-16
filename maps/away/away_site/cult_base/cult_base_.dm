@@ -1,3 +1,6 @@
+
+// ---- map template/archetype
+
 /datum/map_template/ruin/away_site/cult_base
 	name = "Cult Base"
 	description = "Cult Base."
@@ -13,12 +16,14 @@
 	map = "Cult Base"
 	descriptor = "Cult Base."
 
+// ---- sector
+
 /obj/effect/overmap/visitable/sector/cult_base
-	name = "Cult Base"
+	name = "Asteroid Station"
 	desc = "\
-		Scans reveal a small station built into a asteroid, registered in the official and public databases as an independent research outpost. \
-		It appears to be pressurized, powered, and with a functioning transponder. There is a hangar for a small shuttle. \
-		Database query reveals that it was active and has seen traffic up until a few days ago, but no communications in or out since then. \
+		Scans reveal a small station built into a asteroid, registered in the official and public databases as a independent research outpost. \
+		It appears to be pressurized, powered, and with a functioning transponder, and has a hangar for a small shuttle. \
+		Database query reveals that it was active and has seen traffic up until a few weeks ago, but no communications in or out since then. \
 		Caution is advised.\
 		"
 	static_vessel = TRUE
@@ -34,6 +39,7 @@
 
 	initial_generic_waypoints = list(
 		// docks
+		"nav_cult_base_dock_hangar",
 		"nav_cult_base_dock_north_east",
 		"nav_cult_base_dock_north_west",
 		"nav_cult_base_dock_west",
@@ -56,3 +62,60 @@
 		"nav_cult_base_space_north_east",
 	)
 
+// ---- shuttle
+
+
+/obj/effect/overmap/visitable/ship/landable/cult_base_shuttle
+	name = "ICV Cult Base Shuttle"
+	class = "ICV"
+	desc = "\
+		A standard-sized exploration shuttle manufactured by Hephaestus, \
+		the Pioneer-class is commonly used by explorers, pioneers, surveyors, and the like. \
+		Featuring well-rounded facilities and equipment, the Pioneer is a dependable platform, \
+		although a bit dated by now, outclassed by newer designs like the Pathfinder-class.\
+		"
+	shuttle = "ICV Cult Base Shuttle"
+	icon_state = "cetus"
+	moving_state = "cetus_moving"
+	colors = list("#f0ec29", "#bea03b")
+	max_speed = 1/(2 SECONDS)
+	burn_delay = 1 SECONDS
+	vessel_mass = 5000
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_TINY
+	designer = "Hephaestus Industries"
+	volume = "17 meters length, 24 meters beam/width, 6 meters vertical height"
+	sizeclass = "Pioneer Exploration Shuttle"
+	shiptype = "Field expeditions and private research uses"
+
+/obj/effect/overmap/visitable/ship/landable/cult_base_shuttle/New()
+	designation = pick(
+		"Battle Against Evil", "Winds Over Aoyama", "Doll's Polyphony", "Shohmyoh",
+		"Mutation", "Exodus From The Underground Fortress", "Illusion", "Requiem",
+		)
+	..()
+
+/obj/machinery/computer/shuttle_control/explore/terminal/cult_base_shuttle
+	name = "shuttle control console"
+	shuttle_tag = "ICV Cult Base Shuttle"
+
+/datum/shuttle/autodock/overmap/cult_base_shuttle
+	name = "ICV Cult Base Shuttle"
+	move_time = 20
+	shuttle_area = list(
+		/area/shuttle/scc_scout_ship_shuttle/cockpit, /area/shuttle/scc_scout_ship_shuttle/eva, /area/shuttle/scc_scout_ship_shuttle/cargo, /area/shuttle/scc_scout_ship_shuttle/medbay, /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard, /area/shuttle/scc_scout_ship_shuttle/propulsion_port
+		)
+	dock_target = "airlock_cult_base_shuttle"
+	current_location = "nav_cult_base_dock_hangar"
+	landmark_transition = "nav_cult_base_shuttle_transit"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_cult_base_dock_hangar"
+	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/cult_base_shuttle
+	name = "ICV Cult Base Shuttle"
+	shuttle_tag = "ICV Cult Base Shuttle"
+	master_tag = "airlock_cult_base_shuttle"
+
+// ---------------------
