@@ -117,10 +117,9 @@
 	to_chat(M, SPAN_WARNING("Something slimy begins probing at the opening of your ear canal..."))
 	to_chat(src, SPAN_WARNING("You slither up [M] and begin probing at their ear canal..."))
 
-	if(!do_after(src,30))
-		if(!is_held_by(M))
-			to_chat(src, SPAN_WARNING("As [M] moves away, you are dislodged and fall to the ground."))
-			return
+	if(!do_after(src,30) && !is_held_by(M))
+		to_chat(src, SPAN_WARNING("As [M] moves away, you are dislodged and fall to the ground."))
+		return
 	if(!M || !src)
 		return
 	if(src.stat)
