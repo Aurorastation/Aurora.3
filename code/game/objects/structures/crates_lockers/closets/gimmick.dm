@@ -162,7 +162,7 @@
 /obj/structure/closet/sarcophagus/animate_door(var/closing = FALSE)
 	return
 
-/obj/structure/closet/sarcophagus/attack_hand(mob/user as mob)
+/obj/structure/closet/sarcophagus/attack_hand(mob/user)
 	..()
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
