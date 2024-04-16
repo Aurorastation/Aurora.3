@@ -207,8 +207,8 @@
 		H.lastKnownIP = s2h_ip
 
 	// Since the host is dead, we want to kick it back into action immediately, then redo it to ensure they're good to go
-	H.rejuvenate()
-	addtimer(CALLBACK(H, PROC_REF(rejuvenate)), 30)
+	H.revive()
+	addtimer(CALLBACK(H, PROC_REF(revive)), 30)
 
 /mob/living/simple_animal/borer/verb/secrete_chemicals()
 	set category = "Abilities"
