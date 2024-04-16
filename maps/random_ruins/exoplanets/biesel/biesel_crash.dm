@@ -1,4 +1,4 @@
-/datum/map_template/ruin/exoplanet/desert_oasis
+/datum/map_template/ruin/exoplanet/biesel_crash
 	name = "Bieselite Crash"
 	id = "biesel_crash"
 	description = "A recently crashed ship. It looks like the survivors have left by some means."

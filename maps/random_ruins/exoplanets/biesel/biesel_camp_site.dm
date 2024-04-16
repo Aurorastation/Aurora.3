@@ -1,15 +1,15 @@
-/datum/map_template/ruin/exoplanet/desert_oasis
+/datum/map_template/ruin/exoplanet/camp_site
 	name = "Biesel Camp Site"
-	id = "camp_site"
+	id = "biesel_camp_site"
 	description = "A camp site set up by some locals. Seems like they're not here right now?"
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_TAU_CETI)
 
 	prefix = "biesel/"
-	suffixes = list("camp_site.dmm")
+	suffixes = list("biesel_camp_site.dmm")
 
-/area/camp_site
+ /area/camp_site
 	name = "Biesel Camp Site"
 	icon_state = "bluenew"
 	requires_power = FALSE
