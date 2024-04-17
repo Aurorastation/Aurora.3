@@ -3347,6 +3347,7 @@
 #include "code\modules\research\designs\circuit\mining_circuits.dm"
 #include "code\modules\research\designs\circuit\misc_electronics.dm"
 #include "code\modules\research\designs\circuit\shield_designs.dm"
+#include "code\modules\research\designs\circuit\ship_circuits.dm"
 #include "code\modules\research\designs\circuit\tcom_designs.dm"
 #include "code\modules\research\designs\mechfab\hardsuit\modules.dm"
 #include "code\modules\research\designs\mechfab\hardsuit\rigs.dm"

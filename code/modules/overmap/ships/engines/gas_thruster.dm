@@ -66,6 +66,11 @@
 	power_channel = EQUIP
 	idle_power_usage = 21600 //6 Wh per tick for default 2 capacitor. Gives them a reason to turn it off, really to nerf backup battery
 
+	component_types = list(
+		/obj/item/circuitboard/unary_atmos/engine,
+		/obj/item/stack/cable_coil = 30,
+		/obj/item/pipe = 2)
+
 	var/datum/ship_engine/gas_thruster/controller
 	var/thrust_limit = 1	//Value between 1 and 0 to limit the resulting thrust
 	var/volume_per_burn = 15 //20 litres(with bin)
@@ -78,6 +83,10 @@
 
 /obj/machinery/atmospherics/unary/engine/scc_shuttle
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi'
+	component_types = list(
+		/obj/item/circuitboard/unary_atmos/engine/scc_shuttle,
+		/obj/item/stack/cable_coil = 30,
+		/obj/item/pipe = 2)
 
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine
 	name = "ship thruster"
@@ -86,6 +95,10 @@
 	opacity = FALSE
 	pixel_x = -64
 	exhaust_offset = 3
+	component_types = list(
+		/obj/item/circuitboard/unary_atmos/engine/scc_ship,
+		/obj/item/stack/cable_coil = 30,
+		/obj/item/pipe = 2)
 
 /obj/machinery/atmospherics/unary/engine/attackby(obj/item/attacking_item, mob/user)
 	. = ..()

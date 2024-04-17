@@ -8,6 +8,12 @@
 		"/obj/item/stack/cable_coil" = 30,
 		"/obj/item/pipe" = 2)
 
+/obj/item/circuitboard/unary_atmos/engine/scc_shuttle
+	build_path = /obj/machinery/atmospherics/unary/engine/scc_shuttle
+
+/obj/item/circuitboard/unary_atmos/engine/scc_ship
+	build_path = /obj/machinery/atmospherics/unary/engine/scc_ship_engine
+
 /obj/item/circuitboard/engine/ion
 	name = T_BOARD("ion propulsion device")
 	board_type = "machine"
