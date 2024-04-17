@@ -22,7 +22,7 @@
 	name = "Asteroid Station"
 	desc = "\
 		Scans reveal a small station built into a asteroid, registered in the official and public databases as a independent research outpost. \
-		It appears to be pressurized, powered, and with a functioning transponder, and has a hangar for a small shuttle. \
+		It appears to be pressurized, powered, with a functioning transponder, and has a hangar for a small shuttle. \
 		Database query reveals that it was active and has seen traffic up until a few weeks ago, but no communications in or out since then. \
 		Caution is advised.\
 		"
@@ -102,9 +102,7 @@
 /datum/shuttle/autodock/overmap/cult_base_shuttle
 	name = "ICV Cult Base Shuttle"
 	move_time = 20
-	shuttle_area = list(
-		/area/shuttle/scc_scout_ship_shuttle/cockpit, /area/shuttle/scc_scout_ship_shuttle/eva, /area/shuttle/scc_scout_ship_shuttle/cargo, /area/shuttle/scc_scout_ship_shuttle/medbay, /area/shuttle/scc_scout_ship_shuttle/propulsion_starboard, /area/shuttle/scc_scout_ship_shuttle/propulsion_port
-		)
+	shuttle_area = list(/area/shuttle/cult_base/crew, /area/shuttle/cult_base/cargo, /area/shuttle/cult_base/propulsion)
 	dock_target = "airlock_cult_base_shuttle"
 	current_location = "nav_cult_base_dock_hangar"
 	landmark_transition = "nav_cult_base_shuttle_transit"

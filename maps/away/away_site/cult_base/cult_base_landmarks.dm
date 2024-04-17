@@ -5,7 +5,7 @@
 	base_area = /area/space
 	base_turf = /turf/space
 
-// --------------------- docks
+// --------------------- shuttle
 
 /obj/effect/shuttle_landmark/cult_base/dock/hangar
 	name = "Dock, Hangar"
@@ -18,6 +18,13 @@
 	master_tag = "airlock_cult_base_dock_hangar"
 
 // ----
+
+/obj/effect/shuttle_landmark/cult_base/shuttle_transit
+	name = "In transit"
+	landmark_tag = "nav_cult_base_shuttle_transit"
+	base_turf = /turf/space/transit/north
+
+// --------------------- docks
 
 /obj/effect/shuttle_landmark/cult_base/dock/west_1
 	name = "Dock, West 1"
