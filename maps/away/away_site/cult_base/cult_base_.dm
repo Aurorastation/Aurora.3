@@ -64,7 +64,6 @@
 
 // ---- shuttle
 
-
 /obj/effect/overmap/visitable/ship/landable/cult_base_shuttle
 	name = "ICV Cult Base Shuttle"
 	class = "ICV"

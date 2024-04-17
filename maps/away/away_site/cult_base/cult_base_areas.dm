@@ -19,24 +19,33 @@
 /area/cult_base/hallways_north
 	name = "Hallways North"
 	icon_state = "hallC"
+	area_blurb_category = "cult_base_hallway"
+	area_blurb = "A faint scent of copper or metal is present here."
 
 /area/cult_base/hallways_south
 	name = "Hallways South"
 	icon_state = "hallC"
+	area_blurb_category = "cult_base_hallway"
+	area_blurb = "A faint scent of copper or metal is present here."
 
 /area/cult_base/hallways_east
 	name = "Hallways East"
 	icon_state = "hallC"
+	area_blurb_category = "cult_base_hallway"
+	area_blurb = "A faint scent of copper or metal is present here."
 
 /area/cult_base/hallways_west
 	name = "Hallways West"
 	icon_state = "hallC"
+	area_blurb_category = "cult_base_hallway"
+	area_blurb = "A faint scent of copper or metal is present here."
 
 // ---- living
 
 /area/cult_base/crew_quarters
 	name = "Crew Quarters"
 	icon_state = "crew_quarters"
+	area_blurb = "A strong scent of copper or metal is present here."
 
 /area/cult_base/chiefs_quarters
 	name = "Chief's Quarters"
@@ -60,7 +69,6 @@
 	name = "Engineering"
 	icon_state = "engineering"
 
-
 /area/cult_base/atmos_supply
 	name = "Atmos, Supply"
 	icon_state = "atmos"
@@ -72,6 +80,7 @@
 /area/cult_base/maint_north
 	name = "Maintenance, North"
 	icon_state = "maintenance"
+	area_blurb = "A strong scent of copper or metal is present here."
 
 /area/cult_base/maint_south
 	name = "Maintenance, South"
@@ -120,6 +129,7 @@
 /area/shuttle/cult_base/cargo
 	name = "Main/Cargo Area"
 	icon_state = "yellow"
+	area_blurb = "A strong scent of copper or metal is present here."
 
 /area/shuttle/cult_base/propulsion
 	name = "Propulsion"
