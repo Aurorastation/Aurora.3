@@ -16,8 +16,6 @@
 	var/obfuscating = FALSE
 	var/can_change_class = TRUE
 	var/can_change_name = TRUE
-	///Linked sensors console
-	var/obj/machinery/computer/ship/sensors/console
 
 /obj/machinery/iff_beacon/Initialize()
 	..()
@@ -29,29 +27,6 @@
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
-
-/obj/machinery/iff_beacon/Destroy()
-	if(linked)
-		linked = null
-	if(console)
-		console.clear_identification()
-		console.find_sensors_and_iff()
-	return ..()
-
-/obj/machinery/iff_beacon/attempt_hook_up(obj/effect/overmap/visitable/sector)
-	. = ..()
-	if(!.)
-		return
-	find_console()
-
-/obj/machinery/iff_beacon/proc/find_console()
-	if(!linked)
-		return
-	for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
-		if(linked.check_ownership(S))
-			console = S
-			S.find_sensors_and_iff()
-			break
 
 /obj/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))

@@ -4,7 +4,7 @@
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
-	var/obj/machinery/shipsensors/sensors
+	//var/obj/machinery/shipsensors/sensors
 	var/obj/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
 	linked_type = /obj/effect/overmap/visitable
@@ -37,20 +37,11 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/sensors/Destroy()
-	QDEL_NULL(sound_token)
-	sensors = null
-	identification = null
-	return ..()
-
 /obj/machinery/computer/ship/sensors/proc/get_sensors()
+	var/obj/machinery/shipsensors/sensors = sensor_ref?.resolve()
+	if(!istype(sensors) || QDELETED(sensors))
+		sensor_ref = null
 	return sensors
-
-/obj/machinery/computer/ship/sensors/proc/clear_sensors()
-	sensors = null
-
-/obj/machinery/computer/ship/sensors/proc/clear_iff()
-	identification = null
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
@@ -63,13 +54,11 @@
 		return
 	for(var/obj/machinery/shipsensors/S in SSmachinery.machinery)
 		if(linked.check_ownership(S))
-			sensors = S
-			sensors.console = src
+			sensor_ref = WEAKREF(S)
 			break
 	for(var/obj/machinery/iff_beacon/IB in SSmachinery.machinery)
 		if(linked.check_ownership(IB))
 			identification = IB
-			identification.console = src
 			break
 
 /obj/machinery/computer/ship/sensors/proc/update_sound()
@@ -102,7 +91,7 @@
 /obj/machinery/computer/ship/sensors/ui_data(mob/user)
 
 	simple_asset_ensure_is_sent(user, /datum/asset/simple/paper)
-
+	var/obj/machinery/shipsensors/sensors = get_sensors()
 	var/data = list()
 
 	data["viewing"] = viewing_overmap(user)
@@ -259,7 +248,7 @@
 	if (action == "link")
 		find_sensors_and_iff()
 		return TRUE
-
+	var/obj/machinery/shipsensors/sensors = get_sensors()
 	if(sensors)
 		if (action == "range")
 			var/nrange = tgui_input_number("Set new sensors range", "Sensor range", sensors.range, sensors.max_range, 1)
@@ -408,7 +397,6 @@
 	var/deep_scan_range = 4 //Maximum range for the range() check in sensors. Basically a way to use range instead of view in this radius.
 	var/deep_scan_toggled = FALSE //When TRUE, this sensor is using long range sensors.
 	var/deep_scan_sensor_name = "High-Power Sensor Array"
-	var/obj/machinery/computer/ship/sensors/console
 	idle_power_usage = 5000
 	component_types = list(
 		/obj/item/circuitboard/shipsensors,
@@ -425,27 +413,6 @@
 /obj/machinery/shipsensors/Initialize(mapload, d, populate_components, is_internal)
 	base_icon_state = icon_state
 	return ..()
-
-/obj/machinery/shipsensors/Destroy()
-	if(linked)
-		linked = null //Remove ourselves so that find_sensors_and_iff doesn't link our console back to a nonexistent machine
-	if(console)
-		console.clear_sensors()
-	return ..()
-
-/obj/machinery/shipsensors/attempt_hook_up(obj/effect/overmap/visitable/sector)
-	. = ..()
-	if(!.)
-		return
-	find_console()
-
-/obj/machinery/shipsensors/proc/find_console()
-	if(!linked)
-		return
-	for(var/obj/machinery/computer/ship/sensors/S in SSmachinery.machinery)
-		if(linked.check_ownership(S))
-			console = S
-			break
 
 /obj/machinery/shipsensors/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
