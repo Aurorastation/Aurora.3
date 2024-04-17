@@ -469,17 +469,9 @@
 /turf/simulated/wall/r_wall,
 /area/cult_base/maint_mid)
 "abn" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/cargo)
 "abo" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -949,11 +941,8 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
@@ -1093,7 +1082,6 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 9
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "acU" = (
@@ -1933,6 +1921,9 @@
 "afH" = (
 /obj/random/loot,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "afM" = (
@@ -2592,15 +2583,14 @@
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "ajN" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
-/obj/machinery/alarm/north{
-	req_one_access = null
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
 "ajO" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -2740,11 +2730,12 @@
 "akL" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "akP" = (
@@ -3737,12 +3728,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 4
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -4062,12 +4055,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "ast" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
 "asF" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux,
@@ -4131,9 +4125,8 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
+	dir = 10
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "ate" = (
@@ -4288,12 +4281,6 @@
 "atO" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 1
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -6154,6 +6141,8 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_one)
 "aFN" = (
@@ -7074,7 +7063,7 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
@@ -8156,9 +8145,24 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
 "aRJ" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/firedoor/noid,
-/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aRK" = (
@@ -8199,10 +8203,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "aRS" = (
@@ -8439,18 +8442,11 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "aSP" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "aST" = (
 /obj/structure/table/rack,
 /obj/item/tank/emergency_oxygen{
@@ -8559,13 +8555,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "aTt" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/firedoor/noid{
+/obj/effect/floor_decal/corner/grey{
 	dir = 4
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "aTA" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -8777,9 +8777,6 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 9
 	},
@@ -8895,9 +8892,8 @@
 /area/cult_base/engineering)
 "aVs" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
-	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aVt" = (
@@ -8911,25 +8907,19 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "aVv" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_waste)
 "aVx" = (
 /obj/structure/table/steel,
 /obj/machinery/light/colored/dying{
@@ -9739,21 +9729,27 @@
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "bbt" = (
-/obj/structure/trash_pile,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_north)
-"bbZ" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 4
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/area/cult_base/docks_south)
+"bbZ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "bjS" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -9766,24 +9762,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "bkr" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 2
 	},
-/obj/effect/floor_decal/corner/grey{
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "bvw" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -9808,20 +9804,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "bSG" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
+/obj/machinery/light/small/emergency{
+	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "bVv" = (
-/obj/random/junk,
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
 /obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
 "bXL" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -9830,23 +9830,13 @@
 /area/cult_base/asteroid_inside)
 "ccS" = (
 /obj/effect/floor_decal/corner/grey{
-	dir = 8
+	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/area/cult_base/hallways_south)
 "cij" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 8;
@@ -9855,28 +9845,32 @@
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
 "ckf" = (
-/obj/random/loot,
-/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/light/broken,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
+"cnO" = (
+/obj/effect/decal/cleanable/generic{
+	pixel_y = -5;
+	pixel_x = 2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/cargo)
+"cui" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
-"cnO" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
-"cui" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
 "cEG" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/random/dirt_75,
@@ -9894,15 +9888,20 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid_inside)
 "cMf" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/loot,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/storage_two)
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic{
+	pixel_x = 14;
+	pixel_y = -9
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/cargo)
 "cNb" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/eva)
+/area/cult_base/hallways_west)
 "cWJ" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -9937,35 +9936,28 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
 "dko" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_north)
-"dlj" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
-"dmb" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
-	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"dlj" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_waste)
+"dmb" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
 "dvw" = (
 /obj/effect/decal/cleanable/floor_damage/random_burned,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -9980,6 +9972,37 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "dwf" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_south)
+"dzo" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
+"dCB" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
+"dCH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -9998,57 +10021,36 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 5
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/atmos_waste)
-"dzo" = (
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
-"dCB" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
+"dWK" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
-"dCH" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/loot,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/storage_one)
-"dWK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/area/cult_base/docks_west)
+"ebk" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
-"ebk" = (
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
+/area/cult_base/hallways_south)
 "ejh" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark/cult_base/dock/south_1,
@@ -10083,17 +10085,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "ewG" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_north)
-"exe" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10107,14 +10100,27 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
-"ezZ" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
+"exe" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/cult,
+/area/shuttle/cult_base/cargo)
+"ezZ" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_south)
 "eBq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -10160,8 +10166,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "fcq" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
+"fiI" = (
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -10169,24 +10179,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
 	},
+/obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
-"fiI" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
 	},
 /turf/simulated/floor/plating,
-/area/cult_base/hallways_north)
+/area/cult_base/maint_mid)
 "fow" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -3;
@@ -10209,21 +10213,9 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "frX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "fvj" = (
 /obj/structure/closet/crate/tool,
 /obj/random/tech_supply,
@@ -10269,17 +10261,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "fHL" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
+	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "fIv" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/item/ammo_casing/c38/spent{
@@ -10294,9 +10280,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "fKl" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
+/area/shuttle/cult_base/crew)
 "fSk" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /obj/structure/closet/crate/loot,
@@ -10304,26 +10296,26 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "fTV" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/cult_base/cargo)
-"fUa" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
+	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
+/area/cult_base/docks_west)
+"fUa" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
 "geB" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/item/ammo_casing/c38/spent{
@@ -10355,9 +10347,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "glJ" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "gnR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -10396,20 +10392,27 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "gCb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cult_base/docks_west)
+/area/cult_base/atmos_waste)
 "gDO" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_2";
+	name = "airlock_cult_base_2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
 "gET" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 11;
@@ -10466,25 +10469,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "gMw" = (
-/obj/effect/floor_decal/corner/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/effect/step_trigger/teleporter,
+/turf/space/transit/north,
+/area/space)
+"gTl" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
-"gTl" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "hfH" = (
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/cult_base/space/south_close,
@@ -10492,13 +10487,14 @@
 /area/cult_base/asteroid)
 "hgn" = (
 /obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/area/cult_base/hallways_south)
 "hiJ" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 6
@@ -10521,38 +10517,56 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "hku" = (
-/obj/effect/shuttle_landmark/cult_base/shuttle_transit,
-/turf/space/transit/north,
-/area/space)
-"hoZ" = (
 /obj/effect/floor_decal/corner/grey{
-	dir = 10
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
-"hxy" = (
+"hoZ" = (
 /obj/effect/floor_decal/corner/grey{
-	dir = 1
+	dir = 5
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
-"hxQ" = (
-/obj/machinery/power/rtg,
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
+"hxy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
+"hxQ" = (
+/obj/random/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
+"hIg" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
-"hIg" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
 "hOL" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -10571,29 +10585,20 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "hTS" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/storage_one)
 "hWa" = (
 /obj/effect/floor_decal/corner/grey{
-	dir = 6
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
@@ -10601,24 +10606,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "hYq" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
-"hYV" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
-"icP" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -10628,37 +10615,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
-"ioo" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 4
-	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
-"ipG" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/grey{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
-"itm" = (
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
+"hYV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -10669,10 +10629,97 @@
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/atmos_waste)
+"icP" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_2";
+	name = "airlock_cult_base_2"
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
+"ioo" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/area/cult_base/maint_south)
+"ipG" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
+"itm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_south)
 "iBG" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/cargo)
+"iDM" = (
+/obj/item/stack/tile/wood/ebony{
+	pixel_x = 3;
+	pixel_y = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/lounge)
+"iJx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
+"iKT" = (
+/obj/structure/trash_pile,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
+"iLT" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -10684,32 +10731,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
-"iDM" = (
-/obj/item/stack/tile/wood/ebony{
-	pixel_x = 3;
-	pixel_y = 8
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/lounge)
-"iJx" = (
-/obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
-/area/space)
-"iKT" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/engineering)
-"iLT" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/plating,
-/area/cult_base/hallways_north)
 "iMs" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -10724,11 +10745,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "iNl" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/cult_base/crew)
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "iSC" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -10738,23 +10764,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "jat" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/area/cult_base/maint_south)
 "jmF" = (
 /obj/effect/landmark/corpse/cult_base_cultist,
 /obj/effect/decal/cleanable/blood,
@@ -10764,17 +10782,12 @@
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "jnB" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_waste)
 "jsR" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_1,
@@ -10792,18 +10805,15 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "jtL" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/area/cult_base/hallways_north)
 "jvw" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/cable{
@@ -10815,14 +10825,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "jwH" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 1
+	dir = 10
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
@@ -10840,51 +10848,24 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "jUe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/power/rtg,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/engineering)
 "jXL" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
+/obj/effect/floor_decal/corner/grey{
+	dir = 1
 	},
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/cult_base/crew)
+/area/cult_base/docks_west)
 "kbT" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/cult_base/lounge)
-"kdb" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_north)
 "khc" = (
 /obj/random/dirt_75,
 /obj/structure/cable{
@@ -10909,27 +10890,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "krt" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
+/obj/effect/floor_decal/corner/grey,
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/cult_base/crew)
 "kty" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10953,17 +10917,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "kuG" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
+/obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/area/cult_base/hallways_north)
 "kxQ" = (
 /obj/structure/structural_support{
 	pixel_y = 8
@@ -10973,8 +10937,9 @@
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid_inside)
 "kzX" = (
-/turf/space/transit/north,
-/area/space)
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_waste)
 "kSf" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -10990,11 +10955,11 @@
 /area/shuttle/cult_base/propulsion)
 "kUU" = (
 /obj/effect/floor_decal/corner/grey{
-	dir = 4
+	dir = 10
 	},
-/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
+/area/cult_base/hallways_south)
 "lai" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/crate,
@@ -11005,6 +10970,22 @@
 /obj/machinery/light/broken,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
+"lfh" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "lfM" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/arrow/red{
@@ -11014,9 +10995,8 @@
 /area/cult_base/asteroid)
 "lhE" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/shuttle/cult_base/cargo)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/engineering)
 "lhI" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -11034,24 +11014,17 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/cult_base/crew)
 "liW" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
+	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/maint_north)
+/area/cult_base/crew_quarters)
 "lkD" = (
 /obj/random/prebuilt_ka{
 	pixel_x = -12
@@ -11069,52 +11042,48 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_door/red,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "llS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
-"lml" = (
-/obj/effect/floor_decal/corner/grey,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
+/area/cult_base/docks_west)
+"lml" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "lmW" = (
 /obj/structure/girder,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "lpy" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
+	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "lsx" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -11129,39 +11098,45 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "lsH" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
+"lvG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_south)
+"lye" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
-"lvG" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
-"lye" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
 "lCA" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_2,
@@ -11186,15 +11161,16 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "lEn" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/generic{
-	pixel_y = -5;
-	pixel_x = 2
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
 	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/storage_two)
+/area/shuttle/cult_base/crew)
 "lKn" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner/green{
@@ -11205,26 +11181,31 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "lKH" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
-"lZC" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
+"lZC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/cult_base/maint_north)
+/area/cult_base/maint_mid)
 "mak" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
@@ -11234,14 +11215,24 @@
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "mdw" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/decal/cleanable/generic{
-	pixel_x = 14;
-	pixel_y = -9
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/cult_base/cargo)
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/maint_north)
 "mhz" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -11259,16 +11250,15 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "mjE" = (
-/obj/structure/trash_pile,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_segment/red{
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "mnT" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip{
@@ -11290,17 +11280,20 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "mvS" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 4
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
+	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "mCN" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_2,
@@ -11336,11 +11329,23 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "nfJ" = (
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/closet/emcloset,
-/obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
-/area/cult_base/docks_west)
+/area/cult_base/atmos_supply)
 "nis" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -11350,15 +11355,30 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "njM" = (
-/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
-/area/cult_base/maint_north)
+/area/cult_base/atmos_waste)
 "nki" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/area/cult_base/docks_south)
 "nnM" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -11368,17 +11388,17 @@
 /area/cult_base/asteroid)
 "nDG" = (
 /obj/effect/floor_decal/corner/grey{
-	dir = 10
+	dir = 8
 	},
-/obj/machinery/light/broken,
-/obj/effect/floor_decal/industrial/outline_door/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/area/cult_base/docks_west)
 "nEx" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 1
@@ -11404,22 +11424,28 @@
 /turf/simulated/floor/plating,
 /area/cult_base/crew_quarters)
 "nXQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/docks_south)
-"oaD" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 10
 	},
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
+"oaD" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "ocg" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -11451,19 +11477,21 @@
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
 "ojj" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_cult_base_2";
-	name = "airlock_cult_base_2"
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "omM" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -11485,33 +11513,23 @@
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid_inside)
 "onG" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
-"oqV" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
+/obj/effect/floor_decal/corner/grey{
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
+"oqV" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 5
 	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "ovq" = (
 /obj/structure/girder,
 /turf/simulated/floor/cult,
@@ -11540,16 +11558,17 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "oBS" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_3,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/cult_base/docks_west)
+/obj/effect/floor_decal/corner/grey{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_south)
 "oOw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/red{
 	dir = 4
@@ -11567,45 +11586,39 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "oPI" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 1
 	},
-/turf/simulated/floor/plating,
-/area/shuttle/cult_base/cargo)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "pke" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_cult_base_2";
-	name = "airlock_cult_base_2"
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 1
+	dir = 9
 	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
 "pkX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "pnM" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
+/obj/random/junk,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
+/area/cult_base/maint_south)
 "ppX" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/cult_base_shuttle,
@@ -11623,14 +11636,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "pwQ" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
 "pxE" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/grey{
@@ -11648,7 +11662,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "pyH" = (
-/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
@@ -11692,49 +11711,18 @@
 /area/cult_base/docks_west)
 "pPH" = (
 /obj/effect/floor_decal/corner/grey{
-	dir = 10
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
-"pSf" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
-"pYT" = (
-/obj/effect/gibspawner/robot,
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/shuttle/cult_base/cargo)
-"qai" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
-"qav" = (
+"pSf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -11748,43 +11736,66 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_west)
+"pYT" = (
+/obj/effect/gibspawner/robot,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/cargo)
+"qai" = (
+/turf/space/transit/north,
+/area/space)
+"qav" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "qjx" = (
 /turf/simulated/floor/cult,
 /area/cult_base/asteroid)
 "qkC" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+	dir = 2
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
-"qkT" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/floor_decal/industrial/outline_door/red,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
-"qoz" = (
+/area/cult_base/maint_mid)
+"qkT" = (
+/obj/machinery/light/small/broken,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 6
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
+"qoz" = (
+/obj/effect/floor_decal/corner/grey{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/area/cult_base/docks_south)
 "qut" = (
 /obj/random/dirt_75,
 /obj/random/loot,
@@ -11799,16 +11810,17 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid)
 "qEw" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 4
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
+	dir = 9
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/area/cult_base/docks_west)
 "qLi" = (
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -11826,23 +11838,15 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "qPb" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/area/cult_base/crew_quarters)
 "qYr" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/area/cult_base/storage_two)
 "qYC" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 5;
@@ -11922,21 +11926,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/cult_base/propulsion)
 "rDF" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
+	dir = 5
 	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/area/cult_base/crew_quarters)
 "rGD" = (
 /obj/item/stack/material/wood/coloured/ebony{
 	pixel_x = 7;
@@ -11946,60 +11941,77 @@
 /turf/simulated/floor/plating,
 /area/cult_base/lounge)
 "rJf" = (
-/obj/effect/floor_decal/corner/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/docks_south)
+"rKT" = (
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/machinery/light/broken{
+	dir = 1
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/cult_base/crew)
-"rKT" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/area/cult_base/crew_quarters)
 "rLD" = (
-/obj/effect/decal/cleanable/generic{
-	pixel_y = -5;
-	pixel_x = 2
-	},
+/obj/structure/table/steel,
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/shuttle/cult_base/cargo)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "rWm" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/cult_base/cargo)
 "sfh" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
-"sgm" = (
-/obj/machinery/light/small/broken,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
+	dir = 8
 	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
+"sgm" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
 "sgy" = (
 /obj/effect/shuttle_landmark/cult_base/space/west_close,
 /turf/template_noop,
 /area/space)
 "she" = (
-/obj/effect/landmark/corpse/cult_base_cultist,
-/obj/effect/decal/cleanable/blood,
-/obj/random/dirt_75,
-/turf/simulated/floor/cult,
-/area/shuttle/cult_base/cargo)
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
 "shy" = (
 /obj/random/dirt_75,
 /obj/random/civgun{
@@ -12056,31 +12068,19 @@
 /turf/simulated/floor/airless,
 /area/shuttle/cult_base/cargo)
 "stp" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
-	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
+/area/cult_base/hallways_north)
 "sua" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/bed/stool/chair,
 /obj/random/dirt_75,
-/turf/simulated/floor/wood/walnut,
-/area/cult_base/chiefs_quarters)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "sxu" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -12099,10 +12099,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "sxA" = (
-/obj/effect/floor_decal/corner/green/diagonal,
-/obj/structure/curtain/medical,
-/turf/simulated/floor/tiled/white,
-/area/cult_base/medbay)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_3,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/docks_west)
 "szJ" = (
 /turf/simulated/wall/r_wall,
 /area/shuttle/cult_base/propulsion)
@@ -12118,21 +12124,10 @@
 /turf/simulated/floor/plating,
 /area/cult_base/lounge)
 "sBf" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
+/obj/structure/bed/stool/chair,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/area/cult_base/docks_west)
 "sEq" = (
 /obj/machinery/alarm/west{
 	req_one_access = null
@@ -12145,27 +12140,20 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "sMe" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/corner/grey/diagonal,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/area/shuttle/cult_base/cargo)
 "sPE" = (
-/obj/effect/floor_decal/corner/mauve/diagonal{
-	dir = 4
-	},
-/obj/machinery/light/broken{
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
-/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "sQN" = (
@@ -12178,16 +12166,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "sRw" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
-"sRK" = (
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_south)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
+"sRK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
 "sWV" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -12209,15 +12215,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "tje" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
+/area/cult_base/maint_north)
 "tqS" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -6;
@@ -12231,42 +12235,28 @@
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "tqT" = (
-/obj/structure/bed/stool/chair/shuttle{
+/obj/effect/landmark/corpse/cult_base_cultist,
+/obj/effect/decal/cleanable/blood,
+/obj/random/dirt_75,
+/turf/simulated/floor/cult,
+/area/shuttle/cult_base/cargo)
+"trb" = (
+/obj/effect/floor_decal/corner/grey{
 	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/cult_base/crew)
-"trb" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
+/area/cult_base/docks_south)
 "tvK" = (
 /obj/effect/rune/sacrifice,
 /turf/simulated/floor/cult,
 /area/cult_base/asteroid)
 "txe" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 9
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/area/cult_base/hallways_south)
 "txV" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -12297,17 +12287,17 @@
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
 "tJc" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
+	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/cargo)
 "tKc" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -12327,17 +12317,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "tOs" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_north)
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_supply)
 "tSO" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
 	dir = 8
@@ -12351,25 +12345,12 @@
 /area/cult_base/atmos_waste)
 "ubh" = (
 /obj/structure/cable{
-	icon_state = "4-8"
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/walnut,
+/area/cult_base/chiefs_quarters)
 "unM" = (
 /obj/random/junk,
 /obj/structure/cable{
@@ -12379,15 +12360,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "upk" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/crew_quarters)
+/area/shuttle/cult_base/crew)
 "uxc" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -12399,21 +12376,17 @@
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_south)
 "uCo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/grey{
-	dir = 10
+	dir = 6
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_south)
+/area/cult_base/hallways_south)
 "uIq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock{
@@ -12438,11 +12411,17 @@
 /turf/simulated/floor/airless,
 /area/shuttle/cult_base/cargo)
 "uJW" = (
-/obj/structure/table/steel,
-/obj/random/dirt_75,
-/obj/random/dirt_75,
+/obj/effect/floor_decal/corner/grey{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/area/cult_base/hallways_west)
 "uOR" = (
 /obj/effect/shuttle_landmark/cult_base/space/west_far,
 /turf/template_noop,
@@ -12473,8 +12452,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "uTw" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/corner/grey{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_west)
+"uUB" = (
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -12482,29 +12472,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_supply)
-"uUB" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
-"uZX" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+	dir = 6
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/area/cult_base/docks_west)
+"uZX" = (
+/obj/effect/shuttle_landmark/cult_base/shuttle_transit,
+/turf/space/transit/north,
+/area/space)
 "vbX" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -12528,16 +12505,28 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "viu" = (
-/obj/machinery/light/small/emergency{
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "vll" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/shuttle/cult_base/cargo)
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "vsN" = (
 /obj/random/dirt_75,
 /obj/random/firstaid{
@@ -12586,24 +12575,18 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "vGG" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/grey{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/hallways_south)
 "vHe" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark/cult_base/dock/west_3,
@@ -12620,16 +12603,9 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "vHz" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/cult_base/crew)
+/area/cult_base/eva)
 "vRw" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -12;
@@ -12643,15 +12619,15 @@
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "vUa" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 4
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic{
+	pixel_y = -5;
+	pixel_x = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_west)
+/area/cult_base/storage_two)
 "vVa" = (
 /obj/effect/floor_decal/corner/grey,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -12710,11 +12686,10 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid)
 "wVn" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/hallways_south)
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/structure/curtain/medical,
+/turf/simulated/floor/tiled/white,
+/area/cult_base/medbay)
 "wYe" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -12753,14 +12728,12 @@
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid)
 "xon" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/cult_base/atmos_waste)
 "xpL" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -12768,23 +12741,27 @@
 /turf/unsimulated/floor/asteroid/ash/rocky,
 /area/cult_base/asteroid)
 "xsd" = (
-/obj/effect/floor_decal/corner/grey{
-	dir = 6
+/obj/effect/floor_decal/corner/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_segment/red{
-	dir = 5
-	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
 "xCi" = (
-/obj/structure/bed/stool/chair,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/docks_west)
+/area/shuttle/cult_base/crew)
 "xHt" = (
 /obj/machinery/light/colored/dying{
 	dir = 8
@@ -12794,9 +12771,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "xLl" = (
-/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
-/area/cult_base/maint_mid)
+/area/cult_base/docks_west)
 "xMH" = (
 /obj/machinery/power/terminal,
 /obj/machinery/light/small/emergency{
@@ -12820,9 +12799,16 @@
 /turf/simulated/wall/r_wall,
 /area/shuttle/cult_base/cargo)
 "xUo" = (
+/obj/effect/floor_decal/corner/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
-/area/cult_base/engineering)
+/area/cult_base/docks_west)
 "xVq" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -12837,9 +12823,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "ybd" = (
-/obj/random/dirt_75,
-/turf/simulated/floor/cult,
-/area/shuttle/cult_base/cargo)
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/docks_west)
 "ygK" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -13077,46 +13077,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
 "}
 (2,1,1) = {"
 aZi
@@ -13334,46 +13334,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (3,1,1) = {"
 aZi
@@ -13591,46 +13591,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (4,1,1) = {"
 aZi
@@ -13848,46 +13848,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (5,1,1) = {"
 aZi
@@ -14105,46 +14105,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (6,1,1) = {"
 aZi
@@ -14362,46 +14362,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (7,1,1) = {"
 aZi
@@ -14619,46 +14619,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (8,1,1) = {"
 aZi
@@ -14876,46 +14876,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (9,1,1) = {"
 aZi
@@ -15133,46 +15133,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (10,1,1) = {"
 aZi
@@ -15390,46 +15390,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (11,1,1) = {"
 aZi
@@ -15647,46 +15647,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (12,1,1) = {"
 aZi
@@ -15904,46 +15904,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (13,1,1) = {"
 aZi
@@ -16161,46 +16161,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (14,1,1) = {"
 aZi
@@ -16418,46 +16418,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (15,1,1) = {"
 aZi
@@ -16675,46 +16675,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-hku
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+uZX
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (16,1,1) = {"
 aZi
@@ -16932,46 +16932,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (17,1,1) = {"
 aZi
@@ -17189,46 +17189,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (18,1,1) = {"
 aZi
@@ -17446,46 +17446,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (19,1,1) = {"
 aZi
@@ -17703,46 +17703,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (20,1,1) = {"
 aZi
@@ -17960,46 +17960,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (21,1,1) = {"
 aZi
@@ -18217,46 +18217,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (22,1,1) = {"
 aZi
@@ -18474,46 +18474,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (23,1,1) = {"
 aZi
@@ -18731,46 +18731,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (24,1,1) = {"
 aZi
@@ -18988,46 +18988,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (25,1,1) = {"
 aZi
@@ -19245,46 +19245,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (26,1,1) = {"
 aZi
@@ -19502,46 +19502,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (27,1,1) = {"
 aZi
@@ -19759,46 +19759,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (28,1,1) = {"
 aZi
@@ -20016,46 +20016,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (29,1,1) = {"
 aZi
@@ -20273,46 +20273,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-kzX
-iJx
+gMw
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+qai
+gMw
 "}
 (30,1,1) = {"
 aZi
@@ -20530,46 +20530,46 @@ aZi
 aZi
 aZi
 aZi
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
-iJx
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
+gMw
 "}
 (31,1,1) = {"
 aZi
@@ -36879,7 +36879,7 @@ aZi
 aZi
 aab
 aab
-mvS
+aTt
 anS
 aab
 aZi
@@ -37392,7 +37392,7 @@ akI
 aZi
 aZi
 aOD
-pyH
+sBf
 arT
 aXI
 aOD
@@ -37649,7 +37649,7 @@ aZi
 aZi
 aZi
 aOD
-uJW
+rLD
 abb
 adv
 aOD
@@ -37906,7 +37906,7 @@ aZi
 aZi
 asg
 aOD
-xCi
+sua
 adf
 ahN
 aOD
@@ -38163,9 +38163,9 @@ aZi
 aZi
 aZi
 aab
-nfJ
+xLl
 ayJ
-exe
+ybd
 aab
 aZi
 aZi
@@ -38678,8 +38678,8 @@ aZi
 asg
 aZi
 aab
-jnB
-qkC
+qEw
+ojj
 vEl
 aab
 aZi
@@ -39706,7 +39706,7 @@ aZi
 aab
 aab
 aab
-xon
+oPI
 afj
 aBk
 aab
@@ -40220,7 +40220,7 @@ aZi
 mCN
 lCA
 aaf
-hgn
+onG
 aDj
 aab
 aZi
@@ -40477,7 +40477,7 @@ aZi
 aab
 aab
 aab
-uUB
+dWK
 aak
 aab
 aZi
@@ -41248,8 +41248,8 @@ aZi
 aZi
 aZi
 aOD
-ioo
-gMw
+llS
+xUo
 aOD
 aZi
 aZi
@@ -41506,7 +41506,7 @@ asg
 aZi
 aab
 acu
-rDF
+uUB
 aab
 aab
 aab
@@ -41763,10 +41763,10 @@ aZi
 aZi
 aab
 aXd
-lsH
+lln
 axp
 awg
-oBS
+sxA
 fpV
 aZi
 aZi
@@ -42277,7 +42277,7 @@ asg
 aab
 aAO
 aas
-sMe
+dCB
 aab
 aab
 aab
@@ -42534,7 +42534,7 @@ aZi
 aOD
 aNh
 arT
-lln
+nDG
 aOD
 auo
 aZi
@@ -42791,7 +42791,7 @@ aZi
 aOD
 aUm
 aPW
-gCb
+fTV
 aOD
 auo
 aZi
@@ -43048,7 +43048,7 @@ aZi
 aOD
 aGZ
 abB
-gMw
+xUo
 aOD
 auo
 aZi
@@ -43305,7 +43305,7 @@ aZi
 aab
 aJZ
 aLP
-exe
+ybd
 aab
 auo
 aZi
@@ -43818,8 +43818,8 @@ aZi
 aZi
 auo
 aab
-jnB
-qkC
+qEw
+ojj
 aab
 auo
 aZi
@@ -44332,7 +44332,7 @@ aZi
 aZi
 auo
 aOD
-gDO
+lye
 aQh
 aOD
 auo
@@ -44589,7 +44589,7 @@ aZi
 aZi
 auo
 aOD
-ioo
+llS
 aav
 aOD
 auo
@@ -44846,7 +44846,7 @@ aZi
 aZi
 auo
 aab
-ajN
+pyH
 aak
 aab
 auo
@@ -45617,7 +45617,7 @@ abJ
 abJ
 aWD
 aOD
-hIg
+jXL
 aaw
 aTn
 aab
@@ -45874,7 +45874,7 @@ aCb
 abJ
 aWD
 aOD
-gDO
+lye
 gvs
 aQS
 aab
@@ -46646,7 +46646,7 @@ aCb
 aCb
 akP
 alu
-frX
+hxy
 akP
 axk
 aLb
@@ -46902,8 +46902,8 @@ aLf
 aQa
 aQa
 aQa
-aUM
-llS
+pke
+iJx
 akP
 att
 aKL
@@ -47131,7 +47131,7 @@ aCb
 aCb
 aCb
 aCb
-hxQ
+jUe
 aVe
 ajX
 aCb
@@ -47412,7 +47412,7 @@ aOn
 aCb
 aQa
 atz
-cNb
+vHz
 aMp
 alL
 aQa
@@ -47645,7 +47645,7 @@ aBN
 aNz
 aNz
 aNz
-cui
+gTl
 ato
 aZC
 aNz
@@ -47919,7 +47919,7 @@ azZ
 asP
 aOn
 aOM
-cMf
+qYr
 anV
 aLe
 aOn
@@ -47930,13 +47930,13 @@ daZ
 aIh
 aAX
 aQa
-lpy
+aUM
 aVb
 aQX
 aXr
 aUw
-sxA
-sxA
+wVn
+wVn
 aUw
 aPL
 aPL
@@ -48161,7 +48161,7 @@ adr
 aLQ
 aNB
 aWy
-iKT
+aSP
 asG
 aUS
 aol
@@ -48417,7 +48417,7 @@ aNz
 aNl
 aCU
 aSm
-dlj
+hIg
 aPh
 aVt
 aeM
@@ -48433,11 +48433,11 @@ aHr
 aGV
 aOn
 aJA
-lEn
+vUa
 ada
 anV
 aOn
-aFM
+hTS
 aAD
 aGb
 aIi
@@ -48672,7 +48672,7 @@ aCb
 aCb
 aNz
 amd
-xUo
+lhE
 aNR
 aKe
 aXK
@@ -48695,7 +48695,7 @@ lsx
 azA
 aOn
 anj
-dCH
+aFM
 aBx
 aeI
 aqX
@@ -48716,8 +48716,8 @@ aXR
 aUw
 aCb
 alx
-pke
-ojj
+gDO
+icP
 alx
 abJ
 abJ
@@ -48931,7 +48931,7 @@ aol
 agx
 aEC
 aZF
-xUo
+lhE
 aNR
 aZG
 agi
@@ -48944,7 +48944,7 @@ apX
 apX
 aYV
 afW
-qkT
+gCb
 aOn
 atI
 acC
@@ -49201,10 +49201,10 @@ aMq
 apX
 aMq
 aPK
-cnO
+jnB
 aOn
 aPA
-cMf
+qYr
 aek
 aIY
 aOn
@@ -49222,7 +49222,7 @@ aIA
 akP
 aok
 alb
-dWK
+sRK
 alb
 aDI
 akP
@@ -49454,26 +49454,26 @@ aCb
 apX
 afq
 aKZ
-tje
+dlj
 aAn
-trb
+njM
 aQP
-pnM
+xon
 aOn
 amV
 aUi
 aFC
 aNk
 aOn
-aFM
+hTS
 aUF
 alo
 aRT
 aUF
 aYG
 aat
-iBG
-jUe
+iLT
+aRJ
 akP
 aIA
 akP
@@ -49488,7 +49488,7 @@ aCb
 aCb
 alx
 aHx
-sgm
+qkT
 alx
 aCb
 aCb
@@ -49744,8 +49744,8 @@ aLj
 axk
 aCb
 alx
-aTt
-aTt
+ast
+ast
 alx
 alx
 aCb
@@ -49960,8 +49960,8 @@ aCb
 aCb
 aCb
 aQp
-njM
-liW
+fcq
+mdw
 aVU
 aCb
 aCb
@@ -49978,18 +49978,18 @@ aGp
 aiA
 awf
 aXQ
-abn
+bVv
 alF
 agM
-gTl
-qav
 atc
-txe
-aRJ
+pSf
+sRw
+uTw
+cNb
 afM
-ccS
+sgm
 aXQ
-abn
+bVv
 aul
 aul
 aul
@@ -50001,9 +50001,9 @@ axk
 ahD
 awF
 aHD
-onG
+jat
 afp
-sRK
+ioo
 alx
 aCb
 aCb
@@ -50224,7 +50224,7 @@ aCb
 aCb
 aCb
 ahP
-glJ
+kzX
 afO
 aMq
 ahd
@@ -50232,16 +50232,16 @@ aCb
 aCb
 aCb
 aGp
-aLc
+kuG
 atf
 aXQ
-tJc
+uJW
 amH
 all
 aSb
 abv
 apD
-vUa
+she
 aXQ
 aJX
 abw
@@ -50259,8 +50259,8 @@ aCb
 aCb
 alx
 aFx
-sRK
-sRK
+ioo
+ioo
 adR
 aCb
 aCb
@@ -50483,7 +50483,7 @@ apX
 apX
 aJl
 aGw
-glJ
+kzX
 aqW
 apX
 apX
@@ -50515,8 +50515,8 @@ alx
 adR
 adR
 aSq
-sRK
-sRK
+ioo
+ioo
 aHW
 alx
 aCb
@@ -50746,7 +50746,7 @@ aMq
 abM
 afq
 apX
-tOs
+aLc
 aYR
 abm
 axt
@@ -50758,14 +50758,14 @@ abm
 abm
 afb
 azR
-mjE
+iNl
 avm
 aoC
 aPa
 aaX
 abm
-aRP
-lKH
+vGG
+mjE
 alx
 aHW
 aeL
@@ -50993,38 +50993,38 @@ anh
 aXa
 aLp
 ajK
-qai
-dwf
+aVv
+aqJ
 aKk
 aqZ
 aca
 acb
 acd
-aqJ
+hYV
 apJ
 ack
 aKA
 ace
 aVa
-krt
+fiI
 aDu
 acf
 acg
-jat
-rKT
-jtL
-itm
+bbZ
+lZC
+hYq
+qkC
 akU
-oqV
+lpy
 aci
 avi
 ach
-vGG
+bkr
 aVa
 aNy
 acl
 aBQ
-icP
+dCH
 aTW
 aJd
 aMG
@@ -51264,13 +51264,13 @@ aHO
 axB
 abm
 aaX
-viu
+bSG
 asf
 aGi
 aZD
 aaX
 asU
-xLl
+frX
 anb
 anb
 anb
@@ -51278,8 +51278,8 @@ anb
 anb
 anb
 anb
-acT
-hoZ
+ebk
+kUU
 aAr
 aAr
 aAr
@@ -51543,7 +51543,7 @@ aWw
 awT
 aAr
 aIo
-bVv
+pnM
 alx
 aCb
 aCb
@@ -51759,7 +51759,7 @@ awb
 awb
 awb
 aMT
-njM
+fcq
 aUV
 apv
 aCb
@@ -52015,8 +52015,8 @@ aCb
 aVU
 awb
 aOg
-bbt
-ewG
+iKT
+ajN
 aqQ
 aUK
 aCb
@@ -52050,14 +52050,14 @@ alQ
 atU
 anb
 aHd
-pPH
+oaD
 aAr
 aJv
 azC
 aah
 aAr
 aUW
-ebk
+dmb
 aAr
 aAr
 aAr
@@ -52307,7 +52307,7 @@ ayr
 aQq
 anb
 agt
-uZX
+glJ
 aAr
 aAr
 aEi
@@ -52566,18 +52566,18 @@ anb
 aKH
 aza
 aCt
+hWa
+txe
+sfh
 act
-wVn
-qYr
-qPb
 aRW
-fcq
+qav
 ahy
-sBf
+hku
 aNU
 aru
 aHk
-aVv
+lsH
 gnR
 aXE
 aTA
@@ -52794,7 +52794,7 @@ aVU
 axC
 wYe
 ajc
-sua
+ubh
 atq
 gFJ
 unM
@@ -52823,20 +52823,20 @@ alK
 aQK
 oye
 aCt
-hWa
+uCo
 amu
 ass
-pwQ
+ccS
 acw
-hYq
+oqV
 amu
 aEM
 aXc
 aGH
 ayq
-lvG
+hgn
 aCt
-xsd
+ezZ
 aYU
 aGm
 aSD
@@ -53100,8 +53100,8 @@ aXg
 aRy
 aRy
 aRy
-bSG
-pSf
+atO
+dwf
 aRy
 aRy
 aRy
@@ -53301,7 +53301,7 @@ aUe
 aUe
 aUe
 aVU
-lZC
+akL
 awt
 aVU
 aVU
@@ -53316,7 +53316,7 @@ aRB
 aRB
 aIg
 aGp
-fiI
+jtL
 aqP
 aGp
 alK
@@ -53334,14 +53334,14 @@ aaq
 aGQ
 aGQ
 alK
-fHL
+aRP
 omM
 aAe
 aqf
 acG
 aOC
-hTS
-fUa
+mvS
+lfh
 ayy
 aAe
 abJ
@@ -53558,7 +53558,7 @@ aNT
 auo
 auo
 aNn
-akL
+fUa
 adc
 aNn
 aZi
@@ -53614,7 +53614,7 @@ aZi
 aZi
 aZi
 aRy
-lye
+hoZ
 aRr
 aRy
 aZi
@@ -53815,8 +53815,8 @@ aZi
 aZi
 aZi
 aVU
-kdb
-dko
+pwQ
+tje
 aVU
 aZi
 aZi
@@ -53831,7 +53831,7 @@ aZi
 auo
 aGp
 abp
-iLT
+stp
 aGp
 aZi
 aZi
@@ -53853,7 +53853,7 @@ apa
 aAe
 ayy
 aGC
-ubh
+ewG
 aAe
 aJs
 aLZ
@@ -53871,7 +53871,7 @@ aZi
 aZi
 aZi
 aXg
-hxy
+qoz
 apE
 aXg
 aZi
@@ -54128,8 +54128,8 @@ aZi
 aZi
 aZi
 aXg
-fKl
-nXQ
+bbt
+rJf
 aXg
 aZi
 asg
@@ -54385,8 +54385,8 @@ aZi
 aZi
 aZi
 aXg
-kUU
-lml
+trb
+xsd
 aXg
 aZi
 aZi
@@ -54626,7 +54626,7 @@ agX
 aAe
 aBs
 aoI
-afH
+hxQ
 axz
 aAe
 aCb
@@ -54642,8 +54642,8 @@ aZi
 aZi
 aZi
 aRy
-atO
-bkr
+pPH
+itm
 aRy
 aZi
 aZi
@@ -54848,8 +54848,8 @@ odd
 ahJ
 awu
 pYT
-mdw
-lhE
+cMf
+iBG
 lai
 xQz
 adh
@@ -54879,7 +54879,7 @@ ane
 sxu
 aWM
 aBy
-ast
+dko
 aAe
 aTV
 acS
@@ -55105,7 +55105,7 @@ cEG
 ahJ
 rjO
 aIy
-oPI
+tJc
 lkD
 aDT
 xQz
@@ -55156,8 +55156,8 @@ aZi
 aZi
 aZi
 aRy
-aSP
-uCo
+nki
+lvG
 aYs
 aRy
 aZi
@@ -55357,7 +55357,7 @@ aTc
 lhW
 ozy
 gKG
-jXL
+xCi
 sQN
 ahJ
 xQz
@@ -55390,7 +55390,7 @@ aLm
 rGD
 aQo
 ane
-dmb
+acT
 aNP
 aAe
 aAe
@@ -55617,7 +55617,7 @@ ahJ
 kky
 ahJ
 ahJ
-vll
+abn
 aad
 dvw
 aND
@@ -55648,7 +55648,7 @@ aQo
 aQo
 kbT
 aje
-nDG
+ckf
 aAe
 aqf
 aOC
@@ -55869,18 +55869,18 @@ aBE
 aUl
 atZ
 ahJ
-tqT
-tqT
+fKl
+fKl
 vVa
 aEG
 ahJ
 aig
-ybd
+exe
 vSK
 eQN
 shH
 tqS
-fTV
+sMe
 adu
 xQz
 xQz
@@ -56385,12 +56385,12 @@ geB
 aQH
 gMj
 bvw
-iNl
+upk
 aRf
 ahJ
 aIy
 thD
-rLD
+cnO
 aIm
 aIm
 aIm
@@ -56422,7 +56422,7 @@ aDk
 aqM
 aAe
 amz
-stp
+nfJ
 agS
 shy
 aLb
@@ -56698,7 +56698,7 @@ auo
 auo
 auo
 aRy
-ipG
+oBS
 aGJ
 aRy
 aZi
@@ -56898,23 +56898,23 @@ aVI
 lhW
 lhW
 aEG
-vHz
-iNl
+lEn
+upk
 aEG
 ahJ
 aYw
 shH
-vll
+abn
 aIm
 aIm
 aIm
-vll
+abn
 aej
 aMg
 xQz
 qLi
 sEq
-vll
+abn
 adq
 auS
 aZi
@@ -56927,16 +56927,16 @@ aKN
 abr
 auA
 nWD
-aVs
+ipG
 aAe
 aqf
 axG
 aOa
 aly
-ckf
-oaD
-ezZ
-uTw
+afH
+fHL
+cui
+tOs
 agS
 aCb
 aCb
@@ -57155,14 +57155,14 @@ aSF
 aqv
 lhW
 aZW
-rJf
+krt
 byI
 adF
 ahJ
 aom
 pkX
-vll
-vll
+abn
+abn
 aIm
 skG
 aIm
@@ -57178,8 +57178,8 @@ aZi
 auo
 aKN
 aCx
-sfh
-qEw
+qPb
+jwH
 aYX
 aOz
 aSV
@@ -57419,10 +57419,10 @@ ahJ
 aGh
 abK
 rgz
-vll
+abn
 xQz
 aZk
-vll
+abn
 nfG
 aIm
 xQz
@@ -57441,7 +57441,7 @@ aKN
 abX
 awB
 alr
-nki
+aVs
 aAe
 aAe
 aAe
@@ -57674,12 +57674,12 @@ aSu
 lhI
 ahJ
 anG
-fTV
+sMe
 rww
-she
+tqT
 xQz
 aeX
-she
+tqT
 aac
 akt
 rWm
@@ -57931,9 +57931,9 @@ lhW
 lhW
 lhW
 rWm
-vll
+abn
 aoN
-ybd
+exe
 rWm
 rWm
 uJF
@@ -57956,9 +57956,9 @@ ahi
 aSr
 aym
 aXs
-bbZ
+nXQ
 aYX
-kuG
+sPE
 aWA
 aKN
 veH
@@ -58206,9 +58206,9 @@ aZi
 aZi
 aKN
 aLg
-upk
+viu
 aYX
-hYV
+lml
 aJR
 aPq
 alk
@@ -58466,11 +58466,11 @@ amD
 aeq
 aKN
 acP
-sRw
+rDF
 ate
 aew
 arQ
-jwH
+vll
 aKN
 aKN
 ake
@@ -58725,7 +58725,7 @@ aKN
 ajB
 aKN
 ajd
-qoz
+liW
 aKN
 ajB
 aKN
@@ -58984,7 +58984,7 @@ aKN
 aKN
 ajB
 aKN
-dCB
+lKH
 amM
 ake
 aOJ
@@ -59235,13 +59235,13 @@ axk
 asP
 aKN
 asZ
-sfh
+qPb
 aSE
 aKN
 auP
 nHt
 aKN
-sPE
+rKT
 ajt
 aKN
 aCT

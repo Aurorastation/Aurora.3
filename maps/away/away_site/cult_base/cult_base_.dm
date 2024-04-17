@@ -5,7 +5,8 @@
 	name = "Cult Base"
 	description = "Cult Base."
 	id = "cult_base"
-	suffixes = list("away_site/cult_base/cult_base.dmm")
+	prefix = "away_site/cult_base/"
+	suffixes = list("cult_base.dmm")
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
@@ -30,7 +31,7 @@
 	generic_object = FALSE
 	icon = 'icons/obj/overmap/overmap_ships.dmi'
 	icon_state = "asteroid_cluster"
-	color = "#aa673b"
+	color = "#bd8159"
 
 	designer = "Unknown"
 	volume = "90 meters length, 90 meters beam/width, 42 meters vertical height"
@@ -76,7 +77,7 @@
 	shuttle = "ICV Cult Base Shuttle"
 	icon_state = "cetus"
 	moving_state = "cetus_moving"
-	colors = list("#f0ec29", "#bea03b")
+	colors = list("#d3d155", "#bea03b")
 	max_speed = 1/(2 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 5000
