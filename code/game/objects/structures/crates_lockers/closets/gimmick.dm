@@ -145,9 +145,13 @@
 	canbemoved = FALSE
 	open_sound = 'sound/effects/stonedoor_openclose.ogg'
 	close_sound = 'sound/effects/stonedoor_openclose.ogg'
+	///Icon state for the open sarcophagus
 	var/open_state = "wc_sarcophagus_open"
+	///Icon state for the closed sarcophagus
 	var/closed_state = "wc_sarcophagus"
+	///Does this sarcophagus have a booby trap?
 	var/trapped = FALSE
+	///Has this sarcophagus's trap been triggered?
 	var/triggered = FALSE
 
 /obj/structure/closet/sarcophagus/update_icon()
@@ -169,6 +173,7 @@
 		if(trapped && !triggered)
 			do_trap_effect(H)
 
+///Sets off the sarcophagus's trap if not already triggered.
 /obj/structure/closet/sarcophagus/proc/do_trap_effect(var/mob/living/carbon/human/H)
 	if(triggered)
 		return

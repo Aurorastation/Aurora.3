@@ -5,6 +5,7 @@
 	icon_state = "bomb"
 	density = TRUE
 	anchored = FALSE
+	///Whether this nuke will explode if caught in an explosion.
 	var/can_explode = TRUE
 
 /obj/structure/undetonated_nuke/get_examine_text(mob/user, distance)
@@ -26,7 +27,8 @@
 		if(3.0)
 			return
 
-/obj/structure/undetonated_nuke/proc/explode() //Sets off a big conventional explosion from the trigger and scatters radioactive material, but doesn't do a full-on nuclear explosion because nukes are not video game explosive barrels.
+///Sets off a large conventional explosion from the trigger and spreads radioactive material. Does not set off a nuclear explosion.
+/obj/structure/undetonated_nuke/proc/explode()
 	var/turf/T = get_turf(src)
 	can_explode = FALSE
 	visible_message(SPAN_DANGER("\The [src] explodes!"))
@@ -47,13 +49,14 @@
 
 /obj/structure/undetonated_nuke/buried/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(istype(get_turf(src), /turf/simulated/floor/exoplanet))
-		var/turf/simulated/floor/exoplanet/T = get_turf(src)
+	var/turf/current_turf = get_turf(src)
+	if(istype(current_turf, /turf/simulated/floor/exoplanet))
+		var/turf/simulated/floor/exoplanet/T = current_turf
 		if(attacking_item.is_shovel() && T.diggable)
 			visible_message(SPAN_NOTICE("\The [user] begins to excavate \the [src]."))
 			if(attacking_item.use_tool(src, user, 100, volume = 50))
 				visible_message(SPAN_NOTICE("\The [user] finishes digging \the [src] from \the [T]!"))
 				new /obj/structure/pit(T)
-				var/obj/structure/undetonated_nuke/N = (T)
+				var/obj/structure/undetonated_nuke/N = new(T)
 				N.can_explode = can_explode
 				qdel(src)
