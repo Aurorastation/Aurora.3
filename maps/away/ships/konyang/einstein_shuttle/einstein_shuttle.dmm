@@ -100,7 +100,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "cW" = (
-/turf/space/transit/north,
+/turf/space,
 /area/space)
 "do" = (
 /obj/structure/sink{
@@ -211,7 +211,7 @@
 /turf/simulated/floor/carpet/brown,
 /area/shuttle/einstein_shuttle/main)
 "fW" = (
-/obj/effect/shuttle_landmark/ship/einstein_shuttle{
+/obj/effect/shuttle_landmark/einstein_shuttle/start{
 	dir = 1
 	},
 /turf/template_noop,
@@ -1322,6 +1322,10 @@
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/einstein_shuttle/helm)
+"FL" = (
+/obj/effect/overmap/visitable/sector/einstein_shuttle,
+/turf/template_noop,
+/area/space)
 "FT" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -1594,7 +1598,7 @@
 /area/shuttle/einstein_shuttle/conference)
 "Pp" = (
 /obj/effect/step_trigger/teleporter,
-/turf/space/transit/north,
+/turf/space,
 /area/space)
 "Pq" = (
 /obj/structure/bed,
@@ -1632,10 +1636,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/einstein_shuttle/starbeng)
 "Qi" = (
-/obj/effect/shuttle_landmark/einstein_shuttle_transit{
+/obj/effect/shuttle_landmark/einstein_shuttle/transit{
 	dir = 1
 	},
-/turf/space/transit/north,
+/turf/space,
 /area/space)
 "QI" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -6980,7 +6984,7 @@ NW
 NW
 NW
 NW
-NW
+FL
 NW
 fW
 Kx

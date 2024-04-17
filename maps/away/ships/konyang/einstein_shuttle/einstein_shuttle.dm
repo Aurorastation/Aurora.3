@@ -17,6 +17,14 @@
 	map = "Einstein Engines Shuttle"
 	descriptor = "An Einstein Engines transport shuttle."
 
+/obj/effect/overmap/visitable/sector/einstein_shuttle
+	name = "empty sector"
+	desc = "An empty sector."
+	icon_state = null //this away site only exists so the shuttle can spawn and doesn't need to be seen. Invisible var causes issues when used for this purpose.
+	initial_restricted_waypoints = list(
+		"Einstein Shuttle" = list("nav_start_einstein")
+	)
+
 //Areas
 /area/shuttle/einstein_shuttle
 	name = "Einstein Engines Transport Shuttle"
@@ -80,7 +88,6 @@
 	vessel_mass = 3000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
-	use_mapped_z_levels = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
@@ -98,10 +105,14 @@
 	logging_home_tag = "nav_start_einstein"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/ship/einstein_shuttle
+/obj/effect/shuttle_landmark/einstein_shuttle/start
+	name = "Empty Space"
 	landmark_tag = "nav_start_einstein"
+	base_area = /area/space
+	base_turf = /turf/space
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/einstein_shuttle_transit
+/obj/effect/shuttle_landmark/einstein_shuttle/transit
 	name = "In transit"
 	landmark_tag = "nav_transit_einstein"
 	base_turf = /turf/space/transit/north
