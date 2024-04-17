@@ -185,7 +185,7 @@
 
 	else if(prob(33))
 		visible_message(SPAN_DANGER("Flames engulf \the [H]!"))
-		H.adjustFireLoss(30)
+		H.apply_damage(30, DAMAGE_BURN)
 		H.IgniteMob(5)
 
 	else
