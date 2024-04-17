@@ -12,3 +12,5 @@
 /datum/game_mode/odyssey/pre_setup()
 	. = ..()
 	SSodyssey.pick_situation()
+	to_world(SPAN_NOTICE("The Situation picked for this round is: <b>[SSodyssey.situation.name]</b>."))
+	SSodyssey.situation.setup_situation()
