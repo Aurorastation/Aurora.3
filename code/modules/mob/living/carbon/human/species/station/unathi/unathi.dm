@@ -104,6 +104,8 @@
 		"Your scales bristle against the cold."
 		)
 
+	footsound = /singleton/sound_category/footstep_unathi_sound
+
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
 		BP_EYES =    /obj/item/organ/internal/eyes/unathi,
