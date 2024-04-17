@@ -115,12 +115,28 @@
 	if (alien & IS_SKRELL)
 		M.add_chemical_effect(CE_BLOODRESTORE, 3 * removed)
 
-/singleton/reagent/alcohol //Parent class for all alcoholic reagents, though this one shouldn't be used anywhere.
-	name = null	// This null name should prevent alcohol from being added to global lists.
+/**
+ * #Alcoholic Reagents
+ *
+ * Parent class for all alcoholic reagents, though this one shouldn't be used anywhere
+ */
+/singleton/reagent/alcohol
+	abstract_type = /singleton/reagent/alcohol
+	name = null
 	description = DESC_PARENT
 	reagent_state = LIQUID
 	color = "#404030"
 	ingest_met = REM * 5
+	fallback_specific_heat = 0.605
+	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
+
+	unaffected_species = IS_MACHINE
+
+	taste_description = "mistakes"
+
+	glass_icon_state = "glass_clear"
+	glass_name = "glass of coder fuckups"
+	glass_desc = "A glass of distilled maintainer tears."
 
 	var/hydration_factor = 1 //How much hydration to add per unit.
 	var/nutriment_factor = 0.5 //How much nutrition to add per unit.
@@ -134,18 +150,7 @@
 
 	var/flammability_divisor = 10
 
-	fallback_specific_heat = 0.605
-
 	var/distillation_point = T0C + 100
-	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
-
-	unaffected_species = IS_MACHINE
-
-	taste_description = "mistakes"
-
-	glass_icon_state = "glass_clear"
-	glass_name = "glass of coder fuckups"
-	glass_desc = "A glass of distilled maintainer tears."
 
 	var/blood_to_ingest_scale = 2
 
@@ -214,9 +219,25 @@
 		to_chat(usr, "<span class='notice'>The solution dissolves the ink on the book.</span>")
 	return
 
+/**
+ * # Ethanol
+ */
+/singleton/reagent/alcohol/ethanol
+	name = "Ethanol"
+	description = "A well-known alcohol with a variety of applications."
+	taste_description = "pure alcohol"
 
-// Butanol is a common alcohol that is fairly ineffective for humans and most other species, but highly intoxicating to unathi.
-// Most behavior is inherited from alcohol.
+	glass_name = "glass of ethanol"
+	glass_desc = "A well-known alcohol with a variety of applications."
+
+	distillation_point = T0C + 78.37
+
+/**
+ * # Butanol
+ *
+ * Butanol is a common alcohol that is fairly ineffective for humans and most other species, but highly intoxicating to unathi
+ *
+ */
 /singleton/reagent/alcohol/butanol
 	name = "Butanol"
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
