@@ -94,9 +94,6 @@ SUBSYSTEM_DEF(ghostroles)
 	if(!length(spawnpoints[identifier])) //If we have no spawnpoints for that identifier, return false
 		return null
 
-	// if(use)
-	// 	spawnpoints[identifier] = shuffle(spawnpoints[identifier])
-
 	for (var/spawnpoint in spawnpoints[identifier])
 		var/obj/effect/ghostspawpoint/P = spawnpoint
 		if(P.is_available())
