@@ -14,8 +14,8 @@
 	welcome_message = "\
 		You were part of an archeological expedition, hired by some independent scientist, to look for artifacts in a asteroid belt. \
 		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay. \
-		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, and spread it to others as well. \
-		You live and breathe for the Dark One, but your death must not be in vain. \
+		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, or be sacrificed if they refuse it. \
+		You live and die for the Dark One, but your death must not be in vain. \
 		"
 	welcome_message_ooc = "\
 		This is an antagonist role which places typical antagonist expectations on you. \
