@@ -649,21 +649,6 @@
 /obj/structure/sign/flag/traverse/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
-// CT-EUM
-
-/obj/item/flag/cteum
-	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
-	desc = "The flag of the CT-EUM."
-	flag_path = "cteum"
-	flag_structure = /obj/structure/sign/flag/cteum
-
-/obj/structure/sign/flag/cteum
-	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
-	desc = "The flag of the CT-EUM."
-	icon_state = "cteum"
-	flag_path = "cteum"
-	flag_item = /obj/item/flag/cteum
-
 // Nanotrasen.
 
 /obj/item/flag/nanotrasen
