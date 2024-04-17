@@ -229,7 +229,7 @@
 		if(contact_details)
 			data["contact_details"] = contact_details
 	else
-		data["id_status"] = "NOBEACON" //Should not really happen.
+		data["id_status"] = "MISSING"
 
 	return data
 
