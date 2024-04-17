@@ -120,6 +120,9 @@
 /turf/simulated/wall/shuttle/raider
 	color = "#6C7364"
 
+/turf/simulated/wall/shuttle/hapt
+	color = "#300808"
+
 /turf/simulated/wall/shuttle/legion
 	color = "#5F78A0"
 
