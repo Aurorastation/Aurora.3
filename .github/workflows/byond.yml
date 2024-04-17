@@ -24,7 +24,7 @@ env:
   FLYWAY_BUILD: ""
   SPACEMAN_DMM_VERSION: ""
   NODE_VERSION: ""
-  NODE_VERSION_PRECISE: ""
+  NODE_VERSION_LTS: ""
   PYTHON_VERSION: ""
 
   #If we want the runner to open an SSH shell for us to inspect it, fairly nieche, don't touch if you don't know what you're doing
@@ -99,7 +99,7 @@ jobs:
       # https://megalinter.io/latest/
       - name: Check EditorConfig Compliance
         id: ml
-        uses: oxsecurity/megalinter/flavors/python@v7.3.0
+        uses: oxsecurity/megalinter/flavors/python@v7.10.0
         # Env config options outlined in https://megalinter.io/configuration/
         env:
           PRINT_ALPACA: false
@@ -237,7 +237,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           cache-dependency-path: tgui/yarn.lock
-          node-version: ${{ env.NODE_VERSION_PRECISE }}
+          node-version: ${{ env.NODE_VERSION_LTS }}
           cache: 'yarn'
 
       #Lint TGUI
@@ -294,9 +294,14 @@ jobs:
         run: |
           tools/bootstrap/python -m dmi.test
 
-      - name: Check DMM-Test
+      - name: Run Map Checks
         run: |
           tools/bootstrap/python -m mapmerge2.dmm_test
+          tools/bootstrap/python -m tools.maplint.source
+
+      - name: Scan DMMs
+        run: |
+          tools/bootstrap/python -m dmm_scanner.scan_camera_ctags
 
 ###########################################
 ############## GENERIC TESTS ##############

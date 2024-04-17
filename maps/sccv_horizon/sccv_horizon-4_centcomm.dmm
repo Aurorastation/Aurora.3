@@ -686,7 +686,7 @@
 	pixel_y = 3
 	},
 /obj/item/pen,
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor,
 /area/centcom/control)
 "abY" = (
@@ -1398,7 +1398,7 @@
 	},
 /area/centcom/control)
 "adO" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
@@ -1411,7 +1411,7 @@
 	},
 /area/centcom/control)
 "adP" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/effect/floor_decal/corner/grey{
@@ -2330,7 +2330,7 @@
 	},
 /area/centcom/control)
 "afr" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/recharger,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -2490,7 +2490,7 @@
 	},
 /area/centcom/control)
 "afJ" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/machinery/light,
@@ -2499,7 +2499,7 @@
 	},
 /area/centcom/control)
 "afK" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/box/fancy/donut{
 	pixel_y = 3
 	},
@@ -3566,7 +3566,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "ahX" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
@@ -3579,7 +3579,7 @@
 	},
 /area/centcom/control)
 "ahY" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
@@ -3610,7 +3610,7 @@
 	},
 /area/centcom/control)
 "aib" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/box/fancy/donut,
 /obj/machinery/light{
 	dir = 4
@@ -3811,7 +3811,7 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/administration)
 "aiB" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
 	icon_state = "rub_carpet"
@@ -3911,7 +3911,7 @@
 	},
 /area/centcom/control)
 "aiK" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
 	pixel_x = 1;
 	pixel_y = 9
@@ -4119,7 +4119,7 @@
 	},
 /area/centcom/control)
 "ajj" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced/crescent,
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -4535,7 +4535,7 @@
 	},
 /area/centcom/specops)
 "akg" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/device/magnetic_lock,
 /obj/item/device/magnetic_lock,
 /obj/item/device/magnetic_lock,
@@ -4591,7 +4591,7 @@
 	},
 /area/centcom/control)
 "akj" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/card/id/captains_spare,
 /obj/machinery/light{
 	dir = 4
@@ -4704,7 +4704,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "aky" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
 	},
@@ -4723,7 +4723,7 @@
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
 "akz" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
 	},
@@ -4866,7 +4866,7 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/control)
 "akR" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/modular_computer/handheld/pda/command/captain,
 /turf/unsimulated/floor{
 	icon = 'icons/turf/flooring/carpet.dmi';
@@ -5195,12 +5195,14 @@
 	},
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "aly" = (
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "alz" = (
@@ -5211,7 +5213,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "alA" = (
@@ -5314,7 +5317,7 @@
 /turf/simulated/floor/tiled,
 /area/merchant_station)
 "alN" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/paleblue/diagonal{
 	dir = 8
 	},
@@ -5385,7 +5388,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "alX" = (
@@ -5396,7 +5400,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "alY" = (
@@ -5603,7 +5608,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "amt" = (
@@ -5614,7 +5620,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "amu" = (
@@ -5622,7 +5629,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "amv" = (
@@ -5633,7 +5641,8 @@
 	pixel_y = 10
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "amw" = (
@@ -5644,7 +5653,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "amx" = (
@@ -5658,7 +5668,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "amy" = (
@@ -5850,13 +5861,15 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "and" = (
 /obj/structure/table/reinforced/wood,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "ane" = (
@@ -5864,7 +5877,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "anf" = (
@@ -6039,13 +6053,15 @@
 	pixel_y = 19
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "anJ" = (
 /obj/structure/bed/stool/padded/beige,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "anK" = (
@@ -6055,7 +6071,8 @@
 	},
 /obj/structure/bed/stool/padded/beige,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "anL" = (
@@ -6064,7 +6081,8 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "anM" = (
@@ -6076,7 +6094,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "anN" = (
@@ -6084,7 +6103,8 @@
 	pixel_x = -1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "anO" = (
@@ -6351,7 +6371,8 @@
 	pixel_y = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "aoH" = (
@@ -6361,7 +6382,8 @@
 	pixel_y = 23
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aoI" = (
@@ -6369,7 +6391,8 @@
 	pixel_y = 30
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aoJ" = (
@@ -6623,7 +6646,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "apI" = (
@@ -6632,7 +6656,8 @@
 	},
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "apJ" = (
@@ -6640,7 +6665,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "apK" = (
@@ -6648,7 +6674,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "apL" = (
@@ -6656,7 +6683,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "apM" = (
@@ -6668,7 +6696,8 @@
 	table_reinf = "glass"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "apN" = (
@@ -6676,7 +6705,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqb" = (
@@ -6845,7 +6875,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqz" = (
@@ -6858,7 +6889,8 @@
 	table_reinf = "glass"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqA" = (
@@ -6870,7 +6902,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqB" = (
@@ -6883,7 +6916,8 @@
 	pixel_y = -1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqC" = (
@@ -6895,7 +6929,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqD" = (
@@ -6911,7 +6946,8 @@
 	table_reinf = "glass"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqE" = (
@@ -6928,7 +6964,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/evac)
 "aqQ" = (
@@ -7074,7 +7111,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "arm" = (
@@ -7393,14 +7431,16 @@
 	},
 /obj/machinery/light,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "ash" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/deck/cards,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "asi" = (
@@ -7411,7 +7451,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/bar)
 "asj" = (
@@ -7787,7 +7828,7 @@
 	},
 /area/centcom/evac)
 "atA" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /turf/simulated/floor/carpet/cyan,
@@ -8181,7 +8222,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/evac)
 "auz" = (
@@ -8189,7 +8230,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/evac)
 "auA" = (
@@ -8203,7 +8244,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/evac)
 "auB" = (
@@ -8538,11 +8579,6 @@
 	dir = 4
 	},
 /turf/unsimulated/floor,
-/area/centcom/evac)
-"avC" = (
-/turf/unsimulated/floor{
-	icon_state = "wood_preview"
-	},
 /area/centcom/evac)
 "avD" = (
 /obj/structure/window/reinforced/crescent{
@@ -9107,12 +9143,14 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/holding)
 "awG" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/holding)
 "awH" = (
@@ -9126,7 +9164,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/holding)
 "awI" = (
@@ -9156,7 +9195,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/fore)
 "awL" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/brigdoor/northright{
 	name = "checkpoint";
 	req_access = list(101)
@@ -9244,7 +9283,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -9323,7 +9362,7 @@
 /area/shuttle/transport1)
 "axj" = (
 /obj/machinery/light,
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
 	dir = 8
 	},
@@ -9565,11 +9604,12 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/holding)
 "axJ" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "CentComArrivalsForeInt";
@@ -9591,7 +9631,7 @@
 	},
 /area/centcom/checkpoint/fore)
 "axL" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 4;
 	id = "CentComArrivalsForeExt";
@@ -10766,7 +10806,7 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/holding)
 "aAY" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/structure/window/reinforced/crescent{
@@ -10783,7 +10823,7 @@
 	},
 /area/centcom/holding)
 "aAZ" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/structure/window/reinforced/crescent{
@@ -10905,7 +10945,7 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/checkpoint/aft)
 "aBj" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
 	id = "CentComArrivalsAftInt";
@@ -10932,7 +10972,7 @@
 	},
 /area/centcom/checkpoint/aft)
 "aBl" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
 	id = "CentComArrivalsAftExt";
@@ -11481,7 +11521,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/aft)
 "aCb" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "checkpoint";
 	req_access = list(101)
@@ -11614,7 +11654,7 @@
 	},
 /area/centcom/specops)
 "aCA" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /obj/effect/floor_decal/corner/blue{
@@ -11768,7 +11808,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/evac)
 "aCO" = (
@@ -11782,7 +11822,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/evac)
 "aCP" = (
@@ -11810,14 +11850,16 @@
 	},
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDa" = (
 /obj/structure/table/rack,
 /obj/item/rig/ert,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDb" = (
@@ -11826,7 +11868,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDc" = (
@@ -11841,7 +11884,8 @@
 	},
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDd" = (
@@ -11849,13 +11893,15 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDe" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDf" = (
@@ -11958,7 +12004,7 @@
 	},
 /area/centcom/specops)
 "aDn" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
 	},
@@ -12071,7 +12117,7 @@
 "aDy" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/evac)
 "aDJ" = (
@@ -12091,7 +12137,8 @@
 	},
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDK" = (
@@ -12105,7 +12152,8 @@
 	},
 /obj/structure/table/wood,
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aDL" = (
@@ -12256,7 +12304,8 @@
 	pixel_y = 2
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aEm" = (
@@ -12278,7 +12327,8 @@
 	name = "spare modules"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/centcom/specops)
 "aEn" = (
@@ -13258,7 +13308,7 @@
 	},
 /area/centcom/holding)
 "aHa" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -13300,13 +13350,13 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/holding)
 "aHf" = (
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/holding)
 "aHg" = (
@@ -13314,7 +13364,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/holding)
 "aHh" = (
@@ -13322,7 +13372,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/holding)
 "aHi" = (
@@ -13333,7 +13383,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/holding)
 "aHj" = (
@@ -13718,7 +13768,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
 "aIG" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/random/contraband,
 /turf/unsimulated/floor/plating,
 /area/centcom/holding)
@@ -13782,7 +13832,8 @@
 "aIY" = (
 /obj/structure/bed/stool/chair/padded/blue,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#792f27"
 	},
 /area/centcom/ferry)
 "aIZ" = (
@@ -13794,7 +13845,8 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#792f27"
 	},
 /area/centcom/ferry)
 "aJa" = (
@@ -13951,7 +14003,8 @@
 /area/centcom/ferry)
 "aJz" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#792f27"
 	},
 /area/centcom/ferry)
 "aJB" = (
@@ -14008,7 +14061,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
@@ -14039,7 +14092,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -14165,7 +14218,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#792f27"
 	},
 /area/centcom/ferry)
 "aKh" = (
@@ -14193,7 +14247,7 @@
 	},
 /area/centcom/holding)
 "aKl" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/red{
 	dir = 6
 	},
@@ -14206,7 +14260,7 @@
 	},
 /area/centcom/holding)
 "aKm" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/corner/lime{
 	dir = 9
 	},
@@ -14319,7 +14373,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "aKO" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
@@ -14337,7 +14391,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "aKP" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/brigdoor/westright{
 	dir = 1;
 	name = "checkpoint desk";
@@ -14346,7 +14400,7 @@
 /turf/unsimulated/floor,
 /area/centcom/ferry)
 "aKQ" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
@@ -14371,7 +14425,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -14383,7 +14437,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -14545,7 +14599,7 @@
 	dir = 9
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/ferry)
 "aLy" = (
@@ -14570,7 +14624,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/ferry)
 "aLz" = (
@@ -15350,9 +15404,7 @@
 /area/centcom/spawning)
 "aNQ" = (
 /turf/unsimulated/wall/steel,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "aNR" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/suppy)
@@ -15487,9 +15539,7 @@
 /area/centcom/spawning)
 "aOg" = (
 /turf/unsimulated/floor,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "aOi" = (
 /turf/unsimulated/floor/plating,
 /area/centcom/suppy)
@@ -15515,7 +15565,7 @@
 	},
 /area/tdome/tdomeobserve)
 "aOm" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/random/tool,
 /obj/random/toolbox,
 /turf/unsimulated/floor/plating,
@@ -15524,7 +15574,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/random/tool,
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
@@ -15588,12 +15638,12 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/spawning)
 "aOv" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/spawning)
 "aOw" = (
@@ -15607,7 +15657,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/spawning)
 "aOx" = (
@@ -15621,7 +15671,7 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/spawning)
 "aOy" = (
@@ -15726,7 +15776,7 @@
 	name = "Blast Shutters";
 	opacity = 0
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
 	layer = 3;
 	pixel_x = -3;
@@ -15750,7 +15800,7 @@
 /obj/machinery/door/window/brigdoor/northright{
 	req_access = list(103)
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 8;
 	id = "arrivals_inner";
@@ -15783,7 +15833,7 @@
 /obj/structure/window/reinforced/crescent{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
 	pixel_x = 6;
 	pixel_y = 4
@@ -16368,7 +16418,7 @@
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "aQt" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/random/tech_supply,
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
@@ -16623,9 +16673,7 @@
 	name = "start"
 	},
 /turf/unsimulated/floor,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "aQY" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
@@ -17185,7 +17233,7 @@
 	},
 /obj/item/flag/biesel,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aSR" = (
@@ -17235,7 +17283,7 @@
 	name = "adjusted light fixture"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aSV" = (
@@ -17352,7 +17400,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aTc" = (
@@ -17529,7 +17577,7 @@
 /area/centcom/legion)
 "aTr" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aTs" = (
@@ -17601,7 +17649,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aTz" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/device/multitool,
 /obj/structure/fireaxecabinet/west,
 /turf/unsimulated/floor,
@@ -17641,7 +17689,7 @@
 /obj/item/clothing/under/legion,
 /obj/item/clothing/under/legion,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aTH" = (
@@ -17650,13 +17698,13 @@
 	name = "igs - TCFLSentinel"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aTI" = (
 /mob/living/heavy_vehicle/premade/combatripley,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aTJ" = (
@@ -17665,7 +17713,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aTK" = (
@@ -17733,7 +17781,7 @@
 	dir = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aTR" = (
@@ -17756,7 +17804,7 @@
 	pixel_x = -5;
 	pixel_y = -8
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aTU" = (
@@ -17769,13 +17817,14 @@
 /area/centcom/legion/hangar5)
 "aTV" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
-/area/centcom/legion)
+/area/centcom/evac)
 "aTW" = (
 /obj/machinery/washing_machine,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aTX" = (
@@ -17790,13 +17839,13 @@
 "aUa" = (
 /obj/machinery/computer/shuttle_control/multi/legion,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aUb" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aUc" = (
@@ -17807,7 +17856,7 @@
 	poster_type = "/datum/poster/bay_68"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aUd" = (
@@ -17829,7 +17878,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "aUf" = (
@@ -17894,9 +17943,9 @@
 /area/centcom/legion)
 "aUo" = (
 /obj/item/device/flashlight/lamp,
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aUp" = (
@@ -17904,13 +17953,13 @@
 /obj/item/handcuffs/ziptie,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aUq" = (
 /obj/effect/decal/cleanable/blood/drip,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aUr" = (
@@ -17973,7 +18022,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aUx" = (
@@ -18158,19 +18207,19 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aUP" = (
 /obj/structure/bedsheetbin{
 	pixel_y = 4
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/material/twohanded/pike/flag{
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aUQ" = (
@@ -18221,7 +18270,7 @@
 	req_access = list(108,111)
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "aUX" = (
@@ -18337,7 +18386,7 @@
 "aVk" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "aVl" = (
@@ -18765,7 +18814,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "aWk" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor{
 	icon_state = "wood"
 	},
@@ -19023,7 +19072,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/legion)
 "aWN" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
@@ -19045,7 +19094,7 @@
 	},
 /area/centcom/legion)
 "aWO" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/door/window/brigdoor/southleft{
 	name = "Checkpoint";
@@ -19069,7 +19118,7 @@
 	},
 /area/centcom/legion)
 "aWP" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
@@ -21702,13 +21751,15 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bcL" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bcM" = (
@@ -21724,7 +21775,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bcN" = (
@@ -21746,7 +21798,8 @@
 	},
 /obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bcO" = (
@@ -21759,7 +21812,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bcP" = (
@@ -21775,13 +21829,15 @@
 	pixel_y = -13
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bcQ" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bcR" = (
@@ -21850,7 +21906,7 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "bcT" = (
@@ -21881,7 +21937,7 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "bcU" = (
@@ -21898,7 +21954,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "bcV" = (
@@ -21913,7 +21969,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion)
 "bcW" = (
@@ -22123,7 +22179,7 @@
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lamp,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bdi" = (
@@ -22138,7 +22194,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bdj" = (
@@ -22414,12 +22470,14 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bdL" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bdM" = (
@@ -22430,7 +22488,8 @@
 /obj/item/spacecash/c1,
 /obj/item/clothing/mask/gas/vaurca/filter,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bdN" = (
@@ -22441,7 +22500,8 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bdO" = (
@@ -22451,7 +22511,8 @@
 /obj/structure/bed,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bdP" = (
@@ -22518,7 +22579,7 @@
 	},
 /obj/structure/table/standard,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bdX" = (
@@ -22530,7 +22591,7 @@
 	name = "igs - TCFLERT - Prefect"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bdY" = (
@@ -22626,7 +22687,7 @@
 /obj/item/gun/energy/blaster{
 	pixel_y = -10
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bee" = (
@@ -22691,7 +22752,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "ber" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 6
 	},
@@ -22711,7 +22772,8 @@
 /obj/structure/table/standard,
 /obj/item/device/paicard,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "beu" = (
@@ -22723,14 +22785,16 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bev" = (
 /obj/structure/table/standard,
 /obj/item/modular_computer/handheld/pda/syndicate,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bew" = (
@@ -22806,14 +22870,16 @@
 	table_reinf = "wood"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "beK" = (
 /obj/structure/bed,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "beL" = (
@@ -22891,7 +22957,7 @@
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "beS" = (
@@ -22919,7 +22985,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "beU" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/firstaid/regular{
 	pixel_x = 5;
 	pixel_y = 4
@@ -22966,7 +23032,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "beX" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/gun/energy/blaster/carbine{
 	pixel_y = 10
 	},
@@ -23048,7 +23114,7 @@
 /turf/unsimulated/floor,
 /area/antag/jockey)
 "bfn" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/box/drinkingglasses,
 /obj/item/material/kitchen/utensil/knife,
 /turf/unsimulated/floor,
@@ -23061,12 +23127,14 @@
 	name = "Nuclear-Bomb"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bfp" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bfq" = (
@@ -23077,7 +23145,8 @@
 	anchored = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bfr" = (
@@ -23174,7 +23243,8 @@
 	pixel_y = 5
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bfF" = (
@@ -23188,7 +23258,8 @@
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bfG" = (
@@ -23251,7 +23322,7 @@
 	icon_state = "plant-04"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bfL" = (
@@ -23269,11 +23340,11 @@
 	pixel_y = -2
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bfM" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/hypospray{
 	pixel_x = -8
 	},
@@ -23286,7 +23357,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bfN" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/firstaid/adv{
 	pixel_x = 5;
 	pixel_y = 12
@@ -23365,7 +23436,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bfP" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/gun/energy/blaster/rifle{
 	pixel_y = 15
 	},
@@ -23458,7 +23529,7 @@
 	slots = 5
 	},
 /obj/item/device/binoculars,
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bgc" = (
@@ -23480,7 +23551,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "bge" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -23491,7 +23562,8 @@
 /obj/structure/bed,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bgg" = (
@@ -23499,7 +23571,8 @@
 	name = "Syndicate-Spawn"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bgh" = (
@@ -23507,7 +23580,8 @@
 /obj/item/toy/figure/syndie,
 /obj/item/bedsheet/syndie,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "bgi" = (
@@ -23722,7 +23796,7 @@
 	},
 /obj/item/gun/energy/blaster/revolver,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bgB" = (
@@ -23732,7 +23806,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bgC" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/firstaid/fire{
 	pixel_x = 2;
 	pixel_y = 6
@@ -23775,7 +23849,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bgE" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/gun/projectile/gauss{
 	pixel_y = 16
 	},
@@ -23998,7 +24072,7 @@
 /obj/item/rig/retro/equipped,
 /obj/item/clothing/accessory/legion,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bhn" = (
@@ -24012,11 +24086,11 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bhp" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bhq" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/pill_bottle/kelotane{
 	pixel_y = 12
 	},
@@ -24342,7 +24416,7 @@
 "bhW" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bhX" = (
@@ -24362,14 +24436,14 @@
 /obj/item/storage/box/tcaf_pamphlet,
 /obj/item/material/twohanded/pike/flag,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/centcom/legion/hangar5)
 "bhY" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/box/syringes{
 	pixel_x = -4;
 	pixel_y = -4
@@ -24389,7 +24463,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bhZ" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/glass/beaker/large{
 	pixel_x = -4
 	},
@@ -24399,7 +24473,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bia" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/reagent_containers/glass/bottle/inaprovaline{
 	pixel_x = 8;
 	pixel_y = 10
@@ -24448,7 +24522,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bid" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/box/bodybags{
 	pixel_x = 6;
 	pixel_y = 8
@@ -24461,7 +24535,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bie" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -24724,13 +24798,14 @@
 	name = "Bedroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/antag/mercenary)
 "biC" = (
 /obj/machinery/light,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "biD" = (
@@ -24738,7 +24813,8 @@
 /obj/machinery/light,
 /obj/random/coin,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/mercenary)
 "biE" = (
@@ -24879,7 +24955,7 @@
 	name = "Washroom"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood"
 	},
 /area/antag/mercenary)
 "bjj" = (
@@ -25069,7 +25145,7 @@
 /turf/unsimulated/wall/fakeairlock,
 /area/antag/raider)
 "bjF" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen{
 	pixel_y = 4
@@ -25085,7 +25161,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjG" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/newscaster/north{
 	name = "hacked newscaster"
 	},
@@ -25127,7 +25203,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjK" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -25146,7 +25222,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bjL" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/firstaid/o2,
 /obj/machinery/light{
 	dir = 4
@@ -25361,13 +25437,13 @@
 /turf/unsimulated/wall/riveted,
 /area/centcom/distress_prep)
 "bkq" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/device/camera_film,
 /obj/item/device/camera,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bkr" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/airbubble/syndie{
 	pixel_y = 4
 	},
@@ -25714,7 +25790,6 @@
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
 "blu" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/item/ore,
 /turf/unsimulated/floor/plating,
 /area/antag/raider)
@@ -25870,9 +25945,11 @@
 /turf/space/dynamic,
 /area/antag/raider)
 "blT" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/unsimulated/floor/plating,
-/area/antag/raider)
+/turf/unsimulated/floor{
+	icon_state = "wood";
+	color = "#8f5847"
+	},
+/area/centcom/specops)
 "blU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/indestructible,
 /turf/unsimulated/floor/plating,
@@ -26010,7 +26087,7 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/distress_prep)
 "bmm" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -26021,7 +26098,7 @@
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/mercenary)
 "bmn" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/pinpointer/nukeop,
 /obj/machinery/light{
 	dir = 4
@@ -26527,7 +26604,8 @@
 	opacity = 0
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/burglar)
 "bnI" = (
@@ -26999,13 +27077,15 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bov" = (
 /obj/machinery/computer/slot_machine,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bow" = (
@@ -27377,19 +27457,22 @@
 	name = "old chair"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bpm" = (
 /obj/random/pottedplant,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bpo" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bpp" = (
@@ -27398,7 +27481,8 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bpq" = (
@@ -27407,7 +27491,8 @@
 	prices = list()
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bpr" = (
@@ -27717,7 +27802,8 @@
 /area/antag/raider)
 "bqb" = (
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bqc" = (
@@ -27906,7 +27992,7 @@
 	pixel_x = 3;
 	pixel_y = 4
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop"
@@ -28261,7 +28347,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "brk" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop"
@@ -28431,9 +28517,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/emergency,
-/turf/unsimulated/floor{
-	icon_state = "panelscorched"
-	},
+/turf/unsimulated/floor/plating,
 /area/antag/raider)
 "brB" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -28464,14 +28548,16 @@
 	dir = 8
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "brF" = (
 /obj/structure/table/wood,
 /obj/random/coin,
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "brG" = (
@@ -28482,7 +28568,8 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "brH" = (
@@ -28531,7 +28618,8 @@
 	name = "raiderstart"
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "brL" = (
@@ -28541,7 +28629,8 @@
 	pixel_y = 6
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "brM" = (
@@ -28552,7 +28641,8 @@
 	dir = 4
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "brO" = (
@@ -28726,7 +28816,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "bse" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
 	id = "mercworkshop"
@@ -28937,7 +29027,8 @@
 	pixel_y = -6
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bsB" = (
@@ -28953,11 +29044,11 @@
 "bsC" = (
 /obj/machinery/vending/cigarette{
 	name = "hacked cigarette machine";
-	pixel_x = 5;
 	prices = null
 	},
 /turf/unsimulated/floor{
-	icon_state = "wood_preview"
+	icon_state = "wood";
+	color = "#8f5847"
 	},
 /area/antag/raider)
 "bsD" = (
@@ -29045,7 +29136,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/recharger,
 /obj/machinery/door/blast/shutters/open{
 	dir = 4;
@@ -35201,9 +35292,7 @@
 "cst" = (
 /obj/effect/landmark/lobby_mobs_location,
 /turf/unsimulated/floor,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "cvH" = (
 /obj/effect/decal{
 	anchored = 1;
@@ -35552,7 +35641,7 @@
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_battlemonsters)
 "dNo" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/secure/briefcase,
 /obj/machinery/light{
 	dir = 1
@@ -40169,7 +40258,7 @@
 /turf/simulated/floor/carpet,
 /area/antag/jockey)
 "uEo" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
 	dir = 10;
 	id = "merchant_bridge";
@@ -40822,7 +40911,7 @@
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
 "wWR" = (
-/obj/structure/table/reinforced,
+/obj/structure/table/reinforced/steel,
 /obj/item/storage/wallet/random,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -49918,8 +50007,8 @@ abJ
 aBB
 anE
 aDa
-ayB
-ayB
+blT
+blT
 aFb
 aFG
 aFG
@@ -50175,8 +50264,8 @@ abJ
 aBC
 abl
 aDb
-ayB
-ayB
+blT
+blT
 abl
 aaa
 aao
@@ -50433,7 +50522,7 @@ aBD
 abl
 aDc
 aDK
-ayB
+blT
 abl
 aao
 aao
@@ -50689,8 +50778,8 @@ abJ
 aBE
 anE
 aDd
-ayB
-ayB
+blT
+blT
 anE
 aaa
 aaa
@@ -50946,7 +51035,7 @@ aAJ
 aBF
 anE
 aDe
-ayB
+blT
 aEm
 anE
 aaa
@@ -63522,9 +63611,9 @@ ahL
 amA
 adV
 anL
-aoJ
-aoJ
-aoJ
+aTV
+aTV
+aTV
 aro
 ask
 amF
@@ -63779,8 +63868,8 @@ ahL
 amB
 adV
 anM
-aoJ
-aoJ
+aTV
+aTV
 aqB
 aro
 asl
@@ -64036,9 +64125,9 @@ akp
 amC
 adV
 anN
-aoJ
-aoJ
-aoJ
+aTV
+aTV
+aTV
 aro
 asl
 ats
@@ -64300,7 +64389,7 @@ aro
 asl
 ats
 auz
-avC
+aoJ
 awQ
 axN
 ayO
@@ -64308,7 +64397,7 @@ azU
 awQ
 axN
 ayO
-avC
+aoJ
 aDy
 aDX
 aEL
@@ -92335,9 +92424,9 @@ aSu
 aTp
 aTG
 aTH
-aTV
-aTV
-aTV
+aVN
+aVN
+aVN
 aVJ
 aWd
 aWH
@@ -92591,7 +92680,7 @@ aaa
 aSu
 aTq
 aTH
-aTV
+aVN
 aUo
 aUO
 aVk
@@ -92848,10 +92937,10 @@ aaa
 aSu
 aTq
 aTH
-aTV
+aVN
 aUp
-aTV
-aTV
+aVN
+aVN
 aTp
 aWe
 aWe
@@ -93107,8 +93196,8 @@ aTq
 aTI
 aTH
 aUq
-aTV
-aTV
+aVN
+aVN
 aTp
 aWe
 aWI
@@ -97942,7 +98031,7 @@ bjx
 bbv
 bkI
 bny
-blT
+btj
 bmA
 bnv
 bos

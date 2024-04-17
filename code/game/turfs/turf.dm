@@ -2,6 +2,8 @@
 	icon = 'icons/turf/floors.dmi'
 	level = 1
 
+	layer = TURF_LAYER
+
 	var/turf_flags
 	var/holy = 0
 
@@ -323,8 +325,8 @@ var/const/enterloopsanity = 100
 	tracks.add_tracks(footprint_DNA, comingdir, goingdir, footprint_color)
 
 /atom/movable/proc/proximity_callback(atom/movable/AM)
-	set waitfor = FALSE
-	sleep(0)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	HasProximity(AM, TRUE)
 	if (!QDELETED(AM) && !QDELETED(src) && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 		AM.HasProximity(src, TRUE)

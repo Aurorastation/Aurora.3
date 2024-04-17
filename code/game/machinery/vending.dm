@@ -45,11 +45,12 @@
 	desc = "A generic vending machine."
 	icon = 'icons/obj/vending.dmi'
 	icon_state = "generic"
-	layer = 2.99
+	layer = STRUCTURE_LAYER
 	anchored = 1
 	density = 1
 	clicksound = /singleton/sound_category/button_sound
 	manufacturer = "idris"
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/icon_vend //Icon_state when vending
 	var/deny_time // How long the physical icon state lasts, used cut the deny overlay

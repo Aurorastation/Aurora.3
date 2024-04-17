@@ -27,7 +27,6 @@ var/list/mineral_can_smooth_with = list(
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
-	layer = ON_TURF_LAYER
 	color = "#6e632f"
 
 	// canSmoothWith is set in Initialize().
@@ -530,8 +529,7 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	color = "#97A7AA"
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/high_chance
@@ -565,8 +563,6 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/high_chance/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
@@ -618,12 +614,13 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt
+
+/turf/simulated/mineral/lava
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /**********************Asteroid**************************/

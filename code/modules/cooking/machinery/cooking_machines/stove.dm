@@ -6,14 +6,14 @@
 	appliancetype = SKILLET | SAUCEPAN | POT
 	food_color = "#a34719"
 	can_burn_food = TRUE
-	active_power_usage = 6 KILOWATTS
+	active_power_usage = 6 KILO WATTS
 	heating_power = 6000
 	on_icon = "stove"
 	off_icon = "stove"
 	place_verb = "onto"
 
 	resistance = 5000 // Approx. 2 minutes.
-	idle_power_usage = 1 KILOWATTS
+	idle_power_usage = 1 KILO WATTS
 	//uses ~30% power to stay warm
 	optimal_temp = T0C + 100 // can boil water!
 	optimal_power = 1.2

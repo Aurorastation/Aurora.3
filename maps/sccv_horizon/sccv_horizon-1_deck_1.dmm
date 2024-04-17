@@ -119,6 +119,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/hangar/intrepid)
+"adE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "adX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -500,7 +509,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "mining_1";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -658,7 +666,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "1,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -907,7 +914,6 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "aKo" = (
@@ -1017,8 +1023,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/closet/walllocker/firecloset{
+	pixel_x = -32
+	},
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -1196,7 +1203,6 @@
 "aUC" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -1307,11 +1313,8 @@
 /turf/simulated/wall,
 /area/hangar/control)
 "aWZ" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/turf/simulated/wall/r_wall,
+/area/rnd/xenoarch_storage)
 "aXe" = (
 /obj/structure/tank_wall{
 	icon_state = "m-4"
@@ -1518,7 +1521,6 @@
 "beF" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/storage/toolbox/electrical,
 /obj/item/storage/toolbox,
@@ -1595,7 +1597,6 @@
 	},
 /obj/structure/window/shuttle/unique/scc/tall{
 	icon_state = "short1_top";
-	layer = 3
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/quarters)
@@ -1625,12 +1626,10 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "bkV" = (
-/obj/effect/floor_decal/corner/purple{
-	dir = 5
-	},
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "bli" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1738,11 +1737,12 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "bpb" = (
-/obj/effect/floor_decal/corner/purple{
-	dir = 5
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenoarchaeology Suits";
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "bpl" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass,
@@ -2034,7 +2034,6 @@
 	alarm_id = 1501;
 	breach_detection = 0;
 	dir = 4;
-	layer = 4;
 	name = "Isolation A";
 	pixel_x = -24;
 	rcon_setting = 3;
@@ -2099,7 +2098,6 @@
 	},
 /obj/structure/sign/emergency/evacuation{
 	dir = 4;
-	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
@@ -2342,7 +2340,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -2500,7 +2497,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_2";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
@@ -2514,7 +2510,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Phoron to Burn Mix"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2561,8 +2556,7 @@
 	dir = 10
 	},
 /obj/random/pottedplant_small{
-	pixel_x = -12;
-	pixel_y = 0
+	pixel_x = -12
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
@@ -2678,11 +2672,19 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "bRr" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/floor_decal/corner_wide/purple/diagonal,
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
 /obj/machinery/firealarm/west,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/obj/machinery/requests_console/west{
+	department = "Telescience Lab";
+	departmentType = 2;
+	name = "Telescience Requests Console";
+	pixel_y = -28
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "bRU" = (
 /obj/machinery/light{
 	dir = 1
@@ -2769,7 +2771,6 @@
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -2958,7 +2959,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -3441,17 +3441,14 @@
 /area/engineering/atmos/propulsion)
 "cvz" = (
 /obj/machinery/computer/ship/helm/cockpit{
-	layer = 3.1;
 	pixel_y = -18
 	},
 /obj/machinery/light/spot,
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/shuttle_control/explore/canary{
-	layer = 3;
 	pixel_x = 25
 	},
 /obj/machinery/computer/ship/sensors/cockpit{
-	layer = 3;
 	pixel_x = -25
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -3553,7 +3550,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	opacity = 1;
 	outside_part = 0
 	},
@@ -3646,12 +3642,6 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Xenoarchaeology 3";
 	dir = 4
@@ -3660,6 +3650,12 @@
 	department = "Xenoarchaeology";
 	departmentType = 2;
 	name = "Xenoarchaeology Requests Console"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -3792,7 +3788,7 @@
 /area/rnd/test_range)
 "cFo" = (
 /obj/effect/floor_decal/industrial/warning,
-/obj/item/material/shard,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/port/deck1)
 "cGd" = (
@@ -3863,13 +3859,15 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "cIY" = (
-/obj/structure/anomaly_container,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/effect/floor_decal/corner_wide/purple/diagonal,
+/obj/machinery/computer/telescience{
+	starting_crystals = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "cJx" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "6,8"
@@ -3957,9 +3955,10 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "cLC" = (
-/obj/machinery/space_heater,
+/obj/structure/window/reinforced,
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "cLQ" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
@@ -4299,15 +4298,12 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
 /obj/structure/platform_deco,
 /obj/structure/cable/green{
-	icon_state = "1-8"
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -4423,6 +4419,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "dbS" = (
@@ -4438,10 +4436,13 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "dcs" = (
-/obj/machinery/washing_machine,
-/obj/machinery/alarm/north,
+/obj/structure/table/reinforced/steel,
+/obj/machinery/power/apc/north,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "ddJ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -4527,14 +4528,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "dgW" = (
-/obj/effect/floor_decal/corner/purple{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/gloves,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "dhi" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -4593,7 +4597,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -4678,7 +4681,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -4944,7 +4946,6 @@
 "dsT" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner_wide/blue/full,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5592,7 +5593,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "4,11";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5778,7 +5778,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -5846,7 +5845,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
@@ -5891,8 +5889,6 @@
 	dir = 9
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "edO" = (
@@ -6120,25 +6116,12 @@
 /turf/simulated/floor/reinforced,
 /area/rnd/test_range)
 "eog" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
-/obj/item/tank/oxygen,
-/obj/item/clothing/head/hazmat/anomaly,
-/obj/machinery/door/window/southleft{
-	name = "Anomaly Suit";
-	req_access = list(65)
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/structure/window/reinforced{
+/obj/machinery/suspension_gen,
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "epb" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "7,7"
@@ -6271,6 +6254,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "esK" = (
@@ -6341,7 +6327,6 @@
 	},
 /obj/structure/window/shuttle/unique/scc/tall{
 	icon_state = "short2_top";
-	layer = 3
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
@@ -6780,7 +6765,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -6841,6 +6825,7 @@
 /obj/structure/table/standard{
 	no_cargo = 1
 	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "eKl" = (
@@ -6895,7 +6880,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -6958,6 +6942,7 @@
 /obj/structure/table/standard{
 	no_cargo = 1
 	},
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "eOk" = (
@@ -7203,25 +7188,10 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "eWA" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
-/obj/item/tank/oxygen,
-/obj/item/clothing/head/hazmat/anomaly,
-/obj/machinery/door/window/southleft{
-	name = "Anomaly Suit";
-	req_access = list(65)
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/storage/box/gloves,
+/obj/structure/dispenser,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "eWB" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "11,17"
@@ -7321,7 +7291,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/stock_parts/matter_bin{
 	pixel_y = 8
@@ -7490,6 +7459,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
+"fdr" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "fdA" = (
 /obj/structure/tank_wall{
 	icon_state = "m-2"
@@ -8003,13 +7981,14 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
 "fuU" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/light/small{
-	dir = 8
+/obj/structure/table/rack,
+/obj/item/tank/oxygen,
+/obj/effect/floor_decal/corner_wide/purple/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "fvn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -8477,7 +8456,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -8665,7 +8643,6 @@
 "fTm" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Oxidizer to Burn Mix"
 	},
 /obj/effect/floor_decal/corner_wide/black{
@@ -8949,11 +8926,9 @@
 /area/shuttle/mining)
 "fZQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	layer = 2.8
 	},
 /obj/machinery/access_button{
 	dir = 4;
-	layer = 3.1;
 	pixel_x = -22;
 	pixel_y = 2
 	},
@@ -9063,7 +9038,6 @@
 /obj/structure/grille,
 /obj/machinery/door/firedoor,
 /obj/structure/stairs_lower/stairs_upper{
-	layer = 3
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
@@ -9071,7 +9045,6 @@
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -9173,7 +9146,6 @@
 	alarm_id = 1502;
 	breach_detection = 0;
 	dir = 4;
-	layer = 4;
 	name = "Isolation B";
 	pixel_x = -24;
 	rcon_setting = 3;
@@ -9291,7 +9263,6 @@
 /obj/structure/railing/mapped,
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
-	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/operations)
@@ -9471,15 +9442,22 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "gsc" = (
-/obj/machinery/door/window/southleft{
-	name = "Artifact Storage";
-	req_access = list(47)
+/obj/machinery/door/airlock/glass_research{
+	dir = 1;
+	name = "Telescience";
+	req_access = list(7)
 	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/telesci)
 "gsd" = (
 /obj/machinery/light{
 	dir = 4
@@ -10150,6 +10128,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"gQg" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/telesci)
 "gQh" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -10761,7 +10748,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "7,11";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -10887,23 +10873,9 @@
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hqE" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/research{
-	dir = 4;
-	name = "Supplies Storage";
-	req_access = list(65)
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "hqH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -10955,7 +10927,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -11028,7 +10999,6 @@
 "hwy" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
@@ -11091,7 +11061,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
@@ -11100,11 +11069,8 @@
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "hza" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/turf/simulated/wall/r_wall,
+/area/rnd/telesci)
 "hzv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11236,14 +11202,38 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "hCV" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/requests_console/west{
+	department = "Telescience Lab";
+	departmentType = 2;
+	name = "Telescience Requests Console"
+	},
+/obj/structure/table/standard,
+/obj/item/paper_scanner{
+	pixel_x = -7
+	},
+/obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/item/pen/black,
+/obj/item/device/gps/science{
+	pixel_x = 10;
+	pixel_y = 11
 	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/obj/item/device/gps/science{
+	pixel_x = 10;
+	pixel_y = 7
+	},
+/obj/item/device/gps/science{
+	pixel_x = 10;
+	pixel_y = 3
+	},
+/obj/item/device/gps/science{
+	pixel_x = 10;
+	pixel_y = -1
+	},
+/obj/item/paper_bin,
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "hDd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -11263,7 +11253,6 @@
 "hEh" = (
 /obj/machinery/conveyor{
 	id = "mining_1";
-	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/mining,
@@ -11508,7 +11497,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "1,11";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -12204,7 +12192,6 @@
 "itD" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Oxidizer to Burn Mix"
 	},
 /obj/effect/floor_decal/corner_wide/black{
@@ -12561,15 +12548,8 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "iJi" = (
-/obj/effect/floor_decal/corner_wide/purple{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner_wide/purple{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenoarch_atrium)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/rnd/telesci)
 "iJt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -12602,11 +12582,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/supply)
 "iJV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/alarm/north{
+	pixel_y = 51
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "iKo" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -12704,7 +12687,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -12794,17 +12776,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "iPz" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/structure/table/reinforced/steel,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "iPO" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -13213,12 +13190,10 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/closet/secure_closet/security,
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 24
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = 4;
 	pixel_y = 33
 	},
@@ -13313,7 +13288,6 @@
 /area/hangar/control)
 "jio" = (
 /obj/effect/decal/fake_object{
-	layer = 2.5;
 	name = "cockpit ladder";
 	pixel_x = 9;
 	pixel_y = -4
@@ -13411,7 +13385,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "jmi" = (
@@ -13439,25 +13415,9 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "jof" = (
-/obj/structure/table/rack,
-/obj/item/storage/box/monkeycubes{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/item/storage/box/monkeycubes,
-/obj/item/storage/box/monkeycubes{
-	pixel_x = -5;
-	pixel_y = 2
-	},
-/obj/item/reagent_containers/spray/cleaner{
-	pixel_x = -4;
-	pixel_y = -3
-	},
-/obj/machinery/light{
-	dir = 8
-	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "joF" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, deck 1 maintenance"
@@ -13606,7 +13566,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4;
-	layer = 2.8;
 	name = "Hydrogen to Burn Mix"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -13779,7 +13738,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -13818,7 +13776,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "jyX" = (
@@ -13966,7 +13923,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "warehousetomail";
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/brown{
 	dir = 9
@@ -14085,10 +14041,23 @@
 /turf/simulated/floor/plating,
 /area/maintenance/substation/civilian_west)
 "jGW" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/storage/box/monkeycubes,
+/obj/item/storage/box/monkeycubes{
+	pixel_x = -5;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -4;
+	pixel_y = -3
+	},
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "jHp" = (
@@ -14372,7 +14341,6 @@
 	dir = 8
 	},
 /obj/structure/plasticflaps/airtight{
-	layer = 2.5;
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
@@ -14388,7 +14356,6 @@
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "mining_2";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/structure/railing/mapped{
@@ -14449,7 +14416,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "14,12";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/machinery/light/small{
@@ -14575,7 +14541,6 @@
 	alarm_id = 1501;
 	breach_detection = 0;
 	dir = 1;
-	layer = 4;
 	name = "Exotic Energy Harvesting";
 	pixel_x = -2;
 	pixel_y = -19;
@@ -14732,7 +14697,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -14772,16 +14736,16 @@
 /area/hangar/operations)
 "kjH" = (
 /obj/structure/cable/green{
-	icon_state = "1-4"
+	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "kka" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -14801,7 +14765,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -14820,6 +14783,14 @@
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/mining_main/eva)
+"kkY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "klR" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -14876,7 +14847,6 @@
 	},
 /obj/machinery/mineral/processing_unit_console{
 	id = "processing_s";
-	layer = 3.3;
 	pixel_y = 28
 	},
 /obj/effect/floor_decal/corner/brown{
@@ -14973,7 +14943,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1;
-	layer = 2.8
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/intrepid/quarters)
@@ -15069,7 +15038,6 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/francisca/compact{
-	layer = 3;
 	pixel_x = -40;
 	pixel_y = -64;
 	weapon_id = "Francisca Rotary Gun"
@@ -15084,6 +15052,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
+"ksH" = (
+/obj/machinery/telepad,
+/obj/effect/floor_decal/industrial/warning/full,
+/turf/simulated/floor/reinforced,
+/area/rnd/telesci)
 "ksN" = (
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
@@ -15140,6 +15113,7 @@
 	dir = 4
 	},
 /obj/random/loot,
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/port)
 "kuQ" = (
@@ -15192,7 +15166,6 @@
 /area/horizon/custodial/disposals)
 "kxk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/bed/handrail{
@@ -15222,7 +15195,7 @@
 	req_access = list(65)
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "kyK" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "9,2";
@@ -15548,8 +15521,11 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "kHo" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -16770,10 +16746,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
 "lEN" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/alarm/east,
+/obj/machinery/power/apc/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/telesci)
 "lEQ" = (
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck1_morgue2";
@@ -17126,7 +17104,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -17783,11 +17760,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/canary)
 "mjd" = (
+/obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/obj/machinery/hologram/holopad,
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "mjG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -17923,7 +17902,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -18192,6 +18170,7 @@
 /obj/machinery/cell_charger,
 /obj/item/storage/bag/inflatable,
 /obj/item/storage/bag/inflatable,
+/obj/item/device/camera,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "mwO" = (
@@ -18224,7 +18203,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -18410,7 +18388,6 @@
 "mFO" = (
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
-	layer = 2.1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
@@ -18452,7 +18429,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "6,11";
-	layer = 9;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/unary/engine/scc_shuttle,
@@ -18643,8 +18619,12 @@
 /obj/machinery/power/emitter{
 	dir = 8
 	},
+/obj/machinery/alarm/west,
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "mOv" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -18756,7 +18736,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "4,12";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/structure/table/wood,
@@ -19150,7 +19129,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "2,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -19593,20 +19571,21 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "nsS" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = null;
-	req_one_access = list(7,47)
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 1
+/obj/machinery/door/window/southleft{
+	name = "Artifact Storage";
+	req_access = list(47)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "ntf" = (
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/n20,
@@ -19683,7 +19662,6 @@
 /area/hangar/control)
 "nvn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/blast/shutters/open{
@@ -20337,7 +20315,6 @@
 "nQT" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "12,4";
-	layer = 2.97;
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -20548,7 +20525,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "warehousetomail";
-	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -20762,8 +20738,11 @@
 	name = "Suit Storage";
 	req_access = list(65)
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "oeq" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "6,6";
@@ -20852,7 +20831,6 @@
 	dir = 8
 	},
 /obj/machinery/computer/ship/sensors/cockpit{
-	layer = 3;
 	pixel_x = -22;
 	pixel_y = 7
 	},
@@ -20876,7 +20854,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "7,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -20886,7 +20863,6 @@
 	},
 /obj/structure/sign/emergency/evacuation{
 	dir = 8;
-	layer = 2.1
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
@@ -21152,10 +21128,17 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "oxp" = (
-/obj/machinery/suspension_gen,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/door/airlock/glass_research{
+	dir = 1;
+	name = "Telescience";
+	req_access = list(7)
+	},
+/obj/effect/map_effect/door_helper/unres{
+	dir = 1
+	},
+/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/telesci)
 "oxw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -21342,7 +21325,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_2";
-	layer = 2.9
 	},
 /obj/structure/railing/mapped{
 	dir = 1
@@ -21892,7 +21874,6 @@
 "pbX" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "6,4";
-	layer = 2.97;
 	outside_part = 0
 	},
 /turf/simulated/floor/plating,
@@ -22061,7 +22042,6 @@
 "pfQ" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/flash,
 /obj/item/device/flash,
@@ -22138,12 +22118,9 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/aft)
 "phO" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/structure/reagent_dispensers/lube,
-/turf/simulated/floor/tiled{
-	dir = 5;
-	icon_state = "vault"
-	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/reinforced,
 /area/maintenance/wing/starboard/deck1)
 "phV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -22681,7 +22658,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -22744,14 +22720,18 @@
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
 "pEb" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
+/obj/effect/floor_decal/corner_wide/purple/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/turf/simulated/floor/tiled/white,
+/area/rnd/telesci)
 "pEi" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -22777,12 +22757,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "pEF" = (
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = null;
-	req_one_access = list(7,47)
-	},
+/obj/structure/window/reinforced,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "pEH" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "7,7"
@@ -22938,7 +22916,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -23064,6 +23041,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
+"pMO" = (
+/obj/structure/anomaly_container,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "pMP" = (
 /obj/effect/shuttle_landmark/distress/blue,
 /turf/simulated/floor/plating,
@@ -23227,7 +23211,6 @@
 	density = 0
 	},
 /obj/machinery/computer/ship/helm/cockpit{
-	layer = 3.1
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -23247,7 +23230,6 @@
 "pTp" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -23337,9 +23319,6 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/firealarm/west,
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -23356,7 +23335,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_1";
-	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
@@ -23454,7 +23432,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -23793,12 +23770,17 @@
 /turf/simulated/floor/reinforced,
 /area/engineering/gravity_gen)
 "qmb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "qmi" = (
 /obj/machinery/light/small{
 	dir = 4
@@ -23878,7 +23860,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
@@ -24205,6 +24186,15 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"qzj" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/telesci)
 "qzl" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -24378,7 +24368,6 @@
 	dir = 8
 	},
 /obj/structure/sink{
-	layer = 3;
 	pixel_x = -7;
 	pixel_y = 23
 	},
@@ -24456,9 +24445,6 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/lower)
 "qIS" = (
-/obj/item/stack/material/phoron{
-	amount = 30
-	},
 /obj/item/stack/material/uranium{
 	amount = 10
 	},
@@ -24488,7 +24474,6 @@
 /obj/structure/tank_wall/nitrogen{
 	density = 0;
 	icon_state = "n12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/nitrogen,
@@ -24696,7 +24681,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "6,12";
-	layer = 9
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/canary)
@@ -24927,7 +24911,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/structure/cable/yellow{
 	d1 = 1;
@@ -24995,7 +24978,6 @@
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -25248,7 +25230,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/outpost/research/anomaly_storage)
 "rmB" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	dir = 8
@@ -25280,7 +25262,6 @@
 /obj/structure/tank_wall{
 	density = 0;
 	icon_state = "m-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airless,
@@ -25736,6 +25717,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/aft)
+"rCE" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "rCK" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "2,19"
@@ -25895,7 +25888,6 @@
 "rKM" = (
 /obj/structure/sign/fire{
 	desc = "A warning sign which reads 'DANGER: SHUTTLE THRUSTERS IN USE' and 'MIND THE DISTANCE'.";
-	layer = 2.1;
 	name = "\improper DANGER: THRUSTERS sign";
 	pixel_x = 32
 	},
@@ -26414,7 +26406,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "scW" = (
@@ -26542,7 +26536,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/outlet_injector{
@@ -27065,7 +27058,6 @@
 	},
 /obj/structure/platform_deco{
 	dir = 4;
-	layer = 2.7
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
@@ -27140,11 +27132,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "sId" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/storage/box/gloves,
+/obj/structure/cable/green{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "sIp" = (
 /obj/structure/window/shuttle/unique/scc/scout{
 	icon_state = "3,3"
@@ -27200,7 +27202,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/suit_cooling_unit,
 /obj/item/device/suit_cooling_unit,
@@ -27811,7 +27812,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "mining_2";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/structure/railing/mapped{
@@ -28176,7 +28176,6 @@
 "tsv" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -28372,10 +28371,27 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "txT" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/structure/dispenser,
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/storage/box/gloves,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/tank/oxygen,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/storage/box/gloves,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "tyw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -28668,7 +28684,6 @@
 /obj/machinery/conveyor{
 	dir = 8;
 	id = "mining_1";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -28805,7 +28820,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
@@ -28844,8 +28858,12 @@
 	pixel_x = 5;
 	pixel_y = -2
 	},
+/obj/machinery/power/apc/west,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "tPG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -28876,7 +28894,6 @@
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
 	icon_state = "h5";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/red{
@@ -28888,7 +28905,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-6";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
@@ -28922,7 +28938,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph12";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -29102,7 +29117,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
@@ -29129,7 +29143,6 @@
 /obj/machinery/conveyor{
 	dir = 1;
 	id = "mining_2";
-	layer = 2.9
 	},
 /turf/simulated/floor/plating,
 /area/outpost/mining_main/refinery)
@@ -29162,7 +29175,6 @@
 "tZY" = (
 /obj/machinery/conveyor{
 	id = "mining_2";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -29489,7 +29501,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	opacity = 1;
 	outside_part = 0
 	},
@@ -29576,7 +29587,6 @@
 /obj/structure/tank_wall/oxygen{
 	density = 0;
 	icon_state = "o2-12";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/oxygen,
@@ -30007,7 +30017,6 @@
 /obj/structure/window/shuttle/unique/scc/scout/over{
 	density = 0;
 	icon_state = "4,3";
-	layer = 6.1;
 	pixel_y = 32
 	},
 /turf/simulated/floor/plating,
@@ -30160,12 +30169,8 @@
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 4
 	},
-/obj/structure/closet/walllocker/firecloset{
-	pixel_x = -32
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "uIN" = (
@@ -30314,8 +30319,11 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/device/camera,
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "uPx" = (
@@ -30557,7 +30565,6 @@
 	alarm_id = 1503;
 	breach_detection = 0;
 	dir = 4;
-	layer = 4;
 	name = "Isolation C";
 	pixel_x = -24;
 	rcon_setting = 3;
@@ -31180,12 +31187,6 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -31193,6 +31194,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "vpa" = (
@@ -31257,6 +31260,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
+/obj/random/contraband,
 /turf/simulated/floor/plating,
 /area/maintenance/hangar/starboard)
 "vqU" = (
@@ -31397,7 +31401,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph5";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -31452,6 +31455,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"vxE" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/telesci)
 "vys" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/door/window/northleft{
@@ -31489,6 +31498,7 @@
 /obj/structure/noticeboard/anomaly{
 	pixel_y = 30
 	},
+/obj/machinery/space_heater,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "vBb" = (
@@ -31500,7 +31510,6 @@
 	dir = 4
 	},
 /obj/machinery/computer/ship/engines/cockpit{
-	layer = 3;
 	pixel_x = 24;
 	pixel_y = 7
 	},
@@ -31513,7 +31522,6 @@
 /obj/structure/tank_wall/hydrogen{
 	density = 0;
 	icon_state = "h11";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/hydrogen,
@@ -31567,7 +31575,6 @@
 /obj/structure/shuttle_part/scc/scout{
 	density = 0;
 	icon_state = "2,11";
-	layer = 9;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/unary/engine/scc_shuttle,
@@ -31722,7 +31729,6 @@
 "vKa" = (
 /obj/machinery/conveyor{
 	id = "mining_2";
-	layer = 2.9
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/plasticflaps/mining,
@@ -32058,11 +32064,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"vXu" = (
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/telesci)
 "vYV" = (
 /obj/structure/tank_wall/air{
 	density = 0;
 	icon_state = "air6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/airmix,
@@ -32166,15 +32175,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
 "wbX" = (
-/obj/machinery/light/small{
-	dir = 1
-	},
-/obj/machinery/power/apc/north,
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
+/obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/telesci)
 "wce" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -32202,7 +32205,6 @@
 /obj/structure/tank_wall/phoron{
 	density = 0;
 	icon_state = "ph6";
-	layer = 10.1;
 	opacity = 0
 	},
 /turf/simulated/floor/reinforced/phoron,
@@ -32256,7 +32258,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/machinery/firealarm/north,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -32376,7 +32377,6 @@
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
 	icon_state = "14,11";
-	layer = 2.6;
 	outside_part = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
@@ -32406,12 +32406,18 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology Suits";
-	dir = 8
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/storage/box/gloves,
+/obj/machinery/light{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/area/rnd/xenoarch_storage)
 "wjY" = (
 /turf/space/dynamic,
 /area/engineering/atmos/propulsion)
@@ -32694,7 +32700,6 @@
 "wsF" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 4;
-	layer = 2
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
@@ -32783,7 +32788,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Phoron to Burn Mix"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -33016,6 +33020,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"wGp" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "wHJ" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, d1 airlock"
@@ -33146,7 +33156,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/light/small,
@@ -33281,12 +33290,10 @@
 /area/hangar/intrepid)
 "wPX" = (
 /obj/machinery/computer/ship/targeting/cockpit{
-	layer = 3;
 	pixel_x = -25
 	},
 /obj/structure/bed/stool/chair/cockpit,
 /obj/machinery/computer/ship/engines/cockpit{
-	layer = 3;
 	pixel_x = 26
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -33344,7 +33351,6 @@
 /obj/structure/tank_wall/carbon_dioxide{
 	density = 0;
 	icon_state = "co2-11";
-	layer = 10.1;
 	opacity = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/visible/black,
@@ -33405,15 +33411,6 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 10
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "wVd" = (
@@ -33451,13 +33448,15 @@
 /turf/simulated/wall,
 /area/maintenance/wing/starboard/deck1)
 "wVW" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_atrium)
+/obj/structure/sign/electricshock{
+	name = "\improper WARNING: HIGH VOLTAGE ELECTROMAGNETIC FIELDS IN USE sign";
+	pixel_x = 32
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/rnd/telesci)
 "wWe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
@@ -33476,10 +33475,9 @@
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "wWV" = (
-/obj/structure/anomaly_container,
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/telesci)
 "wWY" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -33893,7 +33891,6 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -34185,7 +34182,6 @@
 	},
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
-	layer = 2.8;
 	name = "Hydrogen to Burn Mix"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -34244,7 +34240,6 @@
 /area/turbolift/scc_ship/operations_lift)
 "xqo" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	layer = 2.8
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/device/radio/intercom/expedition/east,
@@ -34260,7 +34255,6 @@
 "xqv" = (
 /obj/structure/shuttle_part/scc/research{
 	icon_state = "11,26";
-	layer = 2.91;
 	opacity = 1;
 	outside_part = 0
 	},
@@ -34372,7 +34366,6 @@
 	desc = "The hull and reinforcement of a Pathfinder class corporate expedition shuttle. The phoron-purple colored bands indicate this, in bold text as the SCCV Intrepid.";
 	icon = 'icons/obj/spaceship/scc/ship_engine.dmi';
 	icon_state = "nozzle";
-	layer = 2.4;
 	name = "pathfinder class shuttle hull";
 	opacity = 1;
 	outside_part = 0
@@ -34651,7 +34644,6 @@
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "mining_1";
-	layer = 2.9;
 	reversed = 1
 	},
 /turf/simulated/floor/plating,
@@ -34852,7 +34844,6 @@
 "xLq" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/effect/floor_decal/corner_wide/blue/full{
 	dir = 8
@@ -35034,15 +35025,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
 "xOC" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/machinery/light/small{
-	dir = 4
+/obj/machinery/suit_cycler/science/prepared,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/telesci)
 "xOV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -35481,7 +35469,6 @@
 	},
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/device/flash{
 	pixel_x = -4;
@@ -35592,7 +35579,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
-	layer = 2.8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
@@ -61162,15 +61148,15 @@ mDt
 rPJ
 jAg
 kJG
-xtK
-xtK
-xtK
-xtK
-xtK
-xtK
-xtK
-xtK
-xtK
+oJe
+oJe
+oJe
+oJe
+aWZ
+aWZ
+aWZ
+aWZ
+aWZ
 fsf
 xtK
 xtK
@@ -61365,15 +61351,15 @@ mDt
 pom
 ggH
 pom
-xtK
-tPx
+oJe
+pMO
 jof
+cLC
 mOf
-xtK
-eog
+tPx
 dgW
 txT
-xtK
+aWZ
 xko
 eVY
 xtK
@@ -61568,12 +61554,12 @@ xAr
 bek
 hWY
 idq
-xtK
-oxp
+oJe
+dRh
 iJV
 cLC
-xtK
-eWA
+adE
+kkY
 bkV
 qmb
 oek
@@ -61772,14 +61758,14 @@ ccZ
 eXb
 jqc
 rlW
-kHg
+fdr
 kjH
 nsS
-xtK
-eWA
-bpb
+rCE
+kHg
+wGp
 sId
-xtK
+aWZ
 wfo
 xsS
 nKB
@@ -61974,15 +61960,15 @@ jNq
 vDT
 hEx
 wQv
-xtK
+oJe
 dcs
 iPz
 pEF
-xtK
+eog
 eWA
 bpb
 wjW
-xtK
+aWZ
 jEG
 cLh
 xtK
@@ -62177,15 +62163,15 @@ sfh
 sfh
 sfh
 sfh
-xtK
-xtK
+oJe
 hqE
-xtK
-xtK
-xtK
+hqE
+hqE
+aWZ
+aWZ
 kyq
-xtK
-xtK
+aWZ
+aWZ
 jRE
 syE
 xtK
@@ -62794,7 +62780,7 @@ lBH
 qYo
 wAk
 kEk
-wVW
+uPk
 uPk
 nwQ
 kLo
@@ -62998,7 +62984,7 @@ jrJ
 kJp
 sFA
 jrJ
-hSX
+jrJ
 mwu
 kLo
 gba
@@ -63201,7 +63187,7 @@ jrJ
 kVv
 qbu
 icl
-jrJ
+hSX
 hLq
 kLo
 uCw
@@ -64403,14 +64389,14 @@ eSV
 eSV
 eSV
 eSV
-rsL
-lCv
-lCv
-xtK
-xtK
-xtK
-xtK
-xtK
+iJi
+hza
+hza
+hza
+hza
+hza
+hza
+hza
 qWB
 lbr
 xtK
@@ -64606,15 +64592,15 @@ eSV
 eSV
 eSV
 eSV
-rsL
-rsL
-oJe
+iJi
+gQg
+vxE
 wWV
 cIY
 bRr
 fuU
 hza
-iJi
+qWB
 scq
 xtK
 vKP
@@ -64809,10 +64795,10 @@ eSV
 eSV
 eSV
 eSV
-eSV
-hob
-oJe
-wbX
+iJi
+ksH
+vXu
+wWV
 hCV
 mjd
 pEb
@@ -65012,14 +64998,14 @@ eSV
 eSV
 eSV
 eSV
-eSV
-hob
-oJe
-dRh
-dRh
+iJi
+qzj
+wVW
+oxp
+wbX
 lEN
 xOC
-aWZ
+hza
 aKn
 jlo
 xtK
@@ -65215,14 +65201,14 @@ eSV
 eSV
 eSV
 eSV
-eSV
-hob
-oVl
-oVl
-oVl
-oVl
-oVl
-oVl
+iJi
+hza
+hza
+hza
+hza
+hza
+hza
+hza
 xGs
 fQB
 oVl
@@ -65418,8 +65404,8 @@ eSV
 eSV
 eSV
 eSV
-eSV
-hob
+ozE
+ozE
 ozE
 uIL
 hHY

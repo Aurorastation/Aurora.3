@@ -7,12 +7,6 @@
 	temperature = 268.15
 	},
 /area/psis_outpost)
-"as" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/reinforced{
-	temperature = 268.15
-	},
-/area/psis_outpost)
 "bE" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -80,10 +74,10 @@
 "dP" = (
 /obj/structure/table/standard,
 /obj/item/device/taperecorder,
-/obj/item/device/camera,
 /obj/machinery/light/small/red{
 	dir = 1
 	},
+/obj/item/device/camera/adhomai,
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
@@ -141,7 +135,8 @@
 	dir = 9
 	},
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /obj/machinery/papershredder,
 /turf/simulated/floor/tiled/dark{
@@ -182,9 +177,7 @@
 /area/psis_outpost)
 "hQ" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "iI" = (
 /obj/structure/table/standard,
@@ -222,9 +215,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/psis_outpost)
 "jO" = (
 /obj/structure/table/standard,
@@ -232,7 +223,9 @@
 /obj/item/folder/red,
 /obj/item/folder/red,
 /obj/item/folder/red,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/item/folder/red,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_y = 5;
@@ -253,9 +246,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "lH" = (
 /obj/structure/table/standard,
@@ -264,7 +255,9 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_x = 7;
 	pixel_y = 2
@@ -291,15 +284,11 @@
 /area/psis_outpost)
 "om" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/psis_outpost)
 "on" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/psis_outpost)
 "oR" = (
 /obj/structure/table/standard,
@@ -313,7 +302,8 @@
 	dir = 8
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/machinery/light{
 	dir = 8
@@ -332,9 +322,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/psis_outpost)
 "qO" = (
 /obj/effect/floor_decal/corner/black{
@@ -441,7 +429,8 @@
 /area/psis_outpost)
 "yD" = (
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -513,9 +502,7 @@
 /area/psis_outpost)
 "CC" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Fc" = (
 /obj/structure/table/standard,
@@ -558,9 +545,7 @@
 	},
 /area/psis_outpost)
 "Hg" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Iy" = (
 /obj/machinery/door/window/brigdoor{
@@ -596,7 +581,8 @@
 	dir = 10
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = -32
+	pixel_y = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -637,9 +623,7 @@
 	},
 /area/psis_outpost)
 "Kl" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/psis_outpost)
 "KF" = (
 /obj/effect/floor_decal/corner/black/full,
@@ -655,7 +639,8 @@
 	dir = 9
 	},
 /obj/structure/sign/flag/pra{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -699,7 +684,8 @@
 	dir = 5
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic,
 /turf/simulated/floor/tiled/dark{
@@ -719,7 +705,7 @@
 	},
 /area/psis_outpost)
 "NA" = (
-/obj/effect/map_effect/window_spawner/reinforced,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/blast/regular/open{
 	id = "psis_cell"
 	},
@@ -728,7 +714,9 @@
 	},
 /area/psis_outpost)
 "OX" = (
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/reinforced{
 	temperature = 268.15
 	},
@@ -738,7 +726,8 @@
 	dir = 5
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
@@ -777,7 +766,8 @@
 	dir = 1
 	},
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
 /obj/machinery/light{
 	dir = 4;
@@ -817,9 +807,7 @@
 /obj/structure/sign/securearea{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/psis_outpost)
 "Tn" = (
 /turf/simulated/floor/tiled/dark{
@@ -832,7 +820,9 @@
 	dir = 8
 	},
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 268.15
 	},
@@ -890,7 +880,9 @@
 	},
 /obj/item/paper_bin,
 /obj/item/pen/black,
-/obj/structure/sign/flag/pra/large/south,
+/obj/structure/sign/flag/pra/large/south{
+	pixel_y = -32
+	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
 	pixel_x = -8;
 	pixel_y = 5
@@ -930,9 +922,7 @@
 /area/psis_outpost)
 "WW" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Xc" = (
 /obj/structure/table/standard,
@@ -1916,7 +1906,7 @@ Kl
 Kl
 Kl
 Mq
-as
+qx
 tu
 to
 qx

@@ -11,7 +11,7 @@
 	desc = "A dish-shaped machine used to broadcast processed subspace signals."
 	telecomms_type = /obj/machinery/telecomms/broadcaster
 	idle_power_usage = 100 // WATTS
-	active_power_usage = 3 KILOWATTS
+	active_power_usage = 3 KILO WATTS
 	produces_heat = FALSE
 	delay = 7
 	circuitboard = "/obj/item/circuitboard/telecomms/broadcaster"

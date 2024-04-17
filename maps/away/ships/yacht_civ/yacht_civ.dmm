@@ -1118,11 +1118,11 @@
 /area/ship/yacht_civ/bridge)
 "kH" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "co2_in";
-	name = "carbon dioxide injector";
-	use_power = 1;
 	dir = 4
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2";
+	name = "yacht_civ_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/yacht_civ/propulsion)
@@ -1374,12 +1374,12 @@
 /turf/simulated/floor/exoplanet/grass,
 /area/ship/yacht_civ/hallway_mid)
 "mI" = (
-/obj/machinery/air_sensor{
-	frequency = 1441;
-	id_tag = "co2_sensor"
-	},
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/machinery/air_sensor,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/yacht_civ/propulsion)
@@ -1512,15 +1512,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/hallway_fore)
 "nI" = (
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 8;
-	input_tag = "co2_in";
-	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank");
-	name = "propellant monitor"
-	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 6
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 8;
+	name = "propellant monitor"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/bridge)
@@ -5437,16 +5434,16 @@
 /turf/simulated/floor/plating,
 /area/ship/yacht_civ/storage)
 "Va" = (
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 8;
-	input_tag = "co2_in";
-	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank");
-	name = "propellant monitor"
-	},
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2"
+	},
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 8;
+	name = "propellant monitor"
 	},
 /turf/simulated/floor/tiled,
 /area/ship/yacht_civ/propulsion)
@@ -5564,10 +5561,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/yacht_civ/hallway_aft)
 "Wc" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
-	id_tag = "co2_out";
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "yacht_civ_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/yacht_civ/propulsion)

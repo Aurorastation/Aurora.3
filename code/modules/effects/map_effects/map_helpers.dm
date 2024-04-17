@@ -2,7 +2,7 @@
 	name = "some non-descript map helper (abstract type def)"
 	desc = ""
 	icon = 'icons/effects/map_effects.dmi'
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/map_effect/map_helper/Initialize(mapload)
 	..()

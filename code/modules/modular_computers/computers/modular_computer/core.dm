@@ -516,7 +516,7 @@
 			P.event_registered()
 
 	output_notice("Registration successful!")
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, 0)
+	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, falloff_distance = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return registered_id
 
 /obj/item/modular_computer/proc/unregister_account()

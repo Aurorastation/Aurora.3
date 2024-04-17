@@ -161,7 +161,6 @@
 	name = "airlock sensor"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
-	layer = OBJ_LAYER
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -242,7 +241,6 @@
 	name = "access button"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
-	layer = OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	anchored = 1

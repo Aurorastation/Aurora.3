@@ -1,0 +1,4 @@
+2015-11-22:
+  neersighted:
+  - bugfix: Laptop Vendors now accept ID Containers (PDA, Wallet, etc).
+  - bugfix: Personal Lockers now accept ID Containers (PDA, Wallet, etc).

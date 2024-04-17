@@ -8253,6 +8253,18 @@
 "fXr" = (
 /turf/simulated/wall,
 /area/maintenance/security_starboard)
+"fYi" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	id = "shutters_deck3_longbow";
+	name = "Safety Blast Doors Control";
+	pixel_y = -27
+	},
+/turf/simulated/floor/tiled/dark,
+/area/horizon/longbow)
 "fZe" = (
 /obj/structure/platform/ledge{
 	dir = 8
@@ -9167,8 +9179,7 @@
 	},
 /obj/structure/table/stone/marble,
 /obj/random/pottedplant_small{
-	pixel_x = -8;
-	pixel_y = 0
+	pixel_x = -8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/cafeteria)
@@ -12663,7 +12674,6 @@
 "iSb" = (
 /obj/structure/table/wood,
 /obj/random/pottedplant_small{
-	pixel_y = 0;
 	pixel_x = -5
 	},
 /turf/simulated/floor/carpet/art,
@@ -14592,8 +14602,7 @@
 /obj/structure/table/wood,
 /obj/machinery/newscaster/east,
 /obj/random/pottedplant_small{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /turf/simulated/floor/wood,
 /area/lawoffice/consular)
@@ -18887,6 +18896,7 @@
 	pixel_y = 10;
 	pixel_x = -6
 	},
+/obj/random/contraband,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "nga" = (
@@ -20370,12 +20380,15 @@
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/map_effect/door_helper/level_access/command_foyer,
 /obj/machinery/door/airlock/glass_command{
 	dir = 1;
 	id_tag = "command_foyer";
 	name = "Bridge";
 	req_one_access = list(19,38,72)
+	},
+/obj/effect/map_effect/door_helper/level_access/command_foyer{
+	req_one_access_by_level = list("green","yellow"=list(19,38,72),"blue"=list(19,38,72),"red"=list(19,38,72),"delta"=list(19,38,72));
+	access_by_level = null
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/central)
@@ -24035,8 +24048,7 @@
 	},
 /obj/structure/table/wood,
 /obj/random/pottedplant_small{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative)
@@ -27452,13 +27464,6 @@
 /obj/machinery/computer/ship/navigation,
 /obj/machinery/light{
 	dir = 4
-	},
-/obj/machinery/button/remote/blast_door{
-	dir = 4;
-	id = "shutters_deck3_longbow";
-	name = "Safety Blast Doors Control";
-	pixel_x = 22;
-	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
@@ -34205,8 +34210,7 @@
 	dir = 4
 	},
 /obj/random/pottedplant_small{
-	pixel_x = 9;
-	pixel_y = 0
+	pixel_x = 9
 	},
 /turf/simulated/floor/carpet,
 /area/lawoffice/representative_two)
@@ -61815,7 +61819,7 @@ nsP
 ogE
 ecI
 eUF
-ecI
+fYi
 mXh
 kHa
 oty

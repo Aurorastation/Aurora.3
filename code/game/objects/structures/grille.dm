@@ -10,7 +10,7 @@
 	anchored = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	explosion_resistance = 1
-	layer = 2.98
+	layer = BELOW_OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/health = 10
 	var/destroyed = 0
@@ -44,6 +44,12 @@
 		/turf/simulated/wall,
 		/obj/structure/window_frame
 	)
+
+/obj/structure/grille/over/Destroy()
+	var/obj/structure/window_frame/window_frame = locate(/obj/structure/window_frame) in get_turf(src)
+	if(window_frame)
+		window_frame.has_grille_installed = FALSE
+	return ..()
 
 /obj/structure/grille/over/cardinal_smooth(adjacencies, var/list/dir_mods)
 	dir_mods = handle_blending(adjacencies, dir_mods)
