@@ -4802,23 +4802,6 @@
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
-"awo" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/random/junk,
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = -6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "awp" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -5935,21 +5918,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
-"aDD" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = 12;
-	pixel_y = -28;
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/plating,
-/area/space)
 "aDE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -9915,22 +9883,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
-"bnR" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "bvw" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -9999,24 +9951,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
-"cfW" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/shuttle_landmark/cult_base/dock/south_2,
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = 12;
-	pixel_y = 28;
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "cij" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 8;
@@ -10058,17 +9992,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/cult_base/crew)
-"cEM" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 2
-	},
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/plating,
-/area/space)
 "cET" = (
 /obj/effect/shuttle_landmark/cult_base/space/south_far,
 /turf/template_noop,
@@ -10953,24 +10876,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
-"iuY" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = -19;
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee,
-/turf/simulated/floor/plating,
-/area/space)
 "iBG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -12628,23 +12533,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
-"tra" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	pixel_y = 32;
-	dir = 2
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/space)
 "trb" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -13048,17 +12936,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
-"wdQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
-/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/plating,
-/area/space)
 "wsd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_1,
@@ -53212,8 +53089,8 @@ aZi
 aZi
 aZi
 aZi
-tra
-iuY
+aZi
+aZi
 aZi
 aZi
 aZi
@@ -53469,8 +53346,8 @@ aZi
 aZi
 aZi
 aZi
-bnR
-cEM
+aZi
+aZi
 aZi
 aZi
 aZi
@@ -53726,8 +53603,8 @@ aZi
 aZi
 aZi
 aZi
-awo
-wdQ
+aZi
+aZi
 aZi
 aZi
 aZi
@@ -53983,8 +53860,8 @@ aZi
 aZi
 aZi
 aZi
-cfW
-aDD
+aZi
+aZi
 aZi
 aZi
 aZi
