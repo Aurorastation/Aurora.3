@@ -200,14 +200,14 @@
 	if(disable_and_hide_if_full && max_count && (count >= max_count))
 		disable()
 	if(welcome_message)
-		to_chat(user, SPAN_NOTICE(welcome_message))
+		to_chat(user, EXAMINE_BLOCK(SPAN_NOTICE(welcome_message)))
 	else
 		if(name)
-			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("You are spawning as: ") + name))
 		if(desc)
-			to_chat(user, SPAN_INFO("Role description: ") + desc)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("Role description: ") + desc))
 	if(welcome_message_ooc)
-		to_chat(user, "(OOC Notes: [SPAN_INFO(welcome_message_ooc)])")
+		to_chat(user, EXAMINE_BLOCK(SPAN_INFO("(OOC Notes: [welcome_message_ooc])")))
 	GLOB.universe.OnPlayerLatejoin(user)
 	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]

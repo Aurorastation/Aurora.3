@@ -1616,6 +1616,10 @@
 	pixel_x = 7;
 	pixel_y = 2
 	},
+/obj/item/reagent_containers/inhaler/raskara_dust{
+	pixel_x = -2;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aer" = (
@@ -5769,6 +5773,14 @@
 /obj/structure/table/steel,
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /obj/random/dirt_75,
+/obj/item/paper/fluff/cult_base/report{
+	pixel_y = 5;
+	pixel_x = 4
+	},
+/obj/item/pen/white{
+	pixel_x = -6;
+	pixel_y = -1
+	},
 /turf/simulated/floor/wood/walnut,
 /area/cult_base/chiefs_quarters)
 "aCT" = (
@@ -7328,6 +7340,10 @@
 /obj/item/clothing/under/pants/striped,
 /obj/item/clothing/under/dress/dress_orange,
 /obj/random/loot,
+/obj/item/reagent_containers/inhaler/xuxigas,
+/obj/item/reagent_containers/inhaler/xuxigas,
+/obj/item/reagent_containers/inhaler/space_drugs,
+/obj/item/reagent_containers/inhaler/raskara_dust,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aMI" = (
@@ -10803,6 +10819,10 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/item/paper/fluff/cult_base/bloody_note{
+	pixel_x = -3;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
 "jwH" = (
@@ -10949,6 +10969,33 @@
 /obj/random/contraband,
 /obj/random/contraband,
 /obj/machinery/light/broken,
+/obj/item/reagent_containers/inhaler/raskara_dust{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/syringe/drugs,
+/obj/item/reagent_containers/inhaler/raskara_dust{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/inhaler/raskara_dust{
+	pixel_x = 5;
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/inhaler/xuxigas{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/inhaler/xuxigas{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/inhaler/xuxigas{
+	pixel_x = -4;
+	pixel_y = 5
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "lfh" = (
@@ -11750,6 +11797,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"qjg" = (
+/obj/random/dirt_75,
+/obj/item/paper/fluff/cult_base/diary_page{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "qjx" = (
 /turf/simulated/floor/cult,
 /area/cult_base/asteroid)
@@ -59223,7 +59278,7 @@ axk
 asP
 aKN
 asZ
-qPb
+qjg
 aSE
 aKN
 auP
