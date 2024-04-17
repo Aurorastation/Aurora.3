@@ -13,13 +13,21 @@
 	geology = "Low mineral levels. No active geothermal signatures detected. "
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
-	//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/omzoli/get_surface_color()
 	return "#6b6464"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/omzoli/update_icon()
 	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/omzoli/generate_ground_survey_result()
+	..()
+	ground_survey_result += "<br>Trace mineral deposits detected in regolith"
+	ground_survey_result += "<br>Planetary rotation counter to spin of local star and other planets in system"
+	ground_survey_result += "<br>Carbon-dating indicates planetary age of at least 6.32 billion years"
+	ground_survey_result += "<br>Lack of atmosphere and unusual rotation can cause extremely wild temperature fluctuations"
+	ground_survey_result += "<br>High chance of meteor impact indicated through analysis of local surface craters"
 
 //Pid
 /obj/effect/overmap/visitable/sector/exoplanet/barren/pid
@@ -37,7 +45,7 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	planetary_area = /area/exoplanet/barren/pid
-	//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/pid_crashed_shuttle, /datum/map_template/ruin/exoplanet/pid_kois_farm, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/pid_crashed_shuttle, /datum/map_template/ruin/exoplanet/pid_kois_farm, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/pid/generate_atmosphere()
 	..()
@@ -47,15 +55,30 @@
 		atmosphere.temperature = T0C + 20
 		atmosphere.update_values()
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/pid/generate_ground_survey_result()
+	..()
+	ground_survey_result += "<br>Trace elements of phoron and biological matter detected in local atmosphere"
+	ground_survey_result += "<br>Small mineral deposits detected, largely untapped"
+	ground_survey_result += "<br>Evidence of lava tubes being present in the subsurface"
+	ground_survey_result += "<br>K'ois spores detected in local soil. Sample destruction recommended"
+	ground_survey_result += "<br>Surface soil may provide adequate radiation shielding"
+
+
 //Ytizi Belt Asteroid. This exists solely for unique away site spawns, and is otherwise indistinguishable from a regular asteroid
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ytizi
 	name = "Ytizi Belt asteroid"
 	desc = "One of the many mineral-rich asteroids found in the Uueoa-Esa system's asteroid belt"
 	icon_state = "asteroid2"
-	possible_themes = list(/datum/exoplanet_theme/barren/asteroid)
+	possible_themes = list(/datum/exoplanet_theme/barren/asteroid, /datum/exoplanet_theme/barren/asteroid/ice)
 	ruin_planet_type = PLANET_LORE
 	features_budget = 3
-	//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/sol_listening_post, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/abandoned_outpost, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/sol_listening_post, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/abandoned_outpost, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ytizi/pre_ruin_preparation()
+	if(istype(theme, /datum/exoplanet_theme/barren/asteroid/ice))
+		surface_color = COLOR_BLUE_GRAY
+	else
+		surface_color = COLOR_GRAY
 
 //Chanterel
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/chanterel
@@ -73,13 +96,21 @@
 	ring_chance = 0
 	ruin_planet_type = PLANET_LORE
 	place_near_main = list(2,2)
-	//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/abandoned_outpost, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/exoplanet/digsite, /datum/map_template/ruin/exoplanet/abandoned_outpost, /datum/map_template/ruin/exoplanet/crashed_sol_shuttle_01, /datum/map_template/ruin/exoplanet/crashed_skrell_shuttle_01, /datum/map_template/ruin/exoplanet/izweski_probe, /datum/map_template/ruin/exoplanet/heph_survey_post, /datum/map_template/ruin/exoplanet/kazhkz_crash)
 	scanimage = "chanterel.png"
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/chanterel/generate_planet_image()
 	skybox_image = image('icons/skybox/lore_planets.dmi', "chanterel")
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/chanterel/generate_ground_survey_result()
+	..()
+	ground_survey_result += "<br>No geothermal activity observed in the planetary core"
+	ground_survey_result += "<br>Silicon carbides found deep in the crust"
+	ground_survey_result += "<br>Oxygen found in locally stable metal oxides"
+	ground_survey_result += "<br>Regolith rich in heavy silicate alloys"
+	ground_survey_result += "<br>Traces of fusile material"
 
 //Moghes
 /obj/effect/overmap/visitable/sector/exoplanet/moghes
@@ -159,6 +190,44 @@
 	skybox_image.pixel_x = rand(0,64)
 	skybox_image.pixel_y = rand(128,256)
 
+/obj/effect/overmap/visitable/sector/exoplanet/moghes/generate_ground_survey_result()
+	..()
+	switch(landing_region)
+		if("Untouched Lands")
+			ground_survey_result += "<br>Low levels of radioactivity detected in the soil"
+			ground_survey_result += "<br>Signs indicate soil is undergoing nutrient depletion"
+			if(prob(40))
+				ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+			if(prob(40))
+				ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+			if(prob(40))
+				ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+			if(prob(40))
+				ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+			if(prob(40))
+				ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+			if(prob(40))
+				ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+		if("Wasteland")
+			ground_survey_result += "<br>Extremely high levels of radioactive material detected in the soil."
+			if(prob(40))
+				ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+			if(prob(40))
+				ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+			if(prob(40))
+				ground_survey_result += "<br>Soil near-completely depleted of nutrients."
+			if(prob(40))
+				ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+			if(prob(40))
+				ground_survey_result += "<br>Recently-decayed organic material detected"
+			if(prob(40))
+				ground_survey_result += "<br>Fragmented concrete detected within local soil. High levels of radiation indicated"
+			if(prob(40))
+				ground_survey_result += "<br>Geological analysis suggests there were once large bodies of water in this region"
+			if(prob(10))
+				ground_survey_result += "<br>Signs of a large subterranean aquifer in this region"
+
+
 //Ouerea
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea
 	name = "Ouerea"
@@ -204,3 +273,22 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/update_icon()
 	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_ground_survey_result()
+	..()
+	if(prob(40))
+		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+	if(prob(40))
+		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	if(prob(40))
+		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+	if(prob(40))
+		ground_survey_result += "<br>Muddy dirt rich in organic material"
+	if(prob(40))
+		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+	if(prob(40))
+		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
