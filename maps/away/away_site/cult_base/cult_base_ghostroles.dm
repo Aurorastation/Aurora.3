@@ -28,6 +28,7 @@
 	spawnpoints = list("cult_base_cultist")
 	max_count = 4
 	enabled = FALSE
+	enable_dmessage = TRUE
 
 	outfit = /obj/outfit/admin/cult_base_cultist
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY

@@ -4,6 +4,7 @@
 /obj/effect/shuttle_landmark/cult_base
 	base_area = /area/space
 	base_turf = /turf/space
+	ghostspawners_to_activate_on_shuttle_arrival = list("cult_base_cultist")
 
 // --------------------- shuttle
 

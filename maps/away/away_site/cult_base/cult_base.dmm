@@ -461,6 +461,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "abm" = (
@@ -654,6 +655,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "abS" = (
@@ -1171,6 +1173,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "ade" = (
@@ -1784,6 +1787,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "afj" = (
@@ -2275,6 +2279,9 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/machinery/light/small/broken{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/propulsion)
 "ahL" = (
@@ -3260,6 +3267,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "aoi" = (
@@ -3441,6 +3449,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
@@ -3758,6 +3767,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "aqQ" = (
@@ -3957,6 +3967,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "arQ" = (
@@ -4154,7 +4165,6 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/random/junk,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
@@ -4562,6 +4572,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "avs" = (
@@ -6432,6 +6443,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "aHC" = (
@@ -6481,6 +6493,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aHO" = (
@@ -7150,6 +7163,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aLE" = (
@@ -8332,6 +8346,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "aSm" = (
@@ -8404,6 +8419,7 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
@@ -9183,7 +9199,9 @@
 /obj/item/clothing/suit/storage/toggle/flannel,
 /obj/random/loot,
 /obj/random/suit,
+/obj/random/mre,
 /obj/random/junk,
+/obj/item/clothing/suit/storage/toggle/varsity/brown,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aXr" = (
@@ -9327,6 +9345,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aYj" = (
@@ -9342,9 +9361,6 @@
 /turf/simulated/floor/tiled/white,
 /area/cult_base/mess)
 "aYm" = (
-/obj/machinery/light/small/broken{
-	dir = 1
-	},
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
 	},
@@ -9352,6 +9368,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 32
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/propulsion)
 "aYr" = (
@@ -9487,6 +9506,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "aYT" = (
@@ -10436,11 +10456,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "gHu" = (
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/random/loot,
-/turf/simulated/floor/exoplanet/barren,
-/area/cult_base/asteroid_inside)
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch_small/yellow,
+/obj/machinery/light/small/broken{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/propulsion)
 "gKG" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -10475,6 +10500,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/random/junk,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "hfH" = (
@@ -10716,6 +10742,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
+"iLs" = (
+/obj/random/dirt_75,
+/obj/machinery/light/small/broken{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/cult_base/cargo)
 "iLT" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -10809,6 +10842,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "jvw" = (
@@ -10820,8 +10854,8 @@
 	dir = 4
 	},
 /obj/item/paper/fluff/cult_base/bloody_note{
-	pixel_x = -3;
-	pixel_y = 11
+	pixel_x = -8;
+	pixel_y = 14
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
@@ -11656,6 +11690,7 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "put" = (
@@ -11859,9 +11894,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
 "qLi" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -52586,7 +52618,7 @@ onh
 aGQ
 aGQ
 aBB
-amB
+cKD
 aIZ
 amB
 alK
@@ -52844,7 +52876,7 @@ aTZ
 aGQ
 alK
 alK
-gHu
+aIZ
 aIZ
 aIZ
 aAz
@@ -55147,7 +55179,7 @@ aJh
 aHS
 aTO
 xQz
-anv
+gHu
 anv
 rDb
 rDb
@@ -56948,7 +56980,7 @@ aMg
 xQz
 qLi
 sEq
-abn
+iLs
 adq
 auS
 aZi

@@ -1,0 +1,12 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Cult Base away site."
+  - rscadd: "Adds some mapped in cult runes."
+  - rscadd: "Adds ooc welcome message, separate from normal welcome message."
+  - qol: ""
+  - qol: ""
+  - bugfix: "Fixes marker layers."

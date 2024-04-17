@@ -4,9 +4,8 @@
 	desc = DESC_PARENT
 
 /obj/item/paper/fluff/cult_base/bloody_note
-	name = "bloody note"
-	desc = "A bloody, torn note, with some scrawly handwriting."
-	icon_state = "scrap_bloodied"
+	name = "torn note"
+	desc = "A torn note, with some scrawly handwriting."
 	info = "\
 		to whoever is reading <br>\
 		while I still can make sense out of reality <br>\
