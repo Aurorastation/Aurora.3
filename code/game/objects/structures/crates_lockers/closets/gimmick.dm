@@ -177,28 +177,26 @@
 /obj/structure/closet/sarcophagus/proc/do_trap_effect(var/mob/living/carbon/human/H)
 	if(triggered)
 		return
-	var/trap = pick("arrow", "fire", "poison")
-	switch(trap)
-		if("arrow")
-			var/turf/T = get_turf(src)
-			var/obj/item/arrow/arrow = new(T)
-			playsound(usr.loc, 'sound/weapons/crossbow.ogg', 75, 1)
-			arrow.throw_at(H, 10, 9, src) //same values as a full draw crossbow shot would have
+	if(prob(33))
+		var/turf/T = get_turf(src)
+		var/obj/item/arrow/arrow = new(T)
+		playsound(usr.loc, 'sound/weapons/crossbow.ogg', 75, 1)
+		arrow.throw_at(H, 10, 9, src) //same values as a full draw crossbow shot would have
 
-		if("fire")
-			visible_message(SPAN_DANGER("Flames engulf \the [H]!"))
-			H.adjustFireLoss(30)
-			H.IgniteMob(5)
+	else if(prob(33))
+		visible_message(SPAN_DANGER("Flames engulf \the [H]!"))
+		H.adjustFireLoss(30)
+		H.IgniteMob(5)
 
-		if("poison")
-			var/datum/reagents/R = new/datum/reagents(20)
-			R.my_atom = src
-			R.add_reagent(/singleton/reagent/toxin,20)
-			var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/singleton/reagent/toxin) // have to explicitly say the type to avoid issues with warnings
-			S.show_log = 0
-			S.set_up(R, 10, 0, src, 40)
-			S.start()
-			qdel(R)
+	else
+		var/datum/reagents/R = new/datum/reagents(20)
+		R.my_atom = src
+		R.add_reagent(/singleton/reagent/toxin,20)
+		var/datum/effect/effect/system/smoke_spread/chem/S = new /datum/effect/effect/system/smoke_spread/chem(/singleton/reagent/toxin) // have to explicitly say the type to avoid issues with warnings
+		S.show_log = 0
+		S.set_up(R, 10, 0, src, 40)
+		S.start()
+		qdel(R)
 
 	triggered = TRUE
 
