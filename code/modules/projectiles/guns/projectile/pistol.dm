@@ -3,8 +3,8 @@
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
-	magazine_type = /obj/item/ammo_magazine/c45m
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	magazine_type = /obj/item/ammo_magazine/c57m
+	allowed_magazines = list(/obj/item/ammo_magazine/c57m, /obj/item/ammo_magazine/c57m/extended)
 	icon = 'icons/obj/guns/colt.dmi'
 	icon_state = "colt"
 	item_state = "colt"
@@ -24,7 +24,7 @@
 		icon_state = "colt-e"
 
 /obj/item/gun/projectile/colt/detective
-	magazine_type = /obj/item/ammo_magazine/c45m/rubber
+	magazine_type = /obj/item/ammo_magazine/c57m/rubber
 
 /obj/item/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -50,7 +50,7 @@
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example sports a short slide, wood-paneled grips, and few signs of use, likely belonging to someone of higher stature."
 	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
-	magazine_type = /obj/item/ammo_magazine/c45m/stendo
+	magazine_type = /obj/item/ammo_magazine/c57m/extended
 	icon = 'icons/obj/guns/coltsuper.dmi'
 	icon_state = "coltsuper"
 	item_state = "coltsuper"
@@ -65,9 +65,9 @@
 /obj/item/gun/projectile/automatic/lebman
 	name = "automatic 5.7mm combat pistol"
 	desc = "A robust metal-framed semi-automatic pistol produced in the system of San Colette. This example has been modified to allow fully-automatic fire, and sports a prominent vertical grip and muzzle compensator to aid in control."
-	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger .45 round intended for use against heavier targets. \
+	desc_extended = "The Pattern 5 Pistol is the standard-issue sidearm for the Civil Guard, San Colette’s local military force. Loosely based on the standard 9mm pistol of the Solarian Army, the P5 fires a larger 5.7mm round intended for use against heavier targets. \
 	The P5 is produced by the San Colette Interstellar Armaments Company (CAISC) and is often found abroad due to its rugged construction."
-	magazine_type = /obj/item/ammo_magazine/c45m/lebman
+	magazine_type = /obj/item/ammo_magazine/c57m/double
 	icon = 'icons/obj/guns/coltauto.dmi'
 	icon_state = "coltauto"
 	item_state = "coltauto"
@@ -96,8 +96,8 @@
 	icon = 'icons/obj/guns/secgun.dmi'
 	icon_state = "secgun"
 	item_state = "secgun"
-	magazine_type = /obj/item/ammo_magazine/c45m/rubber
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	magazine_type = /obj/item/ammo_magazine/c10m
+	allowed_magazines = list(/obj/item/ammo_magazine/c10m)
 	caliber = CALIBER_PISTOL_COC
 	accuracy = 1
 	offhand_accuracy = 1
@@ -140,7 +140,7 @@
 	desc = "A NanoTrasen-designed sidearm, modified for fully-automatic fire. Issued to select security and law enforcement groups."
 	desc_extended = "The NT Mk58 is a ballistic sidearm developed and produced by NanoTrasen. Bulky and heavy, the Mk58 is nonetheless used by security \
 	forces and law enforcement for its ease of use, low maintenance requirement, longevity, reliability - and most of all, extremely inexpensive price tag. \
-	A trademark of NanoTrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses .45 rounds."
+	A trademark of NanoTrasen security forces. This one has been modified for fully-automatic fire from the factory and sports a collapsible shoulder stock for better control. It uses 10mm rounds."
 	icon = 'icons/obj/guns/x9.dmi'
 	icon_state = "secgunauto"
 	item_state = "secgunauto"
@@ -152,9 +152,8 @@
 	max_shells = 16
 	caliber = CALIBER_PISTOL_COC
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
-	ammo_type = /obj/item/ammo_casing/c45
-	magazine_type = /obj/item/ammo_magazine/c45m/auto
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	magazine_type = /obj/item/ammo_magazine/c10m/smg
+	allowed_magazines = list(/obj/item/ammo_magazine/c10m/smg)
 	multi_aim = 1
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
@@ -174,8 +173,8 @@
 	icon = 'icons/obj/guns/c05r.dmi'
 	icon_state = "c05r"
 	item_state = "c05r"
-	magazine_type = /obj/item/ammo_magazine/mc10mm
-	allowed_magazines = list(/obj/item/ammo_magazine/mc10mm)
+	magazine_type = /obj/item/ammo_magazine/c10m/smg
+	allowed_magazines = list(/obj/item/ammo_magazine/c10m/smg)
 	caliber = CALIBER_PISTOL_COC
 	accuracy = 1
 	offhand_accuracy = 1
@@ -215,8 +214,8 @@
 	can_unsuppress = FALSE
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/c45m
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m)
+	magazine_type = /obj/item/ammo_magazine/mc9mm
+	allowed_magazines = list(/obj/item/ammo_magazine/mc9mm)
 	fire_delay = ROF_PISTOL
 
 /obj/item/gun/projectile/silenced/update_icon()

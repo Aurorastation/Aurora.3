@@ -83,28 +83,6 @@
 /obj/item/ammo_magazine/a50/empty
 	initial_ammo = 0
 
-/obj/item/ammo_magazine/c45m
-	name = "magazine (.45)"
-	icon_state = "45"
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/c45
-	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
-	caliber = ".45"
-	max_ammo = 9
-	multiple_sprites = 1
-
-/obj/item/ammo_magazine/c45m/stendo
-	name = "extended magazine (.45)"
-	desc = "A custom .45 pistol magazine fitted with an extended baseplate, increasing capacity to eleven rounds."
-	icon_state = "45e"
-	max_ammo = 11
-
-/obj/item/ammo_magazine/c45m/lebman
-	name = "extended magazine (.45)"
-	desc = "A custom .45 pistol magazine made by welding two together. Has double the capacity of a normal magazine at eighteen rounds."
-	icon_state = "45l"
-	max_ammo = 18
-
 /obj/item/ammo_magazine/c45m/empty
 	initial_ammo = 0
 
@@ -137,23 +115,6 @@
 	icon = 'icons/obj/guns/dominia_pistol.dmi'
 	icon_state = "dom_pistol_mag"
 	max_ammo = 11
-
-/obj/item/ammo_magazine/c46m
-	name = "magazine (4.6mm)"
-	icon_state = "4.6x30p"
-	origin_tech = list(TECH_COMBAT = 2)
-	mag_type = MAGAZINE
-	caliber = "4.6mm"
-	desc = "A magazine designed for the dNAC-4.6 pistol."
-	ammo_type = /obj/item/ammo_casing/c46mm
-	max_ammo = 15
-	multiple_sprites = TRUE
-
-/obj/item/ammo_magazine/c46m/extended
-	name = "extended magazine (4.6mm)"
-	icon_state = "4.6x30p_extended"
-	desc = "A magazine designed for the dNAC-4.6 II submachine gun, but can also be used in the dNAC-4.6 pistol."
-	max_ammo = 30
 
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
