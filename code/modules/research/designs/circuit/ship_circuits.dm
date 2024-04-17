@@ -31,4 +31,4 @@
 /datum/design/circuit/ship/iff
 	name = "IFF Transponder"
 	req_tech = list(TECH_POWER = 4, TECH_ENGINEERING = 5, TECH_DATA = 3)
-	build_path = /obj/item/circuitboard/iff
+	build_path = /obj/item/circuitboard/iff_beacon
