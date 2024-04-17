@@ -6462,7 +6462,7 @@
 /obj/item/stack/material/plastic/full,
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/lead/full,
-/turf/simulated/floor/plating,
+/turf/simulated/floor,
 /area/ship/gadpathur_patrol/engineering)
 "YP" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
