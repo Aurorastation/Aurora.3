@@ -9817,6 +9817,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"bIz" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore";
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/cult_base/crew)
 "bSG" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -10046,6 +10057,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_west)
+"dXG" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aft";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/cult_base/cargo)
+"dYz" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, aft";
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/cult_base/propulsion)
 "ebk" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
@@ -10162,6 +10187,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
+"ePV" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, cockpit";
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/cult_base/crew)
 "eQf" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/arrow/red{
@@ -10348,6 +10380,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"ghF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cockpit";
+	dir = 2
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/cult_base/crew)
 "gkU" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -10399,6 +10442,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
+"gzj" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cockpit";
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/cult_base/crew)
 "gBX" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 8
@@ -10476,8 +10530,8 @@
 /area/shuttle/cult_base/crew)
 "gMj" = (
 /obj/effect/decal/cleanable/blood/drip{
-	pixel_x = -14;
-	pixel_y = 14
+	pixel_x = -12;
+	pixel_y = 15
 	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -10503,6 +10557,13 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
+"heE" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, center";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/cult_base/cargo)
 "hfH" = (
 /obj/random/dirt_75,
 /obj/effect/shuttle_landmark/cult_base/space/south_close,
@@ -10774,6 +10835,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"iMz" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port thruster";
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/cult_base/propulsion)
 "iNl" = (
 /obj/structure/trash_pile,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -12421,6 +12492,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood/walnut,
 /area/cult_base/chiefs_quarters)
+"umm" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard thruster";
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/cult_base/propulsion)
 "unM" = (
 /obj/random/junk,
 /obj/structure/cable{
@@ -12926,6 +13007,24 @@
 	},
 /turf/simulated/floor/cult,
 /area/cult_base/asteroid)
+"yhi" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/effect/landmark/entry_point/port{
+	name = "port, center";
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/cult_base/cargo)
+"ylY" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fore";
+	dir = 8
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/cult_base/crew)
 
 (1,1,1) = {"
 aZi
@@ -54400,7 +54499,7 @@ aZi
 aZi
 rWm
 rWm
-uJF
+yhi
 rWm
 rWm
 aZi
@@ -54652,7 +54751,7 @@ aZi
 aZi
 lhW
 aVI
-lhW
+ePV
 lhW
 lhW
 rWm
@@ -54922,7 +55021,7 @@ adh
 aad
 aYH
 rWm
-rDb
+dYz
 rDb
 rDb
 aZi
@@ -55440,7 +55539,7 @@ aYm
 aeu
 aem
 aUR
-auS
+iMz
 aZi
 auo
 alK
@@ -55675,7 +55774,7 @@ aZi
 aZi
 lhW
 aVI
-aVI
+bIz
 lhW
 lhW
 ahJ
@@ -56186,7 +56285,7 @@ aZi
 aZi
 aZi
 aZi
-aVI
+ghF
 ygK
 atE
 aJf
@@ -56960,7 +57059,7 @@ aZi
 aZi
 lhW
 aVI
-aVI
+gzj
 lhW
 lhW
 aEG
@@ -57239,7 +57338,7 @@ ars
 aHS
 fvj
 aen
-auS
+umm
 aZi
 auo
 aKN
@@ -57749,7 +57848,7 @@ tqT
 aac
 akt
 rWm
-rWm
+dXG
 rWm
 rWm
 aZi
@@ -57993,7 +58092,7 @@ aZi
 aZi
 lhW
 aVI
-lhW
+ylY
 lhW
 lhW
 rWm
@@ -58255,7 +58354,7 @@ aZi
 aZi
 rWm
 rWm
-rWm
+heE
 rWm
 rWm
 aZi
