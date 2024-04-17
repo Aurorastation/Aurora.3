@@ -415,7 +415,11 @@
 /obj/item/projectile/howitzer/proc/terminal_effect(turf/impacted_turf)
 	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
-	return
+
+	if(QDELETED(impacted_turf))
+		return FALSE
+
+	return TRUE
 
 /*
 	High Explosive
@@ -455,6 +459,10 @@
 
 /obj/item/projectile/howitzer/high_explosive/terminal_effect(turf/impacted_turf)
 	. = ..()
+	if(!.)
+		return
+
+	impacted_turf.hotspot_expose(1 KILO, 100)
 
 	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(fragem), impacted_turf, fragment_minimum, fragment_maximum, \
 														light_impact_damage_range, flash_damage_range, fragment_damage, \
