@@ -8,6 +8,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "aab" = (
@@ -424,6 +425,9 @@
 	master_tag = "airlock_cult_base_2";
 	name = "airlock_cult_base_2"
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_south)
 "abi" = (
@@ -462,6 +466,15 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "abm" = (
@@ -495,6 +508,11 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "abq" = (
@@ -1163,6 +1181,10 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "add" = (
@@ -1174,6 +1196,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "ade" = (
@@ -2384,6 +2410,9 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 10
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "aiI" = (
@@ -2733,6 +2762,15 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "akP" = (
@@ -2973,6 +3011,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
 "amw" = (
@@ -3315,6 +3356,11 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "aot" = (
@@ -3451,6 +3497,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "apv" = (
@@ -3768,6 +3817,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "aqQ" = (
@@ -4613,20 +4667,25 @@
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
 "avx" = (
-/obj/random/dirt_75,
-/obj/item/ammo_magazine/c38{
-	pixel_x = 6;
-	pixel_y = -4
-	},
-/obj/item/gun/projectile/revolver/detective{
-	pixel_x = -2;
-	pixel_y = 6
-	},
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/turf/simulated/floor/plating/asteroid,
-/area/cult_base/asteroid)
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/hallways_north)
 "avz" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -4743,6 +4802,23 @@
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"awo" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/random/junk,
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "awp" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
@@ -4764,6 +4840,11 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
+/obj/machinery/light/small/broken,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "awu" = (
@@ -4886,6 +4967,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
 "axj" = (
@@ -5854,11 +5936,20 @@
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
 "aDD" = (
-/turf/simulated/wall/r_wall{
-	can_open = 1;
-	color = "#CCDDFF"
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/area/cult_base/hallways_north)
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/plating,
+/area/space)
 "aDE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -6747,6 +6838,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "aJu" = (
@@ -7164,6 +7258,9 @@
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aLE" = (
@@ -7452,6 +7549,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 8
 	},
+/obj/machinery/light/small/broken,
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "aNa" = (
@@ -7644,6 +7742,16 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -19;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "aOn" = (
@@ -9385,6 +9493,9 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_south)
 "aYs" = (
@@ -9541,6 +9652,16 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -19;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "aZb" = (
@@ -9794,6 +9915,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
+"bnR" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "bvw" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = -7;
@@ -9862,6 +9999,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"cfW" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/shuttle_landmark/cult_base/dock/south_2,
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "cij" = (
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 8;
@@ -9903,6 +10058,17 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/cult_base/crew)
+"cEM" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/plating,
+/area/space)
 "cET" = (
 /obj/effect/shuttle_landmark/cult_base/space/south_far,
 /turf/template_noop,
@@ -10363,6 +10529,15 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "geB" = (
@@ -10380,6 +10555,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"ggN" = (
+/obj/random/dirt_75,
+/obj/item/ammo_magazine/c38{
+	pixel_x = 6;
+	pixel_y = -4
+	},
+/obj/item/gun/projectile/revolver/detective{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "ghF" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1;
@@ -10766,6 +10953,24 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
+"iuY" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -19;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee,
+/turf/simulated/floor/plating,
+/area/space)
 "iBG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -10914,6 +11119,15 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "jvw" = (
@@ -11778,6 +11992,16 @@
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "pxE" = (
@@ -12213,6 +12437,16 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_5";
+	name = "airlock_cult_base_5"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_north)
 "sua" = (
@@ -12245,6 +12479,9 @@
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_3,
 /obj/effect/floor_decal/industrial/outline_door/red,
 /obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -12361,6 +12598,16 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_cult_base_4";
+	name = "airlock_cult_base_4"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "tqS" = (
@@ -12381,6 +12628,23 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
+"tra" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 32;
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/space)
 "trb" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 4
@@ -12784,6 +13048,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
+"wdQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/map_effect/marker/airlock/docking/cult_base/dock/south_2,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/plating,
+/area/space)
 "wsd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/map_effect/marker/airlock/docking/cult_base/dock/west_1,
@@ -47301,7 +47576,7 @@ aVe
 ajX
 aCb
 aCb
-axk
+ggN
 aCb
 apX
 apX
@@ -47557,7 +47832,7 @@ aMS
 aYJ
 azt
 aNz
-avx
+aUg
 ahD
 aCT
 apX
@@ -52937,8 +53212,8 @@ aZi
 aZi
 aZi
 aZi
-aZi
-aZi
+tra
+iuY
 aZi
 aZi
 aZi
@@ -52969,7 +53244,7 @@ aIg
 adK
 aFN
 ayt
-aDD
+aGp
 aGF
 aTZ
 aGQ
@@ -53194,8 +53469,8 @@ aZi
 aZi
 aZi
 aZi
-aZi
-aZi
+bnR
+cEM
 aZi
 aZi
 aZi
@@ -53451,8 +53726,8 @@ aZi
 aZi
 aZi
 aZi
-aZi
-aZi
+awo
+wdQ
 aZi
 aZi
 aZi
@@ -53708,8 +53983,8 @@ aZi
 aZi
 aZi
 aZi
-aZi
-aZi
+cfW
+aDD
 aZi
 aZi
 aZi
@@ -53995,7 +54270,7 @@ aZi
 aZi
 auo
 aGp
-abp
+avx
 stp
 aGp
 aZi
