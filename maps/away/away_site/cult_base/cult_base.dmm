@@ -4775,9 +4775,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
-"awx" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/space)
 "awB" = (
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/plating,
@@ -6436,7 +6433,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/cult_base/cargo)
 "aHC" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid{
@@ -8336,7 +8333,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/space)
+/area/shuttle/cult_base/cargo)
 "aSm" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -11340,12 +11337,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
-"nbL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/cult_base/propulsion)
 "nfG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/material/knife/bloody{
@@ -12155,9 +12146,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
-"szJ" = (
-/turf/simulated/wall/r_wall,
-/area/shuttle/cult_base/propulsion)
 "sAT" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -55931,11 +55919,11 @@ adu
 xQz
 xQz
 kSf
-szJ
-rDb
-nbL
-rDb
-awx
+xQz
+rWm
+aeg
+rWm
+rWm
 aDQ
 aDQ
 aDQ
@@ -56706,7 +56694,7 @@ xQz
 rWm
 aeg
 rWm
-awx
+rWm
 aDQ
 aDQ
 aDQ

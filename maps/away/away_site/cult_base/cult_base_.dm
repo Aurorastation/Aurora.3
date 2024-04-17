@@ -25,7 +25,7 @@
 	desc = "\
 		Scans reveal a small station built into a asteroid, registered in the official and public databases as a independent research outpost. \
 		It appears to be pressurized, powered, with a functioning transponder, and has a hangar for a small shuttle. \
-		Database query reveals that it was active and has seen traffic up until a few weeks ago, but no communications in or out since then. \
+		Database query reveals that it was active and has seen frequent radio traffic up until a few weeks ago, but no communications since then. \
 		Caution is advised.\
 		"
 	static_vessel = TRUE
@@ -35,33 +35,24 @@
 	color = "#bd8159"
 
 	designer = "Unknown"
-	volume = "90 meters length, 90 meters beam/width, 42 meters vertical height"
+	volume = "82 meters length, 81 meters beam/width, 45 meters vertical height"
 	weapons = "Not apparent"
 	sizeclass = "Asteroid Base"
 
 	initial_generic_waypoints = list(
 		// docks
 		"nav_cult_base_dock_hangar",
-		"nav_cult_base_dock_north_east",
-		"nav_cult_base_dock_north_west",
-		"nav_cult_base_dock_west",
-		"nav_cult_base_dock_east_north",
-		"nav_cult_base_dock_east_south",
-		"nav_cult_base_dock_south_east",
-		"nav_cult_base_dock_south_mid",
-		"nav_cult_base_dock_south_west",
-		// catwalks
-		"nav_cult_base_catwalk_north",
-		"nav_cult_base_catwalk_west",
-		"nav_cult_base_catwalk_south_1",
-		"nav_cult_base_catwalk_south_2",
-		"nav_cult_base_catwalk_south_3",
-		"nav_cult_base_catwalk_south_4",
+		"nav_cult_base_dock_west_1",
+		"nav_cult_base_dock_west_2",
+		"nav_cult_base_dock_west_3",
+		"nav_cult_base_dock_south_1",
+		"nav_cult_base_dock_south_2",
 		// space
-		"nav_cult_base_space_south_west",
-		"nav_cult_base_space_south_east",
-		"nav_cult_base_space_north_west",
-		"nav_cult_base_space_north_east",
+		"nav_cult_base_space_south_close",
+		"nav_cult_base_space_west_close",
+		"nav_cult_base_space_south_far",
+		"nav_cult_base_space_west_far",
+		"nav_cult_base_space_south_west_far",
 	)
 
 // ---- shuttle
@@ -85,7 +76,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 	designer = "Hephaestus Industries"
-	volume = "17 meters length, 24 meters beam/width, 6 meters vertical height"
+	volume = "26 meters length, 14 meters beam/width, 6 meters vertical height"
 	sizeclass = "Pioneer Exploration Shuttle"
 	shiptype = "Field expeditions and private research uses"
 
