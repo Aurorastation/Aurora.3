@@ -4457,9 +4457,6 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
-/obj/machinery/power/apc/empty/north{
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
@@ -4467,6 +4464,9 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/machinery/power/apc/north{
+	req_access = null
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/propulsion)
 "auX" = (
@@ -6705,11 +6705,11 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "aJl" = (
@@ -9625,9 +9625,6 @@
 	pixel_x = 6;
 	pixel_y = 2
 	},
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
 /obj/item/stack/cable_coil{
 	pixel_x = 7;
 	pixel_y = -8
@@ -9637,6 +9634,9 @@
 	pixel_x = 2
 	},
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "aZz" = (
@@ -9720,6 +9720,9 @@
 /obj/effect/decal/cleanable/generic,
 /obj/structure/girder/displaced,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "bbt" = (
@@ -10232,7 +10235,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
-/obj/machinery/power/apc/empty/north{
+/obj/machinery/power/apc/north{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10841,11 +10844,11 @@
 /turf/simulated/floor/cult,
 /area/cult_base/asteroid)
 "jGU" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
 /obj/random/dirt_75,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "jUe" = (
@@ -11909,15 +11912,15 @@
 	pixel_x = -14;
 	pixel_y = 14
 	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
 /obj/item/stack/cable_coil{
 	pixel_x = 4;
 	pixel_y = 1
 	},
 /obj/effect/decal/cleanable/generic,
 /obj/random/dirt_75,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/cult_base/hallways_east)
 "rgz" = (

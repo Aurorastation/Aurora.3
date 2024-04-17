@@ -10,6 +10,7 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cult_base_shuttle)
 	unit_test_groups = list(1)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: REMOVE THIS
 
@@ -66,7 +67,7 @@
 // ---- shuttle
 
 /obj/effect/overmap/visitable/ship/landable/cult_base_shuttle
-	name = "ICV Cult Base Shuttle"
+	name = "Cult Base Shuttle"
 	class = "ICV"
 	desc = "\
 		A standard-sized exploration shuttle manufactured by Hephaestus, \
@@ -74,7 +75,7 @@
 		Featuring well-rounded facilities and equipment, the Pioneer is a dependable platform, \
 		although a bit dated by now, outclassed by newer designs like the Pathfinder-class.\
 		"
-	shuttle = "ICV Cult Base Shuttle"
+	shuttle = "Cult Base Shuttle"
 	icon_state = "cetus"
 	moving_state = "cetus_moving"
 	colors = list("#d3d155", "#bea03b")
@@ -97,10 +98,10 @@
 
 /obj/machinery/computer/shuttle_control/explore/terminal/cult_base_shuttle
 	name = "shuttle control console"
-	shuttle_tag = "ICV Cult Base Shuttle"
+	shuttle_tag = "Cult Base Shuttle"
 
 /datum/shuttle/autodock/overmap/cult_base_shuttle
-	name = "ICV Cult Base Shuttle"
+	name = "Cult Base Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/cult_base/crew, /area/shuttle/cult_base/cargo, /area/shuttle/cult_base/propulsion)
 	dock_target = "airlock_cult_base_shuttle"
@@ -112,8 +113,8 @@
 	defer_initialisation = TRUE
 
 /obj/effect/map_effect/marker/airlock/shuttle/cult_base_shuttle
-	name = "ICV Cult Base Shuttle"
-	shuttle_tag = "ICV Cult Base Shuttle"
+	name = "Cult Base Shuttle"
+	shuttle_tag = "Cult Base Shuttle"
 	master_tag = "airlock_cult_base_shuttle"
 
 // ---------------------
