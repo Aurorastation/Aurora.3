@@ -470,7 +470,7 @@
 	master_tag = "airlock_cult_base_5";
 	name = "airlock_cult_base_5"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
@@ -10456,7 +10456,7 @@
 	master_tag = "airlock_cult_base_4";
 	name = "airlock_cult_base_4"
 	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 2;
 	pixel_y = 28;
 	pixel_x = -6
