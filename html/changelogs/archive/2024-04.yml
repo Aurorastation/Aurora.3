@@ -341,3 +341,24 @@
       instances.
   meep109:
   - bugfix: Fixes the orion express courier shuttle leaving plating behind.
+2024-04-17:
+  CourierBravo:
+  - qol: Adds the new materials to nearly every offship with an autolathe. Exceptions
+      made at this time to ship with open PRs
+  FluffyGhost:
+  - code_imp: Made the Destroy proc not sleepable.
+  Lavillastrangiato:
+  - bugfix: Fixes any access problems on the NKA merchant navy vessel.
+  - qol: Adds various dirt, decorations, and a CO2 tank to the NKA merchant navy vessel.
+  - bugfix: Gives the civvie yacht crew IDs.
+  - bugfix: Fixes access problems on the Headmaster ship.
+  - bugfix: Fixes some typoes in the ZI machine pistol and various Medina stuff.
+  - bugfix: Fixes Vaurca workers causing quakes when they jump.
+  - bugfix: Adds Dominian armor and helmets to their gear crates.
+  RustingWithYou:
+  - rscadd: Overmap shuttles can now be mapped directly onto their open space z-level,
+      without the need for empty sectors.
+  - rscadd: Adds various ruins for the minor planets and asteroids of Uueoa-Esa.
+  - qol: Clothing items can now be set to refit to a species on initialize.
+  kermit, Caelphon, hollyhock:
+  - rscadd: Replaces EUM origins/accents with Hieroaetherian origins/accents.
