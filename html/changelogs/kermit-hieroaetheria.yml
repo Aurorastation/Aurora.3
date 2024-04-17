@@ -1,0 +1,6 @@
+author: kermit, Caelphon, hollyhock
+
+delete-after: True
+
+changes:
+  - rscadd: "Replaces EUM origins/accents with Hieroaetherian origins/accents."
