@@ -2035,4 +2035,4 @@ All custom items with worn sprites must follow the contained sprite system: http
 
 /obj/item/device/versebook/fluff/guilty_men/Initialize()
 	. = ..()
-	randomquip = file2list("ingame_manuals/imogen_guiltymen.txt")
+	randomquip = file2list("icons/obj/custom_items/imogen_guiltymen.txt")
