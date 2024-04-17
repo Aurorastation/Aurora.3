@@ -316,9 +316,7 @@
 "aaM" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -703,10 +701,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/structure/barricade/wooden{
-	dir = 1;
-	pixel_y = 21
-	},
 /obj/structure/blocker,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
@@ -803,9 +797,7 @@
 "ack" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -1242,7 +1234,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -1605,10 +1597,6 @@
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
 "aep" = (
-/obj/item/clothing/suit/space/emergency{
-	pixel_x = -4;
-	pixel_y = 5
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -1871,7 +1859,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -2081,7 +2069,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -2525,7 +2513,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2568,9 +2556,7 @@
 "ajK" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -3358,9 +3344,7 @@
 "aoF" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -3442,7 +3426,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "apd" = (
-/obj/structure/blocker,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
@@ -4031,9 +4014,7 @@
 "asr" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -4192,9 +4173,7 @@
 "atq" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -4391,12 +4370,12 @@
 /turf/template_noop,
 /area/space)
 "aur" = (
-/obj/item/clothing/head/helmet/space/emergency{
-	pixel_x = 13;
-	pixel_y = -16
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/random/dirt_75,
+/obj/item/clothing/head/helmet/space/emergency{
+	pixel_x = -7;
+	pixel_y = -8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "aus" = (
@@ -5167,7 +5146,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5367,9 +5346,7 @@
 "aAn" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_waste)
 "aAo" = (
@@ -5504,7 +5481,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -5670,9 +5647,7 @@
 "aBQ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -5778,9 +5753,7 @@
 "aCR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -5945,7 +5918,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7140,10 +7113,14 @@
 /area/cult_base/maint_north)
 "aLu" = (
 /obj/item/book/tome{
-	pixel_x = 2;
-	pixel_y = 3
+	pixel_y = 9;
+	pixel_x = 4
 	},
 /obj/effect/decal/cleanable/blood,
+/obj/item/material/knife/ritual/bloody{
+	pixel_x = 11;
+	pixel_y = -5
+	},
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "aLx" = (
@@ -7261,7 +7238,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7291,6 +7268,10 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/item/clothing/suit/space/emergency{
+	pixel_x = 11;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "aMq" = (
@@ -7646,7 +7627,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -7859,9 +7840,7 @@
 "aPR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -7935,7 +7914,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7974,9 +7953,7 @@
 "aQH" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "aQI" = (
@@ -8369,12 +8346,19 @@
 	pixel_y = 6
 	},
 /obj/random/dirt_75,
+/obj/item/crowbar/red{
+	pixel_y = -8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aSu" = (
 /obj/structure/table/steel,
 /obj/machinery/light/broken{
 	dir = 4
+	},
+/obj/item/crowbar/red{
+	pixel_y = 4;
+	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
@@ -8694,7 +8678,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8822,9 +8806,7 @@
 "aVa" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -9089,9 +9071,7 @@
 "aWR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -9416,7 +9396,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -9516,9 +9496,7 @@
 "aYX" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "aYY" = (
@@ -9574,7 +9552,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/structure/cable{
@@ -10051,6 +10029,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
+"efQ" = (
+/obj/item/crowbar/rescue_axe{
+	pixel_x = -11;
+	pixel_y = -9
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_mid)
 "ejh" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/shuttle_landmark/cult_base/dock/south_1,
@@ -10077,10 +10062,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
 "evo" = (
-/obj/item/material/knife/ritual/bloody{
-	pixel_x = 8;
-	pixel_y = 7
-	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/cargo)
@@ -10884,7 +10865,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -10945,7 +10926,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/door/airlock/maintenance_hatch{
 	dir = 4
 	},
 /obj/structure/cable/yellow{
@@ -11619,6 +11600,13 @@
 /obj/effect/floor_decal/industrial/outline_segment/red,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_south)
+"ppr" = (
+/obj/item/crowbar{
+	pixel_x = -13;
+	pixel_y = -5
+	},
+/turf/simulated/floor/plating,
+/area/cult_base/maint_north)
 "ppX" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/cult_base_shuttle,
@@ -12163,6 +12151,10 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/deployable_kit/iv_drip{
+	pixel_y = 2;
+	pixel_x = -10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "sRw" = (
@@ -12443,9 +12435,7 @@
 "uPW" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
@@ -12661,9 +12651,7 @@
 "wEn" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/hatch{
-	dir = 2
-	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -51245,7 +51233,7 @@ ovq
 aSH
 aLT
 mcd
-aMT
+ppr
 avv
 ocg
 aMT
@@ -51268,7 +51256,7 @@ bSG
 asf
 aGi
 aZD
-aaX
+efQ
 asU
 frX
 anb
