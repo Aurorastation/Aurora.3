@@ -1,495 +1,540 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"aw" = (
-/obj/structure/cable/orange{
-	icon_state = "4-8"
+"av" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"aw" = (
+/obj/structure/cable/pink,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "bx" = (
-/obj/structure/cable/blue{
-	icon_state = "1-4"
+/obj/machinery/power/apc/low/east,
+/obj/structure/cable/green,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"ci" = (
+/obj/structure/cable/white{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "cp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"cH" = (
-/obj/structure/cable/white{
-	icon_state = "0-4"
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
+"cs" = (
+/obj/structure/cable/cyan{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"cD" = (
+/obj/structure/cable/blue{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"cF" = (
+/obj/structure/cable/green{
+	icon_state = "0-1"
+	},
+/obj/machinery/power/apc/low/west,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"cH" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable,
+/turf/simulated/floor,
+/area/template_noop)
 "cO" = (
-/obj/structure/cable/pink{
-	icon_state = "1-2"
+/obj/structure/cable/orange{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "di" = (
-/obj/structure/cable/white{
-	icon_state = "4-8"
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled/steel,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
 /area/template_noop)
 "dk" = (
-/obj/machinery/door/airlock/maintenance,
-/turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
-"du" = (
-/turf/simulated/wall/r_wall,
-/area/template_noop)
-"dA" = (
-/obj/structure/cable/orange{
+/obj/structure/cable{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
+"du" = (
+/turf/space,
+/area/template_noop)
+"dA" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/template_noop)
+"dD" = (
+/obj/structure/cable/orange{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"dY" = (
+/obj/structure/cable/green,
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"eA" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "fj" = (
-/obj/structure/cable/white{
-	icon_state = "0-2"
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "fw" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
 /obj/structure/cable/green{
-	icon_state = "1-8"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/template_noop)
 "fC" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/command{
-	dir = 4
-	},
+/obj/machinery/power/portgen/basic/fusion,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "gi" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"gk" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"gm" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"gv" = (
-/obj/structure/cable/white{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"hi" = (
-/obj/machinery/power/apc/low/west,
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"ik" = (
-/obj/structure/cable/pink{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"js" = (
-/obj/structure/cable,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"jx" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/low/east,
 /turf/simulated/floor,
 /area/template_noop)
-"jM" = (
-/obj/structure/cable/blue{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"kg" = (
-/obj/structure/cable/cyan{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"kx" = (
+"gk" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/template_noop)
-"kZ" = (
-/turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
-"lh" = (
-/obj/effect/map_effect/map_helper/mark_bad,
-/turf/simulated/floor,
-/area/template_noop)
-"li" = (
+"gm" = (
 /obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"mk" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"mo" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
-/area/template_noop)
-"nd" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"nz" = (
-/obj/structure/cable/blue{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"oq" = (
-/obj/structure/cable/yellow{
+"gv" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"oG" = (
-/obj/structure/cable/blue{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"oR" = (
-/obj/structure/cable/cyan,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"pm" = (
-/obj/structure/cable/blue{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"qg" = (
-/obj/structure/cable/blue,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"qk" = (
-/obj/machinery/power/terminal{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"qm" = (
+"gD" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor,
 /area/template_noop)
-"qu" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
+"gX" = (
+/obj/effect/map_effect/map_helper/mark_bad,
+/turf/simulated/wall/r_wall,
+/area/template_noop)
+"hd" = (
+/obj/structure/cable/pink{
+	icon_state = "4-8"
 	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"hi" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"qz" = (
-/obj/structure/cable/cyan{
-	icon_state = "2-4"
+"ik" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
+/obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"qS" = (
+"jh" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/machinery/power/apc/low/west,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"sa" = (
+"js" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"jx" = (
+/turf/simulated/wall/r_wall,
+/area/template_noop)
+"jM" = (
 /obj/structure/cable/pink{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"sh" = (
+"kg" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"ku" = (
 /obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"kx" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"kZ" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"lh" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/low/south,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"li" = (
+/obj/structure/cable/pink{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"lW" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/south,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"mk" = (
+/obj/effect/map_effect/map_helper/mark_good,
+/turf/simulated/wall/r_wall,
+/area/template_noop)
+"mo" = (
+/obj/structure/cable/pink{
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"so" = (
+"nd" = (
+/obj/structure/cable/orange{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"nz" = (
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"nE" = (
 /obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"oe" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"oq" = (
+/obj/machinery/door/airlock/command{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"oG" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor,
+/area/template_noop)
+"oR" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"pm" = (
+/obj/structure/cable/cyan{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"sx" = (
+"pw" = (
+/obj/structure/cable/cyan{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"qg" = (
+/obj/structure/cable/orange{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"qk" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"qu" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"qz" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/wall/r_wall,
+/area/template_noop)
+"qS" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"rj" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"sa" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"sh" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/template_noop)
-"sN" = (
-/obj/structure/cable/blue{
-	icon_state = "0-2"
+"so" = (
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
+/turf/simulated/floor,
+/area/template_noop)
+"sx" = (
+/obj/machinery/power/smes,
 /turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"sN" = (
+/obj/machinery/door/airlock/maintenance{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"td" = (
+/obj/machinery/power/smes,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor,
 /area/template_noop)
 "ue" = (
-/obj/structure/cable/blue{
-	icon_state = "0-8"
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"uA" = (
+/obj/structure/cable/cyan{
+	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"uJ" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
+"uP" = (
+/obj/machinery/power/terminal{
+	dir = 1
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "uU" = (
-/obj/structure/cable/green{
-	icon_state = "1-4"
+/obj/structure/cable/pink{
+	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "vf" = (
-/obj/effect/map_effect/map_helper/mark_acceptable,
+/obj/machinery/power/terminal{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/template_noop)
 "vo" = (
-/obj/structure/cable{
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/low/east,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"vz" = (
+/obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "vW" = (
 /obj/effect/map_effect/map_helper/mark_good,
-/turf/simulated/wall/r_wall,
+/turf/template_noop,
 /area/template_noop)
 "wa" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-8"
+/obj/structure/cable/cyan{
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "wb" = (
-/obj/structure/cable/cyan{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"wE" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"wP" = (
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"wT" = (
-/obj/structure/cable/green{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"xw" = (
-/obj/machinery/power/smes,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"xX" = (
-/obj/structure/cable/yellow,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"yH" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"zn" = (
-/obj/structure/cable/cyan{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"zt" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"AF" = (
-/obj/structure/cable/cyan{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"AH" = (
-/obj/structure/cable/pink{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Bl" = (
-/obj/structure/cable/orange{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Bp" = (
-/obj/machinery/power/smes,
-/obj/structure/cable/green,
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"Bt" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/map_effect/map_helper/mark_acceptable,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"BE" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor,
-/area/template_noop)
-"Cu" = (
-/obj/machinery/power/smes,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Da" = (
-/obj/structure/cable/white,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"DJ" = (
-/obj/machinery/door/airlock/command{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"DW" = (
-/turf/template_noop,
-/area/template_noop)
-"Eg" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"EC" = (
-/obj/structure/cable/white{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"EH" = (
-/obj/structure/cable/white{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"EY" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"Fj" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Fs" = (
-/obj/effect/map_effect/map_helper/mark_bad,
-/turf/simulated/wall/r_wall,
-/area/template_noop)
-"FP" = (
-/obj/machinery/door/airlock/maintenance{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/template_noop)
-"Gr" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"GH" = (
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Ht" = (
-/turf/simulated/floor,
-/area/template_noop)
-"HC" = (
+"wr" = (
 /obj/structure/cable/cyan{
-	icon_state = "0-2"
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"HE" = (
-/obj/structure/cable/pink{
+"wE" = (
+/obj/structure/cable/white{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Ib" = (
-/obj/structure/cable/pink,
+"wP" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Ij" = (
+"wT" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/command{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"xd" = (
+/obj/structure/cable/white{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"xm" = (
+/obj/structure/cable/orange{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"xw" = (
+/obj/machinery/power/smes,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"xF" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"xT" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -497,278 +542,467 @@
 /obj/structure/cable,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Jx" = (
-/obj/machinery/power/terminal{
-	dir = 4
+"xX" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Jy" = (
+"yu" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"zn" = (
+/obj/structure/cable,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"zt" = (
+/obj/structure/cable/orange{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Aj" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /obj/structure/cable/green{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Km" = (
-/obj/structure/cable/green,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"KX" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
-/turf/simulated/floor,
-/area/template_noop)
-"Li" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Lt" = (
-/obj/structure/cable/yellow{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"LF" = (
-/obj/structure/cable/orange,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"LJ" = (
-/obj/machinery/power/portgen/basic/fusion,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"LW" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"Mz" = (
-/obj/structure/cable/yellow{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"MZ" = (
-/obj/structure/cable/blue{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Nr" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"Nt" = (
+"Al" = (
 /obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"NH" = (
+"At" = (
 /obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor,
-/area/template_noop)
-"OG" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"Pa" = (
-/obj/structure/cable{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Pe" = (
-/obj/machinery/power/portgen/basic/fusion,
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor,
-/area/template_noop)
-"PI" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"PU" = (
-/obj/effect/map_effect/map_helper/mark_good,
-/turf/template_noop,
-/area/template_noop)
-"Ql" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Qs" = (
-/obj/structure/cable/white{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Qt" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Qu" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/effect/map_effect/map_helper/mark_good,
-/turf/simulated/floor,
-/area/template_noop)
-"Qw" = (
-/obj/effect/map_effect/map_helper/mark_good,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"QL" = (
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"QX" = (
-/obj/machinery/power/apc/low/east,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Rg" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/low/east,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Rh" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/template_noop)
-"Ri" = (
-/obj/structure/cable/pink{
-	icon_state = "4-8"
+"AD" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"AH" = (
+/obj/structure/cable/cyan{
+	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Rv" = (
+"Bf" = (
+/obj/structure/cable/yellow,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Bl" = (
+/obj/machinery/power/apc/low/west,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/template_noop)
-"RN" = (
+"Bn" = (
+/obj/structure/cable/white{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Bt" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"BE" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Ci" = (
+/obj/structure/cable{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"Cu" = (
+/obj/structure/cable/cyan{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Da" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ds" = (
+/obj/structure/cable/pink{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"DW" = (
+/turf/template_noop,
+/area/template_noop)
+"EB" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"EC" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"EH" = (
+/obj/machinery/power/smes,
+/obj/structure/cable/green,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"EL" = (
+/obj/structure/cable/pink{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"EY" = (
+/obj/structure/cable/orange{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Fj" = (
+/obj/machinery/door/airlock/command{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Fx" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/effect/map_effect/map_helper/mark_good,
+/turf/simulated/floor,
+/area/template_noop)
+"FP" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"GH" = (
 /obj/structure/cable/blue{
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"SH" = (
-/obj/structure/cable/pink{
-	icon_state = "1-8"
+"Hp" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
 	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"TP" = (
-/obj/structure/cable/pink{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"TW" = (
-/obj/structure/cable/orange{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"UO" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"US" = (
-/obj/machinery/power/apc/low/east,
-/obj/structure/cable/green,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
 /area/template_noop)
-"Vo" = (
-/obj/structure/cable/white{
-	icon_state = "0-8"
+"Hq" = (
+/obj/effect/map_effect/map_helper/mark_acceptable,
+/turf/simulated/floor,
+/area/template_noop)
+"Ht" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Vv" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall/r_wall,
-/area/template_noop)
-"VJ" = (
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"VO" = (
+"HD" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /obj/machinery/power/smes,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Wc" = (
+"HE" = (
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "1-8"
 	},
-/obj/effect/map_effect/map_helper/mark_bad,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/template_noop)
+"HQ" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/door/airlock/command,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ib" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/template_noop)
+"Ij" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"In" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/engineering,
+/turf/simulated/floor,
+/area/template_noop)
+"IP" = (
+/obj/effect/map_effect/map_helper/mark_acceptable,
+/turf/simulated/wall/r_wall,
+/area/template_noop)
+"Jx" = (
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"Jy" = (
+/obj/structure/cable/white{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Wn" = (
-/obj/structure/cable/orange{
+"Km" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Ks" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"KX" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/turf/simulated/floor,
+/area/template_noop)
+"Lf" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"Li" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/template_noop)
+"Lt" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/template_noop)
+"LF" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"LJ" = (
+/obj/machinery/power/apc/low/east,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"LW" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"MM" = (
+/obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"Wz" = (
+"Nr" = (
+/obj/structure/cable/blue{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Nt" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/template_noop)
+"NH" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"NR" = (
+/obj/structure/cable/pink{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"NX" = (
+/obj/structure/cable/blue{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Or" = (
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"OG" = (
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/template_noop)
+"Pa" = (
+/obj/structure/cable/blue{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Pd" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/map_helper/mark_acceptable,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Pe" = (
+/obj/machinery/power/smes,
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/structure/cable,
+/turf/simulated/floor,
+/area/template_noop)
+"PA" = (
+/obj/structure/cable/orange{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"PL" = (
+/obj/structure/cable/blue{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"PU" = (
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Ql" = (
+/obj/structure/cable/white{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Qo" = (
+/obj/structure/cable/cyan{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Qs" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Qt" = (
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -778,114 +1012,299 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
 /area/template_noop)
-"WC" = (
-/obj/machinery/door/airlock/command,
-/turf/simulated/floor/tiled/dark/full,
+"Qu" = (
+/obj/structure/cable/orange,
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"WP" = (
-/obj/structure/cable/orange{
-	icon_state = "0-8"
+"Qw" = (
+/obj/structure/cable/blue{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"WW" = (
+"QL" = (
+/obj/machinery/door/airlock/command,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"QT" = (
 /obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
-/area/template_noop)
-"Xv" = (
-/obj/structure/cable/pink{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Xw" = (
-/obj/structure/cable/orange{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Xz" = (
-/obj/structure/cable/cyan{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"XT" = (
-/obj/structure/cable/orange{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Yf" = (
-/obj/machinery/door/airlock/command,
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Yo" = (
-/obj/structure/cable/white{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"Yr" = (
-/obj/structure/cable/orange{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"YB" = (
-/obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+	icon_state = "0-8"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/template_noop)
-"YK" = (
-/obj/structure/cable/green{
-	icon_state = "2-4"
+"QX" = (
+/obj/machinery/door/airlock/command,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Rg" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Rh" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/engineering,
+/turf/simulated/floor,
+/area/template_noop)
+"Ri" = (
+/obj/structure/cable{
+	icon_state = "1-8"
 	},
 /turf/simulated/floor,
 /area/template_noop)
-"YM" = (
-/obj/structure/cable/yellow{
+"Rv" = (
+/obj/structure/cable{
 	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"RN" = (
+/obj/machinery/door/airlock/command,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Sr" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"SH" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-1"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"TK" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
+/area/template_noop)
+"TP" = (
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"TW" = (
+/obj/structure/cable/blue{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"UO" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/power/apc/low/north,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"UQ" = (
+/obj/structure/cable/white{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"US" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"Vo" = (
+/obj/structure/cable/white{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Vv" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/door/airlock/maintenance,
+/turf/simulated/floor,
+/area/template_noop)
+"VJ" = (
+/obj/effect/map_effect/map_helper/mark_good,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"VO" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"VY" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Wc" = (
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Wn" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/template_noop)
+"Wz" = (
+/obj/structure/cable/blue{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"WC" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"WP" = (
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"WW" = (
+/obj/structure/cable/cyan,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"WX" = (
+/obj/structure/cable/white{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Xg" = (
+/obj/structure/cable/white,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Xv" = (
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Xw" = (
+/turf/simulated/floor,
+/area/template_noop)
+"Xy" = (
+/obj/structure/cable/pink{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Xz" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"XQ" = (
+/obj/structure/cable/blue,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"XT" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor,
+/area/template_noop)
+"Yf" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"Yo" = (
+/obj/effect/map_effect/map_helper/mark_bad,
+/turf/simulated/floor,
+/area/template_noop)
+"Yr" = (
+/obj/machinery/power/apc/low/north,
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"YK" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"YM" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "YW" = (
 /obj/structure/cable/green{
-	icon_state = "1-2"
+	icon_state = "2-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/template_noop)
 "Ze" = (
-/obj/effect/map_effect/map_helper/mark_acceptable,
-/turf/simulated/wall/r_wall,
-/area/template_noop)
-"ZE" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"ZE" = (
+/obj/structure/cable/orange{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"ZQ" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"ZY" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /turf/simulated/floor,
-/area/template_noop)
-"ZI" = (
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/steel,
 /area/template_noop)
 
 (1,1,1) = {"
@@ -1476,6 +1895,13 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
@@ -1492,20 +1918,13 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
@@ -1568,6 +1987,13 @@ DW
 DW
 DW
 DW
+jx
+Xw
+Xw
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1584,20 +2010,13 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+Xw
+Xw
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1660,6 +2079,13 @@ DW
 DW
 DW
 DW
+jx
+Xw
+ue
+cH
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1676,20 +2102,13 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+Xw
+ue
+cH
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1752,6 +2171,13 @@ DW
 DW
 DW
 DW
+jx
+Xw
+so
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1768,20 +2194,13 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+Xw
+so
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1836,6 +2255,21 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+ue
+Pe
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1844,36 +2278,21 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+ue
+Pe
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1928,6 +2347,21 @@ DW
 DW
 DW
 DW
+jx
+Xw
+Ij
+Rh
+US
+US
+US
+US
+US
+Ri
+vf
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -1935,37 +2369,22 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+du
+jx
+Xw
+Ij
+Rh
+US
+US
+US
+US
+US
+Ri
+vf
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -2020,52 +2439,52 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-DW
+jx
+Xw
+td
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+Xw
+td
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
@@ -2112,52 +2531,52 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-du
-DW
+jx
+Xw
+YW
+In
+Wn
+Li
+Li
+Li
+At
+Li
+Li
+Li
+Li
+Li
+Ib
+Li
+Li
+Li
+Li
+Li
+Li
+Lt
+jx
+jx
+Xw
+YW
+In
+EB
+LF
+LF
+LF
+Hp
+LF
+LF
+LF
+LF
+LF
+di
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
@@ -2204,52 +2623,52 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-Ht
-du
-du
-du
-du
-du
-du
-du
-du
-du
-FP
-du
-du
-du
-du
-du
-du
-Ht
-du
-DW
+jx
+jx
+jx
+jx
+sh
+jx
+jx
+jx
+sN
+jx
+jx
+jx
+jx
+jx
+js
+jx
+jx
+jx
+jx
+jx
+jx
+sh
+jx
+jx
+jx
+jx
+jx
+qk
+jx
+jx
+jx
+sN
+jx
+jx
+jx
+jx
+jx
+js
+jx
+jx
+jx
+jx
+jx
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2299,49 +2718,49 @@ DW
 DW
 DW
 DW
-du
-du
-du
-du
-du
+jx
+sh
+jx
+WP
+jh
+fj
+WP
+WP
+jx
+WP
+WP
+YM
+WP
+WP
+WP
+WP
+WP
+jx
+sh
+jx
 DW
 DW
 DW
-DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
-DW
+jx
+qk
+jx
+WP
+jh
+fj
+WP
+WP
+jx
+WP
+WP
+BE
+gm
+cF
+WP
+WP
+WP
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2391,49 +2810,49 @@ DW
 DW
 DW
 DW
-du
-KX
-hi
-Ht
-du
+jx
+sh
+jx
+WP
+WP
+YM
+WP
+WP
+QL
+WP
+WP
+sh
+WP
+WP
+WP
+WP
+WP
+jx
+sh
+jx
 DW
 DW
 DW
-DW
-du
-qS
-gm
-Ij
+jx
 qk
-du
-kx
-kx
-US
-uU
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-Yf
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
-DW
+jx
+WP
+WP
+YM
+WP
+WP
+QL
+WP
+WP
+WP
+WP
+YM
+WP
+WP
+WP
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2483,49 +2902,49 @@ DW
 DW
 DW
 DW
-du
-BE
-Rv
-vf
-du
+jx
+sh
+jx
+WP
+WP
+YM
+WP
+WP
+jx
+WP
+WP
+sh
+WP
+WP
+WP
+WP
+WP
+jx
+sh
+jx
 DW
 DW
 DW
-DW
-du
-qS
-vo
-Bt
-qS
-du
-du
-du
-Ze
-sx
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
-DW
+jx
+qk
+jx
+WP
+WP
+YM
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+YM
+WP
+WP
+WP
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2575,49 +2994,49 @@ DW
 DW
 DW
 DW
-du
-OG
-fw
-Ht
-du
+jx
+sh
+jx
+WP
+WP
+YM
+WP
+WP
+jx
+WP
+WP
+sh
+WP
+WP
+WP
+WP
+WP
+jx
+sh
+jx
 DW
 DW
 DW
-DW
-du
-du
-fC
-Qt
-du
-du
-du
-du
-du
-sx
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
-DW
+jx
+qk
+jx
+WP
+WP
+YM
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+YM
+WP
+WP
+WP
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2667,49 +3086,49 @@ DW
 DW
 DW
 DW
-du
-ZE
-Ht
-Ht
-du
+jx
+sh
+jx
+jx
+Yf
+Ze
+SH
+jx
+jx
+WP
+WP
+sh
+WP
+WP
+WP
+WP
+WP
+jx
+sh
+jx
 DW
 DW
 DW
-DW
-du
-qS
-vo
-nd
-qS
-du
-kx
-kx
-kx
-NH
-du
-DW
-DW
-du
-Ht
-du
-du
-kZ
-kZ
-kZ
-du
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
-DW
+jx
+qk
+jx
+jx
+Yf
+Ze
+SH
+jx
+jx
+WP
+WP
+WP
+WP
+FP
+gm
+gm
+xX
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2759,49 +3178,49 @@ DW
 DW
 DW
 DW
-du
-qm
-Ht
-Ht
-du
+jx
+sh
+jx
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+YM
+WP
+WP
+WP
+WP
+WP
+jx
+sh
+jx
 DW
 DW
 DW
-DW
-du
-LJ
-Pa
-QX
-qS
-du
-Rh
-Rh
-Rh
-EY
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
-DW
+jx
+qk
+jx
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+YM
+WP
+WP
+YM
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2851,49 +3270,49 @@ DW
 DW
 DW
 DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
+jx
+sh
+jx
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+LJ
+WP
+WP
+WP
+WP
+WP
+jx
+sh
+jx
 DW
 DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
 DW
+jx
+qk
+jx
+WP
+oe
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+gm
+kx
+WP
+WP
+YM
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -2939,53 +3358,53 @@ DW
 DW
 DW
 DW
+jx
 DW
 DW
 DW
+jx
+sh
+jx
+WP
+WP
+WP
+WP
+WP
+jx
+PU
+Bt
+jx
+PU
+Bt
+jx
+WP
+WP
+jx
+sh
+jx
 DW
-du
-mo
-hi
-Ht
-du
-qS
-qS
-qS
-qS
-du
-qS
-qS
-Cu
-qS
-du
-kx
-YW
-US
-uU
-du
 DW
 DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-du
-kZ
-kZ
-du
-kZ
-kZ
-du
-qS
-qS
-du
-Ht
-du
-DW
+jx
+qk
+jx
+WP
+YM
+WP
+WP
+WP
+jx
+Qs
+Qs
+jx
+Qs
+Qs
+jx
+WP
+YM
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -3012,72 +3431,72 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-Wz
-Rv
-lh
-du
-xw
-QL
-qS
-Nt
-du
-qS
-qS
+jx
+sh
+jx
+WP
+WP
+WP
+WP
+WP
+jx
+oe
+kg
+gm
+gm
 Wc
-qS
-du
-du
-sx
-Fs
-sx
-du
+jx
+WP
+WP
+jx
+sh
+jx
 DW
 DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-du
-Ht
-du
 DW
+jx
+qk
+jx
+WP
+YM
+WP
+WP
+WP
+jx
+YM
+ik
+WP
+YM
+YM
+jx
+WP
+YM
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -3104,72 +3523,72 @@ DW
 DW
 DW
 DW
+jx
+oG
+Bl
+Xw
+jx
 DW
 DW
 DW
 DW
+jx
+WP
+Rv
+xT
+uP
+jx
+Li
+Li
+bx
+Lt
+jx
 DW
 DW
 DW
+jx
+sh
+Or
+WP
+WP
+WP
+WP
+WP
+AD
+kx
+VJ
+WP
+WP
+YM
+jx
+WP
+WP
+jx
+sh
+jx
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-OG
-fw
-Ht
-du
-qS
-nd
-qS
-qS
-du
-du
-DJ
-Vv
-du
-du
-du
-sx
-du
-sx
-du
-DW
-DW
-du
-Ht
-dk
-qS
-qS
-qS
-qS
-qS
-kZ
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-du
-Ht
-du
-DW
+jx
+qk
+Or
+WP
+YM
+WP
+WP
+WP
+PU
+WC
+kg
+gm
+kg
+EC
+jx
+WP
+YM
+jx
+Xw
+jx
 DW
 DW
 DW
@@ -3196,72 +3615,72 @@ DW
 DW
 DW
 DW
+jx
+ZY
+qk
+Hq
+jx
 DW
 DW
 DW
 DW
+jx
+WP
+Km
+Pd
+WP
+jx
+jx
+jx
+IP
+sh
+jx
 DW
 DW
 DW
+jx
+sh
+jx
+WP
+WP
+WP
+WP
+WP
+eA
+WP
+WP
+WP
+WP
+FP
+RN
+gm
+gm
+av
+oR
+jx
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-ZE
-Ht
-Ht
-du
-qS
-nd
-qS
-qS
-du
-qS
-qS
-nd
-qS
-du
-du
-sx
-du
-sx
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
+jx
+Xw
+jx
+WP
+YM
+WP
+WP
+WP
+PU
+fj
+WP
+WP
+WP
+FP
+RN
+gm
+kx
 kZ
-qS
-qS
-qS
-qS
-qS
-WC
-qS
-qS
-dk
-Ht
-du
-DW
+Xw
+jx
 DW
 DW
 DW
@@ -3288,72 +3707,72 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-uJ
-Ht
-Ht
-du
+jx
 qS
-Rg
-qS
-qS
-du
-qS
-qS
-QX
-qS
-du
-Rh
-YB
-Rh
-LW
-du
+oR
+Xw
+jx
 DW
 DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-kZ
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-du
-Ht
-du
 DW
+DW
+jx
+jx
+wT
+hi
+jx
+jx
+jx
+jx
+jx
+sh
+jx
+DW
+DW
+DW
+jx
+sh
+jx
+WP
+WP
+WP
+WP
+WP
+qu
+WP
+WP
+WP
+WP
+lW
+jx
+WP
+WP
+jx
+jx
+jx
+DW
+DW
+DW
+jx
+Xw
+jx
+WP
+YM
+WP
+WP
+WP
+PU
+kx
+WP
+WP
+WP
+lW
+jx
+WP
+WP
+jx
+jx
+jx
 DW
 DW
 DW
@@ -3380,71 +3799,71 @@ DW
 DW
 DW
 DW
+jx
+QT
+Xw
+Xw
+jx
+DW
+DW
+DW
+DW
+jx
+WP
+Km
+YM
+WP
+jx
+Li
+Li
+Li
+nE
+jx
+DW
+DW
+DW
+jx
+sh
+jx
+WP
+WP
+WP
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+WP
+jx
+WP
+WP
+jx
 DW
 DW
 DW
 DW
 DW
+jx
+Xw
+jx
+WP
+YM
+WP
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+WP
+jx
+WP
+WP
+jx
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-qS
-du
-qS
-qS
-du
-Ht
-du
 DW
 DW
 DW
@@ -3472,71 +3891,71 @@ DW
 DW
 DW
 DW
+jx
+KX
+Xw
+Xw
+jx
+DW
+DW
+DW
+DW
+jx
+fC
+dk
+LJ
+WP
+jx
+dA
+dA
+dA
+Ri
+jx
+DW
+DW
+DW
+jx
+sh
+jx
+WP
+WP
+WP
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+WP
+WP
+jx
 DW
 DW
 DW
 DW
 DW
+jx
+Xw
+jx
+WP
+YM
+WP
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+WP
+WP
+jx
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-Eg
-hi
-Ht
-du
-qS
-qS
-Jx
-qS
-du
-qS
-qS
-VO
-qk
-du
-kx
-kx
-US
-uU
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-du
-du
-du
-du
-du
-du
-du
-du
-du
-qS
-qS
-du
-Ht
-du
 DW
 DW
 DW
@@ -3564,71 +3983,71 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+DW
+DW
+DW
+jx
+sh
+jx
+jx
+oq
+jx
+jx
+WP
+WP
+WP
+lh
+jx
+WP
+WP
+WP
+WP
+WP
+jx
 DW
 DW
 DW
 DW
 DW
+jx
+Xw
+jx
+jx
+Fj
+jx
+jx
+WP
+WP
+WP
+lh
+jx
+WP
+WP
+WP
+WP
+WP
+jx
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-qu
-Rv
-Ht
-du
-qS
-YK
-Bp
-Nr
-du
-qS
-Jy
-mk
-qS
-du
-du
-du
-du
-sx
-du
-DW
-DW
-du
-Ht
-du
-du
-du
-du
-du
-qS
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
 DW
 DW
 DW
@@ -3656,71 +4075,71 @@ DW
 DW
 DW
 DW
+jx
+XT
+Bl
+Xw
+jx
+WP
+WP
+WP
+WP
+jx
+WP
+WP
+xw
+WP
+jx
+Li
+Wn
+bx
+Lt
+jx
+DW
+DW
+DW
+jx
+sh
+jx
+WP
+WP
+WP
+jx
+WP
+WP
+WP
+YM
+Da
+WP
+WP
+WP
+WP
+WP
+jx
 DW
 DW
 DW
 DW
 DW
+jx
+Xw
+jx
+WP
+YM
+WP
+jx
+WP
+WP
+WP
+Aj
+dY
+WP
+WP
+WP
+WP
+WP
+jx
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-OG
-Qu
-Ht
-du
-qS
-Rv
-Qw
-Gr
-du
-du
-DJ
-vW
-du
-du
-DW
-PU
-du
-sx
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-kZ
-qS
-qS
-qS
-qS
-kZ
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
 DW
 DW
 DW
@@ -3748,71 +4167,71 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-ZE
-Ht
-Ht
-du
-qS
-Rv
-qS
-Pe
-du
-qS
-so
-li
-qS
-du
-du
-du
-du
+jx
+Qt
+qk
+Yo
+jx
 sx
-du
+Ks
+WP
+Al
+jx
+WP
+WP
+ik
+WP
+jx
+jx
+sh
+gX
+sh
+jx
 DW
 DW
-du
-Ht
-du
-qS
-qS
-qS
-WC
-qS
-qS
-qS
-qS
-WC
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
+DW
+jx
+sh
+jx
+UO
+WP
+WP
+QX
+WP
+WP
+WP
+BE
+HQ
+Li
+Lt
+WP
+WP
+WP
+jx
+DW
+DW
+DW
+DW
+DW
+jx
+Xw
+jx
+Yr
+rj
+gm
+RN
+gm
+gm
+gm
+gv
+QX
+WP
+WP
+WP
+WP
+WP
+jx
+DW
 DW
 DW
 DW
@@ -3840,71 +4259,71 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-cp
-Ht
-Ht
-du
-qS
 jx
 qS
-qS
-du
-qS
-qS
-QX
-qS
-du
-kx
-kx
-kx
-WW
-du
+oR
+Xw
+jx
+WP
+YM
+WP
+WP
+jx
+jx
+oq
+qz
+jx
+jx
+jx
+sh
+jx
+sh
+jx
 DW
 DW
-du
-Ht
-du
-qS
-qS
-qS
-kZ
-qS
-qS
-qS
-qS
-kZ
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
+DW
+jx
+gk
+Vv
+kx
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+qu
+WP
+sh
+WP
+WP
+WP
+jx
+DW
+DW
+DW
+DW
+DW
+jx
+Xw
+jx
+WP
+WP
+WP
+jx
+WP
+WP
+WP
+BE
+dY
+WP
+WP
+WP
+WP
+WP
+jx
+DW
 DW
 DW
 DW
@@ -3932,71 +4351,71 @@ DW
 DW
 DW
 DW
+jx
+QT
+Xw
+Xw
+jx
+WP
+YM
+WP
+WP
+jx
+WP
+WP
+YM
+WP
+jx
+jx
+sh
+jx
+sh
+jx
+DW
+DW
+DW
+jx
+sh
+jx
+WP
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+jx
+WP
+YM
+WP
+WP
+WP
+jx
 DW
 DW
 DW
 DW
 DW
+jx
+Xw
+jx
+WP
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+jx
+WP
+WP
+WP
+WP
+WP
+jx
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-DW
-DW
-du
-Ht
-du
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-du
-qS
-qS
-qS
-qS
-qS
-du
-Ht
-du
 DW
 DW
 DW
@@ -4024,71 +4443,71 @@ DW
 DW
 DW
 DW
+jx
+TK
+Xw
+Xw
+jx
+WP
+vo
+WP
+WP
+jx
+WP
+WP
+LJ
+WP
+jx
+dA
+fw
+dA
+Ci
+jx
+DW
+DW
+DW
+jx
+sh
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+js
+jx
+jx
+jx
+jx
 DW
 DW
 DW
 DW
 DW
+jx
+Xw
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-Ht
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-FP
-du
-du
-du
-du
-Ht
-du
 DW
 DW
 DW
@@ -4116,6 +4535,44 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+DW
+DW
+DW
+jx
+OG
+Li
+Li
+Li
+Li
+Li
+Li
+Li
+Li
+Li
+Li
+Li
+HE
+jx
 DW
 DW
 DW
@@ -4124,63 +4581,25 @@ DW
 DW
 DW
 DW
+jx
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+Xw
+jx
 DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-Ht
-du
 DW
 DW
 DW
@@ -4208,6 +4627,44 @@ DW
 DW
 DW
 DW
+jx
+NH
+Bl
+Xw
+jx
+WP
+WP
+xF
+WP
+jx
+WP
+WP
+HD
+uP
+jx
+Li
+Li
+bx
+Lt
+jx
+DW
+DW
+DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
@@ -4216,63 +4673,25 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
 DW
 DW
 DW
@@ -4300,26 +4719,26 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+Nt
+qk
+Xw
+jx
+WP
+Jx
+EH
+ku
+jx
+WP
+oe
+kx
+WP
+jx
+jx
+jx
+jx
+sh
+jx
 DW
 DW
 DW
@@ -4392,6 +4811,26 @@ DW
 DW
 DW
 DW
+jx
+qS
+Fx
+Xw
+jx
+WP
+qk
+VJ
+so
+jx
+jx
+oq
+mk
+jx
+jx
+DW
+vW
+jx
+sh
+jx
 DW
 DW
 DW
@@ -4410,26 +4849,6 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
 DW
 DW
 DW
@@ -4484,44 +4903,44 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-js
-VJ
-GH
-Pa
-qS
-LF
-Wn
+jx
+QT
 Xw
-dA
-du
+Xw
+jx
+WP
+qk
+WP
+Lf
+jx
+WP
+BE
+xX
+WP
+jx
+jx
+jx
+jx
+sh
+jx
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -4576,44 +4995,44 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-sh
-wP
-gm
-wE
-qS
+jx
+gD
+Xw
+Xw
+jx
 WP
-TW
-Yr
-Bl
-du
+gi
+WP
+WP
+jx
+WP
+WP
+LJ
+WP
+jx
+Li
+Li
+Li
+HE
+jx
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -4668,6 +5087,26 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
@@ -4686,26 +5125,6 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-Fj
-vo
-qS
-qS
-qS
-XT
-aw
-qS
-qS
-du
 DW
 DW
 DW
@@ -4787,17 +5206,17 @@ DW
 DW
 DW
 DW
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -4879,17 +5298,17 @@ DW
 DW
 DW
 DW
-du
-Km
-gk
-li
-mk
-qS
-Ib
-Xv
-sa
-SH
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -4971,17 +5390,17 @@ DW
 DW
 DW
 DW
-du
-ZI
-wT
-Jy
-so
-qS
-AH
-TP
-ik
-HE
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -5063,17 +5482,17 @@ DW
 DW
 DW
 DW
-du
-Li
-nd
-qS
-qS
-qS
-cO
-Ri
-qS
-qS
-du
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -5132,6 +5551,17 @@ DW
 DW
 DW
 DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
@@ -5155,17 +5585,6 @@ DW
 DW
 DW
 DW
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
 DW
 DW
 DW
@@ -5224,6 +5643,17 @@ DW
 DW
 DW
 DW
+jx
+zn
+nz
+wb
+dk
+WP
+Qu
+nd
+dD
+xm
+jx
 DW
 DW
 DW
@@ -5247,17 +5677,6 @@ DW
 DW
 DW
 DW
-du
-qg
-pm
-bx
-oG
-qS
-Da
-cH
-Yo
-EH
-du
 DW
 DW
 DW
@@ -5316,6 +5735,17 @@ DW
 DW
 DW
 DW
+jx
+TP
+Xz
+Rv
+VY
+WP
+EY
+PA
+cO
+ZE
+jx
 DW
 DW
 DW
@@ -5339,17 +5769,6 @@ DW
 DW
 DW
 DW
-du
-ue
-sN
-RN
-jM
-qS
-Vo
-fj
-EC
-Qs
-du
 DW
 DW
 DW
@@ -5408,6 +5827,17 @@ DW
 DW
 DW
 DW
+jx
+cp
+Km
+WP
+WP
+WP
+zt
+qg
+WP
+WP
+jx
 DW
 DW
 DW
@@ -5431,17 +5861,6 @@ DW
 DW
 DW
 DW
-du
-nz
-MZ
-qS
-qS
-qS
-gv
-di
-qS
-qS
-du
 DW
 DW
 DW
@@ -5500,6 +5919,17 @@ DW
 DW
 DW
 DW
+jx
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+jx
 DW
 DW
 DW
@@ -5523,17 +5953,6 @@ DW
 DW
 DW
 DW
-du
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-qS
-du
 DW
 DW
 DW
@@ -5592,40 +6011,40 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-du
-oR
-wb
-UO
-Xz
-qS
+jx
+Xv
+MM
 xX
-zt
-Lt
-wa
-du
+kx
+WP
+aw
+EL
+jM
+NR
+jx
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -5684,6 +6103,17 @@ DW
 DW
 DW
 DW
+jx
+YK
+LW
+oe
+BE
+WP
+mo
+Ds
+li
+Xy
+jx
 DW
 DW
 DW
@@ -5707,17 +6137,6 @@ DW
 DW
 DW
 DW
-du
-AF
-HC
-qz
-kg
-qS
-gi
-Ql
-YM
-Mz
-du
 DW
 DW
 DW
@@ -5776,6 +6195,17 @@ DW
 DW
 DW
 DW
+jx
+gm
+YM
+WP
+WP
+WP
+uU
+hd
+WP
+WP
+jx
 DW
 DW
 DW
@@ -5799,17 +6229,6 @@ DW
 DW
 DW
 DW
-du
-PI
-zn
-qS
-qS
-qS
-yH
-oq
-qS
-qS
-du
 DW
 DW
 DW
@@ -5868,6 +6287,17 @@ DW
 DW
 DW
 DW
+jx
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+jx
 DW
 DW
 DW
@@ -5891,17 +6321,6 @@ DW
 DW
 DW
 DW
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
-du
 DW
 DW
 DW
@@ -5960,17 +6379,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+XQ
+TW
+Pa
+cD
+WP
+Xg
+Bn
+Jy
+WX
+jx
 DW
 DW
 DW
@@ -6052,17 +6471,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+PL
+Nr
+GH
+Wz
+WP
+xd
+Vo
+Ql
+wE
+jx
 DW
 DW
 DW
@@ -6144,17 +6563,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+NX
+Qw
+WP
+WP
+WP
+ci
+UQ
+WP
+WP
+jx
 DW
 DW
 DW
@@ -6236,17 +6655,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+WP
+jx
 DW
 DW
 DW
@@ -6328,17 +6747,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+WW
+Cu
+wa
+cs
+WP
+Bf
+ZQ
+yu
+sa
+jx
 DW
 DW
 DW
@@ -6420,17 +6839,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+pw
+Qo
+AH
+pm
+WP
+VO
+Ht
+wP
+Rg
+jx
 DW
 DW
 DW
@@ -6512,17 +6931,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+uA
+wr
+WP
+WP
+WP
+Sr
+vz
+WP
+WP
+jx
 DW
 DW
 DW
@@ -6604,17 +7023,17 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
-DW
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
+jx
 DW
 DW
 DW
