@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_izweski.dmm")
-	ban_ruins = list("moghes_kataphract_wasteland", "ouerea_hegemony_base")
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_kataphract_wasteland)
 
 /area/moghes/hegemony_wasteland
 	name = "Hegemony Wasteland Outpost"

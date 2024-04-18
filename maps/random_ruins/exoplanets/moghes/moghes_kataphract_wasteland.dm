@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_kataphract_wasteland.dmm")
-	ban_ruins = list("moghes_wasteland_izweski")
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_wasteland_izweski)
 
 /area/moghes/kataphract_wasteland
 	name = "Kataphract Campsite"

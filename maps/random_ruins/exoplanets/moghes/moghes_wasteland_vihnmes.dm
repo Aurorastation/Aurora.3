@@ -10,7 +10,6 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_vihnmes.dmm")
-	ban_ruins = null //maybe other oasis clan sites here?
 
 /area/moghes_vihnmes
 	name = "Clan Vihnmes Waystation"

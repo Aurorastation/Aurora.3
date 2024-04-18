@@ -27,7 +27,7 @@
 	tags = list("External")
 	mob_name_suffix = " Dorviza"
 	mob_name_pick_message = "Pick an Unathi first name."
-	welcome_message = "You are a member of the Clan Dorviza, one of the Oasis Clans of the Wasteland. Survive beside your clanmates both Unathi and Diona, in the hopes of seeing the Wasteland bloom again. NOTE - If you spawned with a Diona limb and are missing a hand or foot, use the 'Detach Nymph' verb and then reattach the nymph to fix this."
+	welcome_message = "You are a member of the Clan Dorviza, one of the Oasis Clans of the Wasteland. Survive beside your clanmates both Unathi and Diona, in the hopes of seeing the Wasteland bloom again."
 
 	max_count = 3
 	spawnpoints = list("moghes_dorviza")
@@ -47,14 +47,14 @@
 	short_name = "moghes_dorviza_diona"
 	mob_name_suffix = null
 	mob_name_pick_message = null
-	welcome_message = ""
+	welcome_message = "You are a diona gestalt associated with a wandering group of the Clan Dorviza, one of the Oasis Clans of the Wasteland. Survive alongside your Unathi clanmates, in the hopes of seeing the Wasteland bloom again."
 
 	max_count = 1
 	spawnpoints = list("moghes_dorviza_diona")
 
 	extra_languages = list(LANGUAGE_ROOTSONG)
 	outfit = /obj/outfit/admin/moghes_dorviza/diona
-	possible_species = list(SPECIES_DIONA)
+	possible_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	uses_species_whitelist = TRUE
 
@@ -72,18 +72,8 @@
 		H.w_uniform.color = uniform_color
 	if(H?.wear_suit)
 		H.wear_suit.color = uniform_color
-	for(var/name in H.organs_by_name)
-		var/obj/item/organ/external/O = H.organs_by_name[name]
-		if(!O || name == BP_HEAD || name == BP_CHEST || name == BP_GROIN)
-			continue
-		if(prob(25))
-			O.AddComponent(/datum/component/nymph_limb)
-			var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
-			D.nymphize(H, O.limb_name, TRUE)
 
 /obj/outfit/admin/moghes_dorviza/diona
 	uniform = /obj/item/clothing/under/gearharness
 	suit = /obj/item/clothing/accessory/poncho/green
 	shoes = null
-
-/obj/outfit/admin/moghes_dorviza/diona/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

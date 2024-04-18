@@ -9,7 +9,6 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_ozeuoi.dmm")
-	ban_ruins = null //maybe other oasis clan sites here?
 
 /area/moghes_ozeuoi
 	name = "Clan Ozeuoi Outpost"
