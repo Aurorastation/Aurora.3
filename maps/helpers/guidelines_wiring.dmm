@@ -27,6 +27,13 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
+"cM" = (
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/effect/map_effect/map_helper/mark_good,
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
 "cO" = (
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -584,6 +591,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/template_noop)
+"zV" = (
+/obj/machinery/power/smes,
+/obj/structure/cable/green,
+/turf/simulated/floor,
+/area/template_noop)
 "As" = (
 /obj/structure/cable/pink{
 	icon_state = "1-8"
@@ -706,11 +718,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
-"Fu" = (
-/obj/machinery/power/smes,
-/obj/structure/cable/green,
-/turf/simulated/floor,
-/area/template_noop)
 "FL" = (
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
@@ -743,15 +750,6 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/template_noop)
-"GF" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "0-2"
-	},
-/turf/simulated/floor,
 /area/template_noop)
 "GH" = (
 /obj/structure/cable/blue{
@@ -799,6 +797,14 @@
 "Ij" = (
 /obj/structure/cable/blue{
 	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"Iw" = (
+/obj/machinery/power/terminal,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
@@ -949,6 +955,15 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
+"PB" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/command{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/template_noop)
 "PI" = (
 /obj/structure/cable/white{
 	icon_state = "2-4"
@@ -984,10 +999,12 @@
 /area/template_noop)
 "Qu" = (
 /obj/structure/cable{
-	icon_state = "1-4"
+	icon_state = "1-8"
 	},
-/obj/effect/map_effect/map_helper/mark_bad,
-/turf/simulated/floor,
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "Qw" = (
 /turf/simulated/wall/r_wall,
@@ -1021,6 +1038,9 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/smes,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "Rv" = (
@@ -1069,6 +1089,15 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
+	},
+/turf/simulated/floor,
+/area/template_noop)
+"SQ" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor,
 /area/template_noop)
@@ -1167,12 +1196,17 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
-"WC" = (
+"WB" = (
 /obj/machinery/power/smes,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor,
+/area/template_noop)
+"WC" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/map_helper/mark_good,
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "WI" = (
 /obj/structure/cable/orange{
@@ -1251,12 +1285,11 @@
 /turf/simulated/floor,
 /area/template_noop)
 "Yr" = (
-/obj/machinery/power/terminal,
 /obj/structure/cable{
-	d2 = 4;
-	icon_state = "0-4"
+	icon_state = "1-4"
 	},
-/turf/simulated/floor/tiled/steel,
+/obj/effect/map_effect/map_helper/mark_bad,
+/turf/simulated/floor,
 /area/template_noop)
 "YK" = (
 /obj/structure/cable/green{
@@ -2351,7 +2384,7 @@ DW
 DW
 Qw
 Li
-GF
+SQ
 Rv
 US
 US
@@ -2443,7 +2476,7 @@ DW
 DW
 Qw
 Li
-WC
+WB
 Qw
 Qw
 Qw
@@ -2890,12 +2923,12 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
+Qw
+Qw
+Qw
+Qw
+Qw
+Qw
 DW
 DW
 DW
@@ -2982,12 +3015,12 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
+Qw
+du
+Iw
+fw
+du
+Qw
 DW
 DW
 DW
@@ -3074,12 +3107,12 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
+Qw
+hG
+Qu
+Cu
+du
+Qw
 DW
 DW
 DW
@@ -3166,12 +3199,12 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
+Qw
+Qw
+PB
+WC
+Qw
+Qw
 DW
 DW
 DW
@@ -3258,12 +3291,12 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
+Qw
+du
+FP
+mo
+du
+Qw
 DW
 DW
 DW
@@ -3350,12 +3383,12 @@ DW
 DW
 DW
 DW
-DW
-DW
-DW
-DW
-DW
-DW
+Qw
+du
+du
+XT
+du
+Qw
 DW
 DW
 DW
@@ -3536,7 +3569,7 @@ du
 du
 Qw
 du
-Yr
+Iw
 fw
 du
 Qw
@@ -3557,8 +3590,8 @@ du
 du
 du
 nG
-Cu
-mk
+cM
+du
 du
 du
 vo
@@ -4177,7 +4210,7 @@ Qw
 du
 RN
 Hz
-Qu
+Yr
 Qw
 du
 du
@@ -4636,7 +4669,7 @@ Li
 Qw
 du
 du
-GF
+SQ
 Bl
 Qw
 du
@@ -4728,7 +4761,7 @@ Li
 Qw
 du
 RN
-Fu
+zV
 VO
 Qw
 du
