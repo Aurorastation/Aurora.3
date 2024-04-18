@@ -3790,6 +3790,7 @@
 #include "maps\away\ships\golden_deep\golden_deep.dm"
 #include "maps\away\ships\golden_deep\golden_deep_areas.dm"
 #include "maps\away\ships\golden_deep\golden_deep_ghostroles.dm"
+#include "maps\away\ships\hegemony\fishing_trawler\fishing_leage_trawler_landmarks.dm"
 #include "maps\away\ships\hegemony\fishing_trawler\fishing_league_trawler.dm"
 #include "maps\away\ships\hegemony\fishing_trawler\fishing_trawler_areas.dm"
 #include "maps\away\ships\hegemony\hegemony_corvette\hegemony_corvette.dm"
