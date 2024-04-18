@@ -8,7 +8,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_heph_mining.dmm")
-	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_heph_mining, /datum/map_template/ruin/exoplanet/moghes_guild_mining, /datum/map_template/ruin/exoplanet/heph_mining_station, /datum/map_template/ruin/exoplanet/miners_guild_outpost, /datum/map_template/ruin/away_site/cyclops_mining_vessel)
+	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_guild_mining)
 
 /area/moghes_heph_mining
 	name = "Hephaestus Mining Camp"

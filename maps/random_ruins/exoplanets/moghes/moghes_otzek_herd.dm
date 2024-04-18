@@ -7,4 +7,3 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_otzek_herd.dmm")
-	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_otzek_herd)
