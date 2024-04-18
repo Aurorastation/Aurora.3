@@ -300,3 +300,65 @@
       and a heavy variant (ERT).
   - bugfix: Fixed the dNAXS-52 Xanu hardsuit presets being wrongly configured and
       added a base equipment preset for the hardsuit as well.
+2024-04-16:
+  Alberyk:
+  - rscadd: Added Biesel as an exoplanet.
+  ChangeMe:
+  - bugfix: Fixed a runtime error with the new gadpathur origin item.
+  FluffyGhost:
+  - bugfix: Character preferences / records are now decoded correctly for the computer
+      UI and character preference.
+  - rscadd: Added a door rigging tool, it allows you to mine a door, so that when
+      it opens, it explodes. Requires the door to be welded shut first.
+  - rscadd: Added a box and antag uplink item for the above.
+  Geeves:
+  - bugfix: Wristwear now gets properly hidden by overwear that has the HIDEWRISTS
+      flag set.
+  - bugfix: Spacesuits and voidsuits now hide wristwear.
+  Lavillastrangiato:
+  - qol: Airlock updates and assorted fixes and retouches to the SSMD Corvette.
+  - qol: Renames the SSMD Corvette to the Sol Recon Corvette as per lore.
+  - bugfix: Cleans up a lot of mapping and older code for the SFA corvette.
+  - qol: Changes some names on the SFA corvette for lore purposes.
+  LynxSolstice:
+  - qol: Removes a thin_clothing check, meaning all bleeding, regardless of clothing,
+      will now be more visible upon physical examinations of people (shift click).
+  RustingWithYou:
+  - rscadd: Survey probes can now print their output in different languages.
+  - bugfix: Origin traits and species natural armor will now remove themselves on
+      origin change.
+  - rscadd: Vaurca language processors are now applied as origin traits rather than
+      loadout items.
+  SidVeld:
+  - rscadd: Added the ability to install a grille in windows.
+  SimpleMaroon:
+  - bugfix: Fixes the side-facing sprites of Vaurca Robotic Limbs being the wrong
+      shading.
+  - rscadd: 'Added five new flavors of soda to the Zo''ra soda machines: Zo''ra Caprician
+      Craze, Zo''ra Seismic Slammer, Zo''ra Buzzin'' Cola, K''lax Xuizi Xplosion,
+      and C''thur Dyn-A-Mite!'
+  - spellcheck: Changes 'K'laxan Energy Crush' to 'K'lax Energy Crush' in all code
+      instances.
+  meep109:
+  - bugfix: Fixes the orion express courier shuttle leaving plating behind.
+2024-04-17:
+  CourierBravo:
+  - qol: Adds the new materials to nearly every offship with an autolathe. Exceptions
+      made at this time to ship with open PRs
+  FluffyGhost:
+  - code_imp: Made the Destroy proc not sleepable.
+  Lavillastrangiato:
+  - bugfix: Fixes any access problems on the NKA merchant navy vessel.
+  - qol: Adds various dirt, decorations, and a CO2 tank to the NKA merchant navy vessel.
+  - bugfix: Gives the civvie yacht crew IDs.
+  - bugfix: Fixes access problems on the Headmaster ship.
+  - bugfix: Fixes some typoes in the ZI machine pistol and various Medina stuff.
+  - bugfix: Fixes Vaurca workers causing quakes when they jump.
+  - bugfix: Adds Dominian armor and helmets to their gear crates.
+  RustingWithYou:
+  - rscadd: Overmap shuttles can now be mapped directly onto their open space z-level,
+      without the need for empty sectors.
+  - rscadd: Adds various ruins for the minor planets and asteroids of Uueoa-Esa.
+  - qol: Clothing items can now be set to refit to a species on initialize.
+  kermit, Caelphon, hollyhock:
+  - rscadd: Replaces EUM origins/accents with Hieroaetherian origins/accents.
