@@ -160,7 +160,7 @@
 	ruin_type_whitelist = list(
 		/datum/map_template/ruin/exoplanet/abandoned_warehouse_1
 		/datum/map_template/ruin/exoplanet/abandoned_warehouse_2
-		/datum/map_template/ruin/exoplanet/camp_site
+		/datum/map_template/ruin/exoplanet/biesel_camp_site
 		/datum/map_template/ruin/exoplanet/cargo_ruins_1
 		/datum/map_template/ruin/exoplanet/cargo_ruins_2
 		/datum/map_template/ruin/exoplanet/cargo_ruins_3

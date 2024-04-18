@@ -1,4 +1,4 @@
-/datum/map_template/ruin/exoplanet/camp_site
+/datum/map_template/ruin/exoplanet/biesel_camp_site
 	name = "Biesel Camp Site"
 	id = "biesel_camp_site"
 	description = "A camp site set up by some locals. Seems like they're not here right now?"
