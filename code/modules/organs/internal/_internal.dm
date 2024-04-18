@@ -76,7 +76,7 @@
 /obj/item/organ/internal/proc/special_condition() // For unique conditions
 	return
 
-/obj/item/organ/internal/robotize(var/company = "Unbranded")
+/obj/item/organ/internal/robotize(var/company = PROSTHETIC_UNBRANDED)
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10

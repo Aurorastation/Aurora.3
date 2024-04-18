@@ -374,6 +374,13 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(robotic_name)
 		name = robotic_name
 
+/obj/item/organ/proc/derobotize() //Turn a robot organ back into a flesh one. Used for appearance changers, etc.
+	robotic = initial(robotic)
+	status = initial(status)
+	drop_sound = initial(drop_sound)
+	pickup_sound = initial(pickup_sound)
+	name = initial(name)
+
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	status = ORGAN_ASSISTED
 	robotic = ROBOTIC_ASSISTED
