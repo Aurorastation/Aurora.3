@@ -427,11 +427,11 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/specops)
 "abm" = (
-/turf/unsimulated/wall/fakepdoor{
-	dir = 4;
-	name = "shuttle bay blast door"
+/obj/structure/shuttle/engine/propulsion{
+	dir = 1
 	},
-/area/centcom/specops)
+/turf/template_noop,
+/area/shuttle/admin)
 "abn" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Personnel Files";
@@ -554,11 +554,10 @@
 	},
 /area/centcom/control)
 "abI" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/turf/simulated/wall/shuttle/hapt{
+	color = "#3c526f"
 	},
-/turf/unsimulated/floor/plating,
-/area/centcom/specops)
+/area/template_noop)
 "abJ" = (
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
@@ -571,6 +570,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"abL" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"abN" = (
+/obj/structure/bed/stool/chair/shuttle{
+	can_dismantle = 1;
+	dir = 8;
+	name = "worn chair"
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "abO" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -579,6 +595,10 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
+"abP" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "abR" = (
 /obj/item/modular_computer/console/preset/command,
 /obj/effect/floor_decal/corner/red{
@@ -655,6 +675,86 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/centcom/evac)
+"acd" = (
+/obj/item/gun/launcher/grenade{
+	pixel_x = -2;
+	pixel_y = -7
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/turf/simulated/floor/shuttle/black,
+/area/template_noop)
 "acg" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -750,6 +850,9 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
+"acv" = (
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "acw" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -758,6 +861,13 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"acx" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "acy" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 4
@@ -802,6 +912,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"acC" = (
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "acE" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -811,12 +925,13 @@
 	},
 /area/centcom/evac)
 "acF" = (
-/obj/machinery/porta_turret/cannon,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light/spot/built{
-	dir = 8
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 1
 	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/light/colored/blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "acG" = (
 /obj/effect/floor_decal/corner/grey/full,
@@ -868,6 +983,14 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"acQ" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Bridge";
+	req_access = list(103)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "acR" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -876,7 +999,16 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
-"acW" = (
+"acS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
+"acT" = (
 /obj/structure/table/rack,
 /obj/item/plastique{
 	pixel_x = -4;
@@ -916,7 +1048,17 @@
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
-/area/shuttle/admin)
+/area/template_noop)
+"acU" = (
+/obj/structure/platform_stairs,
+/obj/structure/platform/ledge{
+	dir = 8
+	},
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "acX" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -960,18 +1102,18 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/control)
+"adh" = (
+/turf/unsimulated/floor/plating,
+/area/shuttle/admin)
 "adi" = (
-/obj/item/storage/belt/utility/very_full,
-/obj/item/storage/belt/utility/very_full,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/item/crowbar/red,
-/obj/structure/closet/crate/drop/grey,
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/shuttle/black,
+/obj/structure/closet/secure_closet/refrigerator/standard,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/turf/unsimulated/floor,
 /area/shuttle/admin)
 "adj" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -981,6 +1123,10 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
+"adk" = (
+/obj/structure/table/reinforced/wood,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "adl" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -989,27 +1135,25 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
-"adm" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/carpet,
-/area/shuttle/admin)
 "adn" = (
-/obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/carpet,
-/area/shuttle/admin)
-"adp" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/light{
-	dir = 4
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
 	},
-/turf/simulated/floor/carpet,
 /area/shuttle/admin)
 "adq" = (
 /obj/structure/table/reinforced/wood,
-/turf/simulated/floor/tiled/dark/full,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt{
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/nt{
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "adr" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -1027,6 +1171,17 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"adu" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "admin_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "admin_shuttle"
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "adv" = (
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
@@ -1082,22 +1237,24 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "adF" = (
-/obj/structure/shuttle/engine/propulsion{
-	dir = 1
-	},
-/turf/unsimulated/floor/plating,
+/obj/structure/table/reinforced/wood,
+/obj/item/storage/box/fancy/donut,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "adH" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
+/obj/effect/floor_decal/corner/dark_blue/full{
+	dir = 8
 	},
-/turf/simulated/floor/wood,
+/obj/machinery/light/colored/blue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "adJ" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 5
+/obj/machinery/computer/ship/navigation{
+	dir = 8
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "adK" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -1108,9 +1265,34 @@
 	},
 /area/centcom/evac)
 "adL" = (
-/obj/effect/map_effect/marker/airlock,
-/turf/unsimulated/floor/plating,
-/area/centcom/specops)
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "admin_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "admin_shuttle"
+	},
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_sensor";
+	pixel_x = 28;
+	pixel_y = 10;
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "corvette_exterior";
+	name = "aft blast door";
+	pixel_x = 23;
+	pixel_y = -4;
+	dir = 5;
+	req_access = list(103)
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "adM" = (
 /obj/structure/bed/stool/chair/padded/black,
 /turf/unsimulated/floor{
@@ -1316,28 +1498,34 @@
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/bar)
 "adW" = (
-/obj/structure/shuttle/engine/propulsion{
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
+"adX" = (
+/obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/northleft,
 /turf/unsimulated/floor/plating,
-/area/centcom/specops)
+/area/template_noop)
 "adY" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 10
+/obj/machinery/door/airlock/glass_command{
+	dir = 8;
+	name = "Kitchenette"
 	},
-/obj/machinery/light,
-/turf/simulated/floor/wood,
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
+	},
 /area/shuttle/admin)
 "adZ" = (
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "aea" = (
-/obj/machinery/door/airlock/highsecurity{
-	dir = 4;
-	name = "Ready Room";
-	req_access = list(103)
-	},
+/obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "aeb" = (
@@ -1355,11 +1543,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "aec" = (
-/obj/effect/map_effect/marker/airlock,
-/obj/structure/shuttle/engine/propulsion{
-	dir = 1
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
 	},
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "aed" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1543,9 +1730,94 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "aet" = (
-/obj/machinery/door/airlock/vault,
-/turf/simulated/floor/tiled/dark/full,
+/obj/item/gun/launcher/grenade{
+	pixel_x = -2;
+	pixel_y = -7
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/flashbang{
+	pixel_x = -1;
+	pixel_y = 9
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/item/grenade/empgrenade{
+	pixel_x = 9;
+	pixel_y = 11
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/frag{
+	pixel_x = -10;
+	pixel_y = 9
+	},
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/item/grenade/chem_grenade/teargas,
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
+"aeu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "aev" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -1661,10 +1933,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
 "aeK" = (
-/mob/living/heavy_vehicle/premade/superheavy,
-/obj/machinery/mech_recharger,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/vending/tacticool/ert{
+	density = 0;
+	pixel_x = -1;
+	pixel_y = 32
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
+"aeL" = (
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "aeM" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -1673,9 +1954,25 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
+"aeN" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical/secure{
+	name = "blood closet";
+	pixel_y = -32;
+	req_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "aeO" = (
-/obj/machinery/light{
-	dir = 8
+/obj/effect/floor_decal/corner/black{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -1688,7 +1985,12 @@
 	},
 /area/centcom/evac)
 "aeR" = (
-/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/light/colored/blue{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "aeS" = (
@@ -1702,6 +2004,26 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
+"aeU" = (
+/obj/effect/floor_decal/spline/plain,
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/hypospray/combat,
+/obj/item/reagent_containers/hypospray/combat,
+/obj/item/reagent_containers/hypospray/combat,
+/obj/item/reagent_containers/hypospray/combat,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/item/reagent_containers/hypospray,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "aeV" = (
 /obj/machinery/papershredder,
 /turf/unsimulated/floor{
@@ -1778,23 +2100,79 @@
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
 "afd" = (
-/obj/machinery/vending/security{
-	density = 0;
-	pixel_x = -2;
-	pixel_y = 31
+/obj/machinery/porta_turret/cannon,
+/obj/machinery/light/spot/built{
+	dir = 1
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/turf/simulated/floor/reinforced,
+/area/shuttle/admin)
+"afe" = (
+/obj/machinery/door/airlock/glass_command{
+	dir = 8;
+	name = "Passengers"
+	},
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
+	},
 /area/shuttle/admin)
 "afg" = (
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 35;
-	pixel_y = -4
+/obj/item/gun/projectile/automatic/rifle/z8{
+	layer = 2.99;
+	pixel_y = 10
 	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 35;
-	pixel_y = 6
+/obj/item/gun/projectile/automatic/rifle/z8{
+	pixel_y = 5
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -11
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "afh" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -1804,35 +2182,15 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
-"afi" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/admin)
-"afj" = (
-/obj/effect/floor_decal/corner/green/full{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/admin)
 "afk" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
-"afl" = (
-/obj/item/storage/belt/medical{
-	pixel_x = -3;
-	pixel_y = -11
+/obj/machinery/computer/shuttle_control/multi/admin,
+/obj/machinery/button/remote/blast_door{
+	id = "corvette_exterior";
+	name = "aft blast door";
+	pixel_x = 25;
+	pixel_y = 5;
+	dir = 5
 	},
-/obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
-	pixel_x = -2;
-	pixel_y = -3
-	},
-/obj/structure/table/steel,
-/obj/item/reagent_containers/glass/beaker/bluespace,
-/obj/item/reagent_containers/glass/beaker/bluespace,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "afm" = (
@@ -1946,8 +2304,11 @@
 	},
 /area/centcom/evac)
 "afx" = (
-/obj/machinery/light{
-	dir = 4
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/machinery/light/colored/blue{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -1960,34 +2321,71 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "afz" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
+/obj/machinery/iv_drip,
 /obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/admin)
-"afA" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/admin)
-"afB" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/admin)
-"afC" = (
-/obj/structure/bed/stool/chair/office/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
+"afA" = (
+/obj/item/modular_computer/console/preset/command,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
+"afC" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/storage/firstaid/o2{
+	layer = 2.8;
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire{
+	layer = 2.9;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/dermaline,
+/obj/item/reagent_containers/glass/bottle/dermaline,
+/obj/item/reagent_containers/glass/bottle/dexalin_plus,
+/obj/item/reagent_containers/glass/bottle/dexalin_plus,
+/obj/item/reagent_containers/glass/bottle/mortaphenyl,
+/obj/item/reagent_containers/glass/bottle/antitoxin,
+/obj/item/reagent_containers/glass/bottle/peridaxon,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "afD" = (
 /obj/structure/table/reinforced/wood,
@@ -2071,7 +2469,7 @@
 	},
 /area/centcom/control)
 "afM" = (
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "afN" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -2093,21 +2491,28 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "afQ" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1399;
+	id_tag = "admin_shuttle";
+	pixel_x = -25;
+	req_one_access = list(101);
+	tag_door = "admin_shuttle_hatch";
 	dir = 4;
-	name = "Medical Bay";
-	req_access = list(103)
+	pixel_y = -30
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/admin)
+"afR" = (
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
-"afR" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/admin)
 "afT" = (
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/lime{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "afU" = (
 /obj/machinery/door/airlock/glass_centcom{
@@ -2301,6 +2706,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
+"agj" = (
+/obj/machinery/door/airlock/vault,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "agk" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -2310,21 +2719,33 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "agl" = (
-/obj/effect/floor_decal/corner/green/full,
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/lime/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "agm" = (
-/obj/machinery/body_scanconsole,
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = -32;
+	name = "Blood Locker"
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "agn" = (
-/obj/effect/floor_decal/corner/green{
+/obj/effect/floor_decal/corner/lime{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "ago" = (
 /obj/machinery/porta_turret/crescent,
@@ -2455,10 +2876,12 @@
 	},
 /area/centcom/evac)
 "agE" = (
-/obj/machinery/light/colored/red{
-	dir = 4
+/obj/structure/sign/flag/nanotrasen{
+	pixel_y = 30
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
+	},
 /area/shuttle/admin)
 "agF" = (
 /obj/structure/shuttle_part/hapt{
@@ -2468,51 +2891,24 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
-"agG" = (
-/obj/structure/platform/ledge{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
 "agH" = (
-/obj/structure/platform/ledge{
-	dir = 8
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "agI" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/white,
-/area/shuttle/admin)
-"agJ" = (
-/obj/machinery/sleeper{
+/obj/effect/floor_decal/corner/lime/full{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "agK" = (
-/obj/machinery/bodyscanner{
-	dir = 1
+/obj/machinery/door/airlock/highsecurity{
+	name = "Ready Room";
+	req_access = list(103)
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
-"agL" = (
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/item/reagent_containers/blood/OMinus,
-/obj/structure/closet/walllocker/medical/secure{
-	name = "blood closet";
-	pixel_y = -32;
-	req_access = null
-	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/admin)
 "agM" = (
 /obj/machinery/porta_turret/crescent,
@@ -2582,90 +2978,76 @@
 /turf/simulated/floor/grass,
 /area/centcom/bar)
 "agW" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Heavy Asset Protection";
-	req_access = list(103)
+/obj/structure/bed/stool/chair/shuttle{
+	can_dismantle = 1;
+	dir = 8;
+	name = "worn chair"
 	},
-/obj/item/rig_module/mounted,
-/obj/item/clothing/accessory/storage/black_vest,
-/obj/item/clothing/shoes/magboots,
-/obj/item/melee/baton/loaded,
-/obj/item/storage/belt/security/tactical,
-/obj/item/handcuffs,
-/obj/item/handcuffs,
-/obj/item/pinpointer/advpinpointer,
-/obj/item/rig_module/mounted/plasmacutter,
-/obj/item/rig/ert/assetprotection,
-/obj/item/device/radio/headset/ert,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/gun/energy/rifle/pulse,
-/obj/item/gun/projectile/revolver/mateba,
-/obj/item/ammo_magazine/a454,
-/obj/item/ammo_magazine/a454,
-/obj/item/ammo_magazine/a454,
-/obj/item/ammo_magazine/assault_shotgun,
-/obj/item/ammo_magazine/assault_shotgun,
-/obj/item/ammo_magazine/assault_shotgun,
-/obj/item/ammo_magazine/assault_shotgun/incendiary,
-/obj/item/ammo_magazine/assault_shotgun/shells,
-/obj/item/gun/projectile/automatic/rifle/shotgun,
-/obj/item/gun/energy/rifle/pulse/destroyer,
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "agX" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Heavy Asset Protection";
-	req_access = list(103)
-	},
-/obj/item/rig_module/mounted,
-/obj/item/clothing/accessory/storage/black_vest,
-/obj/item/clothing/shoes/magboots,
-/obj/item/melee/baton/loaded,
-/obj/item/storage/belt/security/tactical,
-/obj/item/handcuffs,
-/obj/item/handcuffs,
-/obj/item/pinpointer/advpinpointer,
-/obj/item/rig_module/mounted/plasmacutter,
-/obj/item/rig/ert/assetprotection,
-/obj/item/device/radio/headset/ert,
-/obj/item/clothing/under/syndicate/combat,
-/obj/item/gun/energy/rifle/pulse,
-/obj/item/gun/projectile/revolver/mateba,
-/obj/item/ammo_magazine/a454,
-/obj/item/ammo_magazine/a454,
-/obj/item/ammo_magazine/a454,
-/obj/item/ammo_magazine/assault_shotgun,
-/obj/item/ammo_magazine/assault_shotgun,
-/obj/item/ammo_magazine/assault_shotgun,
-/obj/item/ammo_magazine/assault_shotgun/incendiary,
-/obj/item/ammo_magazine/assault_shotgun/shells,
-/obj/item/gun/projectile/automatic/rifle/shotgun,
-/obj/machinery/light/colored/red{
+/obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/item/gun/energy/rifle/pulse/destroyer,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
-"ahb" = (
-/obj/structure/platform_stairs,
-/obj/structure/platform/ledge{
+"agY" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Ready Room";
+	req_access = list(103)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"agZ" = (
+/obj/item/storage/belt/utility/very_full,
+/obj/item/clothing/gloves/yellow,
+/obj/item/crowbar/red,
+/obj/item/clothing/glasses/welding/superior,
+/obj/item/stack/material/steel{
+	amount = 50;
+	pixel_x = -2
+	},
+/obj/item/stack/material/glass{
+	amount = 50;
+	pixel_x = 1
+	},
+/obj/item/storage/bag/inflatable,
+/obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/light/colored/red{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/structure/closet/crate/drop/grey,
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
+"aha" = (
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/shoes/sneakers,
+/obj/item/clothing/gloves/white,
+/obj/item/clothing/glasses/sunglasses/sechud,
+/obj/item/clothing/accessory/badge/holo,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/device/radio/headset/ert,
+/obj/item/clothing/head/beret/centcom/captain,
+/obj/item/gun/energy/lawgiver,
+/obj/item/card/id/centcom,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Captain's Cabinet";
+	req_access = list(101)
 	},
+/obj/item/clothing/under/rank/centcom_commander,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "ahc" = (
-/obj/structure/platform_stairs,
-/obj/structure/platform/ledge{
-	dir = 8
-	},
-/obj/machinery/light/colored/red{
+/obj/machinery/porta_turret/cannon,
+/obj/machinery/light/spot/built{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
+/turf/simulated/floor/reinforced,
+/area/centcom/specops)
 "ahd" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -2674,6 +3056,13 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
+"ahe" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/carpet,
+/area/template_noop)
 "ahf" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -2808,6 +3197,9 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/grass,
 /area/centcom/bar)
+"ahy" = (
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "ahA" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -2816,17 +3208,12 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
-"ahC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+"ahB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
 	},
-/obj/machinery/door/airlock/highsecurity{
-	dir = 4;
-	name = "Jumpseats";
-	req_access = list(103)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "ahD" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2858,42 +3245,20 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "ahF" = (
-/obj/machinery/light/colored/red{
-	dir = 1
-	},
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Executive Officers Cabinet";
-	req_access = list(101)
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
-"ahG" = (
-/obj/item/clothing/suit/armor/carrier/ballistic,
-/obj/item/clothing/under/rank/centcom_officer,
-/obj/item/clothing/shoes/sneakers,
-/obj/item/clothing/gloves/white,
-/obj/item/clothing/glasses/sunglasses/sechud,
-/obj/item/clothing/accessory/badge/holo,
-/obj/item/clothing/accessory/holster/hip,
-/obj/item/device/radio/headset/ert,
-/obj/item/clothing/head/beret/centcom/captain,
-/obj/item/gun/energy/lawgiver,
-/obj/item/card/id/centcom,
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Captain's Cabinet";
-	req_access = list(101)
+/obj/machinery/turretid{
+	check_arrest = 0;
+	check_records = 0;
+	pixel_x = -26;
+	req_access = list(103);
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/admin)
 "ahH" = (
-/obj/structure/closet/crate/freezer/rations,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/device/flashlight/flare,
-/obj/item/storage/firstaid/o2,
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/shuttle/dark_red,
+/obj/machinery/computer/security{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "ahI" = (
 /obj/structure/shuttle_part/hapt{
@@ -2995,19 +3360,18 @@
 /obj/machinery/light/colored/red{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "ahR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 6
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
+/turf/simulated/wall/shuttle/legion,
+/area/template_noop)
 "ahS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
+/obj/structure/bed/stool/chair/shuttle{
+	can_dismantle = 1;
+	dir = 8;
+	name = "worn chair"
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "ahT" = (
 /obj/structure/shuttle_part/hapt{
@@ -3026,6 +3390,13 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
+"ahV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/template_noop)
 "ahX" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/recharger{
@@ -3206,16 +3577,12 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "aiu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
-"aiw" = (
-/obj/machinery/door/airlock/highsecurity{
+/obj/machinery/door/blast/regular{
 	dir = 4;
-	name = "Bridge";
-	req_access = list(103)
+	name = "Rapid Deployment";
+	id = "rapid_deploy"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "aix" = (
 /turf/simulated/floor/shuttle/dark_red,
@@ -3229,25 +3596,11 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "aiz" = (
-/obj/item/storage/belt/utility/very_full,
-/obj/item/clothing/gloves/yellow,
-/obj/item/crowbar/red,
-/obj/item/clothing/glasses/welding/superior,
-/obj/item/stack/material/steel{
-	amount = 50;
-	pixel_x = -2
-	},
-/obj/item/stack/material/glass{
-	amount = 50;
-	pixel_x = 1
-	},
-/obj/item/storage/bag/inflatable,
-/obj/machinery/light{
+/obj/structure/table/steel,
+/obj/machinery/light/colored/blue{
 	dir = 4
 	},
-/obj/structure/table/reinforced/steel,
-/obj/structure/closet/crate/drop/grey,
-/turf/simulated/floor/shuttle/dark_red,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "aiB" = (
 /obj/structure/table/reinforced/steel,
@@ -3468,58 +3821,16 @@
 /obj/structure/closet/crate/drop/grey,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"aiV" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "aiW" = (
-/obj/structure/closet/crate/medical,
-/obj/item/storage/firstaid/regular{
-	pixel_x = -2;
-	pixel_y = 4
+/obj/machinery/porta_turret/cannon,
+/obj/machinery/light/spot/built,
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
 	},
-/obj/item/storage/firstaid/regular{
-	pixel_x = -2;
-	pixel_y = 4
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = 5
-	},
-/obj/item/storage/firstaid/o2{
-	layer = 2.8;
-	pixel_x = 4;
-	pixel_y = 6
-	},
-/obj/item/storage/box/masks,
-/obj/item/storage/box/gloves,
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/fire{
-	layer = 2.9;
-	pixel_x = 2;
-	pixel_y = 3
-	},
-/obj/item/storage/firstaid/adv{
-	pixel_x = -2
-	},
-/obj/item/reagent_containers/inhaler/pneumalin,
-/obj/item/reagent_containers/inhaler/pneumalin,
-/obj/item/reagent_containers/inhaler/pneumalin,
-/obj/item/reagent_containers/inhaler/pneumalin,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/reagent_containers/hypospray/autoinjector/survival,
-/obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/glass/bottle/bicaridine,
-/obj/item/reagent_containers/glass/bottle/bicaridine,
-/obj/item/reagent_containers/glass/bottle/dermaline,
-/obj/item/reagent_containers/glass/bottle/dermaline,
-/obj/item/reagent_containers/glass/bottle/dexalin_plus,
-/obj/item/reagent_containers/glass/bottle/dexalin_plus,
-/obj/item/reagent_containers/glass/bottle/mortaphenyl,
-/obj/item/reagent_containers/glass/bottle/antitoxin,
-/obj/item/reagent_containers/glass/bottle/peridaxon,
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "aiX" = (
 /obj/effect/floor_decal/corner/red{
@@ -3527,17 +3838,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
-"aiY" = (
-/obj/structure/bed/stool/chair/office/bridge/pilot{
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
 "aiZ" = (
-/obj/item/modular_computer/console/preset/security{
-	dir = 8
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Ready Room";
+	req_access = list(103)
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
+	},
 /area/shuttle/admin)
 "aja" = (
 /obj/machinery/door/airlock/external{
@@ -3731,15 +4040,36 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
-"ajz" = (
-/obj/structure/bed/stool/chair/shuttle{
-	can_dismantle = 1;
+/obj/machinery/button/remote/blast_door{
+	id = "rapid_deploy";
+	name = "Rapid Deployment";
+	pixel_x = -22;
 	dir = 8;
-	name = "worn chair"
+	req_access = list(103);
+	pixel_y = 2
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/admin)
+"ajy" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 35;
+	pixel_y = -4
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 35;
+	pixel_y = 6
 	},
 /turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
+"ajz" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Medical Bay";
+	req_access = list(103)
+	},
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
+	},
 /area/shuttle/admin)
 "ajB" = (
 /turf/simulated/wall/shuttle/unique/hapt{
@@ -3750,25 +4080,22 @@
 	},
 /area/centcom/evac)
 "ajC" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1399;
-	id_tag = "admin_shuttle";
-	pixel_x = -28;
-	req_one_access = list(101);
-	tag_door = "admin_shuttle_hatch";
-	dir = 4
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
-"ajE" = (
-/obj/machinery/computer/security{
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/obj/machinery/door/window/westright,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
-"ajG" = (
-/turf/simulated/floor/plating,
-/area/centcom/specops)
+"ajE" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 6
+	},
+/obj/machinery/light/colored/blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
 "ajH" = (
 /obj/machinery/light{
 	dir = 4
@@ -3850,12 +4177,9 @@
 /turf/simulated/wall,
 /area/merchant_station)
 "ajS" = (
-/obj/machinery/porta_turret/cannon,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light/spot/built{
-	dir = 4
+/turf/simulated/wall/shuttle/cardinal{
+	color = "3c526f"
 	},
-/turf/simulated/floor/reinforced,
 /area/shuttle/admin)
 "ajT" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -3893,98 +4217,36 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
-"ajU" = (
-/obj/item/gun/launcher/grenade{
-	pixel_x = -2;
-	pixel_y = -7
-	},
-/obj/item/grenade/frag{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/grenade/frag{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/grenade/frag{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/grenade/frag{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/grenade/flashbang{
-	pixel_x = -1;
-	pixel_y = 9
-	},
-/obj/item/grenade/flashbang{
-	pixel_x = -1;
-	pixel_y = 9
-	},
-/obj/item/grenade/flashbang{
-	pixel_x = -1;
-	pixel_y = 9
-	},
-/obj/item/grenade/flashbang{
-	pixel_x = -1;
-	pixel_y = 9
-	},
-/obj/item/grenade/empgrenade{
-	pixel_x = 9;
-	pixel_y = 11
-	},
-/obj/item/grenade/empgrenade{
-	pixel_x = 9;
-	pixel_y = 11
-	},
-/obj/item/grenade/empgrenade{
-	pixel_x = 9;
-	pixel_y = 11
-	},
-/obj/item/grenade/empgrenade{
-	pixel_x = 9;
-	pixel_y = 11
-	},
-/obj/structure/table/reinforced/steel,
-/obj/item/grenade/frag{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/grenade/frag{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/grenade/frag{
-	pixel_x = -10;
-	pixel_y = 9
-	},
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/obj/item/grenade/chem_grenade/teargas,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/admin)
 "ajV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/shoes/sneakers,
+/obj/item/clothing/gloves/white,
+/obj/item/clothing/glasses/sunglasses/sechud,
+/obj/item/clothing/accessory/badge/holo,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/device/radio/headset/ert,
+/obj/item/clothing/head/beret/centcom/captain,
+/obj/item/gun/energy/lawgiver,
+/obj/item/card/id/centcom,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Captain's Cabinet";
+	req_access = list(101)
+	},
+/obj/item/clothing/under/rank/centcom,
+/obj/machinery/light/colored/blue{
 	dir = 8
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "ajW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
+/obj/machinery/button/remote/blast_door{
+	id = "corvette_exterior";
+	name = "aft blast door";
+	pixel_x = 32;
+	pixel_y = 12
 	},
 /turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
+/area/template_noop)
 "ajX" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -3994,57 +4256,39 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "ajY" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "admin_shuttle";
-	name = "crescent_shuttle";
-	shuttle_tag = "admin_shuttle"
-	},
-/turf/simulated/floor/reinforced,
+/obj/machinery/light/colored/red,
+/turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/admin)
-"aka" = (
+"ajZ" = (
 /obj/machinery/light/colored/red{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
+"aka" = (
+/obj/structure/closet/crate/drop{
+	name = "problemsolver crate"
+	},
+/obj/item/ammo_magazine/a762,
+/obj/item/ammo_magazine/a762,
+/obj/item/ammo_magazine/a762,
+/obj/item/gun/projectile/automatic/rifle/l6_saw,
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "akb" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/admin)
-"akc" = (
-/obj/machinery/recharger{
-	pixel_x = 7;
-	pixel_y = 9
-	},
-/obj/item/device/megaphone/red,
-/obj/effect/floor_decal/corner/red{
-	dir = 6
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/turretid{
-	check_arrest = 0;
-	check_records = 0;
-	pixel_x = 28;
-	req_access = list(103)
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
-"ake" = (
-/obj/structure/shuttle_part/hapt{
+"akd" = (
+/obj/machinery/vending/security{
 	density = 0;
-	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
-	icon_state = "14,2";
-	name = "military corvette"
+	pixel_x = -2;
+	pixel_y = 31
 	},
-/obj/machinery/porta_turret/cannon,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light/spot/built{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "akf" = (
 /obj/effect/ghostspawpoint{
@@ -4289,21 +4533,55 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/merchant_station)
-"akG" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+"akE" = (
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = -4;
+	req_access = list(103);
+	master_tag = "admin_shuttle"
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/northleft,
-/turf/unsimulated/floor/plating,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/dark_blue/full,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
-"akH" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1
+"akF" = (
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1399;
+	icon_state = "door_locked";
+	locked = 1;
+	name = "Corvette Hatch";
+	req_access = list(13)
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/door/window/northright,
-/turf/unsimulated/floor/plating,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "admin_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "admin_shuttle"
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"akG" = (
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/structure/closet/crate/drop/grey,
+/obj/structure/sign/flag/nanotrasen{
+	pixel_y = 30
+	},
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "akJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4314,6 +4592,13 @@
 	name = "crescent_shuttle";
 	shuttle_tag = "admin_shuttle"
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	frequency = 1380;
+	id_tag = "admin_shuttle";
+	req_access = list(150);
+	dir = 4;
+	pixel_x = -26
+	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/admin)
 "akK" = (
@@ -4321,14 +4606,6 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "admin_shuttle";
-	pixel_x = 27;
-	pixel_y = 34;
-	req_access = list(150);
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -4353,32 +4630,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/admin)
-"akM" = (
-/obj/item/modular_computer/console/preset/command{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
 "akN" = (
-/obj/machinery/button/remote/blast_door{
-	id = "corvette_exterior";
-	name = "aft blast door";
-	pixel_x = 32;
-	pixel_y = 12
-	},
-/obj/machinery/computer/shuttle_control/multi/admin{
-	dir = 1
-	},
-/turf/simulated/floor/shuttle/dark_red,
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "akO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/access_button{
-	dir = 4;
-	pixel_x = -23;
-	pixel_y = -4;
-	req_access = list(103);
-	master_tag = "admin_shuttle"
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -4563,23 +4821,10 @@
 	},
 /area/centcom/evac)
 "alp" = (
-/obj/machinery/vending/wallmed1{
-	pixel_x = 28;
-	req_access = null
+/obj/machinery/bodyscanner{
+	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
-/obj/item/storage/firstaid/large/o2,
-/obj/item/storage/firstaid/large/o2,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
-"alq" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "corvette_exterior";
-	name = "blast door"
-	},
-/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "alr" = (
 /obj/effect/decal/warning_stripes,
@@ -4843,11 +5088,12 @@
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "alQ" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
+/obj/machinery/porta_turret/cannon,
+/obj/machinery/light/spot/built{
+	dir = 8
 	},
-/turf/unsimulated/floor/plating,
-/area/centcom/specops)
+/turf/simulated/floor/reinforced,
+/area/shuttle/admin)
 "alR" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor/plating,
@@ -30316,23 +30562,42 @@
 	},
 /area/antag/ninja)
 "bxE" = (
-/obj/machinery/vending/tacticool/ert{
-	density = 0;
-	pixel_x = -1;
-	pixel_y = 32
-	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 35;
+/obj/structure/table/rack,
+/obj/item/plastique{
+	pixel_x = -4;
 	pixel_y = 6
 	},
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 35;
-	pixel_y = -4
+/obj/item/plastique{
+	pixel_x = -4;
+	pixel_y = 6
 	},
-/obj/machinery/light/colored/red{
-	dir = 4
+/obj/item/plastique{
+	pixel_x = 8
 	},
-/turf/simulated/floor/shuttle/dark_red,
+/obj/item/plastique{
+	pixel_x = 8
+	},
+/obj/item/grenade/flashbang/clusterbang{
+	pixel_y = -10;
+	pixel_x = -5
+	},
+/obj/item/grenade/flashbang/clusterbang{
+	pixel_y = -10;
+	pixel_x = -5
+	},
+/obj/item/grenade/flashbang/clusterbang{
+	pixel_y = -10;
+	pixel_x = -5
+	},
+/obj/item/grenade/flashbang/clusterbang{
+	pixel_y = -10;
+	pixel_x = -5
+	},
+/obj/item/grenade/flashbang/clusterbang{
+	pixel_y = -10;
+	pixel_x = -5
+	},
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "bxG" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -31941,6 +32206,9 @@
 /obj/structure/shuttle/engine/propulsion/burst,
 /turf/unsimulated/floor/plating,
 /area/shuttle/skipjack)
+"bEK" = (
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "bER" = (
 /obj/structure/shuttle/engine/propulsion/burst/left,
 /turf/unsimulated/floor/plating,
@@ -34713,6 +34981,17 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
+"bQq" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "admin_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "admin_shuttle"
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "bRf" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -35109,10 +35388,17 @@
 /turf/unsimulated/floor,
 /area/antag/jockey)
 "dgh" = (
-/obj/structure/table/reinforced/wood,
-/obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor/tiled/dark/full,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
+"dgr" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "dgN" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/grey{
@@ -35224,6 +35510,12 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"dsq" = (
+/obj/machinery/computer/security{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "dtJ" = (
 /obj/structure/railing/mapped{
 	layer = 5.1
@@ -35247,6 +35539,13 @@
 /obj/structure/flora/grass/green,
 /turf/simulated/floor/holofloor/snow,
 /area/horizon/holodeck/source_snowfield)
+"dxl" = (
+/obj/effect/map_effect/marker/airlock,
+/obj/structure/shuttle/engine/propulsion{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "dBp" = (
 /obj/machinery/shower{
 	pixel_y = 20
@@ -35333,6 +35632,12 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_meetinghall)
+"dHE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "dIc" = (
 /obj/structure/flora/ausbushes/lavendergrass,
 /obj/effect/floor_decal/spline/plain,
@@ -35414,8 +35719,33 @@
 	},
 /turf/simulated/floor/tiled,
 /area/merchant_station/warehouse)
+"dUm" = (
+/obj/item/storage/belt/medical{
+	pixel_x = -3;
+	pixel_y = -11
+	},
+/obj/item/reagent_containers/hypospray/cmo{
+	layer = 2.99;
+	pixel_x = -2;
+	pixel_y = -3
+	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"dUR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "admin_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "admin_shuttle"
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "dVb" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/effect/shuttle_landmark/admin/start,
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
@@ -35585,6 +35915,15 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
+"etE" = (
+/obj/machinery/chemical_dispenser/ert{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "exq" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/ausbushes/ppflowers,
@@ -35833,6 +36172,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/centcom/evac)
+"fhX" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "fir" = (
 /obj/effect/spider/cocoon,
 /obj/effect/spider/stickyweb,
@@ -35858,6 +36203,17 @@
 "ftO" = (
 /obj/effect/step_trigger/thrower/shuttle/northwest,
 /turf/template_noop,
+/area/template_noop)
+"fuW" = (
+/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/unsimulated/floor/plating,
+/area/template_noop)
+"fwt" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
 /area/template_noop)
 "fww" = (
 /turf/simulated/wall/shuttle/unique/ccia{
@@ -36029,6 +36385,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"fWz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "fWR" = (
 /obj/effect/floor_decal/corner{
 	dir = 1
@@ -36127,6 +36487,9 @@
 	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
+"giI" = (
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "gkn" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
@@ -36140,6 +36503,12 @@
 /obj/structure/sign/christmas/snowman/hat,
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"gmg" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "goM" = (
 /turf/simulated/lava,
 /area/antag/ninja)
@@ -36193,6 +36562,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"guS" = (
+/obj/machinery/vending/security{
+	density = 0;
+	pixel_x = -2;
+	pixel_y = 31
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "gvT" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/flare/torch,
@@ -36270,6 +36647,12 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_battlemonsters)
+"gBb" = (
+/obj/structure/shuttle/engine/propulsion{
+	dir = 1
+	},
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "gBJ" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -36282,6 +36665,12 @@
 	},
 /turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
+"gBW" = (
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "gCj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -36294,6 +36683,16 @@
 /obj/structure/closet/secure_closet/merchant,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/merchant)
+"gFN" = (
+/obj/structure/platform_stairs,
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "gHp" = (
 /obj/structure/shuttle_part/ccia{
 	icon_state = "3,4"
@@ -36313,6 +36712,12 @@
 	icon_state = "desert"
 	},
 /area/centcom/shared_dream)
+"gJD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "gLu" = (
 /obj/structure/window/reinforced/holowindow{
 	dir = 4
@@ -36378,6 +36783,10 @@
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
+"gSM" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "gVy" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 9
@@ -36400,6 +36809,11 @@
 /obj/structure/window/reinforced/holowindow,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_gym)
+"gZv" = (
+/mob/living/heavy_vehicle/premade/superheavy,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "hbO" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -36470,6 +36884,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"hgj" = (
+/obj/effect/floor_decal/corner/green/full,
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "hiA" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -36560,6 +36978,11 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/centcom/shared_dream)
+"htk" = (
+/obj/structure/table/reinforced/wood,
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "htn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -36675,6 +37098,40 @@
 /obj/structure/holostool,
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_battlemonsters)
+"hJd" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Heavy Asset Protection";
+	req_access = list(103)
+	},
+/obj/item/rig_module/mounted,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/shoes/magboots,
+/obj/item/melee/baton/loaded,
+/obj/item/storage/belt/security/tactical,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/pinpointer/advpinpointer,
+/obj/item/rig_module/mounted/plasmacutter,
+/obj/item/rig/ert/assetprotection,
+/obj/item/device/radio/headset/ert,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/gun/energy/rifle/pulse,
+/obj/item/gun/projectile/revolver/mateba,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun/incendiary,
+/obj/item/ammo_magazine/assault_shotgun/shells,
+/obj/item/gun/projectile/automatic/rifle/shotgun,
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/obj/item/gun/energy/rifle/pulse/destroyer,
+/turf/simulated/floor/shuttle/black,
+/area/template_noop)
 "hMP" = (
 /obj/structure/flora/grass/jungle{
 	icon_state = "bushb1"
@@ -36693,6 +37150,17 @@
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/carpet/rubber,
 /area/antag/jockey)
+"hPh" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/access_button{
+	pixel_x = 29;
+	pixel_y = 38;
+	req_access = list(222);
+	dir = 8;
+	master_tag = "admin_shuttle"
+	},
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "hRC" = (
 /obj/machinery/door/airlock/silver{
 	dir = 4;
@@ -36884,9 +37352,6 @@
 /obj/machinery/chemical_dispenser/ert{
 	dir = 4
 	},
-/obj/machinery/light{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "ilL" = (
@@ -37036,7 +37501,6 @@
 /turf/simulated/floor/reinforced,
 /area/centcom/evac)
 "iMi" = (
-/obj/effect/floor_decal/industrial/warning,
 /obj/machinery/access_button{
 	pixel_x = 29;
 	pixel_y = 38;
@@ -37177,6 +37641,13 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
+"iYG" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/fancy/tray{
+	layer = 2.99
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "jac" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
@@ -37399,6 +37870,17 @@
 	},
 /turf/simulated/floor/holofloor/space,
 /area/horizon/holodeck/source_basketball)
+"jzv" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
+"jBo" = (
+/obj/machinery/porta_turret/cannon,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light/spot/built{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "jBO" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -37406,6 +37888,20 @@
 /obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_theatre)
+"jCn" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/unsimulated/floor/plating,
+/area/template_noop)
+"jDY" = (
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Medical Bay";
+	req_access = list(103)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "jFE" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -37495,6 +37991,10 @@
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"jQn" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot,
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "jSv" = (
 /obj/structure/railing/mapped{
 	layer = 5.1
@@ -37529,12 +38029,40 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
+"jUz" = (
+/obj/item/clothing/suit/armor/carrier/ballistic,
+/obj/item/clothing/under/rank/centcom_officer,
+/obj/item/clothing/shoes/sneakers,
+/obj/item/clothing/gloves/white,
+/obj/item/clothing/glasses/sunglasses/sechud,
+/obj/item/clothing/accessory/badge/holo,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/device/radio/headset/ert,
+/obj/item/clothing/head/beret/centcom/captain,
+/obj/item/gun/energy/lawgiver,
+/obj/item/card/id/centcom,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Captain's Cabinet";
+	req_access = list(101)
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "jYW" = (
 /obj/structure/table/wood,
 /obj/item/wrench,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/carpet,
 /area/antag/jockey)
+"jZp" = (
+/obj/machinery/vending/wallmed1{
+	pixel_x = 28;
+	req_access = null
+	},
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/firstaid/large/o2,
+/obj/item/storage/firstaid/large/o2,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "kag" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal{
@@ -37559,17 +38087,6 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
-"kbE" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "admin_shuttle";
-	name = "crescent_shuttle";
-	shuttle_tag = "admin_shuttle"
-	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/admin)
 "kcw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/marble/dark,
@@ -37699,6 +38216,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet/rubber,
 /area/horizon/holodeck/source_basketball)
+"ksg" = (
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "ksk" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -37884,6 +38407,68 @@
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_battlemonsters)
+"kQL" = (
+/obj/item/gun/projectile/automatic/rifle/z8{
+	layer = 2.99;
+	pixel_y = 10
+	},
+/obj/item/gun/projectile/automatic/rifle/z8{
+	pixel_y = 5
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -8
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = -6;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -11
+	},
+/obj/item/ammo_magazine/a556{
+	pixel_x = 5;
+	pixel_y = -11
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/black,
+/area/template_noop)
 "kRE" = (
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/effect/floor_decal/spline/fancy,
@@ -37987,6 +38572,14 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"lcd" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/northright,
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "ldN" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -38034,7 +38627,12 @@
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
 "lhf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/machinery/light/colored/blue{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "lhg" = (
@@ -38045,10 +38643,22 @@
 	name = "military corvette"
 	},
 /area/centcom/evac)
+"ljP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
 "ljU" = (
 /obj/machinery/acting/changer,
 /turf/simulated/floor/carpet,
 /area/antag/jockey)
+"lkh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "lnJ" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/beach/sand{
@@ -38114,6 +38724,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/merchant)
+"lxd" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "lxe" = (
 /obj/structure/closet/secure_closet/merchant,
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
@@ -38188,71 +38804,52 @@
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
-"lAV" = (
-/obj/item/gun/projectile/automatic/rifle/z8{
-	layer = 2.99;
-	pixel_y = 10
-	},
-/obj/item/gun/projectile/automatic/rifle/z8{
-	pixel_y = 5
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = -6;
-	pixel_y = -8
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = 5;
-	pixel_y = -8
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = -6;
-	pixel_y = -8
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = -6;
-	pixel_y = -8
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = 5;
-	pixel_y = -8
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = 5;
-	pixel_y = -8
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = -6;
-	pixel_y = -11
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = -6;
-	pixel_y = -11
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = -6;
-	pixel_y = -11
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = 5;
-	pixel_y = -11
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = 5;
-	pixel_y = -11
-	},
-/obj/item/ammo_magazine/a556{
-	pixel_x = 5;
-	pixel_y = -11
-	},
-/obj/structure/table/reinforced/steel,
-/obj/machinery/light/colored/red{
+"lzA" = (
+/obj/structure/platform/ledge{
 	dir = 8
 	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"lAV" = (
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Heavy Asset Protection";
+	req_access = list(103)
+	},
+/obj/item/rig_module/mounted,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/shoes/magboots,
+/obj/item/melee/baton/loaded,
+/obj/item/storage/belt/security/tactical,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/pinpointer/advpinpointer,
+/obj/item/rig_module/mounted/plasmacutter,
+/obj/item/rig/ert/assetprotection,
+/obj/item/device/radio/headset/ert,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/gun/energy/rifle/pulse,
+/obj/item/gun/projectile/revolver/mateba,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun/incendiary,
+/obj/item/ammo_magazine/assault_shotgun/shells,
+/obj/item/gun/projectile/automatic/rifle/shotgun,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
+"lBu" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/template_noop)
 "lCF" = (
 /turf/simulated/wall/shuttle/hapt{
-	color = "#3c526f"
+	color = "2E2B2B"
 	},
 /area/shuttle/admin)
 "lDj" = (
@@ -38287,6 +38884,12 @@
 	},
 /turf/simulated/floor/holofloor/lino,
 /area/horizon/holodeck/source_courtroom)
+"lEV" = (
+/obj/item/modular_computer/console/preset/command{
+	dir = 1
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "lFu" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -38380,6 +38983,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"lTY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "lUi" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -38422,6 +39029,10 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
+"lYc" = (
+/obj/effect/map_effect/marker/airlock,
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "lYo" = (
 /turf/simulated/floor/holofloor/beach/sand{
 	dir = 1;
@@ -38500,7 +39111,22 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "mqr" = (
-/obj/machinery/chem_master,
+/obj/item/storage/belt/medical{
+	pixel_x = -3;
+	pixel_y = -11
+	},
+/obj/item/reagent_containers/hypospray/cmo{
+	layer = 2.99;
+	pixel_x = -2;
+	pixel_y = -3
+	},
+/obj/structure/table/steel,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/glass/beaker/bluespace,
+/obj/item/reagent_containers/chem_disp_cartridge/rezadone{
+	pixel_x = 9;
+	pixel_y = 11
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "mrZ" = (
@@ -38562,6 +39188,10 @@
 	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
+"mvi" = (
+/obj/machinery/chem_master,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "mvn" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#C46518";
@@ -38755,6 +39385,12 @@
 	},
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
+"mKQ" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "mLu" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -38795,6 +39431,12 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"mRi" = (
+/obj/structure/platform/ledge{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "mTt" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -38883,6 +39525,12 @@
 	},
 /turf/simulated/floor/exoplanet/snow,
 /area/centcom/shared_dream)
+"nqE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/unsimulated/floor/plating,
+/area/template_noop)
 "nrf" = (
 /obj/item/beach_ball,
 /obj/effect/floor_decal/spline/plain{
@@ -39037,6 +39685,33 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"nSX" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1399;
+	icon_state = "door_locked";
+	locked = 1;
+	name = "Corvette Hatch";
+	req_access = list(13)
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "corvette_exterior";
+	name = "blast door"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "admin_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "admin_shuttle"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "nXn" = (
 /obj/structure/shuttle_part/hapt{
 	density = 0;
@@ -39053,9 +39728,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck/source_pool)
 "ocQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
+/obj/structure/table/reinforced/wood,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "ogd" = (
@@ -39147,6 +39820,10 @@
 	},
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"onY" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/wood,
+/area/template_noop)
 "opa" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -39287,9 +39964,12 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "oEE" = (
-/turf/simulated/wall/shuttle/hapt{
-	color = "2E2B2B"
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Cockpit";
+	req_access = list(103)
 	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "oIf" = (
 /obj/effect/floor_decal/carpet{
@@ -39315,6 +39995,15 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"oMN" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/colored/red{
+	dir = 8
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "oMU" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -39548,22 +40237,9 @@
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
 "pgV" = (
-/obj/effect/floor_decal/spline/plain,
-/obj/structure/table/reinforced/steel,
-/obj/item/reagent_containers/hypospray/combat,
-/obj/item/reagent_containers/hypospray/combat,
-/obj/item/reagent_containers/hypospray/combat,
-/obj/item/reagent_containers/hypospray/combat,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical,
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray,
-/obj/item/reagent_containers/hypospray,
-/obj/machinery/light{
-	dir = 4
+/obj/structure/table/reinforced/wood,
+/obj/item/modular_computer/laptop/preset/command{
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -39881,6 +40557,12 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_trinary)
+"qiC" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "qlw" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
@@ -39996,6 +40678,32 @@
 /obj/random/pottedplant,
 /turf/simulated/floor/marble,
 /area/horizon/holodeck/source_trinary)
+"qEY" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/machinery/door/airlock/external{
+	dir = 1;
+	frequency = 1399;
+	icon_state = "door_locked";
+	locked = 1;
+	name = "Corvette Hatch";
+	req_access = list(13)
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "corvette_exterior";
+	name = "blast door"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "admin_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "admin_shuttle"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "qHa" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -40089,13 +40797,12 @@
 	},
 /turf/simulated/floor/holofloor/carpet,
 /area/horizon/holodeck/source_meetinghall)
-"qTA" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 6
+"qVn" = (
+/obj/item/modular_computer/console/preset/security{
+	dir = 8
 	},
-/obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/shuttle/admin)
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "qVG" = (
 /obj/effect/step_trigger/thrower/shuttle/north,
 /obj/effect/shuttle_landmark/intrepid/transit{
@@ -40328,6 +41035,17 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/centcom/evac)
+"rwn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/highsecurity{
+	dir = 4;
+	name = "Jumpseats";
+	req_access = list(103)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "rzL" = (
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/holofloor/carpet,
@@ -40357,11 +41075,59 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
-"rIq" = (
-/obj/effect/map_effect/marker/airlock,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/unsimulated/floor/plating,
-/area/centcom/specops)
+"rGd" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = 5
+	},
+/obj/item/storage/firstaid/o2{
+	layer = 2.8;
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire{
+	layer = 2.9;
+	pixel_x = 2;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_x = -2
+	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/hypospray/autoinjector/survival,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/glass/bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/dermaline,
+/obj/item/reagent_containers/glass/bottle/dermaline,
+/obj/item/reagent_containers/glass/bottle/dexalin_plus,
+/obj/item/reagent_containers/glass/bottle/dexalin_plus,
+/obj/item/reagent_containers/glass/bottle/mortaphenyl,
+/obj/item/reagent_containers/glass/bottle/antitoxin,
+/obj/item/reagent_containers/glass/bottle/peridaxon,
+/obj/effect/floor_decal/spline/plain,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
 "rIW" = (
 /obj/structure/window/reinforced/holowindow,
 /obj/structure/bed/stool/chair/holochair,
@@ -40460,7 +41226,35 @@
 	},
 /area/centcom/shared_dream)
 "sbP" = (
-/turf/simulated/wall/shuttle/legion,
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Heavy Asset Protection";
+	req_access = list(103)
+	},
+/obj/item/rig_module/mounted,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/shoes/magboots,
+/obj/item/melee/baton/loaded,
+/obj/item/storage/belt/security/tactical,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/pinpointer/advpinpointer,
+/obj/item/rig_module/mounted/plasmacutter,
+/obj/item/rig/ert/assetprotection,
+/obj/item/device/radio/headset/ert,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/gun/energy/rifle/pulse,
+/obj/item/gun/projectile/revolver/mateba,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun/incendiary,
+/obj/item/ammo_magazine/assault_shotgun/shells,
+/obj/item/gun/projectile/automatic/rifle/shotgun,
+/obj/item/gun/energy/rifle/pulse/destroyer,
+/turf/simulated/floor/shuttle/black,
 /area/template_noop)
 "seI" = (
 /obj/effect/floor_decal/spline/plain{
@@ -40482,12 +41276,18 @@
 	},
 /area/horizon/holodeck/source_konyang)
 "siO" = (
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
+/mob/living/heavy_vehicle/premade/superheavy,
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/shuttle/dark_red,
 /area/shuttle/admin)
+"ski" = (
+/obj/machinery/porta_turret/cannon,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light/spot/built{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "skt" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
@@ -40501,6 +41301,12 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"soq" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "spn" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -40645,6 +41451,12 @@
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/barren/raskara,
 /area/centcom/shared_dream)
+"sUy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
 "sVf" = (
 /obj/structure/coatrack{
 	pixel_x = 10;
@@ -40656,6 +41468,16 @@
 /obj/effect/floor_decal/spline/fancy/wood/corner,
 /turf/simulated/floor/wood/yew,
 /area/centcom/shared_dream)
+"sWA" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/device/flashlight/flare,
+/obj/item/storage/firstaid/o2,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "sYp" = (
 /obj/structure/bed/stool/chair/holochair{
 	dir = 4
@@ -40899,6 +41721,15 @@
 	density = 1
 	},
 /area/centcom/shared_dream)
+"tAd" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "corvette_exterior";
+	name = "blast door"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/template_noop)
 "tCd" = (
 /obj/effect/floor_decal/carpet{
 	dir = 1
@@ -40978,6 +41809,12 @@
 	},
 /turf/simulated/floor/exoplanet/grass,
 /area/centcom/shared_dream)
+"tNk" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/wood,
+/area/template_noop)
 "tNm" = (
 /obj/machinery/sleeper{
 	dir = 8
@@ -41018,6 +41855,39 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
+"tTb" = (
+/obj/machinery/vending/tacticool/ert{
+	density = 0;
+	pixel_x = -1;
+	pixel_y = 32
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 35;
+	pixel_y = 6
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 35;
+	pixel_y = -4
+	},
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
+"tXW" = (
+/obj/structure/shuttle_part/hapt{
+	density = 0;
+	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
+	icon_state = "14,2";
+	name = "military corvette"
+	},
+/obj/machinery/porta_turret/cannon,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/machinery/light/spot/built{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
 "tZL" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -41065,6 +41935,12 @@
 "uhy" = (
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_gym)
+"uhR" = (
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 4
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "uiN" = (
 /turf/simulated/floor/beach/sand{
 	dir = 1;
@@ -41079,6 +41955,16 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"ulv" = (
+/obj/machinery/light/colored/red{
+	dir = 1
+	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Executive Officers Cabinet";
+	req_access = list(101)
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "ulM" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
@@ -41346,6 +42232,9 @@
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"uVO" = (
+/turf/simulated/floor/plating,
+/area/template_noop)
 "uWK" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/holofloor/carpet,
@@ -41355,14 +42244,36 @@
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
 "uYM" = (
-/obj/item/gun/energy/rifle{
-	layer = 2.99;
-	pixel_y = 6
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Heavy Asset Protection";
+	req_access = list(103)
 	},
-/obj/item/gun/energy/rifle{
-	pixel_y = -2
+/obj/item/rig_module/mounted,
+/obj/item/clothing/accessory/storage/black_vest,
+/obj/item/clothing/shoes/magboots,
+/obj/item/melee/baton/loaded,
+/obj/item/storage/belt/security/tactical,
+/obj/item/handcuffs,
+/obj/item/handcuffs,
+/obj/item/pinpointer/advpinpointer,
+/obj/item/rig_module/mounted/plasmacutter,
+/obj/item/rig/ert/assetprotection,
+/obj/item/device/radio/headset/ert,
+/obj/item/clothing/under/syndicate/combat,
+/obj/item/gun/energy/rifle/pulse,
+/obj/item/gun/projectile/revolver/mateba,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/a454,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun,
+/obj/item/ammo_magazine/assault_shotgun/incendiary,
+/obj/item/ammo_magazine/assault_shotgun/shells,
+/obj/item/gun/projectile/automatic/rifle/shotgun,
+/obj/machinery/light/colored/red{
+	dir = 8
 	},
-/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "uZh" = (
@@ -41444,6 +42355,11 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
+"vgQ" = (
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
+	},
+/area/template_noop)
 "vha" = (
 /obj/effect/decal/fake_object/light_source/invisible{
 	light_color = "#64C864";
@@ -41566,6 +42482,24 @@
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/holofloor/grass,
 /area/horizon/holodeck/source_picnicarea)
+"vAF" = (
+/obj/machinery/recharger{
+	pixel_x = 7;
+	pixel_y = 9
+	},
+/obj/item/device/megaphone/red,
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/obj/structure/table/reinforced/steel,
+/obj/machinery/turretid{
+	check_arrest = 0;
+	check_records = 0;
+	pixel_x = 28;
+	req_access = list(103)
+	},
+/turf/simulated/floor/shuttle/dark_red,
+/area/template_noop)
 "vBJ" = (
 /turf/simulated/floor/holofloor/tiled/ramp{
 	dir = 4
@@ -41608,6 +42542,17 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/transport1)
+"vFg" = (
+/obj/item/gun/energy/rifle{
+	layer = 2.99;
+	pixel_y = 6
+	},
+/obj/item/gun/energy/rifle{
+	pixel_y = -2
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/shuttle/black,
+/area/template_noop)
 "vFR" = (
 /obj/structure/table/steel,
 /obj/item/clothing/mask/gas/vaurca/filter,
@@ -41649,6 +42594,10 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
+"vKJ" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/carpet,
+/area/template_noop)
 "vLn" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -41836,6 +42785,15 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/horizon/holodeck/source_tribunal)
+"wiO" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "wkS" = (
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -41902,6 +42860,12 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
+"wxz" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "wxV" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/effect/floor_decal/spline/plain,
@@ -41910,12 +42874,6 @@
 "wyY" = (
 /turf/unsimulated/floor,
 /area/antag/jockey)
-"wzo" = (
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 9
-	},
-/turf/simulated/floor/wood,
-/area/shuttle/admin)
 "wAB" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -41939,10 +42897,13 @@
 	},
 /area/horizon/holodeck/source_konyang)
 "wBC" = (
-/obj/effect/floor_decal/corner/green/full{
+/obj/machinery/body_scanconsole{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
+/obj/effect/floor_decal/corner/lime/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "wCE" = (
 /obj/structure/table/wood,
@@ -42051,6 +43012,12 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
+"xai" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "xaQ" = (
 /obj/machinery/body_scanconsole{
 	dir = 4
@@ -42206,6 +43173,26 @@
 	icon_state = "desert4"
 	},
 /area/horizon/holodeck/source_beach)
+"xDM" = (
+/obj/item/storage/belt/utility/very_full,
+/obj/item/storage/belt/utility/very_full,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/item/crowbar/red,
+/obj/structure/closet/crate/drop/grey,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/shuttle/black,
+/area/template_noop)
+"xEc" = (
+/obj/machinery/body_scanconsole,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
 "xFz" = (
 /obj/effect/floor_decal/corner{
 	dir = 5
@@ -42443,6 +43430,34 @@
 	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
+"yat" = (
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"ycM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/access_button{
+	dir = 4;
+	pixel_x = -23;
+	pixel_y = -4;
+	req_access = list(103);
+	master_tag = "admin_shuttle"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/template_noop)
+"ydH" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/template_noop)
+"yfN" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/template_noop)
 "ygU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -47749,27 +48764,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+acv
+acv
+acv
+acv
+jBo
+vgQ
+vgQ
+vgQ
+vgQ
+vgQ
+vgQ
+abI
+jBo
+acv
+acv
+jCn
+jCn
+jCn
+jCn
+jCn
+nqE
 aaa
 aaa
 aaa
@@ -48006,27 +49021,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+acv
+acv
+acv
+acv
+abI
+vgQ
+acd
+kQL
+vFg
+acT
+xDM
+abI
+vgQ
+acv
+acv
+acv
+acv
+jBo
+acv
+acv
+aiV
 aaa
 aaa
 aaa
@@ -48263,27 +49278,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+acv
+acv
+acv
+gBb
+abI
+vgQ
+guS
+bEK
+jzv
+bEK
+bEK
+sbP
+vgQ
+vgQ
+vgQ
+vgQ
+vgQ
+vgQ
+vgQ
+acv
+aiV
 aaa
 aaa
 aaa
@@ -48520,27 +49535,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+acv
+acv
+gBb
+vgQ
+abI
+gZv
+bEK
+bEK
+jzv
+bEK
+bEK
+hJd
+vgQ
+oMN
+qiC
+oMN
+qiC
+oMN
+vgQ
+vgQ
+aiV
 aaa
 aaa
 aaa
@@ -48777,27 +49792,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+gBb
+vgQ
+vgQ
+vgQ
+abI
+gZv
+bEK
+bEK
+jzv
+bEK
+bEK
+sbP
+vgQ
+lkh
+lTY
+lTY
+lTY
+ahB
+adX
+tAd
+aiV
 aaa
 aaa
 aaa
@@ -49034,27 +50049,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+vgQ
+vgQ
+adk
+adk
+abI
+vgQ
+tTb
+ajy
+jzv
+bEK
+ajZ
+sbP
+vgQ
+aeu
+abN
+abN
+abN
+dHE
+lcd
+tAd
+aiV
 aaa
 aaa
 aaa
@@ -49291,27 +50306,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+tAd
+ahe
+ljP
+ahV
+abI
+vgQ
+vgQ
+vgQ
+agY
+vgQ
+vgQ
+abI
+vgQ
+rwn
+vgQ
+vgQ
+vgQ
+abI
+abI
+abI
+aiV
 aaa
 aaa
 aaa
@@ -49548,27 +50563,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+tAd
+vKJ
+sUy
+onY
+agj
+giI
+giI
+fhX
+giI
+mRi
+mRi
+gFN
+giI
+gJD
+fWz
+ycM
+nSX
+adu
+dUR
+akF
+aiV
 aaa
 aaa
 aaa
@@ -49805,27 +50820,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+tAd
+vKJ
+sUy
+onY
+agj
+giI
+giI
+mKQ
+giI
+lzA
+lzA
+acU
+giI
+giI
+giI
+giI
+qEY
+bQq
+adL
+akF
+hPh
 aaa
 aaa
 aaa
@@ -50062,27 +51077,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+tAd
+lBu
+tNk
+yfN
+abI
+abP
+abP
+vgQ
+jDY
+abP
+abP
+abI
+abP
+abP
+acQ
+vgQ
+vgQ
+abI
+abI
+abI
+aiV
 aaa
 aaa
 aaa
@@ -50319,27 +51334,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+vgQ
+vgQ
+adk
+htk
+abI
+acC
+wxz
+abL
+fwt
+hgj
+aeL
+abI
+ulv
+bEK
+bEK
+gBW
+bEK
+gBW
+lEV
+tAd
+aiV
 aaa
 aaa
 aaa
@@ -50576,27 +51591,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+gBb
+vgQ
+vgQ
+vgQ
+abI
+yat
+soq
+dgr
+ahy
+xEc
+ksg
+abI
+jUz
+bEK
+bEK
+uhR
+bEK
+jQn
+ajW
+tAd
+aiV
 aaa
 aaa
 aaa
@@ -50833,27 +51848,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+acv
+acv
+gBb
+vgQ
+abI
+iYG
+gSM
+lxd
+ahy
+gmg
+aeN
+abI
+sWA
+bEK
+agZ
+qVn
+dsq
+vAF
+vgQ
+vgQ
+aiV
 aaa
 aaa
 aaa
@@ -50873,7 +51888,7 @@ aaa
 aaa
 aaa
 aaa
-abm
+abJ
 abJ
 abJ
 abJ
@@ -50881,22 +51896,22 @@ abJ
 abJ
 abJ
 ajS
-oEE
-oEE
-oEE
-oEE
-oEE
-oEE
 lCF
-ajS
+lCF
+lCF
+lCF
+lCF
+lCF
+afd
 abJ
 abJ
-abI
-abI
-abI
-abI
-abI
-alQ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 ajb
 abl
@@ -51090,27 +52105,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+acv
+acv
+lYc
+dxl
+abI
+vgQ
+dUm
+wiO
+xai
+ydH
+rGd
+abI
+vgQ
+abP
+abP
+abP
+abP
+vgQ
+vgQ
+acv
+aiV
 aaa
 aaa
 aaa
@@ -51130,30 +52145,30 @@ aaa
 aaa
 aaa
 aaa
-abm
-abJ
-abJ
-abJ
-abJ
-abJ
-abJ
 lCF
-oEE
-ajU
+lCF
+abJ
+ahc
+lCF
+lCF
+lCF
+ajS
+uYM
+lAV
 lAV
 uYM
-acW
-adi
 lCF
-oEE
-abJ
-abJ
-abJ
-abJ
+lCF
 ajS
 abJ
 abJ
-alR
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 ajb
 abl
@@ -51347,27 +52362,27 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
-aaa
+acv
+acv
+fuW
+fuW
+abI
+vgQ
+acx
+mvi
+etE
+jZp
+aeU
+abI
+ski
+acv
+acv
+acv
+uVO
+tXW
+acv
+acv
+aiV
 aaa
 aaa
 aaa
@@ -51388,29 +52403,29 @@ aaa
 aaa
 aaa
 abm
-abJ
-abJ
-abJ
-abJ
-abJ
-adW
 lCF
-oEE
-afd
-aix
+lCF
+lCF
+lCF
+aea
+adW
+ajS
+akd
 afM
-aix
-aix
-agW
-oEE
-oEE
-oEE
-oEE
-oEE
-oEE
-oEE
+afM
+afM
+lCF
+lCF
+ajS
+lCF
+lCF
+lCF
+lCF
+lCF
 abJ
-alR
+abJ
+abJ
+abJ
 ajb
 ajb
 anE
@@ -51645,29 +52660,29 @@ aaa
 aaa
 aaa
 abm
-abJ
-abJ
-abJ
-abJ
-adF
-oEE
 lCF
-aeK
+lCF
+lCF
+adi
+afO
+afO
+ajS
+siO
 aix
 aix
-afM
-aix
-aix
+ajY
+lCF
+akG
 agX
-oEE
+agX
 ahQ
 ajx
-ahQ
-ajx
-ahQ
-oEE
-oEE
-alR
+aiu
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 amW
 anE
@@ -51902,29 +52917,29 @@ aaa
 aaa
 aaa
 abm
-abJ
-abJ
-adW
-oEE
-oEE
-oEE
 lCF
+lCF
+lCF
+akN
+afO
+afO
+ajS
 aeK
-aix
-aix
+afM
 afM
 aix
+agK
 aix
-agW
-oEE
-ahR
+aix
+aix
+aix
+aix
 aiu
-aiu
-aiu
-ajV
-akG
-alq
-alR
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 ajb
 anE
@@ -52158,30 +53173,30 @@ aaa
 aaa
 aaa
 aaa
-abm
-abJ
-abJ
-oEE
-oEE
-adq
-adq
 lCF
-oEE
+lCF
+abJ
+lCF
+ocQ
+ocQ
+afO
+ajS
+aet
 bxE
 afg
-afM
-aix
+aka
+lCF
 agE
 agW
-oEE
 ahS
-ajz
-ajz
-ajz
-ajW
-akH
-alq
-alR
+ahS
+agW
+lCF
+lCF
+lCF
+abJ
+abJ
+abJ
 ajb
 ajb
 anF
@@ -52415,30 +53430,30 @@ aaa
 aaa
 aaa
 aaa
-abm
 abJ
 abJ
-alq
-adm
-wzo
+aiW
+lCF
+lCF
+lCF
 adY
 lCF
-oEE
-oEE
-oEE
-aea
-oEE
-oEE
-lCF
-oEE
-ahC
-oEE
-oEE
-oEE
 lCF
 lCF
 lCF
-alR
+lCF
+lCF
+aiZ
+ajS
+lCF
+lCF
+lCF
+lCF
+ajS
+lCF
+lCF
+lCF
+abJ
 ajb
 ajb
 anF
@@ -52672,27 +53687,27 @@ aaa
 aaa
 aaa
 aaa
-abm
 abJ
 abJ
-alq
+abJ
+adh
 adn
 adH
-adZ
-aet
-afO
+aeO
+aeO
+aeO
+afx
+aeO
+aeO
+aeO
+akO
 afO
 aeO
-afO
-agG
-agG
-ahb
-afO
-ocQ
+aeO
 lhf
 akO
+akE
 agi
-kbE
 akJ
 aln
 dVb
@@ -52929,27 +53944,27 @@ aaa
 aaa
 aaa
 aaa
-abm
 abJ
 abJ
-alq
+abJ
+adh
 adn
-adH
+acF
 adZ
-aet
-afO
-afO
-afx
-afO
+adZ
+adZ
+ajE
+adZ
+adZ
+adZ
 agH
+afO
+adZ
+adZ
+aeR
 agH
-ahc
-afO
-afO
-afO
-afO
+acS
 ahD
-ajY
 akK
 aln
 iMi
@@ -53186,30 +54201,30 @@ aaa
 aaa
 aaa
 aaa
-abm
 abJ
 abJ
-alq
-adp
-adJ
-qTA
+aiW
 lCF
-ahE
-ahE
-oEE
-afQ
-ahE
-ahE
 lCF
-ahE
-ahE
-aiw
-oEE
+lCF
+adn
+lCF
+afe
+lCF
+lCF
+lCF
+ajz
+lCF
+ajS
+lCF
 oEE
 lCF
 lCF
+ajC
 lCF
-alR
+lCF
+lCF
+abJ
 ajb
 ajb
 anE
@@ -53443,30 +54458,30 @@ aaa
 aaa
 aaa
 aaa
-abm
+lCF
+lCF
 abJ
-abJ
-oEE
-oEE
+lCF
+lCF
 adq
 dgh
+dgh
+afO
 lCF
-aeR
-afi
 afz
 afR
 agl
-agJ
 lCF
+ajV
 ahF
-aix
-aix
-aka
-ajC
-aka
-akM
-alq
-alR
+afQ
+afA
+lCF
+lCF
+lCF
+abJ
+abJ
+abJ
 ajb
 ajb
 abl
@@ -53701,29 +54716,29 @@ aaa
 aaa
 aaa
 abm
-abJ
-abJ
-adW
-oEE
-oEE
-oEE
+lCF
+lCF
+lCF
+lCF
+pgV
+afO
+afO
+afO
 lCF
 aeS
-afj
-afA
 afT
 agm
-agK
 lCF
-ahG
-aix
-aix
-aiY
+aha
 aix
 akb
-akN
-alq
-alR
+afk
+ahE
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 ajb
 abl
@@ -53958,29 +54973,29 @@ aaa
 aaa
 aaa
 abm
-abJ
-abJ
-abJ
-abJ
+lCF
+lCF
+lCF
+lCF
 adF
-oEE
+afO
+afO
+afO
 lCF
 aeT
-afk
-afB
 afT
 agn
-agL
 lCF
-ahH
-aix
 aiz
-aiZ
-ajE
-akc
-oEE
-oEE
-alR
+ahH
+adJ
+aiz
+ahE
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 ajb
 abl
@@ -54215,29 +55230,29 @@ aaa
 aaa
 aaa
 abm
-abJ
-abJ
-abJ
-abJ
-adL
+lCF
+lCF
+lCF
+lCF
+afO
+aec
+aec
 aec
 lCF
-oEE
-afl
 afC
 agI
 wBC
-aiW
 lCF
-oEE
+ajS
 ahE
 ahE
-ahE
-ahE
-oEE
-oEE
+lCF
+lCF
+lCF
 abJ
-alR
+abJ
+abJ
+abJ
 ajb
 ajb
 anG
@@ -54471,30 +55486,30 @@ aaa
 aaa
 aaa
 aaa
-abm
-abJ
-abJ
-abJ
-abJ
-rIq
-rIq
 lCF
-oEE
-siO
+lCF
+abJ
+alQ
+lCF
+lCF
+adn
+adn
+adn
+lCF
 mqr
 ikQ
 alp
-pgV
 lCF
-acF
 abJ
 abJ
 abJ
-ajG
-ake
 abJ
 abJ
-alR
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 ajb
 abl
@@ -54728,30 +55743,30 @@ aaa
 aaa
 aaa
 aaa
-abm
 abJ
 abJ
 abJ
 abJ
 abJ
 abJ
-acF
-oEE
-oEE
-oEE
-oEE
-oEE
-oEE
+abJ
+abJ
+abJ
+lCF
+lCF
+lCF
+lCF
 lCF
 abJ
 abJ
 abJ
-abU
-abU
-abU
-abU
-abU
-alS
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
+abJ
 ajb
 amX
 abl
@@ -63727,7 +64742,7 @@ aaa
 aaa
 aaa
 aaa
-sbP
+ahR
 aaa
 aaa
 aaa
