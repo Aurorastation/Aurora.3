@@ -362,3 +362,14 @@
   - qol: Clothing items can now be set to refit to a species on initialize.
   kermit, Caelphon, hollyhock:
   - rscadd: Replaces EUM origins/accents with Hieroaetherian origins/accents.
+2024-04-18:
+  FluffyGhost:
+  - bugfix: Fixed exoplanet turf icons for floors.
+  GeneralCamo:
+  - bugfix: Disposals Pipes will now layer above tiles in strongdmm.
+  RustingWithYou:
+  - rscadd: Adds more exoplanet variants of turfs.
+  - rscadd: Adds marble walls.
+  SidVeld:
+  - rscadd: Added a universal augment translator that can be used to understand human
+      languages, but not speak them.
