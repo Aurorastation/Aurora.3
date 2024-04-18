@@ -90,13 +90,7 @@
 /obj/item/paper/fluff/kazhkz_crash_note
 	name = "scrawled message"
 	info = "The plan has failed. Izweski defences have shot down King Seryo's vessel, and the survivors of the assault have fled. I was able to distract the Hegemony's fighters with our own vessel for a time, but our engines are too damaged. I tried to bring us down on the surface here, in the hopes that the others would find us, but I fear it is too late. Most of my warriors perished, either in the battle or from the crash, and the others do not have long. Lord Kasz has guided the others in a retreat, and I pray to whatever spirits know this cursed place that they are safe and far from here. I will not join my ancestors in the earth of our homeland, and my bones may never be honored - but should my spirit rest here, may I guide my clan and that of my King to safety, and may I visit a terrible curse upon the tyrant S'kresti Izweski.<br><i>R'tiza Han'san<br>09/06/2438</i>"
-
-/obj/item/paper/fluff/kazhkz_crash_note/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=p\]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "scrap_bloodied"
+	language = LANGUAGE_AZAZIBA
 
 /obj/item/paper/fluff/kazhkz_crash_plans
 	name = "assault plans"
@@ -108,10 +102,4 @@
 		Once you have secured the position, the remainder of our forces will move in and seize the Izweski stronghold. This war will end in one stroke, as the Hegemony will either capitulate or crumble into infighting. It is a deadly mission I entrust you with, yet your clan's lord tells me that there is no officer of his blood who would be better-suited.<br>\
 		Strike fear into their hearts and glory into your own, Uezsla Han'san.<br>\
 		<i>By the hand and will of King Seryo Kazhkz.</i>"
-
-/obj/item/paper/fluff/kazhkz_crash_plans/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=p\]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
+	language = LANGUAGE_AZAZIBA
