@@ -4257,9 +4257,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/shuttle/admin)
-"akG" = (
-/turf/simulated/wall/shuttle/legion,
-/area/template_noop)
 "akH" = (
 /obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
@@ -55969,7 +55966,7 @@ aaa
 aaa
 aaa
 aaa
-ajA
+aaa
 aaa
 aaa
 aaa
@@ -63680,7 +63677,7 @@ aaa
 aaa
 aaa
 aaa
-akG
+aaa
 aaa
 aaa
 aaa
