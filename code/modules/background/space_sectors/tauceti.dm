@@ -18,7 +18,8 @@
 		"28.1 D6 Citizen Radio" = "config/lore_radio/tau_ceti//28.1_D6_Citizen_Radio.txt",
 		"95.3 QRCC" = "config/lore_radio/tau_ceti/95.3_QRCC.txt",
 		"93.8 Biesellian Song Broadcast" = "config/lore_radio/tau_ceti/93.8_Biesellian_Song_Broadcast.txt",
-		"113.7 ZOTH-FM Vaurca Radio Station" = "config/lore_radio/tau_ceti/113.7_ZOTH_F_Vaurca_Radio_Station.txt"
+		"113.7 ZOTH-FM Vaurca Radio Station" = "config/lore_radio/tau_ceti/113.7_ZOTH_F_Vaurca_Radio_Station.txt",
+		"52.4 Raging Tides" = "config/lore_radio/tau_ceti/52.4_Raging_Tides.txt"
 	)
 
 
