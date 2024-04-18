@@ -49,7 +49,10 @@
 		"fishing_trawler_fore",
 		"fishing_trawler_aft",
 		"fishing_trawler_port",
-		"fishing_trawler_starboard"
+		"fishing_trawler_starboard",
+		"fishing_trawler_port_dock",
+		"fishing_trawler_starboard_dock",
+		"fishing_trawler_aux_dock"
 	)
 
 /obj/effect/overmap/visitable/ship/fishing_trawler/New()
@@ -100,19 +103,5 @@
 	landmark_transition = "fishing_trawler_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "fishing_trawler_shuttle"
+	logging_home_tag = "fishing_trawler_shuttle_dock"
 	defer_initialisation = TRUE
-
-/obj/effect/shuttle_landmark/fishing_trawler_shuttle/dock
-	name = "Fishing League Trawler = Shuttle Dock"
-	landmark_tag = "nav_fishing_trawler_shuttle"
-	base_turf = /turf/simulated/floor/plating
-	base_area = /area/fishing_trawler/dock
-	docking_controller = "fishing_trawler_shuttle_dock"
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/fishing_trawler_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_fishing_trawler_shuttle"
-	base_turf = /turf/space/transit/north
-
