@@ -1667,7 +1667,6 @@
 /area/kataphract_chapter/main_ring)
 "dV" = (
 /obj/structure/table/rack,
-/obj/structure/table/rack,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
 /obj/item/reagent_containers/extinguisher_refill/filled,
@@ -4225,6 +4224,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/stack/material/aluminium/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "ja" = (
@@ -8004,7 +8004,7 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Ci" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 4;
+	dir = 4
 	},
 /obj/structure/cable/green{
 	d1 = 1;
@@ -9839,6 +9839,9 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/wood/full,
 /obj/item/storage/box/lights/bulbs,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "Td" = (

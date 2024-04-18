@@ -254,7 +254,6 @@
 /area/shuttle/dominian_shuttle)
 "awG" = (
 /turf/simulated/wall/shuttle/space_ship,
-/turf/simulated/wall/shuttle/space_ship,
 /area/ship/dominian_corvette/bridge)
 "aBD" = (
 /obj/machinery/power/apc/east{
@@ -2699,6 +2698,9 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/engineering)
 "jhJ" = (
@@ -4689,9 +4691,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_corvette/hangar)
-"qiY" = (
-/turf/simulated/wall/shuttle/space_ship,
-/area/ship/dominian_corvette/bridge)
 "qkm" = (
 /obj/structure/platform/ledge{
 	dir = 4
@@ -37690,7 +37689,7 @@ aaJ
 lwX
 lwX
 phv
-qiY
+awG
 iJi
 tqX
 iJi
@@ -37951,7 +37950,7 @@ kni
 xvM
 uQD
 wIx
-qiY
+awG
 gdk
 xRX
 xRX
@@ -38208,7 +38207,7 @@ kni
 kZr
 oZv
 aSJ
-qiY
+awG
 iJi
 xRX
 xRX
@@ -38467,7 +38466,7 @@ mIW
 pAh
 dvU
 iJi
-qiY
+awG
 xRX
 xRX
 xRX
@@ -38724,7 +38723,7 @@ oZv
 eIb
 piA
 uGj
-qiY
+awG
 xRX
 xRX
 xRX
@@ -39752,7 +39751,7 @@ mIW
 kfX
 srr
 iJi
-qiY
+awG
 xRX
 xRX
 xRX
@@ -40007,7 +40006,7 @@ kni
 aSN
 oZv
 aWi
-qiY
+awG
 iJi
 xRX
 xRX
@@ -40264,7 +40263,7 @@ kni
 pCa
 ahw
 vyg
-qiY
+awG
 oBD
 xRX
 xRX
@@ -40517,7 +40516,7 @@ hhf
 fyC
 aag
 hcl
-qiY
+awG
 iJi
 tqX
 iJi

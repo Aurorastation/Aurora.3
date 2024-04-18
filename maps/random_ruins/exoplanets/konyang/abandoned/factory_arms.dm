@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned/factory_arms.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("factory_arms.dmm")
 
 /area/konyang/arms_factory
 	name = "Arms Production Plant"

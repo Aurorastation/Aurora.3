@@ -90,10 +90,12 @@ There are several things that need to be remembered:
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 #define GET_TAIL_ACC_LAYER (dir == NORTH ? TAIL_NORTH_ACC_LAYER : TAIL_SOUTH_ACC_LAYER)
 
-/proc/overlay_image(icon, icon_state,color, flags, layer)
+/proc/overlay_image(icon, icon_state,color, flags, plane, layer)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
 	ret.appearance_flags = PIXEL_SCALE | flags
+	if(plane)
+		ret.plane = plane
 	if(layer)
 		ret.layer = layer
 	return ret
@@ -1573,7 +1575,7 @@ There are several things that need to be remembered:
 		return FALSE
 	else if (wrists.flags_inv & ALWAYSDRAW)
 		return TRUE
-	else if (wrists && (wrists.flags_inv & HIDEWRISTS))
+	else if (wear_suit?.flags_inv & HIDEWRISTS)
 		return FALSE
 	else
 		return TRUE

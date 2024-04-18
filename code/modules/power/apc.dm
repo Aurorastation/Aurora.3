@@ -367,6 +367,7 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /singleton/sound_category/switch_sound
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell

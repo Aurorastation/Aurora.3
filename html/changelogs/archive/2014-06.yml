@@ -1,0 +1,46 @@
+2014-06-03:
+  Hubblenaut:
+  - rscadd: Added wheelchairs
+  - tweak: Replaced stool in Medical Examination with wheelchair
+  - tweak: Using a fire-extinguisher to propel you on a chair can have consequences
+      (drive into walls and people, do it!)
+2014-06-13:
+  HarpyEagle:
+  - rscadd: Added docking ports for shuttles
+  - rscadd: Shuttle airlocks will automatically open and close, preventing people
+      from being sucked into space by because someone on another z-level called a
+      shuttle
+  - rscadd: Some docking ports can also double as airlocks
+  - rscadd: Docking ports can be overriden to prevent any automatic action. Shuttles
+      will wait for players to open/close doors manually
+  - rscadd: Shuttles can be forced launched, which will make them not wait for airlocks
+      to be properly closed
+2014-06-15:
+  HarpyEagle:
+  - bugfix: Fixed wound autohealing regardless of damage amount. The appropriate wound
+      will now be assigned correctly based on damage amount and type
+  - bugfix: Fixed several other bugs related wounds that resulted in damage magically
+      disappearing
+  - bugfix: Fixed various sharp objects not being counted as sharp, bullets in particular
+  - bugfix: Fixed armour providing more protection from bullets than it was supposed
+      to
+2014-06-19:
+  Chinsky:
+  - rscadd: Adds guest terminals on the map. These wall terminals let anyone issue
+      temporary IDs. Only access that issuer has can be granted, and maximum time
+      pass can be issued for is 20 minutes. All operations are logged in terminals.
+2014-06-20:
+  Cael_Aislinn:
+  - rscadd: 'New discoverable items added to xenoarchaeology, and new features for
+      some existing ones. Artifact harvesters can now harvest the secondary effect
+      of artifacts as well as the primary one.<br>
+
+      </br>'
+  - tweak: 'Artifact utilisers should be much nicer/easier to use now.<br>
+
+      <li class="bugfix">Alden-Saraspova counters and talking items should work properly
+      now.<br>
+
+      </br></li>
+
+      </br>'

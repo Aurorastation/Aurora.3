@@ -285,3 +285,11 @@
 /obj/machinery/suit_cycler/offship/sol/ssmd
 	suit = /obj/item/clothing/suit/space/void/sol/ssmd
 	helmet = /obj/item/clothing/head/helmet/space/void/sol/ssmd
+
+/obj/machinery/suit_cycler/offship/xanu
+	model_text = "All-Xanu Spacefleet"
+	req_access = list(ACCESS_COALITION_NAVY)
+	departments = list("Xanu")
+	species = list(BODYTYPE_HUMAN)
+	suit = /obj/item/clothing/suit/space/void/coalition/xanu
+	helmet = /obj/item/clothing/head/helmet/space/void/coalition/xanu
