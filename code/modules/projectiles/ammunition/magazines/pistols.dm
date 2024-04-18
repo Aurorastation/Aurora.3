@@ -100,3 +100,13 @@
 	origin_tech = list(TECH_COMBAT = 3)
 	desc = "A magazine designed for the dNAC-4.6 II submachine gun, but can also be used in the dNAC-4.6 pistol."
 	max_ammo = 30
+
+// SPECIAL
+
+/obj/item/ammo_magazine/spitterpistol
+	name = "spitter pistol magazine"
+	icon_state = "spitterpistol_mag"
+	caliber = CALIBER_HEGEMONY_PISTOL
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 8
