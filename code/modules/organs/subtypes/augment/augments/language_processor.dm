@@ -99,3 +99,36 @@
 		SPECIES_VAURCA_WARRIOR,
 		SPECIES_VAURCA_WORKER,
 	)
+
+/obj/item/organ/internal/augment/language/vekatak
+	name = "Ve'katak Phalanx Hivenet receiver"
+	icon_state = "phalanx_hivenet"
+	dead_icon = "phalanx_hivenet_broken"
+	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
+	augment_languages = list(LANGUAGE_VAURCA)
+	granted_verbs = list(/mob/living/carbon/human/proc/hivenet_recieve, /mob/living/carbon/human/proc/phalanx_transmit)
+	var/decryption_key
+	var/banned = FALSE
+	var/muted = FALSE
+	var/transmitting = FALSE
+	var/disrupted = FALSE
+	var/disrupttime = 0
+
+/obj/item/organ/internal/augment/language/vekatak/process()
+	. = ..()
+	if(disrupted)
+		if(disrupttime > world.time)
+			disrupttime--
+		else
+			disrupted = FALSE
+
+/obj/item/organ/internal/augment/language/vekatak/emp_act()
+	. = ..()
+	for(var/language in added_languages)
+		if(prob(25))
+			owner.remove_language(language)
+	owner.set_default_language(pick(owner.languages))
+	to_chat(owner, SPAN_DANGER("You feel thousands of voices, all clamoring inside your mind!"))
+	owner.adjustHalLoss(15)
+	owner.flash_pain(15)
+	owner.adjustBrainLoss(5)
