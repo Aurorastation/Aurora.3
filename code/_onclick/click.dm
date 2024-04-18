@@ -81,7 +81,7 @@
 	var/list/modifiers = params2list(params)
 	if(modifiers["right"])
 		RightClickOn(A)
-		return 1
+		return TRUE
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
 		return TRUE
@@ -304,7 +304,6 @@
 
 /mob/proc/RightClickOn(atom/A)
 	A.RightClick(src)
-	return
 
 /atom/proc/RightClick(mob/user)
 	return

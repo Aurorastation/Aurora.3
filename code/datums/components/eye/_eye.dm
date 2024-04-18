@@ -1,12 +1,12 @@
 /datum/component/eye
 	///The actual eye mob linked to the component
 	var/mob/abstract/eye/component_eye
-	///What type of eye is used
+	///What type of /mob/abstract/eye is used
 	var/eye_type = /mob/abstract/eye
 	///The mob currently looking through the eye
 	var/mob/current_looker
 
-	//Actions used to pass commands from the eye to the holder. Must be subtypes of /datum/action/eye
+	///Actions used to pass commands from the eye to the holder. Must be subtypes of /datum/action/eye
 	///Base type of the action, all subtypes of this are added to actions.
 	var/action_type
 	///The actions available to the eye

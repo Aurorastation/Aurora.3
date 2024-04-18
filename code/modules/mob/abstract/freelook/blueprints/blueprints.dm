@@ -3,8 +3,11 @@
 /mob/abstract/eye/blueprints
 	/// Associative list of turfs -> boolean validity that the player has selected for new area creation.
 	var/list/selected_turfs = list()
+	///The overlayed images of the user's selection.
 	var/list/selection_images = list()
+	///The last turf selected.
 	var/turf/last_selected_turf
+	///The image overlayed on the last selected turf
 	var/image/last_selected_image
 
 	///On what z-levels the blueprints can be used to modify or create areas.
@@ -12,6 +15,7 @@
 
 	///Displayed to the user to allow them to see what area they're hovering over
 	var/obj/effect/overlay/area_name_effect
+	///The prefix of the area name effect display
 	var/area_prefix
 
 	///Displayed to the user on failed area creation
@@ -37,12 +41,12 @@
 	last_selected_image.appearance_flags = NO_CLIENT_COLOR|RESET_COLOR
 
 /mob/abstract/eye/blueprints/Destroy()
-	. = ..()
 	QDEL_NULL(area_name_effect)
 	errors = null
 	selected_turfs = null
 	valid_z_levels = null
 	last_selected_turf = null
+	. = ..()
 
 /mob/abstract/eye/blueprints/release(var/mob/user)
 	if(owner && owner.client && user == owner)
