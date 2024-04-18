@@ -1,6 +1,7 @@
 /obj/machinery/ship_weapon/bruiser
 	name = "bruiser cannon II"
-	desc = "Among the Hegemony's earliest forays into ranged weaponry for their military ships, although obsolete nowadays, the Bruiser is popular among many Unathi sailors - including pirates - for its extreme simplicity, allowing it to fire handcraft ammo with minimal modification."
+	desc = "Among the Hegemony's earliest forays into ranged weaponry for their military ships, newer models of the Bruiser remain common on Hegemony ships. Older designs of the weapon popular among many Unathi sailors - including pirates - for their extreme simplicity, allowing them to fire handcrafted ammunition with minimal modification."
+	desc_extended = "The Hegemony Model I 'Bruiser' was the first spaceship-mounted weapon to be designed by Izweski engineers - a simple enough design for a heavy ballistic cannon. The Bruiser is also notable for the light weight of its ammunition, allowing an Unathi to carry a shell without need of mechanical assistance - minimizing the expensive equipment that a vessel might require to fight. The Model I Bruiser was inaccurate, slow to fire and prone to overheating, leading to the design of the commonly-used Hegemony Model II 'Bruiser', largely seen on the corvettes and destroyers of the Izweski Navy. The Model II is faster, more accurate and capable of firing at much higher velocities, enabling the smaller ships of the Navy to punch above their weight class in battle."
 	icon = 'icons/obj/machinery/ship_guns/bruiser.dmi'
 	heavy_firing_sound = 'sound/weapons/gunshot/cannon.ogg'
 	icon_state = "weapon_base"
@@ -15,9 +16,9 @@
 	icon_state = "ammo_loader_unathi"
 
 /obj/item/ship_ammunition/bruiser
-	name = "bruiser canister shell"
+	name = "makeshift bruiser canister shell"
 	name_override = "canister shot"
-	desc = "A rough shell that should fit in a bruiser cannon. This one is filled with shot that causes wide damage, but must get through the hull first."
+	desc = "A rough, handmade shell that should fit in a bruiser cannon. This one is filled with shot that causes wide damage, but must get through the hull first."
 	icon = 'icons/obj/guns/ship/ship_ammo_midshell.dmi'
 	icon_state = "shell_canister"
 	w_class = ITEMSIZE_LARGE
@@ -36,17 +37,17 @@
 	return 25
 
 /obj/item/ship_ammunition/bruiser/flechette
-	name = "bruiser beehive shell"
+	name = "makeshift bruiser beehive shell"
 	name_override = "flechette burst"
-	desc = "A rough shell that should fit in a bruiser cannon. This one is filled with projectiles that easily get through the hull, but do little damage."
+	desc = "A rough, handmade shell that should fit in a bruiser cannon. This one is filled with projectiles that easily get through the hull, but do little damage."
 	icon_state = "shell_flechette"
 	burst = 9
 	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/flechette
 
 /obj/item/ship_ammunition/bruiser/he
-	name = "bruiser explosive shell"
+	name = "makeshift bruiser explosive shell"
 	name_override = "explosive shell"
-	desc = "A rough shell that should fit in a bruiser cannon. This one is filled with makeshift explosives."
+	desc = "A rough, handmade shell that should fit in a bruiser cannon. This one is filled with makeshift explosives."
 	icon_state = "shell_he"
 	impact_type = SHIP_AMMO_IMPACT_HE
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
@@ -58,7 +59,7 @@
 /obj/item/ship_ammunition/bruiser/real/he
 	name = "bruiser explosive shell"
 	name_override = "explosive shell"
-	desc = "An expensive shell actually designed for a bruiser cannon. This one is HE."
+	desc = "A high-explosive shell designed for the Hegemony Bruiser cannon. Manufactured by Hephaestus Industries"
 	icon_state = "shell_he_real"
 	impact_type = SHIP_AMMO_IMPACT_HE
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
@@ -70,7 +71,7 @@
 /obj/item/ship_ammunition/bruiser/real/ap
 	name = "bruiser armor-piercing shell"
 	name_override = "armor-piercing shell"
-	desc = "An expensive shell actually designed for a bruiser cannon. This one is AP."
+	desc = "An armor-piercing shell designed for the Hegemony Bruiser cannon. Manufactured by Hephaestus Industries"
 	icon_state = "shell_ap_real"
 	impact_type = SHIP_AMMO_IMPACT_AP
 	ammunition_flags = SHIP_AMMO_FLAG_INFLAMMABLE|SHIP_AMMO_FLAG_VERY_HEAVY
@@ -82,7 +83,7 @@
 /obj/item/ship_ammunition/bruiser/real/canister
 	name = "bruiser canister shell"
 	name_override = "canister shot"
-	desc = "An expensive shell actually designed for a bruiser cannon. This bursts into many small pellets."
+	desc = "An expensive shell designed for the Hegemony Bruiser cannon by Hephaestus Industries. This one bursts into many small pellets."
 	icon_state = "shell_canister_real"
 	burst = 23
 	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/real/canister
@@ -90,7 +91,7 @@
 /obj/item/ship_ammunition/bruiser/real/beehive
 	name = "bruiser beehive shell"
 	name_override = "slugger shot"
-	desc = "An expensive shell actually designed for a bruiser cannon. Very popular among sinta; this shell bursts into many slugger projectiles that punch through the hull with less mass, but more force."
+	desc = "An expensive shell designed for the Hegemony Bruiser cannon by Hephaestus Industries. Very popular among Unathi, this shell bursts into many slugger projectiles that punch through the hull with less mass, but more force."
 	icon_state = "shell_flechette_real"
 	burst = 9
 	projectile_type_override = /obj/item/projectile/ship_ammo/bruiser/real/beehive
@@ -121,7 +122,7 @@
 
 /obj/item/projectile/ship_ammo/bruiser/he/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
-	explosion(target, 0, 2, 4)
+	explosion(target, 1, 3, 6)
 
 /obj/item/projectile/ship_ammo/bruiser/real/he
 	name = "178mm shell"
@@ -159,7 +160,7 @@
 /obj/item/projectile/ship_ammo/bruiser/real/on_hit(atom/target, blocked, def_zone, is_landmark_hit)
 	. = ..()
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_HE)
-		explosion(target, 1, 3, 6)
+		explosion(target, 3, 6, 8)
 	if(ammo.impact_type == SHIP_AMMO_IMPACT_AP)
 		explosion(target, 0, 2, 4)
 
