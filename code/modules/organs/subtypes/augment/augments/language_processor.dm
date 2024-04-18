@@ -8,6 +8,8 @@
 	var/list/augment_languages = list()
 	/// A list of languages that get added when it's installed. used to remove languages later. don't touch this.
 	var/list/added_languages = list()
+	/// A list of language-related verbs granted by the augment.
+	var/list/granted_verbs = list()
 
 /obj/item/organ/internal/augment/language/replaced(var/mob/living/carbon/human/target, obj/item/organ/external/affected)
 	. = ..()
@@ -15,11 +17,13 @@
 		if(!(language in target.languages))
 			target.add_language(language)
 			added_languages += language
+	add_verb(target, granted_verbs)
 
 /obj/item/organ/internal/augment/language/removed(var/mob/living/carbon/human/target, mob/living/user)
 	for(var/language in added_languages)
 		target.remove_language(language)
 	added_languages = list()
+	remove_verb(target, granted_verbs)
 	..()
 
 /obj/item/organ/internal/augment/language/emp_act()
