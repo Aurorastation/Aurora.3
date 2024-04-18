@@ -2978,10 +2978,8 @@
 /turf/simulated/floor/shuttle/dark_red,
 /area/template_noop)
 "aha" = (
-/turf/simulated/wall/shuttle/raider{
-	color = "2E2B2B"
-	},
-/area/shuttle/admin)
+/turf/simulated/wall/shuttle/legion,
+/area/template_noop)
 "ahb" = (
 /obj/structure/platform_stairs,
 /obj/structure/platform/ledge{
@@ -4708,7 +4706,9 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/door/window/northleft,
-/turf/unsimulated/floor/plating,
+/turf/simulated/wall/shuttle/hapt{
+	color = "2E2B2B"
+	},
 /area/shuttle/admin)
 "akH" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -30639,7 +30639,7 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/turf/simulated/wall/shuttle/raider{
+/turf/simulated/wall/shuttle/hapt{
 	color = "2E2B2B"
 	},
 /area/centcom/control)
@@ -40161,10 +40161,10 @@
 /turf/unsimulated/floor/plating,
 /area/centcom/evac)
 "oEE" = (
-/turf/simulated/wall/shuttle/raider{
+/turf/simulated/wall/shuttle/hapt{
 	color = "2E2B2B"
 	},
-/area/centcom/specops)
+/area/shuttle/admin)
 "oIf" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
@@ -42101,14 +42101,6 @@
 	},
 /turf/simulated/floor/shuttle/dark_red,
 /area/template_noop)
-"tUu" = (
-/obj/machinery/porta_turret/cannon,
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/light/spot/built{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/centcom/specops)
 "tXW" = (
 /obj/structure/shuttle_part/hapt{
 	density = 0;
@@ -51856,7 +51848,7 @@ abJ
 abJ
 abJ
 abJ
-ajS
+abJ
 abJ
 abJ
 abJ
@@ -52110,13 +52102,13 @@ abJ
 abJ
 abJ
 ajS
-aha
-aha
-aha
-aha
-aha
-aha
-aha
+oEE
+oEE
+oEE
+oEE
+oEE
+oEE
+oEE
 ajS
 abJ
 abJ
@@ -52366,14 +52358,14 @@ abJ
 abJ
 abJ
 abJ
-aha
-aha
+oEE
+oEE
 ajU
 lAV
 uYM
 acW
 adi
-aha
+oEE
 oEE
 abJ
 abJ
@@ -52623,7 +52615,7 @@ abJ
 abJ
 abJ
 adW
-aha
+oEE
 akd
 afd
 aix
@@ -52631,13 +52623,13 @@ afM
 aix
 aix
 agW
-aha
-aha
-aha
-aha
-aha
-aha
-aha
+oEE
+oEE
+oEE
+oEE
+oEE
+oEE
+oEE
 abJ
 alR
 ajb
@@ -52879,8 +52871,8 @@ abJ
 abJ
 abJ
 adF
-aha
-aha
+oEE
+oEE
 aeK
 aix
 aix
@@ -52888,14 +52880,14 @@ afM
 aix
 aix
 agX
-akd
+oEE
 ahQ
 ajx
 ahQ
 ajx
 ahQ
-aha
-aha
+oEE
+oEE
 alR
 ajb
 amW
@@ -53134,10 +53126,10 @@ abm
 abJ
 abJ
 adW
-aha
-aha
-aha
-akd
+oEE
+oEE
+oEE
+oEE
 aeK
 aix
 aix
@@ -53145,7 +53137,7 @@ afM
 aix
 aix
 agW
-akd
+oEE
 ahR
 aiu
 aiu
@@ -53389,12 +53381,12 @@ aaa
 aaa
 abm
 aci
-aha
-aha
-aha
+oEE
+oEE
+oEE
 adq
 adq
-akd
+oEE
 akd
 bxE
 afg
@@ -53402,7 +53394,7 @@ afM
 aix
 agE
 agW
-akd
+oEE
 ahS
 ajz
 ajz
@@ -53651,22 +53643,22 @@ alq
 adm
 wzo
 adY
-akd
-akd
-akd
-akd
+oEE
+oEE
+oEE
+oEE
 aea
-akd
-akd
-akd
-akd
+oEE
+oEE
+oEE
+oEE
 ahC
-aha
-aha
-aha
-aha
-aha
-aha
+oEE
+oEE
+oEE
+oEE
+oEE
+oEE
 alR
 ajb
 ajb
@@ -54422,14 +54414,14 @@ alq
 adp
 adJ
 qTA
-akd
+oEE
 ahE
 ahE
-akd
+oEE
 afQ
 ahE
 ahE
-aha
+oEE
 ahE
 ahE
 aiw
@@ -54674,19 +54666,19 @@ aaa
 aaa
 abm
 aci
-aha
-aha
-aha
+oEE
+oEE
+oEE
 adq
 dgh
-akd
+oEE
 aeR
 afi
 afz
 afR
 agl
 agJ
-aha
+oEE
 ahF
 aix
 aix
@@ -54933,17 +54925,17 @@ abm
 abJ
 abJ
 adW
-aha
-aha
-aha
-akd
+oEE
+oEE
+oEE
+oEE
 aeS
 afj
 afA
 afT
 agm
 agK
-aha
+oEE
 ahG
 aix
 aix
@@ -55192,23 +55184,23 @@ abJ
 abJ
 abJ
 adF
-aha
-aha
+oEE
+oEE
 aeT
 afk
 afB
 afT
 agn
 agL
-aha
+oEE
 ahH
 aix
 aiz
 aiZ
 ajE
 akc
-aha
-aha
+oEE
+oEE
 alR
 ajb
 ajb
@@ -55450,21 +55442,21 @@ abJ
 abJ
 adL
 aec
-aha
-akd
+oEE
+oEE
 afl
 afC
 agI
 wBC
 aiW
-aha
-aha
+oEE
+oEE
 ahE
 ahE
 ahE
 ahE
-aha
-aha
+oEE
+oEE
 abJ
 alR
 ajb
@@ -55707,14 +55699,14 @@ abJ
 abJ
 rIq
 rIq
-aha
-aha
+oEE
+oEE
 siO
 mqr
 ikQ
 alp
 pgV
-aha
+oEE
 acF
 abJ
 abJ
@@ -55965,13 +55957,13 @@ abJ
 abJ
 abJ
 acF
-aha
-aha
-aha
-aha
-aha
-aha
-aha
+oEE
+oEE
+oEE
+oEE
+oEE
+oEE
+oEE
 abJ
 abJ
 abJ
@@ -56225,7 +56217,7 @@ abJ
 abJ
 abJ
 abJ
-tUu
+abJ
 abJ
 abJ
 abJ
@@ -64956,7 +64948,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+aha
 aaa
 aaa
 aaa
