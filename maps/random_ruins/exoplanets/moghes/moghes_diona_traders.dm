@@ -110,9 +110,4 @@
 	desc = "A handwriten pamphlet of some kind. The Merchants' Guild symbol has been stamped at the bottom of the paper, and hastily crossed out."
 	info = "Tired of getting all that work done by yourself? Getting on in years and not catching the fish you used to? Why not invest in a diona gestalt?<br>\
 	Diona gestalts never grow tired, only need sunlight and water, and can easily learn all the tricks of the trade that you've picked up over years! Don't be behind the times, buy yours TODAY!"
-
-/obj/item/paper/fluff/moghes_diona_ad/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=o\]"
-	languagetext += "[info]\[/lang\]"
-	icon_state = "paper_words"
+	language = LANGUAGE_UNATHI
