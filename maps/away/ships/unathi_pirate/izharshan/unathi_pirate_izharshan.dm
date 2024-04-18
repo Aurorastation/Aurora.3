@@ -13,7 +13,6 @@
 	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 0.5, SECTOR_NRRAHRAHUL = 0.5) //Rarer due to actual government/military presence
 
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/unathi_pirate_izharshan
 	map = "Izharshan Shuttle"
@@ -111,6 +110,7 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/unathi_pirate_izharshan
+	shuttle_name = "Izharshan Freighter"
 	landmark_tag = "nav_izharshan_space"
 
 /obj/effect/shuttle_landmark/izharshan_transit
