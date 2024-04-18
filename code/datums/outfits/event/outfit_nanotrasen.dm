@@ -137,7 +137,6 @@
 	l_ear = /obj/item/device/radio/headset/ert/ccia
 	id = /obj/item/card/id/ccia
 	l_pocket = /obj/item/reagent_containers/spray/pepper
-	r_pocket = /obj/random/highvalue/cash
 
 /obj/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
