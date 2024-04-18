@@ -963,10 +963,10 @@
 /area/centcom/evac)
 "adm" = (
 /obj/effect/floor_decal/corner/dark_blue{
-	dir = 9
+	dir = 6
 	},
-/obj/machinery/light/colored/blue{
-	dir = 8
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -1072,8 +1072,8 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
 	},
-/obj/machinery/light/colored/blue{
-	dir = 8
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -2958,11 +2958,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "ahR" = (
-/obj/effect/floor_decal/corner/dark_blue{
+/obj/effect/floor_decal/corner/black{
 	dir = 6
 	},
-/obj/machinery/light/colored/blue{
-	dir = 4
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -3200,7 +3200,7 @@
 /area/centcom/evac)
 "aiz" = (
 /obj/structure/table/steel,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/colored/red{
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/black,
@@ -3877,7 +3877,7 @@
 	req_access = list(101)
 	},
 /obj/item/clothing/under/rank/centcom,
-/obj/machinery/light/colored/blue{
+/obj/machinery/light/colored/red{
 	dir = 8
 	},
 /turf/simulated/floor/shuttle/black,
@@ -39441,8 +39441,8 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
-/obj/machinery/light/colored/blue{
-	dir = 4
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -40615,6 +40615,15 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_beach)
+"tdh" = (
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 9
+	},
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
 "tdq" = (
 /turf/simulated/floor/exoplanet/water/shallow{
 	icon = 'icons/turf/flooring/exoplanet/konyang.dmi';
@@ -42374,8 +42383,13 @@
 	},
 /area/horizon/holodeck/source_konyang)
 "ygc" = (
-/obj/machinery/light/colored/blue,
-/turf/simulated/floor/wood,
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/structure/sign/flag/nanotrasen{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
 "ygU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -52357,10 +52371,10 @@ acW
 acW
 adY
 aha
-ahE
-ahE
-ahE
-ahE
+acW
+acW
+acW
+acW
 acW
 akc
 aha
@@ -52615,16 +52629,16 @@ adH
 aeO
 aeO
 aeO
-adm
+akO
 aeO
-aeO
+ygc
 aeO
 akO
 akO
 aeO
 aeO
 lhf
-akO
+tdh
 afQ
 agi
 akJ
@@ -52872,16 +52886,16 @@ pgV
 afx
 afx
 afx
+ahc
+afx
 ahR
-afx
-afx
 afx
 ahc
 ahc
 afx
 afx
 ajE
-ahc
+adm
 akM
 ahD
 akK
@@ -53385,7 +53399,7 @@ acW
 akE
 dgh
 ajW
-ygc
+aeR
 acW
 afz
 afR
