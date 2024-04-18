@@ -68,23 +68,6 @@
 		H.put_in_hands(mercrig)
 		H.equip_to_slot_or_del(mercrig, slot_back)
 		addtimer(CALLBACK(mercrig, TYPE_PROC_REF(/obj/item/rig, toggle_seals), H, TRUE), 2 SECONDS)
-
-/obj/outfit/admin/deathsquad/nt
-	name = "Nanotrasen Asset Protection"
-
-	uniform = /obj/item/clothing/under/ert
-	back = /obj/item/rig/ert/ntassetprotection
-	belt = /obj/item/storage/belt/security/tactical
-	shoes = null
-	gloves = null
-	mask = /obj/item/clothing/mask/gas/swat
-	l_ear = /obj/item/device/radio/headset/ert
-	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
-	id = /obj/item/card/id/asset_protection
-	l_pocket = /obj/item/plastique
-	r_pocket = /obj/item/melee/energy/sword
-	l_hand = /obj/item/gun/energy/rifle/pulse
-
 	belt_contents = list(
 		/obj/item/ammo_magazine/a454 = 2,
 		/obj/item/melee/baton/loaded = 1,

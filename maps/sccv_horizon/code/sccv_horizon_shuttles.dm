@@ -197,29 +197,3 @@
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/operations
-
-// Admin Shuttle
-
-/datum/shuttle/autodock/multi/admin
-	name = "Crescent Shuttle"
-	current_location = "nav_admin_start"
-	warmup_time = 10
-	shuttle_area = /area/shuttle/administration
-	dock_target = "admin_shuttle"
-	destination_tags = list(
-		"nav_admin_start",
-		"starboard_2"
-		)
-
-/obj/effect/shuttle_landmark/admin/start
-	name = "Corvette Hangar"
-	landmark_tag = "nav_admin_start"
-	docking_controller = "admin_shuttle_bay"
-	base_turf = /turf/unsimulated/floor/plating
-	base_area = /area/centcom
-
-/obj/effect/shuttle_landmark/admin/command
-	name = "Command Surface Dock"
-	landmark_tag = "starboard_2"
-	docking_controller = "admin_shuttle_dock_airlock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
