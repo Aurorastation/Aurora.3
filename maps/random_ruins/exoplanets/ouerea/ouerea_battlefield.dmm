@@ -7,7 +7,7 @@
 "c" = (
 /obj/structure/table/standard,
 /obj/item/gun/projectile/colt,
-/obj/item/paper/ouerea_corpse,
+/obj/item/paper/fluff/ouerea_corpse,
 /turf/simulated/floor/exoplanet/concrete/square{
 	temperature = 298.15
 	},

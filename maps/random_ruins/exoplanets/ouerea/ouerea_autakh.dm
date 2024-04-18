@@ -57,10 +57,6 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/autakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	for(var/obj/item/organ/external/O in H.organs)
-		if(prob(25))
-			O.robotize(PROSTHETIC_AUTAKH)
-
 	var/obj/item/organ/A = new /obj/item/organ/internal/anchor(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)
@@ -71,10 +67,6 @@
 	mask = /obj/item/clothing/mask/gas/unathi
 
 /obj/outfit/admin/autakh/shaman/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	for(var/obj/item/organ/external/O in H.organs)
-		if(prob(25))
-			O.robotize(PROSTHETIC_AUTAKH)
-
 	var/obj/item/organ/A = new /obj/item/organ/internal/anchor(H)
 	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
 	A.replaced(H, affected)

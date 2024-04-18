@@ -17,17 +17,10 @@
 /obj/effect/landmark/corpse/ouerea_revolutionary/do_extra_customization(var/mob/living/carbon/human/M)
 	M.ChangeToSkeleton()
 
-/obj/item/paper/ouerea_corpse
+/obj/item/paper/fluff/ouerea_corpse
 	name = "A Final Message"
 	info = "To you, who live beyond us. On this day we, the forces of the Ouerean Confederation, sovereign and free, clashed with the thugs of the tyrant Yiztek. We have slain many of their number, but we cannot hold this place any more. I have seen to the burial of the dead, and now I wait for Sk'akh to claim my spirit too. Whoever you may be, remember this place and our names, and the righteous cause of liberty for which we fought. Long live the Confederation, and her people."
-
-/obj/item/paper/ouerea_corpse/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=o\]"
-	languagetext += info
-	languagetext += "\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
+	language = LANGUAGE_UNATHI
 
 /obj/structure/gravemarker/ouerea_1
 	message = "John Grenfel, son of Mars. He would always sing the loudest, around our fire."
