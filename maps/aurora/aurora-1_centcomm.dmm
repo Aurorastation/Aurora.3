@@ -3179,7 +3179,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "amq" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -3187,7 +3187,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "amr" = (
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -3630,7 +3630,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "aoO" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1380;
@@ -3906,7 +3906,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "aqu" = (
 /turf/unsimulated/floor,
 /area/centcom/bar)
@@ -3997,7 +3997,7 @@
 	icon_state = "10,21";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "atW" = (
 /turf/simulated/wall/shuttle/unique/cargo{
 	icon_state = "6,6"
@@ -4138,7 +4138,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "axR" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -4176,7 +4176,7 @@
 /area/centcom/bar)
 "ayM" = (
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
+	icon_state = "engineering_door"
 	},
 /obj/machinery/door/airlock/centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
@@ -4508,9 +4508,6 @@
 	},
 /turf/simulated/floor/holofloor/wood,
 /area/holodeck/source_battlemonsters)
-"aDs" = (
-/turf/simulated/floor/shuttle/dark_blue,
-/area/shuttle/escape)
 "aDA" = (
 /obj/structure/dueling_table/no_collide/above_layer{
 	icon_state = "top_right"
@@ -5715,7 +5712,7 @@
 	name = "military spotlight"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "aLg" = (
 /obj/structure/shuttle_part/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
@@ -5942,7 +5939,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "aMT" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/unsimulated/floor,
@@ -5958,9 +5955,6 @@
 /area/centcom/spawning)
 "aMW" = (
 /turf/unsimulated/floor,
-/area/centcom/spawning)
-"aNc" = (
-/turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNe" = (
 /obj/machinery/door/airlock/hatch{
@@ -6694,7 +6688,7 @@
 	icon_state = "5,21";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "aRx" = (
 /obj/item/device/megaphone/red{
 	pixel_x = 1;
@@ -6790,7 +6784,7 @@
 	name = "military spotlight"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "aVf" = (
 /obj/effect/landmark{
 	name = "Penguin Spawn Random"
@@ -7467,7 +7461,7 @@
 	icon_state = "2,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bcu" = (
 /obj/machinery/light/small{
 	brightness_power = 0.5;
@@ -7588,7 +7582,7 @@
 	icon_state = "3,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "beD" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -7596,7 +7590,7 @@
 	icon_state = "4,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bfa" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/vodka{
@@ -7675,7 +7669,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bfN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -7701,7 +7695,7 @@
 	icon_state = "2,19";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bhd" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -7831,7 +7825,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bjR" = (
 /obj/structure/table/rack,
 /obj/item/plastique{
@@ -8106,11 +8100,10 @@
 	},
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bsS" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray{
-	},
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -8137,7 +8130,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "btV" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -8165,7 +8158,7 @@
 	tag_door = "admin_shuttle_hatch"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bvm" = (
 /obj/machinery/door/window/westleft{
 	name = "Auxillary Cryogenics"
@@ -8202,7 +8195,7 @@
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 8
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bxL" = (
 /obj/machinery/pipedispenser/disposal/orderable,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8225,7 +8218,7 @@
 	name = "military spotlight"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bye" = (
 /obj/effect/decal/fake_object/light_source{
 	density = 1;
@@ -8452,7 +8445,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bEa" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Washroom"
@@ -8560,14 +8553,14 @@
 	icon_state = "2,18";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bHu" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
 	},
 /obj/structure/closet/hazmat/general,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bHJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/liquid_fuel,
@@ -8613,7 +8606,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bJv" = (
 /obj/machinery/door/airlock/glass,
 /turf/unsimulated/floor{
@@ -8735,7 +8728,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bOg" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin{
@@ -8801,7 +8794,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bQZ" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -8861,7 +8854,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "bTd" = (
 /obj/structure/table/rack,
 /obj/item/tank/oxygen/red,
@@ -9322,7 +9315,7 @@
 	name = "military spotlight"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ckl" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "1,0"
@@ -9414,7 +9407,7 @@
 	icon_state = "2,17";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "cor" = (
 /obj/effect/ghostspawpoint{
 	identifier = "TCFLSentinel";
@@ -9624,7 +9617,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "cvf" = (
 /obj/structure/sign/poster{
 	icon_state = "tcflposter2";
@@ -9896,7 +9889,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "cHx" = (
 /obj/machinery/light{
 	dir = 8;
@@ -10086,7 +10079,7 @@
 	icon_state = "2,16";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "cMK" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Cell 2";
@@ -10344,7 +10337,7 @@
 	icon_state = "2,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "cSV" = (
 /turf/unsimulated/wall/fakepdoor{
 	name = "Blast door"
@@ -10366,7 +10359,7 @@
 	icon_state = "3,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "cUG" = (
 /turf/simulated/wall/shuttle/unique/ert{
 	icon_state = "8,3"
@@ -10566,7 +10559,7 @@
 	icon_state = "5,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "cYR" = (
 /obj/structure/shuttle_part/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
@@ -10596,10 +10589,8 @@
 	req_one_access = list(101);
 	tag_door = "arrival_shuttle_hatch"
 	},
-/obj/structure/flora/ausbushes/sparsegrass{
-	},
-/obj/structure/flora/ausbushes/fullgrass{
-	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-01";
 	pixel_x = 2;
@@ -10643,7 +10634,7 @@
 "dar" = (
 /obj/effect/floor_decal/corner/red,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dau" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/blast/odin/open{
@@ -10706,7 +10697,7 @@
 	icon_state = "4,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dbW" = (
 /obj/effect/decal/fake_object{
 	name = "service ladder";
@@ -10766,7 +10757,7 @@
 	icon_state = "5,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ddn" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -10825,7 +10816,7 @@
 "dff" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8;
+	dir = 8
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -10905,7 +10896,7 @@
 	icon_state = "11,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dib" = (
 /obj/structure/ore_box{
 	icon_state = "orebox1"
@@ -11066,7 +11057,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "doP" = (
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
@@ -11103,7 +11094,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dpM" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/unsimulated/floor{
@@ -11134,7 +11125,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dqP" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -11173,7 +11164,7 @@
 	icon_state = "12,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dtU" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /obj/structure/sign/staff_only{
@@ -11237,7 +11228,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dxz" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -11245,7 +11236,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dxC" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
@@ -11288,7 +11279,7 @@
 	icon_state = "6,20"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dzN" = (
 /turf/simulated/wall/shuttle/unique/raider{
 	desc = "A quick, agile and sturdy shuttle. Perfect for smugglers and pirates, but recently proliferated in civilian hands.";
@@ -11389,8 +11380,7 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
-/obj/item/rfd/construction{
-	},
+/obj/item/rfd/construction,
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
 	},
@@ -11450,7 +11440,7 @@
 	icon_state = "4,14";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dHW" = (
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	pixel_y = 7
@@ -11609,12 +11599,6 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
-"dKe" = (
-/obj/structure/bed/stool/chair/padded/beige,
-/turf/unsimulated/floor{
-	icon_state = "wood"
-	},
-/area/centcom/bar)
 "dKm" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Heavy Asset Protection";
@@ -11657,7 +11641,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dKp" = (
 /obj/machinery/light{
 	icon_state = "tube_empty"
@@ -11940,7 +11924,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dUS" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/condiment/enzyme{
@@ -12028,15 +12012,13 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/item/storage/firstaid/toxin{
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
 	},
@@ -12056,7 +12038,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "dWZ" = (
 /obj/effect/landmark{
 	name = "CCIAEscort"
@@ -12249,7 +12231,7 @@
 	icon_state = "11,14";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eby" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fake_object{
@@ -12270,7 +12252,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "edh" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -12278,7 +12260,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "edG" = (
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 1
@@ -12365,15 +12347,6 @@
 /obj/structure/closet/wardrobe/orange,
 /turf/unsimulated/floor,
 /area/centcom/legion)
-"egh" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/tdome/tdome2)
 "egj" = (
 /obj/machinery/light{
 	dir = 1;
@@ -12436,7 +12409,7 @@
 	icon_state = "11,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ejA" = (
 /obj/structure/sign/directions/cryo,
 /turf/unsimulated/wall/darkshuttlewall,
@@ -12448,7 +12421,7 @@
 	icon_state = "4,13";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ekC" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -12505,7 +12478,7 @@
 	icon_state = "12,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "enn" = (
 /obj/machinery/computer/slot_machine,
 /turf/unsimulated/floor{
@@ -12613,7 +12586,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "erT" = (
 /obj/structure/shuttle_part/raider{
 	icon_state = "16,1"
@@ -12693,7 +12666,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eta" = (
 /obj/structure/closet/crate/trashcart{
 	anchored = 1;
@@ -12791,12 +12764,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
-"exm" = (
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/turf/unsimulated/floor,
-/area/centcom/bar)
 "exn" = (
 /obj/structure/shuttle_part/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
@@ -12810,7 +12777,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "exX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/chair{
@@ -12842,7 +12809,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eyM" = (
 /obj/item/device/flashlight/lamp{
 	pixel_x = 6
@@ -13006,7 +12973,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eEN" = (
 /obj/structure/shuttle_part/hapt{
 	density = 0;
@@ -13015,7 +12982,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eEO" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Laundry";
@@ -13075,7 +13042,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eGb" = (
 /obj/structure/coatrack,
 /turf/unsimulated/floor{
@@ -13117,7 +13084,7 @@
 /turf/simulated/floor/tiled/ramp/bottom{
 	dir = 4
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eHG" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -13125,7 +13092,7 @@
 	icon_state = "4,12";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eHI" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "14,7"
@@ -13163,7 +13130,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eIJ" = (
 /obj/random/pottedplant{
 	anchored = 1;
@@ -13195,7 +13162,7 @@
 	icon_state = "4,11";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eKl" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/decal/cleanable/dirt,
@@ -13229,7 +13196,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eLJ" = (
 /turf/simulated/wall/shuttle/unique/burglar{
 	icon_state = "8,0"
@@ -13587,7 +13554,7 @@
 	icon_state = "4,10";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eXA" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -13647,7 +13614,7 @@
 	pixel_x = 34
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "eZI" = (
 /obj/structure/shuttle_part/raider{
 	density = 0;
@@ -14089,7 +14056,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fpP" = (
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/red/diagonal{
@@ -14114,7 +14081,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fpS" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -14264,7 +14231,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fuj" = (
 /obj/structure/shuttle_part/transfer{
 	density = 0;
@@ -14287,7 +14254,7 @@
 	icon_state = "4,9";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fuZ" = (
 /obj/structure/lattice/catwalk/indoor/grate/light/old{
 	icon_state = "grate_light_dam2"
@@ -14329,7 +14296,7 @@
 	icon_state = "5,9";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fvz" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/paleblue/diagonal{
@@ -14375,7 +14342,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fwl" = (
 /obj/machinery/sleeper{
 	dir = 4
@@ -14478,7 +14445,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fCl" = (
 /obj/item/storage/box/cdeathalarm_kit{
 	pixel_x = -9;
@@ -14560,7 +14527,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fEX" = (
 /obj/effect/floor_decal/corner/grey/full{
 	dir = 4
@@ -14625,7 +14592,7 @@
 	icon_state = "5,8";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fFJ" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Thruster Access"
@@ -14768,7 +14735,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fKx" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "0,1"
@@ -14836,7 +14803,7 @@
 	pixel_y = -22
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fMR" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
@@ -15004,7 +14971,7 @@
 	icon_state = "10,8";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fSp" = (
 /turf/unsimulated/floor{
 	dir = 8;
@@ -15018,7 +14985,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fSy" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -15026,7 +14993,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fSP" = (
 /obj/structure/shuttle_part/hapt{
 	density = 0;
@@ -15035,7 +15002,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fSX" = (
 /obj/structure/shuttle_part/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -15202,7 +15169,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fVC" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/industrial/warning{
@@ -15236,7 +15203,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fWO" = (
 /obj/effect/ghostspawpoint{
 	identifier = "OdinBartender";
@@ -15259,7 +15226,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fXv" = (
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
@@ -15312,7 +15279,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fZs" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -15320,7 +15287,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "fZU" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -15328,7 +15295,7 @@
 	icon_state = "5,7";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gaA" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -15336,7 +15303,7 @@
 	icon_state = "10,7";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gaD" = (
 /obj/structure/sign/directions/com{
 	dir = 1;
@@ -15374,7 +15341,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gbL" = (
 /obj/structure/lattice,
 /obj/structure/grille,
@@ -15434,7 +15401,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gdz" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 6
@@ -15516,7 +15483,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ggE" = (
 /obj/random/tool,
 /turf/unsimulated/floor/plating,
@@ -15567,7 +15534,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "giw" = (
 /obj/machinery/light{
 	dir = 8;
@@ -15625,7 +15592,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gkg" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/unsimulated/floor,
@@ -15697,7 +15664,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "glX" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -15705,7 +15672,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gmv" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -15736,7 +15703,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gnj" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/fake_object{
@@ -15793,7 +15760,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gou" = (
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
@@ -15920,7 +15887,7 @@
 	icon_state = "5,6";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "grz" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -15969,7 +15936,7 @@
 	icon_state = "10,6";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gtA" = (
 /obj/structure/closet{
 	icon_door = "blue";
@@ -16020,7 +15987,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "guL" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
@@ -16085,7 +16052,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gvF" = (
 /obj/structure/window/shuttle/unique/mercenary{
 	icon_state = "6,24"
@@ -16212,7 +16179,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gzj" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -16259,7 +16226,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gAT" = (
 /obj/machinery/light,
 /turf/simulated/floor/shuttle/dark_blue,
@@ -16324,7 +16291,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/structure/closet/crate/drop/grey,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gDr" = (
 /obj/structure/table/rack,
 /obj/item/clothing/mask/breath,
@@ -16433,8 +16400,7 @@
 /area/antag/burglar)
 "gGx" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
-/obj/structure/extinguisher_cabinet/north{
-	},
+/obj/structure/extinguisher_cabinet/north,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
 "gGS" = (
@@ -16456,7 +16422,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gIf" = (
 /obj/machinery/door/airlock/hatch{
 	frequency = 1337;
@@ -16713,7 +16679,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gON" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -16739,7 +16705,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gPm" = (
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -16929,7 +16895,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gTY" = (
 /obj/machinery/door/airlock/glass{
 	name = "Infirmary";
@@ -16951,7 +16917,7 @@
 	icon_state = "5,5";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gUu" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -16959,7 +16925,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gUK" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -17012,7 +16978,7 @@
 	icon_state = "10,5";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gVU" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -17145,10 +17111,10 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "gYQ" = (
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
+	icon_state = "engineering_door"
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -17172,7 +17138,7 @@
 /area/shuttle/escape)
 "gYV" = (
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
+	icon_state = "engineering_door"
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -17241,7 +17207,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hax" = (
 /obj/machinery/computer/shuttle_control/multi/distress,
 /obj/effect/floor_decal/corner/paleblue{
@@ -17264,7 +17230,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hbO" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/corner/paleblue{
@@ -17315,7 +17281,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hfK" = (
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 8
@@ -17324,7 +17290,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hfT" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -17373,7 +17339,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hhU" = (
 /obj/machinery/optable,
 /obj/machinery/light{
@@ -17406,7 +17372,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "him" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/unsimulated/floor{
@@ -17430,7 +17396,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hjw" = (
 /turf/unsimulated/floor{
 	dir = 4;
@@ -17728,7 +17694,7 @@
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "huh" = (
 /obj/machinery/acting/changer,
 /turf/unsimulated/floor{
@@ -17812,7 +17778,7 @@
 	icon_state = "6,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hyh" = (
 /obj/structure/table/wood,
 /obj/random/plushie,
@@ -17969,7 +17935,7 @@
 	icon_state = "7,20"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hDo" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Security Checkpoint";
@@ -18058,7 +18024,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hHP" = (
 /obj/effect/map_effect/window_spawner/reinforced/crescent,
 /turf/unsimulated/floor/plating,
@@ -18165,7 +18131,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hNX" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 8
@@ -18216,7 +18182,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hOM" = (
 /obj/effect/decal/fake_object{
 	dir = 4;
@@ -18380,7 +18346,7 @@
 	icon_state = "5,3";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hVx" = (
 /obj/machinery/light{
 	dir = 4;
@@ -18485,7 +18451,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "hYV" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/window/reinforced{
@@ -18683,7 +18649,7 @@
 	icon_state = "10,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ieC" = (
 /obj/structure/flora/tree/jungle{
 	icon_state = "tree2"
@@ -18777,7 +18743,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "igz" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -18785,7 +18751,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "igD" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/deck/cards,
@@ -18856,7 +18822,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iiu" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -18962,7 +18928,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iod" = (
 /obj/item/ammo_magazine/mc9mm{
 	pixel_x = -3;
@@ -19017,7 +18983,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ioV" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -19100,7 +19066,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iqJ" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -19108,7 +19074,7 @@
 	icon_state = "5,2";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iqM" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -19116,7 +19082,7 @@
 	icon_state = "6,2";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iqR" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -19200,7 +19166,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iua" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger{
@@ -19578,7 +19544,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iFM" = (
 /turf/unsimulated/wall/fakeairlock{
 	icon_state = "door_locked";
@@ -19702,7 +19668,7 @@
 "iKk" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
-	dir = 1;
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -19744,7 +19710,7 @@
 	icon_state = "13,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iLs" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor/plating,
@@ -19756,7 +19722,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iLT" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -19791,11 +19757,10 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iMq" = (
 /obj/structure/railing/mapped,
-/obj/item/storage/box/fancy/tray{
-	},
+/obj/item/storage/box/fancy/tray,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
 	dir = 8
 	},
@@ -19809,7 +19774,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iMy" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/spacecash/c1000{
@@ -19841,7 +19806,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iNh" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/device/price_scanner,
@@ -19881,7 +19846,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iOh" = (
 /obj/structure/sign/greencross,
 /turf/simulated/wall/shuttle/unique/mercenary{
@@ -20015,7 +19980,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iRS" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -20062,7 +20027,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iSu" = (
 /turf/simulated/wall/shuttle/unique/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -20070,14 +20035,14 @@
 	icon_state = "6,1";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iSG" = (
 /obj/machinery/light{
 	dir = 8;
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "iSL" = (
 /obj/structure/table/reinforced/wood,
 /obj/item/reagent_containers/glass/rag{
@@ -20352,7 +20317,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jdB" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -20498,8 +20463,7 @@
 	icon_state = "intact-scrubbers";
 	name = "pipe"
 	},
-/obj/structure/lattice/catwalk/indoor{
-	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/fore)
 "jkC" = (
@@ -20509,7 +20473,7 @@
 	icon_state = "9,1";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jlx" = (
 /obj/effect/floor_decal/corner/lime/diagonal{
 	dir = 8
@@ -20525,7 +20489,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jnA" = (
 /turf/simulated/wall/shuttle/unique/mercenary/small,
 /area/shuttle/syndicate_elite)
@@ -20561,7 +20525,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "joU" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -20637,7 +20601,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jsg" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced/crescent{
@@ -20869,7 +20833,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jCl" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "6,8"
@@ -20941,7 +20905,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jDI" = (
 /obj/structure/table/reinforced,
 /obj/structure/window/reinforced/crescent{
@@ -20959,7 +20923,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jEd" = (
 /obj/structure/shuttle_part/merchant{
 	icon_state = "7,8"
@@ -21038,7 +21002,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jGo" = (
 /obj/structure/shuttle_part/merchant{
 	density = 0;
@@ -21124,7 +21088,7 @@
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jGV" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -21294,7 +21258,7 @@
 	name = "military spotlight"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jRx" = (
 /obj/structure/table/reinforced,
 /obj/machinery/door/window/brigdoor/westright{
@@ -21373,7 +21337,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "jUG" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -21673,7 +21637,7 @@
 /obj/structure/closet/crate/freezer/rations,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kdm" = (
 /obj/structure/window/reinforced/crescent{
 	dir = 4
@@ -21726,7 +21690,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "keV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -21824,7 +21788,7 @@
 	opacity = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "khe" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -21940,7 +21904,7 @@
 	icon_state = "11,10";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kll" = (
 /obj/structure/table/wood,
 /obj/item/newspaper,
@@ -21992,7 +21956,7 @@
 	icon_state = "13,16";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kni" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon_state = "7,7"
@@ -22080,7 +22044,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kqN" = (
 /obj/item/device/flashlight/flare,
 /obj/item/device/flashlight/flare,
@@ -22116,7 +22080,7 @@
 	opacity = 1
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "krK" = (
 /obj/structure/shuttle_part/transfer{
 	density = 0;
@@ -22143,7 +22107,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ksI" = (
 /obj/effect/decal/fake_object{
 	desc = "Ding.";
@@ -22185,7 +22149,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kvf" = (
 /turf/unsimulated/floor,
 /area/centcom/ferry)
@@ -22219,7 +22183,7 @@
 	name = "military spotlight"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kwH" = (
 /obj/structure/shuttle_part/hapt{
 	desc = "A scary armed military corvette. Carries no branding or emblem of any sort. This thing looks mean.";
@@ -22227,7 +22191,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kxc" = (
 /obj/machinery/conveyor{
 	dir = 4;
@@ -22501,7 +22465,7 @@
 	icon_state = "9,15";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "kIi" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
@@ -23113,7 +23077,7 @@
 	},
 /mob/living/heavy_vehicle/premade/superheavy,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "lbB" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon_state = "18,7"
@@ -23275,7 +23239,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "lhC" = (
 /obj/structure/shuttle_part/mercenary/small{
 	icon_state = "7,11"
@@ -23379,7 +23343,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "llv" = (
 /obj/structure/sign/electricshock,
 /turf/unsimulated/wall/darkshuttlewall,
@@ -23486,7 +23450,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "loL" = (
 /obj/machinery/light{
 	dir = 4;
@@ -23744,7 +23708,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "lzh" = (
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialt,
@@ -24785,7 +24749,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "mdI" = (
 /obj/structure/lattice,
 /obj/structure/window/reinforced{
@@ -25040,7 +25004,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "mnl" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
@@ -25365,7 +25329,7 @@
 	icon = 'icons/turf/shuttles_unique/hapt_shuttle.dmi';
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "mvu" = (
 /obj/machinery/vending/tool{
 	random_itemcount = 0
@@ -25647,7 +25611,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "mGV" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/fancy/donut,
@@ -25854,7 +25818,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "mOm" = (
 /obj/machinery/papershredder,
 /obj/structure/sign/poster{
@@ -26238,7 +26202,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "nbD" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -26563,8 +26527,7 @@
 	icon_state = "intact-supply";
 	name = "pipe"
 	},
-/obj/structure/lattice/catwalk/indoor{
-	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/aft)
 "nkc" = (
@@ -26676,7 +26639,7 @@
 	icon_state = "tube_empty"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "nmO" = (
 /obj/structure/sign/flag/nanotrasen/large/north,
 /obj/structure/bed/stool/chair/office/bridge,
@@ -27199,8 +27162,7 @@
 	pixel_x = 6;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
 "nEt" = (
@@ -27299,7 +27261,7 @@
 	icon_state = "11,9";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "nFM" = (
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
@@ -27897,7 +27859,7 @@
 	},
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "nXw" = (
 /obj/effect/landmark{
 	name = "skrell_entry"
@@ -27929,15 +27891,6 @@
 /obj/structure/sign/nosmoking_2,
 /turf/simulated/wall,
 /area/merchant_station/warehouse)
-"nYH" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
-/obj/effect/floor_decal/corner/grey/diagonal{
-	dir = 4
-	},
-/turf/simulated/floor/holofloor/tiled/dark,
-/area/tdome/tdome1)
 "nYX" = (
 /obj/structure/table/rack,
 /obj/item/tank/emergency_oxygen/double{
@@ -28058,22 +28011,6 @@
 	icon_state = "rub_carpet"
 	},
 /area/centcom/control)
-"oaC" = (
-/obj/structure/table/reinforced/wood,
-/obj/machinery/door/blast/odin{
-	dir = 4;
-	icon_state = "shutter1";
-	icon_state_closed = "shutter1";
-	icon_state_closing = "shutterc1";
-	icon_state_open = "shutter0";
-	icon_state_opening = "shutterc0";
-	id = "CentComBarShutters";
-	name = "Bar Shutter"
-	},
-/turf/unsimulated/floor{
-	icon_state = "lino_diamond"
-	},
-/area/centcom/bar)
 "obP" = (
 /obj/structure/shuttle_part/ert{
 	icon_state = "0,0";
@@ -28113,7 +28050,7 @@
 	},
 /obj/effect/shuttle_landmark/admin/start,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "odx" = (
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor,
@@ -28313,7 +28250,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "okP" = (
 /obj/machinery/cryopod{
 	dir = 4
@@ -28362,7 +28299,7 @@
 	icon_state = "10,3";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "onk" = (
 /obj/structure/sign/staff_only{
 	pixel_y = -2
@@ -28382,7 +28319,7 @@
 	icon_state = "11,12";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ooJ" = (
 /obj/machinery/vending/snack,
 /obj/machinery/light{
@@ -28451,7 +28388,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "orV" = (
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -28693,7 +28630,7 @@
 	icon_state = "11,11";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "oDl" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -29103,7 +29040,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "oRO" = (
 /turf/simulated/wall/shuttle/unique/mercenary{
 	icon_state = "15,3"
@@ -29156,7 +29093,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "oUZ" = (
 /obj/machinery/door/blast/shutters/open{
 	dir = 2;
@@ -29264,7 +29201,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "oYo" = (
 /obj/structure/grille,
 /obj/structure/lattice,
@@ -29289,7 +29226,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/black,
 /turf/simulated/floor/tiled/ramp,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "oZm" = (
 /obj/structure/closet/gimmick{
 	name = "emergency response team wardrobe"
@@ -29413,7 +29350,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "pfR" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -29554,7 +29491,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "plr" = (
 /obj/machinery/light{
 	icon_state = "tube_empty"
@@ -29666,7 +29603,7 @@
 	name = "military spotlight"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ppV" = (
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -29838,7 +29775,7 @@
 	icon_state = "13,18";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "puj" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 10
@@ -29982,7 +29919,7 @@
 	dir = 1
 	},
 /obj/item/tape/engineering{
-	icon_state = "engineering_door";
+	icon_state = "engineering_door"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
@@ -30066,7 +30003,7 @@
 "pCZ" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "pDr" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -30445,7 +30382,7 @@
 	icon_state = "9,20"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "pLc" = (
 /turf/simulated/wall/shuttle/unique/merchant{
 	icon_state = "16,3"
@@ -31538,7 +31475,7 @@
 	icon_state = "10,4";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "qDS" = (
 /turf/unsimulated/floor,
 /area/centcom/legion)
@@ -32364,7 +32301,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "riT" = (
 /turf/simulated/wall/shuttle/unique/tcfl{
 	icon_state = "3,5"
@@ -32377,7 +32314,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "rkf" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -32642,14 +32579,6 @@
 	icon_state = "tiled_preview"
 	},
 /area/antag/raider)
-"rvo" = (
-/obj/structure/table/standard,
-/obj/item/storage/box/fancy/tray,
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/turf/unsimulated/floor{
-	icon_state = "white"
-	},
-/area/centcom/holding)
 "rvq" = (
 /obj/structure/closet/walllocker/emerglocker/south{
 	pixel_y = -27
@@ -32693,14 +32622,6 @@
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
-"rwc" = (
-/obj/structure/bed/stool/chair{
-	dir = 1
-	},
-/turf/unsimulated/floor{
-	icon_state = "dark_preview"
-	},
-/area/centcom/holding)
 "rwj" = (
 /obj/structure/shuttle_part/tcfl{
 	icon_state = "13,5";
@@ -32936,7 +32857,7 @@
 	name = "blast door"
 	},
 /turf/simulated/floor/reinforced,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "rFJ" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -33430,7 +33351,7 @@
 	icon_state = "9,2";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "rXE" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "2,1"
@@ -33496,7 +33417,7 @@
 	icon_state = "10,2";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "saQ" = (
 /obj/structure/sign/double/map/right{
 	desc = "A framed picture of a station.";
@@ -33719,7 +33640,7 @@
 	icon_state = "10,9";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "slj" = (
 /obj/structure/table/reinforced,
 /obj/effect/floor_decal/corner/grey{
@@ -33752,7 +33673,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "smn" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -34374,7 +34295,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "sHn" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -34432,7 +34353,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "sKg" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
@@ -34463,7 +34384,7 @@
 	icon_state = "13,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "sLq" = (
 /obj/machinery/vending/zora{
 	density = 0;
@@ -36086,7 +36007,7 @@
 "tRu" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
-	dir = 1;
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -36490,7 +36411,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "ujo" = (
 /obj/machinery/door/blast/odin/shuttle/tcfl/shutter{
 	density = 1;
@@ -36968,7 +36889,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "uyK" = (
 /obj/structure/shuttle_part/arrivals{
 	desc = "A state-of-the-art unmanned automatic crew transport shuttle.";
@@ -37107,7 +37028,7 @@
 	},
 /obj/effect/floor_decal/spline/plain/corner/black,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "uGw" = (
 /obj/structure/shuttle_part/mercenary{
 	icon_state = "0,2"
@@ -37187,7 +37108,7 @@
 	icon_state = "11,13";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "uJv" = (
 /obj/effect/floor_decal/spline/plain/black,
 /turf/unsimulated/floor{
@@ -37416,7 +37337,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "uPw" = (
 /obj/item/flame/candle{
 	pixel_x = -4;
@@ -37700,7 +37621,7 @@
 	icon_state = "13,17";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "uUx" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/unsimulated/wall/fakepdoor{
@@ -38247,8 +38168,7 @@
 /obj/structure/closet/crate/trashcart{
 	opened = 1
 	},
-/obj/item/trash/koisbar{
-	},
+/obj/item/trash/koisbar,
 /obj/item/device/paicard,
 /obj/random/junk,
 /turf/unsimulated/floor{
@@ -38856,7 +38776,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "vNR" = (
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
@@ -39386,7 +39306,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "wfu" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 5
@@ -40094,7 +40014,7 @@
 	icon_state = "10,20";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "wwD" = (
 /obj/item/gun/energy/blaster{
 	pixel_y = 6
@@ -40582,7 +40502,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "wKL" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle{
@@ -40628,7 +40548,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "wMn" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/bottle/bicaridine{
@@ -41255,7 +41175,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "xfN" = (
 /obj/structure/sign/flag/nanotrasen/unmovable,
 /obj/effect/floor_decal/corner/paleblue/full{
@@ -42272,7 +42192,7 @@
 	name = "military corvette"
 	},
 /turf/unsimulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "xKM" = (
 /obj/machinery/light/small{
 	brightness_power = 0.5;
@@ -42334,7 +42254,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "xMf" = (
 /obj/machinery/light{
 	dir = 1;
@@ -42608,8 +42528,7 @@
 /obj/item/gun/projectile/gauss{
 	pixel_y = 8
 	},
-/obj/item/gun/projectile/gauss{
-	},
+/obj/item/gun/projectile/gauss,
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "xVe" = (
@@ -42845,7 +42764,7 @@
 "ydO" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
-	dir = 1;
+	dir = 1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -42962,7 +42881,7 @@
 	icon_state = "13,19";
 	name = "military corvette"
 	},
-/area/shuttle/administration)
+/area/shuttle/admin)
 "yhm" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/ashtray/bronze,
@@ -42988,7 +42907,7 @@
 	icon_state = "8,20"
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/administration)
+/area/shuttle/admin)
 "yiw" = (
 /obj/machinery/button/remote/blast_door{
 	id = "crescent_checkpoint_access";
@@ -63583,7 +63502,7 @@ mLh
 khA
 qKr
 lvy
-egh
+qKr
 qKr
 lvy
 qKr
@@ -67160,7 +67079,7 @@ aDb
 kVk
 ebr
 kYq
-rwc
+nUK
 aDb
 mAD
 bLK
@@ -67663,7 +67582,7 @@ bsS
 iGC
 tRr
 bCG
-rvo
+bsS
 bQP
 wfu
 liY
@@ -67674,7 +67593,7 @@ aDb
 qnC
 qhn
 kYq
-rwc
+nUK
 aDb
 mAD
 bLK
@@ -67931,7 +67850,7 @@ bQP
 tjd
 wqv
 kYq
-rwc
+nUK
 bQP
 mAD
 bLK
@@ -69237,7 +69156,7 @@ iAl
 lDL
 cik
 wGT
-nYH
+cik
 cik
 wGT
 cik
@@ -69703,7 +69622,7 @@ ulK
 hLp
 xQs
 eBz
-oaC
+rky
 rky
 rky
 rky
@@ -70469,7 +70388,7 @@ tAC
 ahe
 aqu
 fOK
-exm
+ifi
 ujM
 ifi
 xps
@@ -71763,7 +71682,7 @@ jcv
 hmF
 xhC
 vpg
-dKe
+aXz
 eCE
 mUH
 kOI
@@ -75108,16 +75027,16 @@ ngm
 dgF
 aVG
 fSX
-aDs
+xFq
 btV
 aVL
 fYX
-aDs
+xFq
 aOC
 xFq
-aDs
-aDs
-aDs
+xFq
+xFq
+xFq
 sxl
 smn
 wgf
@@ -75374,7 +75293,7 @@ aWu
 aWu
 aVP
 aWu
-aDs
+xFq
 txn
 aWu
 aWu
@@ -75631,7 +75550,7 @@ aWc
 aWc
 aWm
 aWu
-aDs
+xFq
 dvz
 isd
 dnd
@@ -76145,7 +76064,7 @@ aWd
 aWd
 aWn
 aWu
-aDs
+xFq
 fmE
 aWv
 aWv
@@ -76402,7 +76321,7 @@ aWc
 aWc
 aWm
 aWu
-aDs
+xFq
 cCU
 lSL
 jwX
@@ -76679,7 +76598,7 @@ aKK
 aTs
 isr
 siZ
-aNc
+aJH
 qce
 pDr
 aOa
@@ -76916,7 +76835,7 @@ aWd
 aWd
 aWn
 aWu
-aDs
+xFq
 iqr
 aWT
 hrI
@@ -77173,7 +77092,7 @@ aWc
 aWc
 aWm
 aWu
-aDs
+xFq
 bPc
 aGQ
 aGQ
@@ -77430,7 +77349,7 @@ aWu
 aWu
 aWu
 aWu
-aDs
+xFq
 bPc
 wMw
 aGQ
@@ -77678,7 +77597,7 @@ aRB
 lkN
 aIf
 wGN
-aDs
+xFq
 aVJ
 aVV
 xSL
