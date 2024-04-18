@@ -65,7 +65,7 @@
 	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
-		/obj/item/ammo_magazine/c46m = 2,
+		/obj/item/ammo_magazine/u46m = 2,
 		/obj/item/clothing/mask/gas/half = 1,
 		)
 

@@ -97,9 +97,9 @@
 /obj/item/gun/projectile/automatic/xanusmg
 	name = "\improper Xanan submachine gun"
 	desc = "A sleek metal-framed submachine gun, produced by d.N.A Defense for the All-Xanu Armed Forces."
-	desc_extended = "The dNAC-4.6 II submachine gun is a custom-made submachine gun for the All-Xanu Armed Forces, designed to use the same 4.6mm rounds as the dNAC-4.6 pistol. It mainly sees use as a personal defensive weapon for pilots and drivers, but has also been used aboard the spacefleet's vessels for close quarters combat."
-	magazine_type = /obj/item/ammo_magazine/c46m/extended
-	allowed_magazines = list(/obj/item/ammo_magazine/c46m/extended)
+	desc_extended = "The dNAC-4.6 II submachine gun is a custom-made submachine gun for the All-Xanu Armed Forces, designed to use the same caseless 4.6mm rounds as the dNAC-4.6 pistol. It mainly sees use as a personal defensive weapon for pilots and drivers, but has also been used aboard the spacefleet's vessels for close quarters combat."
+	magazine_type = /obj/item/ammo_magazine/u46m/extended
+	allowed_magazines = list(/obj/item/ammo_magazine/u46m/extended)
 	icon = 'icons/obj/guns/xanu_smg.dmi'
 	icon_state = "xanu_smg"
 	item_state = "xanu_smg"
@@ -813,7 +813,7 @@
 	w_class = ITEMSIZE_LARGE
 	ammo_type = /obj/item/ammo_casing/vintage
 	handle_casings = EJECT_CASINGS
-	caliber = "30-06 govt"
+	caliber = CALIBER_ANTIQUE_RIFLE
 	is_wieldable = TRUE
 	max_shells = 8
 
@@ -948,7 +948,7 @@
 	icon = 'icons/obj/guns/unathi_ballistics.dmi'
 	icon_state = "hookmg"
 	item_state = "hookmg"
-	caliber = "5.8mm"
+	caliber = CALIBER_HEGEMONY_RIFLE
 	magazine_type = /obj/item/ammo_magazine/hookmg
 	allowed_magazines = list(/obj/item/ammo_magazine/hookmg)
 	firemodes = list(
@@ -973,7 +973,7 @@
 	icon = 'icons/obj/guns/unathi_ballistics.dmi'
 	icon_state = "tempestsmg"
 	item_state = "tempestsmg"
-	caliber = "11.6mm"
+	caliber = CALIBER_HEGEMONY_PISTOL
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE

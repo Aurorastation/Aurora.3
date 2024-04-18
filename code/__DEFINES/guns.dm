@@ -33,18 +33,20 @@
 #define CALIBER_PISTOL_COC "10mm"
 ///Service Solarian Pistol
 #define CALIBER_SERVICE_PISTOL_SOL "5.7mm"
+///Service Coalition Pistol
+#define CALIBER_SERVICE_PISTOL_COC "4.6mm"
 ///Service Coalition Pistol (Caseless)
-#define CALIBER_SERVICE_PISTOL_COC "4.6mm Caseless"
+#define CALIBER_SERVICE_PISTOL_CASELESS_COC "4.6mm Caseless"
 
 //Rifle Calibers
 ///Solarian Assault Rifles
 #define CALIBER_ASSAULT_RIFLE_SOL "5.6mm"
 ///Coalition Assault Rifles
-#define CALIBER_ASSAULT_RIFLE_COC "6.5mm Caseless"
+#define CALIBER_ASSAULT_RIFLE_COC "6.5mm"
 ///Solarian Battle Rifles
 #define CALIBER_BATTLE_RIFLE_SOL "7.7mm"
 ///Coalition Battle Rifles
-#define CALIBER_BATTLE_RIFLE_COC "10mm Caseless"
+#define CALIBER_BATTLE_RIFLE_COC "10mm"
 
 //Shotgun Calibers
 ///12 Gauge equivalent
@@ -61,6 +63,14 @@
 #define CALIBER_ANTIQUE_RIFLE ".30-40 Springfield"
 ///Frontier Revolver 1
 #define CALIBER_FRONTIER_REVOLVER ".357 Magnum"
+///Deagle
+#define CALIBER_FRONTIER_DEAGLE ".50AE"
+
+//Bizarre Calibers
+///Hegemonic Pistol
+#define CALIBER_HEGEMONY_PISTOL "11.6mm"
+///Hegemonic Rifle
+#define CALIBER_HEGEMONY_RIFLE "5.8mm"
 
 //Special Calibers
 ///Prototype SMG

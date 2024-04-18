@@ -434,7 +434,7 @@
 	icon = 'icons/obj/guns/unathi_ballistics.dmi'
 	icon_state = "crackrifle"
 	item_state = "crackrifle"
-	caliber = "5.8mm"
+	caliber = CALIBER_HEGEMONY_RIFLE
 	magazine_type = /obj/item/ammo_magazine/crackrifle
 	allowed_magazines = list(/obj/item/ammo_magazine/crackrifle)
 	load_method = MAGAZINE

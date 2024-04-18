@@ -496,7 +496,7 @@
 	desc = "A Moghesian pistol casing."
 	icon_state = "moghes_casing_p"
 	spent_icon = "moghes_casing_p_spent"
-	caliber = "11.6mm"
+	caliber = CALIBER_HEGEMONY_PISTOL
 	projectile_type = /obj/item/projectile/bullet/pistol/medium/ap
 	max_stack = 15
 
@@ -504,6 +504,6 @@
 	desc = "A Moghesian rifle casing."
 	icon_state = "moghes_casing"
 	spent_icon = "moghes_casing_spent"
-	caliber = "5.8mm"
+	caliber = CALIBER_HEGEMONY_RIFLE
 	projectile_type = /obj/item/projectile/bullet/rifle/a556
 	max_stack = 7

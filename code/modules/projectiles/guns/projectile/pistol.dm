@@ -24,7 +24,7 @@
 		icon_state = "colt-e"
 
 /obj/item/gun/projectile/colt/detective
-	magazine_type = /obj/item/ammo_magazine/c57m/rubber
+//	magazine_type = /obj/item/ammo_magazine/c57m/rubber
 
 /obj/item/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -233,7 +233,7 @@
 	item_state = "deagle"
 	force = 15
 	accuracy = 1
-	caliber = ".50"
+	caliber = CALIBER_FRONTIER_DEAGLE
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a50
 	allowed_magazines = list(/obj/item/ammo_magazine/a50)
@@ -406,6 +406,7 @@
 	icon_state = "m8"
 	item_state = "m8"
 	can_suppress = TRUE
+	caliber = CALIBER_SERVICE_PISTOL_SOL
 	suppressor_x_offset = 9
 	suppressor_y_offset = 3
 
@@ -419,10 +420,11 @@
 /obj/item/gun/projectile/pistol/sol/konyang
 	name = "konyang service pistol"
 	desc = "The compact M8, redesignated as the K8, is the standard service pistol of the Konyanger Armed Forces. Inherited from the Solarian military, Zavodskoi has since given these handguns \
-	a service extension package, including laser sights and replacement of worn-out parts."
+	a service extension package, including laser sights, a re-caliberation to standard rounds used by the Coalition, and replacement of worn-out parts."
 	icon = 'icons/obj/guns/konyang_weapons.dmi'
 	icon_state = "k8"
 	item_state = "k8"
+	caliber = CALIBER_SERVICE_PISTOL_COC
 
 /obj/item/gun/projectile/pistol/sol/konyang/update_icon()
 	..()
@@ -518,13 +520,13 @@
 /obj/item/gun/projectile/xanupistol
 	name = "\improper Xanan service pistol"
 	desc = "A sleek metal-framed semi-automatic pistol, produced by d.N.A Defense for the All-Xanu Armed Forces."
-	desc_extended = "The dNAC-4.6 pistol is the standard issue sidearm for the All-Xanu Armed Forces. Designed to use 4.6x30mm rounds with less weight but better armor penetration than the 9mm pistols it replaced, the dNAC-4.6 has seen great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for police forces, military units, and other entities across the Coalition of Colonies and beyond."
-	magazine_type = /obj/item/ammo_magazine/c46m
-	allowed_magazines = list(/obj/item/ammo_magazine/c46m, /obj/item/ammo_magazine/c46m/extended)
+	desc_extended = "The dNAC-4.6 pistol is the standard issue sidearm for the All-Xanu Armed Forces. This pistol, being the first pulse-fired firearm on the market, allowed it to utilize newly developed reliable caseless ammunition. This attribute has allowed it to see great success in Xanu Prime and beyond, as it has been adopted as a standard sidearm for police forces, military units, and other entities across the Coalition of Colonies and beyond."
+	magazine_type = /obj/item/ammo_magazine/u46m
+	allowed_magazines = list(/obj/item/ammo_magazine/u46m, /obj/item/ammo_magazine/u46m/extended)
 	icon = 'icons/obj/guns/xanu_pistol.dmi'
 	icon_state = "xanu_pistol"
 	item_state = "xanu_pistol"
-	caliber = CALIBER_SERVICE_PISTOL_COC
+	caliber = CALIBER_SERVICE_PISTOL_CASELESS_COC
 	accuracy = 1
 	offhand_accuracy = 1
 	origin_tech = list(TECH_COMBAT = 2, TECH_MATERIAL = 2)
@@ -551,8 +553,8 @@
 	desc = "The Imperial Army's standard-issue handgun. Cheap, reliable, and easy to use."
 	desc_extended = "The Moroz Pattern Pistol, Year of 2450 (MPP-50) is a reliable handgun chambered in 5.7 \
 	Imperial Short which features an unusual magazine. Zavodskoi Interstellar is a major producer of these handguns."
-	magazine_type = /obj/item/ammo_magazine/c45m/dominia
-	allowed_magazines = list(/obj/item/ammo_magazine/c45m/dominia)
+	magazine_type = /obj/item/ammo_magazine/c57m/dominia
+	allowed_magazines = list(/obj/item/ammo_magazine/c57m/dominia)
 	icon = 'icons/obj/guns/dominia_pistol.dmi'
 	icon_state = "dom_pistol"
 	item_state = "dom_pistol"
@@ -578,7 +580,7 @@
 	icon = 'icons/obj/guns/unathi_ballistics.dmi'
 	icon_state = "spitterpistol"
 	item_state = "spitterpistol"
-	caliber = "11.6mm"
+	caliber = CALIBER_HEGEMONY_PISTOL
 	fire_sound = 'sound/weapons/gunshot/gunshot_pistol.ogg'
 	load_method = MAGAZINE
 	fire_delay = ROF_PISTOL

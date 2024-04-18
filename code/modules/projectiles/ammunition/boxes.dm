@@ -680,7 +680,7 @@
 /obj/item/ammo_magazine/spitterpistol
 	name = "spitter pistol magazine"
 	icon_state = "spitterpistol_mag"
-	caliber = "11.6mm"
+	caliber = CALIBER_HEGEMONY_PISTOL
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/moghes_pistol
 	max_ammo = 8
@@ -688,7 +688,7 @@
 /obj/item/ammo_magazine/hookmg
 	name = "hook machinegun magazine"
 	icon_state = "hookmg_ammobox"
-	caliber = "5.8mm"
+	caliber = CALIBER_HEGEMONY_RIFLE
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/moghes_rifle
 	max_ammo = 50
@@ -696,7 +696,7 @@
 /obj/item/ammo_magazine/crackrifle
 	name = "crack rifle magazine"
 	icon_state = "crackrifle_mag"
-	caliber = "5.8mm"
+	caliber = CALIBER_HEGEMONY_RIFLE
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/moghes_rifle
 	max_ammo = 33
@@ -704,7 +704,7 @@
 /obj/item/ammo_magazine/tempestsmg
 	name = "tempest smg magazine"
 	icon_state = "tempestsmg_mag"
-	caliber = "11.6mm"
+	caliber = CALIBER_HEGEMONY_PISTOL
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/moghes_pistol
 	max_ammo = 20
