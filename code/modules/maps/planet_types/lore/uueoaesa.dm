@@ -194,36 +194,20 @@
 	..()
 	switch(landing_region)
 		if("Untouched Lands")
-			ground_survey_result += "<br>Low levels of radioactivity detected in the soil"
-			ground_survey_result += "<br>Signs indicate soil is undergoing nutrient depletion"
-			if(prob(40))
-				ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
-			if(prob(40))
-				ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
-			if(prob(40))
-				ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
-			if(prob(40))
-				ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
-			if(prob(40))
-				ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
-			if(prob(40))
-				ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+			ground_survey_result += "<br>Low levels of radioactive material detected in the soil"
+			ground_survey_result += "<br>Signs indicate soil is undergoing signs of early nutrient depletion"
+			ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+			ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+			ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+			ground_survey_result += "<br>Trace signs of radioactive contamination present in local surface water deposits"
+
 		if("Wasteland")
-			ground_survey_result += "<br>Extremely high levels of radioactive material detected in the soil."
-			if(prob(40))
-				ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
-			if(prob(40))
-				ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
-			if(prob(40))
-				ground_survey_result += "<br>Soil near-completely depleted of nutrients."
-			if(prob(40))
-				ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
-			if(prob(40))
-				ground_survey_result += "<br>Recently-decayed organic material detected"
-			if(prob(40))
-				ground_survey_result += "<br>Fragmented concrete detected within local soil. High levels of radiation indicated"
-			if(prob(40))
-				ground_survey_result += "<br>Geological analysis suggests there were once large bodies of water in this region"
+			ground_survey_result += "<br>Extremely high levels of radioactive material detected in the soil"
+			ground_survey_result += "<br>Soil near-completely depleted of nutrients."
+			ground_survey_result += "<br>High concentration of decayed organic matter detected in soil samples"
+			ground_survey_result += "<br>Fragmented concrete detected within local soil. High levels of radiation indicated"
+			ground_survey_result += "<br>Geological analysis suggests there were once large bodies of water in this region"
+			ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
 			if(prob(10))
 				ground_survey_result += "<br>Signs of a large subterranean aquifer in this region"
 
@@ -240,7 +224,7 @@
 	charted = "Unathi core world. Charted 2403CE, Sol Alliance Department of Colonization"
 	geology = "High-energy geothermal signature, tectonic activity non-obstructive to surface environment"
 	weather = "Global full-atmosphere hydrological weather system. Dangerous meteorological activity not present"
-	surfacewater = "52% surface water. Four major surface seas detected."
+	surfacewater = "67% surface water. Four major surface seas detected."
 	rock_colors = null
 	plant_colors = null
 	possible_themes = list(/datum/exoplanet_theme/grass/ouerea)
@@ -276,19 +260,10 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/ouerea/generate_ground_survey_result()
 	..()
-	if(prob(40))
-		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
-	if(prob(40))
-		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
-	if(prob(40))
-		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
-	if(prob(40))
-		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
-	if(prob(40))
-		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
-	if(prob(40))
-		ground_survey_result += "<br>Muddy dirt rich in organic material"
-	if(prob(40))
-		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
-	if(prob(40))
-		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+	ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	ground_survey_result += "<br>Extensive subterranean water deposits detected"
+	ground_survey_result += "<br>Stratigraphy indicates moderate risk of tectonic activity in this region"
+	ground_survey_result += "<br>Muddy dirt rich in organic material"
+	ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
