@@ -1,4 +1,4 @@
-/datum/map_template/ruin/exoplanet/abandoned_warehouse_1
+/datum/map_template/ruin/exoplanet/cargo_ruins_1
 	name = "Cargo Ruins 1"
 	id = "cargo_ruins_1"
 	description = "An abandoned cargo platform."

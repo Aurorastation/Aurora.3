@@ -1,4 +1,4 @@
-/datum/map_template/ruin/exoplanet/abandoned_warehouse_1
+/datum/map_template/ruin/exoplanet/pra_camp_site
 	name = "PRA Campsite"
 	id = "pra_camp_site"
 	description = "A campsite set up by a group of PRA Tajara, seemingly enjoying some time outside of District Six. They don't seem to be here right now."
