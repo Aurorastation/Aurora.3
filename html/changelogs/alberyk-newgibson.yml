@@ -1,0 +1,7 @@
+author: Alberyk
+
+delete-after: True
+
+changes:
+  - rscadd: "Added two new ruins to New Gibson."
+  - rscadd: "New Gibson now has a more proper environment."
