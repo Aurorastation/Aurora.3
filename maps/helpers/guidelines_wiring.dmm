@@ -706,6 +706,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/template_noop)
+"Fu" = (
+/obj/machinery/power/smes,
+/obj/structure/cable/green,
+/turf/simulated/floor,
+/area/template_noop)
 "FL" = (
 /obj/structure/cable/cyan{
 	icon_state = "0-4"
@@ -738,6 +743,15 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/steel,
+/area/template_noop)
+"GF" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor,
 /area/template_noop)
 "GH" = (
 /obj/structure/cable/blue{
@@ -969,12 +983,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "Qu" = (
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
 /obj/structure/cable{
-	icon_state = "2-4"
+	icon_state = "1-4"
 	},
+/obj/effect/map_effect/map_helper/mark_bad,
 /turf/simulated/floor,
 /area/template_noop)
 "Qw" = (
@@ -1156,8 +1168,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "WC" = (
-/obj/structure/cable{
-	icon_state = "1-4"
+/obj/machinery/power/smes,
+/obj/structure/cable/green{
+	icon_state = "0-4"
 	},
 /turf/simulated/floor,
 /area/template_noop)
@@ -1238,8 +1251,12 @@
 /turf/simulated/floor,
 /area/template_noop)
 "Yr" = (
-/obj/effect/map_effect/map_helper/mark_acceptable,
-/turf/simulated/wall/r_wall,
+/obj/machinery/power/terminal,
+/obj/structure/cable{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "YK" = (
 /obj/structure/cable/green{
@@ -2334,7 +2351,7 @@ DW
 DW
 Qw
 Li
-Bt
+GF
 Rv
 US
 US
@@ -2426,7 +2443,7 @@ DW
 DW
 Qw
 Li
-SH
+WC
 Qw
 Qw
 Qw
@@ -3343,7 +3360,7 @@ DW
 DW
 DW
 DW
-Qw
+DW
 DW
 DW
 DW
@@ -3421,21 +3438,21 @@ Qw
 Qw
 Qw
 Qw
+Qw
+Qw
+Qw
+Qw
+Qw
+Qw
+Qw
+Qw
+Qw
+Qw
 DW
 DW
 DW
 DW
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
-Qw
+DW
 DW
 DW
 DW
@@ -3513,21 +3530,21 @@ Nr
 TW
 Li
 Qw
-DW
-DW
-DW
-DW
+du
+du
+du
+du
 Qw
 du
-Rh
+Yr
 fw
-LJ
+du
 Qw
-Lt
-Lt
-Wn
-zt
-Qw
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -3605,21 +3622,21 @@ ee
 Yo
 Fe
 Qw
-DW
-DW
-DW
-DW
+Xz
+vf
+du
+rC
 Qw
 du
 cp
 Jn
 du
 Qw
-Qw
-Qw
-Yr
-OG
-Qw
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -3697,21 +3714,21 @@ gm
 qz
 Li
 Qw
-DW
-DW
-DW
-DW
+du
+vo
+du
+du
 Qw
 Qw
 oq
 Nt
 Qw
 Qw
-Qw
-Qw
-Qw
-OG
-Qw
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -3789,21 +3806,21 @@ VJ
 Li
 Li
 Qw
-DW
-DW
-DW
-DW
+du
+vo
+du
+du
 Qw
 du
 cp
 vo
 du
 Qw
-Lt
-Lt
-Lt
-Qu
-Qw
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -3881,21 +3898,21 @@ XH
 Li
 Li
 Qw
-DW
-DW
-DW
-DW
+du
+WN
+du
+du
 Qw
 hG
 fC
 XT
 du
 Qw
-dA
-dA
-dA
-sh
-Qw
+DW
+DW
+DW
+DW
+DW
 DW
 DW
 DW
@@ -4067,7 +4084,7 @@ Li
 Qw
 du
 du
-du
+nH
 du
 Qw
 du
@@ -4157,10 +4174,10 @@ vj
 Yo
 Sd
 Qw
-Xz
-vf
 du
-rC
+RN
+Hz
+Qu
 Qw
 du
 du
@@ -4250,9 +4267,9 @@ qz
 Li
 Qw
 du
-vo
+Yo
 du
-du
+VO
 Qw
 Qw
 ue
@@ -4342,9 +4359,9 @@ Li
 Li
 Qw
 du
-vo
+Yo
 du
-du
+ZE
 Qw
 du
 du
@@ -4434,7 +4451,7 @@ Li
 Li
 Qw
 du
-WN
+Km
 du
 du
 Qw
@@ -4619,8 +4636,8 @@ Li
 Qw
 du
 du
-nH
-du
+GF
+Bl
 Qw
 du
 du
@@ -4711,8 +4728,8 @@ Li
 Qw
 du
 RN
-Hz
-WC
+Fu
+VO
 Qw
 du
 Vh
