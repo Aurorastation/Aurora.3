@@ -41,6 +41,9 @@
 	///How protective is this clothing against anomalies? Should be a value from 0 to 1 indicating the percentage of anomaly protection it provides.
 	var/anomaly_protection = 0
 
+	///Species to refit the item for on initialize so that we can map in specific items for specific species easier. This should be set to the BODYTYPE of the species in question, not the species name or type itself.
+	var/refit_initialize = null
+
 /obj/item/clothing/Initialize(var/mapload, var/material_key)
 	. = ..(mapload)
 	if(!material_key)
@@ -51,6 +54,11 @@
 		for(var/T in starting_accessories)
 			var/obj/item/clothing/accessory/tie = new T(src)
 			src.attach_accessory(null, tie)
+	if(refit_initialize)
+		if(contained_sprite)
+			refit_contained(refit_initialize)
+		else
+			refit_for_species(refit_initialize)
 	update_icon()
 
 /obj/item/clothing/Destroy()

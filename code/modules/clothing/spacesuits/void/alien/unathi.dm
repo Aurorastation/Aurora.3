@@ -314,3 +314,24 @@
 	desc =  "A reinforced mix of older Dominian and homemade Unathi pirate hardware in a single helmet; made to fit in a larger assembly."
 	icon_state = "rig-hiskyncaptain-helmet"
 	item_state = "rig-hiskyncaptain-helmet"
+
+//Pre-contact spacesuits for Uueoa-Esa ruins.
+/obj/item/clothing/suit/space/unathi_ruin
+	name = "unathi spacesuit"
+	desc = "A large and bulky spacesuit, seemingly of an early space age design. The distinctive shape of the suit indicates that it was made for an Unathi wearer."
+	desc_extended = "These spacesuits were among some of the earliest designs of Unathi space programs, though they rapidly became obsolete following first contact and the massive expansion of space exploration efforts. Seeing a suit like this outside of a museum is extremely rare in the modern day. The markings on this one do not identify it as Izweski, but it is impossible to tell to whom it might have belonged."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "unathispacesuit"
+	item_state = "unathispacesuit"
+	species_restricted = list(SPECIES_UNATHI)
+	refittable = FALSE
+
+/obj/item/clothing/head/helmet/space/unathi_ruin
+	name = "unathi space helmet"
+	desc = "A large and bulky space helmet, with a primitive 'fishbowl' design common in the early days of space exploration. The shape of the helmet indicates that it was designed for an Unathi wearer."
+	desc_extended = "These helmets are an early design from the Unathi space age, used primarily by the first Izweski astronauts in the 22nd century. They rapidly became obsolete after first contact and the massive expansion of space exploration efforts, making them a rare site outside of museums and private collections in the modern day. The markings on this one do not identify it as Izweski, but it is impossible to tell to whom it might have belonged."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "unathispacehelm"
+	item_state = "unathispacehelm"
+	species_restricted = list(SPECIES_UNATHI)
+	refittable = FALSE

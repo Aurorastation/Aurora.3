@@ -810,6 +810,17 @@
 /obj/machinery/power/apc/super/east{
 	req_access = list(204)
 	},
+/obj/item/stack/material/plastic/full{
+	pixel_x = -3;
+	pixel_y = 4
+	},
+/obj/item/stack/material/aluminium/full{
+	pixel_x = 3;
+	pixel_y = 4
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "gh" = (
