@@ -639,6 +639,8 @@
 
 		sprint_speed_factor = species.sprint_speed_factor
 		max_stamina = species.stamina
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 		move_delay_mod = 0

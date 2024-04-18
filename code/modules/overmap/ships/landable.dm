@@ -42,6 +42,15 @@
 			world.maxz++
 			map_z += world.maxz
 			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+		var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
+		landmark = new (center_loc, shuttle)
+		add_landmark(landmark, shuttle)
+		var/visitor_dir = fore_dir
+		for(var/landmark_name in list("FORE", "PORT", "AFT", "STARBOARD"))
+			var/turf/visitor_turf = get_ranged_target_turf(get_turf(landmark), visitor_dir, round(min(world.maxx/4, world.maxy/4)))
+			var/obj/effect/shuttle_landmark/visiting_shuttle/visitor_landmark = new (visitor_turf, landmark, landmark_name)
+			add_landmark(visitor_landmark)
+			visitor_dir = turn(visitor_dir, 90)
 
 		if(multiz)
 			new /obj/effect/landmark/map_data(locate(1, 1, world.maxz), (multiz + 1))
@@ -63,12 +72,7 @@
 /obj/effect/overmap/visitable/ship/landable/populate_sector_objects()
 	..()
 	var/datum/shuttle/shuttle_datum = SSshuttle.shuttles[shuttle]
-	//Finish open space setup
-	if(!use_mapped_z_levels)
-		var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
-		landmark = new (center_loc, shuttle)
-		add_landmark(landmark, shuttle)
-	else
+	if(use_mapped_z_levels)
 		var/obj/effect/shuttle_landmark/ship/ship_landmark = shuttle_datum.current_location
 		if(!istype(ship_landmark))
 			stack_trace("Landable ship [src] with shuttle [shuttle] was mapped with a starting landmark type [ship_landmark.type], but should be /obj/effect/shuttle_landmark/ship.")
@@ -79,12 +83,12 @@
 		landmark.shuttle_name = shuttle
 		LAZYDISTINCTADD(initial_generic_waypoints, landmark.landmark_tag) // this is us being user-friendly: it means we register it properly regardless of whether the mapper put the tag in initial_restricted_waypoints
 
-	var/visitor_dir = fore_dir
-	for(var/landmark_name in list("FORE", "PORT", "AFT", "STARBOARD"))
-		var/turf/visitor_turf = get_ranged_target_turf(get_turf(landmark), visitor_dir, round(min(world.maxx/4, world.maxy/4)))
-		var/obj/effect/shuttle_landmark/visiting_shuttle/visitor_landmark = new (visitor_turf, landmark, landmark_name)
-		add_landmark(visitor_landmark)
-		visitor_dir = turn(visitor_dir, 90)
+		var/visitor_dir = fore_dir
+		for(var/landmark_name in list("FORE", "PORT", "AFT", "STARBOARD"))
+			var/turf/visitor_turf = get_ranged_target_turf(get_turf(landmark), visitor_dir, round(min(world.maxx/4, world.maxy/4)))
+			var/obj/effect/shuttle_landmark/visiting_shuttle/visitor_landmark = new (visitor_turf, landmark, landmark_name)
+			add_landmark(visitor_landmark)
+			visitor_dir = turn(visitor_dir, 90)
 
 	//Configure shuttle datum
 	GLOB.shuttle_moved_event.register(shuttle_datum, src, PROC_REF(on_shuttle_jump))
@@ -107,7 +111,7 @@
 	var/list/visitors // landmark -> visiting shuttle stationed there
 
 /obj/effect/shuttle_landmark/ship/Initialize(mapload, shuttle_name)
-	if(!mapload)
+	if(!src.shuttle_name)
 		landmark_tag += "_[shuttle_name]"
 		src.shuttle_name = shuttle_name
 	. = ..()

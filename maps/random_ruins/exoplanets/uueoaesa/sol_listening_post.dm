@@ -61,6 +61,7 @@
 		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/pirate(M), slot_belt)
 
 /obj/item/paper/fluff/sol_uueoa
+	language = LANGUAGE_SOL_COMMON
 
 /obj/item/paper/fluff/sol_uueoa/entry1
 	name = "SAMS Sentinel Entry #1"
@@ -89,14 +90,6 @@
 /obj/item/paper/fluff/sol_uueoa/entry5
 	name = "SAMS Sentinel Unsent Fax"
 	info = "words"
-
-/obj/item/paper/fluff/sol_uueoa/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=1\]"
-	languagetext += info
-	languagetext += "\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
 
 /obj/item/paper/fluff/sol_uueoa/entry5/Initialize()
 	. = ..()
