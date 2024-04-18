@@ -99,6 +99,7 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/einstein_shuttle
+	shuttle_name = "Einstein Shuttle"
 	landmark_tag = "nav_start_einstein"
 
 /obj/effect/shuttle_landmark/einstein_shuttle_transit
