@@ -628,17 +628,17 @@
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/chest/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/groin/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/groin/ipc/unbranded/cap // extreme nugget action
 	force_prosthetic_name = "prosthetic groin cap"
@@ -659,39 +659,39 @@
 /obj/item/organ/external/arm/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/arm/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/leg/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/leg/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/foot/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/foot/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/hand/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
 /obj/item/organ/external/hand/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
