@@ -8835,6 +8835,9 @@
 	randpixel = 0
 	},
 /obj/item/reagent_containers/weldpack,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/machinist)
 "uDF" = (

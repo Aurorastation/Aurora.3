@@ -228,6 +228,14 @@
 	..()
 	ex_act(2.0)
 
+//Fertilizer tank
+/obj/structure/reagent_dispensers/fertilizer
+	name = "fertilizer tank"
+	desc = "A tank filled with nutrients for plant growth"
+	icon_state = "lubetank"
+	amount_per_transfer_from_this = 30
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer = 1000)
+
 //Wall Dispensers
 
 /obj/structure/reagent_dispensers/peppertank

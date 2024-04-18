@@ -951,6 +951,9 @@
 	amount = 25
 	},
 /obj/item/stack/rods/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)
 "gF" = (
