@@ -12,7 +12,6 @@
 	sectors = list(SECTOR_NRRAHRAHUL, SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/unathi_pirate_izharshan
 	map = "Izharshan Shuttle"
@@ -110,6 +109,7 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/unathi_pirate_izharshan
+	shuttle_name = "Izharshan Freighter"
 	landmark_tag = "nav_izharshan_space"
 
 /obj/effect/shuttle_landmark/izharshan_transit
