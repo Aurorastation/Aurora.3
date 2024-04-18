@@ -5,149 +5,149 @@
 	layer = 2.02
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "b" = (
 /obj/structure/shipping_container{
 	icon_state = "grey3"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "d" = (
 /obj/structure/crane,
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "e" = (
 /obj/structure/shipping_container{
 	icon_state = "blue2"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "f" = (
 /obj/structure/shipping_container{
 	icon_state = "red3"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "h" = (
 /obj/effect/decal/curb{
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "j" = (
 /obj/effect/decal/curb/corner,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "k" = (
 /obj/effect/decal/curb,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "n" = (
 /obj/random/toolbox{
 	pixel_y = 10;
 	pixel_x = 11
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "o" = (
 /obj/effect/decal/curb{
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "p" = (
 /obj/effect/decal/curb/corner{
 	dir = 1
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "r" = (
 /obj/effect/decal/curb/corner{
 	dir = 4
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "s" = (
 /obj/structure/shipping_container,
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "t" = (
 /obj/structure/shipping_container{
 	icon_state = "red1"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "u" = (
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "v" = (
 /obj/structure/flora/rock/konyang/small,
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "w" = (
 /obj/structure/shipping_container{
 	icon_state = "grey2"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "x" = (
 /obj/random/junk,
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "y" = (
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "B" = (
 /obj/structure/shipping_container{
 	icon_state = "green3"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "C" = (
 /obj/structure/shipping_container{
 	icon_state = "grey1"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "E" = (
 /obj/structure/shipping_container{
 	icon_state = "green2"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "F" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "L" = (
 /obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "O" = (
 /obj/structure/shipping_container{
 	icon_state = "red2"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "R" = (
 /obj/effect/decal/curb/corner{
 	dir = 8
 	},
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "T" = (
 /obj/structure/shipping_container{
 	icon_state = "blue3"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 "Z" = (
 /obj/structure/shipping_container{
 	icon_state = "green1"
 	},
-/turf/simulated/floor/asphalt,
-/area/space)
+/turf/simulated/floor/exoplanet/asphalt,
+/area/template_noop)
 
 (1,1,1) = {"
 R

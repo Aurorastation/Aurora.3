@@ -2,14 +2,14 @@
 "a" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "d" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "e" = (
 /obj/structure/flora/ausbushes/leafybush,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "f" = (
 /obj/structure/table/standard,
 /obj/machinery/media/jukebox/phonograph{
@@ -25,17 +25,17 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "g" = (
 /obj/vehicle/bike/monowheel{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "h" = (
 /obj/structure/flora/ausbushes/brflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "i" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/reagent_containers/food/snacks/adhomian_sausage,
@@ -60,17 +60,17 @@
 /obj/item/reagent_containers/food/snacks/sarmikhir_sandwich,
 /obj/item/reagent_containers/food/snacks/sarmikhir_sandwich,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "j" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "l" = (
 /obj/structure/flora/ausbushes,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "m" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
@@ -89,33 +89,33 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "n" = (
 /obj/structure/flora/tree/grove,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "q" = (
 /obj/structure/flora/rock/konyang,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "r" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "s" = (
 /obj/structure/flora/ausbushes/leafybush,
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "u" = (
 /turf/simulated/floor/beach/water/alt,
-/area/space)
+/area/template_noop)
 "v" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "w" = (
 /obj/structure/flora/stump/log{
 	pixel_x = 9;
@@ -126,30 +126,30 @@
 	},
 /obj/item/gun/projectile/automatic/rifle/adhomian,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "x" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "y" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "z" = (
 /obj/structure/flora/ausbushes/reedbush,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "C" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "D" = (
 /obj/item/reagent_containers/food/snacks/stew/tajaran{
 	pixel_y = 8
 	},
 /obj/structure/bonfire/light_up,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "E" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/drinks/bottle/victorygin{
@@ -166,10 +166,10 @@
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "F" = (
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "G" = (
 /obj/item/stack/material/wood/log{
 	pixel_x = -2
@@ -187,54 +187,54 @@
 	},
 /obj/item/storage/pill_bottle/dice/tajara,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "H" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "I" = (
 /obj/structure/flora/stump,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "J" = (
 /obj/structure/bed/stool/chair/folding,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "M" = (
 /obj/structure/table/standard,
 /obj/item/pocketwatch/adhomai,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "O" = (
 /obj/structure/flora/ausbushes/ywflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "P" = (
 /obj/structure/bed/stool/chair/folding,
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "R" = (
 /obj/structure/flora/rock/konyang/small,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "S" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "T" = (
 /obj/structure/automobile,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "V" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
+/area/template_noop)
 "W" = (
 /obj/item/material/hatchet/lumber,
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 "Y" = (
 /obj/structure/table/standard,
 /obj/item/flame/lighter/adhomai{
@@ -250,7 +250,7 @@
 	pixel_x = -1
 	},
 /turf/simulated/floor/exoplanet/dirt_konyang,
-/area/space)
+/area/template_noop)
 
 (1,1,1) = {"
 S

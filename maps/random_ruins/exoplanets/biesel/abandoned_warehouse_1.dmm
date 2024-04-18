@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "dn" = (
 /turf/simulated/wall,
-/area/space)
+/area/template_noop)
 "dJ" = (
 /obj/structure/chainlink_fence{
 	dir = 1
@@ -10,183 +10,183 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "eA" = (
 /obj/effect/landmark/clear,
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "eH" = (
 /obj/effect/decal/remains/lizard,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "fj" = (
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "hJ" = (
 /obj/effect/decal/remains/rat,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "hR" = (
 /obj/machinery/door/urban,
-/turf/simulated/floor/tiled/full,
-/area/space)
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
 "hZ" = (
 /obj/structure/chainlink_fence,
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "im" = (
 /obj/effect/landmark/clear,
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "iR" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/powercell,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "jI" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/backpack,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "kb" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/colored_jumpsuit,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "ml" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "os" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/toolbox,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "qN" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/structure/trash_pile,
 /obj/structure/trash_pile,
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "qX" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/backpack,
 /obj/random/booze,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "qY" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/tool,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "ra" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/loot,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "sx" = (
 /obj/random/junk,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "sF" = (
 /obj/structure/table/steel,
 /obj/random/gloves,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "yg" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "AY" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/backpack,
 /obj/random/junk,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Bk" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/booze,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "BQ" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/tech_supply,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Co" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/loot,
 /obj/random/junk,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Cx" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/plushie,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Eo" = (
 /obj/structure/table/steel,
 /obj/random/mre,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "FD" = (
 /obj/structure/chainlink_fence{
 	dir = 1
 	},
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "FT" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/hoodie,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Gs" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "GY" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/softcap,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Ha" = (
 /obj/structure/trash_pile,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Hk" = (
 /turf/template_noop,
-/area/space)
+/area/template_noop)
 "Iq" = (
 /obj/machinery/light/broken{
 	dir = 1;
 	pixel_y = 19
 	},
 /obj/effect/decal/remains/rat,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Is" = (
 /obj/structure/table/steel,
 /obj/random/smalltank,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "JY" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/firstaid,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Kk" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/structure/trash_pile,
@@ -194,103 +194,103 @@
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
 /obj/effect/decal/remains/rat,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Lr" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Lz" = (
 /obj/machinery/light/broken{
 	dir = 1;
 	pixel_y = 19
 	},
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "LN" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/melee,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Mj" = (
 /obj/machinery/light{
 	name = "adjusted light fixture"
 	},
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "MR" = (
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Oc" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/belt,
 /obj/random/junk,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Or" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/seed,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "RA" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "SX" = (
 /obj/random/junk,
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "TG" = (
 /obj/machinery/light/broken,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "TY" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/seed,
 /obj/random/junk,
 /obj/random/glowstick,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Vn" = (
 /obj/structure/table/steel,
 /obj/random/softcap,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "WH" = (
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Yo" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/junk,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Yx" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/plushie,
 /obj/random/glowstick,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "YU" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/belt,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "Zy" = (
 /obj/structure/table/rack/retail_shelf,
 /obj/random/suit,
 /obj/random/tool,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 "ZJ" = (
 /obj/structure/table/steel,
 /obj/effect/decal/remains/lizard,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
 
 (1,1,1) = {"
 im

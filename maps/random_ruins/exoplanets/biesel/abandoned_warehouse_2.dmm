@@ -1,9 +1,75 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/obj/effect/landmark/clear,
-/turf/template_noop,
-/area/space)
-"b" = (
+"bB" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"cZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"gh" = (
+/obj/structure/table/steel,
+/obj/random/toolbox,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"gl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/plastic,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"gK" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"hG" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"jV" = (
+/turf/simulated/wall,
+/area/template_noop)
+"kQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/sulfur_dioxide,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"kY" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"lq" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/oxygen,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"lt" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"lV" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"mt" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"oU" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen/tritium,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"pq" = (
 /obj/structure/chainlink_fence{
 	dir = 1
 	},
@@ -11,568 +77,574 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"c" = (
-/obj/structure/trash_pile,
-/turf/simulated/floor/concrete,
-/area/space)
-"f" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"qS" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"rb" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"sD" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"tM" = (
+/obj/structure/table/steel,
+/obj/random/bandana,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"us" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"uy" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"uO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/plastic,
-/turf/simulated/floor/concrete,
-/area/space)
-"g" = (
-/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"uZ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"i" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"wp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/nitrogen_dioxide,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"xP" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"ya" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/hydrogen,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"zr" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"zB" = (
+/obj/structure/table/steel,
+/obj/random/mre,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"BL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/helium,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Ci" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"DL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/sleeping_agent,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Eu" = (
 /obj/structure/chainlink_fence,
 /obj/structure/chainlink_fence{
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"j" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/loot,
-/turf/simulated/floor/concrete,
-/area/space)
-"k" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Ew" = (
+/obj/machinery/light/broken,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Fv" = (
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"FA" = (
+/obj/structure/table/steel,
+/obj/random/smalltank,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Gp" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"GK" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/obj/random/cookingoil,
-/turf/simulated/floor/concrete,
-/area/space)
-"l" = (
+/obj/machinery/portable_atmospherics/canister/empty/boron,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"GS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/hydrogen,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Hj" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
 /obj/structure/trash_pile,
 /obj/structure/trash_pile,
 /obj/structure/trash_pile,
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"n" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"JS" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
 /obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"o" = (
-/obj/random/junk,
-/turf/simulated/floor/concrete,
-/area/space)
-"r" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Lq" = (
 /obj/structure/chainlink_fence,
-/turf/simulated/floor/concrete,
-/area/space)
-"t" = (
-/obj/structure/table/steel,
-/obj/random/desktoy,
-/turf/simulated/floor/concrete,
-/area/space)
-"u" = (
-/turf/simulated/floor/concrete,
-/area/space)
-"v" = (
-/obj/structure/table/steel,
-/obj/random/mre,
-/turf/simulated/floor/concrete,
-/area/space)
-"w" = (
-/obj/effect/landmark/clear,
-/obj/effect/landmark/clear,
-/turf/template_noop,
-/area/space)
-"x" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/turf/simulated/floor/concrete,
-/area/space)
-"y" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/cookingoil,
-/turf/simulated/floor/concrete,
-/area/space)
-"z" = (
-/turf/simulated/wall,
-/area/space)
-"A" = (
-/obj/random/junk,
-/obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"C" = (
-/obj/structure/chainlink_fence{
-	dir = 1
-	},
-/turf/simulated/floor/concrete,
-/area/space)
-"D" = (
-/obj/structure/chainlink_fence{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"E" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/concrete,
-/area/space)
-"F" = (
-/obj/machinery/door/urban,
-/turf/simulated/floor/tiled/full,
-/area/space)
-"H" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid,
-/turf/simulated/floor/concrete,
-/area/space)
-"I" = (
-/obj/structure/table/steel,
-/turf/simulated/floor/concrete,
-/area/space)
-"J" = (
-/obj/machinery/light{
-	name = "adjusted light fixture"
-	},
-/turf/simulated/floor/concrete,
-/area/space)
-"K" = (
-/obj/structure/table/steel,
-/obj/random/gloves,
-/turf/simulated/floor/concrete,
-/area/space)
-"L" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/turf/simulated/floor/concrete,
-/area/space)
-"N" = (
-/obj/structure/table/steel,
-/obj/random/toolbox,
-/turf/simulated/floor/concrete,
-/area/space)
-"O" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/structure/closet/crate/plastic,
-/turf/simulated/floor/concrete,
-/area/space)
-"Q" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/turf/simulated/floor/concrete,
-/area/space)
-"R" = (
-/obj/structure/table/steel,
-/obj/random/smalltank,
-/turf/simulated/floor/concrete,
-/area/space)
-"T" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/random/dirt_75,
-/obj/structure/closet/crate,
-/turf/simulated/floor/concrete,
-/area/space)
-"V" = (
-/turf/template_noop,
-/area/space)
-"X" = (
-/obj/structure/table/steel,
-/obj/random/bandana,
-/turf/simulated/floor/concrete,
-/area/space)
-"Y" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Mu" = (
 /obj/machinery/light/broken{
 	dir = 1;
 	pixel_y = 19
 	},
-/turf/simulated/floor/concrete,
-/area/space)
-"Z" = (
-/obj/machinery/light/broken,
-/turf/simulated/floor/concrete,
-/area/space)
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"NA" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Sp" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Tl" = (
+/obj/structure/chainlink_fence,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Uy" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/cookingoil,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Vk" = (
+/obj/structure/table/steel,
+/obj/random/gloves,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Vm" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty/chlorine,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"WQ" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/cookingoil,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"Yc" = (
+/obj/structure/table/steel,
+/obj/random/desktoy,
+/turf/simulated/floor/exoplanet/concrete,
+/area/template_noop)
+"ZS" = (
+/turf/template_noop,
+/area/template_noop)
 
 (1,1,1) = {"
-a
-a
-a
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
+zr
+zr
+zr
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 "}
 (2,1,1) = {"
-a
-a
-a
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
+zr
+zr
+zr
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 "}
 (3,1,1) = {"
-a
-w
-a
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
-V
+zr
+sD
+zr
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 "}
 (4,1,1) = {"
-a
-w
-a
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
+zr
+sD
+zr
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
 "}
 (5,1,1) = {"
-a
-w
-a
-z
-R
-u
-I
-N
-n
-n
-t
-H
-n
-o
-K
-v
-X
-z
+zr
+sD
+zr
+jV
+FA
+Gp
+xP
+gh
+kY
+kY
+Yc
+hG
+kY
+us
+Vk
+zB
+tM
+jV
 "}
 (6,1,1) = {"
-a
-w
-a
-F
-n
-o
-n
-u
-n
-n
-n
-u
-u
-n
-n
-u
-u
-z
+zr
+sD
+zr
+Ci
+kY
+us
+kY
+Gp
+kY
+kY
+kY
+Gp
+Gp
+kY
+kY
+Gp
+Gp
+jV
 "}
 (7,1,1) = {"
-a
-w
-a
-z
-Y
-u
-u
-u
-n
-n
-n
-u
-n
-u
-u
-c
-Z
-z
+zr
+sD
+zr
+jV
+Mu
+Gp
+Gp
+Gp
+kY
+kY
+kY
+Gp
+kY
+Gp
+Gp
+Fv
+Ew
+jV
 "}
 (8,1,1) = {"
-a
-w
-a
-z
-c
-u
-T
-Q
-u
-u
-E
-j
-u
-E
-T
-u
-n
-z
+zr
+sD
+zr
+jV
+Fv
+Gp
+NA
+ya
+Gp
+Gp
+lt
+lV
+Gp
+lq
+NA
+Gp
+kY
+jV
 "}
 (9,1,1) = {"
-a
-w
-a
-z
-n
-u
-Q
-Q
-u
-c
-k
-Q
-n
-f
-Q
-u
-n
-z
+zr
+sD
+zr
+jV
+kY
+Gp
+Vm
+oU
+Gp
+Fv
+Uy
+GK
+kY
+lt
+Sp
+Gp
+kY
+jV
 "}
 (10,1,1) = {"
-a
-w
-a
-z
-u
-u
-E
-E
-u
-n
-Q
-Q
-n
-E
-E
-u
-u
-z
+zr
+sD
+zr
+jV
+Gp
+Gp
+GS
+gK
+Gp
+kY
+JS
+uZ
+kY
+uO
+lt
+Gp
+Gp
+jV
 "}
 (11,1,1) = {"
-a
-w
-a
-z
-Y
-n
-j
-Q
-u
-n
-E
-L
-n
-E
-O
-n
-J
-z
+zr
+sD
+zr
+jV
+Mu
+kY
+lV
+JS
+Gp
+kY
+DL
+cZ
+kY
+kQ
+gl
+kY
+rb
+jV
 "}
 (12,1,1) = {"
-a
-w
-a
-z
-u
-u
-Q
-y
-u
-n
-f
-E
-n
-Q
-j
-u
-u
-z
+zr
+sD
+zr
+jV
+Gp
+Gp
+BL
+WQ
+Gp
+kY
+uO
+wp
+kY
+Sp
+lV
+Gp
+Gp
+jV
 "}
 (13,1,1) = {"
-a
-w
-a
-z
-A
-n
-n
-u
-o
-u
-u
-u
-u
-n
-u
-u
-c
-z
+zr
+sD
+zr
+jV
+mt
+kY
+kY
+Gp
+us
+Gp
+Gp
+Gp
+Gp
+kY
+Gp
+Gp
+Fv
+jV
 "}
 (14,1,1) = {"
-a
-w
-a
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
-z
+zr
+sD
+zr
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
+jV
 "}
 (15,1,1) = {"
-V
-a
-a
-a
-C
-n
-l
-l
-n
-u
-g
-a
-a
-a
-V
-V
-V
-V
+ZS
+zr
+zr
+zr
+uy
+kY
+Hj
+Hj
+kY
+Gp
+Tl
+zr
+zr
+zr
+ZS
+ZS
+ZS
+ZS
 "}
 (16,1,1) = {"
-V
-a
-a
-a
-n
-n
-n
-u
-n
-n
-r
-a
-a
-a
-V
-V
-V
-V
+ZS
+zr
+zr
+zr
+kY
+kY
+kY
+Gp
+kY
+kY
+Lq
+zr
+zr
+zr
+ZS
+ZS
+ZS
+ZS
 "}
 (17,1,1) = {"
-V
-a
-a
-a
-b
-x
-D
-D
-D
-x
-i
-a
-a
-a
-V
-V
-V
-V
+ZS
+zr
+zr
+zr
+pq
+qS
+bB
+bB
+bB
+qS
+Eu
+zr
+zr
+zr
+ZS
+ZS
+ZS
+ZS
 "}
 (18,1,1) = {"
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-V
-V
-V
+ZS
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+ZS
+ZS
+ZS
+ZS
 "}
 (19,1,1) = {"
-V
-a
-a
-a
-a
-a
-a
-a
-a
-a
-a
-V
-V
-V
-V
-V
-V
-V
+ZS
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+zr
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
 "}
