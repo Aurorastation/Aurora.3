@@ -364,7 +364,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_west)
 "abc" = (
 /obj/machinery/light/small/broken{
@@ -635,9 +635,6 @@
 "abE" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/item/pickaxe{
-	pixel_y = -9
-	},
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid)
 "abJ" = (
@@ -1364,7 +1361,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_west)
 "adw" = (
 /obj/structure/cable{
@@ -1562,7 +1559,7 @@
 	pixel_x = -5;
 	pixel_y = 2
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/bridge)
 "aej" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -1696,7 +1693,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_south)
 "aew" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2137,7 +2134,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_south)
 "aha" = (
 /obj/effect/floor_decal/corner/grey{
@@ -2315,7 +2312,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/mess)
 "ahN" = (
 /obj/effect/floor_decal/corner/grey,
@@ -2363,7 +2360,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_west)
 "aiw" = (
 /obj/structure/table/steel,
@@ -2477,7 +2474,7 @@
 /obj/machinery/light/broken{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/crew_quarters)
 "aje" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2745,7 +2742,7 @@
 /obj/machinery/light/colored/dying{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/storage_two)
 "akI" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3{
@@ -2944,7 +2941,7 @@
 /area/cult_base/eva)
 "alQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/mess)
 "amd" = (
 /obj/machinery/light/broken{
@@ -2983,7 +2980,7 @@
 	},
 /obj/machinery/light/broken,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/crew_quarters)
 "amr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3185,7 +3182,6 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
-/obj/machinery/light/broken,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
@@ -3228,6 +3224,7 @@
 /area/cult_base/engineering)
 "anG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/ore_box,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "anH" = (
@@ -3316,7 +3313,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/slate,
+/turf/simulated/floor/tiled/slate/full,
 /area/cult_base/medbay)
 "aoj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3343,8 +3340,8 @@
 /area/shuttle/cult_base/cargo)
 "aoq" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
 /obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "aos" = (
@@ -3402,7 +3399,6 @@
 "aoF" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -3412,6 +3408,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/mess)
 "aoI" = (
@@ -3435,7 +3432,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_west)
 "aoT" = (
 /obj/machinery/light/broken{
@@ -3607,7 +3604,7 @@
 	pixel_y = -6;
 	pixel_x = -7
 	},
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -4078,12 +4075,11 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_south)
 "asr" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -4093,6 +4089,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/lounge)
 "ass" = (
@@ -4323,7 +4320,7 @@
 /obj/machinery/light/broken{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/storage_two)
 "atO" = (
 /obj/effect/floor_decal/corner/grey{
@@ -4444,11 +4441,13 @@
 	pixel_x = -7;
 	pixel_y = -8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/eva)
 "aus" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space,
+/obj/item/clothing/suit/space{
+	pixel_y = 4
+	},
 /obj/item/clothing/head/helmet/space{
 	pixel_x = -3;
 	pixel_y = -4
@@ -4836,6 +4835,10 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/item/storage/box/excavation{
+	pixel_x = 8;
+	pixel_y = -2
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "awv" = (
@@ -4872,7 +4875,7 @@
 /area/cult_base/engineering)
 "awF" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red,
+/obj/effect/floor_decal/industrial/arrow/yellow,
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid)
 "awL" = (
@@ -5048,7 +5051,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline_segment/red,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_north)
 "axC" = (
 /obj/structure/table/wood,
@@ -5143,10 +5146,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_north)
 "ayx" = (
-/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light/broken{
+	dir = 4
+	},
 /obj/random/dirt_75,
-/turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
+/obj/structure/ore_box,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/storage_one)
 "ayy" = (
 /turf/simulated/floor/plating,
 /area/cult_base/atmos_supply)
@@ -5184,7 +5191,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/slate,
+/turf/simulated/floor/tiled/slate/full,
 /area/cult_base/medbay)
 "ayM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5194,7 +5201,9 @@
 /area/cult_base/maint_south)
 "ayS" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/emergency,
+/obj/item/clothing/suit/space/emergency{
+	pixel_y = 4
+	},
 /obj/item/clothing/head/helmet/space/emergency{
 	pixel_x = -5
 	},
@@ -5244,14 +5253,14 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_west)
 "azo" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/junk,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/crew_quarters)
 "azp" = (
 /obj/machinery/door/airlock/external,
@@ -5305,14 +5314,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_south)
 "azM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /obj/machinery/light/colored/dying,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_south)
 "azO" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -5458,7 +5467,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_south)
 "aAz" = (
 /obj/random/dirt_75,
@@ -5667,7 +5676,7 @@
 /obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_north)
 "aBE" = (
 /obj/structure/table/reinforced/steel,
@@ -5853,6 +5862,10 @@
 /obj/item/pen/white{
 	pixel_x = -6;
 	pixel_y = -1
+	},
+/obj/random/pottedplant_small{
+	pixel_y = 16;
+	pixel_x = -6
 	},
 /turf/simulated/floor/wood/walnut,
 /area/cult_base/chiefs_quarters)
@@ -6102,7 +6115,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_east)
 "aEV" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/red{
@@ -6229,7 +6242,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/storage_one)
 "aGh" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6366,6 +6379,11 @@
 "aGQ" = (
 /turf/simulated/mineral/surface,
 /area/cult_base/asteroid_inside)
+"aGT" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/plating,
+/area/cult_base/maint_south)
 "aGV" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -6619,7 +6637,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/storage_one)
 "aIl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -6827,10 +6845,10 @@
 /area/cult_base/hallways_south)
 "aJA" = (
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/loot,
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
+/obj/structure/ore_box,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/storage_two)
 "aJD" = (
@@ -7360,7 +7378,7 @@
 	pixel_x = 11;
 	pixel_y = 11
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/eva)
 "aMq" = (
 /turf/simulated/floor/plating,
@@ -7730,9 +7748,6 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -7741,6 +7756,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/medbay)
@@ -7814,7 +7832,7 @@
 /area/cult_base/storage_two)
 "aOJ" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/plating/asteroid,
@@ -7927,7 +7945,7 @@
 /area/cult_base/storage_two)
 "aPB" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_west)
 "aPK" = (
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -7943,7 +7961,6 @@
 "aPR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
@@ -7956,6 +7973,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/machinery/door/airlock/glass,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
 "aPS" = (
@@ -7978,7 +7996,7 @@
 /obj/machinery/light/colored/dying{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_east)
 "aQh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8122,7 +8140,7 @@
 	dir = 4
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_south)
 "aRd" = (
 /obj/effect/floor_decal/corner/yellow/diagonal,
@@ -8351,7 +8369,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_south)
 "aSb" = (
 /obj/effect/floor_decal/corner/grey{
@@ -8542,17 +8560,18 @@
 	pixel_x = 5;
 	pixel_y = -3
 	},
-/obj/item/clothing/suit/space{
-	pixel_x = -3
-	},
-/obj/item/clothing/head/helmet/space{
-	pixel_x = -6;
-	pixel_y = -4
-	},
 /obj/machinery/light/broken{
 	dir = 8
 	},
 /obj/random/dirt_75,
+/obj/item/clothing/suit/space/void/mining{
+	pixel_x = 2;
+	pixel_y = -1
+	},
+/obj/item/clothing/head/helmet/space/void/mining{
+	pixel_x = -4;
+	pixel_y = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/eva)
 "aSV" = (
@@ -8623,7 +8642,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_west)
 "aTo" = (
 /obj/effect/floor_decal/corner/grey{
@@ -8700,7 +8719,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/bridge)
 "aTO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -8769,7 +8788,7 @@
 /area/cult_base/asteroid)
 "aUg" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/plating/asteroid,
@@ -9496,7 +9515,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/docks_south)
 "aYz" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -9602,9 +9621,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
 "aYV" = (
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light/broken{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
-/area/cult_base/atmos_waste)
+/area/cult_base/hallways_north)
 "aYX" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/firedoor/noid,
@@ -9798,14 +9821,14 @@
 /area/cult_base/medbay)
 "aZN" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 9
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid)
 "aZQ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_west)
 "aZR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -10054,7 +10077,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/cult_base/hallways_south)
 "dlj" = (
 /obj/effect/floor_decal/industrial/outline_door/red,
@@ -10285,7 +10308,7 @@
 /area/shuttle/cult_base/crew)
 "eQf" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -10812,6 +10835,20 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/cult_base/maint_mid)
+"hYK" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/material/twohanded/fireaxe{
+	pixel_x = -12;
+	pixel_y = -3
+	},
+/obj/effect/ghostspawpoint{
+	identifier = "cult_base_cultist";
+	name = "igs - cult_base_cultist";
+	single_use = 1
+	},
+/turf/simulated/floor/exoplanet/barren,
+/area/cult_base/asteroid)
 "hYV" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -11060,6 +11097,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
+"jAK" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/crew_quarters)
 "jBg" = (
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/simulated/floor/cult,
@@ -11240,7 +11287,7 @@
 /area/cult_base/atmos_supply)
 "lfM" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/plating/asteroid,
@@ -11753,7 +11800,7 @@
 /area/cult_base/hallways_south)
 "onh" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/plating/asteroid,
@@ -12003,6 +12050,12 @@
 "pYT" = (
 /obj/effect/gibspawner/robot,
 /obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = -9
+	},
+/obj/item/pickaxe{
+	pixel_y = -9
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "qai" = (
@@ -12076,7 +12129,7 @@
 /area/cult_base/asteroid)
 "qCP" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/barren,
@@ -12155,7 +12208,7 @@
 /obj/machinery/alarm/east{
 	req_one_access = null
 	},
-/obj/structure/closet/crate/loot,
+/obj/structure/closet/excavation,
 /turf/simulated/floor/plating,
 /area/shuttle/cult_base/cargo)
 "rli" = (
@@ -12703,7 +12756,7 @@
 /area/cult_base/atmos_waste)
 "uIA" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red,
+/obj/effect/floor_decal/industrial/arrow/yellow,
 /turf/simulated/floor/plating/asteroid,
 /area/cult_base/asteroid_inside)
 "uJF" = (
@@ -12815,6 +12868,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/crew_quarters)
+"vlg" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/closet/crate/loot,
+/obj/random/dirt_75,
+/obj/item/storage/bag/ore,
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/storage_one)
 "vll" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
@@ -12833,7 +12893,7 @@
 /obj/random/firstaid{
 	pixel_x = 6
 	},
-/obj/effect/floor_decal/industrial/arrow/red{
+/obj/effect/floor_decal/industrial/arrow/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/plating/asteroid,
@@ -12981,7 +13041,7 @@
 /area/cult_base/hallways_south)
 "wQh" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/arrow/red,
+/obj/effect/floor_decal/industrial/arrow/yellow,
 /turf/simulated/floor/exoplanet/barren,
 /area/cult_base/asteroid)
 "wVn" = (
@@ -13016,9 +13076,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_south)
 "xfK" = (
-/obj/effect/floor_decal/industrial/arrow,
-/turf/template_noop,
-/area/space)
+/turf/simulated/wall/r_wall{
+	can_open = 1;
+	color = "#CCDDFF"
+	},
+/area/cult_base/hallways_north)
 "xmz" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -36911,7 +36973,7 @@ aZi
 aZi
 aZi
 aZi
-uOR
+aZi
 aZi
 aZi
 aZi
@@ -37433,7 +37495,7 @@ aZi
 aZi
 aZi
 aZi
-aZi
+uOR
 aZi
 aZi
 aZi
@@ -46683,7 +46745,7 @@ aCb
 aCb
 aCb
 aZi
-xfK
+aZi
 aZi
 aZi
 aPl
@@ -48490,7 +48552,7 @@ aFm
 apX
 aXZ
 apX
-aXZ
+apX
 aOn
 akD
 acZ
@@ -48745,7 +48807,7 @@ akV
 aba
 aFm
 apX
-ayx
+kzX
 aHr
 aGV
 aOn
@@ -49259,7 +49321,7 @@ aVE
 agn
 apX
 apX
-aYV
+aMq
 afW
 gCb
 aOn
@@ -49782,8 +49844,8 @@ aUi
 aFC
 aNk
 aOn
-hTS
-aUF
+vlg
+ayx
 alo
 aRT
 aUF
@@ -50577,7 +50639,7 @@ aCb
 alx
 aFx
 ioo
-ioo
+aGT
 adR
 aCb
 aCb
@@ -51294,7 +51356,7 @@ abJ
 aCb
 aCb
 azZ
-aLb
+hYK
 aCb
 aUe
 tvK
@@ -52861,10 +52923,10 @@ aaL
 aNp
 atH
 aIg
-adK
+aYV
 anP
 anu
-aGp
+xfK
 onh
 aGQ
 aGQ
@@ -56986,7 +57048,7 @@ aDQ
 aDQ
 aDQ
 aKN
-ajB
+jAK
 aKN
 aAe
 aAe
@@ -57764,7 +57826,7 @@ aAe
 aAe
 aAe
 aAe
-aAe
+aai
 aAe
 aAe
 aAe
