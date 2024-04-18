@@ -8,7 +8,6 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_bar.dmm")
-	ban_ruins = list("moghes_bar")
 
 /area/ouerea_bar
 	name = "Ouerea Bar"

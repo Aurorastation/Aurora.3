@@ -6,4 +6,3 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_fishing_spot.dmm")
-	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_fishing_spot)
