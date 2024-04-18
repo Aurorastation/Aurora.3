@@ -10,12 +10,6 @@
 	tag_icon = "dionae_voidsong"
 	text_tag = "VDS"
 
-/datum/accent/ancientsong
-	name = ACCENT_ANCIENTSONG
-	description = "An accent unique to the Dionae hailing for EUM. It sounds similar to Rootsong, although with a higher pitch."
-	tag_icon = "dionae_ancientsong"
-	text_tag = "ATS"
-
 /datum/accent/crimsonsong
 	name = ACCENT_CRIMSONSONG
 	description = "Originating from the red sea that is the Badlands, Crimsonsong is a variation of Voidsong spoken by Dionae hailing from the region, with the main distinction between the two being a noticeably faster tempo as well as a slightly higher pitch."
@@ -87,3 +81,52 @@
 	description = "A unique combination of elements from both Nral'malic and Rootsong, Xrim's accent can generally be picked up due to its slow, dulcet sound. It has wide range, and can reach as high as a Soprano and as low as an Alto. Its fluctuations are generally an easy way to detect the accent, being one of the more novel accents within the Federation, and abroad."
 	tag_icon = "dionae_xrim"
 	text_tag = "XMS"
+
+// Hieroaetherian Accents
+/datum/accent/hieroaetherian
+	name = ACCENT_HIEROAETHERIAN
+	description = "An accent unique to dionae hailing from the Commonwealth of Hieroaetheria who live outside of the three nations, known as Hieroaetherian Old. It sounds similar to Rootsong, although with a unique tonality that often begins and ends on high-pitched harmonies, sounding rather elegant. The accent has been in-decline due to the rising dominance of the three major factions."
+	tag_icon = "dionae_hieroaetheria"
+	text_tag = "HRA"
+
+/datum/accent/rapturian
+	name = ACCENT_RAPTURIAN
+	description = "A Voidsong accent unique to dionae hailing from the Titan's Rapture system, who originate away from Hieroaetheria and instead elsewhere in the Titan's Rapture system. The accent is categorised as almost obnoxious, being louder and higher than other forms of Voidsong in the tenor range, as well as being spoken at a quicker pace, making it difficult to keep up with sometimes - this is believed to be due to Titan's Rapture dionae grappling for attention in such a loud and overwhelming environment."
+	tag_icon = "dionae_rapture"
+	text_tag = "TNR"
+
+/datum/accent/consortium
+	name = ACCENT_CONSORTIUM
+	description = "An accent very similar to Ancient Song, though standardised to be the same across the Consortium of Hieroaetheria and more easy on the ears of non-dionae. It remains typically higher pitched than ordinary Rootsong, though lacks the unique tonality of Hieroaetherian Old, and in recent times has begun to adopt some chirpy sounds of skrell."
+	tag_icon = "dionae_consortium"
+	text_tag = "CNS"
+
+/datum/accent/glaorr
+	name = ACCENT_GLAORR
+	description = "An eloquent accent heard in the territories controlled by the Union of Gla'orr, where each syllable is perfectly enunciated and each note harmonised when speaking with other dionae. It has a similar tonality to Hieroaetherian Old, though with a bit of sing-songy lilt."
+	tag_icon = "dionae_glaorr"
+	text_tag = "UNN"
+
+/datum/accent/ekane
+	name = ACCENT_EKANE
+	description = "A accent with a lot of variation among different communities of Ekanians. It is very high-pitched, more so than any other form of Rootsong, and is often described as grating by non-Dionae."
+	tag_icon = "dionae_ekane"
+	text_tag = "ETR"
+
+/datum/accent/anu
+	name = ACCENT_ANU
+	description = "A dialect of Consortium Standard which is characterised by it's slight higher pitch than ordinary Rootsong, though one which lacks the unique tonality of other accents heard on Hieroaetheria. Compared to Consortium Standard, the Anu dialect incorporates even more skrell-like chirps and human-like hums; even when speaking Rootsong, this dialect of Consortium Standard almost sounds understandable to non-Dionae if heard in the background."
+	tag_icon = "dionae_anu"
+	text_tag = "ANU"
+
+/datum/accent/gentlewinds
+	name = ACCENT_GENTLEWINDS
+	description = "An accent entirely divorced from Consortium Standard due to the different growing conditions on Gentle Winds, this accent is a hybridised Rootsong-Voidsong accent, sitting awkwardly between the tenor and alto ranges and only with the occasional, low, resonant warble-like sound that connects it to Consortium Standard."
+	tag_icon = "dionae_gentle"
+	text_tag = "GNL"
+
+/datum/accent/hopestendrils
+	name = ACCENT_HOPESTENDRILS
+	description = "A dialect of Consortium Standard which is characterised by it's slight higher pitch than ordinary Rootsong, though one which lacks the unique tonality of other accents heard on Hieroaetheria. Compared to Consortium Standard, the Hope's Tendrils dialect is noticably more euphoric with a sing-songy pacing and sustained notes."
+	tag_icon = "dionae_hopetendrils"
+	text_tag = "HPE"

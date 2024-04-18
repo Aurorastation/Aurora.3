@@ -16,6 +16,18 @@
 	icon_state = "blue1"
 	initial_flooring = /singleton/flooring/carpet/darkblue
 
+/turf/simulated/floor/exoplanet/carpet/lightblue
+	icon_state = "blue2"
+	initial_flooring = /singleton/flooring/carpet/lightblue
+
+/turf/simulated/floor/exoplanet/carpet/red
+	icon_state = "red"
+	initial_flooring = /singleton/flooring/carpet/red
+
+/turf/simulated/floor/exoplanet/carpet/orange
+	icon_state = "orange"
+	initial_flooring = /singleton/flooring/carpet/orange
+
 /turf/simulated/floor/exoplanet/carpet/rubber
 	name = "rubber carpet"
 	icon_state = "rub_carpet"
