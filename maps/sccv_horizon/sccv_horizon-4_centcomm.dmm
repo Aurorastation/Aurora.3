@@ -718,6 +718,9 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
+"acW" = (
+/turf/simulated/wall/shuttle/hapt,
+/area/shuttle/admin)
 "ada" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 1;
@@ -760,10 +763,6 @@
 /obj/machinery/porta_turret/cannon,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/reinforced,
-/area/shuttle/admin)
-"adl" = (
-/obj/machinery/vending/tacticool/ert,
-/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "adm" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -1901,15 +1900,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
-"agk" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
 "agl" = (
 /obj/effect/floor_decal/corner/lime/full,
 /turf/simulated/floor/tiled/white,
@@ -2061,7 +2051,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee,
-/obj/machinery/light/colored/blue,
+/obj/machinery/light,
 /turf/simulated/floor/carpet,
 /area/shuttle/admin)
 "agH" = (
@@ -3594,6 +3584,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
+"akP" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
 "akQ" = (
 /obj/machinery/newscaster/east{
 	pixel_y = 3
@@ -4003,10 +4002,6 @@
 /obj/structure/undies_wardrobe,
 /turf/simulated/floor/wood,
 /area/merchant_station)
-"alQ" = (
-/obj/machinery/vending/security,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/admin)
 "alR" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor/plating,
@@ -30038,6 +30033,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
+"bzI" = (
+/obj/machinery/vending/tacticool/ert,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/admin)
 "bzK" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -34203,15 +34202,6 @@
 	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
-"dlN" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
 "doG" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
@@ -34363,6 +34353,10 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
+"dMt" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/shuttle/admin)
 "dMF" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/holofloor/wood,
@@ -38044,6 +38038,10 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
+"qBY" = (
+/obj/machinery/vending/security,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/admin)
 "qEC" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/misc/beach.dmi';
@@ -38584,9 +38582,6 @@
 	},
 /turf/simulated/floor/holofloor/tiled,
 /area/horizon/holodeck/source_thunderdomecourt)
-"sTf" = (
-/turf/simulated/wall/shuttle/hapt,
-/area/shuttle/admin)
 "sTs" = (
 /obj/effect/spider/cocoon,
 /turf/simulated/floor/exoplanet/barren/raskara,
@@ -38920,6 +38915,15 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
+"tZL" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
 "tZQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
@@ -48623,12 +48627,12 @@ abJ
 abJ
 abJ
 aha
-sTf
-sTf
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
+acW
+acW
 aci
 abJ
 abJ
@@ -48872,20 +48876,20 @@ aaa
 aaa
 abl
 abJ
-sTf
-sTf
+acW
+acW
 abJ
 agL
-sTf
-sTf
-sTf
+acW
+acW
+acW
 aha
 uYM
 ajU
 ajU
 uYM
-sTf
-sTf
+acW
+acW
 aha
 abJ
 abJ
@@ -49130,24 +49134,24 @@ aaa
 abl
 abJ
 adF
-sTf
-sTf
-sTf
-sTf
-sTf
-sTf
-alQ
+acW
+acW
+acW
+acW
+acW
+acW
+qBY
 afd
 afd
 afd
 afd
-sTf
-sTf
+acW
+acW
 aha
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
 aha
 aiw
 abJ
@@ -49387,18 +49391,18 @@ aaa
 abl
 abJ
 adF
-sTf
-sTf
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
+acW
+acW
 aeK
 aix
 aix
 aix
 afM
-sTf
+acW
 aiW
 agX
 agX
@@ -49644,13 +49648,13 @@ aaa
 abl
 abJ
 adF
-sTf
-sTf
-sTf
-sTf
-sTf
-sTf
-adl
+acW
+acW
+acW
+acW
+acW
+acW
+bzI
 afd
 afd
 afd
@@ -49900,27 +49904,27 @@ aaa
 aaa
 abl
 abJ
-sTf
-sTf
+acW
+acW
 abJ
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
 aha
 akd
 bxE
 afg
 acV
-sTf
+acW
 agE
 agW
 ahS
 ahS
 agW
-sTf
+acW
 aha
-sTf
+acW
 abJ
 abJ
 abJ
@@ -50160,26 +50164,26 @@ abJ
 abJ
 abJ
 ahC
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
 aha
-sTf
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
+acW
 akc
 aha
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
 aha
-sTf
-sTf
-sTf
+acW
+acW
+acW
 abJ
 ajb
 ajb
@@ -50420,11 +50424,11 @@ abJ
 abJ
 ahE
 adH
-dlN
+tZL
 aeO
 aeO
 akO
-dlN
+tZL
 ygc
 aeO
 akO
@@ -50681,7 +50685,7 @@ afx
 afx
 afx
 ahc
-agk
+akP
 ahR
 afx
 ahc
@@ -50931,26 +50935,26 @@ abJ
 abJ
 abJ
 ahC
-sTf
-sTf
-sTf
+acW
+acW
+acW
 ahE
 aha
 agK
-sTf
-sTf
-sTf
+acW
+acW
+acW
 adZ
-sTf
+acW
 aha
-sTf
+acW
 rIq
-sTf
-sTf
+acW
+acW
 lCF
-sTf
-sTf
-sTf
+acW
+acW
+acW
 abJ
 ajb
 ajb
@@ -51185,27 +51189,27 @@ aaa
 aaa
 abl
 abJ
-sTf
-sTf
+acW
+acW
 abJ
-sTf
-sTf
+acW
+acW
 akE
 dgh
 ajW
-aeR
-sTf
+dMt
+acW
 afz
 afR
 agl
-sTf
+acW
 ajY
 ahF
 aiY
 cbe
-sTf
+acW
 aha
-sTf
+acW
 abJ
 abJ
 abJ
@@ -51443,19 +51447,19 @@ aaa
 abl
 abJ
 adF
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
 aka
 aeR
 aeR
 aeR
-sTf
+acW
 aeS
 afT
 agm
-sTf
+acW
 qTA
 aix
 akb
@@ -51700,19 +51704,19 @@ aaa
 abl
 abJ
 adF
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
 ajV
 aeR
 aeR
 aeR
-sTf
+acW
 aeT
 afT
 agn
-sTf
+acW
 aiz
 ahH
 alq
@@ -51957,24 +51961,24 @@ aaa
 abl
 abJ
 adF
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
 adL
 aec
 abm
 agG
-sTf
+acW
 afC
 agI
 wBC
-sTf
+acW
 aha
 wOw
 wOw
-sTf
-sTf
+acW
+acW
 aha
 aiw
 abJ
@@ -52213,20 +52217,20 @@ aaa
 aaa
 abl
 abJ
-sTf
-sTf
+acW
+acW
 abJ
 agH
-sTf
-sTf
+acW
+acW
 wOw
 wOw
 wOw
-sTf
+acW
 mqr
 ikQ
 alp
-sTf
+acW
 aha
 abJ
 abJ
@@ -52479,11 +52483,11 @@ abJ
 abJ
 abJ
 abJ
-sTf
-sTf
-sTf
-sTf
-sTf
+acW
+acW
+acW
+acW
+acW
 ajC
 abJ
 abJ
