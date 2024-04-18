@@ -197,16 +197,3 @@
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/operations
-
-// Admin Shuttle
-
-/datum/shuttle/autodock/multi/admin
-	name = "Crescent Shuttle"
-	current_location = "nav_admin_start"
-	warmup_time = 10
-	shuttle_area = /area/shuttle/admin
-	dock_target = "admin_shuttle"
-	destination_tags = list(
-		"nav_admin_start",
-		"nav_horizon_dock_deck_3_starboard_2"
-		)

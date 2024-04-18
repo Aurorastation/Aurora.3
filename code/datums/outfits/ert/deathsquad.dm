@@ -79,12 +79,14 @@
 
 	id_iff = IFF_DEATHSQUAD
 
+/obj/outfit/admin/deathsquad/nt
+	name = "NanoTrasen Asset Protection Trooper"
+
+	back = /obj/item/rig/ert/ntassetprotection
 /obj/outfit/admin/deathsquad/nt/leader
-	name = "Nanotrasen Asset Protection Lead"
+	name = "NanoTrasen Asset Protection Lead"
 
 	back = /obj/item/rig/ert/ntassetprotection/lead
-	l_pocket = /obj/item/pinpointer
-	r_hand = /obj/item/device/orbital_dropper/icarus_drones
 
 /obj/outfit/admin/deathsquad/nt/get_id_access()
 	return get_all_accesses()
