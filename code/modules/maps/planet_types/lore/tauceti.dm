@@ -76,8 +76,13 @@
 	desc = "An ice world just outside the outer edge of the habitable zone."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "globe1"
+	features_budget = 1
+	possible_themes = list(/datum/exoplanet_theme/snow/tundra)
+	rock_colors = list(COLOR_GUNMETAL)
 	generated_name = FALSE
 	ring_chance = 0
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/gibson_mining, /datum/map_template/ruin/exoplanet/gibson_resupply)
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/update_icon()
 	return
