@@ -970,12 +970,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
-"adn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/wall/shuttle/hapt{
-	color = "2E2B2B"
-	},
-/area/shuttle/admin)
 "adp" = (
 /obj/machinery/computer/shuttle_control/multi/admin,
 /obj/machinery/button/remote/blast_door{
@@ -1320,7 +1314,7 @@
 	name = "Medical Bay";
 	req_access = list(103)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "aeb" = (
 /obj/effect/floor_decal/corner/red{
@@ -2557,7 +2551,7 @@
 	dir = 8;
 	name = "Passengers"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "agL" = (
 /obj/machinery/porta_turret/cannon,
@@ -3781,16 +3775,6 @@
 "ajR" = (
 /turf/simulated/wall,
 /area/merchant_station)
-"ajS" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	id = "corvette__bridge_exterior";
-	name = "blast door"
-	},
-/turf/simulated/wall/shuttle/hapt{
-	color = "2E2B2B"
-	},
-/area/shuttle/admin)
 "ajT" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	name = "Heavy Asset Protection";
@@ -38155,7 +38139,7 @@
 	dir = 8
 	},
 /obj/machinery/door/window/westright,
-/turf/unsimulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "lDj" = (
 /obj/structure/table/stone/marble,
@@ -40278,7 +40262,7 @@
 	name = "Cockpit";
 	req_access = list(103)
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/admin)
 "rIW" = (
 /obj/structure/window/reinforced/holowindow,
@@ -53142,7 +53126,7 @@ ahC
 acW
 acW
 acW
-adn
+ahE
 aha
 agK
 acW
@@ -54427,9 +54411,9 @@ abJ
 agH
 acW
 acW
-ajS
-ajS
-ajS
+wOw
+wOw
+wOw
 acW
 mqr
 ikQ
