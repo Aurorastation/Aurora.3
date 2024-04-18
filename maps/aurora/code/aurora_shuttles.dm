@@ -171,8 +171,7 @@ AURORA_ESCAPE_POD(4)
 	dock_target = "admin_shuttle"
 	destination_tags = list(
 		"nav_admin_start",
-		"nav_admin_green",
-		"nav_admin_command"
+		"nav_horizon_dock_deck_3_starboard_2"
 		)
 
 /obj/effect/shuttle_landmark/admin/start

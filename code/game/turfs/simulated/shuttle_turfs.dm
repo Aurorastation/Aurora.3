@@ -121,7 +121,7 @@
 	color = "#6C7364"
 
 /turf/simulated/wall/shuttle/hapt
-	color = "#300808"
+	color = "#2E2B2B"
 
 /turf/simulated/wall/shuttle/legion
 	color = "#5F78A0"

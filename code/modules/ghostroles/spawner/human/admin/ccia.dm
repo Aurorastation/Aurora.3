@@ -32,7 +32,12 @@
 	short_name = "vip"
 	name = "Very Important Person"
 
+	outfit = /obj/outfit/admin/nt/vip
 
+	assigned_role = "VIP"
+	special_role = "VIP"
+
+	mob_name_pick_message = "Pick a name."
 
 /datum/ghostspawner/human/admin/corporate/ccia_agent/New()
 	desc = "Board the [SSatlas.current_map.station_name], annoy crew with your interviews and get squashed by your own shuttle."
