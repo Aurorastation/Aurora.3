@@ -19,5 +19,5 @@
 	desc = "1st and 2nd Octaves aboard the Narrows are either new or who have repeatedly been disciplined for not adhering to the Narrows' culture and ideals, perhaps being Diminished. Aboard the Narrows, they are assigned to menial positions and are often under constant oversight from any higher octave supervisors. As the Narrows does not permit lower octaves to be leased off the Narrows, a number of dionae who do not align with the ideals of the ship consider smuggling themselves off the Narrows or fleeing their post."
 	important_information = "Hephaestus Industries will not employ deserters of the Narrows; other companies will employ deserters in any position as long as they have received the training on or off the Narrows."
 	possible_accents = list(ACCENT_LABOURSONG)
-	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_EUM, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
+	possible_citizenships = list(CITIZENSHIP_NRALAKK, CITIZENSHIP_CONSORTIUM, CITIZENSHIP_EKANE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_ETERNAL, RELIGION_ETERNAL_ICHOR, RELIGION_ETERNAL_IRON, RELIGION_OTHER, RELIGION_NONE)

@@ -5953,6 +5953,9 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
 /obj/item/gun/energy/plasmacutter,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "nLr" = (

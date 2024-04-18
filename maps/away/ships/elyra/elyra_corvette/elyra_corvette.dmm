@@ -6253,6 +6253,9 @@
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/engineering)
 "JF" = (
