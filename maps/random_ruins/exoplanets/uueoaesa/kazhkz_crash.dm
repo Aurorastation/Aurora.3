@@ -102,4 +102,4 @@
 		Once you have secured the position, the remainder of our forces will move in and seize the Izweski stronghold. This war will end in one stroke, as the Hegemony will either capitulate or crumble into infighting. It is a deadly mission I entrust you with, yet your clan's lord tells me that there is no officer of his blood who would be better-suited.<br>\
 		Strike fear into their hearts and glory into your own, Uezsla Han'san.<br>\
 		<i>By the hand and will of King Seryo Kazhkz.</i>"
-		language = LANGUAGE_AZAZIBA
+	language = LANGUAGE_AZAZIBA
