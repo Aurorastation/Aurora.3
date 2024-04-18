@@ -109,7 +109,7 @@
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/template_noop)
 "u" = (
-/turf/simulated/floor/beach/water/alt,
+/turf/simulated/floor/exoplanet/water/shallow,
 /area/template_noop)
 "v" = (
 /obj/structure/flora/ausbushes/sparsegrass,
