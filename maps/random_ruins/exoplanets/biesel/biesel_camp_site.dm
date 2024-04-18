@@ -9,7 +9,7 @@
 	prefix = "biesel/"
 	suffixes = list("biesel_camp_site.dmm")
 
- /area/biesel_camp_site
+/area/biesel_camp_site
 	name = "Biesel Camp Site"
 	icon_state = "bluenew"
 	requires_power = FALSE
