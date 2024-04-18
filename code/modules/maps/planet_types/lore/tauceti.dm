@@ -165,7 +165,8 @@
 		/datum/map_template/ruin/exoplanet/cargo_ruins_2
 		/datum/map_template/ruin/exoplanet/cargo_ruins_3
 		/datum/map_template/ruin/exoplanet/pra_camp_site
-	)
+		)
+
 	place_near_main = list(2, 2)
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_habitability()
