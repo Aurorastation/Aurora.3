@@ -24,6 +24,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "aS" = (
+/obj/machinery/door/urban/glass_sliding/double{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "bo" = (
@@ -444,9 +447,9 @@
 /area/space)
 "uA" = (
 /obj/structure/closet/crate/bin/urban/dumpster,
-/obj/structure/trash_pile,
-/obj/structure/trash_pile,
-/obj/structure/trash_pile,
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/junk,
 /turf/simulated/floor/concrete,
 /area/space)
 "uG" = (

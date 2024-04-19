@@ -175,8 +175,22 @@
 	dir = 4
 	},
 /obj/structure/table/standard,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "dm" = (
@@ -248,14 +262,12 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ez" = (
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 8
-	},
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = -31;
-	req_access = list(204)
-	},
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "eC" = (
@@ -359,48 +371,16 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "fG" = (
-/obj/structure/table/standard,
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 10
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 8
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/storage/box/inhalers{
-	pixel_x = 5;
-	pixel_y = 11
-	},
-/obj/item/storage/box/inhalers_auto{
-	pixel_x = 5
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "fN" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 5
 	},
-/obj/structure/table/standard,
 /obj/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
@@ -408,12 +388,7 @@
 	name = "adjusted light fixture";
 	pixel_y = 19
 	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "gc" = (
@@ -483,10 +458,6 @@
 	pixel_x = 2;
 	pixel_y = 12
 	},
-/obj/item/storage/box/freezer/organcooler{
-	pixel_x = -1;
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
@@ -497,6 +468,14 @@
 	name = "adjusted light fixture";
 	pixel_y = 19;
 	pixel_x = 15
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -764,16 +743,10 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 10
 	},
-/obj/structure/table/standard,
 /obj/machinery/light{
 	name = "adjusted light fixture"
 	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "oP" = (
@@ -1221,15 +1194,6 @@
 /obj/effect/floor_decal/industrial/loading/security,
 /turf/simulated/floor/tiled/white,
 /area/space)
-"uZ" = (
-/obj/effect/floor_decal/spline/plain/green,
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = -1;
-	pixel_y = -32
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "ve" = (
 /obj/machinery/light{
 	brightness_power = 0.5;
@@ -1252,50 +1216,18 @@
 /area/space)
 "vA" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/radiation,
-/obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/o2,
-/obj/effect/floor_decal/spline/plain/green,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "vC" = (
-/obj/structure/table/standard,
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 10
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 8
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 5
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/bodybag/cryobag{
-	pixel_x = -13;
-	pixel_y = 2
-	},
-/obj/item/storage/box/inhalers{
-	pixel_x = 5;
-	pixel_y = 11
-	},
-/obj/item/storage/box/inhalers_auto{
-	pixel_x = 5
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "vE" = (
@@ -1333,9 +1265,6 @@
 /obj/item/storage/firstaid/radiation,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/o2,
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 1
-	},
 /obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1503,7 +1432,6 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
 	},
-/obj/structure/table/standard,
 /obj/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
@@ -1511,12 +1439,7 @@
 	name = "adjusted light fixture";
 	pixel_x = -10
 	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "yo" = (
@@ -1639,10 +1562,7 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "zy" = (
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = -32
-	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "zI" = (
@@ -1802,14 +1722,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
-"BJ" = (
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = 31;
-	req_access = null
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "BX" = (
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 9
@@ -1878,7 +1790,6 @@
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 6
 	},
-/obj/structure/table/standard,
 /obj/machinery/light{
 	brightness_power = 0.5;
 	brightness_range = 3;
@@ -1886,12 +1797,7 @@
 	name = "adjusted light fixture";
 	pixel_x = 10
 	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
+/obj/machinery/vending/medical,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "DD" = (
@@ -2038,14 +1944,39 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "GB" = (
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = 31;
-	req_access = list(204)
+/obj/structure/table/standard,
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 10
 	},
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 4
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 8
 	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/obj/item/storage/box/inhalers{
+	pixel_x = 5;
+	pixel_y = 11
+	},
+/obj/item/storage/box/inhalers_auto{
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/spline/plain/green,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "GC" = (
@@ -2209,20 +2140,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
-"JE" = (
-/obj/item/storage/box/fancy/tray/machinist,
-/turf/simulated/wall/shuttle/scc_space_ship,
-/area/space)
-"JL" = (
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 8
-	},
-/obj/machinery/vending/medical{
-	density = 0;
-	pixel_x = -32
-	},
-/turf/simulated/floor/tiled/white,
-/area/space)
 "JO" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/sharps{
@@ -2301,9 +2218,31 @@
 /area/space)
 "Kh" = (
 /obj/effect/floor_decal/spline/plain/green,
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
 /obj/structure/table/standard,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Km" = (
@@ -2325,18 +2264,6 @@
 	name = "Medical Storage and Prep"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
-"KI" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/radiation,
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/o2,
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 8
-	},
-/obj/item/storage/firstaid/fire,
-/turf/simulated/floor/tiled/white,
 /area/space)
 "KR" = (
 /obj/structure/sink{
@@ -2665,15 +2592,19 @@
 /area/space)
 "Qa" = (
 /obj/structure/table/standard,
-/obj/item/auto_cpr,
-/obj/item/auto_cpr,
-/obj/item/auto_cpr,
-/obj/item/auto_cpr,
-/obj/item/auto_cpr,
-/obj/item/auto_cpr,
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
 	},
+/obj/item/storage/box/freezer/organcooler{
+	pixel_x = -1;
+	pixel_y = 15
+	},
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Qj" = (
@@ -2681,8 +2612,22 @@
 	dir = 1
 	},
 /obj/structure/table/standard,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Qm" = (
@@ -2731,12 +2676,16 @@
 	pixel_x = 2;
 	pixel_y = 12
 	},
-/obj/item/storage/box/freezer/organcooler{
-	pixel_x = -1;
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/spline/plain/green{
 	dir = 1
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 0
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -3076,8 +3025,22 @@
 	dir = 8
 	},
 /obj/structure/table/standard,
-/obj/item/bodybag/cryobag,
-/obj/item/bodybag/cryobag,
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Wh" = (
@@ -3383,18 +3346,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
-"Zv" = (
-/obj/effect/floor_decal/spline/plain/green{
-	dir = 4
-	},
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/regular,
-/obj/item/storage/firstaid/radiation,
-/obj/item/storage/firstaid/toxin,
-/obj/item/storage/firstaid/o2,
-/obj/item/storage/firstaid/fire,
-/turf/simulated/floor/tiled/white,
-/area/space)
 "Zz" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -3413,7 +3364,7 @@
 (1,1,1) = {"
 FL
 wI
-JE
+wI
 wI
 wI
 wI
@@ -3616,15 +3567,7 @@ wI
 FL
 wI
 Qj
-zI
-zI
-zI
-RR
-wI
-FL
-wI
-Qj
-zI
+ez
 zI
 zI
 RR
@@ -3632,7 +3575,15 @@ wI
 FL
 wI
 Qj
+ez
 zI
+zI
+RR
+wI
+FL
+wI
+Qj
+ez
 zI
 zI
 mA
@@ -3665,7 +3616,7 @@ FL
 FL
 wI
 fN
-Zv
+eL
 RK
 nm
 CX
@@ -3673,16 +3624,16 @@ wI
 FL
 wI
 fN
-Zv
-RK
+eL
+eL
 nm
 CX
 wI
 FL
 wI
 fN
-Zv
-RK
+eL
+eL
 eL
 je
 cd
@@ -3838,7 +3789,7 @@ xg
 Qa
 zI
 zI
-mA
+GB
 xg
 KR
 zI
@@ -3862,24 +3813,24 @@ FL
 wI
 uK
 YK
-ez
-KI
+Zb
+Zb
 nr
 wI
 FL
 wI
 uK
 YK
-ez
-KI
+Zb
+Zb
 nr
 wI
 FL
 cd
 BX
 Zb
-ez
-KI
+Zb
+Zb
 nr
 wI
 FL
@@ -3912,7 +3863,7 @@ wI
 MC
 zI
 zI
-zI
+vZ
 Kh
 wI
 FL
@@ -3920,7 +3871,7 @@ wI
 MC
 zI
 zI
-zI
+vZ
 Kh
 wI
 FL
@@ -3928,7 +3879,7 @@ wI
 Wt
 zI
 zI
-zI
+vZ
 Kh
 wI
 FL
@@ -4081,8 +4032,8 @@ wI
 FL
 xg
 XW
-GB
-GB
+eL
+eL
 vC
 xg
 px
@@ -4277,8 +4228,8 @@ wI
 FL
 xg
 lE
-JL
-JL
+Zb
+Zb
 fG
 xg
 Lf
@@ -4354,7 +4305,7 @@ CS
 zI
 zI
 zI
-uZ
+mA
 wI
 FL
 wI
@@ -4362,7 +4313,7 @@ CS
 zI
 zI
 zI
-uZ
+mA
 wI
 FL
 wI
@@ -4370,7 +4321,7 @@ CS
 zI
 zI
 zI
-uZ
+mA
 wI
 FL
 xg
@@ -4402,24 +4353,24 @@ wI
 OI
 zI
 zI
-zI
 vA
+mA
 wI
 FL
 wI
 OI
 zI
 zI
-zI
 vA
+mA
 wI
 FL
 wI
 OI
 zI
 zI
-zI
 vA
+mA
 wI
 FL
 xg
@@ -4524,7 +4475,7 @@ xg
 Qa
 zI
 zI
-mA
+GB
 xg
 KR
 zI
@@ -4693,24 +4644,24 @@ FL
 FL
 FL
 wI
+Wt
 vZ
-zI
 zI
 zI
 pj
 wI
 FL
 wI
+Wt
 vZ
-zI
 zI
 zI
 pj
 wI
 FL
 wI
+Wt
 vZ
-zI
 zI
 zI
 pj
@@ -4746,7 +4697,7 @@ Qs
 zI
 zI
 zI
-uZ
+mA
 wI
 FL
 wI
@@ -4754,7 +4705,7 @@ Qs
 zI
 zI
 zI
-uZ
+mA
 wI
 FL
 wI
@@ -4762,7 +4713,7 @@ Qs
 zI
 zI
 zI
-uZ
+mA
 wI
 FL
 FL
@@ -5741,8 +5692,8 @@ FL
 FL
 FL
 xg
-BJ
-BJ
+zy
+zy
 Pq
 Pq
 xg
@@ -7403,8 +7354,8 @@ gE
 xg
 Pq
 Pq
-BJ
-BJ
+zy
+zy
 xg
 FL
 FL
