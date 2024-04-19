@@ -44,7 +44,7 @@
 
 		//See if the ruin is in the unit test groups we're supposed to run
 		var/is_in_unit_test_groups = FALSE
-		for(var/unit_test_group in initial(tested_ruin.unit_test_groups))
+		for(var/unit_test_group in tested_ruin.unit_test_groups)
 			if(unit_test_group in SSunit_tests_config.config["ruins_unit_test_groups"] || SSunit_tests_config.config["ruins_unit_test_groups"][1] == "*")
 				is_in_unit_test_groups = TRUE
 				break
@@ -54,20 +54,21 @@
 			TEST_DEBUG("Ruin [tested_ruin.name] - [tested_ruin.type] is not part of this pod configuration, skipping")
 			continue
 
-		var/turf/center_ruin = tested_ruin.load_new_z(FALSE)
+		TEST_NOTICE("Testing ruin [tested_ruin.name] - [tested_ruin.type] -- Size: [tested_ruin.width]x[tested_ruin.height]")
+
+		var/list/ruin_bounds = tested_ruin.load_new_z(FALSE)
 
 		if(!tested_ruin)
 			TEST_FAIL("Failed to load ruin [ruin]!")
 			return UNIT_TEST_FAILED
 
-		var/loaded_zlevel = null
-		if(center_ruin)
-			loaded_zlevel = center_ruin.z
+		if(!ruin_bounds)
+			TEST_FAIL("Failed to load ruin [ruin], no bounds were received!")
 		else
-			TEST_WARN("Ruin [tested_ruin.name] didn't load in a Z level, or it could not be located, or it was not returned by the loader")
-			loaded_zlevel = "Unknown, read above!"
-
-		TEST_DEBUG("Loaded ruin [tested_ruin.name] in Z [loaded_zlevel]")
+			TEST_NOTICE("Loaded ruin [tested_ruin.name] - [tested_ruin.type] with the following bounds:")
+			TEST_NOTICE("Lower X: [ruin_bounds[MAP_MINX]] - Upper X: [ruin_bounds[MAP_MAXX]]")
+			TEST_NOTICE("Lower Y: [ruin_bounds[MAP_MINY]] - Upper Y: [ruin_bounds[MAP_MAXY]]")
+			TEST_NOTICE("Lower Z: [ruin_bounds[MAP_MINZ]] - Upper Z: [ruin_bounds[MAP_MAXZ]]")
 
 	TEST_PASS("All the ruins in [src.name] loaded successfully!")
 	return UNIT_TEST_PASSED
