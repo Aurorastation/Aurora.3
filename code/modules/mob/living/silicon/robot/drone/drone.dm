@@ -93,6 +93,28 @@
 	. = ..()
 	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
+	add_verb(src, /mob/living/proc/hide)
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, FALSE)
+	add_language(LANGUAGE_DRONE, TRUE)
+
+	//They are unable to be upgraded, so let's give them a bit of a better battery.
+	cell.maxcharge = 10000
+	cell.charge = 10000
+
+	// NO BRAIN. // me irl - geeves
+	mmi = null
+
+	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
+	for(var/V in components)
+		if(V == "power cell")
+			continue
+		var/datum/robot_component/C = components[V]
+		C.max_damage = 10
+
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
+	density = FALSE
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
 		master_matrix.remove_drone(WEAKREF(src))
@@ -100,8 +122,14 @@
 	return ..()
 
 /mob/living/silicon/robot/drone/death(gibbed)
+	if(hat)
+		hat.forceMove(get_turf(src))
+		hat = null
+		QDEL_NULL(hat_overlay)
+
 	if(master_matrix)
 		master_matrix.handle_death(src)
+
 	return ..()
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
@@ -134,15 +162,6 @@
 
 /mob/living/silicon/robot/drone/do_late_fire()
 	request_player()
-
-/mob/living/silicon/robot/drone/Destroy()
-	if(hat)
-		hat.forceMove(get_turf(src))
-		hat = null
-		QDEL_NULL(hat_overlay)
-	master_matrix = null
-	master_fabricator = null
-	return ..()
 
 /mob/living/silicon/robot/drone/get_default_language()
 	if(default_language)
@@ -250,31 +269,6 @@
 
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
-
-/mob/living/silicon/robot/drone/Initialize()
-	. = ..()
-
-	add_verb(src, /mob/living/proc/hide)
-	remove_language(LANGUAGE_ROBOT)
-	add_language(LANGUAGE_ROBOT, FALSE)
-	add_language(LANGUAGE_DRONE, TRUE)
-
-	//They are unable to be upgraded, so let's give them a bit of a better battery.
-	cell.maxcharge = 10000
-	cell.charge = 10000
-
-	// NO BRAIN. // me irl - geeves
-	mmi = null
-
-	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
-	for(var/V in components)
-		if(V == "power cell")
-			continue
-		var/datum/robot_component/C = components[V]
-		C.max_damage = 10
-
-	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
-	density = FALSE
 
 /mob/living/silicon/robot/drone/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)

@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: CourierBravo
+author: FluffyGhost
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,6 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Adds the new materials to nearly every offship with an autolathe. Exceptions made at this time to ship with open PRs"
-
-
+  - refactor: "Unified most of the procs into one definition, so there are no duplicate around the codebase."
+  - refactor: "Marked some of the above as overridable if a good enough case can be made for them (eg. external dependency or unlikely to be used)."

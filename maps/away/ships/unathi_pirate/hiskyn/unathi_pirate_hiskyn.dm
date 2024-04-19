@@ -144,10 +144,4 @@
 /obj/item/paper/fluff/hiskyn
 	name = "KEEP OUT!"
 	info = "How many times I gotta warn you tailwags about going through a man's stash! Next time I'm putting a landmine in this damned thing!"
-
-/obj/item/paper/fluff/hiskyn/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=o\]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
+	language = LANGUAGE_UNATHI

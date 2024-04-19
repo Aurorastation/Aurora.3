@@ -45,9 +45,12 @@
 
 /obj/machinery/computer/ship/sensors/attempt_hook_up(var/obj/effect/overmap/visitable/sector)
 	. = ..()
-	if(!.)
-		return
-	find_sensors_and_iff()
+	if(.)
+		if(linked && !contact_datums[linked])
+			var/datum/overmap_contact/record = new(src, linked)
+			contact_datums[linked] = record
+			record.marker.alpha = 255
+		find_sensors_and_iff()
 
 /obj/machinery/computer/ship/sensors/proc/find_sensors_and_iff()
 	if(!linked)

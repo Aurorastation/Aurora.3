@@ -71,6 +71,8 @@
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
+	base_name = name
+
 	if(icon_auto_adapt)
 		build_and_apply_species_adaption()
 
