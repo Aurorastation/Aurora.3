@@ -34,9 +34,20 @@
 		var/datum/map_template/ruin/exoplanet/tested_ruin = new ruin()
 		var/turf/center_ruin = tested_ruin.load_new_z(FALSE)
 
+		if(is_abstract(tested_ruin))
+			continue
+
 		if(!tested_ruin)
 			TEST_FAIL("Failed to load ruin [ruin]!")
 			return UNIT_TEST_FAILED
+
+		if(!length(initial(tested_ruin.unit_test_groups)))
+			TEST_FAIL("Ruin [tested_ruin.name] has no unit test groups!")
+			return UNIT_TEST_FAILED
+
+		if(!(tested_ruin.unit_test_groups in SSunit_tests_config.config["ruins_unit_test_groups"]) && SSunit_tests_config.config["ruins_unit_test_groups"] != "*")
+			TEST_DEBUG("Ruin [tested_ruin.name] - [tested_ruin.type] is not part of this pod configuration, skipping")
+			continue
 
 		var/loaded_zlevel = null
 		if(center_ruin)

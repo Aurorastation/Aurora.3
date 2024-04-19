@@ -11,6 +11,8 @@
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_2)
 
+	unit_test_groups = list(1)
+
 /area/hivebot_burrows_1
 	name = "Abandoned Mineshaft"
 	icon_state = "bluenew"

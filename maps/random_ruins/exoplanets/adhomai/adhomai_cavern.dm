@@ -8,3 +8,5 @@
 
 	prefix = "adhomai/"
 	suffixes = list("adhomai_cavern.dmm")
+
+	unit_test_groups = list(2)

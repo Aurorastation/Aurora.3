@@ -13,6 +13,8 @@
 	planet_types = PLANET_DESERT|PLANET_GRASS|PLANET_GROVE|PLANET_SNOW
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
 
+	unit_test_groups = list(2)
+
 /datum/map_template/ruin/exoplanet/crashsurvivors
 	name = "Crashed Shuttle"
 	id = "crashed shuttle"
@@ -27,3 +29,5 @@
 
 	planet_types = PLANET_GROVE
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
+
+	unit_test_groups = list(3)

@@ -9,6 +9,8 @@
 	suffixes = list("kazhkz_crash.dmm")
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/kazhkz_crash)
 
+	unit_test_groups = list(3)
+
 /area/shuttle/kazhkz_crash
 	name = "Crashed Shuttle"
 	requires_power = TRUE
