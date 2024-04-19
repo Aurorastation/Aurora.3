@@ -199,20 +199,20 @@
 	base_area = /area/hangar/operations
 
 //-// Admin Corvette //-//
-/datum/shuttle/autodock/multi/admin
-	name = "Crescent Shuttle"
-	current_location = "nav_admin_start"
+/datum/shuttle/autodock/multi/crescent
+	name = "ICV Crescent"
+	current_location = "nav_crescent_start"
 	warmup_time = 10
-	shuttle_area = /area/shuttle/admin
-	dock_target = "admin_shuttle"
+	shuttle_area = /area/shuttle/hapt
+	dock_target = "crescent_shuttle"
 	destination_tags = list(
-		"nav_admin_start",
+		"nav_crescent_start",
 		"nav_horizon_dock_deck_3_starboard_2"
 		)
 
-/obj/effect/shuttle_landmark/admin/start
+/obj/effect/shuttle_landmark/crescent/start
 	name = "Corvette Hangar"
-	landmark_tag = "nav_admin_start"
-	docking_controller = "admin_shuttle_bay"
+	landmark_tag = "nav_crescent_start"
+	docking_controller = "crescent_shuttle_bay"
 	base_turf = /turf/unsimulated/floor/plating
 	base_area = /area/centcom

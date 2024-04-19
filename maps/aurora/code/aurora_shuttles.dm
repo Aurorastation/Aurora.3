@@ -161,38 +161,6 @@ AURORA_ESCAPE_POD(4)
 	base_turf = /turf/space
 	base_area = /area/space
 
-//-// Admin Corvette //-//
-
-/datum/shuttle/autodock/multi/admin
-	name = "Crescent Shuttle"
-	current_location = "nav_admin_start"
-	warmup_time = 10
-	shuttle_area = /area/shuttle/admin
-	dock_target = "admin_shuttle"
-	destination_tags = list(
-		"nav_admin_start",
-		"nav_horizon_dock_deck_3_starboard_2"
-		)
-
-/obj/effect/shuttle_landmark/admin/start
-	name = "Corvette Hangar"
-	landmark_tag = "nav_admin_start"
-	docking_controller = "admin_shuttle_bay"
-	base_turf = /turf/unsimulated/floor/plating
-	base_area = /area/centcom
-
-/obj/effect/shuttle_landmark/admin/green
-	name = "Emergency Services Dock"
-	landmark_tag = "nav_admin_green"
-	docking_controller = "green_dock_north"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
-/obj/effect/shuttle_landmark/admin/command
-	name = "Command Surface Dock"
-	landmark_tag = "nav_admin_command"
-	docking_controller = "admin_shuttle_dock_airlock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
 //-// CCIA Shuttle //-//
 
 /datum/shuttle/autodock/ferry/autoreturn/ccia
