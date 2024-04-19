@@ -43,9 +43,9 @@
 /obj/outfit/admin/moghes_kung_fu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
-	if(H?.w_uniform)
+	if(H.w_uniform)
 		H.w_uniform.color = "#3a4b56"
-	if(H?.shoes)
+	if(H.shoes)
 		H.shoes.color = "#2a2b2c"
-	if(H?.gloves)
+	if(H.gloves)
 		H.gloves.color = "#2a2b2c"
