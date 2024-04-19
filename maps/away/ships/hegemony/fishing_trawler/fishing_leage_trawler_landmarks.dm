@@ -1,6 +1,6 @@
 /obj/effect/shuttle_landmark/fishing_trawler
 	base_area = /area/space
-	base_turn = /turf/space
+	base_turf = /turf/space
 
 //Fore
 /obj/effect/shuttle_landmark/fishing_trawler/fore

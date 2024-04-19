@@ -1,14 +1,43 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"an" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_pump"
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
+"ax" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze,
+/turf/simulated/floor/carpet,
+/area/ship/fishing_trawler/Captain)
 "aC" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/material/harpoon,
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor/carpet/rubber,
+/area/ship/fishing_trawler/EVA)
+"aN" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"aO" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/fryer,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"aT" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/firedoor/noid,
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "aV" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/shipsensors,
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "aW" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -20,40 +49,51 @@
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"bd" = (
+/obj/structure/table/rack/no_cargo,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
 "bk" = (
 /obj/structure/railing/mapped,
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
 "bm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/fishing_trawler)
-"bG" = (
-/obj/structure/plasticflaps/airtight,
-/obj/machinery/door/airlock/freezer{
-	dir = 4;
-	name = "Freezer";
-	req_access = list(28)
-	},
+/area/ship/fishing_trawler/engineering/port)
+"bz" = (
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/Starboard)
+"bB" = (
+/obj/machinery/power/apc/south,
 /turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/area/ship/fishing/trawler)
+"bG" = (
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "cu" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
 "cv" = (
 /obj/effect/landmark/entry_point/port{
 	name = "aft, thrusters"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"cG" = (
+/obj/machinery/alarm/cold/north,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
 "cH" = (
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/machinery/airlock_sensor/airlock_interior{
@@ -64,25 +104,49 @@
 	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "cT" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"df" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "dn" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/Captain)
+"dF" = (
+/obj/machinery/power/apc/north,
 /obj/structure/table/reinforced/steel,
-/obj/item/material/hook,
-/turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"dT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/engineering/Starboard)
 "eM" = (
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
+"fi" = (
+/obj/structure/table/wood/gamblingtable,
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/crew_quarters)
+"fk" = (
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/Captain)
 "fo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -93,7 +157,13 @@
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"fx" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/Starboard)
 "fW" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -111,14 +181,36 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "fY" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/port)
+"gp" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/Starboard)
+"gq" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/corridor/central)
+"gt" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
+"gu" = (
+/obj/machinery/power/apc/south,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
 "gJ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/bridge)
+"gK" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "gX" = (
 /obj/machinery/conveyor{
 	dir = 2;
@@ -141,11 +233,37 @@
 	name = "starboard, hatch"
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"gY" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1313;
+	id_tag = "merchant_guild_shuttle_out_internal"
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
+"hb" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/ship/fishing_trawler/EVA)
 "he" = (
-/obj/effect/overmap/visitable/ship/fishing_trawler,
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"hr" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/engineering/port)
+"hw" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1313;
+	id_tag = "merchant_guild_shuttle_out_internal"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
 "hK" = (
 /obj/machinery/light{
 	dir = 8
@@ -156,20 +274,42 @@
 	req_one_access = list(215)
 	},
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "hZ" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	icon_state = "bridge"
 	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"ij" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
+"iv" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
+"iI" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"iM" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/EVA)
 "jZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "kk" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	frequency = 1313;
@@ -191,34 +331,77 @@
 	tag_interior_sensor = "merchant_guild_interior_sensor"
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"kz" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing/trawler)
+"kM" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
 "kS" = (
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"kT" = (
+/obj/structure/closet/cabinet,
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/Captain)
+"la" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing/trawler)
 "lf" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/effect/landmark/entry_point/starboard{
 	name = "fore, bridge"
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "ls" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external,
 /turf/space,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"lv" = (
+/obj/machinery/door/airlock/command{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/bridge)
+"lw" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/Captain)
 "lD" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"lO" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/snacks/grilled_carp_slice,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "md" = (
 /obj/machinery/atmospherics/pipe/simple/visible/cyan{
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"me" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "mk" = (
 /turf/template_noop,
 /area/space)
@@ -233,33 +416,147 @@
 	pixel_y = -25
 	},
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"mv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "my" = (
 /turf/space/transit/north,
 /area/space)
+"mA" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/corridor/central)
+"mI" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
 "mT" = (
 /obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
 "nh" = (
 /obj/machinery/gibber,
 /turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/freezer)
+"nw" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/EVA)
+"ny" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"nz" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/engineering/port)
+"oi" = (
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
+"oE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/engineering/Starboard)
+"oK" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"pa" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/corridor/central)
+"pd" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
+"pe" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/engineering/port)
 "pf" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"pl" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/Captain)
 "px" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/EVA)
+"pN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"qr" = (
+/obj/structure/bed/stool/chair/padded/red{
+	dir = 8
+	},
+/turf/simulated/floor/carpet,
+/area/ship/fishing_trawler/Captain)
+"qy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
+"qN" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
 "qO" = (
 /obj/structure/lattice,
 /turf/template_noop,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
 "qT" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -277,14 +574,32 @@
 	master_tag = "merchant_guild_shuttle"
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"ri" = (
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/EVA)
+"rp" = (
+/obj/structure/sign/flag/hegemony{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"rA" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/kitchen)
+"rC" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
 "rJ" = (
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
 "rP" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
@@ -294,60 +609,75 @@
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "sA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/port)
 "sB" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 8;
 	icon_rotation = 1
 	},
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"sC" = (
+/obj/item/material/hook,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
 "sJ" = (
 /obj/structure/table/rack/no_cargo,
 /obj/item/clothing/suit/space/void/mining,
 /obj/item/clothing/head/helmet/space/void/mining,
 /obj/item/clothing/shoes/magboots,
 /turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/EVA)
 "tr" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"ts" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/carpet,
+/area/ship/fishing_trawler/Captain)
+"tA" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
 "tB" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
 "tF" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/cyan,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
 "tI" = (
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
 "tV" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	start_pressure = 3000
 	},
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
 "ue" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "uk" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	dir = 1;
@@ -355,18 +685,42 @@
 	frequency = 1336
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"uo" = (
+/obj/structure/table/rack/no_cargo,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
+"up" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "uu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"uB" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"uH" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/engineering/Starboard)
 "uI" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/bridge)
+"vn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "vJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/power/terminal{
@@ -379,48 +733,149 @@
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"vO" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "wa" = (
 /obj/machinery/computer/shuttle_control/explore/merchants_guild{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "wj" = (
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"wo" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	frequency = 1313;
+	id_tag = "merchant_guild_shuttle_out_internal"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
+"wT" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
+"xj" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_pump"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
 "xm" = (
 /obj/item/trap/punji/deployed,
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
+"ym" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/port)
+"yq" = (
+/obj/machinery/power/apc/north,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
 "yr" = (
-/obj/structure/table/reinforced/steel,
-/obj/item/material/hatchet/butch,
-/turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/turf/simulated/floor/carpet,
+/area/ship/fishing_trawler/Captain)
 "yt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
 "yD" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"yN" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/crew_quarters)
+"yS" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"zf" = (
+/obj/machinery/alarm/west,
+/obj/structure/bed,
+/obj/item/bedsheet/black,
+/turf/simulated/floor/carpet,
+/area/ship/fishing_trawler/Captain)
+"zi" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"zy" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"zz" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
+"zK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"zO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
 "zU" = (
 /obj/structure/railing/mapped,
 /obj/machinery/iff_beacon,
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
 "Ad" = (
-/obj/structure/bed/stool/chair/office/bridge/generic{
-	dir = 8
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing/trawler)
+"Aj" = (
+/obj/machinery/alarm/east{
+	req_one_access = list(24,11,55)
 	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"Av" = (
+/obj/machinery/power/apc/super/critical/north,
 /turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
 "AF" = (
 /obj/machinery/hologram/holopad/long_range,
 /obj/machinery/light,
@@ -432,7 +887,10 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/effect/overmap/visitable/ship/landable/fishing_trawler_shuttle,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Bh" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/freezer)
 "Bq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -441,40 +899,128 @@
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Bt" = (
 /obj/machinery/suit_cycler{
 	req_access = null
 	},
 /turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/EVA)
+"Bw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
+"Bz" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
+"BO" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1313;
+	id_tag = "merchant_guild_shuttle_out_external";
+	layer = 2.8
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
+"BS" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/crew_quarters)
+"BV" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
 "Ch" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "aft engines"
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/port)
+"Cn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/corridor/central)
 "Cr" = (
 /obj/machinery/computer/ship/helm{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
-"DD" = (
-/obj/machinery/door/airlock/glass{
-	dir = 1
+/area/shuttle/fishing_trawler)
+"Cz" = (
+/obj/machinery/alarm/west,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"CC" = (
+/obj/machinery/door/airlock/command{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/bridge)
+"CL" = (
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
 	},
 /turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"CM" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -9;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -9;
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
+"De" = (
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/crew_quarters)
+"DD" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/bridge)
+"DO" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/clothing/suit/space/void/mining,
+/obj/item/clothing/head/helmet/space/void/mining,
+/obj/item/clothing/shoes/magboots,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
 "DU" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"DY" = (
+/obj/structure/bed,
+/obj/item/bedsheet/orange,
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/crew_quarters)
 "DZ" = (
 /obj/machinery/atmospherics/pipe/tank{
 	dir = 8
@@ -483,26 +1029,64 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"Ea" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
+"Eg" = (
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/airlock/external,
+/obj/effect/shuttle_landmark/fishing_trawler/shuttle_dock,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/corridor/central)
 "Eh" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/blue,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
 "Ep" = (
 /obj/machinery/atmospherics/binary/pump/high_power,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Ew" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
 "Fr" = (
 /turf/template_noop,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
+"FD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"FE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/corridor/central)
+"FJ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/kitchenspike,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"FN" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/Starboard)
+"FP" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/ship/fishing_trawler/engineering/Starboard)
 "FV" = (
 /obj/machinery/door/airlock/external{
 	frequency = 1313;
@@ -520,24 +1104,47 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Gk" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/port)
+"Gr" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/grill,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"GA" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer/chicken_and_fish,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "GB" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 6
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"GE" = (
+/turf/simulated/floor/carpet/rubber,
+/area/ship/fishing_trawler/EVA)
 "GN" = (
-/obj/machinery/computer/ship/engines{
-	dir = 4
+/obj/structure/bed/stool/chair/office/bridge/generic{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
 "GP" = (
 /obj/machinery/computer/ship/helm,
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"Ha" = (
+/obj/structure/bed/stool/padded/red,
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/crew_quarters)
 "Hx" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -550,18 +1157,31 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"HB" = (
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/crew_quarters)
 "HI" = (
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
+"HM" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
 "Ib" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
 "Ij" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 8
@@ -570,7 +1190,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Ik" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -578,13 +1198,22 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"IR" = (
+/obj/machinery/alarm/west,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "Jm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Jn" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
 "Jo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/cable/green{
@@ -592,11 +1221,11 @@
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Jr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/port)
 "Jv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -620,7 +1249,21 @@
 	pixel_y = -10
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"JF" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"JK" = (
+/obj/structure/table/wood/gamblingtable,
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/crew_quarters)
+"JR" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
 "Kj" = (
 /obj/machinery/atmospherics/portables_connector{
 	layer = 2.8
@@ -631,11 +1274,22 @@
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Kk" = (
+/obj/machinery/power/apc/super/critical/east,
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/Starboard)
+"Kp" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/corridor/central)
 "Kw" = (
 /obj/structure/kitchenspike,
 /turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/freezer)
 "KI" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -644,7 +1298,15 @@
 	name = "starboard, airlock"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"KN" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "KX" = (
 /obj/machinery/door/airlock/external{
 	id_tag = "merchant_guild_shuttle_internal";
@@ -654,15 +1316,28 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Ld" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Lg" = (
+/obj/machinery/power/apc/super/critical/west,
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/port)
 "Lh" = (
 /obj/structure/closet/crate/freezer,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/freezer)
+"Ll" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/EVA)
+"Mc" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing/trawler)
 "Md" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -671,18 +1346,51 @@
 	layer = 2.8
 	},
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Mj" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "Mk" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"Mt" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/power/apc/south,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
 "Mu" = (
 /turf/simulated/wall/shuttle/raider,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"MA" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_pump"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
+"MJ" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/galley)
 "MM" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/plating,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/port)
+"MR" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft engines"
+	},
+/turf/simulated/floor/plating,
+/area/ship/fishing_trawler/engineering/Starboard)
 "Nk" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -692,7 +1400,14 @@
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"No" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/crate/bin{
+	name = "trashbin"
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "Nt" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -701,15 +1416,32 @@
 /obj/machinery/light,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"NG" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/material/hatchet/butch,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
 "Of" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/iff_beacon,
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Op" = (
 /turf/simulated/floor/plating,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Ou" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"OB" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
 "OS" = (
 /obj/effect/shuttle_landmark/fishing_trawler/transit,
 /turf/space/transit/north,
@@ -718,11 +1450,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"PC" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "PQ" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/crew_quarters)
+"PY" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/fishing_trawler,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
 "Qe" = (
 /obj/effect/landmark{
 	name = "carpspawn"
@@ -734,36 +1474,153 @@
 	name = "port, crew compartment"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/port)
+"Qm" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/Captain)
+"QL" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
+"QQ" = (
+/obj/machinery/alarm/south,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"QT" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"Rw" = (
+/obj/machinery/power/apc/north,
+/turf/simulated/floor/wood,
+/area/ship/fishing_trawler/Captain)
+"Ry" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -9;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = -9;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
+"RN" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
+"RT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
 "Si" = (
 /turf/simulated/floor/airless,
-/area/fishing_trawler)
+/area/ship/fishing/trawler/fishing_catwalk)
+"SC" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/central)
 "SE" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"SX" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/closet/secure_closet/freezer/meat,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "Te" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8;
+	frequency = 1313;
+	id_tag = "merchant_guild_shuttle_out_external";
+	layer = 2.8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
 /turf/simulated/floor,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"Th" = (
+/obj/effect/floor_decal/corner/brown/diagonal,
+/obj/structure/table/wood,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/galley)
+"Tt" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
+"Tw" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "TG" = (
 /obj/structure/closet/crate/freezer,
 /obj/structure/closet/crate/freezer,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/freezer)
+"TM" = (
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/port)
 "TN" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space,
 /area/space)
+"Ui" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"UD" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"UR" = (
+/obj/machinery/computer/ship/engines{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/bridge)
+"Vd" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/material/hatchet/butch,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"Vm" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/EVA)
+"Vv" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/galley)
 "Vw" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "VE" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 1;
@@ -772,17 +1629,30 @@
 	id = "freebooter_thrust_in"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
 "VR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/dark/full,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"Wi" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet,
+/area/ship/fishing_trawler/Captain)
 "Wm" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"Wv" = (
+/obj/machinery/power/apc/north,
+/obj/effect/floor_decal/corner/grey/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"Wy" = (
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fishing_trawler/freezer)
 "WA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
@@ -796,20 +1666,69 @@
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /obj/structure/sign/flag/hegemony/large/north,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
-"Yn" = (
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/fishing_trawler_shuttle/dock,
+/area/shuttle/fishing_trawler)
+"WF" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
+"WY" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
+"WZ" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
+"Xt" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark/full,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/corridor/central)
+"XL" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/stove,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
+"Ya" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/port)
+"Yi" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/ship/fishing_trawler/Captain)
+"Ys" = (
+/obj/structure/closet/secure_closet/freezer,
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/freezer,
+/area/ship/fishing_trawler/freezer)
+"YA" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/corridor/central)
 "YB" = (
 /turf/simulated/floor/tiled/steel,
-/area/fishing_trawler)
+/area/ship/fishing/trawler)
 "YI" = (
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
+"YP" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "YU" = (
 /obj/machinery/light{
 	dir = 8
@@ -821,7 +1740,7 @@
 	pixel_y = 25
 	},
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Zf" = (
 /obj/machinery/button/remote/blast_door{
 	pixel_y = 25;
@@ -831,10 +1750,18 @@
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner_wide/purple/diagonal,
 /turf/simulated/floor/tiled,
-/area/fishing_trawler/dock)
+/area/shuttle/fishing_trawler)
 "Zs" = (
 /turf/simulated/floor/tiled/freezer,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/freezer)
+"ZB" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4;
+	layer = 2.8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA)
 "ZC" = (
 /obj/machinery/air_sensor{
 	id_tag = "freebooter_thrust_sensor";
@@ -842,7 +1769,10 @@
 	output = 31
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/fishing_trawler)
+/area/ship/fishing_trawler/engineering/Starboard)
+"ZQ" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/engineering/Starboard)
 
 (1,1,1) = {"
 mk
@@ -27405,20 +28335,20 @@ mk
 mk
 mk
 mk
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
 KI
 yD
-fY
-fY
+gq
+gq
 mk
 mk
 mk
@@ -27662,20 +28592,20 @@ mk
 mk
 mk
 mk
-MM
-bm
-Te
-Te
-Te
-Te
-Te
-Te
+FP
+dT
+bz
+bz
+bz
+bz
+bz
+bz
 tr
-fY
-Te
-Te
-fY
-fY
+ZQ
+gt
+gt
+gq
+gq
 mk
 mk
 mk
@@ -27919,21 +28849,21 @@ mk
 mk
 mk
 mk
-Ch
+MR
 Ib
 yt
-Te
-Te
-Te
-Te
-Te
+bz
+bz
+bz
+bz
+bz
 Eh
-fY
-Te
-Te
-fY
-fY
-fY
+ZQ
+iv
+zO
+gq
+gq
+gq
 mk
 mk
 mk
@@ -28178,20 +29108,20 @@ mk
 mk
 tB
 uu
-Te
-Te
-Te
-Te
-Te
-fY
-fY
-fY
-yD
+bz
+bz
+fx
+bz
+bz
+ZQ
+ZQ
+ZQ
+Cn
 cT
-fY
-YB
-fY
-fY
+gq
+KN
+gq
+gq
 mk
 mk
 mk
@@ -28227,7 +29157,7 @@ Si
 Si
 Si
 Si
-Fr
+mk
 mk
 mk
 mk
@@ -28434,22 +29364,22 @@ mk
 mk
 mk
 tB
-sA
-Te
-Te
-Te
-Te
-Te
+oE
+bz
+bz
+bz
+bz
+bz
 Pa
 VE
-fY
-YB
-YB
-fY
-YB
-YB
-fY
-fY
+ZQ
+vn
+bG
+gq
+zy
+df
+gq
+gq
 mk
 mk
 mk
@@ -28690,23 +29620,23 @@ mk
 mk
 mk
 mk
-fY
-fY
-fY
-Te
-Te
-Te
-Te
+ZQ
+ZQ
+ZQ
+bz
+bz
+bz
+bz
 Pa
 uk
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-fY
+ZQ
+zK
+up
+FE
+mv
+bG
+bG
+gq
 mk
 mk
 mk
@@ -28949,22 +29879,22 @@ mk
 mk
 mk
 mk
-fY
+ZQ
 kS
 tF
-Te
-Te
+bz
+bz
 Mk
 ZC
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-fY
-fY
+ZQ
+Mj
+bG
+rA
+rA
+rA
+rA
+rA
+rA
 mk
 mk
 mk
@@ -29206,23 +30136,23 @@ mk
 mk
 mk
 mk
-fY
+ZQ
 tV
 tF
-Te
-Te
-fY
-fY
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-fY
-fY
+bz
+bz
+ZQ
+ZQ
+ZQ
+YP
+bG
+rA
+aO
+XL
+ny
+Cz
+rA
+rA
 mk
 mk
 mk
@@ -29463,24 +30393,24 @@ mk
 mk
 mk
 mk
-fY
+ZQ
 tV
 md
-Te
-Te
-Te
-Te
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+bz
+bz
+bz
+bz
+ZQ
+bG
+bG
+rA
+PC
+PC
+PC
+PC
+aN
+rA
+rA
 mk
 mk
 mk
@@ -29720,25 +30650,25 @@ mk
 mk
 mk
 mk
-fY
-fY
-Te
+ZQ
+ZQ
+bz
 DZ
-Te
-Te
-Te
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+bz
+bz
+bz
+ZQ
+bG
+uB
+rA
+Wv
+PC
+gK
+PC
+PC
+PC
+rA
+rA
 qO
 qO
 qO
@@ -29978,25 +30908,25 @@ mk
 mk
 mk
 mk
-fY
-fY
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+ZQ
+ZQ
+gp
+bz
+bz
+bz
+uH
+bG
+bG
+rA
+PC
+Vd
+lO
+Tw
+Gr
+PC
+FJ
+rA
+rA
 mk
 mk
 Si
@@ -30236,25 +31166,25 @@ Mu
 aV
 mk
 mk
-fY
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+ZQ
+bz
+Kk
+FN
+bz
+ZQ
+bG
+bG
+rA
+PC
+me
+PC
+PC
+PC
+PC
+PC
+GA
+rA
+rA
 Si
 Si
 Si
@@ -30493,27 +31423,27 @@ Mu
 Mu
 mk
 mk
-fY
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-fY
-fY
-fY
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+ZQ
+QT
+QT
+rA
+No
+PC
+PC
+PC
+PC
+PC
+PC
+SX
+rA
+rA
+rA
+rA
 mk
 mk
 mk
@@ -30751,26 +31681,26 @@ Mu
 mk
 mk
 mk
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
+gq
+KN
+KN
+bG
+CL
+bG
+bG
+rA
+aT
+iI
+Ui
+iI
+iI
+rA
+rA
+rA
+rA
+rA
+rA
+rA
 mk
 mk
 mk
@@ -31005,29 +31935,29 @@ Mu
 Mu
 Mu
 Mu
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-px
-Te
-Te
-mT
+gq
+gq
+gq
+gq
+zy
+mv
+bG
+bG
+bG
+Mj
+Vv
+Bz
+Bz
+Bz
+Bz
+Jn
+Vm
+ZB
+ZB
+WF
+MA
+an
+ri
 eM
 eM
 eM
@@ -31262,29 +32192,29 @@ Hx
 aW
 qT
 Jv
-Yn
-Te
-Te
-mT
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-px
-Te
-Te
-mT
+Eg
+gY
+hw
+YA
+vn
+bG
+bG
+bG
+bG
+bG
+Vv
+QL
+zz
+zz
+zz
+Mt
+Vm
+qy
+iM
+BV
+Ea
+an
+ri
 eM
 eM
 eM
@@ -31520,28 +32450,28 @@ Bq
 kk
 FV
 ls
-Te
-Te
-mT
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-yD
-yD
-fY
+gY
+SC
+Kp
+mv
+bG
+bG
+bG
+bG
+bG
+MJ
+Bz
+Th
+Ry
+Th
+Bz
+Vm
+yq
+oi
+Vm
+nw
+nw
+Vm
 mk
 mk
 mk
@@ -31776,29 +32706,29 @@ Mu
 Mu
 Mu
 Jm
-fY
-fY
-fY
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-Te
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
+gq
+gq
+gq
+gq
+bG
+bG
+vO
+uB
+bG
+bG
+MJ
+Bz
+kM
+kM
+kM
+Bz
+Ll
+oi
+oi
+oi
+GE
+GE
+Vm
 mk
 mk
 mk
@@ -32036,26 +32966,26 @@ Jm
 mk
 qO
 mk
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-Te
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
+Bh
+Bh
+Wy
+Bh
+Bh
+bG
+bG
+MJ
+Bz
+Bz
+Bz
+Bz
+Bz
+Vm
+oi
+oi
+oi
+GE
+hb
+Vm
 mk
 mk
 mk
@@ -32293,26 +33223,26 @@ Jm
 mk
 qO
 mk
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-Te
-YB
-YB
-fY
+Bh
+Ys
+Zs
+Ys
+Bh
+bG
+bG
+Vv
+Bz
+zz
+zz
+HM
+Bz
+Vm
 Bt
-YB
-YB
-YB
+oi
+oi
+GE
 aC
-fY
+Vm
 HI
 mk
 mk
@@ -32550,26 +33480,26 @@ Md
 mk
 qO
 mk
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-sJ
-YB
-YB
-YB
+Bh
+Ys
+Zs
+Ys
+Bh
+QT
+QT
+Vv
+rC
+Th
+CM
+Th
+Bz
+Vm
+DO
+oi
+oi
+GE
 aC
-fY
+Vm
 zU
 qO
 qO
@@ -32807,26 +33737,26 @@ mk
 mk
 qO
 mk
-fY
-fY
-fY
-fY
-fY
-fY
+Bh
+cG
+Zs
+Ys
+Bh
 bG
-fY
-YB
-YB
-YB
-YB
-YB
-fY
+bG
+Vv
+qN
+kM
+kM
+kM
+Bz
+Vm
 sJ
-YB
-YB
-YB
+oi
+oi
+GE
 aC
-fY
+Vm
 cu
 mk
 mk
@@ -33064,26 +33994,26 @@ mk
 mk
 qO
 mk
-fY
+Bh
 Kw
 Zs
 Lh
-Lh
-Lh
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-fY
-fY
-fY
-fY
-fY
-fY
+Bh
+bG
+bG
+dn
+dn
+dn
+dn
+dn
+dn
+DD
+DD
+DD
+lv
+DD
+DD
+DD
 mk
 mk
 mk
@@ -33321,23 +34251,23 @@ mk
 mk
 qO
 mk
-fY
+Bh
 Kw
 Zs
 TG
-Lh
-Lh
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-GN
+Bh
+bG
+bG
+dn
+kT
+yr
+zf
+yr
+fk
+DD
+dF
+UR
+he
 wj
 wj
 gJ
@@ -33578,24 +34508,24 @@ mk
 mk
 qO
 mk
-fY
+Bh
 Lh
 Zs
-Zs
-Zs
-Zs
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-Ad
-YB
+gu
+Bh
+WY
+bG
+dn
+Rw
+yr
+yr
+yr
+Qm
+DD
+rp
+GN
+he
+JR
 wj
 gJ
 mk
@@ -33835,25 +34765,25 @@ mk
 mk
 qO
 mk
-fY
+Bh
 Lh
 Zs
-Zs
-Zs
-Zs
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
+wT
+Bh
+bG
+bG
+dn
+lw
+yr
+yr
+yr
+fk
+DD
+he
+he
+he
+he
+he
 gJ
 mk
 mk
@@ -34092,23 +35022,23 @@ mk
 mk
 qO
 qO
-fY
+Bh
 Lh
 Zs
-Zs
+ij
+Bh
+bG
+QQ
 dn
-PQ
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-DD
-YB
+fk
+yr
+yr
+yr
+fk
+UD
 he
-YB
+he
+PY
 hZ
 GP
 uI
@@ -34349,25 +35279,25 @@ mk
 mk
 qO
 mk
-fY
+Bh
 Lh
 Zs
-Zs
-PQ
+NG
+Bh
+bG
+bG
+dn
+fk
 yr
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
+Yi
+yr
+fk
+DD
+JF
+he
+he
+he
+he
 gJ
 mk
 mk
@@ -34606,23 +35536,23 @@ mk
 mk
 qO
 mk
-fY
+Bh
+sC
 Zs
-Zs
-Zs
-Zs
-Zs
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-YB
+ij
+Bh
+bG
+bG
+dn
+fk
+ts
+Wi
+Wi
+fk
+DD
+rp
+he
+he
 Ew
 wj
 gJ
@@ -34863,23 +35793,23 @@ mk
 mk
 qO
 mk
-fY
+Bh
+WZ
 Zs
-Zs
-Zs
-Zs
-Zs
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-YB
+ij
+Bh
+bG
+zi
+dn
+fk
+yr
+qr
+ax
+pl
+DD
+Aj
+he
+he
 sB
 wj
 gJ
@@ -35120,26 +36050,26 @@ mk
 mk
 qO
 mk
-fY
+Bh
 nh
 Zs
-Zs
-Kw
-Kw
-Zs
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-fY
-fY
-fY
-fY
-fY
-fY
+ij
+Bh
+Av
+bG
+dn
+dn
+dn
+dn
+dn
+dn
+DD
+DD
+DD
+CC
+DD
+DD
+DD
 mk
 mk
 mk
@@ -35377,26 +36307,26 @@ mk
 mk
 qO
 mk
-fY
-fY
-fY
-fY
-fY
-fY
+Bh
+OB
+Zs
+Ys
+Bh
 bG
-fY
+bG
+Ad
 YB
 YB
 YB
 YB
 YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
+Vm
+uo
+oi
+oi
+GE
+aC
+Vm
 rJ
 mk
 mk
@@ -35634,26 +36564,26 @@ mk
 mk
 qO
 mk
-fY
+Bh
+Ys
+Zs
+pd
+Bh
+QT
+QT
+Ad
+Mc
+la
 YB
 YB
 YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
+Vm
+bd
+oi
+oi
+GE
+aC
+Vm
 bk
 qO
 qO
@@ -35891,26 +36821,26 @@ mk
 mk
 qO
 mk
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
+Bh
+Ys
+Zs
+Ys
+Bh
+bG
+bG
+Ad
 YB
 YB
 YB
 YB
 YB
-fY
+Vm
+Bt
+oi
+oi
+GE
+aC
+Vm
 tI
 mk
 mk
@@ -36148,26 +37078,26 @@ mk
 mk
 qO
 mk
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
+Bh
+Bh
+Wy
+Bh
+Bh
+bG
+bG
+kz
 YB
 YB
 YB
 YB
 YB
-YB
-YB
-fY
+Vm
+oi
+oi
+oi
+GE
+hb
+Vm
 mk
 mk
 mk
@@ -36402,29 +37332,29 @@ mk
 mk
 mk
 mk
-fY
-fY
-fY
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
+gq
+gq
+gq
+gq
+bG
+bG
+IR
+pN
+bG
+bG
+kz
 YB
 YB
 YB
 YB
 YB
-YB
-YB
-fY
+Ll
+oi
+oi
+oi
+GE
+GE
+Vm
 mk
 mk
 mk
@@ -36660,28 +37590,28 @@ mk
 mk
 mk
 VR
-Te
-Te
+gY
+tA
 mT
+Ou
+bG
+bG
+bG
+bG
+bG
+Ad
 YB
 YB
 YB
 YB
 YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-yD
-yD
-fY
+Vm
+yq
+oi
+Vm
+nw
+nw
+Vm
 mk
 mk
 mk
@@ -36917,28 +37847,28 @@ mk
 mk
 mk
 VR
-Te
-Te
-mT
+gY
+wo
+pa
+vn
+bG
+bG
+bG
+bG
+bG
+Ad
 YB
 YB
 YB
 YB
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-YB
-YB
+bB
+Vm
+RT
+mI
 px
-Te
-Te
-mT
+Bw
+an
+ri
 eM
 eM
 eM
@@ -37173,29 +38103,29 @@ mk
 mk
 mk
 mk
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
+gq
+gq
+gq
+gq
+zy
+Ou
+bG
+bG
+bG
+zi
+Ad
 YB
 YB
-fY
 YB
 YB
 YB
-YB
-YB
-fY
-YB
-YB
-px
-Te
-Te
-mT
+Vm
+RN
+RN
+Tt
+xj
+an
+ri
 eM
 eM
 eM
@@ -37433,26 +38363,26 @@ mk
 mk
 mk
 mk
-fY
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
-fY
+gq
+yS
+yS
+bG
+CL
+bG
+bG
+PQ
+PQ
+PQ
+De
+PQ
+PQ
+PQ
+PQ
+PQ
+PQ
+PQ
+PQ
+PQ
 mk
 mk
 mk
@@ -37691,25 +38621,25 @@ mk
 mk
 fY
 fY
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
 fY
 fY
 fY
 fY
+QT
+QT
+PQ
+yN
+HB
+HB
+HB
+HB
+HB
+HB
+HB
+PQ
+PQ
+PQ
+PQ
 mk
 mk
 mk
@@ -37947,24 +38877,24 @@ mk
 mk
 mk
 fY
-YB
-YB
-YB
-YB
+TM
+Lg
+TM
+TM
 fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+bG
+bG
+PQ
+HB
+Ha
+Ha
+HB
+HB
+HB
+HB
+DY
+PQ
+PQ
 Si
 Si
 Si
@@ -38204,23 +39134,23 @@ mk
 mk
 fY
 fY
-YB
-YB
-YB
-YB
-fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+TM
+TM
+TM
+TM
+nz
+bG
+bG
+PQ
+Ha
+fi
+JK
+BS
+HB
+HB
+DY
+PQ
+PQ
 mk
 mk
 Si
@@ -38460,23 +39390,23 @@ mk
 mk
 fY
 fY
-YB
-YB
-YB
-YB
-YB
+TM
+TM
+TM
+TM
+TM
 fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+uB
+bG
+PQ
+Ha
+JK
+JK
+HB
+HB
+DY
+PQ
+PQ
 qO
 qO
 qO
@@ -38716,23 +39646,23 @@ mk
 mk
 mk
 fY
-YB
-YB
-YB
-YB
-YB
-YB
+TM
+TM
+TM
+TM
+TM
+TM
 fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+bG
+bG
+PQ
+HB
+Ha
+HB
+HB
+DY
+PQ
+PQ
 mk
 mk
 mk
@@ -38973,22 +39903,22 @@ mk
 mk
 mk
 fY
-YB
-YB
-YB
-YB
-YB
-YB
+Gk
+TM
+TM
+TM
+TM
+TM
 fY
-YB
-YB
-fY
-YB
-YB
-YB
-YB
-fY
-fY
+YP
+bG
+PQ
+HB
+HB
+HB
+DY
+PQ
+PQ
 mk
 mk
 mk
@@ -39230,21 +40160,21 @@ mk
 mk
 mk
 fY
-YB
-YB
-YB
-YB
-YB
-YB
+Ya
+TM
+TM
+TM
+TM
+TM
 fY
-YB
-YB
-fY
-YB
-YB
-YB
-fY
-fY
+bG
+zi
+PQ
+PQ
+PQ
+PQ
+PQ
+PQ
 mk
 mk
 mk
@@ -39487,20 +40417,20 @@ mk
 fY
 fY
 fY
-YB
-YB
-YB
-YB
-YB
-YB
+TM
+TM
+TM
+TM
+TM
+ym
 fY
-YB
-YB
-fY
-YB
-YB
-YB
-fY
+FD
+up
+FE
+Ou
+bG
+bG
+gq
 mk
 mk
 mk
@@ -39743,21 +40673,21 @@ mk
 mk
 MM
 bm
-YB
-YB
-YB
-YB
-YB
-YB
-YB
+TM
+TM
+TM
+TM
+TM
+TM
+TM
 fY
-YB
-YB
-YB
-YB
-YB
-fY
-fY
+vn
+bG
+gq
+zy
+oK
+gq
+gq
 mk
 mk
 mk
@@ -39999,21 +40929,21 @@ mk
 mk
 mk
 MM
-uu
-YB
-YB
-YB
-YB
-YB
-YB
-YB
+hr
+TM
+TM
+TM
+TM
+TM
+TM
+TM
 fY
-yD
-yD
-fY
-YB
-fY
-fY
+mA
+Xt
+gq
+yS
+gq
+gq
 mk
 mk
 mk
@@ -40256,20 +41186,20 @@ mk
 mk
 mk
 Ch
-Ib
+pe
 Jr
-YB
-YB
-YB
-YB
-YB
-YB
+TM
+TM
+TM
+TM
+TM
+TM
 fY
+iv
 Te
-Te
-fY
-fY
-fY
+gq
+gq
+gq
 mk
 mk
 mk
@@ -40514,18 +41444,18 @@ mk
 mk
 MM
 sA
-YB
-YB
-YB
-YB
-YB
-YB
-YB
+TM
+TM
+TM
+TM
+TM
+TM
+TM
 fY
-Te
-Te
-fY
-fY
+BO
+BO
+gq
+gq
 mk
 mk
 mk
@@ -40781,8 +41711,8 @@ fY
 fY
 yD
 yD
-fY
-fY
+gq
+gq
 mk
 mk
 mk
