@@ -2,6 +2,7 @@
 	does_footprint = FALSE
 	footstep_sound = /singleton/sound_category/water_footstep
 	movement_cost = 4
+	has_resources = FALSE
 	///How many objects are currently on this turf? Used to stop empty water turfs from processing.
 	var/numobjects = 0
 	///Is this water deep enough to drown in?
@@ -169,6 +170,10 @@
 					if(W.germ_level < INFECTION_LEVEL_ONE)
 						W.germ_level = INFECTION_LEVEL_ONE
 					W.germ_level += rand(10, 50)
+
+/turf/simulated/floor/exoplanet/water/shallow/moghes
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon_state = "water"
 
 /turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O)
 

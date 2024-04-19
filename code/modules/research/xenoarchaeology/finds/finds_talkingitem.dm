@@ -7,6 +7,10 @@
 //for easy reference
 /obj/var/datum/talking_atom/talking_atom
 
+/obj/Destroy()
+	QDEL_NULL(talking_atom)
+	return ..()
+
 /datum/talking_atom
 	var/list/heard_words = list()
 	var/last_talk_time = 0

@@ -277,6 +277,10 @@
 	broken_overlay = null
 	burned_overlay = null
 
+/turf/simulated/floor/tiled/slate/airless
+	name = "airless tiles"
+	initial_gas = null
+
 // ------------------------------- cargo
 
 /turf/simulated/floor/tiled/cargo
