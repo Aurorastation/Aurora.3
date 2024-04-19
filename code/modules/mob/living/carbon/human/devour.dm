@@ -32,9 +32,6 @@
 
 	return TRUE
 
-/mob/living/carbon/human/proc/move_to_stomach(atom/movable/victim)
-	return
-
 // Snowflake procs for unathi. Because lore said so.
 
 /mob/living/carbon/human/proc/do_gradual_devour(var/mob/living/victim, var/eat_speed)

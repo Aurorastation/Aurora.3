@@ -670,3 +670,27 @@
 	reach = 2
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	armor_penetration = wielded_ap
+
+/obj/item/material/twohanded/pike/halberd/warscythe
+	name = "war scythe"
+	desc = "An ancient Unathi weapon, this heavy polearm was frequently wielded by cavalry forces of pre-Hegemony kingdoms."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "warspike0"
+	base_icon = "warspike"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_BRONZE)
+
+/obj/item/material/twohanded/pike/mador_trident
+	name = "ancient trident"
+	desc = "An ancient weapon, this three-pointed polearm was often wielded by the ancient Sinta'Mador civilization of Moghes."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "mador_trident0"
+	base_icon = "mador_trident"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+
+/obj/item/material/twohanded/pike/mador_trident/bronze/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_BRONZE)

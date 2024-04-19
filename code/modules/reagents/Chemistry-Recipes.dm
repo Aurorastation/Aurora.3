@@ -161,7 +161,7 @@
 	name = "Mortaphenyl"
 	id = "mortaphenyl"
 	result = /singleton/reagent/mortaphenyl
-	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/acetone = 1)
+	required_reagents = list(/singleton/reagent/inaprovaline = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/acetone = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/perconol
@@ -205,7 +205,7 @@
 	name = "Sterilizine"
 	id = "sterilizine"
 	result = /singleton/reagent/sterilizine
-	required_reagents = list(/singleton/reagent/alcohol = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/acid/hydrochloric = 1)
+	required_reagents = list(/singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/acid/hydrochloric = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/silicate
@@ -450,7 +450,7 @@
 	name = "Cytophenolate"
 	id = "cytophenolate"
 	result = /singleton/reagent/cytophenolate
-	required_reagents = list(/singleton/reagent/fluvectionem = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/sugar = 1)
+	required_reagents = list(/singleton/reagent/fluvectionem = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/sugar = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/antiparasitic
@@ -493,7 +493,7 @@
 	name = "Verunol Syrup"
 	id = "verunol"
 	result = /singleton/reagent/verunol
-	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/dylovene = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/adipemcina
@@ -515,7 +515,7 @@
 	name = "Polysomnine"
 	id = "polysomnine"
 	result = /singleton/reagent/polysomnine
-	required_reagents = list(/singleton/reagent/alcohol = 1, /singleton/reagent/acid/hydrochloric = 3, /singleton/reagent/water = 1)
+	required_reagents = list(/singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/acid/hydrochloric = 3, /singleton/reagent/water = 1)
 	result_amount = 1
 
 /datum/chemical_reaction/potassium_chloride
@@ -557,7 +557,7 @@
 	name = "Lipozine"
 	id = "Lipozine"
 	result = /singleton/reagent/lipozine
-	required_reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/radium = 1)
+	required_reagents = list(/singleton/reagent/sodiumchloride = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/radium = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/coagzolug
@@ -578,7 +578,7 @@
 	name = "Diethylamine"
 	id = "diethylamine"
 	result = /singleton/reagent/diethylamine
-	required_reagents = list(/singleton/reagent/ammonia = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/ammonia = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 2
 
 /datum/chemical_reaction/space_cleaner
@@ -613,7 +613,7 @@
 	name = "Glycerol"
 	id = "glycerol"
 	result = /singleton/reagent/glycerol
-	required_reagents = list(/singleton/reagent/nutriment/triglyceride = 1, /singleton/reagent/alcohol = 2) // transesterification of triglycerides into butanol and glycerol
+	required_reagents = list(/singleton/reagent/nutriment/triglyceride = 1, /singleton/reagent/alcohol/ethanol = 2) // transesterification of triglycerides into butanol and glycerol
 	catalysts = list(/singleton/reagent/acid = 5) // using acid as a catalyst
 	result_amount = 3 //each triglyceride has 3 glycerin chains.
 
@@ -799,7 +799,7 @@
 	name = "Emoxanyl"
 	id = "emoxanyl"
 	result = /singleton/reagent/mental/emoxanyl
-	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/silicon = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/silicon = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/orastabin
@@ -813,7 +813,7 @@
 	name = "Neurapan"
 	id = "neurapan"
 	result = /singleton/reagent/mental/neurapan
-	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/drugs/mms = 1, /singleton/reagent/alcohol = 1)
+	required_reagents = list(/singleton/reagent/drugs/mindbreaker = 1, /singleton/reagent/drugs/mms = 1, /singleton/reagent/alcohol/ethanol = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/nerospectan
@@ -910,7 +910,7 @@
 	name = "Colorspace"
 	id = "colorspace"
 	result = /singleton/reagent/drugs/colorspace
-	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/alcohol = 1, /singleton/reagent/silicon = 1)
+	required_reagents = list(/singleton/reagent/hydrazine = 1, /singleton/reagent/alcohol/ethanol = 1, /singleton/reagent/silicon = 1)
 	result_amount = 1
 
 /* Solidification */
@@ -3274,7 +3274,7 @@
 	name = "Fringe Weaver"
 	id = "fringeweaver"
 	result = /singleton/reagent/alcohol/fringeweaver
-	required_reagents = list(/singleton/reagent/alcohol = 2, /singleton/reagent/sugar = 1)
+	required_reagents = list(/singleton/reagent/alcohol/ethanol = 2, /singleton/reagent/sugar = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/junglejuice

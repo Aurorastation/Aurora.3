@@ -70,7 +70,9 @@ SUBSYSTEM_DEF(chemistry)
 
 /datum/controller/subsystem/chemistry/proc/initialize_specific_heats()
 	for(var/_R in subtypesof(/singleton/reagent/))
-		check_specific_heat(_R)
+		var/singleton/reagent/reagent = _R
+		if(!is_abstract(reagent))
+			check_specific_heat(_R)
 
 /datum/controller/subsystem/chemistry/stat_entry(msg)
 	msg = "AH:[active_holders.len]"

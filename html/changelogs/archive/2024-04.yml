@@ -373,3 +373,30 @@
   SidVeld:
   - rscadd: Added a universal augment translator that can be used to understand human
       languages, but not speak them.
+2024-04-19:
+  Alberyk:
+  - rscadd: Added two new ruins to New Gibson.
+  - rscadd: New Gibson now has a more proper environment.
+  ChangeMe:
+  - rscadd: added some more military and medical belts and webbing for the Xanu Military
+      Frigate
+  Chevy:
+  - balance: Raised jackboot armor values to meet those of workboots, except for the
+      radiation armor, which remains unique to workboots.
+  FluffyGhost:
+  - qol: Reduced engine volume.
+  - refactor: Refactored archeological finds to use Initialize() instead of New()
+      where possible.
+  RustingWithYou:
+  - bugfix: Fixes shuttle open space landmarks generating on the wrong z-levels.
+  - rscadd: Adds the Uueoa-Esa sector, along with its lore planets.
+  - rscadd: Adds two new origin traits - stamina bonus and pain resistance, currently
+      available to Tza and Zazalai Unathi.
+  - qol: Crevan Tajara now have drug and alcohol resistance.
+  - rscadd: Prosthetic/amputated limbs and organs can now be edited in the appearance
+      changer.
+  - qol: Height and speech bubbles can now be edited when unable to change species
+      in appearance editor.
+  - rscadd: Fluff papers can now be set to a written language.
+  - imageadd: Adds an Unathi skeleton sprite.
+  - balance: Buffs the explosion radius of Bruiser HE rounds.
