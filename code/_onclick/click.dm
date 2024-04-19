@@ -83,6 +83,9 @@
 		return B.ClickOn(A, params)
 
 	var/list/modifiers = params2list(params)
+	if(modifiers["right"])
+		RightClickOn(A)
+		return TRUE
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
 		return TRUE
@@ -305,6 +308,12 @@
 
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
+
+/mob/proc/RightClickOn(atom/A)
+	A.RightClick(src)
+
+/atom/proc/RightClick(mob/user)
+	return
 
 /*
 	Control+Shift click
