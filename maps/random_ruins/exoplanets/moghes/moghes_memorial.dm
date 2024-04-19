@@ -21,4 +21,4 @@
 	. = ..()
 	if(GLOB.all_languages[LANGUAGE_UNATHI] in user.languages)
 		to_chat(user, SPAN_NOTICE("The inscription on the monolith reads as follows: \"This is the fifteen thousand six hundred and eighty-sixth monument erected by the Keepers of Heirlooms, \
-		, to honor those who perished in the fires of the Contact War. May we remember them, and may we learn the lessons of such a tragedy well, that it might never be repeated.\""))
+		to honor those who perished in the fires of the Contact War. May we remember them, and may we learn the lessons of such a tragedy well, that it might never be repeated.\""))
