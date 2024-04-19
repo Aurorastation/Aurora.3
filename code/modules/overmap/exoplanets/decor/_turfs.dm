@@ -71,7 +71,10 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
-	if(has_edge_icon)
+	if(initial_flooring)
+		. = ..()
+
+	else if(has_edge_icon)
 		cut_overlays()
 		if(resource_indicator)
 			add_overlay(resource_indicator)

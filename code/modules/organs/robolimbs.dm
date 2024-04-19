@@ -18,7 +18,7 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb
 	/// Shown when selecting the limb.
-	var/company = "Unbranded"
+	var/company = PROSTHETIC_UNBRANDED
 	/// Seen when examining a limb.
 	var/desc = "A generic unbranded robotic prosthesis."
 	/// Icon base to draw from.

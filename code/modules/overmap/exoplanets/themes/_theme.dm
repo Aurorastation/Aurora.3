@@ -356,3 +356,5 @@
 				M.UpdateMineral() // It's already a mineral turf, so we can avoid changeturf here
 
 /datum/exoplanet_theme/proc/get_planet_image_extra()
+
+/datum/exoplanet_theme/proc/after_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E) //after the map is generated and ruins exist

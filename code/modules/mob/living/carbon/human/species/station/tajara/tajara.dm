@@ -129,6 +129,7 @@
 	metabolism_mod = 0.8
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	valid_prosthetics = list(PROSTHETIC_TESLA)
 
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

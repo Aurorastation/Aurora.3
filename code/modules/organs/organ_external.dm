@@ -1562,6 +1562,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/last_pain = pain
 	if(owner)
 		amount *= owner.species.pain_mod
+		if(HAS_TRAIT(owner, TRAIT_ORIGIN_PAIN_RESISTANCE))
+			amount = max(amount-1, 1)
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return

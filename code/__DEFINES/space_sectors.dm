@@ -44,4 +44,7 @@
 //For highly dangerous sectors with high piracy. Civilian and leisure ships should be less common or not found here.
 #define ALL_DANGEROUS_SECTORS	list(SECTOR_BADLANDS, ALL_VOID_SECTORS)
 
+/// all non-generic, named and specific sectors, where generic planets or the like should not spawn
+#define ALL_SPECIFIC_SECTORS	list(SECTOR_TAU_CETI, SECTOR_SRANDMARR, SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_UUEOAESA, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_NRRAHRAHUL, SECTOR_GAKAL)
+
 #define ALL_POSSIBLE_SECTORS	list(ALL_TAU_CETI_SECTORS, ALL_BADLAND_SECTORS, ALL_COALITION_SECTORS, ALL_VOID_SECTORS, ALL_GENERIC_SECTORS, ALL_CORPORATE_SECTORS)
