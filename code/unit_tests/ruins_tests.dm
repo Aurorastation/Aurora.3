@@ -76,7 +76,7 @@
 				TEST_NOTICE("Lower Z: [ruin_bounds[MAP_MINZ]] - Upper Z: [ruin_bounds[MAP_MAXZ]]")
 
 			for(var/zlevel in ruin_bounds[MAP_MINZ] to ruin_bounds[MAP_MAXZ])
-				ruin_report_map["[zlevel]"] = "[tested_ruin.type] ([tested_ruin.type]) -- X: [ruin_bounds[MAP_MINX]] → [ruin_bounds[MAP_MAXX]] Y: [ruin_bounds[MAP_MINY]] → [ruin_bounds[MAP_MAXY]]"
+				ruin_report_map["[zlevel]"] = "[tested_ruin.name] ([tested_ruin.type]) -- X: [ruin_bounds[MAP_MINX]] → [ruin_bounds[MAP_MAXX]] Y: [ruin_bounds[MAP_MINY]] → [ruin_bounds[MAP_MAXY]]"
 
 	TEST_PASS("All the ruins in [src.name] loaded successfully!")
 
