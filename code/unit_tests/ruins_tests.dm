@@ -16,6 +16,8 @@
 
 /datum/unit_test/ruins_test/exoplanet_ruins/start_test()
 
+	var/list/ruin_report_map = list()
+
 	//Generate a planet WITH VACUUM ATMOS to use as a baseline
 	var/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/test_exoplanet = new()
 	test_exoplanet.generate_atmosphere()
@@ -68,9 +70,22 @@
 			TEST_NOTICE("Loaded ruin [tested_ruin.name] - [tested_ruin.type] with the following bounds:")
 			TEST_NOTICE("Lower X: [ruin_bounds[MAP_MINX]] - Upper X: [ruin_bounds[MAP_MAXX]]")
 			TEST_NOTICE("Lower Y: [ruin_bounds[MAP_MINY]] - Upper Y: [ruin_bounds[MAP_MAXY]]")
-			TEST_NOTICE("Lower Z: [ruin_bounds[MAP_MINZ]] - Upper Z: [ruin_bounds[MAP_MAXZ]]")
+
+			//Only print the z level bounds if they're not the same
+			if(ruin_bounds[MAP_MINZ] != ruin_bounds[MAP_MAXZ])
+				TEST_NOTICE("Lower Z: [ruin_bounds[MAP_MINZ]] - Upper Z: [ruin_bounds[MAP_MAXZ]]")
+
+			for(var/zlevel in ruin_bounds[MAP_MINZ] to ruin_bounds[MAP_MAXZ])
+				ruin_report_map["[zlevel]"] = "[tested_ruin.type] ([tested_ruin.type]) -- X: [ruin_bounds[MAP_MINX]] → [ruin_bounds[MAP_MAXX]] Y: [ruin_bounds[MAP_MINY]] → [ruin_bounds[MAP_MAXY]]"
 
 	TEST_PASS("All the ruins in [src.name] loaded successfully!")
+
+	//Print a report in an expandable group
+	world.log << "::::group::{Report of ruin placements}"
+	for(var/zlevel in ruin_report_map)
+		TEST_NOTICE("Z: [zlevel] --> [ruin_report_map["[zlevel]"]]")
+	world.log << "::::endgroup::"
+
 	return UNIT_TEST_PASSED
 
 /datum/unit_test/ruins_test/all_files_valid
