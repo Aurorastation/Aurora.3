@@ -32,22 +32,33 @@
 
 	for(var/ruin in subtypesof(/datum/map_template/ruin/exoplanet))
 		var/datum/map_template/ruin/exoplanet/tested_ruin = new ruin()
-		var/turf/center_ruin = tested_ruin.load_new_z(FALSE)
 
+		//We don't care about abstract types
 		if(is_abstract(tested_ruin))
 			continue
 
-		if(!tested_ruin)
-			TEST_FAIL("Failed to load ruin [ruin]!")
-			return UNIT_TEST_FAILED
-
+		//Every ruin must have at least one test group
 		if(!length(tested_ruin.unit_test_groups))
 			TEST_FAIL("Ruin [tested_ruin.name] - [tested_ruin.type] has no unit test groups!")
 			return UNIT_TEST_FAILED
 
-		if(!(tested_ruin.unit_test_groups in SSunit_tests_config.config["ruins_unit_test_groups"]) && SSunit_tests_config.config["ruins_unit_test_groups"] != "*")
+		//See if the ruin is in the unit test groups we're supposed to run
+		var/is_in_unit_test_groups = FALSE
+		for(var/unit_test_group in initial(tested_ruin.unit_test_groups))
+			if(unit_test_group in SSunit_tests_config.config["ruins_unit_test_groups"] || SSunit_tests_config.config["ruins_unit_test_groups"][1] == "*")
+				is_in_unit_test_groups = TRUE
+				break
+
+		//If it's not in the unit test groups, skip it
+		if(!is_in_unit_test_groups)
 			TEST_DEBUG("Ruin [tested_ruin.name] - [tested_ruin.type] is not part of this pod configuration, skipping")
 			continue
+
+		var/turf/center_ruin = tested_ruin.load_new_z(FALSE)
+
+		if(!tested_ruin)
+			TEST_FAIL("Failed to load ruin [ruin]!")
+			return UNIT_TEST_FAILED
 
 		var/loaded_zlevel = null
 		if(center_ruin)
