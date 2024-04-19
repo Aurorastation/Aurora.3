@@ -64,5 +64,7 @@
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
 /obj/outfit/admin/unathi_village/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.shoes)
+	if(!H)
+		return
+	if(H.shoes)
 		H.shoes.color = "#423509"

@@ -88,6 +88,8 @@
 	id = null
 
 /obj/outfit/admin/moghes_thakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!H)
+		return
 	if(H?.wear_suit)
 		H.wear_suit.color = "#423509"
 	if(H?.shoes)

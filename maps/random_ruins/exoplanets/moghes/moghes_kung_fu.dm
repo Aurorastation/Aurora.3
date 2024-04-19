@@ -41,6 +41,8 @@
 	r_hand = /obj/item/martial_manual/unathi
 
 /obj/outfit/admin/moghes_kung_fu/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(!H)
+		return
 	if(H?.w_uniform)
 		H.w_uniform.color = "#3a4b56"
 	if(H?.shoes)

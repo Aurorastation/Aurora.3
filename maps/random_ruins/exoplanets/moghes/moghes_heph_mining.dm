@@ -60,7 +60,9 @@
 	backpack_contents = list(/obj/item/storage/wallet/random = 1)
 
 /obj/outfit/admin/moghes_heph_miner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.wear_suit)
+	if(!H)
+		return
+	if(H.wear_suit)
 		H.wear_suit.color = "#2a2b2e"
 
 /obj/outfit/admin/moghes_heph_miner/get_id_access()
@@ -76,11 +78,13 @@
 	backpack_contents = list(/obj/item/storage/wallet/random = 1, /obj/item/reagent_containers/food/snacks/koisbar_clean = 3)
 
 /obj/outfit/admin/moghes_heph_miner/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
+	if(!H)
+		return
+	if(H.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
-	if(H?.wear_suit)
+	if(H.wear_suit)
 		H.wear_suit.color = "#2a2b2e"
 	var/obj/item/organ/B = new /obj/item/organ/internal/augment/tool/drill(H)
 	var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)

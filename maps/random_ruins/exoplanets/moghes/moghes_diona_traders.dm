@@ -99,10 +99,12 @@
 	r_pocket = /obj/item/storage/wallet
 
 /obj/outfit/admin/moghes_diona/assistant/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.w_uniform)
+	if(!H)
+		return
+	if(H.w_uniform)
 		H.w_uniform.color = "#EAEAEA"
 		H.w_uniform.accent_color = "#EAEAEA"
-	if(H?.wear_suit)
+	if(H.wear_suit)
 		H.wear_suit.color = "#42330f"
 
 /obj/item/paper/fluff/moghes_diona_ad

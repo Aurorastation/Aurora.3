@@ -50,10 +50,11 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/moghes_bar_inkeeper/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#473b13", "#134718", "#0a6959")]"
-	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
-	if(H?.shoes)
+	if(!H)
+		return
+	if(H.w_uniform)
+		H.w_uniform.color = pick("#473b13", "#134718", "#0a6959")
+	if(H.shoes)
 		H.shoes.color = "#423509"
 
 /datum/ghostspawner/human/moghes_bar_server
@@ -89,12 +90,13 @@
 	id = /obj/item/card/id
 
 /obj/outfit/admin/moghes_bar_server/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#473b13", "#134718", "#0a6959")]"
-	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
-	if(H?.wear_suit)
+	if(!H)
+		return
+	if(H.w_uniform)
+		H.w_uniform.color = pick("#473b13", "#134718", "#0a6959")
+	if(H.wear_suit)
 		H.wear_suit.color = "#423509"
-	if(H?.shoes)
+	if(H.shoes)
 		H.shoes.color = "#423509"
 
 /datum/ghostspawner/human/moghes_bar_patron
@@ -143,10 +145,11 @@
 	id = null
 
 /obj/outfit/admin/moghes_bar_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#473b13", "#134718", "#0a6959", "#d2d9d8", "#262928")]"
-	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
-	if(H?.wear_suit)
+	if(!H)
+		return
+	if(H.w_uniform)
+		H.w_uniform.color = pick("#473b13", "#134718", "#0a6959", "#d2d9d8", "#262928")
+	if(H.wear_suit)
 		H.wear_suit.color = "#423509"
-	if(H?.shoes)
+	if(H.shoes)
 		H.shoes.color = "#423509"
