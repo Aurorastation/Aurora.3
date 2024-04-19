@@ -825,6 +825,12 @@
 
 /obj/item/gun/dropped(mob/user)
 	..()
+
+	//Removing the lock and the buttons.
+	if(istype(user, /mob/living))
+		var/mob/living/living_user = user
+		living_user.stop_aiming(src)
+
 	queue_icon_update()
 	//Unwields the item when dropped, deletes the offhand
 	update_maptext()

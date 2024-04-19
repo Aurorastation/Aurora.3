@@ -99,7 +99,7 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 		var/rname = pick(chems)
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (ispath(rname, /singleton/reagent/drink) || ispath(rname, /singleton/reagent/alcohol))
+		if (ispath(rname, /singleton/reagent/drink) || ispath(rname, /singleton/reagent/alcohol/ethanol))
 			rname = pick(chems)
 		var/singleton/reagent/R = GET_SINGLETON(rname)
 		C.reagents.add_reagent(rname, C.volume)

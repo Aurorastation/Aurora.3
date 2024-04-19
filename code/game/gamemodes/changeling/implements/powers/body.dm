@@ -690,13 +690,6 @@
 		H.stop_sight_update = TRUE
 		to_chat(H, SPAN_NOTICE("We have turned on our heat receptors."))
 
-/mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
-	var/datum/changeling/changeling = changeling_power(0, 0, 0)
-	if(changeling && changeling.using_thermals)
-		return FLASH_PROTECTION_REDUCED
-	else
-		. = ..()
-
 /mob/proc/changeling_electric_lockpick()
 	set category = "Changeling"
 	set name = "Electric Lockpick (5 + 10/use)"

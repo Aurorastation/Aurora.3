@@ -135,3 +135,22 @@
 	desc = "A simple brown and red robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Warrior."
 	icon_state = "skakh-warrior"
 	item_state = "skakh-warrior"
+
+/obj/item/clothing/under/unathi/ancient
+	name = "ancient unathi vestments"
+	desc = "A set of faded cloth vestments that look very, very old. They look like they are made to fit an Unathi"
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_clothing1"
+	item_state = "ancient_clothing1"
+
+/obj/item/clothing/under/unathi/ancient/robes
+	name = "ancient unathi robes"
+	desc = "A set of faded cloth robes that look very, very old. They resemble traditional Unathi garb."
+	icon_state = "ancient_clothing2"
+	item_state = "ancient_clothing2"
+
+/obj/item/clothing/under/unathi/ancient/mador
+	name = "\improper Sinta'Mador burial wrappings"
+	desc = "A set of gray cloth wrappings, used in traditional Sinta'Mador burials. Remarkably well preserved with age."
+	icon_state = "mador_wrappings"
+	item_state = "mador_wrappings"

@@ -24,6 +24,10 @@
 	var/datum/click_handler/click_handler = usr.GetClickHandler()
 	click_handler.OnDblClick(src, params)
 
+	if(istype(usr.machine,/obj/machinery/computer/security))
+		var/obj/machinery/computer/security/console = usr.machine
+		console.jump_on_click(usr,src)
+
 /atom/proc/allow_click_through(var/atom/A, var/params, var/mob/user)
 	return FALSE
 
@@ -79,6 +83,9 @@
 		return B.ClickOn(A, params)
 
 	var/list/modifiers = params2list(params)
+	if(modifiers["right"])
+		RightClickOn(A)
+		return TRUE
 	if(modifiers["shift"] && modifiers["ctrl"])
 		CtrlShiftClickOn(A)
 		return TRUE
@@ -204,10 +211,13 @@
 /mob/living/UnarmedAttack(var/atom/A, var/proximity_flag)
 	if(!(GAME_STATE & RUNLEVELS_PLAYING))
 		to_chat(src, "You cannot attack people before the game has started.")
-		return 0
+		return FALSE
 
 	if(stat)
-		return 0
+		return FALSE
+
+	if(check_sting(src, A))
+		return FALSE
 
 	return 1
 
@@ -298,6 +308,12 @@
 
 /mob/proc/TurfAdjacent(var/turf/T)
 	return T.AdjacentQuick(src)
+
+/mob/proc/RightClickOn(atom/A)
+	A.RightClick(src)
+
+/atom/proc/RightClick(mob/user)
+	return
 
 /*
 	Control+Shift click
@@ -422,11 +438,6 @@ var/global/list/click_catchers
 /mob
 	var/datum/stack/click_handlers
 
-/mob/Destroy()
-	if(click_handlers)
-		click_handlers.QdelClear()
-		QDEL_NULL(click_handlers)
-	. = ..()
 
 var/const/CLICK_HANDLER_NONE = 0
 var/const/CLICK_HANDLER_REMOVE_ON_MOB_LOGOUT = 1
