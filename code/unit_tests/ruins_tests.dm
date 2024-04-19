@@ -41,8 +41,8 @@
 			TEST_FAIL("Failed to load ruin [ruin]!")
 			return UNIT_TEST_FAILED
 
-		if(!length(initial(tested_ruin.unit_test_groups)))
-			TEST_FAIL("Ruin [tested_ruin.name] has no unit test groups!")
+		if(!length(tested_ruin.unit_test_groups))
+			TEST_FAIL("Ruin [tested_ruin.name] - [tested_ruin.type] has no unit test groups!")
 			return UNIT_TEST_FAILED
 
 		if(!(tested_ruin.unit_test_groups in SSunit_tests_config.config["ruins_unit_test_groups"]) && SSunit_tests_config.config["ruins_unit_test_groups"] != "*")
