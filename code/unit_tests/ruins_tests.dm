@@ -81,10 +81,10 @@
 	TEST_PASS("All the ruins in [src.name] loaded successfully!")
 
 	//Print a report in an expandable group
-	world.log << "::::group::{Report of ruin placements}"
+	world.log << "::group::{Report of ruin placements}"
 	for(var/zlevel in ruin_report_map)
 		TEST_NOTICE("Z: [zlevel] --> [ruin_report_map["[zlevel]"]]")
-	world.log << "::::endgroup::"
+	world.log << "::endgroup::"
 
 	return UNIT_TEST_PASSED
 
