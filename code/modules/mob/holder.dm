@@ -56,10 +56,6 @@ var/list/holder_mob_icon_cache = list()
 	if(contained)
 		return contained.examine(user)
 
-/obj/item/holder/attack_self()
-	for(var/mob/M in contents)
-		M.show_inv(usr)
-
 /obj/item/holder/process()
 	if (!contained)
 		qdel(src)
@@ -148,6 +144,8 @@ var/list/holder_mob_icon_cache = list()
 	report_onmob_location(1, slotnumber, contained)
 
 /obj/item/holder/attack_self(mob/M as mob)
+	for(var/mob/contained_mob in contents)
+		contained_mob.show_inv(usr)
 
 	if (contained && !(contained.stat & DEAD))
 		if (istype(M,/mob/living/carbon/human))

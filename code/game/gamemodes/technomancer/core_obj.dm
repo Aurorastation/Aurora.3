@@ -207,18 +207,6 @@
 	src.loc = loc
 	src.core = loc
 
-/mob/living/carbon/human/get_status_tab_items()
-	. = ..()
-
-	var/obj/item/technomancer_core/core = get_technomancer_core()
-	if(core)
-		var/charge_status = "[core.energy]/[core.max_energy] ([round( (core.energy / core.max_energy) * 100)]%) \
-		([round(core.energy_delta)]/s)"
-		var/instability_delta = instability - last_instability
-		var/instability_status = "[src.instability] ([round(instability_delta, 0.1)]/s)"
-		. += "Core Charge: [charge_status]"
-		. += "User instability: [instability_status]"
-
 /obj/item/technomancer_core/proc/add_spell(var/path, var/new_name, var/ability_icon_state)
 	if(!path || !ispath(path))
 		message_admins("ERROR: /obj/item/technomancer_core/add_spell() was not given a proper path!  \

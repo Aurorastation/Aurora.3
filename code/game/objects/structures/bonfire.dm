@@ -181,9 +181,9 @@ GLOBAL_LIST_EMPTY(total_active_bonfires)
 			reagent_level = reagents.reagent_volumes[R.type]
 			fuel = min(max_fuel, fuel + (reagent_level * 25))
 
-		if(reagents.has_reagent(/singleton/reagent/alcohol))
-			R = GET_SINGLETON(/singleton/reagent/alcohol)
-			var/singleton/reagent/alcohol/A = R
+		if(reagents.has_reagent(/singleton/reagent/alcohol/ethanol))
+			R = GET_SINGLETON(/singleton/reagent/alcohol/ethanol)
+			var/singleton/reagent/alcohol/ethanol/A = R
 			reagent_level = reagents.reagent_volumes[A.type]
 			fuel = min(max_fuel, fuel + (reagent_level * (A.strength/20)))
 

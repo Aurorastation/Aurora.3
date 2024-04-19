@@ -2003,7 +2003,7 @@
 /obj/structure/sign/flag/assunzione/large/east/Initialize(mapload)
 	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/himeo/large/west/Initialize(mapload)
+/obj/structure/sign/flag/assunzione/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 // New Gibson

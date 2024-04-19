@@ -56,11 +56,6 @@
 	eyeobj = new /mob/abstract/eye/aiEye(newloc)
 	eyeobj.possess(src)
 
-// Intiliaze the eye by assigning it's "ai" variable to us. Then set it's loc to us.
-/mob/living/silicon/ai/Initialize()
-	. = ..()
-	create_eyeobj()
-
 /atom/proc/move_camera_by_click()
 	if(istype(usr, /mob/living/silicon/ai))
 		var/mob/living/silicon/ai/AI = usr
