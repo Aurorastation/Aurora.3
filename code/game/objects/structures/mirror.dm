@@ -148,7 +148,7 @@
 	for(var/mob/living/carbon/human/H in loc)
 		check_vampire_enter(H.loc, H)
 
-	vis_contents += get_turf(mirror)
+	add_vis_contents(get_turf(mirror))
 
 /obj/effect/reflection/proc/check_vampire_enter(var/turf/T, var/mob/living/carbon/human/H)
 	if(!istype(H))

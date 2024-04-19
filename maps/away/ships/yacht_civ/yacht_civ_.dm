@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/yacht_civ
 	name = "Civilian Yacht"
 	description = "Civilian Yacht"
-	suffixes = list("ships/yacht_civ/yacht_civ.dmm")
+
+	prefix = "ships/yacht_civ/"
+	suffixes = list("yacht_civ.dmm")
+
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	sectors_blacklist = list(ALL_DANGEROUS_SECTORS)
 	spawn_weight = 1
@@ -120,3 +123,8 @@
 	fuel_consumption = 2
 	logging_home_tag = "nav_yacht_civ_shuttle_dock"
 	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/yacht_civ_shuttle
+	name = "Civilian Yacht Shuttle"
+	shuttle_tag = "Civilian Yacht Shuttle"
+	master_tag = "airlock_yacht_civ_shuttle"

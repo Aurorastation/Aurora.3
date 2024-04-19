@@ -5,12 +5,14 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/stranded_police.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("stranded_police.dmm")
 
 /datum/ghostspawner/human/konyang_lostcop
 	short_name = "konyang_lostcop"
 	name = "Konyang Lost Police Patrolman"
-	desc = "Wander the countryside, try to find help, don't die to the infected."
+	desc = "Wander the countryside and try to find help."
 	tags = list("External")
 	welcome_message = "You are a lost patrolman."
 

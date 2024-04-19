@@ -32,12 +32,12 @@
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
 	origin_tech = list(TECH_MATERIAL = 5)
 
-/obj/item/ore/strangerock/New(loc, var/inside_item_type = 0)
-	..(loc)
+/obj/item/ore/strangerock/Initialize(mapload, inside_item_type)
+	. = ..()
 
 	//method = rand(0,2)
 	if(inside_item_type)
-		inside = new/obj/item/archaeological_find(src, new_item_type = inside_item_type)
+		inside = new/obj/item/archaeological_find(src, inside_item_type)
 		if(!inside)
 			inside = locate() in contents
 
@@ -84,7 +84,9 @@
 	icon_state = "ano01"
 	var/find_type = 0
 
-/obj/item/archaeological_find/New(loc, var/new_item_type)
+/obj/item/archaeological_find/Initialize(mapload, new_item_type)
+	. = ..()
+
 	if(new_item_type)
 		find_type = new_item_type
 	else
@@ -409,7 +411,7 @@
 				apply_image_decorations = 0
 		if(29)
 			//fossil bone/skull
-			//new_item = new /obj/item/fossil/base(src.loc)
+			new_item = new /obj/item/fossil/base(src.loc)
 
 			//the replacement item propogation isn't working, and it's messy code anyway so just do it here
 			var/list/candidates = list("/obj/item/fossil/bone"=9,"/obj/item/fossil/skull"=3,
@@ -553,7 +555,7 @@
 		if(talkative)
 			new_item.talking_atom = new(new_item)
 
-		QDEL_IN(src, 1 SECOND)
+		return INITIALIZE_HINT_QDEL
 
 	else if(talkative)
 		src.talking_atom = new(src)

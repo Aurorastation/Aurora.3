@@ -179,7 +179,7 @@
 	usr.set_machine(src)
 	add_fingerprint(usr)
 
-	playsound(src, /singleton/sound_category/keyboard_sound)
+	playsound(src, /singleton/sound_category/keyboard_sound, 50)
 
 	if(action == "make")
 		var/multiplier = text2num(params["multiplier"])

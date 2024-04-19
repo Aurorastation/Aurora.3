@@ -1,0 +1,55 @@
+2013-01-07:
+  Cael_Aislinn:
+  - tgs: Updated server to tgstation r5200 (November 26th, 2012), see <a href="https://code.google.com/p/tgstation13/source/list">https://code.google.com/p/tgstation13/source/list</a>
+      for tg's changelog.
+  Chinsky:
+  - rscadd: 'Implants: Explosvie implant, exploding when victim hears the codephrase
+      you set.'
+  - rscadd: 'Implants: Compressed Matter implat, scan item (making it disappear),
+      inject yourself and recall that item on will!'
+  - rscadd: Implant removal surgery, with !!FUN!! results if you mess up it.
+  - rscadd: Coats now have pockets again.
+  - rscadd: Bash people on tabetops. an windows, or with stools. Grab people to bash
+      them on tables or windows (better grab for better hit on windows). Drag stool
+      sprite on you to pick it up, click on it in hand to make it usual stool again.
+  - rscadd: Surgical caps, and new sprites for bloodbags and fixovein.
+  - rscadd: Now some surgery steps will bloody your hands, Full-body blood coat in
+      case youy mess up spectacualry.
+  - rscadd: Ported some crates (Art, Surgery, Sterile equiplemnt).
+  - tweak: Changed contraband crates. Posters moved to Art Crate, cigs and lipstick
+      ot party crate. Now contraband crate has illegal booze and illicit drugs.
+  - bugfix: Finally got evac party lights
+  - bugfix: Now disfigurment,now it WILL happen when damage is bad enough.
+  - experiment: Now if you speak in depressurized area (less than 10 kPa) only people
+      next to you can hear you. Radios still work though.
+2013-01-13:
+  Chinsky:
+  - tweak: If you get enough (6) blood drips on one tile, it'll turn into a blood
+      puddle. Should make bleeding out more visible.
+  - tweak: Security belt now able to hold taser, baton and tape roll.
+  - tweak: Added alternative security uniform to Security wardrobes.
+  - rscadd: 'Ported Urist cult runes. Down with the crayon drawings!  Example: http://dl.dropbox.com/u/26846767/images/SS13/255_symbols.PNG'
+  - bugfix: Engineering tape now require engineer OR atmos access instead of both.
+  - rscadd: Implants now will react to EMP, possibly in !!FUN!! ways
+  GauHelldragon:
+  - rscadd: Servicebots now have RoboTray and Printing Pen. Robotray can be used to
+      pick up and drop food/drinks. Printing pen can alternate between writing mode
+      and rename paper mode by clicking it.
+  - rscadd: Farmbots. A new type of robot that weeds, waters and fertilizes. Use robot
+      arm on water tank. Then use plant analyzer, mini-hoe, bucket and finally proximity
+      sensor.
+  - rscadd: Chefs can clang their serving trays with a rolling pin. Just like a riot
+      shield!
+2013-01-21:
+  Cael_Aislinn:
+  - bugfix: Satchels and ore boxes can now hold strange rocks.
+  - rscadd: Closets and crates can now be built out of 5 and 10 plasteel respectively.
+  - rscadd: Observers can become mice once more.
+2013-01-23:
+  Cael_Aislinn:
+  - tgs: Updated server to tgstation r5200 (November 26th, 2012), see <a href="https://code.google.com/p/tgstation13/source/list">https://code.google.com/p/tgstation13/source/list</a>
+      for tg's changelog.
+2013-01-31:
+  CIB:
+  - bugfix: Chilis and cold chilis no longer kill in small amounts
+  - bugfix: Chloral now again needs around 5 units to start killing somebody

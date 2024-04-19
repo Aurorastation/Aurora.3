@@ -29,6 +29,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 
 	///If the newscaster is broken, boolean
 	var/isbroken = FALSE
@@ -988,7 +989,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 		dat+="<BR><HR><div align='center'>[src.curr_page+1]</div>"
 
-		human_user << browse(dat, "window=newspaper_main;size=300x400")
+		show_browser(human_user, dat, "window=newspaper_main;size=300x400")
 		onclose(human_user, "newspaper_main")
 	else
 		to_chat(user, "The paper is full of intelligible symbols!")
@@ -1100,11 +1101,11 @@ var/list/obj/machinery/newscaster/allCasters = list()
 			update_icon()
 			addtimer(CALLBACK(src, PROC_REF(clearAlert)), 300, TIMER_UNIQUE)
 
-		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, 1)
+		playsound(src.loc, 'sound/machines/twobeep.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	else
 		for(var/mob/O in hearers(world.view-1, T))
 			O.show_message("<span class='newscaster'><EM>[src.name]</EM> beeps, \"Attention! Wanted issue distributed!\"</span>",2)
-		playsound(loc, 'sound/machines/warning-buzzer.ogg', 75, 1)
+		playsound(loc, 'sound/machines/warning-buzzer.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return
 
 /obj/machinery/newscaster/proc/clearAlert()

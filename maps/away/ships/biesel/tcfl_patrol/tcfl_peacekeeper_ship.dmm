@@ -1356,7 +1356,6 @@
 "iaO" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
-	layer = 3.01;
 	pixel_y = 6
 	},
 /turf/simulated/floor/shuttle/white,
@@ -2269,7 +2268,6 @@
 "nfi" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /obj/structure/extinguisher_cabinet/west,
@@ -2543,7 +2541,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -2704,7 +2701,6 @@
 	pixel_y = 7
 	},
 /obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -3003,7 +2999,6 @@
 "rYF" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
-	layer = 2.8;
 	name = "primary engine control pump"
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -3040,7 +3035,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "tcfl_peacekeeper_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "tcfl_peacekeeper_ship_pump";
 	tag_chamber_sensor = "tcfl_peacekeeper_ship_sensor";

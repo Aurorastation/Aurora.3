@@ -7,7 +7,9 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_bar.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_bar.dmm")
 
 /area/adhomai_bar
 	name = "Adhomian Inn"
@@ -17,6 +19,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A typical Adhomian inn. The scent of alcohol and cigarette smoke as well as the warmth welcomes you."
 
 //ghost roles
 

@@ -18,7 +18,7 @@
 	var/limb_exception = FALSE
 	if(robotize_type)
 		var/datum/robolimb/R = GLOB.all_robolimbs[robotize_type]
-		if(R.paintable)
+		if(R?.paintable)
 			limb_exception = TRUE
 	if((status & ORGAN_ROBOT) && !limb_exception)
 		return
@@ -109,7 +109,8 @@
 		return
 	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
 	if(vampire && (vampire.status & VAMP_FRENZIED))
-		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy", EFFECTS_ABOVE_LIGHTING_LAYER)
+		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy")
+		return_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		return_image.appearance_flags = KEEP_APART
 		LAZYADD(additional_images, return_image)
 		return list(return_image)
@@ -195,6 +196,10 @@
 
 				if(status & ORGAN_DEAD)
 					mob_icon.ColorTone(rgb(10,50,0))
+					mob_icon.SetIntensity(0.7)
+
+				if(status & ORGAN_ZOMBIFIED)
+					mob_icon.ColorTone(rgb(30, 30, 30))
 					mob_icon.SetIntensity(0.7)
 
 				if(skin_color)

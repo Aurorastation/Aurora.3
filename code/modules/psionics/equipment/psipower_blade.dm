@@ -1,6 +1,6 @@
 /obj/item/psychic_power/psiblade
 	name = "psionic blade"
-	force = 10
+	force = 15
 	sharp = 1
 	edge = TRUE
 	maintain_cost = 1
@@ -11,13 +11,13 @@
 	. = ..()
 	switch(owner.psi.get_rank())
 		if(PSI_RANK_SENSITIVE)
-			force = 20
+			force = 25
 			armor_penetration = 10
 		if(PSI_RANK_HARMONIOUS)
-			force = 25
+			force = 31
 			armor_penetration = 20
 		if(PSI_RANK_APEX)
-			force = 30
+			force = 33
 			armor_penetration = 30
 			icon_state = "psiblade_long"
 		if(PSI_RANK_LIMITLESS)

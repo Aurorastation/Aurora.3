@@ -90,7 +90,7 @@
 				return TRUE
 			else
 				if(attacking_item.iswrench())
-					playsound(get_turf(src), attacking_item.usesound, 75, TRUE)
+					attacking_item.play_tool_sound(get_turf(src), 75)
 					to_chat(user, SPAN_NOTICE("You dismantle the blueprint."))
 					new /obj/item/stack/material/steel(get_turf(src), 2)
 					qdel(src)
@@ -147,7 +147,7 @@
 
 		if(COMPONENT_STATE)
 			if(attacking_item.iscrowbar())
-				playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				state = CIRCUITBOARD_STATE
 				circuit.forceMove(get_turf(src))
 				circuit = null
@@ -172,7 +172,7 @@
 							component_check = FALSE
 							break
 					if(component_check)
-						playsound(get_turf(src), attacking_item.usesound, 50, TRUE)
+						attacking_item.play_tool_sound(get_turf(src), 50)
 						var/obj/machinery/new_machine = new circuit.build_path(loc, dir, FALSE)
 						if(istype(new_machine))
 							if(new_machine.component_parts)
@@ -246,7 +246,7 @@
 
 /obj/machinery/constructable_frame/temp_deco/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		playsound(get_turf(src), attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, SPAN_NOTICE("You dismantle \the [src]."))
 		new /obj/item/stack/material/steel(get_turf(src), 5)
 		qdel(src)

@@ -349,6 +349,16 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
 
+/obj/item/storage/box/wallgunammo
+	name = "box of wall gun slugs"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "shellbox"
+	item_state = "shellbox"
+	illustration = "lethalslug"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/shotgun/moghes = 8)
+
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
@@ -1265,6 +1275,11 @@
 	name = "box of standstill landmines"
 	desc = "A box containing 5 standstill landmines."
 	starts_with = list(/obj/item/landmine/standstill = 5)
+
+/obj/item/storage/box/landmines/door_rigging
+	name = "box of door rigging landmines"
+	desc = "A box containing 5 door rigging landmines."
+	starts_with = list(/obj/item/landmine/frag/door_rigging = 5)
 
 /obj/item/storage/box/landmines/claymore
 	name = "box of claymore landmines"

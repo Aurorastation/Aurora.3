@@ -91,7 +91,7 @@
 	name = "roof ledge"
 	desc = "A basic roofing ledge to mark the edge of a rooftop. Don't trip!"
 	icon_state = "roof_ledge"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/ledge/roof/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))

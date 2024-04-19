@@ -526,6 +526,10 @@ var/const/NO_EMAG_ACT = -50
 	access = list(ACCESS_LEGION, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
 	..()
 
+/obj/item/card/id/distress/legion/tcaf
+	name = "\improper Tau Ceti Armed Forces identification card"
+	assignment = "Republican Fleet Legionary"
+
 /obj/item/card/id/distress/ap_eridani
 	name = "\improper Eridani Private Military Contractor identification card"
 	desc = "A high-tech holobadge, identifying the owner as a contractor from one of the many PMCs from the Eridani Corporate Federation."
@@ -618,6 +622,12 @@ var/const/NO_EMAG_ACT = -50
 	desc = "A well-worn identification pass, retrofitted with wireless transmission technology."
 	icon_state = "orion_card"
 	overlay_state = "orion_card"
+
+/obj/item/card/id/coalition
+	name = "\improper coalition identification card"
+	desc = "A rugged ID card denoting the wearer as a member of a Coalition of Colonies government organization."
+	icon_state = "coalition_card"
+	overlay_state = "nothing"
 
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"

@@ -12,7 +12,7 @@
 	alpha = 196
 	density = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = WINDOW_PANE_LAYER
+	layer = SIDE_WINDOW_LAYER
 	anchored = TRUE
 	atom_flags = ATOM_FLAG_CHECKS_BORDER
 	obj_flags = OBJ_FLAG_ROTATABLE|OBJ_FLAG_MOVES_UNSUPPORTED
@@ -62,9 +62,9 @@
 /obj/structure/window/update_icon()
 	if(!full)
 		if(dir == SOUTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		else
-			layer = WINDOW_PANE_LAYER
+			layer = SIDE_WINDOW_LAYER
 	SSicon_smooth.add_to_queue(src)
 
 /obj/structure/window/proc/take_damage(var/damage = 0,  var/sound_effect = 1, message = TRUE)
@@ -265,24 +265,24 @@
 		if(reinf && state >= 1)
 			state = 3 - state
 			update_nearby_icons()
-			playsound(loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (state == 1 ? SPAN_NOTICE("You have unfastened the window from the frame.") : SPAN_NOTICE("You have fastened the window to the frame.")))
 		else if(reinf && state == 0)
 			anchored = !anchored
 			update_icon()
 			update_nearby_icons()
-			playsound(loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the frame to the floor.") : SPAN_NOTICE("You have unfastened the frame from the floor.")))
 		else if(!reinf)
 			anchored = !anchored
 			update_nearby_icons()
-			playsound(loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			to_chat(user, (anchored ? SPAN_NOTICE("You have fastened the window to the floor.") : SPAN_NOTICE("You have unfastened the window.")))
 			update_icon()
 			update_nearby_icons()
 	else if(attacking_item.iscrowbar() && reinf && state <= 1 && user.a_intent != I_HURT)
 		state = 1 - state
-		playsound(loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		to_chat(user, (state ? SPAN_NOTICE("You have pried the window into the frame.") : SPAN_NOTICE("You have pried the window out of the frame.")))
 	else if(attacking_item.iswrench() && !anchored && (!state || !reinf) && user.a_intent != I_HURT)
 		if(!glasstype)
@@ -546,7 +546,7 @@
 	dir = 5
 	smoothing_flags = SMOOTH_TRUE
 	can_be_unanchored = TRUE
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 
 /obj/structure/window/shuttle/legion
 	name = "reinforced cockpit window"
@@ -621,7 +621,7 @@
 	glasstype = /obj/item/stack/material/glass
 	shardtype = /obj/item/material/shard
 	full = TRUE
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
@@ -773,7 +773,7 @@
 	reinf = TRUE
 	maximal_heat = T0C + 750
 	glasstype = /obj/item/stack/material/glass/reinforced
-	layer = 2.99
+	layer = FULL_WINDOW_LAYER
 	base_frame = /obj/structure/window_frame
 	smoothing_flags = SMOOTH_MORE
 

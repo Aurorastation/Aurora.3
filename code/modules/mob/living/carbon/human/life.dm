@@ -303,6 +303,8 @@
 	return breath
 
 /mob/living/carbon/human/handle_environment(datum/gas_mixture/environment)
+	..()
+
 	if(!environment)
 		return
 
@@ -637,6 +639,8 @@
 
 		sprint_speed_factor = species.sprint_speed_factor
 		max_stamina = species.stamina
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 		move_delay_mod = 0
@@ -1155,7 +1159,7 @@
 	if(isturf(loc) && rand(1,1000) == 1)
 		var/turf/T = loc
 		if (T.get_lumcount() < 0.01)	// give a little bit of tolerance for near-dark areas.
-			playsound_simple(null, pick(GLOB.scarySounds), 50, TRUE)
+			playsound(null, pick(GLOB.scarySounds), 50, TRUE)
 
 		if(HAS_TRAIT(src, TRAIT_ORIGIN_DARK_AFRAID))
 			if(T.get_lumcount() < 0.1)

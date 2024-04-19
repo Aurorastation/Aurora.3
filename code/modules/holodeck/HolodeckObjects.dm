@@ -90,14 +90,14 @@
 	name = "\proper space"
 	icon_state = "0"
 	footstep_sound = null
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/space/Initialize()
 	. = ..()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-	I.plane = PLANE_SPACE_DUST
+	I.plane = DUST_PLANE
 	I.alpha = 80
 	I.blend_mode = BLEND_ADD
 	add_overlay(I)
@@ -259,7 +259,7 @@
 	desc = "May the force be within you. Sorta."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "sword0"
-	force = 3.0
+	force = 3
 	throw_speed = 1
 	throw_range = 5
 	throwforce = 0
@@ -294,7 +294,7 @@
 /obj/item/holo/esword/attack_self(mob/living/user as mob)
 	active = !active
 	if (active)
-		force = 30
+		force = 33
 		icon_state = "sword[item_color]"
 		w_class = ITEMSIZE_LARGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)

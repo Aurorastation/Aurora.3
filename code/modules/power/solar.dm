@@ -223,13 +223,13 @@
 		if(attacking_item.iswrench())
 			anchored = 1
 			user.visible_message("<span class='notice'>[user] wrenches the solar assembly into place.</span>")
-			playsound(src.loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 	else
 		if(attacking_item.iswrench())
 			anchored = 0
 			user.visible_message("<span class='notice'>[user] unwrenches the solar assembly from it's place.</span>")
-			playsound(src.loc, attacking_item.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			return 1
 
 		if(istype(attacking_item, /obj/item/stack/material) && (attacking_item.get_material_name() == "glass" || attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED))

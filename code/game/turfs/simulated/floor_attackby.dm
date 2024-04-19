@@ -23,17 +23,17 @@
 				return
 			to_chat(user, "<span class='notice'>You unscrew and remove the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, attacking_item.usesound, 80, 1)
+			attacking_item.play_tool_sound(get_turf(src), 80)
 			return
 		else if(attacking_item.iswrench() && (flooring.flags & TURF_REMOVE_WRENCH))
 			to_chat(user, "<span class='notice'>You unwrench and remove the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, attacking_item.usesound, 80, 1)
+			attacking_item.play_tool_sound(get_turf(src), 80)
 			return
 		else if(istype(attacking_item, /obj/item/shovel) && (flooring.flags & TURF_REMOVE_SHOVEL))
 			to_chat(user, "<span class='notice'>You shovel off the [flooring.descriptor].</span>")
 			make_plating(1)
-			playsound(src, attacking_item.usesound, 80, 1)
+			attacking_item.play_tool_sound(get_turf(src), 80)
 			return
 		else if(attacking_item.iswelder() && (flooring.flags & TURF_REMOVE_WELDER))
 			var/obj/item/weldingtool/WT = attacking_item
@@ -43,7 +43,7 @@
 			if(WT.use(0, user))
 				to_chat(user, SPAN_NOTICE("You use \the [WT] to remove \the [src]."))
 				make_plating(1)
-				playsound(src, attacking_item.usesound, 80, 1)
+				attacking_item.play_tool_sound(get_turf(src), 80)
 				return
 		else if(attacking_item.iscoil())
 			to_chat(user, "<span class='warning'>You must remove the [flooring.descriptor] first.</span>")

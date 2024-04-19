@@ -56,7 +56,7 @@
 	anchored = FALSE
 	light_range = 4
 	light_power = 1
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	var/gasefficency = 0.25
 
@@ -119,7 +119,7 @@
 /obj/machinery/power/supermatter/Initialize()
 	. = ..()
 	radio = new /obj/item/device/radio{channels=list("Engineering")}(src)
-	soundloop = new(list(src), TRUE)
+	soundloop = new(src, TRUE)
 
 /obj/machinery/power/supermatter/Destroy()
 	QDEL_NULL(radio)

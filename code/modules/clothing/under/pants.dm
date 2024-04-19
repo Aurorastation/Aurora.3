@@ -42,6 +42,20 @@
 	icon_state = "khaki"
 	item_state = "khaki"
 
+/obj/item/clothing/under/pants/highvis
+	name = "high visibility pants"
+	desc = "A pair of loose-fitting, high visibility pants to help the wearer be recognizable in high traffic areas with large industrial equipment."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "pants_highvis"
+	item_state = "pants_highvis"
+
+/obj/item/clothing/under/pants/highvis_alt
+	name = "high visibility pants"
+	desc = "A pair of bright yellow pants with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
+	icon = 'icons/clothing/kit/highvis.dmi'
+	icon_state = "pants_highvis_alt"
+	item_state = "pants_highvis_alt"
+
 /obj/item/clothing/under/pants/camo
 	name = "camouflage pants"
 	desc = "A pair of woodland camouflage pants. Probably not the best choice for a space station."

@@ -6,7 +6,7 @@
 	icon_state = "ccharger"
 	anchored = TRUE
 	idle_power_usage = 5
-	active_power_usage = 90 KILOWATTS
+	active_power_usage = 90 KILO WATTS
 	power_channel = EQUIP
 	update_icon_on_init = TRUE
 
@@ -60,7 +60,7 @@
 
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "" : "un"]secure \the [src].")
-		playsound(src, attacking_item.usesound, 50, 1)
+		attacking_item.play_tool_sound(src, 50)
 		return TRUE
 
 	if(istype(attacking_item, /obj/item/cell))

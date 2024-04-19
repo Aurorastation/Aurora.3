@@ -6,7 +6,7 @@
 	name = "space land"
 	icon = 'icons/turf/desert.dmi'
 	icon_state = "desert"
-	has_resources = 1
+	has_resources = TRUE
 	footstep_sound = /singleton/sound_category/asteroid_footstep
 	turf_flags = TURF_FLAG_BACKGROUND
 
@@ -71,7 +71,10 @@
 	update_icon(1)
 
 /turf/simulated/floor/exoplanet/update_icon(var/update_neighbors)
-	if(has_edge_icon)
+	if(initial_flooring)
+		. = ..()
+
+	else if(has_edge_icon)
 		cut_overlays()
 		if(resource_indicator)
 			add_overlay(resource_indicator)
@@ -114,18 +117,6 @@
 
 /turf/simulated/floor/exoplanet/water/update_dirt()
 	return	// Water doesn't become dirty
-
-//Ice
-/turf/simulated/floor/exoplanet/ice
-	name = "ice"
-	icon = 'icons/turf/flooring/snow.dmi'
-	icon_state = "ice"
-
-/turf/simulated/floor/exoplanet/ice/update_icon()
-	return
-
-/turf/simulated/floor/exoplanet/ice/dark
-	icon_state = "icedark"
 
 //Snow
 /turf/simulated/floor/exoplanet/snow

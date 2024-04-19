@@ -7,4 +7,6 @@
 	spawn_cost = 1
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_BURZSIA)
-	suffixes = list("burzsia/burzsia_dead_ipc.dmm")
+
+	prefix = "burzsia/"
+	suffixes = list("burzsia_dead_ipc.dmm")

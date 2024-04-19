@@ -34,6 +34,9 @@
 	/// A weak reference to another datum
 	var/datum/weakref/weak_reference
 
+	/// Used to avoid unnecessary refstring creation in Destroy().
+	var/tmp/has_state_machine = FALSE
+
 #ifdef REFERENCE_TRACKING
 	/// When was this datum last touched by a reftracker?
 	/// If this value doesn't match with the start of the search
@@ -56,7 +59,7 @@
 // Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
-	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
+	SHOULD_NOT_SLEEP(TRUE)
 
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
