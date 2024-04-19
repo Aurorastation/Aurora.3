@@ -34,6 +34,6 @@
 /obj/machinery/computer/shuttle_control/multi/crescent
 	name = "shuttle control console"
 	req_access = list(ACCESS_CENT_SPECOPS)
-	shuttle_tag = "Crescent Shuttle"
+	shuttle_tag = "ICV Crescent"
 	light_color = LIGHT_COLOR_RED
 	can_rename_ship = TRUE
