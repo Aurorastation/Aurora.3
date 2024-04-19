@@ -126,6 +126,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 
 /obj/machinery/computer/ship/sensors/Destroy()
+	QDEL_NULL(sound_token)
 	sensors = null
 	identification = null
 	if(LAZYLEN(viewers))

@@ -150,10 +150,6 @@ GLOBAL_LIST_EMPTY(gps_list)
 
 	return data
 
-/obj/item/device/gps/attack_self(mob/user)
-	if(!emped)
-		ui_interact(user)
-
 /obj/item/device/gps/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)

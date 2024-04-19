@@ -93,10 +93,6 @@
 	outfit = /obj/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/job/consular/pre_spawn(mob/abstract/new_player/player)
-	var/datum/faction/faction = SSjobs.name_factions[player.client.prefs.faction]
-	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
-
 /datum/job/representative/after_spawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)
 	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
