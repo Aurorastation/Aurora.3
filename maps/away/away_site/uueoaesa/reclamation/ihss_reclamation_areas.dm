@@ -131,6 +131,10 @@
 	name = "IHSS Reclamation - Environmental Simulation Chamber"
 	icon_state = "xeno_f_store"
 
+/area/ihss_reclamation/storage
+	name = "IHSS Reclamation - Expedition Storage"
+	icon_state = "storage"
+
 //Shuttle
 
 /area/shuttle/ihss_reclamation
