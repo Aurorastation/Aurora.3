@@ -90,9 +90,9 @@
 /obj/outfit/admin/moghes_thakh/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
 		return
-	if(H?.wear_suit)
+	if(H.wear_suit)
 		H.wear_suit.color = "#423509"
-	if(H?.shoes)
+	if(H.shoes)
 		H.shoes.color = "#423509"
 
 /obj/outfit/admin/moghes_thakh/shaman
