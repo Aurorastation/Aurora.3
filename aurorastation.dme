@@ -3158,6 +3158,7 @@
 #include "code\modules\projectiles\projectile\force.dm"
 #include "code\modules\projectiles\projectile\special.dm"
 #include "code\modules\projectiles\projectile\trace.dm"
+#include "code\modules\projectiles\projectile\bullets\pistol.dm"
 #include "code\modules\projectiles\targeting\targeting_client.dm"
 #include "code\modules\projectiles\targeting\targeting_gun.dm"
 #include "code\modules\projectiles\targeting\targeting_mob.dm"

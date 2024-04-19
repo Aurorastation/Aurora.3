@@ -677,14 +677,6 @@
 	max_ammo = 9
 	multiple_sprites = 1
 
-/obj/item/ammo_magazine/spitterpistol
-	name = "spitter pistol magazine"
-	icon_state = "spitterpistol_mag"
-	caliber = CALIBER_HEGEMONY_PISTOL
-	mag_type = MAGAZINE
-	ammo_type = /obj/item/ammo_casing/moghes_pistol
-	max_ammo = 8
-
 /obj/item/ammo_magazine/hookmg
 	name = "hook machinegun magazine"
 	icon_state = "hookmg_ammobox"
