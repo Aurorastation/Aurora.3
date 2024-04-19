@@ -57,9 +57,10 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon
 	pump_direction = 0
+	frequency = 1441
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos
-	icon_state = "map_vent_in"
+	icon_state = "map_vent"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
 	internal_pressure_bound = PRESSURE_ONE_THOUSAND * 2
@@ -89,8 +90,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/Initialize(mapload)
 	if(mapload)
 		var/turf/T = loc
-		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
-		I.plane = 0
+		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)

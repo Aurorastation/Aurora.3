@@ -2,7 +2,7 @@
 	name = "Grasslands" // Not gm_flatgrass, but pretty close
 	surface_turfs = list(
 		/turf/simulated/floor/exoplanet/grass,
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	mountain_threshold = 0.9
 	possible_biomes = list(
@@ -42,7 +42,7 @@
 /datum/exoplanet_theme/grass/marsh
 	name = "Fungal Marsh"
 	surface_turfs = list(
-		/turf/simulated/mineral
+		/turf/simulated/mineral/planet
 	)
 	possible_biomes = list(
 		BIOME_WARM = list(
@@ -62,4 +62,25 @@
 	humidity_levels = list(
 		BIOME_SUBHUMID = 0.4,
 		BIOME_HUMID = 1.0
+	)
+
+//biesel
+
+/datum/exoplanet_theme/grass/biesel
+	possible_biomes = list(
+		BIOME_COOL = list(
+			BIOME_ARID = /singleton/biome/grass/biesel,
+			BIOME_SEMIARID = /singleton/biome/grass/forest/biesel,
+			BIOME_SUBHUMID = /singleton/biome/grass/forest/biesel
+		),
+		BIOME_WARM = list(
+			BIOME_ARID = /singleton/biome/grass/biesel,
+			BIOME_SEMIARID = /singleton/biome/grass/biesel,
+			BIOME_SUBHUMID = /singleton/biome/grass/riverside/biesel
+		),
+		BIOME_EQUATOR = list(
+			BIOME_ARID = /singleton/biome/grass/biesel,
+			BIOME_SEMIARID = /singleton/biome/grass/riverside/biesel,
+			BIOME_SUBHUMID = /singleton/biome/grass/riverside/biesel
+		)
 	)

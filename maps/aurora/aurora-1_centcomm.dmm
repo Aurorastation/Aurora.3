@@ -32,7 +32,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /obj/structure/closet/crate/loot{
@@ -204,12 +203,10 @@
 "aat" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/machinery/recharger/wallcharger{
-	layer = 3;
 	pixel_x = 4;
 	pixel_y = 28
 	},
 /obj/machinery/recharger/wallcharger{
-	layer = 3;
 	pixel_x = 4;
 	pixel_y = 19
 	},
@@ -323,7 +320,6 @@
 /obj/machinery/button/remote/blast_door{
 	dir = 1;
 	id = "burglar_blast";
-	layer = 3;
 	name = "blast door";
 	pixel_y = -21;
 	req_access = list(150)
@@ -397,12 +393,10 @@
 /area/antag/wizard)
 "aaJ" = (
 /obj/item/gun/energy/pistol{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 3
 	},
 /obj/item/gun/energy/pistol{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -3973,9 +3967,7 @@
 	dir = 1;
 	name = "shuttle bay blast door"
 	},
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "atq" = (
 /obj/structure/shuttle_part/cargo{
 	icon_state = "0,10";
@@ -4042,7 +4034,6 @@
 /area/centcom/holding)
 "avo" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -4186,7 +4177,6 @@
 "ayM" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/machinery/door/airlock/centcom{
 	icon = 'icons/obj/doors/Doorglass.dmi';
@@ -4377,7 +4367,6 @@
 "aCs" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/machinery/vending/wallmed1{
-	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = -12;
 	pixel_y = 28;
@@ -5971,11 +5960,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aNc" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Departures";
-	dir = 1;
-	pixel_x = -10
-	},
 /turf/unsimulated/floor/plating,
 /area/centcom/spawning)
 "aNe" = (
@@ -6531,7 +6515,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor{
@@ -7014,7 +6997,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -7027,7 +7009,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -7752,7 +7733,6 @@
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.01;
 	name = "foreign legion supply crate";
 	pixel_x = 3;
 	pixel_y = 8
@@ -7761,14 +7741,12 @@
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "foreign legion supply crate"
 	},
 /obj/effect/decal/fake_object{
 	desc = "A secure supply crate, It carries the insignia of the Tau Ceti Foreign Legion. It appears quite scuffed.";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "foreign legion supply crate";
 	pixel_x = 2;
 	pixel_y = 19
@@ -8033,7 +8011,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor,
@@ -8065,7 +8042,6 @@
 /obj/machinery/light/small,
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -8114,7 +8090,6 @@
 	desc = "A crate of military supplies.";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "dropcrate";
-	layer = 3.02;
 	name = "metal crate";
 	pixel_x = 1;
 	pixel_y = 4
@@ -8135,7 +8110,6 @@
 "bsS" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray{
-	layer = 2.99
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/unsimulated/floor{
@@ -8373,12 +8347,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -8989,7 +8961,6 @@
 "bXx" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	layer = 3.1;
 	pixel_y = 2;
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
@@ -9071,13 +9042,11 @@
 /area/antag/ninja)
 "cbz" = (
 /obj/item/storage/bag/money{
-	layer = 2.99;
 	pixel_x = -11;
 	pixel_y = 5
 	},
 /obj/item/storage/bag/money,
 /obj/item/spacecash/c1{
-	layer = 2.99;
 	pixel_x = -9;
 	pixel_y = -13
 	},
@@ -10079,7 +10048,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/structure/table/reinforced,
@@ -10197,7 +10165,6 @@
 	desc = "A dusty, stuffed parrot. It's firmly nailed to the table.";
 	icon = 'icons/mob/npc/pets.dmi';
 	icon_state = "parrot_sit";
-	layer = 3.4;
 	name = "Hootie";
 	pixel_x = 9;
 	pixel_y = 1
@@ -10570,7 +10537,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter1";
-	layer = 2.4;
 	name = "shutter";
 	opacity = 1
 	},
@@ -10580,7 +10546,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "tcfl_droppod_3";
-	layer = 2.8;
 	name = "Droppod C"
 	},
 /turf/unsimulated/floor{
@@ -10632,10 +10597,8 @@
 	tag_door = "arrival_shuttle_hatch"
 	},
 /obj/structure/flora/ausbushes/sparsegrass{
-	layer = 2.97
 	},
 /obj/structure/flora/ausbushes/fullgrass{
-	layer = 2.97
 	},
 /obj/structure/flora/pottedplant{
 	icon_state = "plant-01";
@@ -10685,7 +10648,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "tcfl_droppod_4";
-	layer = 2.8;
 	name = "Droppod D"
 	},
 /turf/unsimulated/floor{
@@ -10864,7 +10826,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8;
-	layer = 3.5
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
@@ -11000,7 +10961,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor{
@@ -11056,7 +11016,6 @@
 /area/shuttle/escape)
 "dmM" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	name = "sink";
 	pixel_y = 23
 	},
@@ -11390,7 +11349,6 @@
 "dBX" = (
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_4";
-	layer = 2.8;
 	name = "Pod D"
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -11432,7 +11390,6 @@
 /obj/item/rfd_ammo,
 /obj/item/rfd_ammo,
 /obj/item/rfd/construction{
-	layer = 3.01
 	},
 /turf/unsimulated/floor{
 	icon_state = "tiled_preview"
@@ -11539,7 +11496,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/unsimulated/wall/darkshuttlewall,
@@ -11654,10 +11610,6 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "dKe" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar East";
-	dir = 8
-	},
 /obj/structure/bed/stool/chair/padded/beige,
 /turf/unsimulated/floor{
 	icon_state = "wood"
@@ -11955,7 +11907,6 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "centcom_shuttle";
-	layer = 3.3;
 	pixel_x = 6;
 	pixel_y = 27;
 	tag_door = "centcom_shuttle_hatch"
@@ -12078,7 +12029,6 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/item/storage/firstaid/toxin{
@@ -12086,7 +12036,6 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /obj/structure/sign/nosmoking_1{
 	pixel_y = 30
@@ -12173,12 +12122,10 @@
 	pixel_y = -1
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = -9;
 	pixel_y = -1
 	},
 /obj/item/storage/box/fancy/cookiesnack{
-	layer = 2.98;
 	pixel_x = -1;
 	pixel_y = 4
 	},
@@ -12385,7 +12332,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/structure/window/reinforced/crescent{
@@ -12422,10 +12368,6 @@
 "egh" = (
 /obj/effect/landmark{
 	name = "tdome2"
-	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome - Red Team";
-	invisibility = 101
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -12537,7 +12479,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor/plating,
@@ -12588,7 +12529,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -12621,7 +12561,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor{
@@ -12853,10 +12792,6 @@
 /turf/unsimulated/floor/plating,
 /area/shuttle/escape)
 "exm" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
@@ -12913,7 +12848,6 @@
 	pixel_x = 6
 	},
 /obj/item/storage/box/syndie_kit/clerical{
-	layer = 2.99;
 	pixel_x = 1;
 	pixel_y = 7
 	},
@@ -12975,7 +12909,6 @@
 /area/shuttle/skipjack)
 "eBh" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 27
 	},
 /turf/unsimulated/floor{
@@ -14033,7 +13966,6 @@
 	},
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_5";
-	layer = 2.8;
 	name = "Pod E"
 	},
 /turf/unsimulated/floor{
@@ -14118,7 +14050,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /obj/effect/floor_decal/corner/red{
@@ -14199,7 +14130,6 @@
 "fqq" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -14273,7 +14203,6 @@
 /area/antag/mercenary)
 "fso" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/table/glass{
@@ -14388,7 +14317,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/item/storage/firstaid/toxin{
-	layer = 3.1;
 	pixel_x = 1;
 	pixel_y = 1
 	},
@@ -14804,22 +14732,18 @@
 	pixel_y = 11
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 14;
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 22;
 	pixel_y = 8
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass{
-	layer = 3.01;
 	pixel_x = 30;
 	pixel_y = 8
 	},
@@ -14856,7 +14780,6 @@
 /obj/structure/table/standard,
 /obj/machinery/light{
 	dir = 1;
-	layer = 2.9;
 	name = "adjusted light fixture";
 	icon_state = "tube_empty"
 	},
@@ -14925,12 +14848,10 @@
 	pixel_y = 9
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9;
 	pixel_y = -14
 	},
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -15011,7 +14932,6 @@
 /area/shuttle/arrival)
 "fQc" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/bed/stool/chair/padded/blue{
@@ -15180,7 +15100,6 @@
 /area/centcom/legion)
 "fTt" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/bed/stool/chair/padded/blue{
@@ -15464,14 +15383,12 @@
 "gbM" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /turf/simulated/floor/wood,
 /area/merchant_station)
 "gcj" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/item/flame/lighter/zippo/gold{
@@ -15681,11 +15598,9 @@
 	pixel_y = -1
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/wt550/lethal{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/structure/table/reinforced/steel,
@@ -15803,7 +15718,6 @@
 	desc = "A nondescript coat.";
 	icon = 'icons/obj/coatrack.dmi';
 	icon_state = "coat_lilith_coat";
-	layer = 3.01;
 	name = "coat";
 	pixel_x = 8
 	},
@@ -15837,7 +15751,6 @@
 	desc = "This one looks particularly heavy.";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "legion supply crate";
 	pixel_x = 1;
 	pixel_y = 3
@@ -15895,10 +15808,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "goO" = (
-/obj/machinery/camera/network/thunder{
-	c_tag = "Thunderdome Arena";
-	invisibility = 101
-	},
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/simulated/floor/bluegrid,
 /area/tdome)
@@ -15935,7 +15844,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.01;
 	name = "inconveniently placed crate";
 	pixel_x = 3;
 	pixel_y = 8
@@ -15944,7 +15852,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 2;
 	pixel_y = 19
@@ -15953,7 +15860,6 @@
 	desc = "What jerk stacked these here?";
 	icon = 'icons/obj/crate.dmi';
 	icon_state = "tcfl_crate_preview";
-	layer = 3.02;
 	name = "inconveniently placed crate";
 	pixel_x = 1
 	},
@@ -15961,7 +15867,6 @@
 /area/centcom/legion)
 "gpo" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/machinery/light{
@@ -16122,7 +16027,6 @@
 	},
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "loner_droppod_1";
-	layer = 2.8;
 	name = "Pod L"
 	},
 /turf/unsimulated/floor{
@@ -16136,7 +16040,6 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "centcom_dock";
-	layer = 3.5;
 	name = "docking port controller";
 	pixel_x = 25;
 	req_one_access = list(13);
@@ -16299,7 +16202,6 @@
 	},
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_7";
-	layer = 2.8;
 	name = "Pod G"
 	},
 /turf/unsimulated/floor{
@@ -16524,7 +16426,6 @@
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/pistol{
-	layer = 3.01;
 	pixel_x = 2;
 	pixel_y = 2
 	},
@@ -16533,7 +16434,6 @@
 "gGx" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/structure/extinguisher_cabinet/north{
-	layer = 3
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/distress)
@@ -16962,15 +16862,12 @@
 	pixel_y = -5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = -10
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 2.99;
 	pixel_x = 4
 	},
 /obj/item/storage/firstaid/toxin{
-	layer = 2.98;
 	pixel_x = 5;
 	pixel_y = 5
 	},
@@ -17252,7 +17149,6 @@
 "gYQ" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -17277,7 +17173,6 @@
 "gYV" = (
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
@@ -17658,7 +17553,6 @@
 "hmF" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/blt{
-	layer = 2.99;
 	pixel_x = 4;
 	pixel_y = 14
 	},
@@ -17950,7 +17844,6 @@
 "hyy" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	layer = 3.1;
 	pixel_y = 2;
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
@@ -18237,7 +18130,6 @@
 "hMb" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
-	layer = 4.1;
 	pixel_y = 4
 	},
 /turf/simulated/floor/carpet,
@@ -18469,7 +18361,6 @@
 	pixel_y = -11
 	},
 /obj/item/reagent_containers/hypospray/cmo{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = -3
 	},
@@ -18706,7 +18597,6 @@
 /area/antag/raider)
 "ibx" = (
 /obj/structure/plasticflaps{
-	layer = 2.6;
 	opacity = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -19460,7 +19350,6 @@
 	dir = 1;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.7;
 	name = "conveyor belt";
 	pixel_x = 1
 	},
@@ -19718,12 +19607,10 @@
 	},
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/glass/bottle/thetamycin{
-	layer = 2.99;
 	pixel_x = 9;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin{
-	layer = 2.99;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/glass/bottle/dexalin_plus{
@@ -19770,7 +19657,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /turf/unsimulated/floor{
@@ -19817,7 +19703,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
 	dir = 1;
-	layer = 4.1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -19910,7 +19795,6 @@
 "iMq" = (
 /obj/structure/railing/mapped,
 /obj/item/storage/box/fancy/tray{
-	layer = 2.99
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal{
 	dir = 8
@@ -20065,7 +19949,6 @@
 	desc = "A heavy armored vehicle. Commonly produced by the Sol Alliance and fielded by the forces of the Tau Ceti Foreign Legion. This one has suffered too much damage to be operational.";
 	icon = 'icons/mecha/mecha_114x59.dmi';
 	icon_state = "jotun-broken";
-	layer = 3.3;
 	name = "Jotun";
 	pixel_x = -42;
 	pixel_y = -10
@@ -20074,7 +19957,6 @@
 /area/centcom/legion/hangar5)
 "iQG" = (
 /obj/structure/sink/kitchen{
-	layer = 3.5;
 	pixel_y = 28
 	},
 /turf/unsimulated/floor{
@@ -20087,17 +19969,14 @@
 	},
 /obj/structure/table/rack,
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
 /obj/item/clothing/suit/storage/toggle/bssb{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 2
 	},
@@ -20150,7 +20029,6 @@
 "iRX" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/smokebombs{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -20598,7 +20476,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/decal/fake_object{
@@ -20622,7 +20499,6 @@
 	name = "pipe"
 	},
 /obj/structure/lattice/catwalk/indoor{
-	layer = 3.5
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/fore)
@@ -20920,7 +20796,6 @@
 	dir = 1
 	},
 /obj/item/device/flashlight/lamp/green{
-	layer = 4.1;
 	pixel_x = -2;
 	pixel_y = 6
 	},
@@ -20977,7 +20852,6 @@
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/unsimulated/floor{
@@ -21203,7 +21077,6 @@
 	pixel_x = 5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.8;
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -21211,7 +21084,6 @@
 /obj/item/storage/box/gloves,
 /obj/item/storage/firstaid/toxin,
 /obj/item/storage/firstaid/fire{
-	layer = 2.9;
 	pixel_x = 2;
 	pixel_y = 3
 	},
@@ -21298,7 +21170,6 @@
 	dir = 1;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.7;
 	name = "conveyor belt";
 	pixel_x = 1
 	},
@@ -21717,7 +21588,6 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/structure/closet/crate/freezer/rations{
-	layer = 2.79;
 	pixel_y = -4;
 	tablestatus = -1
 	},
@@ -21877,7 +21747,6 @@
 	pixel_y = 8
 	},
 /obj/item/storage/belt/utility/very_full{
-	layer = 2.99;
 	pixel_y = 13
 	},
 /obj/item/clothing/glasses/welding/superior{
@@ -22092,7 +21961,6 @@
 	color = "#545c68";
 	icon = 'icons/obj/railing.dmi';
 	icon_state = "mcorneroverlay1";
-	layer = 4.1;
 	name = "railing"
 	},
 /obj/effect/floor_decal/corner/paleblue/full,
@@ -22539,7 +22407,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
@@ -22601,7 +22468,6 @@
 "kFK" = (
 /obj/machinery/computer/security/telescreen{
 	desc = "Connects to a station's emergency camera networks after the station sends out a distress signal.";
-	layer = 4;
 	name = "Emergency Dock Uplink";
 	network = list("Emergency Dock","TCFL");
 	pixel_y = 28
@@ -22676,7 +22542,6 @@
 /area/centcom/holding)
 "kIY" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/machinery/light{
@@ -22863,7 +22728,6 @@
 /area/centcom/bar)
 "kOI" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -23079,11 +22943,9 @@
 "kWc" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/gun{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/gun{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/gun,
@@ -23119,7 +22981,6 @@
 "kWN" = (
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_3";
-	layer = 2.8;
 	name = "Pod C"
 	},
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -23218,7 +23079,6 @@
 	dir = 10
 	},
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor{
@@ -23290,7 +23150,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/structure/window/reinforced/crescent{
@@ -23316,7 +23175,6 @@
 	pixel_y = 7
 	},
 /obj/item/gun/custom_ka/frame01/illegal{
-	layer = 3.01;
 	pixel_y = -1
 	},
 /obj/item/device/flash{
@@ -23433,7 +23291,6 @@
 	dir = 6;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.7;
 	name = "conveyor belt";
 	pixel_x = 1
 	},
@@ -23564,7 +23421,6 @@
 /area/antag/mercenary)
 "lnh" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/railing/mapped{
@@ -23599,7 +23455,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/structure/table/reinforced,
@@ -24281,7 +24136,6 @@
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera"
 	},
 /turf/unsimulated/floor{
@@ -24343,7 +24197,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor,
@@ -24531,7 +24384,6 @@
 "lSi" = (
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle/ionrifle{
@@ -24679,7 +24531,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -24798,7 +24649,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/machinery/vending/wallmed1{
-	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = -28;
 	req_access = null
@@ -24812,11 +24662,9 @@
 "maM" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/automatic/c20r{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/c20r{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/c20r,
@@ -24828,9 +24676,7 @@
 /area/antag/mercenary)
 "mbe" = (
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "mbj" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1;
@@ -25019,7 +24865,6 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/firstaid/o2{
-	layer = 2.8;
 	pixel_x = 4;
 	pixel_y = 6
 	},
@@ -25272,14 +25117,12 @@
 	density = 1;
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutterhalf";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/effect/decal/fake_object{
 	density = 1;
 	icon = 'icons/obj/item/inflatables.dmi';
 	icon_state = "wall";
-	layer = 2.3;
 	name = "inflatable wall"
 	},
 /turf/unsimulated/floor{
@@ -25335,7 +25178,6 @@
 "mrd" = (
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_1";
-	layer = 2.8;
 	name = "Pod A"
 	},
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -25376,7 +25218,6 @@
 /area/antag/raider)
 "mrG" = (
 /obj/item/gun/projectile/automatic/rifle/z8{
-	layer = 2.99;
 	pixel_y = 10
 	},
 /obj/item/gun/projectile/automatic/rifle/z8{
@@ -25589,7 +25430,6 @@
 "mxm" = (
 /obj/structure/toilet{
 	dir = 4;
-	layer = 2.6;
 	pixel_y = 1
 	},
 /turf/unsimulated/floor{
@@ -25629,7 +25469,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "tcfl_droppod_1";
-	layer = 2.8;
 	name = "Droppod A"
 	},
 /turf/unsimulated/floor{
@@ -25655,7 +25494,6 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "tcfl_droppod_2";
-	layer = 2.8;
 	name = "Droppod B"
 	},
 /turf/unsimulated/floor{
@@ -26068,7 +25906,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/machinery/light{
@@ -26082,11 +25919,9 @@
 "mPL" = (
 /obj/structure/table/rack,
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/briefcase/aluminium{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/storage/lockbox/cciaa/bssb{
@@ -26161,11 +25996,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/machinery/light{
@@ -26173,7 +26006,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/dark,
@@ -26333,7 +26165,6 @@
 "mYG" = (
 /obj/structure/table/reinforced/wood,
 /obj/machinery/chemical_dispenser/coffee/full{
-	layer = 3.1;
 	pixel_y = 2;
 	spawn_cartridges = list(/obj/item/reagent_containers/chem_disp_cartridge/coffee,/obj/item/reagent_containers/chem_disp_cartridge/milk,/obj/item/reagent_containers/chem_disp_cartridge/cream,/obj/item/reagent_containers/chem_disp_cartridge/sugar)
 	},
@@ -26361,7 +26192,6 @@
 	pixel_y = 7
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/item/flame/lighter,
@@ -26667,7 +26497,6 @@
 	desc = "It controls the shuttle shutter.";
 	dir = 1;
 	id = "merchant_airlock";
-	layer = 3;
 	name = "airlock shutter controller";
 	pixel_x = -3;
 	pixel_y = -21;
@@ -26682,7 +26511,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "merchant_shuttle_hatch";
-	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
 	req_access = list(110);
@@ -26736,7 +26564,6 @@
 	name = "pipe"
 	},
 /obj/structure/lattice/catwalk/indoor{
-	layer = 3.5
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/checkpoint/aft)
@@ -26758,9 +26585,7 @@
 	name = "start"
 	},
 /turf/simulated/floor/holofloor/space,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "nli" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 1
@@ -26774,7 +26599,6 @@
 	frequency = 1337;
 	icon_state = "door_locked";
 	id_tag = "merchant_shuttle_hatch";
-	layer = 2.8;
 	name = "Ship External Access";
 	open_layer = 2.8;
 	req_access = list(110);
@@ -27001,7 +26825,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -27344,7 +27167,6 @@
 	dir = 8;
 	icon = 'icons/obj/monitors.dmi';
 	icon_state = "camera";
-	layer = 3.02;
 	name = "surveillance camera";
 	pixel_y = -18
 	},
@@ -27378,7 +27200,6 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/fire{
-	layer = 3.01
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mercenary)
@@ -27419,11 +27240,9 @@
 "nES" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/pistol{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/pistol{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/pistol,
@@ -27679,7 +27498,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/item/reagent_containers/glass/rag{
@@ -27726,7 +27544,6 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -28010,10 +27827,6 @@
 	},
 /area/centcom/specops)
 "nUK" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals - Holding Cell";
-	dir = 4
-	},
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
@@ -28119,10 +27932,6 @@
 "nYH" = (
 /obj/effect/landmark{
 	name = "tdome1"
-	},
-/obj/machinery/camera/network/thunder{
-	c_tag = "Green Team";
-	invisibility = 101
 	},
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
@@ -28251,10 +28060,6 @@
 /area/centcom/control)
 "oaC" = (
 /obj/structure/table/reinforced/wood,
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Bar Center";
-	pixel_x = 20
-	},
 /obj/machinery/door/blast/odin{
 	dir = 4;
 	icon_state = "shutter1";
@@ -28595,14 +28400,12 @@
 "opB" = (
 /obj/machinery/vending/cola{
 	density = 0;
-	layer = 2.99;
 	name = "Free Robust Softdrinks";
 	pixel_x = -7;
 	pixel_y = 20;
 	prices = list()
 	},
 /obj/structure/sign/poster{
-	layer = 2.98;
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -28629,7 +28432,6 @@
 	},
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_6";
-	layer = 2.8;
 	name = "Pod F"
 	},
 /turf/unsimulated/floor{
@@ -28916,7 +28718,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/table/rack,
 /obj/item/gun/energy/rifle/ionrifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle/ionrifle{
@@ -29165,7 +28966,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor/plating,
@@ -29181,7 +28981,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor/plating,
@@ -29252,7 +29051,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/structure/table/steel,
@@ -29447,7 +29245,6 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4;
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -29542,9 +29339,7 @@
 /area/antag/mercenary)
 "pbO" = (
 /turf/unsimulated/wall/darkshuttlewall,
-/area/centcom/start{
-	name = "Romanovich Cloud, Tau Ceti"
-	})
+/area/centcom/start)
 "pcu" = (
 /turf/simulated/wall/shuttle/unique/transfer{
 	desc = "A large, bloated shuttle designed for automated passenger transport.";
@@ -29780,7 +29575,6 @@
 "pmg" = (
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_2";
-	layer = 2.8;
 	name = "Pod B"
 	},
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -29930,17 +29724,14 @@
 "psh" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.5;
 	pixel_x = -6;
 	pixel_y = 4
 	},
 /obj/item/reagent_containers/food/snacks/sushi_serve{
-	layer = 3.6;
 	pixel_x = 3;
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/snacks/breakfast_wrap{
-	layer = 2.99;
 	pixel_x = 29;
 	pixel_y = 8
 	},
@@ -30192,7 +29983,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/centcom/bar)
@@ -30294,7 +30084,6 @@
 /obj/structure/flora/rock/pile{
 	density = 0;
 	icon_state = "basalt2";
-	layer = 3;
 	pixel_x = -8;
 	pixel_y = 16
 	},
@@ -30338,7 +30127,6 @@
 	dir = 1
 	},
 /obj/structure/railing/mapped{
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -30365,11 +30153,9 @@
 	},
 /obj/structure/railing/mapped{
 	dir = 4;
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/structure/railing/mapped{
-	layer = 6;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/spline/plain/black{
@@ -30750,7 +30536,6 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1332;
 	id_tag = "pirate_hideout";
-	layer = 3.5;
 	pixel_x = 28;
 	pixel_y = -28;
 	tag_door = "pirate_hideout_door"
@@ -31141,7 +30926,6 @@
 	desc = "An automated gun turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_0";
-	layer = 3.02;
 	name = "turret"
 	},
 /turf/unsimulated/floor,
@@ -31292,7 +31076,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -31899,7 +31682,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /turf/unsimulated/floor{
@@ -31908,7 +31690,6 @@
 /area/antag/mercenary)
 "qHR" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/flora/pottedplant{
@@ -32130,7 +31911,6 @@
 	desc = "A fizzing drink that looks like a really great time.";
 	icon = 'icons/obj/drinks.dmi';
 	icon_state = "rixulin_sundae";
-	layer = 3.1;
 	name = "Rixulin Sundae";
 	pixel_x = -6;
 	pixel_y = 7
@@ -32328,7 +32108,6 @@
 "qXO" = (
 /obj/structure/table/rack,
 /obj/item/gun/projectile/automatic/rifle/sts35{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/projectile/automatic/rifle/sts35{
@@ -32448,7 +32227,6 @@
 	pixel_y = 2
 	},
 /obj/structure/closet/walllocker/emerglocker/north{
-	layer = 3;
 	pixel_x = -1;
 	pixel_y = 29
 	},
@@ -33095,12 +32873,10 @@
 /area/centcom/spawning)
 "rDZ" = (
 /obj/machinery/recharger/wallcharger{
-	layer = 3.3;
 	pixel_x = -1;
 	pixel_y = 25
 	},
 /obj/machinery/vending/wallmed1{
-	layer = 3.3;
 	name = "Emergency NanoMed";
 	pixel_x = -28;
 	req_access = null
@@ -33267,17 +33043,14 @@
 /area/centcom/legion/hangar5)
 "rKH" = (
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = -6;
 	pixel_y = 10
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = 1;
 	pixel_y = 10
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 2.99;
 	pixel_x = 8;
 	pixel_y = 10
 	},
@@ -33453,17 +33226,14 @@
 "rRr" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/taco{
-	layer = 2.98;
 	pixel_x = -4;
 	pixel_y = 7
 	},
 /obj/item/reagent_containers/food/snacks/taco{
-	layer = 2.99;
 	pixel_x = -4;
 	pixel_y = 2
 	},
 /obj/item/reagent_containers/food/snacks/burger/nt_muffin{
-	layer = 2.99;
 	pixel_x = 13;
 	pixel_y = 8
 	},
@@ -33768,7 +33538,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /turf/unsimulated/floor/plating,
@@ -33868,7 +33637,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /obj/machinery/door/airlock/external{
@@ -33883,7 +33651,6 @@
 /area/antag/raider)
 "sio" = (
 /obj/item/gun/energy/rifle{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/gun/energy/rifle{
@@ -34048,15 +33815,12 @@
 "snL" = (
 /obj/structure/table/rack,
 /obj/item/ammo_magazine/c762{
-	layer = 2.99;
 	pixel_x = 5
 	},
 /obj/item/ammo_magazine/c762{
-	layer = 2.99;
 	pixel_x = 5
 	},
 /obj/item/ammo_magazine/c762{
-	layer = 2.99;
 	pixel_x = 5
 	},
 /obj/item/ammo_magazine/c762{
@@ -34249,7 +34013,6 @@
 	dir = 8;
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "chair_armrest";
-	layer = 5;
 	name = "leather chair"
 	},
 /turf/simulated/floor/carpet,
@@ -34347,7 +34110,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/plain/black,
@@ -35132,7 +34894,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /turf/unsimulated/floor/plating,
@@ -35143,7 +34904,6 @@
 	},
 /obj/machinery/door/blast/odin/open{
 	_wifi_id = "merc_droppod_8";
-	layer = 2.8;
 	name = "Pod G"
 	},
 /turf/unsimulated/floor{
@@ -35195,7 +34955,6 @@
 	dir = 1
 	},
 /obj/item/reagent_containers/food/drinks/bottle/brandy{
-	layer = 3.1;
 	pixel_x = 10;
 	pixel_y = -1
 	},
@@ -35298,7 +35057,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/machinery/light{
@@ -35690,7 +35448,6 @@
 /area/antag/mercenary)
 "twH" = (
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -35820,14 +35577,12 @@
 "tBi" = (
 /obj/machinery/vending/snack{
 	density = 0;
-	layer = 2.99;
 	name = "Free Chocolate Corp";
 	pixel_x = -14;
 	pixel_y = 20;
 	prices = list()
 	},
 /obj/structure/sign/poster{
-	layer = 2.98;
 	pixel_y = 32
 	},
 /turf/unsimulated/floor{
@@ -36098,7 +35853,6 @@
 	dir = 1;
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /turf/unsimulated/floor,
@@ -36126,12 +35880,10 @@
 	},
 /obj/structure/table/rack,
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = 5
 	},
@@ -36335,7 +36087,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
 	dir = 1;
-	layer = 4.1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -36393,7 +36144,6 @@
 "tUa" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/structure/grille,
@@ -36456,7 +36206,6 @@
 	pixel_y = 7
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -37000,11 +36749,9 @@
 	},
 /obj/structure/table/standard,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
-	layer = 3.01;
 	pixel_y = 1
 	},
 /obj/item/reagent_containers/food/condiment/shaker/peppermill{
-	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 1
 	},
@@ -37086,7 +36833,6 @@
 	dir = 4;
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "chair_armrest";
-	layer = 5;
 	name = "leather chair"
 	},
 /turf/simulated/floor/carpet,
@@ -37500,7 +37246,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /turf/unsimulated/floor{
@@ -37614,7 +37359,6 @@
 /area/shuttle/mercenary)
 "uNJ" = (
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/effect/floor_decal/corner/paleblue{
@@ -37675,7 +37419,6 @@
 /area/shuttle/administration)
 "uPw" = (
 /obj/item/flame/candle{
-	layer = 3.6;
 	pixel_x = -4;
 	pixel_y = 21
 	},
@@ -37683,7 +37426,6 @@
 	desc = "A worn-down wooden table covered in a blue cloth.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "memorial1";
-	layer = 2.99;
 	name = "memorial Table";
 	pixel_y = 20
 	},
@@ -37692,7 +37434,6 @@
 	dir = 1;
 	icon = 'icons/obj/drinks.dmi';
 	icon_state = "cognacbottle";
-	layer = 3.1;
 	name = "sealed cognac bottle";
 	pixel_x = 4;
 	pixel_y = 34
@@ -37714,7 +37455,6 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor,
@@ -37774,7 +37514,6 @@
 	desc = "A worn-down wooden table covered in a blue cloth.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "memorial2";
-	layer = 2.99;
 	name = "memorial Table";
 	pixel_y = 20
 	},
@@ -37803,14 +37542,12 @@
 /area/centcom/control)
 "uSA" = (
 /obj/item/flame/candle{
-	layer = 3.6;
 	pixel_x = 5;
 	pixel_y = 21
 	},
 /obj/structure/flora/pottedplant{
 	anchored = 1;
 	icon_state = "plant-27";
-	layer = 3;
 	pixel_x = -8;
 	pixel_y = 33
 	},
@@ -37818,7 +37555,6 @@
 	desc = "A worn-down wooden table covered in a blue cloth.";
 	icon = 'icons/obj/furniture.dmi';
 	icon_state = "memorial3";
-	layer = 2.99;
 	name = "memorial Table";
 	pixel_y = 20
 	},
@@ -37896,7 +37632,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/extinguisher_cabinet/east{
-	layer = 3.3;
 	pixel_y = 1
 	},
 /turf/simulated/floor/shuttle/black,
@@ -38069,7 +37804,6 @@
 	dir = 4
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/structure/bed/stool/chair/shuttle{
@@ -38209,7 +37943,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor-broken";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /turf/unsimulated/floor{
@@ -38273,10 +38006,6 @@
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
-	},
-/obj/machinery/camera/network/crescent{
-	c_tag = "Crescent Arrivals North";
-	dir = 8
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
@@ -38358,7 +38087,6 @@
 /area/centcom/shared_dream)
 "vkb" = (
 /obj/item/storage/box/fancy/cigarettes/cigar{
-	layer = 3.01;
 	pixel_x = -5;
 	pixel_y = 6
 	},
@@ -38520,7 +38248,6 @@
 	opened = 1
 	},
 /obj/item/trash/koisbar{
-	layer = 3.01
 	},
 /obj/item/device/paicard,
 /obj/random/junk,
@@ -38863,7 +38590,6 @@
 /area/antag/mercenary)
 "vKf" = (
 /obj/item/storage/box/zipties{
-	layer = 2.99;
 	pixel_x = 6;
 	pixel_y = 6
 	},
@@ -38978,7 +38704,6 @@
 	dir = 4;
 	icon = 'icons/obj/recycling.dmi';
 	icon_state = "conveyor0";
-	layer = 2.4;
 	name = "conveyor"
 	},
 /obj/structure/closet/crate/loot{
@@ -39140,19 +38865,15 @@
 /area/centcom/control)
 "vOb" = (
 /obj/item/clothing/mask/gas/syndicate{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/clothing/mask/gas/syndicate{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/clothing/mask/gas/syndicate{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/clothing/mask/gas/syndicate{
-	layer = 2.99;
 	pixel_y = 6
 	},
 /obj/item/clothing/mask/gas/tactical{
@@ -39259,32 +38980,26 @@
 /area/centcom/control)
 "vSR" = (
 /obj/item/clothing/accessory/storage/pouches/black{
-	layer = 2.99;
 	pixel_x = -12;
 	pixel_y = 8
 	},
 /obj/item/clothing/accessory/storage/pouches/brown{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 8
 	},
 /obj/item/clothing/accessory/storage/pouches/brown{
-	layer = 2.99;
 	pixel_x = -2;
 	pixel_y = 8
 	},
 /obj/item/clothing/accessory/storage/pouches/white{
-	layer = 2.99;
 	pixel_x = 8;
 	pixel_y = 8
 	},
 /obj/item/clothing/accessory/storage/pouches/white{
-	layer = 2.99;
 	pixel_x = 8;
 	pixel_y = 8
 	},
 /obj/item/clothing/accessory/storage/pouches/black{
-	layer = 2.99;
 	pixel_x = -12;
 	pixel_y = 8
 	},
@@ -39399,22 +39114,18 @@
 	},
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/belt/military{
-	layer = 2.99;
 	pixel_x = 16;
 	pixel_y = 5
 	},
 /obj/item/storage/belt/military{
-	layer = 2.99;
 	pixel_x = 16;
 	pixel_y = 5
 	},
 /obj/item/storage/belt/military{
-	layer = 2.99;
 	pixel_x = 16;
 	pixel_y = 5
 	},
 /obj/item/storage/belt/military{
-	layer = 2.99;
 	pixel_x = 16;
 	pixel_y = 5
 	},
@@ -39740,17 +39451,14 @@
 	pixel_y = 2
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
 /obj/item/clothing/mask/gas/tactical{
-	layer = 2.99;
 	pixel_x = -1;
 	pixel_y = 5
 	},
@@ -39881,12 +39589,10 @@
 	},
 /obj/structure/table/reinforced,
 /obj/item/paper_bin{
-	layer = 3;
 	pixel_x = -3;
 	pixel_y = 4
 	},
 /obj/item/pen{
-	layer = 3.01;
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -40129,22 +39835,18 @@
 	pixel_y = 4
 	},
 /obj/item/shield/riot/tact/legion{
-	layer = 3.01;
 	pixel_x = -1;
 	pixel_y = 1
 	},
 /obj/item/shield/riot/tact/legion{
-	layer = 3.01;
 	pixel_x = -1;
 	pixel_y = 1
 	},
 /obj/item/shield/riot/tact/legion{
-	layer = 3.02;
 	pixel_x = 3;
 	pixel_y = -3
 	},
 /obj/item/shield/riot/tact/legion{
-	layer = 3.02;
 	pixel_x = 3;
 	pixel_y = -3
 	},
@@ -40161,7 +39863,6 @@
 "wrI" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4.1;
 	opacity = 0
 	},
 /obj/structure/grille,
@@ -41163,7 +40864,6 @@
 	desc = "An automated turret.";
 	icon = 'icons/obj/turrets.dmi';
 	icon_state = "cover_1";
-	layer = 3.02;
 	name = "turret"
 	},
 /obj/machinery/light{
@@ -41296,7 +40996,6 @@
 	pixel_y = 14
 	},
 /obj/item/deployable_kit/surgery_table{
-	layer = 3.01;
 	name = "field surgery table assembly kit";
 	pixel_x = -1
 	},
@@ -41364,32 +41063,26 @@
 	pixel_y = 2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
 /obj/item/ammo_magazine/c45m/auto{
-	layer = 2.99;
 	pixel_x = 2;
 	pixel_y = -2
 	},
@@ -41421,7 +41114,6 @@
 /obj/machinery/porta_turret/crescent,
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/structure/lattice/catwalk/indoor,
@@ -41499,15 +41191,12 @@
 	pixel_y = 10
 	},
 /obj/item/gun/energy/blaster/carbine{
-	layer = 3.01;
 	pixel_y = 2
 	},
 /obj/item/gun/energy/blaster/carbine{
-	layer = 3.01;
 	pixel_y = 2
 	},
 /obj/item/gun/energy/blaster/carbine{
-	layer = 3.02;
 	pixel_y = -6
 	},
 /turf/unsimulated/floor,
@@ -41773,7 +41462,6 @@
 "xkI" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/snacks/salad/tossedsalad{
-	layer = 2.99;
 	pixel_x = 18;
 	pixel_y = 10
 	},
@@ -41865,7 +41553,6 @@
 	icon_state = "tube_empty"
 	},
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /obj/machinery/porta_turret/crescent,
@@ -41928,7 +41615,6 @@
 	dir = 8
 	},
 /obj/machinery/computer/cryopod{
-	layer = 3.3;
 	pixel_y = 27
 	},
 /turf/simulated/floor/carpet/cyan,
@@ -42190,11 +41876,9 @@
 	pixel_y = 15
 	},
 /obj/item/gun/energy/blaster/rifle{
-	layer = 3.01;
 	pixel_y = 7
 	},
 /obj/item/gun/energy/blaster/rifle{
-	layer = 3.02;
 	pixel_y = -1
 	},
 /turf/unsimulated/floor,
@@ -42343,11 +42027,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -42356,11 +42038,9 @@
 	pixel_y = 8
 	},
 /obj/item/storage/firstaid/o2{
-	layer = 3.01;
 	pixel_x = -13
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6
 	},
 /obj/machinery/light{
@@ -42436,10 +42116,6 @@
 	},
 /area/antag/burglar)
 "xFq" = (
-/obj/machinery/camera/network/crescent{
-	c_tag = "Shuttle West";
-	dir = 4
-	},
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "xFN" = (
@@ -42687,7 +42363,6 @@
 /obj/effect/decal/fake_object{
 	icon = 'icons/obj/doors/rapid_pdoor.dmi';
 	icon_state = "shutter0";
-	layer = 2.4;
 	name = "shutter"
 	},
 /obj/item/flame/lighter/zippo,
@@ -42931,11 +42606,9 @@
 	pixel_y = 16
 	},
 /obj/item/gun/projectile/gauss{
-	layer = 3.01;
 	pixel_y = 8
 	},
 /obj/item/gun/projectile/gauss{
-	layer = 3.02
 	},
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
@@ -43140,7 +42813,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted window"
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
@@ -43174,7 +42846,6 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/toilet{
 	dir = 1;
-	layer = 4.1
 	},
 /obj/machinery/light/small{
 	dir = 8;
@@ -43372,7 +43043,6 @@
 	},
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/structure/railing/mapped{
-	layer = 4.1;
 	name = "adjusted railing"
 	},
 /turf/unsimulated/floor,

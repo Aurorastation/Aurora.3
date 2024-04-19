@@ -21,9 +21,7 @@
 	pixel_x = 11;
 	pixel_y = -11
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "bR" = (
 /obj/machinery/light/small{
@@ -43,6 +41,10 @@
 	name = "cell"
 	},
 /turf/simulated/floor/exoplanet/tiled,
+/area/nka_base)
+"eh" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "eF" = (
 /obj/structure/sign/emergency/meetingpoint{
@@ -64,9 +66,7 @@
 /obj/structure/sign/flag/nka{
 	pixel_x = -32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "gF" = (
 /obj/structure/bed/stool/chair/wood,
@@ -79,9 +79,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "hK" = (
 /obj/item/stack/material/wood/log/full,
@@ -90,32 +88,24 @@
 /obj/structure/closet/crate/bin{
 	name = "fire wood bin"
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "hT" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ji" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "jN" = (
 /obj/structure/table/rack,
 /obj/item/shovel,
 /obj/item/shovel,
 /obj/item/shovel,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "ka" = (
 /obj/structure/bed/padded,
@@ -133,9 +123,7 @@
 /area/nka_base)
 "lX" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "mf" = (
 /obj/structure/closet/secure_closet/cabinet{
@@ -201,9 +189,7 @@
 /obj/structure/table/rack,
 /obj/item/wrench,
 /obj/item/screwdriver,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "pB" = (
 /obj/structure/closet/cabinet,
@@ -215,9 +201,7 @@
 /area/nka_base)
 "pV" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "qa" = (
 /obj/structure/reagent_dispensers/keg/mead,
@@ -232,9 +216,7 @@
 	name = "water tank";
 	desc = "A tank of water filed by melting local snow."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "rV" = (
 /obj/machinery/light/small{
@@ -290,9 +272,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "vi" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "vl" = (
 /obj/item/reagent_containers/glass/bucket/wood{
@@ -329,9 +309,7 @@
 /area/nka_base)
 "wy" = (
 /obj/structure/bonfire,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "wB" = (
 /obj/machinery/light/small{
@@ -340,9 +318,7 @@
 /obj/structure/sign/flag/nka{
 	pixel_x = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "wC" = (
 /obj/structure/closet/secure_closet/cabinet{
@@ -387,6 +363,12 @@
 	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
+"xQ" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/nka_base)
 "yk" = (
 /obj/machinery/shower{
 	dir = 1
@@ -403,9 +385,7 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "yB" = (
 /turf/simulated/wall/wood,
@@ -487,9 +467,7 @@
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "DL" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "Ec" = (
 /obj/structure/closet/cabinet,
@@ -532,9 +510,7 @@
 /area/nka_base)
 "EK" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "EP" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -551,9 +527,7 @@
 /area/nka_base)
 "IG" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "Jc" = (
 /obj/structure/closet/cabinet,
@@ -617,14 +591,18 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Qx" = (
-/obj/structure/sign/flag/nka/large/south,
+/obj/structure/sign/flag/nka/large/south{
+	pixel_y = -32
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Rb" = (
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Rg" = (
-/obj/effect/map_effect/window_spawner/basic,
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/tiled,
 /area/nka_base)
 "Sr" = (
@@ -657,24 +635,22 @@
 "Up" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
-/obj/structure/sign/flag/nka/large/north,
+/obj/structure/sign/flag/nka/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Uz" = (
 /obj/item/torch,
 /obj/effect/decal/cleanable/ash,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/nka_base)
 "UX" = (
 /obj/structure/bed/stool/bar/padded/brown,
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Vn" = (
-/obj/structure/simple_door/wood{
-	name = "shower"
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/barren{
 	temperature = 268.15
 	},
@@ -725,7 +701,9 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Yr" = (
-/obj/structure/sign/flag/nka/large/north,
+/obj/structure/sign/flag/nka/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/nka_base)
 "Yv" = (
@@ -1149,7 +1127,7 @@ DL
 DL
 DL
 yB
-WG
+xQ
 yB
 yB
 yB
@@ -1231,7 +1209,7 @@ yB
 DL
 EP
 EP
-WG
+eh
 mB
 mB
 vd
@@ -1537,10 +1515,10 @@ DL
 DL
 EP
 EP
-yB
-yB
-yB
-yB
+CO
+CO
+CO
+CO
 DL
 gU
 "}
@@ -1574,7 +1552,7 @@ Fo
 Rg
 gF
 YC
-yB
+CO
 DL
 gU
 "}
@@ -1608,7 +1586,7 @@ EP
 cM
 Rb
 AC
-yB
+CO
 DL
 gU
 "}
@@ -1639,10 +1617,10 @@ EP
 EP
 EP
 EP
-yB
+CO
 ak
 ka
-yB
+CO
 DL
 gU
 "}
@@ -1673,10 +1651,10 @@ EP
 EP
 EP
 EP
-yB
-yB
-yB
-yB
+CO
+CO
+CO
+CO
 DL
 gU
 "}

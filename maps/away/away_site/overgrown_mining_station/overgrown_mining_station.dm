@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/overgrown_mining_station
 	name = "overgrown_mining_station"
 	description = "An abandoned mining station with a dionae growing into it"
-	suffixes = list("away_site/overgrown_mining_station/overgrown_mining_station.dmm")
+
+	prefix = "away_site/overgrown_mining_station/"
+	suffixes = list("overgrown_mining_station.dmm")
+
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE)
 	spawn_weight = 1
 	spawn_cost = 2

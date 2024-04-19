@@ -1,0 +1,19 @@
+2018-02-04:
+  Alberyk:
+  - rscadd: Sharp weapons and welders are twice as effective in destroying plants.
+  - rscdel: Removed k'ois seeds from the botany's seed storage.
+  LordFowl:
+  - tweak: The number of spores released by a plant is now dependent on the plants
+      potency.
+  - balance: K'ois health has been reduced by half.
+2018-02-11:
+  Lohikar:
+  - bugfix: The asteroid's sprites should no longer get fucked up by shuttle movement,
+      explosions, or mining.
+  - tweak: Breaking asteroid floors on the lowest level will now break to openspace/space
+      instead of more asteroid.
+2018-02-24:
+  BurgerBB:
+  - tweak: Improved tortilla and burrito recipies. Dips are also more flavorful.
+  sdtwbaj:
+  - rscadd: Skrell have a higher chance to get more money.

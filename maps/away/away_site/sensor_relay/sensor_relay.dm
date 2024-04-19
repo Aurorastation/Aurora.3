@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/sensor_relay
 	name = "sensor relay"
 	description = "A ring-shaped installation with a powerful sensor suite. These stations were originally built during the pre-Interstellar War era by the Solarian Alliance’s Department of Colonization as a method of making interstellar travel safer. Thousands of these “beacon stations” were built by the Alliance and many were abandoned during the Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty’s Cradle and the Jewel Worlds, beacon stations are still a common sight in less developed sectors of the Orion Spur such as the Badlands and Weeping Stars."
-	suffixes = list("away_site/sensor_relay/sensor_relay.dmm")
+
+	prefix = "away_site/sensor_relay/"
+	suffixes = list("sensor_relay.dmm")
+
 	sectors = ALL_POSSIBLE_SECTORS
 	id = "sensor_relay"
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED

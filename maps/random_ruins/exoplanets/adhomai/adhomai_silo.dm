@@ -6,7 +6,9 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_silo.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_silo.dmm")
 
 /area/adhomai_silo
 	name = "Adhomian Missile Silo"
@@ -17,6 +19,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
+	area_blurb = "The closed doors on the ground ominously point to the sky."
 
 //ghost roles
 

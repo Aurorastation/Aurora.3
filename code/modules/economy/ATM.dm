@@ -41,12 +41,12 @@
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "atm-active", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
 	if(held_card)
-		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", EFFECTS_ABOVE_LIGHTING_LAYER)
+		var/mutable_appearance/card_overlay = mutable_appearance(icon, "atm-cardin", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 		add_overlay(card_overlay)
 
 /obj/machinery/atm/process()

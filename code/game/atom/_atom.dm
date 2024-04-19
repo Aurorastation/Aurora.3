@@ -11,7 +11,7 @@
 
 	var/update_icon_on_init	= FALSE // Default to 'no'.
 
-	layer = 2
+	layer = TURF_LAYER
 	var/level = 2
 	var/atom_flags = 0
 	var/init_flags = 0

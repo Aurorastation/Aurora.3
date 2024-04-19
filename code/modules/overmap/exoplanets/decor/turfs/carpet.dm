@@ -6,6 +6,7 @@
 	broken_overlay = "carpet"
 	initial_flooring = /singleton/flooring/carpet
 	footstep_sound = /singleton/sound_category/carpet_footstep
+	has_resources = FALSE
 
 /turf/simulated/floor/exoplanet/carpet/art
 	icon_state = "artcarpet"

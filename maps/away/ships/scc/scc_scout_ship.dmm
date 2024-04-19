@@ -735,6 +735,8 @@
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "dQ" = (
 /obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/survey_probe,
+/obj/structure/survey_probe,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "dS" = (
@@ -1351,8 +1353,9 @@
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "gP" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/structure/survey_probe,
+/obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/scc_scout_ship_shuttle/cargo)
 "gU" = (
@@ -3430,6 +3433,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
+"tv" = (
+/obj/structure/survey_probe,
+/obj/effect/floor_decal/industrial/outline/research,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/scc_scout_ship_shuttle/cargo)
 "tw" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 10
@@ -4734,6 +4742,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_atmos)
+"CB" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/survey_probe,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/scc_scout_ship_shuttle/cargo)
 "CP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
@@ -6534,10 +6547,11 @@
 /area/ship/scc_scout_ship/bridge)
 "OV" = (
 /obj/random/dirt_75,
-/obj/machinery/air_sensor{
-	frequency = 1441;
-	id_tag = "co2_sensor"
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
 	},
+/obj/machinery/air_sensor,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "OY" = (
@@ -7619,14 +7633,14 @@
 /area/ship/scc_scout_ship/quarters)
 "VX" = (
 /obj/random/dirt_75,
-/obj/machinery/computer/general_air_control/large_tank_control/terminal{
-	dir = 4;
-	input_tag = "co2_in";
-	output_tag = "co2_out";
-	sensors = list("co2_sensor"="Tank");
-	name = "Carbon Dioxide Supply Monitor"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/computer/general_air_control/large_tank_control/terminal{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
+	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "Wc" = (
@@ -7766,13 +7780,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/hydroponics)
 "WM" = (
-/obj/random/dirt_75,
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	frequency = 1441;
-	id_tag = "co2_out";
+/obj/machinery/light/small/emergency,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 1
 	},
-/obj/machinery/light/small/emergency,
+/obj/random/dirt_75,
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/scc_scout_ship/maint_propulsion_port)
 "WO" = (
@@ -8224,11 +8240,11 @@
 "Zh" = (
 /obj/random/dirt_75,
 /obj/machinery/atmospherics/unary/outlet_injector{
-	frequency = 1441;
-	id = "co2_in";
-	name = "carbon dioxide injector";
-	use_power = 1;
 	dir = 1
+	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "scc_scout_ship_co2";
+	name = "scc_scout_ship_co2"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/scc_scout_ship/maint_propulsion_port)
@@ -41618,7 +41634,7 @@ SX
 aa
 xG
 FF
-gP
+nB
 CX
 lK
 FN
@@ -42133,7 +42149,7 @@ qJ
 WP
 qA
 dQ
-sN
+tv
 sG
 HR
 SF
@@ -42390,7 +42406,7 @@ aa
 rW
 hd
 gP
-nB
+CB
 Mn
 FN
 FN

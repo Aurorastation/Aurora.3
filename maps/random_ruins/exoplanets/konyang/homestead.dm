@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/homestead.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("homestead.dmm")
 
 /area/konyang_homestead
 	name = "Konyang Homestead"

@@ -7,7 +7,9 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list( "adhomai/adhomai_archeology.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list( "adhomai_archeology.dmm")
 
 /area/adhomai_archeology
 	name = "Adhomian Archeology Camp"
@@ -17,6 +19,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "Digging equipment is scattered around the camp. Royalist flags hang from the tents."
 
 //ghost roles
 
