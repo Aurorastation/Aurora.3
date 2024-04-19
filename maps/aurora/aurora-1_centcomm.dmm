@@ -12824,6 +12824,11 @@
 	},
 /turf/unsimulated/floor,
 /area/antag/mercenary)
+"ezg" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/shuttle_landmark/crescent/start,
+/turf/unsimulated/floor/plating,
+/area/centcom/specops)
 "ezv" = (
 /obj/machinery/door/airlock/centcom{
 	name = "Telecommunications Monitoring";
@@ -23222,10 +23227,6 @@
 /turf/space/dynamic,
 /area/shuttle/merchant)
 "lhw" = (
-/obj/machinery/computer/shuttle_control/multi{
-	req_access = list(101);
-	shuttle_tag = "Crescent Shuttle"
-	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
 	},
@@ -60878,7 +60879,7 @@ odb
 rFI
 iSG
 kqG
-iLs
+ezg
 oNa
 oNa
 ujN
