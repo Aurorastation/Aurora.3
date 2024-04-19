@@ -1890,7 +1890,6 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1399;
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Shuttle Hatch";
@@ -2301,7 +2300,6 @@
 "ahD" = (
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1399;
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Shuttle Hatch";
@@ -3702,7 +3700,6 @@
 "aln" = (
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1399;
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Shuttle Hatch";
@@ -4459,7 +4456,7 @@
 /area/centcom/specops)
 "amX" = (
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1399;
+	frequency = 1380;
 	id_tag = "crescent_shuttle_bay";
 	name = "shuttle bay controller";
 	pixel_y = -25;
