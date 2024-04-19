@@ -209,6 +209,20 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/armoryfoyer)
+"aO" = (
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/mech_recharger/hephaestus,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark{
+	temperature = 303.15
+	},
+/area/shuttle/ihss_reclamation)
 "aP" = (
 /obj/machinery/light{
 	dir = 8
@@ -1181,11 +1195,17 @@
 	},
 /area/ihss_reclamation/xenobot)
 "fu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/simulated/floor/plating{
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
+/obj/structure/bed/stool/chair/office/bridge/pilot{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/hangar1)
+/area/shuttle/ihss_reclamation)
 "fy" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1254,6 +1274,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "fZ" = (
@@ -1437,6 +1458,7 @@
 	color = "#ba9122";
 	dir = 4
 	},
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -1486,16 +1508,12 @@
 	},
 /area/ihss_reclamation/botanyhazard)
 "gR" = (
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
-	},
-/obj/structure/bed/stool/chair/office/bridge/generic{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 303.15
-	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "gZ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
@@ -2282,6 +2300,10 @@
 	dir = 4;
 	color = "#941307"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2395,6 +2417,7 @@
 	dir = 4;
 	color = "#941307"
 	},
+/obj/machinery/door/window/westleft,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -2656,6 +2679,7 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "mA" = (
@@ -3068,6 +3092,8 @@
 	dir = 4;
 	color = "#941307"
 	},
+/obj/item/device/spaceflare,
+/obj/item/device/spaceflare,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -3426,12 +3452,25 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/crew/two)
+"pN" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/floor/plating{
+	temperature = 303.15
+	},
+/area/ihss_reclamation/hangar1)
 "pO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/iff_beacon,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/machinery/iff_beacon/name_change,
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -3682,15 +3721,12 @@
 	},
 /area/ihss_reclamation/northhall)
 "qZ" = (
-/obj/effect/floor_decal/corner/red/diagonal{
-	dir = 4;
-	color = "#941307"
+/obj/machinery/shipsensors/strong,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
 	},
-/obj/machinery/mech_recharger/hephaestus,
-/turf/simulated/floor/tiled/dark{
-	temperature = 303.15
-	},
-/area/shuttle/ihss_reclamation)
+/turf/simulated/floor/airless,
+/area/space)
 "rc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3752,7 +3788,6 @@
 	},
 /area/ihss_reclamation/crew/two)
 "rp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
 	color = "#941307"
@@ -3865,9 +3900,6 @@
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
 /area/ihss_reclamation/simulation)
 "rX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	d1 = 4;
 	d2 = 8;
@@ -3875,6 +3907,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
 	},
 /turf/simulated/floor/plating{
 	temperature = 303.15
@@ -4439,11 +4474,12 @@
 	},
 /area/ihss_reclamation/solars)
 "uF" = (
+/obj/effect/floor_decal/corner/red/diagonal{
+	dir = 4;
+	color = "#941307"
+	},
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
@@ -4471,7 +4507,7 @@
 /area/ihss_reclamation/equipment)
 "uO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
+	dir = 8
 	},
 /turf/simulated/floor/plating{
 	temperature = 303.15
@@ -4490,6 +4526,7 @@
 	req_one_access = list(113);
 	dir = 1
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -5752,6 +5789,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "AD" = (
@@ -5849,7 +5887,7 @@
 	dir = 4;
 	color = "#941307"
 	},
-/obj/structure/bed/stool/chair/office/bridge/generic,
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -6193,6 +6231,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "CU" = (
@@ -6207,8 +6246,9 @@
 	},
 /area/ihss_reclamation/xenobot)
 "CZ" = (
-/obj/machinery/atmospherics/pipe/simple/visible/red{
-	dir = 4
+/obj/machinery/atmospherics/binary/pump{
+	dir = 8;
+	name = "pump to waste"
 	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
@@ -6525,7 +6565,7 @@
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Fi" = (
-/obj/machinery/atmospherics/pipe/simple/visible/blue{
+/obj/machinery/atmospherics/binary/passive_gate{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -6694,14 +6734,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
-	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
 	color = "#941307"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -6944,6 +6981,7 @@
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Ho" = (
@@ -7092,6 +7130,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/empty,
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "HN" = (
@@ -7302,9 +7341,6 @@
 "Iv" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 9
 	},
 /obj/effect/floor_decal/corner/red/diagonal{
 	dir = 4;
@@ -7826,6 +7862,7 @@
 	color = "#ba9122";
 	dir = 1
 	},
+/obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -7948,18 +7985,11 @@
 	},
 /area/ihss_reclamation/botanyhazard)
 "Lt" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 9
-	},
-/turf/simulated/floor/plating{
+/obj/structure/bed/stool/chair/office/bridge/generic,
+/turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
-/area/ihss_reclamation/hangar1)
+/area/ihss_reclamation/bridge)
 "Lv" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -8795,6 +8825,7 @@
 	dir = 4;
 	color = "#941307"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -9048,6 +9079,9 @@
 	icon_state = "map-supply"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Qz" = (
@@ -9339,7 +9373,9 @@
 	name = "Hazardous Specimens";
 	req_access = list(113)
 	},
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white{
 	temperature = 303.15
 	},
@@ -9767,6 +9803,7 @@
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "Tk" = (
@@ -9850,8 +9887,9 @@
 	},
 /area/ihss_reclamation/hangarhall)
 "TI" = (
-/obj/effect/floor_decal/industrial/warning/full,
-/obj/machinery/shipsensors/strong,
+/obj/structure/lattice/catwalk,
+/obj/machinery/iff_beacon/name_change,
+/obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/airless,
 /area/space)
 "TM" = (
@@ -9995,10 +10033,9 @@
 	},
 /area/ihss_reclamation/captain)
 "Up" = (
-/obj/machinery/ammunition_loader/francisca{
-	weapon_id = "IHSS Rotary Gun"
-	},
-/turf/simulated/floor/plating{
+/obj/structure/table/steel,
+/obj/item/clothing/ears/earmuffs,
+/turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
 /area/shuttle/ihss_reclamation)
@@ -10314,20 +10351,9 @@
 	},
 /area/ihss_reclamation/plantroom)
 "VD" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "IHSS Rotary Gun"
 	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/structure/window/reinforced{
-	dir = 1;
-	icon_state = "rwindow"
-	},
-/obj/structure/window/reinforced{
-	dir = 8;
-	maxhealth = 80
-	},
-/obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark{
 	temperature = 303.15
 	},
@@ -10346,6 +10372,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /turf/simulated/floor/plating{
 	temperature = 303.15
 	},
@@ -10516,6 +10543,9 @@
 	},
 /area/ihss_reclamation/westhall)
 "WG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "WL" = (
@@ -10579,6 +10609,9 @@
 "WZ" = (
 /obj/machinery/atmospherics/unary/vent_pump{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
@@ -10842,6 +10875,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
 "XY" = (
@@ -34401,7 +34435,7 @@ MC
 yv
 dX
 yv
-yv
+gn
 gn
 gn
 gn
@@ -34657,8 +34691,8 @@ RI
 Yu
 yv
 dX
-dX
 yv
+gn
 gn
 gn
 gn
@@ -34914,8 +34948,8 @@ vN
 Fg
 yv
 dX
-dX
 yv
+gn
 gn
 gn
 gn
@@ -35171,8 +35205,8 @@ QK
 RN
 yv
 dX
-dX
 yv
+gn
 gn
 gn
 gn
@@ -35428,8 +35462,8 @@ RQ
 Pj
 yv
 dX
-dX
 yv
+gn
 gn
 gn
 gn
@@ -35685,8 +35719,8 @@ RQ
 XO
 yv
 dX
-dX
 yv
+gn
 gn
 gn
 gn
@@ -35942,8 +35976,8 @@ RQ
 UC
 yv
 dX
-dX
 yv
+gn
 gn
 gn
 gn
@@ -36199,8 +36233,8 @@ yv
 yv
 yv
 dX
-dX
 yv
+gn
 gn
 gn
 gn
@@ -36456,8 +36490,8 @@ xH
 hu
 qB
 qB
-qB
 hu
+gn
 gn
 gn
 gn
@@ -36713,8 +36747,8 @@ sf
 hu
 qB
 qB
-qB
 hu
+gn
 gn
 gn
 gn
@@ -36971,7 +37005,7 @@ hu
 hu
 hu
 hu
-hu
+gn
 gn
 gn
 gn
@@ -39224,7 +39258,7 @@ FA
 FA
 FA
 Nf
-VW
+pN
 VW
 VW
 VW
@@ -39482,16 +39516,16 @@ FA
 FA
 yg
 uO
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-fu
-Lt
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+FA
+QH
 FA
 FA
 MR
@@ -40255,7 +40289,7 @@ RA
 kl
 WS
 VD
-QI
+WS
 WS
 WS
 FA
@@ -40512,7 +40546,7 @@ Ig
 OZ
 WS
 uF
-gR
+QI
 Up
 WS
 WS
@@ -40769,7 +40803,7 @@ SM
 Gd
 rp
 Iv
-Bf
+fu
 Bf
 iU
 Oe
@@ -41541,7 +41575,7 @@ Bf
 Bf
 Bf
 Bf
-qZ
+Bf
 ox
 WS
 FA
@@ -41794,7 +41828,7 @@ fU
 Hm
 WS
 lo
-SD
+aO
 GN
 GN
 SD
@@ -42045,7 +42079,7 @@ FA
 FA
 tS
 nB
-WG
+gR
 WS
 XQ
 WS
@@ -43630,14 +43664,14 @@ wJ
 wJ
 wJ
 wJ
-wJ
+Lt
 Dp
 Af
 ev
 vK
 vK
-vK
 DZ
+gn
 gn
 gn
 gn
@@ -43893,8 +43927,8 @@ Af
 mi
 zc
 zc
-zc
 Be
+gn
 gn
 gn
 gn
@@ -44144,14 +44178,14 @@ wJ
 Au
 wJ
 wJ
-wJ
+Lt
 xB
 Af
 mi
-zc
+qZ
 TI
-zc
 Be
+gn
 gn
 gn
 gn
@@ -44407,8 +44441,8 @@ Af
 mi
 zc
 zc
-zc
 Be
+gn
 gn
 gn
 gn
@@ -44658,14 +44692,14 @@ wJ
 wJ
 wJ
 wJ
-wJ
+Lt
 Dp
 Af
 iJ
 qS
 qS
-qS
 vE
+gn
 gn
 gn
 gn
@@ -51363,7 +51397,7 @@ hu
 hu
 hu
 dY
-dY
+gn
 gn
 gn
 gn
@@ -51619,8 +51653,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -51876,8 +51910,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -52133,8 +52167,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -52390,8 +52424,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -52647,8 +52681,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -52904,8 +52938,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -53161,8 +53195,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -53418,8 +53452,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -53675,8 +53709,8 @@ dY
 Ay
 Ay
 Ay
-Ay
 dY
+gn
 gn
 gn
 gn
@@ -53933,7 +53967,7 @@ Ay
 Ay
 Ay
 dY
-dY
+gn
 gn
 gn
 gn

@@ -311,6 +311,7 @@
 /area/omgolo_tourist)
 "uz" = (
 /obj/item/flame/candle,
+/obj/structure/table/wood,
 /turf/simulated/floor/carpet/purple,
 /area/omgolo_tourist)
 "va" = (
@@ -800,6 +801,10 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
+/area/omgolo_tourist)
+"Vn" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/purple,
 /area/omgolo_tourist)
 "Vr" = (
 /obj/effect/floor_decal/corner/orange{
@@ -10509,9 +10514,9 @@ Jl
 BD
 SW
 BD
-BD
-BD
-BD
+Vn
+Vn
+Vn
 BD
 SW
 BD
@@ -10661,9 +10666,9 @@ Jl
 BD
 BD
 xm
-BD
-BD
-BD
+Vn
+Vn
+Vn
 kN
 BD
 BD
@@ -10813,9 +10818,9 @@ Jl
 BD
 BD
 BD
-BD
+Vn
 uz
-BD
+Vn
 BD
 BD
 BD
@@ -10965,9 +10970,9 @@ Jl
 BD
 BD
 xm
-BD
-BD
-BD
+Vn
+Vn
+Vn
 kN
 BD
 BD
@@ -11117,9 +11122,9 @@ Jl
 BD
 BD
 BD
-BD
+Vn
 uz
-BD
+Vn
 BD
 BD
 BD
@@ -11269,9 +11274,9 @@ Jl
 BD
 BD
 xm
-BD
-BD
-BD
+Vn
+Vn
+Vn
 kN
 BD
 BD
@@ -11421,9 +11426,9 @@ Jl
 BD
 BD
 BD
-BD
+Vn
 uz
-BD
+Vn
 BD
 BD
 BD
@@ -11573,9 +11578,9 @@ Jl
 BD
 BD
 xm
-BD
-BD
-BD
+Vn
+Vn
+Vn
 kN
 BD
 BD
@@ -11725,9 +11730,9 @@ Jl
 BD
 BD
 BD
-BD
+Vn
 uz
-BD
+Vn
 BD
 BD
 BD
@@ -11877,9 +11882,9 @@ Jl
 BD
 BD
 xm
-BD
-BD
-BD
+Vn
+Vn
+Vn
 kN
 BD
 BD
@@ -12029,9 +12034,9 @@ Jl
 BD
 Tc
 BD
-BD
-BD
-BD
+Vn
+Vn
+Vn
 BD
 Tc
 BD
