@@ -77,7 +77,6 @@
 		/datum/shuttle/autodock/ferry/arrival/aurora,
 		/datum/shuttle/autodock/ferry/supply/aurora,
 		/datum/shuttle/autodock/ferry/merchant_aurora,
-		/datum/shuttle/autodock/multi/admin,
 		/datum/shuttle/autodock/ferry/autoreturn/ccia,
 		/datum/shuttle/autodock/ferry/specops/ert_aurora,
 		/datum/shuttle/autodock/multi/antag/skipjack_aurora,

@@ -718,9 +718,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
-"acW" = (
-/turf/simulated/wall/shuttle/hapt,
-/area/shuttle/admin)
 "ada" = (
 /obj/machinery/door/airlock/centcom{
 	dir = 1;
@@ -791,6 +788,19 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
+"adq" = (
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1399;
+	id_tag = "crescent_shuttle_bay";
+	pixel_x = 1;
+	req_one_access = list(101);
+	tag_door = "crescent_shuttle_hatch";
+	pixel_y = 29
+	},
+/turf/unsimulated/floor{
+	icon_state = "dark_preview"
+	},
+/area/centcom/specops)
 "adv" = (
 /obj/structure/filingcabinet,
 /turf/unsimulated/floor{
@@ -1069,6 +1079,9 @@
 "adV" = (
 /turf/unsimulated/wall/darkshuttlewall,
 /area/centcom/bar)
+"adW" = (
+/turf/simulated/wall/shuttle/hapt,
+/area/shuttle/admin)
 "adZ" = (
 /obj/machinery/door/airlock/highsecurity{
 	dir = 4;
@@ -1285,6 +1298,10 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/unsimulated/floor/plating,
 /area/centcom/bar)
+"aeJ" = (
+/obj/machinery/vending/security,
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/admin)
 "aeK" = (
 /mob/living/heavy_vehicle/premade/superheavy,
 /obj/machinery/mech_recharger,
@@ -1708,7 +1725,7 @@
 	pixel_x = -23;
 	pixel_y = -4;
 	req_access = list(103);
-	master_tag = "admin_shuttle"
+	master_tag = "crescent_shuttle"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -1879,7 +1896,6 @@
 	},
 /obj/machinery/door/airlock/external{
 	dir = 1;
-	frequency = 1399;
 	icon_state = "door_locked";
 	locked = 1;
 	name = "Corvette Hatch";
@@ -1887,16 +1903,16 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "corvette_exterior";
+	id = "crescent_exterior_blast";
 	name = "blast door"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "admin_shuttle";
+	master_tag = "crescent_shuttle";
 	name = "crescent_shuttle";
-	shuttle_tag = "admin_shuttle"
+	shuttle_tag = "crescent__shuttle"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -2045,6 +2061,10 @@
 	pixel_y = 30
 	},
 /turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/admin)
+"agF" = (
+/obj/machinery/vending/tacticool/ert,
+/turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
 "agG" = (
 /obj/structure/bed/stool/chair/shuttle{
@@ -2309,15 +2329,15 @@
 	},
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "corvette_exterior";
+	id = "crescent_exterior_blast";
 	name = "blast door"
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "admin_shuttle";
+	master_tag = "crescent_shuttle";
 	name = "crescent_shuttle";
-	shuttle_tag = "admin_shuttle"
+	shuttle_tag = "crescent__shuttle"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -2810,18 +2830,6 @@
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
-"aiY" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1399;
-	id_tag = "admin_shuttle";
-	pixel_x = -25;
-	req_one_access = list(101);
-	tag_door = "admin_shuttle_hatch";
-	dir = 4;
-	pixel_y = -30
-	},
-/turf/simulated/floor/shuttle/dark_red,
-/area/shuttle/admin)
 "ajb" = (
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
@@ -2993,13 +3001,8 @@
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
-/obj/machinery/button/remote/blast_door{
-	id = "crescent_shuttle_rapid_deploy";
-	name = "Rapid Deployment";
-	pixel_x = -22;
-	dir = 8;
-	req_access = list(103);
-	pixel_y = 2
+/obj/structure/sign/vacuum{
+	pixel_x = -32
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/admin)
@@ -3527,13 +3530,13 @@
 	dir = 5
 	},
 /obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "admin_shuttle";
+	master_tag = "crescent_shuttle";
 	name = "crescent_shuttle";
-	shuttle_tag = "admin_shuttle"
+	shuttle_tag = "crescent__shuttle"
 	},
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
-	frequency = 1380;
-	id_tag = "admin_shuttle";
+	frequency = null;
+	id_tag = "crescent_shuttle";
 	req_access = list(150);
 	dir = 4;
 	pixel_x = -26
@@ -3541,31 +3544,28 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/admin)
 "akK" = (
-/obj/machinery/light/colored/red{
-	dir = 4
-	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "admin_shuttle";
-	name = "crescent_shuttle";
-	shuttle_tag = "admin_shuttle"
-	},
 /obj/machinery/airlock_sensor{
-	frequency = 1380;
+	frequency = null;
 	id_tag = "centcom_shuttle_dock_sensor";
-	pixel_x = 28;
-	pixel_y = 10;
+	pixel_x = 31;
+	pixel_y = -2;
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "corvette_exterior";
+	id = "crescent_exterior_blast";
 	name = "aft blast door";
 	pixel_x = 23;
 	pixel_y = -4;
 	dir = 5;
 	req_access = list(103)
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	master_tag = "crescent_shuttle";
+	name = "crescent_shuttle";
+	shuttle_tag = "crescent__shuttle"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/admin)
@@ -3581,15 +3581,6 @@
 "akO" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
-"akP" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/admin)
@@ -3735,9 +3726,9 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
-	master_tag = "admin_shuttle";
+	master_tag = "crescent_shuttle";
 	name = "crescent_shuttle";
-	shuttle_tag = "admin_shuttle"
+	shuttle_tag = "crescent__shuttle"
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/admin)
@@ -30033,10 +30024,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
-"bzI" = (
-/obj/machinery/vending/tacticool/ert,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/admin)
 "bzK" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 9
@@ -34297,6 +34284,15 @@
 	icon_state = "10,2"
 	},
 /area/shuttle/transport1)
+"dDy" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
 "dEu" = (
 /obj/structure/dueling_table{
 	icon_state = "center_center"
@@ -34353,10 +34349,6 @@
 	icon_state = "beach"
 	},
 /area/horizon/holodeck/source_moghes)
-"dMt" = (
-/obj/machinery/light,
-/turf/simulated/floor/wood,
-/area/shuttle/admin)
 "dMF" = (
 /obj/random/pottedplant,
 /turf/simulated/floor/holofloor/wood,
@@ -34624,6 +34616,10 @@
 /obj/item/device/flashlight/lamp/stage,
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_theatre)
+"eJp" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/shuttle/dark_red,
+/area/shuttle/admin)
 "eKp" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/machinery/door/firedoor,
@@ -34847,6 +34843,23 @@
 	name = "shallow water"
 	},
 /area/horizon/holodeck/source_konyang)
+"fPE" = (
+/obj/structure/bed/stool/chair/shuttle{
+	can_dismantle = 1;
+	dir = 8;
+	name = "worn chair"
+	},
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "crescent_shuttle_rapid_deploy";
+	name = "Rapid Deployment";
+	req_access = list(103);
+	pixel_y = -20
+	},
+/turf/simulated/floor/shuttle/black,
+/area/shuttle/admin)
 "fPJ" = (
 /obj/structure/table/holotable,
 /obj/machinery/readybutton,
@@ -35416,6 +35429,15 @@
 	},
 /turf/space/transit/north,
 /area/template_noop)
+"hys" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/admin)
 "hzT" = (
 /obj/structure/table/stone/marble,
 /obj/structure/window/reinforced/holowindow{
@@ -35640,6 +35662,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/admin)
+"ilL" = (
+/obj/machinery/light,
+/turf/simulated/floor/wood,
+/area/shuttle/admin)
 "ipe" = (
 /obj/structure/sign/vacuum{
 	pixel_x = -32
@@ -35746,11 +35772,10 @@
 /area/horizon/holodeck/source_moghes)
 "iMi" = (
 /obj/machinery/access_button{
-	pixel_x = 29;
-	pixel_y = 38;
+	pixel_x = 32;
+	pixel_y = 29;
 	req_access = list(222);
-	dir = 8;
-	master_tag = "admin_shuttle"
+	master_tag = "crescent_shuttle"
 	},
 /turf/unsimulated/floor/plating,
 /area/centcom/specops)
@@ -36874,6 +36899,9 @@
 	name = "overgrowth"
 	},
 /area/horizon/holodeck/source_moghes)
+"mfv" = (
+/turf/simulated/wall/shuttle/hapt,
+/area/centcom/specops)
 "miw" = (
 /obj/structure/table/wood,
 /obj/item/flame/candle,
@@ -38038,10 +38066,6 @@
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
-"qBY" = (
-/obj/machinery/vending/security,
-/turf/simulated/floor/shuttle/black,
-/area/shuttle/admin)
 "qEC" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/misc/beach.dmi';
@@ -38374,7 +38398,7 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 8;
-	id = "corvette__bridge_exterior";
+	id = "crescent_bridge_blast";
 	name = "blast door"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -38915,15 +38939,6 @@
 /obj/structure/railing/mapped,
 /turf/simulated/floor/plating,
 /area/centcom/shared_dream)
-"tZL" = (
-/obj/effect/floor_decal/corner/black{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/admin)
 "tZQ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/crate,
@@ -39782,7 +39797,7 @@
 "wOw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
-	id = "corvette__bridge_exterior";
+	id = "crescent_bridge_blast";
 	name = "blast door"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -48627,12 +48642,12 @@ abJ
 abJ
 abJ
 aha
-acW
-acW
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
+adW
+adW
 aci
 abJ
 abJ
@@ -48876,20 +48891,20 @@ aaa
 aaa
 abl
 abJ
-acW
-acW
+adW
+adW
 abJ
 agL
-acW
-acW
-acW
+adW
+adW
+adW
 aha
 uYM
 ajU
 ajU
 uYM
-acW
-acW
+adW
+adW
 aha
 abJ
 abJ
@@ -49134,24 +49149,24 @@ aaa
 abl
 abJ
 adF
-acW
-acW
-acW
-acW
-acW
-acW
-qBY
+adW
+adW
+adW
+adW
+adW
+adW
+aeJ
 afd
 afd
 afd
 afd
-acW
-acW
+adW
+adW
 aha
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
 aha
 aiw
 abJ
@@ -49391,18 +49406,18 @@ aaa
 abl
 abJ
 adF
-acW
-acW
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
+adW
+adW
 aeK
 aix
 aix
 aix
 afM
-acW
+adW
 aiW
 agX
 agX
@@ -49648,13 +49663,13 @@ aaa
 abl
 abJ
 adF
-acW
-acW
-acW
-acW
-acW
-acW
-bzI
+adW
+adW
+adW
+adW
+adW
+adW
+agF
 afd
 afd
 afd
@@ -49904,27 +49919,27 @@ aaa
 aaa
 abl
 abJ
-acW
-acW
+adW
+adW
 abJ
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
 aha
 akd
 bxE
 afg
 acV
-acW
+adW
 agE
 agW
 ahS
 ahS
-agW
-acW
+fPE
+adW
 aha
-acW
+adW
 abJ
 abJ
 abJ
@@ -50164,28 +50179,28 @@ abJ
 abJ
 abJ
 ahC
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
 aha
-acW
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
+adW
 akc
 aha
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
 aha
-acW
-acW
-acW
-abJ
-ajb
+adW
+adW
+adW
+mfv
+adq
 ajb
 anF
 aop
@@ -50424,11 +50439,11 @@ abJ
 abJ
 ahE
 adH
-tZL
+hys
 aeO
 aeO
 akO
-tZL
+hys
 ygc
 aeO
 akO
@@ -50685,7 +50700,7 @@ afx
 afx
 afx
 ahc
-akP
+dDy
 ahR
 afx
 ahc
@@ -50935,27 +50950,27 @@ abJ
 abJ
 abJ
 ahC
-acW
-acW
-acW
+adW
+adW
+adW
 ahE
 aha
 agK
-acW
-acW
-acW
+adW
+adW
+adW
 adZ
-acW
+adW
 aha
-acW
+adW
 rIq
-acW
-acW
+adW
+adW
 lCF
-acW
-acW
-acW
-abJ
+adW
+adW
+adW
+mfv
 ajb
 ajb
 anE
@@ -51189,27 +51204,27 @@ aaa
 aaa
 abl
 abJ
-acW
-acW
+adW
+adW
 abJ
-acW
-acW
+adW
+adW
 akE
 dgh
 ajW
-dMt
-acW
+ilL
+adW
 afz
 afR
 agl
-acW
+adW
 ajY
 ahF
-aiY
+aix
 cbe
-acW
+adW
 aha
-acW
+adW
 abJ
 abJ
 abJ
@@ -51447,21 +51462,21 @@ aaa
 abl
 abJ
 adF
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
 aka
 aeR
 aeR
 aeR
-acW
+adW
 aeS
 afT
 agm
-acW
+adW
 qTA
-aix
+eJp
 akb
 adp
 rvp
@@ -51704,19 +51719,19 @@ aaa
 abl
 abJ
 adF
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
 ajV
 aeR
 aeR
 aeR
-acW
+adW
 aeT
 afT
 agn
-acW
+adW
 aiz
 ahH
 alq
@@ -51961,24 +51976,24 @@ aaa
 abl
 abJ
 adF
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
 adL
 aec
 abm
 agG
-acW
+adW
 afC
 agI
 wBC
-acW
+adW
 aha
 wOw
 wOw
-acW
-acW
+adW
+adW
 aha
 aiw
 abJ
@@ -52217,20 +52232,20 @@ aaa
 aaa
 abl
 abJ
-acW
-acW
+adW
+adW
 abJ
 agH
-acW
-acW
+adW
+adW
 wOw
 wOw
 wOw
-acW
+adW
 mqr
 ikQ
 alp
-acW
+adW
 aha
 abJ
 abJ
@@ -52483,11 +52498,11 @@ abJ
 abJ
 abJ
 abJ
-acW
-acW
-acW
-acW
-acW
+adW
+adW
+adW
+adW
+adW
 ajC
 abJ
 abJ
