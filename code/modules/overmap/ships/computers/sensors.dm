@@ -4,7 +4,6 @@
 	icon_keyboard = "cyan_key"
 	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
-	//var/obj/machinery/shipsensors/sensors
 	var/obj/machinery/iff_beacon/identification
 	circuit = /obj/item/circuitboard/ship/sensors
 	linked_type = /obj/effect/overmap/visitable
