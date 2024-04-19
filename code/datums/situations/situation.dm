@@ -14,32 +14,58 @@
 	var/setup_type = SITUATION_SET_UP_ON_NEW_ZLEVEL
 	/// Weight given to the situation in pickweight when being picked.
 	var/weight = 20
+	/// If set, this variable will force a certain type of planet to spawn, bypassing the planet check. Must still have the appropriate setup_type set.
+	var/force_planet_type
 
 /**
  * This proc handles the creation and spawning of everything that the situation needs.
  * This could be a map or landmarks or whatever.
  */
 /singleton/situation/proc/setup_situation()
+	SHOULD_NOT_OVERRIDE(TRUE)
 	for(var/M in maps_to_load)
 		var/datum/map_template/template = new M
 		if(setup_type == SITUATION_SET_UP_ON_NEW_ZLEVEL)
-			var/turf/T = template.load_new_z()
-			SSodyssey.situation_zlevels = list(T.z)
+			setup_zlevel()
 		else if(setup_type == SITUATION_SET_UP_ON_PLANET)
-			for(var/map_z in GLOB.map_sectors)
-				var/obj/effect/overmap/OM = GLOB.map_sectors[map_z]
-				if(istype(OM, /obj/effect/overmap/visitable/sector/exoplanet))
-					var/obj/effect/overmap/visitable/sector/exoplanet/planet = OM
-					if(is_planet_appropriate(planet))
-						//TODOMATT: make the template actually spawn on the planet
-						SSodyssey.situation_planet = OM
-						break
-
-					// In case we don't find an ideal planet, make one manually.
-					// rip init times
-					if(!SSodyssey.situation_planet)
-						SSodyssey.situation_planet = create_appropriate_planet()
+			setup_planet()
 	return TRUE
+
+/**
+ * This proc is the one called to set up a new z-level for the situation.
+ * This is the one you should override for custom logic.
+ */
+/singleton/proc/setup_zlevel()
+	var/turf/T = template.load_new_z()
+	SSodyssey.situation_zlevels = list(T.z)
+
+/**
+ * This proc is the one called to set up a new planet for the situation.
+ * This is the one you should override for custom logic.
+ */
+/singleton/proc/setup_planet()
+	// In case force_planet_type is not set, search for an appropriate planet and only spawn one as a last resort.
+	if(!force_planet_type)
+		for(var/map_z in GLOB.map_sectors)
+			var/obj/effect/overmap/OM = GLOB.map_sectors[map_z]
+			if(istype(OM, /obj/effect/overmap/visitable/sector/exoplanet))
+				var/obj/effect/overmap/visitable/sector/exoplanet/planet = OM
+				if(is_planet_appropriate(planet))
+					//TODOMATT: make the template actually spawn on the planet
+					SSodyssey.set_planet(OM)
+					break
+
+				// If we don't find an ideal planet, make one manually.
+				// rip init times
+				if(!SSodyssey.situation_planet)
+					SSodyssey.set_planet(create_appropriate_planet())
+	else
+		if(!istype(new_planet_type, /obj/effect/overmap/visitable/sector/exoplanet))
+			log_and_message_admins(FONT_HUGE("CRITICAL FAILURE: Force planet type on [name] situation was of an unexpected type!"))
+			return FALSE
+
+		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new force_planet_type
+		SSodyssey.set_planet(new_planet)
 
 /**
  * This proc determines if a planet is appropriate for the situation to spawn in.

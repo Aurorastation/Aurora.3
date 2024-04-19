@@ -12,6 +12,7 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 	var/list/situation_zlevels
 
 	/// This is the planet the situation takes place on. If null, then the mission takes place on a non-planet zlevel.
+	/// Should only be changed through set_planet().
 	var/obj/effect/overmap/visitable/sector/exoplanet/situation_planet
 
 /datum/controller/subsystem/processing/odyssey/Initialize()
@@ -28,9 +29,16 @@ PROCESSING_SUBSYSTEM_DEF(odyssey)
 			possible_situations[S] = S.weight
 
 	if(!length(possible_situations))
-		log_debug("CRITICAL ERROR: No available mission for sector [SSatlas.current_sector.name]!")
-		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO MISSIONS WERE AVAILABLE FOR THIS SECTOR! CHANGE THE GAMEMODE MANUALLY!")))
+		log_debug("CRITICAL ERROR: No available situation for sector [SSatlas.current_sector.name]!")
+		log_and_message_admins(SPAN_DANGER(FONT_HUGE("CRITICAL ERROR: NO SITUATIONS ARE AVAILABLE FOR THIS SECTOR! CHANGE THE GAMEMODE MANUALLY!")))
 		return
 
 	situation = pickweight(possible_situations)
 	flags &= ~SS_NO_FIRE
+
+/datum/controller/subsystem/processing/odyssey/proc/set_planet(obj/effect/overmap/visitable/sector/exoplanet/planet)
+	if(!istype(planet))
+		return
+
+	situation_planet = planet
+	situation_zlevels = planet.map_z
