@@ -99,9 +99,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "cY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -125,9 +123,7 @@
 /area/old_outpost/refinery)
 "dM" = (
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "dR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -215,9 +211,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "fp" = (
 /obj/structure/cable/blue{
@@ -270,9 +264,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "gD" = (
 /obj/machinery/atmospherics/portables_connector,
@@ -477,9 +469,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "kz" = (
 /obj/machinery/conveyor{
@@ -507,9 +497,7 @@
 	dir = 4;
 	id = "mining_external"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost/refinery)
 "la" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -613,7 +601,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
 "nb" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -734,9 +722,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 6
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "nV" = (
 /obj/structure/table/rack,
@@ -813,7 +799,7 @@
 	frequency = 1380;
 	id_tag = "mining_outpost_pump"
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/plating,
 /area/old_outpost/refinery)
 "pp" = (
 /obj/structure/cable/blue{
@@ -914,12 +900,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/old_outpost/hallway)
-"qu" = (
-/obj/item/stack/rods,
-/obj/structure/window_frame/empty,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/old_outpost/dorms)
 "rf" = (
 /obj/machinery/alarm/north,
 /obj/item/storage/toolbox/mechanical{
@@ -991,9 +971,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "sM" = (
 /obj/machinery/access_button{
@@ -1298,9 +1276,7 @@
 /area/old_outpost/dorms)
 "xE" = (
 /obj/item/reagent_containers/food/snacks/grown/mushroom/libertycap,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "xM" = (
 /obj/machinery/light/small/emergency{
@@ -1448,6 +1424,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/old_outpost/refinery)
+"zt" = (
+/obj/machinery/conveyor{
+	dir = 9;
+	id = "mining_internal"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/old_outpost/refinery)
 "zU" = (
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'KEEP CLEAR OF DOCKING AREA'.";
@@ -1576,9 +1559,7 @@
 	id = "mining_external"
 	},
 /obj/structure/plasticflaps/mining,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost/refinery)
 "Bc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1588,9 +1569,7 @@
 /area/old_outpost/dorms)
 "BD" = (
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "BM" = (
 /obj/structure/table/rack,
@@ -1629,9 +1608,7 @@
 /area/old_outpost/hallway)
 "CG" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "CL" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1697,9 +1674,7 @@
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Du" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1822,17 +1797,13 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 8
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "FT" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "FY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1842,8 +1813,6 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/item/material/shard,
-/obj/item/stack/rods,
 /turf/simulated/floor/tiled,
 /area/old_outpost/dorms)
 "FZ" = (
@@ -1899,9 +1868,7 @@
 "Hy" = (
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
 /obj/item/reagent_containers/food/snacks/grown/ambrosiavulgaris,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Hz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1999,9 +1966,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 10
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Iq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2185,9 +2150,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Lq" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
@@ -2216,9 +2179,7 @@
 	id = "mining_external"
 	},
 /obj/effect/floor_decal/industrial/warning/dust,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Mf" = (
 /obj/structure/cable/blue{
@@ -2277,12 +2238,10 @@
 /obj/structure/disposaloutlet{
 	dir = 1
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "MI" = (
-/turf/simulated/floor/plating,
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost/refinery)
 "Nc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2331,14 +2290,10 @@
 /obj/machinery/mineral/unloading_machine{
 	icon_state = "unloader-corner"
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost/refinery)
 "NN" = (
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Ob" = (
 /obj/structure/closet,
@@ -2368,7 +2323,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/airless,
+/turf/simulated/floor/plating,
 /area/old_outpost/refinery)
 "OB" = (
 /obj/machinery/access_button{
@@ -2382,15 +2337,11 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "OC" = (
 /mob/living/simple_animal/hostile/retaliate/minedrone,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "OE" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -2456,9 +2407,7 @@
 	dir = 1
 	},
 /obj/item/storage/box/dynamite,
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Px" = (
 /obj/item/storage/belt/utility,
@@ -2529,9 +2478,7 @@
 	pixel_x = 25;
 	pixel_y = 25
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "Rq" = (
 /turf/simulated/floor/tiled,
@@ -2660,9 +2607,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "SQ" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2753,10 +2698,15 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
+"Uh" = (
+/obj/machinery/conveyor{
+	dir = 4;
+	id = "mining_internal"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/old_outpost/refinery)
 "Uq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/random/junk,
@@ -2903,9 +2853,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 "XR" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal{
@@ -3044,9 +2992,7 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 9
 	},
-/turf/simulated/floor/airless{
-	icon_state = "asteroidplating"
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/old_outpost)
 
 (1,1,1) = {"
@@ -3821,7 +3767,7 @@ cg
 cg
 cg
 Yc
-qu
+Yc
 Yc
 cg
 cg
@@ -5161,7 +5107,7 @@ vV
 Nn
 KU
 NC
-VU
+MI
 sZ
 kg
 sZ
@@ -5199,7 +5145,7 @@ Du
 TE
 OK
 NC
-Vo
+Uh
 sZ
 Vo
 sZ
@@ -5237,7 +5183,7 @@ tA
 ir
 ei
 NC
-Vo
+Uh
 sZ
 Vo
 sZ
@@ -5275,7 +5221,7 @@ ZM
 rC
 ZC
 NC
-kz
+zt
 Qj
 Vo
 sZ

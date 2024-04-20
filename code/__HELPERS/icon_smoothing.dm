@@ -233,10 +233,10 @@
 				var/istate = "[((x + y) ^ ~(x * y) + z) % 25]"
 				underlay_appearance.icon = 'icons/turf/space.dmi'
 				underlay_appearance.icon_state = istate
-				underlay_appearance.plane = PLANE_SPACE_BACKGROUND
+				underlay_appearance.plane = SPACE_PLANE
 
 				var/image/dust = image('icons/turf/space_parallax1.dmi', istate)
-				dust.plane = PLANE_SPACE_DUST
+				dust.plane = DUST_PLANE
 				dust.alpha = 80
 				dust.blend_mode = BLEND_ADD
 				U += dust
@@ -528,7 +528,7 @@
 /proc/smooth_zlevel(var/zlevel, now = FALSE)
 	SHOULD_NOT_SLEEP(TRUE)
 
-	for(var/V in Z_ALL_TURFS(zlevel))
+	for(var/V in Z_TURFS(zlevel))
 		var/turf/T = V
 
 		//There's no use in smoothing turfs that have been deleted

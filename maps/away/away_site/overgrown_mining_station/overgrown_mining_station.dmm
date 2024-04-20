@@ -1157,7 +1157,7 @@
 /turf/simulated/floor/airless,
 /area/overgrown_mining_station)
 "MP" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /turf/simulated/floor/tiled/white/airless,
 /area/overgrown_mining_station)
 "MW" = (

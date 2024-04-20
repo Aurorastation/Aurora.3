@@ -23,7 +23,7 @@
 	else if(smoothing_flags && !(smoothing_flags & SMOOTH_QUEUED)) // we check here because proc overhead
 		SSicon_smooth.add_to_queue(src)
 
-	if (current_map.use_overmap)
+	if (SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if (istype(E) && istype(E.theme))
 			E.theme.on_turf_generation(src, E.planetary_area)
@@ -52,6 +52,8 @@
 	var/list/old_corners = corners
 	var/list/old_blueprints = blueprints
 	var/list/old_decals = decals
+	var/old_outside = is_outside
+	var/old_is_open = is_open()
 
 	changing_turf = TRUE
 
@@ -105,6 +107,11 @@
 	if(tell_universe)
 		GLOB.universe.OnTurfChange(W)
 
+	// we check the var rather than the proc, because area outside values usually shouldn't be set on turfs
+	W.last_outside_check = OUTSIDE_UNCERTAIN
+	if(W.is_outside != old_outside)
+		W.set_outside(old_outside, skip_weather_update = TRUE)
+
 	SSair.mark_for_update(src) //handle the addition of the new turf.
 
 	if(!W.baseturf)
@@ -118,6 +125,8 @@
 	W.decals = old_decals
 
 	W.post_change(!mapload)
+
+	W.update_weather(force_update_below = W.is_open() != old_is_open)
 
 	. = W
 

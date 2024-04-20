@@ -3,21 +3,19 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "bP" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "bR" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
+"dy" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "ey" = (
 /obj/structure/railing/mapped{
@@ -28,9 +26,7 @@
 "eB" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/yellow,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "eV" = (
 /obj/structure/closet/crate/drop,
@@ -39,50 +35,29 @@
 /obj/item/trap,
 /obj/item/trap,
 /obj/item/trap,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_hunting)
-"he" = (
-/obj/structure/window/basic{
-	dir = 4
-	},
-/obj/structure/curtain/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "hD" = (
 /obj/structure/table/wood,
 /obj/item/toy/plushie/farwa,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "jh" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "jk" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "jy" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "jU" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "kH" = (
 /obj/structure/railing/fence{
@@ -91,32 +66,22 @@
 /mob/living/simple_animal/hostile/commanded/dog/harron{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "kO" = (
 /obj/structure/table/wood,
 /obj/item/storage/chewables/tobacco/bad,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "kX" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice/tajara,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "le" = (
-/obj/structure/window/basic{
-	dir = 8
-	},
 /obj/structure/curtain/black,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "lh" = (
 /obj/structure/bed/stool/chair/sofa/right/brown{
@@ -132,9 +97,7 @@
 	identifier = "adhomai_hunter";
 	name = "igs - adhomai_hunter"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "lz" = (
 /obj/structure/closet/crate/medical,
@@ -144,17 +107,13 @@
 /obj/item/stack/medical/splint/full,
 /obj/item/storage/firstaid/empty,
 /obj/item/stack/medical/ointment,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "lT" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/reagent_containers/food/snacks/hardbread,
 /obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "lX" = (
 /obj/structure/table/wood,
@@ -165,17 +124,16 @@
 /obj/item/clothing/mask/smokable/cigarette/adhomai{
 	pixel_x = -5
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "pI" = (
 /obj/structure/closet/crate/drop,
 /obj/item/device/binoculars,
 /obj/item/device/binoculars,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
+"qU" = (
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "rg" = (
 /turf/simulated/wall/wood,
@@ -192,29 +150,21 @@
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "sU" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/material/knife/bayonet,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "uc" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/tarot/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "vq" = (
 /obj/structure/sink/puddle,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "wa" = (
 /obj/effect/decal/fake_object{
@@ -224,9 +174,7 @@
 	icon_state = "television";
 	name = "adhomian television"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "wj" = (
 /obj/structure/closet/crate/hydroponics,
@@ -234,31 +182,28 @@
 /obj/item/seeds/nifberries,
 /obj/item/seeds/sugartree,
 /obj/item/seeds/earthenroot,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "xH" = (
 /obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "zC" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Av" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_x = -9;
 	pixel_y = 5
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
+"BM" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
 "Cy" = (
 /obj/structure/railing/fence{
 	dir = 4
@@ -266,35 +211,19 @@
 /obj/structure/railing/fence{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "CX" = (
 /mob/living/simple_animal/hostile/commanded/dog/harron{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Dt" = (
 /obj/machinery/light/small{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
-/area/adhomai_hunting)
-"Dx" = (
-/obj/structure/closet/cabinet,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/clothing/suit/storage/tajaran/hunting,
-/obj/item/device/flashlight/heavy,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_hunting)
 "DP" = (
 /obj/structure/cult/tome{
@@ -306,95 +235,80 @@
 	desc = "An expensive silver charm of tajaran origin. This one has the arrowhead of Ma'take";
 	name = "mata'ke charm"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/obj/item/nullrod/matake,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "DY" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "EB" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Hj" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "HC" = (
 /obj/machinery/appliance/cooker/oven/adhomai,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_hunting)
-"Im" = (
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "IE" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "KI" = (
 /mob/living/simple_animal/hostile/commanded/dog/harron{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Lc" = (
 /turf/simulated/floor/carpet/art{
 	temperature = 278.15
 	},
 /area/adhomai_hunting)
+"Mj" = (
+/obj/structure/closet/cabinet,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/ammo_magazine/boltaction,
+/obj/item/clothing/suit/storage/tajaran/hunting,
+/obj/item/device/flashlight/heavy,
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
 "Nd" = (
 /obj/structure/table/wood/gamblingtable,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Ne" = (
 /obj/effect/ghostspawpoint{
 	identifier = "matake_hunter";
 	name = "igs - matake_hunter"
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
+"Nu" = (
+/obj/machinery/door/urban{
+	dir = 4
 	},
+/turf/simulated/floor/exoplanet/wood,
+/area/adhomai_hunting)
+"PH" = (
+/obj/structure/sign/flag/matake,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Sm" = (
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
-/area/adhomai_hunting)
-"TL" = (
-/obj/structure/table/wood,
-/obj/item/device/flashlight/lamp,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Vg" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/deck/cards,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Vo" = (
 /obj/structure/table/wood,
@@ -412,18 +326,14 @@
 	pixel_x = -5
 	},
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "VA" = (
-/turf/simulated/floor/exoplanet/ice,
+/turf/simulated/floor/exoplanet/ice/cold,
 /area/exoplanet/adhomai)
 "VL" = (
-/obj/structure/simple_door/wood,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "VU" = (
 /obj/structure/railing/mapped{
@@ -445,34 +355,26 @@
 	pixel_y = 7;
 	pixel_x = -5
 	},
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "Yx" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/brown,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "YA" = (
 /obj/structure/closet/crate/drop,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
 /obj/item/ammo_magazine/boltaction,
-/turf/simulated/floor/wood{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_hunting)
 "YT" = (
 /obj/structure/railing/fence,
 /obj/structure/railing/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"
@@ -798,7 +700,7 @@ Hj
 Hj
 rg
 eB
-Im
+qU
 rg
 Dt
 Hj
@@ -831,8 +733,8 @@ le
 rg
 rg
 rg
-TL
-Im
+BM
+qU
 rg
 EB
 EB
@@ -861,12 +763,12 @@ Hj
 Hj
 rg
 jU
-Im
+qU
 Sm
 zC
 rg
-Dx
-Im
+Mj
+qU
 rg
 Hj
 Hj
@@ -895,12 +797,12 @@ rg
 rg
 rg
 HC
-Im
-Im
+qU
+qU
 Vo
 rg
 rg
-VL
+Nu
 rg
 wj
 Hj
@@ -925,16 +827,16 @@ Hj
 Hj
 rg
 rg
-Im
+PH
 Sm
 VU
-Im
-Im
-Im
-Im
-Im
+qU
+qU
+qU
+qU
+qU
 Sm
-Im
+qU
 rg
 rg
 rg
@@ -959,20 +861,20 @@ bP
 Hj
 rg
 XA
-Im
+qU
 jy
-Im
-Im
+qU
+qU
 lk
 Vg
 Nd
 lk
-Im
-Im
+qU
+qU
 VL
-Im
-Im
-TL
+qU
+qU
+BM
 rg
 Hj
 Hj
@@ -995,17 +897,17 @@ rg
 DP
 Ne
 jy
-Im
-Im
+qU
+qU
 lk
 sU
 kX
 lk
-Im
-Im
+qU
+qU
 rg
-Dx
-Im
+Mj
+qU
 Yx
 rg
 Hj
@@ -1027,19 +929,19 @@ Hj
 Hj
 rg
 XA
-Im
+qU
 jy
 lz
-Im
+qU
 lk
 uc
 lT
 lk
-Im
+qU
 DY
 rg
 rg
-he
+le
 rg
 rg
 Hj
@@ -1061,16 +963,16 @@ Hj
 Hj
 rg
 rg
-Im
+PH
 IE
 ey
-Im
-Im
-Im
-Im
-Im
-Im
-Im
+qU
+qU
+qU
+qU
+qU
+qU
+qU
 VL
 Hj
 Hj
@@ -1101,9 +1003,9 @@ rg
 pI
 eV
 YA
-Im
-Im
-Im
+qU
+qU
+qU
 lX
 rg
 Hj
@@ -1136,9 +1038,9 @@ rg
 rg
 rg
 hD
-Im
+qU
 Lc
-lh
+Xy
 rg
 Hj
 Hj
@@ -1170,7 +1072,7 @@ Hj
 KI
 rg
 wa
-Im
+qU
 Lc
 rO
 rg
@@ -1198,7 +1100,7 @@ Hj
 Hj
 Hj
 Hj
-Hj
+dy
 KI
 Hj
 jh
@@ -1206,7 +1108,7 @@ rg
 kO
 IE
 Lc
-Xy
+lh
 rg
 Hj
 Hj
@@ -1239,7 +1141,7 @@ CX
 rg
 rg
 rg
-he
+le
 rg
 rg
 Hj

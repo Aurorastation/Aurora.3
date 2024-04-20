@@ -15,13 +15,17 @@
 	name = "Water Barge - Hangar"
 	icon_state = "exit"
 
+/area/water_barge/mainhallway
+	name = "Water Barge - Main Hallway"
+	icon_state = "exit"
+
+/area/water_barge/medbay
+	name = "Water Barge - Clinic"
+	icon_state = "medbay"
+
 /area/water_barge/engineering
 	name = "Water Barge - Engineering"
 	icon_state = "engineering"
-
-/area/water_barge/atmos
-	name = "Water Barge - Atmospherics"
-	icon_state = "atmos"
 
 /area/water_barge/fuelbay
 	name = "Water Barge - Fuel Bay"
@@ -30,6 +34,10 @@
 /area/water_barge/toolstorage
 	name = "Water Barge - Tool Storage"
 	icon_state = "engineering_storage"
+
+/area/water_barge/cargo
+	name = "Water Barge - Cargo"
+	icon_state = "outpost_mine_main"
 
 /area/water_barge/dockingport
 	name = "Water Barge - Starboard Docking Bay"
@@ -46,12 +54,19 @@
 	name = "Water Barge - Break Room"
 	icon_state = "cafeteria"
 
+/area/water_barge/bathroom
+	name = "Water Barge - Bathroom"
+	icon_state = "washroom"
 /area/water_barge/cryo
 	name = "Water Barge - Cryogenics"
 	icon_state = "cryo"
 
 /area/water_barge/thrust
 	name = "Water Barge - Starboard Thruster"
+	icon_state = "engine"
+
+/area/water_barge/thrust/port
+	name = "Water Barge - Port Thruster"
 	icon_state = "engine"
 
 /area/water_barge/quarters

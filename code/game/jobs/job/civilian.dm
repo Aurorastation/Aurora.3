@@ -18,10 +18,10 @@
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
 	minimal_access = list(ACCESS_BAR)
 	alt_titles = list("Barista")
-	outfit = /datum/outfit/job/bartender
+	outfit = /obj/outfit/job/bartender
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/bartender
+/obj/outfit/job/bartender
 	name = "Bartender"
 	jobtype = /datum/job/bartender
 
@@ -64,10 +64,10 @@
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
 	minimal_access = list(ACCESS_KITCHEN)
 	alt_titles = list("Cook")
-	outfit = /datum/outfit/job/chef
+	outfit = /obj/outfit/job/chef
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/chef
+/obj/outfit/job/chef
 	name = "Chef"
 	jobtype = /datum/job/chef
 
@@ -113,11 +113,11 @@
 
 	access = list(ACCESS_HYDROPONICS, ACCESS_BAR, ACCESS_KITCHEN)
 	minimal_access = list(ACCESS_HYDROPONICS)
-	outfit = /datum/outfit/job/hydro
+	outfit = /obj/outfit/job/hydro
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 	alt_titles = list("Hydroponicist")
 
-/datum/outfit/job/hydro
+/obj/outfit/job/hydro
 	name = "Gardener"
 	jobtype = /datum/job/hydro
 
@@ -144,7 +144,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/hyd
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/outfit/job/hydro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/hydro/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(istajara(H))
 		H.equip_or_collect(new /obj/item/clothing/gloves/botanic_leather/tajara(H), slot_gloves)
@@ -165,11 +165,11 @@
 	selection_color = "#90524b"
 	access = list(ACCESS_JANITOR, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
 	minimal_access = list(ACCESS_JANITOR, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_MEDICAL)
-	outfit = /datum/outfit/job/janitor
+	outfit = /obj/outfit/job/janitor
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 
-/datum/outfit/job/janitor
+/obj/outfit/job/janitor
 	name = "Janitor"
 	jobtype = /datum/job/janitor
 
@@ -191,74 +191,6 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/job/journalist
-	title = "Corporate Reporter"
-	flag = JOURNALIST
-	departments = SIMPLEDEPT(DEPARTMENT_SERVICE)
-	department_flag = SERVICE
-	faction = "Station"
-	total_positions = 1
-	spawn_positions = 1
-	supervisors = "the executive officer"
-	selection_color = "#90524b"
-
-	minimum_character_age = list(
-		SPECIES_HUMAN = 20,
-		SPECIES_SKRELL = 50,
-		SPECIES_SKRELL_AXIORI = 50
-	)
-
-	access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
-	minimal_access = list(ACCESS_JOURNALIST, ACCESS_MAINT_TUNNELS)
-	alt_titles = list("Freelance Journalist")
-	alt_outfits = list("Freelance Journalist" = /datum/outfit/job/journalistf)
-	title_accesses = list("Corporate Reporter" = list(ACCESS_MEDICAL, ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_ENGINE))
-	outfit = /datum/outfit/job/journalist
-	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
-
-/datum/outfit/job/journalist
-	name = "Corporate Reporter"
-	jobtype = /datum/job/journalist
-
-	uniform = /obj/item/clothing/under/suit_jacket/red
-	shoes = /obj/item/clothing/shoes/sneakers/black
-
-	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
-	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
-
-	headset = /obj/item/device/radio/headset/headset_service
-	bowman = /obj/item/device/radio/headset/headset_service/alt
-	double_headset = /obj/item/device/radio/headset/alt/double/service
-	wrist_radio = /obj/item/device/radio/headset/wrist/service
-
-	backpack_faction = /obj/item/storage/backpack/nt
-	satchel_faction = /obj/item/storage/backpack/satchel/nt
-	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
-	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
-
-	backpack_contents = list(
-		/obj/item/clothing/accessory/badge/press = 1,
-		/obj/item/device/tvcamera = 1
-	)
-
-/datum/outfit/job/journalistf
-	name = "Freelance Journalist"
-	jobtype = /datum/job/journalist
-
-	uniform = /obj/item/clothing/under/suit_jacket/red
-	shoes = /obj/item/clothing/shoes/sneakers/black
-
-	tab_pda = /obj/item/modular_computer/handheld/pda/civilian/librarian
-	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/civilian/librarian
-	tablet = /obj/item/modular_computer/handheld/preset/civilian/librarian
-
-	backpack_contents = list(
-		/obj/item/clothing/accessory/badge/press/independent = 1,
-		/obj/item/device/tvcamera = 1
-	)
-
-
 /datum/job/librarian
 	title = "Librarian"
 	flag = LIBRARIAN
@@ -272,13 +204,13 @@
 	access = list(ACCESS_LIBRARY, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_LIBRARY)
 	alt_titles = list("Curator", "Tech Support")
-	alt_outfits = list("Curator" = /datum/outfit/job/librarian/curator, "Tech Support" = /datum/outfit/job/librarian/tech_support)
+	alt_outfits = list("Curator" = /obj/outfit/job/librarian/curator, "Tech Support" = /obj/outfit/job/librarian/tech_support)
 	title_accesses = list("Tech Support" = ACCESS_IT)
-	outfit = /datum/outfit/job/librarian
+	outfit = /obj/outfit/job/librarian
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/librarian
+/obj/outfit/job/librarian
 	name = "Librarian"
 	jobtype = /datum/job/librarian
 
@@ -301,7 +233,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/outfit/job/librarian/curator
+/obj/outfit/job/librarian/curator
 	name = "Curator"
 	jobtype = /datum/job/librarian
 
@@ -309,7 +241,7 @@
 	r_pocket = /obj/item/device/price_scanner
 	l_hand = null
 
-/datum/outfit/job/librarian/tech_support
+/obj/outfit/job/librarian/tech_support
 	name = "Tech Support"
 	jobtype = /datum/job/librarian
 
@@ -320,7 +252,7 @@
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
-/datum/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/librarian/tech_support/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(visualsOnly)
 		r_hand = null
 	else
@@ -340,11 +272,11 @@
 	access = list(ACCESS_CHAPEL_OFFICE, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CHAPEL_OFFICE)
 	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor")
-	outfit = /datum/outfit/job/chaplain
+	outfit = /obj/outfit/job/chaplain
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/chaplain
+/obj/outfit/job/chaplain
 	name = "Chaplain"
 	jobtype = /datum/job/chaplain
 	uniform = /obj/item/clothing/under/rank/chaplain
@@ -364,7 +296,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/nt
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/chaplain/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
 	if(visualsOnly)
@@ -414,17 +346,11 @@
 	minimal_access = list(ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_SHIP_WEAPONS, ACCESS_MINING_STATION, ACCESS_KEYCARD_AUTH, ACCESS_RC_ANNOUNCE, ACCESS_HEADS,
 						ACCESS_SEC_DOORS, ACCESS_RESEARCH, ACCESS_MEDICAL, ACCESS_ROBOTICS, ACCESS_ENGINE, ACCESS_TELEPORTER, ACCESS_EVA, ACCESS_INTREPID)
 
-	ideal_character_age = list(
-		SPECIES_HUMAN = 40,
-		SPECIES_SKRELL = 90,
-		SPECIES_SKRELL_AXIORI = 90
-	)
-
-	outfit = /datum/outfit/job/operations_manager
+	outfit = /obj/outfit/job/operations_manager
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/operations_manager
+/obj/outfit/job/operations_manager
 	name = "Operations Manager"
 	jobtype = /datum/job/operations_manager
 
@@ -468,11 +394,11 @@
 
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_SHIP_WEAPONS, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
 	minimal_access = list(ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_SHIP_WEAPONS, ACCESS_MAILSORTING)
-	outfit = /datum/outfit/job/hangar_tech
+	outfit = /obj/outfit/job/hangar_tech
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/hangar_tech
+/obj/outfit/job/hangar_tech
 	name = "Hangar Technician"
 	jobtype = /datum/job/hangar_tech
 
@@ -509,11 +435,11 @@
 
 	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_MINING, ACCESS_MINING_STATION)
 	minimal_access = list(ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_MAILSORTING)
-	outfit = /datum/outfit/job/mining
+	outfit = /obj/outfit/job/mining
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/mining
+/obj/outfit/job/mining
 	name = "Shaft Miner"
 	jobtype = /datum/job/mining
 
@@ -564,11 +490,11 @@
 
 	minimal_player_age = 7
 
-	outfit = /datum/outfit/job/machinist
+	outfit = /obj/outfit/job/machinist
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/machinist
+/obj/outfit/job/machinist
 	name = "Machinist"
 	jobtype = /datum/job/machinist
 

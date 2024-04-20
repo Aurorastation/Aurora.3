@@ -28,12 +28,12 @@
 	for(var/obj/vehicle/train/T in orange(1, src))
 		latch(T)
 
-/obj/vehicle/train/examine(mob/user)
+/obj/vehicle/train/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(lead)
-		to_chat(user, SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))]."))
+		. += SPAN_NOTICE("It is being towed by \the [lead] in the [dir2text(get_dir(src, lead))].")
 	if(tow)
-		to_chat(user, SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))]."))
+		. += SPAN_NOTICE("It towing \the [tow] in the [dir2text(get_dir(src, tow))].")
 
 /obj/vehicle/train/Move()
 	var/old_loc = get_turf(src)
@@ -84,14 +84,14 @@
 // Interaction procs
 //-------------------------------------------
 
-/obj/vehicle/train/MouseDrop_T(var/atom/movable/C, mob/user as mob)
+/obj/vehicle/train/MouseDrop_T(atom/dropping, mob/user)
 	if(use_check_and_message(user))
 		return
-	if(istype(C, /obj/vehicle/train))
-		latch(C, user)
+	if(istype(dropping, /obj/vehicle/train))
+		latch(dropping, user)
 	else
-		if(!load(C))
-			to_chat(user, SPAN_WARNING("You were unable to load \the [C] on \the [src]."))
+		if(!load(dropping))
+			to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] on \the [src]."))
 
 /obj/vehicle/train/attack_hand(mob/user as mob)
 	if(use_check_and_message(user))
@@ -102,9 +102,9 @@
 	else if(load)
 		unload(user)			//unload if loaded
 
-/obj/vehicle/train/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
-		playsound(loc, W.usesound, 70, FALSE)
+/obj/vehicle/train/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 70)
 		unattach(user)
 		return
 	return ..()

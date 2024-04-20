@@ -24,7 +24,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	icon_state = "rods"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_NORMAL
-	force = 9.0
+	force = 20
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
@@ -60,10 +60,10 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	..()
 	recipes = rod_recipes
 
-/obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stack/rods/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if (attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 
 		if(get_amount() < 2)
 			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
@@ -82,7 +82,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 				user.put_in_hands(new_item)
 		return
 
-	if (istype(W, /obj/item/tape_roll))
+	if (istype(attacking_item, /obj/item/tape_roll))
 		var/obj/item/stack/medical/splint/makeshift/new_splint = new(user.loc)
 		new_splint.add_fingerprint(user)
 

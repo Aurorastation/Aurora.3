@@ -3,9 +3,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "b" = (
 /obj/machinery/light,
@@ -14,9 +12,7 @@
 	},
 /area/adhomai_nuclear_waste)
 "c" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "d" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -57,9 +53,7 @@
 /obj/structure/sign/radiation{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "i" = (
 /obj/effect/decal/cleanable/greenglow/radioactive,
@@ -72,17 +66,13 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "l" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "p" = (
 /obj/effect/decal/cleanable/greenglow/radioactive,
@@ -112,9 +102,7 @@
 	id = "radiation_waste";
 	dir = 2
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "t" = (
 /obj/machinery/porta_turret/ballistic,
@@ -131,17 +119,13 @@
 	pixel_y = -32
 	},
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "v" = (
 /obj/structure/sign/radiation{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "A" = (
 /obj/machinery/light{
@@ -163,7 +147,6 @@
 	req_access = list(209);
 	name = "Entry";
 	locked = 1;
-	icon_state = "door_locked";
 	dir = 1
 	},
 /turf/simulated/floor/tiled/rust{
@@ -184,9 +167,7 @@
 /area/adhomai_nuclear_waste)
 "G" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "H" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -200,9 +181,7 @@
 /turf/simulated/wall/r_wall,
 /area/adhomai_nuclear_waste)
 "J" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "L" = (
 /obj/structure/closet/radiation,
@@ -219,9 +198,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "S" = (
 /obj/machinery/porta_turret/ballistic,
@@ -274,9 +251,7 @@
 /obj/structure/sign/radiation{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 "X" = (
 /obj/effect/decal/cleanable/greenglow/radioactive,
@@ -289,9 +264,7 @@
 /area/adhomai_nuclear_waste)
 "Y" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_nuclear_waste)
 
 (1,1,1) = {"

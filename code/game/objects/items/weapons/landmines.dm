@@ -22,7 +22,7 @@
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS))
 		return
 
-	layer = TURF_LAYER + 0.2
+	layer = ABOVE_TILE_LAYER
 	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
 
 
@@ -58,6 +58,9 @@
 	deployer.drop_from_inventory(src)
 	update_icon()
 	src.anchored = TRUE
+
+	add_fingerprint(deployer)
+	add_fibers(deployer)
 
 /**
  * Called when a landmine was triggered, and is supposed to explode
@@ -132,10 +135,10 @@
 
 	src.deactivated = TRUE
 
-/obj/item/landmine/attackby(obj/item/I, mob/user)
+/obj/item/landmine/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(deactivated && istype(I, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = I
+	if(deactivated && istype(attacking_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(C.use(1))
 			to_chat(user, SPAN_NOTICE("You start carefully start rewiring \the [src]."))
 			if(do_after(user, 10 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
@@ -145,11 +148,11 @@
 		else
 			to_chat(user, SPAN_WARNING("There's not enough cable to finish the task."))
 			return
-	else if(deployed && istype(I, /obj/item/wirecutters))
-		var/obj/item/wirecutters/W = I
+	else if(deployed && istype(attacking_item, /obj/item/wirecutters))
+		var/obj/item/wirecutters/W = attacking_item
 		user.visible_message(SPAN_WARNING("\The [user] starts snipping some wires in \the [src] with \the [W]..."), \
 							SPAN_NOTICE("You start snipping some wires in \the [src] with \the [W]..."))
-		if(I.use_tool(src, user, 150, volume = 50))
+		if(attacking_item.use_tool(src, user, 150, volume = 50))
 			if(prob(W.bomb_defusal_chance))
 				to_chat(user, SPAN_NOTICE("You successfully defuse \the [src], though it's missing some essential wiring now."))
 				deactivate(user)
@@ -159,7 +162,7 @@
 				return
 		to_chat(user, FONT_LARGE(SPAN_DANGER("You slip, snipping the wrong wire!")))
 		trigger(user)
-	else if(I.force > 10 && deployed)
+	else if(attacking_item.force > 10 && deployed)
 		trigger(user)
 
 /obj/item/landmine/bullet_act()
@@ -192,6 +195,69 @@
 	spark(src, 3, GLOB.alldirs)
 	fragem(src,num_fragments,num_fragments,explosion_size,explosion_size+1,fragment_damage,damage_step,TRUE)
 	qdel(src)
+
+/**
+ * # Door Rigging Landmine
+ *
+ * A landmine that will explode when the door it is attached to opens
+ */
+/obj/item/landmine/frag/door_rigging
+	name = "door rigging landmine"
+	fragment_damage = 20
+
+	///The airlock that we are observing for when it opens, to explode
+	var/obj/machinery/door/airlock/door_rigged
+
+//Prevent this mine to be used like a normal one
+/obj/item/landmine/frag/door_rigging/attack_self(mob/user)
+	to_chat(user, SPAN_ALERT("This landmine is not usable in this way, you need to apply it to a door."))
+	return
+
+/obj/item/landmine/frag/door_rigging/resolve_attackby(atom/A, mob/user, click_parameters)
+	. = ..()
+
+	if(istype(A, /obj/machinery/door/airlock))
+
+		door_rigged = A
+		var/turf/turf_under_door = get_turf(door_rigged)
+
+		//Prevent people from exploding themselves by targeting a door that will open once clicked
+		if(!door_rigged.welded || !door_rigged.density || !istype(turf_under_door) || locate(/obj/item/landmine) in turf_under_door)
+			to_chat(user, SPAN_WARNING("The door is not welded, is open, is already rigged or does not have a turf below it."))
+			door_rigged = null //Clean up the var
+			return
+
+		//Take a little to do this
+		if(!do_after(user, 10 SECONDS, door_rigged))
+			door_rigged = null
+			return
+
+		RegisterSignal(door_rigged, COMSIG_QDELETING, PROC_REF(handle_door_qdel))
+
+		deploy(user)
+		src.forceMove(turf_under_door)
+
+		activate(user)
+
+		START_PROCESSING(SSfast_process, src)
+
+/obj/item/landmine/frag/door_rigging/process(seconds_per_tick)
+	if(QDELETED(door_rigged))
+		STOP_PROCESSING(SSfast_process, src)
+		qdel(src)
+
+	if(!door_rigged.density)
+		STOP_PROCESSING(SSfast_process, src)
+		trigger(null)
+
+///Clear the reference and delete the mine if the door gets deleted
+/obj/item/landmine/frag/door_rigging/proc/handle_door_qdel()
+	SIGNAL_HANDLER
+
+	door_rigged = null
+	STOP_PROCESSING(SSfast_process, src)
+	qdel(src)
+
 
 /**
  * # Radiation Landmine
@@ -283,7 +349,7 @@
 		START_PROCESSING(SSfast_process, src)
 		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(tgui_alert), triggerer, "You feel your [pick("right", "left")] foot step down on a button with a click..., Uh..., Oh...", "Dread", list("Mom..."))
 
-		playsound_allinrange(src, sound('sound/weapons/empty/empty6.ogg'))
+		playsound(src, sound('sound/weapons/empty/empty6.ogg'), 50)
 
 	else
 		late_trigger(locate(engaged_by))
@@ -325,7 +391,7 @@
 	src.engaged_by = null
 	. = ..()
 
-/obj/item/landmine/standstill/attackby(obj/item/I, mob/user)
+/obj/item/landmine/standstill/attackby(obj/item/attacking_item, mob/user)
 	if(engaged_by && (user == locate(engaged_by)))
 		to_chat(user, SPAN_ALERT("You are unable to reach the mine without moving your foot, and you feel like doing so would not end well..."))
 	else
@@ -366,15 +432,15 @@
 /obj/item/landmine/claymore/update_icon()
 	icon_state = (src.deployed) ? "[initial(icon_state)]_active" : initial(icon_state)
 
-/obj/item/landmine/claymore/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/device/assembly/signaler))
+/obj/item/landmine/claymore/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/assembly/signaler))
 		if(!isnull(signaler))
 			to_chat(user, SPAN_NOTICE("There is already a signaler inserted in \the [src]."))
 			return
 
-		signaler = I
+		signaler = attacking_item
 
-		user.drop_from_inventory(I, src)
+		user.drop_from_inventory(attacking_item, src)
 
 		trigger_wire.attach_assembly(WIRE_EXPLODE, signaler)
 

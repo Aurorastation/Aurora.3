@@ -28,11 +28,11 @@
 
 	if(!had_speaking)
 		if(speaking)
-			message = copytext(message,2+length(speaking.key))
+			message = copytext_char(message, 2 + length(speaking.key))
 		else
 			speaking = get_default_language()
 
-	if(length(message) >= 1 && copytext(message, 1, 2) == "%")
+	if(length_char(message) >= 1 && copytext_char(message, 1, 2) == "%")
 		if(speaking?.sing_verb)
 			is_singing = TRUE
 

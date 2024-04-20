@@ -57,6 +57,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	"log_subsystems" = TRUE,	// General Subsystems
 	"log_subsystems_chemistry" = TRUE,	// SSChemistry
+	"log_subsystems_codex" = TRUE,	// SScodex
 	"log_subsystems_atlas" = TRUE,	// ATLAS
 	"log_subsystems_ghostroles" = TRUE,	// Ghost Roles
 	"log_subsystems_law" = TRUE,	// Law
@@ -114,6 +115,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 
 	"world_subsystems_log" = "subsystems/world_subsystems.log",
 	"world_subsystems_chemistry_log" = "subsystems/chemistry.log",
+	"world_subsystems_codex_log" = "subsystems/codex.log",
 	"world_subsystems_atlas_log" = "subsystems/atlas.log",
 	"world_subsystems_ghostroles_log" = "subsystems/ghostroles.log",
 	"world_subsystems_law_log" = "subsystems/law.log",
@@ -236,9 +238,6 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/allow_drone_spawn = 1				//assuming the admin allow them to.
 	var/drone_build_time = 1200				//A drone will become available every X ticks since last drone spawn. Default is 2 minutes.
 
-	var/disable_player_rats = 0
-	var/uneducated_rats = 0 //Set to 1 to prevent newly-spawned mice from understanding human speech
-
 	var/usealienwhitelist = 0
 	var/limitalienplayers = 0
 	var/alien_to_human_ratio = 0.5
@@ -251,6 +250,7 @@ GLOBAL_LIST_EMPTY(gamemode_cache)
 	var/wikiurl
 	var/forumurl
 	var/forum_passphrase
+	var/rulesurl
 	var/githuburl
 
 	//Alert level description
@@ -647,6 +647,9 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 				if ("forumurl")
 					GLOB.config.forumurl = value
 
+				if ("rulesurl")
+					GLOB.config.rulesurl = value
+
 				if ("forum_passphrase")
 					GLOB.config.forum_passphrase = value
 
@@ -822,12 +825,6 @@ GENERAL_PROTECT_DATUM(/datum/configuration)
 
 				if("time_offset")
 					GLOB.config.time_offset = text2num(value)
-
-				if("disable_player_rats")
-					GLOB.config.disable_player_rats = 1
-
-				if("uneducated_rats")
-					GLOB.config.uneducated_rats = 1
 
 				if("use_discord_pins")
 					GLOB.config.use_discord_pins = 1

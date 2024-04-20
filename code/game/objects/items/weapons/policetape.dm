@@ -25,16 +25,16 @@ var/list/tape_roll_applications = list()
 	name = "tape"
 	icon = 'icons/obj/policetape.dmi'
 	anchored = 1
-	layer = 3.1 // Above closed airlocks.
+	layer = BASE_ABOVE_OBJ_LAYER
 	var/lifted = 0
 	var/list/crumplers
 	var/crumpled = 0
 	var/icon_base
 
-/obj/item/tape/examine(mob/user, distance, is_adjacent)
+/obj/item/tape/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(LAZYLEN(crumplers) && is_adjacent)
-		to_chat(user, SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)]."))
+		. += SPAN_WARNING("\The [initial(name)] has been crumpled by [english_list(crumplers)].")
 
 /obj/item/taperoll/police
 	name = "police tape"
@@ -90,13 +90,13 @@ var/list/tape_roll_applications = list()
 	icon_base = "engineering"
 	var/shield_marker = FALSE
 
-/obj/item/tape/engineering/examine(mob/user, distance)
+/obj/item/tape/engineering/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(shield_marker)
-		to_chat(user, SPAN_NOTICE("This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto."))
+		. += SPAN_NOTICE("This strip of tape has been modified to serve as a marker for emergency shield generators to lock onto.")
 
-/obj/item/tape/engineering/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
+/obj/item/tape/engineering/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		shield_marker = !shield_marker
 		to_chat(user, SPAN_NOTICE("You [shield_marker ? "" : "un"]designate \the [src] as a target for an emergency shield generator."))
 		if(shield_marker)
@@ -181,7 +181,7 @@ var/list/tape_roll_applications = list()
 		var/obj/item/tape/P = new tape_type(T.x,T.y,T.z)
 		P.forceMove(locate(T.x,T.y,T.z))
 		P.icon_state = "[src.icon_base]_door"
-		P.layer = 3.2
+		P.layer = ABOVE_DOOR_LAYER
 		to_chat(user, SPAN_NOTICE("You finish placing the [src]."))
 
 	if (istype(A, /turf/simulated/floor) ||istype(A, /turf/unsimulated/floor))
@@ -222,8 +222,8 @@ var/list/tape_roll_applications = list()
 			crumple(mover)
 	return ..()
 
-/obj/item/tape/attackby(obj/item/W, mob/user)
-	return breaktape(W, user)
+/obj/item/tape/attackby(obj/item/attacking_item, mob/user)
+	return breaktape(attacking_item, user)
 
 /obj/item/tape/attack_hand(mob/user)
 	if(user.a_intent == I_HELP)
@@ -235,8 +235,10 @@ var/list/tape_roll_applications = list()
 			crumple(user)
 		if(lifted)
 			animate(src, 1 SECOND, alpha = 150)
+			layer = ABOVE_HUMAN_LAYER
 		else
 			animate(src, 1 SECOND, alpha = initial(alpha))
+			reset_plane_and_layer()
 	else
 		breaktape(null, user)
 

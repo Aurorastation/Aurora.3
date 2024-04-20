@@ -46,13 +46,21 @@
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "human_helmet"
 	item_state = "human_helmet"
+	build_from_parts = TRUE
+	worn_overlay = "face"
 	contained_sprite = TRUE
 
 /obj/item/clothing/head/expression/skrell
 	name = "skrell expression mask"
-	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a skrell."
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Skrell."
 	icon_state = "skrell_helmet"
 	item_state = "skrell_helmet"
+
+/obj/item/clothing/head/expression/unathi
+	name = "unathi expression mask"
+	desc = "A mask that allows emotively challenged aliens to convey facial expressions. This one depicts a Unathi."
+	icon_state = "unathi_helmet"
+	item_state = "unathi_helmet"
 
 /obj/item/clothing/head/shroud
 	name = "vaurcan shroud"
@@ -99,7 +107,7 @@
 	active_force = 20
 	active_throwforce = 20
 	active_w_class = ITEMSIZE_HUGE
-	force = 5
+	force = 11
 	throwforce = 5
 	throw_speed = 5
 	throw_range = 10
@@ -181,7 +189,7 @@
 	desc = "A rather heavy data disk for a Vaurcan hiveship navigation drive."
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "harddisk"
-	force = 10
+	force = 15
 	throwforce = 5
 	w_class = ITEMSIZE_NORMAL
 	contained_sprite = 1
@@ -191,7 +199,7 @@
 	desc = "A large chunk of alien earth from the distant Vaurcan world of Sedantis I. Just looking at it makes you feel funny."
 	icon_state = "glowing"
 	icon = 'icons/obj/vaurca_items.dmi'
-	force = 15
+	force = 22
 	throwforce = 30
 	w_class = ITEMSIZE_LARGE
 	contained_sprite = 1
@@ -204,7 +212,7 @@
 	contained_sprite = 1
 	icon = 'icons/obj/vaurca_items.dmi'
 	icon_state = "beacon"
-	force = 15
+	force = 22
 	throwforce = 30
 	w_class = ITEMSIZE_LARGE
 	var/seed = /datum/seed/koisspore
@@ -396,7 +404,7 @@
 	armor_penetration = 30
 	active_throwforce = 20
 	active_w_class = ITEMSIZE_HUGE
-	force = 10
+	force = 15
 	throwforce = 10
 	throw_speed = 5
 	throw_range = 10
@@ -516,11 +524,11 @@
 	else
 		to_chat(user, "<span class='warning'>[src] is empty.</span>")
 
-/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/arrow))
-		load(I, user)
-	if(istype(I, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = I
+/obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/arrow))
+		load(attacking_item, user)
+	if(istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			var/obj/item/arrow/rod/ROD = new /obj/item/arrow/rod(src)
 			load(ROD, user)

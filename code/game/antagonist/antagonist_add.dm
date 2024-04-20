@@ -1,4 +1,5 @@
 /datum/antagonist/proc/add_antagonist(var/datum/mind/player, var/ignore_role, var/do_not_equip, var/move_to_spawn, var/do_not_announce, var/preserve_appearance)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!add_antagonist_mind(player, ignore_role))
 		return 0
@@ -98,7 +99,7 @@
 
 	//Run the query to insert the antagonist into the db
 	var/DBQuery/new_log = GLOB.dbcon.NewQuery("INSERT INTO ss13_antag_log ( ckey, char_id, game_id, char_name, special_role_name, special_role_added) VALUES ( :ckey:, :char_id:, :game_id:, :char_name:, :special_role_name:, :special_role_added:)")
-	new_log.Execute(list("ckey" = ckey(player.key) , "char_id" = char_id, "game_id" = game_id, "char_name" = player.current.name, "special_role_name"=role_text,"special_role_added" = "[get_round_duration_formatted()]:00"))
+	new_log.Execute(list("ckey" = ckey(player.key) , "char_id" = char_id, "game_id" = GLOB.round_id, "char_name" = player.current.name, "special_role_name"=role_text,"special_role_added" = "[get_round_duration_formatted()]:00"))
 
 	//Run the query to get the inserted id
 	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")

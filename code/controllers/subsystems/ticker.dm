@@ -4,6 +4,9 @@
 #define SETUP_REVOTE 1
 #define SETUP_REATTEMPT 2
 
+///The time at which the next automatic transfer vote will be called
+GLOBAL_VAR_INIT(next_transfer_time, null)
+
 var/datum/controller/subsystem/ticker/SSticker
 
 /datum/controller/subsystem/ticker
@@ -12,7 +15,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 	priority = SS_PRIORITY_TICKER
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	init_order = SS_INIT_LOBBY
+	init_order = INIT_ORDER_TICKER
 
 	wait = 1 SECOND
 
@@ -49,11 +52,11 @@ var/datum/controller/subsystem/ticker/SSticker
 	//Now we have a general cinematic centrally held within the gameticker....far more efficient!
 	var/obj/screen/cinematic = null
 
-	var/list/possible_lobby_tracks = list(
-		'sound/music/space.ogg',
-		'sound/music/traitor.ogg',
-		'sound/music/title2.ogg',
-		'sound/music/clouds.s3m'
+	var/list/default_lobby_tracks = list(
+		'sound/music/lobby/space.ogg',
+		'sound/music/lobby/traitor.ogg',
+		'sound/music/lobby/title2.ogg',
+		'sound/music/lobby/clouds.s3m'
 	)
 
 	var/lobby_ready = FALSE
@@ -72,6 +75,9 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/Initialize(timeofday)
 	pregame()
 	restart_timeout = GLOB.config.restart_timeout
+
+	//Initialize the auto-transfer time
+	GLOB.next_transfer_time = GLOB.config.vote_autotransfer_initial
 
 	return SS_INIT_SUCCESS
 
@@ -137,10 +143,9 @@ var/datum/controller/subsystem/ticker/SSticker
 	total_players = length(GLOB.player_list)
 
 	if (current_state == GAME_STATE_PREGAME && pregame_timeleft == GLOB.config.vote_autogamemode_timeleft)
-		if (!SSvote.time_remaining)
-			SSvote.autogamemode()
-			pregame_timeleft--
-			return
+		SSvote.autogamemode()
+		pregame_timeleft--
+		return
 
 	if (pregame_timeleft <= 20 && !testmerges_printed)
 		print_testmerges()
@@ -226,6 +231,13 @@ var/datum/controller/subsystem/ticker/SSticker
 					to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
 			else if(!delay_notified)
 				to_world("<span class='notice'><b>An admin has delayed the round end</b></span>")
+
+	//If we have not finished the game already, and assuming it's time, call the transfer vote as per config
+	if(!game_finished && !mode_finished && !post_game)
+		if(get_round_duration() >= GLOB.next_transfer_time - 600)
+			SSvote.autotransfer()
+			GLOB.next_transfer_time += GLOB.config.vote_autotransfer_interval
+
 	return 1
 
 /datum/controller/subsystem/ticker/proc/declare_completion()
@@ -417,8 +429,11 @@ var/datum/controller/subsystem/ticker/SSticker
 /datum/controller/subsystem/ticker/proc/pregame()
 	set waitfor = FALSE
 	sleep(1)	// Sleep so the MC has a chance to update its init time.
-	if (!login_music)
-		login_music = pick(possible_lobby_tracks)
+	if(!login_music)
+		if(SSatlas.current_sector && SSatlas.current_sector.lobby_tracks)
+			login_music = pick(SSatlas.current_sector.lobby_tracks)
+		else
+			login_music = pick(default_lobby_tracks)
 
 	if (is_revote)
 		pregame_timeleft = LOBBY_TIME
@@ -525,12 +540,6 @@ var/datum/controller/subsystem/ticker/SSticker
 	var/can_start = src.mode.can_start()
 
 	if(can_start & GAME_FAILURE_NO_PLAYERS)
-		var/list/voted_not_ready = list()
-		for(var/mob/abstract/new_player/player in SSvote.round_voters)
-			if((player.client)&&(!player.ready))
-				voted_not_ready += player.ckey
-		message_admins("The following players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
-		log_game("Ticker: Players voted for [mode.name], but did not ready up: [jointext(voted_not_ready, ", ")]")
 		fail_reasons += "Not enough players, [mode.required_players] player(s) needed"
 
 	if(can_start & GAME_FAILURE_NO_ANTAGS)
@@ -588,6 +597,8 @@ var/datum/controller/subsystem/ticker/SSticker
 	return SETUP_OK
 
 /datum/controller/subsystem/ticker/proc/roundstart()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	mode.post_setup()
 	//Cleanup some stuff
 	for(var/obj/effect/landmark/start/S in GLOB.landmarks_list)
@@ -620,7 +631,7 @@ var/datum/controller/subsystem/ticker/SSticker
 
 		CHECK_TICK
 
-/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = current_map.station_levels)
+/datum/controller/subsystem/ticker/proc/station_explosion_cinematic(station_missed = 0, override = null, list/affected_levels = SSatlas.current_map.station_levels)
 	if (cinematic)
 		return	//already a cinematic in progress!
 
@@ -628,7 +639,7 @@ var/datum/controller/subsystem/ticker/SSticker
 	cinematic = new /obj/screen{
 		icon = 'icons/effects/station_explosion.dmi';
 		icon_state = "station_intact";
-		layer = CINEMA_LAYER;
+		layer = HUD_ABOVE_ITEM_LAYER;
 		mouse_opacity = MOUSE_OPACITY_TRANSPARENT;
 		screen_loc = "1,0"
 	}
@@ -763,9 +774,9 @@ var/datum/controller/subsystem/ticker/SSticker
 		var/list/ship_names = list()
 		for(var/datum/map_template/ruin/site in sites)
 			if(site.ship_cost)
-				ship_names += site.name
+				ship_names += "[site.name] ([site.spawn_weight])"
 			else
-				site_names += site.name
+				site_names += "[site.name] ([site.spawn_weight])"
 
 		var/datum/browser/sites_win = new(
 			usr,
@@ -773,7 +784,7 @@ var/datum/controller/subsystem/ticker/SSticker
 			"Sector: " + current_sector.name,
 			500, 500,
 		)
-		var/html = "<h1>Ships and sites that spawn in this sector:</h1>"
+		var/html = "<h1>Ships and sites that spawn in this sector, with their spawn weights:</h1>"
 		html += "<h3>Ships:</h3>"
 		html += english_list(ship_names)
 		html += "<h3>Sites:</h3>"

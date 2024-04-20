@@ -70,7 +70,7 @@
 		var/mob/living/L = M
 		L.apply_damage(rand(5,20), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
-	if (NOT_FLAG(M.mutations, NOCLONE)) // prevents drained people from having their DNA changed
+	if (!(M.mutations & NOCLONE)) // prevents drained people from having their DNA changed
 		if (buf.types & DNA2_BUF_UI)
 			if (!block) //isolated block?
 				M.UpdateAppearance(buf.dna.UI.Copy())

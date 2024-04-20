@@ -337,7 +337,7 @@
 
 	return ..()
 
-/obj/item/organ/internal/vaurca/preserve/examine(mob/user, distance, is_adjacent)
+/obj/item/organ/internal/vaurca/preserve/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -355,14 +355,14 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		. += "<span class='notice'>\The [src] feels [descriptive].</span>"
 
-/obj/item/organ/internal/vaurca/preserve/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/organ/internal/vaurca/preserve/attackby(obj/item/attacking_item, mob/user)
 	..()
 	var/obj/icon = src
 
-	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		user.visible_message("<span class='warning'>[user] has used [W] on [icon2html(icon, viewers(get_turf(user)))] [src].</span>")
+	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+		user.visible_message("<span class='warning'>[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src].</span>")
 
 		var/pressure = air_contents.return_pressure()
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
@@ -377,8 +377,8 @@
 		else
 			to_chat(user, "<span class='notice'>Tank is empty!</span>")
 		src.add_fingerprint(user)
-	else if (istype(W,/obj/item/toy/balloon))
-		var/obj/item/toy/balloon/B = W
+	else if (istype(attacking_item, /obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = attacking_item
 		B.blow(src)
 		src.add_fingerprint(user)
 

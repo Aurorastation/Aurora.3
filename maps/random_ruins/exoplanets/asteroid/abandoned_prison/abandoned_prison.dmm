@@ -430,7 +430,7 @@
 /turf/simulated/floor/tiled/steel,
 /area/abandoned_prison/eva_prep)
 "fP" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/abandoned_prison/kitchen)
@@ -2157,7 +2157,7 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/cooled,
+/turf/simulated/floor/tiled/steel/airless,
 /area/abandoned_prison/exterior)
 "Ay" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,

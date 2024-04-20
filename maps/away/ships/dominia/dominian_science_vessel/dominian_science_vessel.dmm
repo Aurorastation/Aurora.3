@@ -13,6 +13,10 @@
 /area/shuttle/dominian_science_shuttle)
 "ada" = (
 /obj/effect/floor_decal/corner/purple/full,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "aeN" = (
@@ -116,6 +120,9 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
+/obj/item/gun/projectile/pistol/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
+/obj/item/ammo_magazine/c45m/dominia,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "arh" = (
@@ -152,11 +159,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "atQ" = (
-/obj/structure/table/steel,
-/obj/item/crowbar/rescue_axe,
-/obj/item/crowbar/rescue_axe,
-/obj/item/crowbar,
-/obj/item/crowbar,
+/obj/structure/survey_probe/dominia,
+/obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "axE" = (
@@ -775,11 +779,8 @@
 /turf/simulated/floor/tiled/white,
 /area/shuttle/dominian_science_shuttle)
 "cwv" = (
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/aft_dock)
 "cxL" = (
@@ -1191,9 +1192,6 @@
 /obj/structure/table/steel,
 /obj/item/melee/baton,
 /obj/machinery/recharger,
-/obj/structure/window/reinforced{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/purple/full,
 /obj/machinery/light{
 	dir = 8;
@@ -1221,21 +1219,15 @@
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/showers)
 "dIe" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Gun Cabinet (SMGs)";
-	req_access = list(226)
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/item/gun/projectile/automatic/tommygun/dom,
-/obj/item/gun/projectile/automatic/tommygun/dom,
-/obj/item/ammo_magazine/submachinemag,
-/obj/item/ammo_magazine/submachinemag,
-/obj/item/ammo_magazine/submachinemag,
-/obj/item/ammo_magazine/submachinemag,
-/obj/effect/floor_decal/corner/red{
-	dir = 6
+/obj/structure/window/reinforced{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/dominian_science_vessel/armory)
+/obj/structure/anomaly_container,
+/turf/simulated/floor/tiled/white,
+/area/ship/dominian_science_vessel/research)
 "dJN" = (
 /obj/machinery/power/apc/north{
 	req_access = list(226)
@@ -1264,10 +1256,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/dominian_science_shuttle)
 "dMl" = (
-/obj/structure/table/steel,
-/obj/machinery/cell_charger{
-	pixel_y = 0
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
@@ -1276,6 +1264,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
+/obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "dQg" = (
@@ -3434,8 +3423,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
 "kXV" = (
-/obj/structure/closet/toolcloset,
 /obj/effect/floor_decal/corner/yellow/full,
+/obj/structure/table/steel,
+/obj/machinery/cell_charger{
+	pixel_y = 0
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "leu" = (
@@ -3543,9 +3535,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "lul" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
 "lvo" = (
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
@@ -4387,10 +4377,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/chemical_dispenser,
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
+/obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "oAQ" = (
@@ -4735,9 +4725,6 @@
 /area/ship/dominian_science_vessel/bridge)
 "pAn" = (
 /obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -4842,6 +4829,7 @@
 	pixel_y = 32;
 	stand_icon = "banner"
 	},
+/obj/item/flame/lighter,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "qdb" = (
@@ -4914,6 +4902,7 @@
 /obj/effect/floor_decal/corner/purple/full{
 	dir = 8
 	},
+/obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "que" = (
@@ -5092,11 +5081,8 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
 "qYW" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/regular{
-	pixel_y = 6;
-	pixel_x = 3
-	},
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/survey_probe/dominia,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "rex" = (
@@ -5241,6 +5227,14 @@
 	},
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 1
+	},
+/obj/item/stack/material/graphite/full{
+	pixel_y = 3;
+	pixel_x = 5
+	},
+/obj/item/stack/material/graphite/full{
+	pixel_y = 3;
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
@@ -5808,10 +5802,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "tEo" = (
-/obj/structure/filingcabinet,
+/obj/structure/filingcabinet{
+	pixel_x = 14
+	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
+/obj/structure/closet/excavation,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "tEV" = (
@@ -6191,13 +6188,13 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "vfZ" = (
-/obj/structure/closet/toolcloset,
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "vha" = (
@@ -6205,7 +6202,6 @@
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/port_propulsion)
 "vjQ" = (
-/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
@@ -6214,6 +6210,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
+/obj/structure/closet/excavation,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "vjT" = (
@@ -6275,9 +6272,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
 "vuF" = (
-/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
+	},
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/science,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	name = "Anomaly Suits"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
@@ -6519,6 +6541,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/crowbar,
+/obj/item/crowbar/rescue_axe,
+/obj/item/crowbar,
+/obj/item/crowbar/rescue_axe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "wzs" = (
@@ -6591,19 +6617,25 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/bridge)
 "wCU" = (
-/obj/structure/closet/secure_closet/guncabinet{
-	name = "Gun Cabinet (Carbines)";
-	req_access = list(226)
-	},
-/obj/item/gun/projectile/automatic/rifle/dominia_carbine,
-/obj/item/gun/projectile/automatic/rifle/dominia_carbine,
-/obj/item/ammo_magazine/c762/dominia,
-/obj/item/ammo_magazine/c762/dominia,
-/obj/item/ammo_magazine/c762/dominia,
-/obj/item/ammo_magazine/c762/dominia,
 /obj/effect/floor_decal/corner/red/full{
 	dir = 1
 	},
+/obj/structure/closet/secure_closet/guncabinet{
+	name = "Gun Cabinet (SMGs)";
+	req_access = list(226)
+	},
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/ammo_magazine/submachinemag,
+/obj/item/gun/projectile/automatic/tommygun/dom,
+/obj/item/gun/projectile/automatic/tommygun/dom,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/armory)
 "wDo" = (
@@ -6676,6 +6708,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/machinery/power/emitter,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "wLq" = (
@@ -6845,6 +6878,11 @@
 /area/ship/dominian_science_vessel/hangar)
 "xiZ" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/aft_dock)
 "xjp" = (
@@ -7042,13 +7080,13 @@
 /area/ship/dominian_science_vessel/center_hall)
 "xGk" = (
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffee,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/mess)
 "xHl" = (
@@ -7149,6 +7187,11 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_science_vessel/chapel)
+"xRu" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/suspension_gen,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/dominian_science_shuttle)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -7168,12 +7211,8 @@
 	layer = 2.9
 	},
 /obj/item/clothing/mask/breath,
-/obj/item/clothing/mask/breath,
-/obj/item/clothing/shoes/magboots,
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/head/helmet/space/void/dominia,
-/obj/item/clothing/head/helmet/space/void/dominia,
-/obj/item/clothing/suit/space/void/dominia,
 /obj/item/clothing/suit/space/void/dominia,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
@@ -32746,7 +32785,7 @@ vuF
 mUR
 mUR
 rta
-mUR
+sJp
 dEM
 xCN
 bLt
@@ -33003,8 +33042,8 @@ vjQ
 mUR
 sla
 arN
-mUR
 sJp
+mUR
 dQg
 meg
 meg
@@ -33260,8 +33299,8 @@ tEo
 mUR
 sla
 arN
-mUR
 itD
+mUR
 kRn
 lBn
 meg
@@ -33517,7 +33556,7 @@ lLG
 mUR
 sla
 arN
-mUR
+dIe
 pAn
 nwG
 lBn
@@ -34278,7 +34317,7 @@ xRX
 xRX
 xRX
 doM
-uDw
+xeU
 qhl
 sZn
 dQP
@@ -34535,10 +34574,10 @@ xRX
 xRX
 xRX
 doM
-xeU
+uDw
 sci
 sZn
-dQP
+cwv
 mIw
 sZn
 vfS
@@ -34792,10 +34831,10 @@ xRX
 xRX
 xRX
 doM
+lul
+lul
 sZn
-sZn
-sZn
-dQP
+cwv
 coi
 sZn
 nVP
@@ -35049,9 +35088,9 @@ xRX
 xRX
 xRX
 doM
-cwv
-lul
-lul
+sZn
+sZn
+sZn
 hHG
 wPB
 sZn
@@ -36872,7 +36911,7 @@ oBu
 kQy
 wCU
 ntu
-dIe
+xax
 tEV
 xsa
 bTi
@@ -39954,11 +39993,11 @@ lri
 qdL
 jZe
 tjB
-tyS
+qYW
 qYW
 wvN
 atQ
-tyS
+atQ
 tjB
 str
 bpc
@@ -40456,7 +40495,7 @@ aaJ
 uJi
 tSP
 wny
-inf
+xRu
 cYy
 iJz
 cQs

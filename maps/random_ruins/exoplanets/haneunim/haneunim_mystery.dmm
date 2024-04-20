@@ -1,0 +1,1200 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"c" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/archaeological_find,
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"e" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 4
+	},
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"f" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"i" = (
+/turf/simulated/wall/titanium_reinforced,
+/area/haneunim_mystery)
+"k" = (
+/obj/random/dirt_75,
+/obj/structure/window/borosilicate/reinforced/skrell,
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"l" = (
+/obj/random/dirt_75,
+/obj/structure/warp_drive{
+	name = "non-functional bluespace drive";
+	desc = "An ancient bluespace drive, clearly not of human make. Many of its components have long since degraded to the point of inoperability, even if you could figure out how to use it."
+	},
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"m" = (
+/obj/structure/window/borosilicate/reinforced/skrell,
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"n" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"q" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 8
+	},
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"r" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano100";
+	name = "broken alien device";
+	desc = "An ancient alien device, long-since corroded to the point of non-functionality";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"s" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"t" = (
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"u" = (
+/obj/random/dirt_75,
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 8
+	},
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"v" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"w" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"x" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano90";
+	name = "broken alien computer";
+	desc = "A computer with no visible controls or interface, long-since degraded to the point of uselessness. An archaeological curiousity now, at best.";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"y" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano130";
+	name = "broken alien device";
+	desc = "An ancient alien device, long-since corroded to the point of non-functionality";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"B" = (
+/obj/random/dirt_75,
+/turf/simulated/wall/titanium_reinforced,
+/area/haneunim_mystery)
+"C" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"D" = (
+/turf/template_noop,
+/area/template_noop)
+"E" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/archaeological_find,
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"G" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 4
+	},
+/obj/structure/window/borosilicate/reinforced/skrell,
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"I" = (
+/obj/random/dirt_75,
+/obj/item/anomaly_core,
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"K" = (
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 4
+	},
+/obj/structure/window/borosilicate/reinforced/skrell{
+	dir = 1
+	},
+/turf/simulated/floor/redgrid,
+/area/haneunim_mystery)
+"L" = (
+/obj/random/dirt_75,
+/obj/item/archaeological_find,
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"N" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano90";
+	name = "broken alien computer";
+	desc = "A computer with no visible controls or interface, long-since degraded to the point of uselessness. An archaeological curiousity now, at best.";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"R" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano90";
+	name = "broken alien computer";
+	desc = "A computer with no visible controls or interface, long-since degraded to the point of uselessness. An archaeological curiousity now, at best.";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"S" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano90";
+	name = "broken alien computer";
+	desc = "A computer with no visible controls or interface, long-since degraded to the point of uselessness. An archaeological curiousity now, at best.";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"T" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano130";
+	name = "broken alien device";
+	desc = "An ancient alien device, long-since corroded to the point of non-functionality";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"U" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano130";
+	name = "broken alien device";
+	desc = "An ancient alien device, long-since corroded to the point of non-functionality";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced,
+/area/haneunim_mystery)
+"V" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano130";
+	name = "broken alien device";
+	desc = "An ancient alien device, long-since corroded to the point of non-functionality";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"W" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+"Y" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/xenoarchaeology.dmi';
+	icon_state = "ano90";
+	name = "broken alien computer";
+	desc = "A computer with no visible controls or interface, long-since degraded to the point of uselessness. An archaeological curiousity now, at best.";
+	density = 1
+	},
+/turf/simulated/floor/shuttle/advanced/alt,
+/area/haneunim_mystery)
+
+(1,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(2,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(3,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(4,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(5,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(6,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(7,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(8,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(9,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(10,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+r
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(11,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+U
+a
+T
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(12,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+t
+t
+c
+C
+C
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(13,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+B
+I
+t
+t
+s
+t
+t
+a
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(14,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+t
+C
+W
+R
+V
+x
+W
+t
+U
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(15,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+i
+i
+T
+C
+t
+R
+q
+u
+m
+v
+C
+S
+S
+n
+f
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(16,1,1) = {"
+D
+D
+D
+D
+D
+D
+i
+i
+r
+a
+W
+s
+Y
+w
+l
+k
+a
+W
+a
+a
+N
+f
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(17,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+i
+i
+U
+C
+E
+x
+K
+e
+G
+C
+v
+x
+x
+f
+f
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(18,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+C
+C
+W
+x
+y
+x
+W
+v
+T
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(19,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+a
+C
+t
+a
+C
+C
+a
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(20,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+t
+t
+W
+L
+t
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(21,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+U
+W
+U
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(22,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+r
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(23,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+i
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(24,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+i
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(25,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(26,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(27,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(28,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(29,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}
+(30,1,1) = {"
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+D
+"}

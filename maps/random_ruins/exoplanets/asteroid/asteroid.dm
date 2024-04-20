@@ -4,7 +4,9 @@
 	description = "An abandoned mining site. Some tools and materials were left behind."
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/mining_base/mining_base.dmm")
+
+	prefix = "asteroid/mining_base/"
+	suffixes = list("mining_base.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING
@@ -15,7 +17,9 @@
 	description = "A nest of deadly space carps."
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/carp_nest/carp_nest.dmm")
+
+	prefix = "asteroid/carp_nest/"
+	suffixes = list("carp_nest.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_HOSTILE|RUIN_NATURAL
@@ -28,7 +32,9 @@
 	spawn_weight = 0.5
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/hideout/hideout.dmm")
+
+	prefix = "asteroid/hideout/"
+	suffixes = list("hideout.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_HOSTILE|RUIN_WRECK
@@ -39,7 +45,9 @@
 	description = "A crashed shuttle, with some gear left behind."
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/crashed_shuttle/crashed_shuttle_01.dmm")
+
+	prefix = "asteroid/crashed_shuttle/"
+	suffixes = list("crashed_shuttle_01.dmm")
 
 	spawn_weight = 0.5
 	spawn_cost = 2
@@ -54,8 +62,10 @@
 
 	spawn_weight = 0.5
 	spawn_cost = 2
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
-	suffixes = list("asteroid/sol_ship/sol_ship_unique.dmm")
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_WEEPING_STARS, SECTOR_UUEOAESA)
+
+	prefix = "asteroid/sol_ship/"
+	suffixes = list("sol_ship_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK
@@ -67,8 +77,10 @@
 
 	spawn_weight = 0.5
 	spawn_cost = 3
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	suffixes = list("asteroid/skrell_ship/skrell_crash_unique.dmm")
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_UUEOAESA)
+
+	prefix = "asteroid/skrell_ship/"
+	suffixes = list("skrell_crash_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK
@@ -81,7 +93,9 @@
 	spawn_weight = 0.5
 	spawn_cost = 3
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/mystery_ship/mystery_ship_unique.dmm")
+
+	prefix = "asteroid/mystery_ship/"
+	suffixes = list("mystery_ship_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE|RUIN_WRECK
@@ -92,7 +106,9 @@
 	description = "A crashed satelite."
 
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/satelite_crash/satelite_crash_unique.dmm")
+
+	prefix = "asteroid/satellite_crash/"
+	suffixes = list("satellite_crash_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
@@ -105,7 +121,9 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/listening_post/listening_post_unique.dmm")
+
+	prefix = "asteroid/listening_post/"
+	suffixes = list("listening_post_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_HOSTILE
@@ -118,7 +136,9 @@
 	spawn_weight = 0.5
 	spawn_cost = 1
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/escape_pod/escape_pod_unique.dmm")
+
+	prefix = "asteroid/escape_pod/"
+	suffixes = list("escape_pod_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
@@ -130,8 +150,10 @@
 
 	spawn_weight = 1
 	spawn_cost = 1
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/digsite/digsite_unique.dmm")
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
+
+	prefix = "asteroid/digsite/"
+	suffixes = list("digsite_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_SCIENCE
@@ -144,7 +166,9 @@
 	spawn_weight = 1
 	spawn_cost = 0.5
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/crashed_pod/crashed_pod_unique.dmm")
+
+	prefix = "asteroid/crashed_pod/"
+	suffixes = list("crashed_pod_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
@@ -157,7 +181,9 @@
 	spawn_weight = 0.5
 	spawn_cost = 3
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/coc_ship/coc_ship_unique.dmm")
+
+	prefix = "asteroid/coc_ship/"
+	suffixes = list("coc_ship_unique.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK|RUIN_HOSTILE
@@ -167,8 +193,10 @@
 	id = "miningoutpost"
 	description = "A long-abandoned mining outpost."
 
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	suffixes = list("asteroid/old_outpost/old_outpost.dmm")
+	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
+
+	prefix = "asteroid/old_outpost/"
+	suffixes = list("old_outpost.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN|PLANET_GROVE|PLANET_LAVA|PLANET_DESERT
 	ruin_tags = RUIN_LOWPOP|RUIN_MINING

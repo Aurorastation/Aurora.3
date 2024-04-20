@@ -35,13 +35,13 @@
 	if(attached_atom && user.Adjacent(attached_atom))
 		attack_hand(user)
 
-/obj/item/sticker/attackby(obj/item/I, mob/user)
+/obj/item/sticker/attackby(obj/item/attacking_item, mob/user)
 	if(!attached)
 		return ..()
 
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom)
-		attached_atom.attackby(I, user) // don't allow people to make sticker armor
+		attached_atom.attackby(attacking_item, user) // don't allow people to make sticker armor
 		return TRUE
 
 /obj/item/sticker/afterattack(atom/movable/target, mob/user, proximity_flag, click_parameters)
@@ -62,14 +62,14 @@
 	to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [A]."))
 	user.drop_from_inventory(src, A)
 	attached = WEAKREF(A)
-	A.vis_contents += src
+	A.add_vis_contents(src)
 
 /obj/item/sticker/proc/remove_sticker(var/mob/user)
 	user.put_in_hands(src)
 	var/atom/movable/attached_atom = attached.resolve()
 	if(attached_atom)
 		to_chat(user, SPAN_NOTICE("You remove \the [src] from \the [attached_atom]."))
-		attached_atom.vis_contents -= src
+		attached_atom.remove_vis_contents(src)
 		attached = null
 
 /obj/item/sticker/googly_eye

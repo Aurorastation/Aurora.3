@@ -6,20 +6,14 @@
 /obj/item/device/flashlight/lamp{
 	pixel_y = 15
 	},
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "c" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "d" = (
 /obj/structure/closet/crate/miningcart,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "f" = (
 /obj/structure/closet/crate/freezer,
@@ -29,43 +23,34 @@
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
 /obj/item/reagent_containers/food/drinks/bottle/messa_mead,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "g" = (
 /obj/structure/table/standard,
 /obj/item/stack/nanopaste,
 /obj/item/stack/nanopaste,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "j" = (
 /obj/item/reagent_containers/food/drinks/drinkingglass{
 	pixel_x = 12
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "k" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "m" = (
 /obj/structure/sign/flag/nka{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "n" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -75,16 +60,12 @@
 /obj/effect/floor_decal/spline/plain/cee/black{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "o" = (
 /obj/machinery/artifact_scanpad,
 /obj/effect/floor_decal/spline/plain/cee/black,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "p" = (
 /obj/effect/ghostspawpoint{
@@ -92,15 +73,11 @@
 	name = "igs - adhomai_archeology"
 	},
 /obj/structure/bed/stool/wood,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "q" = (
 /obj/structure/curtain/open,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "r" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -109,24 +86,19 @@
 /obj/item/reagent_containers/glass/bucket{
 	pixel_y = 12
 	},
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "s" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "t" = (
 /obj/machinery/floodlight,
 /obj/structure/sign/flag/nka{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "u" = (
 /obj/structure/table/rack,
@@ -139,30 +111,22 @@
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/firstaid/regular,
 /obj/item/stack/medical/splint/full,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "v" = (
 /obj/structure/bonfire/light_up,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "w" = (
 /obj/structure/closet/crate,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
 /obj/item/ammo_magazine/c38,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "x" = (
 /obj/structure/anomaly_container,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "z" = (
 /obj/structure/closet/crate,
@@ -172,47 +136,35 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "A" = (
 /obj/machinery/suspension_gen,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "B" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "C" = (
 /obj/structure/flora/rock/ice,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "E" = (
-/turf/simulated/wall/cloth,
+/turf/simulated/wall/wood,
 /area/adhomai_archeology)
 "F" = (
 /obj/structure/closet/crate/secure/large,
 /obj/item/storage/box/dynamite,
 /obj/item/storage/box/dynamite,
 /obj/item/storage/box/dynamite,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "H" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "I" = (
 /obj/machinery/light/small{
@@ -220,105 +172,80 @@
 	},
 /obj/machinery/radiocarbon_spectrometer,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "J" = (
 /obj/structure/closet/crate,
 /obj/item/flame/lighter/adhomai,
 /obj/item/flame/lighter/adhomai,
 /obj/item/flame/lighter/adhomai,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "M" = (
 /obj/structure/closet/excavation,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "O" = (
 /obj/structure/sign/flag/nka{
-	pixel_x = 32
+	pixel_x = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "P" = (
 /obj/structure/sign/flag/nka{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Q" = (
 /obj/machinery/light/small{
 	dir = 4
 	},
 /obj/structure/closet/excavation,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "R" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "S" = (
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "U" = (
 /obj/structure/closet/crate/miningcart,
 /obj/structure/sign/flag/nka{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "V" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "W" = (
 /obj/structure/closet/crate,
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 "X" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Y" = (
 /obj/item/trash/cigbutt/cigarbutt,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Z" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
 	},
-/turf/simulated/floor/carpet/rubber{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
 /area/adhomai_archeology)
 
 (1,1,1) = {"

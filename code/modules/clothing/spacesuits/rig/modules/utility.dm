@@ -690,7 +690,7 @@
 			if (combatType && ismob(aa))
 				continue
 
-			if (aa.density && NOT_FLAG(aa.atom_flags, ATOM_FLAG_CHECKS_BORDER))
+			if (aa.density && !(aa.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 				to_chat(user, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
 				return FALSE
 

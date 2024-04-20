@@ -32,6 +32,7 @@
 			continue
 		if(!(species in S.species_allowed))
 			continue
+
 		valid_hairstyles[hairstyle] = GLOB.hair_styles_list[hairstyle]
 
 	if(valid_hairstyles.len)
@@ -39,8 +40,8 @@
 
 	return h_style
 
-/// Species must be a datum.
-/proc/random_facial_hair_style(gender, species = /datum/species/human)
+/// Species must be a datum type.
+/proc/random_facial_hair_style(gender, species = /datum/species/human, organ_status, robolimb_manufacturer)
 	var/f_style = "Shaved"
 
 	var/list/valid_facialhairstyles = list()
@@ -52,6 +53,8 @@
 			continue
 		if(!(species in S.species_allowed))
 			continue
+		if(!check_robolimb_appropriate(S, organ_status, robolimb_manufacturer))
+			continue
 
 		valid_facialhairstyles[facialhairstyle] = GLOB.facial_hair_styles_list[facialhairstyle]
 
@@ -59,6 +62,33 @@
 		f_style = pick(valid_facialhairstyles)
 
 		return f_style
+
+/**
+ * This proc checks if a sprite_accessory appropriate for a given organ and robolimb. The second argument must be an ORGAN_PREF define.
+ * This can easily be made into a more general helper if needed by just turning organ_status into a boolean and feeding an instance into robolimb_manufacturer, maybe.
+*/
+/proc/check_robolimb_appropriate(datum/sprite_accessory/S, organ_status, robolimb_manufacturer)
+	if(S.robotize_type_required)
+		if(S.required_organ)
+			// Null robotize_type_required means it doesn't matter what prosthetic type we use.
+			if(isnull(S.robotize_type_required))
+				return TRUE
+			if(organ_status == ORGAN_PREF_CYBORG)
+				if(length(S.robotize_type_required))
+					var/datum/robolimb/R
+					if(GLOB.all_robolimbs[robolimb_manufacturer])
+						R = GLOB.all_robolimbs[robolimb_manufacturer]
+					else
+						R = GLOB.basic_robolimb
+					if(!(R.company in S.robotize_type_required))
+						return FALSE
+				else
+					// Empty list means we can't have a prosthetic type to use this marking.
+					return FALSE
+			else if(length(S.robotize_type_required))
+				// There's a robotize type required and our limb is not a prosthetic.
+				return FALSE
+	return TRUE
 
 /proc/sanitize_name(name, species = SPECIES_HUMAN)
 	var/datum/species/current_species

@@ -54,7 +54,7 @@ var/datum/uplink/uplink
 	if(!can_buy_telecrystals && !can_buy_bluecrystals)
 		return
 
-	if(U.CanUseTopic(user, inventory_state) != STATUS_INTERACTIVE)
+	if(U.CanUseTopic(user, GLOB.inventory_state) != STATUS_INTERACTIVE)
 		return
 
 	var/goods = get_goods(U, get_turf(user), user, extra_args)

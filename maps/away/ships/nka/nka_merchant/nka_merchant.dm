@@ -2,7 +2,10 @@
 	name = "Her Majesty's Mercantile Flotilla Ship"
 	id = "nka_merchant"
 	description = "A merchant ship of the New Kingdom's Mercantile Flotilla."
-	suffixes = list("ships/nka/nka_merchant/nka_merchant.dmm")
+
+	prefix = "ships/nka/nka_merchant/"
+	suffixes = list("nka_merchant.dmm")
+
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/nka_merchant_shuttle)
@@ -90,7 +93,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/nka_merchant_shuttle
+/obj/machinery/computer/shuttle_control/explore/terminal/nka_merchant_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "Her Majesty's Mercantile Flotilla Shuttle"
 
@@ -106,15 +109,7 @@
 	logging_home_tag = "nav_nka_merchant_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/nka_merchant_shuttle/hangar
-	name = "Her Majesty's Mercantile Flotilla Shuttle Hangar"
-	landmark_tag = "nav_nka_merchant_shuttle"
-	docking_controller = "nka_merchant_shuttle_dock"
-	base_area = /area/nka_merchant/hangar
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/nka_merchant_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_nka_merchant_shuttle"
-	base_turf = /turf/space/transit/north
+/obj/effect/map_effect/marker/airlock/shuttle/nka_merchant_shuttle
+	name = "Her Majesty's Mercantile Flotilla Shuttle"
+	shuttle_tag = "Her Majesty's Mercantile Flotilla Shuttle"
+	master_tag = "nka_merchant_shuttle"

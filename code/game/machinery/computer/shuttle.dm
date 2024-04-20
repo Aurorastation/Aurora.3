@@ -9,7 +9,11 @@
 	var/list/authorized = list(  )
 
 
-/obj/machinery/computer/shuttle/attackby(var/obj/item/card/W as obj, var/mob/user as mob)
+/obj/machinery/computer/shuttle/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/card/W = attacking_item
+	if(!istype(W))
+		return
+
 	if(stat & (BROKEN|NOPOWER))
 		return
 

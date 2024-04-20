@@ -201,6 +201,18 @@ BLIND     // can't see anything
 	icon_state = "visor_medhud"
 	item_state = "visor_medhud"
 
+/obj/item/clothing/glasses/hud/health/aviator/pincenez
+	name = "medical HUD pincenez"
+	desc = "Modified pincenez glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "pincenez_med"
+	item_state = "pincenez_med"
+
+/obj/item/clothing/glasses/hud/health/aviator/panto
+	name = "medical HUD panto"
+	desc = "Modified panto glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "panto_med"
+	item_state = "panto_med"
+
 /obj/item/clothing/glasses/science
 	name = "science goggles"
 	desc = "Used to protect your eyes against harmful chemicals!"
@@ -212,6 +224,7 @@ BLIND     // can't see anything
 	toggleable = 1
 	unacidable = 1
 	item_flags = ITEM_FLAG_AIRTIGHT
+	anomaly_protection = 0.1
 
 /obj/item/clothing/glasses/science/Initialize()
 	. = ..()
@@ -480,13 +493,6 @@ BLIND     // can't see anything
 	icon_state = "eyepatch_white"
 	item_state = "eyepatch_white"
 
-/obj/item/clothing/glasses/monocle
-	name = "monocle"
-	desc = "Such a dapper eyepiece!"
-	icon_state = "monocle"
-	item_state = "monocle"
-	body_parts_covered = 0
-
 /obj/item/clothing/glasses/material
 	name = "optical material scanner"
 	desc = "Very confusing glasses."
@@ -525,23 +531,25 @@ BLIND     // can't see anything
 	prescription = 7
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/clothing/glasses/hud/health))
-		user.drop_item(W)
-		qdel(W)
+/obj/item/clothing/glasses/regular/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/glasses/hud/health))
+		user.drop_item(attacking_item)
+		qdel(attacking_item)
 		to_chat(user, SPAN_NOTICE("You attach a set of medical HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/health/prescription/P = new /obj/item/clothing/glasses/hud/health/prescription(user.loc)
 		P.glasses_type = src.type
+		P.color = src.color
 		user.put_in_hands(P)
 		qdel(src)
-	if(istype(W, /obj/item/clothing/glasses/hud/security))
-		user.drop_item(W)
-		qdel(W)
+	if(istype(attacking_item, /obj/item/clothing/glasses/hud/security))
+		user.drop_item(attacking_item)
+		qdel(attacking_item)
 		to_chat(user, SPAN_NOTICE("You attach a set of security HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/security/prescription/P = new /obj/item/clothing/glasses/hud/security/prescription(user.loc)
 		P.glasses_type = src.type
+		P.color = src.color
 		user.put_in_hands(P)
 		qdel(src)
 
@@ -563,25 +571,58 @@ BLIND     // can't see anything
 	desc = "Made by Uncool. Co."
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/threedglasses
-	desc = "A long time ago, people used these glasses to makes images from screens threedimensional."
+	desc = "A long time ago, people used these glasses to makes images from screens three-dimensional."
 	name = "3D glasses"
 	icon_state = "3d"
 	item_state = "3d"
 	body_parts_covered = 0
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/regular/jamjar
 	name = "jamjar glasses"
 	desc = "Also known as Virginity Protectors."
 	icon_state = "jamjar_glasses"
 	item_state = "jamjar_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/regular/circle
 	name = "circle glasses"
 	desc = "Why would you wear something so controversial yet so brave?"
 	icon_state = "circle_glasses"
 	item_state = "circle_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
+
+/obj/item/clothing/glasses/regular/contacts
+	name = "contact lenses"
+	desc = "The benefits of sight without the troubles of glasses! Just don't drop them."
+	icon_state = "contacts"
+	item_state = "contacts"
+
+/obj/item/clothing/glasses/regular/pincenez
+	name = "pince-nez glasses"
+	desc = "Popularized in the 19th century by French people, evil scientists, and dead people in bathtubs."
+	icon_state = "pincenez"
+	item_state = "pincenez"
+
+/obj/item/clothing/glasses/regular/panto
+	name = "panto glasses"
+	desc = "So iconic. So generic. The monobloc chair of the glasses world."
+	icon_state = "panto"
+	item_state = "panto"
+
+/obj/item/clothing/glasses/monocle
+	name = "monocle"
+	desc = "Such a dapper eyepiece!"
+	icon_state = "monocle"
+	item_state = "monocle"
+	body_parts_covered = 0
 
 /obj/item/clothing/glasses/aug/glasses
 	name = "corrective lenses"
@@ -591,6 +632,8 @@ BLIND     // can't see anything
 	prescription = 7
 	body_parts_covered = 0
 	canremove = FALSE
+
+// Sunglasses
 
 /obj/item/clothing/glasses/sunglasses
 	name = "sunglasses"
@@ -960,6 +1003,18 @@ BLIND     // can't see anything
 	desc = "NanoTrasen security visor glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
 	icon_state = "visor_sec"
 	item_state = "visor_sec"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/pincenez
+	name = "security HUD pincenez"
+	desc = "NanoTrasen security pincenez glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "pincenez_sec"
+	item_state = "pincenez_sec"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/panto
+	name = "security HUD panto"
+	desc = "NanoTrasen security panto glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "panto_sec"
+	item_state = "panto_sec"
 
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"

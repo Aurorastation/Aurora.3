@@ -57,6 +57,10 @@
 	var/bluespace_called_message
 	var/bluespace_recall_message
 
+	/// If this map has ports of call and refuels there. Crew are implied to be able to leave to these ports.
+	/// Ports of call are taken from the current map sector.
+	var/ports_of_call = FALSE
+
 	var/evac_controller_type = /datum/evacuation_controller
 
 	var/list/station_networks = list() 		// Camera networks that will show up on the console.
@@ -124,6 +128,8 @@
 		map_levels = station_levels.Copy()
 	if(!allowed_jobs)
 		allowed_jobs = subtypesof(/datum/job)
+		for(var/thing in EVENT_ROLES) //ideally this should prevent event roles from being open on the horizon
+			allowed_jobs.Remove(thing)
 	if (!spawn_types)
 		spawn_types = subtypesof(/datum/spawnpoint)
 	if(!LAZYLEN(planet_size))
@@ -138,7 +144,7 @@
 
 // By default transition randomly to another zlevel
 /datum/map/proc/get_transit_zlevel(var/current_z_level)
-	var/list/candidates = current_map.accessible_z_levels.Copy()
+	var/list/candidates = SSatlas.current_map.accessible_z_levels.Copy()
 	candidates.Remove(num2text(current_z_level))
 
 	if(!candidates.len)
@@ -168,9 +174,17 @@
 
 	var/datum/space_sector/sector = SSatlas.current_sector
 	var/list/possible_exoplanets = sector.possible_exoplanets
+	var/list/guaranteed_exoplanets = sector.guaranteed_exoplanets
+
+	if(length(guaranteed_exoplanets))
+		for(var/j in guaranteed_exoplanets)
+			var/guaranteed_exoplanet_type = j
+			log_module_exoplanets("Building new exoplanet with type: [guaranteed_exoplanet_type] and size: [planet_size[1]] [planet_size[2]]")
+			var/obj/effect/overmap/visitable/sector/exoplanet/P = new guaranteed_exoplanet_type(null, planet_size[1], planet_size[2])
+			P.build_level()
 
 	if(!length(possible_exoplanets))
-		log_module_exoplanets("No valid exoplanets found!")
+		log_module_exoplanets("No possible exoplanets found!")
 		return
 
 	var/exoplanets_budget = isnum(GLOB.config.exoplanets["exoplanets_budget"]) ? (GLOB.config.exoplanets["exoplanets_budget"]) : (min(possible_exoplanets.len, num_exoplanets))
@@ -251,11 +265,16 @@
 
 	for (var/site_id in SSmapping.away_sites_templates)
 		var/datum/map_template/ruin/away_site/site = SSmapping.away_sites_templates[site_id]
-		if ((HAS_FLAG(site.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in GLOB.config.awaysites["guaranteed_sites"]))
+		if (((site.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED) && (site.spawns_in_current_sector())) || (site_id in GLOB.config.awaysites["guaranteed_sites"]))
 			guaranteed += site
 			if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
 				available[site] = site.spawn_weight
-		else if (NOT_FLAG(site.template_flags, TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
+		else if((site.template_flags & TEMPLATE_FLAG_PORT_SPAWN) && (site.spawns_in_current_sector()))
+			if(SSatlas.is_port_call_day()) //we check here as we only want sites with PORT_SPAWN flag to spawn if this is true, else we want it not considered.
+				guaranteed += site
+				if ((site.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES) && !(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED))
+					available[site] = site.spawn_weight
+		else if (!(site.template_flags & TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED) && (site.spawns_in_current_sector()))
 			available[site] = site.spawn_weight
 		by_type[site.type] = site
 

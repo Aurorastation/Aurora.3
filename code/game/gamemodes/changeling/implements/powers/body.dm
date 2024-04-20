@@ -40,12 +40,14 @@
 
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
 	if(ishuman(src))
-		src.visible_message("<span class='warning'>[src] transforms!</span>")
 		var/mob/living/carbon/human/H = src
-		var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+		H.visible_message("<span class='warning'>[H] transforms!</span>")
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
-
+		if(mind) //likely transfomration sting on ghosted corpse if no mind
+			var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+			if(changeling && !changeling.mimicing)
+				changeling.mimiced_accent = chosen_dna.accent
 		H.dna = chosen_dna.dna
 		H.real_name = chosen_dna.name
 		H.sync_organ_dna()
@@ -53,8 +55,10 @@
 		H.height = chosen_dna.height
 		H.gender = chosen_dna.gender
 		H.pronouns = chosen_dna.pronouns
-		if(!changeling.mimicing)
-			changeling.mimiced_accent = chosen_dna.accent
+		H.g_style = chosen_dna.hairGradient.style
+		H.r_grad = chosen_dna.hairGradient.red
+		H.g_grad = chosen_dna.hairGradient.green
+		H.b_grad = chosen_dna.hairGradient.blue
 		domutcheck(H, null) //donut check heh heh heh - Geeves
 		H.UpdateAppearance()
 
@@ -110,7 +114,7 @@
 	effect.density = FALSE
 	effect.anchored = TRUE
 	effect.icon = 'icons/effects/effects.dmi'
-	effect.layer = 3
+	effect.layer = LYING_HUMAN_LAYER
 	flick("summoning", effect)
 	QDEL_IN(effect, 10)
 	H.forceMove(ling)
@@ -283,7 +287,7 @@
 	if(!head)
 		return
 
-	var/datum/absorbed_dna/DNA = changeling.absorbed_dna[1]
+	var/datum/absorbed_dna/DNA = changeling.GetDNA(H.real_name)
 	var/datum/dna/chosen_dna = DNA.dna
 	if(!chosen_dna)
 		return
@@ -304,17 +308,10 @@
 	var/mob/living/simple_animal/hostile/lesser_changeling/revive/ling = new(get_turf(H))
 
 	var/mob/living/carbon/human/O = new /mob/living/carbon/human(ling)
-	if(chosen_dna.GetUIState(DNA_UI_GENDER))
-		O.gender = FEMALE
-	else
-		O.gender = MALE
-	O.set_species(chosen_dna.species)
-	O.dna = chosen_dna.Clone()
-	O.real_name = chosen_dna.real_name
-	O.UpdateAppearance()
-	domutcheck(O, null)
 	O.make_changeling(H.mind)
 	O.changeling_update_languages(changeling.absorbed_languages)
+	O.accent = DNA.accent
+	O.handle_changeling_transform(DNA)
 	O.status_flags |= GODMODE
 
 	if(H.mind)
@@ -582,7 +579,7 @@
 	effect.density = FALSE
 	effect.anchored = TRUE
 	effect.icon = 'icons/effects/effects.dmi'
-	effect.layer = 3
+	effect.layer = LYING_HUMAN_LAYER
 	flick("summoning", effect)
 	QDEL_IN(effect, 10)
 	M.forceMove(ling) //move inside the new dude to hide him.

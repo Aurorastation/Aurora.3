@@ -27,7 +27,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			handled_ruin_paths += ruin.type
 			continue
 
-		if(HAS_FLAG(ruin.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
+		if((ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
 			force_spawn |= ruin
 			for(var/ruin_path in ruin.force_ruins)
 				var/datum/map_template/ruin/force_ruin = new ruin_path
@@ -37,6 +37,17 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 			continue
 
 		if(!(ruin.spawns_in_current_sector()) && !ignore_sector)
+			potentialRuins -= ruin
+			handled_ruin_paths += ruin.type
+			continue
+
+		if((ruin.template_flags & TEMPLATE_FLAG_PORT_SPAWN))
+			if(SSatlas.is_port_call_day())
+				force_spawn |= ruin
+				for(var/ruin_path in ruin.force_ruins)
+					var/datum/map_template/ruin/force_ruin = new ruin_path
+					force_spawn |= force_ruin
+			// No matter if it spawns or not, we want it removed from further consideration, it either spawns here or not at all
 			potentialRuins -= ruin
 			handled_ruin_paths += ruin.type
 			continue
@@ -80,7 +91,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 		if(ruin.spawn_cost > 0)
 			remaining -= ruin.spawn_cost
 
-		if(NOT_FLAG(ruin.template_flags, TEMPLATE_FLAG_ALLOW_DUPLICATES))
+		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 			GLOB.banned_ruin_ids += ruin.id
 			available -= ruin
 
@@ -97,7 +108,7 @@ GLOBAL_LIST_EMPTY(banned_ruin_ids)
 		load_ruin(choice, ruin)
 		selected += ruin
 
-		if(NOT_FLAG(ruin.template_flags, TEMPLATE_FLAG_ALLOW_DUPLICATES))
+		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
 			GLOB.banned_ruin_ids += ruin.id
 
 	if (remaining)

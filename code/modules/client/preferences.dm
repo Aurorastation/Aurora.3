@@ -33,8 +33,6 @@ var/list/preferences_datums = list()
 	var/tgui_inputs_swapped = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
-	var/motd_hash = ""					//Hashes for the new server greeting window.
-	var/memo_hash = ""
 
 	//character preferences
 	var/real_name						//our character's name
@@ -127,6 +125,10 @@ var/list/preferences_datums = list()
 	var/job_engsec_high = 0
 	var/job_engsec_med = 0
 	var/job_engsec_low = 0
+
+	var/job_event_high = 0
+	var/job_event_med = 0
+	var/job_event_low = 0
 
 	// A text blob which temporarily houses data from the SQL.
 	var/unsanitized_jobs = ""
@@ -296,6 +298,7 @@ var/list/preferences_datums = list()
 			client.screen |= O
 		O.appearance = MA
 		O.dir = D
+		O.plane = HUD_PLANE
 		var/list/screen_locs = preview_screen_locs["[D]"]
 		var/screen_x = screen_locs[1]
 		var/screen_x_minor = screen_locs[2]
@@ -319,6 +322,7 @@ var/list/preferences_datums = list()
 		var/obj/screen/S = char_render_holders[index]
 		client?.screen -= S
 		qdel(S)
+	QDEL_LIST_ASSOC_VAL(char_render_holders)
 	char_render_holders = null
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
@@ -334,10 +338,6 @@ var/list/preferences_datums = list()
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
-	else if(href_list["close"])
-		// User closed preferences window, cleanup anything we need to.
-		clear_character_previews()
-		return 1
 	return 1
 
 /datum/preferences/Topic(href, list/href_list)
@@ -373,8 +373,12 @@ var/list/preferences_datums = list()
 		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored.", "Permanently Delete Character", "No", "Yes") == "Yes")
 			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
 				delete_character_sql(usr.client)
+	else if(href_list["close"])
+		// User closed preferences window, cleanup anything we need to.
+		clear_character_previews()
+		return 1
 	else
-		return 0
+		return
 
 	ShowChoices(usr)
 	return 1
@@ -584,7 +588,7 @@ var/list/preferences_datums = list()
 		LOG_DEBUG("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
 
 	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
-	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
+	query.Execute(list("char_id" = current_character, "game_id" = GLOB.round_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
 /datum/preferences/proc/new_setup(var/re_initialize = 0)
@@ -654,6 +658,10 @@ var/list/preferences_datums = list()
 		job_engsec_high = 0
 		job_engsec_med = 0
 		job_engsec_low = 0
+
+		job_event_high = 0
+		job_event_med = 0
+		job_event_low = 0
 
 		alternate_option = 1
 		metadata = ""

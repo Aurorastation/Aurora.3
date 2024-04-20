@@ -13,10 +13,10 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 100)
 	var/armed = FALSE
 
-/obj/item/device/assembly/mousetrap/examine(mob/user)
+/obj/item/device/assembly/mousetrap/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(armed)
-		to_chat(user, "It looks like it's armed.")
+		. += "It looks like it's armed."
 
 /obj/item/device/assembly/mousetrap/update_icon()
 	icon_state = armed ? "mousetraparmed" : "mousetrap"
@@ -73,7 +73,7 @@
 	return ..()
 
 /obj/item/device/assembly/mousetrap/proc/clumsy_check(var/mob/living/user)
-	if((user.is_clumsy() || HAS_FLAG(user.mutations, DUMB)) && prob(50))
+	if((user.is_clumsy() || (user.mutations & DUMB)) && prob(50))
 		var/which_hand = BP_L_HAND
 		if(!user.hand)
 			which_hand = BP_R_HAND

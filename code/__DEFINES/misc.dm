@@ -1,9 +1,5 @@
 #define DEBUG
 
-// Turf-only flags.
-#define TURF_FLAG_NOJAUNT 		1
-#define TURF_FLAG_BACKGROUND 	2 // Used by shuttle movement to determine if it should be ignored by turf translation.
-
 #define TRANSITIONEDGE 7 // Distance from edge to move to another z-level.
 #define RUIN_MAP_EDGE_PAD 15
 
@@ -31,9 +27,6 @@
 #define SEE_INVISIBLE_MINIMUM		5
 #define INVISIBILITY_MAXIMUM		100
 #define INVISIBILITY_ABSTRACT		101	// Special invis value that can never be seen by see_invisible.
-
-// Some arbitrary defines to be used by self-pruning global lists. (see master_controller)
-#define PROCESS_KILL 26 // Used to trigger removal from a processing list.
 
 // Preference toggles.
 #define SOUND_ADMINHELP 0x1
@@ -141,6 +134,7 @@
 #define AREA_FLAG_NO_CREW_EXPECTED    	 BITFLAG(5) // Areas where crew is not expected to ever be. Used to tell antag bases and such from crew-accessible areas on centcom level.
 #define AREA_FLAG_PRISON              	 BITFLAG(6) // Marks prison area for purposes of checking if brigged/imprisoned
 #define AREA_FLAG_NO_GHOST_TELEPORT_ACCESS BITFLAG(7) // Marks whether ghosts should not have teleport access to this area
+#define AREA_FLAG_INDESTRUCTIBLE_TURFS			 BITFLAG(8) //Marks whether or not turfs in this area can be destroyed by explosions
 
 // Convoluted setup so defines can be supplied by Bay12 main server compile script.
 // Should still work fine for people jamming the icons into their repo.
@@ -268,25 +262,6 @@
 
 // Performance bullshit.
 
-//supposedly the fastest way to do this according to https://gist.github.com/Giacom/be635398926bb463b42a
-#define RANGE_TURFS(RADIUS, CENTER) \
-	block( \
-		locate(max(CENTER.x-(RADIUS),1),          max(CENTER.y-(RADIUS),1),          CENTER.z), \
-		locate(min(CENTER.x+(RADIUS),world.maxx), min(CENTER.y+(RADIUS),world.maxy), CENTER.z) \
-	)
-
-#define RECT_TURFS(H_RADIUS, V_RADIUS, CENTER) \
-	block( \
-	locate(max((CENTER).x-(H_RADIUS),1), max((CENTER).y-(V_RADIUS),1), (CENTER).z), \
-	locate(min((CENTER).x+(H_RADIUS),world.maxx), min((CENTER).y+(V_RADIUS),world.maxy), (CENTER).z) \
-	)
-
-#define get_turf(A) (get_step(A, 0))
-#define NORTH_OF_TURF(T)	locate(T.x, T.y + 1, T.z)
-#define EAST_OF_TURF(T)		locate(T.x + 1, T.y, T.z)
-#define SOUTH_OF_TURF(T)	locate(T.x, T.y - 1, T.z)
-#define WEST_OF_TURF(T)		locate(T.x - 1, T.y, T.z)
-
 #define UNTIL(X) while(!(X)) stoplag()
 
 #define MIDNIGHT_ROLLOVER		864000	//number of deciseconds in a day
@@ -307,7 +282,8 @@
 #define NL_TEMPORARY_DISABLE 1
 #define NL_PERMANENT_DISABLE 2
 
-// Used for creating soft references to objects. A manner of storing an item reference
+///Used for creating soft references to objects. A manner of storing an item reference
+///DO NOT USE, USE `WEAKREF()`
 #define SOFTREF(A) ref(A)
 
 #define ADD_VERB_IN(the_atom,time,verb) addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(add_verb), the_atom, verb), time, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_NO_HASH_WAIT)
@@ -343,16 +319,16 @@
 
 #define DEFAULT_SIGHT (SEE_SELF)
 
-#define isStationLevel(Z) ((Z) in current_map.station_levels)
+#define isStationLevel(Z) ((Z) in SSatlas.current_map.station_levels)
 #define isNotStationLevel(Z) !isStationLevel(Z)
 
-#define isPlayerLevel(Z) ((Z) in current_map.player_levels)
+#define isPlayerLevel(Z) ((Z) in SSatlas.current_map.player_levels)
 #define isNotPlayerLevel(Z) !isPlayerLevel(Z)
 
-#define isAdminLevel(Z) ((Z) in current_map.admin_levels)
+#define isAdminLevel(Z) ((Z) in SSatlas.current_map.admin_levels)
 #define isNotAdminLevel(Z) !isAdminLevel(Z)
 
-#define isContactLevel(Z) ((Z) in current_map.contact_levels)
+#define isContactLevel(Z) ((Z) in SSatlas.current_map.contact_levels)
 #define isNotContactLevel(Z) !isContactLevel(Z)
 
 //Cargo Container Types
@@ -434,13 +410,8 @@ example:
 // Maximum number of Zs away you can be from a sound before it stops being audible.
 #define MAX_SOUND_Z_TRAVERSAL 2
 
-#define Z_ALL_TURFS(Z) block(locate(1, 1, Z), locate(world.maxx, world.maxy, Z))
-
 // Z-controller stuff - see basic.dm to see why the fuck this is the way it is.
 #define IS_VALID_ZINDEX(z) !((z) > world.maxz || (z) > 17)
-
-#define GET_ABOVE(A) (HasAbove(A:z) ? get_step(A, UP) : null)
-#define GET_BELOW(A) (HasBelow(A:z) ? get_step(A, DOWN) : null)
 
 #define GET_Z(A) (get_step(A, 0)?.z || 0)
 
@@ -489,17 +460,20 @@ example:
 
 //Map template flags
 /// Lets multiple copies of the template to be spawned
-#define TEMPLATE_FLAG_ALLOW_DUPLICATES 1
-/// Makes it ignore away site budget and just spawn (works only for away sites)
+#define TEMPLATE_FLAG_ALLOW_DUPLICATES BITFLAG(1)
+/// If it should ignore away site budget and just spawn (works only for away sites)
 /// A site needs to be set to spawn in current sector to be considered still
-#define TEMPLATE_FLAG_SPAWN_GUARANTEED 2
-/// if it should destroy objects it spawns on top of
-#define TEMPLATE_FLAG_CLEAR_CONTENTS   4
-/// if it should forbid ruins from spawning on top of it
-#define TEMPLATE_FLAG_NO_RUINS         8
+#define TEMPLATE_FLAG_SPAWN_GUARANTEED BITFLAG(2)
+/// If it should destroy objects it spawns on top of
+#define TEMPLATE_FLAG_CLEAR_CONTENTS   BITFLAG(3)
+/// If it should forbid ruins from spawning on top of it
+#define TEMPLATE_FLAG_NO_RUINS         BITFLAG(4)
+/// If it should always spawn if today is a port of call day
+#define TEMPLATE_FLAG_PORT_SPAWN       BITFLAG(5)
 
 //Ruin map template flags
-#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED 32  // Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+/// Ruin is not available during spawning unless another ruin permits it, or whitelisted by the exoplanet
+#define TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED BITFLAG(6)
 
 #define LANDING_ZONE_RADIUS 15 // Used for autoplacing landmarks on exoplanets
 
@@ -534,3 +508,18 @@ example:
 #define GEAR_TWEAK_ACCESSORY_SLOT_SUIT "Suit"
 /// Spawns standalone in the suit slot
 #define GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE "Standalone Suit"
+
+//Turf/area values for 'this space is outside' checks
+#define OUTSIDE_AREA null
+#define OUTSIDE_NO   FALSE
+#define OUTSIDE_YES  TRUE
+#define OUTSIDE_UNCERTAIN null
+
+// Weather exposure values for being rained on or hailed on.
+#define WEATHER_IGNORE   -1
+#define WEATHER_EXPOSED   0
+#define WEATHER_ROOFED    1
+#define WEATHER_PROTECTED 2
+
+// arbitrary low pressure bound for wind weather effects
+#define MIN_WIND_PRESSURE 10

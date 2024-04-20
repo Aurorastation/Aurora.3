@@ -4,7 +4,7 @@
 	item_state = "chemg"
 	desc = "A hand made chemical grenade."
 	w_class = ITEMSIZE_SMALL
-	force = 2.0
+	force = 2
 	det_time = null
 	unacidable = 1
 	var/stage = 0
@@ -47,10 +47,10 @@
 			var/mob/living/carbon/C = user
 			C.throw_mode_on()
 
-/obj/item/grenade/chem_grenade/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/grenade/chem_grenade/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(W,/obj/item/device/assembly_holder) && (!stage || stage==1) && path != 2)
-		var/obj/item/device/assembly_holder/det = W
+	if(istype(attacking_item,/obj/item/device/assembly_holder) && (!stage || stage==1) && path != 2)
+		var/obj/item/device/assembly_holder/det = attacking_item
 		if(istype(det.a_left,det.a_right.type) || (!isigniter(det.a_left) && !isigniter(det.a_right)))
 			to_chat(user, "<span class='warning'>Assembly must contain one igniter.</span>")
 			return
@@ -58,8 +58,8 @@
 			to_chat(user, "<span class='warning'>Assembly must be secured with screwdriver.</span>")
 			return
 		path = 1
-		to_chat(user, "<span class='notice'>You add [W] to the metal casing.</span>")
-		playsound(src.loc, W.usesound, 25, -3)
+		to_chat(user, "<span class='notice'>You add [attacking_item] to the metal casing.</span>")
+		playsound(src.loc, attacking_item.usesound, 25, -3)
 		user.remove_from_mob(det)
 		det.forceMove(src)
 		detonator = det
@@ -72,7 +72,7 @@
 		icon_state = initial(icon_state) +"_ass"
 		name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 		stage = 1
-	else if(W.isscrewdriver() && path != 2)
+	else if(attacking_item.isscrewdriver() && path != 2)
 		if(stage == 1)
 			path = 1
 			if(beakers.len)
@@ -81,7 +81,7 @@
 			else
 				to_chat(user, "<span class='notice'>You lock the empty assembly.</span>")
 				name = "fake grenade"
-			playsound(src.loc, W.usesound, 25, -3)
+			playsound(src.loc, attacking_item.usesound, 25, -3)
 			icon_state = initial(icon_state) +"_locked"
 			stage = 2
 		else if(stage == 2)
@@ -91,30 +91,30 @@
 				return
 			else
 				to_chat(user, "<span class='notice'>You unlock the assembly.</span>")
-				playsound(src.loc, W.usesound, 25, -3)
+				playsound(src.loc, attacking_item.usesound, 25, -3)
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 				icon_state = initial(icon_state) + (detonator?"_ass":"")
 				stage = 1
 				active = 0
-	else if(is_type_in_list(W, allowed_containers) && (!stage || stage==1) && path != 2)
+	else if(is_type_in_list(attacking_item, allowed_containers) && (!stage || stage==1) && path != 2)
 		path = 1
 		if(beakers.len == 2)
 			to_chat(user, "<span class='warning'>The grenade can not hold more containers.</span>")
 			return
 		else
-			if(W.reagents.total_volume)
-				to_chat(user, "<span class='notice'>You add \the [W] to the assembly.</span>")
-				user.drop_from_inventory(W,src)
-				beakers += W
+			if(attacking_item.reagents.total_volume)
+				to_chat(user, "<span class='notice'>You add \the [attacking_item] to the assembly.</span>")
+				user.drop_from_inventory(attacking_item,src)
+				beakers += attacking_item
 				stage = 1
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			else
-				to_chat(user, "<span class='warning'>\The [W] is empty.</span>")
+				to_chat(user, "<span class='warning'>\The [attacking_item] is empty.</span>")
 
-/obj/item/grenade/chem_grenade/examine(mob/user)
+/obj/item/grenade/chem_grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(detonator)
-		to_chat(user, "With attached [detonator.name]")
+		. += "With attached [detonator.name]"
 
 /obj/item/grenade/chem_grenade/activate(mob/user as mob)
 	if(active) return
@@ -395,22 +395,22 @@
 	icon_state = initial(icon_state) +"_locked"
 
 ///Zombie-producing grenade
-/obj/item/grenade/chem_grenade/trioxin
-	name = "trioxin grenade"
-	desc = "Concentrated trioxin. The lab really cooked for this one."
+/obj/item/grenade/chem_grenade/hylemnomil
+	name = "hylemnomil grenade"
+	desc = "Concentrated hylemnomil. The lab really cooked for this one."
 	stage = 2
 	path = 1
 
-/obj/item/grenade/chem_grenade/trioxin/Initialize()
+/obj/item/grenade/chem_grenade/hylemnomil/Initialize()
 	. = ..()
 	var/obj/item/reagent_containers/glass/beaker/large/B1 = new(src)
 	var/obj/item/reagent_containers/glass/beaker/large/B2 = new(src)
 
 	B1.reagents.add_reagent(/singleton/reagent/phosphorus, 40)
 	B1.reagents.add_reagent(/singleton/reagent/potassium, 40)
-	B1.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 40)
+	B1.reagents.add_reagent(/singleton/reagent/toxin/hylemnomil, 40)
 	B2.reagents.add_reagent(/singleton/reagent/sugar, 40)
-	B2.reagents.add_reagent(/singleton/reagent/toxin/trioxin, 80)
+	B2.reagents.add_reagent(/singleton/reagent/toxin/hylemnomil, 80)
 
 	detonator = new/obj/item/device/assembly_holder/timer_igniter(src)
 

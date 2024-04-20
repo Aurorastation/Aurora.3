@@ -27,7 +27,7 @@
 		if(4)
 			sound_to(holder, 'sound/AI/emergency_shuttle_leaving_dock.ogg')
 			to_chat(holder, "<h2 class='alert'>Emergency Departure</h2>")
-			to_chat(holder, SPAN_ALERT("An emergency evacuation shuttle has arrived in the hangar to extract the crew of [current_map.station_name]. It will depart in approximately two minutes. Please do not allow [holder] to board."))
+			to_chat(holder, SPAN_ALERT("An emergency evacuation shuttle has arrived in the hangar to extract the crew of [SSatlas.current_map.station_name]. It will depart in approximately two minutes. Please do not allow [holder] to board."))
 
 		if(5)
 			sound_to(holder, 'sound/AI/vermin.ogg')

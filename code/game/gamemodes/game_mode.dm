@@ -277,9 +277,9 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(display_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 
 	var/welcome_delay = rand(waittime_l, waittime_h)
-	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
+	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
 
-	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
+	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -347,7 +347,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 /datum/game_mode/proc/declare_completion()
 
 	var/is_antag_mode = (antag_templates && antag_templates.len)
-	var/discord_text = "A round of **[name]** has ended! \[Game ID: [game_id]\]\n\n"
+	var/discord_text = "A round of **[name]** has ended! \[Game ID: [GLOB.round_id]\]\n\n"
 	var/antag_text = ""
 	check_victory()
 	if(is_antag_mode)
@@ -407,7 +407,7 @@ GLOBAL_LIST_EMPTY(additional_antag_types)
 	to_world(text)
 
 	SSdiscord.send_to_announce(discord_text)
-	SSdiscord.post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
+	SSdiscord.post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=GLOB.round_id, "antags"=antag_text))
 
 	if(clients > 0)
 		feedback_set("round_end_clients", clients)

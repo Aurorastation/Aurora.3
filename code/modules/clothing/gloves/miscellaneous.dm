@@ -67,9 +67,9 @@
 	pickup_sound = 'sound/items/pickup/rubber.ogg'
 	var/balloon = /obj/item/toy/balloon/latex
 
-/obj/item/clothing/gloves/latex/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/C = O
+/obj/item/clothing/gloves/latex/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/cable_coil))
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(C.use(1))
 			var/obj/item/L = new src.balloon
 			user.drop_from_inventory(L,get_turf(src))
@@ -85,6 +85,7 @@
 	icon_state = "nitrile"
 	item_state = "nitrile"
 	balloon = /obj/item/toy/balloon/latex/nitrile
+	anomaly_protection = 0.1
 
 /obj/item/clothing/gloves/latex/nitrile/unathi
 	name = "unathi nitrile gloves"
@@ -209,7 +210,7 @@
 	attack_verb = list("punched", "beaten", "struck")
 	siemens_coefficient = 1
 	fingerprint_chance = 100
-	force = 5
+	force = 11
 	punch_force = 5
 	clipped = 1
 	matter = list(DEFAULT_WALL_MATERIAL = 1000)
@@ -225,7 +226,7 @@
 	attack_verb = list("whacked", "fisted", "power-punched")
 	siemens_coefficient = 1
 	fingerprint_chance = 50
-	force = 5
+	force = 11
 	punch_force = 10
 	clipped = 1
 	species_restricted = list("exclude",BODYTYPE_GOLEM,BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
@@ -266,7 +267,7 @@
 		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 1
-	force = 5
+	force = 11
 	punch_force = 10
 	clipped = 1
 	sharp = 1
@@ -335,10 +336,10 @@
 			spark(user, 3, GLOB.alldirs)
 			mounted.Fire(L, user)
 
-/obj/item/clothing/gloves/ballistic/attackby(obj/item/W, mob/user)
+/obj/item/clothing/gloves/ballistic/attackby(obj/item/attacking_item, mob/user)
 	..()
 	if(mounted)
-		mounted.load_ammo(W, user)
+		mounted.load_ammo(attacking_item, user)
 		return
 
 /obj/item/clothing/gloves/ballistic/verb/unload_shells()

@@ -684,6 +684,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a sleek grey coloration strip, denoting the owner as having been a standard investigator."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret"
 	item_state = "tic_card_ret"
 
@@ -691,6 +694,9 @@
 	name = "retired tribunal investigator card"
 	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
 			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
 	icon_state = "tic_card_ret_alt"
 	item_state = "tic_card_ret_alt"
 

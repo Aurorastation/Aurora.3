@@ -28,7 +28,7 @@ var/religion_name = null
 	return capitalize(name)
 
 /proc/world_name(var/name)
-	current_map.station_name = name
+	SSatlas.current_map.station_name = name
 
 	if (GLOB.config && GLOB.config.server_name)
 		world.name = "[GLOB.config.server_name]: [name]"

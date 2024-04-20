@@ -385,3 +385,25 @@
 	filling_color = "#74812c"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3))
+
+/obj/item/reagent_containers/food/snacks/fries_olympia_with_cheese
+	name = "fries olympia with cheese"
+	gender = PLURAL
+	desc = "A simple Martian street food dish of crispy spiral-cut potatoes that are cut in two, deep fried, coated in paprika, and optionally covered in molten cheese. This is the cheesy version! It is sometimes called 'Chips Olympia', especially after 'Fries Olympia' became the punch line to a bunch of dark jokes about Violet Dawn."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "fries_olympia_cheesy"
+	filling_color = "#c0871d"
+	bitesize = 3
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride/oil = 1.2, /singleton/reagent/capsaicin = 2, /singleton/reagent/nutriment/protein/cheese = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("crispy potato" = 5), /singleton/reagent/capsaicin = list("paprika" = 5))
+
+/obj/item/reagent_containers/food/snacks/fries_olympia
+	name = "fries olympia"
+	gender = PLURAL
+	desc = "A simple Martian street food dish of crispy spiral-cut potatoes that are cut in two, deep fried, coated in paprika, and optionally covered in molten cheese. This is the non-cheesy version! It is sometimes called 'Chips Olympia', especially after 'Fries Olympia' became the punch line to a bunch of dark jokes about Violet Dawn."
+	icon = 'icons/obj/item/reagent_containers/food/fryer.dmi'
+	icon_state = "fries_olympia_no_cheese"
+	filling_color = "#c0871d"
+	bitesize = 3
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/nutriment/triglyceride/oil = 1.2, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("crispy potato" = 5), /singleton/reagent/capsaicin = list("paprika" = 5))

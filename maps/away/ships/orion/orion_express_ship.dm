@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/orion_express_ship
 	name = "Orion Express Mobile Station"
 	description = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
-	suffixes = list("ships/orion/orion_express_ship.dmm")
+
+	prefix = "ships/orion/"
+	suffixes = list("orion_express_ship.dmm")
+
 	sectors = list(ALL_CORPORATE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
@@ -10,13 +13,12 @@
 
 	unit_test_groups = list(3)
 
-
 /singleton/submap_archetype/orion_express_ship
 	map = "Orion Express Mobile Station"
 	descriptor = "The Traveler-class mobile station is a relatively old design, but nonetheless venerable and one of the building blocks of interstellar commerce. While relatively small, is a treasured asset in the Orion Express corporation's fleet, and has been referred to as “the gas station of the stars”, offering food, supplies, and fuel to anyone who may need it."
 //areas
 /area/ship/orion
-	name = "Orion Express Courier Ship"
+	name = "Orion Express Courier Ship (parent type, do not use!)"
 	requires_power = TRUE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
@@ -26,62 +28,85 @@
 /area/ship/orion/engie
 	name = "Engineering"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "engineering"
 
 /area/ship/orion/atmos
 	name = "Atmospherics"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "atmos"
 
 /area/ship/orion/cargo
 	name = "Cargo Bay"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "quartloading"
 
 /area/ship/orion/mainhall
 	name = "Main Hallway"
 	ambience = AMBIENCE_GENERIC
-
-/area/ship/orion/forehall
-	name = "Lobby"
-	ambience = AMBIENCE_GENERIC
+	icon_state = "hallC"
 
 /area/ship/orion/crew
 	name = "Crew Quarters"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "crew_quarters"
 
 /area/ship/orion/captain
 	name = "Captain's Office"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "captain"
 
 /area/ship/orion/bridge
 	name = "Platform Command Center"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "bridge"
 
 /area/ship/orion/comms
 	name = "Telecommunications"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "tcomsatcham"
 
 /area/ship/orion/forehall
 	name = "Cafeteria"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "lounge"
 
 /area/ship/orion/shop
 	name = "Commissary"
 	ambience = AMBIENCE_GENERIC
+	icon_state = "blue"
 
 /area/ship/orion/thruster1
 	name = "Thruster Pod 1"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "engine"
 
 /area/ship/orion/thruster2
 	name = "Thruster Pod 2"
 	ambience = AMBIENCE_MAINTENANCE
+	icon_state = "engine"
 
 // Shuttle
-/area/shuttle/orion_shuttle
+/area/shuttle/orion_shuttle/
 	requires_power = TRUE
 	name = "Orion Courier Shuttle"
 	icon_state = "shuttle2"
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
+/area/shuttle/orion_shuttle/storage
+	name = "Storage Compartment"
+	ambience = AMBIENCE_GENERIC
+
+/area/shuttle/orion_shuttle/cockpit
+	name = "Cockpit"
+	ambience = AMBIENCE_GENERIC
+
+/area/shuttle/orion_shuttle/portthrust
+	name = "Port Nacelle"
+	ambience = AMBIENCE_MAINTENANCE
+
+/area/shuttle/orion_shuttle/starboardthrust
+	name = "Starboard Nacelle"
+	ambience = AMBIENCE_MAINTENANCE
 
 //ship stuff
 
@@ -174,7 +199,7 @@
 /datum/shuttle/autodock/overmap/orion_express_shuttle
 	name = "Orion Express Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/orion_shuttle)
+	shuttle_area = list(/area/shuttle/orion_shuttle/cockpit, /area/shuttle/orion_shuttle/portthrust, /area/shuttle/orion_shuttle/storage, /area/shuttle/orion_shuttle/starboardthrust)
 	current_location = "nav_hangar_orion_express"
 	landmark_transition = "nav_transit_orion_express"
 	range = 1
@@ -187,8 +212,8 @@
 	name = "Orion Express Shuttle Hangar"
 	landmark_tag = "nav_hangar_orion_express"
 	docking_controller = "orion_traveler_n_port"
-	base_area = /area/ship/orion
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/orion_express_shuttle/transit

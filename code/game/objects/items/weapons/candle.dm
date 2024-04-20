@@ -27,18 +27,18 @@
 	icon_state = "candle[i][lit ? "_lit" : ""]"
 
 
-/obj/item/flame/candle/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/flame/candle/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
-			to_chat(user, SPAN_NOTICE("\The [user] casually lights \the [name] with [W]."))
-	else if(W.isFlameSource())
+			to_chat(user, SPAN_NOTICE("\The [user] casually lights \the [name] with [attacking_item]."))
+	else if(attacking_item.isFlameSource())
 		light()
 		to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
-	else if(istype(W, /obj/item/flame/candle))
-		var/obj/item/flame/candle/C = W
+	else if(istype(attacking_item, /obj/item/flame/candle))
+		var/obj/item/flame/candle/C = attacking_item
 		if(C.lit)
 			light()
 			to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))

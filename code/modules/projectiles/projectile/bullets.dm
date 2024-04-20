@@ -266,6 +266,10 @@
 		T.part = organ
 		LAZYADD(organ.implants, T)
 
+/obj/item/projectile/bullet/shotgun/moghes
+	name = "wall shot"
+	secondary_projectile = /obj/item/projectile/bullet/pellet/shotgun/canister
+
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
 /obj/item/projectile/bullet/pellet/shotgun
@@ -432,6 +436,7 @@
 	icon = 'icons/obj/terminator.dmi'
 	icon_state = "flechette_bullet"
 	damage = 40
+	armor_penetration = 15
 	damage_type = DAMAGE_BRUTE
 	check_armor = "bullet"
 	embed = 1
@@ -444,6 +449,7 @@
 	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
+	armor_penetration = 60
 
 /obj/item/projectile/bullet/gauss
 	name = "slug"

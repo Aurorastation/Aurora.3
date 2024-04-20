@@ -28,6 +28,7 @@
   "log_manifest":1,
   "log_subsystems":1,
   "log_subsystems_chemistry":1,
+  "log_subsystems_codex":1,
   "log_subsystems_atlas":1,
   "log_subsystems_ghostroles":1,
   "log_subsystems_law":1,

@@ -21,6 +21,6 @@
 
 	// Here goes listification
 	if(!data["reactions"])
-		data["reactions"] = SSchemistry.codex_data
+		data["reactions"] = SScodex.chemistry_codex_data
 
 	return data

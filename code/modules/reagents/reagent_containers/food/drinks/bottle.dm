@@ -11,7 +11,7 @@
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
-	force = 5
+	force = 11
 	hitsound = /singleton/sound_category/bottle_hit_intact_sound
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
@@ -86,12 +86,12 @@
 	qdel(src)
 	return B
 
-/obj/item/reagent_containers/food/drinks/bottle/attackby(obj/item/W, mob/user)
-	if(!rag && istype(W, /obj/item/reagent_containers/glass/rag))
-		insert_rag(W, user)
+/obj/item/reagent_containers/food/drinks/bottle/attackby(obj/item/attacking_item, mob/user)
+	if(!rag && istype(attacking_item, /obj/item/reagent_containers/glass/rag))
+		insert_rag(attacking_item, user)
 		return
-	if(rag && W.isFlameSource())
-		rag.attackby(W, user)
+	if(rag && attacking_item.isFlameSource())
+		rag.attackby(attacking_item, user)
 		return
 	..()
 
@@ -229,7 +229,7 @@
 	desc = "A bottle with a sharp broken bottom."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "broken_bottle"
-	force = 9
+	force = 20
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5
@@ -355,16 +355,16 @@
 	if(do_after(user, 1 SECONDS, src))
 		return open(user, sabrage = FALSE, froth_severity = pick(0, 1))
 
-/obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/W, mob/user)
+/obj/item/reagent_containers/food/drinks/bottle/champagne/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 
 	if(is_open_container())
 		return ..()
 
-	if(!has_edge(W))
+	if(!has_edge(attacking_item))
 		return
 
-	if(W.force < 5)
+	if(attacking_item.force < 5)
 		balloon_alert(user, "not strong enough!")
 		return
 
@@ -378,7 +378,7 @@
 
 	var/job_bonus = user.mind?.assigned_role == "Bartender" ? 25 : 0
 
-	var/sabrage_chance = (W.force * sabrage_success_percentile) + command_bonus + job_bonus
+	var/sabrage_chance = (attacking_item.force * sabrage_success_percentile) + command_bonus + job_bonus
 
 	if(prob(sabrage_chance))
 		///Severity of the resulting froth to pass to make_froth()
@@ -953,6 +953,43 @@
 	icon_state = "valokkiwinebottle"
 	center_of_mass = list("x"=16, "y"=5)
 	reagents_to_add = list(/singleton/reagent/alcohol/wine/valokki = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive
+	name = "2275 Classic"
+	desc = "A bottle of Xanan mid-range brandy."
+	desc_extended = "The Xanan brandy industry boasts a rich history, centered around the unique climatological conditions of Foy-Niljen brandy country. The 2275's main claim to fame is the Stag Hunt cocktail, \
+	the most popular cocktail on Xanu Prime and one of the most consumed in the entire Coalition. It is often said that to make a Stag Hunt without 2275 is to visit the Coalition without seeing Xanu Prime."
+	icon_state = "2275bottle"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/singleton/reagent/alcohol/twentytwo = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/saintjacques
+	name = "Saint-Jacques Black Label"
+	desc = "An expensive bottle of Saint-Jacques Black Label, a Xanan luxury cognac."
+	desc_extended = "The Xanan brandy industry boasts a rich history, centered around the unique climatological conditions of Foy-Niljen brandy country. None hold a candle to the sheer quality- or sheer price- of \
+	the highly esteemed Saint-Jacques Black Label, a limited-quantity cognac with a price point somewhere around a small hovercar on a middlingly populated world. Some say it can only be distilled on the yearly anniversary of the formation \
+	of the Frontier Alliance; others that each bottle is personally inspected by a panel of Xanan artisans."
+	icon_state = "stjacquesbottle"
+	center_of_mass = list("x"=16, "y"=5)
+	reagents_to_add = list(/singleton/reagent/alcohol/saintjacques = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/bestblend
+	name = "Mahendru's Best Blend"
+	desc = "A jar of sugarcane juice. Apple flavored!"
+	desc_extended = "Popular in Xanan circles, sugarcane juice competes with tea for the refreshment of choice at summertime gatherings and in the Republic's fridges. Some consider it more 'posh' and 'artisanal', which Mahendru's Best Blend \
+	encourages with a glass 'mason jar' design and a lid of authentic Xanan cork."
+	icon_state = "sugarcanejuice"
+	volume = 45
+	reagents_to_add = list(/singleton/reagent/drink/sugarcane = 45)
+
+/obj/item/reagent_containers/food/drinks/bottle/feni
+	name = "Morale Supplement VII Feni, Standard, Type I"
+	desc = "A bottle of Gadpathurian liquor, issued and manufactured by the United Planetary Defense Council. By nature, this is probably surplus."
+	desc_extended = "The product of several decades of research by a half-dozen different cadres, Morale Supplement VII- Feni, Standard- was adopted by decree of the United Planetary Defense Councils Board of Quartermasters for use in purposes \
+	relating to celebration, morale improvement, or deployment extension. All non-medical personnel are entitled to one twenty-unit serving of the drink, often regarded as 'Supplement Seven', per celebratory period. It remains an obscure drink \
+	outside Gadpathur, not by virtue of its rarity- several thousand bottles are sold off as surplus to fund the UPDCG every year- but by being an extremely acquired taste."
+	icon_state = "fenibottle"
+	reagents_to_add = list(/singleton/reagent/alcohol/feni = 100)
 
 /obj/item/reagent_containers/food/drinks/bottle/hooch
 	name = "hooch bottle"

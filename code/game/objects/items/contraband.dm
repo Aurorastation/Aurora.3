@@ -124,10 +124,10 @@
 	w_class = ITEMSIZE_TINY
 	volume = 50
 
-/obj/item/reagent_containers/powder/examine(mob/user)
+/obj/item/reagent_containers/powder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(reagents)
-		to_chat(user, SPAN_NOTICE("There's about [reagents.total_volume] unit\s here."))
+		. += SPAN_NOTICE("There's about [reagents.total_volume] unit\s here.")
 
 /obj/item/reagent_containers/powder/Initialize()
 	. = ..()
@@ -139,8 +139,8 @@
 
 // Proc to shove them up your nose
 
-/obj/item/reagent_containers/powder/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/paper/cig) || istype(W, /obj/item/spacecash))
+/obj/item/reagent_containers/powder/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper/cig) || istype(attacking_item, /obj/item/spacecash))
 		var/mob/living/carbon/human/H = user
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
@@ -151,16 +151,16 @@
 			return TRUE
 
 		user.visible_message(
-			SPAN_WARNING("\The [user] starts to snort some of \the [src] with \a [W]!"),
-			SPAN_NOTICE("You start to snort some of \the [src] with \the [W]!")
+			SPAN_WARNING("\The [user] starts to snort some of \the [src] with \a [attacking_item]!"),
+			SPAN_NOTICE("You start to snort some of \the [src] with \the [attacking_item]!")
 		)
 		playsound(loc, 'sound/effects/snort.ogg', 50, 1)
 		if (!do_after(user, 2 SECONDS))
 			return TRUE
 
 		user.visible_message(
-			SPAN_WARNING("\The [user] snorts some of \the [src] with \a [W]!"),
-			SPAN_NOTICE("You snort \the [src] with \the [W]!")
+			SPAN_WARNING("\The [user] snorts some of \the [src] with \a [attacking_item]!"),
+			SPAN_NOTICE("You snort \the [src] with \the [attacking_item]!")
 		)
 		playsound(loc, 'sound/effects/snort.ogg', 50, 1)
 

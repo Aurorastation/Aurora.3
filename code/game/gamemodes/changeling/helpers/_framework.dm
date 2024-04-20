@@ -97,7 +97,8 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 	var/mob/living/carbon/human/H = src
 	if(istype(H))
-		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages, H.height, H.gender, H.pronouns, H.accent)
+		var/datum/hair_gradient/newGradient = new(H.g_style, H.r_grad, H.g_grad, H.b_grad)
+		var/datum/absorbed_dna/newDNA = new(H.real_name, H.dna, H.species.get_cloning_variant(), H.languages, H.height, H.gender, H.pronouns, H.accent, newGradient)
 		absorbDNA(newDNA)
 		changeling.mimiced_accent = H.accent
 
@@ -203,6 +204,18 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 
 //DNA related datums
 
+/datum/hair_gradient
+	var/style
+	var/red
+	var/green
+	var/blue
+
+/datum/hair_gradient/New(var/newStyle, var/newRed, var/newGreen, var/newBlue)
+	style = newStyle
+	red = newRed
+	green = newGreen
+	blue = newBlue
+
 /datum/absorbed_dna
 	var/name
 	var/datum/dna/dna
@@ -212,8 +225,9 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	var/gender
 	var/pronouns
 	var/accent
+	var/datum/hair_gradient/hairGradient
 
-/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages, var/newHeight, var/newGender, var/newPronouns, var/newAccent)
+/datum/absorbed_dna/New(var/newName, var/newDNA, var/newSpecies, var/newLanguages, var/newHeight, var/newGender, var/newPronouns, var/newAccent, var/newGradient)
 	..()
 	name = newName
 	dna = newDNA
@@ -223,7 +237,7 @@ var/global/list/possible_changeling_IDs = list("Alpha","Beta","Gamma","Delta","E
 	gender = newGender
 	pronouns = newPronouns
 	accent = newAccent
-
+	hairGradient = newGradient
 //Helper for stingcode
 
 /mob/proc/sting_can_reach(mob/M as mob, sting_range = 1)

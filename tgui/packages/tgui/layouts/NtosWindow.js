@@ -10,7 +10,7 @@ import { Box, Button } from '../components';
 import { Window } from './Window';
 
 export const NtosWindow = (props, context) => {
-  let { title, width = 575, height = 700, children } = props;
+  let { title, width = 575, height = 700, children, theme } = props;
   const { config, act, data } = useBackend(context);
   const {
     PC_device_theme,
@@ -31,7 +31,11 @@ export const NtosWindow = (props, context) => {
     height = config.window.size[1];
   }
   return (
-    <Window title={title} width={width} height={height} theme={PC_device_theme}>
+    <Window
+      title={title}
+      width={width}
+      height={height}
+      theme={theme ? theme : PC_device_theme}>
       <div className="NtosWindow">
         <div className="NtosWindow__header NtosHeader">
           <div className="NtosHeader__left">

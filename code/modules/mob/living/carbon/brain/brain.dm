@@ -22,7 +22,6 @@
 		ghostize()		//Ghostize checks for key so nothing else is necessary.
 	container = null
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/brain/IsAdvancedToolUser() // to be able to use weapons when piloting a hardsuit
 	return TRUE

@@ -65,7 +65,7 @@
 	log_data["long_message"] = html_encode(long_message)
 	log_data["level"] = level
 	log_data["_category"] = category
-	log_data["_game_id"] = game_id
+	log_data["_game_id"] = GLOB.round_id
 
 	log_data.Add(additional_data)
 	var/gelf_log = json_encode(log_data)

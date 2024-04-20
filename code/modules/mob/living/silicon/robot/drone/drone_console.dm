@@ -66,7 +66,7 @@
 				if(A.station_area)
 					call_area_names += A.name
 		//Probably should consider using another list, but this one will do.
-		var/t_area = input(usr, "Select the area to ping.", "Set Target Area") as null|anything in call_area_names
+		var/t_area = tgui_input_list(usr, "Select the area to ping.", "Set Target Area", call_area_names)
 
 		if(!t_area)
 			return

@@ -70,7 +70,8 @@
 			ORE_IRON = list(2, 4),
 			ORE_GOLD = list(0, 2),
 			ORE_SILVER = list(0, 2),
-			ORE_URANIUM = list(0, 2)
+			ORE_URANIUM = list(0, 2),
+			ORE_BAUXITE = list(1, 3)
 		),
 		RARE_ORES = list(
 			ORE_GOLD = list(1, 3),
@@ -355,3 +356,5 @@
 				M.UpdateMineral() // It's already a mineral turf, so we can avoid changeturf here
 
 /datum/exoplanet_theme/proc/get_planet_image_extra()
+
+/datum/exoplanet_theme/proc/after_map_generation(obj/effect/overmap/visitable/sector/exoplanet/E) //after the map is generated and ruins exist

@@ -52,8 +52,8 @@ Deployable Kits
 	if(!check_dismantle())
 		visible_message(SPAN_WARNING("\The [src] is hit by \the [P]!"))
 
-/obj/structure/blocker/attackby(obj/item/W, mob/user)
-	if(W.ishammer() && user.a_intent != I_HURT)
+/obj/structure/blocker/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ishammer() && user.a_intent != I_HURT)
 		var/obj/item/I = usr.get_inactive_hand()
 		if(I && istype(I, /obj/item/stack))
 			var/obj/item/stack/D = I
@@ -72,13 +72,13 @@ Deployable Kits
 			return TRUE
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if(DAMAGE_BURN)
-				src.health -= W.force * 1
+				src.health -= attacking_item.force * 1
 			if(DAMAGE_BRUTE)
-				src.health -= W.force * 0.75
+				src.health -= attacking_item.force * 0.75
 		shake_animation()
-		playsound(src.loc, material.hitsound, W.get_clamped_volume(), 1)
+		playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
 		if(check_dismantle())
 			return TRUE
 		return ..()
@@ -150,8 +150,8 @@ Deployable Kits
 
 	src.icon_state = "[initial(icon_state)][src.locked]"
 
-/obj/machinery/deployable/barrier/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/card/id/))
+/obj/machinery/deployable/barrier/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/card/id/))
 		if (src.allowed(user))
 			if	(src.emagged < 2.0)
 				src.locked = !src.locked
@@ -168,7 +168,7 @@ Deployable Kits
 				visible_message("<span class='warning'>BZZzZZzZZzZT</span>")
 				return
 		return
-	else if (W.iswrench())
+	else if (attacking_item.iswrench())
 		if (src.health < src.maxhealth)
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			src.health = src.maxhealth
@@ -185,11 +185,11 @@ Deployable Kits
 		return
 	else
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if("fire")
-				src.health -= W.force * 0.75
+				src.health -= attacking_item.force * 0.75
 			if("brute")
-				src.health -= W.force * 0.5
+				src.health -= attacking_item.force * 0.5
 
 		if (src.health <= 0)
 			src.explode()

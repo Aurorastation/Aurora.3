@@ -1,12 +1,13 @@
 // This file controls round-start runtime maploading.
 
-var/datum/map/current_map	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
-
 SUBSYSTEM_DEF(atlas)
 	name = "Atlas"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MAPLOAD
+	init_order = INIT_ORDER_MAPPING
 	init_stage = INITSTAGE_EARLY
+
+	// Whatever map is currently loaded. Null until SSatlas Initialize() starts.
+	var/datum/map/current_map
 
 	var/list/known_maps = list()
 	var/dmm_suite/maploader
@@ -209,6 +210,8 @@ SUBSYSTEM_DEF(atlas)
 	else
 		current_sector = selected_sector
 
+	current_sector.setup_current_sector()
+
 	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/atlas/proc/load_map_directory(directory, overwrite_default_z = FALSE)
@@ -299,6 +302,18 @@ SUBSYSTEM_DEF(atlas)
 	if (!possible_sectors.len)
 		crash_with("No space sectors located in SSatlas.")
 
+/// Checks if today is a Port of Call day at current_sector.
+/// Returns FALSE if no port_of_call defined in current_map.ports_of_call, or if today is not listed as a Port of Call day in current_sector.scheduled_port_visits
+/datum/controller/subsystem/atlas/proc/is_port_call_day()
+	if(!current_map || !current_sector)
+		return FALSE
+	if(current_map.ports_of_call && length(current_sector.scheduled_port_visits))
+		/// Get today
+		var/today = GLOB.all_days[GLOB.all_days.Find(time2text(world.realtime, "Day"))]
+		if(today in current_sector.scheduled_port_visits) //checks if today is a port of call day
+			return TRUE
+	return FALSE
+
 // Called when there's a fatal, unrecoverable error in mapload. This reboots the server.
 /world/proc/map_panic(reason)
 	to_chat(world, "<span class='danger'>Fatal error during map setup, unable to continue! Server will reboot in 60 seconds.</span>")
@@ -307,8 +322,8 @@ SUBSYSTEM_DEF(atlas)
 	world.Reboot()
 
 /proc/station_name()
-	ASSERT(current_map)
-	. = current_map.station_name
+	ASSERT(SSatlas.current_map)
+	. = SSatlas.current_map.station_name
 
 	var/sname
 	if (GLOB.config && GLOB.config.server_name)
@@ -321,5 +336,5 @@ SUBSYSTEM_DEF(atlas)
 		world.log <<  "Set world.name to [sname]."
 
 /proc/commstation_name()
-	ASSERT(current_map)
-	return current_map.dock_name
+	ASSERT(SSatlas.current_map)
+	return SSatlas.current_map.dock_name

@@ -39,9 +39,7 @@
 	if(!.)
 		return
 
-	var/has_line_of_sight = FALSE
-	SPATIAL_CHECK_LOS(has_line_of_sight, user, victim, world.view)
-	if(!has_line_of_sight)
+	if(!is_in_sight(user, victim))
 		to_chat(user, SPAN_WARNING("You don't have a direct line of sight to \the [victim]!"))
 		return
 
@@ -65,9 +63,7 @@
 
 	var/mob/living/M = hit_atom
 
-	var/has_line_of_sight = FALSE
-	SPATIAL_CHECK_LOS(has_line_of_sight, user, M, world.view)
-	if(!has_line_of_sight)
+	if(!is_in_sight(user, M))
 		to_chat(user, SPAN_WARNING("You don't have a direct line of sight to \the [M]!"))
 		return
 

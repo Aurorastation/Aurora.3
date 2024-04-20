@@ -54,7 +54,7 @@ var/global/datum/getrev/revdata = new()
 	else
 		to_chat(src, "Revision unknown")
 
-	to_chat(src, "<b>Current Map:</b> [current_map.full_name]")
+	to_chat(src, "<b>Current Map:</b> [SSatlas.current_map.full_name]")
 
 /datum/getrev/proc/testmerge_overview()
 	if (!test_merges.len)

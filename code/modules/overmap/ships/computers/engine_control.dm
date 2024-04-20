@@ -77,7 +77,7 @@
 
 	if(href_list["set_global_limit"])
 		var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", connected.thrust_limit*100, 100, 0)
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return TOPIC_NOACTION
 		connected.thrust_limit = Clamp(newlim/100, 0, 1)
 		for(var/datum/ship_engine/E in connected.engines)
@@ -94,7 +94,7 @@
 		if(href_list["set_limit"])
 			var/datum/ship_engine/E = locate(href_list["engine"])
 			var/newlim = tgui_input_number(usr, "Input the new thrust limit.", "Thrust Limit", E.get_thrust_limit(), 100, 0)
-			if(!CanInteract(usr, physical_state))
+			if(!CanInteract(usr, GLOB.physical_state))
 				return
 			var/limit = Clamp(newlim/100, 0, 1)
 			if(istype(E))

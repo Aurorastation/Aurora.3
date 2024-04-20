@@ -8,7 +8,7 @@
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	caliber = "14.5mm"
@@ -147,7 +147,7 @@
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
 	caliber = "PPS"
@@ -173,7 +173,7 @@
 		icon_state = "tranqsniper"
 
 /obj/item/gun/projectile/dragunov
-	name = "marksman rifle"
+	name = "adhomian marksman rifle"
 	desc = "A semi-automatic marksman rifle."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
@@ -183,7 +183,7 @@
 	The rifle is commonly issued to the feared Das'nrra Marksmen."
 
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	caliber = "a762"
@@ -236,7 +236,7 @@
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
 	caliber = "a556"

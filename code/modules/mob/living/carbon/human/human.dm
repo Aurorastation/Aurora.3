@@ -127,11 +127,20 @@
 	QDEL_NULL(l_store)
 	QDEL_NULL(s_store)
 	QDEL_NULL(wear_suit)
+	QDEL_NULL(wear_mask)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
+	//Yes this is shit, but since someone had the brillant mind to use images for this, we must suffer
+	if(length(hud_list))
+		for(var/image/hud_overlay/an_hud_overlay in hud_list)
+			if(an_hud_overlay.owner)
+				an_hud_overlay.owner.client?.images -= an_hud_overlay
+			an_hud_overlay.owner = null
+			qdel(an_hud_overlay)
+		hud_list = null
+
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
@@ -419,7 +428,7 @@
 //Returns "Unknown" if facially disfigured and real_name if not. Useful for setting name when polyacided or when updating a human's name variable
 /mob/living/carbon/human/proc/get_face_name()
 	var/obj/item/organ/external/head = get_organ(BP_HEAD)
-	if(!head || head.disfigured || head.is_stump() || !real_name || HAS_FLAG(mutations, HUSK))	//disfigured. use id-name if possible
+	if(!head || head.disfigured || head.is_stump() || !real_name || (mutations & HUSK))	//disfigured. use id-name if possible
 		return "Unknown"
 	return real_name
 
@@ -576,7 +585,7 @@
 									U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
@@ -591,15 +600,16 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr,"security"))
-					to_chat(usr, "<b>Name:</b> [R.name]")
-					to_chat(usr, "<b>Criminal Status:</b> [R.security.criminal]")
-					to_chat(usr, "<b>Crimes:</b> [R.security.crimes]")
-					to_chat(usr, "<b>Notes:</b> [R.security.notes]")
-					to_chat(usr, "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>")
+					var/message = "<b>Security Records: [R.name]</b>\n\n" \
+						+ "<b>Criminal Status:</b> [R.security.criminal]\n" \
+						+ "<b>Crimes:</b> [R.security.crimes]\n" \
+						+ "<b>Notes:</b> [R.security.notes]\n" \
+						+ "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_RED(message))
 					read = 1
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
@@ -614,16 +624,18 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr, "security"))
+					var/message = "<b>Security Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.security.comments.len > 0)
 						for(var/comment in R.security.comments)
-							to_chat(usr, comment)
+							message += comment + "\n\n"
 					else
-						to_chat(usr, "No comments found")
-					to_chat(usr, "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>")
+						message += "No comments found.\n"
+					message += "<a href='?src=\ref[src];secrecordadd=`'>\[Add Comment\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_RED(message))
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
@@ -675,7 +687,7 @@
 								U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
@@ -690,15 +702,17 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				if(hasHUD(usr, "medical"))
-					to_chat(usr, "<b>Name:</b> [R.name]	<b>Blood Type:</b> [R.medical.blood_type]")
-					to_chat(usr, "<b>DNA:</b> [R.medical.blood_dna]")
-					to_chat(usr, "<b>Disabilities:</b> [R.medical.disabilities]")
-					to_chat(usr, "<b>Notes:</b> [R.medical.notes]")
-					to_chat(usr, "<a href='?src=\ref[src];medrecordComment=`'>\[View Comment Log\]</a>")
+					var/message = "<b>Medical Records: [R.name]</b>\n\n" \
+						+ "<b>Name:</b> [R.name] <b>Blood Type:</b> [R.medical.blood_type]\n" \
+						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
+						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
+						+ "<b>Notes:</b> [R.medical.notes]\n" \
+						+ "<a href='?src=\ref[src];medrecordComment=`'>\[View Comment Log\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 					read = 1
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
@@ -713,16 +727,18 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				if(hasHUD(usr, "medical"))
+					var/message = "<b>Medical Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.medical.comments.len > 0)
 						for(var/comment in R.medical.comments)
-							to_chat(usr, comment)
+							message += comment + "\n\n"
 					else
-						to_chat(usr, "No comments found")
-					to_chat(usr, "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>")
+						message += "No comments found.\n"
+					message += "<a href='?src=\ref[src];medrecordadd=`'>\[Add Comment\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
@@ -791,6 +807,15 @@
 				flavor_texts[href_list["flavor_change"]] = msg
 				set_flavor()
 				return
+
+	if (href_list["metadata"])
+		var/message = "<b>OOC Notes: [name]</b>" \
+			+ "\n\n" \
+			+ client.prefs.metadata \
+			+ "\n\n" \
+			+ SPAN_WARNING("Remember, this is OOC information.")
+		to_chat(usr, EXAMINE_BLOCK(message))
+
 	..()
 	return
 
@@ -957,16 +982,17 @@
 			if((species.gluttonous & GLUT_PROJECTILE_VOMIT) && !vomitReceptacle)
 				M.throw_at(get_edge_target_turf(src,dir),7,7,src)
 
-	if(stomach.ingested.total_volume)
-		stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
-	for(var/obj/item/organ/internal/parasite/P in src.internal_organs)
-		if(P)
-			if(P.egg && (P.stage == P.max_stage))
-				splat.reagents.add_reagent(P.egg, 2)
-	handle_additional_vomit_reagents(splat)
-	splat.update_icon()
+	if(istype(splat))
+		if(stomach.ingested.total_volume)
+			stomach.ingested.trans_to_obj(splat, min(15, stomach.ingested.total_volume))
+		for(var/obj/item/organ/internal/parasite/P in src.internal_organs)
+			if(P)
+				if(P.egg && (P.stage == P.max_stage))
+					splat.reagents.add_reagent(P.egg, 2)
+		handle_additional_vomit_reagents(splat)
+		splat.update_icon()
 
-	playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
+		playsound(get_turf(src), 'sound/effects/splat.ogg', 50, 1)
 
 /mob/living/carbon/human/proc/vomit(var/timevomit = 1, var/level = 3, var/deliberate = FALSE)
 
@@ -1003,7 +1029,7 @@
 	lastpuke = FALSE
 
 // A damaged stomach can put blood in your vomit.
-/mob/living/carbon/human/handle_additional_vomit_reagents(var/obj/effect/decal/cleanable/vomit/vomit)
+/mob/living/carbon/human/handle_additional_vomit_reagents(obj/effect/decal/cleanable/vomit/vomit)
 	..()
 	if(should_have_organ(BP_STOMACH))
 		var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
@@ -1025,7 +1051,7 @@
 		remoteview_target = null
 		return
 
-	if(NOT_FLAG(mutations, mMorph))
+	if(!(mutations & mMorph))
 		remove_verb(src, /mob/living/carbon/human/proc/morph)
 		return
 
@@ -1106,7 +1132,7 @@
 		remoteview_target = null
 		return
 
-	if(NOT_FLAG(mutations, mRemotetalk))
+	if(!(mutations & mRemotetalk))
 		remove_verb(src, /mob/living/carbon/human/proc/remotesay)
 		return
 	var/list/creatures = list()
@@ -1120,7 +1146,7 @@
 		return
 
 	var/say = sanitize(input("What do you wish to say"))
-	if(HAS_FLAG(target.mutations, mRemotetalk))
+	if((target.mutations & mRemotetalk))
 		target.show_message(SPAN_NOTICE("You hear [src.real_name]'s voice: [say]"))
 	else
 		target.show_message(SPAN_NOTICE("You hear a voice that seems to echo around the room: [say]"))
@@ -1138,7 +1164,7 @@
 		reset_view(0)
 		return
 
-	if(NOT_FLAG(mutations, mRemote))
+	if(!(mutations & mRemote))
 		remoteview_target = null
 		reset_view(0)
 		remove_verb(src, /mob/living/carbon/human/proc/remoteobserve)
@@ -1447,10 +1473,9 @@
 	maxHealth = species.total_health
 	health = maxHealth
 
-	spawn(0)
-		regenerate_icons()
-		if (vessel)
-			restore_blood()
+	regenerate_icons()
+	if (vessel)
+		restore_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
@@ -1466,6 +1491,8 @@
 	brute_mod = species.brute_mod
 
 	max_stamina = species.stamina
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+		max_stamina *= 1.1
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
 	sprint_cost_factor = species.sprint_cost_factor
@@ -1500,10 +1527,13 @@
 
 	species.set_default_tail(src)
 
-	if(species.psi_deaf || HAS_FLAG(species.flags, IS_MECHANICAL) || HAS_FLAG(species.flags, NO_SCAN))
+	if(species.psi_deaf || (species.flags & IS_MECHANICAL) || (species.flags & NO_SCAN))
 		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
 	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+
+	if(psi && species.character_creation_psi_points && species.has_psionics)
+		psi.psi_points = max(species.character_creation_psi_points - psi.spent_psi_points, 0) //to prevent species-switching for more points
 
 	if(client)
 		client.init_verbs()
@@ -1875,7 +1905,7 @@
 	return ..() * (species ? species.metabolism_mod : 1)
 
 /mob/living/carbon/human/is_clumsy()
-	if(HAS_FLAG(mutations, CLUMSY))
+	if((mutations & CLUMSY))
 		return TRUE
 	if(CE_CLUMSY in chem_effects)
 		return TRUE
@@ -1934,16 +1964,16 @@
 		victim.forceMove(stomach)
 
 /mob/living/carbon/human/need_breathe()
-	if(NOT_FLAG(mutations, mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
+	if(!(mutations & mNobreath) && species.breathing_organ && species.has_organ[species.breathing_organ])
 		return TRUE
 	return FALSE
 
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(FLOOR(species.bp_base_systolic+rand(-5,5))*0.25, FLOOR(species.bp_base_disatolic+rand(-5,5))*0.25)
+		return list(FLOOR(species.bp_base_systolic+rand(-5,5), 1)*0.25, FLOOR(species.bp_base_disatolic+rand(-5,5), 1)*0.25)
 	var/blood_result = get_blood_circulation()
-	return list(FLOOR((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), FLOOR((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
+	return list(FLOOR((species.bp_base_systolic+rand(-5,5))*(blood_result/100), 1), FLOOR((species.bp_base_disatolic+rand(-5,5))*(blood_result/100), 1))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()
