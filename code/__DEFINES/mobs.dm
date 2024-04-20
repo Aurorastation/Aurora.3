@@ -146,39 +146,42 @@
 #define BP_ZOMBIE_PARASITE "black tumour"
 #define BP_WORM_HEART "heart fluke"
 #define BP_WORM_NERVE "nerve fluke"
+#define BP_TUMOUR_NONSPREADING "benign tumour"
+#define BP_TUMOUR_SPREADING "malignant tumour"
 
 //Augment organs
-#define BP_AUG_TIMEPIECE    "integrated timepiece"
-#define BP_AUG_TOOL         "retractable combitool"
-#define BP_AUG_PEN          "retractable combipen"
-#define BP_AUG_CRAYON         "retractable crayon"
-#define BP_AUG_CYBORG_ANALYZER    "retractable cyborg analyzer"
-#define BP_AUG_LIGHTER      "retractable lighter"
-#define BP_AUG_HEALTHSCAN   "integrated health scanner"
-#define BP_AUG_DRILL        "integrated mining drill"
-#define BP_AUG_GUSTATORIAL   "integrated gustatorial centre"
-#define BP_AUG_TESLA        "tesla spine"
-#define BP_AUG_EYE_SENSORS  "integrated eyes sensors"
-#define BP_AUG_HAIR         "synthetic hair extensions"
-#define BP_AUG_CORDS           "synthetic vocal cords"
-#define BP_AUG_COCHLEAR        "cochlear implant"
-#define BP_AUG_SUSPENSION      "calf suspension"
-#define BP_AUG_TASTE_BOOSTER   "taste booster"
-#define BP_AUG_RADIO           "integrated radio"
-#define BP_AUG_FUEL_CELL       "integrated fuel cell"
+#define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
 #define BP_AUG_AIR_ANALYZER    "integrated air analyzer"
-#define BP_AUG_LANGUAGE        "integrated language processor"
-#define BP_AUG_ETHANOL_BURNER  "integrated ethanol burner"
-#define BP_AUG_PSI             "psionic receiver"
 #define BP_AUG_CALF_OVERRIDE   "calf overdrive"
-#define BP_AUG_MEMORY          "memory inhibitor"
+#define BP_AUG_COCHLEAR        "cochlear implant"
+#define BP_AUG_CORDS           "synthetic vocal cords"
+#define BP_AUG_CORRECTIVE_LENS "corrective lenses"
+#define BP_AUG_CRAYON          "retractable crayon"
+#define BP_AUG_CYBORG_ANALYZER "retractable cyborg analyzer"
+#define BP_AUG_DRILL           "integrated mining drill"
 #define BP_AUG_EMOTION         "emotional manipulator"
 #define BP_AUG_ENCHANED_VISION "vision enhanced retinas"
+#define BP_AUG_ETHANOL_BURNER  "integrated ethanol burner"
+#define BP_AUG_EYE_SENSORS     "integrated eyes sensors"
+#define BP_AUG_FUEL_CELL       "integrated fuel cell"
+#define BP_AUG_GLARE_DAMPENER  "glare dampeners"
+#define BP_AUG_GUSTATORIAL     "integrated gustatorial centre"
+#define BP_AUG_HAIR            "synthetic hair extensions"
+#define BP_AUG_HEALTHSCAN      "integrated health scanner"
+#define BP_AUG_LANGUAGE        "integrated language processor"
+#define BP_AUG_LIGHTER         "retractable lighter"
+#define BP_AUG_MAGBOOT         "integrated mag-claws"
+#define BP_AUG_MEMORY          "memory inhibitor"
+#define BP_AUG_PEN             "retractable combipen"
+#define BP_AUG_PSI             "psionic receiver"
+#define BP_AUG_RADIO           "integrated radio"
 #define BP_AUG_SIGHTLIGHTS     "ocular installed sightlights"
-#define BP_AUG_CORRECTIVE_LENS "corrective lenses"
-#define BP_AUG_GLARE_DAMPENER "glare dampeners"
-#define BP_AUG_ACC_CORDS       "modified synthetic vocal cords"
-#define BP_AUG_MAGBOOT		   "integrated mag-claws"
+#define BP_AUG_SUSPENSION      "calf suspension"
+#define BP_AUG_TASTE_BOOSTER   "taste booster"
+#define BP_AUG_TESLA           "tesla spine"
+#define BP_AUG_TIMEPIECE       "integrated timepiece"
+#define BP_AUG_TRANSLATOR      "universal translator"
+#define BP_AUG_TOOL            "retractable combitool"
 
 //Organ defines
 #define PROCESS_ACCURACY 10
@@ -216,10 +219,11 @@
 #define APPEARANCE_EYE_COLOR 				256
 #define APPEARANCE_CULTURE					512
 #define APPEARANCE_LANGUAGE					1024
+#define APPEARANCE_PROSTHETICS				2048
 #define APPEARANCE_ALL						65535
 #define APPEARANCE_ALL_HAIR					(APPEARANCE_HAIR|APPEARANCE_HAIR_COLOR|APPEARANCE_FACIAL_HAIR|APPEARANCE_FACIAL_HAIR_COLOR)
 #define APPEARANCE_PLASTICSURGERY 			(APPEARANCE_ALL & ~APPEARANCE_RACE)
-#define APPEARANCE_SURGERYKIT				(APPEARANCE_PLASTICSURGERY & ~APPEARANCE_LANGUAGE)
+#define APPEARANCE_SURGERYKIT				(APPEARANCE_PLASTICSURGERY & ~APPEARANCE_LANGUAGE & ~ APPEARANCE_PROSTHETICS)
 
 // Click cooldown
 #define DEFAULT_ATTACK_COOLDOWN 8 //Default timeout for aggressive actions
@@ -420,6 +424,13 @@
 #define PROSTHETIC_TESLA "Tesla Powered Prosthetics"
 #define PROSTHETIC_TESLA_BODY "Industrial Tesla Powered Prosthetics"
 #define PROSTHETIC_VAURCA "Vaurca Robotic Limb"
+#define PROSTHETIC_UNBRANDED "Unbranded"
+#define PROSTHETIC_HOPLAN "Hoplan Head"
+#define PROSTHETIC_RAXUS "Raxus Head"
+#define PROSTHETIC_INDRICUS "Indricus Head"
+
+//Prosthetics that aren't restricted by species
+#define PROSTHETICS_UNRESTRICTED list(PROSTHETIC_BC, PROSTHETIC_HI, PROSTHETIC_XMG, PROSTHETIC_UNBRANDED, PROSTHETIC_ZH)
 
 //Brain Damage defines
 #define BRAIN_DAMAGE_MILD 10

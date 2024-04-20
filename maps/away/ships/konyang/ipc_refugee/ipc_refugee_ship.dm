@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/ipc_refugee_ship
 	name = "IPC Refugee Ship"
 	description = "The Akers-class freighter is an ancient design, dating back nearly two hundred years. It was considered a reliable freighter for its time, but is completely obsolete by modern standards, making it a rare sight outside of ship graveyards. Scans indicate this vessel in particular to be exceptionally run down, bearing severe structural damage across the whole ship. Damage appears to be from a mix of both meteors and ballistic armaments. Despite this, power signatures seem to indicate the vessel is still somehow operable."
-	suffixes = list("ships/konyang/ipc_refugee/ipc_refugee_ship.dmm")
+
+	prefix = "ships/konyang/ipc_refugee/"
+	suffixes = list("ipc_refugee_ship.dmm")
+
 	sectors = list(SECTOR_HANEUNIM, SECTOR_LIBERTYS_CRADLE)
 	spawn_weight = 1
 	ship_cost = 1

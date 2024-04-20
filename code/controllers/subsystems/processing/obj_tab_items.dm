@@ -7,6 +7,7 @@ PROCESSING_SUBSYSTEM_DEF(obj_tab_items)
 // I know this is mostly copypasta, but I want to change the processing logic
 // Sorry bestie :(
 /datum/controller/subsystem/processing/obj_tab_items/fire(resumed = FALSE)
+	CAN_BE_REDEFINED(TRUE)
 	if (!resumed)
 		currentrun = processing.Copy()
 	//cache for sanic speed (lists are references anyways)

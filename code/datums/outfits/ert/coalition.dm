@@ -104,7 +104,7 @@
 	mask = /obj/item/clothing/mask/gas/tactical
 	suit_store = /obj/item/gun/projectile/automatic/rifle/konyang/k556
 	accessory = /obj/item/clothing/accessory/holster/hip
-	accessory_contents = list(/obj/item/gun/projectile/pistol/sol = 1)
+	accessory_contents = list(/obj/item/gun/projectile/pistol/sol/konyang = 1)
 	belt = /obj/item/storage/belt/military
 	id = /obj/item/card/id/ert
 
@@ -166,7 +166,7 @@
 	)
 	backpack_contents = list(
 		/obj/item/ammo_magazine/mc9mm = 3,
-		/obj/item/gun/projectile/pistol/sol = 1,
+		/obj/item/gun/projectile/pistol/sol/konyang = 1,
 		/obj/item/handcuffs/ziptie = 1,
 		/obj/item/clothing/glasses/welding/superior = 1,
 		/obj/item/grenade/frag = 2

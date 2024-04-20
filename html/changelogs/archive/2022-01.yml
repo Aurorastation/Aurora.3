@@ -1,0 +1,131 @@
+2022-01-01:
+  MattAtlas:
+  - bugfix: The evacuation shuttle button now actually calls an evac shuttle.
+  - bugfix: Shuttles leaving the station now report the correct time to leave.
+  - backend: Added the evacuation controller to the debug controller verb.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes chair buckle overlays being uncolored.
+2022-01-03:
+  Geeves:
+  - bugfix: Speaking while in crit will no longer recursively whisper your wails.
+  TheGreyWolf:
+  - maptweak: Removes christmas themed decorations from the map.
+2022-01-07:
+  Geeves, RyverStyx:
+  - rscadd: Added some skrell body markings, as well as a skrell hair fade.
+  TheGreyWolf:
+  - bugfix: Fixes the unathi mantle not appearing correctly in several places.
+  - bugfix: The Th&#x27;akhist head wrappings now properly shows on unathi again.
+  - bugfix: Stasis bags can now be properly deployed on adjacent turfs without becoming
+      bodybags.
+  - bugfix: Fixes overlays not showing properly on glass business cards.
+2022-01-09:
+  TheGreyWolf:
+  - bugfix: Tendon repair surgery now works again.
+2022-01-11:
+  TheGreyWolf:
+  - bugfix: Meteors will no longer ignore shields.
+2022-01-12:
+  Dekser:
+  - tweak: Slightly altered the Unathi brain sprite.
+  - rscdel: Removed the Skrells appendix for the simple reason that Skrell and Humans
+      evolved separately and shouldn&#x27;t share an exact same useless organ.
+2022-01-16:
+  Omicega:
+  - tweak: Removed Elyran citizenship and accent choices from Skrell.
+  TheGreyWolf:
+  - tweak: Business cards no longer change color when copied in a photocopier.
+  - bugfix: Photocopiers toner now gets used correctly.
+  - rscadd: The sinta hood now fits in the ear slot.
+  - rscadd: The vial box in the forensic lab can now be locked by swiping an id card
+      with forensic access.
+  - rscadd: Added a syringe and vial to autopsy trays.
+  - rscadd: Paper scanners now fit in filing cabinets.
+  - rscadd: The forensic lab and investigations office now have luminol refillers.
+  - bugfix: Fixes vial box sprites.
+  - bugfix: The investigation lab ringers now clearly indicates the call comes from
+      there when a pda is linked.
+  - maptweak: Autopsy now has a second bodybag box.
+  - maptweak: Re-arranged some equipment in the forensic lab and added a closet.
+  - maptweak: The investigations office now has a button to open the door.
+  - maptweak: Replaced one of the three no smoking signs in the security reception
+      with a notice board.
+  - maptweak: The forensic lab doors now permits anyone to leave regardless of access.
+  Wowzewow (Wezzy):
+  - imageadd: Updates sprites for APCs, SMES, Battery racks, Breaker boxes, Power
+      cells and their chargers.
+  listerla:
+  - bugfix: Punk Shave, Half-Shaved Bun is no longer one pixel too low on the right
+      facing sprite.
+  - imageadd: Added left and right arm heart tattoos. Credit for sprite goes to KasparoVy.
+  - bugfix: Fixed Skrell stomach marking, removed nonexistent heart tattoo marking.
+  - bugfix: Warding sphere sheath animation no longer makes the entire sprite relocate
+      downwards.
+  - tweak: Dominian citizenship selection blurb now uses far more recent lore, rather
+      than a several year old outdated one.
+2022-01-17:
+  Geeves:
+  - bugfix: Fixed a bug where faction overrides caused certain occupations to runtime
+      when creating their outfits.
+  Omicega:
+  - rscadd: Added the new language Elyran Standard, selectable by humans and IPCs.
+      Its language key is ,4.
+  - tweak: Moves the Sign Language language key to ,s from ,4.
+  TheGreyWolf:
+  - rscadd: Fingerprint &amp; fiber reports now show all source locations, even when
+      combined and doors will have the door&#x27;s name attached.
+  - rscadd: Added the ability to rename fingerprint cards &amp; fiber bags.
+  - tweak: Changed the layout of the various forensic machine reports.
+  - tweak: Each report from the forensic machines are now numbered per evidence type
+      (fiber, fingerprint, GSR, DNA) rather than combined amount of reports.
+  - bugfix: Gunshot residue now shows all residue on something rather than only the
+      most recent.
+2022-01-18:
+  MattAtlas:
+  - rscadd: Added a new planet generation system ported from Bay.
+  - bugfix: Fixed some overmap bugs.
+  - tweak: Diyaabs, shantaks and samaks are now retaliate mobs.
+  - rscadd: Ported a bunch of flavour mobs from Bay.
+  - rscadd: Animals can now have natural armor.
+  Wowzewow:
+  - bugfix: Fixes sprite issues with cell chargers and APCs.
+2022-01-19:
+  MattAtlas:
+  - bugfix: Fixed exoplanet generation.
+  Omicega:
+  - bugfix: Fixed IPCs not actually getting access to Elyran Standard. Oops!
+  TheGreyWolf:
+  - rscadd: Skrell and diona now have a new possible citizenship, the Co-Operative
+      Territories of Epsilon Ursae Minoris.
+2022-01-29:
+  Geevesy:
+  - backend: Fixed a couple of roundstart runtimes, added an option in the config
+      to disable NTSL.
+  MattAtlas:
+  - bugfix: The main menu no longer spams client time timers.
+  - bugfix: Fixed a lobby spawn issue.
+  Omicega:
+  - rscadd: Adds five new Elyran accents to garnish the Elyra lore rework -- one each
+      for Persepolis, Medina, Aemaq, New Suez, and Damascus II.
+  - tweak: Slightly modified the appearance of the Plutonian, Gadpathurian, and Solarian
+      accents.
+  Sparky_hotdog:
+  - maptweak: Added a hand labeler to the desk in the First Responder bay.
+  - bugfix: Fixed regular and reinforced walls not smoothing properly.
+  - bugfix: Fixed a few walls not smoothing properly.
+  TheGreyWolf:
+  - rscadd: Added the zeng-hu jargon division cloak to the loadout under factions.
+  - bugfix: Fixed suit sensors acting weirdly with telecomms
+  - bugfix: Fixed most methods to easily detect if a fake death is fake. Primarily
+      affects lings.
+  - bugfix: Time of death now shows properly on health analyzers again.
+  Vrow:
+  - rscadd: Added a Blood Volume reading to Body Scanners and Vitals Monitors.
+  - rscadd: Printed Scans should also have the blood volume reading.
+  Wowzewow (Wezzy):
+  - bugfix: Seethrough blindfolds are actually see-through again.
+  - bugfix: Recolored blindfolds no longer are called white. Check your loadouts.
+  - balance: Seethrough blindfolds no longer provide flash protection.
+2022-01-30:
+  TheGreyWolf:
+  - rscdel: Removes advanced mutation toxin from warehouse spawns.

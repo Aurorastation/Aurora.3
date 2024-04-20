@@ -5815,16 +5815,31 @@
 	taste_description = "fruity grape"
 
 /singleton/reagent/drink/zorasoda/klax
-	name = "K'laxan Energy Crush"
+	name = "K'lax Energy Crush"
 	description = "An orange zest cream soda with a delicious smooth taste."
 	color = "#E78108"
 	taste_description = "fizzy and creamy orange zest"
+
+/singleton/reagent/drink/zorasoda/xuizi
+	name = "K'lax Xuizi Xplosion"
+	description = "A fizzy soda, made with genuine xuizi juice."
+	color = "#91de47"
+	taste_description = "sparkling cactus water"
+	species_taste_description = list(
+		SPECIES_UNATHI = "an electric kick of strawberry and watermelon"
+	)
 
 /singleton/reagent/drink/zorasoda/cthur
 	name = "C'thur Rockin' Raspberry"
 	description = "A raspberry concoction you're pretty sure is already on recall."
 	color = "#0000CD"
 	taste_description = "sweet flowery raspberry"
+
+/singleton/reagent/drink/zorasoda/dyn
+	name = "C'thur Dyn-A-Mite"
+	description = "Tastes like dyn, if it punched you in the mouth."
+	color = "#00e0e0"
+	taste_description = "an explosion of menthol"
 
 /singleton/reagent/drink/zorasoda/venomgrass
 	name = "Zo'ra Sour Venom Grass"
@@ -5850,6 +5865,24 @@
 	description = "Tastes exactly like how a kitchen smells after boiling brussel sprouts."
 	color = "#DCD9CD"
 	taste_description = "sugary cabbage"
+
+/singleton/reagent/drink/zorasoda/mixedberry
+	name = "Zo'ra Caprician Craze"
+	description = "A mixed berry soda. Which berries are those? You can't tell!"
+	color = "#F9190F"
+	taste_description = "energizing berries"
+
+/singleton/reagent/drink/zorasoda/lemonlime
+	name = "Zo'ra Seismic Slammer"
+	description = "A potently effervescent lemon-lime energy drink."
+	color = "#E3E3E3"
+	taste_description = "electric zestiness"
+
+/singleton/reagent/drink/zorasoda/buzz
+	name = "Buzzin' Cola"
+	description = "A remarkably bubbly cola flavoured energy drink."
+	color = "#3C090B"
+	taste_description = "a fizzing swarm of cola"
 
 /singleton/reagent/drink/zorasoda/drone
 	name = "Vaurca Drone Fuel"

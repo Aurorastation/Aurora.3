@@ -123,7 +123,8 @@
 	item_state = "bolt"
 	sharp = TRUE
 	edge = FALSE
-	throwforce = 5
+	throwforce = 15
+	armor_penetration = 15
 	w_class = ITEMSIZE_SMALL
 
 /obj/item/finger_lockpick

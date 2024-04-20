@@ -49,6 +49,8 @@ export type ChangerData = {
 
   change_hair_color: BooleanLike;
   change_facial_hair_color: BooleanLike;
+
+  change_prosthetics: BooleanLike;
 };
 
 export const AppearanceChanger = (props, context) => {
@@ -59,6 +61,7 @@ export const AppearanceChanger = (props, context) => {
       <Window.Content scrollable>
         {data.change_race ? <SpeciesWindow /> : ''}
         {data.change_gender ? <GenderWindow /> : ''}
+        <BodyWindow />
         {data.change_culture ? <CultureWindow /> : ''}
         {data.change_language ? <LanguagesWindow /> : ''}
         <ColorsWindow />
@@ -87,29 +90,6 @@ export const SpeciesWindow = (props, context) => {
           />
         ))}
       </Collapsible>
-      <Section title="Speech Bubble Type">
-        {data.valid_speech_bubbles.length
-          ? data.valid_speech_bubbles.map((new_speech_bubble) => (
-            <Button
-              key={new_speech_bubble}
-              content={capitalize(new_speech_bubble)}
-              selected={data.owner_speech_bubble === new_speech_bubble}
-              onClick={() =>
-                act('speech_bubble', { speech_bubble: new_speech_bubble })
-              }
-            />
-          ))
-          : ''}
-      </Section>
-      <Section title="Height">
-        <NumberInput
-          value={data.owner_height}
-          maxValue={data.height_max}
-          minValue={data.height_min}
-          unit="cm"
-          onDrag={(e, value) => act('set_height', { height: value })}
-        />
-      </Section>
     </Section>
   );
 };
@@ -136,6 +116,33 @@ export const GenderWindow = (props, context) => {
             onClick={() => act('pronoun', { pronouns: pronoun })}
           />
         ))}
+      </Section>
+    </Section>
+  );
+};
+export const BodyWindow = (props, context) => {
+  const { act, data } = useBackend<ChangerData>(context);
+
+  return (
+    <Section title="Body Modifications">
+      {data.change_prosthetics ? (
+        <Button content="Modify Limbs" onClick={() => act('prosthetics')} />
+      ) : (
+        ''
+      )}
+      {data.change_prosthetics ? (
+        <Button content="Modify Organs" onClick={() => act('organs')} />
+      ) : (
+        ''
+      )}
+      <Section title="Height">
+        <NumberInput
+          value={data.owner_height}
+          maxValue={data.height_max}
+          minValue={data.height_min}
+          unit="cm"
+          onDrag={(e, value) => act('set_height', { height: value })}
+        />
       </Section>
     </Section>
   );
@@ -183,6 +190,20 @@ export const CultureWindow = (props, context) => {
             onClick={() => act('accent', { accent: new_accent })}
           />
         ))}
+      </Section>
+      <Section title="Speech Bubble Type">
+        {data.valid_speech_bubbles.length
+          ? data.valid_speech_bubbles.map((new_speech_bubble) => (
+            <Button
+              key={new_speech_bubble}
+              content={capitalize(new_speech_bubble)}
+              selected={data.owner_speech_bubble === new_speech_bubble}
+              onClick={() =>
+                act('speech_bubble', { speech_bubble: new_speech_bubble })
+              }
+            />
+          ))
+          : ''}
       </Section>
     </Section>
   );

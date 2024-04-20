@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/dominian_unathi
 	name = "Kazhkz Privateer Ship"
 	description = "Dominian Unathi pirates"
-	suffixes = list("ships/dominia/dominian_unathi_privateer/dominian_unathi_privateer.dmm")
+
+	prefix = "ships/dominia/dominian_unathi_privateer/"
+	suffixes = list("dominian_unathi_privateer.dmm")
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_WEEPING_STARS)
 	spawn_weight = 1
 	ship_cost = 1
