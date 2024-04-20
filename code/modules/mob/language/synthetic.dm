@@ -30,11 +30,11 @@
 	var/message_start = "<span style='font-size: [speaker.get_binary_font_size()];'><i><span class='game say'>[name], <span class='name'>[get_speaker_name(speaker)]</span>"
 	var/message_body = span(message, "[speaker.say_quote(message)], \"[message]\"</span></span></i>")
 
-	for (var/mob/M as anything in dead_mob_list)
+	for (var/mob/M as anything in GLOB.dead_mob_list)
 		if(!istype(M,/mob/abstract/new_player) && !istype(M,/mob/living/carbon/brain)) //No meta-evesdropping
 			M.show_message("[ghost_follow_link(speaker, M)] [message_start] [message_body]", 2)
 
-	for(var/mob/living/S in living_mob_list)
+	for(var/mob/living/S in GLOB.living_mob_list)
 		if(drone_only && !isDrone(S))
 			continue
 		else if(isAI(S))
@@ -88,5 +88,5 @@
 
 /datum/language/local_drone/handle_message_mode(var/message_mode)
 	if(message_mode == "headset")
-		return list(all_languages[LANGUAGE_DRONE], null)
+		return list(GLOB.all_languages[LANGUAGE_DRONE], null)
 	return list(src, null)

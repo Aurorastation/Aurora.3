@@ -45,15 +45,15 @@
 		pai.death(0)
 	return ..()
 
-/obj/item/device/paicard/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/card/id))
-		scan_ID(C, user)
+/obj/item/device/paicard/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		scan_ID(attacking_item, user)
 		return TRUE
-	else if(istype(C, /obj/item/device/encryptionkey))
+	else if(istype(attacking_item, /obj/item/device/encryptionkey))
 		if(length(installed_encryptionkeys) > 2)
 			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
 			return TRUE
-		var/obj/item/device/encryptionkey/EK = C
+		var/obj/item/device/encryptionkey/EK = attacking_item
 		var/added_channels = FALSE
 		for(var/thing in (EK.channels | EK.additional_channels))
 			if(!radio.channels[thing])
@@ -69,22 +69,22 @@
 		else
 			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
 		return TRUE
-	else if(C.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(!length(installed_encryptionkeys))
 			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
 			return
-		user.visible_message("<b>[user]</b> uses \the [C] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", SPAN_NOTICE("You use \the [C] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
+		user.visible_message("<b>[user]</b> uses \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", SPAN_NOTICE("You use \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
 		for(var/key in installed_encryptionkeys)
 			var/obj/item/device/encryptionkey/EK = key
 			EK.forceMove(get_turf(src))
 			installed_encryptionkeys -= EK
 		recalculateChannels()
 		return TRUE
-	else if(istype(C, /obj/item/stack/nanopaste))
+	else if(istype(attacking_item, /obj/item/stack/nanopaste))
 		if(!pai)
 			to_chat(user, SPAN_WARNING("You cannot repair a pAI device if there's no active pAI personality installed."))
 		return TRUE
-	pai.attackby(C, user)
+	pai.attackby(attacking_item, user)
 
 /obj/item/device/paicard/proc/recalculateChannels()
 	radio.channels = list("Common" = radio.FREQ_LISTENING, "Entertainment" = radio.FREQ_LISTENING)
@@ -130,7 +130,7 @@
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
-	if (pai.id_card.registered_name)
+	if (pai.id_card && pai.id_card.registered_name)
 		return SPAN_NOTICE("Identity of owner: [pai.id_card.registered_name] registered.")
 	else
 		return SPAN_WARNING("No ID card registered! Please scan your ID to share access.")

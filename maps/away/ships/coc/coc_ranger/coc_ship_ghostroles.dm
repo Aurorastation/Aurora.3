@@ -9,7 +9,7 @@
 	spawnpoints = list("ranger")
 	max_count = 5
 
-	outfit = /datum/outfit/admin/ranger
+	outfit = /obj/outfit/admin/ranger
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -19,7 +19,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/ranger
+/obj/outfit/admin/ranger
 	name = "Coalition Ranger"
 
 	uniform = /obj/item/clothing/under/tactical
@@ -32,13 +32,13 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/ranger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ranger/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
-/datum/outfit/admin/ranger/get_id_access()
-	return list(access_external_airlocks)
+/obj/outfit/admin/ranger/get_id_access()
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/ranger/captain
 	short_name = "ranger_leader"
@@ -48,7 +48,7 @@
 	spawnpoints = list("ranger_leader")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/ranger/captain
+	outfit = /obj/outfit/admin/ranger/captain
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -56,11 +56,11 @@
 	special_role = "Frontier Ranger Leader"
 
 
-/datum/outfit/admin/ranger/captain
+/obj/outfit/admin/ranger/captain
 	name = "Coalition Ranger Leader"
 
 	accessory = /obj/item/clothing/accessory/sash/red
 
 /obj/item/card/id/ranger_ship
 	name = "ranger ship id"
-	access = list(access_external_airlocks, access_coalition, access_coalition_navy)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_COALITION, ACCESS_COALITION_NAVY)

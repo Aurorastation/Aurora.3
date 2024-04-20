@@ -42,6 +42,7 @@ var/ascii_reset = "[ascii_esc]\[0m"
 // Templates aren't intended to be ran but just serve as a way to create child objects of it with inheritable tests for quick test creation.
 
 /datum/unit_test
+	abstract_type = /datum/unit_test
 	var/name = "template - should not be ran."
 	var/disabled = 0        // If we want to keep a unit test in the codebase but not run it for some reason.
 	var/async = 0           // If the check can be left to do it's own thing, you must define a check_result() proc if you use this.
@@ -51,6 +52,9 @@ var/ascii_reset = "[ascii_esc]\[0m"
 
 	///A list of strings, each of which represents a group which this UT belongs to, the UT pods will only run UTs that are in their list
 	var/list/groups = list()
+
+	///The priority of the test, the larger it is the later it fires
+	var/priority = 1000
 
 
 /*
@@ -116,9 +120,18 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	log_unit_test(LOG_UNIT_TEST_WARNING, message, file, line)
 
 /datum/unit_test/proc/fail(var/message, var/file, var/line)
-	all_unit_tests_passed = 0
+	SHOULD_CALL_PARENT(TRUE)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	all_unit_tests_passed = FALSE
 	unit_tests_failures++
-	reported = 1
+	reported = TRUE
+
+	//If we're running in manual mode, raise an exception so we can see it in VSC directly
+	#if defined(MANUAL_UNIT_TEST)
+	stack_trace("Unit test failed: [src.name] - Message: [message] @@@ [file]:[line]")
+	#endif
+
 	log_unit_test(LOG_UNIT_TEST_ERROR, message, file, line)
 	return UNIT_TEST_FAILED
 
@@ -140,11 +153,17 @@ var/ascii_reset = "[ascii_esc]\[0m"
 	fail("No check results proc")
 	return 1
 
+/**
+ * Used to compare the priority of the tests to order them according to the `priority` var,
+ * so that tests with a lower value runs first
+ */
+/datum/unit_test/proc/compare_priority(datum/unit_test/comparedto)
+	return cmp_numeric_dsc(src.priority, comparedto.priority)
 
 /proc/load_unit_test_changes()
 /*
 	//This takes about 60 seconds to run on Travis and is only used for the ZAS vacume check on The Asteroid.
-	if(config.generate_asteroid != 1)
+	if(GLOB.config.generate_asteroid != 1)
 		log_unit_test("Overiding Configuration option for Asteroid Generation to ENABLED")
 		config.generate_asteroid = 1	// The default map requires it, the example config doesn't have this enabled.
  */

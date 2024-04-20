@@ -48,7 +48,7 @@
 	item_state = "nucgun"
 	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 5, TECH_POWER = 3)
 	slot_flags = SLOT_BELT
-	force = 8 //looks heavier than a pistol
+	force = 18 //looks heavier than a pistol
 	self_recharge = 1
 	modifystate = null
 	reliability = 95
@@ -177,6 +177,32 @@
 		list(mode_name="smite", projectile_type=/obj/item/projectile/beam/pistol/hegemony, modifystate="hegemony_pistol", fire_sound='sound/weapons/laser1.ogg')
 		)
 
+/obj/item/gun/energy/pistol/goldendeep
+	name = "golden deep ornate energy pistol"
+	desc = "An intricate golden energy pistol, engraved with a quality unlike no other. If you had to describe this pistol in one word, it would be <b>expensive.</b>"
+	desc_extended = "Possessed by only the most affluent affiliates of the Golden Deep, this ornate energy pistol covered in gold is the result of a commission, which had the artistic quality of Ultra Maz combined with the scientific technology acquired by the Estriconian to produce a weapon that many outsiders see as a firearm more valuable than the assets it was made to protect."
+	icon = 'icons/obj/guns/goldendeep_ornatepistol.dmi'
+	icon_state = "ornatepistolstun100"
+	item_state = "ornatepistolstun100"
+	has_item_ratio = FALSE
+	fire_sound = 'sound/weapons/laser2.ogg'
+	slot_flags = SLOT_BELT|SLOT_HOLSTER
+	max_shots = 10
+	fire_delay = 3
+	can_turret = FALSE
+	secondary_projectile_type = /obj/item/projectile/beam/pistol
+	secondary_fire_sound = 'sound/weapons/laser3.ogg'
+	can_switch_modes = TRUE
+
+	projectile_type = /obj/item/projectile/beam/disorient
+	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 3)
+	modifystate = "ornatepistolstun"
+
+	firemodes = list(
+		list(mode_name="disorient", projectile_type=/obj/item/projectile/beam/disorient, modifystate="ornatepistolstun", fire_sound='sound/weapons/Taser.ogg'),
+		list(mode_name="lethal", projectile_type=/obj/item/projectile/beam/pistol, modifystate="ornatepistollethal", fire_sound='sound/weapons/laser1.ogg')
+		)
+
 /obj/item/gun/energy/repeater
 	name = "energy repeater"
 	desc = "A Stellar Corporate Conglomerate created energy repeater, extremely lightweight. It has three settings: Single, Three-Burst, and Full-Auto."
@@ -246,7 +272,7 @@
 	icon_state = "particlepistol"
 	item_state = "particlepistol"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
-	force = 5
+	force = 11
 	projectile_type = /obj/item/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
 
@@ -263,7 +289,7 @@
 	item_state = "particlesmg"
 	slot_flags = SLOT_BELT|SLOT_HOLSTER|SLOT_BACK
 	max_shots = 14
-	force = 7
+	force = 16
 	projectile_type = /obj/item/projectile/beam/stun/skrell
 	secondary_projectile_type = /obj/item/projectile/beam/pulse/skrell
 
@@ -273,8 +299,8 @@
 		)
 
 /obj/item/gun/energy/gun/qukala
-	name = "tqi-qop rifle"
-	desc = "The Tqi-Qop Rifle is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
+	name = "tqi-qop carbine"
+	desc = "The Tqi-Qop Carbine is the main weapon of the Qukala. Its compact light frame and excellent ammo capacity make it a superb weapon for the Skrell."
 	desc_extended = ""
 	icon = 'icons/obj/item/gun/energy/gun/qukala.dmi'
 	icon_state = "qukalagun"
@@ -298,10 +324,16 @@
 
 	has_item_ratio = FALSE
 
-/obj/item/gun/energy/psipistol
-	name = "psionic pistol"
-	desc = "A pistol that utilises psionics. It's made from a lightweight alloy."
-	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Psi Pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically, enabling the weapon to be used entirely one-handed."
+/obj/item/gun/energy/gun/qukala/mounted
+	self_recharge = 1
+	use_external_power = 1
+	recharge_time = 10
+	can_turret = 0
+
+/obj/item/gun/energy/fedpistol
+	name = "nralakk energy pistol"
+	desc = "A Skrell-made pistol that utilises a psionic control mechanism. It's made from a lightweight alloy."
+	desc_extended = "A sidearm usually seen in the hands of Nralakk Federation officials and law enforcement, the Xuqm-3 energy pistol has a psionically-linked firing pin that checks for a developed Zona Bovinae in its user before it can be fired. A wire can be attached to the user's wrist to allow for mode switching using psionics rather than changing it physically. For non-psionic users, a small dial for mode switching has been attached."
 	icon = 'icons/obj/guns/psi_pistol.dmi'
 	icon_state = "psipistolstun100"
 	item_state = "psipistolstun100"
@@ -313,7 +345,7 @@
 	can_turret = FALSE
 	secondary_projectile_type = /obj/item/projectile/energy/blaster/skrell
 	secondary_fire_sound = 'sound/weapons/laser3.ogg'
-	can_switch_modes = 1
+	can_switch_modes = TRUE
 	projectile_type = /obj/item/projectile/energy/disruptorstun/skrell
 	modifystate = "psipistolstun"
 
@@ -322,3 +354,6 @@
 		list(mode_name="lethal", projectile_type=/obj/item/projectile/energy/blaster/skrell, modifystate="psipistollethal", fire_sound='sound/weapons/laser3.ogg'),
 		list(mode_name="ion", projectile_type=/obj/item/projectile/ion/small, modifystate="psipistolion", fire_sound='sound/weapons/laser1.ogg')
 		)
+
+/obj/item/gun/energy/fedpistol/nopsi
+	pin = /obj/item/device/firing_pin

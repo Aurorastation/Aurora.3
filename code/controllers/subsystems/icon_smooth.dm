@@ -17,7 +17,7 @@
 
 SUBSYSTEM_DEF(icon_smooth)
 	name = "Icon Smoothing"
-	init_order = SS_INIT_SMOOTHING
+	init_order = INIT_ORDER_ICON_SMOOTHING
 	wait = 1
 	priority = SS_PRIORITY_SMOOTHING
 	flags = SS_TICKER
@@ -55,7 +55,7 @@ SUBSYSTEM_DEF(icon_smooth)
 		if(QDELETED(smoothing_atom) || !(smoothing_atom.smoothing_flags & SMOOTH_QUEUED))
 			continue
 
-		if(smoothing_atom.initialized && !(smoothing_atom.icon_update_queued))
+		if((smoothing_atom.flags_1 & INITIALIZED_1) && !(smoothing_atom.icon_update_queued))
 			smooth_icon(smoothing_atom)
 		else
 			deferred += smoothing_atom
@@ -80,9 +80,9 @@ SUBSYSTEM_DEF(icon_smooth)
 	for (var/zlevel = 1 to world.maxz)
 		smooth_zlevel(zlevel, FALSE)
 
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		LOG_DEBUG("icon_smoothing: Skipping prebake, fastboot enabled.")
-		return ..()
+		return SS_INIT_SUCCESS
 
 	var/list/queue = smooth_queue
 	smooth_queue = list()
@@ -98,7 +98,7 @@ SUBSYSTEM_DEF(icon_smooth)
 
 		CHECK_TICK
 
-	. = ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/icon_smooth/proc/add_to_queue(atom/thing)
 	SHOULD_NOT_SLEEP(TRUE)

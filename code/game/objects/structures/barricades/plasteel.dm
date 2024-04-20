@@ -26,7 +26,7 @@
 /obj/structure/barricade/plasteel/update_icon()
 	..()
 	if(linked)
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
 				if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade.linked && cade.closed == src.closed && hasconnectionoverlay)
 					if(closed)
@@ -42,28 +42,27 @@
 	else
 		return 0
 
-/obj/structure/barricade/plasteel/examine(mob/user)
+/obj/structure/barricade/plasteel/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-
 	switch(build_state)
 		if(BARRICADE_BSTATE_SECURED)
-			to_chat(user, SPAN_INFO("The protection panel is still tighly screwed in place."))
+			. += SPAN_INFO("The protection panel is still tighly screwed in place.")
 		if(BARRICADE_BSTATE_UNSECURED)
-			to_chat(user, SPAN_INFO("The protection panel has been removed, you can see the anchor bolts."))
+			. += SPAN_INFO("The protection panel has been removed, you can see the anchor bolts.")
 		if(BARRICADE_BSTATE_MOVABLE)
-			to_chat(user, SPAN_INFO("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart."))
+			. += SPAN_INFO("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart.")
 
 /obj/structure/barricade/plasteel/weld_cade(obj/item/W, mob/user)
 	busy = TRUE
 	..()
 	busy = FALSE
 
-/obj/structure/barricade/plasteel/attackby(obj/item/W, mob/user)
-	if(W.iswelder())
+/obj/structure/barricade/plasteel/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
 		if(busy || tool_cooldown > world.time)
 			return
 		tool_cooldown = world.time + 10
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 		if(damage_state == BARRICADE_DMG_HEAVY)
 			to_chat(user, SPAN_WARNING("[src] has sustained too much structural damage to be repaired."))
 			return
@@ -77,7 +76,7 @@
 
 	switch(build_state)
 		if(2) //Fully constructed step. Use screwdriver to remove the protection panels to reveal the bolts
-			if(W.isscrewdriver())
+			if(attacking_item.isscrewdriver())
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -85,13 +84,13 @@
 					if(B != src && B.dir == dir)
 						to_chat(user, SPAN_WARNING("There's already a barricade here."))
 						return
-				if(!W.use_tool(src, user, 10, volume = 50))
+				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] removes [src]'s protection panel."),
 				SPAN_NOTICE("You remove [src]'s protection panels, exposing the anchor bolts."))
 				build_state = BARRICADE_BSTATE_UNSECURED
 				return
-			if(W.iscrowbar())
+			if(attacking_item.iscrowbar())
 				playsound(src.loc, 'sound/items/crowbar_pry.ogg', 25, 1)
 				if(linked)
 					user.visible_message(SPAN_NOTICE("[user] removes the linking on [src]."),
@@ -103,25 +102,25 @@
 					to_chat(user, SPAN_WARNING("The [src] has no linking points."))
 					return
 				linked = !linked
-				for(var/direction in cardinal)
+				for(var/direction in GLOB.cardinal)
 					for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
 						cade.update_icon()
 				update_icon()
 		if(1) //Protection panel removed step. Screwdriver to put the panel back, wrench to unsecure the anchor bolts
-			if(W.isscrewdriver())
+			if(attacking_item.isscrewdriver())
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
-				if(!W.use_tool(src, user, 10, volume = 50))
+				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] set [src]'s protection panel back."),
 				SPAN_NOTICE("You set [src]'s protection panel back."))
 				build_state = BARRICADE_BSTATE_SECURED
 				return
-			if(W.iswrench())
+			if(attacking_item.iswrench())
 				if(busy || tool_cooldown > world.time)
 					return
-				if(!W.use_tool(src, user, 10, volume = 50))
+				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] loosens [src]'s anchor bolts."),
 				SPAN_NOTICE("You loosen [src]'s anchor bolts."))
@@ -131,7 +130,7 @@
 				return
 
 		if(0) //Anchor bolts loosened step. Apply crowbar to unseat the panel and take apart the whole thing. Apply wrench to rescure anchor bolts
-			if(W.iswrench())
+			if(attacking_item.iswrench())
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -139,7 +138,7 @@
 				if(!(istype(T)) || istype(T, /turf/space))
 					to_chat(user, SPAN_WARNING("[src] must be secured on a proper surface!"))
 					return
-				if(!W.use_tool(src, user, 10, volume = 50))
+				if(!attacking_item.use_tool(src, user, 10, volume = 50))
 					return
 				user.visible_message(SPAN_NOTICE("[user] secures [src]'s anchor bolts."),
 				SPAN_NOTICE("You secure [src]'s anchor bolts."))
@@ -147,7 +146,7 @@
 				build_state = BARRICADE_BSTATE_UNSECURED
 				update_icon() //unanchored changes layer
 				return
-			if(W.iscrowbar())
+			if(attacking_item.iscrowbar())
 				if(busy || tool_cooldown > world.time)
 					return
 				tool_cooldown = world.time + 10
@@ -155,7 +154,7 @@
 				SPAN_NOTICE("You start unseating [src]'s panels."))
 				playsound(src.loc, 'sound/items/crowbar_pry.ogg', 25, 1)
 				busy = 1
-				if(W.use_tool(src, user, 8 SECONDS, volume = 50))
+				if(attacking_item.use_tool(src, user, 8 SECONDS, volume = 50))
 					busy = 0
 					user.visible_message(SPAN_NOTICE("[user] takes [src]'s panels apart."),
 					SPAN_NOTICE("You take [src]'s panels apart."))
@@ -198,7 +197,7 @@
 	closed = 0
 	density = 1
 	if(linked)
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
 				if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade != origin && cade.linked)
 					cade.open(src)
@@ -211,7 +210,7 @@
 	closed = 1
 	density = 0
 	if(linked)
-		for(var/direction in cardinal)
+		for(var/direction in GLOB.cardinal)
 			for(var/obj/structure/barricade/plasteel/cade in get_step(src, direction))
 				if(((dir & (NORTH|SOUTH) && get_dir(src, cade) & (EAST|WEST)) || (dir & (EAST|WEST) && get_dir(src, cade) & (NORTH|SOUTH))) && dir == cade.dir && cade != origin && cade.linked)
 					cade.close(src)

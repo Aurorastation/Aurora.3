@@ -14,7 +14,7 @@
 		return
 
 	if(action == "follow_target")
-		ghost.ManualFollow(locate(params["follow_target"]) in mob_list)
+		ghost.ManualFollow(locate(params["follow_target"]) in GLOB.mob_list)
 
 /datum/tgui_module/ghost_menu/ui_data(mob/user)
 	var/list/data = list()
@@ -26,7 +26,7 @@
 
 	var/list/names = list()
 	var/list/namecounts = list()
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		var/category
 		var/name = M.name
 		if(name in names)

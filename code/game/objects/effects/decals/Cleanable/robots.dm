@@ -20,7 +20,7 @@
 				var/obj/effect/decal/cleanable/blood/oil/streak = new(src.loc)
 				streak.update_icon()
 			else if (prob(10))
-				spark(src, 3, alldirs)
+				spark(src, 3, GLOB.alldirs)
 		if (step_to(src, get_step(src, direction), 0))
 			break
 
@@ -36,7 +36,7 @@
 /obj/effect/decal/cleanable/blood/oil
 	name = "motor oil"
 	desc = "It's black and greasy. Looks like Beepsky made another mess."
-	basecolor="#030303"
+	basecolor = "#030303"
 	dries = FALSE
 
 /obj/effect/decal/cleanable/blood/oil/streak
@@ -46,3 +46,5 @@
 /obj/effect/decal/cleanable/blood/drip/oil
 	name = "drips of motor oil"
 	desc = "It's black and greasy."
+	basecolor = "#030303"
+	dries = FALSE

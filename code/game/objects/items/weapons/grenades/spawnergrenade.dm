@@ -21,7 +21,7 @@
 			for(var/mob/living/carbon/human/M in viewers(T, null))
 				M.flash_act(ignore_inherent = TRUE)
 		else
-			spark(T, 3, alldirs) //give spawning some flair if there's no flash
+			spark(T, 3, GLOB.alldirs) //give spawning some flair if there's no flash
 
 		for(var/i=1, i<=deliveryamt, i++)
 			var/atom/movable/x = new spawner_type

@@ -44,7 +44,7 @@
 			<a href='?src=\ref[src];setauthor=1'>Filter by Author: [author]</a><br>
 			<a href='?src=\ref[src];search=1'>\[Start Search\]</a><br>"}
 		if(1)
-			if(!establish_db_connection(dbcon))
+			if(!establish_db_connection(GLOB.dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font><br>"
 			else if(!SQLquery)
 				dat += "<font color=red><b>ERROR</b>: Malformed search request. Please contact your system administrator for assistance.</font><br>"
@@ -52,7 +52,7 @@
 				dat += {"<table>
 				<tr><td>AUTHOR</td><td>TITLE</td><td>CATEGORY</td><td>SS<sup>13</sup>BN</td></tr>"}
 
-				var/DBQuery/query = dbcon.NewQuery(SQLquery)
+				var/DBQuery/query = GLOB.dbcon.NewQuery(SQLquery)
 				query.Execute()
 
 				while(query.NextRow())
@@ -136,9 +136,9 @@
 	var/dat
 	// Public Related Code
 	if(!is_public)
-		dat = "<head><title>[current_map.station_name] Library Management</title></head><body>\n"
+		dat = "<head><title>[SSatlas.current_map.station_name] Library Management</title></head><body>\n"
 	else
-		dat = "<head><title>[current_map.station_name] Library</title></head><body>\n"
+		dat = "<head><title>[SSatlas.current_map.station_name] Library</title></head><body>\n"
 	switch(screenstate)
 		if(0)
 			// Main Menu
@@ -194,13 +194,13 @@
 			<a href='?src=\ref[src];switchscreen=0'>(<-- Return to Main Menu)</a><br>"}
 		if(4)
 			dat += "<h3>External Archive</h3>"
-			if(!establish_db_connection(dbcon))
+			if(!establish_db_connection(GLOB.dbcon))
 				dat += "<font color=red><b>ERROR</b>: Unable to contact External Archive. Please contact your system administrator for assistance.</font>"
 			else
 				dat += {"<a href='?src=\ref[src];orderbyid=1'>(Order Book by ISBN)</a><br><br>
 				<table>
 				<tr><td><a href='?src=\ref[src];sort=author>AUTHOR</a></td><td><a href='?src=\ref[src];sort=title>TITLE</a></td><td><a href='?src=\ref[src];sort=category>CATEGORY</a></td><td></td></tr>"}
-				var/DBQuery/query = dbcon.NewQuery("SELECT id, author, title, category FROM ss13_library ORDER BY [sortby]")
+				var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, author, title, category FROM ss13_library ORDER BY [sortby]")
 				query.Execute()
 
 				while(query.NextRow())
@@ -246,9 +246,9 @@
 		src.emagged = 1
 		return 1
 
-/obj/machinery/librarycomp/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/barcodescanner))
-		var/obj/item/barcodescanner/scanner = W
+/obj/machinery/librarycomp/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/barcodescanner))
+		var/obj/item/barcodescanner/scanner = attacking_item
 		scanner.computer = src
 		to_chat(user, "[scanner]'s associated machine has been set to [src].")
 		for (var/mob/V in hearers(src))
@@ -339,7 +339,7 @@
 					if(scanner.cache.unique)
 						alert("This book has been rejected from the database. Aborting!")
 					else
-						if(!establish_db_connection(dbcon))
+						if(!establish_db_connection(GLOB.dbcon))
 							alert("Connection to Archive has been severed. Aborting.")
 						else
 							var/sqltitle = sanitizeSQL(scanner.cache.name)
@@ -347,7 +347,7 @@
 							var/sqlcontent = sanitizeSQL(scanner.cache.dat)
 							var/sqlcategory = sanitizeSQL(upload_category)
 							var/sqlckey = sanitizeSQL(ckey(usr.client.ckey))
-							var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_library (author, title, content, category, uploadtime, uploader) VALUES ('[sqlauthor]', '[sqltitle]', '[sqlcontent]', '[sqlcategory]', NOW(), '[sqlckey]')")
+							var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_library (author, title, content, category, uploadtime, uploader) VALUES ('[sqlauthor]', '[sqltitle]', '[sqlcontent]', '[sqlcategory]', NOW(), '[sqlckey]')")
 							if(!query.Execute())
 								to_chat(usr, query.ErrorMsg())
 							else
@@ -357,7 +357,7 @@
 
 	if(href_list["targetid"])
 		var/sqlid = sanitizeSQL(href_list["targetid"])
-		if(!establish_db_connection(dbcon))
+		if(!establish_db_connection(GLOB.dbcon))
 			alert("Connection to Archive has been severed. Aborting.")
 		if(bibledelay)
 			for (var/mob/V in hearers(src))
@@ -366,7 +366,7 @@
 			bibledelay = 1
 			spawn(60)
 				bibledelay = 0
-			var/DBQuery/query = dbcon.NewQuery("SELECT * FROM ss13_library WHERE id=[sqlid]")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT * FROM ss13_library WHERE id=[sqlid]")
 			query.Execute()
 
 			while(query.NextRow())
@@ -411,22 +411,22 @@
 	density = TRUE
 	var/obj/item/book/cache		// Last scanned book
 
-/obj/machinery/libraryscanner/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/book))
+/obj/machinery/libraryscanner/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/book))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
 			return
-		user.drop_from_inventory(O,src)
-	if(O.iswrench())
-		playsound(get_turf(src), O.usesound, 75, TRUE)
+		user.drop_from_inventory(attacking_item,src)
+	if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
-			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
-				SPAN_NOTICE("You unsecure \the [src] from the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
+			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."),
+								SPAN_NOTICE("You unsecure \the [src] from the floor."),
+								SPAN_WARNING("You hear a ratcheting noise."))
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
-				SPAN_NOTICE("You secure \the [src] to the floor."), \
-				SPAN_WARNING("You hear a ratcheting noise."))
+			user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."),
+								SPAN_NOTICE("You secure \the [src] to the floor."),
+								SPAN_WARNING("You hear a ratcheting noise."))
 		anchored = !anchored
 
 /obj/machinery/libraryscanner/attack_hand(var/mob/user)
@@ -477,8 +477,8 @@
 	density = TRUE
 	var/binding = FALSE
 
-/obj/machinery/bookbinder/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/paper))
+/obj/machinery/bookbinder/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
 		if(!anchored)
 			to_chat(user, SPAN_WARNING("\The [src] must be secured to the floor first!"))
 			return
@@ -486,7 +486,7 @@
 			to_chat(user, SPAN_WARNING("You must wait for \the [src] to finish its current operation!"))
 			return
 		var/turf/T = get_turf(src)
-		user.drop_from_inventory(O,src)
+		user.drop_from_inventory(attacking_item,src)
 		user.visible_message(SPAN_NOTICE("\The [user] loads some paper into \the [src]."), SPAN_NOTICE("You load some paper into \the [src]."))
 		visible_message(SPAN_NOTICE("\The [src] begins to hum as it warms up its printing drums."))
 		playsound(T, 'sound/bureaucracy/binder.ogg', 75, 1)
@@ -495,18 +495,18 @@
 		binding = FALSE
 		if(!anchored)
 			visible_message(SPAN_WARNING("\The [src] buzzes and flashes an error light."))
-			O.forceMove(T)
+			attacking_item.forceMove(T)
 			return
 		visible_message(SPAN_NOTICE("\The [src] whirs as it prints and binds a new book."))
 		playsound(T, 'sound/bureaucracy/print.ogg', 75, 1)
 		var/obj/item/book/b = new(T)
-		b.dat = O:info
+		b.dat = attacking_item:info
 		b.name = "blank book"
 		b.icon_state = "book[rand(1,7)]"
-		qdel(O)
+		qdel(attacking_item)
 		return
-	if(O.iswrench())
-		playsound(get_turf(src), O.usesound, 75, TRUE)
+	if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(anchored)
 			user.visible_message(SPAN_NOTICE("\The [user] unsecures \the [src] from the floor."), \
 				SPAN_NOTICE("You unsecure \the [src] from the floor."), \

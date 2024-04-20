@@ -25,11 +25,6 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 	var/list/alt_ages = null              // assoc list of alt titles to minimum character ages assoc lists (see above -- yes this is slightly awful)
-	var/list/ideal_character_age = list(  // Ideal character ages (for heads), assoc list of species define -> age, see above
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 100,
-		SPECIES_SKRELL_AXIORI = 100
-	)
 
 	var/latejoin_at_spawnpoints = FALSE   //If this job should use roundstart spawnpoints for latejoin (offstation jobs etc)
 
@@ -39,8 +34,8 @@
 	var/economic_modifier = 2             // With how much does this job modify the initial account amount?
 	var/create_record = TRUE              // Do we announce/make records for people who spawn on this job?
 
-	var/datum/outfit/outfit = null
-	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /datum/outfit)
+	var/obj/outfit/outfit = null
+	var/list/alt_outfits = null           // A list of special outfits for the alt titles list("alttitle" = /obj/outfit)
 	var/list/blacklisted_species = null   // A blacklist of species that can't be this job
 	var/list/blacklisted_citizenship = list() //A blacklist of citizenships that can't be this job
 
@@ -108,7 +103,7 @@
 	//give them an account in the station database
 	var/species_modifier = (H.species ? H.species.economic_modifier : null)
 	if (!species_modifier)
-		var/datum/species/human_species = global.all_species[SPECIES_HUMAN]
+		var/datum/species/human_species = GLOB.all_species[SPECIES_HUMAN]
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
@@ -137,7 +132,7 @@
 			if(!F.is_default)
 				var/new_outfit = F.titles_to_loadout[title]
 				if(ispath(new_outfit))
-					var/datum/outfit/O = new new_outfit
+					var/obj/outfit/O = new new_outfit
 					O.pre_equip(H, TRUE)
 					O.equip(H, TRUE)
 					return
@@ -145,7 +140,9 @@
 	. = equip(H, TRUE, FALSE, alt_title=alt_title)
 
 /datum/job/proc/get_access(selected_title)
-	if(!config || config.jobs_have_minimal_access)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if(!GLOB.config || GLOB.config.jobs_have_minimal_access)
 		. = minimal_access.Copy()
 	else
 		. = access.Copy()
@@ -183,29 +180,19 @@
 	else if(title in alt_ages)
 		return (species in alt_ages[title]) ? alt_ages[title][species] : alt_ages[title][SPECIES_HUMAN]
 
-/datum/job/proc/get_ideal_character_age(var/species)
-	if(!species)
-		species = SPECIES_HUMAN
-	else if(!(species in ideal_character_age))
-		// try to see if there's a min age set -- ideally this shouldn't happen, but better to take a min age than fall back to human just yet
-		if(species in minimum_character_age) // if there is one, just add 20 and send it
-			return minimum_character_age[species] + 20
-		species = SPECIES_HUMAN // no such luck
-	return ideal_character_age[species]
-
 /datum/job/proc/fetch_age_restriction()
-	if (!config.age_restrictions_from_file)
+	if (!GLOB.config.age_restrictions_from_file)
 		return
 
-	if (config.age_restrictions[lowertext(title)])
-		minimal_player_age = config.age_restrictions[lowertext(title)]
+	if (GLOB.config.age_restrictions[lowertext(title)])
+		minimal_player_age = GLOB.config.age_restrictions[lowertext(title)]
 	else
 		minimal_player_age = 0
 
 /datum/job/proc/has_alt_title(var/mob/H, var/supplied_title, var/desired_title)
 	return (supplied_title == desired_title) || (H.mind && H.mind.role_alt_title == desired_title)
 
-/datum/outfit/job
+/obj/outfit/job
 	name = "Standard Gear"
 	var/base_name = null
 	collect_not_del = FALSE
@@ -232,7 +219,7 @@
 
 	var/box = /obj/item/storage/box/survival
 
-/datum/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	back = null //Nulling the backpack here, since we already equipped the backpack in pre_equip
 	if(box)
 		var/spawnbox = box
@@ -240,16 +227,16 @@
 		backpack_contents[spawnbox] = 1
 	. = ..()
 
-/datum/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 
-/datum/outfit/job/get_id_access(mob/living/carbon/human/H)
+/obj/outfit/job/get_id_access(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)
 	return J.get_access(get_id_assignment(H, TRUE))
 
-/datum/outfit/job/get_id_rank(mob/living/carbon/human/H)
+/obj/outfit/job/get_id_rank(mob/living/carbon/human/H)
 	var/datum/job/J = SSjobs.GetJobType(jobtype)
 	if(!J)
 		J = SSjobs.GetJob(H.job)

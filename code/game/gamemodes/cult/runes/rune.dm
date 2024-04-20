@@ -5,7 +5,7 @@
 	icon_state = "1"
 	anchored = TRUE
 	unacidable = TRUE
-	layer = AO_LAYER
+	layer = RUNE_LAYER
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 	var/datum/rune/rune
 
@@ -22,21 +22,21 @@
 	QDEL_NULL(rune)
 	return ..()
 
-/obj/effect/rune/examine(mob/user)
+/obj/effect/rune/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(iscultist(user) || isobserver(user))
-		to_chat(user, rune.get_cultist_fluff_text())
-		to_chat(user, "This rune [rune.can_be_talisman() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be turned into a talisman.")
-		to_chat(user, "This rune [rune.can_memorize() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be memorized to be scribed without a tome.")
+		. += rune.get_cultist_fluff_text()
+		. += "This rune [rune.can_be_talisman() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be turned into a talisman."
+		. += "This rune [rune.can_memorize() ? SPAN_CULT("can") : "[SPAN_CULT("cannot")]"] be memorized to be scribed without a tome."
 	else
-		to_chat(user, rune.get_normal_fluff_text())
+		. += rune.get_normal_fluff_text()
 
-/obj/effect/rune/attackby(obj/I, mob/user)
-	if(istype(I, /obj/item/book/tome) && iscultist(user))
-		rune.do_tome_action(user, I)
+/obj/effect/rune/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/book/tome) && iscultist(user))
+		rune.do_tome_action(user, attacking_item)
 		return TRUE
-	else if(istype(I, /obj/item/nullrod))
-		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [I]!"))
+	else if(istype(attacking_item, /obj/item/nullrod))
+		to_chat(user, SPAN_NOTICE("You disrupt the vile magic with the deadening field of \the [attacking_item]!"))
 		qdel(src)
 		return TRUE
 

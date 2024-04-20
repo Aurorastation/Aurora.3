@@ -63,6 +63,7 @@
 	seed_name = "grape"
 	display_name = "grapevines"
 	mutants = list("greengrapes")
+	kitchen_tag = "grapes"
 	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/sugar = list(1,5), /singleton/reagent/drink/grapejuice = list(10,10), /singleton/reagent/nutriment/grapejelly = list(1,8))
 
 /datum/seed/grapes/setup_traits()
@@ -130,6 +131,7 @@
 	display_name = "blueberry bush"
 	mutants = list("berries","poisonberries","glowberries")
 	chems = list(/singleton/reagent/nutriment = list(1,10), /singleton/reagent/drink/blueberryjuice = list(10,10))
+	kitchen_tag = "blueberries"
 
 /datum/seed/berry/blue/setup_traits()
 	..()
@@ -385,6 +387,7 @@
 	name = "watermelon"
 	seed_name = "watermelon"
 	display_name = "watermelon vine"
+	kitchen_tag = "watermelon"
 	chems = list(/singleton/reagent/nutriment = list(1,6), /singleton/reagent/drink/watermelonjuice = list(10,6))
 
 /datum/seed/watermelon/setup_traits()
@@ -396,10 +399,10 @@
 	set_trait(TRAIT_YIELD,3)
 	set_trait(TRAIT_POTENCY,1)
 	set_trait(TRAIT_PRODUCT_ICON,"vine")
-	set_trait(TRAIT_PRODUCT_COLOUR,"#326B30")
-	set_trait(TRAIT_PLANT_COLOUR,"#257522")
+	set_trait(TRAIT_PRODUCT_COLOUR,"#5eca5a")
+	set_trait(TRAIT_PLANT_COLOUR,"#49be45")
 	set_trait(TRAIT_PLANT_ICON,"vine2")
-	set_trait(TRAIT_FLESH_COLOUR,"#F22C2C")
+	set_trait(TRAIT_FLESH_COLOUR,"#ff5858")
 	set_trait(TRAIT_IDEAL_HEAT, 298)
 	set_trait(TRAIT_IDEAL_LIGHT, 6)
 	set_trait(TRAIT_WATER_CONSUMPTION, 6)

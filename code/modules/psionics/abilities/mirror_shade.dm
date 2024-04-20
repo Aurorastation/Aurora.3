@@ -23,10 +23,9 @@
 	if(do_after(user, 1 SECOND))
 		to_chat(user, SPAN_WARNING("You weave your psionic force into two copies of yourself!"))
 		for(var/i = 1 to 2)
-			var/mob/living/simple_animal/hostile/mirror_shade/MS = new(pick(get_adjacent_open_turfs(user)))
+			var/mob/living/simple_animal/hostile/mirror_shade/MS = new(pick(get_adjacent_open_turfs(user)), user)
 			MS.appearance = user.appearance
 			MS.name = user.name
-			MS.owner = user
 
 /mob/living/simple_animal/hostile/mirror_shade
 	damage_type = DAMAGE_PAIN
@@ -38,14 +37,18 @@
 	attacktext = "phases its arms through"
 	var/mob/living/carbon/human/owner
 
-/mob/living/simple_animal/hostile/mirror_shade/Initialize()
+/mob/living/simple_animal/hostile/mirror_shade/Initialize(mapload, var/mob/set_owner)
 	. = ..()
-	friends += owner
+	if(set_owner)
+		owner = set_owner
+		friends += owner
 	QDEL_IN(src, 30 SECONDS)
 
 /mob/living/simple_animal/hostile/mirror_shade/examine(mob/user)
-	/// Technically suspicious, but these have 30 seconds of lifetime so it's probably fine.
-	return owner.examine(user)
+	if(!QDELETED(owner))
+		/// Technically suspicious, but these have 30 seconds of lifetime so it's probably fine.
+		return owner.examine(user)
+	return ..()
 
 /mob/living/simple_animal/hostile/mirror_shade/Destroy()
 	owner = null

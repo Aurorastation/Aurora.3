@@ -8,13 +8,13 @@
 	bitesize = 5
 	reagents_to_add = list(/singleton/reagent/kois = 6, /singleton/reagent/toxin/phoron = 9)
 
-/obj/item/reagent_containers/food/snacks/friedkois/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack/rods))
+/obj/item/reagent_containers/food/snacks/friedkois/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/rods))
 		new /obj/item/reagent_containers/food/snacks/koiskebab1(src)
 		to_chat(user, "You skewer the fried k'ois.")
 		qdel(src)
-		qdel(W)
-	if(istype(W,/obj/item/material/kitchen/rollingpin))
+		qdel(attacking_item)
+	if(istype(attacking_item, /obj/item/material/kitchen/rollingpin))
 		new /obj/item/reagent_containers/food/snacks/soup/kois(src)
 		to_chat(user, "You crush the fried K'ois into a paste, and pour it into a bowl.")
 		qdel(src)
@@ -29,12 +29,12 @@
 	bitesize = 3
 	reagents_to_add = list(/singleton/reagent/kois = 8, /singleton/reagent/toxin/phoron = 12)
 
-/obj/item/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/reagent_containers/food/snacks/friedkois))
+/obj/item/reagent_containers/food/snacks/koiskebab1/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/friedkois))
 		new /obj/item/reagent_containers/food/snacks/koiskebab2(src)
 		to_chat(user, "You add fried K'ois to the kebab.")
 		qdel(src)
-		qdel(W)
+		qdel(attacking_item)
 
 /obj/item/reagent_containers/food/snacks/koiskebab2
 	name = "k'ois on a stick"
@@ -211,3 +211,12 @@
 	icon_state = "vkrexiwrap_veggie"
 	reagents_to_add = list(/singleton/reagent/nutriment = 9, /singleton/reagent/capsaicin = 4, /singleton/reagent/mental/vkrexi = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("assorted vegetables" = 8, "peppers" = 5, "bittersweet sauce" = 8))
+
+/obj/item/reagent_containers/food/snacks/phoron_river_loaf
+	name = "phoron river loaf"
+	desc = "A new creation. It is a small baked loaf made of reshaped fried K'ois molded into two mounds, with one river of phoron rock candy running between them, and another one through the center of the loaf. It is carefully baked to give it a mixture of both fluffiness and crunch."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "phoron_river_loaf"
+	filling_color = "#E6E600"
+	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 35)
+	bitesize = 10

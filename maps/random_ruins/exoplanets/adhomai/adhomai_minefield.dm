@@ -5,7 +5,9 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_minefield.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_minefield.dmm")
 
 /obj/structure/adhomai_minefield
 	name = "siik'maas sign"
@@ -14,7 +16,7 @@
 	icon_state = "landmine_post"
 	anchored = TRUE
 
-/obj/structure/adhomai_minefield/examine(mob/user)
+/obj/structure/adhomai_minefield/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	if(all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
-		to_chat(user, SPAN_WARNING("The sign says: \"WARNING: MINEFIELD\"."))
+	if(GLOB.all_languages[LANGUAGE_SIIK_MAAS] in user.languages)
+		. += SPAN_WARNING("The sign says: \"WARNING: MINEFIELD\".")

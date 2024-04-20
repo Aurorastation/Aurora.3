@@ -67,7 +67,7 @@
 	)
 
 /datum/category_item/player_setup_item/origin/sanitize_character(var/sql_load = 0)
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(!istext(pref.culture) || !ispath(text2path(pref.culture), /singleton/origin_item/culture))
 		var/singleton/origin_item/culture/CI = S.possible_cultures[1]
 		pref.culture = "[CI]"
@@ -94,7 +94,7 @@
 	pref.economic_status = sanitize_inlist(pref.economic_status, ECONOMIC_POSITIONS, initial(pref.economic_status))
 
 /datum/category_item/player_setup_item/origin/content(var/mob/user)
-	if(SSrecords.init_state != SS_INITSTATE_DONE)
+	if(!SSrecords.initialized)
 		return "<center><large>Records controller not initialized yet. Please wait a bit and reload this section.</large></center>"
 	var/list/dat = list()
 	var/singleton/origin_item/culture/CL = GET_SINGLETON(text2path(pref.culture))
@@ -121,7 +121,7 @@
 	. = dat.Join()
 
 /datum/category_item/player_setup_item/origin/OnTopic(href, href_list, user)
-	var/datum/species/S = all_species[pref.species]
+	var/datum/species/S = GLOB.all_species[pref.species]
 	if(href_list["open_culture_menu"])
 		var/list/options = list()
 		var/list/possible_cultures = Singletons.GetMap(S.possible_cultures)

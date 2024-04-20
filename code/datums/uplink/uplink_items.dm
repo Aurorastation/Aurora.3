@@ -54,7 +54,7 @@ var/datum/uplink/uplink
 	if(!can_buy_telecrystals && !can_buy_bluecrystals)
 		return
 
-	if(U.CanUseTopic(user, inventory_state) != STATUS_INTERACTIVE)
+	if(U.CanUseTopic(user, GLOB.inventory_state) != STATUS_INTERACTIVE)
 		return
 
 	var/goods = get_goods(U, get_turf(user), user, extra_args)
@@ -124,7 +124,7 @@ var/datum/uplink/uplink
 		return FALSE
 
 	for(var/antag_role in antag_roles)
-		var/datum/antagonist/antag = all_antag_types[antag_role]
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_role]
 		if(antag.is_antagonist(U.uplink_owner))
 			return TRUE
 

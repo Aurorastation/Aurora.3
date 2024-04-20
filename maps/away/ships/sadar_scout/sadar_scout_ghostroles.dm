@@ -11,7 +11,7 @@
 	mob_name_suffix = " Sadar"
 	mob_name_pick_message = "Enter ONLY a first name."
 
-	outfit = /datum/outfit/admin/sadar_crew
+	outfit = /obj/outfit/admin/sadar_crew
 	possible_species = list(SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -23,7 +23,7 @@
 	origin_restriction = list(/singleton/origin_item/origin/coa_spacer)
 
 
-/datum/outfit/admin/sadar_crew
+/obj/outfit/admin/sadar_crew
 	name = "Unified Sadar Fleet Crewman"
 
 	uniform = /obj/item/clothing/under/syndicate/tacticool
@@ -44,8 +44,8 @@
 		/obj/item/clothing/accessory/offworlder/bracer/neckbrace/dark_red = 1
 	)
 
-/datum/outfit/admin/sadar_crew/get_id_access()
-	return list(access_external_airlocks)
+/obj/outfit/admin/sadar_crew/get_id_access()
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sadar_crew/captain
 	short_name = "sadar_crew_captain"
@@ -56,7 +56,7 @@
 	spawnpoints = list("sadar_crew_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/sadar_crew/captain
+	outfit = /obj/outfit/admin/sadar_crew/captain
 	possible_species = list(SPECIES_HUMAN_OFFWORLD)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -64,9 +64,9 @@
 	special_role = "Unified Sadar Fleet Captain"
 
 
-/datum/outfit/admin/sadar_crew/captain
+/obj/outfit/admin/sadar_crew/captain
 	name = "Unified Sadar Fleet Captain"
 
 /obj/item/card/id/sadar_scout
 	name = "unified sadar fleet id"
-	access = list(access_external_airlocks)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS)

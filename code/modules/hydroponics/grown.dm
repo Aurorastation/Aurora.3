@@ -172,11 +172,11 @@
 	if(seed) seed.thrown_at(src,hit_atom)
 	..()
 
-/obj/item/reagent_containers/food/snacks/grown/attackby(var/obj/item/W, var/mob/user)
+/obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/attacking_item, mob/user)
 
 	if(seed)
-		if(seed.get_trait(TRAIT_PRODUCES_POWER) && W.iscoil())
-			var/obj/item/stack/cable_coil/C = W
+		if(seed.get_trait(TRAIT_PRODUCES_POWER) && attacking_item.iscoil())
+			var/obj/item/stack/cable_coil/C = attacking_item
 			if(C.use(5))
 				//TODO: generalize this.
 				to_chat(user, "<span class='notice'>You add some cable to the [src.name] and slide it inside the battery casing.</span>")
@@ -187,14 +187,14 @@
 				pocell.charge = pocell.maxcharge
 				qdel(src)
 				return
-		else if(W.sharp && !W.noslice)
+		else if(attacking_item.sharp && !attacking_item.noslice)
 			if(seed.kitchen_tag == "pumpkin") // Ugggh these checks are awful.
 				user.show_message("<span class='notice'>You carve a face into [src]!</span>", 1)
 				user.put_in_hands(new /obj/item/clothing/head/pumpkin)
 				qdel(src)
 				return
 			else if(seed.chems)
-				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
+				if(istype(attacking_item,/obj/item/material/hatchet) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
 					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
 					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
@@ -367,3 +367,38 @@ var/list/fruit_icon_cache = list()
 		I.color = flesh_colour
 		fruit_icon_cache["slice-[rind_colour]"] = I
 	add_overlay(fruit_icon_cache["slice-[rind_colour]"])
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea
+	name = "sencha leaves"
+	desc = "A type of green tea originating from Japan on Earth, sencha is unique in that it is steamed instead of pan-roasted like most teas. \
+			It has a fresh flavor profile as a result, with flavors like seaweed, grass, or spinach greens predominant. On Konyang, it is most popular in Aoyama."
+	plantname = "sencha"
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "sencha"
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/update_desc()
+	return
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/afterattack(atom/target, mob/user, proximity, params)
+	if(proximity && target.is_open_container() && target.reagents)
+		if(!target.reagents.total_volume)
+			to_chat(user, SPAN_WARNING("You can't steep tea inside of an empty pot!"))
+			return
+		to_chat(user, SPAN_NOTICE("You steep \the [src] inside \the [target]."))
+
+		reagents.trans_to(target, reagents.total_volume)
+		qdel(src)
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin
+	name = "tieguanyin leaves"
+	desc = "A type of oolong tea originating from China on Earth. Like most oolongs, its flavor is somewhere between green and black tea. \
+			It has a nutty, peppery, and floral flavor profile. On Konyang, it is most popular in Ganzaodeng and New Hong Kong."
+	plantname = "tieguanyin"
+	icon_state = "tieguanyin"
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol
+	name = "jaekseol leaves"
+	desc = "A type of black tea originating from Korea on Earth. It has a relatively typical flavor for a black tea, with a sweet, toasty flavor. \
+			On Konyang, it is most popular in Suwon, although coffee is still a more popular beverage in general."
+	plantname = "jaekseol"
+	icon_state = "jaekseol"

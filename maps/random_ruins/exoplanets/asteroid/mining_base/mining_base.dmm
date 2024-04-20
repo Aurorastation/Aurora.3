@@ -6,11 +6,18 @@
 /obj/effect/floor_decal/industrial/warning/dust,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
+"l" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
 "o" = (
 /turf/simulated/mineral,
 /area/template_noop)
 "r" = (
-/turf/unsimulated/floor/asteroid/ash,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "s" = (
 /mob/living/simple_animal/hostile/retaliate/minedrone,
@@ -35,21 +42,26 @@
 /area/template_noop)
 "z" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/table/reinforced,
 /obj/item/storage/bag/ore,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/airless/ceiling,
+/area/template_noop)
+"A" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
 /area/template_noop)
 "B" = (
 /obj/structure/closet/crate,
-/obj/item/ore/hydrogen,
-/obj/item/ore/hydrogen,
-/obj/item/ore/hydrogen,
-/obj/item/ore/hydrogen,
 /obj/item/ore/osmium,
 /obj/item/ore/osmium,
 /obj/item/ore/osmium,
 /obj/item/ore/coal,
 /obj/item/ore/coal,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
+/obj/item/ore/silver,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "C" = (
@@ -62,8 +74,8 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 4
 	},
-/obj/structure/table/reinforced,
 /obj/item/clothing/accessory/storage/overalls/mining,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "H" = (
@@ -98,16 +110,16 @@
 /area/template_noop)
 "R" = (
 /obj/effect/floor_decal/industrial/warning/dust,
-/obj/structure/table/reinforced,
 /obj/item/rfd/mining,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "T" = (
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 1
 	},
-/obj/structure/table/reinforced,
 /obj/item/device/flashlight/lantern,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "U" = (
@@ -125,8 +137,8 @@
 /obj/effect/floor_decal/industrial/warning/dust{
 	dir = 5
 	},
-/obj/structure/table/reinforced,
 /obj/item/pickaxe/jackhammer,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/airless/ceiling,
 /area/template_noop)
 "Y" = (
@@ -138,9 +150,9 @@
 /area/template_noop)
 
 (1,1,1) = {"
-r
-r
-r
+A
+A
+A
 r
 r
 r
@@ -172,9 +184,9 @@ r
 r
 "}
 (2,1,1) = {"
-r
-r
-r
+A
+A
+A
 r
 r
 r
@@ -206,9 +218,9 @@ r
 r
 "}
 (3,1,1) = {"
-r
-r
-r
+A
+A
+A
 r
 r
 r
@@ -240,15 +252,15 @@ r
 r
 "}
 (4,1,1) = {"
+A
+A
+A
 r
 r
 r
-r
-r
-r
-r
-r
-r
+o
+o
+o
 r
 r
 r
@@ -332,7 +344,7 @@ r
 r
 o
 o
-o
+r
 r
 r
 r
@@ -362,8 +374,8 @@ o
 o
 o
 o
-r
-r
+o
+o
 o
 o
 o
@@ -433,7 +445,7 @@ o
 o
 o
 o
-r
+o
 r
 r
 r
@@ -467,7 +479,7 @@ o
 o
 o
 o
-r
+o
 r
 r
 r
@@ -494,7 +506,7 @@ r
 r
 r
 r
-r
+A
 r
 r
 r
@@ -528,15 +540,15 @@ t
 N
 N
 C
-r
+A
 r
 r
 r
 o
 o
 o
-r
-r
+o
+o
 r
 r
 r
@@ -562,14 +574,14 @@ j
 j
 j
 R
-r
+A
 r
 r
 r
 o
 o
 o
-r
+o
 r
 r
 r
@@ -596,7 +608,7 @@ j
 j
 j
 z
-r
+A
 r
 r
 r
@@ -630,10 +642,10 @@ j
 j
 j
 k
-r
-r
-r
-r
+l
+A
+A
+A
 r
 r
 r
@@ -664,7 +676,7 @@ j
 j
 j
 k
-r
+A
 r
 r
 r
@@ -698,7 +710,7 @@ j
 s
 j
 k
-r
+A
 r
 r
 r
@@ -732,7 +744,7 @@ j
 j
 j
 k
-r
+A
 r
 r
 r
@@ -788,7 +800,7 @@ r
 r
 r
 r
-r
+A
 o
 o
 o
@@ -822,7 +834,7 @@ r
 r
 r
 r
-r
+o
 o
 o
 o
@@ -895,7 +907,7 @@ o
 o
 o
 o
-r
+A
 r
 r
 r
@@ -929,7 +941,7 @@ o
 o
 o
 o
-r
+A
 r
 r
 r
@@ -963,7 +975,7 @@ o
 o
 o
 o
-r
+A
 r
 r
 r
@@ -1011,7 +1023,7 @@ o
 o
 o
 o
-r
+o
 r
 r
 r
@@ -1058,7 +1070,7 @@ r
 (28,1,1) = {"
 r
 r
-r
+A
 r
 r
 r
@@ -1092,7 +1104,7 @@ r
 (29,1,1) = {"
 r
 r
-r
+A
 r
 r
 r
@@ -1126,6 +1138,7 @@ r
 (30,1,1) = {"
 r
 r
+A
 r
 r
 r
@@ -1146,8 +1159,7 @@ r
 r
 r
 r
-r
-r
+A
 r
 r
 r
@@ -1160,6 +1172,7 @@ r
 (31,1,1) = {"
 r
 r
+A
 r
 r
 r
@@ -1180,8 +1193,7 @@ r
 r
 r
 r
-r
-r
+A
 r
 r
 r
@@ -1194,6 +1206,7 @@ r
 (32,1,1) = {"
 r
 r
+A
 r
 r
 r
@@ -1214,8 +1227,7 @@ r
 r
 r
 r
-r
-r
+A
 r
 r
 r

@@ -6,9 +6,11 @@
 	id = "abandoned_industrial_station"//Arbitrary tag to make things work. This should be lowercase and unique
 	spawn_cost = 1
 	spawn_weight = 1
-	suffixes = list("away_site/abandoned_industrial/abandoned_industrial_station.dmm")
+	prefix = "away_site/abandoned_industrial/"
+	suffixes = list("abandoned_industrial_station.dmm")
 
 	sectors = list(ALL_POSSIBLE_SECTORS)
+	sectors_blacklist = list(SECTOR_TAU_CETI, SECTOR_HANEUNIM)
 
 /singleton/submap_archetype/abandoned_industrial_station//Arbitrary duplicates of the above name/desc
 	map = "abandoned industrial station"

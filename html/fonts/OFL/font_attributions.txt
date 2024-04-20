@@ -17,3 +17,4 @@ Copt-B.woff - Copyright (c) 2014, Nick Matavka (https://fontlibrary.org/en/membe
 KawkabMono.woff - Copyright (c) 2015, Abdullah Arif (abdullah.a@gmail.com), with Reserved Font Name 'Kawkab Mono'.
 KaushanScript.woff - Copyright (c) 2011, Pablo Impallari (www.impallari.com|impallari@gmail.com), Copyright (c) 2011, Igino Marini. (www.ikern.com|mail@iginomarini.com), with Reserved Font Name Kaushan Script.
 Ducados.woff - Copyright (c) 2015, Rafael Ferran i Peralta (https://fontlibrary.org/en/member/rferran), with Reserved Font Name 'Ducados'.
+veteran_typewriter.woff - Copyright (c) 2012, Koczman Balint (https://www.abstractfonts.com/designer/372/koczman-balint) with Reserved Font Name "Veteran Typewriter Regular".

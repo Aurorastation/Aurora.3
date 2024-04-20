@@ -58,14 +58,14 @@
 	cut_overlays()
 	if (engaged)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
-		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		add_overlay(I)
 		set_light(4, 0.4)
 	else
 		set_light(0)
 		if (operable())
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
-			I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			add_overlay(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)
@@ -78,9 +78,9 @@
 	if(T)
 		if (AreConnectedZLevels(z, T.z))
 			return TRUE
-		else if(current_map.use_overmap)
-			var/my_sector = map_sectors["[z]"]
-			var/target_sector = map_sectors["[T.z]"]
+		else if(SSatlas.current_map.use_overmap)
+			var/my_sector = GLOB.map_sectors["[z]"]
+			var/target_sector = GLOB.map_sectors["[T.z]"]
 			if (istype(my_sector, /obj/effect/overmap/visitable) && istype(target_sector, /obj/effect/overmap/visitable))
 				if(get_dist(my_sector, target_sector) < max_teleport_range)
 					return TRUE

@@ -35,24 +35,25 @@
 		)
 	)
 	titles_to_loadout = list(
-		"Hangar Technician" = /datum/outfit/job/hangar_tech/orion,
-		"Shaft Miner" = /datum/outfit/job/mining/orion,
-		"Machinist" = /datum/outfit/job/machinist/orion,
-		"Bartender" = /datum/outfit/job/bartender/orion,
-		"Chef" = /datum/outfit/job/chef/orion,
-		"Gardener" = /datum/outfit/job/hydro/orion,
-		"Hydroponicist" = /datum/outfit/job/hydro/orion,
-		"Janitor" = /datum/outfit/job/janitor/orion,
-		"Librarian" = /datum/outfit/job/librarian/orion,
-		"Curator" = /datum/outfit/job/librarian/orion/curator,
-		"Tech Support" = /datum/outfit/job/librarian/orion/tech_support,
-		"Corporate Reporter" = /datum/outfit/job/journalist/orion,
-		"Chaplain" = /datum/outfit/job/chaplain/orion,
-		"Corporate Liaison" = /datum/outfit/job/representative/orion,
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/orion
+		"Hangar Technician" = /obj/outfit/job/hangar_tech/orion,
+		"Shaft Miner" = /obj/outfit/job/mining/orion,
+		"Machinist" = /obj/outfit/job/machinist/orion,
+		"Bartender" = /obj/outfit/job/bartender/orion,
+		"Chef" = /obj/outfit/job/chef/orion,
+		"Gardener" = /obj/outfit/job/hydro/orion,
+		"Hydroponicist" = /obj/outfit/job/hydro/orion,
+		"Janitor" = /obj/outfit/job/janitor/orion,
+		"Librarian" = /obj/outfit/job/librarian/orion,
+		"Curator" = /obj/outfit/job/librarian/orion/curator,
+		"Tech Support" = /obj/outfit/job/librarian/orion/tech_support,
+		"Corporate Reporter" = /obj/outfit/job/journalist/orion,
+		"Chaplain" = /obj/outfit/job/chaplain/orion,
+		"Corporate Liaison" = /obj/outfit/job/representative/orion,
+		"Off-Duty Crew Member" = /obj/outfit/job/visitor/orion,
+		"Operations Personnel" = /obj/outfit/job/hangar_tech/orion
 	)
 
-/datum/outfit/job/hangar_tech/orion
+/obj/outfit/job/hangar_tech/orion
 	name = "Hangar Technician - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/hangar_technician/orion
@@ -63,7 +64,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/machinist/orion
+/obj/outfit/job/machinist/orion
 	name = "Machinist - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/machinist/orion
@@ -74,7 +75,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/mining/orion
+/obj/outfit/job/mining/orion
 	name = "Shaft Miner - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/miner/orion
@@ -85,7 +86,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/representative/orion
+/obj/outfit/job/representative/orion
 	name = "Orion Express Corporate Liaison"
 
 	head = /obj/item/clothing/head/beret/corporate/orion
@@ -100,7 +101,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/bartender/orion
+/obj/outfit/job/bartender/orion
 	name = "Bartender - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/bartender/orion
@@ -113,7 +114,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/chef/orion
+/obj/outfit/job/chef/orion
 	name = "Chef - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/chef/orion
@@ -126,7 +127,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/hydro/orion
+/obj/outfit/job/hydro/orion
 	name = "Gardener - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/hydroponics/orion
@@ -138,7 +139,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/janitor/orion
+/obj/outfit/job/janitor/orion
 	name = "Janitor - Orion Express"
 
 	uniform = /obj/item/clothing/under/rank/janitor/orion
@@ -150,7 +151,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/librarian/orion
+/obj/outfit/job/librarian/orion
 	name = "Librarian - Orion Express"
 
 	uniform = /obj/item/clothing/under/librarian/orion
@@ -161,14 +162,14 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/librarian/orion/curator
+/obj/outfit/job/librarian/orion/curator
 	name = "Curator - Orion Express"
 	jobtype = /datum/job/librarian
 
 	r_pocket = /obj/item/device/price_scanner
 	l_hand = null
 
-/datum/outfit/job/librarian/orion/tech_support
+/obj/outfit/job/librarian/orion/tech_support
 	name = "Tech Support - Orion Express"
 	jobtype = /datum/job/librarian
 
@@ -178,7 +179,7 @@
 	l_hand = /obj/item/modular_computer/laptop/preset
 	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
-/datum/outfit/job/journalist/orion
+/obj/outfit/job/journalist/orion
 	name = "Corporate Reporter - Orion Express"
 
 	uniform = /obj/item/clothing/under/librarian/orion
@@ -189,7 +190,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/chaplain/orion
+/obj/outfit/job/chaplain/orion
 	name = "Chaplain - Orion Express"
 
 	id = /obj/item/card/id/orion
@@ -199,7 +200,7 @@
 	dufflebag_faction = /obj/item/storage/backpack/duffel/orion
 	messengerbag_faction = /obj/item/storage/backpack/messenger/orion
 
-/datum/outfit/job/visitor/orion
+/obj/outfit/job/visitor/orion
 	name = "Off-Duty Crew Member - Orion Express"
 
 	id = /obj/item/card/id/orion

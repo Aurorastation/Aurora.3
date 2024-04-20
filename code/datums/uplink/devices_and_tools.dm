@@ -250,3 +250,16 @@
 	telecrystal_cost = 2
 	bluecrystal_cost = 2
 	path = /obj/item/stack/liquidbags/half_full
+
+/datum/uplink_item/item/tools/recharger_backpack
+	name = "Weapon Recharger Backpack"
+	desc = "A backpack which can recharge a connected energy weapon. Runs off normal power cells."
+	telecrystal_cost = 4
+	bluecrystal_cost = 4
+	path = /obj/item/recharger_backpack/high
+
+/datum/uplink_item/item/tools/camera_mask
+	name = "Camera MIU"
+	desc = "A mask which allows the wearer to view local camera feeds they have access to."
+	telecrystal_cost = 6
+	path = /obj/item/clothing/mask/ai

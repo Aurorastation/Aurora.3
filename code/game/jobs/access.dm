@@ -43,21 +43,21 @@
 /proc/get_centcom_access(job)
 	switch(job)
 		if("SCC Agent", "SCC Executive", "SCC Bodyguard")
-			return list(access_cent_general, access_cent_ccia, access_cent_specops)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_CCIA, ACCESS_CENT_SPECOPS)
 		if("CCIA Agent")
-			return list(access_cent_general, access_cent_ccia, access_cent_specops)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_CCIA, ACCESS_CENT_SPECOPS)
 		if("Emergency Response Team")
-			return list(access_cent_general, access_cent_specops, access_cent_living)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING)
 		if("Odin Security")
-			return list(access_cent_general, access_cent_specops, access_cent_living)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING)
 		if("Medical Doctor")
-			return list(access_cent_general, access_cent_medical)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_MEDICAL)
 		if("Service")
-			return list(access_cent_general, access_cent_living)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING)
 		if("Death Commando")
-			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage, access_cent_medical)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_CENT_MEDICAL)
 		if("BlackOps Commander")
-			return list(access_cent_general, access_cent_thunder, access_cent_specops, access_cent_living, access_cent_storage, access_cent_creed)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_THUNDER, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_CENT_CREED)
 		if("NanoTrasen Representative") //Adminspawn roles
 			return get_all_centcom_access()
 		if("Supreme Commander")
@@ -69,21 +69,21 @@
 /proc/get_syndicate_access(job)
 	switch(job)
 		if("Syndicate Operative")
-			return list(access_syndicate)
+			return list(ACCESS_SYNDICATE)
 		if("Syndicate Operative Leader")
-			return list(access_syndicate, access_syndicate_leader)
+			return list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
 		if("Syndicate Agent")
-			return list(access_syndicate, access_maint_tunnels)
+			return list(ACCESS_SYNDICATE, ACCESS_MAINT_TUNNELS)
 		if("Syndicate Commando")
-			return list(access_syndicate, access_syndicate_leader)
+			return list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
 	LOG_DEBUG("Invalid job [job] passed to get_syndicate_access")
 	return list()
 
 /proc/get_distress_access()
-	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip, access_construction)
+	return list(ACCESS_LEGION, ACCESS_DISTRESS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP, ACCESS_CONSTRUCTION)
 
 /proc/get_distress_access_lesser()
-	return list(access_distress, access_external_airlocks)
+	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /var/list/datum/access/priv_all_access_datums
 /proc/get_all_access_datums()
@@ -193,7 +193,7 @@
 /proc/get_all_jobs()
 	var/list/all_jobs = list()
 	var/list/all_datums = typesof(/datum/job)
-	all_datums -= exclude_jobs
+	all_datums -= GLOB.exclude_jobs
 	var/datum/job/jobdatum
 	for(var/jobtype in all_datums)
 		jobdatum = new jobtype
@@ -265,7 +265,7 @@ var/obj/item/card/id/all_access/ghost_all_access
 	return missing_id_name
 
 /proc/get_all_job_icons() //For all existing HUD icons
-	return joblist + list("Prisoner")
+	return GLOB.joblist + list("Prisoner")
 
 /obj/proc/GetJobName() //Used in secHUD icon generation
 	var/obj/item/card/id/I = GetID()

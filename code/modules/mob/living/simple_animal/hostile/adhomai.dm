@@ -151,7 +151,7 @@
 	visible_message(SPAN_WARNING("\The [M] tries to touch \the [src]!"))
 	tesla_zap(M, 5, 5000)
 
-/mob/living/simple_animal/hostile/plasmageist/attackby(obj/item/O, mob/user)
+/mob/living/simple_animal/hostile/plasmageist/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(isliving(user))
 		visible_message(SPAN_WARNING("\The [user] tries to touch \the [src]!"))
@@ -161,7 +161,7 @@
 	..()
 	..(null, "disintegrates!")
 	var/T = get_turf(src)
-	spark(T, 1, alldirs)
+	spark(T, 1, GLOB.alldirs)
 	explosion(T, -1, 0, 2)
 	qdel(src)
 

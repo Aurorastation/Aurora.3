@@ -21,6 +21,9 @@ var/datum/antagonist/mercenary/mercs
 
 	faction = "syndicate"
 
+	idris_account_min = 1200
+	idris_account_max = 2000
+
 /datum/antagonist/mercenary/New()
 	..()
 	mercs = src
@@ -43,8 +46,8 @@ var/datum/antagonist/mercenary/mercs
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/mercenary, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/mercenary, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/mercenary, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/mercenary, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

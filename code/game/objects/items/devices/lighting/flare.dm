@@ -124,8 +124,8 @@
 	START_PROCESSING(SSprocessing, src)
 	update_icon()
 
-/obj/item/device/flashlight/flare/torch/attackby(var/obj/item/W, mob/user)
-	if(W.isFlameSource() && !on && fuel)
+/obj/item/device/flashlight/flare/torch/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isFlameSource() && !on && fuel)
 		light(user)
 	else
 		..()
@@ -164,11 +164,11 @@
 	drop_sound = 'sound/items/drop/woodweapon.ogg'
 	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 
-/obj/item/torch/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/glass/rag))
-		to_chat(user, SPAN_NOTICE("You add \the [I] to \the [src]."))
+/obj/item/torch/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag))
+		to_chat(user, SPAN_NOTICE("You add \the [attacking_item] to \the [src]."))
 		var/obj/item/device/flashlight/flare/torch/T = new()
-		qdel(I)
+		qdel(attacking_item)
 		user.put_in_hands(T)
 		qdel(src)
 

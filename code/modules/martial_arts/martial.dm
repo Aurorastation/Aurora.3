@@ -69,7 +69,7 @@
 				attack_message = "[A] attempted to strike [D], but missed!"
 			else
 				attack_message = "[A] attempted to strike [D], but [D.get_pronoun("he")] rolled out of the way!"
-				D.set_dir(pick(cardinal))
+				D.set_dir(pick(GLOB.cardinal))
 			miss_type = 1
 
 	if(!miss_type && block)
@@ -104,7 +104,7 @@
 	real_damage *= D.damage_multiplier
 	rand_damage *= D.damage_multiplier
 
-	if(HAS_FLAG(A.mutations, HULK))
+	if((A.mutations & HULK))
 		real_damage *= 2 // Hulks do twice the damage
 		rand_damage *= 2
 	if(A.is_berserk())
@@ -206,14 +206,19 @@
 	icon_state ="cqcmanual"
 	item_state ="book1"
 	var/martial_art = /datum/martial_art/sol_combat
+	///List of species capable of learning this martial art.
+	var/list/species_restriction
 
 /obj/item/martial_manual/attack_self(mob/user as mob)
 	if(!ishuman(user))
 		return
 	var/mob/living/carbon/human/H = user
+	if(species_restriction && !(H.species.name in species_restriction))
+		to_chat(H, SPAN_WARNING("Your species is incapable of learning this martial art!"))
+		return
 	var/datum/martial_art/F = new martial_art(null)
 	F.teach(H)
-	to_chat(H, "<span class='notice'>You have learned the martial art of [F.name].</span>")
+	to_chat(H, SPAN_NOTICE("You have learned the martial art of [F.name]."))
 	if(F.possible_weapons)
 		var/weapon = pick(F.possible_weapons)
 		var/obj/item/W = new weapon(get_turf(user))

@@ -30,6 +30,13 @@
 	var/device_type
 	var/obj/item/device
 
+/obj/item/rig_module/device/Destroy()
+	if(!ispath(src.device))
+		QDEL_NULL(src.device)
+	src.device = null
+
+	. = ..()
+
 /obj/item/rig_module/device/healthscanner
 	name = "health scanner module"
 	desc = "A hardsuit-mounted health scanner."
@@ -383,10 +390,16 @@
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/voice/New()
-	..()
+/obj/item/rig_module/voice/Initialize(mapload, ...)
+	. = ..()
+
 	voice_holder = new(src)
 	voice_holder.active = 0
+
+/obj/item/rig_module/voice/Destroy()
+	QDEL_NULL(voice_holder)
+
+	. = ..()
 
 /obj/item/rig_module/voice/installed()
 	..()
@@ -552,11 +565,18 @@
 
 	category = MODULE_GENERAL
 
-/obj/item/rig_module/device/stamp/New()
-	..()
+/obj/item/rig_module/device/stamp/Initialize()
+	. = ..()
+
 	iastamp = new /obj/item/stamp/internalaffairs(src)
 	deniedstamp = new /obj/item/stamp/denied(src)
 	device = iastamp
+
+/obj/item/rig_module/device/stamp/Destroy()
+	QDEL_NULL(iastamp)
+	QDEL_NULL(deniedstamp)
+
+	. = ..()
 
 /obj/item/rig_module/device/stamp/engage(atom/target, mob/user)
 	if(!..() || !device)
@@ -670,7 +690,7 @@
 			if (combatType && ismob(aa))
 				continue
 
-			if (aa.density && NOT_FLAG(aa.atom_flags, ATOM_FLAG_CHECKS_BORDER))
+			if (aa.density && !(aa.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 				to_chat(user, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
 				return FALSE
 
@@ -802,7 +822,7 @@
 			T.ChangeTurf(/turf/space)
 	return TRUE
 
-var/global/list/lattice_users = list()
+GLOBAL_LIST_EMPTY(lattice_users)
 
 /obj/item/rig_module/lattice
 	name = "neural lattice"
@@ -824,7 +844,7 @@ var/global/list/lattice_users = list()
 
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice engaged. Pain receptors altered."))
-	lattice_users.Add(H)
+	GLOB.lattice_users.Add(H)
 
 /obj/item/rig_module/lattice/deactivate()
 	if (!..())
@@ -832,7 +852,7 @@ var/global/list/lattice_users = list()
 
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice disengaged. Pain receptors restored."))
-	lattice_users.Remove(H)
+	GLOB.lattice_users.Remove(H)
 
 /obj/item/rig_module/foam_sprayer
 	name = "mounted foam sprayer"
@@ -877,4 +897,42 @@ var/global/list/lattice_users = list()
 		counter--
 		previous_turf = T
 		sleep(1)
+	return TRUE
+
+/obj/item/rig_module/recharger
+	name = "weapon recharge module"
+	desc = "A specialised power cable designed to connect an energy weapon to a hardsuit's power supply."
+	toggleable = TRUE
+	icon_state = "powersink"
+	interface_name = "integrated weapon recharger"
+	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."
+	category = MODULE_LIGHT_COMBAT
+	usable = FALSE
+	disruptive = FALSE
+	confined_use = TRUE
+	///The gun charging off our hardsuit
+	var/obj/item/gun/energy/connected
+
+/obj/item/rig_module/recharger/activate(mob/user)
+	if (!..())
+		return FALSE
+
+
+	if(!connected)
+		to_chat(user, SPAN_NOTICE("\The [src] does not have a connected energy weapon to charge!"))
+		return FALSE
+
+
+	to_chat(user, SPAN_NOTICE("\The [connected] is now connected to your hardsuit power supply. Deactivate this module to disconnect it."))
+	return TRUE
+
+/obj/item/rig_module/recharger/deactivate(mob/user)
+	if (!..())
+		return FALSE
+
+
+	if(connected)
+		connected.disconnect()
+
+
 	return TRUE

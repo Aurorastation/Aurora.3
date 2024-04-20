@@ -15,9 +15,8 @@
 	movable_flags = MOVABLE_FLAG_PROXMOVE
 	pass_flags = PASSTABLE | PASSRAILING
 
-/var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
-
 /proc/make_list_rank(rank)
+	var/list/acting_rank_prefixes = list("acting", "temporary", "interim", "provisional")
 	for(var/prefix in acting_rank_prefixes)
 		rank = replacetext(rank, "[prefix] ", "")
 	for(var/datum/faction/faction as anything in SSjobs.factions)
@@ -43,7 +42,7 @@
 	density = 0
 	anchored = 0
 	w_class = ITEMSIZE_LARGE
-	force = 0.0
+	force = 0
 	throwforce = 0.0
 	throw_speed = 1
 	throw_range = 20

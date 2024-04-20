@@ -15,6 +15,9 @@ indent_size = 2
 [*.py]
 indent_style = space
 
+[*.sql]
+indent_style = space
+
 [*.md]
 trim_trailing_whitespace = false
 

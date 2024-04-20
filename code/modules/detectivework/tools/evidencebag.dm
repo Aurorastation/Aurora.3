@@ -100,9 +100,9 @@
 	if (stored_item)
 		examinate(user, stored_item)
 
-/obj/item/evidencebag/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.ispen() || istype(W, /obj/item/device/flashlight/pen))
-		var/tmp_label = sanitizeSafe(input(user, "Enter a label for [name]", "Label", label_text), MAX_NAME_LEN)
+/obj/item/evidencebag/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))
+		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > MAX_NAME_LEN)
 			to_chat(user, SPAN_NOTICE("The label can be at most [MAX_NAME_LEN] characters long."))
 		else

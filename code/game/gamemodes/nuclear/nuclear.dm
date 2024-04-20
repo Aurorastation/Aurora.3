@@ -15,9 +15,9 @@ var/list/nuke_disks = list()
 	antag_scaling_coeff = 6
 
 /datum/game_mode/nuclear/pre_setup()
-	round_description = "A mercenary strike force is approaching the [current_map.station_type]!"
-	extended_round_description = "[current_map.company_short]'s wealth and success caught the attention of several enemies old and new, \
-		and many seek to undermine them using illegal ways. Their crown jewel research [current_map.station_type] are not safe from those \
+	round_description = "A mercenary strike force is approaching the [SSatlas.current_map.station_type]!"
+	extended_round_description = "[SSatlas.current_map.company_short]'s wealth and success caught the attention of several enemies old and new, \
+		and many seek to undermine them using illegal ways. Their crown jewel research [SSatlas.current_map.station_type] are not safe from those \
 		malicious activities."
 	. = ..()
 
@@ -35,13 +35,13 @@ var/list/nuke_disks = list()
 	return 0
 
 /datum/game_mode/nuclear/declare_completion()
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		..()
 		return
 	var/disk_rescued = 1
 	for(var/obj/item/disk/nuclear/D in nuke_disks)
 		var/disk_area = get_area(D)
-		if(!is_type_in_list(disk_area, centcom_areas))
+		if(!is_type_in_list(disk_area, GLOB.centcom_areas))
 			disk_rescued = 0
 			break
 	var/crew_evacuated = (evacuation_controller.round_over())

@@ -7,7 +7,7 @@
 	icon_keyboard = "purple_key"
 	light_color = LIGHT_COLOR_PURPLE
 
-	req_one_access = list(access_rd, access_robotics)
+	req_one_access = list(ACCESS_RD, ACCESS_ROBOTICS)
 	circuit = /obj/item/circuitboard/robotics
 
 	var/safety = 1
@@ -187,7 +187,7 @@
 		message_admins("[key_name_admin(usr)] detonated all cyborgs!")
 		log_game("[key_name(usr)] detonated all cyborgs!",ckey=key_name(usr))
 
-		for(var/mob/living/silicon/robot/R in mob_list)
+		for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))
 				continue
 			// Ignore antagonistic cyborgs
@@ -206,7 +206,7 @@
 /obj/machinery/computer/robotics/proc/get_cyborgs(var/mob/operator)
 	var/list/robots = list()
 
-	for(var/mob/living/silicon/robot/R in mob_list)
+	for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 		// Ignore drones
 		if(istype(R, /mob/living/silicon/robot/drone))
 			continue
@@ -248,6 +248,6 @@
 /obj/machinery/computer/robotics/proc/get_cyborg_by_name(var/name)
 	if(!name)
 		return
-	for(var/mob/living/silicon/robot/R in mob_list)
+	for(var/mob/living/silicon/robot/R in GLOB.mob_list)
 		if(R.name == name)
 			return R

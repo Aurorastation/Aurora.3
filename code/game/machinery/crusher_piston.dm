@@ -11,6 +11,7 @@
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
 	idle_power_usage = 300
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
@@ -85,7 +86,7 @@
 	QDEL_NULL(pstn)
 	return ..()
 
-/obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/crusher_base/attackby(obj/item/attacking_item, mob/user)
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
@@ -93,18 +94,18 @@
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
 		M.say("*scream")
 		return TRUE
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(O.iswrench())
+		if(attacking_item.iswrench())
 			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
-			if(O.use_tool(src, user, 50, volume = 50))
+			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open
 				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
 				if(valve_open)
@@ -402,7 +403,7 @@
 	QDEL_NULL(pb3)
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
-	use_power_oneoff(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(src)
 	if(!can_extend_into(T))
 		return 0
@@ -414,7 +415,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
-	use_power_oneoff(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
@@ -427,7 +428,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
-	use_power_oneoff(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
@@ -478,7 +479,7 @@
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
-	for(var/dir_to_test in cardinal)
+	for(var/dir_to_test in GLOB.cardinal)
 		var/turf/new_turf = get_step(T, dir_to_test)
 		if(!new_turf.contains_dense_objects())
 			valid_turfs += new_turf

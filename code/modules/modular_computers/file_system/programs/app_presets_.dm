@@ -62,7 +62,6 @@
 	new /datum/computer_file/program/alarm_monitor/security(comp),\
 	new /datum/computer_file/program/camera_monitor(comp),\
 	new /datum/computer_file/program/digitalwarrant(comp),\
-	new /datum/computer_file/program/penal_mechs(comp),\
 	new /datum/computer_file/program/records/security(comp),\
 	new /datum/computer_file/program/guntracker(comp),\
 )

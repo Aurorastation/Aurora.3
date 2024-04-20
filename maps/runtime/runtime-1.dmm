@@ -508,10 +508,6 @@
 /obj/item/screwdriver,
 /obj/item/wirecutters,
 /obj/structure/table/standard,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Technical Storage";
-	dir = 1
-	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -1087,7 +1083,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cF" = (
-/obj/structure/table,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
@@ -1465,6 +1460,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/gravity_gen)
+"fM" = (
+/turf/unsimulated/wall/steel,
+/area/template_noop)
 "fV" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
@@ -1564,6 +1562,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"oo" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/plating,
+/area/construction)
 "pv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1608,6 +1612,10 @@
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"qH" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/plating,
+/area/construction)
 "sf" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled,
@@ -1840,20 +1848,16 @@
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/tiled,
 /area/bridge)
-"IQ" = (
-/obj/effect/map_effect/airlock/s_to_n/long/square/wide{
-	name = "Deck 2 Starboard Aft Maintenance Airlock (2001)";
-	radio_frequency = 2001
-	},
-/obj/effect/landmark{
-	name = "Observer-Start"
-	},
-/turf/simulated/wall/r_wall,
-/area/maintenance/maintcentral)
 "IY" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Jd" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Jx" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle,
@@ -1906,6 +1910,10 @@
 /obj/machinery/computer/ship/targeting/terminal,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"LM" = (
+/obj/effect/landmark/lobby_mobs_location,
+/turf/unsimulated/floor,
+/area/template_noop)
 "ME" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -5955,8 +5963,8 @@ bJ
 bJ
 cM
 cU
-de
-de
+qH
+oo
 de
 de
 de
@@ -7247,7 +7255,7 @@ dA
 dq
 dq
 de
-de
+Jd
 de
 de
 du
@@ -11077,7 +11085,7 @@ ac
 ac
 bU
 bU
-IQ
+ac
 wI
 ai
 at
@@ -11588,10 +11596,10 @@ aa
 aa
 aa
 aa
+ac
 ae
 ae
-ae
-ae
+ac
 Ft
 fH
 at
@@ -13921,8 +13929,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+fM
 ac
 Uf
 Uf
@@ -14178,8 +14186,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+LM
 ac
 Uf
 Uf
@@ -14435,8 +14443,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+fM
 ac
 ac
 ac

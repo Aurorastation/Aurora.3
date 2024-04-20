@@ -11,6 +11,21 @@
 	valid_accessory_slots = list(ACCESSORY_SLOT_ARMOR_PLATE, ACCESSORY_SLOT_ARM_GUARDS, ACCESSORY_SLOT_LEG_GUARDS, ACCESSORY_SLOT_ARMOR_POCKETS, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
 	pockets = null
 
+/obj/item/clothing/suit/armor/carrier/dominia
+	name = "imperial army flak vest"
+	desc = "Standard-issue body armor used by the Imperial Army. Has attachment points for a steel body armor plate."
+	desc_extended = "While not offering the protection of an entire armor set, the Empire's flak vests protect the wearer from shrapnel, some ballistics, \
+	and weak lasers. It is significantly more comfortable to wear than a full steel plate, and many soldiers on Sun Reach only wear their flak vests — \
+	much to the dismay of officers."
+	icon_state = "dom_carrier"
+	icon_state = "dom_carrier"
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_SMALL,
+		laser = ARMOR_LASER_MINOR,
+		energy = ARMOR_ENERGY_SMALL
+	)
+
 /obj/item/clothing/suit/armor/carrier/officer
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate,
@@ -105,6 +120,7 @@
 	starting_accessories = list(
 		/obj/item/clothing/accessory/armor_plate/tcaf/tcaf_light,
 		/obj/item/clothing/accessory/leg_guard/tcaf,
+		/obj/item/clothing/accessory/storage/chest_gear
 	)
 
 /obj/item/clothing/accessory/armor_plate
@@ -221,6 +237,14 @@
 	item_state = "plate_blue"
 	slowdown = 0 // the SCC is hacking
 
+/obj/item/clothing/accessory/armor_plate/heavy/dominia
+	name = "imperial army steel body armor"
+	desc = "Standard-issue heavy body armor used by the Imperial Army of the Empire of Dominia. When the Goddess' protection is not enough on its own, this will serve."
+	desc_extended = "The combat vests used by the Imperial Army protect well against lasers, ballistics, and shrapnel. They can easily turn a fatal injury into a mere \
+	wound, and are worn throughout the Imperial Army. Despite the protection it offers this body armor is often hot and uncomfortable to wear due to its weight."
+	icon_state = "dom_plate"
+	item_state = "dom_plate"
+
 /obj/item/clothing/accessory/armor_plate/tcaf
 	name = "\improper TCAF legionnaire carapace"
 	desc = "The blue carapace of the Tau Ceti Armed Forces. Polished and proud for Miranda Trasen's favorite soldiers."
@@ -244,6 +268,24 @@
 	item_state = "tcaf_plate_light"
 	slowdown = 0
 
+/obj/item/clothing/accessory/armor_plate/military/navy
+	name = "konyang navy armor plate"
+	desc = "A military-grade armor plate frequently seen in use by naval landing parties and sailors of the Konyang Navy."
+	icon_state = "plate_navy"
+	item_state = "plate_navy"
+
+/obj/item/clothing/accessory/armor_plate/press
+	name = "press armor plate"
+	desc = "A light-weight kevlar armor plate in blue colors and a \"PRESS\" sticker included. Used by wartime correspondents."
+	icon_state = "plate_press"
+	item_state = "plate_press"
+
+/obj/item/clothing/accessory/armor_plate/military/navy
+	name = "konyang navy armor plate"
+	desc = "A military-grade armor plate frequently seen in use by naval landing parties and sailors of the Konyang Navy."
+	icon_state = "plate_navy"
+	item_state = "plate_navy"
+
 /obj/item/clothing/accessory/storage/chestpouch
 	name = "chestpouch rig"
 	desc = "A harness made to be worn over a set of armor. Comes with three pouches on the front, and a hidden pouch on the back for your snacks!"
@@ -253,6 +295,16 @@
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_ARMOR_POCKETS
 	slots = 4
+
+/obj/item/clothing/accessory/storage/chest_gear
+	name = "standard vest equipment"
+	desc = "the standard pouch and commlink each Minuteman gets issued out of basic. This one has a bullet wedged in the radio, don't expect it to work anytime soon."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	icon_state = "tcaf_chest_gear"
+	item_state = "tcaf_chest_gear"
+	contained_sprite = TRUE
+	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	slots = 2
 
 /obj/item/clothing/accessory/storage/modular_pouch
 	name = "plate carrier pouches"
@@ -304,6 +356,12 @@
 	icon_state = "helm_generic"
 	item_state = "helm_generic"
 
+/obj/item/clothing/head/helmet/security/press
+	name = "press helmet"
+	desc = "A helmet in blue colors with a prominent \"PRESS\" emblazoned in front. A common sight on journalists in the Wildlands."
+	icon_state = "helm_press"
+	item_state = "helm_press"
+
 /obj/item/clothing/head/helmet/security/skrell
 	name = "skrellmet"
 	desc = "A helmet built for use by a Skrell. This one appears to be fairly standard and reliable."
@@ -338,6 +396,29 @@
 		energy = ARMOR_ENERGY_SMALL,
 		bomb = ARMOR_BOMB_PADDED,
 	)
+
+/obj/item/clothing/head/helmet/dominia
+	name = "imperial army helmet"
+	desc = "A standard-issue helmet of the Imperial Army of Dominia. Wear on head for best results."
+	desc_extended = "The distinctive outline of the Imperial Army's helmet has made it into a symbol of Dominian imperialism abroad. The helmets themselves protect well \
+	against lasers, ballistics, and shrapnel."
+	icon = 'icons/clothing/kit/modular_armor.dmi'
+	contained_sprite = TRUE
+	icon_state = "dom_helmet"
+	item_state = "dom_helmet"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_MEDIUM,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_PADDED,
+	)
+
+/obj/item/clothing/head/helmet/dominia/nco
+	name = "imperial army NCO helmet"
+	desc = "The standard-issue helmet of a non-commissioned officer of the Imperial Army of Dominia. Offers no additional protection."
+	icon_state = "dom_helmet_nco"
+	item_state = "dom_helmet_nco"
 
 /obj/item/clothing/head/helmet/tcaf
 	name = "\improper TCAF legionnaire faceplate helmet"
@@ -477,8 +558,7 @@
 
 /obj/item/clothing/accessory/flagpatch/europa
 	name = "europa flagpatch"
-	desc = "A flagpatch representing Europa. It is a common tradition that no one can place the origin of to make these patches out of waterproof fabric then carry \
-	them on a dive before displaying them on one's clothes in order to gain good luck."
+	desc = "A flagpatch representing Europa. It is a common tradition, which nobody really knows the origin of, to make these patches out of waterproof fabric then carry them on a dive, before displaying them on one's own clothes in order to gain good luck."
 	icon_state = "flagpatch_europa"
 	item_state = "flagpatch_europa"
 
@@ -632,6 +712,42 @@
 	insignia of a well known unathi drapers' guild stitched on the back."
 	icon_state = "flagpatch_hegemony"
 	item_state = "flagpatch_hegemony"
+
+/obj/item/clothing/accessory/flagpatch/portantillia
+	name = "port antillia flagpatch"
+	desc = "A patch bearing the flag of the Union of Port Antillia. Often associated with veterans of the \
+	Antillian Provincial Naval Fleets, these patches are a mark of resilience through hard times on the planet."
+	icon_state = "flagpatch_portantillia"
+	item_state = "flagpatch_portantillia"
+
+/obj/item/clothing/accessory/flagpatch/zora
+	name = "zo'ra hive flagpatch"
+	desc = "A flagpatch representing the Zo'ra Hive. This flag depicts the Zo'rane capital world of Caprice, \
+	bearing a torch representing their position within the Republic of Biesel."
+	icon_state = "flagpatch_zora"
+	item_state = "flagpatch_zora"
+
+/obj/item/clothing/accessory/flagpatch/klax
+	name = "k'lax hive flagpatch"
+	desc = "A flagpatch representing the K'lax Hive. This flag depicts the K'laxian capital world of Tret, \
+	bearing the quartered colours of the Izweski Hegemony to represent the Hive's vassalage."
+	icon_state = "flagpatch_klax"
+	item_state = "flagpatch_klax"
+
+/obj/item/clothing/accessory/flagpatch/cthur
+	name = "c'thur hive flagpatch"
+	desc = "A flagpatch representing the C'thur Hive. This flag depicts the star borne by the Nralakk Federation's \
+	own flag, representing the Hive's independence and gracious allegiance toward the Federation."
+	icon_state = "flagpatch_cthur"
+	item_state = "flagpatch_cthur"
+
+/obj/item/clothing/accessory/flagpatch/sedantis
+	name = "sedantis flagpatch"
+	desc = "A flagpatch representing the gas giant Sedantis and it's orbiting bodies. Sedantis I, also known as \
+	Vaur'avek'uyit, was the homeworld of the Vaurca. Symbolism involving it is often employed to represent greater \
+	pan-Vaurcaesian interests over the interests of the individual Hives."
+	icon_state = "flagpatch_sedantis"
+	item_state = "flagpatch_sedantis"
 
 // Wildlands
 

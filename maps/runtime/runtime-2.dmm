@@ -11,7 +11,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled,
 /area/construction/storage)
 "aO" = (
 /turf/simulated/floor/tiled,
@@ -242,7 +242,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
-/turf/simulated/floor/airless,
+/turf/simulated/floor/tiled,
 /area/construction/storage)
 "iR" = (
 /turf/template_noop,
@@ -1000,7 +1000,6 @@
 	must_start_working = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled{

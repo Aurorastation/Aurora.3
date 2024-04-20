@@ -4,7 +4,6 @@
 	icon = 'icons/obj/smooth/chalkline-smooth.dmi'
 	icon_state = "preview"
 	color = "#FFFFFF"
-	layer = 2.1
 	anchored = TRUE
 	smoothing_flags = SMOOTH_TRUE
 
@@ -20,7 +19,7 @@
 /obj/item/pen/drafting
 	name = "white drafting chalk"
 	desc = "A piece of white chalk for marking areas of floor."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "dchalk"
 	color = "#FFFFFF"
 	var/colorName = "whitec"

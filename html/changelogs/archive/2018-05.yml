@@ -1,0 +1,133 @@
+2018-05-07:
+  BurgerBB:
+  - rscadd: Fixes the stacking machine from eating materials due to an oversight.
+  PoZe:
+  - rscadd: EMT room now has two GPS and two medical emergency medical radios
+  - maptweak: Increased size of Toxin's airlock, allowing canister to refill from
+      main air supply
+  - bugfix: Fixed tags(names) for medical construction level security cameras
+  - spellcheck: Chemistry, and security construction levels request consoles names
+      are fixed according to their room.
+2018-05-10:
+  Kaedwuff:
+  - bugfix: No longer can your victims resist their way out of a good sucking after
+      being hypnotized by your vampire.
+2018-05-13:
+  Alberyk:
+  - bugfix: Fixed securitrons trying to arrest the head of personnel because of their
+      gun.
+  - bugfix: ERT's id should have the proper access now.
+  - rscadd: Added new tajara related clothing options to the custom loadout.
+  - rscadd: Added partial understanding to some languages, it allows you to understand
+      some words from a certain language without knowing it.
+  - rscadd: Added new tajara language, Delvahhi, available to the Zhan-Khazan.
+  - rscadd: Added new accessory related options to the loadout, such as ties.
+  Arrow768:
+  - rscadd: It is now possible to call commanded animals by a nickname.
+  - rscadd: The sentencing console has been upgraded with a integrated fining system.
+  - rscdel: Due to protests from the "real" engineers, the janitor is no longer part
+      of the engineering department and has been reintegrated into the service department.
+  - rscadd: NT has entered a cooperation with various news outlets to provide quality
+      information at the start of the shift.
+  - rscdel: Due to quality issues NT has banned Editor Mike Hammers of the Gibson
+      Gazette from publishing news.
+  - rscadd: It has come to our attention that a flaw might effect the containment
+      systems of the station.
+  - tweak: IPCs can no longer be converted to cultists.
+  Banditoz:
+  - rscadd: You can now use , and . to go up and down z-levels, respectively.
+  BurgerBB:
+  - maptweak: Added additional z-level protection for AI.
+  - maptweak: Moved the bomb range further away from the station to prevent z-level
+      breaches caused by explosions.
+  - tweak: Butanol based drinks can now be selected from the loadout via flask.
+  - balance: Tweaked some of the more boring loot options to be more interesting.
+      Reduced the chance of getting arcade loot in the warehouse. Increased the amount
+      of loot in the warehouse from 80 to 100.
+  - rscadd: Added new food items.
+  - maptweak: Redesigned Hydroponics. Lightly tweaked the layout of cargo.
+  - rscdel: Removed Hextrasenil and Trisyndicotin.
+  - maptweak: Cardox grenades are now located in the vault. Added a bookin various
+      locations reminding non-medical staff not to give mental medication to prisoners.
+  - tweak: Cardox is now slightly poisonous, and can directly remove phoron from blood
+      when consumed. Cardox can now remove phoron in the air when applied to turfs.
+  - rscadd: Added the panocelium mushrooms, a mushroom mutated from fly amanita. They
+      contain panotoxic, a potent toxin that causes intense amounts of pain. Added
+      Calomel, a special medication that purges most chemicals from the bloodstream.
+      Added Pulmodeiectionem, a special medication that purges most chemicals from
+      the lungs.
+  - rscadd: Added inhalers and autoinhalers. Inhalers and Autoinhalers can quickly
+      add reagents to the lungs. Inhalers can be found in chemistry, made in science,
+      found/ordered from cargo, or purchased from a traitor uplink. Oxygen deprevation
+      kits now contain autoinhalers instead of pills. Added breath analyzers, a medical
+      device that analyzes useful information about the respiratory system. Oxygen
+      deprevation kits now contain breath analyzers instead of health analyzers.
+  - tweak: Bicardine now heals lung damage when inhaled at the cost of general reduced
+      effectiveness. Phoron, ammonia, hyperzine, dexalin plus, soporific, chloral
+      hydrate, and space drugs are more effective when inhaled. All painkillers, except
+      for inaprovaline, have no effectiveness when breathed in. Tricordrazine has
+      no effectiveness when breathed in. Breathing in acid now deals direct damage
+      to the lungs.
+  - bugfix: Fixed the metabolism rate of mental medication to reflext their intended
+      values. Reduced the dosage threshhold to supress traumas to reflect their intended
+      values.
+  - tweak: Reworked intoxication entirely. Inebriation lasts generally longer, and
+      the effects are generally more realistic.
+  - bugfix: Added missing seeds to garden vendors. Converted the hydroponics seed
+      vendor into a better vending machine.
+  ParadoxSpace:
+  - rscadd: Adds shorts, skirts, a leather coat, orange goggles, a colorable headband
+      and leather vests to the loadout.
+  - rscadd: Adds about 10 new cyberpunk themed hairstyles.
+  - rscdel: Shaves half of your head.
+  PoZe:
+  - tweak: All AI intercom microphones are turned off by default. To help new antag
+      AI players not to accidentally reveal their plans
+  - tweak: Hostile mobs now attack back any mobs who touch/attack/shoot or throw objects
+      at them. They also now prioritize mobs with lowest health
+  - rscadd: Added oxygen candles as an item. They are one-time emergency item that
+      is used to fill 2-3 tiles of depressurized environment
+  Skull132:
+  - tweak: Bumped Vaurca economic modifier by 1 point, as per lore developments.
+2018-05-14:
+  BurgerBB:
+  - bugfix: Fixed breath analyzers not working. Fixed inhalers not playing their proper
+      injection sounds. Fixed BLT recipe. Fixed a misplaced tile in Hydroponics.
+  - tweak: Tweaked the weight of the inhalers to match their size and sprite. Added
+      more information to inhaler cartridges when examining them. Made inhalers more
+      user-friendly.
+  - maptweak: Tweaked the layout of Hydroponics and added an actual seed storage for
+      excess seeds.
+2018-05-17:
+  Kaedwuff:
+  - bugfix: The bahama lizard recipe has been fixed to now actually be craftable.
+      It now requires only lemon juice, ice, cream, and xuizi juice.
+  PoZe:
+  - bugfix: Wizard disable technology spell no longer affects the caster.
+2018-05-20:
+  BurgerBB:
+  - bugfix: Fixed various broken/incorrect recipes for food.
+  - bugfix: Fixes smoking pipes burning up too quickly.
+  - bugfix: Fixed some non-public vendors refusing to accept items.
+  - maptweak: Removed the additonal seed vendor due to redundancy.
+2018-05-22:
+  Arrow768:
+  - bugfix: Fixes a bad bugfix that reintruduced the bug which allows to "regenerate"
+      used items using the vending machines.
+  Lohikar:
+  - bugfix: Unathi can no longer chew on holograms.
+2018-05-25:
+  Arrow768:
+  - rscadd: IPCs can be converted to the cult again, but only serve as constructs.
+  LordFowl:
+  - bugfix: Fixes the number 3 being broadcasted from surgery tables.
+  PoZe:
+  - maptweak: Veding machines at Centcomm don't charge money for their products. Hail
+      NanoTrasen!
+2018-05-28:
+  Kaedwuff:
+  - bugfix: The janitor's closet now has service headsets in it again.
+  - tweak: The chaplain now also gets a service headset again.
+2018-05-29:
+  Kaedwuff:
+  - bugfix: You can no longer slice fruit (or anything else) with a syringe.

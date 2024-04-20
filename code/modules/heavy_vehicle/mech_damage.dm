@@ -70,7 +70,7 @@
 		else
 			return body
 
-/mob/living/heavy_vehicle/apply_damage(var/damage = 0, var/damagetype = DAMAGE_BRUTE, var/def_zone, var/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/heavy_vehicle/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	if(!damage)
 		return 0
 
@@ -144,8 +144,8 @@
 
 	apply_damage(damage, DAMAGE_BRUTE, BP_L_LEG) // can target any leg, it will be changed to the proper component
 
-	playsound(loc, "sound/effects/bang.ogg", 100, 1)
-	playsound(loc, "sound/effects/bamf.ogg", 100, 1)
+	playsound(loc, 'sound/effects/bang.ogg', 100, 1)
+	playsound(loc, 'sound/effects/bamf.ogg', 100, 1)
 	return TRUE
 
 /mob/living/heavy_vehicle/get_bullet_impact_effect_type(var/def_zone)

@@ -9,18 +9,18 @@
 	spawnpoints = list("tajaran_smuggler")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/tajaran_smuggler
+	outfit = /obj/outfit/admin/tajaran_smuggler
 
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	uses_species_whitelist = FALSE
 
-	assigned_role = "Tajaran Smuggler"
+	assigned_role = "Independent Spacer"
 	special_role = "Tajaran Smuggler"
 	respawn_flag = null
 
-/datum/outfit/admin/tajaran_smuggler
+/obj/outfit/admin/tajaran_smuggler
 	name = "Tajaran Smuggler"
 
 	uniform = list(
@@ -54,7 +54,7 @@
 		/obj/item/storage/backpack/duffel
 	)
 
-	id = null
+	id = /obj/item/card/id
 
 	l_ear = /obj/item/device/radio/headset/ship
 
@@ -66,6 +66,9 @@
 		SPECIES_TAJARA_ZHAN = /obj/item/clothing/shoes/workboots/toeless
 	)
 
+/obj/outfit/admin/tajaran_smuggler/get_id_access()
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
+
 
 /datum/ghostspawner/human/tajaran_smuggler/captain
 	short_name = "tajaran_smuggler_captain"
@@ -75,15 +78,15 @@
 	spawnpoints = list("tajaran_smuggler_captain")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/freighter_crew/captain
+	outfit = /obj/outfit/admin/freighter_crew/captain
 
 	uses_species_whitelist = TRUE
 
-	assigned_role = "Tajaran Smuggler Captain"
+	assigned_role = "Independent Captain"
 	special_role = "Tajaran Smuggler Captain"
 
 
-/datum/outfit/admin/tajaran_smuggler/captain
+/obj/outfit/admin/tajaran_smuggler/captain
 	name = "Tajaran Smuggler Captain"
 
 	uniform = /obj/item/clothing/under/syndicate

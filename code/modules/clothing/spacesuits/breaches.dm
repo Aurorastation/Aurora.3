@@ -177,10 +177,10 @@ var/global/list/breach_burn_descriptors = list(
 
 //Handles repairs (and also upgrades).
 
-/obj/item/clothing/suit/space/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/stack/material))
+/obj/item/clothing/suit/space/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material))
 		var/repair_power = 0
-		switch(W.get_material_name())
+		switch(attacking_item.get_material_name())
 			if(DEFAULT_WALL_MATERIAL)
 				repair_power = 2
 			if("plastic")
@@ -197,13 +197,13 @@ var/global/list/breach_burn_descriptors = list(
 			to_chat(user, "There is no surface damage on \the [src] to repair.")
 			return
 
-		var/obj/item/stack/P = W
+		var/obj/item/stack/P = attacking_item
 		var/use_amt = min(P.get_amount(), 3)
 		if(use_amt && P.use(use_amt))
 			repair_breaches(DAMAGE_BURN, use_amt * repair_power, user)
 		return
 
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 
 		if(istype(src.loc,/mob/living))
 			to_chat(user, "<span class='warning'>How do you intend to patch a voidsuit while someone is wearing it?</span>")
@@ -213,7 +213,7 @@ var/global/list/breach_burn_descriptors = list(
 			to_chat(user, "There is no structural damage on \the [src] to repair.")
 			return
 
-		var/obj/item/weldingtool/WT = W
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(5))
 			to_chat(user, "<span class='warning'>You need more welding fuel to repair this suit.</span>")
 			return
@@ -223,11 +223,11 @@ var/global/list/breach_burn_descriptors = list(
 
 	..()
 
-/obj/item/clothing/suit/space/examine(mob/user)
+/obj/item/clothing/suit/space/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
-			to_chat(user, "<span class='danger'>It has \a [B.descriptor].</span>")
+			. += "<span class='danger'>It has \a [B.descriptor].</span>"
 
 /obj/item/clothing/suit/space/get_pressure_weakness(pressure)
 	. = ..()

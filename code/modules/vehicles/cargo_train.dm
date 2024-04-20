@@ -126,19 +126,20 @@
 
 	return ..()
 
-/obj/vehicle/train/cargo/trolley/attackby(obj/item/W as obj, mob/user as mob)
-	if(open && W.iswirecutter())
+/obj/vehicle/train/cargo/trolley/attackby(obj/item/attacking_item, mob/user)
+	if(open && attacking_item.iswirecutter())
 		passenger_allowed = !passenger_allowed
-		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))
+		user.visible_message(SPAN_NOTICE("[user] [passenger_allowed ? "cuts" : "mends"] a cable in [src]."),
+								SPAN_NOTICE("You [passenger_allowed ? "cut" : "mend"] the load limiter cable."))
 	else
 		..()
 
-/obj/vehicle/train/cargo/engine/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, key_type))
+/obj/vehicle/train/cargo/engine/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, key_type))
 		if(!key)
-			user.drop_from_inventory(W, src)
-			key = W // put the key in the ignition
-			to_chat(user, SPAN_NOTICE("You slide \the [W] into \the [src]\s ignition."))
+			user.drop_from_inventory(attacking_item, src)
+			key = attacking_item // put the key in the ignition
+			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] into \the [src]\s ignition."))
 			playsound(src, 'sound/machines/vehicles/key_in.ogg', 50, FALSE)
 		else
 			to_chat(user, SPAN_NOTICE("There is already a key in \the [src]\s ignition."))
@@ -194,7 +195,7 @@
 		..()
 		to_chat(user, SPAN_NOTICE("You turn on \the [src]\s ignition."))
 		playsound(src, 'sound/machines/vehicles/button.ogg', 50, FALSE)
-		playsound_in(src, 'sound/machines/vehicles/start.ogg', 50, FALSE, time = 1 SECOND)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(playsound), src, 'sound/machines/vehicles/start.ogg', 50, FALSE), 1 SECONDS)
 	else
 		turn_off(user)
 	update_stats()
@@ -248,16 +249,16 @@
 	else
 		return ..()
 
-/obj/vehicle/train/cargo/engine/examine(mob/user, distance)
+/obj/vehicle/train/cargo/engine/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 
-	if(!istype(usr, /mob/living/carbon/human))
+	if(!ishuman(user))
 		return
 
-	to_chat(user, "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition.")
-	to_chat(user, "The charge meter reads [cell? round(cell.percent(), 0.01) : 0]%")
+	. += "The power light is [on ? "on" : "off"].\nThere are[key ? "" : " no"] keys in the ignition."
+	. += "The charge meter reads [cell? round(cell.percent(), 0.01) : 0]%."
 
 /obj/vehicle/train/cargo/engine/CtrlClick(mob/user)
 	if(load && load != user)
@@ -351,7 +352,7 @@
 		var/mutable_appearance/MA = new(C)
 		MA.pixel_x += load_offset_x
 		MA.pixel_y += load_offset_y
-		MA.layer = FLOAT_LAYER
+		MA.layer = VEHICLE_LOAD_LAYER
 
 		add_overlay(MA)
 
@@ -385,8 +386,8 @@
 	else
 		move_delay = max(0, (-car_limit * active_engines) + train_length - active_engines)	//limits base overweight so you cant overspeed trains
 		move_delay *= (1 / max(1, active_engines)) * 2 										//overweight penalty (scaled by the number of engines)
-		move_delay += config.walk_speed 													//base reference speed
-		move_delay *= config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
+		move_delay += GLOB.config.walk_speed 													//base reference speed
+		move_delay *= GLOB.config.vehicle_delay_multiplier												//makes cargo trains 10% slower than running when not overweight
 		if(emagged)
 			move_delay -= 2
 

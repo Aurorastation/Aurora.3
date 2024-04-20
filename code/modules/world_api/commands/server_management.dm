@@ -129,7 +129,7 @@
 /datum/topic_command/broadcast_text/run_command(queryparams)
 	log_and_message_admins("AdminRanks: remote reload of the admins list initiated.")
 
-	if (config.use_forumuser_api)
+	if (GLOB.config.use_forumuser_api)
 		if (!update_admins_from_api(reload_once_done=FALSE))
 			statuscode = 500
 			response = "Updating admins from the forumuser API failed. Aborted."

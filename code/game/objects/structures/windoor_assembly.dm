@@ -66,17 +66,17 @@
 		return 1
 
 
-/obj/structure/windoor_assembly/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/windoor_assembly/attackby(obj/item/attacking_item, mob/user)
 	//I really should have spread this out across more states but thin little windoors are hard to sprite.
 	switch(state)
 		if("01")
-			if(W.iswelder() && !anchored)
-				var/obj/item/weldingtool/WT = W
+			if(attacking_item.iswelder() && !anchored)
+				var/obj/item/weldingtool/WT = attacking_item
 				if (WT.use(0,user))
 					user.visible_message("[user] dissassembles the windoor assembly.", "You start to dissassemble the windoor assembly.")
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 
-					if(W.use_tool(src, user, 40, volume = 50))
+					if(attacking_item.use_tool(src, user, 40, volume = 50))
 						if(!src || !WT.isOn()) return
 						to_chat(user, "<span class='notice'>You dissasembled the windoor assembly!</span>")
 						new /obj/item/stack/material/glass/reinforced(get_turf(src), 5)
@@ -88,10 +88,10 @@
 					return
 
 			//Wrenching an unsecure assembly anchors it in place. Step 4 complete
-			if(W.iswrench() && !anchored)
+			if(attacking_item.iswrench() && !anchored)
 				user.visible_message("[user] secures the windoor assembly to the floor.", "You start to secure the windoor assembly to the floor.")
 
-				if(W.use_tool(src, user, 40, volume = 50))
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src) return
 					to_chat(user, "<span class='notice'>You've secured the windoor assembly!</span>")
 					src.anchored = 1
@@ -101,10 +101,10 @@
 						src.name = "Anchored Windoor Assembly"
 
 			//Unwrenching an unsecure assembly un-anchors it. Step 4 undone
-			else if(W.iswrench() && anchored)
+			else if(attacking_item.iswrench() && anchored)
 				user.visible_message("[user] unsecures the windoor assembly to the floor.", "You start to unsecure the windoor assembly to the floor.")
 
-				if(W.use_tool(src, user, 40, volume = 50))
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src) return
 					to_chat(user, "<span class='notice'>You've unsecured the windoor assembly!</span>")
 					src.anchored = 0
@@ -114,14 +114,14 @@
 						src.name = "Windoor Assembly"
 
 			//Adding plasteel makes the assembly a secure windoor assembly. Step 2 (optional) complete.
-			else if(istype(W, /obj/item/stack/rods) && !secure)
-				var/obj/item/stack/rods/R = W
+			else if(istype(attacking_item, /obj/item/stack/rods) && !secure)
+				var/obj/item/stack/rods/R = attacking_item
 				if(R.get_amount() < 4)
 					to_chat(user, "<span class='warning'>You need more rods to do this.</span>")
 					return
 				to_chat(user, "<span class='notice'>You start to reinforce the windoor with rods.</span>")
 
-				if(W.use_tool(src, user, 40, volume = 50) && !secure)
+				if(attacking_item.use_tool(src, user, 40, volume = 50) && !secure)
 					if (R.use(4))
 						to_chat(user, "<span class='notice'>You reinforce the windoor.</span>")
 						src.secure = "secure_"
@@ -131,11 +131,11 @@
 							src.name = "Secure Windoor Assembly"
 
 			//Adding cable to the assembly. Step 5 complete.
-			else if(W.iscoil() && anchored)
+			else if(attacking_item.iscoil() && anchored)
 				user.visible_message("[user] wires the windoor assembly.", "You start to wire the windoor assembly.")
 
-				var/obj/item/stack/cable_coil/CC = W
-				if(W.use_tool(src, user, 40, volume = 50))
+				var/obj/item/stack/cable_coil/CC = attacking_item
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if (CC.use(1))
 						to_chat(user, "<span class='notice'>You wire the windoor!</span>")
 						src.state = "02"
@@ -149,11 +149,11 @@
 		if("02")
 
 			//Removing wire from the assembly. Step 5 undone.
-			if(W.iswirecutter() && !src.electronics)
+			if(attacking_item.iswirecutter() && !src.electronics)
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 				user.visible_message("[user] cuts the wires from the airlock assembly.", "You start to cut the wires from airlock assembly.")
 
-				if(W.use_tool(src, user, 40, volume = 50))
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src) return
 
 					to_chat(user, "<span class='notice'>You cut the windoor wires.!</span>")
@@ -165,8 +165,8 @@
 						src.name = "Anchored Windoor Assembly"
 
 			//Adding airlock electronics for access. Step 6 complete.
-			else if(istype(W, /obj/item/airlock_electronics) && W:icon_state != "door_electronics_smoked")
-				var/obj/item/airlock_electronics/EL = W
+			else if(istype(attacking_item, /obj/item/airlock_electronics) && attacking_item:icon_state != "door_electronics_smoked")
+				var/obj/item/airlock_electronics/EL = attacking_item
 				if(!EL.is_installed)
 					playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 					user.visible_message("[user] installs the electronics into the airlock assembly.", "You start to install electronics into the airlock assembly.")
@@ -182,10 +182,10 @@
 						EL.is_installed = 0
 
 			//Screwdriver to remove airlock electronics. Step 6 undone.
-			else if(W.isscrewdriver() && src.electronics)
+			else if(attacking_item.isscrewdriver() && src.electronics)
 				user.visible_message("[user] removes the electronics from the airlock assembly.", "You start to uninstall electronics from the airlock assembly.")
 
-				if(W.use_tool(src, user, 40, volume = 50))
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 					if(!src || !src.electronics) return
 					to_chat(user, "<span class='notice'>You've removed the airlock electronics!</span>")
 					if(src.secure)
@@ -197,14 +197,14 @@
 					ae.forceMove(src.loc)
 
 			//Crowbar to complete the assembly, Step 7 complete.
-			else if(W.iscrowbar())
+			else if(attacking_item.iscrowbar())
 				if(!src.electronics)
 					to_chat(usr, "<span class='warning'>The assembly is missing electronics.</span>")
 					return
 				usr << browse(null, "window=windoor_access")
 				user.visible_message("[user] pries the windoor into the frame.", "You start prying the windoor into the frame.")
 
-				if(W.use_tool(src, user, 40, volume = 50))
+				if(attacking_item.use_tool(src, user, 40, volume = 50))
 
 					if(!src) return
 

@@ -8,7 +8,7 @@
 	spawnpoints = list("sfa_navy_crewman")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/sfa_navy_crewman
+	outfit = /obj/outfit/admin/sfa_navy_crewman
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -19,7 +19,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
-/datum/outfit/admin/sfa_navy_crewman
+/obj/outfit/admin/sfa_navy_crewman
 	name = "SFA Navy Crewman"
 
 	uniform = /obj/item/clothing/under/rank/sol/
@@ -35,8 +35,8 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/sfa_navy_crewman/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+/obj/outfit/admin/sfa_navy_crewman/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sfa_navy_officer
 	short_name = "sfa_navy_officer"
@@ -48,7 +48,7 @@
 	spawnpoints = list("sfa_navy_officer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/sfa_navy_officer
+	outfit = /obj/outfit/admin/sfa_navy_officer
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -59,7 +59,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
-/datum/outfit/admin/sfa_navy_officer
+/obj/outfit/admin/sfa_navy_officer
 	name = "SFA Navy Officer"
 
 	uniform = /obj/item/clothing/under/rank/sol/dress/subofficer
@@ -74,8 +74,8 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/sfa_navy_officer/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+/obj/outfit/admin/sfa_navy_officer/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/sfa_marine
 	short_name = "sfa_marine"
@@ -87,7 +87,7 @@
 	spawnpoints = list("sfa_navy_crewman")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/sfa_marine
+	outfit = /obj/outfit/admin/sfa_marine
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -98,7 +98,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/solarian)
 
 
-/datum/outfit/admin/sfa_marine
+/obj/outfit/admin/sfa_marine
 	name = "SFA Marine"
 
 	uniform = /obj/item/clothing/under/rank/sol/marine
@@ -114,11 +114,11 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife/sol = 1)
 
-/datum/outfit/admin/sfa_marine/get_id_access()
-	return list(access_sol_ships, access_external_airlocks)
+/obj/outfit/admin/sfa_marine/get_id_access()
+	return list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items
 
 /obj/item/card/id/sfa_ship
 	name = "sfa patrol ship id"
-	access = list(access_sol_ships, access_external_airlocks)
+	access = list(ACCESS_SOL_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)

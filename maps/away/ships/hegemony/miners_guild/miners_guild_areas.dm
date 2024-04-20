@@ -35,7 +35,7 @@
 	name = "Miners' Guild Outpost - Hangar"
 	icon_state = "green"
 	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 /area/miners_guild/solars_port
 	name = "Miners' Guild Outpost - Port Solar Array"
@@ -51,7 +51,7 @@
 	name = "Miners' Guild Outpost - Fuel Bay"
 	icon_state = "hangar"
 	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 /area/miners_guild/cryo
 	name = "Miners' Guild Outpost - Cryogenic Storage"

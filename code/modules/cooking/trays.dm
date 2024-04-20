@@ -11,7 +11,7 @@
 	icon_state = "tray"
 	desc = "A metal tray to lay food on."
 	throwforce = 12.0
-	force = 10.0
+	force = 15
 	throw_speed = 1
 	throw_range = 5
 	w_class = 3.0
@@ -32,17 +32,17 @@
 		return
 	spill(user, target.loc)
 
-/obj/item/tray/attackby(obj/item/I, mob/user, var/click_params)
-	if (isrobot(I.loc))//safety to stop robots losing their items
+/obj/item/tray/attackby(obj/item/attacking_item, mob/user, params)
+	if (isrobot(attacking_item.loc))//safety to stop robots losing their items
 		return TRUE
 
-	if(istype(I, /obj/item/material/kitchen/rollingpin))
+	if(istype(attacking_item, /obj/item/material/kitchen/rollingpin))
 		if(cooldown < world.time - 25)
-			user.visible_message(SPAN_DANGER("[user] bashes [src] with [I]!"))
+			user.visible_message(SPAN_DANGER("[user] bashes [src] with [attacking_item]!"))
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 		return TRUE
-	attempt_load_item(I, user, click_params=click_params)
+	attempt_load_item(attacking_item, user, click_params=params)
 
 /*
 ============~~~~~======================~~~~~=============
@@ -104,10 +104,10 @@
 	I.forceMove(src)
 	auto_align(I, click_params)
 	current_weight += I.w_class
-	vis_contents += I
+	add_vis_contents(I)
 	I.vis_flags |= VIS_INHERIT_LAYER | VIS_INHERIT_PLANE
 	item_equipped_event.register(I, src, PROC_REF(pick_up))
-	destroyed_event.register(I, src, PROC_REF(unload_item))
+	GLOB.destroyed_event.register(I, src, PROC_REF(unload_item))
 
 /obj/item/tray/verb/unload()
 	set name = "Unload Tray"
@@ -177,7 +177,7 @@
 
 	for(var/obj/item/I in contents)
 		unload_item(I, dropspot)
-		I.throw_at(get_edge_target_turf(src, pick(alldirs)), rand(0, 2), 10)
+		I.throw_at(get_edge_target_turf(src, pick(GLOB.alldirs)), rand(0, 2), 10)
 	if (user)
 		user.visible_message("<b>[user]</b> spills their tray all over the floor.", SPAN_WARNING("You spill the tray!"))
 	else
@@ -219,3 +219,15 @@
 	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
 	recyclable = TRUE
 	max_carry = 7 // That's 3 dishes, a knife, spoon and fork and a glass
+
+/obj/item/tray/tea
+	name = "tea tray"
+	desc = "A tray for serving tea."
+	icon_state = "teatray"
+	force = 3
+	throwforce = 3
+	atom_flags = 0
+	matter = list(DEFAULT_TABLE_MATERIAL = 1000)
+	recyclable = TRUE
+	max_carry = 6
+	contained_sprite = TRUE

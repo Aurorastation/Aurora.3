@@ -13,6 +13,8 @@
 
 	place_near_main = list(1, 1)
 
+	unit_test_groups = list(2)
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
 	icon_state = "asteroid[rand(1,3)]"
 
@@ -24,7 +26,21 @@
 	skybox_image.appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	skybox_image.blend_mode = BLEND_OVERLAY
 
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/generate_atmosphere()
+	atmosphere = null
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/romanovich
 	name = "romanovich cloud asteroid"
 	desc = "A phoron rich asteroid."
 	possible_themes = list(/datum/exoplanet_theme/barren/asteroid/phoron)
+
+/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice
+	name = "ice asteroid"
+	desc = "A large, mineral-rich asteroid covered in frozen water deposits."
+	surface_color = COLOR_BLUE_GRAY
+	scanimage = "asteroid.png"
+	possible_themes = list(/datum/exoplanet_theme/barren/asteroid/ice)
+	rock_colors = list(COLOR_ASH)
+	planetary_area = /area/exoplanet/barren/asteroid
+	ruin_planet_type = PLANET_ASTEROID
+	ruin_allowed_tags = RUIN_AIRLESS|RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL

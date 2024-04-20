@@ -3,6 +3,8 @@
 	var/value
 	var/details
 
+GENERAL_PROTECT_DATUM(/datum/feedback_variable)
+
 /datum/feedback_variable/New(var/param_variable,var/param_value = 0)
 	variable = param_variable
 	value = param_value

@@ -4,6 +4,7 @@
 	density = TRUE
 	layer = 9
 	pixel_x = -16
+	protects_against_weather = TRUE
 	var/max_chop_health = 180
 	var/chop_health = 180 //15 hits with steel hatchet, 5 with wielded fireaxe
 	var/fall_force = 60
@@ -23,14 +24,14 @@
 		if(0.76 to 0.95)
 			desc += " Looks like someone just started cutting it down."
 
-/obj/structure/flora/tree/attackby(obj/item/I, mob/user)
-	if(I.can_woodcut())
+/obj/structure/flora/tree/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.can_woodcut())
 		if(cutting)
 			return
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		cutting = TRUE
-		if(istype(I, /obj/item/material/twohanded/chainsaw))
-			var/obj/item/material/twohanded/chainsaw/C = I
+		if(istype(attacking_item, /obj/item/material/twohanded/chainsaw))
+			var/obj/item/material/twohanded/chainsaw/C = attacking_item
 			if(C.powered)
 				user.visible_message(SPAN_NOTICE("\The [user] begins cutting down \the [src]..."), SPAN_NOTICE("You start cutting down \the [src]..."))
 				playsound(get_turf(user), 'sound/weapons/saw/chainsawhit.ogg', 60, 1)
@@ -41,15 +42,15 @@
 				to_chat(user, SPAN_WARNING("Try turning \the [C] on first!"))
 				cutting = FALSE
 				return
-		else if(do_after(user, I.w_class * 5)) //Small windup
+		else if(do_after(user, attacking_item.w_class * 5)) //Small windup
 			user.do_attack_animation(src)
 			shake_animation()
 			playsound(get_turf(src), 'sound/effects/woodcutting.ogg', 50, 1)
-			chop_health -= I.force
+			chop_health -= attacking_item.force
 			update_desc()
 			if(prob(20))
 				user.visible_message(SPAN_NOTICE("\The [user] chops at \the [src]."), SPAN_NOTICE("You chop at \the [src]."), SPAN_NOTICE("You hear someone chopping wood."))
-			if(prob(I.force/3))
+			if(prob(attacking_item.force/3))
 				var/list/valid_turfs = list()
 				for(var/turf/T in circle_range(src, 1))
 					if(T.contains_dense_objects())
@@ -136,17 +137,17 @@
 	anchored = FALSE
 	icon_state = "timber"
 
-/obj/structure/flora/stump/log/attackby(obj/item/I, mob/user)
-	if(I.can_woodcut())
+/obj/structure/flora/stump/log/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.can_woodcut())
 		if(cutting)
 			return
 		cutting = TRUE
-		var/chopsound = istype(I, /obj/item/material/twohanded/chainsaw) ? 'sound/weapons/saw/chainsawhit.ogg' : 'sound/effects/woodcutting.ogg'
+		var/chopsound = istype(attacking_item, /obj/item/material/twohanded/chainsaw) ? 'sound/weapons/saw/chainsawhit.ogg' : 'sound/effects/woodcutting.ogg'
 		playsound(get_turf(user), chopsound, 50, 1)
 		user.visible_message(SPAN_NOTICE("\The [user] begins chopping \the [src] into log sections."), SPAN_NOTICE("You begin chopping \the [src] into log sections."))
 		var/chopspeed = 1
-		if(istype(I, /obj/item/material/twohanded))
-			var/obj/item/material/twohanded/W = I
+		if(istype(attacking_item, /obj/item/material/twohanded))
+			var/obj/item/material/twohanded/W = attacking_item
 			chopspeed = W.wielded ? 2 : 1
 		if(do_after(user, 100 / chopspeed))
 			user.visible_message(SPAN_NOTICE("\The [user] chops \the [src] into log sections."), SPAN_NOTICE("You chop \the [src] into log sections."))

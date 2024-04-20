@@ -115,8 +115,8 @@
 	max_hydration_factor = -1
 
 	possible_cultures = list(
+		/singleton/origin_item/culture/hieroaetheria,
 		/singleton/origin_item/culture/xrim,
-		/singleton/origin_item/culture/eum,
 		/singleton/origin_item/culture/narrows,
 		/singleton/origin_item/culture/diona_biesel,
 		/singleton/origin_item/culture/diona_sol,
@@ -165,7 +165,7 @@
 	return current_flags
 
 /datum/species/diona/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
 		return TRUE
 	return FALSE
 

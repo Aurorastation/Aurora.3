@@ -35,9 +35,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "g" = (
 /obj/effect/floor_decal/concrete{
@@ -59,9 +57,7 @@
 /obj/structure/sign/biohazard{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "i" = (
 /obj/effect/floor_decal/concrete{
@@ -85,15 +81,11 @@
 	pixel_y = 5;
 	pixel_x = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "l" = (
 /obj/machinery/light,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "m" = (
 /obj/effect/floor_decal/concrete{
@@ -189,9 +181,7 @@
 /mob/living/simple_animal/schlorrgo{
 	dead_on_map = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "A" = (
 /obj/effect/floor_decal/concrete/large{
@@ -271,14 +261,10 @@
 /area/adhomai_schlorrgo_cage)
 "N" = (
 /obj/structure/pit,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "O" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "P" = (
 /obj/effect/floor_decal/concrete/large{
@@ -364,9 +350,7 @@
 /area/adhomai_schlorrgo_cage)
 "Y" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_schlorrgo_cage)
 "Z" = (
 /obj/effect/floor_decal/concrete{

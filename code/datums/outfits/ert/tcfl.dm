@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/legion
+/obj/outfit/admin/ert/legion
 	name = "TCFL Volunteer"
 
 	head = /obj/item/clothing/head/beret/legion/field
@@ -14,7 +14,7 @@
 
 	id_iff = IFF_TCFL
 
-/datum/outfit/admin/ert/legion/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/legion/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -22,23 +22,23 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 
-/datum/outfit/admin/ert/legion/get_id_access()
+/obj/outfit/admin/ert/legion/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/ert/legion/specialist
+/obj/outfit/admin/ert/legion/specialist
 	name = "TCFL Legionnaire"
 	accessory = /obj/item/clothing/accessory/legion/specialist
 
-/datum/outfit/admin/ert/legion/leader
+/obj/outfit/admin/ert/legion/leader
 	name = "TCFL Prefect"
 	accessory = /obj/item/clothing/accessory/legion
 
-/datum/outfit/admin/ert/legion/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/legion/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	.=..()
 	var/obj/item/card/id/distress/legion/I = H.wear_id
-	I.access += (access_cent_specops)
+	I.access += (ACCESS_CENT_SPECOPS)
 
-/datum/outfit/admin/ert/legion/pilot
+/obj/outfit/admin/ert/legion/pilot
 	name = "TCFL Dropship Pilot"
 	uniform = /obj/item/clothing/under/legion/pilot
 	head = /obj/item/clothing/head/helmet/pilot/legion
@@ -51,7 +51,7 @@
 
 	backpack_contents = null
 
-/datum/outfit/admin/ert/legion/sentinel
+/obj/outfit/admin/ert/legion/sentinel
 	name = "TCFL Sentinel"
 	head = /obj/item/clothing/head/beret/legion/sentinel
 	uniform = /obj/item/clothing/under/legion/sentinel
@@ -79,7 +79,7 @@
 		/obj/item/melee/telebaton = 1
 	)
 
-/datum/outfit/admin/ert/legion/sentinel/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/ert/legion/sentinel/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	.=..()
 	var/obj/item/card/id/distress/legion/I = H.wear_id
-	I.access += (access_cent_specops)
+	I.access += (ACCESS_CENT_SPECOPS)

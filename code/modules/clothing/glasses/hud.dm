@@ -64,6 +64,7 @@
 	to_chat(user, SPAN_NOTICE("You detach a set of medical HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	var/obj/item/clothing/glasses/regular/R = new glasses_type(user.loc)
+	R.color = src.color
 	user.put_in_hands(R)
 	var/obj/item/clothing/glasses/hud/health/H = new /obj/item/clothing/glasses/hud/health(user.loc)
 	user.put_in_hands(H)
@@ -119,6 +120,7 @@
 	to_chat(user, SPAN_NOTICE("You detach a set of security HUDs from your glasses."))
 	playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 	var/obj/item/clothing/glasses/regular/R = new glasses_type(user.loc)
+	R.color = src.color
 	user.put_in_hands(R)
 	var/obj/item/clothing/glasses/hud/security/S = new /obj/item/clothing/glasses/hud/security(user.loc)
 	user.put_in_hands(S)

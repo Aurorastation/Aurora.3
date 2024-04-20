@@ -1,6 +1,5 @@
 /datum/species/bug/type_b
 	name = SPECIES_VAURCA_WARRIOR
-	short_name = "vaw"
 	name_plural = "Type BA"
 	language = LANGUAGE_VAURCA
 	species_height = HEIGHT_CLASS_TALL
@@ -62,7 +61,7 @@
 	deform = 'icons/mob/human_races/vaurca/r_vaurcac.dmi'
 	icon_x_offset = -8
 	floating_chat_x_offset = 8
-	floating_chat_y_offset = 16
+	floating_chat_y_offset = 24
 	typing_indicator_x_offset = 16
 	typing_indicator_y_offset = 12
 	healths_x = 22
@@ -140,6 +139,8 @@
 		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
 		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield
 	)
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
+	valid_prosthetics = null
 
 /datum/species/bug/type_c/New()
 	..()
@@ -229,6 +230,8 @@
 	)
 
 	default_h_style = "Bald"
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
+	valid_prosthetics = null
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= HULK
@@ -297,6 +300,8 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 
 	sprint_speed_factor = 1.0
 	stamina = 50
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
+	valid_prosthetics = null
 
 /datum/species/bug/type_e/New()
 	..()

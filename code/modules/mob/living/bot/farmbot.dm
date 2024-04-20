@@ -11,7 +11,7 @@
 	icon_state = "farmbot0"
 	health = 50
 	maxHealth = 50
-	req_one_access = list(access_hydroponics, access_robotics, access_xenobotany)
+	req_one_access = list(ACCESS_HYDROPONICS, ACCESS_ROBOTICS, ACCESS_XENOBOTANY)
 
 	var/action = "" // Used to update icon
 	var/waters_trays = TRUE
@@ -79,7 +79,6 @@
 	if(!emagged)
 		if(user)
 			to_chat(user, SPAN_NOTICE("You short out [src]'s plant identifier circuits."))
-		spawn(rand(30, 50))
 			visible_message(SPAN_WARNING("[src] buzzes oddly."))
 			emagged = TRUE
 		return TRUE
@@ -121,6 +120,14 @@
 	attack_hand(usr)
 	return
 
+/mob/living/bot/farmbot/turn_on()
+	. = ..()
+	MOB_START_THINKING(src)
+
+/mob/living/bot/farmbot/turn_off()
+	MOB_STOP_THINKING(src)
+	. = ..()
+
 /mob/living/bot/farmbot/update_icon()
 	if(on && action)
 		icon_state = "farmbot_[action]"
@@ -139,7 +146,7 @@
 
 	if(target)
 		if(Adjacent(target))
-			INVOKE_ASYNC(src, PROC_REF(UnarmedAttack), target)
+			UnarmedAttack(target)
 			path = list()
 			target = null
 		else
@@ -172,13 +179,6 @@
 					frustration = 0
 					break
 
-			if(check_tank())
-				for(var/obj/structure/sink/source in view(7, src))
-					if(pathfind(source)) //If we can find a valid path to this sink, it's our target
-						target = source
-						frustration = 0
-						break
-
 
 /mob/living/bot/farmbot/proc/pathfind(var/atom/A)
 	var/turf/targetloc = get_turf(A)
@@ -192,8 +192,8 @@
 
 	//If we got here, we know there's a space around it that we can use to access the tray/target. Let's try to find a path to it.
 	var/turf/location_goal = pick(freespaces)
-	path = AStar(loc, location_goal, /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-	if(!path)
+	path = get_path_to(src, location_goal, 30, 0, botcard.GetAccess())
+	if(!length(path))
 		path = list()
 		return FALSE
 	return path
@@ -216,69 +216,40 @@
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts [T.dead? "removing the plant from" : "harvesting"] \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [A]."))
-					T.attack_hand(src)
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_COLLECT, T), 3 SECONDS)
+
 			if(FARMBOT_WATER)
 				action = "water"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts watering \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
-					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					tank.reagents.trans_to(T, 100 - T.waterlevel)
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_WATER, T), 3 SECONDS)
+
 			if(FARMBOT_UPROOT)
 				action = "hoe"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts uprooting the weeds in \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [A]."))
-					T.weedlevel = 0
-					T.update_icon()
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_UPROOT, T), 3 SECONDS)
+
 			if(FARMBOT_PESTKILL)
 				action = "hoe"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts eliminating the pests in \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [A]."))
-					T.pestlevel = 0
-					T.reagents.add_reagent(/singleton/reagent/nutriment, 0.5)
-					T.update_icon()
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_PESTKILL, T), 3 SECONDS)
+
 			if(FARMBOT_NUTRIMENT)
 				action = "fertile"
 				update_icon()
 				visible_message(SPAN_NOTICE("[src] starts fertilizing \the [A]."))
 				attacking = TRUE
-				if(do_after(src, 30))
-					visible_message(SPAN_NOTICE("[src] waters \the [A]."))
-					T.reagents.add_reagent(/singleton/reagent/ammonia, 10)
-		attacking = FALSE
-		action = ""
-		update_icon()
-		T.update_icon()
-	else if(istype(A, /obj/structure/sink))
-		if(!tank || tank.reagents.total_volume >= tank.reagents.maximum_volume)
-			return
-		action = "water"
-		update_icon()
-		visible_message(SPAN_NOTICE("[src] starts refilling its tank from \the [A]."))
-		attacking = TRUE
-		while(do_after(src, 10) && tank.reagents.total_volume < tank.reagents.maximum_volume)
-			tank.reagents.add_reagent(/singleton/reagent/water, 10)
-			if(prob(5))
-				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
-		attacking = FALSE
-		action = ""
-		update_icon()
-		visible_message(SPAN_NOTICE("[src] finishes refilling its tank."))
+				addtimer(CALLBACK(src, PROC_REF(do_action_on_tray), FARMBOT_NUTRIMENT, T), 3 SECONDS)
+
 	else if(emagged && ishuman(A))
 		var/action = pick("weed", "water")
 		attacking = TRUE
-		spawn(50) // Some delay
-			attacking = FALSE
+		addtimer(CALLBACK(src, PROC_REF(rearm_attacking)), 5 SECONDS)
 		switch(action)
 			if("weed")
 				flick("farmbot_hoe", src)
@@ -291,6 +262,44 @@
 			if("water")
 				flick("farmbot_water", src)
 				visible_message(SPAN_DANGER("[src] splashes [A] with water!")) // That's it. RP effect.
+
+/**
+ * Performs an action on the tray, call with a timer to have delays
+ *
+ * Remember to set `attacking = TRUE` before doing so, so multiple actions won't be queued at the same time
+ */
+/mob/living/bot/farmbot/proc/do_action_on_tray(action_to_take, obj/machinery/portable_atmospherics/hydroponics/T)
+	if(!QDELETED(T))
+		switch(action_to_take)
+			if(FARMBOT_COLLECT)
+				visible_message(SPAN_NOTICE("[src] [T.dead? "removes the plant from" : "harvests"] \the [T]."))
+				T.attack_hand(src)
+			if(FARMBOT_WATER)
+				playsound(get_turf(src), 'sound/effects/slosh.ogg', 25, TRUE)
+				visible_message(SPAN_NOTICE("[src] waters \the [T]."))
+				tank.reagents.trans_to(T, 100 - T.waterlevel)
+			if(FARMBOT_UPROOT)
+				visible_message(SPAN_NOTICE("[src] uproots the weeds in \the [T]."))
+				T.weedlevel = 0
+			if(FARMBOT_PESTKILL)
+				visible_message(SPAN_NOTICE("[src] eliminates the pests in \the [T]."))
+				T.pestlevel = 0
+				T.reagents.add_reagent(/singleton/reagent/nutriment, 0.5)
+			if(FARMBOT_NUTRIMENT)
+				visible_message(SPAN_NOTICE("[src] waters \the [T]."))
+				T.reagents.add_reagent(/singleton/reagent/ammonia, 10)
+
+	action = ""
+	update_icon()
+	T.update_icon()
+	attacking = FALSE
+
+/**
+ * Basically turns the `attacking` var back to `FALSE`,
+ * call with a timer for delays etc.
+ */
+/mob/living/bot/farmbot/proc/rearm_attacking()
+	attacking = FALSE
 
 /mob/living/bot/farmbot/explode()
 	visible_message(SPAN_DANGER("[src] blows apart!"))
@@ -305,7 +314,7 @@
 	if(prob(50))
 		new /obj/item/robot_parts/l_arm(T)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 	qdel(src)
 	return
 
@@ -341,7 +350,8 @@
 	var/build_step = 0
 	var/created_name = "Farmbot"
 
-/obj/structure/reagent_dispensers/watertank/attackby(obj/item/robot_parts/S, mob/user)
+/obj/structure/reagent_dispensers/watertank/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/robot_parts/S = attacking_item
 	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
 		..()
 		return
@@ -352,28 +362,28 @@
 	loc = A //Place the water tank into the assembly, it will be needed for the finished bot
 	qdel(S)
 
-/obj/item/farmbot_arm_assembly/attackby(obj/item/W, mob/user)
+/obj/item/farmbot_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(W, /obj/item/device/analyzer/plant_analyzer) && build_step == 0)
+	if(istype(attacking_item, /obj/item/device/analyzer/plant_analyzer) && build_step == 0)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add the plant analyzer to [src]."))
 		name = "farmbot assembly"
-		qdel(W)
+		qdel(attacking_item)
 		return TRUE
-	else if(istype(W, /obj/item/reagent_containers/glass/bucket) && build_step == 1)
+	else if(istype(attacking_item, /obj/item/reagent_containers/glass/bucket) && build_step == 1)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add a bucket to [src]."))
 		name = "farmbot assembly with bucket"
-		qdel(W)
+		qdel(attacking_item)
 		return TRUE //Prevents the object's afterattack from executing and causing runtime errors
-	else if(istype(W, /obj/item/material/minihoe) && build_step == 2)
+	else if(istype(attacking_item, /obj/item/material/minihoe) && build_step == 2)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You add a minihoe to [src]."))
 		name = "farmbot assembly with bucket and minihoe"
-		user.remove_from_mob(W)
-		qdel(W)
+		user.remove_from_mob(attacking_item)
+		qdel(attacking_item)
 		return TRUE
-	else if(isprox(W) && build_step == 3)
+	else if(isprox(attacking_item) && build_step == 3)
 		build_step++
 		to_chat(user, SPAN_NOTICE("You complete the Farmbot! Beep boop."))
 		var/mob/living/bot/farmbot/S = new /mob/living/bot/farmbot(get_turf(src))
@@ -382,12 +392,12 @@
 			wTank.forceMove(S)
 			S.tank = wTank
 		S.name = created_name
-		user.remove_from_mob(W)
-		qdel(W)
+		user.remove_from_mob(attacking_item)
+		qdel(attacking_item)
 		qdel(src)
 		return TRUE
-	else if(W.ispen())
-		var/t = input(user, "Enter new robot name", name, created_name) as text
+	else if(attacking_item.ispen())
+		var/t = tgui_input_text(user, "Enter new robot name", name, created_name)
 		t = sanitize(t, MAX_NAME_LEN)
 		if(!t)
 			return

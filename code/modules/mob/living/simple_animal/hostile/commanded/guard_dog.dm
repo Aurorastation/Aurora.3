@@ -111,6 +111,14 @@
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
 
+/mob/living/simple_animal/hostile/commanded/dog/bullterrier
+	name = "bull terrier"
+	desc = "An odd looking dog with a head in the shape of an egg."
+
+	icon_state = "bullterrier"
+	icon_living = "bullterrier"
+	icon_dead = "bullterrier_dead"
+
 /mob/living/simple_animal/hostile/commanded/dog/harron
 	name = "domesticated ha'rron"
 	short_name = "ha'rron"

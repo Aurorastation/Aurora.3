@@ -15,7 +15,7 @@
 /area/kataphract_chapter/sparring_chamber
 	name = "Kataphract Chapter - Sparring Chamber"
 	icon_state = "security"
-	sound_env = ARENA
+	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/kataphract_chapter/commissary
 	name = "Kataphract Chapter - Commissary"
@@ -40,17 +40,17 @@
 /area/kataphract_chapter/dorms
 	name = "Kataphract Chapter - Dormitory"
 	icon_state = "Sleep"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/toilets
 	name = "Kataphract Chapter - Toilets"
 	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/kataphract_chapter/office
 	name = "Kataphract Chapter - Knight's Office"
 	icon_state = "law"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/cafeteria
 	name = "Kataphract Chapter - Cafeteria"
@@ -104,13 +104,13 @@
 /area/kataphract_chapter/warehouse
 	name = "Kataphract Chapter - Warehouse"
 	icon_state = "quartstorage"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/kataphract_chapter/hangar
 	name = "Kataphract Chapter - Hangar"
 	icon_state = "green"
 	ambience = AMBIENCE_HANGAR
-	sound_env = HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 /area/kataphract_chapter/cic
 	name = "Kataphract Chapter - Combat Information Center"

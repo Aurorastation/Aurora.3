@@ -70,10 +70,10 @@ SUBSYSTEM_DEF(cargo)
 	supply_account = SSeconomy.get_department_account("Operations")
 
 	//Load in the cargo items config
-	if(config.cargo_load_items_from == "sql")
+	if(GLOB.config.cargo_load_items_from == "sql")
 		log_subsystem_cargo("SScargo: Attempting to Load from SQL")
 		load_from_sql()
-	else if(config.cargo_load_items_from == "json")
+	else if(GLOB.config.cargo_load_items_from == "json")
 		log_subsystem_cargo("SScargo: Attempting to Load from JSON")
 		load_from_json()
 	else
@@ -86,7 +86,8 @@ SUBSYSTEM_DEF(cargo)
 	var/datum/cargospawner/spawner = new
 	spawner.start()
 	qdel(spawner)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /*
 	Loading Data
@@ -103,7 +104,7 @@ SUBSYSTEM_DEF(cargo)
 
 //Load the cargo data from SQL
 /datum/controller/subsystem/cargo/proc/load_from_sql()
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		log_subsystem_cargo("SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
@@ -111,7 +112,7 @@ SUBSYSTEM_DEF(cargo)
 		reset_cargo()
 
 		//Load the categories
-		var/DBQuery/category_query = dbcon.NewQuery("SELECT id, name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
+		var/DBQuery/category_query = GLOB.dbcon.NewQuery("SELECT id, name, display_name, description, icon, price_modifier FROM ss13_cargo_categories WHERE deleted_at IS NULL ORDER BY order_by ASC")
 		category_query.Execute()
 		while(category_query.NextRow())
 			CHECK_TICK
@@ -122,7 +123,7 @@ SUBSYSTEM_DEF(cargo)
 				category_query.item[5],
 				text2num(category_query.item[6]))
 		//Load the suppliers
-		var/DBQuery/supplier_query = dbcon.NewQuery("SELECT id, short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
+		var/DBQuery/supplier_query = GLOB.dbcon.NewQuery("SELECT id, short_name, name, description, tag_line, shuttle_time, shuttle_price, available, price_modifier FROM ss13_cargo_suppliers WHERE deleted_at is NULL")
 		supplier_query.Execute()
 		while(supplier_query.NextRow())
 			CHECK_TICK
@@ -136,7 +137,7 @@ SUBSYSTEM_DEF(cargo)
 				supplier_query.item[8],
 				supplier_query.item[9])
 		//Load the items
-		var/DBQuery/item_query = dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
+		var/DBQuery/item_query = GLOB.dbcon.NewQuery("SELECT id, name, supplier, description, categories, price, items, access, container_type, groupable, item_mul FROM ss13_cargo_items WHERE deleted_at IS NULL AND approved_at IS NOT NULL AND supplier IS NOT NULL ORDER BY order_by ASC, name ASC, supplier ASC")
 		item_query.Execute()
 		while(item_query.NextRow())
 			CHECK_TICK
@@ -155,7 +156,7 @@ SUBSYSTEM_DEF(cargo)
 				item_query.item[11])
 			if(error_message && istext(error_message))
 				log_subsystem_cargo("SScargo: Error when loading item [item_id] from sql: [error_message]")
-				var/DBQuery/item_error_query = dbcon.NewQuery("UPDATE ss13_cargo_items SET error_message = :error_message: WHERE id = :id:")
+				var/DBQuery/item_error_query = GLOB.dbcon.NewQuery("UPDATE ss13_cargo_items SET error_message = :error_message: WHERE id = :id:")
 				item_error_query.Execute(list("id"=item_id,"error_message"=error_message))
 
 
@@ -739,21 +740,21 @@ SUBSYSTEM_DEF(cargo)
 	if(dumped_orders)
 		log_subsystem_cargo("Order Data Dump Aborted - Orders already dumped")
 		return
-	if(config.cargo_load_items_from != "sql")
+	if(GLOB.config.cargo_load_items_from != "sql")
 		log_subsystem_cargo("Order Data Dump Aborted - Cargo not loaded from database")
 		return
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		log_subsystem_cargo("SQL ERROR - Failed to connect. - Unable to dump order data")
 		return
 
 	dumped_orders = TRUE
 
 	// Loop through all the orders and dump them all
-	var/DBQuery/dump_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
+	var/DBQuery/dump_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog` (`game_id`, `order_id`, `status`, `price`, `ordered_by_id`, `ordered_by`, `authorized_by_id`, `authorized_by`, `received_by_id`, `received_by`, `paid_by_id`, `paid_by`, `time_submitted`, `time_approved`, `time_shipped`, `time_delivered`, `time_paid`, `reason`) \
 	VALUES (:game_id:, :order_id:, :status:, :price:, :ordered_by_id:, :ordered_by:, :authorized_by_id:, :authorized_by:, :received_by_id:, :received_by:, :paid_by_id:, :paid_by:, :time_submitted:, :time_approved:, :time_shipped:, :time_delivered:, :time_paid:, :reason:)")
-	var/DBQuery/dump_item_query = dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
+	var/DBQuery/dump_item_query = GLOB.dbcon.NewQuery("INSERT INTO `ss13_cargo_orderlog_items` (`cargo_orderlog_id`, `cargo_item_id`, `amount`) \
 	VALUES (:cargo_orderlog_id:, :cargo_item_id:, :amount:)")
-	var/DBQuery/log_id = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 	for(var/datum/cargo_order/co in all_orders)
 		//Iterate over the items in the order and build the a list with the item count
 		var/list/itemcount = list()
@@ -764,7 +765,7 @@ SUBSYSTEM_DEF(cargo)
 				itemcount["[coi.ci.id]"] = 1
 
 		if(!dump_query.Execute(list(
-			"game_id"=game_id,
+			"game_id"=GLOB.round_id,
 			"order_id"=co.order_id,
 			"status"=co.status,
 			"price"=co.price,

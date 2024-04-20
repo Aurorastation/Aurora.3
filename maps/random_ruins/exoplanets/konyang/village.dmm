@@ -54,6 +54,14 @@
 /obj/item/trash/ramen,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
+"bc" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/konyang_village)
 "be" = (
 /obj/structure/flora/pottedplant/smelly,
 /turf/simulated/floor/wood,
@@ -152,7 +160,7 @@
 /area/konyang_village)
 "dq" = (
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_village)
 "dN" = (
 /obj/structure/sink{
@@ -571,6 +579,10 @@
 /obj/item/trash/cigbutt/roll{
 	pixel_y = -11;
 	pixel_x = -4
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
 	},
 /turf/simulated/floor/sidewalk/blocks,
 /area/konyang_village)
@@ -999,6 +1011,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/konyang_village)
+"yE" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/concrete,
+/area/konyang_village)
 "yF" = (
 /obj/structure/chainlink_fence{
 	layer = 9.1
@@ -1023,6 +1043,14 @@
 /obj/structure/lattice/catwalk/indoor/planks,
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/konyang,
+/area/konyang_village)
+"zb" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/sidewalk,
 /area/konyang_village)
 "zi" = (
 /obj/structure/lattice/catwalk/indoor/planks,
@@ -1080,6 +1108,15 @@
 /obj/structure/flora/bush/jungle,
 /turf/simulated/floor/exoplanet/konyang,
 /area/konyang_village)
+"AT" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/concrete,
+/area/konyang_village)
 "AX" = (
 /obj/item/trash/ramen,
 /turf/simulated/floor/exoplanet/konyang,
@@ -1097,7 +1134,7 @@
 "BJ" = (
 /obj/structure/flora/rock/konyang/water,
 /obj/structure/flora/bush/konyang_reeds/water,
-/turf/simulated/floor/exoplanet/water/konyang,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_village)
 "BR" = (
 /obj/random/dirt_75,
@@ -1375,7 +1412,7 @@
 /turf/simulated/floor/lino/diamond,
 /area/konyang_village)
 "Le" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
@@ -1494,7 +1531,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/sign/flag/konyang/large/east,
+/obj/structure/sign/flag/konyang/large/east{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled/white,
 /area/konyang_village)
 "Oj" = (
@@ -1707,7 +1746,6 @@
 	pixel_x = -3;
 	pixel_y = 2
 	},
-/obj/structure/flora/ausbushes/sparsegrass,
 /turf/simulated/floor/wood,
 /area/konyang_village)
 "Tl" = (
@@ -2439,7 +2477,7 @@ eN
 Bb
 pn
 pU
-mD
+AT
 aH
 Bb
 Hz
@@ -2595,7 +2633,7 @@ VV
 ll
 ll
 ll
-pn
+zb
 RA
 af
 Bb
@@ -2770,7 +2808,7 @@ aH
 aH
 aH
 pn
-Ui
+bc
 pn
 aH
 aH
@@ -2819,7 +2857,7 @@ aH
 WE
 WE
 WE
-mD
+AT
 WE
 pn
 Bb
@@ -2949,8 +2987,8 @@ YI
 mD
 aH
 Bb
-qL
 Ow
+qL
 Bb
 RW
 Cg
@@ -3239,7 +3277,7 @@ KO
 NF
 ys
 ys
-YI
+yE
 BR
 Cg
 KO

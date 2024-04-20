@@ -52,6 +52,11 @@
 	telecrystal_cost = 8
 	path = /obj/item/gun/projectile/automatic/tommygun
 
+/datum/uplink_item/item/visible_weapons/submachinegun/assassin
+	name = "Suppressed Machine Pistol"
+	telecrystal_cost = 8
+	path = /obj/item/gun/projectile/automatic/tommygun/assassin
+
 /datum/uplink_item/item/visible_weapons/landmine
 	name = "Land Mine"
 	telecrystal_cost = 3

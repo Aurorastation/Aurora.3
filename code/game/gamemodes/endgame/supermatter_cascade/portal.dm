@@ -18,7 +18,7 @@
 	overlays = 0
 
 /obj/singularity/narsie/large/exit/process()
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			M.see_rift(src)
 	eat()
@@ -34,10 +34,10 @@
 		var/mob/living/L = A
 		if(L.buckled_to && istype(L.buckled_to,/obj/structure/bed/))
 			var/turf/O = L.buckled_to
-			do_teleport(O, pick(endgame_safespawns))
+			do_teleport(O, pick(GLOB.endgame_safespawns))
 			L.forceMove(O.loc)
 		else
-			do_teleport(L, pick(endgame_safespawns)) //dead-on precision
+			do_teleport(L, pick(GLOB.endgame_safespawns)) //dead-on precision
 
 	else if (isturf(A))
 		var/turf/T = A

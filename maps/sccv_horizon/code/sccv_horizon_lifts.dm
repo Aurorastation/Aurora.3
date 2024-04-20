@@ -100,37 +100,35 @@
 
 /area/turbolift/scc_ship/morgue_lift
 	name = "Morgue Lift"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
 
 //Operations Lift
 /datum/shuttle/autodock/multi/lift/operations
 	name = "Operations Lift"
-	current_location = "nav_operations_lift_second_deck"
+	current_location = "nav_operations_lift_first_deck"
 	shuttle_area = /area/turbolift/scc_ship/operations_lift
 	destination_tags = list(
 		"nav_operations_lift_first_deck",
 		"nav_operations_lift_second_deck",
-		"nav_operations_lift_third_deck"
+		"nav_operations_lift_third_deck",
 		)
 
 /obj/effect/shuttle_landmark/lift/operations_first_deck
 	name = "Operations Lift - First Deck"
 	landmark_tag = "nav_operations_lift_first_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-	base_area = /area/operations/loading
+	base_area = /area/operations/storage
 	base_turf = /turf/simulated/floor/plating
 
 /obj/effect/shuttle_landmark/lift/operations_second_deck
 	name = "Operations Lift - Second Deck"
 	landmark_tag = "nav_operations_lift_second_deck"
-	base_area = /area/operations/storage
+	base_area = /area/operations/office
 	base_turf = /turf/simulated/open
 
 /obj/effect/shuttle_landmark/lift/operations_third_deck
 	name = "Operations Lift - Third Deck"
 	landmark_tag = "nav_operations_lift_third_deck"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
 	base_area = /area/operations/office_aux
 	base_turf = /turf/simulated/open
 
@@ -142,7 +140,7 @@
 
 /area/turbolift/scc_ship/operations_lift
 	name = "Operations Lift"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
 
 
@@ -186,7 +184,7 @@
 
 /area/turbolift/scc_ship/robotics_lift
 	name = "Robotics Lift"
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_GHOSTLY
 
 

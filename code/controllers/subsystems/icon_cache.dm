@@ -1,7 +1,7 @@
 SUBSYSTEM_DEF(icon_cache)
 	name = "Icon Cache"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 
 	// Cached bloody overlays, key is object type.
 	var/list/bloody_cache = list()
@@ -73,7 +73,8 @@ SUBSYSTEM_DEF(icon_cache)
 	build_dust_cache()
 	build_space_cache()
 	setup_collar_mappings()
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/icon_cache/proc/setup_collar_mappings()
 	collar_states = list()
@@ -98,7 +99,7 @@ SUBSYSTEM_DEF(icon_cache)
 /datum/controller/subsystem/icon_cache/proc/build_dust_cache()
 	for (var/i in 0 to 25)
 		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
-		im.plane = PLANE_SPACE_DUST
+		im.plane = DUST_PLANE
 		im.alpha = 80
 		im.blend_mode = BLEND_ADD
 		space_dust_cache["[i]"] = im

@@ -54,7 +54,7 @@
 	set src in usr
 
 	if(wired && screwed)
-		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [game_year]'.")
+		to_chat(usr, "You check your watch, spotting a digital collection of numbers reading '[worldtime2text()]'. Today's date is '[time2text(world.time, "Month DD")]. [GLOB.game_year]'.")
 		if (evacuation_controller.get_status_panel_eta())
 			to_chat(usr, SPAN_WARNING("Time until Bluespace Jump: [evacuation_controller.get_status_panel_eta()]."))
 	else if(wired && !screwed)
@@ -74,16 +74,17 @@
 	else
 		usr.visible_message (SPAN_NOTICE("<b>[usr]</b> taps their foot on the floor, arrogantly pointing at the [src] on their wrist with a look of derision in their eyes, not noticing it's broken."), SPAN_NOTICE("You point down at the [src] with an arrogant look about your eyes."))
 
-/obj/item/clothing/wrists/watch/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
-		user.visible_message(SPAN_NOTICE("<b>[user]</b> [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."), SPAN_NOTICE("You [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."))
+/obj/item/clothing/wrists/watch/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		user.visible_message(SPAN_NOTICE("<b>[user]</b> [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."),
+							SPAN_NOTICE("You [screwed ? "unscrews" : "screws"] the cover of the [src] [screwed ? "open" : "closed"]."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		screwed = !screwed
 		return
 	if(wired)
 		return
-	if(W.iscoil())
-		var/obj/item/stack/cable_coil/C = W
+	if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/C = attacking_item
 		if(screwed)
 			to_chat(user, SPAN_NOTICE("The [src] is not open."))
 			return

@@ -7,6 +7,10 @@
 //for easy reference
 /obj/var/datum/talking_atom/talking_atom
 
+/obj/Destroy()
+	QDEL_NULL(talking_atom)
+	return ..()
+
 /datum/talking_atom
 	var/list/heard_words = list()
 	var/last_talk_time = 0
@@ -107,7 +111,7 @@
 			msg+="!"
 
 	var/list/listening = viewers(holder_atom)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (!M.client)
 			continue //skip monkeys and leavers
 		if (istype(M, /mob/abstract/new_player))

@@ -9,7 +9,7 @@
 	spawnpoints = list("survivor")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/freighter_crew
+	outfit = /obj/outfit/admin/freighter_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_SKRELL, SPECIES_SKRELL_AXIORI, SPECIES_UNATHI, SPECIES_IPC, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU, SPECIES_IPC_BISHOP, SPECIES_IPC_SHELL, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_WORKER, SPECIES_DIONA, SPECIES_DIONA_COEUS)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -18,7 +18,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/survivor
+/obj/outfit/admin/survivor
 	name = "Survivor"
 
 	uniform = /obj/item/clothing/under/syndicate/tracksuit
@@ -39,7 +39,7 @@
 		SPECIES_VAURCA_WORKER = /obj/item/clothing/shoes/workboots/toeless
 	)
 
-/datum/outfit/admin/survivor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/survivor/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()
 	if(isvaurca(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
@@ -50,9 +50,9 @@
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
 
-/datum/outfit/admin/survivor/get_id_access()
-	return list(access_external_airlocks)
+/obj/outfit/admin/survivor/get_id_access()
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
 
 /obj/item/card/id/freighter_crew_ship
 	name = "freight ship id"
-	access = list(access_external_airlocks)
+	access = list(ACCESS_EXTERNAL_AIRLOCKS)

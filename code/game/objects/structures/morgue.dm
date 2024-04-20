@@ -92,10 +92,10 @@
 		return attack_hand(user)
 	else return ..()
 
-/obj/structure/morgue/attackby(obj/P, mob/user)
-	if(P.ispen())
+/obj/structure/morgue/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		var/t = tgui_input_text(user, "What would you like the label to be?", "Morgue", "", MAX_NAME_LEN)
-		if(user.get_active_hand() != P)
+		if(user.get_active_hand() != attacking_item)
 			return
 		if((!in_range(src, usr) > 1 && src.loc != user))
 			return
@@ -142,7 +142,7 @@
 	density = TRUE
 	anchored = TRUE
 	throwpass = TRUE
-	layer = TURF_LAYER
+	layer = BELOW_OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/obj/structure/morgue/connected = null
 
@@ -164,7 +164,8 @@
 		return
 	return
 
-/obj/structure/m_tray/MouseDrop_T(atom/movable/O, mob/user )
+/obj/structure/m_tray/MouseDrop_T(atom/dropping, mob/user)
+	var/atom/movable/O = dropping
 	if(!istype(O, /atom/movable) || O.anchored || get_dist(user, src) > 1 || get_dist(user, O) > 1 || user.contents.Find(src) || user.contents.Find(O))
 		return
 	if(!ismob(O) && !istype(O, /obj/structure/closet/body_bag))
@@ -342,7 +343,7 @@
 /obj/machinery/button/switch/crematorium
 	name = "crematorium igniter"
 	desc = "Burn baby burn!"
-	req_access = list(access_crematorium)
+	req_access = list(ACCESS_CREMATORIUM)
 	id = 1
 	var/cremate_dir // something for mappers, setting will make a crematorium in one step in this direction toggle
 

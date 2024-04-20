@@ -48,7 +48,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/floatingisland
 
-/singleton/recipe/pralinebox //Don't put this recipe in the wiki i want it to be hidden here in the code.
+/singleton/recipe/pralinebox
 	appliance = SAUCEPAN
 	fruit = list("cherries" = 1)
 	items = list(
@@ -111,3 +111,9 @@
 	/obj/item/reagent_containers/food/snacks/cutlet
 	)
 	result = /obj/item/reagent_containers/food/snacks/crepe/hamcheese
+
+/singleton/recipe/custard
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 3)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/custard

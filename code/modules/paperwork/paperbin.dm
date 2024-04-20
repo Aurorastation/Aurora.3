@@ -9,7 +9,7 @@
 	w_class = ITEMSIZE_HUGE
 	throw_speed = 3
 	throw_range = 7
-	layer = OBJ_LAYER - 0.1
+	layer = BELOW_OBJ_LAYER
 	var/amount = 30					//How much paper is in the bin.
 	var/list/papers = new/list()	//List of papers put in the bin for reference.
 
@@ -77,29 +77,21 @@
 	return
 
 
-/obj/item/paper_bin/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/paper))
-		var/obj/item/paper/i = O
+/obj/item/paper_bin/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper))
+		var/obj/item/paper/i = attacking_item
 		user.drop_from_inventory(i,src)
 		to_chat(user, "<span class='notice'>You put [i] in [src].</span>")
 		papers.Add(i)
 		amount++
-	/*	if(istype(O, /obj/item/paper_pack))	WIP written in.
-		var/obj/item/paper_bundle/j = O
-		amount += j.amount
-		to_chat(user, "<span class='notice'>You add paper from [j] into [src].</span>")
-		user.drop_from_inventory(j,get_turf(src))
-		qdel(j)
-	*/
 
-
-/obj/item/paper_bin/examine(mob/user, distance, is_adjacent)
+/obj/item/paper_bin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(amount)
-			to_chat(user, "<span class='notice'>There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.</span>")
+			. += "<span class='notice'>There " + (amount > 1 ? "are [amount] papers" : "is one paper") + " in the bin.</span>"
 		else
-			to_chat(user, "<span class='notice'>There are no papers in the bin.</span>")
+			. += "<span class='notice'>There are no papers in the bin.</span>"
 
 
 /obj/item/paper_bin/update_icon()

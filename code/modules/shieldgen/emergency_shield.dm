@@ -59,12 +59,12 @@
 	if(!height || air_group) return FALSE
 	else return ..()
 
-/obj/machinery/shield/attackby(obj/item/W, mob/user)
+/obj/machinery/shield/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, W)
+	user.do_attack_animation(src, attacking_item)
 	//Calculate damage
-	var/aforce = W.force
-	if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
+	var/aforce = attacking_item.force
+	if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 		health -= aforce
 
 	//Play a fitting sound
@@ -139,7 +139,7 @@
 	density = TRUE
 	opacity = FALSE
 	anchored = FALSE
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 	var/health = 100
 	var/active = FALSE
 	var/malfunction = FALSE //Malfunction causes parts of the shield to slowly dissapate
@@ -301,9 +301,9 @@
 		update_icon()
 		return 1
 
-/obj/machinery/shieldgen/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
-		playsound(src.loc, W.usesound, 50, 1)
+/obj/machinery/shieldgen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(is_open)
 			to_chat(user, "<span class='notice'>You close the panel.</span>")
 			is_open = FALSE
@@ -311,23 +311,23 @@
 			to_chat(user, "<span class='notice'>You open the panel and expose the wiring.</span>")
 			is_open = TRUE
 
-	else if(W.iscoil() && malfunction && is_open)
-		var/obj/item/stack/cable_coil/coil = W
+	else if(attacking_item.iscoil() && malfunction && is_open)
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		to_chat(user, "<span class='notice'>You begin to replace the wires.</span>")
 		//if(do_after(user, min(60, round( ((maxhealth/health)*10)+(malfunction*10) ))) //Take longer to repair heavier damage
-		if(W.use_tool(src, user, 30, volume = 50))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			if (coil.use(1))
 				health = initial(health)
 				malfunction = FALSE
 				to_chat(user, "<span class='notice'>You repair the [src]!</span>")
 				update_icon()
 
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(locked)
 			to_chat(user, "The bolts are covered, unlocking this would retract the covers.")
 			return
 		if(anchored)
-			playsound(src.loc, W.usesound, 100, 1)
+			attacking_item.play_tool_sound(get_turf(src), 100)
 			to_chat(user, "<span class='notice'>You unsecure the [src] from the floor!</span>")
 			if(active)
 				to_chat(user, "<span class='notice'>The [src] shuts off!</span>")
@@ -335,12 +335,12 @@
 			anchored = FALSE
 		else
 			if(istype(get_turf(src), /turf/space)) return //No wrenching these in space!
-			playsound(src.loc, W.usesound, 100, 1)
+			attacking_item.play_tool_sound(get_turf(src), 100)
 			to_chat(user, "<span class='notice'>You secure the [src] to the floor!</span>")
 			anchored = TRUE
 
 
-	else if(W.GetID())
+	else if(attacking_item.GetID())
 		if(src.allowed(user))
 			src.locked = !src.locked
 			to_chat(user, "The controls are now [src.locked ? "locked." : "unlocked."]")

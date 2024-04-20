@@ -67,11 +67,11 @@
 	if(following)
 		if(isturf(loc) && can_move())
 			if(resolved_following)
-				walk_to(src, resolved_following, follow_distance, legs.move_delay)
+				SSmove_manager.move_to(src, resolved_following, follow_distance, legs.move_delay)
 			else
 				unassign_following()
 		else
-			walk(src, 0) // this stops them from moving
+			SSmove_manager.stop_looping(src)
 
 /mob/living/heavy_vehicle/get_cell(force)
 	RETURN_TYPE(/obj/item/cell)
@@ -96,6 +96,7 @@
 	return total_draw
 
 /mob/living/heavy_vehicle/handle_environment(var/datum/gas_mixture/environment)
+	..()
 	if(!environment) return
 	//Mechs and vehicles in general can be assumed to just tend to whatever ambient temperature
 	if(abs(environment.temperature - bodytemperature) > 10 )
@@ -157,7 +158,7 @@
 			stuff_to_throw += thing
 	for(var/obj/item/thing in stuff_to_throw)
 		thing.forceMove(T)
-		thing.throw_at(get_edge_target_turf(src,pick(alldirs)),rand(3,6),40)
+		thing.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),rand(3,6),40)
 	explosion(T, -1, 0, 2)
 	qdel(src)
 	return

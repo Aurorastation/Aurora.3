@@ -117,7 +117,8 @@
 		/obj/item/device/radio,
 		/obj/item/device/debugger,
 		/obj/item/device/eftpos,
-		/obj/item/tape_roll
+		/obj/item/tape_roll,
+		/obj/item/device/geiger
 	)
 	content_overlays = TRUE
 
@@ -468,7 +469,8 @@
 		/obj/item/rfd/mining,
 		/obj/item/gun/custom_ka,
 		/obj/item/device/orbital_dropper,
-		/obj/item/ore_detector
+		/obj/item/ore_detector,
+		/obj/item/device/spaceflare
 		)
 
 /obj/item/storage/belt/hydro

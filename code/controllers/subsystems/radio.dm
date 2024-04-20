@@ -108,6 +108,8 @@ SUBSYSTEM_DEF(radio)
 	return ..()
 
 /datum/controller/subsystem/radio/proc/add_object(obj/device, new_frequency, filter = null)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/f_text = num2text(new_frequency)
 	var/datum/radio_frequency/frequency = frequencies[f_text]
 
@@ -120,6 +122,8 @@ SUBSYSTEM_DEF(radio)
 	return frequency
 
 /datum/controller/subsystem/radio/proc/remove_object(obj/device, old_frequency)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/f_text = num2text(old_frequency)
 	var/datum/radio_frequency/frequency = frequencies[f_text]
 
@@ -127,10 +131,14 @@ SUBSYSTEM_DEF(radio)
 		frequency.remove_listener(device)
 
 /datum/controller/subsystem/radio/proc/remove_object_all(obj/device)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	for(var/freq in frequencies)
 		SSradio.remove_object(device, text2num(freq))
 
 /datum/controller/subsystem/radio/proc/get_devices(freq, filter = RADIO_DEFAULT)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/datum/radio_frequency/frequency = frequencies[num2text(freq)]
 	if(!frequency)
 		return
@@ -150,6 +158,8 @@ SUBSYSTEM_DEF(radio)
 
 // Used to test connectivity to the telecomms network.
 /datum/controller/subsystem/radio/proc/telecomms_ping(obj/O, test_freq = PUB_FREQ)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/datum/signal/subspace/testsig = new(O, test_freq)
 	for (var/obj/machinery/telecomms/R in SSmachinery.all_receivers)
 		if(R.receive_range(testsig) >= 0)
@@ -159,6 +169,8 @@ SUBSYSTEM_DEF(radio)
 
 //callback used by objects to react to incoming radio signals
 /obj/proc/receive_signal(datum/signal/signal, receive_method, receive_param)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	return null
 
 /proc/frequency_span_class(var/frequency)

@@ -48,11 +48,11 @@
 			icon_state = "pinonfar"
 	return TRUE
 
-/obj/item/pinpointer/examine(mob/user)
+/obj/item/pinpointer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	for(var/obj/machinery/nuclearbomb/bomb in SSmachinery.machinery)
 		if(bomb.timing)
-			to_chat(user, "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]")
+			. += "Extreme danger.  Arming signal detected.   Time remaining: [bomb.timeleft]"
 
 /obj/item/pinpointer/Destroy()
 	active = 0
@@ -200,7 +200,7 @@
 					var/DNAstring = tgui_input_text(usr, "Input the DNA string to search.", "Pinpointer")
 					if(!DNAstring)
 						return
-					for(var/mob/living/carbon/M in mob_list)
+					for(var/mob/living/carbon/M in GLOB.mob_list)
 						if(!M.dna)
 							continue
 						if(M.dna.unique_enzymes == DNAstring)

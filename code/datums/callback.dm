@@ -19,7 +19,7 @@
  * In case of sleeps, the parent proc (aka where you call this) will continue its processing while the called proc sleeps
  *
  * * thingtocall - The object whose function is to be called on, will be set as `src` in said function, or `GLOBAL_PROC` if the proc is a global one
- * * proctocall - The process to call, use `PROC_REF`, `TYPE_PROC_REF` or `GLOBAL_PROC_REF` according to your use case. Defines in code\__defines\byond_compat.dm
+ * * proctocall - The process to call, use `PROC_REF`, `TYPE_PROC_REF` or `GLOBAL_PROC_REF` according to your use case. Defines in code\__DEFINES\byond_compat.dm
  * * ... - Parameters to pass to said proc (VARIPARAM)
  */
 /proc/ImmediateInvokeAsync(thingtocall, proctocall, ...)

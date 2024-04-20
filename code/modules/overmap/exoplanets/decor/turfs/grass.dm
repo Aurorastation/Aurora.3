@@ -8,8 +8,8 @@
 
 /turf/simulated/floor/exoplanet/grass/Initialize()
 	. = ..()
-	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector/exoplanet/E = map_sectors["[z]"]
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[z]"]
 		if(color && istype(E) && E.grass_color)
 			color = E.grass_color
 	if(!resources)
@@ -45,3 +45,16 @@
 /turf/simulated/floor/exoplanet/grass/marsh/Initialize()
 	. = ..()
 	icon_state = "marsh[rand(1,8)]"
+
+/turf/simulated/floor/exoplanet/grass/moghes
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon_state = "grass"
+	color = null
+
+/turf/simulated/floor/exoplanet/grass/moghes/dirt
+	icon_state = "dirt"
+	color = null
+	does_footprint = TRUE
+
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach
+	icon_state = "beach"

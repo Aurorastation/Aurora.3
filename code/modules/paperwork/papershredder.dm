@@ -16,13 +16,13 @@
 		/obj/item/paper_bundle = 3
 		)// use -1 if it doesn't generate paper
 
-/obj/machinery/papershredder/attackby(var/obj/item/W, var/mob/user)
-	if (istype(W, /obj/item/storage))
-		empty_bin(user, W)
+/obj/machinery/papershredder/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/storage))
+		empty_bin(user, attacking_item)
 		return
 
-	else if (W.iswrench())
-		playsound(loc, W.usesound, 50, 1)
+	else if (attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		user.visible_message(
 			SPAN_NOTICE("[anchored ? "\The [user] fastens \the [src] to \the [loc]." : "\The unfastens \the [src] from \the [loc]."]"),
@@ -34,7 +34,7 @@
 	else
 		var/paper_result
 		for(var/shred_type in shred_amounts)
-			if(istype(W, shred_type))
+			if(istype(attacking_item, shred_type))
 				paper_result = shred_amounts[shred_type]
 		if(paper_result)
 			if (!anchored)
@@ -45,15 +45,15 @@
 				return
 			if (paper_result > 0)
 				paperamount += paper_result
-			if(W.icon_state == "scrap")
+			if(attacking_item.icon_state == "scrap")
 				flick("papershredder_s_on", src)
-			else if(W.icon_state == "paper_words")
+			else if(attacking_item.icon_state == "paper_words")
 				flick("papershredder_w_on", src)
-			else if(W.icon_state == "paper_plane")
+			else if(attacking_item.icon_state == "paper_plane")
 				flick("papershredder_p_on", src)
 			else
 				flick("papershredder_on", src)
-			qdel(W)
+			qdel(attacking_item)
 			playsound(src.loc, 'sound/bureaucracy/papershred.ogg', 75, 1)
 			to_chat(user, SPAN_NOTICE("You shred the paper."))
 			intent_message(MACHINE_SOUND)
@@ -62,7 +62,7 @@
 				for(var/i=(paperamount-max_paper);i>0;i--)
 					var/obj/item/shreddedp/SP = get_shredded_paper()
 					SP.forceMove(get_turf(src))
-					SP.throw_at(get_edge_target_turf(src,pick(alldirs)),1,5)
+					SP.throw_at(get_edge_target_turf(src,pick(GLOB.alldirs)),1,5)
 				paperamount = max_paper
 			update_icon()
 			return
@@ -129,9 +129,9 @@
 		if(10)
 			add_overlay("papershredder5")
 
-/obj/item/shreddedp/attackby(var/obj/item/W as obj, var/mob/user)
-	if(istype(W, /obj/item/flame/lighter))
-		burnpaper(W, user)
+/obj/item/shreddedp/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/flame/lighter))
+		burnpaper(attacking_item, user)
 	else
 		..()
 

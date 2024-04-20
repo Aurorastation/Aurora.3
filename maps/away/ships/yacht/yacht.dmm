@@ -347,7 +347,7 @@
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
 "bg" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,
 /area/shuttle/yacht/living)
@@ -633,7 +633,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "ca" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light_switch{
 	pixel_x = -6;
@@ -964,7 +964,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/yacht/engine)
 "cW" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/wood/yew,

@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/cyclops_mining_vessel
 	name = "Cyclops Mining Vessel"
 	description = "This bulky vessel is designed and operated by Hephaestus Industries. From asteroid cracking to planetary operations, this ship can do it all. "
-	suffixes = list("ships/heph/cyclops/cyclops.dmm")
+
+	prefix = "ships/heph/cyclops/"
+	suffixes = list("cyclops.dmm")
+
 	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_WEEPING_STARS, SECTOR_UUEOAESA, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
@@ -61,6 +64,7 @@
 /obj/effect/shuttle_landmark/cyclops/nav2
 	name = "Cyclops Mining Vessel - Port Airlock"
 	landmark_tag = "nav_cyclops_2"
+	docking_controller = "airlock_cyclops_dock"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
@@ -108,7 +112,7 @@
 	shuttle_area = list(/area/shuttle/cyclops_shuttle)
 	current_location = "nav_hangar_cyclops"
 	landmark_transition = "nav_transit_cyclops_shuttle"
-	dock_target = "cyclops_shuttle"
+	dock_target = "airlock_shuttle_cyclops"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_cyclops"
@@ -117,7 +121,7 @@
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar
 	name = "Cyclops Shuttle Hangar"
 	landmark_tag = "nav_hangar_cyclops"
-	docking_controller = "cyclops_shuttle_dock"
+	docking_controller = "airlock_shuttle_cyclops"
 	base_area = /area/hephmining_ship/cyclops
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

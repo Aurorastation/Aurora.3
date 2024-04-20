@@ -17,7 +17,7 @@
 
 /obj/machinery/power/portgen/Initialize()
 	. = ..()
-	soundloop = new(list(src), active)
+	soundloop = new(src, active)
 
 /obj/machinery/power/portgen/Destroy()
 	QDEL_NULL(soundloop)
@@ -66,13 +66,13 @@
 	icon_state = "[base_icon]_[active]"
 	return ..()
 
-/obj/machinery/power/portgen/examine(mob/user, distance, is_adjacent)
+/obj/machinery/power/portgen/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(active)
-			to_chat(user, SPAN_NOTICE("The generator is on."))
+			. += SPAN_NOTICE("The generator is on.")
 		else
-			to_chat(user, SPAN_NOTICE("The generator is off."))
+			. += SPAN_NOTICE("The generator is off.")
 
 /obj/machinery/power/portgen/emp_act(severity)
 	. = ..()
@@ -159,12 +159,14 @@
 
 	power_gen = round(initial(power_gen) * (max(2, temp_rating) / 2))
 
-/obj/machinery/power/portgen/basic/examine(mob/user, distance, is_adjacent)
+/obj/machinery/power/portgen/basic/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "\The [src] appears to be producing [power_gen*power_output] W.")
-	to_chat(user, "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper.")
-	if(IsBroken()) to_chat(user, SPAN_WARNING("\The [src] seems to have broken down."))
-	if(overheating) to_chat(user, SPAN_DANGER("\The [src] is overheating!"))
+	. += "\The [src] appears to be producing [power_gen*power_output] W."
+	. += "There [sheets == 1 ? "is" : "are"] [sheets] sheet\s left in the hopper."
+	if(IsBroken())
+		. += SPAN_WARNING("\The [src] seems to have broken down.")
+	if(overheating)
+		. += SPAN_DANGER("\The [src] is overheating!")
 
 /obj/machinery/power/portgen/basic/HasFuel()
 	var/needed_sheets = power_output / time_per_sheet
@@ -263,9 +265,9 @@
 		emagged = TRUE
 		return TRUE
 
-/obj/machinery/power/portgen/basic/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, sheet_path))
-		var/obj/item/stack/addstack = O
+/obj/machinery/power/portgen/basic/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, sheet_path))
+		var/obj/item/stack/addstack = attacking_item
 		var/amount = min((max_sheets - sheets), addstack.amount)
 		if(amount < 1)
 			to_chat(user, SPAN_NOTICE("The [name] is full!"))
@@ -275,7 +277,7 @@
 		addstack.use(amount)
 		return
 	else if(!active)
-		if(O.iswrench())
+		if(attacking_item.iswrench())
 
 			if(!anchored)
 				connect_to_network()
@@ -287,14 +289,14 @@
 			playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
 			anchored = !anchored
 
-		else if(O.isscrewdriver())
+		else if(attacking_item.isscrewdriver())
 			open = !open
-			playsound(loc, O.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			if(open)
 				to_chat(user, SPAN_NOTICE("You open the access panel."))
 			else
 				to_chat(user, SPAN_NOTICE("You close the access panel."))
-		else if(open && O.iscrowbar())
+		else if(open && attacking_item.iscrowbar())
 			var/obj/machinery/constructable_frame/machine_frame/new_frame = new /obj/machinery/constructable_frame/machine_frame(loc)
 			for(var/obj/item/I in component_parts)
 				I.forceMove(loc)
@@ -330,7 +332,7 @@
 	if(loc)
 		var/datum/gas_mixture/environment = loc.return_air()
 		if(environment)
-			data["temperature_min"] = Floor(environment.temperature - T0C)
+			data["temperature_min"] = FLOOR(environment.temperature - T0C, 1)
 
 	data["output_min"] = initial(power_output)
 	data["is_broken"] = IsBroken()
@@ -489,9 +491,9 @@
 	create_reagents(coolant_volume)
 	..()
 
-/obj/machinery/power/portgen/basic/fusion/examine(mob/user, distance, is_adjacent)
+/obj/machinery/power/portgen/basic/fusion/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "The auxilary tank shows [reagents.total_volume]u of liquid in it.")
+	. += "The auxilary tank shows [reagents.total_volume]u of liquid in it."
 
 /obj/machinery/power/portgen/basic/fusion/UseFuel()
 	if(reagents.has_reagent(coolant_reagent))
@@ -512,9 +514,9 @@
 	if(power_output > max_safe_output)
 		icon_state = "reactordanger"
 
-/obj/machinery/power/portgen/basic/fusion/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/reagent_containers))
-		var/obj/item/reagent_containers/R = O
+/obj/machinery/power/portgen/basic/fusion/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers))
+		var/obj/item/reagent_containers/R = attacking_item
 		if(R.standard_pour_into(user, src))
 			if(reagents.has_reagent(/singleton/reagent/coolant))
 				audible_message("<span class='notice'>[src] blips happily!</span>")

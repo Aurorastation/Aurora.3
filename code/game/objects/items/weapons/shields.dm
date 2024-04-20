@@ -40,7 +40,7 @@
 	recyclable = TRUE
 
 /obj/item/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
@@ -62,7 +62,7 @@
 	icon_state = "riot"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
-	force = 5.0
+	force = 11
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
@@ -84,10 +84,10 @@
 			return 0
 	return base_block_chance
 
-/obj/item/shield/riot/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/melee/baton))
+/obj/item/shield/riot/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/melee/baton))
 		if(cooldown < world.time - 25)
-			user.visible_message("<span class='warning'>[user] bashes [src] with [W]!</span>")
+			user.visible_message("<span class='warning'>[user] bashes [src] with [attacking_item]!</span>")
 			playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
 			cooldown = world.time
 	else
@@ -101,7 +101,7 @@
 	item_state = "square_buckler"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK
-	force = 8
+	force = 18
 	throwforce = 8
 	base_block_chance = 60
 	throw_speed = 10
@@ -131,7 +131,7 @@
 	desc = "A shield capable of stopping most projectile and melee attacks. It can be retracted, expanded, and stored anywhere."
 	icon_state = "eshield0"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 4
@@ -175,7 +175,7 @@
 	user.update_inv_r_hand()
 
 /obj/item/shield/energy/handle_shield(mob/user, on_back, damage, atom/damage_source = null, mob/attacker = null, def_zone = null, attack_text = "the attack")
-	var/shield_dir = on_back ? user.dir : reverse_dir[user.dir]
+	var/shield_dir = on_back ? user.dir : GLOB.reverse_dir[user.dir]
 
 	if(!active || user.incapacitated() || !(check_shield_arc(user, shield_dir, damage_source, attacker)))
 		return FALSE
@@ -232,7 +232,7 @@
 /obj/item/shield/energy/proc/HandleTurnOn()
 	addtimer(CALLBACK(src, /obj/item/shield/energy/proc/UpdateSoundLoop), 0.25 SECONDS)
 	playsound(src, 'sound/items/shield/energy/shield-start.ogg', 40)
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_LARGE
 
 /obj/item/shield/energy/proc/HandleShutOff()
@@ -245,17 +245,18 @@
 	if (!active)
 		QDEL_NULL(sound_token)
 		return
-	sound_token = sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
+	sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id,'sound/items/shield/energy/shield-loop.ogg', 10, 4)
 
 /obj/item/shield/energy/hegemony
 	name = "hegemony barrier"
 	desc = "A Zkrehk-Guild manufactured energy shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "hegemony-eshield0"
+	base_block_chance = 60
 
 /obj/item/shield/energy/hegemony/update_icon()
 	icon_state = "hegemony-eshield[active]"
 	if(active)
-		set_light(1.5, 1.5, "e68917")
+		set_light(1.5, 1.5, "#e68917")
 	else
 		set_light(0)
 
@@ -263,6 +264,7 @@
 	name = "kataphract barrier"
 	desc = "A hardlight kite shield capable of protecting the wielder from both material and energy attack."
 	icon_state = "kataphract-eshield0"
+	base_block_chance = 65
 
 /obj/item/shield/energy/hegemony/kataphract/update_icon()
 	icon_state = "kataphract-eshield[active]"
@@ -275,6 +277,7 @@
 	name = "energy barrier"
 	desc = "A large deployable energy shield meant to provide excellent protection against ranged attacks."
 	icon_state = "ebarrier0"
+	base_block_chance = 55
 
 /obj/item/shield/energy/legion/update_icon()
 	icon_state = "ebarrier[active]"
@@ -287,6 +290,7 @@
 	name = "dominian energy barrier"
 	desc = "A hardlight energy shield meant to provide excellent protection in melee engagements."
 	icon_state = "dominian-eshield0"
+	base_block_chance = 60
 
 /obj/item/shield/energy/dominia/update_icon()
 	icon_state = "dominian-eshield[active]"
@@ -303,7 +307,7 @@
 	icon_state = "tactshield"
 	item_state = "tactshield"
 	contained_sprite = 1
-	force = 3.0
+	force = 3
 	throwforce = 3.0
 	throw_speed = 3
 	throw_range = 4
@@ -332,7 +336,7 @@
 	if(active)
 		icon_state = "[initial(icon_state)]_[active]"
 		item_state = "[initial(item_state)]_[active]"
-		force = 5
+		force = 11
 		throwforce = 5
 		throw_speed = 2
 		w_class = ITEMSIZE_LARGE

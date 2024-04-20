@@ -9,28 +9,28 @@ var/list/cached_space = list()
 	known = 0
 
 /obj/effect/overmap/visitable/sector/temporary/New(var/nx, var/ny, var/nz)
-	loc = locate(nx, ny, current_map.overmap_z)
+	loc = locate(nx, ny, SSatlas.current_map.overmap_z)
 	x = nx
 	y = ny
 	map_z += nz
-	map_sectors["[nz]"] = src
+	GLOB.map_sectors["[nz]"] = src
 	testing("Temporary sector at [x],[y] was created, corresponding zlevel is [nz].")
 
 /obj/effect/overmap/visitable/sector/temporary/Destroy()
-	map_sectors["[map_z]"] = null
+	GLOB.map_sectors["[map_z]"] = null
 	testing("Temporary sector at [x],[y] was deleted.")
 	return ..()
 
 /obj/effect/overmap/visitable/sector/temporary/proc/can_die(var/mob/observer)
 	testing("Checking if sector at [map_z[1]] can die.")
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M != observer && (M.z in map_z))
 			testing("There are people on it.")
 			return 0
 	return 1
 
 /proc/get_deepspace(x,y)
-	var/obj/effect/overmap/visitable/sector/temporary/res = locate(x,y,current_map.overmap_z)
+	var/obj/effect/overmap/visitable/sector/temporary/res = locate(x, y, SSatlas.current_map.overmap_z)
 	if(istype(res))
 		return res
 	else if(cached_space.len)
@@ -40,7 +40,7 @@ var/list/cached_space = list()
 		res.y = y
 		return res
 	else
-		return new /obj/effect/overmap/visitable/sector/temporary(x, y, current_map.get_empty_zlevel())
+		return new /obj/effect/overmap/visitable/sector/temporary(x, y, SSatlas.current_map.get_empty_zlevel())
 
 /atom/movable/proc/lost_in_space()
 	for(var/atom/movable/AM in contents)
@@ -58,7 +58,7 @@ var/list/cached_space = list()
 	if (!T || !A)
 		return
 
-	var/obj/effect/overmap/visitable/M = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/M = GLOB.map_sectors["[T.z]"]
 	if (!M)
 		return
 
@@ -89,7 +89,7 @@ var/list/cached_space = list()
 
 	testing("[A] spacemoving from [M] ([M.x], [M.y]).")
 
-	var/turf/map = locate(M.x,M.y,current_map.overmap_z)
+	var/turf/map = locate(M.x,M.y,SSatlas.current_map.overmap_z)
 	var/obj/effect/overmap/visitable/TM
 	for(var/obj/effect/overmap/visitable/O in map)
 		if(O != M && O.in_space && prob(50))

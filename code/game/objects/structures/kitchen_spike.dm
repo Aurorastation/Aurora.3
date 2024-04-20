@@ -12,8 +12,9 @@
 	var/meat_type
 	var/victim_name = "corpse"
 
-/obj/structure/kitchenspike/attackby(obj/item/grab/G as obj, mob/user as mob)
-	if(!istype(G, /obj/item/grab) || !G.affecting)
+/obj/structure/kitchenspike/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/grab/G = attacking_item
+	if(!istype(G) || !G.affecting)
 		return
 	if(occupied)
 		to_chat(user, SPAN_DANGER("The spike already has something on it, finish collecting its meat first!"))

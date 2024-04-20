@@ -20,7 +20,7 @@
 	. = ..()
 	x = sx
 	y = sy
-	z = current_map.overmap_z
+	z = SSatlas.current_map.overmap_z
 	addtimer(CALLBACK(src, PROC_REF(move_to)), 1)
 
 /obj/effect/overmap/projectile/Bump(var/atom/A)
@@ -32,7 +32,7 @@
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
-	var/high_edge = current_map.overmap_size - 1
+	var/high_edge = SSatlas.current_map.overmap_size - 1
 
 	if((dir & WEST) && x == low_edge)
 		nx = high_edge
@@ -88,7 +88,7 @@
 					qdel(ammunition.original_projectile) //No longer needed.
 					var/turf/laze = get_turf(entry_target)
 					ammunition.original_projectile = widowmaker
-					playsound(laze, 'sound/weapons/gunshot/ship_weapons/orbital_travel.ogg')
+					playsound(laze, 'sound/weapons/gunshot/ship_weapons/orbital_travel.ogg', 60)
 					laze.visible_message(SPAN_DANGER("<font size=6>A bright star is getting closer from the sky...!</font>"))
 					sleep(11 SECONDS) //Let the sound play!
 					widowmaker.primed = TRUE
@@ -114,7 +114,7 @@
 					qdel(ammunition.original_projectile) //No longer needed.
 					ammunition.original_projectile = widowmaker
 					widowmaker.primed = TRUE
-					var/turf/entry_turf_initial = get_ranged_target_turf(entry_target, reverse_dir[entry_target.dir], 20)
+					var/turf/entry_turf_initial = get_ranged_target_turf(entry_target, GLOB.reverse_dir[entry_target.dir], 20)
 					var/entry_dir_choice = (dir & NORTH) || (dir & SOUTH) ? list(EAST, WEST) : list(NORTH, SOUTH)
 					var/turf/entry_turf = get_ranged_target_turf(entry_turf_initial, entry_dir_choice, 5)
 					widowmaker.forceMove(entry_turf)

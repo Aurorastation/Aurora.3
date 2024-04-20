@@ -14,14 +14,17 @@
 	my_atom = A
 
 /datum/reagents/Destroy()
-	. = ..()
 	if(SSchemistry)
 		SSchemistry.active_holders -= src
 
 	LAZYCLEARLIST(reagent_data)
 	LAZYCLEARLIST(reagent_volumes)
+
 	if(my_atom && my_atom.reagents == src)
 		my_atom.reagents = null
+	my_atom = null
+
+	. = ..()
 
 /* Internal procs */
 
@@ -52,7 +55,7 @@
 			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
 				primary_reagent = R
 	if(total_volume > maximum_volume)
-		remove_any(maximum_volume - total_volume)
+		remove_any(total_volume - maximum_volume)
 	return max(total_volume,0)
 
 /datum/reagents/proc/update_holder(var/reactions = TRUE)

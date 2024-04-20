@@ -8,12 +8,12 @@
 	var/caught_bees = 0
 	var/feralbees
 
-/obj/item/bee_net/examine(mob/user)
+/obj/item/bee_net/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(caught_bees)
-		to_chat(user, SPAN_NOTICE("It contains [caught_bees] bees."))
+		. += SPAN_NOTICE("It contains [caught_bees] bees.")
 	else
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 
 /obj/item/bee_net/attack_self(mob/user)
 	var/turf/T = get_step(get_turf(user), user.dir)

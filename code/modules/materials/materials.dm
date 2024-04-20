@@ -405,12 +405,12 @@
 	drop_sound = 'sound/items/drop/boots.ogg'
 	pickup_sound = 'sound/items/pickup/boots.ogg'
 
-/material/stone/concrete
+/material/concrete
 	name = MATERIAL_CONCRETE
-	icon_base = "concrete"
-	icon_colour = "#D2D1CD"
-	colour_blend = FALSE
-	wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+	icon_colour = COLOR_CONCRETE
+	wall_colour = COLOR_CONCRETE
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
 	stack_type = null
 	golem = null
 
@@ -535,7 +535,7 @@
 		return 1
 
 	// Get data for building windows here.
-	var/list/possible_directions = cardinal.Copy()
+	var/list/possible_directions = GLOB.cardinal.Copy()
 	var/window_count = 0
 	for (var/obj/structure/window/check_window in user.loc)
 		window_count++
@@ -707,6 +707,26 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 	golem = SPECIES_GOLEM_IRON
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
+/material/aluminium
+	name = MATERIAL_ALUMINIUM
+	stack_type = /obj/item/stack/material/aluminium
+	icon_colour = "#cccdcc"
+	weight = 18
+	conductivity = 29.48
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
+/material/lead
+	name = MATERIAL_LEAD
+	stack_type = /obj/item/stack/material/lead
+	icon_colour = "#5f5960"
+	weight = 32
+	conductivity = 4.39
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
 	hitsound = 'sound/weapons/smash.ogg'
 	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 

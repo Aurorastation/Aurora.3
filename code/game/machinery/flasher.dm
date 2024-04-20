@@ -5,7 +5,6 @@
 	desc = "A mounted flash. Disorientates anyone caught in its range."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "mflash1"
-	layer = OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/id = null
 	var/range = 2 //this is roughly the size of brig cell
@@ -23,7 +22,6 @@
 	name = "portable flasher"
 	desc = "A portable flashing device. Wrench to activate and deactivate. Cannot detect slow movements."
 	icon_state = "pflash1"
-	layer = OBJ_LAYER - 0.01
 	strength = 8
 	anchored = 0
 	base_state = "pflash"
@@ -49,8 +47,8 @@
 //		src.sd_SetLuminosity(0)
 
 //Don't want to render prison breaks impossible
-/obj/machinery/flasher/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.iswirecutter())
+/obj/machinery/flasher/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswirecutter())
 		add_fingerprint(user)
 		src.disable = !src.disable
 		if (src.disable)
@@ -107,8 +105,8 @@
 	if (src.anchored)
 		src.flash()
 
-/obj/machinery/flasher/portable/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.iswrench())
+/obj/machinery/flasher/portable/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.iswrench())
 		add_fingerprint(user)
 		src.anchored = !src.anchored
 

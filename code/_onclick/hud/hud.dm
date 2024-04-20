@@ -27,7 +27,6 @@ var/list/global_huds
 	screen.screen_loc = "SOUTHWEST to NORTHEAST" // Will tile up to the whole screen, scaling beyond 15x15 if needed.
 	screen.icon = 'icons/obj/hud_tiled.dmi'
 	screen.icon_state = icon_state
-	screen.layer = SCREEN_LAYER
 	screen.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen.color = color
 
@@ -38,7 +37,7 @@ var/list/global_huds
 	druggy = new /obj/screen()
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
-	druggy.layer = 17
+	druggy.layer = IMPAIRED_LAYER
 	druggy.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	druggy.alpha = 127
 	druggy.blend_mode = BLEND_MULTIPLY
@@ -47,7 +46,7 @@ var/list/global_huds
 	blurry = new /obj/screen()
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "blurry"
-	blurry.layer = 17
+	blurry.layer = IMPAIRED_LAYER
 	blurry.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	blurry.alpha = 100
 
@@ -98,18 +97,18 @@ var/list/global_huds
 	for(i = 1, i <= 4, i++)
 		O = vimpaired[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 		O = darkMask[i]
 		O.icon_state = "dither50"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	for(i = 5, i <= 8, i++)
 		O = darkMask[i]
 		O.icon_state = "black"
-		O.layer = 17
+		O.layer = IMPAIRED_LAYER
 		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /*
@@ -119,16 +118,24 @@ var/list/global_huds
 */
 
 /datum/hud
+	///The mob that possesses the HUD
 	var/mob/mymob
 
-	var/hud_shown = 1			//Used for the HUD toggle (F12)
-	var/inventory_shown = 1		//the inventory
-	var/show_intent_icons = 0
-	var/hotkey_ui_hidden = 0	//This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
+	///Boolean, if the HUD is shown, used for the HUD toggle (F12)
+	var/hud_shown = TRUE
 
-	var/obj/screen/lingchemdisplay
-	var/obj/screen/instability_display //Technomancer.
-	var/obj/screen/energy_display //Technomancer.
+	///Boolean, if the inventory is shows
+	var/inventory_shown = TRUE
+
+	///Boolean, if the intent icons are shown
+	var/show_intent_icons = FALSE
+
+	///Boolean, this is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
+	var/hotkey_ui_hidden = FALSE
+
+	///Boolean, if the action buttons are hidden
+	var/action_buttons_hidden = FALSE
+
 	var/obj/screen/blobpwrdisplay
 	var/obj/screen/blobhealthdisplay
 	var/obj/screen/r_hand_hud_object
@@ -141,7 +148,6 @@ var/list/global_huds
 	var/list/obj/screen/hotkeybuttons
 
 	var/obj/screen/movable/action_button/hide_toggle/hide_actions_toggle
-	var/action_buttons_hidden = 0
 
 /datum/hud/New(mob/owner)
 	mymob = owner
@@ -149,12 +155,10 @@ var/list/global_huds
 	..()
 
 /datum/hud/Destroy()
-	. = ..()
 	grab_intent = null
 	hurt_intent = null
 	disarm_intent = null
 	help_intent = null
-	lingchemdisplay = null
 	blobpwrdisplay = null
 	blobhealthdisplay = null
 	r_hand_hud_object = null
@@ -167,8 +171,12 @@ var/list/global_huds
 //	item_action_list = null // ?
 	mymob = null
 
+	. = ..()
+
 /datum/hud/proc/hidden_inventory_update()
-	if(!mymob) return
+	if(!mymob)
+		return
+
 	if(ishuman(mymob))
 		var/mob/living/carbon/human/H = mymob
 		for(var/gear_slot in H.species.hud.gear)
@@ -288,16 +296,30 @@ var/list/global_huds
 							H.r_store.screen_loc = null
 
 
+/**
+ * Instantiate an HUD to the current mob that own is
+ */
 /datum/hud/proc/instantiate()
-	if(!ismob(mymob)) return 0
-	if(!mymob.client) return 0
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+
+	if(!ismob(mymob))
+		stack_trace("HUD instantiation called on an HUD without a mob!")
+		return FALSE
+
+	if(!(mymob.client))
+		return FALSE
+
 	var/ui_style = ui_style2icon(mymob.client.prefs.UI_style)
 	var/ui_color = mymob.client.prefs.UI_style_color
 	var/ui_alpha = mymob.client.prefs.UI_style_alpha
 
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
-/mob/proc/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
+/mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+
 	return
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
@@ -306,16 +328,19 @@ var/list/global_huds
 	set hidden = 1
 
 	if(!hud_used)
-		to_chat(usr, "<span class='warning'>This mob type does not use a HUD.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type does not use a HUD."))
 		return
 
 	if(!ishuman(src))
-		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>")
+		to_chat(usr, SPAN_WARNING("Inventory hiding is currently only supported for human mobs."))
 		return
 
-	if(!client) return
+	if(!client)
+		return
+
 	if(client.view != world.view)
 		return
+
 	if(hud_used.hud_shown)
 		hud_used.hud_shown = 0
 		if(src.hud_used.adding)

@@ -20,22 +20,21 @@
 	despawn_turfs = typecacheof(despawn_turfs)
 
 /datum/event/carp_migration/announce()
-	for (var/zlevel in affecting_z)
-		if(zlevel in current_map.station_levels)
-			var/announcement = ""
-			var/soundfile = 'sound/AI/carp_migration.ogg'
-			if(severity == EVENT_LEVEL_MAJOR && deploy_drones)
-				announcement = "A massive migration of unknown biological entities has been detected near [location_name()], please stand-by."
-				soundfile = 'sound/AI/massivespacecarp.ogg'
-			else
-				announcement = "Unknown biological [length(spawned_carp) == 1 ? "entity has" : "entities have"] been detected near [location_name()], please stand-by."
-			command_announcement.Announce(announcement, "Lifesign Alert", new_sound = soundfile)
-			break
+	var/announcement = ""
+	var/soundfile = 'sound/AI/carp_migration.ogg'
+	if(severity == EVENT_LEVEL_MAJOR && deploy_drones)
+		announcement = "A massive migration of unknown biological entities has been detected near [location_name()], please stand-by."
+		soundfile = 'sound/AI/massivespacecarp.ogg'
+	else
+		announcement = "Unknown biological [length(spawned_carp) == 1 ? "entity has" : "entities have"] been detected near [location_name()], please stand-by."
+	command_announcement.Announce(announcement, "Lifesign Alert", new_sound = soundfile, zlevels = affecting_z)
 
 /datum/event/carp_migration/start()
+	..()
+
 	if(severity == EVENT_LEVEL_MAJOR)
-		spawn_fish(length(landmarks_list), spawn_drones = deploy_drones)
-		spawn_caverndweller(length(landmarks_list), spawn_drones = deploy_drones)
+		spawn_fish(length(GLOB.landmarks_list), spawn_drones = deploy_drones)
+		spawn_caverndweller(length(GLOB.landmarks_list), spawn_drones = deploy_drones)
 	else if(severity == EVENT_LEVEL_MODERATE)
 		spawn_fish(rand(4, 6), spawn_drones = deploy_drones)			//12 to 30 carp, in small groups
 		spawn_caverndweller(rand(1, 2), spawn_drones = deploy_drones) //less of those, also don't happen in the regular event
@@ -46,7 +45,7 @@
 	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
 		if(C.name == "carpspawn")
 			spawn_locations.Add(C.loc)
 	spawn_locations = shuffle(spawn_locations)
@@ -76,7 +75,7 @@
 	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
 		if(C.name == "cavernspawn")
 			spawn_locations.Add(C.loc)
 	spawn_locations = shuffle(spawn_locations)
@@ -95,6 +94,8 @@
 		i++
 
 /datum/event/carp_migration/end(var/faked)
+	..()
+
 	for (var/carp_ref in spawned_carp)
 		var/datum/weakref/carp_weakref = carp_ref
 		var/mob/living/simple_animal/hostile/carp/fish = carp_weakref.resolve()
@@ -102,19 +103,18 @@
 			qdel(fish)
 
 /datum/event/carp_migration/cozmo/start()
+	..()
+
 	spawn_fish(7, 3, 5)
 
 /datum/event/carp_migration/cozmo/announce()
-	for (var/zlevel in affecting_z)
-		if(zlevel in current_map.station_levels)
-			command_announcement.Announce("A migration of non-hostile entities has been detected near the ship.", "Lifesign Alert", 'sound/AI/cozmo_migration.ogg')
-			break
+	command_announcement.Announce("A migration of non-hostile entities has been detected near the ship.", "Lifesign Alert", 'sound/AI/cozmo_migration.ogg', zlevels = affecting_z)
 
 /datum/event/carp_migration/cozmo/spawn_fish(var/num_groups, var/group_size_min = 3, var/group_size_max = 5, var/spawn_drones = FALSE)
 	set waitfor = FALSE
 	var/list/spawn_locations = list()
 
-	for(var/obj/effect/landmark/C in landmarks_list)
+	for(var/obj/effect/landmark/C in GLOB.landmarks_list)
 		if(C.name == "carpspawn")
 			spawn_locations.Add(C.loc)
 	spawn_locations = shuffle(spawn_locations)
@@ -132,6 +132,10 @@
 	despawn_turfs = list(/turf/space)
 	deploy_drones = FALSE
 
+/datum/event/carp_migration/overmap/setup_for_overmap(var/obj/effect/overmap/visitable/ship/ship, var/obj/effect/overmap/event/hazard)
+	. = ..()
+	if(!announce_to_sensor_console)
+		announceWhen = 0
+
 /datum/event/carp_migration/overmap/setup()
-	announceWhen = 1
 	despawn_turfs = typecacheof(despawn_turfs)

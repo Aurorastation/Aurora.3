@@ -136,7 +136,7 @@
 	name = "\improper Slime Extract Storage"
 	desc = "A refrigerated storage unit for slime extracts"
 	contents_path = "-slime"
-	req_access = list(access_research)
+	req_access = list(ACCESS_RESEARCH)
 	accepted_items = list(/obj/item/slime_extract)
 
 /obj/machinery/smartfridge/secure/extract/Initialize()
@@ -147,7 +147,7 @@
 	name = "\improper Refrigerated Chemical Storage"
 	desc = "A refrigerated storage unit for storing medicine and chemicals."
 	contents_path = "-chem"
-	req_one_access = list(access_medical,access_pharmacy)
+	req_one_access = list(ACCESS_MEDICAL,ACCESS_PHARMACY)
 	accepted_items = list(/obj/item/reagent_containers/glass,
 						/obj/item/storage/pill_bottle,
 						/obj/item/reagent_containers/pill,
@@ -160,7 +160,7 @@
 	name = "\improper Refrigerated Virus Storage"
 	desc = "A refrigerated storage unit for storing viral material."
 	contents_path = "-viro"
-	req_access = list(access_virology)
+	req_access = list(ACCESS_VIROLOGY)
 	accepted_items = list(/obj/item/reagent_containers/glass/beaker/vial)
 
 /obj/machinery/smartfridge/chemistry
@@ -287,21 +287,23 @@
 *   Item Adding
 ********************/
 
-/obj/machinery/smartfridge/attackby(obj/item/O, mob/user)
-	if(O.isscrewdriver())
+/obj/machinery/smartfridge/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
-		user.visible_message("\The [user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].", "You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
+		user.visible_message("\The [user] [panel_open ? "opens" : "closes"] the maintenance panel of \the [src].",
+							"You [panel_open ? "open" : "close"] the maintenance panel of \the [src].")
 		update_icon()
 		return
 
-	if(O.iswrench())
+	if(attacking_item.iswrench())
 		anchored = !anchored
-		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.", "You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
-		playsound(get_turf(src), O.usesound, 50, 1)
+		user.visible_message("\The [user] [anchored ? "secures" : "unsecures"] the bolts holding \the [src] to the floor.",
+								"You [anchored ? "secure" : "unsecure"] the bolts holding \the [src] to the floor.")
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		power_change()
 		return
 
-	if(O.ismultitool()||O.iswirecutter())
+	if(attacking_item.ismultitool() || attacking_item.iswirecutter())
 		if(panel_open)
 			switch(input(user, "What would you like to select?", "Machine Debug Software") as null|anything in list("SmartHeater", "MegaSeed Storage", "Slime Extract Storage", "Refrigerated Chemical Storage", "Refrigerated Virus Storage", "Drink Showcase", "Drying Rack"))
 				if("SmartHeater")
@@ -340,19 +342,19 @@
 		to_chat(user, SPAN_NOTICE("[src] is unpowered and useless."))
 		return
 
-	if(accept_check(O))
+	if(accept_check(attacking_item))
 		if(length(contents) >= max_n_of_items)
 			to_chat(user, SPAN_NOTICE("[src] is full."))
 			return TRUE
-		user.remove_from_mob(O)
-		O.forceMove(src)
-		item_quants[O.name]++
-		user.visible_message("<b>[user]</b> adds \a [O] to [src].", SPAN_NOTICE("You add [O] to [src]."))
+		user.remove_from_mob(attacking_item)
+		attacking_item.forceMove(src)
+		item_quants[attacking_item.name]++
+		user.visible_message("<b>[user]</b> adds \a [attacking_item] to [src].", SPAN_NOTICE("You add [attacking_item] to [src]."))
 		update_overlays()
 		return
 
-	if(istype(O, /obj/item/storage))
-		var/obj/item/storage/P = O
+	if(istype(attacking_item, /obj/item/storage))
+		var/obj/item/storage/P = attacking_item
 		var/plants_loaded = 0
 		for(var/obj/G in P.contents)
 			if(accept_check(G))
@@ -367,7 +369,7 @@
 				to_chat(user, SPAN_NOTICE("Some items are refused."))
 			update_overlays()
 		return TRUE
-	to_chat(user, SPAN_NOTICE("[src] smartly refuses [O]."))
+	to_chat(user, SPAN_NOTICE("[src] smartly refuses [attacking_item]."))
 	return TRUE
 
 /obj/machinery/smartfridge/secure/emag_act(var/remaining_charges, var/mob/user)
@@ -386,7 +388,7 @@
 /obj/machinery/smartfridge/attack_hand(mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		return
-	wires.Interact(user)
+	wires.interact(user)
 	ui_interact(user)
 
 /*******************
@@ -506,4 +508,4 @@
 	if(stat & (BROKEN|NOPOWER))
 		icon_state = "[initial(icon_state)]"
 	else
-		icon_state = "[initial(icon_state)]-[contents_path]"
+		icon_state = "[initial(icon_state)][contents_path]"

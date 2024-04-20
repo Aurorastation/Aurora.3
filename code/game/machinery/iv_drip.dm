@@ -185,7 +185,7 @@
 			var/obj/item/organ/internal/lungs/L = breather.internal_organs_by_name[BP_LUNGS]
 			if(!L)
 				src.visible_message(SPAN_NOTICE("\The [src] buzzes, automatically deactivating \the [tank]."))
-				playsound(src, 'sound/machines/buzz-two.ogg', 50)
+				playsound(src, 'sound/machines/buzz-two.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				tank_off()
 				return
 			var/safe_pressure_min = breather.species.breath_pressure + 5
@@ -194,23 +194,23 @@
 			if(!tank_active) // Activates and sets the kPa to a safe pressure. This keeps from it constantly resetting itself
 				tank.distribute_pressure = safe_pressure_min
 				src.visible_message(SPAN_NOTICE("\The [src] chimes and adjusts \the [tank]'s release pressure."))
-				playsound(src, 'sound/machines/chime.ogg', 50)
+				playsound(src, 'sound/machines/chime.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				tank_active = TRUE
 			if(L.checking_rupture == FALSE) // Safely retracts in case the lungs are about to rupture
 				src.visible_message(SPAN_WARNING("\The [src]'s flashes a warning light, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
-				playsound(src, 'sound/machines/twobeep.ogg', 50)
+				playsound(src, 'sound/machines/twobeep.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask_rip()
 				return
 			if(tank.air_contents.return_pressure() <= 10)
 				src.visible_message(SPAN_WARNING("\The [src] buzzes, automatically deactivating \the [tank] and retracting \the [breath_mask]."))
-				playsound(src, 'sound/machines/buzz-two.ogg', 50)
+				playsound(src, 'sound/machines/buzz-two.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask_rip()
 				return
 			if(epp) // Emergency Positive Pressure system forces respiration
 				if(breather.losebreath > 0)
 					if(!epp_active)
 						src.visible_message(SPAN_WARNING("\The [src] flashes a blue light, activating it's Emergency Positive Pressure system!"))
-						playsound(breather, 'sound/machines/windowdoor.ogg', 50)
+						playsound(breather, 'sound/machines/windowdoor.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 						epp_active = TRUE
 						update_icon()
 					tank.distribute_pressure = safe_pressure_min // Constantly adjusts the pressure to keep up with the damage
@@ -228,7 +228,7 @@
 			return
 		if(!attached.dna)
 			return
-		if(HAS_FLAG(attached.mutations, NOCLONE))
+		if((attached.mutations & NOCLONE))
 			return
 		if(attached.species.flags & NO_BLOOD)
 			return
@@ -240,7 +240,7 @@
 			if(toggle_stop) // Automatically detaches if the blood volume is at 100%
 				if((beaker.reagents.has_reagent(/singleton/reagent/blood) || beaker.reagents.has_reagent(/singleton/reagent/saline)) && attached.get_blood_volume() >= 100)
 					visible_message("\The <b>[src]</b> flashes a warning light, disengaging from [attached]'s [vein.name] automatically!")
-					playsound(src, 'sound/machines/buzz-two.ogg', 100)
+					playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 					vein = null
 					attached = null
 					blood_message_sent = FALSE
@@ -253,17 +253,17 @@
 				if(world.time > last_full + 10 SECONDS)
 					last_full = world.time
 					visible_message("\The <b>[src]</b> pings.")
-					playsound(src, 'sound/machines/ping.ogg', 100)
+					playsound(src, 'sound/machines/ping.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 				return
 			if(attached.get_blood_volume() < 90 && !blood_message_sent)
 				visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"))
-				playsound(src, 'sound/machines/buzz-two.ogg', 100)
+				playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 				blood_message_sent = TRUE
 			if(blood_message_sent)
 				if(world.time > last_warning + 5 SECONDS)
 					last_warning = world.time
 					visible_message(SPAN_WARNING("\The <b>[src]</b> flashes a warning light!"))
-					playsound(src, 'sound/machines/buzz-two.ogg', 100)
+					playsound(src, 'sound/machines/buzz-two.ogg', 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(attached.take_blood(beaker, amount))
 				update_icon()
 
@@ -335,7 +335,7 @@
 				if(tank)
 					tank_on()
 				visible_message("<b>[usr]</b> secures the mask over \the <b>[breather]'s</b> face.")
-				playsound(breather, 'sound/effects/buckle.ogg', 50)
+				playsound(breather, 'sound/effects/buckle.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 				breath_mask.forceMove(breather.loc)
 				breather.equip_to_slot(breath_mask, slot_wear_mask)
 				breather.update_inv_wear_mask()
@@ -397,48 +397,48 @@
 			breath_mask = null
 			update_icon()
 
-/obj/machinery/iv_drip/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/blood/ripped))
+/obj/machinery/iv_drip/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/blood/ripped))
 		to_chat(user, "You can't use a ripped bloodpack.")
 		return TRUE
-	if(is_type_in_list(W, accepted_containers))
+	if(is_type_in_list(attacking_item, accepted_containers))
 		if(beaker)
 			to_chat(user, "There is already a reagent container loaded!")
 			return TRUE
-		user.drop_from_inventory(W, src)
-		beaker = W
-		user.visible_message(SPAN_NOTICE("[user] attaches \the [W] to \the [src]."), SPAN_NOTICE("You attach \the [W] to \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		beaker = attacking_item
+		user.visible_message(SPAN_NOTICE("[user] attaches \the [attacking_item] to \the [src]."), SPAN_NOTICE("You attach \the [attacking_item] to \the [src]."))
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/clothing/mask/breath))
-		if(is_type_in_list(W, mask_blacklist))
-			to_chat(user, "\The [W] is incompatible with \the [src].")
+	if(istype(attacking_item, /obj/item/clothing/mask/breath))
+		if(is_type_in_list(attacking_item, mask_blacklist))
+			to_chat(user, "\The [attacking_item] is incompatible with \the [src].")
 			return TRUE
 		if(breath_mask)
 			to_chat(user, "There is already a mask installed.")
 			return TRUE
-		user.drop_from_inventory(W, src)
-		breath_mask = W
-		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		breath_mask = attacking_item
+		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/tank))
-		if(is_type_in_list(W, tank_blacklist))
-			to_chat(user, "\The [W] is incompatible with \the [src].")
+	if(istype(attacking_item, /obj/item/tank))
+		if(is_type_in_list(attacking_item, tank_blacklist))
+			to_chat(user, "\The [attacking_item] is incompatible with \the [src].")
 			return TRUE
 		if(tank)
 			to_chat(user, "There is already a tank installed!")
 			return TRUE
-		if(istype(W, /obj/item/tank/phoron))
+		if(istype(attacking_item, /obj/item/tank/phoron))
 			if(tipped)
-				to_chat(user, "You're not sure how to place \the [W] in the fallen [src].")
+				to_chat(user, "You're not sure how to place \the [attacking_item] in the fallen [src].")
 				return TRUE
-		user.drop_from_inventory(W, src)
-		tank = W
-		user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		tank = attacking_item
+		user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 		update_icon()
 		return TRUE
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(!tank)
 			to_chat(user, "There isn't a tank installed for you to secure!")
 			return TRUE
@@ -448,12 +448,12 @@
 		user.visible_message(
 			SPAN_NOTICE("[user] [is_loose ? "tightens" : "loosens"] the nuts on [src]."),
 			SPAN_NOTICE("You [is_loose ? "tighten" : "loosen"] the nuts on [src], [is_loose ? "securing \the [tank]" : "allowing \the [tank] to be removed"]."))
-		playsound(src.loc, "sound/items/wrench.ogg", 50, 1)
+		playsound(src.loc, 'sound/items/wrench.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		is_loose = !is_loose
 		return TRUE
-	if(default_deconstruction_screwdriver(user, W))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, W))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 	return ..()
 
@@ -503,7 +503,7 @@
 	cut_overlays()
 	visible_message(SPAN_WARNING("\The [src] falls over with a buzz, spilling out it's contents!"))
 	flick("iv_crash[is_loose ? "" : "_tank_[tank_type]"]", src)
-	playsound(src, 'sound/effects/table_slam.ogg', 50)
+	playsound(src, 'sound/effects/table_slam.ogg', 50, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 	spill()
 	tipped = TRUE
 	animate(src, time = 5, transform = transform.Turn(90), easing = BOUNCE_EASING)
@@ -575,7 +575,7 @@
 	update_icon()
 
 /obj/machinery/iv_drip/proc/tank_on()
-	playsound(src, 'sound/effects/internals.ogg', 100)
+	playsound(src, 'sound/effects/internals.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 	tank.forceMove(breather)
 	breather.internal = tank
 	if(breather.internals)
@@ -585,7 +585,7 @@
 	return
 
 /obj/machinery/iv_drip/proc/tank_off()
-	playsound(src, 'sound/effects/internals.ogg', 100)
+	playsound(src, 'sound/effects/internals.ogg', 100, extrarange = SILENCED_SOUND_EXTRARANGE)
 	tank.forceMove(src)
 	if(breather.internals)
 		breather.internals.icon_state = "internal0"
@@ -604,7 +604,7 @@
 		return
 	mode = !mode
 	usr.visible_message("<b>[usr]</b> toggles \the [src] to [mode ? "inject" : "take blood"].", SPAN_NOTICE("You set \the [src] to [mode ? "injecting" : "taking blood"]."))
-	playsound(usr, 'sound/machines/buttonbeep.ogg', 50)
+	playsound(usr, 'sound/machines/buttonbeep.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 	update_icon()
 
 /obj/machinery/iv_drip/verb/toggle_stop()
@@ -616,7 +616,7 @@
 		return
 	toggle_stop = !toggle_stop
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s automatic stop mode [toggle_stop ? "on" : "off"]."))
-	playsound(usr, 'sound/machines/click.ogg', 50)
+	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/iv_drip/verb/toggle_valve()
 	set category = "Object"
@@ -661,7 +661,7 @@
 		update_icon()
 	epp = !epp
 	usr.visible_message("<b>[usr]</b> toggles \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"].", SPAN_NOTICE("You toggle \the [src]'s Emergency Positive Pressure system [epp ? "on" : "off"]."))
-	playsound(usr, 'sound/machines/click.ogg', 50)
+	playsound(usr, 'sound/machines/click.ogg', 50, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 /obj/machinery/iv_drip/verb/transfer_rate()
 	set category = "Object"
@@ -683,30 +683,30 @@
 		transfer_amount = amount
 		to_chat(usr, SPAN_NOTICE("Transfer rate set to [src.transfer_amount] u/sec."))
 
-/obj/machinery/iv_drip/examine(mob/user, distance, is_adjacent)
+/obj/machinery/iv_drip/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
-	to_chat(user, SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
-	system is [epp ? "on" : "off"]."))
+	. += SPAN_NOTICE("[src] is [mode ? "injecting" : "taking blood"] at a rate of [src.transfer_amount] u/sec, the automatic injection stop mode is [toggle_stop ? "on" : "off"]. The Emergency Positive Pressure \
+	system is [epp ? "on" : "off"].")
 	if(attached)
-		to_chat(user, SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name]."))
+		. += SPAN_NOTICE("\The [src] is attached to [attached]'s [vein.name].")
 	if(beaker)
 		if(LAZYLEN(beaker.reagents.reagent_volumes))
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"]."))
+			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker] with [adv_scan ? "[beaker.reagents.total_volume] units of primarily [beaker.reagents.get_primary_reagent_name()]" : "some liquid"].")
 		else
-			to_chat(user, SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty."))
+			. += SPAN_NOTICE("Attached is [icon2html(beaker, user)] \a [beaker]. It is empty.")
 	else
-		to_chat(user, SPAN_NOTICE("No chemicals are attached."))
+		. += SPAN_NOTICE("No chemicals are attached.")
 	if(tank)
-		to_chat(user, SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"]."))
+		. += SPAN_NOTICE("Installed is [icon2html(tank, user)] [is_loose ? "\a [tank] sitting loose" : "\a [tank] secured"] on the stand. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa. The valve is [valve_open ? "open" : "closed"].")
 	else
-		to_chat(user, SPAN_NOTICE("No gas tank installed."))
+		. += SPAN_NOTICE("No gas tank installed.")
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it."))
+		. += SPAN_NOTICE("\The [src] has [icon2html(breath_mask, user)] \a [breath_mask] installed. [breather ? breather : "No one"] is wearing it.")
 	else
-		to_chat(user, SPAN_NOTICE("No breath mask installed."))
+		. += SPAN_NOTICE("No breath mask installed.")
 
 /obj/machinery/iv_drip/RefreshParts()
 	..()

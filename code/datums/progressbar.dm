@@ -48,7 +48,7 @@
 		user_client = user.client
 		addProgBarImageToClient()
 
-	RegisterSignal(user, COMSIG_PARENT_QDELETING, PROC_REF(onUserDelete))
+	RegisterSignal(user, COMSIG_QDELETING, PROC_REF(onUserDelete))
 	RegisterSignal(user, COMSIG_MOB_LOGOUT, PROC_REF(cleanUserClient))
 	RegisterSignal(user, COMSIG_MOB_LOGIN, PROC_REF(onUserLogin))
 

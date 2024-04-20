@@ -13,7 +13,7 @@
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_NORMAL
 
-	force = 5.0
+	force = 11
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
@@ -47,7 +47,7 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user, distance, is_adjacent)
+/obj/item/tank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -65,21 +65,21 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
-/obj/item/tank/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tank/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		var/obj/item/device/analyzer/A = W
+	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 
-	if (istype(W, /obj/item/toy/balloon))
-		var/obj/item/toy/balloon/B = W
+	if (istype(attacking_item, /obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = attacking_item
 		B.blow(src)
 		src.add_fingerprint(user)
 
-	if(istype(W, /obj/item/device/assembly_holder))
-		bomb_assemble(W,user)
+	if(istype(attacking_item, /obj/item/device/assembly_holder))
+		bomb_assemble(attacking_item, user)
 
 /obj/item/tank/attack_self(mob/user as mob)
 	if (!(src.air_contents))

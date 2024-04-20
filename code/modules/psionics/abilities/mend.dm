@@ -39,7 +39,7 @@
 			if(O.damage > 0) // Fix internal damage
 				to_chat(user, SPAN_NOTICE("You mend their [O]'s bruising."))
 				O.heal_damage(O.damage)
-			if(HAS_FLAG(O.status, ORGAN_BROKEN))
+			if((O.status & ORGAN_BROKEN))
 				to_chat(user, SPAN_NOTICE("You restart their [O]'s functionality."))
 				O.status &= ~ORGAN_BROKEN
 			if(O.damage <= 5 && O.organ_tag == BP_EYES) // Fix eyes
@@ -57,13 +57,13 @@
 	for(var/obj/item/organ/E in H.bad_external_organs) // Fix bones
 		var/obj/item/organ/external/affected = E
 		if(do_mob(user, H, 10 SECONDS))
-			if((affected.damage < affected.min_broken_damage * config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
+			if((affected.damage < affected.min_broken_damage * GLOB.config.organ_health_multiplier) && (affected.status & ORGAN_BROKEN))
 				to_chat(user, SPAN_NOTICE("You mend their [affected] together."))
 				affected.status &= ~ORGAN_BROKEN
-			if(HAS_FLAG(affected.status, ORGAN_ARTERY_CUT))
+			if((affected.status & ORGAN_ARTERY_CUT))
 				to_chat(user, SPAN_NOTICE("You mend a spliced artery in their [affected]."))
 				affected.status &= ~ORGAN_ARTERY_CUT
-			if(HAS_FLAG(affected.status, ORGAN_DEAD))
+			if((affected.status & ORGAN_DEAD))
 				to_chat(user, SPAN_NOTICE("You mend some necrosis from their [affected]."))
 				affected.status &= ~ORGAN_DEAD
 	user.visible_message(SPAN_NOTICE("[user] raises their palm from [H]."), SPAN_NOTICE("You raise your palm, having finished your work."))

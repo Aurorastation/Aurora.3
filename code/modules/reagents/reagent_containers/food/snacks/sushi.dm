@@ -78,39 +78,39 @@
 		I.pixel_y = I.pixel_x
 		add_overlay(I)
 
-/obj/item/reagent_containers/food/snacks/sashimi/attackby(var/obj/item/I, var/mob/user)
+/obj/item/reagent_containers/food/snacks/sashimi/attackby(obj/item/attacking_item, mob/user)
 	if(!(locate(/obj/structure/table) in loc))
 		return ..()
 
 	// Add more slices.
-	if(istype(I, /obj/item/reagent_containers/food/snacks/sashimi))
-		var/obj/item/reagent_containers/food/snacks/sashimi/other_sashimi = I
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sashimi))
+		var/obj/item/reagent_containers/food/snacks/sashimi/other_sashimi = attacking_item
 		if(slices + other_sashimi.slices > 5)
 			to_chat(user, SPAN_WARNING("You can't stack the sashimi that high!"))
 			return
-		if(!user.unEquip(I))
+		if(!user.unEquip(attacking_item))
 			return
 		slices += other_sashimi.slices
 		bitesize = slices
 		update_icon()
-		if(I.reagents)
-			I.reagents.trans_to(src, I.reagents.total_volume)
-		qdel(I)
+		if(attacking_item.reagents)
+			attacking_item.reagents.trans_to(src, attacking_item.reagents.total_volume)
+		qdel(attacking_item)
 		return
 
 	// Make sushi.
-	if(istype(I, /obj/item/reagent_containers/food/snacks/boiledrice))
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
 		if(slices > 1)
 			to_chat(user, SPAN_WARNING("Putting more than one slice of fish on your sushi is just greedy."))
 		else
-			if(!user.unEquip(I))
+			if(!user.unEquip(attacking_item))
 				return
-			new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), I, src)
+			new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
 
 // Used for turning rice into sushi.
-/obj/item/reagent_containers/food/snacks/boiledrice/attackby(var/obj/item/I, var/mob/user)
+/obj/item/reagent_containers/food/snacks/boiledrice/attackby(obj/item/attacking_item, mob/user)
 	var/static/list/acceptable_types = list(
 		/obj/item/reagent_containers/food/snacks/sashimi = TRUE,
 		/obj/item/reagent_containers/food/snacks/friedegg = TRUE,
@@ -121,34 +121,34 @@
 	)
 	if(!(locate(/obj/structure/table) in loc))
 		return ..()
-	if(istype(I, /obj/item/reagent_containers/food/snacks/sashimi))
-		var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = I
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sashimi))
+		var/obj/item/reagent_containers/food/snacks/sashimi/sashimi = attacking_item
 		if(sashimi.slices > 1)
 			to_chat(user, SPAN_WARNING("Putting more than one slice of fish on your sushi is just greedy."))
 			return
-	if(is_type_in_typecache(I, acceptable_types))
-		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), src, I)
+	if(is_type_in_typecache(attacking_item, acceptable_types))
+		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), src, attacking_item)
 		return
 	. = ..()
 // Used for turning other food into sushi.
-/obj/item/reagent_containers/food/snacks/friedegg/attackby(var/obj/item/I, var/mob/user)
-	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/reagent_containers/food/snacks/boiledrice))
-		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), I, src)
+/obj/item/reagent_containers/food/snacks/friedegg/attackby(obj/item/attacking_item, var/mob/user)
+	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
+		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/tofu/attackby(var/obj/item/I, var/mob/user)
-	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/reagent_containers/food/snacks/boiledrice))
-		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), I, src)
+/obj/item/reagent_containers/food/snacks/tofu/attackby(obj/item/attacking_item, var/mob/user)
+	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
+		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(var/obj/item/I, var/mob/user)
-	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/reagent_containers/food/snacks/boiledrice))
-		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), I, src)
+/obj/item/reagent_containers/food/snacks/rawcutlet/attackby(obj/item/attacking_item, var/mob/user)
+	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
+		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
-/obj/item/reagent_containers/food/snacks/cutlet/attackby(var/obj/item/I, var/mob/user)
-	if((locate(/obj/structure/table) in loc) && istype(I, /obj/item/reagent_containers/food/snacks/boiledrice))
-		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), I, src)
+/obj/item/reagent_containers/food/snacks/cutlet/attackby(obj/item/attacking_item, var/mob/user)
+	if((locate(/obj/structure/table) in loc) && istype(attacking_item, /obj/item/reagent_containers/food/snacks/boiledrice))
+		new /obj/item/reagent_containers/food/snacks/sushi(get_turf(src), attacking_item, src)
 		return
 	. = ..()
 // End non-fish sushi.

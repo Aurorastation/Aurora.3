@@ -25,7 +25,7 @@
 
 /obj/item/clothing/suit/armor/shield/New()
 	..()
-	spark(src, 5, cardinal)
+	spark(src, 5, GLOB.cardinal)
 
 /obj/item/clothing/suit/armor/shield/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	//Since this is a pierce of armor that is passive, we do not need to check if the user is incapacitated.
@@ -63,7 +63,7 @@
 	user.visible_message("<span class='danger'>\The [user]'s [src] absorbs [attack_text]!</span>")
 	to_chat(user, "<span class='warning'>Your shield has absorbed most of \the [damage_source].</span>")
 
-	spark(src, 5, cardinal)
+	spark(src, 5, GLOB.cardinal)
 	playsound(src, 'sound/weapons/blade.ogg', 50, 1)
 	return FALSE // This shield does not block all damage, so returning 0 is needed to tell the game to apply the new damage.
 

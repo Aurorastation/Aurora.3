@@ -2,7 +2,6 @@
 	name = "alien thing"
 	desc = "There's something alien about this."
 	icon = 'icons/obj/gore_structures.dmi'
-	layer = ABOVE_CABLE_LAYER + 0.1
 	anchored = TRUE
 	density = FALSE
 	var/destroy_message = "THE STRUCTURE collapses in on itself!"
@@ -13,18 +12,18 @@
 	. = ..()
 	health = maxHealth
 
-/obj/structure/gore/examine(mob/user, distance, is_adjacent)
+/obj/structure/gore/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 2)
 		var/health_div = health / maxHealth
 		if(health_div >= 0.9)
-			to_chat(user, SPAN_NOTICE("\The [src] appears completely intact."))
+			. += SPAN_NOTICE("\The [src] appears completely intact.")
 		else if(health_div >= 0.7)
-			to_chat(user, SPAN_NOTICE("\The [src] is starting to tear somewhat."))
+			. += SPAN_NOTICE("\The [src] is starting to tear somewhat.")
 		else if(health_div >= 0.4)
-			to_chat(user, SPAN_WARNING("\The [src] is starting to fall apart."))
+			. += SPAN_WARNING("\The [src] is starting to fall apart.")
 		else
-			to_chat(user, SPAN_WARNING("\The [src] is barely holding itself together!"))
+			. += SPAN_WARNING("\The [src] is barely holding itself together!")
 
 /obj/structure/gore/proc/healthcheck()
 	if(health <= 0)
@@ -66,11 +65,11 @@
 /obj/structure/gore/attack_generic()
 	attack_hand(usr)
 
-/obj/structure/gore/attackby(obj/item/W, mob/user)
+/obj/structure/gore/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, W)
-	var/force_damage = W.force
-	if(W.damtype == DAMAGE_BURN)
+	user.do_attack_animation(src, attacking_item)
+	var/force_damage = attacking_item.force
+	if(attacking_item.damtype == DAMAGE_BURN)
 		force_damage *= 1.25
 	health -= force_damage
 	playsound(loc, 'sound/effects/attackblob.ogg', 80, TRUE)

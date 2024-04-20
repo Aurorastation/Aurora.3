@@ -58,8 +58,8 @@
 	melee_damage_upper = 90
 	armor_penetration = 100
 
-/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/melee/baton))
+/mob/living/simple_animal/hostile/retaliate/aquatic/thresher/deep_water/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/melee/baton))
 		user.gib()
-		user.visible_message(SPAN_DANGER("[user] was torn to shreds by a shark while attempting to attack with \the [O]!"))
+		user.visible_message(SPAN_DANGER("[user] was torn to shreds by a shark while attempting to attack with \the [attacking_item]!"))
 		return TRUE

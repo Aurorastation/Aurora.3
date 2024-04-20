@@ -39,8 +39,8 @@
 	else
 		icon_state = "emitter-off"
 
-/obj/machinery/power/emitter/gyrotron/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
+/obj/machinery/power/emitter/gyrotron/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return

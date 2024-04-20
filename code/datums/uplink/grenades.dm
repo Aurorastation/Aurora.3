@@ -41,7 +41,7 @@
 	desc = "A box of five grenades that deploy cardox smoke in the thrown area. This smoke is incredibly toxic, especially to vaurca. It can also clear K'ois outbreaks with ease."
 
 /datum/uplink_item/item/grenades/napalm
-	name = "5x Napalm Grenades"
-	telecrystal_cost = 8
+	name = "3x Napalm Grenades"
+	telecrystal_cost = 5
 	path = /obj/item/storage/box/grenades/napalm
-	desc = "A box of five grenades that deploy napalm in the thrown area, and ignite it."
+	desc = "A box of three grenades that deploy napalm in the thrown area, and ignite it."

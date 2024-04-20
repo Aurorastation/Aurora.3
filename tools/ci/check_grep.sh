@@ -111,6 +111,17 @@ else
     echo "PASS: Did not find any DMM being included to be compiled."
 fi
 
+# Check that all the files in sound/ are referenced with static paths
+echo "Verifying sounds are referenced with static paths" >> code_error.log
+DYNAMIC_SOUNDS_REFERENCES=`grep -r --include \*.dm -E --regexp='"(sound\/.+)"'`
+if [[ $DYNAMIC_SOUNDS_REFERENCES != '' ]]; then
+    ERROR_COUNT=$(($ERROR_COUNT+1))
+    echo "FAIL: Found sound files referenced with dynamic paths:" >> code_error.log
+	echo $DYNAMIC_SOUNDS_REFERENCES >> code_error.log
+else
+    echo "PASS: All sounds are referenced with static paths" >> code_error.log
+fi
+
 echo "Found $ERROR_COUNT errors while performing code check"
 
 if [ $ERROR_COUNT -ne 0 ]; then

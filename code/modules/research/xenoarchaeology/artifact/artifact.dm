@@ -12,16 +12,18 @@
 
 	artifact_id = "[pick("kappa","sigma","antaeres","beta","omicron","iota","epsilon","omega","gamma","delta","tau","alpha")]-[rand(100,999)]"
 
-	artifact_find_type = pick(\
-	5;/obj/machinery/power/supermatter,\
-	5;/obj/structure/constructshell,\
-	25;/obj/machinery/power/supermatter/shard,\
-	50;/obj/structure/cult/pylon,\
-	100;/obj/machinery/auto_cloner,\
-	100;/obj/machinery/giga_drill,\
-	100;/obj/machinery/replicator,\
-	150;/obj/structure/crystal,\
-	1000;/obj/machinery/artifact)
+	artifact_find_type = pick(
+		5;/obj/machinery/power/supermatter,
+		5;/obj/structure/constructshell,
+		25;/obj/machinery/power/supermatter/shard,
+		50;/obj/structure/cult/pylon,
+		100;/obj/machinery/auto_cloner,
+		100;/obj/machinery/giga_drill,
+		100;/obj/machinery/replicator,
+		150;/obj/structure/crystal_madness,
+		150;/obj/structure/crystal,
+		1000;/obj/machinery/artifact,
+	)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Boulders - sometimes turn up after excavating turf - excavate further to try and find large xenoarch finds
@@ -47,29 +49,29 @@
 		color = coloration
 	excavation_level = rand(5,50)
 
-/obj/structure/boulder/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/device/core_sampler))
+/obj/structure/boulder/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/device/core_sampler))
 		src.geologic_data.artifact_distance = rand(-100,100) / 100
 		src.geologic_data.artifact_id = artifact_find.artifact_id
 
-		var/obj/item/device/core_sampler/C = W
+		var/obj/item/device/core_sampler/C = attacking_item
 		C.sample_item(src, user)
 		return
 
-	if (istype(W, /obj/item/device/depth_scanner))
-		var/obj/item/device/depth_scanner/C = W
+	if (istype(attacking_item, /obj/item/device/depth_scanner))
+		var/obj/item/device/depth_scanner/C = attacking_item
 		C.scan_atom(user, src)
 		return
 
-	if (istype(W, /obj/item/device/measuring_tape))
-		var/obj/item/device/measuring_tape/P = W
+	if (istype(attacking_item, /obj/item/device/measuring_tape))
+		var/obj/item/device/measuring_tape/P = attacking_item
 		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
 		if(do_after(user,40))
 			to_chat(user, "<span class='notice'>[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>")
 		return
 
-	if (istype(W, /obj/item/pickaxe))
-		var/obj/item/pickaxe/P = W
+	if (istype(attacking_item, /obj/item/pickaxe))
+		var/obj/item/pickaxe/P = attacking_item
 
 		if(last_act + P.digspeed > world.time)//prevents message spam
 			return

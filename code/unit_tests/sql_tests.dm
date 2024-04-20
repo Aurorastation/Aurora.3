@@ -3,13 +3,13 @@
 	groups = list("generic")
 
 /datum/unit_test/sql_preferences_columns/start_test()
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		TEST_WARN("--------------- Database not Configured - Skipping Preference Column UT")
 		return UNIT_TEST_PASSED
 
 	TEST_DEBUG("--------------- Database Configured - Running SQL Preference UTs")
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		TEST_FAIL("Database connection could not be established.")
 		return UNIT_TEST_FAILED
 
@@ -27,7 +27,7 @@
 		"ss13_characters_ipc_tags"
 	)
 	for (var/T in table_names)
-		var/DBQuery/get_cs = dbcon.NewQuery("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` = :table:")
+		var/DBQuery/get_cs = GLOB.dbcon.NewQuery("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_NAME` = :table:")
 		get_cs.Execute(list("table" = T))
 
 		if (get_cs.ErrorMsg())

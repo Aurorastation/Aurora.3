@@ -21,9 +21,23 @@
 	var/list/possible_explosions = list("Localized Limb", "Destroy Body")
 	var/warning_message = "Tampering detected. Tampering detected."
 
+/obj/item/implant/explosive/New()
+	..()
+	become_hearing_sensitive(ROUNDSTART_TRAIT)
+
 /obj/item/implant/explosive/Initialize()
 	. = ..()
 	setFrequency(frequency)
+
+/obj/item/implant/explosive/Destroy()
+	lose_hearing_sensitivity(ROUNDSTART_TRAIT)
+
+	if(frequency)
+		SSradio.remove_object_all(src)
+	frequency = null
+	radio_connection = null
+
+	. = ..()
 
 /obj/item/implant/explosive/get_data()
 	. = {"
@@ -113,7 +127,7 @@
 
 /obj/item/implant/explosive/exposed()
 	if(warning_message)
-		global_announcer.autosay(warning_message, "Anti-Tampering System")
+		GLOB.global_announcer.autosay(warning_message, "Anti-Tampering System")
 
 /obj/item/implant/explosive/proc/sanitizePhrase(phrase)
 	var/list/replacechars = list("'" = "", "\"" = "", ">" = "", "<" = "", "(" = "", ")" = "")
@@ -174,13 +188,13 @@
 									SPAN_WARNING("You hear a horrible ripping noise."))
 		else
 			part.droplimb(0,DROPLIMB_BLUNT)
-		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg')
+		playsound(get_turf(imp_in), BP_IS_ROBOTIC(part) ? 'sound/effects/meteorimpact.ogg' : 'sound/effects/splat.ogg', 70)
 	else if(ismob(imp_in))
 		var/mob/M = imp_in
 		M.gib()	//Simple mobs just get got
 	qdel(src)
 
-/proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
+/obj/item/implant/explosive/proc/explosion_spread(turf/epicenter, power, adminlog = 1, z_transfer = UP|DOWN)
 	var/datum/explosiondata/data = new
 	data.epicenter = epicenter
 	data.rec_pow = power
@@ -222,13 +236,6 @@
 
 /obj/item/implant/explosive/isLegal()
 	return FALSE
-
-/obj/item/implant/explosive/New()
-	..()
-	become_hearing_sensitive(ROUNDSTART_TRAIT)
-
-/obj/item/implant/explosive/Destroy()
-	return ..()
 
 /obj/item/implant/explosive/full
 	possible_explosions = list("Localized Limb", "Destroy Body", "Full Explosion")

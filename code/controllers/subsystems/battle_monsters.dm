@@ -6,7 +6,7 @@
 
 SUBSYSTEM_DEF(battle_monsters)
 	name = "Battle Monsters"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE
 
 	var/list/monster_elements
@@ -29,6 +29,8 @@ SUBSYSTEM_DEF(battle_monsters)
 	GenerateDatum(BATTLE_MONSTERS_GEN_SUFFIX)
 	GenerateDatum(BATTLE_MONSTERS_GEN_TRAP)
 	GenerateDatum(BATTLE_MONSTERS_GEN_SPELL)
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/battle_monsters/proc/CreateCard(var/identifier,var/turf/cardloc)
 	var/list/splitstring = dd_text2List(identifier,",")

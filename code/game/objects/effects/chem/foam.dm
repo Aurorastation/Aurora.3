@@ -8,7 +8,7 @@
 	opacity = 0
 	anchored = 1
 	density = 0
-	layer = TURF_LAYER + 0.2
+	layer = ABOVE_OBJ_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	animate_movement = 0
 	var/solid_time = 120
@@ -49,7 +49,7 @@
 	if(--amount < 0)
 		return
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/T = get_step(src, direction)
 		if(!T)
 			continue
@@ -167,29 +167,29 @@
 /obj/structure/foamedmetal/attack_hand(var/mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src, FIST_ATTACK_ANIMATION)
-	if (HAS_FLAG(user.mutations, HULK) || (prob(75 - metal * 25)))
+	if ((user.mutations & HULK) || (prob(75 - metal * 25)))
 		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the metal foam wall."))
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam but bounce off it."))
 		shake_animation()
 
-/obj/structure/foamedmetal/attackby(var/obj/item/I, var/mob/user)
+/obj/structure/foamedmetal/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(istype(I, /obj/item/grab))
-		var/obj/item/grab/G = I
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/G = attacking_item
 		if(G.state < GRAB_AGGRESSIVE)
 			to_chat(user, SPAN_WARNING("You need a stronger grip to do that!"))
 			return TRUE
 		G.affecting.forceMove(src.loc)
 		visible_message(SPAN_WARNING("[G.assailant] smashes [G.affecting] through the foamed metal wall."))
 		G.affecting.take_overall_damage(15)
-		qdel(I)
+		qdel(attacking_item)
 		qdel(src)
 		return TRUE
 
-	else if(istype(I, /obj/item/stack/material))
-		var/obj/item/stack/material/S = I
+	else if(istype(attacking_item, /obj/item/stack/material))
+		var/obj/item/stack/material/S = attacking_item
 		if(S.get_amount() < 4)
 			to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 			return TRUE
@@ -213,20 +213,20 @@
 		qdel(src)
 		return TRUE
 
-	else if(istype(I, /obj/item/stack/tile/floor))
+	else if(istype(attacking_item, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
 		if(T.type != /turf/space && !isopenturf(T)) // need to do a hard check here because transit turfs are also space turfs
 			to_chat(user, SPAN_WARNING("The tile below \the [src] isn't an open space, or space itself!"))
 			return TRUE
-		var/obj/item/stack/tile/floor/S = I
+		var/obj/item/stack/tile/floor/S = attacking_item
 		S.use(1)
 		T.ChangeTurf(/turf/simulated/floor/airless)
 		qdel(src)
 		return TRUE
 
-	user.do_attack_animation(src, I)
-	if(prob(I.force * 20 - metal * 25))
-		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the foamed metal with \the [I]."))
+	user.do_attack_animation(src, attacking_item)
+	if(prob(attacking_item.force * 20 - metal * 25))
+		user.visible_message(SPAN_WARNING("[user] smashes through the foamed metal."), SPAN_NOTICE("You smash through the foamed metal with \the [attacking_item]."))
 		qdel(src)
 	else
 		to_chat(user, SPAN_NOTICE("You hit the metal foam to no effect."))

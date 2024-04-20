@@ -71,3 +71,26 @@ ATTRIBUTIONS SECTION END
 ATTRIBUTIONS SECTION START
 sound/weapons/reloads/lever_action_cock1.ogg - "Lever action cocking 2.wav", licensed under CC0. Obtained and edited from https://freesound.org/people/C-V/sounds/523402/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+sound/items/typewriter.ogg - "Typewriter Sound Effect" licensed under CC0, by No Copyright Creator Sounds. Obtained and edited from https://www.youtube.com/watch?v=HYvJtImzoNI&ab_channel=NoCopyrightCreator-Sounds
+sound/items/camerabulb.ogg - "Vintage Camera Flash Bulb Pops Sound Design" licensed under CC0, by Adilbek Sounds. Obainted and edited from https://freesound.org/people/adilbek_sounds/sounds/595044/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTION START
+/sound/items/devices/minedetector/minedetector_close.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
+/sound/items/devices/minedetector/minedetector_medium.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
+/sound/items/devices/minedetector/minedetector_far.ogg - Part of "Detector", licensed under CC0. Obtained from https://freesound.org/people/fennelliott/sounds/426404/
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/music/lobby/konyang/konyang-1.ogg - PocketNoMoney
+sound/music/lobby/konyang/konyang-2.ogg - BGM gongbang
+sound/music/lobby/konyang/konyang-3.ogg - zolezzi
+sound/music/lobby/konyang/konyang-4.ogg - Karl Casey @ White Bat Audio
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/effects/zombies/zombie_1.ogg to zombie_4_ogg - Mazellmi @ Youtube
+sound/effects/rock_break.ogg - "Rock destroy". Obtained from https://freesound.org/people/Bertsz/sounds/524312/
+ATTRIBUTIONS SECTION END

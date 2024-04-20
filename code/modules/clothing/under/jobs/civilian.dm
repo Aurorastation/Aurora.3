@@ -3,7 +3,6 @@
 /obj/item/clothing/under/rank/bartender
 	name = "bartender's uniform"
 	desc = "It looks like it could use some more flair."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 
@@ -21,7 +20,6 @@
 /obj/item/clothing/under/rank/chaplain
 	name = "chaplain's jumpsuit"
 	desc = "It's a black jumpsuit, often worn by religious folk."
-	has_sensor = SUIT_HAS_SENSORS
 	icon_state = "chaplain"
 	item_state = "bl_suit"
 	worn_state = "chapblack"
@@ -29,7 +27,6 @@
 /obj/item/clothing/under/rank/chef
 	name = "chef's uniform"
 	desc = "It's an apron which is given only to the most <b>hardcore</b> chefs in space."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_chef"
@@ -48,7 +45,6 @@
 /obj/item/clothing/under/rank/hydroponics
 	name = "botanist's jumpsuit"
 	desc = "It's a jumpsuit designed to protect against minor plant-related hazards."
-	has_sensor = SUIT_HAS_SENSORS
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_gardener"
 	item_state = "nt_gardener"
@@ -68,7 +64,6 @@
 /obj/item/clothing/under/rank/liaison
 	name = "corporate liaison uniform"
 	desc = "The plain, professional attire of a corporate liaison. The collar is <i>immaculately</i> starched."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_liaison"
@@ -98,11 +93,17 @@
 	icon_state = "orion_liaison"
 	item_state = "orion_liaison"
 
+/obj/item/clothing/under/rank/liaison/einstein
+	name = "einstein corporate liaison uniform"
+	desc_extended = "If you're seeing this outfit in an SCC facility, something somewhere has gone terribly, terribly wrong."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_liaison"
+	item_state = "ee_liaison"
+
 // Janitor
 /obj/item/clothing/under/rank/janitor
 	name = "janitor's jumpsuit"
 	desc = "It's the official uniform of the station's janitor. It has minor protection from biohazards."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_janitor"
@@ -150,7 +151,6 @@
 /obj/item/clothing/under/librarian
 	name = "sensible suit"
 	desc = "It's very... sensible."
-	has_sensor = SUIT_HAS_SENSORS
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	contained_sprite = TRUE
 	icon_state = "nt_librarian"
@@ -164,12 +164,27 @@
 	icon_state = "orion_librarian"
 	item_state = "orion_librarian"
 
+/obj/item/clothing/under/librarian/heph
+	icon_state = "heph_librarian"
+	item_state = "heph_librarian"
+
+/obj/item/clothing/under/librarian/pmc
+	icon_state = "pmc_librarian"
+	item_state = "pmc_librarian"
+
+/obj/item/clothing/under/librarian/zavod
+	icon_state = "zav_librarian"
+	item_state = "zav_librarian"
+
+/obj/item/clothing/under/librarian/zeng
+	icon_state = "zeng_librarian"
+	item_state = "zeng_librarian"
+
 // Miner
 
 /obj/item/clothing/under/rank/miner
 	name = "miner's jumpsuit"
 	desc = "It's a snappy miner's jumpsuit, complete with overalls and caked-on dirt."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_miner"
@@ -186,7 +201,6 @@
 /obj/item/clothing/under/rank/operations_manager
 	name = "operations manager's jumpsuit"
 	desc = "A uniform worn by the operations manager. It has the SCC insignia on it."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "operations_manager"
@@ -195,7 +209,7 @@
 /obj/item/clothing/under/rank/hangar_technician
 	name = "hangar technician's jumpsuit"
 	desc = "The future of hangar tech apparel: long, stuffy slacks. We never said it was a bright future."
-	has_sensor = SUIT_HAS_SENSORS
+
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_tech"
@@ -212,7 +226,6 @@
 /obj/item/clothing/under/rank/bridge_crew
 	name = "bridge crew's jumpsuit"
 	desc = "The uniform worn by the SCC's bridge crew."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "bridge_crew"
@@ -248,7 +261,6 @@
 /obj/item/clothing/under/rank/xo
 	name = "executive officer's jumpsuit"
 	desc = "The uniform worn by the SCC's executive officers."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
 	icon_state = "executive_officer"
@@ -257,7 +269,6 @@
 /obj/item/clothing/under/rank/machinist
 	name = "machinist's jumpsuit"
 	desc = "A practical uniform designed for industrial work."
-	has_sensor = SUIT_HAS_SENSORS
 	contained_sprite = TRUE
 	icon = 'icons/obj/item/clothing/department_uniforms/operations.dmi'
 	icon_state = "nt_machinist"
@@ -271,6 +282,14 @@
 	icon_state = "orion_machinist"
 	item_state = "orion_machinist"
 
+/obj/item/clothing/under/rank/machinist/einstein
+	name = "einstein machinist's jumpsuit"
+	desc_extended = "Usually, but not necessarily worn by Einstein's Terranaeus Diagnostics subsidiary. Subsidiary or not, \
+	whoever wears this uniform probably knows a lot about putting guns and cameras on robots."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_machinist"
+	item_state = "ee_machinist"
+
 /obj/item/clothing/under/rank/captain/hephaestus
 	name = "hephaestus captain's jumpsuit"
 	desc = "It's a green-and-orange jumpsuit with some gold markings denoting the rank of \"Captain\" used by Hephaestus Industries."
@@ -279,4 +298,13 @@
 	icon_state = "heph_captain"
 	item_state = "heph_captain"
 	worn_state = "heph_captain"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/captain/einstein
+	name = "einstein captain's jumpsuit"
+	desc = "It's a grey-green jumpsuit with some gold markings denoting the rank of \"Captain\" used by Einstein Engines."
+	desc_extended = "Any similarities to the captain's jumpsuits worn in the SCC are purely coincidental. Honest!"
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_captain"
+	item_state = "ee_captain"
 	contained_sprite = TRUE

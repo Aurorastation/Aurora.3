@@ -22,10 +22,10 @@
 	M.Move(dest)
 
 	if(entersparks)
-		spark(src, 4, alldirs)
+		spark(src, 4, GLOB.alldirs)
 
 	if(exitsparks)
-		spark(dest, 4, alldirs)
+		spark(dest, 4, GLOB.alldirs)
 
 	if(entersmoke)
 		var/datum/effect/effect/system/smoke_spread/s = new /datum/effect/effect/system/smoke_spread

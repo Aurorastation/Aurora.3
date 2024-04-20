@@ -76,8 +76,8 @@
 	data["round_delayed"] = SSticker.delay_end
 	data["antagonists"] = list()
 	data["antagonist_types"] = list()
-	for(var/antag_type in all_antag_types)
-		var/datum/antagonist/A = all_antag_types[antag_type]
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
 		for(var/datum/mind/mind in A.current_antagonists)
 			var/mob/M = mind.current
 			data["antagonists"] += list(list(

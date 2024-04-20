@@ -157,7 +157,7 @@
 		return FALSE
 
 	//Hulk modifier
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK))
 		effective_force *= 2
 
 	//Apply weapon damage

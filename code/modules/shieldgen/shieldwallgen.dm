@@ -9,7 +9,7 @@
 	icon_state = "Shield_Gen"
 	anchored = FALSE
 	density = TRUE
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 
 	var/power_state = FALSE
 	var/is_powered = FALSE
@@ -143,22 +143,22 @@
 		var/obj/shieldwall/CF = new /obj/shieldwall/(T, src, G) //(ref to this gen, ref to connected gen)
 		CF.set_dir(field_dir)
 
-/obj/machinery/shieldwallgen/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/shieldwallgen/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		if(power_state)
 			to_chat(user, SPAN_WARNING("You cannot unsecure \the [src] while it's active."))
 			return
 
 		wrenched = !wrenched
 		anchored = wrenched
-		playsound(loc, W.usesound, 75, TRUE)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		add_fingerprint(user)
 		var/others_msg = wrenched ? "<b>[user]</b> secures the external reinforcing bolts to the floor." : "<b>[user]</b> unsecures the external reinforcing bolts."
 		var/self_msg = wrenched ? "You secure the external reinforcing bolts to the floor." : "You unsecure the external reinforcing bolts."
 		user.visible_message(others_msg, SPAN_NOTICE(self_msg), SPAN_NOTICE("You hear a ratcheting noise."))
 		return
 
-	if(W.GetID())
+	if(attacking_item.GetID())
 		add_fingerprint(user)
 		if(allowed(user))
 			locked = !locked

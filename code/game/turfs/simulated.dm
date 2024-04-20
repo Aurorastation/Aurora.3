@@ -16,44 +16,6 @@
 
 	baseturf = /turf/space
 
-/turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
-
-	//Wet type:
-	//WET_TYPE_WATER = water
-	//WET_TYPE_LUBE = lube
-	//WET_TYPE_ICE = ice
-
-	if(!wet_type)
-		wet_type = apply_type
-	else if(apply_type != wet_type)
-		if(apply_type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
-			wet_type = WET_TYPE_WATER
-		else if(apply_type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
-			wet_type = apply_type
-
-	if(wet_amount <= 0)
-		wet_amount = 0 //Just in case
-
-	if(!wet_overlay)
-		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
-		add_overlay(wet_overlay, TRUE)
-
-	wet_amount += amount
-
-	unwet_timer = addtimer(CALLBACK(src, PROC_REF(unwet_floor)), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
-
-/turf/simulated/proc/unwet_floor()
-	wet_amount = 0
-	wet_type = 0
-	if(wet_overlay)
-		cut_overlay(wet_overlay, TRUE)
-		wet_overlay = null
-
-/turf/simulated/clean_blood()
-	for(var/obj/effect/decal/cleanable/blood/B in contents)
-		B.clean_blood()
-	..()
-
 /turf/simulated/Initialize(mapload)
 	if (mapload)
 		if(istype(loc, /area/chapel))
@@ -166,3 +128,49 @@
 		deltimer(unwet_timer)
 
 	return ..()
+
+/turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
+
+	//Wet type:
+	//WET_TYPE_WATER = water
+	//WET_TYPE_LUBE = lube
+	//WET_TYPE_ICE = ice
+
+	if(!wet_type)
+		wet_type = apply_type
+	else if(apply_type != wet_type)
+		if(apply_type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
+			wet_type = WET_TYPE_WATER
+		else if(apply_type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
+			wet_type = apply_type
+
+	if(wet_amount <= 0)
+		wet_amount = 0 //Just in case
+
+	if(!wet_overlay)
+		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
+		add_overlay(wet_overlay, TRUE)
+
+	wet_amount += amount
+
+	unwet_timer = addtimer(CALLBACK(src, PROC_REF(unwet_floor)), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
+
+/turf/simulated/proc/unwet_floor()
+	wet_amount = 0
+	wet_type = 0
+	if(wet_overlay)
+		cut_overlay(wet_overlay, TRUE)
+		wet_overlay = null
+
+/turf/simulated/clean_blood()
+	for(var/obj/effect/decal/cleanable/blood/B in contents)
+		B.clean_blood()
+	..()
+
+/turf/simulated/clean(atom/source, mob/user)
+	. = ..()
+	dirt = 0
+	reset_color()
+
+/turf/simulated/proc/reset_color()
+	color = null

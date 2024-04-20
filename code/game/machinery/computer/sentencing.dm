@@ -5,7 +5,7 @@
 	icon_state = "computerw"
 	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
-	req_one_access = list( access_brig, access_heads )
+	req_one_access = list( ACCESS_BRIG, ACCESS_HEADS )
 	circuit = "/obj/item/circuitboard/sentencing"
 	density = 0
 
@@ -28,19 +28,19 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
-	if( istype( O, /obj/item/paper/incident ) && menu_screen == "import_incident" )
-		usr.drop_from_inventory(O,src)
+/obj/machinery/computer/sentencing/attackby(obj/item/attacking_item, mob/user)
+	if( istype( attacking_item, /obj/item/paper/incident ) && menu_screen == "import_incident" )
+		usr.drop_from_inventory(attacking_item,src)
 
-		if( import( O ))
+		if( import( attacking_item ))
 			ping( "\The [src] pings, \"Successfully imported incident report!\"" )
 			menu_screen = "incident_report"
 		else
 			to_chat(user, "<span class='alert'>Could not import incident report.</span>")
 
-		qdel( O )
+		qdel( attacking_item )
 		return TRUE
-	else if( istype( O, /obj/item/paper ) && menu_screen == "import_incident" )
+	else if( istype( attacking_item, /obj/item/paper ) && menu_screen == "import_incident" )
 		to_chat(user, "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>")
 		return TRUE
 	return ..()

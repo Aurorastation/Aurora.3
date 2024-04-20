@@ -20,12 +20,12 @@
 	///looping sound datum for our fire alarm siren.
 	var/datum/looping_sound/firealarm/soundloop
 
-/obj/machinery/firealarm/examine(mob/user)
+/obj/machinery/firealarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((stat & (NOPOWER|BROKEN)) || buildstage != 2)
 		return
 
-	to_chat(user, "The current alert level is [get_security_level()].")
+	. += "The current alert level is [get_security_level()]."
 
 /obj/machinery/firealarm/update_icon()
 	cut_overlays()
@@ -70,13 +70,13 @@
 	if(prob(50/severity))
 		alarm(rand(30/severity, 60/severity))
 
-/obj/machinery/firealarm/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W, /obj/item/forensics))
+/obj/machinery/firealarm/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 	else
 		return TRUE
 
-	if (W.isscrewdriver() && buildstage == 2)
+	if (attacking_item.isscrewdriver() && buildstage == 2)
 		if(!wiresexposed)
 			set_light(0)
 		wiresexposed = !wiresexposed
@@ -87,14 +87,14 @@
 		set_light(0)
 		switch(buildstage)
 			if(2)
-				if (W.ismultitool())
+				if (attacking_item.ismultitool())
 					src.detecting = !( src.detecting )
 					if (src.detecting)
 						user.visible_message("<span class='notice'>\The [user] has reconnected [src]'s detecting unit!</span>", "<span class='notice'>You have reconnected [src]'s detecting unit.</span>")
 					else
 						user.visible_message("<span class='notice'>\The [user] has disconnected [src]'s detecting unit!</span>", "<span class='notice'>You have disconnected [src]'s detecting unit.</span>")
 					return TRUE
-				else if (W.iswirecutter())
+				else if (attacking_item.iswirecutter())
 					user.visible_message("<span class='notice'>\The [user] has cut the wires inside \the [src]!</span>", "<span class='notice'>You have cut the wires inside \the [src].</span>")
 					new/obj/item/stack/cable_coil(get_turf(src), 5)
 					playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
@@ -102,17 +102,17 @@
 					update_icon()
 					return TRUE
 			if(1)
-				if(W.iscoil())
-					var/obj/item/stack/cable_coil/C = W
+				if(attacking_item.iscoil())
+					var/obj/item/stack/cable_coil/C = attacking_item
 					if (C.use(5))
 						to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 						buildstage = 2
 					else
 						to_chat(user, "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>")
 					return TRUE
-				else if(W.iscrowbar())
+				else if(attacking_item.iscrowbar())
 					to_chat(user, "You pry out the circuit!")
-					playsound(src.loc, W.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					spawn(20)
 						var/obj/item/firealarm_electronics/circuit = new /obj/item/firealarm_electronics()
 						circuit.forceMove(user.loc)
@@ -120,16 +120,16 @@
 						update_icon()
 					return TRUE
 			if(0)
-				if(istype(W, /obj/item/firealarm_electronics))
+				if(istype(attacking_item, /obj/item/firealarm_electronics))
 					to_chat(user, "You insert the circuit!")
-					qdel(W)
+					qdel(attacking_item)
 					buildstage = 1
 					update_icon()
 					return TRUE
-				else if(W.iswrench())
+				else if(attacking_item.iswrench())
 					to_chat(user, "You remove the fire alarm assembly from the wall!")
 					new /obj/item/frame/fire_alarm(get_turf(user))
-					playsound(src.loc, W.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					qdel(src)
 					return TRUE
 		return TRUE
@@ -159,7 +159,7 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
+/obj/machinery/firealarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time
@@ -225,7 +225,7 @@
 	update_icon()
 
 	if(isContactLevel(z))
-		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (security_level ? get_security_level() : "green"))
+		INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(set_security_level), (GLOB.security_level ? get_security_level() : "green"))
 
 	soundloop = new(src, FALSE)
 
@@ -294,7 +294,7 @@ Just a object used in constructing fire alarms
 	A.partyreset()
 	return
 
-/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = default_state)
+/obj/machinery/firealarm/partyalarm/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/ui_state/state = GLOB.default_state)
 	var/data[0]
 	data["alertLevel"] = get_security_level()
 	data["time"] = src.time
