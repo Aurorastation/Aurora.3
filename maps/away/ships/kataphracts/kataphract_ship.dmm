@@ -111,6 +111,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
+"ax" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/bruiser)
 "aC" = (
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -479,11 +482,6 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/engineering)
-"cO" = (
-/obj/machinery/suit_cycler/offship/kataphract,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/armoury)
 "cP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -716,6 +714,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating)
+"dW" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/frankie)
 "dY" = (
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
@@ -1272,6 +1273,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
+"hz" = (
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "hD" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1509,6 +1515,11 @@
 /area/kataphract_chapter/brig)
 "iT" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/armoury)
+"iU" = (
+/obj/machinery/suit_cycler/offship/kataphract,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "iV" = (
 /obj/structure/closet/emcloset,
@@ -3075,11 +3086,6 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled)
-"AY" = (
-/obj/machinery/atmospherics/portables_connector/aux,
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/entry)
 "Bi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -3309,9 +3315,6 @@
 "HH" = (
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
-"HR" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/bruiser)
 "HS" = (
 /obj/machinery/power/apc/east{
 	req_access = null;
@@ -3805,9 +3808,6 @@
 	req_one_access = list(113,11)
 	},
 /turf/simulated/floor/carpet/rubber)
-"VN" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/frankie)
 "VU" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /turf/simulated/floor/tiled/dark,
@@ -15404,12 +15404,12 @@ mp
 bc
 bj
 mp
-VN
-VN
-VN
-VN
-VN
-VN
+dW
+dW
+dW
+dW
+dW
+dW
 iB
 iB
 iB
@@ -15544,7 +15544,7 @@ Ea
 Ea
 Ea
 Ea
-cO
+iU
 iT
 le
 le
@@ -15561,17 +15561,17 @@ hj
 hj
 hj
 RY
-AY
+hz
 jc
 eq
 FX
-VN
-VN
-VN
-VN
-VN
-VN
-VN
+dW
+dW
+dW
+dW
+dW
+dW
+dW
 iB
 iB
 iB
@@ -15706,7 +15706,7 @@ Ea
 jH
 av
 Ea
-cO
+iU
 iT
 ke
 Aw
@@ -15727,13 +15727,13 @@ FX
 FX
 FX
 FX
-VN
+dW
 xD
 oC
 cT
 cT
-VN
-VN
+dW
+dW
 iB
 iB
 iB
@@ -15868,7 +15868,7 @@ Ea
 sX
 is
 Ea
-cO
+iU
 iT
 kf
 Aw
@@ -15889,13 +15889,13 @@ dY
 kv
 cL
 FX
-VN
+dW
 bq
 dB
 cT
 kr
-VN
-VN
+dW
+dW
 iB
 iB
 iB
@@ -16056,8 +16056,8 @@ mm
 TH
 cT
 dR
-VN
-VN
+dW
+dW
 JF
 iB
 iB
@@ -16213,11 +16213,11 @@ Kw
 jp
 jO
 FX
-VN
+dW
 aw
 CE
 cT
-VN
+dW
 mz
 mz
 iB
@@ -16375,12 +16375,12 @@ mp
 mp
 ne
 mp
-VN
+dW
 JW
 RL
 cT
-VN
-VN
+dW
+dW
 iB
 iB
 iB
@@ -16537,12 +16537,12 @@ iV
 FX
 jO
 FX
-VN
-VN
-VN
-VN
-VN
-VN
+dW
+dW
+dW
+dW
+dW
+dW
 iB
 iB
 iB
@@ -16699,12 +16699,12 @@ XS
 XS
 wz
 FX
-VN
-VN
-VN
-VN
-VN
-VN
+dW
+dW
+dW
+dW
+dW
+dW
 iB
 iB
 iB
@@ -16832,7 +16832,7 @@ iB
 iB
 iB
 iB
-jd
+fu
 cf
 sU
 if
@@ -18128,7 +18128,7 @@ iB
 iB
 iB
 iB
-mL
+fu
 cf
 sU
 if
@@ -18319,10 +18319,10 @@ XS
 XS
 da
 FX
-HR
-HR
-HR
-HR
+ax
+ax
+ax
+ax
 iB
 iB
 iB
@@ -18481,10 +18481,10 @@ iV
 FX
 jO
 FX
-HR
-HR
-HR
-HR
+ax
+ax
+ax
+ax
 lc
 lc
 iB
@@ -18643,7 +18643,7 @@ mp
 mp
 kZ
 mp
-HR
+ax
 mE
 Hh
 Uz
@@ -18805,14 +18805,14 @@ lE
 zi
 jO
 FX
-HR
+ax
 sB
 fz
 Uz
 Uz
 ns
-HR
-HR
+ax
+ax
 iB
 iB
 iB
@@ -18973,8 +18973,8 @@ Xf
 Uz
 Uz
 qq
-HR
-HR
+ax
+ax
 iB
 iB
 iB
@@ -19129,14 +19129,14 @@ lF
 DX
 ic
 FX
-HR
+ax
 mi
 gb
 Uz
 Uz
-HR
-HR
-HR
+ax
+ax
+ax
 iB
 iB
 iB
@@ -19291,14 +19291,14 @@ FX
 FX
 FX
 FX
-HR
+ax
 VZ
 mh
 Uz
 Uz
-HR
-HR
-HR
+ax
+ax
+ax
 iB
 iB
 iB
@@ -19449,17 +19449,17 @@ wh
 jh
 jh
 lP
-AY
+hz
 jc
 Pr
 FX
-HR
-HR
-HR
-HR
-HR
-HR
-HR
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 iB
 iB
 iB
@@ -19615,13 +19615,13 @@ mp
 mp
 bc
 lC
-HR
-HR
-HR
-HR
-HR
-HR
-HR
+ax
+ax
+ax
+ax
+ax
+ax
+ax
 iB
 iB
 iB
