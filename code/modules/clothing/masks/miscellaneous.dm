@@ -144,55 +144,27 @@
 	body_parts_covered = FACE|EYES
 	action_button_name = "Toggle MIU"
 	origin_tech = list(TECH_DATA = 5, TECH_ENGINEERING = 5)
-	var/active = FALSE
-	var/mob/abstract/eye/cameranet/eye
 
 /obj/item/clothing/mask/ai/Initialize()
-	eye = new(src)
-	eye.name_suffix = "camera MIU"
 	. = ..()
-
-/obj/item/clothing/mask/ai/Destroy()
-	if(eye)
-		if(active)
-			disengage_mask(eye.owner)
-		qdel(eye)
-		eye = null
-
-	. = ..()
+	AddComponent(/datum/component/eye/cameranet)
 
 /obj/item/clothing/mask/ai/attack_self(mob/user)
 	if(user.incapacitated())
 		return
-	active = !active
-	to_chat(user, SPAN_NOTICE("You [active ? "" : "dis"]engage \the [src]."))
-	if(active)
-		engage_mask(user)
-	else
-		disengage_mask(user)
-
-/obj/item/clothing/mask/ai/equipped(mob/user, slot)
-	..(user, slot)
-	engage_mask(user)
-
-/obj/item/clothing/mask/ai/dropped(mob/user)
-	..()
-	disengage_mask(user)
-
-/obj/item/clothing/mask/ai/proc/engage_mask(mob/user)
-	if(!active)
-		return
 	if(user.get_equipped_item(slot_wear_mask) != src)
+		to_chat(user, SPAN_WARNING("You must be wearing \the [src] to activate it!"))
 		return
-
-	eye.possess(user)
-	to_chat(eye.owner, SPAN_NOTICE("You feel disoriented for a moment as your mind connects to the camera network."))
-
-/obj/item/clothing/mask/ai/proc/disengage_mask(mob/user)
-	if(user == eye.owner)
-		to_chat(eye.owner, SPAN_NOTICE("You feel disoriented for a moment as your mind disconnects from the camera network."))
-		eye.release(eye.owner)
-		eye.forceMove(src)
+	var/datum/component/eye/cameranet/CN = GetComponent(/datum/component/eye)
+	if(!CN)
+		to_chat(user, SPAN_WARNING("\The [src] doesn't respond!"))
+		return
+	if(CN.current_looker)
+		CN.unlook()
+		to_chat(user, SPAN_NOTICE("You deactivate \the [src]."))
+	else
+		CN.look(user)
+		to_chat(user, SPAN_NOTICE("You activate \the [src]."))
 
 /obj/item/clothing/mask/offworlder
 	name = "scarab scarf"

@@ -37,7 +37,7 @@
 			icon_state = "pinonnull"
 			scan_ticks++
 			if(prob(scan_ticks * 10))
-				if(isprocessing)
+				if(datum_flags & DF_ISPROCESSING)
 					//scan radios in the world to try and find one
 					var/cur_dist = 999
 					for(var/obj/item/device/radio/beacon/R in GLOB.teleportbeacons)

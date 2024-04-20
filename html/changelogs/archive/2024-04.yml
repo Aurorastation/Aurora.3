@@ -400,3 +400,17 @@
   - rscadd: Fluff papers can now be set to a written language.
   - imageadd: Adds an Unathi skeleton sprite.
   - balance: Buffs the explosion radius of Bruiser HE rounds.
+2024-04-20:
+  FluffyGhost:
+  - refactor: Unified most of the procs into one definition, so there are no duplicate
+      around the codebase.
+  - refactor: Marked some of the above as overridable if a good enough case can be
+      made for them (eg. external dependency or unlikely to be used).
+  GeneralCamo:
+  - rscadd: Added Imogen Janse's custom item.
+  RustingWithYou:
+  - qol: Reworks blueprints to use an eye for area modification.
+  - rscadd: Adds outpost blueprints for creating areas on exoplanets, and shuttle
+      blueprints for modifying shuttles.
+  - qol: Moves eye creation to a component.
+  - rscadd: Adds several items and structures for use in Uueoa-Esa ruins.
