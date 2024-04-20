@@ -2,7 +2,8 @@
  *  Ruins tests
  *  Basically loads the ruins to then check them
  */
-
+//Since we rely on SSunit_tests_config.config that isn't defined without this
+#if defined(UNIT_TEST)
 /datum/unit_test/ruins_test
 	name = "Ruins Test"
 	groups = list("ruins")
@@ -134,3 +135,5 @@
 	else
 		TEST_FAIL("Some ruins have invalid paths, read above!")
 		return UNIT_TEST_FAILED
+
+#endif //UNIT_TEST
