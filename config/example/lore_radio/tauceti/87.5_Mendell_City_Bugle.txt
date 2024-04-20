@@ -18,6 +18,7 @@ Rulla, who campaigned against the Nralakk Federation's policies, rose to fame af
 The body is pending autopsy, as authorities from the Mendell City Police Department negotiate with the local Xii'Eyes neighborhood watch group for a handover of the body, one that is being met with friction from the locals.
 In a statement, Rift Watcher Kalq'Qi Weibii, who is friends with Rulla, expressed sorrow and mourning, and wished for Skrell in Mendell City to undertake a moment of silence for them.
 We will return to the news after these short messages.
+...
 - Celestial Cruises is proud to offer new Century Cruises, long-duration trips that span the Spur, for those who want to get away from it all for just a bit longer. Servicing both Biesel and the Coalition.
 Offering one-month, three-month, and six-month getaways for competitive prices, with luxurious amenities to make sure you don't miss a beat.
 See the lush islands of Port Antillia, the rich rolling fields of Vysoka, and the ethereal lights of Assunzione - and so much more. Complimentary tours and hotels are included.
@@ -26,6 +27,9 @@ A galaxy of adventures awaits. /Celestial Cruises: A subsidiary of Idris Incorpo
 Before you know it, you're coasting on the streets in quiet comfort.
 Full self driving available only for 500 credits per month.
 Now with free charging for your first 1000 kilometers.
+...
+- 87.5, Mendell City Bugle FM. Bringing you the latest news, 24/7, straight from the Capital of the Cosmos.
+(A bugle sounds triumphantly.)
 - The Mendell government has announced plans to construct a new metro line connecting District 1 with District 15, burrowing over 28 kilometers of new track underneath the surface.
 The announcement comes after the Mendell City Council approved a transportation budget increase for 2466, following unprecedented levels of ridership pushing the city's public transport to its limits.
 The mayor is expected to hold a groundbreaking ceremony next week, after which construction will begin immediately.
@@ -33,8 +37,6 @@ The announcement was praised by many, but was not without its share of criticism
 It is estimated that the tunnel may displace a significant amount of these underground homes, a prospect which Vaurcae of District 9 are taking to the streets to protest.
 Despite these, the city's progress on the line does not seem to be slowing down. Hephaestus Industries has said it will invest 155 million credits into tunnel construction as well as provide the materials needed.
 The project is estimated to cost about 305 million credits total.
-- 87.5, Mendell City Bugle FM. Bringing you the latest news, 24/7, straight from the Capital of the Cosmos.
-(A bugle sounds triumphantly.)
 A warehouse has exploded in District 11, sending debris flying into the air and setting several nearby apartments on fire.
 The warehouse on Ruhambe Street, owned by a storage subsidiary of Hephaestus Industries, was believed to have been holding volatile compounds used for a nearby construction project.
 These compounds, for unknown reasons, detonated, causing a chain reaction that blew a hole in the roof and spread a fireball to nearby buildings.
@@ -46,6 +48,7 @@ Hephaestus is cooperating with authorities to determine the cause of the explosi
 The company is also sending an inspection team to analyze any structural damages to nearby buildings caused by the fire.
 We will update you if any further developments occur with this story.
 Bugle will return after these short messages.
+...
 - Life's not always fair. But you can help even the odds... with Mu Cephei Special Reserve Whiskey!
 Taste those buttery smooth smoky notes, unlike any other.
 Distilled in the finest oak barrels, aged to perfection.
@@ -54,6 +57,7 @@ So have a drink, and feel your troubles /slip away./ Mu Cephei Special Reserve. 
 Make them feel like they're right next to you with NTNet Solutions' high-speed extranet plans.
 Get speeds all the way up to a whopping 10 Tbps and connect to anywhere in human space.
 Visit us today or call us at 0589-4993 to get a quote for your home or phone!
+...
 - And now for the weather forecast next week.
 Mild rain is expected Wednesday and Thursday along with persistent 12-kph winds throughout the week.
 Cloudy with occasional sun for the rest of the day as the season slowly transitions to summer.
@@ -96,4 +100,4 @@ The accident also took with it a Langenfeld SUV caught in the middle, causing it
 Unfortunately, three lost their lives in the accident: a 34-year-old Human, a 22-year-old Unathi, and a Bishop IPC.
 Police are investigating the cause of the truck's sudden loss of control.
 We will report back to you of any updates.
-
+...
