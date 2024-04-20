@@ -262,6 +262,14 @@
 	This one appears to have been reinforced."
 	icon_state = "rig-tarwacaptain-helmet"
 	item_state = "rig-tarwacaptain-helmet"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_CARBINE,
+		laser = ARMOR_LASER_PISTOL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
 
 /obj/item/clothing/suit/space/void/unathi_pirate/kazu
 	name = "techraider voidsuit"
