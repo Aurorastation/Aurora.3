@@ -16,6 +16,7 @@
 /obj/effect/shuttle_landmark/fishing_trawler/port_dock
 	name = "Fishing Trawler - Port Dock"
 	landmark_tag = "fishing_trawler_port_dock"
+	docking_controller = "fishing_trawler_port_dock"
 
 /obj/effect/shuttle_landmark/fishing_trawler/starboard
 	name = "Fishing Trawler - Starboard"
@@ -24,6 +25,7 @@
 /obj/effect/shuttle_landmark/fishing_trawler/starboard_dock
 	name = "Fishing Trawler - Starboard Dock"
 	landmark_tag = "fishing_trawler_starboard_dock"
+	docking_controller = "fishing_trawler_starboard_dock"
 
 //Aft
 
@@ -36,6 +38,7 @@
 /obj/effect/shuttle_landmark/fishing_trawler/aux_dock
 	name = "Fishing Trawler - Auxiliary Dock"
 	landmark_tag = "fishing_trawler_aux_dock"
+	docking_controller = "fishing_trawler_aux_dock"
 
 /obj/effect/shuttle_landmark/fishing_trawler/aft
 	name = "Fishing Trawler - Aft"
