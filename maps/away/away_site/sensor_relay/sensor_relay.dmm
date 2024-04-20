@@ -186,8 +186,7 @@
 "dDU" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/random,
-/obj/structure/curtain{
-	},
+/obj/structure/curtain,
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
@@ -957,8 +956,7 @@
 /obj/item/clothing/shoes/workboots,
 /obj/item/clothing/gloves/yellow,
 /obj/item/clothing/head/hardhat/orange,
-/obj/structure/curtain{
-	},
+/obj/structure/curtain,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay)
 "qnu" = (
@@ -973,6 +971,11 @@
 "qtq" = (
 /obj/structure/table/standard,
 /obj/item/crossbowframe,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay)
 "qyb" = (

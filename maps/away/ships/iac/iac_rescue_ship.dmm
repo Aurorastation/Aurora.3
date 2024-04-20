@@ -1121,19 +1121,14 @@
 /area/ship/iac_rescue_ship/afthallway)
 "bWO" = (
 /obj/structure/table/steel,
-/obj/item/stack/material/steel/full{
-	pixel_x = -8
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/stack/material/steel/full{
-	pixel_x = -8
+/obj/item/blueprints,
+/obj/item/blueprints/outpost{
+	pixel_y = 6
 	},
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/glass/full,
-/obj/item/stack/material/steel/full{
-	pixel_x = -8
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
-/obj/item/stack/material/glass/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/iac_rescue_ship/engineering)
 "bXv" = (

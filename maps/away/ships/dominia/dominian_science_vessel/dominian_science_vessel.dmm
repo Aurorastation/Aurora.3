@@ -3428,6 +3428,8 @@
 /obj/machinery/cell_charger{
 	pixel_y = 0
 	},
+/obj/item/blueprints,
+/obj/item/pen/drafting,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/engineering)
 "leu" = (
@@ -6545,6 +6547,8 @@
 /obj/item/crowbar/rescue_axe,
 /obj/item/crowbar,
 /obj/item/crowbar/rescue_axe,
+/obj/item/pen/drafting,
+/obj/item/blueprints/outpost,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "wzs" = (

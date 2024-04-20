@@ -5573,6 +5573,12 @@
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
 	},
+/obj/item/blueprints,
+/obj/structure/table/reinforced/steel,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor/plating/cooled,
 /area/headmaster_ship/engineering)
 "AC" = (

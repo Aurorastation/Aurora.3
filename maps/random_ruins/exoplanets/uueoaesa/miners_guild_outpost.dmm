@@ -243,6 +243,12 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
+/obj/item/blueprints/outpost,
+/obj/structure/table/steel,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
 /turf/simulated/floor{
 	temperature = 303.15
 	},

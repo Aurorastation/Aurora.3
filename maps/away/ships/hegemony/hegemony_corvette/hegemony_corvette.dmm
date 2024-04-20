@@ -1791,6 +1791,7 @@
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 8
 	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "mc" = (
@@ -4538,11 +4539,11 @@
 /turf/simulated/floor,
 /area/hegemony_ship/docking_port)
 "Bk" = (
-/obj/structure/window/reinforced{
-	dir = 8
+/obj/structure/table/reinforced/steel,
+/obj/item/blueprints,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
 /area/hegemony_ship/engineering)
 "Bo" = (
@@ -23244,8 +23245,8 @@ Bg
 Bg
 Ot
 nS
-Bk
 Dz
+Bk
 BH
 wC
 Di

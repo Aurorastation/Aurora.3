@@ -4224,7 +4224,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/item/stack/material/aluminium/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "ja" = (
@@ -9842,6 +9841,7 @@
 /obj/item/stack/material/plastic/full,
 /obj/item/stack/material/aluminium/full,
 /obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "Td" = (
@@ -10084,10 +10084,13 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "Wi" = (
-/obj/item/pipewrench,
-/obj/random/tech_supply,
 /obj/machinery/alarm/north{
 	req_one_access = list(113)
+	},
+/obj/item/blueprints,
+/obj/structure/table/reinforced/steel,
+/obj/item/pen/drafting/blue{
+	pixel_y = 5
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)

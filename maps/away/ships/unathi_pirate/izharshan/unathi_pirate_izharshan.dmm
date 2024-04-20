@@ -1256,6 +1256,11 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "QF" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/shuttle,
 /obj/item/device/binoculars/spyglass,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -1268,6 +1273,9 @@
 /obj/item/stack/material/steel/full,
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Rm" = (

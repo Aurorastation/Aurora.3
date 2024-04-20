@@ -1903,18 +1903,11 @@
 	dir = 4
 	},
 /obj/structure/table/steel,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/item/pen/drafting/blue{
 	pixel_y = 5
 	},
 /obj/machinery/light,
+/obj/item/blueprints,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
 "ra" = (
@@ -5624,6 +5617,12 @@
 "UF" = (
 /turf/simulated/wall,
 /area/coc_survey_ship/anomaly)
+"UH" = (
+/obj/structure/table/steel,
+/obj/item/device/hand_labeler,
+/obj/item/blueprints/outpost,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/miningeva)
 "UI" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -11983,7 +11982,7 @@ Fb
 MH
 MH
 bM
-TF
+UH
 vs
 MH
 Lr

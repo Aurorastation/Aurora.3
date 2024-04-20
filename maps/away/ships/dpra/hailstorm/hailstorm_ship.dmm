@@ -2740,6 +2740,14 @@
 "CR" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hailstorm_ship/barracks)
+"CU" = (
+/obj/item/pen/drafting,
+/obj/item/blueprints,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/hailstorm_ship/engineering)
 "Dd" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, crew compartment"
@@ -14640,7 +14648,7 @@ WG
 la
 Hm
 rq
-Hm
+CU
 Pv
 dJ
 yx

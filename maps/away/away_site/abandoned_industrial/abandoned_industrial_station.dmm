@@ -1371,15 +1371,12 @@
 /area/abandoned_industrial_station/maint_a1)
 "eo" = (
 /obj/structure/table/standard,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/random/dirt_75,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints,
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "ep" = (

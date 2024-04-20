@@ -1508,14 +1508,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/scc_scout_ship/engineering_cargo)
 "hE" = (
-/obj/machinery/suit_cycler/captain,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/captain,
-/obj/item/clothing/head/helmet/space/void/captain,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
 /obj/machinery/firealarm/west,
+/obj/machinery/suit_cycler/captain/prepared{
+	req_access = null
+	},
 /turf/simulated/floor/wood,
 /area/ship/scc_scout_ship/quarters)
 "hF" = (
@@ -5720,6 +5719,15 @@
 /obj/random/tech_supply{
 	pixel_x = -5;
 	pixel_y = 4
+	},
+/obj/item/blueprints,
+/obj/structure/table/steel,
+/obj/item/pen/drafting/blue{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/blueprints/outpost{
+	pixel_y = 6
 	},
 /turf/simulated/floor/plating,
 /area/ship/scc_scout_ship/maint_power)
