@@ -71,9 +71,9 @@
 	icon_state = "engineering_workshop"
 	ambience = AMBIENCE_ENGINEERING
 
-/area/kataphract_chapter/trading_area
-	name = "Trading Area"
-	icon_state = "quartoffice"
+/area/kataphract_chapter/atmospherics
+	name = "Atmospherics"
+	icon_state = "orange"
 
 /area/kataphract_chapter/starboardpropulsion
 	name = "Starboard Propulsion"
