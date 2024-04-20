@@ -17,6 +17,30 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
 	recyclable = TRUE
 
+	/// Percentage of maxcharge to recharge per minute, though it will trickle charge every process tick (every ~2 seconds), leave null for no self-recharge
+	var/self_charge_percentage
+
+/obj/item/cell/Initialize()
+	. = ..()
+	if(self_charge_percentage)
+		START_PROCESSING(SSprocessing, src)
+
+/obj/item/cell/Destroy()
+	if(self_charge_percentage)
+		STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/process(seconds_per_tick)
+	if(self_charge_percentage)
+		// we wanna recharge [self_charge_percentage% of the max charge] amount every 60 seconds
+		var/recharge_amount_per_minute = (maxcharge / 100) * self_charge_percentage
+		// since process fires every ~2 seconds, we wanna get the recharge amount per second
+		var/recharge_amount_per_second = recharge_amount_per_minute / 60
+		// multiply the amount per second with how many seconds this tick took, then round it to prevent float errors
+		var/recharge_for_this_process = round(recharge_amount_per_second * (seconds_per_tick / 10)) // divides seconds_per_tick by 10 to turn deciseconds into seconds
+		// finally, charge the cell
+		give(recharge_for_this_process)
+
 /// Smaller variant, used by energy guns and similar small devices
 /obj/item/cell/device
 	name = "device power cell"
@@ -144,20 +168,9 @@
 	icon_state = "yellow slime extract"
 	maxcharge = 15000
 	matter = null
-	var/next_recharge
 
-/obj/item/cell/slime/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
-
-/obj/item/cell/slime/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/cell/slime/process()
-	if(next_recharge < world.time)
-		give(charge + (maxcharge / 10))
-		next_recharge = world.time + 1 MINUTE
+	// slime cores recharges 10% every one minute
+	self_charge_percentage = 10
 
 /obj/item/cell/nuclear
 	name = "miniaturized nuclear power cell"
@@ -166,20 +179,9 @@
 	icon_state = "icell"
 	maxcharge = 50000
 	matter = null
-	var/next_recharge
 
-/obj/item/cell/nuclear/Initialize()
-	. = ..()
-	START_PROCESSING(SSprocessing, src)
-
-/obj/item/cell/nuclear/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/cell/nuclear/process()
-	if(next_recharge < world.time)
-		give(charge + (maxcharge / 10))
-		next_recharge = world.time + 30 SECONDS
+	// nuclear cores recharges 20% every one minute
+	self_charge_percentage = 10
 
 /obj/item/cell/device/emergency_light
 	name = "miniature power cell"
@@ -213,33 +215,14 @@
 	maxcharge = 20000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000)
 
-	/// When the cell will next recharge (once every minute)
-	var/next_recharge
-
-	/// Percentage of maxcharge to recharge every minute, leave null for no self-recharge
-	var/self_charge_percentage
-
-/obj/item/cell/mecha/Initialize()
-	. = ..()
-	if(self_charge_percentage)
-		START_PROCESSING(SSprocessing, src)
-
-/obj/item/cell/mecha/Destroy()
-	if(self_charge_percentage)
-		STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/cell/mecha/process()
-	if(self_charge_percentage && next_recharge < world.time)
-		give((maxcharge / 100) *self_charge_percentage)
-		next_recharge = world.time + 1 MINUTE
-
 /obj/item/cell/mecha/nuclear
 	name = "nuclear power core"
 	origin_tech = list(TECH_POWER = 3, TECH_MATERIAL = 3)
 	icon_state = "nuclear_core"
 	maxcharge = 30000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_URANIUM = 10000)
+
+	// nuclear mecha cores recharges 5% every one minute
 	self_charge_percentage = 5
 
 /obj/item/cell/mecha/phoron
@@ -248,4 +231,6 @@
 	icon_state = "phoron_core"
 	maxcharge = 50000
 	matter = list(DEFAULT_WALL_MATERIAL = 20000, MATERIAL_GLASS = 10000, MATERIAL_PHORON = 5000)
+
+	// nuclear mecha cores recharges 10% every one minute
 	self_charge_percentage = 10

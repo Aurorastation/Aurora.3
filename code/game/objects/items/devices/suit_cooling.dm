@@ -167,7 +167,7 @@
 				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
 				if(attacking_item.w_class != ITEMSIZE_NORMAL)
-					to_chat(user, "\The [attacking_item] is too [attacking_item.w_class < ITEMSIZE_NORMAL ? "small" : "large"] to fit here.")
+					to_chat(user, SPAN_WARNING("\The [attacking_item] is too [attacking_item.w_class < ITEMSIZE_NORMAL ? "small" : "large"] to fit here."))
 					return
 				user.drop_from_inventory(attacking_item,src)
 				cell = attacking_item

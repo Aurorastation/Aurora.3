@@ -117,9 +117,9 @@
 			hud_power?.maptext_x = 21
 		else if(power_percentage < 10)
 			hud_power?.maptext_x = 25
-		else if(power_percentage < 100)
+		else
 			hud_power?.maptext_x = 22
-		hud_power.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
+		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
 	else
 		hud_power?.maptext_x = 13
 		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"
