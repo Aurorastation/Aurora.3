@@ -28,9 +28,6 @@
 	QDEL_NULL(resist_bar)
 	return ..()
 
-/mob/living/captive_brain/emote(var/message)
-	return
-
 /mob/living/captive_brain/Life()
 	if(resist_bar)
 		resist_bar.update(world.time - resist_start_time)

@@ -576,6 +576,8 @@ var/list/asset_datums = list()
 		"konyang.png" = 'html/images/scans/exoplanets/konyang.png',
 		"konyang_point_verdant.png" = 'html/images/scans/exoplanets/konyang_point_verdant.png',
 		"biesel.png" = 'html/images/scans/exoplanets/biesel.png',
+		"moghes.png" = 'html/images/scans/exoplanets/moghes.png',
+		"chanterel.png" = 'html/images/scans/exoplanets/chanterel.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',

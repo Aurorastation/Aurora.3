@@ -5,7 +5,7 @@
 	prefix = "ships/iac/"
 	suffixes = list("iac_rescue_ship.dmm")
 
-	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, ALL_COALITION_SECTORS)
+	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, ALL_COALITION_SECTORS, SECTOR_UUEOAESA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "iac_rescue_ship"

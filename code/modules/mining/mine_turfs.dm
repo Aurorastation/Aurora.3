@@ -426,9 +426,9 @@ var/list/mineral_can_smooth_with = list(
 	//otherwise, they come out inside a chunk of rock
 	var/obj/item/X
 	if(prob_clean)
-		X = new /obj/item/archaeological_find(src, new_item_type = F.find_type)
+		X = new /obj/item/archaeological_find(src, F.find_type)
 	else
-		var/obj/item/ore/strangerock/SR = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
+		var/obj/item/ore/strangerock/SR = new /obj/item/ore/strangerock(src, F.find_type)
 		SR.geologic_data = get_geodata()
 		X = SR
 

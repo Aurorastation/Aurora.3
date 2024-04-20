@@ -341,3 +341,76 @@
       instances.
   meep109:
   - bugfix: Fixes the orion express courier shuttle leaving plating behind.
+2024-04-17:
+  CourierBravo:
+  - qol: Adds the new materials to nearly every offship with an autolathe. Exceptions
+      made at this time to ship with open PRs
+  FluffyGhost:
+  - code_imp: Made the Destroy proc not sleepable.
+  Lavillastrangiato:
+  - bugfix: Fixes any access problems on the NKA merchant navy vessel.
+  - qol: Adds various dirt, decorations, and a CO2 tank to the NKA merchant navy vessel.
+  - bugfix: Gives the civvie yacht crew IDs.
+  - bugfix: Fixes access problems on the Headmaster ship.
+  - bugfix: Fixes some typoes in the ZI machine pistol and various Medina stuff.
+  - bugfix: Fixes Vaurca workers causing quakes when they jump.
+  - bugfix: Adds Dominian armor and helmets to their gear crates.
+  RustingWithYou:
+  - rscadd: Overmap shuttles can now be mapped directly onto their open space z-level,
+      without the need for empty sectors.
+  - rscadd: Adds various ruins for the minor planets and asteroids of Uueoa-Esa.
+  - qol: Clothing items can now be set to refit to a species on initialize.
+  kermit, Caelphon, hollyhock:
+  - rscadd: Replaces EUM origins/accents with Hieroaetherian origins/accents.
+2024-04-18:
+  FluffyGhost:
+  - bugfix: Fixed exoplanet turf icons for floors.
+  GeneralCamo:
+  - bugfix: Disposals Pipes will now layer above tiles in strongdmm.
+  RustingWithYou:
+  - rscadd: Adds more exoplanet variants of turfs.
+  - rscadd: Adds marble walls.
+  SidVeld:
+  - rscadd: Added a universal augment translator that can be used to understand human
+      languages, but not speak them.
+2024-04-19:
+  Alberyk:
+  - rscadd: Added two new ruins to New Gibson.
+  - rscadd: New Gibson now has a more proper environment.
+  ChangeMe:
+  - rscadd: added some more military and medical belts and webbing for the Xanu Military
+      Frigate
+  Chevy:
+  - balance: Raised jackboot armor values to meet those of workboots, except for the
+      radiation armor, which remains unique to workboots.
+  FluffyGhost:
+  - qol: Reduced engine volume.
+  - refactor: Refactored archeological finds to use Initialize() instead of New()
+      where possible.
+  RustingWithYou:
+  - bugfix: Fixes shuttle open space landmarks generating on the wrong z-levels.
+  - rscadd: Adds the Uueoa-Esa sector, along with its lore planets.
+  - rscadd: Adds two new origin traits - stamina bonus and pain resistance, currently
+      available to Tza and Zazalai Unathi.
+  - qol: Crevan Tajara now have drug and alcohol resistance.
+  - rscadd: Prosthetic/amputated limbs and organs can now be edited in the appearance
+      changer.
+  - qol: Height and speech bubbles can now be edited when unable to change species
+      in appearance editor.
+  - rscadd: Fluff papers can now be set to a written language.
+  - imageadd: Adds an Unathi skeleton sprite.
+  - balance: Buffs the explosion radius of Bruiser HE rounds.
+2024-04-20:
+  FluffyGhost:
+  - refactor: Unified most of the procs into one definition, so there are no duplicate
+      around the codebase.
+  - refactor: Marked some of the above as overridable if a good enough case can be
+      made for them (eg. external dependency or unlikely to be used).
+  GeneralCamo:
+  - rscadd: Added Imogen Janse's custom item.
+  RustingWithYou:
+  - qol: Reworks blueprints to use an eye for area modification.
+  - rscadd: Adds outpost blueprints for creating areas on exoplanets, and shuttle
+      blueprints for modifying shuttles.
+  - qol: Moves eye creation to a component.
+  - rscadd: Adds several items and structures for use in Uueoa-Esa ruins.
