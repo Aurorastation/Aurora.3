@@ -1,8 +1,11 @@
 /datum/map_template/ruin/away_site/freebooter_ship
 	name = "Freebooter Ship"
 	description = "One of the most common sights in the Orion Spur, even outside of human space, is the Hephaestus-produced Ox-class freighter. Designed to haul significant amounts of cargo on well-charted routes between civilized systems, the Ox-class is the backbone of many interstellar markets outside of the United Syndicates of Himeo. Repurposed Ox-class freighters are often used by pirates throughout the Spur thanks to their large size and ease of maintenance – and modification."
-	suffixes = list("ships/freebooter/freebooter_ship.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, ALL_COALITION_SECTORS)
+
+	prefix = "ships/freebooter/"
+	suffixes = list("freebooter_ship.dmm")
+
+	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "freebooter_ship"

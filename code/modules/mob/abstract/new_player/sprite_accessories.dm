@@ -71,6 +71,8 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/hair
 	icon = 'icons/mob/human_face/hair.dmi'	  // default icon for all hairs
 	var/length = 1
+	///Should this hairstyle be kept on a skeleton?
+	var/keep_as_skeleton = FALSE
 
 /datum/sprite_accessory/hair/bald
 	name = "Bald"   // try to capitalize the names please~
@@ -2003,6 +2005,8 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair
 	icon = 'icons/mob/human_face/facial_hair.dmi'
 	gender = MALE // barf (unless you're a dorf, dorfs dig chix /w beards :P)
+	///Should a skeleton keep this beard?
+	var/keep_as_skeleton = FALSE
 
 /datum/sprite_accessory/facial_hair/shaved
 	name = "Shaved"
@@ -2209,6 +2213,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_bighorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_bighorns/una_bighorns_noside
 	name = "Unathi Big Horns (No Sides)"
@@ -2219,12 +2224,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_chinhorns"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_curlhorn
 	name = "Unathi Curled Horns"
 	icon_state = "unathi_curledhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_dorsalfrill
 	name = "Unathi Dorsal Frill"
@@ -2243,12 +2250,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_drachorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_hornadorns
 	name = "Unathi Horn Adorns"
 	icon_state = "unathi_hornadorns"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_longdorsal
 	name = "Unathi Long Dorsal Frill"
@@ -2273,12 +2282,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_longspines"
 	length = 0
 	chatname = "spines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_lowerhorn
 	name = "Unathi Lower Horns"
 	icon_state = "unathi_lowerhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_mohawk
 	name = "Unathi Mohawk"
@@ -2291,12 +2302,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_ramhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_ramhornlong
 	name = "Unathi Long Ram Horns"
 	icon_state = "unathi_ramhorn2"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shortfrill
 	name = "Unathi Short Frills"
@@ -2315,12 +2328,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_shorthorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shortspines
 	name = "Unathi Short Spines"
 	icon_state = "unathi_shortspines"
 	length = 0
 	chatname = "spines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_sidefrills
 	name = "Unathi Side Frills"
@@ -2333,60 +2348,70 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_simplehorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_smallhorns
 	name = "Unathi Small Horns"
 	icon_state = "unathi_smallhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_spikehorn
 	name = "Unathi Spike Horns"
 	icon_state = "unathi_spikehorn"
 	length = 5
 	chatname = "spiked horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_swepthorns
 	name = "Unathi Swept-Forward Horns"
 	icon_state = "unathi_swepthorn"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_swepthorns2
 	name = "Unathi Swept-Forward Horns 2"
 	icon_state = "unathi_swepthorn2"
 	length = 0
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_demonforward
 	name = "Unathi Forward Demon Horns"
 	icon_state = "unathi_demonforward"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_bullhorns
 	name = "Unathi Bull Horns"
 	icon_state = "unathi_bullhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_longhorns
 	name = "Unathi Long Bull Horns"
 	icon_state = "unathi_longhorn"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_faun
 	name = "Unathi Faun Horns"
 	icon_state = "unathi_faun"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_double
 	name = "Unathi Double Horns"
 	icon_state = "unathi_dubhorns"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_hood
 	name = "Unathi Cobra Hood"
@@ -2399,12 +2424,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_skewers"
 	length = 6
 	chatname = "huge horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_chameleon
 	name = "Unathi Chameleon Horns"
 	icon_state = "unathi_chameleon"
 	length = 3
 	chatname = "small horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_dilocrest
 	name = "Unathi Dilo Crest"
@@ -2435,12 +2462,14 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "albertahorns"
 	length = 5
 	chatname = "small horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_styrahorn
 	name = "Unathi Styra Horn"
 	icon_state = "styrahorn"
 	length = 5
 	chatname = "massive horn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_styracrest
 	name = "Unathi Styra Frill"
@@ -2471,24 +2500,28 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "unathi_simplehornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_ramhornshortbusted
 	name = "Unathi Short Ram Horns-Busted"
 	icon_state = "unathi_ramhornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shorthornbusted
 	name = "Unathi Short Horns-Busted"
 	icon_state = "unathi_shorthornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_drachornbusted
 	name = "Unathi Draconic Horns-Busted"
 	icon_state = "unathi_drachornbusted"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/una_shortfrill2busted
 	name = "Unathi Short Frills 2-Busted"
@@ -2501,6 +2534,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "styrahornbusted"
 	length = 2
 	chatname = "horn stub"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/finhawk
 	name = "Unathi Mohawk Fin"
@@ -2525,6 +2559,7 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "curved_up"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/curved/down
 	name = "Unathi Curved-Down Horns"
@@ -2535,16 +2570,19 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "samurai"
 	length = 5
 	chatname = "horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/headspikes
 	name = "Unathi Head Spikes"
 	icon_state = "head_spikes"
 	length = 5
 	chatname = "spiked horns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/hair/una_aquaticfrill/headspikes/overgrown
 	name = "Unathi Overgrown Head Spikes"
 	icon_state = "overgrown_head_spikes"
+	keep_as_skeleton = TRUE
 
 //skrell tentacles
 
@@ -3949,14 +3987,17 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bighorns
 	name = "Unathi Big Horns"
 	icon_state = "facial_bighorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_chinhorn
 	name = "Unathi Chin Horn"
 	icon_state = "facial_chinhorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_curlhorn
 	name = "Unathi Curled Horns"
 	icon_state = "facial_curledhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_dorsalfrill
 	name = "Unathi Dorsal Frill"
@@ -3969,10 +4010,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_drachorn
 	name = "Unathi Draconic Horns"
 	icon_state = "facial_drachorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_hornadorns
 	name = "Unathi Horn Adorns"
 	icon_state = "facial_hornadorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_longdorsal
 	name = "Unathi Long Dorsal Frill"
@@ -3989,10 +4032,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_longspines
 	name = "Unathi Long Spines"
 	icon_state = "facial_longspines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_lowerhorn
 	name = "Unathi Lower Horns"
 	icon_state = "facial_lowerhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_mohawk
 	name = "Unathi Mohawk"
@@ -4001,10 +4046,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornshort
 	name = "Unathi Short Ram Horns"
 	icon_state = "facial_ramhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornlong
 	name = "Unathi Long Ram Horns"
 	icon_state = "facial_ramhorn2"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shortfrill
 	name = "Unathi Short Frills"
@@ -4017,10 +4064,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shorthorn
 	name = "Unathi Short Horns"
 	icon_state = "facial_shorthorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shortspines
 	name = "Unathi Short Spines"
 	icon_state = "facial_shortspines"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_sidefrills
 	name = "Unathi Side Frills"
@@ -4029,42 +4078,52 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_horns
 	name = "Unathi Horns"
 	icon_state = "facial_simplehorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_smallhorns
 	name = "Unathi Small Horns"
 	icon_state = "facial_smallhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_spikehorn
 	name = "Unathi Spike Horns"
 	icon_state = "facial_spikehorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_swepthorns
 	name = "Unathi Swept-Forward Horns"
 	icon_state = "facial_swepthorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_swepthorns2
 	name = "Unathi Swept-Forward Horns 2"
 	icon_state = "facial_swepthorn2"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_demonforward
 	name = "Unathi Forward Demon Horns"
 	icon_state = "facial_demonforward"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_bullhorns
 	name = "Unathi Bull Horns"
 	icon_state = "facial_bullhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_longhorns
 	name = "Unathi Long Bull Horns"
 	icon_state = "facial_longhorn"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_faun
 	name = "Unathi Faun Horns"
 	icon_state = "facial_faun"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_double
 	name = "Unathi Double Horns"
 	icon_state = "facial_dubhorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_hood
 	name = "Unathi Cobra Hood"
@@ -4073,10 +4132,12 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_skewers
 	name = "Unathi Super Long Horns"
 	icon_state = "facial_skewers"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_chameleon
 	name = "Unathi Chameleon Horns"
 	icon_state = "facial_chameleon"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_dilocrest
 	name = "Unathi Dilo Crest"
@@ -4097,10 +4158,13 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_albertahorns
 	name = "Unathi Alberta Horns"
 	icon_state = "albertahorns"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_styrahorn
 	name = "Unathi Styra Horn"
 	icon_state = "styrahorn"
+	keep_as_skeleton = TRUE
+
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_styracrest
 	name = "Unathi Styra Frill"
 	icon_state = "styrafrill"
@@ -4120,18 +4184,22 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_hornsbusted
 	name = "Unathi Horns-Busted"
 	icon_state = "unathi_simplehornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_ramhornshortbusted
 	name = "Unathi Short Ram Horns-Busted"
 	icon_state = "unathi_ramhornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shorthornbusted
 	name = "Unathi Short Horns-Busted"
 	icon_state = "unathi_shorthornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_drachornbusted
 	name = "Unathi Draconic Horns-Busted"
 	icon_state = "unathi_drachornbusted"
+	keep_as_skeleton = TRUE
 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_shortfrill2busted
 	name = "Unathi Short Frills 2-Busted"
@@ -4140,6 +4208,7 @@ Follow by example and make good judgement based on length which list to include 
 /datum/sprite_accessory/facial_hair/una_aquaticfrill/una_styrahornbusted
 	name = "Unathi Styra Horn-Busted"
 	icon_state = "styrahornbusted"
+	keep_as_skeleton = TRUE
 
 //ipc screens
 
@@ -6189,6 +6258,7 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Baseline - Raxus Primary Colors"
 	icon = 'icons/mob/human_races/markings_baseline.dmi'
 	icon_state = "raxus_primary"
+	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
 	body_parts = list(BP_HEAD)
 	robotize_type_required = list(PROSTHETIC_RAXUS)
@@ -6208,31 +6278,32 @@ Follow by example and make good judgement based on length which list to include 
 
 /datum/sprite_accessory/marking/baseline_head/hoplan
 	name = "Baseline - Hoplan Primary Colors"
-	icon_state = "indricus_primary"
+	icon_state = "hoplan_primary"
 	robotize_type_required = list(PROSTHETIC_HOPLAN)
-
-/datum/sprite_accessory/marking/baseline_head/hoplan/lights
-	name = "Baseline - Hoplan Lights"
-	icon_state = "hoplan_lights"
 
 /datum/sprite_accessory/marking/baseline_color
 	name = "Baseline - Primary Colors"
 	icon = 'icons/mob/human_races/markings_baseline.dmi'
 	icon_state = "machine_primary"
+	icon_blend_mode = ICON_MULTIPLY
 	is_painted = TRUE
-	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST,BP_HEAD)
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_L_LEG,BP_R_LEG,BP_L_HAND,BP_R_HAND,BP_L_ARM,BP_R_ARM,BP_GROIN,BP_CHEST)
 
 /datum/sprite_accessory/marking/baseline_color/arm
 	name = "Baseline - Primary Arm Colors"
-	body_parts = list(BP_R_ARM, BP_L_ARM, BP_R_HAND, BP_L_HAND)
+	body_parts = list(BP_R_ARM,BP_L_ARM,BP_R_HAND,BP_L_HAND)
 
-/datum/sprite_accessory/marking/baseline_color/arm
+/datum/sprite_accessory/marking/baseline_color/leg
 	name = "Baseline - Primary Leg Colors"
-	body_parts = list(BP_R_LEG, BP_L_LEG, BP_R_LEG, BP_L_LEG)
+	body_parts = list(BP_L_FOOT,BP_R_FOOT,BP_R_LEG,BP_L_LEG)
 
-/datum/sprite_accessory/marking/baseline_color/chest
+/datum/sprite_accessory/marking/baseline_color/head
 	name = "Baseline - Primary Head Colors"
 	body_parts = list(BP_HEAD)
+
+/datum/sprite_accessory/marking/baseline_color/chest
+	name = "Baseline - Primary Chest Colors"
+	body_parts = list(BP_GROIN,BP_CHEST)
 
 //bishop
 /datum/sprite_accessory/marking/bishop_lights

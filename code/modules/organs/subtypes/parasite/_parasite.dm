@@ -73,3 +73,25 @@
 
 /obj/item/organ/internal/parasite/proc/stage_effect()
 	return
+
+/mob/living/carbon/human/proc/infest_with_parasite(var/mob/living/carbon/victim, var/parasite_type, var/obj/item/organ/external/organ_to_infest, var/chance_to_infest = 100, var/parasite_limit = 3)
+	if(ishuman(victim))
+		var/mob/living/carbon/human/H = victim
+		if(BP_IS_ROBOTIC(organ_to_infest))
+			return
+		var/i = 0
+		for(var/obj/item/organ/internal/O in H.internal_organs) //dont want there to be a silly amount of parasites
+			if(istype(O, /obj/item/organ/internal/parasite))
+				i++
+		if((i < parasite_limit) && prob(chance_to_infest))
+			switch(parasite_type) //such a shitty way to do this but i couldnt get a better alternative to work in a sane amount of time :/
+				if("malignant tumour")
+					var/obj/item/organ/internal/parasite/malignant_tumour/P = new()
+					P.parent_organ = organ_to_infest
+					P.replaced(H, organ_to_infest)
+					P.generate_name()
+				if("benign tumour")
+					var/obj/item/organ/internal/parasite/benign_tumour/P = new()
+					P.parent_organ = organ_to_infest
+					P.replaced(H, organ_to_infest)
+					P.generate_name()

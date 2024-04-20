@@ -7,7 +7,6 @@
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "opendebug"
-	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
@@ -281,6 +280,3 @@
 	if(!t)
 		return null
 	return t.roof_type
-
-/turf/simulated/open/is_open()
-	return TRUE

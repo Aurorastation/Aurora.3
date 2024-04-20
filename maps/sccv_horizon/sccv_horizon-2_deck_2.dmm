@@ -1603,6 +1603,7 @@
 /obj/item/stack/medical/bruise_pack,
 /obj/item/storage/pill_bottle/mortaphenyl,
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/item/storage/pill_bottle/dexalin,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "aIH" = (
@@ -10963,21 +10964,21 @@
 	pixel_x = 31
 	},
 /obj/item/reagent_containers/glass/bottle/antitoxin,
-/obj/item/storage/pill_bottle/dermaline,
 /obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/bicaridine,
-/obj/item/reagent_containers/syringe/antibiotic,
-/obj/item/reagent_containers/syringe/antibiotic,
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
-/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
-/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
-/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/item/storage/pill_bottle/kelotane,
+/obj/item/reagent_containers/syringe/antibiotic,
+/obj/item/reagent_containers/syringe/antibiotic,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
+/obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "fdF" = (
@@ -15640,6 +15641,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "hep" = (
@@ -20407,8 +20409,9 @@
 /obj/item/storage/pill_bottle/mortaphenyl,
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/dylovene,
-/obj/item/storage/pill_bottle/dermaline,
 /obj/item/storage/pill_bottle/bicaridine,
+/obj/item/storage/pill_bottle/kelotane,
+/obj/item/storage/pill_bottle/ryetalyn,
 /obj/item/reagent_containers/syringe/antiparasitic,
 /obj/item/reagent_containers/syringe/antiparasitic,
 /obj/item/reagent_containers/glass/bottle/antitoxin,
@@ -28479,6 +28482,7 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
+/obj/item/storage/pill_bottle/dexalin,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "nbh" = (

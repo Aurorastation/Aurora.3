@@ -1,8 +1,12 @@
 /datum/map_template/ruin/away_site/hegemony_corvette
 	name = "Hegemony Corvette"
 	description = "Ship with lizards."
-	suffixes = list("ships/hegemony/hegemony_corvette/hegemony_corvette.dmm")
+
+	prefix = "ships/hegemony/hegemony_corvette/"
+	suffixes = list("hegemony_corvette.dmm")
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "hegemony_corvette"

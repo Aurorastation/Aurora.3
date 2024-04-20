@@ -1,6 +1,6 @@
 /obj/item/clothing/under/elyra_holo
 	name = "elyran holographic suit"
-	desc = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Midenean, Aemaqii and Persepolisean clothes respectively."
+	desc = "A marvel of Elyran technology, uses hardlight fabric and masks to transform a skin-tight, cozy suit into cultural apparel of your choosing. Has a dial for Madani, Aemaqii and Persepolisean clothes respectively."
 	icon = 'icons/clothing/under/uniforms/elyra_holoclothes.dmi'
 	icon_state = "holosuit_fem"
 	item_state = "holosuit_fem"
@@ -10,13 +10,13 @@
 	var/clothing_mode = 0
 	var/list/names = list(
 		"base holographic suit",
-		"medinean artisans holo-dress",
+		"madani artisans holo-dress",
 		"aemaqii ocean holo-dress",
 		"persepolisean desert holo-dress"
 		)
 
 	var/list/descriptions = list(
-		"A form-fitting holographic dress with striking purple and white coloration. It possesses high-fidelity, artistic representation of Elyran Medinean culture markers coating its tightly-woven hardlight fabric.",
+		"A form-fitting holographic dress with striking purple and white coloration. It possesses high-fidelity, artistic representation of Elyran Madani culture markers coating its tightly-woven hardlight fabric.",
 		"A fine holo-dress which owes its overall design to the chemical seas of Aemaqq, with itself flowing gently in waves. It looks particularly cozy, and protective against a cold ocean breeze.",
 		"A loose, airy holo-dress with clashing earthen and bright colors. The design is iconic among the Elyran Persepolisean native populations due to its expressive contrast and the hot climate."
 		)
@@ -26,7 +26,7 @@
 	item_state = "holosuit_masc"
 	names = list(
 		"base holographic suit",
-		"medinean artisans holo-suit",
+		"madani artisans holo-suit",
 		"aemaqii fur outfit",
 		"persepolisean nomads outfit"
 		)
