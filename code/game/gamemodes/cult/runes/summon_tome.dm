@@ -10,3 +10,6 @@
 	new /obj/item/book/tome(get_turf(A))
 	qdel(A)
 	return TRUE
+
+/obj/effect/rune/summon_tome/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/summon_tome::name])

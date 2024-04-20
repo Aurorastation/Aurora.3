@@ -1655,7 +1655,7 @@
 			to_chat(src, SPAN_WARNING("You ran out of blood to write with!"))
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new(T)
-		W.basecolor = (hand_blood_color) ? hand_blood_color : "#A10808"
+		W.basecolor = (hand_blood_color) ? hand_blood_color : COLOR_HUMAN_BLOOD
 		W.update_icon()
 		W.message = message
 		W.add_fingerprint(src)
