@@ -29,8 +29,16 @@
 
 	mob_name = null
 
+	/// Determines whether the mob will have an Idris banking account when they spawn in
 	var/has_idris_account = TRUE
+
+	/// Determines whether the Idris banking account will be visible on the station's account terminal
+	var/is_idris_account_public = FALSE
+
+	/// The minimum amount of money the account can spawn with
 	var/idris_account_min = 100
+
+	/// The maximum amount of money the account can spawn with
 	var/idris_account_max = 500
 
 //Return a error message if the user CANT spawn. Otherwise FALSE
@@ -143,18 +151,7 @@
 	M.age = Clamp(age, 21, 65)
 
 	if(has_idris_account)
-		var/datum/money_account/money_account = SSeconomy.create_account(M.real_name, rand(idris_account_min, idris_account_max), null, FALSE)
-		if(M.mind)
-			var/remembered_info = ""
-			remembered_info += "<b>Your account number is:</b> #[money_account.account_number]<br>"
-			remembered_info += "<b>Your account pin is:</b> [money_account.remote_access_pin]<br>"
-			remembered_info += "<b>Your account funds are:</b> [money_account.money]电<br>"
-
-			if(money_account.transactions.len)
-				var/datum/transaction/transaction = money_account.transactions[1]
-				remembered_info += "<b>Your account was created:</b> [transaction.time], [transaction.date] at [transaction.source_terminal]<br>"
-			M.mind.store_memory(remembered_info)
-			M.mind.initial_account = money_account
+		SSeconomy.create_and_assign_account(M, null, rand(idris_account_min, idris_account_max), is_idris_account_public)
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)
