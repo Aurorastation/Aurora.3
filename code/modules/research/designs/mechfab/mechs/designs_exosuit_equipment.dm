@@ -44,6 +44,7 @@
 
 /datum/design/item/mechfab/exosuit_equipment/laser
 	name = "Mounted Laser Gun"
+	materials = list(MATERIAL_STEEL = MATERIAL_AMOUNT_FOR_SHEETS(5), MATERIAL_GLASS =  MATERIAL_AMOUNT_FOR_SHEETS(3))
 	req_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 4)
 	build_path = /obj/item/mecha_equipment/mounted_system/combat/laser
 
