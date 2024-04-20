@@ -1,0 +1,9 @@
+author: kermit
+
+delete-after: True
+
+changes:
+  - rscadd: "Thermoelectric generators have power and temperature ratings - these ratings can now also be upgraded with upgraded stock parts from Science. Exceeding these ratings will result in a lot of smoke and things going bang. The default ratings have been balanced around a mid-delamination supermatter."
+  - rscadd: "The INDRA will now heat any atmosphere in it's chamber, allowing for limited applications in Atmospherics."
+  - rscadd: "Adds some extra colours for the INDRAs magnetic field at very high temperatures."
+  - qol: "RTGs have been buffed to produce more power (upgrade them for maximum effect). They should be enough to actually power the never-built science outposts now."

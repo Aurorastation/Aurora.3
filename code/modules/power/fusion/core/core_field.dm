@@ -149,9 +149,15 @@
 		if (70000 to 100000)
 			light_color = COLOR_BLUE
 			alpha = 200
-		if (100000 to INFINITY)
+		if (100000 to 300000)
 			light_color = COLOR_VIOLET
 			alpha = 230
+		if (300000 to 350000)
+			light_color = COLOR_PINK
+			alpha = 240
+		if (350000 to INFINITY)
+			light_color = COLOR_WHITE
+			alpha = 240
 
 	if (last_range != use_range || last_power != use_power || color != light_color)
 		set_light(use_range / 6, use_power ? 6 : 0, light_color)
@@ -435,10 +441,11 @@
 			tick_instability += rand(30,50)
 			AM.emp_act(EMP_LIGHT)
 
+ 	//heat transfer into local air
 	if(owned_core && owned_core.loc)
 		var/datum/gas_mixture/environment = owned_core.loc.return_air()
-		if(environment && environment.temperature < (T0C+1000)) // Putting an upper bound on it to stop it being used in a TEG.
-			environment.add_thermal_energy(plasma_temperature*20000)
+		if(environment && (environment.temperature < (plasma_temperature*0.20))) // plugging an INDRA into a TEG is still a bad idea if TEG temperature and power ratings arent considered.
+			environment.add_thermal_energy(plasma_temperature*2000)
 	radiation = 0
 
 /obj/effect/fusion_em_field/proc/change_size(newsize = 1)

@@ -1,6 +1,7 @@
 /obj/machinery/power/generator
 	name = "thermoelectric generator"
 	desc = "It's a high efficiency thermoelectric generator."
+	desc_info = "You can improve the power rating and efficiency of a thermoelectric generator by installing better capacitors and/or manipulators."
 	icon_state = "teg-unassembled"
 	density = TRUE
 	anchored = FALSE
@@ -9,7 +10,17 @@
 	use_power = POWER_USE_OFF
 	idle_power_usage = 100 //Watts, I hope.  Just enough to do the computer and display things.
 
-	var/max_power = 500000
+	component_types = list(
+		/obj/item/circuitboard/generator,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/console_screen,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/capacitor,
+		/obj/item/stack/cable_coil = 15
+	)
+
+	var/max_power = 4000000
 	var/thermal_efficiency = 0.65
 
 	var/obj/machinery/atmospherics/binary/circulator/circ1
@@ -24,11 +35,14 @@
 	var/effective_gen = 0
 	var/lastgenlev = 0
 
+	var/busy = FALSE
+
 	var/datum/effect_system/sparks/spark_system
 
 /obj/machinery/power/generator/Initialize()
 	. = ..()
-	desc = initial(desc) + " Rated for [round(max_power/1000)] kW."
+	desc = initial(desc) + " Rated for " + SPAN_BOLD("[round(max_power/1000)]kW -") + SPAN_WARNING(" do not exceed!")
+
 	var/dirs
 	if (dir == NORTH || dir == SOUTH)
 		dirs = list(EAST,WEST)
@@ -100,6 +114,7 @@
 /obj/machinery/power/generator/process()
 	if(!circ1 || !circ2 || !anchored || stat & (BROKEN|NOPOWER))
 		stored_energy = 0
+		busy = FALSE
 		return
 
 	updateDialog()
@@ -143,11 +158,6 @@
 	if(circ2.network2)
 		circ2.network2.update = 1
 
-	//Exceeding maximum power leads to some power loss
-	if(effective_gen > max_power && prob(5))
-		spark_system.queue()
-		stored_energy *= 0.5
-
 	//Power
 	last_circ1_gen = circ1.return_stored_energy()
 	last_circ2_gen = circ2.return_stored_energy()
@@ -155,6 +165,31 @@
 	lastgen1 = stored_energy*0.4 //smoothened power generation to prevent slingshotting as pressure is equalized, then restored by pumps
 	stored_energy -= lastgen1
 	effective_gen = (lastgen1 + lastgen2) / 2
+
+	//can't modify if producing over 500kw
+	if(effective_gen > 500)
+		busy = TRUE
+	else
+		busy = FALSE
+
+	//Exceeding maximum power leads to some power loss and a chance to explode
+	if(effective_gen > max_power)
+		if(prob(50))
+			spark_system.queue()
+			stored_energy *= 0.5
+		if(prob(10))
+			visible_message(SPAN_HIGHDANGER("\The [src] releases a plume of foul-smelling smoke. It smells like burning cable insulation!"))
+			var/datum/effect/effect/system/smoke_spread/bad/smoke = new /datum/effect/effect/system/smoke_spread/bad
+			smoke.attach(src)
+			smoke.set_up(5, 0, get_turf(src), 25)
+			smoke.start()
+			if(prob(10))
+				visible_message(SPAN_HIGHDANGER("\The [src] is engulfed in a ball of flames before it explodes!"))
+				message_admins("Thermoelectric generator greatly exceeded power rating and exploded at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
+				log_game("Thermoelectric generator greatly exceed power rating ([effective_gen]w/[max_power]w) and exploded at ([x],[y],[z]).")
+				explosion(get_turf(src), 0, 0, 3, 7, 1)
+				qdel(src)
+				return
 
 	// update icon overlays and power usage only when necessary
 	var/genlev = max(0, min( round(11*effective_gen / max_power), 11))
@@ -171,6 +206,10 @@
 	attack_hand(user)
 
 /obj/machinery/power/generator/attackby(obj/item/attacking_item, mob/user)
+	if(busy)
+		to_chat(user, SPAN_WARNING("You cannot modify \the [src] while it is live! Cut off the gas flow to both circulators or minimise the temperature difference to halt power production first."))
+		return TRUE
+
 	if(attacking_item.iswrench())
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		anchored = !anchored
@@ -183,8 +222,15 @@
 		else
 			disconnect_from_network()
 		reconnect()
-	else
-		..()
+		return TRUE
+
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
+	return ..()
 
 /obj/machinery/power/generator/attack_hand(mob/user)
 	add_fingerprint(user)
@@ -247,3 +293,26 @@
 /obj/machinery/power/generator/power_change()
 	..()
 	update_icon()
+
+/obj/machinery/power/generator/RefreshParts()
+	..()
+	var/capacitor_rating = 0
+	var/manipulator_rating = 0
+
+	for(var/obj/item/stock_parts/P in component_parts)
+		if(iscapacitor(P))
+			capacitor_rating += P.rating
+		if(ismanipulator(P))
+			manipulator_rating += P.rating
+
+	switch(capacitor_rating)
+		if(1)
+			max_power = 4000000 // roughly the amount of power a mid-delamination SM produces
+		if(2)
+			max_power = 8000000
+		if(3)
+			max_power = 15000000
+
+	thermal_efficiency = max(0.55+(manipulator_rating/10)) // 0.65 to 0.85 thermal efficiency
+
+	desc = initial(desc) + " Rated for " + SPAN_BOLD("[round(max_power/1000)]kW -") + SPAN_WARNING(" do not exceed!")

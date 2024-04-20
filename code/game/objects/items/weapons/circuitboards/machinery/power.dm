@@ -29,3 +29,27 @@
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into an APC power control module."))
 		qdel(src)
 		user.put_in_hands(new_circuit)
+
+/obj/item/circuitboard/generator
+	name = T_BOARD("thermoelectric generator central unit")
+	desc = "The circuitboard for a thermoelectric generator's central unit."
+	build_path = /obj/machinery/power/generator
+	origin_tech = list(TECH_ENGINEERING = 4)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/stock_parts/scanning_module" = 2,
+							"/obj/item/stock_parts/console_screen" = 1,
+							"/obj/item/stock_parts/manipulator" = 1,
+							"/obj/item/stock_parts/capacitor" = 1,
+							"/obj/item/stack/cable_coil" = 15)
+
+/obj/item/circuitboard/circulator
+	name = T_BOARD("thermoelectric generator circulator unit")
+	desc = "The circuitboard for a thermoelectric generator's gas circulator."
+	build_path = /obj/machinery/atmospherics/binary/circulator
+	origin_tech = list(TECH_ENGINEERING = 4)
+	board_type = "machine"
+	req_components = list(
+							"/obj/item/stock_parts/manipulator" = 1,
+							"/obj/item/stock_parts/matter_bin" = 1,
+							"/obj/item/stack/cable_coil" = 5)
