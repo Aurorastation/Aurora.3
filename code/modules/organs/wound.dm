@@ -215,6 +215,7 @@
 
 	return 1
 
+/// Called in organ_external.dm update_damages, this will update the limb's status to bleeding, and lowers the bleed_timer if applicable
 /datum/wound/proc/handle_bleeding(var/mob/victim, var/obj/item/organ/external/limb)
 	limb.status |= ORGAN_BLEEDING
 

@@ -69,6 +69,7 @@
 /datum/character_disabilities/hemophilia
 	name = "Hemophilia"
 	desc = "Your blood lacks some clotting factors, causing wounds to take twice as long to stop bleeding."
+	/// This takes a TRAIT_DISABILITY_* type trait, and assigns it to the character on apply_self
 	var/trait_type = TRAIT_DISABILITY_HEMOPHILIA
 
 /datum/character_disabilities/hemophilia/apply_self(var/mob/living/carbon/human/H)
