@@ -606,7 +606,10 @@ var/list/mineral_can_smooth_with = list(
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src, 20)
 
-/** Preset mineral walls. */
+/** Preset mineral walls.
+ * These are used to spawn specific types of mineral walls in the map.
+ * Use one of the subtypes below or, in case a new ore is added but the preset isn't created, set preset_mineral_name to the ORE_X define.
+*/
 /turf/simulated/mineral/preset
 	var/preset_mineral_name
 
