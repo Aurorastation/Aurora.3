@@ -126,7 +126,7 @@
 				var/was_hearing = HAS_TRAIT(computer, TRAIT_HEARING_SENSITIVE)
 				if(!was_hearing)
 					computer.become_hearing_sensitive()
-				usr.say(sanitize(input))
+				usr.say(STRIP_HTML_FULL(input, MAX_MESSAGE_LEN))
 				if(!was_hearing)
 					computer.lose_hearing_sensitivity()
 				var/affected_zlevels = GetConnectedZlevels(GET_Z(computer))
