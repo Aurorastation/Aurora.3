@@ -35,7 +35,7 @@
 	holding_type = /obj/item/gun/energy/laser/mounted/mech
 
 /obj/item/mecha_equipment/mounted_system/combat/smg
-	name = "mounted submachinegun"
+	name = "mounted submachine gun"
 	desc = "An exosuit-mounted automatic weapon. Handle with care."
 	icon_state = "mecha_ballistic"
 	holding_type = /obj/item/gun/energy/mountedsmg/mech
@@ -48,6 +48,10 @@
 /obj/item/mecha_equipment/mounted_system/combat/smg/pra_egg
 	icon_state = "pra_egg_smg"
 	restricted_hardpoints = list(HARDPOINT_RIGHT_HAND)
+
+/obj/item/mecha_equipment/mounted_system/combat/smg/rifle
+	name = "mounted automatic rifle"
+	holding_type = /obj/item/gun/energy/mountedsmg/mech/rifle
 
 /obj/item/mecha_equipment/mounted_system/combat/pulse
 	name = "heavy pulse cannon"
@@ -87,9 +91,17 @@
 
 /obj/item/gun/energy/mountedsmg/mech
 	max_shots = 30
+
+/obj/item/gun/energy/mountedsmg/mech/rifle
+	name = "mounted automatic rifle"
+	desc = "A mounted automatic rifle. It synthesizes more ammunition over time."
+	max_shots = 20
+	projectile_type = /obj/item/projectile/bullet/rifle/a556
+	fire_sound = 'sound/weapons/gunshot/gunshot_rifle.ogg'
 	firemodes = list(
-		list(mode_name = "semi-automatic", burst = 1, fire_delay = 0,    move_delay = null, burst_accuracy = null,                dispersion=list(0)),
-		list(mode_name = "3-round burst",  burst = 3, fire_delay = null, move_delay = 4,    burst_accuracy = list(0,-1,-1),       dispersion=list(0, 15, 15))
+		list(mode_name = "semi-automatic", burst = 1, fire_delay = ROF_RIFLE, burst_delay = ROF_INTERMEDIATE, move_delay = null, burst_accuracy = null, dispersion = list(0)),
+		list(mode_name = "3-round burst", burst = 3, move_delay = 4, burst_accuracy = list(0, 0, -1), dispersion = list(0, 5, 5)),
+		list(mode_name = "5-round burst", burst = 5, move_delay = 6, burst_accuracy = list(0, 0, -1, -1, -2), dispersion = list(0, 5, 5, 10, 15))
 	)
 
 /obj/item/gun/energy/laser/mounted/mech
