@@ -4,8 +4,29 @@
 
 /obj/item/cell/Initialize()
 	. = ..()
+
 	charge = maxcharge
+
+	if(self_charge_percentage)
+		START_PROCESSING(SSprocessing, src)
+
 	update_icon()
+
+/obj/item/cell/Destroy()
+	if(self_charge_percentage)
+		STOP_PROCESSING(SSprocessing, src)
+	return ..()
+
+/obj/item/cell/process(seconds_per_tick)
+	if(self_charge_percentage)
+		// we wanna recharge [self_charge_percentage% of the max charge] amount every 60 seconds
+		var/recharge_amount_per_minute = (maxcharge / 100) * self_charge_percentage
+		// since process fires every ~2 seconds, we wanna get the recharge amount per second
+		var/recharge_amount_per_second = recharge_amount_per_minute / 60
+		// multiply the amount per second with how many seconds this tick took, then round it to prevent float errors
+		var/recharge_for_this_process = round(recharge_amount_per_second * (seconds_per_tick / 10)) // divides seconds_per_tick by 10 to turn deciseconds into seconds
+		// finally, charge the cell
+		give(recharge_for_this_process)
 
 /obj/item/cell/Created()
 	//Newly built cells spawn with no charge to prevent power exploits

@@ -20,27 +20,6 @@
 	/// Percentage of maxcharge to recharge per minute, though it will trickle charge every process tick (every ~2 seconds), leave null for no self-recharge
 	var/self_charge_percentage
 
-/obj/item/cell/Initialize()
-	. = ..()
-	if(self_charge_percentage)
-		START_PROCESSING(SSprocessing, src)
-
-/obj/item/cell/Destroy()
-	if(self_charge_percentage)
-		STOP_PROCESSING(SSprocessing, src)
-	return ..()
-
-/obj/item/cell/process(seconds_per_tick)
-	if(self_charge_percentage)
-		// we wanna recharge [self_charge_percentage% of the max charge] amount every 60 seconds
-		var/recharge_amount_per_minute = (maxcharge / 100) * self_charge_percentage
-		// since process fires every ~2 seconds, we wanna get the recharge amount per second
-		var/recharge_amount_per_second = recharge_amount_per_minute / 60
-		// multiply the amount per second with how many seconds this tick took, then round it to prevent float errors
-		var/recharge_for_this_process = round(recharge_amount_per_second * (seconds_per_tick / 10)) // divides seconds_per_tick by 10 to turn deciseconds into seconds
-		// finally, charge the cell
-		give(recharge_for_this_process)
-
 /// Smaller variant, used by energy guns and similar small devices
 /obj/item/cell/device
 	name = "device power cell"
