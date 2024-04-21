@@ -457,6 +457,9 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
 	spawn_firedoor = 1
 	},
+/obj/machinery/door/blast/regular/open{
+	id = "kataphract_shuttle_shutters"
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "bO" = (
@@ -3415,11 +3418,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
 "mj" = (
-/obj/effect/landmark/entry_point/north{
-	name = "north, bruiser"
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/bruiser)
+/obj/machinery/door/blast/regular/open{
+	id = "kataphract_shuttle_shutters";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "ml" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
@@ -4358,6 +4365,12 @@
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/starentry)
+"sz" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, bruiser"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/bruiser)
 "sB" = (
 /obj/item/ship_ammunition/bruiser/real/canister{
 	pixel_x = -7
@@ -4792,6 +4805,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
+"ya" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	name = "Shuttle Blast Doors";
+	id = "kataphract_shuttle_shutters"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "yh" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, shuttle"
@@ -6282,6 +6303,10 @@
 	},
 /obj/effect/landmark/entry_point/south{
 	name = "south, cockpit"
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "kataphract_shuttle_shutters";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -36203,7 +36228,7 @@ iB
 iB
 iB
 iB
-bH
+mj
 Bi
 Ek
 Ou
@@ -36707,8 +36732,8 @@ iB
 iB
 iB
 iB
-bH
-Bi
+mj
+ya
 cC
 cr
 kQ
@@ -38773,7 +38798,7 @@ Xf
 Uz
 Uz
 ax
-mj
+sz
 iB
 iB
 iB
