@@ -1136,7 +1136,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
@@ -1317,6 +1316,7 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/blood/oil/streak,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "ij" = (
@@ -2485,8 +2485,16 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "rn" = (
-/turf/template_noop,
-/area/hivebothub/kitchen)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/airless,
+/area/hivebothub/centralhall)
 "ro" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -4801,7 +4809,6 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
@@ -41291,7 +41298,7 @@ yU
 jR
 Uw
 Uw
-rn
+Uw
 Uw
 Uw
 Uw
@@ -41299,7 +41306,7 @@ Uw
 Uw
 Hr
 tb
-xr
+rn
 ec
 qO
 aa
