@@ -6094,6 +6094,9 @@
 	pixel_y = 28;
 	dir = 4
 	},
+/obj/effect/shuttle_landmark/nav_kataphract_ship/port{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portentry)
 "LD" = (
