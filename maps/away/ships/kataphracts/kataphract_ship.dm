@@ -128,12 +128,17 @@
 	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 
+/obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
+	name = "Kataphract Transport"
+	shuttle_tag = "Kataphract Transport"
+	master_tag = "airlock_kataphract_transport"
+
 /obj/effect/shuttle_landmark/kataphract_transport/hangar
 	name = "Kataphract Transport Shuttle Hangar"
 	landmark_tag = "nav_hangar_kataphract_shuttle"
 	docking_controller = "kataphract_dock"
-	base_area = /area/kataphract_chapter/hangar
-	base_turf = /turf/simulated/floor/plating
+	base_turf = /turf/space
+	base_area = /area/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/kataphract_transport/transit
