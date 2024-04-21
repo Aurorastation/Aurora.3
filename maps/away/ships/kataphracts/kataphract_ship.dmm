@@ -77,6 +77,12 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/entry)
+"ak" = (
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav3{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "al" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/masks{
@@ -242,6 +248,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
+"aS" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/cafeteria)
 "aU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -385,7 +396,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "bq" = (
-/obj/structure/table/rack,
 /obj/structure/window/reinforced{
 	dir = 4;
 	icon_state = "rwindow"
@@ -432,16 +442,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/atmospherics)
-"bx" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
+"by" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, thrusters"
 	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/entry)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/portpropulsion)
 "bE" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
@@ -559,12 +565,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
-"ck" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "cl" = (
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -689,6 +689,17 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/engineering)
+"cO" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/medical)
 "cP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
@@ -786,7 +797,7 @@
 /area/kataphract_chapter/starboardpropulsion)
 "df" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -1387,9 +1398,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/engineering)
-"fl" = (
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/bruiser)
 "fm" = (
 /obj/machinery/pipedispenser,
 /obj/item/pipewrench,
@@ -1445,6 +1453,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1545,12 +1556,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
-"fL" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, thrusters"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/portpropulsion)
 "fN" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
@@ -1564,15 +1569,6 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
-"fW" = (
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/armoury)
 "fY" = (
 /obj/machinery/atmospherics/pipe/simple/visible/universal,
 /turf/simulated/floor/tiled,
@@ -1905,6 +1901,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
+"hi" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1
+	},
+/obj/effect/landmark/entry_point/south{
+	name = "south, cockpit"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "hj" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2003,6 +2008,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"hT" = (
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav5,
+/turf/template_noop,
+/area/space)
 "hU" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "CIC";
@@ -2194,6 +2203,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"iI" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, airlock"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/bruiser)
 "iJ" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2378,6 +2393,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
+"js" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "jt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2449,6 +2470,15 @@
 /obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
+"jL" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "jM" = (
 /obj/structure/closet/cabinet,
 /obj/item/flag/hegemony,
@@ -2483,9 +2513,6 @@
 	dir = 9
 	},
 /obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
@@ -2499,12 +2526,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
-"jX" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, shuttle"
+"jT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, francisca"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/kataphract_shuttle/main_compartment)
+/area/kataphract_chapter/armoury)
 "ka" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/office)
@@ -2999,6 +3026,10 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - kataphract_hop";
+	identifier = "kataphract"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "lx" = (
@@ -3142,6 +3173,21 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
+"lW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "lX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3371,6 +3417,10 @@
 	pixel_y = -32
 	},
 /obj/effect/floor_decal/spline/fancy/wood/cee,
+/obj/effect/ghostspawpoint{
+	name = "igs - kataphract_hop";
+	identifier = "kataphract"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "mz" = (
@@ -3392,6 +3442,12 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
+"mB" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, francisca"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/frankie)
 "mC" = (
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
@@ -3441,7 +3497,6 @@
 	dir = 2;
 	req_access = list(113)
 	},
-/obj/structure/table/rack,
 /obj/structure/sign/fire{
 	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
 	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
@@ -3557,6 +3612,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"mT" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, francisca"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/engineering)
 "mU" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -3840,6 +3901,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/cic)
+"ol" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/kataphract_chapter/engineering)
 "op" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 8
@@ -3925,6 +3992,12 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"pr" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/kataphract_chapter/bruiser)
 "px" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -3951,21 +4024,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/entry)
-"qc" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "qm" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"qo" = (
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav4,
+/turf/template_noop,
+/area/space)
 "qq" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -3978,12 +4046,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
-"qH" = (
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "qI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -4022,6 +4084,12 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/sparring_chamber)
+"rl" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "rm" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -4092,8 +4160,18 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - kataphract specialist";
+	identifier = "kataphract_specialist"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
+"rG" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/engineering)
 "sa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4131,7 +4209,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/atmospherics)
 "sB" = (
-/obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser/real/canister{
 	pixel_x = -7
 	},
@@ -4216,6 +4293,13 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/specoffice)
+"tn" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboardpropulsion)
 "tq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -4258,25 +4342,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
-"tX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
-"ua" = (
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav1,
-/turf/template_noop,
-/area/space)
 "uc" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 9
@@ -4310,12 +4375,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
-"uu" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/medical)
 "uw" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -4335,6 +4394,21 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
+"uF" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, washroom"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/specoffice)
+"uI" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "uN" = (
 /obj/structure/sink{
 	dir = 4;
@@ -4346,11 +4420,6 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/office)
-"uQ" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/white,
-/area/kataphract_chapter/cafeteria)
 "uR" = (
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
@@ -4363,21 +4432,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
-"vz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/entry)
 "vX" = (
 /obj/structure/closet/walllocker{
 	pixel_x = -32;
@@ -4420,6 +4474,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"we" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/kataphract_chapter/bruiser)
 "wh" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -4460,12 +4520,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"ws" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, washroom"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/specoffice)
 "wv" = (
 /obj/effect/step_trigger/teleporter,
 /obj/effect/step_trigger/teleporter,
@@ -4499,12 +4553,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"wH" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, shuttle"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "wP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -4528,28 +4576,22 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
-"wX" = (
-/obj/machinery/light/small/emergency{
+"xs" = (
+/obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
-/area/kataphract_chapter/frankie)
-"xl" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/light{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
+/turf/simulated/floor/carpet/rubber,
+/area/kataphract_chapter/atmospherics)
+"xC" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, washroom"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/engineering)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/toilets)
 "xD" = (
-/obj/structure/table/rack,
 /obj/machinery/door/window/brigdoor/northleft{
 	dir = 2;
 	req_access = list(113)
@@ -4583,13 +4625,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
-"xH" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "xK" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
@@ -4599,18 +4634,26 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
-"xP" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, bruiser"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/bruiser)
 "xW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
+"xY" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/power/apc/east{
+	req_access = null;
+	req_one_access = list(113,11)
+	},
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "yi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/dorms)
@@ -4692,6 +4735,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"yM" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "yO" = (
 /obj/structure/bed/stool/chair/wood/wings,
 /obj/structure/curtain/open/bed,
@@ -4701,20 +4753,30 @@
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - kataphract_klax";
+	identifier = "kataphract_klax"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
+"yS" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "yY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
-"zc" = (
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav2{
-	dir = 4
-	},
-/turf/template_noop,
-/area/space)
+"zd" = (
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/bruiser)
 "zi" = (
 /obj/machinery/alarm/west{
 	req_one_access = list(113,11)
@@ -4799,10 +4861,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
-"zQ" = (
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav4,
-/turf/template_noop,
-/area/space)
 "Aa" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/distress{
@@ -4838,12 +4896,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/brig)
-"Al" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/armoury)
 "Ap" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
@@ -4924,21 +4976,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/atmospherics)
-"AW" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "Bi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -4974,13 +5011,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"BG" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/starboardpropulsion)
 "BI" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle,
@@ -5199,6 +5229,24 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
+"EN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "EP" = (
 /obj/machinery/shipsensors/weak,
 /obj/structure/railing/mapped{
@@ -5215,8 +5263,28 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
+/obj/effect/ghostspawpoint{
+	name = "igs - kataphract knight";
+	identifier = "kataphract_knight"
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"ER" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, francisca"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/medical)
+"EZ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
+	req_one_access = list(113,13)
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/entry)
 "Fa" = (
 /obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/yellow/full{
@@ -5225,6 +5293,12 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"Fi" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "Fj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -5261,12 +5335,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/atmospherics)
-"Fp" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
+"FG" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/south{
+	name = "south, port thrusters"
 	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/engineering)
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/starboardpropulsion)
 "FJ" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
@@ -5306,21 +5381,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
-"FV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "FX" = (
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -5388,19 +5448,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"GG" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "katamess"
-	},
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/cafeteria)
 "GS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
@@ -5408,12 +5455,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
-"GU" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/engineering)
 "GW" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/bridge)
@@ -5490,6 +5531,12 @@
 	},
 /turf/template_noop,
 /area/space)
+"In" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, bruiser"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/frankie)
 "Ip" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
@@ -5508,6 +5555,12 @@
 /obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"Is" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "Iz" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -5600,6 +5653,21 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
+"Ju" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "JF" = (
 /obj/machinery/ship_weapon/francisca/compact{
 	pixel_x = -9;
@@ -5617,6 +5685,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"JN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "JP" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/power/apc/high/east{
@@ -5673,6 +5756,27 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bruiser)
+"Kn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"Kp" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/kataphract_chapter/frankie)
 "Ks" = (
 /obj/machinery/vending/engineering{
 	req_access = null
@@ -5697,33 +5801,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
-"KF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "KI" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"KT" = (
-/obj/structure/cable{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/kataphract_chapter/engineering)
 "Le" = (
 /obj/effect/floor_decal/corner/green{
 	dir = 9
@@ -5739,13 +5822,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
-"Ly" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/south{
-	name = "south, port thrusters"
-	},
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/portpropulsion)
 "Lz" = (
 /obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
@@ -5768,15 +5844,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"Ma" = (
-/obj/machinery/atmospherics/pipe/tank/air{
-	dir = 4
+"LQ" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, shuttle"
 	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/kataphract_chapter/atmospherics)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "Mh" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -5784,6 +5857,20 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"Mj" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 8;
+	id = "katabridgeshutter"
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "north, bridge"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/bridge)
 "Mm" = (
 /obj/structure/table/rack,
 /obj/item/material/twohanded/pike/flag/hegemony,
@@ -5854,18 +5941,10 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
-"MX" = (
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav3{
-	dir = 8
-	},
+"MV" = (
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav1,
 /turf/template_noop,
 /area/space)
-"Nc" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/kataphract_chapter/bruiser)
 "Nl" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -5917,10 +5996,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"NA" = (
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav5,
-/turf/template_noop,
-/area/space)
 "NF" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -5963,16 +6038,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
-"NK" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/entry)
 "NP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -6043,17 +6108,6 @@
 "Oi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/specoffice)
-"Oj" = (
-/obj/machinery/iv_drip,
-/obj/effect/floor_decal/corner/green{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline/red,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/kataphract_chapter/medical)
 "Op" = (
 /turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
@@ -6106,19 +6160,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
-"Pj" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/machinery/light,
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/entry)
-"Pq" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "Pr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -6179,12 +6220,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
-"PL" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, washroom"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/toilets)
 "PW" = (
 /turf/space/transit/east,
 /area/space)
@@ -6196,13 +6231,12 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
-"Qj" = (
-/obj/machinery/atmospherics/pipe/simple/visible/universal,
+"Ql" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/atmospherics)
+/turf/simulated/floor/reinforced,
+/area/kataphract_chapter/frankie)
 "Qy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6222,20 +6256,17 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"QN" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
+"QR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/obj/machinery/light{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
 	},
-/obj/machinery/power/apc/east{
-	req_access = null;
-	req_one_access = list(113,11)
-	},
-/obj/structure/cable/green,
 /turf/simulated/floor/tiled,
-/area/shuttle/kataphract_shuttle/main_compartment)
+/area/kataphract_chapter/engineering)
 "QS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -6337,19 +6368,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
-"Rz" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/armoury)
 "RC" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/south{
-	name = "south, port thrusters"
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
 	},
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/starboardpropulsion)
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "RD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -6380,15 +6405,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
-"RJ" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1
+"RF" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, bruiser"
 	},
-/obj/effect/landmark/entry_point/south{
-	name = "south, cockpit"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/kataphract_shuttle/main_compartment)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/bruiser)
 "RL" = (
 /obj/structure/rod_railing,
 /obj/machinery/alarm/east{
@@ -6502,6 +6524,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
+"SO" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1;
+	spawn_grille = 1
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "katamess"
+	},
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, francisca"
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/cafeteria)
 "SV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -6556,20 +6591,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
-"Tj" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1;
-	spawn_grille = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	dir = 8;
-	id = "katabridgeshutter"
-	},
-/obj/effect/landmark/entry_point/north{
-	name = "north, bridge"
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/bridge)
 "Tk" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -6617,6 +6638,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
+"TJ" = (
+/obj/machinery/atmospherics/pipe/simple/visible/universal,
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/atmospherics)
 "TM" = (
 /obj/machinery/suit_cycler/offship/kataphract,
 /obj/effect/floor_decal/corner_wide/red/full,
@@ -6630,15 +6658,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
-"Ua" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
+"TW" = (
+/obj/effect/shuttle_landmark/nav_kataphract_ship/nav2{
+	dir = 4
 	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
+/turf/template_noop,
+/area/space)
 "Ub" = (
 /obj/structure/bed/stool/chair/office/bridge,
 /obj/effect/floor_decal/spline/plain/cee/blue,
@@ -6648,12 +6673,6 @@
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/sparring_chamber)
-"Um" = (
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/kataphract_chapter/frankie)
 "Uz" = (
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/bruiser)
@@ -6667,25 +6686,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/entry)
-"UE" = (
-/obj/effect/landmark/entry_point/north{
-	name = "north, bruiser"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/frankie)
 "UI" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
-"US" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/starboardpropulsion)
 "UT" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 1;
@@ -6731,18 +6737,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
-"Vi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "Vj" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 4
@@ -6755,6 +6749,13 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/atmospherics)
+"Vm" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "Vp" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -6774,27 +6775,6 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
-/area/kataphract_chapter/entry)
-"Vx" = (
-/obj/effect/landmark/entry_point/north{
-	name = "north, airlock"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/bruiser)
-"Vz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "VJ" = (
 /obj/machinery/computer/shuttle_control/explore/terminal/kataphract_transport{
@@ -6835,6 +6815,19 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/kataphract_chapter/atmospherics)
+"Wj" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboardpropulsion)
+"Wk" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, shuttle"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "Wl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -6857,6 +6850,13 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/hangar)
+"Wp" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/south{
+	name = "south, port thrusters"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/portpropulsion)
 "Wr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	icon_state = "map_scrubber_on"
@@ -6911,21 +6911,6 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/portpropulsion)
-"XB" = (
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, francisca"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/frankie)
-"XG" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/machinery/alarm/east{
-	req_one_access = list(113,11)
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
 "XI" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/spline/plain/yellow{
@@ -6937,6 +6922,15 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
+"XP" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/alarm/east{
+	req_one_access = list(113,11)
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "XQ" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
@@ -6966,21 +6960,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
-"Ye" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled,
-/area/kataphract_chapter/main_ring)
-"Yh" = (
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced,
-/area/kataphract_chapter/bruiser)
 "Yi" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -7020,6 +6999,21 @@
 /obj/effect/floor_decal/sign/gtr,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"Yu" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "Yx" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -7054,6 +7048,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
+"ZA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "ZS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7066,6 +7072,16 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"ZV" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
+	req_one_access = list(113,13)
+	},
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/entry)
 "ZX" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 4
@@ -13634,7 +13650,7 @@ iB
 iB
 iB
 iB
-zQ
+qo
 iB
 iB
 iB
@@ -14501,7 +14517,7 @@ iB
 iB
 iB
 iB
-NA
+hT
 iB
 iB
 iB
@@ -18199,7 +18215,7 @@ iB
 iB
 iB
 mp
-bx
+EZ
 pN
 mp
 iB
@@ -18339,7 +18355,7 @@ iT
 iT
 iT
 iT
-Rz
+jT
 iT
 iT
 iT
@@ -18356,7 +18372,7 @@ RY
 Ek
 Ek
 Ek
-GG
+SO
 Ek
 RY
 iB
@@ -18492,7 +18508,7 @@ iB
 lu
 lu
 lu
-GU
+mT
 lu
 lu
 lu
@@ -18510,7 +18526,7 @@ iB
 iB
 iB
 iB
-uu
+ER
 le
 le
 le
@@ -18528,7 +18544,7 @@ bj
 mp
 dW
 dW
-XB
+mB
 dW
 dW
 dW
@@ -18654,7 +18670,7 @@ iB
 lu
 dd
 fk
-KT
+ol
 ik
 fK
 lu
@@ -18681,7 +18697,7 @@ iu
 hj
 hj
 hj
-uQ
+aS
 RY
 yp
 El
@@ -18848,11 +18864,11 @@ RY
 VW
 FX
 FX
-Pj
+Vm
 dW
 xD
 oC
-Um
+Kp
 cT
 dW
 dW
@@ -19139,8 +19155,8 @@ de
 dG
 ee
 nU
-xl
 fx
+QR
 fo
 hZ
 jt
@@ -19148,7 +19164,7 @@ cN
 kx
 dj
 gS
-fW
+yS
 ac
 JI
 Ea
@@ -19295,13 +19311,13 @@ iB
 iB
 iB
 iB
-RC
+FG
 kW
-US
 df
+Wj
 dg
 Qh
-Fp
+rG
 XZ
 ig
 ju
@@ -19311,7 +19327,7 @@ QC
 Mt
 iT
 mJ
-Al
+Is
 Gj
 Ea
 iX
@@ -19459,11 +19475,11 @@ iB
 iB
 bW
 gE
-BG
+tn
 dH
 dg
 eB
-Fp
+rG
 ju
 ju
 ju
@@ -19482,7 +19498,7 @@ kh
 OF
 kY
 PH
-Oj
+cO
 RE
 dA
 bo
@@ -19500,7 +19516,7 @@ mp
 dW
 JW
 RL
-wX
+Ql
 dW
 dW
 iB
@@ -19657,14 +19673,14 @@ RY
 RY
 iV
 Rw
-Vz
+jO
 Lz
 dW
 dW
 dW
 dW
 dW
-UE
+In
 iB
 iB
 iB
@@ -19797,24 +19813,24 @@ QC
 wc
 KI
 KI
-Ua
+jL
 Rh
 wC
 gR
 ki
 KI
 dE
-Ua
-tX
+jL
+lW
 KI
 KI
 dM
-Ua
+jL
 KI
 KI
 KI
-tX
-Ua
+lW
+jL
 Fj
 aj
 wi
@@ -19957,9 +19973,9 @@ iB
 fu
 Fa
 sU
-FV
-FV
-FV
+Kn
+Kn
+Kn
 QS
 mS
 HN
@@ -20108,7 +20124,7 @@ Bi
 Bi
 bH
 bH
-wH
+LQ
 Bi
 Bi
 fd
@@ -20239,7 +20255,7 @@ iB
 iB
 iB
 iB
-MX
+ak
 iB
 iB
 iB
@@ -20301,7 +20317,7 @@ mM
 pi
 ah
 mF
-xH
+RC
 GW
 En
 aC
@@ -20430,7 +20446,7 @@ Bi
 VJ
 Ou
 cc
-ck
+js
 dl
 dP
 JZ
@@ -20587,12 +20603,12 @@ iB
 iB
 iB
 iB
-RJ
+hi
 cb
 WI
 fN
 mD
-qH
+Fi
 dm
 dK
 BW
@@ -20631,7 +20647,7 @@ kO
 cy
 VU
 XQ
-Tj
+Mj
 iB
 iB
 iB
@@ -20786,7 +20802,7 @@ ah
 eZ
 Ag
 ah
-Vi
+ZA
 qm
 GW
 Nq
@@ -20919,7 +20935,7 @@ hR
 dN
 dN
 dN
-QN
+xY
 lB
 fd
 fD
@@ -20948,8 +20964,8 @@ ah
 OT
 cK
 ah
-Vi
-xH
+ZA
+RC
 GW
 lH
 aC
@@ -21080,7 +21096,7 @@ Bi
 Bi
 bH
 bH
-jX
+Wk
 Bi
 Bi
 fe
@@ -21110,7 +21126,7 @@ ah
 ah
 ah
 ah
-Vi
+ZA
 qm
 GW
 Ap
@@ -21261,18 +21277,18 @@ IK
 jb
 yu
 Sy
-AW
+Yu
 if
 nC
 kS
 kS
 la
-Pq
-Pq
-Pq
-Ye
-Pq
-KF
+rl
+rl
+rl
+yM
+rl
+JN
 qm
 GW
 GW
@@ -21417,19 +21433,19 @@ QC
 NX
 LM
 LM
-qc
-XG
+uI
+XP
 sZ
 ja
 Tk
 ko
 sa
-qc
+uI
 sa
 LM
 LM
 gi
-qc
+uI
 LM
 LM
 lX
@@ -21569,7 +21585,7 @@ dQ
 dQ
 dQ
 nh
-Ma
+xs
 st
 Jl
 gp
@@ -21601,7 +21617,7 @@ yi
 yi
 sk
 oG
-vz
+Ju
 aR
 ax
 ax
@@ -21725,7 +21741,7 @@ iB
 iB
 iB
 iB
-Ly
+Wp
 Xy
 cW
 an
@@ -21768,9 +21784,9 @@ mp
 ax
 mE
 Hh
-Nc
+we
 Uz
-fl
+zd
 lc
 lc
 lc
@@ -21925,7 +21941,7 @@ yi
 yi
 lE
 zi
-jO
+EN
 Lz
 ax
 sB
@@ -22096,7 +22112,7 @@ Uz
 Uz
 qq
 ax
-Vx
+iI
 iB
 iB
 iB
@@ -22375,7 +22391,7 @@ iB
 iB
 dQ
 dQ
-fL
+by
 dQ
 dQ
 Wi
@@ -22412,11 +22428,11 @@ lP
 VW
 FX
 FX
-Pj
+Vm
 ax
 VZ
 mh
-Yh
+pr
 Uz
 ax
 ax
@@ -22543,7 +22559,7 @@ mL
 Eh
 gN
 mx
-Qj
+TJ
 nz
 bE
 Rv
@@ -22721,7 +22737,7 @@ ka
 ka
 ka
 Oi
-ws
+uF
 Oi
 Oi
 lP
@@ -22740,7 +22756,7 @@ lC
 ax
 ax
 ax
-xP
+RF
 ax
 ax
 ax
@@ -22890,7 +22906,7 @@ lP
 lP
 lP
 lP
-PL
+xC
 lP
 lP
 lP
@@ -23059,7 +23075,7 @@ iB
 iB
 iB
 mp
-NK
+ZV
 Sx
 mp
 iB
@@ -26752,7 +26768,7 @@ iB
 iB
 iB
 iB
-ua
+MV
 iB
 iB
 iB
@@ -27783,7 +27799,7 @@ iB
 iB
 iB
 iB
-zc
+TW
 iB
 iB
 iB
