@@ -106,5 +106,7 @@
 	name = "Cult Base Shuttle"
 	shuttle_tag = "Cult Base Shuttle"
 	master_tag = "airlock_cult_base_shuttle"
+	req_one_access = null
+	req_access = null
 
 // ---------------------
