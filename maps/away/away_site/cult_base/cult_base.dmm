@@ -6902,6 +6902,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aJZ" = (

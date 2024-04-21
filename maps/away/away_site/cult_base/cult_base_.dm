@@ -12,7 +12,6 @@
 	sectors = list(ALL_POSSIBLE_SECTORS)
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/cult_base_shuttle)
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: REMOVE THIS
 
 /singleton/submap_archetype/cult_base
 	map = "Cult Base"
