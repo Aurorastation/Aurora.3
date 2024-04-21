@@ -259,6 +259,11 @@
 /area/kataphract_chapter/engineering)
 "aR" = (
 /obj/structure/ship_weapon_dummy/barrel,
+/obj/machinery/ship_weapon/francisca/compact{
+	pixel_x = -40;
+	weapon_id = "Kataphract Vessel Francisca";
+	pixel_y = -32
+	},
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/frankie)
 "aS" = (
@@ -458,16 +463,20 @@
 	spawn_firedoor = 1
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "kataphract_shuttle_shutters"
+	id = "kataphract_shuttle_shutters";
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "bO" = (
-/obj/machinery/ship_weapon/bruiser{
-	weapon_id = "Kataphract Vessel Bruiser Cannon"
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1
 	},
-/turf/template_noop,
-/area/space)
+/obj/machinery/door/blast/regular/open{
+	id = "kataphract_shuttle_shutters"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "bP" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/light,
@@ -3418,13 +3427,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
 "mj" = (
-/obj/machinery/button/remote/blast_door{
-	dir = 6;
-	name = "Shuttle Blast Doors";
-	id = "kataphract_shuttle_shutters"
+/obj/structure/ship_weapon_dummy/barrel,
+/obj/machinery/ship_weapon/bruiser{
+	weapon_id = "Kataphract Vessel Bruiser Cannon";
+	pixel_y = -32;
+	pixel_x = -32
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/shuttle/kataphract_shuttle/main_compartment)
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/bruiser)
 "ml" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
@@ -4763,10 +4773,14 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
-"xa" = (
-/obj/structure/ship_weapon_dummy/barrel,
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/bruiser)
+"xd" = (
+/obj/machinery/button/remote/blast_door{
+	dir = 6;
+	name = "Shuttle Blast Doors";
+	id = "kataphract_shuttle_shutters"
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "xz" = (
 /obj/structure/closet/crate/bin,
 /obj/random/junk,
@@ -5924,12 +5938,11 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/portentry)
 "JF" = (
-/obj/machinery/ship_weapon/francisca/compact{
-	pixel_x = -9;
-	weapon_id = "Kataphract Vessel Francisca"
+/obj/effect/landmark/entry_point/north{
+	name = "north, bruiser"
 	},
-/turf/template_noop,
-/area/space)
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/kataphract_chapter/bruiser)
 "JI" = (
 /obj/structure/bed/stool/padded/beige,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6368,16 +6381,6 @@
 "Oi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/specoffice)
-"Om" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
-	spawn_firedoor = 1
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "kataphract_shuttle_shutters";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "Op" = (
 /turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
@@ -7133,12 +7136,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
-"Vs" = (
-/obj/effect/landmark/entry_point/north{
-	name = "north, bruiser"
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/kataphract_chapter/bruiser)
 "VJ" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/effect/decal/cleanable/dirt,
@@ -34267,7 +34264,7 @@ cT
 dR
 dW
 dW
-JF
+iB
 iB
 iB
 iB
@@ -35733,8 +35730,8 @@ iB
 iB
 Bi
 Bi
-bH
-bH
+bO
+bO
 yh
 Bi
 Bi
@@ -36232,7 +36229,7 @@ iB
 iB
 iB
 iB
-Om
+bH
 Bi
 Ek
 Ou
@@ -36736,8 +36733,8 @@ iB
 iB
 iB
 iB
-Om
-mj
+bH
+xd
 cC
 cr
 kQ
@@ -37245,8 +37242,8 @@ iB
 iB
 Bi
 Bi
-bH
-bH
+bO
+bO
 IU
 Bi
 Bi
@@ -38049,7 +38046,7 @@ lc
 iB
 iB
 iB
-bO
+iB
 iB
 iB
 iB
@@ -38300,7 +38297,7 @@ Lw
 FM
 lc
 lc
-xa
+mj
 iB
 iB
 iB
@@ -38802,7 +38799,7 @@ Xf
 Uz
 Uz
 ax
-Vs
+JF
 iB
 iB
 iB
