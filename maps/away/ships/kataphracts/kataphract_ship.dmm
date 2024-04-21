@@ -2060,6 +2060,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/ammunition_loader/bruiser{
+	weapon_id = "Kataphract Vessel Bruiser Cannon"
+	},
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/bruiser)
 "hD" = (
@@ -3413,7 +3416,7 @@
 /area/kataphract_chapter/bruiser)
 "mj" = (
 /obj/effect/landmark/entry_point/north{
-	name = "north, airlock"
+	name = "north, bruiser"
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/bruiser)
@@ -3867,10 +3870,8 @@
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/bridge)
 "ns" = (
-/obj/machinery/ammunition_loader/bruiser{
-	dir = 4;
-	weapon_id = "Kataphract Vessel Bruiser Cannon"
-	},
+/obj/structure/viewport/unathi,
+/obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
 /area/kataphract_chapter/bruiser)
 "nt" = (
@@ -38517,11 +38518,11 @@ Wd
 ax
 sB
 mf
-Uz
+qq
 Lw
 ns
-ax
-ax
+iB
+iB
 iB
 iB
 iB
@@ -38771,9 +38772,9 @@ rv
 Xf
 Uz
 Uz
-qq
 ax
 mj
+iB
 iB
 iB
 iB
@@ -39025,7 +39026,7 @@ Uz
 Uz
 ax
 ax
-ax
+iB
 iB
 iB
 iB
@@ -39277,7 +39278,7 @@ Jj
 Uz
 ax
 ax
-ax
+iB
 iB
 iB
 iB
