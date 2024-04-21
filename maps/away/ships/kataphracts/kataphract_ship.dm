@@ -80,6 +80,7 @@
 /obj/effect/shuttle_landmark/nav_kataphract_ship/starboard //any ship with a docking port on their left side assuming they have their landmark mapped in properly
 	name = "Kataphract Ship Starboard Docking"
 	landmark_tag = "nav_kataphract_ship_starboard"
+	docking_controller = "dock_kataphract_ship_starboard"
 
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard
 	name = "Starboard Dock"
@@ -89,6 +90,7 @@
 /obj/effect/shuttle_landmark/nav_kataphract_ship/starboard //any ship with a docking port on their left side assuming they have their landmark mapped in properly
 	name = "Kataphract Ship Port Docking"
 	landmark_tag = "nav_kataphract_ship_port"
+	docking_controller = "dock_kataphract_ship_port"
 
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port
 	name = "Port Dock"
