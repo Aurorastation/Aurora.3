@@ -1,9 +1,3 @@
-//Removing the lock and the buttons.
-/obj/item/gun/dropped(mob/living/user)
-	if(istype(user))
-		user.stop_aiming(src)
-	return ..()
-
 /obj/item/gun/equipped(mob/living/user, slot)
 	if(istype(user) && (slot != slot_l_hand && slot != slot_r_hand))
 		user.stop_aiming(src)

@@ -1,12 +1,24 @@
 /datum/ghostspawner
 	var/short_name = null
 	var/name = null
+
+	/// Description of the spawner, as seen in the ghostspawner GUI.
+	/// Should be short and simple description, to not clutter up the menus.
+	/// Should have the most brief description and expectations for the role.
 	var/desc = null
+
+	/// Message shown to the player immediately after spawning.
+	/// Can be longer than the description, and more detailed.
+	/// Should also contain anything else specific to the role, for example:
+	/// who does this role answer to, location of the equipment, gimmick or background ideas, tips on how to play it, etc.
+	var/welcome_message = null
+	/// Similar to the normal welcome message, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/welcome_message_ooc = null
 
 	var/observers_only = FALSE
 	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
 
-	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
 	//Vars regarding the spawnpoints and conditions of the spawner
@@ -188,12 +200,14 @@
 	if(disable_and_hide_if_full && max_count && (count >= max_count))
 		disable()
 	if(welcome_message)
-		to_chat(user, SPAN_NOTICE(welcome_message))
+		to_chat(user, EXAMINE_BLOCK(SPAN_NOTICE(welcome_message)))
 	else
 		if(name)
-			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("You are spawning as: ") + name))
 		if(desc)
-			to_chat(user, SPAN_INFO("Role description: ") + desc)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("Role description: ") + desc))
+	if(welcome_message_ooc)
+		to_chat(user, EXAMINE_BLOCK(SPAN_INFO("(OOC Notes: [welcome_message_ooc])")))
 	GLOB.universe.OnPlayerLatejoin(user)
 	if(SSatlas.current_map.use_overmap)
 		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]

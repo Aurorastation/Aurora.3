@@ -6,23 +6,6 @@
 	var/list/datalink_contacts = list()		// A list of the datalink contacts we're receiving from the datalinks
 	var/tmp/muted = FALSE
 
-/obj/machinery/computer/ship/sensors/Destroy()
-	objects_in_view.Cut()
-	trackers.Cut()
-
-	for(var/key in contact_datums)
-		var/datum/overmap_contact/record = contact_datums[key]
-		qdel(record)
-	contact_datums.Cut()
-	. = ..()
-
-/obj/machinery/computer/ship/sensors/attempt_hook_up(obj/effect/overmap/visitable/ship/sector)
-	. = ..()
-	if(. && linked && !contact_datums[linked])
-		var/datum/overmap_contact/record = new(src, linked)
-		contact_datums[linked] = record
-		record.marker.alpha = 255
-
 /obj/machinery/computer/ship/sensors/proc/reveal_contacts(var/mob/user)
 	if(user && user.client)
 		for(var/key in contact_datums)

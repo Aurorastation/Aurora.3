@@ -119,6 +119,13 @@ var/global/list/area_blurb_stated_to = list()
 
 	. = ..()
 
+	if(dynamic_lighting)
+		luminosity = FALSE
+
+	if (mapload && turf_initializer)
+		for(var/turf/T in src)
+			turf_initializer.initialize(T)
+
 /area/proc/is_prison()
 	return area_flags & AREA_FLAG_PRISON
 
