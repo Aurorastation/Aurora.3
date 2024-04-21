@@ -126,7 +126,7 @@
 	name = "admins_reload"
 	description = "Reloads all admins and pulls new data from the forumuser API if it's enabled."
 
-/datum/topic_command/broadcast_text/run_command(queryparams)
+/datum/topic_command/admins_reload/run_command(queryparams)
 	log_and_message_admins("AdminRanks: remote reload of the admins list initiated.")
 
 	if (GLOB.config.use_forumuser_api)

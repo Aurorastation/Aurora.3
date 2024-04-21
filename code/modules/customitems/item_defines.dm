@@ -2026,3 +2026,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
 
+/obj/item/device/versebook/fluff/guilty_men
+	name = "Guilty Men"
+	desc = "A leather bound book bearing a burning Coalition of Colonies flag. \"Guilty Men\" and \"How the Coalition of Colonies and its leaders failed the Frontier\" are engraved on golden plaques on either side of the flag. A controversial book published several years ago, \"Guilty Men\" is acclaimed by some as a scathing rebuke of failed Coalition policies, and their intolerable results, and condemned by others as a radical break from traditional Coalition attitudes and values. This example is worn, with its pages dog-eared and torn in numerous places, while the leather binding has begun to crack and discolor under frequent handling."
+	icon = 'icons/obj/custom_items/imogen_items.dmi'
+	icon_state = "Guilty_Men"
+	item_state = "book"
+
+/obj/item/device/versebook/fluff/guilty_men/Initialize()
+	. = ..()
+	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")

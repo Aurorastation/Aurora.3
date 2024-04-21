@@ -49,6 +49,7 @@
 		if(!istype(A))
 			CRASH("Shuttle \"[name]\" couldn't locate area [T].")
 		areas += A
+		RegisterSignal(A, COMSIG_QDELETING, PROC_REF(remove_shuttle_area))
 	shuttle_area = areas
 
 	if(initial_location)
@@ -311,3 +312,10 @@
 
 /datum/shuttle/proc/on_move_interim()
 	return
+
+/datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
+	UnregisterSignal(area_to_remove, COMSIG_QDELETING)
+	SSshuttle.shuttle_areas -= area_to_remove
+	shuttle_area -= area_to_remove
+	if(!length(shuttle_area))
+		qdel(src)

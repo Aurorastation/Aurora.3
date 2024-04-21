@@ -126,8 +126,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 
 /obj/machinery/computer/ship/sensors/Destroy()
-	sensors = null
+	sensor_ref = null
 	identification = null
+	QDEL_NULL(sound_token)
 	if(LAZYLEN(viewers))
 		for(var/datum/weakref/W in viewers)
 			var/M = W.resolve()

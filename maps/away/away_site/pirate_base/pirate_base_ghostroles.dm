@@ -13,9 +13,11 @@
 		Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. \
 		You have a shuttle, but it is completely unpowered. Better deal with the intruders before you go fix your shuttle. \
 		There is a secret equipment room, north from the living room, read the note on the floor of your crew quarters on how to access it. \
-		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
+		"
+	welcome_message_ooc = "\
+		This is an antagonist role which places typical antagonist expectations on you. \
 		You're expected to try to generate an interesting encounter with whoever has docked on the away site. \
-		Remember to follow basic escalation rules, and have fun!)\
+		Remember to follow basic escalation rules, and have fun!\
 		"
 
 	spawnpoints = list("pirate")
@@ -82,9 +84,11 @@
 		Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. \
 		You have a shuttle, but it is completely unpowered. Better deal with the intruders before you go fix your shuttle. \
 		There is a secret equipment room, north from the living room, read the note on the floor of your crew quarters on how to access it. \
-		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
+		"
+	welcome_message_ooc = "\
+		This is an antagonist role which places typical antagonist expectations on you. \
 		You're expected to try to generate an interesting encounter with whoever has docked on the away site. \
-		Remember to follow basic escalation rules, and have fun!)\
+		Remember to follow basic escalation rules, and have fun!\
 		"
 
 	spawnpoints = list("pirate_boss")

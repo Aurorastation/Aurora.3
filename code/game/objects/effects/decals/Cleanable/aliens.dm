@@ -2,13 +2,15 @@
 	name = "xeno blood"
 	desc = "It's green and acidic. It looks like... <i>blood?</i>"
 	icon = 'icons/effects/blood.dmi'
-	basecolor = "#05EE05"
+	color = "#05ee05"
+	basecolor = "#05ee05"
 
 /obj/effect/decal/cleanable/blood/gibs/xeno
 	name = "xeno gibs"
 	desc = "Gnarly..."
 	icon_state = "xgib1"
 	random_icon_states = list("xgib1", "xgib2", "xgib3", "xgib4", "xgib5", "xgib6")
+	color = "#05ee05"
 	basecolor = "#05EE05"
 
 /obj/effect/decal/cleanable/blood/gibs/xeno/update_icon()
@@ -30,4 +32,5 @@
 	random_icon_states = list("xgibmid1", "xgibmid2", "xgibmid3")
 
 /obj/effect/decal/cleanable/blood/xtracks
+	color = "#05ee05"
 	basecolor = "#05EE05"

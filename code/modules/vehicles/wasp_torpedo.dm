@@ -33,10 +33,6 @@
 
 	var/primmed = FALSE
 
-/obj/item/mesmetron/Destroy()
-	STOP_PROCESSING(SSfast_process, src)
-	. = ..()
-
 /obj/vehicle/bike/wasp_torpedo/collide_act(var/atom/movable/AM)
 	if(!AM.density)
 		return
