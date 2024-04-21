@@ -414,3 +414,28 @@
       blueprints for modifying shuttles.
   - qol: Moves eye creation to a component.
   - rscadd: Adds several items and structures for use in Uueoa-Esa ruins.
+2024-04-21:
+  Crosarius:
+  - soundadd: Added footstep sound effects for barefoot Unathi.
+  DreamySkrell:
+  - rscadd: Cult Base away site.
+  - rscadd: Adds some mapped in cult runes.
+  - rscadd: Adds ooc welcome message, separate from normal welcome message.
+  - rscadd: Allows corpses to use outfits.
+  - rscadd: Allows corpses use different species.
+  - rscadd: Adds some generic outfits.
+  - rscadd: Ghostspawner spawn points are actually randomly picked.
+  - bugfix: Fixes marker layers.
+  FluffyGhost:
+  - code_imp: Refactored the use of the isprocessing var into the datum flag DF_ISPROCESSING.
+  - code_imp: Updated SSprocessing and SSmachinery to have a constant fire rate.
+  - code_imp: Updated gas cooler to be time-constant thanks to the above.
+  Geeves:
+  - bugfix: Fixed colorable glasses frames being affected by the alpha value.
+  ReadThisNamePlz, Noblerow:
+  - rscadd: Added a working HAPT shuttle.
+  - rscadd: Added the VIP ghostrole to the CCIA Ghostspawner.
+  - rscadd: Added a modified HAPT suit for NT HAPT use only.
+  - imageadd: Added new sprites for the tweaked HAPT suit
+  RustingWithYou:
+  - qol: Sensors, thrusters, and IFF beacons are now buildable and deconstructable.
