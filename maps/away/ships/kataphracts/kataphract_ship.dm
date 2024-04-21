@@ -128,7 +128,7 @@
 	logging_home_tag = "nav_hangar_kataphract_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
+/obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle
 	name = "Kataphract Transport"
 	shuttle_tag = "Kataphract Transport"
 	master_tag = "airlock_kataphract_transport"

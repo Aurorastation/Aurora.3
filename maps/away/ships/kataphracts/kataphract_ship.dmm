@@ -262,9 +262,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
 	req_one_access = list(113,13)
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/entry)
 "be" = (
@@ -293,6 +294,7 @@
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
 	req_one_access = list(113,13)
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/entry)
 "bk" = (
@@ -746,6 +748,19 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
+"dy" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
+	req_one_access = list(113,13)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/full,
+/area/kataphract_chapter/entry)
 "dz" = (
 /obj/machinery/shower{
 	dir = 4
@@ -2552,6 +2567,7 @@
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
 	req_one_access = list(113,13)
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/entry)
 "lA" = (
@@ -2575,6 +2591,7 @@
 /obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
 	req_one_access = list(113,13)
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/entry)
 "lE" = (
@@ -3346,6 +3363,13 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
+"pN" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
+	req_one_access = list(113,13)
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/entry)
 "qm" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -3484,15 +3508,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
-/area/kataphract_chapter/entry)
-"sm" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
-	},
-/turf/simulated/floor/plating,
 /area/kataphract_chapter/entry)
 "so" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
@@ -4031,18 +4046,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/brig)
-"An" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
-	req_one_access = list(113,13)
-	},
-/turf/simulated/floor/tiled/full,
-/area/kataphract_chapter/entry)
 "Ap" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
@@ -4743,13 +4746,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
-"Mr" = (
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
-	req_one_access = list(113,13)
-	},
-/turf/simulated/floor/plating,
-/area/kataphract_chapter/entry)
 "Mt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
@@ -5016,6 +5012,16 @@
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
+"PB" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
+	req_one_access = list(113,13)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/entry)
 "PD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5258,7 +5264,7 @@
 /area/kataphract_chapter/armoury)
 "Sx" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/starboard{
+/obj/effect/map_effect/marker/airlock/docking/nav_kataphract_ship/port{
 	req_one_access = list(113,13)
 	},
 /turf/simulated/floor/plating,
@@ -16800,8 +16806,8 @@ iB
 iB
 iB
 mp
-Sx
-Sx
+pN
+pN
 mp
 iB
 iB
@@ -17124,7 +17130,7 @@ Re
 RY
 mp
 mp
-An
+bc
 bj
 mp
 dW
@@ -21336,7 +21342,7 @@ lh
 lP
 mp
 mp
-bc
+dy
 lC
 ax
 ax
@@ -21660,8 +21666,8 @@ iB
 iB
 iB
 mp
-Mr
-Mr
+Sx
+Sx
 mp
 iB
 iB
@@ -21822,8 +21828,8 @@ iB
 iB
 iB
 mp
-sm
-sm
+PB
+PB
 mp
 iB
 iB
