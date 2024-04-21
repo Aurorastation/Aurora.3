@@ -52,38 +52,6 @@
 	designation = "[pick("Pious Avenger", "Persistent Conviction", "Solemn Retribution", "Venerable Ironscales", "Blade of Faith", "Glorious Succor", "Sacred Retribution", "Unflinching Soul", "Unrelenting Fervor", "Ascendant Absolution")]"
 	..()
 
-/obj/effect/shuttle_landmark/nav_kataphract_ship
-	base_turf = /turf/space
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav1
-	name = "Kataphract Ship Navpoint #1"
-	landmark_tag = "nav_kataphract_ship_1"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav2
-	name = "Kataphract Ship Navpoint #2"
-	landmark_tag = "nav_kataphract_ship_2"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav3
-	name = "Kataphract Ship Navpoint #3"
-	landmark_tag = "nav_kataphract_ship_3"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav4
-	name = "Kataphract Ship Navpoint #4"
-	landmark_tag = "nav_kataphract_ship_4"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/nav5
-	name = "Kataphract Ship Navpoint #5"
-	landmark_tag = "nav_kataphract_ship_5"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/starboarddock //any ship with a docking port on their left side assuming they have their landmark mapped in properly
-	name = "Kataphract Ship Starboard Docking"
-	landmark_tag = "nav_kataphract_ship_starboarddock"
-
-/obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid // restricted for the intrepid only or else other ships will be able to use this point, and not properly dock
-	name = "Kataphract Ship Intrepid Starboard Docking"
-	landmark_tag = "nav_kataphract_ship_dockintrepid"
-
 //shuttle
 /obj/effect/overmap/visitable/ship/landable/kataphract_transport
 	name = "Kataphract Transport"
@@ -129,3 +97,8 @@
 	name = "In transit"
 	landmark_tag = "nav_kataphract_transport_transit"
 	base_turf = /turf/space/transit/east
+
+/obj/effect/map_effect/marker/airlock/shuttle/scc_scout_ship
+	name = "Kataphract Transport"
+	shuttle_tag = "Kataphract Transport"
+	master_tag = "airlock_kataphract_shuttle"

@@ -1,5 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aa" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "ac" = (
@@ -16,10 +18,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "af" = (
 /obj/structure/closet/secure_closet/freezer/kois,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "ah" = (
@@ -38,6 +44,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/entry)
 "al" = (
@@ -55,6 +63,9 @@
 	pixel_x = 10
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "am" = (
@@ -79,12 +90,16 @@
 /area/kataphract_chapter/office)
 "aq" = (
 /obj/machinery/appliance/cooker/oven,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "ar" = (
 /obj/structure/table/wood,
 /obj/item/device/versebook/skakh,
 /obj/item/storage/pill_bottle/dice,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
 "at" = (
@@ -92,7 +107,10 @@
 	req_access = null;
 	req_one_access = list(113,11)
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "au" = (
 /obj/effect/step_trigger/teleporter,
@@ -108,6 +126,9 @@
 "aw" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
@@ -142,6 +163,10 @@
 /area/kataphract_chapter/specoffice)
 "aL" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "aM" = (
@@ -162,12 +187,25 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "aO" = (
 /obj/structure/plasticflaps/airtight,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
+"aR" = (
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"aU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/cafeteria)
 "aV" = (
 /obj/machinery/door/airlock/glass_command{
 	name = "Bridge";
@@ -194,18 +232,28 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "ba" = (
 /obj/structure/bed/stool/chair/padded/yellow{
 	dir = 8
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
 "bb" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux,
-/turf/simulated/floor/tiled,
+/obj/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	req_access = list(113)
+	},
+/turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/hangar)
 "bc" = (
 /obj/machinery/door/airlock/external{
@@ -227,7 +275,10 @@
 /obj/item/folder/red{
 	pixel_x = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "bj" = (
 /obj/machinery/door/airlock/external{
@@ -248,17 +299,24 @@
 /area/kataphract_chapter/sparring_chamber)
 "bn" = (
 /obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "bo" = (
 /obj/structure/bed/roller,
 /obj/structure/curtain/open/medical,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "bp" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "bq" = (
@@ -289,6 +347,13 @@
 	},
 /obj/item/ship_ammunition/francisca/frag,
 /obj/item/ship_ammunition/francisca/frag,
+/obj/structure/table/rack,
+/obj/structure/sign/securearea{
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
 "bw" = (
@@ -296,13 +361,27 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/plating)
+/obj/structure/extinguisher_cabinet/east,
+/turf/simulated/floor/plating,
+/area/space)
 "bE" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"bH" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary{
+	spawn_firedoor = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"bO" = (
+/obj/machinery/ship_weapon/bruiser{
+	weapon_id = "Kataphract Vessel Bruiser Cannon"
+	},
+/turf/template_noop,
+/area/space)
 "bP" = (
 /obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled,
@@ -321,6 +400,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/office)
 "bS" = (
@@ -358,7 +438,13 @@
 /area/kataphract_chapter/portpropulsion)
 "cb" = (
 /obj/machinery/computer/ship/helm/terminal,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"cc" = (
+/obj/effect/floor_decal/spline/plain/cee/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "cf" = (
 /turf/simulated/floor/tiled,
@@ -375,6 +461,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/brig)
 "ci" = (
@@ -397,13 +484,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "cr" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "ct" = (
 /obj/machinery/door/airlock/highsecurity{
@@ -434,7 +529,7 @@
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "cD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -454,7 +549,10 @@
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "cK" = (
 /obj/structure/bed/padded,
@@ -491,11 +589,20 @@
 	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window/brigdoor/northleft{
+	dir = 8;
+	req_access = list(113)
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "cR" = (
 /obj/structure/reagent_dispensers/extinguisher,
-/turf/simulated/floor/tiled)
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled,
+/area/space)
 "cS" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
@@ -521,6 +628,7 @@
 /obj/structure/mirror{
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/specoffice)
 "da" = (
@@ -529,6 +637,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -560,6 +671,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/yellow/full,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "dk" = (
@@ -569,7 +681,8 @@
 /obj/machinery/atmospherics/portables_connector/scrubber{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "dl" = (
 /obj/machinery/atmospherics/binary/pump/scrubber/on{
@@ -580,12 +693,18 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "dm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+	dir = 4
 	},
 /obj/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"dp" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "dq" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 5
@@ -601,6 +720,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -626,15 +748,30 @@
 /obj/item/bikehorn/rubberducky{
 	name = "Geeves"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/office)
+"dA" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/medical)
 "dB" = (
 /obj/structure/rod_railing,
+/obj/structure/platform/dark{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
 "dE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -650,8 +787,7 @@
 /area/kataphract_chapter/starboardpropulsion)
 "dK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10;
-	pixel_y = 0
+	dir = 4
 	},
 /obj/machinery/meter,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -662,12 +798,17 @@
 /obj/machinery/atmospherics/portables_connector/supply{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/blue,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "dM" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
 	icon_state = "map_scrubber_on"
+	},
+/obj/structure/extinguisher_cabinet/west,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -702,6 +843,7 @@
 	req_access = list(113);
 	req_one_access = null
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "dT" = (
@@ -722,10 +864,16 @@
 	pixel_y = 32
 	},
 /obj/machinery/vending/cola,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "dZ" = (
 /obj/structure/bed/stool/padded/orange,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
 "ed" = (
@@ -734,6 +882,18 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
@@ -744,6 +904,7 @@
 	name = "Starboard Propulsion";
 	req_access = list(113)
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/starboardpropulsion)
 "ej" = (
@@ -753,11 +914,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "ek" = (
 /obj/machinery/vending/engivend{
 	req_access = null
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -775,6 +942,15 @@
 /area/kataphract_chapter/main_ring)
 "eq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
@@ -805,6 +981,9 @@
 /obj/machinery/alarm/north{
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "eD" = (
@@ -814,14 +993,16 @@
 /turf/simulated/floor/airless,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "eE" = (
-/obj/machinery/atmospherics/portables_connector/fuel,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "eF" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -832,6 +1013,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -895,6 +1079,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "fc" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "fd" = (
@@ -973,14 +1161,23 @@
 /area/kataphract_chapter/engineering)
 "fz" = (
 /obj/structure/rod_railing,
+/obj/structure/platform/dark{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
 "fA" = (
 /obj/machinery/vending/tool,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "fC" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -1000,6 +1197,9 @@
 	req_one_access = list(113,11);
 	req_access = null
 	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "fG" = (
@@ -1010,8 +1210,21 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
+"fI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "fK" = (
 /obj/structure/reagent_dispensers/coolanttank{
 	pixel_x = -5;
@@ -1021,8 +1234,17 @@
 	pixel_x = 10;
 	pixel_y = -7
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
+"fN" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "fU" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -1042,6 +1264,12 @@
 /obj/item/ammo_casing/slugger,
 /obj/item/ammo_casing/slugger,
 /obj/item/ammo_casing/slugger,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 8
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
@@ -1071,13 +1299,20 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/extinguisher_cabinet/east,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "gj" = (
 /obj/machinery/computer/ship/targeting/terminal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "gk" = (
 /obj/effect/floor_decal/corner/red{
@@ -1090,6 +1325,18 @@
 /area/kataphract_chapter/sparring_chamber)
 "gl" = (
 /turf/simulated/floor/tiled)
+"gn" = (
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "gp" = (
 /obj/machinery/atmospherics/pipe/tank{
 	dir = 4
@@ -1123,12 +1370,18 @@
 /area/kataphract_chapter/starboardpropulsion)
 "gH" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
 "gI" = (
 /obj/machinery/power/terminal{
 	dir = 1;
 	icon_state = "term"
+	},
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/engineering)
@@ -1145,6 +1398,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "gN" = (
@@ -1156,8 +1410,19 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 1
 	},
+/obj/structure/extinguisher_cabinet/east,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
+"gR" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/full,
+/area/kataphract_chapter/main_ring)
 "gS" = (
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armoury and EVA";
@@ -1184,7 +1449,13 @@
 /obj/item/material/hatchet/unathiknife,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/badge/passport/hegemony,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "gU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red{
@@ -1212,17 +1483,25 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "gY" = (
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "he" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -1240,14 +1519,21 @@
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "hh" = (
 /obj/machinery/vending/snack,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "hj" = (
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "hk" = (
@@ -1262,6 +1548,10 @@
 /area/kataphract_chapter/sparring_chamber)
 "hu" = (
 /obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "hv" = (
@@ -1271,11 +1561,25 @@
 /obj/structure/sign/flag/hegemony/large/south{
 	pixel_y = -32
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
 "hz" = (
 /obj/machinery/atmospherics/portables_connector/aux,
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	req_access = list(113)
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "hD" = (
@@ -1294,6 +1598,7 @@
 /obj/machinery/cryopod{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "hJ" = (
@@ -1301,6 +1606,7 @@
 /area/kataphract_chapter/hangar)
 "hR" = (
 /obj/structure/table/standard,
+/obj/structure/closet/walllocker/emerglocker/east,
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "hS" = (
@@ -1309,6 +1615,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -1386,10 +1695,7 @@
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "ig" = (
-/obj/structure/table/standard,
-/obj/item/stack/material/aluminium/full,
-/obj/item/stack/material/lead/full,
-/obj/item/storage/box/lights,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "ij" = (
@@ -1403,7 +1709,8 @@
 /area/kataphract_chapter/entry)
 "ik" = (
 /obj/structure/closet/radiation,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
 "il" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -1424,6 +1731,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "iq" = (
@@ -1442,7 +1752,10 @@
 "it" = (
 /obj/item/material/stool/chair/folding,
 /obj/item/material/stool/chair/folding,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "iu" = (
 /obj/machinery/button/remote/blast_door{
@@ -1451,6 +1764,7 @@
 	name = "Mess Hall Shutters";
 	id = "katamess"
 	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "iv" = (
@@ -1467,6 +1781,9 @@
 /obj/structure/sign/flag/hegemony{
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "iE" = (
@@ -1478,6 +1795,9 @@
 "iG" = (
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
@@ -1501,6 +1821,7 @@
 	dir = 10;
 	pixel_y = 0
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "iS" = (
@@ -1511,6 +1832,9 @@
 	req_access = null;
 	req_one_access = list(11,113)
 	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "iT" = (
@@ -1518,11 +1842,18 @@
 /area/kataphract_chapter/armoury)
 "iU" = (
 /obj/machinery/suit_cycler/offship/kataphract,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "iV" = (
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "iW" = (
@@ -1539,15 +1870,27 @@
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "iX" = (
 /obj/machinery/suit_cycler/offship/kataphract/lead,
+/obj/effect/floor_decal/corner/red{
+	dir = 10
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "iY" = (
 /obj/machinery/suit_cycler/offship/kataphract/specialist,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 4
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
@@ -1555,9 +1898,11 @@
 /obj/machinery/computer/cryopod{
 	pixel_x = 34
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "ja" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/main_ring)
 "jb" = (
@@ -1567,31 +1912,56 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/main_ring)
 "jc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/structure/sign/vacuum{
+	pixel_x = 32
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "jd" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/sparring_chamber)
 "jh" = (
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "ji" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
+/obj/structure/sign/securearea{
+	desc = "A warning sign which reads 'WARNING: BLAST DOOR'.";
+	name = "\improper WARNING: BLAST DOOR sign";
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "jm" = (
 /obj/machinery/power/apc/west,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "jp" = (
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
@@ -1603,6 +1973,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "ju" = (
@@ -1610,7 +1983,7 @@
 /area/kataphract_chapter/engineering)
 "jx" = (
 /obj/structure/reagent_dispensers/keg/xuizikeg,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/hangar)
 "jz" = (
 /obj/machinery/door/airlock/freezer{
@@ -1618,13 +1991,17 @@
 	id_tag = "katawashroom"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "jB" = (
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "jE" = (
 /obj/structure/table/rack,
@@ -1637,6 +2014,7 @@
 /area/kataphract_chapter/sparring_chamber)
 "jH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "jK" = (
@@ -1646,6 +2024,7 @@
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
 	},
+/obj/structure/closet/crate/bin,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
 "jM" = (
@@ -1675,6 +2054,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "jR" = (
@@ -1691,6 +2073,9 @@
 /area/kataphract_chapter/office)
 "ke" = (
 /obj/machinery/vending/medical,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "kf" = (
@@ -1701,6 +2086,9 @@
 /obj/item/storage/belt/medical,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "kg" = (
@@ -1721,8 +2109,23 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"ki" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "kk" = (
 /obj/machinery/door/airlock/glass{
 	name = "Sparring Chamber";
@@ -1752,6 +2155,9 @@
 	dir = 8;
 	level = 2
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "kp" = (
@@ -1767,6 +2173,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "kr" = (
@@ -1788,6 +2195,19 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
+"kx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "ky" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -1859,6 +2279,7 @@
 /obj/item/bikehorn/rubberducky{
 	name = "Clem"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/specoffice)
 "kK" = (
@@ -1867,6 +2288,9 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
@@ -1891,6 +2315,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "kP" = (
@@ -1900,8 +2327,17 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
+"kQ" = (
+/obj/effect/floor_decal/spline/plain/cee/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "kR" = (
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/spline/plain/cee/blue{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "kS" = (
@@ -1917,6 +2353,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/red/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "kU" = (
@@ -1927,6 +2366,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/specoffice)
 "kW" = (
@@ -1936,6 +2376,9 @@
 "kY" = (
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -1967,6 +2410,9 @@
 /obj/item/clothing/head/helmet/unathi/klax,
 /obj/item/clothing/shoes/magboots/hegemony,
 /obj/item/clothing/glasses/sunglasses/blinders,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
@@ -1998,6 +2444,7 @@
 	},
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "lj" = (
@@ -2014,6 +2461,9 @@
 /area/kataphract_chapter/toilets)
 "lk" = (
 /obj/structure/reagent_dispensers/watertank,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "lo" = (
@@ -2021,12 +2471,16 @@
 /area/kataphract_chapter/hangar)
 "lq" = (
 /obj/machinery/appliance/cooker/grill,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "ls" = (
 /obj/machinery/power/apc/east{
 	req_access = null;
 	req_one_access = list(113,11)
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
@@ -2051,7 +2505,13 @@
 /obj/item/material/hatchet/unathiknife,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/badge/passport/hegemony,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "lw" = (
 /obj/structure/bed,
@@ -2060,7 +2520,10 @@
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "lx" = (
 /obj/structure/toilet,
@@ -2070,10 +2533,14 @@
 	name = "Stall Lock";
 	id = "katawashroom"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "ly" = (
 /obj/machinery/photocopier,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "lz" = (
@@ -2086,8 +2553,13 @@
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
+"lB" = (
+/obj/structure/closet/crate/freezer/rations,
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/full,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "lC" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2102,6 +2574,10 @@
 	req_access = null;
 	req_one_access = list(113,11)
 	},
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "lF" = (
@@ -2109,12 +2585,18 @@
 	pixel_y = 32
 	},
 /obj/structure/table/standard,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "lH" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -2134,12 +2616,16 @@
 	req_access = list(113);
 	req_one_access = null
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "lO" = (
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "lP" = (
@@ -2165,6 +2651,9 @@
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/yellow{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
@@ -2193,7 +2682,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "ma" = (
 /obj/structure/table/wood,
@@ -2211,11 +2703,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 2
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "mc" = (
 /obj/structure/table/standard,
 /obj/item/storage/box/fancy/tray,
+/obj/effect/floor_decal/corner/green/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "me" = (
@@ -2223,10 +2718,16 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
 "mf" = (
 /obj/structure/table/standard,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "mg" = (
@@ -2248,11 +2749,20 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
 	},
+/obj/structure/platform/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
 "mi" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
@@ -2263,13 +2773,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "mm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2283,11 +2796,20 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/green/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "mp" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/entry)
+"mr" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "mt" = (
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
@@ -2325,10 +2847,11 @@
 /obj/structure/sign/flag/hegemony{
 	pixel_y = -32
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood/cee,
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "mz" = (
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/kataphract_chapter/frankie)
 "mA" = (
 /obj/machinery/shower{
@@ -2343,14 +2866,28 @@
 	},
 /obj/structure/curtain/open/shower,
 /obj/random/soap,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "mC" = (
 /obj/structure/sign/flag/hegemony{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
+"mD" = (
+/obj/effect/floor_decal/spline/plain/yellow,
+/obj/effect/floor_decal/spline/plain/corner/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/corner/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "mE" = (
 /obj/structure/table/rack,
 /obj/item/ship_ammunition/bruiser/real/he{
@@ -2360,13 +2897,26 @@
 	pixel_x = -7
 	},
 /obj/item/ship_ammunition/bruiser/real/he,
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/item/ship_ammunition/bruiser/real/ap{
 	pixel_x = -7
 	},
 /obj/item/ship_ammunition/bruiser/real/ap,
 /obj/item/ship_ammunition/bruiser/real/ap{
 	pixel_x = 7
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/machinery/door/window/brigdoor/northleft{
+	dir = 2;
+	req_access = list(113)
+	},
+/obj/structure/table/rack,
+/obj/structure/sign/fire{
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
@@ -2387,11 +2937,17 @@
 /area/kataphract_chapter/sparring_chamber)
 "mJ" = (
 /obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
 "mK" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
@@ -2405,13 +2961,31 @@
 /obj/item/storage/box/zipties,
 /obj/item/melee/baton/stunrod,
 /obj/item/melee/baton/stunrod,
+/obj/effect/floor_decal/corner/red/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "mO" = (
 /obj/structure/table/rack,
 /obj/item/tank/hydrogen,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
+"mP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "mQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2419,19 +2993,43 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
-"mU" = (
+"mS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"mU" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "mY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "nb" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "nc" = (
@@ -2451,7 +3049,13 @@
 /obj/item/clothing/mask/gas/vaurca/filter,
 /obj/item/reagent_containers/food/snacks/koisbar,
 /obj/item/clothing/accessory/badge/passport/hegemony,
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "ne" = (
 /obj/machinery/door/airlock/glass{
@@ -2471,6 +3075,7 @@
 /area/kataphract_chapter/entry)
 "nf" = (
 /obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/green/full,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "ng" = (
@@ -2481,7 +3086,7 @@
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
 "nh" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -2499,6 +3104,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/structure/sign/vacuum{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "nj" = (
@@ -2506,6 +3120,13 @@
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/plastic/full,
+/obj/item/storage/box/lights,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "nk" = (
@@ -2517,6 +3138,9 @@
 /obj/item/storage/belt/utility,
 /obj/item/storage/belt/utility{
 	pixel_y = 5
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -2552,6 +3176,12 @@
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
+/obj/structure/sign/flag/hegemony{
+	pixel_y = -32
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "nx" = (
@@ -2579,7 +3209,10 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/kataphract_chapter/engineering)
 "nC" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -2594,6 +3227,13 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/kataphract_chapter/portpropulsion)
+"nU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/engineering)
 "oa" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -2601,6 +3241,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/cic)
+"op" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "ou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/door/airlock/hatch{
@@ -2609,16 +3255,30 @@
 	req_access = list(113)
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/portpropulsion)
 "oC" = (
-/obj/structure/rod_railing,
 /obj/machinery/power/apc/high/west{
 	req_access = null;
 	req_one_access = list(113,11)
 	},
+/obj/structure/rod_railing,
+/obj/structure/platform/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
+"oG" = (
+/obj/structure/extinguisher_cabinet/east,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "oT" = (
 /obj/structure/bed/stool/chair/padded/yellow{
 	dir = 4
@@ -2626,8 +3286,15 @@
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
+"oZ" = (
+/obj/effect/floor_decal/corner/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/medical)
 "pi" = (
 /obj/structure/table/steel,
 /obj/item/paper_bin,
@@ -2635,6 +3302,7 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/corner/red/full,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/brig)
 "po" = (
@@ -2650,6 +3318,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "px" = (
@@ -2668,6 +3337,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
+"qm" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "qq" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -2680,6 +3355,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
+"qI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "rc" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
@@ -2727,14 +3414,25 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"rt" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "ru" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /obj/machinery/alarm/north{
 	req_one_access = list(113,11)
+	},
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -2743,6 +3441,9 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2755,6 +3456,26 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/specoffice)
+"sa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"sk" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "so" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel{
 	dir = 4
@@ -2776,7 +3497,6 @@
 	pixel_x = 7
 	},
 /obj/item/ship_ammunition/bruiser/real/canister,
-/obj/effect/floor_decal/industrial/hatch/red,
 /obj/item/ship_ammunition/bruiser/real/beehive{
 	pixel_x = -7
 	},
@@ -2784,6 +3504,23 @@
 /obj/item/ship_ammunition/bruiser/real/beehive{
 	pixel_x = 7;
 	desc = "An expensive shell actually designed for a bruiser cannon. Very popular among sinta; this shell bursts into many slugger projectiles that punch through the hull with less mass, but more force."
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/structure/table/rack,
+/obj/machinery/door/window/brigdoor/southright{
+	req_access = list(113)
+	},
+/obj/structure/sign/securearea{
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
@@ -2797,6 +3534,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
 "sX" = (
@@ -2806,10 +3546,35 @@
 /obj/item/device/multitool,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"sZ" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "tb" = (
 /obj/structure/toilet,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/specoffice)
+"tq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"tu" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/power/apc/high/west{
+	req_access = null;
+	req_one_access = list(113,11)
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/starboardpropulsion)
 "ty" = (
 /obj/structure/bed/stool/chair/padded/red{
 	dir = 1
@@ -2826,8 +3591,17 @@
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
+"uc" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/cic)
 "ud" = (
 /obj/machinery/button/remote/blast_door{
 	dir = 6;
@@ -2835,8 +3609,17 @@
 	name = "Mess Hall Shutters";
 	id = "katamess"
 	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
+"uk" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/cic)
 "un" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -2845,7 +3628,7 @@
 /area/kataphract_chapter/sparring_chamber)
 "uA" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "uN" = (
 /obj/structure/sink{
@@ -2855,6 +3638,7 @@
 /obj/structure/mirror{
 	pixel_x = 32
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/office)
 "uR" = (
@@ -2863,15 +3647,85 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
+"vi" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
+"vX" = (
+/obj/structure/closet/walllocker{
+	pixel_x = -32;
+	name = "equipment locker"
+	},
+/obj/item/clothing/suit/unathi/robe/robe_coat,
+/obj/item/clothing/suit/unathi/robe/robe_coat/blue,
+/obj/item/clothing/suit/unathi/robe/robe_coat/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat/red,
+/obj/item/clothing/suit/unathi/robe/beige,
+/obj/item/clothing/head/unathi/deco,
+/obj/item/clothing/head/unathi,
+/obj/item/clothing/head/unathi/deco/blue,
+/obj/item/clothing/head/unathi/deco/dark/green,
+/obj/item/clothing/head/unathi/deco/dark/orange,
+/obj/item/material/hatchet/unathiknife,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/badge/passport/hegemony,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
+"wc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "wh" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
+"wi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "wl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -2887,8 +3741,21 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
+"wC" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "wP" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4;
@@ -2903,6 +3770,9 @@
 	pixel_x = 10
 	},
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/hepht,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "xD" = (
@@ -2910,9 +3780,6 @@
 /obj/machinery/door/window/brigdoor/northleft{
 	dir = 2;
 	req_access = list(113)
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
 	},
 /obj/item/ship_ammunition/francisca,
 /obj/item/ship_ammunition/francisca,
@@ -2928,8 +3795,24 @@
 /obj/item/ship_ammunition/francisca/frag{
 	pixel_y = 4
 	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/structure/sign/fire{
+	desc = "A danger sign which reads 'DANGER: EXPLOSIVE ORDINANCE' and 'THIS ROOM CONTAINS ORDINANCE THAT WILL KILL YOU INSTANTLY'.";
+	name = "\improper DANGER: EXPLOSIVE ORDINANCE sign";
+	pixel_y = 32
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
+"xK" = (
+/obj/effect/floor_decal/spline/plain/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/kataphract_chapter/engineering)
 "xW" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -2943,8 +3826,48 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(113,11)
 	},
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
+"yp" = (
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
+/obj/machinery/door/window/brigdoor/southright{
+	req_access = list(113)
+	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"yu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"yC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "yD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel,
 /obj/machinery/door/airlock/engineering{
@@ -2973,7 +3896,10 @@
 /obj/structure/sign/flag/klax{
 	pixel_y = 32
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood/cee{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
 "yY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2985,8 +3911,38 @@
 /obj/machinery/alarm/west{
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
+"zj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"zC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "zI" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -3007,7 +3963,20 @@
 	pixel_y = 8;
 	pixel_x = 5
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/button/remote/blast_door{
+	name = "Mess Hall Shutters";
+	id = "katamess";
+	pixel_x = 5
+	},
+/obj/machinery/button/remote/blast_door{
+	pixel_x = -6;
+	id = "katacic";
+	name = "CIC Lockdown"
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "Aa" = (
 /obj/structure/table/reinforced/steel,
@@ -3033,6 +4002,9 @@
 	id = "katacic";
 	name = "CIC Lockdown"
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "Ag" = (
@@ -3043,6 +4015,9 @@
 /area/kataphract_chapter/brig)
 "Ap" = (
 /obj/machinery/photocopier,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "Aq" = (
@@ -3063,17 +4038,30 @@
 	req_access = null;
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "Aw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "Ax" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
+"AB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "AD" = (
 /obj/machinery/atmospherics/pipe/simple/visible/fuel,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -3089,18 +4077,68 @@
 "Bi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"Bj" = (
+/obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/space)
+"Bk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "Bv" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav4,
 /turf/template_noop,
 /area/space)
+"Bw" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "BI" = (
 /obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"BW" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/meter,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Cx" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/dockintrepid,
 /turf/template_noop,
 /area/space)
+"Cy" = (
+/obj/effect/floor_decal/corner/yellow/full,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"CB" = (
+/obj/structure/extinguisher_cabinet/west,
+/obj/effect/floor_decal/corner_wide/red/full,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "CE" = (
 /obj/structure/platform_stairs{
 	dir = 1
@@ -3113,15 +4151,25 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
+"CH" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "CL" = (
 /obj/structure/toilet{
 	dir = 1;
 	pixel_y = -1
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/office)
 "CS" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
 "CW" = (
@@ -3153,6 +4201,13 @@
 "Dx" = (
 /turf/simulated/floor/tiled/full,
 /area/kataphract_chapter/cafeteria)
+"DT" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/bruiser)
 "DX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled,
@@ -3174,11 +4229,24 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/cafeteria)
+"El" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "En" = (
 /obj/structure/extinguisher_cabinet/west{
 	dir = 1;
 	pixel_x = 0;
 	pixel_y = 28
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
@@ -3198,6 +4266,7 @@
 /obj/structure/mirror{
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "EP" = (
@@ -3218,6 +4287,31 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"Fa" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"Fj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/yellow/full,
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "Fk" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
 	dir = 8
@@ -3233,6 +4327,9 @@
 "FJ" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
@@ -3257,6 +4354,10 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/plasteel/full,
 /obj/item/stack/rods/full,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "FX" = (
@@ -3293,16 +4394,59 @@
 	req_access = null
 	},
 /obj/item/storage/firstaid/radiation,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"Gv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"GS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "GW" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/bridge)
+"GX" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/cafeteria)
 "Hh" = (
 /obj/structure/rod_railing,
 /obj/machinery/power/apc/high/west{
 	req_access = null;
 	req_one_access = list(113,11)
+	},
+/obj/structure/platform/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
@@ -3310,15 +4454,31 @@
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "HH" = (
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/cic)
+"HN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/full,
+/area/kataphract_chapter/main_ring)
 "HS" = (
 /obj/machinery/power/apc/east{
 	req_access = null;
 	req_one_access = list(113,11)
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
@@ -3334,6 +4494,15 @@
 	},
 /turf/template_noop,
 /area/space)
+"Ip" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/hangar)
+"Iq" = (
+/obj/effect/floor_decal/corner/green/full,
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/medical)
 "Iw" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav3,
 /turf/template_noop,
@@ -3344,8 +4513,21 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
+"IH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "II" = (
 /obj/machinery/washing_machine,
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
 "IJ" = (
@@ -3354,8 +4536,42 @@
 	name = "surgical sink";
 	pixel_x = -20
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"IK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"IT" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"Jb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
+/area/kataphract_chapter/dorms)
 "Jl" = (
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -3368,7 +4584,7 @@
 /obj/structure/bed/stool/chair/office/bridge{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "JF" = (
 /obj/machinery/ship_weapon/francisca/compact{
@@ -3387,6 +4603,14 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"JP" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/power/apc/high/east{
+	req_access = null;
+	req_one_access = list(113,11)
+	},
+/turf/simulated/floor/plating,
+/area/kataphract_chapter/portpropulsion)
 "JQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -3397,17 +4621,41 @@
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
 "JX" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
+"JZ" = (
+/obj/machinery/atmospherics/binary/pump/fuel/on{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"Km" = (
+/obj/structure/window/reinforced{
+	dir = 8;
+	icon_state = "rwindow"
+	},
+/obj/structure/window/reinforced,
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/bruiser)
 "Ks" = (
 /obj/machinery/vending/engineering{
 	req_access = null
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
@@ -3416,23 +4664,60 @@
 	req_access = null;
 	req_one_access = list(113,11)
 	},
+/obj/structure/closet/crate/bin,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
+"KI" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "KT" = (
 /obj/effect/shuttle_landmark/nav_kataphract_ship/nav5,
 /turf/template_noop,
 /area/space)
+"Le" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/medical)
+"Lj" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/cic)
+"Lz" = (
+/obj/effect/floor_decal/corner/yellow/full,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "LD" = (
 /obj/machinery/power/apc/east{
 	req_access = null;
 	req_one_access = list(113,11)
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/toilets)
-"Mm" = (
-/obj/machinery/light{
+"LM" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"Mh" = (
+/obj/machinery/atmospherics/pipe/manifold/visible/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
 	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/kataphract_shuttle/main_compartment)
+"Mm" = (
 /obj/structure/table/rack,
 /obj/item/material/twohanded/pike/flag/hegemony,
 /obj/item/material/twohanded/pike/flag/hegemony,
@@ -3442,9 +4727,43 @@
 /obj/item/shield/energy/hegemony/kataphract,
 /obj/item/shield/energy/hegemony/kataphract,
 /obj/item/shield/energy/hegemony/kataphract,
+/obj/effect/floor_decal/corner_wide/red/full{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"Mt" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"Mw" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "MD" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3474,6 +4793,9 @@
 	req_access = null;
 	req_one_access = list(11,113)
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "Nr" = (
@@ -3483,6 +4805,21 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"Nx" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "NF" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/chemical_dispenser/bar_soft/full{
@@ -3499,6 +4836,7 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "NG" = (
@@ -3518,15 +4856,52 @@
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/glasses/sunglasses,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"NP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "NV" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
+"NX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "Od" = (
 /obj/structure/closet/cabinet,
 /obj/item/flag/hegemony,
@@ -3550,6 +4925,9 @@
 "Oi" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/specoffice)
+"Op" = (
+/turf/simulated/floor/carpet/rubber,
+/area/kataphract_chapter/engineering)
 "Os" = (
 /obj/machinery/door/airlock/medical{
 	name = "Operating Theatre";
@@ -3571,12 +4949,15 @@
 /obj/machinery/computer/ship/engines/terminal{
 	dir = 4
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "OF" = (
 /obj/machinery/power/apc/east{
 	req_access = null;
 	req_one_access = list(113,11)
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
@@ -3596,11 +4977,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "Ps" = (
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /obj/structure/closet/emcloset,
+/obj/effect/floor_decal/corner_wide/dark_blue/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bridge)
 "PD" = (
@@ -3609,6 +5002,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
@@ -3619,6 +5015,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "PW" = (
@@ -3626,14 +5025,79 @@
 /area/space)
 "Qh" = (
 /obj/structure/reagent_dispensers/fueltank,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
+"Qy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/sign/srg,
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/medical)
+"QC" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"QS" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "QT" = (
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/wood,
 /area/kataphract_chapter/dorms)
+"QW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/hangar)
 "Re" = (
 /obj/structure/closet/secure_closet/freezer/meat{
 	req_one_access = list(113)
@@ -3646,18 +5110,86 @@
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
+"Rh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"Ru" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "Rv" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/cic)
+"Rw" = (
+/obj/structure/extinguisher_cabinet/west,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"RD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
+"RE" = (
+/obj/structure/bed/roller,
+/obj/structure/curtain/open/medical,
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/kataphract_chapter/medical)
 "RL" = (
 /obj/structure/rod_railing,
 /obj/machinery/alarm/east{
 	req_one_access = list(113,11)
 	},
+/obj/structure/platform/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
+"RO" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "RY" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/cafeteria)
@@ -3669,10 +5201,41 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber)
+"Sm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
+"So" = (
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/kataphract_chapter/cic)
 "Sp" = (
 /obj/machinery/optable,
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"St" = (
+/obj/structure/lattice/catwalk,
+/turf/space,
+/area/space)
+"Su" = (
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "Sx" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -3696,10 +5259,37 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
+"SV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "SZ" = (
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/bluegrid/cooled,
 /area/kataphract_chapter/engineering)
+"Tb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "Td" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/sandals/caligae/socks,
@@ -3714,14 +5304,32 @@
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/glasses/sunglasses,
 /obj/item/clothing/glasses/sunglasses,
+/obj/effect/floor_decal/corner/red{
+	dir = 9
+	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"Tk" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/yellow{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "Tt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -3737,17 +5345,24 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/structure/platform/dark{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/frankie)
+"TM" = (
+/obj/machinery/suit_cycler/offship/kataphract,
+/obj/effect/floor_decal/corner_wide/red/full,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
 "TN" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/portpropulsion)
 "Ub" = (
 /obj/structure/bed/stool/chair/office/bridge,
-/obj/structure/sign/flag/hegemony{
-	pixel_y = -32
-	},
+/obj/effect/floor_decal/spline/plain/cee/blue,
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "Ul" = (
@@ -3764,6 +5379,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/entry)
+"UI" = (
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "UT" = (
 /obj/machinery/door/airlock/multi_tile{
 	dir = 2;
@@ -3789,6 +5410,9 @@
 /obj/structure/sign/flag/hegemony{
 	pixel_x = -32
 	},
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/cic)
 "Ve" = (
@@ -3797,6 +5421,9 @@
 /obj/item/flame/lighter/random{
 	pixel_y = 8;
 	pixel_x = 6
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 7
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/cafeteria)
@@ -3808,14 +5435,29 @@
 	req_one_access = list(113,11)
 	},
 /turf/simulated/floor/carpet/rubber)
+"VJ" = (
+/obj/machinery/computer/shuttle_control/explore/terminal/kataphract_transport{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "VU" = (
 /obj/structure/bed/stool/chair/office/bridge,
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
+"VW" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/entry)
 "VZ" = (
 /obj/machinery/mech_recharger,
 /mob/living/heavy_vehicle/premade/ripley/loader,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/floor_decal/corner/yellow/full{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/kataphract_chapter/bruiser)
 "Wi" = (
@@ -3849,13 +5491,17 @@
 /area/kataphract_chapter/cafeteria)
 "Ws" = (
 /obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue/full,
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "WI" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
+/obj/effect/floor_decal/spline/plain/cee/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Xa" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -3869,6 +5515,9 @@
 "Xf" = (
 /obj/structure/rod_railing,
 /obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/structure/platform/dark{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -3887,13 +5536,17 @@
 /obj/machinery/door/firedoor/noid{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/cafeteria)
 "XQ" = (
 /obj/machinery/computer/ship/helm/terminal{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner_wide/dark_blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "XS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3902,10 +5555,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/entry)
 "XZ" = (
 /obj/machinery/autolathe,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/engineering)
 "Yi" = (
@@ -3913,8 +5570,23 @@
 	dir = 4;
 	icon_state = "map_scrubber_on"
 	},
+/obj/effect/floor_decal/corner/green{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"Yo" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/main_ring)
 "Yr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -3922,6 +5594,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/effect/floor_decal/corner/green/diagonal,
+/obj/effect/floor_decal/sign/gtr,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "Yx" = (
@@ -3953,8 +5627,31 @@
 /area/kataphract_chapter/medical)
 "YW" = (
 /obj/structure/closet/crate/trashcart,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
+"ZS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/kataphract_chapter/armoury)
+"ZX" = (
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/engineering,
+/turf/simulated/floor/tiled/full,
+/area/shuttle/kataphract_shuttle/main_compartment)
 
 (1,1,1) = {"
 iB
@@ -15377,11 +17074,11 @@ lu
 iB
 iT
 fZ
-Ea
+Su
 NG
 Td
 lb
-Ea
+CB
 iT
 iT
 iB
@@ -15410,8 +17107,8 @@ dW
 dW
 dW
 dW
-iB
-iB
+St
+Bj
 iB
 iB
 iB
@@ -15532,7 +17229,7 @@ iB
 lu
 dd
 fk
-ju
+Op
 ik
 fK
 lu
@@ -15543,8 +17240,8 @@ Ea
 Ea
 Ea
 Ea
-Ea
-iU
+op
+TM
 iT
 le
 le
@@ -15561,10 +17258,10 @@ hj
 hj
 hj
 RY
-hz
-jc
+yp
+El
 eq
-FX
+Cy
 dW
 dW
 dW
@@ -15695,21 +17392,21 @@ dg
 fU
 lu
 ng
-ju
-ju
+Op
+Op
 aO
 SZ
 iT
 Mm
-Ea
-Ea
+dp
+vi
 jH
 av
 Ea
 iU
 iT
 ke
-Aw
+Le
 Gk
 YP
 le
@@ -15723,10 +17420,10 @@ XI
 XI
 gX
 RY
+VW
 FX
 FX
-FX
-FX
+IT
 dW
 xD
 oC
@@ -15851,12 +17548,12 @@ iB
 iB
 bW
 nA
-df
+tu
 eK
 dg
 gH
 gI
-ju
+xK
 me
 nB
 lu
@@ -15864,15 +17561,15 @@ lu
 iT
 iT
 iT
-Ea
+Ru
 sX
 is
 Ea
 iU
 iT
 kf
-Aw
-Aw
+oZ
+oZ
 Aw
 le
 le
@@ -15883,12 +17580,12 @@ ud
 dZ
 dZ
 dZ
-mt
+GX
 RY
 dY
 kv
 cL
-FX
+IT
 dW
 bq
 dB
@@ -16016,17 +17713,17 @@ eT
 de
 dG
 ee
-fx
+nU
 fx
 fx
 fo
 hZ
 jt
 cN
-eH
+kx
 dj
 gS
-Ea
+Ru
 ac
 JI
 Ea
@@ -16034,12 +17731,12 @@ iW
 iT
 kg
 kC
-Aw
+oZ
 Yi
 IJ
 he
-PH
-Aw
+Qy
+Iq
 le
 oT
 mt
@@ -16185,8 +17882,8 @@ ig
 ju
 FP
 lu
-cf
-cp
+QC
+Mt
 iT
 mJ
 Ea
@@ -16196,7 +17893,7 @@ iX
 iT
 rq
 kD
-Aw
+oZ
 Yr
 pp
 kq
@@ -16211,8 +17908,8 @@ Ve
 RY
 Kw
 jp
-jO
-FX
+Sm
+aR
 dW
 aw
 CE
@@ -16347,12 +18044,12 @@ ju
 ju
 nj
 lu
-cf
-cp
+QC
+Mt
 iT
 mK
 HS
-Gj
+ZS
 iG
 iY
 iT
@@ -16360,13 +18057,13 @@ kh
 OF
 kY
 PH
-nf
-bo
-nf
+dA
+RE
+dA
 bo
 le
 ba
-mt
+aU
 Tt
 ls
 tM
@@ -16509,8 +18206,8 @@ ek
 Ks
 nk
 lu
-cf
-cp
+QC
+Mt
 iT
 iT
 iT
@@ -16534,9 +18231,9 @@ RY
 RY
 RY
 iV
-FX
+Rw
 jO
-FX
+Lz
 dW
 dW
 dW
@@ -16671,43 +18368,43 @@ lu
 lu
 lu
 lu
-cf
-cp
-cf
-cf
-cf
-mF
-cf
-ja
-cf
-cf
+QC
+wc
+KI
+KI
+KI
+Rh
+wC
+gR
+ki
+KI
 dE
-cf
-mF
-cf
-cf
+KI
+Rh
+KI
+KI
 dM
-cf
-cf
-cf
-cf
-mF
-cf
-lX
+KI
+KI
+KI
+KI
+Rh
+KI
+Fj
 aj
-XS
-XS
+wi
+mP
 wz
-FX
+aR
 dW
 dW
 dW
 dW
 dW
 dW
-iB
-iB
-iB
+St
+St
+Bj
 iB
 iB
 iB
@@ -16833,15 +18530,15 @@ iB
 iB
 iB
 fu
-cf
+Fa
 sU
-if
-if
-if
-Xa
-if
-jb
-if
+Bk
+Bk
+Bk
+QS
+mS
+HN
+Nx
 if
 gJ
 if
@@ -16984,14 +18681,14 @@ iB
 iB
 Bi
 Bi
-Bi
-Bi
+bH
+bH
 Bi
 Bi
 Bi
 fd
-eD
-iB
+RO
+CH
 iB
 iB
 lo
@@ -17000,7 +18697,7 @@ Wl
 lo
 lo
 lo
-cf
+QC
 cf
 jd
 jd
@@ -17017,7 +18714,7 @@ ah
 ah
 ah
 mF
-cf
+qm
 GW
 Ps
 gj
@@ -17149,9 +18846,9 @@ ft
 du
 dk
 dL
-cl
+ZX
 eE
-fD
+fe
 fC
 eD
 iB
@@ -17162,7 +18859,7 @@ aW
 jm
 aN
 lo
-cf
+QC
 cf
 jd
 jE
@@ -17179,7 +18876,7 @@ mM
 pi
 ah
 mF
-cf
+qm
 GW
 En
 aC
@@ -17303,18 +19000,18 @@ iB
 iB
 iB
 iB
+bH
 Bi
-Bi
-cl
+VJ
 Ou
-cl
+cc
 cl
 dl
 dP
+JZ
 cl
-cl
-cl
-gA
+Tb
+Mh
 Bi
 Bi
 lo
@@ -17341,7 +19038,7 @@ im
 kK
 ah
 mF
-cf
+qm
 GW
 ru
 bQ
@@ -17465,24 +19162,24 @@ iB
 iB
 iB
 iB
-Bi
+bH
 cb
 WI
+fN
+mD
 cl
-cl
-cP
 dm
 dK
-lQ
-cl
-cl
+BW
+AB
+Mw
 eF
 fc
 BI
 nt
 aa
-nt
-aW
+Ip
+QW
 hJ
 YW
 lo
@@ -17503,7 +19200,7 @@ iS
 kT
 cg
 en
-if
+zC
 aV
 kO
 cy
@@ -17627,15 +19324,15 @@ iB
 iB
 iB
 iB
-Bi
+bH
 Bi
 cC
 cr
-cl
-cl
-cl
-cl
-cl
+kQ
+cP
+tq
+yC
+lQ
 cl
 cQ
 gA
@@ -17646,7 +19343,7 @@ lo
 lo
 ni
 iq
-hJ
+rt
 lo
 PD
 cD
@@ -17665,7 +19362,7 @@ eZ
 Ag
 ah
 mF
-cf
+qm
 GW
 Nq
 JQ
@@ -17798,7 +19495,7 @@ dN
 dN
 dN
 dN
-cl
+lB
 fd
 fD
 eD
@@ -17806,11 +19503,11 @@ iB
 iB
 lo
 bb
-aW
+NP
 mO
 nb
 lo
-mF
+IH
 cf
 jd
 ci
@@ -17827,7 +19524,7 @@ OT
 cK
 ah
 mF
-cf
+qm
 GW
 lH
 aC
@@ -17956,8 +19653,8 @@ iB
 iB
 Bi
 Bi
-Bi
-Bi
+bH
+bH
 Bi
 Bi
 Bi
@@ -17972,7 +19669,7 @@ Wl
 lo
 lo
 lo
-mF
+IH
 cf
 jd
 jd
@@ -17989,7 +19686,7 @@ ah
 ah
 ah
 mF
-cf
+qm
 GW
 Ap
 JX
@@ -18129,15 +19826,15 @@ iB
 iB
 iB
 fu
-cf
-sU
-if
-if
-if
-Xa
-if
+UI
+zj
+fI
+fI
+fI
+Bw
+IK
 jb
-if
+yu
 Sy
 rm
 if
@@ -18151,7 +19848,7 @@ cf
 cf
 cf
 mF
-cf
+qm
 GW
 GW
 GW
@@ -18291,43 +19988,43 @@ mL
 mL
 mL
 mL
-cf
-cp
-cf
-cf
-cf
-cf
-cf
+QC
+NX
+LM
+LM
+LM
+LM
+sZ
 ja
-cf
+Tk
 ko
-mF
-cf
-mF
-cf
-cf
+sa
+LM
+sa
+LM
+LM
 gi
-cf
-cf
-cf
+LM
+LM
+LM
 lX
-if
-Xa
-if
+Bk
+Yo
+RD
 aj
-XS
-XS
+SV
+qI
 da
-FX
+Lz
 ax
 ax
 ax
 ax
-iB
-iB
-iB
-iB
-iB
+St
+St
+St
+St
+Bj
 iB
 iB
 iB
@@ -18453,8 +20150,8 @@ Jl
 gp
 gW
 mL
-cf
-cp
+QC
+Mt
 Rv
 Rv
 Rv
@@ -18477,20 +20174,20 @@ yi
 yi
 yi
 yi
-iV
-FX
-jO
-FX
+sk
+oG
+Sm
+aR
 ax
 ax
 ax
 ax
-lc
-lc
+DT
+Km
 iB
 iB
 iB
-iB
+bO
 iB
 iB
 iB
@@ -18615,7 +20312,7 @@ gU
 Sf
 Vj
 mL
-cf
+QC
 cp
 Rv
 ym
@@ -18636,7 +20333,7 @@ lv
 it
 lZ
 mU
-lv
+vX
 my
 yi
 mp
@@ -18777,8 +20474,8 @@ gr
 AG
 wP
 mL
-cf
-sU
+QC
+Gv
 hU
 ed
 gv
@@ -18794,17 +20491,17 @@ Er
 CX
 yi
 yi
-mU
+mr
 uA
 ma
 ml
-mU
+GS
 yi
 yi
 lE
 zi
 jO
-FX
+Lz
 ax
 sB
 fz
@@ -18958,7 +20655,7 @@ yi
 yO
 nc
 at
-lZ
+Jb
 QT
 gT
 my
@@ -19091,7 +20788,7 @@ iB
 iB
 nM
 aE
-TN
+JP
 cG
 dQ
 mL
@@ -19128,7 +20825,7 @@ lP
 lF
 DX
 ic
-FX
+IT
 ax
 mi
 gb
@@ -19265,8 +20962,8 @@ fm
 Rv
 aL
 Av
-HH
-HH
+uc
+So
 mv
 mv
 HX
@@ -19287,10 +20984,10 @@ gM
 Ez
 Ez
 lP
+VW
 FX
 FX
-FX
-FX
+IT
 ax
 VZ
 mh
@@ -19426,8 +21123,8 @@ nz
 bE
 Rv
 hu
-HH
-HH
+uk
+Lj
 HH
 mv
 nq
@@ -19452,7 +21149,7 @@ lP
 hz
 jc
 Pr
-FX
+gn
 ax
 ax
 ax
@@ -19622,8 +21319,8 @@ ax
 ax
 ax
 ax
-iB
-iB
+St
+Bj
 iB
 iB
 iB
