@@ -1355,6 +1355,9 @@
 	req_one_access = list(113,13)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/nav_kataphract_ship/starboard{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/starentry)
 "eT" = (

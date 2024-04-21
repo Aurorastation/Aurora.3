@@ -87,7 +87,7 @@
 	landmark_tag = "nav_kataphract_ship_starboard"
 	master_tag = "airlock_kataphract_ship_starboard_dock"
 
-/obj/effect/shuttle_landmark/nav_kataphract_ship/starboard //any ship with a docking port on their left side assuming they have their landmark mapped in properly
+/obj/effect/shuttle_landmark/nav_kataphract_ship/port //any ship with a docking port on their left side assuming they have their landmark mapped in properly
 	name = "Kataphract Ship Port Docking"
 	landmark_tag = "nav_kataphract_ship_port"
 	docking_controller = "dock_kataphract_ship_port"
