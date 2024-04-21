@@ -57,6 +57,7 @@
 	name = "Kataphract Specialist"
 	desc = "A Saa (Knight) of the traveling Kataphract Guild. Display honour in everything you do. Support your Knight Captain and lead by example. Remember, you serve the Izweski Hegemony."
 	max_count = 1
+	uses_species_whitelist = TRUE
 
 	mob_name_prefix = "Saa "
 
@@ -135,5 +136,5 @@
 
 	back = /obj/item/storage/backpack/satchel/hegemony
 
-/obj/outfit/admin/kataphract/quartermaster/get_id_access()
+/obj/outfit/admin/kataphract/specialist/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
