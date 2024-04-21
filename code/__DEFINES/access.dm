@@ -557,7 +557,6 @@
 /datum/access/kataphract/knight
 	id = ACCESS_KATAPHRACT_KNIGHT
 	desc = "Kataphract Knight Access"
-	access_type = ACCESS_TYPE_CENTCOM
 
 /***************
 * Antag access *

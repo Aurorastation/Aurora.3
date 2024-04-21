@@ -136,5 +136,5 @@
 
 	back = /obj/item/storage/backpack/satchel/hegemony
 
-/obj/outfit/admin/kataphract/specialist/get_id_access()
+/obj/outfit/admin/kataphract/quartermaster/get_id_access()
 	return list(ACCESS_KATAPHRACT, ACCESS_KATAPHRACT_KNIGHT, ACCESS_EXTERNAL_AIRLOCKS)
