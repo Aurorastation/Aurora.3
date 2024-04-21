@@ -7,6 +7,10 @@
 	/// Should have the most brief description and expectations for the role.
 	var/desc = null
 
+	/// Similar to the normal desc, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/desc_ooc = null
+
 	/// Message shown to the player immediately after spawning.
 	/// Can be longer than the description, and more detailed.
 	/// Should also contain anything else specific to the role, for example:

@@ -1,0 +1,10 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Ghostspawner OOC description."
+  - qol: "Ghostspawner desc and welcome_text minor tweaks."
+  - qol: "Cult base minor tweaks."
+  - bugfix: "Fixes cult base being guaranteed site."
