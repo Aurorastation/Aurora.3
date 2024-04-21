@@ -8,103 +8,107 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/kataphract_chapter/bridge
-	name = "Bridge"
+	name = "Kataphract Bridge"
 	icon_state = "bridge"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/kataphract_chapter/sparring_chamber
-	name = "Sparring Chamber"
+	name = "Kataphract Sparring Chamber"
 	icon_state = "security"
 	sound_environment = SOUND_ENVIRONMENT_ARENA
 
 /area/kataphract_chapter/armoury
-	name = "Armoury and EVA"
+	name = "Kataphract Armoury and EVA"
 	icon_state = "Warden"
 	ambience = AMBIENCE_HIGHSEC
 
 /area/kataphract_chapter/main_ring
-	name = "Main Ring"
+	name = "Kataphract Main Ring"
 	icon_state = "yellow"
 
 /area/kataphract_chapter/aft_hall
-	name = "Aft Hall"
+	name = "Kataphract Aft Hall"
 	icon_state = "yellow"
 
-/area/kataphract_chapter/entry
-	name = "Entry"
+/area/kataphract_chapter/portentry
+	name = "Kataphract Port Entry"
 	icon_state = "yellow"
+
+/area/kataphract_chapter/starentry
+	name = "Kataphract Starboard Entry"
+	icon_state = "blue"
 
 /area/kataphract_chapter/medical
-	name = "Healer's Bay"
+	name = "Kataphract Healer's Bay"
 	icon_state = "law"
 
 /area/kataphract_chapter/dorms
-	name = "Dormitory"
+	name = "Kataphract Zo'saa Dormitory"
 	icon_state = "Sleep"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/toilets
-	name = "Toilets"
+	name = "Kataphract Toilets"
 	icon_state = "toilet"
 	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/kataphract_chapter/office
-	name = "Knight Captain's Office"
+	name = "Kataphract Knight Captain's Office"
 	icon_state = "law"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/kataphract_chapter/specoffice
-	name = "Specialist's Office"
+	name = "Kataphract Specialist's Office"
 	icon_state = "office"
 	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
-/area/kataphract_chapter/cafeteria
-	name = "Cafeteria"
+/area/kataphract_chapter/mess
+	name = "Kataphract Mess Hall"
 	icon_state = "kitchen"
 
 /area/kataphract_chapter/brig
-	name = "Brig"
+	name = "Kataphract Brig"
 	icon_state = "security"
 
 /area/kataphract_chapter/engineering
-	name = "Engineering"
+	name = "Kataphract Engineering"
 	icon_state = "engineering_workshop"
 	ambience = AMBIENCE_ENGINEERING
 
 /area/kataphract_chapter/atmospherics
-	name = "Atmospherics"
+	name = "Kataphract Atmospherics"
 	icon_state = "orange"
 
 /area/kataphract_chapter/starboardpropulsion
-	name = "Starboard Propulsion"
+	name = "Kataphract Starboard Propulsion"
 	icon_state = "engineering_workshop"
 
 /area/kataphract_chapter/portpropulsion
-	name = "Starboard Propulsion"
+	name = "Kataphract Starboard Propulsion"
 	icon_state = "engineering_workshop"
 
 /area/kataphract_chapter/hangar
-	name = "Hangar"
+	name = "Kataphract Hangar"
 	icon_state = "green"
 	ambience = AMBIENCE_HANGAR
 	sound_environment = SOUND_ENVIRONMENT_HANGAR
 
 /area/kataphract_chapter/cic
-	name = "Combat Information Center"
+	name = "Kataphract Combat Information Center"
 	icon_state = "security"
 
 /area/kataphract_chapter/frankie
-	name = "Francisca Weapons System"
+	name = "Kataphract Francisca Weapons System"
 	icon_state = "quartstorage"
 	sound_environment = AMBIENCE_HIGHSEC
 
 /area/kataphract_chapter/bruiser
-	name = "Bruiser Cannon Weapons System"
+	name = "Kataphract Bruiser Cannon Weapons System"
 	icon_state = "quartstorage"
 	sound_environment = AMBIENCE_HIGHSEC
 
 /area/kataphract_chapter/hull
-	name = "Hull"
+	name = "Kataphract Hull"
 	icon_state = "blue"
 
 
