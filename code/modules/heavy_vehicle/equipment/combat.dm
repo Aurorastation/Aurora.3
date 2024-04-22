@@ -335,7 +335,7 @@
 	else
 		STOP_PROCESSING(SSprocessing, src)
 	active = aura.active
-	passive_power_use = active ? 1 KILOWATTS : 0
+	passive_power_use = active ? 1 KILO WATTS : 0
 	owner.update_icon()
 
 /obj/item/mecha_equipment/shield/deactivate()

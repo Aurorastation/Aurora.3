@@ -9,18 +9,26 @@
 	icon = 'icons/mob/eye.dmi'
 	icon_state = "default-eye"
 	alpha = 127
-	density = FALSE
-
-	status_flags = GODMODE
-	invisibility = INVISIBILITY_EYE
+	density = 0
 
 	var/sprint = 10
 	var/cooldown = 0
 	var/acceleration = 1
 	var/owner_follows_eye = 0
 
+	status_flags = GODMODE
+	invisibility = INVISIBILITY_EYE
+
 	var/mob/owner = null
+	var/list/visibleChunks = list()
+
 	var/ghostimage = null
+	var/datum/visualnet/visualnet
+	///Set if the eye uses special click handling. Distinct from parent mob click handling for AI eye.
+	var/click_handler_type = /datum/click_handler/eye
+
+	///Whether or not our eye uses normal living vision handling
+	var/living_eye = TRUE
 
 /mob/abstract/eye/New()
 	ghostimage = image(src.icon,src,src.icon_state)
@@ -39,6 +47,7 @@
 
 	release(owner)
 	owner = null
+	visualnet = null
 	return ..()
 
 /mob/abstract/eye/Move(n, direct)
@@ -68,24 +77,37 @@
 		return
 	if(owner && owner.eyeobj != src)
 		return
+
 	owner = user
 	owner.eyeobj = src
-	name = "[owner.name] ([name_suffix])" // Update its name
+	name = "[owner.name] ([name_suffix])"
 	if(owner.client)
 		owner.client.eye = src
+	LAZYDISTINCTADD(owner.additional_vision_handlers, src)
+	apply_visual(owner)
+	if(click_handler_type)
+		owner.PushClickHandler(click_handler_type)
 	setLoc(owner)
+	visualnet.update_eye_chunks(src, TRUE)
 
 /mob/abstract/eye/proc/release(var/mob/user)
 	if(owner != user || !user)
 		return
 	if(owner.eyeobj != src)
 		return
+	remove_visual(owner)
+	LAZYREMOVE(owner.additional_vision_handlers, src)
+	visualnet.remove_eye(src)
 	owner.eyeobj = null
-	owner.reset_view()
+	if(owner.client)
+		owner.client.eye = owner
+	if(click_handler_type)
+		owner.RemoveClickHandler(click_handler_type)
 	owner = null
 	name = initial(name)
 
 // Use this when setting the eye's location.
+// It will also stream the chunk that the new loc is in.
 /mob/abstract/eye/proc/setLoc(var/T)
 	if(!owner)
 		return FALSE
@@ -101,6 +123,7 @@
 	if(owner_follows_eye)
 		owner.forceMove(loc)
 
+	visualnet.update_eye_chunks(src)
 	return TRUE
 
 /mob/abstract/eye/proc/getLoc()
@@ -136,3 +159,28 @@
 	else
 		sprint = initial
 	return 1
+
+/mob/abstract/eye/ClickOn(atom/A, params)
+	if(owner)
+		return owner.ClickOn(A, params)
+	return ..()
+
+/mob/abstract/eye/proc/apply_visual(mob/M)
+	if(M != owner || !M.client)
+		return FALSE
+	return TRUE
+
+/mob/abstract/eye/proc/remove_visual(mob/M)
+	if(M != owner || !M.client)
+		return FALSE
+	return TRUE
+
+/datum/click_handler/eye/OnClick(atom/A, params)
+	var/mob/abstract/eye = user.eyeobj
+	if(!eye) //Something has broken, ensure the click handler doesn't stick around
+		user.RemoveClickHandler(src)
+		return
+	eye.ClickOn(A, params)
+
+/datum/click_handler/eye/OnDblClick(atom/A, params)
+	OnClick(A, params)

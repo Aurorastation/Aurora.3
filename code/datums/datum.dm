@@ -12,8 +12,6 @@
 	/// Active timers with this datum as the target
 	var/list/_active_timers
 
-	var/tmp/isprocessing = 0
-
 	/// Status traits attached to this datum. associative list of the form: list(trait name (string) = list(source1, source2, source3,...))
 	var/list/status_traits
 	/// Components attached to this datum
@@ -54,12 +52,25 @@
 	// Create and destroy is weird and I wanna cover my bases
 	var/harddel_deets_dumped = FALSE
 
-// Default implementation of clean-up code.
-// This should be overridden to remove all references pointing to the object being destroyed.
-// Return the appropriate QDEL_HINT; in most cases this is QDEL_HINT_QUEUE.
+/**
+ * Default implementation of clean-up code.
+ *
+ * This should be overridden to remove all references pointing to the object being destroyed, if
+ * you do override it, make sure to call the parent and return it's return value by default
+ *
+ * Return an appropriate [QDEL_HINT][QDEL_HINT_QUEUE] to modify handling of your deletion;
+ * in most cases this is [QDEL_HINT_QUEUE].
+ *
+ * The base case is responsible for doing the following
+ * * Erasing timers pointing to this datum
+ * * Erasing compenents on this datum
+ * * Notifying datums listening to signals from this datum that we are going away
+ *
+ * Returns [QDEL_HINT_QUEUE]
+ */
 /datum/proc/Destroy(force=FALSE)
 	SHOULD_CALL_PARENT(TRUE)
-	//SHOULD_NOT_SLEEP(TRUE) //Soon my friend, soon...
+	SHOULD_NOT_SLEEP(TRUE)
 
 	tag = null
 	datum_flags &= ~DF_USE_TAG //In case something tries to REF us
@@ -122,23 +133,6 @@
 	//END: ECS SHIT
 
 	return QDEL_HINT_QUEUE
-
-/**
- * This proc is called on a datum on every "cycle" if it is being processed by a subsystem. The time between each cycle is determined by the subsystem's "wait" setting.
- * You can start and stop processing a datum using the START_PROCESSING and STOP_PROCESSING defines.
- *
- * Since the wait setting of a subsystem can be changed at any time, it is important that any rate-of-change that you implement in this proc is multiplied by the seconds_per_tick that is sent as a parameter,
- * Additionally, any "prob" you use in this proc should instead use the SPT_PROB define to make sure that the final probability per second stays the same even if the subsystem's wait is altered.
- * Examples where this must be considered:
- * - Implementing a cooldown timer, use `mytimer -= seconds_per_tick`, not `mytimer -= 1`. This way, `mytimer` will always have the unit of seconds
- * - Damaging a mob, do `L.adjustFireLoss(20 * seconds_per_tick)`, not `L.adjustFireLoss(20)`. This way, the damage per second stays constant even if the wait of the subsystem is changed
- * - Probability of something happening, do `if(SPT_PROB(25, seconds_per_tick))`, not `if(prob(25))`. This way, if the subsystem wait is e.g. lowered, there won't be a higher chance of this event happening per second
- *
- * If you override this do not call parent, as it will return PROCESS_KILL. This is done to prevent objects that dont override process() from staying in the processing list
- */
-/datum/proc/process(seconds_per_tick)
-	set waitfor = FALSE
-	return PROCESS_KILL
 
 /datum/proc/can_vv_get(var_name)
 	return TRUE

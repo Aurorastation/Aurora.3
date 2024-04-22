@@ -133,6 +133,8 @@
 	for(var/turf/T in RANGE_TURFS(1, src))
 		T.update_icon()
 
+	updateVisibility(src, FALSE)
+
 /turf/proc/transport_properties_from(turf/other)
 	if(!istype(other, src.type))
 		return 0

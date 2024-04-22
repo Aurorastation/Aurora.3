@@ -12,4 +12,6 @@
 	sectors = ALL_CORPORATE_SECTORS
 	// available to all exoplanets, no filters
 	ruin_tags = 0
-	suffixes = list("delivery/delivery_site.dmm")
+
+	prefix = "delivery/"
+	suffixes = list("delivery_site.dmm")

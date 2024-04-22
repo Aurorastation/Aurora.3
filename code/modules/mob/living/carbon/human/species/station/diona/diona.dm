@@ -115,8 +115,8 @@
 	max_hydration_factor = -1
 
 	possible_cultures = list(
+		/singleton/origin_item/culture/hieroaetheria,
 		/singleton/origin_item/culture/xrim,
-		/singleton/origin_item/culture/eum,
 		/singleton/origin_item/culture/narrows,
 		/singleton/origin_item/culture/diona_biesel,
 		/singleton/origin_item/culture/diona_sol,

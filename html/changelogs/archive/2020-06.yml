@@ -1,0 +1,532 @@
+2020-06-01:
+  Afya:
+  - rscadd: Fire alarms now show alert level on examine
+  - admin: Adminverbs - Hide Most is now actually useful
+  MattAtlas:
+  - tweak: You should now get blood on your clothes more often when attacking people.
+  MoondancerPony:
+  - tweak: Changes the capitalisation of the language processors slightly.
+  - bugfix: You can now actually spawn with the implant you have selected.
+  Wowzewow (Wezzy):
+  - rscadd: Adds animation to picking up things.
+2020-06-02:
+  Afya:
+  - admin: Send to Lobby verb in PP
+  Chada:
+  - tweak: Added a separation between player and character to the show laws info for
+      'borgs and AI.
+  Geeves:
+  - rscadd: Diona now have a biomass drain when they have apparitions summoned, they
+      also take slightly more damage.
+  MattAtlas:
+  - spellcheck: Fixed a bunch of typos in various messages and flavor-ified some,
+      mainly surgery messages.
+  - tweak: Most common messages have been made to look like emotes to the viewer.
+  - bugfix: Fixed blobs and vines random spawns not working.
+  - bugfix: Fixed blobs being immortal.
+  - bugfix: The hacktool works again.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes combat shotgun suit storage onmob icon.
+2020-06-03:
+  Geeves:
+  - bugfix: Drills are no longer permanently rooted in place if one of their braces
+      explodes or gets deleted.
+  Scheveningen:
+  - tweak: Slimes no longer have a 25% chance to dodge a melee weapon, especially
+      when it is already dead.
+  Wowzewow (Wezzy):
+  - rscdel: Removes unused/superfluous uniforms.
+  - rscadd: Makes the ready up panel bigger. Tweaks the primer.
+  Wowzewow (Wezzy), MrDoomBringer:
+  - imageadd: RFD-Cs have cool animations now. Check it out!
+  - bugfix: RFD-Cs can properly build airlocks now.
+  - bugfix: RFDs no longer eat your ammo when you move away.
+  - bugfix: RFD-Cs construct airlocks cheaper and faster to be more in line with wall
+      deconstruction.
+2020-06-04:
+  Geeves:
+  - bugfix: The mechfab no longer has a useless null category that does nothing when
+      clicked on.
+  - rscadd: The exosuit category in the mechfab has now been split into body construction
+      and equipment construction for ease of use.
+  - rscadd: Radio, Diagnosis Unit, and Actuator construction has been added to the
+      exosuit body category as well.
+  - tweak: Many RnD machineries have had their names changed to lowercase to match
+      the style of the rest of the game.
+  - bugfix: Newscasters now tend to always get your ID if it's in your ID slot, hand,
+      or glove slot.
+  LocoTokyoFunBus:
+  - tweak: Replaced the old juicer.ogg file with a file of the same name.
+2020-06-05:
+  Geeves:
+  - rscadd: Added the ability to throw snap pops at your feet by simply activating
+      them in hand, or clicking them in hand.
+  - rscadd: Added smokepops, snap pops that deploy a small smokescreen. Added to the
+      stealth and camouflage uplink for 1 TC.
+  - bugfix: Fixed chameleon projector description in the uplink.
+  - rscdel: Removed appendicitis.
+  - rscdel: Removed the nanite robot transformation.
+  - rscdel: Removed viruses. This includes deltamivir.
+  - rscadd: pAI can now be put into modular computers to control them. When a pAI
+      is inserted, a new service will be unlocked, which can disable their access
+      to the computer.
+  - bugfix: Having your mech explode while you're remotely piloting it should no longer
+      kill you. Probably.
+  Kaedwuff:
+  - rscdel: Removes Virology and all related machinery from the game.
+  - rscdel: Removes almost all virus code from the game.
+  - rscdel: Removes the Virus Outbreak event and all other Virology related events.
+  - maptweak: The Virology department is now the Abandoned Sector and has been modified
+      to resemble such.
+  - tweak: The Biochemist job has been replaced with the old Chemist job again.
+  MattAtlas:
+  - experiment: Lasers now have a chance to not boil blood based on the armor penetration
+      and armor values.
+  - tweak: Stasis bags now actually do damage, and will actually kill.
+  - backend: Burn damage now counts as total damage when hitting robotic limbs.
+  - tweak: Sharp weapons now have a harder time penetrating to organs.
+  ParadoxSpace:
+  - rscadd: Adds Cargo Technician back to the list of available Hephaestus jobs.
+2020-06-06:
+  Geeves:
+  - bugfix: Vaurca and Dionae can no longer be psionically awakened. Flatbrains.
+  - bugfix: Being psionically active lets you know who telepathically messaged you.
+  MattAtlas:
+  - rscdel: Spy vs. Spy has been removed as a playable gamemode.
+  - bugfix: Stasis bags should no longer basically instantly kill people.
+  - bugfix: Added a changelog editing system that should cause fewer conflicts and
+      more accurate timestamps.
+  Wowzewow (Wezzy):
+  - bugfix: Actually removes the unused female suit from code properly.
+  - rscadd: Adds pleated skirts to the loadout.
+  - rscadd: Adds skirt inhands.
+  - tweak: Skirts have more well-defined outlines to stand out more.
+2020-06-07:
+  Alberyk:
+  - tweak: Restricted more lore related items from being renamed.
+  Geeves:
+  - rscadd: Added a full auto mode to the mining thermal drill.
+  - rscadd: Kataphract K'lax now spawn in with the Sinta'Unathi augment, allowing
+      them to speak with their teammates.
+  Geeves, Sprites by Wezzy, edited by Geeves:
+  - rscadd: Added a mounted autolathe and a mounted toolset, which has a wrench, a
+      screwdriver, and a crowbar bit.
+  - tweak: Replaced the AI's remote mech's drill with the mounted toolset.
+  - tweak: Autolathe now has wiring like most other machines, with a seperate UI.
+      The hints have also been revamped.
+  - rscadd: Added a back-mounted rapid-entry system, which reduces the time it to
+      enter an exosuit to 0.5 seconds, down from 3.
+  MattAtlas:
+  - backend: Cult has received an overhaul in backend code. Everything should now
+      be more stable.
+  - tweak: A lot of cult runes have gotten an overhaul in looks and presentation.
+  - tweak: Teleport runes now have a short 5 second cooldown between teleports.
+  - tweak: Teleport runes now create gibs and play a sound when you teleport.
+  - tweak: The blood drain rune now drains blood from non-cult humans on the rune
+      into the cultist standing on the rune.
+  - tweak: The cult tome now actually makes you bleed when you create runes.
+  - tweak: The cult tome reading is now actually useful, containing better information.
+  - bugfix: Changeling suck once again shows a forensic result.
+  - bugfix: Lasers no longer cause arterial bleeding.
+  - bugfix: The shower and fryer looping sounds now actually stop. Finally.
+  - bugfix: Firearms should now be more responsive and less janky with movement and
+      fire delays.
+  - bugfix: Pointblanks no longer put a huge space before the pointblanked's name.
+2020-06-08:
+  Alberyk:
+  - rscdel: Removed the roof z-level to help with performance issues.
+  Code by Geeves, Sprites by Kyres:
+  - tweak: Tweaked the laser shotgun sprite. Renamed it to laser shotgun, instead
+      of quad-beam laser.
+  - tweak: Buffed the laser shotgun damage from 15 burn, to 20. Increased the max
+      shots from 12 to 20, which is 5 bursts. It can now be wielded.
+  - rscadd: Added two expedition laser shotguns to the research shuttle. They can
+      only be fired when off-station.
+  - tweak: Burst weapons now only emote you firing them the first time, if their burst
+      delay is low and they burst amount is low.
+  - rscadd: Added testing range and away site firing pins to the modular gun protolathe
+      category.
+  Geeves:
+  - rscadd: Diona now feel pain, although they only take 70% of the pain other species
+      experience.
+  - rscadd: Unathi now get a unique pain message, instead of the dear god one.
+  MattAtlas:
+  - rscadd: Roller beds now have integrated IVs.
+  - rscdel: Atropine has been removed.
+  - tweak: Most random chemicals that healed organ damage - like tea - no longer do
+      so. Rest assured though, medical chemicals that heal organ damage still do.
+2020-06-09:
+  Alberyk:
+  - tweak: Standing on a ladder won't stop people from using it anymore.
+  Geeves:
+  - tweak: Using telepathy on someone who's unconscious will no longer cause them
+      any harm.
+  Skull132:
+  - backend: Added the ability for admins to dump process memory.
+  aleksix:
+  - bugfix: RFD-P now properly dispenses bent pipes.
+2020-06-10:
+  Geeves:
+  - rscadd: Both classes of engineering stationbound and maintenance drone has been
+      given rapid piping fabricators.
+  - tweak: Some objects across the board have had their informative descriptions tweaked
+      a tad, as well as their names converted to full lowercase.
+  Skull132:
+  - backend: An automated server timeout profiler has been implemented.
+  Wowzewow (Wezzy):
+  - bugfix: Fixed bodybag examine text.
+  aleksix:
+  - bugfix: Cyborg wire expose messages now also show wires being covered.
+2020-06-11:
+  Geeves:
+  - tweak: Emergency flares have been replaced by red glowsticks.
+  - tweak: Flares are now slightly less bright and last slightly less longer.
+  - tweak: Glowsticks are now more slightly more bright.
+  - bugfix: Glowsticks now only show one message after being activated.
+  - rscadd: Flashlights now face the direction you're facing when dropped. They also
+      face a random direction after being thrown.
+  - tweak: Desk lamps are slightly less bright.
+  - tweak: Candles now last twice as long.
+  - tweak: Lanterns are now less bright and only shed light in 120 degrees.
+  - rscdel: Diona no longer spawn with flares, as they spawn with the glowstick in
+      their emergency box. And can make their own light.
+  - rscadd: You can now hit a light fixture with a broken light again to completely
+      shatter the light bulb.
+  - bugfix: The autodrobe will no longer remove antag headsets or PDAs.
+  Geeves, sprites by Kyres:
+  - rscadd: Added heavy arm guards and heavy leg guards to the syndicate heavy armour
+      kit.
+  MattAtlas:
+  - bugfix: Runes now actually contain DNA.
+  Wowzewow (Wezzy):
+  - bugfix: fixes Bones' death description.
+  - imageadd: New icons for wirecutters and screwdrivers! Also they fit better in
+      your backpacks.
+  Yonnimer:
+  - bugfix: 'Fixes a issue disallowing trees from picking azaziba as a language '
+  Zundy:
+  - tweak: Changed the taste description for Diona dishes, now they should be more
+      immersive.
+  aleksix:
+  - bugfix: Hydrogen ore is now processed properly.
+2020-06-12:
+  Alberyk:
+  - bugfix: Fixed personal shield sprites vanishing after turning it on and off.
+  Geeves:
+  - bugfix: AI now has access to its own private radio again.
+2020-06-13:
+  Geeves:
+  - bugfix: Weapons analyzers will now longer swallow your things.
+  - bugfix: Attempting to strip someone while holding a grab will now properly strip
+      them, instead of trying to put a grab on them.
+  - bugfix: Blindstrike now has the correct radius.
+  - tweak: Psi Ping now doesn't shift the psi images when you move.
+  - rscadd: Mend now properly says that you need to target a specific bodypart to
+      mend it in its description.
+  - rscadd: Shift clicking the up-hint in the top right corner will now indicate any
+      open turfs in a radius around you, as long as it's in your line of sight.
+  Geeves, sprites by Wezzy:
+  - rscadd: Added a back-mounted drill loader, an exosuit equipment that can take
+      mining drills and their braces and deploy them elsewhere. Even if they're active
+      and anchored.
+  MattAtlas:
+  - rscadd: Removing trays and stuff from cooking appliances now has a sweet radial
+      menu.
+  - rscadd: Combitools now have a radial menu.
+  - bugfix: Whispers no longer put blank text in place of the whisper verb.
+  Printer16:
+  - bugfix: The RFD-P can now be used more than once.
+  Yonnimer:
+  - rscdel: Removes the species listing on pda records
+2020-06-14:
+  Alberyk:
+  - rscadd: Replaced the IAC ert with the Eridani Contractor Medical Team.
+  Alberyk, Kyres1, Chada1:
+  - rscadd: Added new Tajaran related items to the loadout.
+  Geeves:
+  - bugfix: Kitchen appliances now properly eject their contents.
+  - bugfix: AI currently remotely controlling things will now receive law update messages.
+  - tweak: Wizard fireballs have been tweaked to be more firey and less explosive.
+  Geeves, Sprites by Kyres:
+  - imageadd: Replaced the circular buckler sprite with a more rectangular variant.
+      Also renamed it to selfmade shield.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible red crowbars.
+  - bugfix: Fixes cable coil and tool colors.
+2020-06-15:
+  Geeves:
+  - rscadd: Changing into a husk or a skeleton now sets your name to Unknown, making
+      you unrecognizable.
+  - rscadd: Alt-clicking a signaler now activates it.
+  Printer16:
+  - rscadd: The wizard can now cancel their teleport when teleporting with their teleportation
+      scroll.
+  Skull132:
+  - bugfix: Manifest ghost no longer locks up the server.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes hipster glasses, circle glasses and jamjar glasses not showing up
+      properly in the loadout.
+2020-06-16:
+  Geeves:
+  - tweak: All mech components have had their health more than doubled.
+  - tweak: Cyborg components have had their health doubled.
+  - rscadd: Control middle clicking now points at the object your mouse pointer is
+      on.
+  - rscadd: The Kataphracts now spawn with a custom supply area in their preparation
+      area.
+  - rscadd: Added the Hegemony Slugger, a large rifle that only humanoid mobs of Unathi
+      size and larger can safely operate.
+  - tweak: Increased industrial IPC mob size to be able to fire this rifle, which
+      has minor side effects like better headbutts.
+  Geeves, Sprites by Kyres:
+  - imageadd: The bluespace sprite has been updated.
+2020-06-17:
+  MattAtlas:
+  - tweak: Renaming paper now adds the new name to the end of the paper name, so you
+      get paper (fragmentation grenade), instead of just fragmentation grenade. To
+      reset the name, just input a blank name.
+  Yonnimer:
+  - rscadd: Adds a new health hud for nymphs.
+  - bugfix: Fixes the nymph hud always being low.
+2020-06-18:
+  MattAtlas:
+  - rscadd: A lot more messages should now look different and more like emotes.
+  - rscadd: Sprint should now work better overall. You can hold shift to sprint. Middle
+      click still examines if you find shiftclick uncomfortable now.
+  - rscadd: Added a slower walk mode, Creep.
+  - experiment: A new sprint backend means that some simple mobs may have slower speed
+      than usual.
+  - rscadd: Running into walls when you're confused will knock you to the ground.
+2020-06-19:
+  Doxxmedearly:
+  - rscadd: You can now toggle headphones on and off by using it in-hand.
+  Geeves:
+  - rscadd: Added a roller bed holder, a health analyzer, a medical borg hypospray,
+      a plastic explosive dispenser, and a smokebomb deployer to syndicate cyborgs.
+  - rscadd: Syndicate cyborgs now get antag radio channels.
+  - tweak: Syndicate cyborgs' components are two times more robust than normal, at
+      spawn.
+  - tweak: Cyborg grenade launchers now come with a grenade chambered.
+  - bugfix: Cyborgs should now be able to see how many grenades their grenade launchers
+      hold, as well as whether one is chambered or not.
+  - bugfix: Viscerators no longer target syndicate cyborgs.
+  - bugfix: Cyborg mounted SMGs and Net Launchers now properly charge.
+  - rscadd: Added a number to stationbound guns in the inventory which shows how much
+      ammunition they have.
+  - rscadd: Added up-hints to cyborgs.
+  - tweak: Syndicate cyborgs are now immune to flashes and have EMP surge protectors
+      pre-installed.
+  - rscadd: Clicking on an item in your borg inventory now works, even if you have
+      a module active in your 'active hand'.
+  - rscadd: Alt-clicking the 'store' button now stores all your modules.
+  - rscadd: Shift-clicking your 'radio' button now gives you a list of radios and
+      their keybinds.
+  - rscadd: Shift-clicking your 'module' button now reports what your selected module's
+      name is.
+  - rscadd: Shift-clicking your 'health' indicator as a cyborg gives you a diagnostics
+      report.
+  - bugfix: Self-diagnostics no longer work if the diagnosis isn't working, or isn't
+      powered.
+  - rscadd: Syndicate cyborgs now spawn in as antagonists.
+  - rscadd: Grenade launchers can now load grenades by clicking on them.
+  - rscadd: Added a key for the ninja radio channel, Q.
+  ParadoxSpace:
+  - tweak: Checking a pulse is now less metagamey.
+2020-06-20:
+  Alberyk:
+  - tweak: Vampires can no longer suck blood if their own mouth is being blocked by
+      something.
+  Geeves:
+  - admin: Added an admin verb that ends the round smoothly, displaying the end round
+      card.
+  - bugfix: Wizard learned spells are now properly displayed at round.
+  - bugfix: Antags added to gamemodes they don't belong in, now properly update the
+      gamemode's antag template, allowing their things to be displayed at round end.
+  - bugfix: Fixed a typo in the apprentice pebble spawn-in calling it an 'artificer
+      pebble' in deadchat.
+  Geeves, Code by Chinsky and CrimsonShrike:
+  - rscadd: The druggy overlay has been upgraded.
+  Geeves, MoondancerPony:
+  - rscadd: Pointing at something now highlights it instead of making an arrow. Pointing
+      at turfs unaffected.
+  MattAtlas:
+  - rscdel: Cat ears have been removed from the game.
+  - bugfix: Pointing now has a cooldown.
+2020-06-21:
+  Alberyk:
+  - tweak: Antags can no longer be converted to cult.
+  - tweak: Changelings should now get only 3 evolution points when absorbing DNA.
+  Geeves:
+  - admin: Admins can now assign job outfits via the Set Human Outfit command.
+  MattAtlas:
+  - rscdel: Shells no longer fake a pulse on the medhud. In addition, they no longer
+      fake a pulse or blood oxygenation on health analyzers.
+  ParadoxSpace:
+  - rscadd: Shells are now more well hidden, a single soda can will no longer produce
+      a massive dent.
+  - rscadd: Bandages/ointment/etc will no longer reveal Shells instantly.
+2020-06-22:
+  Chada:
+  - tweak: Added multiple general Utility items that should make most 'borg modules
+      able to protect Crew from and designate hazards to a v. basic degree, this includes
+      Engi tape for most modules and weakened inflatables all modules.
+  - tweak: Added a GPS to all 'borg modules in an attempt to fight off the tendency
+      for them to be lost in dark corners of the Station with 0 power. This should
+      enable them to be found far easier by Roboticists.
+  Geeves:
+  - bugfix: Mining drills will no longer breach station areas if placed and activated
+      above them.
+  - bugfix: Stationbound Synthesizers now properly regenerate when in a recharging
+      station.
+2020-06-23:
+  Geeves:
+  - rscadd: You can now draw from card decks and hands by clicking on them with an
+      empty hand while it's in one of your hands.
+  - rscadd: Mousing over a card that's next to you, or face-side-up, will show a tooltip
+      of what it is.
+  - tweak: Drawing a card from a deck now draws a specific card. Dealing a card to
+      someone will pick the first card of the deck, meaning that it has to be shuffled
+      to be random.
+  - rscadd: Mecha movement and equipment usage cooldowns have been decoupled. You
+      can now move directly after using your equipment, which makes them MUCH less
+      clunky to use.
+  - rscadd: Mecha hardpoint UI elements will now get tinted red during their cooldowns,
+      which will turn back to normal once the equipment can be used again.
+  - tweak: Mecha UI text have been overhauled to look much prettier.
+  - tweak: The charge level for mechs is now displayed as a percentage value, and
+      actually fits on the screen.
+  - tweak: EMTs are now the default role Paramedic role, with Paramedic being the
+      alt-title, as Paramedics are EMTs with more certifications and training.
+  - rscadd: Added another level to the cargo warehouse.
+  Kyres1:
+  - rscadd: Added Himean and Vysokan clothing to the loadout.
+2020-06-24:
+  Alberyk:
+  - tweak: Crew can no longer interact with the arrival's shuttle docking controller.
+  Geeves:
+  - rscadd: Added sharpened bear traps, a mechanical trap that ignores armour in the
+      clamp action, to the Stealthy and Inconspicuous Weapons uplink.
+  - bugfix: Bear traps will no longer trap you if they take your limb off while triggering.
+  - rscadd: Added closet teleporters to the Stealth and Camouflage Items uplink, a
+      device that start linked and can be attached to closets to set-up a teleport
+      network. Step inside and close the door to teleport.
+  - tweak: Pushing a wall to try and find a secret entrance now takes a few seconds
+      of touching and feeling.
+  - bugfix: Cargo warehouse now has the proper amount of stock to account for two
+      Z-levels.
+  - rscadd: Overlays have been added to webs, making it look like you're travelling
+      through them instead of travelling over them.
+  Skull132:
+  - tweak: Adjust some gravity behaviour, maybe fix a few bugs.
+  Snakebitten:
+  - rscadd: Adds a psionic receiver augment. This allows vaurca and IPCs to be picked
+      up by psionic pings and telepathic messages, and allows humans and other races
+      to not be hurt by telepathic messages.
+  - bugfix: Fixes Synthskin limb damage examines.
+  Wowzewow (Wezzy):
+  - imageadd: Improved sprites for cable cuffs, zipties and handcuffs. Tweaks cable
+      coil inhands.
+  - rscadd: Cable cuffs and nooses take the color of the cable coil now.
+  - rscadd: You can cut cable cuffs with wirecutters to get the materials back.
+2020-06-25:
+  Alberyk:
+  - tweak: Wizard skeleton minions don't have whacky wizard names anymore.
+  Ferner, Kyres1:
+  - rscadd: Added Elyran holographic suits to the loadout, able to transform into
+      a selection of different Elyran cultural apparel. Spriting by Kyres1.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes invisible argyle tubenecks and turtlenecks.
+2020-06-26:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes loadout slot buttons not working properly.
+  Yonnimer:
+  - rscadd: Adds a verb that allows nymphs to remove their hat.
+2020-06-27:
+  Ferner:
+  - bugfix: Tweaked some values related to hivebots to make them more inline of their
+      original implementation, to remedy some unintentional problems that have crept
+      up.
+  Geeves:
+  - rscadd: You can now pump a shotgun or work a rifle's bolt without wielding it,
+      but it takes two seconds to do so.
+  - tweak: Using the double-barreled shotgun in-hand now ejects its ammunition instead
+      of changing the firing mode. Changing the firing mode has been put on alt click.
+  - rscadd: EMT and Paramedic loadout items now work properly, and they now appear
+      under medical in the records.
+  MattAtlas:
+  - bugfix: Things that don't respect brainmed such as shadows and skeletons should
+      now die when they're supposed to.
+  - experiment: The handling of pain and pain messages has been overhauled.
+  - rscadd: Added a STRONG red pain overlay when you're in a real lot of pain.
+2020-06-28:
+  Alberyk:
+  - tweak: Reworked aut'akh augments.
+  Geeves:
+  - bugfix: The Telecomms Lounge has been removed from the droppod target list, as
+      it no longer exists.
+  - bugfix: A warning now pops up if you attempt to launch a droppod while not inside
+      it.
+2020-06-29:
+  Alberyk, Menown:
+  - rscadd: Added adhomian dice to the loadout, that can be used to play Suns and
+      Moon.
+  Geeves:
+  - rscadd: Added a lowpop gamemode called 'Burglars', featuring a new type of antagonist,
+      a mix between a heister and a traitor. Neutered for lowpop fun.
+  - rscadd: Added a mixed gamemode, 'Conflict', which is heisters and burglars.
+  - rscadd: Added an optional acting captain uniform briefcase to the captain's locker.
+      It includes a jacket, a cap, an armband, and a captain radio.
+  - bugfix: The modular computer pAI access lock program should properly only show
+      when you have a pAI in your computer.
+  - bugfix: You can now properly save NTNet IRC chats' logs to your hard drive.
+  - bugfix: Fixes various programs not having their computer correctly set, which
+      should fix a wide spectrum of bugs for modular computers.
+  - bugfix: Replaced the non-functioning suit-cycler and voidsuit combo at the burglar
+      base, with a simple black and red all-species syndicate softsuit.
+  - bugfix: Burglars can properly no longer access some of the more robust uplinks,
+      to keep up with the lowpop theme.
+  - bugfix: Off-station antagonists will no longer keep the player's character's flavour
+      text.
+  - bugfix: Antagonists will now be assigned random names before they pick their name.
+  - rscadd: Spacebikes, speeders, and monowheels now have storage compartments accessible
+      by dragging it onto your sprite.
+  - tweak: Spacebikes and speeders now drive a bit faster on non-space tiles.
+  MattAtlas:
+  - rscadd: Added a new, swanky main menu.
+  Wowzewow (Wezzy):
+  - rscadd: Intercom buttons are red when off (but still powered).
+  - rscadd: Ramen's crunchy when dry.
+2020-06-30:
+  Alberyk:
+  - bugfix: Fixed blood overlays not going away after washing clothing.
+  - bugfix: Fixed bloody hand texts not going away after washing.
+  Ferner:
+  - rscadd: Added compact disposal bins.
+  - tweak: Projectiles now pass over disposal bins.
+  Geeves:
+  - rscadd: Power cell backpacks can now be held in the Industrial, EVA, and CE RIG
+      suitslots. Orbital droppers can now be kept in the explorer's belt.
+  - bugfix: Mining drills can now be properly upgraded by part replacers.
+  - rscadd: Mining grippers can now remove cells from mining drills, if the panel
+      is open.
+  - bugfix: Cyborg radio descriptions now update when they reset modules.
+  - rscadd: Mining and science cyborgs now get part replacers in their modules.
+  - bugfix: Grippers now position their items correctly, spritewise.
+  - rscadd: Control-clicking your gripper will now make it drop its held item.
+  - bugfix: Clicking a mining drill with a gripper will no longer activate or deactivate
+      it, which will prevent a lot of accidents.
+  - tweak: Taking a cell out of a mining drill will now place it in one of your hands,
+      if one is open.
+  - bugfix: Emptying a bag's contents onto the floor with the verb will now always
+      display the message of you doing it.
+  - rscadd: Control-clicking a storage item in your active hand will now attempt to
+      empty it onto the floor, if it has that verb.
+  - rscadd: Using an ore detector on a drill will now give a detailed readout of the
+      ore in the vicinity that it has access to and call pull out.
+  - rscadd: Battlemonsters vendors now spawn with five free basic packs containing
+      seven common cards, which can be used to show people how the game works without
+      spending any money.
+  - bugfix: Fixed tape recorders being unable to print their transcripts after a while.
+  - rscadd: Added power efficient inductive chargers to cyborgs, maintenance-, construction-
+      and mining drones, allowing them to charge power cells, and things that contain
+      power cells.

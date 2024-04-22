@@ -32,7 +32,7 @@
 	spawn_reagent = /singleton/reagent/copper
 
 /obj/item/reagent_containers/chem_disp_cartridge/ethanol
-	spawn_reagent = /singleton/reagent/alcohol
+	spawn_reagent = /singleton/reagent/alcohol/ethanol
 
 /obj/item/reagent_containers/chem_disp_cartridge/hclacid
 	spawn_reagent = /singleton/reagent/acid/hydrochloric
