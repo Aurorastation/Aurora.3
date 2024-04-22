@@ -3516,10 +3516,6 @@
 "cCp" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/longbow)
-"cDt" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor/tiled/dark/full,
-/area/bridge/aibunker)
 "cEy" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/medical/washroom)
@@ -6742,6 +6738,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	name = "Command Bunker Lockdown"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
 "eJU" = (
@@ -61478,7 +61477,7 @@ kUM
 kUM
 kUM
 lVh
-cDt
+lVh
 eJH
 ozD
 kUM
