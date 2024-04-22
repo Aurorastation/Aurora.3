@@ -1409,7 +1409,7 @@ var/global/enabled_spooking = 0
 	if(!chosen_situation)
 		return
 
-	if(!SSatlas.current_sector.name in chosen_situation.sector_whitelist)
+	if(!(SSatlas.current_sector.name in chosen_situation.sector_whitelist))
 		if(tgui_alert(usr, "This situation is not appropriate for the current sector. Continue?", "Situation", list("Yes", "No")) != "Yes")
 			return
 

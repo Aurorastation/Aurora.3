@@ -8,7 +8,8 @@
 	/// The type of situation this is. NOT a boolean or a bitfield.
 	var/mission_type = SITUATION_TYPE_NONCANON
 	/// The maps to load. This is a list of /datum/map_template. If left null, no new maps will be loaded.
-	/// If no maps are loaded, then the situation is assumed to take place on the Horizon, in which case you'll need to override setup_situation() to add custom logic.
+	/// If no maps are loaded, then the situation is assumed to take place on the Horizon, in which case you'll need to override setup_zlevel()
+	/// or setup_planet() to add custom logic.
 	var/list/maps_to_load
 	/// This determines mission creation behaviour. Not a bitfield.
 	var/setup_type = SITUATION_SET_UP_ON_NEW_ZLEVEL
@@ -16,6 +17,14 @@
 	var/weight = 20
 	/// If set, this variable will force a certain type of planet to spawn, bypassing the planet check. Must still have the appropriate setup_type set.
 	var/force_planet_type
+	/// The minimum amount of actors we want to spawn in this situation.
+	var/min_actor_amount = 1
+	/// The minimum amount of storytellers we want to spawn in this situation.
+	var/min_storyteller_amount = 0
+	/// The maximum amount of actors we want to spawn in this situation.
+	var/max_actor_amount = 6
+	/// The maximum amount of storytellers we want to spawn in this situation.
+	var/max_storyteller_amount = 1
 
 /**
  * This proc handles the creation and spawning of everything that the situation needs.
@@ -26,16 +35,16 @@
 	for(var/M in maps_to_load)
 		var/datum/map_template/template = new M
 		if(setup_type == SITUATION_SET_UP_ON_NEW_ZLEVEL)
-			setup_zlevel()
+			setup_zlevel(template)
 		else if(setup_type == SITUATION_SET_UP_ON_PLANET)
-			setup_planet()
+			setup_planet(template)
 	return TRUE
 
 /**
  * This proc is the one called to set up a new z-level for the situation.
  * This is the one you should override for custom logic.
  */
-/singleton/proc/setup_zlevel()
+/singleton/situation/proc/setup_zlevel()
 	var/turf/T = template.load_new_z()
 	SSodyssey.situation_zlevels = list(T.z)
 
@@ -43,7 +52,7 @@
  * This proc is the one called to set up a new planet for the situation.
  * This is the one you should override for custom logic.
  */
-/singleton/proc/setup_planet()
+/singleton/situation/proc/setup_planet()
 	// In case force_planet_type is not set, search for an appropriate planet and only spawn one as a last resort.
 	if(!force_planet_type)
 		for(var/map_z in GLOB.map_sectors)
@@ -66,6 +75,8 @@
 
 		var/obj/effect/overmap/visitable/sector/exoplanet/new_planet = new force_planet_type
 		SSodyssey.set_planet(new_planet)
+
+		//todomatt: spawn templates on the planet
 
 /**
  * This proc determines if a planet is appropriate for the situation to spawn in.
