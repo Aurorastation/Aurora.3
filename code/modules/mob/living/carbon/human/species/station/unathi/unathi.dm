@@ -105,6 +105,8 @@
 		"Your scales bristle against the cold."
 		)
 
+	footsound = /singleton/sound_category/footstep_unathi_sound
+
 	has_organ = list(
 		BP_BRAIN =    /obj/item/organ/internal/brain/unathi,
 		BP_EYES =    /obj/item/organ/internal/eyes/unathi,
@@ -133,6 +135,7 @@
 	zombie_type = SPECIES_ZOMBIE_UNATHI
 
 	possible_external_organs_modifications = list("Normal","Amputated","Prosthesis", "Diona Nymph")
+	valid_prosthetics = list(PROSTHETIC_AUTAKH)
 
 /datum/species/unathi/after_equip(var/mob/living/carbon/human/H)
 	. = ..()

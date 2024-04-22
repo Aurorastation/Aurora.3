@@ -24,7 +24,7 @@
 	var/icon_gib = null	//We only try to show a gibbing animation if this exists.
 
 	appearance_flags = KEEP_TOGETHER
-	var/blood_type = "#A10808" //Blood colour for impact visuals.
+	var/blood_type = COLOR_HUMAN_BLOOD //Blood colour for impact visuals.
 	var/blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
 	var/blood_state = BLOOD_NONE
 	var/image/blood_overlay
@@ -599,6 +599,12 @@
 			harvest(user)
 	else
 		attacked_with_item(attacking_item, user)
+
+	if(attacking_item.damtype == DAMAGE_PAIN)
+		playsound(loc, 'sound/weapons/tap.ogg', attacking_item.get_clamped_volume(), 1, -1)
+		return TRUE
+	else
+		return ..()
 
 //TODO: refactor mob attackby(), attacked_by(), and friends.
 /mob/living/simple_animal/proc/attacked_with_item(obj/item/O, mob/user, var/proximity)

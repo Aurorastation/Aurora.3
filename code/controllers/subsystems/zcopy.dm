@@ -29,9 +29,6 @@ SUBSYSTEM_DEF(zcopy)
 	// zstm[zlev] = group_max
 	var/list/zlev_maximums = list()
 
-/datum/controller/subsystem/zcopy/New()
-	NEW_SS_GLOBAL(SSzcopy)
-
 // for admin proc-call
 /datum/controller/subsystem/zcopy/proc/update_all()
 	can_fire = FALSE
