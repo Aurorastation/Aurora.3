@@ -44,15 +44,15 @@
  * This proc is the one called to set up a new z-level for the situation.
  * This is the one you should override for custom logic.
  */
-/singleton/situation/proc/setup_zlevel()
+/singleton/situation/proc/setup_zlevel(datum/map_template/template)
 	var/turf/T = template.load_new_z()
-	SSodyssey.situation_zlevels = list(T.z)
+	LAZYADD(SSodyssey.situation_zlevels, T.z)
 
 /**
  * This proc is the one called to set up a new planet for the situation.
  * This is the one you should override for custom logic.
  */
-/singleton/situation/proc/setup_planet()
+/singleton/situation/proc/setup_planet(datum/map_template/template)
 	// In case force_planet_type is not set, search for an appropriate planet and only spawn one as a last resort.
 	if(!force_planet_type)
 		for(var/map_z in GLOB.map_sectors)
@@ -69,7 +69,7 @@
 				if(!SSodyssey.situation_planet)
 					SSodyssey.set_planet(create_appropriate_planet())
 	else
-		if(!istype(new_planet_type, /obj/effect/overmap/visitable/sector/exoplanet))
+		if(!istype(force_planet_type, /obj/effect/overmap/visitable/sector/exoplanet))
 			log_and_message_admins(FONT_HUGE("CRITICAL FAILURE: Force planet type on [name] situation was of an unexpected type!"))
 			return FALSE
 

@@ -1,18 +1,6 @@
-// CAMERA
+//UPDATE TRIGGERS, when the chunk (and the surrounding chunks) should update.
 
-// An addition to deactivate which removes/adds the camera from the chunk list based on if it works or not.
-
-/obj/machinery/camera/proc/update_coverage(var/network_change = 0)
-	if(network_change)
-		var/list/open_networks = difflist(network, restricted_camera_networks)
-		// Add or remove camera from the camera net as necessary
-		if(on_open_network && !open_networks.len)
-			on_open_network = FALSE
-			GLOB.cameranet.remove_source(src)
-		else if(!on_open_network && open_networks.len)
-			on_open_network = TRUE
-			GLOB.cameranet.add_source(src)
-	else
-		GLOB.cameranet.update_visibility(src)
-
-	invalidateCameraCache()
+/proc/updateVisibility(atom/A, var/opacity_check = TRUE)
+	if(SSticker.current_state >= GAME_STATE_PLAYING)
+		for(var/datum/visualnet/VN in GLOB.visual_nets)
+			VN.update_visibility(A, opacity_check)
