@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aj" = (
+/obj/machinery/door/airlock,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist)
 "by" = (
 /obj/machinery/door/airlock/service{
 	dir = 4
@@ -173,13 +180,6 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist)
-"jV" = (
-/obj/machinery/door/airlock,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
 "kb" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
@@ -266,6 +266,13 @@
 	dir = 6
 	},
 /obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist)
+"qe" = (
+/obj/machinery/door/airlock,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist)
 "qk" = (
@@ -578,6 +585,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist)
+"IH" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist)
 "IM" = (
 /turf/simulated/floor/reinforced/reactor,
 /area/omgolo_tourist)
@@ -776,13 +787,6 @@
 "Tg" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
-"Ti" = (
-/obj/machinery/door/airlock,
-/obj/machinery/door/firedoor/multi_tile{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist)
 "Tk" = (
 /obj/machinery/light,
@@ -7797,21 +7801,21 @@ Kl
 Kl
 Kl
 in
+IH
+IH
+IH
 in
 in
 in
+IH
+IH
+IH
 in
 in
 in
-in
-in
-in
-in
-in
-in
-in
-in
-in
+IH
+IH
+IH
 in
 in
 in
@@ -9645,7 +9649,7 @@ in
 gn
 gn
 gn
-jV
+qe
 gn
 gn
 gn
@@ -10685,7 +10689,7 @@ Kl
 Kl
 cl
 gn
-Zl
+Ip
 gn
 ee
 Jl
@@ -11597,7 +11601,7 @@ Kl
 Kl
 cl
 gn
-Ip
+Zl
 gn
 ee
 Jl
@@ -11614,7 +11618,7 @@ py
 ee
 ee
 ee
-Ti
+aj
 gn
 Pa
 gn
