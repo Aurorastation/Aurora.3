@@ -10,7 +10,14 @@
 	name = "Unmarked Hangar"
 	landmark_tag = "nav_hangar_saniorios_outpost"
 	docking_controller = "tajara_saniorios_outpost_dock"
+	base_area = /area/space
+	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/map_effect/marker/airlock/docking/saniorios_outpost
+	name = "Spacer Militia Shuttle Hangar"
+	landmark_tag = "nav_hangar_saniorios_outpost"
+	master_tag = "tajara_saniorios_outpost_dock"
 
 // ----
 

@@ -58,7 +58,7 @@
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/saniorios_outpost
+/obj/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost
 	name = "shuttle control console"
 	shuttle_tag = "Unmarked Shuttle"
 
