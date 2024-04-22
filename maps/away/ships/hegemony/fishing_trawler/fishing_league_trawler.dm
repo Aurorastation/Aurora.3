@@ -59,11 +59,6 @@
 	designation = "[pick("Hegemon's Bounty", "Fisher's Reach")]"
 	..()
 
-/obj/effect/overmap/visitable/ship/fishing_trawler/get_skybox_representation()
-	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "fishing_trawler")
-	skybox_image.pixel_x = rand(0,64)
-	skybox_image.pixel_y = rand(128,256)
-	return skybox_image
 
 //Shuttle
 

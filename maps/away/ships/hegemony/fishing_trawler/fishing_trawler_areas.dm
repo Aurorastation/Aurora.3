@@ -33,6 +33,11 @@
 	name = "Fishing Trawler - Galley"
 	icon_state = "crew_area"
 
+/area/ship/fishing_trawler/medical
+	name = "Fishing Trawler - Galley"
+	icon_state = "medbay"
+
+
 //Aft
 
 /area/ship/fishing_trawler/freezer
@@ -65,6 +70,12 @@
 
 /area/ship/fishing_trawler/corridor/central
 	name = "Fishing Trawler - Central Corridor"
+
+/area/ship/fishing_trawler/corridor/port
+	name = "Fishing Trawler - Port Corridor"
+
+/area/ship/fishing_trawler/corridor/starboard
+	name = "Fishing Trawler - Starboard Corridor"
 
 //Exterior
 
