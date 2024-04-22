@@ -33,6 +33,7 @@ SUBSYSTEM_DEF(ghostroles)
 
 	for (var/identifier in spawnpoints)
 		CHECK_TICK
+		spawnpoints[identifier] = shuffle(spawnpoints[identifier])
 		update_spawnpoint_status_by_identifier(identifier)
 
 	for(var/spawn_type in spawn_types)
@@ -51,7 +52,8 @@ SUBSYSTEM_DEF(ghostroles)
 		spawnpoints[P.identifier] = list()
 
 	spawnpoints[P.identifier] += P
-	//Only update the status if the round is started. During initialization that´s taken care of at the end of init.
+
+	// Only update the status if the round is started. During initialization that´s taken care of at the end of init.
 	if(ROUND_IS_STARTED)
 		update_spawnpoint_status(P)
 

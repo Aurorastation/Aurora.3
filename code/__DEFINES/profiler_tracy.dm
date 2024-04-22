@@ -7,11 +7,13 @@ var/byond_tracy_running = 0			// Whether byond-tracy is currently running or not
 var/byond_tracy_running_v = null	// Which version of byond-tracy is currently running, so we call the right binary on destruction.
 
 /world/New()
+	CAN_BE_REDEFINED(TRUE)
 	if(GLOB.config.enable_byond_tracy)
 		prof_init("tracy_disk") // This start's Affectedarc07's version of Tracy. Writing a .utracy file to the disk.
 	. = ..()
 
 /world/Del()
+	CAN_BE_REDEFINED(TRUE)
 	if(byond_tracy_running)
 		prof_destroy()
 	. = ..()

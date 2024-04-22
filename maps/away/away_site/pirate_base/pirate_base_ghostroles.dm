@@ -13,9 +13,11 @@
 		Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. \
 		You have a shuttle, but it is completely unpowered. Better deal with the intruders before you go fix your shuttle. \
 		There is a secret equipment room, north from the living room, read the note on the floor of your crew quarters on how to access it. \
-		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
+		"
+	welcome_message_ooc = "\
+		This is an antagonist role which places typical antagonist expectations on you. \
 		You're expected to try to generate an interesting encounter with whoever has docked on the away site. \
-		Remember to follow basic escalation rules, and have fun!)\
+		Remember to follow basic escalation rules, and have fun!\
 		"
 
 	spawnpoints = list("pirate")
@@ -60,16 +62,6 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/surname = splittext(H.name, " ")
-		switch(surname)
-			if("K'lax")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
-			if("C'thur")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
 		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
@@ -92,9 +84,11 @@
 		Better gear up and come up with a gameplan for how you're gonna approach this fast before they come kicking the door down. \
 		You have a shuttle, but it is completely unpowered. Better deal with the intruders before you go fix your shuttle. \
 		There is a secret equipment room, north from the living room, read the note on the floor of your crew quarters on how to access it. \
-		(OOC Note: This is an antagonist role which places typical antagonist expectations on you. \
+		"
+	welcome_message_ooc = "\
+		This is an antagonist role which places typical antagonist expectations on you. \
 		You're expected to try to generate an interesting encounter with whoever has docked on the away site. \
-		Remember to follow basic escalation rules, and have fun!)\
+		Remember to follow basic escalation rules, and have fun!\
 		"
 
 	spawnpoints = list("pirate_boss")

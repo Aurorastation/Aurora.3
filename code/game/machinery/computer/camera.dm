@@ -235,13 +235,6 @@
 	current_camera = null
 	update_use_power(POWER_USE_IDLE)
 
-//Camera control: mouse.
-/atom/DblClick()
-	..()
-	if(istype(usr.machine,/obj/machinery/computer/security))
-		var/obj/machinery/computer/security/console = usr.machine
-		console.jump_on_click(usr,src)
-
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."

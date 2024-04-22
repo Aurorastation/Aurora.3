@@ -30,7 +30,6 @@
 
 	var/RD = SScult.runes_by_name[rune]
 	var/obj/effect/rune/R = new(get_turf(user), RD)
-	R.color = "#A10808"
 
 	var/area/A = get_area(R)
 	log_and_message_admins("created \an [rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].", user)

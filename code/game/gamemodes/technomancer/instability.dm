@@ -44,13 +44,6 @@
 			if(100 to 200)
 				instability_display.icon_state = "instability3"
 
-// Proc: Life()
-// Parameters: 0
-// Description: Makes instability tick along with Life().
-/mob/living/Life()
-	. = ..()
-	handle_instability()
-
 // Proc: handle_instability()
 // Parameters: 0
 // Description: Makes instability decay.  instability_effects() handles the bad effects for having instability.  It will also hold back
