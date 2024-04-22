@@ -1,26 +1,104 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aj" = (
-/obj/machinery/door/airlock,
 /obj/machinery/door/firedoor/multi_tile{
 	req_one_access = null
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Dining Room"
+	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"at" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"aQ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"aX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"be" = (
+/obj/machinery/power/apc/empty/south,
+/obj/structure/cable,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"bg" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/portables_connector/scrubber{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "by" = (
 /obj/machinery/door/airlock/service{
-	dir = 4
+	dir = 4;
+	name = "Kitchen"
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "bC" = (
 /obj/structure/closet/secure_closet/freezer,
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "bH" = (
 /obj/structure/bed/stool/chair/wood/wings,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room1)
+"bM" = (
+/obj/structure/closet,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"bP" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"bY" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"cf" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "ck" = (
 /obj/machinery/chem_master/condimaster,
 /obj/machinery/light{
@@ -28,11 +106,38 @@
 	status = 2
 	},
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "cl" = (
 /obj/effect/map_effect/window_spawner/full/reinforced,
 /turf/simulated/floor/plating,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"cp" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"cr" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"cW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
+"cY" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/red,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "dc" = (
 /obj/structure/table/steel,
 /obj/machinery/chemical_dispenser/bar_alc/full{
@@ -43,82 +148,161 @@
 	status = 2
 	},
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "dn" = (
-/obj/machinery/power/portgen/basic/fusion,
-/obj/structure/cable/green,
-/turf/simulated/floor/reinforced/reactor,
-/area/omgolo_tourist)
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/room2)
+"do" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"dt" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "dv" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
+"dB" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"dN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "ee" = (
 /turf/simulated/floor/wood/ebony,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "ef" = (
-/obj/machinery/door/airlock/engineering,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/reactor,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "eu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/material/kitchen/rollingpin,
 /obj/item/material/kitchen/rollingpin,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"ev" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/blue,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"eL" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"eU" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"eZ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
+"fd" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"fe" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/closet,
+/obj/item/clothing/under/sl_suit,
+/obj/item/clothing/under/sl_suit,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "fy" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/wood/ebony,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "fI" = (
-/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/plating,
-/area/omgolo_tourist)
+/area/omgolo_tourist/hangar)
 "gh" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
-	},
-/obj/structure/table/rack,
-/obj/item/stack/material/wood/full,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/hallway)
 "gn" = (
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
 "go" = (
-/obj/machinery/door/airlock{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/plating,
-/area/omgolo_tourist)
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/hangar)
 "gv" = (
-/obj/machinery/door/airlock/freezer,
+/obj/machinery/door/airlock/freezer{
+	name = "Freezer"
+	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/kitchen)
 "gC" = (
 /obj/effect/shuttle_landmark/automatic,
 /turf/template_noop,
 /area/space)
+"gM" = (
+/obj/machinery/alarm/south,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"gO" = (
+/obj/machinery/power/apc/empty/south,
+/obj/structure/cable,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"gR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/power/apc/empty/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "gU" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -127,34 +311,67 @@
 /obj/random/toolbox,
 /obj/random/toolbox,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
-"gX" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
+/area/omgolo_tourist/engineering)
+"gV" = (
+/obj/structure/window/reinforced{
+	dir = 1
 	},
-/obj/structure/table/rack,
-/obj/item/stack/material/steel/full,
-/obj/item/stack/material/glass/full,
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room1)
+"gX" = (
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
 "hr" = (
 /obj/structure/table/wood,
 /obj/item/material/sword/longsword,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
-"hM" = (
-/obj/machinery/door/airlock/engineering,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
+/area/omgolo_tourist/room3)
+"hy" = (
+/obj/machinery/alarm/north,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/crew)
+"hM" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"hU" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"hV" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/vending/tool,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "ih" = (
 /turf/simulated/mineral,
 /area/space)
+"ii" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
 "in" = (
 /turf/simulated/wall/shuttle/space_ship,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
 "iC" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -162,101 +379,288 @@
 /obj/item/reagent_containers/food/condiment/shaker/peppermill,
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"iE" = (
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"iT" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -8;
+	pixel_x = 11
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"iX" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
 "iZ" = (
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
+"jg" = (
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -15
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room1)
+"jh" = (
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
 "jx" = (
 /obj/structure/table/steel,
 /obj/machinery/reagentgrinder,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "jC" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "kb" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 8
 	},
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"kg" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "ko" = (
+/obj/effect/shuttle_landmark/automatic,
 /turf/simulated/floor/plating,
-/area/omgolo_tourist)
+/area/omgolo_tourist/hangar)
 "kr" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/jizixi/white,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
+"ks" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
 "kF" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "kN" = (
 /obj/structure/bed/stool/chair/wood/wings{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"li" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"lJ" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/reagent_dispensers/fueltank,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"lL" = (
+/obj/machinery/power/apc/empty/north,
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "lM" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 4
 	},
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"mc" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"md" = (
+/obj/machinery/atmospherics/binary/passive_gate{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"mH" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_omgolo_tourist";
+	name = "airlock_omgolo_tourist";
+	frequency = 1994
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
+"mI" = (
+/obj/machinery/power/apc/empty/south,
+/obj/structure/cable,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"nd" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/orange/full,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"ng" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"nx" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "nD" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
 "nR" = (
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/room1)
 "nW" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "nZ" = (
 /obj/structure/sink{
 	pixel_y = 14
 	},
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"ot" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/tank{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"oz" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"oB" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "oU" = (
 /obj/structure/bed/stool/chair/wood/wings{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
-"pq" = (
-/obj/machinery/light{
-	dir = 1
+/area/omgolo_tourist/dining)
+"pf" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
 	},
-/obj/structure/closet,
+/obj/machinery/vending/engineering,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
+"po" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/freezer)
+"pq" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Engineering"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "py" = (
 /turf/simulated/floor/tiled/ramp,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"pF" = (
+/obj/machinery/door/airlock/highsecurity,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/greengrid,
+/area/omgolo_tourist/engineering)
 "pK" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/wood,
-/area/omgolo_tourist)
+/area/omgolo_tourist/roomhallway)
+"pV" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"qa" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "qc" = (
 /obj/machinery/light{
 	dir = 4;
@@ -265,22 +669,37 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
-/obj/structure/reagent_dispensers/fueltank,
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
-"qe" = (
-/obj/machinery/door/airlock,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"qe" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "qk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board/bowl,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"qo" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
 "qt" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -289,29 +708,85 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room3)
+"qL" = (
+/obj/structure/closet,
+/obj/item/clothing/under/waiter,
+/obj/item/clothing/under/waiter,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "ra" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"rh" = (
+/obj/structure/closet,
+/obj/item/reagent_containers/food/snacks/candy/koko,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"rk" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"rp" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"rB" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "rV" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
+"sg" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"sJ" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"sM" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/blue,
+/obj/structure/curtain/open/bed,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"ti" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"tv" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room2)
 "tw" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "tC" = (
 /obj/structure/table/stone/marble,
 /obj/item/glass_jar/gumball,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "tD" = (
 /obj/structure/window/reinforced{
 	dir = 1
@@ -321,47 +796,100 @@
 	},
 /obj/item/trash/kokobar,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
-"uk" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2";
+/area/omgolo_tourist/room1)
+"tX" = (
+/obj/machinery/light{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange{
-	dir = 6
+	dir = 9
 	},
-/obj/machinery/power/apc/empty/east,
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"uk" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"us" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "uz" = (
 /obj/item/flame/candle,
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"uH" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "va" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle/empty,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"vl" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"vm" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
 	},
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/machinery/vending/engivend,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
+"vo" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/reinforced,
+/area/omgolo_tourist/engineering)
 "vy" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
-"vJ" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/area/omgolo_tourist/atmos)
+"vB" = (
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/reinforced/reactor,
-/area/omgolo_tourist)
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"vJ" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "vR" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -370,43 +898,113 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
+"vU" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"wj" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"wk" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "wl" = (
 /obj/structure/bed/stool/chair/sofa/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "wm" = (
 /obj/structure/table/stone/marble,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "wq" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"wD" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/alarm/freezer/south,
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
+"wH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "wN" = (
 /obj/structure/table/wood,
 /obj/random/highvalue/cash,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room1)
 "xm" = (
 /obj/structure/bed/stool/chair/wood/wings,
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"xy" = (
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room1)
+"ye" = (
+/obj/structure/mirror{
+	pixel_x = 25
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
 "yH" = (
 /obj/structure/table/steel,
 /obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"yT" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"zk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "zq" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/shaker_cup,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"zr" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "zs" = (
 /obj/machinery/light{
 	dir = 4;
@@ -418,31 +1016,71 @@
 /obj/structure/table/rack,
 /obj/random/toolbox,
 /obj/random/toolbox,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
 "zt" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
 "zP" = (
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/glass/rag,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"Ab" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_omgolo_tourist";
+	name = "airlock_omgolo_tourist";
+	frequency = 1994
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
+"Av" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"AA" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room3)
+"AQ" = (
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "AU" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
+"Bc" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
 "Bs" = (
-/obj/structure/closet,
-/obj/item/clothing/under/waiter,
-/obj/item/clothing/under/waiter,
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
 "Bv" = (
 /obj/machinery/vending/dinnerware/bar,
 /obj/machinery/light{
@@ -450,10 +1088,16 @@
 	status = 2
 	},
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "BD" = (
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"BE" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
 "BG" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -468,156 +1112,427 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
+"BQ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"BR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"BS" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"BV" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/engineering)
+"BW" = (
+/obj/machinery/power/apc/empty/south,
+/obj/structure/cable,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "Ca" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/meat,
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "Ct" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/dining)
+"CF" = (
+/obj/machinery/power/apc/empty/north,
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
-/obj/effect/floor_decal/corner/orange{
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"CH" = (
+/obj/structure/kitchenspike,
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
+"CQ" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"CX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
-"CH" = (
-/obj/structure/kitchenspike,
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
-"CX" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/area/omgolo_tourist/atmos)
+"DF" = (
+/obj/machinery/alarm/west,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
+"DI" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/portables_connector/scrubber{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
 "DK" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
 /obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
+"DW" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/glass/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/wood/full,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"Ek" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"Es" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"EA" = (
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
 "EE" = (
 /obj/structure/table/wood,
 /obj/item/paper_bin,
 /obj/item/pen/black,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
-"EV" = (
-/turf/unsimulated/wall/fakepdoor{
-	dir = 8;
-	name = "Blast door"
+/area/omgolo_tourist/room2)
+"ES" = (
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
-/area/omgolo_tourist)
-"FK" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
+/obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"EV" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"Fd" = (
+/obj/structure/bed/stool/chair/wood/wings,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"Fj" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/hallway)
+"Fn" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"FK" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/door/airlock/atmos{
+	name = "Atmospherics"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "FO" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
-"FR" = (
-/obj/machinery/light{
-	dir = 8
+/area/omgolo_tourist/room3)
+"FP" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
 	},
-/turf/simulated/floor/reinforced/reactor,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"FR" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"Ga" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"Gf" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"Gg" = (
+/obj/machinery/atmospherics/binary/pump/on{
+	dir = 2;
+	name = "Scrubbers to Waste"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "Go" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/wood/ebony,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"Gx" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/hallway)
 "GN" = (
-/obj/machinery/door/airlock{
-	dir = 4
-	},
 /obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "1-2";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Room One"
+	},
 /turf/simulated/floor/wood,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room1)
+"GW" = (
+/obj/machinery/access_button{
+	pixel_x = 28
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_omgolo_tourist";
+	name = "airlock_omgolo_tourist";
+	frequency = 1994
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
+"GX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
 "Hd" = (
 /turf/simulated/floor/wood,
-/area/omgolo_tourist)
+/area/omgolo_tourist/roomhallway)
 "Hj" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Dining Room"
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/dining)
+"Hr" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/portables_connector/scrubber{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"Hx" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"Hz" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"HI" = (
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Hangar"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
+"HQ" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"HT" = (
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"Ib" = (
+/obj/effect/shuttle_landmark/automatic/intrepid{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
+"Ie" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
 "If" = (
 /obj/structure/bed,
 /obj/item/bedsheet/brown,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/crew)
 "Ii" = (
 /obj/machinery/shower{
 	dir = 4
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room3)
 "Ik" = (
-/obj/effect/shuttle_landmark/automatic/intrepid{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/omgolo_tourist)
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/kitchen)
 "Ip" = (
 /obj/structure/bed/stool/chair/sofa/left/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "IH" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room3)
 "IM" = (
-/turf/simulated/floor/reinforced/reactor,
-/area/omgolo_tourist)
+/obj/item/stack/material/tritium/full,
+/obj/structure/closet/crate/rad{
+	name = "radioactive material crate"
+	},
+/obj/effect/floor_decal/corner/orange/full,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "IU" = (
 /obj/machinery/light,
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
-"Jj" = (
-/obj/machinery/light{
-	dir = 4;
-	status = 2
+/area/omgolo_tourist/dining)
+"Jh" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
 	},
-/turf/simulated/floor/reinforced/reactor,
-/area/omgolo_tourist)
+/obj/machinery/atmospherics/pipe/simple/hidden/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"Jj" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
 "Jl" = (
 /turf/simulated/floor/tiled/ramp{
 	dir = 1
 	},
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "Jo" = (
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
-"Kh" = (
-/obj/machinery/door/airlock,
+/area/omgolo_tourist/dining)
+"JF" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"JQ" = (
+/obj/effect/overmap/visitable/sector/omgolo_tourist,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"Kh" = (
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
 "Kl" = (
 /turf/template_noop,
 /area/space)
@@ -625,7 +1540,17 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"KM" = (
+/obj/machinery/power/apc/empty/south,
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "Lc" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -637,11 +1562,10 @@
 /obj/item/storage/belt/utility,
 /obj/item/storage/belt/utility,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
 "Li" = (
-/obj/structure/closet,
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/crew)
 "Lw" = (
 /obj/machinery/door/window{
 	dir = 1
@@ -651,7 +1575,7 @@
 	pixel_x = -15
 	},
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
 "LB" = (
 /obj/machinery/light{
 	dir = 1
@@ -660,29 +1584,93 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
-"LU" = (
-/obj/machinery/light{
+/area/omgolo_tourist/engineering)
+"LE" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/structure/closet,
-/obj/item/clothing/under/sl_suit,
-/obj/item/clothing/under/sl_suit,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"LR" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/engineering)
+"LU" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/room2)
+"LX" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/room1)
+"Mj" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "Mx" = (
-/obj/structure/closet,
-/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
-/obj/item/reagent_containers/food/drinks/bottle/small/xuizijuice,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/hallway)
+"Nc" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"Np" = (
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Room Three"
+	},
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/room3)
 "Ny" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/vending/tool,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"NA" = (
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/southleft{
+	name = "Canister Access"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"NY" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "Oe" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/zazali{
@@ -691,116 +1679,313 @@
 /obj/item/clothing/accessory/holster/thigh,
 /obj/item/gun/energy/pistol/hegemony,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room3)
+"Oo" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "Op" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/material/hatchet/butch,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
-"OI" = (
+/area/omgolo_tourist/kitchen)
+"OG" = (
 /obj/machinery/light{
-	dir = 8
+	dir = 1
 	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 9
-	},
-/obj/machinery/autolathe,
+/obj/structure/closet,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/crew)
+"OI" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "OM" = (
 /turf/simulated/wall/ebonywood,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"OP" = (
+/obj/machinery/door/window{
+	dir = 1
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -15
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room3)
 "Pa" = (
-/obj/effect/overmap/visitable/sector/omgolo_tourist,
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/hallway)
+"Pi" = (
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Room Two"
+	},
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/room2)
 "Pm" = (
 /obj/structure/mirror{
 	pixel_x = 25
 	},
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room1)
+"Pn" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"Ps" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "Pz" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/saucepan,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
 "PC" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room1)
+"PH" = (
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room3)
+"PP" = (
+/turf/unsimulated/wall/fakepdoor{
+	dir = 8;
+	name = "Blast door"
+	},
+/area/omgolo_tourist/hangar)
 "PU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
 "PX" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "Qb" = (
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
+"Ql" = (
+/obj/machinery/power/portgen/basic/fusion,
+/obj/structure/cable/green,
+/turf/simulated/floor/greengrid,
+/area/omgolo_tourist/engineering)
+"Qn" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"QB" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"QK" = (
+/obj/structure/bed/stool/chair/wood/wings,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"QM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "QR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"Rc" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "Rr" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/wine,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "Rt" = (
 /obj/structure/window/reinforced{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room3)
+"Rv" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
+"Rx" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"Rz" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"RA" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"RS" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room1)
 "RU" = (
 /obj/machinery/vending/boozeomat,
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"Sc" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_omgolo_tourist";
+	name = "airlock_omgolo_tourist";
+	frequency = 1994
+	},
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
+"Sd" = (
+/obj/structure/closet,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"Sg" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"SD" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"SJ" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/room1)
 "SL" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "SW" = (
 /obj/machinery/light{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"SX" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
 "Tc" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "Tg" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room3)
 "Tk" = (
 /obj/machinery/light,
 /turf/simulated/floor/wood/ebony,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"Tq" = (
+/obj/machinery/door/airlock{
+	dir = 4;
+	name = "Crew Quarters"
+	},
+/obj/machinery/door/firedoor/noid,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
 "Tr" = (
 /obj/machinery/media/jukebox/audioconsole,
 /turf/simulated/floor/wood/ebony,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "Tv" = (
-/obj/structure/closet,
-/obj/item/reagent_containers/food/snacks/candy/koko,
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"TI" = (
+/obj/structure/mirror{
+	pixel_x = 25
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
 "TO" = (
 /obj/machinery/light{
 	dir = 8
@@ -808,60 +1993,162 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/vending/engivend,
+/obj/machinery/atmospherics/pipe/tank/air{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"TT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "Ue" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 5
-	},
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/hallway)
+"Uf" = (
+/obj/structure/cable{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "Ux" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"Uz" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_omgolo_tourist";
+	name = "airlock_omgolo_tourist";
+	frequency = 1994
+	},
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
+"UF" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
 "UG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"UH" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"Vf" = (
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "Vn" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "Vr" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/obj/machinery/vending/engineering,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/atmos)
+"Vy" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"VC" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_omgolo_tourist";
+	name = "airlock_omgolo_tourist";
+	frequency = 1994
+	},
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
+"VT" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
 "VX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/grill,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
 "VY" = (
 /obj/structure/table/wood,
 /obj/random/spacecash,
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
+"VZ" = (
+/obj/machinery/power/apc/empty/east,
+/obj/structure/cable,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "Wj" = (
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "Wo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
+"Wr" = (
+/obj/machinery/alarm/north,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"WE" = (
+/obj/machinery/alarm/east,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"WL" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
 "Xd" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/unathi/mogazali/orange,
@@ -870,47 +2157,124 @@
 	color = "2b2a2c"
 	},
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room1)
 "Xe" = (
-/turf/simulated/floor/foamedmetal,
-/area/omgolo_tourist)
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"Xg" = (
+/obj/machinery/power/apc/empty/west,
+/obj/structure/cable,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hangar)
+"Xh" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/empty/east,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"Xl" = (
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/roomhallway)
+"Xs" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/atmospherics/portables_connector/supply{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "Xt" = (
 /obj/structure/curtain/open/shower,
 /obj/machinery/shower{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
+"Xz" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/empty{
+	name = "waste canister"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"XI" = (
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "XO" = (
-/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
-/turf/simulated/floor/reinforced/reactor,
-/area/omgolo_tourist)
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/room3)
 "Yc" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room1)
+"Yh" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "Yt" = (
 /obj/structure/table/steel,
 /obj/machinery/chemical_dispenser/bar_soft/full{
 	dir = 8
 	},
 /turf/simulated/floor/lino,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"YZ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "Zc" = (
 /obj/structure/bed/stool/chair/wood/wings{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/purple,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
 "Zf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/kitchen)
 "Zl" = (
 /obj/structure/bed/stool/chair/sofa/right/yellow{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist)
+/area/omgolo_tourist/dining)
+"ZC" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_omgolo_tourist";
+	name = "airlock_omgolo_tourist";
+	frequency = 1994
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
 "ZU" = (
 /obj/structure/toilet{
 	dir = 1;
@@ -918,12 +2282,12 @@
 	},
 /obj/structure/curtain/open/shower,
 /turf/simulated/floor/tiled/white,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room2)
 "ZZ" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet/red,
-/area/omgolo_tourist)
+/area/omgolo_tourist/room3)
 
 (1,1,1) = {"
 Kl
@@ -3099,7 +4463,7 @@ Kl
 Kl
 Kl
 Kl
-Kl
+gC
 Kl
 Kl
 Kl
@@ -7800,32 +9164,32 @@ Kl
 Kl
 Kl
 Kl
-in
+XO
 IH
 IH
 IH
-in
-in
-in
-IH
-IH
-IH
-in
-in
-in
-IH
-IH
-IH
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
+XO
+XO
+dn
+LU
+LU
+LU
+dn
+dn
+nR
+LX
+LX
+LX
+nR
+nR
+nR
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -7952,37 +9316,37 @@ Kl
 Kl
 Kl
 Kl
-in
-dv
-Yc
-Yc
-Lw
+XO
+pV
+gX
+gX
+OP
 Ii
-in
+dn
 dv
-Yc
-Yc
+EA
+EA
 Lw
 Xt
-in
-dv
-Yc
-Yc
-Lw
-Ii
-in
-Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-in
-in
-in
-in
-in
-in
+nR
+sM
+HT
+HT
+jg
+RS
+nR
+Li
+Li
+Li
+Li
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -8104,37 +9468,37 @@ Kl
 Kl
 Kl
 Kl
-in
+XO
 ZZ
-Yc
-Yc
+gX
+gX
 Rt
-ZU
-in
+PH
+dn
 VY
-Yc
-Yc
-Rt
+EA
+EA
+tv
 ZU
-in
-ZZ
-Yc
-Yc
-Rt
-ZU
-in
+nR
+Rv
+HT
+HT
+gV
+xy
+nR
+qL
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-in
-Bs
-gn
-gn
 If
-in
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -8256,37 +9620,37 @@ Kl
 Kl
 Kl
 Kl
-in
+XO
 Oe
-Yc
-Yc
+gX
+gX
 qt
-iZ
-in
+AA
+dn
 kr
-Yc
-Yc
+EA
+EA
 vR
 iZ
-in
+nR
 Xd
-Yc
-Yc
+HT
+HT
 tD
-iZ
-in
+SJ
+nR
+fe
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-in
-LU
-gn
-gn
-in
-in
+Li
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -8408,37 +9772,37 @@ Kl
 Kl
 Kl
 Kl
-in
+XO
 FO
-Yc
-Yc
-Yc
-Yc
-in
-FO
-Yc
-Yc
-Yc
-Yc
-in
-FO
-Yc
-Yc
-Yc
-Yc
-in
+gX
+oz
+LE
+gX
+dn
+VT
+EA
+vU
+vl
+EA
+nR
+BE
+HT
+bY
+EV
+HT
+nR
+bM
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-in
-Mx
-gn
-gn
 If
-in
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -8560,37 +9924,37 @@ Kl
 Kl
 Kl
 Kl
-in
-Yc
+XO
+Wr
 Tg
-Yc
-Yc
-Yc
-in
-Yc
+UF
+ks
+be
+dn
+Rz
 EE
-Yc
-Yc
-Yc
-in
-Yc
+Es
+aQ
+mI
+nR
+ti
 PC
-Yc
-Yc
-Yc
-in
+ii
+wj
+gO
+nR
+rh
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-in
-Tv
-gn
-gn
-in
-in
+Li
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -8712,37 +10076,37 @@ Kl
 Kl
 Kl
 Kl
-in
-bH
+XO
+Fd
 hr
-Yc
-Yc
-Pm
-in
-bH
+UH
+iX
+ye
+dn
+QK
 rV
-Yc
-Yc
-Pm
-in
+WL
+Bs
+TI
+nR
 bH
 wN
-Yc
+iE
 Yc
 Pm
-in
+nR
+OG
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-in
-pq
-gn
-gn
 If
-in
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -8864,37 +10228,37 @@ Kl
 Kl
 Kl
 Kl
-in
-in
-in
+XO
+XO
+XO
+Np
+XO
+XO
+dn
+dn
+dn
+Pi
+dn
+dn
+nR
+nR
+nR
 GN
-in
-in
-in
-in
-in
-GN
-in
-in
-in
-in
-in
-GN
-in
-in
-in
+nR
+nR
+nR
+Sd
 Xe
 Xe
-Xe
-Xe
-Xe
-Xe
-in
 Li
-gn
-gn
-in
-in
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -9016,37 +10380,37 @@ Kl
 Kl
 Kl
 Kl
-in
+Xl
 Hd
 Hd
+vJ
+RA
+RA
+RA
+RA
+RA
+dt
+RA
+RA
+RA
+RA
+RA
+cf
 Hd
 Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-in
+Xl
 Xe
 Xe
 Xe
-Xe
-Xe
-Xe
-in
-gn
-gn
-gn
 If
-in
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -9168,37 +10532,37 @@ Kl
 Kl
 Kl
 Kl
-in
+Xl
 Hd
 Hd
 Hd
+Vy
+rp
 Hd
 Hd
 Hd
+nx
 Hd
 Hd
 Hd
+rp
+Vy
 Hd
 Hd
 Hd
-Hd
-Hd
-Hd
-Hd
-Hd
-in
+Xl
+dN
+fd
 Xe
-Xe
-Xe
-Xe
-Xe
-Xe
-in
-gn
-gn
-gn
-in
-in
+Li
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -9320,7 +10684,7 @@ Kl
 Kl
 Kl
 Kl
-in
+Xl
 Hd
 Hd
 pK
@@ -9328,29 +10692,29 @@ Hd
 Hd
 Hd
 pK
-Hd
-Hd
-Hd
-Hd
+WE
+ES
+OI
+VZ
 pK
 Hd
 Hd
 Hd
 pK
 Hd
-in
+Xl
+YZ
+Av
 Xe
-Xe
-in
-in
-in
-in
-in
-nR
-gn
-gn
 If
-in
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -9471,38 +10835,38 @@ Kl
 Kl
 Kl
 Kl
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-GN
-in
-in
-in
-in
-in
-in
-in
-in
-in
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Hj
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
+hy
+Av
 Xe
-Xe
-in
-gn
-gn
-gn
-in
-gn
-gn
-gn
-in
-in
+Li
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -9601,7 +10965,7 @@ Kl
 Kl
 Kl
 Kl
-Kl
+gC
 Kl
 Kl
 Kl
@@ -9624,16 +10988,16 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 tw
-gn
+sg
 ee
 fy
 Tr
 ee
 fy
 ee
-ee
+SD
 fy
 ee
 ee
@@ -9642,19 +11006,19 @@ ee
 ee
 fy
 ee
-in
+Ct
+lL
+qa
 Xe
-Xe
-in
-gn
-gn
-gn
-qe
-gn
-gn
-gn
 If
-in
+Li
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -9776,31 +11140,28 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 ee
 ee
 ee
 ee
 ee
+zr
+us
+us
+us
+us
+us
+AQ
 ee
 ee
-ee
-ee
-ee
-ee
-ee
-ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
+Ct
+Gx
+Tq
+Gx
 in
 in
 in
@@ -9811,6 +11172,9 @@ in
 in
 in
 in
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -9928,9 +11292,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 ee
 ee
@@ -9943,26 +11307,26 @@ ee
 ee
 ee
 ee
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
 Ct
+jh
+Mx
+jh
+in
+cp
+Xs
+tX
+nD
 nD
 TO
 Vr
 Ny
-OI
-gX
-gh
 in
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -10080,9 +11444,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 ee
 kb
@@ -10095,26 +11459,26 @@ kb
 kb
 kb
 ee
-ee
-ee
+SD
+Hz
 Tk
+Ct
+cr
+Mx
+jh
 in
-Xe
-Xe
+Hx
+Mj
+TT
+uk
+Vf
+zk
+ev
+Jh
 in
-gn
-gn
-gn
-in
-AU
-gn
-gn
-gn
-gn
-gn
-gn
-vy
-in
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -10232,9 +11596,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 Jl
 BD
@@ -10247,26 +11611,26 @@ BD
 Tc
 BD
 py
+SD
+NY
 ee
-ee
-ee
+Ct
+jh
+Mx
+jh
 in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
-AU
-gn
-gn
-gn
-gn
-gn
-gn
+bP
+Pn
+QM
+Pn
+Ps
+md
+CX
 vy
 in
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -10384,9 +11748,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 Jl
 IU
@@ -10399,26 +11763,26 @@ IU
 OM
 Jo
 py
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-hM
-AU
-gn
-gn
-gn
-gn
-gn
-gn
+Ct
+jh
+Mx
+GX
+FK
+JF
+rB
+aX
+rB
+Ps
+Gg
+wH
 vy
 in
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -10536,9 +11900,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 Rr
-gn
+sg
 ee
 Jl
 BD
@@ -10551,25 +11915,22 @@ BD
 SW
 BD
 py
+SD
 ee
 ee
-ee
+Ct
+jh
+Mx
+jh
 in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
-AU
-gn
-gn
-gn
-gn
-gn
-gn
-vy
+oB
+mc
+do
+QB
+Vf
+Ga
+cY
+HQ
 in
 Kl
 Kl
@@ -10616,6 +11977,9 @@ Kl
 Kl
 Kl
 Kl
+Kl
+Kl
+gC
 Kl
 Kl
 Kl
@@ -10688,9 +12052,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 Ip
-gn
+sg
 ee
 Jl
 BD
@@ -10703,26 +12067,26 @@ kN
 BD
 BD
 py
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
 Ue
+Mx
+gh
+in
+Hr
+bg
+DI
+ra
 ra
 qc
-gU
-gU
-zs
-Lc
-BG
+ot
+Xz
 in
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -10840,9 +12204,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 wl
-gn
+sg
 ee
 Jl
 BD
@@ -10855,16 +12219,13 @@ BD
 BD
 BD
 py
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
+Ct
+jh
+Mx
+jh
 in
 in
 in
@@ -10875,6 +12236,9 @@ in
 in
 in
 in
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -10992,9 +12356,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 wl
-gn
+sg
 ee
 Jl
 BD
@@ -11007,26 +12371,26 @@ kN
 BD
 BD
 py
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
+jh
+Mx
+jh
+BV
+hV
+Rc
+DW
 va
-nD
-nD
-nD
-nD
-nD
-nD
-nD
-in
+at
+nd
+pF
+Ql
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -11144,9 +12508,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 wl
-gn
+sg
 ee
 Jl
 BD
@@ -11159,26 +12523,26 @@ BD
 BD
 BD
 py
-ee
+SD
 ee
 Tk
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
+cr
+Mx
+jh
+BV
 LB
 gn
 gn
-in
-in
-in
-in
-in
-in
+FR
+gn
+FP
+vo
+vo
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -11296,9 +12660,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 wl
-gn
+sg
 ee
 Jl
 BD
@@ -11311,26 +12675,26 @@ kN
 BD
 BD
 py
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
+Ct
+CF
+Gf
+jh
+BV
+sJ
 gn
 gn
-gn
-in
-AU
-gn
-gn
-XO
-IM
 FR
+gn
+Yh
+LR
 IM
-IM
-in
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -11448,9 +12812,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 wl
-gn
+sg
 ee
 Jl
 BD
@@ -11463,26 +12827,26 @@ BD
 BD
 BD
 py
+SD
 ee
-ee
-ee
-in
-in
-in
-in
-gn
-gn
-gn
-in
+gM
+Ct
+jh
+Mx
+jh
+BV
 AU
 gn
+kg
+FR
 gn
-XO
-IM
-IM
-IM
-IM
-in
+gn
+gn
+iT
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -11600,9 +12964,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 Zl
-gn
+sg
 ee
 Jl
 BD
@@ -11615,26 +12979,26 @@ kN
 BD
 BD
 py
-ee
-ee
-ee
+wk
+us
+us
 aj
-gn
+JQ
 Pa
-gn
-gn
-gn
-gn
+Fj
+pq
+ng
+eL
 hM
-AU
+uH
 gn
-FK
-ef
-vJ
-vJ
-dn
-IM
-in
+gn
+gn
+Oo
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -11752,9 +13116,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 SL
-gn
+sg
 ee
 Jl
 BD
@@ -11767,26 +13131,26 @@ BD
 BD
 BD
 py
-ee
+SD
 ee
 ee
 Kh
-gn
-gn
-gn
-gn
-gn
-gn
-in
+jh
+Mx
+jh
+BV
 AU
 gn
-CX
-XO
-IM
-IM
-IM
-IM
-in
+Sg
+gn
+gn
+gn
+gn
+FP
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -11904,9 +13268,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 Jl
 BD
@@ -11919,26 +13283,26 @@ kN
 BD
 BD
 py
-ee
-ee
-ee
-in
-in
-in
-in
-gn
-gn
-gn
-in
+vB
+rk
+BW
+Ct
+jh
+Mx
+jh
+BV
 AU
 gn
-CX
-XO
-IM
-Jj
-IM
-IM
-in
+FR
+gn
+gn
+gn
+gn
+FP
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -12056,9 +13420,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 Jl
 BD
@@ -12071,26 +13435,26 @@ BD
 Tc
 BD
 py
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
+Fn
+Mx
+jh
+BV
 LB
 gn
-CX
-in
-in
-in
-in
-in
-in
+FR
+gn
+gn
+gn
+gn
+FP
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -12208,9 +13572,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 Jl
 IU
@@ -12223,26 +13587,26 @@ IU
 OM
 Jo
 py
+SD
 ee
 ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
-Hj
-ra
-uk
-ra
-ra
-ra
-ra
-ra
-in
+Ct
+jh
+Mx
+jh
+BV
+vm
+pf
+Xh
+gU
+lJ
+zs
+Lc
+BG
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -12360,9 +13724,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 Jl
 BD
@@ -12375,26 +13739,26 @@ BD
 SW
 BD
 py
-ee
+SD
 ee
 Tk
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
+Ct
+cr
+Mx
+jh
+BV
+BV
+BV
+BV
+BV
+BV
+BV
+BV
+BV
+BV
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -12512,9 +13876,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 ee
 lM
@@ -12527,17 +13891,17 @@ lM
 lM
 lM
 ee
+SD
+NY
 ee
-ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
+Ue
+Mx
+gh
+mH
+VC
+Sc
+Ab
 Kl
 Kl
 Kl
@@ -12664,9 +14028,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 ee
 ee
@@ -12679,17 +14043,17 @@ ee
 ee
 ee
 ee
+SD
+Hz
 ee
-ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
+jh
+dB
+li
+ZC
+Uz
+Sc
+GW
 Kl
 Kl
 Kl
@@ -12816,9 +14180,9 @@ Kl
 Kl
 Kl
 cl
-gn
-gn
-gn
+Kh
+Kh
+sg
 ee
 ee
 ee
@@ -12830,18 +14194,18 @@ ee
 ee
 ee
 ee
+XI
+yT
 ee
 ee
-ee
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
+jh
+dB
+jh
+Gx
+Gx
+Gx
+Gx
 Kl
 Kl
 Kl
@@ -12968,9 +14332,9 @@ Kl
 Kl
 Kl
 cl
-gn
+Kh
 wq
-gn
+sg
 ee
 ee
 ee
@@ -12982,18 +14346,18 @@ ee
 ee
 ee
 ee
-ee
+SD
 ee
 Go
-ee
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Ct
+Ct
+jh
+dB
+jh
+Gx
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -13119,12 +14483,12 @@ Kl
 Kl
 Kl
 Kl
-in
-in
-in
-in
-in
-in
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
 tC
 nW
 zq
@@ -13134,18 +14498,18 @@ wm
 wm
 wm
 wm
-Wj
-in
-in
-in
-in
-Xe
-Xe
-in
-gn
-gn
-gn
-in
+Tv
+Ct
+Ct
+Ct
+NA
+li
+dB
+jh
+Gx
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -13276,52 +14640,52 @@ Kl
 Kl
 Kl
 Kl
-in
+Ct
 nZ
 Wj
 Wj
 Wj
 Wj
+Ie
+Jj
 Wj
 Wj
-Wj
-Wj
-Wj
-in
-Xe
-Xe
-Xe
-Xe
-in
-in
-cl
+Tv
+Ct
 go
-cl
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
+go
+go
+eZ
+HI
+eZ
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -13428,52 +14792,52 @@ Kl
 Kl
 Kl
 Kl
-in
+Ct
 Wj
 Wj
 Wj
 Wj
 Wj
-Wj
-Wj
-Wj
-Wj
-Wj
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Bc
+Ek
+Ek
+Ek
+hU
+Ct
+go
+fI
+fI
+cW
+qo
+SX
+Xg
+DF
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -13580,52 +14944,52 @@ Kl
 Kl
 Kl
 Kl
-in
+Ct
 dc
 Yt
 yH
 RU
 Bv
-Wj
-Wj
+Tv
+Qn
 jx
 ck
 RU
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ct
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -13732,52 +15096,52 @@ Kl
 Kl
 Kl
 Kl
-in
-in
-in
-in
-in
-in
+Ct
+Ct
+Ct
+Ct
+Ct
+Ct
 by
-in
-in
-in
-in
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ct
+Ct
+Ct
+Ct
+Ct
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -13884,52 +15248,52 @@ Kl
 Kl
 Kl
 Kl
-in
-Zf
-Zf
-Zf
-Zf
-Zf
+Ik
+gR
+eU
+BQ
+BQ
+qe
 PU
 Zf
 Zf
 Zf
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -14036,52 +15400,52 @@ Kl
 Kl
 Kl
 Kl
-in
-Zf
-Zf
+Ik
+BS
+ef
 QR
 Zf
-Zf
+Nc
 Zf
 Zf
 Zf
 Wo
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -14184,56 +15548,56 @@ Kl
 Kl
 Kl
 Kl
-in
-in
-in
-in
-in
+po
+po
+po
+po
+Ik
 Ux
-Zf
+ef
 iC
 Zf
-Zf
+Nc
 VX
 Zf
 Zf
 Op
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -14336,56 +15700,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 Ca
 Qb
 DK
-in
+Ik
 Zf
-Zf
+ef
 QR
-Zf
-Zf
-Zf
+Rx
+Nc
+CQ
 Zf
 Zf
 Wo
 KI
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -14488,56 +15852,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 PX
 Qb
 jC
-in
+Ik
 Zf
-Zf
+ef
 iC
 Zf
-Zf
+Nc
 VX
 Zf
 Zf
 eu
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -14640,56 +16004,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 bC
 Qb
 Ca
-in
+Ik
 Zf
-Zf
+ef
 QR
 Zf
-Zf
+Nc
 Zf
 Zf
 Zf
 Wo
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
 Ik
-ko
-ko
-ko
-ko
-ko
-ko
-ko
+go
+Ib
+fI
+fI
+fI
+fI
+fI
+fI
 fI
 ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -14792,56 +16156,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 kF
 Qb
 bC
-in
+Ik
 Ux
-Zf
+ef
 iC
 Zf
-Zf
+Nc
 VX
 Zf
 Zf
 qk
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -14944,56 +16308,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 jC
 Qb
 bC
-in
+Ik
 Zf
-Zf
+ef
 QR
 Zf
-Zf
+Nc
 Zf
 Zf
 Zf
 Wo
 KI
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -15096,56 +16460,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 Qb
 Qb
 Qb
-in
+Ik
 Zf
-Zf
+ef
 iC
 Zf
-Zf
+Nc
 Zf
 Zf
 Zf
 zt
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -15248,56 +16612,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 CH
 Qb
 Qb
-in
+Ik
+Zf
+ef
+Zf
+Zf
+Nc
 Zf
 Zf
 Zf
 Zf
 Zf
-Zf
-Zf
-Zf
-Zf
-Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -15400,56 +16764,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 CH
 Qb
 Qb
-in
+Ik
 Ux
+ef
+Zf
+Zf
+Nc
 Zf
 Zf
 Zf
 Zf
 Zf
-Zf
-Zf
-Zf
-Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -15552,56 +16916,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 CH
 Qb
-Qb
-in
+KM
+Ik
+Zf
+ef
+Zf
+Rx
+Nc
+CQ
 Zf
 Zf
 Zf
 Zf
-Zf
-Zf
-Zf
-Zf
-Zf
-Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -15704,56 +17068,56 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 CH
 Qb
-Qb
+Uf
 gv
-Zf
-Zf
-Zf
-Zf
-Zf
+qe
+BR
+Nc
+Nc
+Nc
 Zf
 Zf
 Zf
 Zf
 KI
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -15856,11 +17220,11 @@ Kl
 Kl
 Kl
 Kl
-in
+po
 CH
 Qb
-Qb
-in
+wD
+Ik
 Zf
 Zf
 qk
@@ -15871,41 +17235,41 @@ Pz
 UG
 Zf
 Zf
-in
-Xe
-Xe
-Xe
-Xe
-in
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-ko
-EV
+Ik
+go
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+fI
+PP
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -16008,56 +17372,56 @@ Kl
 Kl
 Kl
 Kl
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
-in
+po
+po
+po
+po
+Ik
+Ik
+Ik
+Ik
+Ik
+Ik
+Ik
+Ik
+Ik
+Ik
+Ik
+Ik
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+go
+Kl
+Kl
+Kl
+Kl
 Kl
 Kl
 Kl
@@ -20320,7 +21684,7 @@ Kl
 Kl
 Kl
 Kl
-Kl
+gC
 Kl
 Kl
 Kl

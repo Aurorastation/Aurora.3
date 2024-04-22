@@ -43,6 +43,7 @@
 	skybox_image.blend_mode = BLEND_OVERLAY
 	return skybox_image
 
+//Areas
 /area/omgolo_tourist
 	name = "Abandoned Tourism Platform"
 	icon_state = "bluenew"
@@ -51,3 +52,51 @@
 	no_light_control = FALSE
 	base_turf = /turf/space
 	area_flags = AREA_FLAG_RAD_SHIELDED
+
+/area/omgolo_tourist/hangar
+	name = "Abandoned Tourism Platform - Hangar"
+	icon_state = "exit"
+
+/area/omgolo_tourist/dining
+	name = "Abandoned Tourism Platform - Dining Lounge"
+	icon_state = "cafeteria"
+
+/area/omgolo_tourist/crew
+	name = "Abandoned Tourism Platform - Habitaiton"
+	icon_state = "crew_area"
+
+/area/omgolo_tourist/kitchen
+	name = "Abandoned Tourism Platform - Kitchen"
+	icon_state = "kitchen"
+
+/area/omgolo_tourist/freezer
+	name = "Abandoned Tourism Platform - Freezer"
+	icon_state = "kitchen"
+
+/area/omgolo_tourist/room1
+	name = "Abandoned Tourism Platform - Room #1"
+	icon_state = "crew_quarters"
+
+/area/omgolo_tourist/room2
+	name = "Abandoned Tourism Platform - Room #2"
+	icon_state = "crew_quarters"
+
+/area/omgolo_tourist/room3
+	name = "Abandoned Tourism Platform - Room #3"
+	icon_state = "crew_quarters"
+
+/area/omgolo_tourist/engineering
+	name = "Abandoned Tourism Platform - Engineering"
+	icon_state = "engineering"
+
+/area/omgolo_tourist/atmos
+	name = "Abandoned Tourism Platform - Atmospherics"
+	icon_state = "atmos"
+
+/area/omgolo_tourist/hallway
+	name = "Abandoned Tourism Platform - Main Hall"
+	icon_state = "hallC"
+
+/area/omgolo_tourist/roomhallway
+	name = "Abandoned Tourism Platform - Guest Rooms"
+	icon_state = "hallS"
