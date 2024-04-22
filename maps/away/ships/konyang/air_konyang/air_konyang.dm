@@ -57,6 +57,7 @@
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/ship/air_konyang
+	shuttle_name = "Air Konyang Transport"
 	landmark_tag = "nav_air_konyang_start"
 
 /obj/effect/shuttle_landmark/air_konyang_transit

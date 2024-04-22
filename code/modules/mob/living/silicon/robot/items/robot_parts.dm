@@ -361,7 +361,16 @@
 
 /obj/item/robot_parts/head/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(attacking_item.ismultitool())
+
+	if(istype(attacking_item, /obj/item/device/assembly/infra))
+		var/obj/item/device/assembly/S = attacking_item
+		var/obj/item/tv_assembly/A = new(user)
+		qdel(S)
+		user.put_in_hands(A)
+		to_chat(user, SPAN_NOTICE("You add the infrared sensor to the robot head."))
+		qdel(src)
+
+	else if(attacking_item.ismultitool())
 		if(law_manager)
 			to_chat(user, SPAN_NOTICE("You disable the lawing circuits on \the [src]."))
 			law_manager = FALSE
@@ -369,7 +378,7 @@
 			to_chat(user, SPAN_NOTICE("You enable the lawing circuits on \the [src]."))
 			law_manager = TRUE
 
-	if(istype(attacking_item, /obj/item/device/flash))
+	else if(istype(attacking_item, /obj/item/device/flash))
 		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
 			if(istype(R.module_active, /obj/item/device/flash))
@@ -379,6 +388,7 @@
 				add_flashes(attacking_item,user)
 		else
 			add_flashes(attacking_item,user)
+
 	else if(istype(attacking_item, /obj/item/stock_parts/manipulator))
 		to_chat(user, SPAN_NOTICE("You install some manipulators and modify the head, creating a functional spider-bot!"))
 		new /mob/living/simple_animal/spiderbot(get_turf(src))
@@ -386,7 +396,7 @@
 		qdel(attacking_item)
 		qdel(src)
 		return
-	return
+
 
 /obj/item/robot_parts/head/proc/add_flashes(obj/item/W, mob/user) //Made into a seperate proc to avoid copypasta
 	if(left_flash && right_flash)
