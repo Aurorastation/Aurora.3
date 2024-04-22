@@ -181,6 +181,9 @@
 /obj/machinery/door/airlock{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_smuggler)
 "qM" = (
@@ -273,6 +276,9 @@
 /obj/machinery/door/airlock/engineering{
 	name = "Power Room"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_smuggler)
 "xX" = (
@@ -285,6 +291,9 @@
 /area/omgolo_smuggler)
 "ye" = (
 /obj/machinery/door/airlock/mining,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/airless,
 /area/omgolo_smuggler)
 "yO" = (

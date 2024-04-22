@@ -173,16 +173,17 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/machinery/mineral/stacking_machine,
+/obj/machinery/mineral/stacking_machine{
+	id = "tret_stacking"
+	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/mining)
 "bJ" = (
-/obj/machinery/door/airlock/glass_service{
-	name = "Habitation"
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/tret_industrial/crew)
 "ce" = (
@@ -229,6 +230,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
 "cI" = (
@@ -356,11 +358,11 @@
 /turf/simulated/floor/tiled,
 /area/tret_industrial/secure)
 "eE" = (
-/obj/machinery/atmospherics/pipe/simple/visible/yellow{
-	dir = 5
-	},
 /obj/machinery/alarm/west{
 	req_one_access = null
+	},
+/obj/machinery/atmospherics/pipe/simple/visible/yellow{
+	dir = 6
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
@@ -461,6 +463,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
@@ -642,11 +647,10 @@
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
 "hW" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
-	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/tret_industrial)
 "ia" = (
@@ -797,6 +801,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
 "kf" = (
@@ -826,7 +833,7 @@
 /area/tret_industrial/secure)
 "kt" = (
 /obj/machinery/mineral/processing_unit_console{
-	id = "processing_s";
+	id = "tret_processing";
 	layer = 3.3;
 	pixel_y = 28
 	},
@@ -1610,6 +1617,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/crew)
 "tr" = (
@@ -1624,7 +1634,11 @@
 /turf/simulated/floor/tiled,
 /area/tret_industrial/secure)
 "tz" = (
-/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/computer/general_air_control/large_tank_control/terminal,
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "tret_co2";
+	name = "tret_co2"
+	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
 "tB" = (
@@ -1843,6 +1857,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/tret_industrial)
+"vZ" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/tret_industrial)
 "we" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -1894,6 +1915,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
@@ -2669,6 +2693,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced,
 /area/tret_industrial/engineering)
 "Im" = (
@@ -3383,6 +3410,10 @@
 	id_tag = "tret_out";
 	dir = 2
 	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "tret_co2";
+	name = "tret_co2"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/tret_industrial)
 "Rq" = (
@@ -3415,6 +3446,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
 "Rv" = (
@@ -3555,6 +3587,10 @@
 	frequency = 1984;
 	id_tag = "tret_sensor"
 	},
+/obj/effect/map_effect/marker/large_tank{
+	master_tag = "tret_co2";
+	name = "tret_co2"
+	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/tret_industrial)
 "Tz" = (
@@ -3562,7 +3598,8 @@
 	dir = 6
 	},
 /obj/machinery/mineral/stacking_unit_console{
-	pixel_y = 32
+	pixel_y = 32;
+	id = "tret_stacking"
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/mining)
@@ -3590,6 +3627,9 @@
 	},
 /obj/machinery/door/airlock/research{
 	name = "Botany"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
@@ -3648,6 +3688,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/crew)
@@ -3736,13 +3779,11 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial)
 "VA" = (
-/obj/machinery/door/airlock/glass_service{
-	name = "Habitation"
-	},
 /obj/effect/floor_decal/corner/green{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
 "VC" = (
@@ -3975,6 +4016,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
@@ -5853,7 +5897,7 @@ te
 te
 tz
 eE
-Pt
+vZ
 Pt
 rA
 UH

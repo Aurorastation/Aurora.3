@@ -3,6 +3,7 @@
 /obj/machinery/door/airlock/service{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/lino,
 /area/omgolo_tourist)
 "bC" = (
@@ -57,6 +58,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/reinforced/reactor,
 /area/omgolo_tourist)
 "eu" = (
@@ -94,10 +98,14 @@
 /obj/machinery/door/airlock{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/plating,
 /area/omgolo_tourist)
 "gv" = (
 /obj/machinery/door/airlock/freezer,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist)
 "gC" = (
@@ -129,6 +137,9 @@
 /area/omgolo_tourist)
 "hM" = (
 /obj/machinery/door/airlock/engineering,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist)
 "ih" = (
@@ -161,6 +172,13 @@
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /obj/item/reagent_containers/food/snacks/fish/fishfillet,
 /turf/simulated/floor/tiled/white,
+/area/omgolo_tourist)
+"jV" = (
+/obj/machinery/door/airlock,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist)
 "kb" = (
 /turf/simulated/floor/tiled/ramp{
@@ -520,6 +538,7 @@
 /obj/machinery/door/airlock{
 	dir = 4
 	},
+/obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist)
 "Hd" = (
@@ -757,6 +776,13 @@
 "Tg" = (
 /obj/structure/table/wood,
 /turf/simulated/floor/carpet/red,
+/area/omgolo_tourist)
+"Ti" = (
+/obj/machinery/door/airlock,
+/obj/machinery/door/firedoor/multi_tile{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist)
 "Tk" = (
 /obj/machinery/light,
@@ -9619,7 +9645,7 @@ in
 gn
 gn
 gn
-Kh
+jV
 gn
 gn
 gn
@@ -11588,7 +11614,7 @@ py
 ee
 ee
 ee
-Kh
+Ti
 gn
 Pa
 gn
