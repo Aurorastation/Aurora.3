@@ -2013,7 +2013,7 @@
 /area/engineering/atmos/air)
 "bxJ" = (
 /obj/machinery/atmospherics/unary/engine/scc_ship_engine,
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "bxK" = (
 /obj/machinery/door/blast/regular/open{
@@ -8507,12 +8507,6 @@
 "fQC" = (
 /turf/simulated/wall,
 /area/rnd/eva)
-"fQE" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/engineering/atmos/propulsion/starboard)
 "fQJ" = (
 /obj/machinery/light{
 	dir = 4
@@ -26879,7 +26873,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/aft)
 "szM" = (
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "sBd" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -28022,7 +28016,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor/reinforced,
+/turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion/starboard)
 "tsv" = (
 /obj/structure/table/rack{
@@ -49565,8 +49559,8 @@ eSV
 eSV
 eSV
 mNU
-fQE
-fQE
+gsr
+gsr
 awJ
 awJ
 jiL
@@ -50579,8 +50573,8 @@ eSV
 eSV
 eSV
 mNU
-fQE
-fQE
+gsr
+gsr
 awJ
 awJ
 dBG
@@ -51595,8 +51589,8 @@ eSV
 eSV
 eSV
 mNU
-fQE
-fQE
+gsr
+gsr
 awJ
 beu
 awJ
