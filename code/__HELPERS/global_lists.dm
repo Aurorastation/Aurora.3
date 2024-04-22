@@ -123,10 +123,6 @@ GLOBAL_DATUM_INIT(cameranet, /datum/visualnet/camera, new)
 
 /// Escape locations for Nar'Sie. Escape shuttles, generally.
 GLOBAL_LIST_EMPTY(escape_list)
-/// Escape exits for universe states.
-GLOBAL_LIST_EMPTY(endgame_exits)
-/// Safe spawns  for universe states.
-GLOBAL_LIST_EMPTY(endgame_safespawns)
 
 GLOBAL_LIST_INIT(syndicate_access, list(ACCESS_MAINT_TUNNELS, ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS))
 

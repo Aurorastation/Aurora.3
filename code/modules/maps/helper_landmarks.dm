@@ -7,7 +7,6 @@
 	name = "clear turf"
 	icon = 'icons/effects/landmarks.dmi'
 	icon_state = "clear"
-	delete_me = TRUE
 
 /obj/effect/landmark/clear/Initialize()
 	var/turf/simulated/wall/W = get_turf(src)

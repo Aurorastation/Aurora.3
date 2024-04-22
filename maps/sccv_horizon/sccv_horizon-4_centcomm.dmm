@@ -14048,9 +14048,7 @@
 /area/centcom/suppy)
 "aNS" = (
 /obj/structure/bed/stool/chair,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -14059,9 +14057,7 @@
 /area/tdome/tdomeobserve)
 "aNT" = (
 /obj/structure/bed/stool/chair,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -14344,9 +14340,7 @@
 "aOJ" = (
 /obj/structure/bed/stool/chair,
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -14864,9 +14858,7 @@
 /turf/simulated/floor,
 /area/tdome/tdome2)
 "aPV" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -14874,9 +14866,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/tdome/tdome2)
 "aPW" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -14906,9 +14896,7 @@
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "aQb" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -14916,9 +14904,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/tdome/tdome1)
 "aQc" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -15024,9 +15010,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -15036,9 +15020,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -15222,9 +15204,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aQM" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/machinery/camera/network/thunder{
 	c_tag = "Thunderdome - Red Team";
 	invisibility = 101
@@ -15245,9 +15225,7 @@
 /turf/simulated/floor/bluegrid,
 /area/tdome)
 "aQP" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/machinery/camera/network/thunder{
 	c_tag = "Green Team";
 	invisibility = 101
@@ -15307,9 +15285,6 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aQX" = (
-/obj/effect/landmark{
-	name = "start"
-	},
 /turf/unsimulated/floor,
 /area/centcom/start)
 "aQY" = (
@@ -15581,9 +15556,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -15594,9 +15567,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -15614,9 +15585,7 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -33697,9 +33666,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bNa" = (
@@ -33735,9 +33702,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -34722,9 +34687,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -35007,9 +34970,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -36294,9 +36255,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "kAM" = (
@@ -36554,9 +36513,7 @@
 /area/template_noop)
 "lok" = (
 /obj/effect/floor_decal/spline/plain/cee,
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -39605,9 +39562,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)

@@ -1340,9 +1340,7 @@
 /turf/simulated/floor/tiled/full,
 /area/storage/primary)
 "dq" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /turf/simulated/floor/plating,
 /area/construction)
 "dr" = (

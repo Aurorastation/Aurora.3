@@ -5,97 +5,83 @@
 	anchored = 1.0
 	unacidable = 1
 	simulated = 0
-	invisibility = 101
-	var/delete_me = 0
+	invisibility = INVISIBILITY_ABSTRACT
 	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/landmark/New()
 	..()
 	tag = text("landmark*[]", name)
-	do_landmark_effect()
-	return 1
+	return TRUE
 
-/obj/effect/landmark/proc/do_landmark_effect()
-	switch(name)			//some of these are probably obsolete
-		if("start")
-			GLOB.newplayer_start = get_turf(loc)
-			delete_me = 1
-			return
-		if("JoinLate")
-			GLOB.latejoin += loc
-			delete_me = 1
-			return
-		if("KickoffLocation")
-			GLOB.kickoffsloc += loc
-			delete_me = 1
-			return
-		if("JoinLateGateway")
-			GLOB.latejoin_gateway += loc
-			delete_me = 1
-			return
-		if("JoinLateCryo")
-			GLOB.latejoin_cryo += loc
-			delete_me = 1
-			return
-		if("JoinLateCryoCommand")
-			GLOB.latejoin_cryo_command += loc
-			delete_me = 1
-		if("JoinLateLift")
-			GLOB.latejoin_living_quarters_lift += loc
-			delete_me = 1
-			return
-		if("JoinLateCyborg")
-			GLOB.latejoin_cyborg += loc
-			delete_me = 1
-			return
-		if("JoinLateMerchant")
-			GLOB.latejoin_merchant += loc
-			delete_me = 1
-			return
-		if("tdome1")
-			GLOB.tdome1 += loc
-		if("tdome2")
-			GLOB.tdome2 += loc
-		if("tdomeadmin")
-			GLOB.tdomeadmin += loc
-		if("tdomeobserve")
-			GLOB.tdomeobserve += loc
-		if("endgame_exit")
-			GLOB.endgame_safespawns += loc
-			delete_me = 1
-			return
-		if("bluespacerift")
-			GLOB.endgame_exits += loc
-			delete_me = 1
-			return
-		if("asteroid spawn")
-			GLOB.asteroid_spawn += loc
-			delete_me = 1
-			return
-		if("skrell_entry")
-			dream_entries += loc
-			delete_me = 1
-			return
-		if("virtual_reality_spawn")
-			GLOB.virtual_reality_spawn += loc
-			delete_me = 1
-			return
-
-	GLOB.landmarks_list += src
-
-/obj/effect/landmark/proc/delete()
-	delete_me = 1
-
-/obj/effect/landmark/Initialize()
+/obj/effect/landmark/Initialize(mapload)
 	. = ..()
-	if(delete_me)
-		qdel(src)
+	GLOB.landmarks_list += src
 
 /obj/effect/landmark/Destroy()
 	GLOB.landmarks_list -= src
+	tag = null
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
+/*#######################
+	LATEJOIN LANDMARKS
+#######################*/
+
+/**
+ * # Latejoin marker
+ *
+ * Used to indicate where players spawn if they are latejoining
+ */
+/obj/effect/landmark/latejoin
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/latejoin/Initialize()
+	..()
+	GLOB.latejoin += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/**
+ * # Latejoin cyborg marker
+ *
+ * Used to indicate where players spawn if they are latejoining
+ */
+/obj/effect/landmark/latejoincyborg
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/latejoincyborg/Initialize()
+	..()
+	GLOB.latejoin_cyborg += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/**
+ * # Latejoin cryo marker
+ */
+/obj/effect/landmark/latejoincryo
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/latejoincryo/Initialize()
+	..()
+	GLOB.latejoin_cryo += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/**
+ * # Latejoin lift marker
+ */
+/obj/effect/landmark/latejoinlift
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/latejoinlift/Initialize()
+	. = ..()
+	GLOB.latejoin_living_quarters_lift += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+
+
+/**
+ * # Start marker
+ *
+ * Used for spawn sync, positions all the mobs at roundstart there before they are sent to their roundstart points
+ */
 /obj/effect/landmark/start
 	name = "start"
 	icon = 'icons/mob/screen/generic.dmi'
@@ -109,6 +95,11 @@
 
 	return 1
 
+/**
+ * # Lobby mob location marker
+ *
+ * Where the mobs that are seeing the lobby screen are located, only one is allowed to exist at a time
+ */
 /obj/effect/landmark/lobby_mobs_location
 	name = "lobby_mobs_location"
 	anchored = TRUE
@@ -128,6 +119,67 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 
 	return INITIALIZE_HINT_QDEL
 
+/**
+ * # Skrell SROM (dreaming) marker
+ *
+ * Used to indicate where the SROM is located
+ */
+/obj/effect/landmark/skrell_srom
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/skrell_srom/Initialize()
+	..()
+	dream_entries += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/**
+ * # Virtual reality spawn marker
+ *
+ * Used to indicate where the VR spawn is located
+ */
+/obj/effect/landmark/virtual_reality_spawn
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/virtual_reality_spawn/Initialize()
+	..()
+	GLOB.virtual_reality_spawn += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/*##########################
+	THUNDERDOME LANDMARKS
+##########################*/
+/obj/effect/landmark/thunderdome1
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/thunderdome1/Initialize()
+	..()
+	GLOB.tdome1 += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/thunderdome2
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/thunderdome2/Initialize()
+	..()
+	GLOB.tdome2 += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/thunderdomeadmin
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/thunderdomeadmin/Initialize()
+	..()
+	GLOB.tdomeadmin += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/thunderdomeobserve
+	invisibility = INVISIBILITY_ABSTRACT
+
+/obj/effect/landmark/thunderdomeobserve/Initialize()
+	..()
+	GLOB.tdomeobserve += get_turf(src)
+	return INITIALIZE_HINT_QDEL
+
 
 //Costume spawner landmarks
 /obj/effect/landmark/costume/New() //costume spawner, selects a random subclass and disappears
@@ -135,59 +187,72 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	var/list/options = typesof(/obj/effect/landmark/costume)
 	var/PICK= options[rand(1,options.len)]
 	new PICK(src.loc)
-	delete_me = 1
+
+/obj/effect/landmark/costume/Initialize()
+	..()
+	return INITIALIZE_HINT_QDEL
 
 //SUBCLASSES.  Spawn a bunch of items and disappear likewise
-/obj/effect/landmark/costume/chicken/New()
+/obj/effect/landmark/costume/chicken/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/suit/chickensuit(src.loc)
 	new /obj/item/clothing/head/chicken(src.loc)
 	new /obj/item/reagent_containers/food/snacks/egg(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/gladiator/New()
+/obj/effect/landmark/costume/gladiator/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/gladiator(src.loc)
 	new /obj/item/clothing/head/helmet/gladiator(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/madscientist/New()
+/obj/effect/landmark/costume/madscientist/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/gimmick/rank/captain/suit(src.loc)
 	new /obj/item/clothing/head/flatcap(src.loc)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src.loc)
 	new /obj/item/clothing/glasses/regular(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/elpresidente/New()
+/obj/effect/landmark/costume/elpresidente/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/gimmick/rank/captain/suit(src.loc)
 	new /obj/item/clothing/head/flatcap(src.loc)
 	new /obj/item/clothing/mask/smokable/cigarette/cigar/havana(src.loc)
 	new /obj/item/clothing/shoes/jackboots(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/maid/New()
+/obj/effect/landmark/costume/maid/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/skirt/(src.loc)
 	var/CHOICE = pick( /obj/item/clothing/head/beret , /obj/item/clothing/head/rabbitears )
 	new CHOICE(src.loc)
 	new /obj/item/clothing/glasses/sunglasses/blindfold(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/butler/New()
+/obj/effect/landmark/costume/butler/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/suit/wcoat(src.loc)
 	new /obj/item/clothing/under/suit_jacket(src.loc)
 	new /obj/item/clothing/head/that(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/scratch/New()
+/obj/effect/landmark/costume/scratch/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/gloves/white(src.loc)
 	new /obj/item/clothing/shoes/sneakers(src.loc)
 	new /obj/item/clothing/under/suit_jacket/white(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/highlander/New()
+/obj/effect/landmark/costume/highlander/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/kilt(src.loc)
 	new /obj/item/clothing/head/beret/red(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/prig/New()
+/obj/effect/landmark/costume/prig/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/suit/wcoat(src.loc)
 	new /obj/item/clothing/glasses/monocle(src.loc)
 	var/CHOICE= pick( /obj/item/clothing/head/bowler, /obj/item/clothing/head/that)
@@ -196,55 +261,57 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	new /obj/item/cane(src.loc)
 	new /obj/item/clothing/under/sl_suit(src.loc)
 	new /obj/item/clothing/mask/fakemoustache(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/nightowl/New()
+/obj/effect/landmark/costume/nightowl/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/owl(src.loc)
 	new /obj/item/clothing/mask/gas/owl_mask(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/waiter/New()
+/obj/effect/landmark/costume/waiter/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/waiter(src.loc)
 	new /obj/item/clothing/head/rabbitears(src.loc)
 	new /obj/item/clothing/accessory/apron/random(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/pirate/New()
+/obj/effect/landmark/costume/pirate/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/suit/pirate(src.loc)
 	var/CHOICE = pick( /obj/item/clothing/head/pirate , /obj/item/clothing/head/bandana/pirate)
 	new CHOICE(src.loc)
 	new /obj/item/clothing/glasses/eyepatch(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/commie/New()
+/obj/effect/landmark/costume/commie/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/head/ushanka/grey(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/holiday_priest/New()
+/obj/effect/landmark/costume/holiday_priest/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/suit/holidaypriest(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/cutewitch/New()
+/obj/effect/landmark/costume/cutewitch/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/under/sundress(src.loc)
 	new /obj/item/clothing/head/witchwig(src.loc)
 	new /obj/item/staff/broom(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/fakewizard/New()
+/obj/effect/landmark/costume/fakewizard/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/suit/wizrobe/fake(src.loc)
 	new /obj/item/clothing/head/wizard/fake(src.loc)
 	new /obj/item/staff/(src.loc)
-	delete_me = 1
 
-/obj/effect/landmark/costume/sexymime/New()
+/obj/effect/landmark/costume/sexymime/Initialize()
+	. = ..()
+
 	new /obj/item/clothing/mask/gas/sexymime(src.loc)
 	new /obj/item/clothing/under/sexymime(src.loc)
-	delete_me = 1
-
-/obj/effect/landmark/dungeon_spawn
-	name = "asteroid spawn"
-	icon = 'icons/1024x1024.dmi'
-	icon_state = "yellow"
 
 /obj/effect/landmark/distress_team_equipment
 	name = "distress equipment"
@@ -253,12 +320,12 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	name = "force spawnpoint"
 	var/job_tag = "Anyone"
 
-/obj/effect/landmark/force_spawnpoint/do_landmark_effect()
-	LAZYINITLIST(GLOB.force_spawnpoints)
-	LAZYADD(GLOB.force_spawnpoints[job_tag], loc)
+/obj/effect/landmark/force_spawnpoint/Initialize()
+	. = ..()
+	LAZYADD(GLOB.force_spawnpoints[job_tag], get_turf(src))
 
 /obj/effect/landmark/force_spawnpoint/Destroy()
-	LAZYREMOVE(GLOB.force_spawnpoints[job_tag], loc)
+	LAZYREMOVE(GLOB.force_spawnpoints[job_tag], get_turf(src))
 	. = ..()
 
 /obj/effect/landmark/ruin
@@ -275,6 +342,14 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	ruin_template = null
 	. = ..()
 
+/*#########################
+	OVERMAP ENTRY POINTS
+#########################*/
+/**
+ * # Entry point landmarks
+ *
+ * These landmarks are used to mark the entry points for ship weapons
+ */
 /obj/effect/landmark/entry_point
 	name = "entry point landmark"
 	icon_state = "dir_arrow"
