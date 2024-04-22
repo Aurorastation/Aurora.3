@@ -94,3 +94,8 @@ ATTRIBUTIONS SECTOR START
 sound/effects/zombies/zombie_1.ogg to zombie_4_ogg - Mazellmi @ Youtube
 sound/effects/rock_break.ogg - "Rock destroy". Obtained from https://freesound.org/people/Bertsz/sounds/524312/
 ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/machines/clanking.ogg - https://freesound.org/people/simone_ds/sounds/366084/
+sound/machines/howitzer/fire.ogg - https://freesound.org/people/qubodup/sounds/161341/
+ATTRIBUTIONS SECTION END
