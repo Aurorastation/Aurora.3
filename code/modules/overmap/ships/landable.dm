@@ -48,15 +48,15 @@
 
 	var/visitor_dir = fore_dir
 	for(var/landmark_name in list("FORE", "PORT", "AFT", "STARBOARD"))
-		var/turf/visitor_turf = get_ranged_target_turf(get_turf(landmark), center_loc, visitor_dir, round(min(world.maxx/4, world.maxy/4)))
+		var/turf/visitor_turf = get_ranged_target_turf(get_turf(landmark), visitor_dir, round(min(world.maxx/4, world.maxy/4)))
 		var/obj/effect/shuttle_landmark/visiting_shuttle/visitor_landmark = new (visitor_turf, landmark, landmark_name)
 		add_landmark(visitor_landmark)
 		visitor_dir = turn(visitor_dir, 90)
 
 		if(multiz)
 			new /obj/effect/landmark/map_data(locate(1, 1, world.maxz), (multiz + 1))
-	else
-		..()
+		else
+			..()
 
 /obj/effect/overmap/visitable/ship/landable/move_to_starting_location()
 	if(!use_mapped_z_levels)
