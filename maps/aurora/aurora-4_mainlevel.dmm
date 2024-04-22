@@ -49519,7 +49519,6 @@
 	},
 /area/crew_quarters/kitchen/freezer)
 "bRi" = (
-/obj/effect/landmark/costume/chicken,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood{
 	pixel_x = -2;
@@ -61798,7 +61797,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "kQn" = (
-/obj/effect/landmark/costume/commie,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
@@ -63443,7 +63441,6 @@
 /area/engineering/engineering_hallway_main)
 "nXe" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/costume/gladiator,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -64020,7 +64017,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "oZN" = (
-/obj/effect/landmark/costume/pirate,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood{
 	pixel_x = -2;
@@ -66028,7 +66024,6 @@
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
 "szC" = (
-/obj/effect/landmark/costume/elpresidente,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,

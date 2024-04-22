@@ -32525,7 +32525,6 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
 "bIP" = (
-/obj/effect/landmark/costume,
 /obj/structure/table/rack/holorack,
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /turf/simulated/floor/holofloor/wood,
@@ -38061,7 +38060,6 @@
 /turf/simulated/floor/bluegrid,
 /area/horizon/holodeck/source_trinary)
 "qHU" = (
-/obj/effect/landmark/costume,
 /obj/structure/table/rack/holorack,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
