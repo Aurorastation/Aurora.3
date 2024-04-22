@@ -13270,7 +13270,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/rust)
 "gcS" = (
-/obj/effect/landmark/latejoincyborg
+/obj/effect/landmark/latejoincyborg,
 /obj/machinery/computer/cryopod/robot{
 	pixel_x = -32
 	},
