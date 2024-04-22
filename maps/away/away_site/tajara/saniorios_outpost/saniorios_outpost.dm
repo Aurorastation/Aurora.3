@@ -7,6 +7,7 @@
 	spawn_weight = 1
 	spawn_cost = 2
 	id = "saniorios_outpost"
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/saniorios_outpost)
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/saniorios_outpost

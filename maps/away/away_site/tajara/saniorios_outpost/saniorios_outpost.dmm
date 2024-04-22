@@ -2870,6 +2870,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/white/diagonal,
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
