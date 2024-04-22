@@ -48,7 +48,7 @@
 	class = "Unmarked"
 	designation = "Civilian Shuttle"
 	desc = "A shuttle without any kind of identification."
-	shuttle = "Unmarked Shuttle"
+	shuttle = "Unmarked Adhomian Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#CD4A4C")
