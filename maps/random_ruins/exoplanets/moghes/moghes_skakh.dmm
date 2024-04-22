@@ -9,10 +9,8 @@
 	},
 /area/moghes_skakh)
 "c" = (
-/obj/structure/bed/stool/chair/sofa/right/black{
-	dir = 1;
-	name = "pew";
-	desc = "A pew, how holy!"
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
@@ -49,14 +47,12 @@
 	},
 /area/moghes_skakh)
 "h" = (
-/obj/structure/bed/stool/chair/sofa/left/black{
-	dir = 1;
-	name = "pew";
-	desc = "A pew, how holy!"
-	},
 /obj/effect/ghostspawpoint{
 	identifier = "moghes_skakh_faithful";
 	name = "igs - moghes_skakh_faithful"
+	},
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
@@ -266,14 +262,12 @@
 	},
 /area/moghes_skakh)
 "E" = (
-/obj/structure/bed/stool/chair/sofa/right/black{
-	dir = 1;
-	name = "pew";
-	desc = "A pew, how holy!"
-	},
 /obj/effect/ghostspawpoint{
 	identifier = "moghes_skakh_faithful";
 	name = "igs - moghes_skakh_faithful"
+	},
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
@@ -336,26 +330,22 @@
 	},
 /area/moghes_skakh)
 "M" = (
-/obj/structure/bed/stool/chair/sofa/left/black{
-	dir = 1;
-	name = "pew";
-	desc = "A pew, how holy!"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
+	},
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
 	},
 /area/moghes_skakh)
 "N" = (
-/obj/structure/bed/stool/chair/sofa/right/black{
-	dir = 1;
-	name = "pew";
-	desc = "A pew, how holy!"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
+	},
+/obj/structure/bed/stool/chair/sofa/pew/left{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
@@ -394,10 +384,8 @@
 	},
 /area/moghes_skakh)
 "S" = (
-/obj/structure/bed/stool/chair/sofa/left/black{
-	dir = 1;
-	name = "pew";
-	desc = "A pew, how holy!"
+/obj/structure/bed/stool/chair/sofa/pew/right{
+	dir = 1
 	},
 /turf/simulated/floor/exoplanet/marble{
 	temperature = 303.15
