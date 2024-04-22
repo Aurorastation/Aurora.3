@@ -109,7 +109,7 @@
 	shuttle_area = list(/area/shuttle/ihss_reclamation)
 	current_location = "nav_ihss_reclamation_shuttle"
 	landmark_transition = "nav_transit_ihss_reclamation"
-	dock_target = "ihss_shuttle"
+	dock_target = "airlock_reclamation_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_ihss_reclamation_shuttle"
@@ -121,9 +121,9 @@
 	base_area = /area/ihss_reclamation/hangar1
 	base_turf = /turf/simulated/floor/plating
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-	docking_controller = "airlock_reclamation_shuttle"
+	docking_controller = "reclamation_hangar"
 
-/obj/effect/shuttle_landmark/ihss_reclamation_shuttle/transit
+/obj/effect/shuttle_landmark/ihss_reclamation_transit
 	name = "In transit"
 	landmark_tag = "nav_transit_ihss_reclamation"
 	base_turf = /turf/space/transit/north
