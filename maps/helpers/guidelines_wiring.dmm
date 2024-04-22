@@ -65,8 +65,6 @@
 /area/template_noop)
 "dA" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -112,7 +110,6 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/smes,
-/obj/structure/cable,
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "fC" = (
@@ -398,8 +395,6 @@
 /area/template_noop)
 "qk" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
@@ -798,9 +793,8 @@
 /area/template_noop)
 "Hz" = (
 /obj/machinery/power/smes,
-/obj/structure/cable/green,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor,
 /area/template_noop)
@@ -1062,14 +1056,13 @@
 /turf/simulated/floor/tiled/steel,
 /area/template_noop)
 "Ri" = (
-/obj/structure/cable/green{
-	icon_state = "0-4"
+/obj/machinery/power/terminal{
+	dir = 4
 	},
-/obj/machinery/power/smes,
 /obj/structure/cable{
-	icon_state = "0-2"
+	icon_state = "0-8"
 	},
-/turf/simulated/floor/tiled/steel,
+/turf/simulated/floor,
 /area/template_noop)
 "Rv" = (
 /obj/structure/cable{
@@ -1129,7 +1122,7 @@
 "TW" = (
 /obj/machinery/power/apc/low/west,
 /obj/structure/cable/green{
-	icon_state = "4-8"
+	icon_state = "0-4"
 	},
 /turf/simulated/floor,
 /area/template_noop)
@@ -1347,8 +1340,6 @@
 /area/template_noop)
 "Zo" = (
 /obj/structure/cable{
-	d1 = 1;
-	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/structure/cable/green{
@@ -2143,8 +2134,8 @@ DW
 DW
 DW
 Qw
-Li
 TP
+US
 EH
 Li
 Li
@@ -2235,8 +2226,8 @@ DW
 DW
 DW
 Qw
+Ri
 Li
-VO
 Li
 Li
 Li
@@ -2327,8 +2318,8 @@ Qw
 Qw
 Qw
 Qw
-TP
-Vv
+Hz
+Li
 Li
 Li
 Li
@@ -2420,7 +2411,7 @@ US
 US
 US
 sh
-hi
+Li
 Li
 Li
 Li
@@ -4237,7 +4228,7 @@ Sd
 Qw
 du
 RN
-Hz
+HU
 vf
 Qw
 du
@@ -4702,7 +4693,7 @@ Bl
 Qw
 du
 du
-Ri
+fw
 LJ
 Qw
 Lt
