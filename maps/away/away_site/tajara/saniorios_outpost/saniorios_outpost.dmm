@@ -1181,7 +1181,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/docking/saniorios_outpost,
+/obj/effect/map_effect/marker/airlock/shuttle/saniorios_outpost,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/saniorios_outpost)
 "se" = (
@@ -1216,7 +1216,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/docking/saniorios_outpost,
+/obj/effect/map_effect/marker/airlock/shuttle/saniorios_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/saniorios_outpost)
 "su" = (
@@ -2140,13 +2140,13 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/full,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable/green{
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker/airlock/docking/saniorios_outpost,
+/obj/effect/map_effect/marker/airlock/shuttle/saniorios_outpost,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/saniorios_outpost)
 "Hp" = (

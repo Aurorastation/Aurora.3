@@ -71,4 +71,10 @@
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_saniorios_outpost"
+	dock_target = "saniorios_outpost"
 	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/saniorios_outpost
+	name = "Unmarked Adhomian Shuttle"
+	shuttle_tag = "Unmarked Adhomian Shuttle"
+	master_tag = "saniorios_outpost"
