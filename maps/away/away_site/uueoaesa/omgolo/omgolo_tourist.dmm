@@ -1,40 +1,44 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
-/turf/simulated/floor/wood,
-/area/omgolo_tourist/roomhallway)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "aab" = (
 /obj/structure/cable{
-	icon_state = "1-2"
+	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
+	dir = 4
 	},
-/turf/simulated/floor/wood,
-/area/omgolo_tourist/roomhallway)
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
 "aac" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/turf/simulated/floor/wood,
-/area/omgolo_tourist/roomhallway)
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
 "aad" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -45,8 +49,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
-/turf/simulated/floor/wood,
-/area/omgolo_tourist/roomhallway)
+/obj/structure/disposalpipe/junction,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "aae" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -60,14 +65,9 @@
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "aaf" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
@@ -81,6 +81,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "aah" = (
@@ -120,6 +121,7 @@
 /obj/machinery/door/airlock/multi_tile/glass{
 	name = "Dining Room"
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/dining)
 "aak" = (
@@ -132,20 +134,20 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/wood/ebony,
-/area/omgolo_tourist/dining)
-"aal" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
+"aal" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
 "aam" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -180,6 +182,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "aap" = (
@@ -192,20 +197,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aaq" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
-	dir = 1
-	},
-/turf/simulated/floor/wood/ebony,
-/area/omgolo_tourist/dining)
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "aar" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -219,23 +219,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aas" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/omgolo_tourist/hallway)
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
 "aat" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -261,20 +253,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aav" = (
-/obj/structure/cable{
-	icon_state = "1-2"
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/turf/simulated/floor/lino,
-/area/omgolo_tourist/dining)
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
 "aaw" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -288,15 +278,13 @@
 /turf/simulated/floor/lino,
 /area/omgolo_tourist/dining)
 "aax" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/structure/disposaloutlet,
+/obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist/kitchen)
+/turf/simulated/floor/airless,
+/area/space)
 "aay" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -341,15 +329,11 @@
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "abc" = (
-/obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/turf/simulated/floor/tiled/white,
-/area/omgolo_tourist/kitchen)
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "abd" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -388,6 +372,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/lino,
@@ -431,6 +418,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
@@ -505,6 +496,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/disposalpipe/junction{
+	dir = 8;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "adv" = (
@@ -525,6 +520,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
@@ -639,6 +637,9 @@
 /area/space)
 "agM" = (
 /obj/machinery/alarm/south,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "agO" = (
@@ -752,6 +753,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room1)
 "aiT" = (
@@ -767,6 +772,10 @@
 /area/omgolo_tourist/engineering)
 "aiX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
@@ -858,6 +867,7 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/machinery/disposal/small/west,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "alM" = (
@@ -923,6 +933,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "anx" = (
@@ -934,6 +948,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 8
 	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
@@ -1013,6 +1030,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "apy" = (
@@ -1047,6 +1065,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
@@ -1223,6 +1245,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "auz" = (
@@ -1285,6 +1308,9 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "avJ" = (
@@ -1296,6 +1322,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
@@ -1332,6 +1361,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
+	},
+/obj/structure/disposalpipe/junction{
+	dir = 4
 	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
@@ -1403,6 +1435,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "azk" = (
@@ -1425,6 +1461,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
@@ -1490,6 +1530,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "aAU" = (
@@ -1508,10 +1552,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/junction{
+	dir = 8
+	},
 /turf/simulated/floor/lino,
 /area/omgolo_tourist/dining)
 "aBs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
@@ -1696,6 +1747,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "aEV" = (
@@ -1718,6 +1772,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
+/obj/structure/disposalpipe/junction,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aFn" = (
@@ -1807,6 +1862,9 @@
 	dir = 4;
 	name = "Room One"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/room1)
 "aGW" = (
@@ -1825,6 +1883,9 @@
 "aGX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aHd" = (
@@ -1843,6 +1904,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/wood,
@@ -1912,6 +1976,9 @@
 /area/omgolo_tourist/hangar)
 "aIe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/simulated/floor/lino,
@@ -2001,6 +2068,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aKh" = (
@@ -2121,6 +2189,9 @@
 	dir = 4;
 	name = "Room Three"
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/room3)
 "aNy" = (
@@ -2218,6 +2289,10 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/structure/disposalpipe/junction{
+	dir = 2;
+	icon_state = "pipe-j2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aPi" = (
@@ -2234,6 +2309,9 @@
 /obj/machinery/door/airlock{
 	dir = 4;
 	name = "Room Two"
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/room2)
@@ -2290,6 +2368,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
 	},
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
@@ -2473,6 +2555,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aTr" = (
@@ -2584,6 +2669,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
 "aVf" = (
@@ -2672,6 +2761,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room2)
 "aXd" = (
@@ -2746,6 +2839,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "aXO" = (
@@ -2753,6 +2847,10 @@
 /area/omgolo_tourist/room3)
 "aYc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/obj/machinery/disposal/small/west,
+/obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/red,
@@ -2819,6 +2917,143 @@
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
+"csv" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"erp" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"ewj" = (
+/obj/machinery/light,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"gAL" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 2;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"iYf" = (
+/obj/machinery/disposal/small/north,
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"iYA" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"jQC" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"jRS" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"onR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"qQM" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"rFs" = (
+/obj/structure/table/stone/marble,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"tjn" = (
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"vbN" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"vmg" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"vvr" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/shuttle/space_ship,
+/area/omgolo_tourist/hallway)
+"xgh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"xKj" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/disposal/small/east,
+/obj/structure/disposalpipe/trunk{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 
 (1,1,1) = {"
 aKl
@@ -10916,16 +11151,16 @@ aHd
 aHd
 avJ
 aRA
-aaa
-aab
-aac
-aad
-adt
-aae
-aaf
-aag
 aah
-aRA
+aae
+aae
+aae
+adt
+aag
+aag
+aag
+jQC
+vbN
 acf
 aHd
 aHd
@@ -11066,12 +11301,12 @@ aKl
 aXl
 aHd
 aHd
-aHd
-aVy
-arp
-aHd
-aHd
-aHd
+aaf
+csv
+iYA
+aaq
+aaq
+aaq
 anx
 aHd
 aHd
@@ -11528,7 +11763,7 @@ aTr
 aee
 afy
 aee
-aSD
+aaa
 afy
 aee
 aee
@@ -11838,13 +12073,13 @@ aee
 aee
 aee
 aee
-aSD
+aaa
 aee
 aee
 aCt
 ajh
-aMx
-ajh
+gAL
+qQM
 ain
 acp
 aXs
@@ -11996,7 +12231,7 @@ aTk
 aCt
 acr
 aMx
-ajh
+aav
 ain
 aHx
 aMj
@@ -12142,13 +12377,13 @@ aBD
 aTc
 aBD
 apy
-aal
+aao
 aNY
 aee
 aCt
 ajh
 aMx
-ajh
+aav
 ain
 abP
 aPn
@@ -12294,7 +12529,7 @@ aIU
 aOM
 aJo
 apy
-aSD
+aaa
 aee
 aee
 aCt
@@ -12446,13 +12681,13 @@ aBD
 aSW
 aBD
 apy
-aSD
+aaa
 aee
 aee
 aCt
 ajh
 aMx
-ajh
+aav
 ain
 aoB
 amc
@@ -12598,13 +12833,13 @@ akN
 aBD
 aBD
 apy
-aSD
+aaa
 aee
 aee
 aCt
 aUe
 aan
-agh
+aal
 ain
 aHr
 abg
@@ -12750,13 +12985,13 @@ aBD
 aBD
 aBD
 apy
-aSD
+aaa
 aee
-aee
+iYf
 aCt
 ajh
 aMx
-ajh
+aav
 ain
 ain
 ain
@@ -12902,13 +13137,13 @@ akN
 aBD
 aBD
 apy
-aSD
+aaa
 aee
-aee
+abc
 aCt
 ajh
 aMx
-ajh
+aav
 aBV
 ahV
 aRc
@@ -13054,13 +13289,13 @@ aBD
 aBD
 aBD
 apy
-aSD
+aaa
 aee
-aTk
+ewj
 aCt
 acr
 aMx
-ajh
+aav
 aBV
 aLB
 agn
@@ -13206,13 +13441,13 @@ akN
 aBD
 aBD
 apy
-aSD
+aaa
 aee
-aee
+abc
 aCt
 aCF
 aGf
-ajh
+aav
 aBV
 asJ
 agn
@@ -13358,13 +13593,13 @@ aBD
 aBD
 aBD
 apy
-aSD
+aaa
 aee
 agM
 aCt
 ajh
 aMx
-ajh
+aav
 aBV
 aAU
 agn
@@ -13512,7 +13747,7 @@ aBD
 apy
 awk
 aus
-aus
+aad
 aaj
 aJQ
 aPa
@@ -13662,15 +13897,15 @@ aBD
 aBD
 aBD
 apy
-aSD
+aaa
 aee
 aee
 aKh
 ajh
-aMx
+aab
 ajh
 aBV
-aAU
+aac
 agn
 aSg
 agn
@@ -13819,7 +14054,7 @@ ark
 aBW
 aCt
 ajh
-aMx
+aab
 ajh
 aBV
 aAU
@@ -13966,12 +14201,12 @@ aBD
 aTc
 aBD
 apy
-aSD
+aaa
 aee
 aee
 aCt
 aFn
-aMx
+aab
 ajh
 aBV
 aLB
@@ -14118,12 +14353,12 @@ aIU
 aOM
 aJo
 apy
-aSD
+aaa
 aee
 aee
 aCt
 ajh
-aMx
+aab
 ajh
 aBV
 avm
@@ -14270,12 +14505,12 @@ aBD
 aSW
 aBD
 apy
-aSD
+aaa
 aee
 aTk
 aCt
 acr
-aMx
+aab
 ajh
 aBV
 aBV
@@ -14574,7 +14809,7 @@ aee
 aee
 aee
 aee
-aaq
+aak
 aHz
 aee
 aCt
@@ -14721,10 +14956,10 @@ aee
 aee
 aee
 aee
-aee
-aee
-aee
-aee
+xgh
+vmg
+vmg
+vmg
 aXI
 ayT
 aee
@@ -14873,7 +15108,7 @@ aee
 aee
 aee
 aee
-aee
+abc
 aee
 aee
 aee
@@ -14883,7 +15118,7 @@ aGo
 aCt
 aCt
 ajh
-aas
+aar
 ajh
 aGx
 aKl
@@ -15025,7 +15260,7 @@ anW
 azq
 azP
 awm
-awm
+rFs
 awm
 awm
 awm
@@ -15036,9 +15271,9 @@ aCt
 aNA
 ali
 aau
-ajh
-aGx
-aKl
+jRS
+vvr
+aax
 aKl
 aKl
 aKl
@@ -15324,14 +15559,14 @@ aKl
 aKl
 aKl
 aCt
-aWj
-aWj
-aWj
-aWj
-aWj
+tjn
+aas
+aas
+aas
+aas
 aBc
 aEk
-aav
+aaw
 aaw
 ahU
 aCt
@@ -15481,7 +15716,7 @@ aYt
 ayH
 aRU
 aBv
-aTv
+erp
 aQn
 ajx
 ack
@@ -15786,8 +16021,8 @@ aBQ
 aBQ
 aqe
 aPU
-aZf
-aZf
+onR
+xKj
 aZf
 aZf
 aIk
@@ -16240,7 +16475,7 @@ aZf
 aef
 aQR
 aRx
-aax
+aay
 aCQ
 aZf
 aZf
@@ -17607,7 +17842,7 @@ agv
 aba
 aBR
 abb
-abc
+abb
 abd
 aZf
 aZf
