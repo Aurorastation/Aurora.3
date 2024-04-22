@@ -42,18 +42,33 @@
 	skybox_image.blend_mode = BLEND_OVERLAY
 	return skybox_image
 
-/obj/effect/shuttle_landmark/saniorios_outpost
-	base_turf = /turf/space
-	base_area = /area/space
+//shuttle stuff
+/obj/effect/overmap/visitable/ship/landable/saniorios_outpost
+	name = "Unmarked Shuttle"
+	class = "Unmarked"
+	designation = "Civilian Shuttle"
+	desc = "A shuttle without any kind of identification."
+	shuttle = "Unmarked Civilian Shuttle"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#CD4A4C")
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 3000 //very inefficient pod
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_TINY
 
-/obj/effect/shuttle_landmark/saniorios_outpost/nav1
-	name = "Sani'Orios Navpoint #1"
-	landmark_tag = "nav_hsaniorios_outpost_1"
+/obj/machinery/computer/shuttle_control/explore/saniorios_outpost
+	name = "shuttle control console"
+	shuttle_tag = "Unmarked Shuttle"
 
-/obj/effect/shuttle_landmark/saniorios_outpost/nav2
-	name = "Sani'OriosNavpoint #2"
-	landmark_tag = "nav_hsaniorios_outpost_2"
-
-/obj/effect/shuttle_landmark/saniorios_outpost/nav3
-	name = "Sani'Orios Navpoint #3"
-	landmark_tag = "nav_hsaniorios_outpost_3"
+/datum/shuttle/autodock/overmap/saniorios_outpost
+	name = "Unmarked Shuttle"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/saniorios_outpost)
+	current_location = "nav_hangar_saniorios_outpost"
+	landmark_transition = "nav_transit_saniorios_outpost"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_hangar_saniorios_outpost"
+	defer_initialisation = TRUE

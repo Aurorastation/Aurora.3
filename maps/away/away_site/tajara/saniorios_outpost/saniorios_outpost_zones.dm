@@ -30,3 +30,8 @@
 /area/saniorios_outpost/armory
 	name = "Sani'Orios Asteroid Outpost Armory"
 	icon_state = "armory"
+
+//Shuttle
+/area/shuttle/saniorios_outpost
+	name = "Sani'Orios Shuttle"
+	requires_power = TRUE

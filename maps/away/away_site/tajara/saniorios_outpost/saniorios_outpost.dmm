@@ -30,6 +30,15 @@
 "bt" = (
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
+"by" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "bI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -45,10 +54,6 @@
 	},
 /area/saniorios_outpost/gun)
 "bT" = (
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
 /obj/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -86,12 +91,22 @@
 /obj/item/storage/box/lights/bulbs,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"cB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/space)
 "cE" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
+"cG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/wall/shuttle/raider,
+/area/space)
 "cI" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
@@ -168,6 +183,14 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost/hangar)
+"ec" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
@@ -325,26 +348,16 @@
 	},
 /area/saniorios_outpost/crew_section)
 "fC" = (
-/obj/machinery/door/airlock/security{
-	name = "Torpedo Hangar";
-	req_access = list(214);
-	dir = 8
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/cable{
+	icon_state = "0-2"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/machinery/power/apc/east{
+	req_access = list(214)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled{
-	temperature = 278.15
-	},
-/area/saniorios_outpost/hangar)
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "fO" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 1
@@ -406,6 +419,18 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/gun)
+"gv" = (
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "gB" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/atmos)
@@ -532,14 +557,11 @@
 	},
 /area/saniorios_outpost/crew_section)
 "iz" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
 	},
-/obj/structure/cable/green{
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating/cooled,
-/area/saniorios_outpost/hangar)
+/turf/simulated/wall/shuttle/raider,
+/area/space)
 "iD" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "saniorios_airlock_1"
@@ -591,6 +613,23 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
+"jk" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost)
 "jo" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 5
@@ -653,6 +692,10 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
+"kL" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/plating,
+/area/space)
 "kQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -718,6 +761,27 @@
 "lz" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/gun)
+"lL" = (
+/obj/machinery/door/airlock/security{
+	name = "Hangar";
+	req_access = list(214);
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled{
+	temperature = 278.15
+	},
+/area/saniorios_outpost/hangar)
 "lV" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -753,6 +817,12 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
+"lZ" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost/hangar)
 "mz" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost)
@@ -784,6 +854,13 @@
 "nk" = (
 /obj/structure/lattice,
 /turf/template_noop,
+/area/space)
+"nu" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "nz" = (
 /obj/structure/closet/cabinet,
@@ -862,6 +939,12 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"oU" = (
+/obj/machinery/atmospherics/portables_connector/aux,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ph" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -881,6 +964,28 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
+"pj" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ps" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 9
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"pt" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost/hangar)
 "pI" = (
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/structure/closet/secure_closet/guncabinet{
@@ -891,6 +996,9 @@
 /obj/item/ammo_magazine/d762,
 /obj/machinery/power/apc/high/north{
 	req_access = list(214)
+	},
+/obj/structure/cable/green{
+	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -919,6 +1027,30 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
+"pZ" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/raider,
+/area/space)
+"qf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "qk" = (
 /obj/machinery/door/airlock{
 	req_access = list(214);
@@ -1013,6 +1145,42 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/barracks)
+"ry" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/tajaran_smuggler_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "se" = (
 /obj/structure/bed/stool/bar/padded/black,
 /obj/structure/sign/painting_frame/nated{
@@ -1031,10 +1199,22 @@
 	},
 /area/saniorios_outpost/crew_section)
 "sq" = (
-/obj/effect/landmark/entry_point/port{
-	name = "port, asteroid"
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
 	},
-/turf/simulated/mineral,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/tajaran_smuggler_shuttle,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "su" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -1066,6 +1246,15 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
+"tc" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "ty" = (
 /obj/machinery/light{
 	dir = 4
@@ -1235,6 +1424,33 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/unsimulated/floor/asteroid/ash,
 /area/space)
+"wM" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"wZ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/structure/closet/crate/internals,
+/obj/item/storage/bag/inflatable,
+/obj/item/device/oxycandle,
+/obj/item/tank/emergency_oxygen{
+	pixel_x = 5
+	},
+/obj/item/tank/emergency_oxygen/engi{
+	pixel_x = -3
+	},
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "xe" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/effect/floor_decal/corner/white{
@@ -1353,6 +1569,16 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
+"zl" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
+/obj/effect/overmap/visitable/ship/landable/tajaran_smuggler_shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "zq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1468,6 +1694,21 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/armory)
+"Bd" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/shipsensors/weak{
+	pixel_y = 4;
+	pixel_x = -1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "BR" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -1501,6 +1742,14 @@
 /obj/structure/reagent_dispensers/coolanttank,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"Cv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "CD" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -1624,6 +1873,30 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/gun)
+"EC" = (
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost/hangar)
+"EZ" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d2 = 8;
+	icon_state = "0-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Fa" = (
 /obj/machinery/ammunition_loader/francisca{
 	weapon_id = "Sani'Orios Asteroid Outpost"
@@ -1689,12 +1962,53 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
+"Fx" = (
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Fy" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/raider,
+/area/space)
+"FF" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/iff_beacon{
+	pixel_y = 4
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/space)
 "FO" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
+"FR" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost/hangar)
 "FX" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Power Room";
@@ -1714,6 +2028,18 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"Gd" = (
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Gt" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
@@ -1753,6 +2079,11 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
+"GT" = (
+/obj/machinery/porta_turret/ballistic,
+/obj/effect/decal/warning_stripes,
+/turf/unsimulated/floor/asteroid/ash,
+/area/space)
 "GU" = (
 /obj/effect/shuttle_landmark/saniorios_outpost/nav2{
 	dir = 8
@@ -1793,6 +2124,29 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/hangar)
+"Hn" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/floor_decal/industrial/warning/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/tajaran_smuggler_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Hp" = (
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -1871,6 +2225,14 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost)
+"Il" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "IB" = (
 /obj/item/storage/toolbox/syndicate,
 /turf/unsimulated/floor/asteroid/ash,
@@ -1882,6 +2244,10 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
+"IJ" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/raider,
+/area/space)
 "IS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1914,6 +2280,12 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost)
+"Ja" = (
+/obj/machinery/computer/ship/helm/terminal{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Jq" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1923,6 +2295,12 @@
 "JA" = (
 /obj/machinery/recharger/wallcharger{
 	pixel_y = 24
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/space)
+"JG" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/space)
@@ -1981,6 +2359,12 @@
 	temperature = 278.15
 	},
 /area/space)
+"Lh" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/space)
 "LK" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2028,6 +2412,18 @@
 	},
 /turf/template_noop,
 /area/space)
+"Nd" = (
+/obj/machinery/atmospherics/binary/pump/fuel/on,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Nj" = (
+/obj/machinery/door/blast/regular{
+	dir = 4;
+	id = "saniorios_hangar"
+	},
+/turf/template_noop,
+/area/saniorios_outpost/hangar)
 "Nt" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(214);
@@ -2135,11 +2531,23 @@
 "PQ" = (
 /turf/unsimulated/floor/asteroid/ash,
 /area/space)
+"PW" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/turf/simulated/floor/plating,
+/area/space)
 "Qg" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, asteroid"
 	},
 /turf/simulated/mineral,
+/area/space)
+"Qn" = (
+/obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Qo" = (
 /obj/machinery/pipedispenser,
@@ -2180,6 +2588,16 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/gun)
+"RG" = (
+/obj/machinery/atmospherics/portables_connector/fuel,
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/fuel_port/hydrogen{
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "RO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2275,6 +2693,15 @@
 	temperature = 278.15
 	},
 /area/space)
+"Vo" = (
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
+/obj/machinery/computer/shuttle_control/explore/tajaran_smuggler_shuttle{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "VB" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2336,6 +2763,13 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/saniorios_outpost/atmos)
+"WC" = (
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/structure/table/rack,
+/turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost/atmos)
 "WE" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost/crew_section)
@@ -2369,7 +2803,15 @@
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
-/area/space)
+/area/saniorios_outpost/crew_section)
+"WK" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/saniorios_outpost/hangar)
 "WT" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Atmos";
@@ -2407,6 +2849,16 @@
 	temperature = 278.15
 	},
 /area/saniorios_outpost/crew_section)
+"Xi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Xs" = (
 /obj/machinery/cryopod{
 	dir = 1
@@ -2441,6 +2893,11 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/saniorios_outpost/gun)
+"Yp" = (
+/obj/effect/landmark/entry_point/fore,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/turf/simulated/floor/plating,
+/area/space)
 "Yy" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, asteroid'"
@@ -25471,7 +25928,7 @@ gB
 xL
 Qq
 kQ
-Qq
+WC
 su
 UO
 hE
@@ -25488,7 +25945,7 @@ WE
 WE
 SL
 SL
-Yy
+SL
 Kn
 Kn
 Kn
@@ -26759,7 +27216,7 @@ AU
 HG
 oJ
 WI
-lY
+jk
 lY
 lY
 lY
@@ -27016,11 +27473,11 @@ uX
 ZY
 mz
 km
-Uf
+UE
 ty
 Uf
 Uf
-UE
+Uf
 Zf
 mz
 SL
@@ -27272,15 +27729,15 @@ mz
 FX
 mz
 mz
-mz
-mz
-mz
 NR
-NR
-fC
+lL
 NR
 NR
 NR
+NR
+NR
+NR
+SL
 gS
 En
 Fi
@@ -27288,7 +27745,7 @@ Nt
 gS
 SL
 SL
-SL
+Yy
 Kn
 Kn
 Kn
@@ -27529,15 +27986,15 @@ AT
 dB
 ip
 mz
-SL
-SL
-SL
-NR
 OK
 dZ
 wd
+bt
+bt
 gn
 bt
+NR
+SL
 gS
 gS
 gS
@@ -27786,12 +28243,10 @@ ev
 jx
 JQ
 mz
-SL
-SL
-SL
-NR
 ow
 dZ
+bt
+bt
 bt
 gn
 Tn
@@ -27803,9 +28258,11 @@ SL
 SL
 SL
 SL
-Kn
-Kn
-Kn
+SL
+SL
+SL
+SL
+GT
 Kn
 Kn
 Kn
@@ -28043,27 +28500,27 @@ bT
 HZ
 cA
 mz
-SL
-SL
-SL
-NR
 Hm
 lh
 bt
+bt
+bt
 gn
-Tn
+bt
 NR
-SL
-SL
-SL
-SL
-SL
-SL
-SL
 Kn
 Kn
 Kn
 Kn
+Kn
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -28300,27 +28757,27 @@ BZ
 hU
 ib
 mz
-SL
-SL
-SL
-NR
 Hp
-iz
+FR
+pt
+ec
 bt
 gn
 bt
 NR
-SL
-SL
-SL
-SL
-SL
-SL
-SL
 Kn
 Kn
 Kn
 Kn
+Kn
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -28557,26 +29014,26 @@ mz
 mz
 mz
 mz
-SL
-SL
-SL
-NR
 ow
 DM
 Jq
+WK
+pt
+ec
+bt
 NR
-NR
-NR
-SL
-SL
-SL
-SL
-SL
 Kn
 Kn
 Kn
 Kn
 Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Kn
+Nj
 Kn
 Kn
 Kn
@@ -28814,26 +29271,26 @@ SL
 SL
 SL
 SL
-SL
-SL
-SL
-NR
 dE
 bt
 bt
+bt
+lZ
+EC
+bt
 NR
-SL
-SL
-SL
-SL
+Kn
+nD
+nD
+nD
+PW
+IJ
+nD
+FF
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Nj
 Kn
 Kn
 Kn
@@ -29071,26 +29528,26 @@ SL
 SL
 SL
 SL
-SL
-SL
-SL
-NR
 NR
 Pg
 NR
 NR
-SL
-SL
-SL
-SL
+NR
+EC
+bt
+NR
+kL
+Lh
+RG
+Nd
+nu
+wZ
+nD
+PW
+nD
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Nj
 Kn
 Kn
 Kn
@@ -29328,26 +29785,26 @@ SL
 SL
 SL
 SL
-SL
-SL
-SL
-SL
 NR
 xJ
 NR
 SL
-SL
-SL
-SL
+NR
+EC
+bt
+NR
+nD
+JG
+cG
+Cv
+ps
+by
+Gd
+Vo
+nD
+nD
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Nj
 Kn
 Kn
 Kn
@@ -29585,26 +30042,26 @@ SL
 SL
 SL
 SL
-SL
-SL
-SL
-SL
 NR
 WU
 NR
 SL
-SL
-SL
-SL
+NR
+WK
+pt
+pt
+Hn
+ry
+sq
+qf
+Il
+zl
+pj
+pj
+Ja
+Yp
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Nj
 Kn
 Kn
 Kn
@@ -29839,10 +30296,6 @@ PQ
 PQ
 PQ
 PQ
-PQ
-SL
-SL
-SL
 SL
 SL
 SL
@@ -29850,18 +30303,22 @@ NR
 WU
 NR
 SL
-SL
-SL
+NR
+bt
+Tn
+NR
+Fy
+iz
+nD
+wM
+tc
+EZ
+gv
+Fx
+nD
+nD
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Nj
 Kn
 Kn
 Kn
@@ -30097,28 +30554,28 @@ PQ
 PQ
 PQ
 PQ
-PQ
-SL
-SL
-SL
 SL
 SL
 NR
 qO
 NR
 SL
-SL
-SL
+NR
+bt
+bt
+NR
+kL
+cB
+oU
+Xi
+fC
+Qn
+nD
+PW
+nD
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Nj
 Kn
 Kn
 Kn
@@ -30354,28 +30811,28 @@ PQ
 PQ
 PQ
 PQ
-PQ
-PQ
-SL
-SL
 SL
 SL
 NR
 Es
 NR
 SL
-SL
-SL
+NR
+bt
+bt
+NR
+Kn
+nD
+nD
+nD
+nD
+pZ
+nD
+Bd
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+Nj
 Kn
 Kn
 Kn
@@ -30613,15 +31070,14 @@ Kn
 Kn
 Kn
 SL
-sq
-SL
-SL
-Kn
 Kn
 Kn
 Kn
 SL
-SL
+NR
+NR
+NR
+NR
 Kn
 Kn
 Kn
@@ -30633,6 +31089,7 @@ Kn
 Kn
 Kn
 Kn
+Nj
 Kn
 Kn
 Kn
@@ -30872,24 +31329,24 @@ Kn
 Kn
 Kn
 Kn
-SL
-Kn
-Kn
-Kn
 Kn
 SL
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -31131,22 +31588,22 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -31389,21 +31846,21 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -31647,20 +32104,20 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+SL
+GT
 Kn
 Kn
 Kn
@@ -31907,12 +32364,12 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
-Kn
-Kn
-Kn
+SL
+SL
+SL
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -32166,9 +32623,9 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -32423,9 +32880,9 @@ Kn
 Kn
 Kn
 Kn
-Kn
-Kn
-Kn
+SL
+SL
+SL
 Kn
 Kn
 Kn
@@ -32681,7 +33138,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+SL
 Kn
 Kn
 Kn

@@ -3,6 +3,7 @@
 	name = "Sani'Orios Asteroid Outpost Crewmember"
 	desc = "Crew a Democratic People's Republic of Adhomai's asteroid outpost in Sani'Orios."
 	tags = list("External")
+	welcome_message = "As a member of the Spacer Militia crewing an outpost in Sani'Orios you are to protect Al'mariist space and aid DPRA's ships in the area."
 
 	spawnpoints = list("saniorios_outpost_crew")
 	req_perms = null
