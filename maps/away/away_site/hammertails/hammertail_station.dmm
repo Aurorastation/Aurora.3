@@ -4095,6 +4095,11 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/item/blueprints/outpost,
+/obj/item/pen/drafting/blue{
+	pixel_x = -5;
+	pixel_y = 8
+	},
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
 "aJH" = (
