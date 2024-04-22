@@ -1193,7 +1193,7 @@
 "fQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/power/generator{
-	component_types = list(/obj/item/circuitboard/generator,/obj/item/stock_parts/scanning_module,/obj/item/stock_parts/scanning_module,/obj/item/stock_parts/console_screen,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/capacitor/nano,/obj/item/stack/cable_coil=15);
+	component_types = list(/obj/item/circuitboard/generator,/obj/item/stock_parts/scanning_module,/obj/item/stock_parts/scanning_module,/obj/item/stock_parts/console_screen,/obj/item/stock_parts/manipulator,/obj/item/stock_parts/capacitor/adv,/obj/item/stack/cable_coil=15);
 	anchored = 1
 	},
 /obj/effect/decal/cleanable/dirt,
