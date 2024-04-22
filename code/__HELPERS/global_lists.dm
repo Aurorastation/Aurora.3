@@ -26,7 +26,9 @@ GLOBAL_LIST_EMPTY(topic_commands_names)
 GLOBAL_PROTECT(topic_commands_names)
 
 /// List of all landmarks.
-GLOBAL_LIST_EMPTY(landmarks_list)
+GLOBAL_LIST_EMPTY_TYPED(landmarks_list, /obj/effect/landmark)
+/// List of all ruin landmarks.
+GLOBAL_LIST_EMPTY_TYPED(ruin_landmarks, /obj/effect/landmark/ruin)
 /// Assoc list of force spawnpoints for event maps.
 GLOBAL_LIST_EMPTY(force_spawnpoints)
 /// List of all jobstypes, minus borg, merchant and AI.

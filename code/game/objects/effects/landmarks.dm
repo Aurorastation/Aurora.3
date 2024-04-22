@@ -257,7 +257,9 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	LAZYINITLIST(GLOB.force_spawnpoints)
 	LAZYADD(GLOB.force_spawnpoints[job_tag], loc)
 
-var/list/ruin_landmarks = list()
+/obj/effect/landmark/force_spawnpoint/Destroy()
+	LAZYREMOVE(GLOB.force_spawnpoints[job_tag], loc)
+	. = ..()
 
 /obj/effect/landmark/ruin
 	var/datum/map_template/ruin/ruin_template
@@ -266,10 +268,10 @@ var/list/ruin_landmarks = list()
 	name = "ruin_[sequential_id(/obj/effect/landmark/ruin)]"
 	..(loc)
 	ruin_template = my_ruin_template
-	ruin_landmarks |= src
+	GLOB.ruin_landmarks |= src
 
 /obj/effect/landmark/ruin/Destroy()
-	ruin_landmarks -= src
+	GLOB.ruin_landmarks -= src
 	ruin_template = null
 	. = ..()
 
