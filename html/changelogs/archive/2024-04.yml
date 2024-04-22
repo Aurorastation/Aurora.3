@@ -439,3 +439,9 @@
   - imageadd: Added new sprites for the tweaked HAPT suit
   RustingWithYou:
   - qol: Sensors, thrusters, and IFF beacons are now buildable and deconstructable.
+2024-04-22:
+  DreamySkrell:
+  - rscadd: Ghostspawner OOC description.
+  - qol: Ghostspawner desc and welcome_text minor tweaks.
+  - qol: Cult base minor tweaks.
+  - bugfix: Fixes cult base being guaranteed site.
