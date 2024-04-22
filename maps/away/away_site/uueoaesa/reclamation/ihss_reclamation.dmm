@@ -5490,16 +5490,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/medsci)
-"yo" = (
-/obj/machinery/door/airlock/hatch{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid,
-/obj/machinery/door/firedoor/noid,
-/turf/simulated/floor/tiled/dark{
-	temperature = 303.15
-	},
-/area/ihss_reclamation/innerring)
 "yq" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -38649,7 +38639,7 @@ aU
 aU
 aU
 aU
-yo
+Ay
 aU
 aU
 aU
