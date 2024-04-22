@@ -44,7 +44,7 @@
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/saniorios_outpost
-	name = "Unmarked Shuttle"
+	name = "Unmarked Adhomian Shuttle"
 	class = "Unmarked"
 	designation = "Civilian Shuttle"
 	desc = "A shuttle without any kind of identification."
@@ -60,10 +60,10 @@
 
 /obj/machinery/computer/shuttle_control/explore/terminal/saniorios_outpost
 	name = "shuttle control console"
-	shuttle_tag = "Unmarked Shuttle"
+	shuttle_tag = "Unmarked Adhomian Shuttle"
 
 /datum/shuttle/autodock/overmap/saniorios_outpost
-	name = "Unmarked Shuttle"
+	name = "Unmarked Adhomian Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/saniorios_outpost)
 	current_location = "nav_hangar_saniorios_outpost"
