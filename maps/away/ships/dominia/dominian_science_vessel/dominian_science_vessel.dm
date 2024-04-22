@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/dominian_science_vessel
 	name = "Dominian Science Vessel"
 	description = "Based on the Lammergeier-class corvette, this vessel has been repurposed by House Volvalaad for long range survey and scientific tasks. Due to its repurposement, the vessel features an enlarged hangar and shuttle, as well as scientific labs and a smaller defensive armament."
-	suffixes = list("ships/dominia/dominian_science_vessel/dominian_science_vessel.dmm")
+
+	prefix = "ships/dominia/dominian_science_vessel/"
+	suffixes = list("dominian_science_vessel.dmm")
+
 	sectors = list(ALL_TAU_CETI_SECTORS, ALL_COALITION_SECTORS, SECTOR_BADLANDS)
 	sectors_blacklist = list(SECTOR_HANEUNIM)
 	spawn_weight = 1

@@ -204,6 +204,7 @@
 	generate_flora()
 	generate_map()
 	generate_features()
+	theme.after_map_generation(src)
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
@@ -510,10 +511,6 @@
 			extra_data += "<hr>[ruin_num] possible artificial structure\s detected."
 
 	. += jointext(extra_data, "<br>")
-
-/obj/effect/overmap/visitable/sector/exoplanet/get_skybox_representation()
-	return skybox_image
-
 
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_surface_color()
 	return surface_color

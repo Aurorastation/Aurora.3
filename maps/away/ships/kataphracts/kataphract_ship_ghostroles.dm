@@ -113,17 +113,12 @@
 		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
-
+		H.update_body()
 	var/uniform_colour = pick("#1f8c3c", "#ab7318", "#1846ba")
 	if(H?.w_uniform)
 		H.w_uniform.color = uniform_colour
 	if(H?.shoes)
 		H.shoes.color = uniform_colour
-
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-	A.replaced(H, affected)
-	H.update_body()
 
 /obj/outfit/admin/kataphract/knight
 	name = "Kataphract Knight"

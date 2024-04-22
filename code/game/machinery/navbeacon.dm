@@ -100,7 +100,7 @@
 		return FALSE
 
 	//Wikipedia says this is the upper limit for a medium non directional beacon, deal with it
-	use_power_oneoff(2 KILOWATTS)
+	use_power_oneoff(2 KILO WATTS)
 
 	var/datum/radio_frequency/frequency = SSradio.return_frequency(freq)
 

@@ -233,8 +233,8 @@
 	else
 		return FALSE
 	var/mob/user = usr
-	if(user && istype(user) && !forced)
-		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+	if(user && istype(user) && !forced && !QDELETED(src))
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum, ui_interact), user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
 /**

@@ -575,6 +575,9 @@ var/list/asset_datums = list()
 		"asteroid.png" = 'html/images/scans/exoplanets/asteroid.png',
 		"konyang.png" = 'html/images/scans/exoplanets/konyang.png',
 		"konyang_point_verdant.png" = 'html/images/scans/exoplanets/konyang_point_verdant.png',
+		"biesel.png" = 'html/images/scans/exoplanets/biesel.png',
+		"moghes.png" = 'html/images/scans/exoplanets/moghes.png',
+		"chanterel.png" = 'html/images/scans/exoplanets/chanterel.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
@@ -738,3 +741,22 @@ var/list/asset_datums = list()
 /// (Generated names do not include file extention.)
 /proc/generate_asset_name(file)
 	return "asset.[md5(fcopy_rsc(file))]"
+
+
+/datum/asset/changelog_item
+	_abstract = /datum/asset/changelog_item
+	var/item_filename
+
+/datum/asset/changelog_item/New(date)
+	item_filename = SANITIZE_FILENAME("[date].yml")
+	SSassets.transport.register_asset(item_filename, file("html/changelogs/archive/" + item_filename))
+
+/datum/asset/changelog_item/send(client)
+	if (!item_filename)
+		return
+	. = SSassets.transport.send_assets(client, item_filename)
+
+/datum/asset/changelog_item/get_url_mappings()
+	if (!item_filename)
+		return
+	. = list("[item_filename]" = SSassets.transport.get_asset_url(item_filename))

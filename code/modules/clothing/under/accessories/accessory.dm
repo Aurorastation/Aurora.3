@@ -76,7 +76,7 @@
 		if(build_from_parts)
 			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 		if(has_accents)
-			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=RESET_COLOR))
+			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
@@ -1303,7 +1303,7 @@
 	icon = 'icons/clothing/accessories/led_collar.dmi'
 	icon_state = "led_collar"
 	item_state = "led_collar"
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	contained_sprite = TRUE
 	slot = ACCESSORY_SLOT_UTILITY_MINOR
 
@@ -1321,6 +1321,6 @@
 
 /obj/item/clothing/accessory/led_collar/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
 	var/image/I = ..()
-	I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART
 	return I

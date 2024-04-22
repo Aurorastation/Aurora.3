@@ -229,6 +229,9 @@ GUEST_BAN
 ## GitHub address
 # GITHUBURL https://github.com/example-user/example-repository
 
+## Rules address
+# RULESURL https://aurorastation.org/rules.html
+
 ## Ban appeals URL - usually for a forum or wherever people should go to contact your admins.
 # BANAPPEALS http://example.com
 

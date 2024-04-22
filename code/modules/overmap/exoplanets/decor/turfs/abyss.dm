@@ -11,6 +11,7 @@
 		/obj/item/projectile,
 		/obj/effect
 		))
+	has_resources = FALSE
 
 /turf/simulated/floor/exoplanet/abyss/Initialize()
 	. = ..()

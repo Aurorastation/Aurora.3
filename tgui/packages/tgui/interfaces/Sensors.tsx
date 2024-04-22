@@ -63,8 +63,12 @@ type DistressBeaconData = {
 };
 
 const SensorSection = function (act, data: SensorsData) {
-  const range_choice_max = data.range_choices[data.range_choices.length - 1];
-
+  let range_choice_max = 0;
+  if (data.range_choices && data.range_choices.length) {
+    range_choice_max = data.range_choices[data.range_choices.length - 1];
+  } else {
+    range_choice_max = 0;
+  }
   return (
     <Section
       title="Sensor Array Control"

@@ -40,6 +40,8 @@
 	if(rename)
 		name = rename
 
+	..()
+
 /datum/map_template/proc/preload_size(path, cache = FALSE)
 	var/datum/parsed_map/parsed = new(file(path))
 	var/bounds = parsed?.bounds

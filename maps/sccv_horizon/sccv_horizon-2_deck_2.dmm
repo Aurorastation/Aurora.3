@@ -15626,6 +15626,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/green,
 /turf/simulated/floor/tiled/white,
 /area/rnd/chemistry)
 "hep" = (
@@ -20386,6 +20387,7 @@
 /obj/item/storage/pill_bottle/dylovene,
 /obj/item/storage/pill_bottle/bicaridine,
 /obj/item/storage/pill_bottle/kelotane,
+/obj/item/storage/pill_bottle/ryetalyn,
 /obj/item/reagent_containers/syringe/antiparasitic,
 /obj/item/reagent_containers/syringe/antiparasitic,
 /obj/item/reagent_containers/glass/bottle/antitoxin,
