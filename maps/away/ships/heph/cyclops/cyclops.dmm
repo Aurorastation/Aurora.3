@@ -52,7 +52,8 @@
 	id_tag = "airlock_shuttle_cyclops";
 	pixel_y = 25;
 	pixel_x = -9;
-	name = "Cyclops Shuttle docking port controller"
+	name = "Cyclops Shuttle docking port controller";
+	frequency = 1380
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -4487,7 +4488,8 @@
 	id_tag = "airlock_shuttle_cyclops";
 	pixel_y = -28;
 	dir = 1;
-	name = "Cyclops Shuttle docking port controller"
+	name = "Cyclops Shuttle docking port controller";
+	frequency = 1380
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/dark,
