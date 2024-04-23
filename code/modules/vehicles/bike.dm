@@ -527,3 +527,9 @@
 /obj/vehicle/bike/motor/moped/blue
 	icon_state = "bluemoped_on"
 	bike_icon = "bluemoped"
+
+/obj/vehicle/bike/motor/sand
+	name = "sandbike"
+	desc = "A specialised bike, designed for travelling on sand. Often used by Unathi of the Wasteland."
+	icon_state = "sport_on" //replace when we have a unique sprite
+	bike_icon = "sport"

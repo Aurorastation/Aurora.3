@@ -108,6 +108,7 @@
 
 /obj/outfit/admin/moghes_vihnmes_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!H)
+		return
 	if(H?.w_uniform)
 		H.w_uniform.color = pick("#42330f", "#DBC684")
 	if(H.wear_suit)
