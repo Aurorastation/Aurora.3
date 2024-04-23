@@ -5,6 +5,12 @@
 	icon_state = "iff"
 	anchored = TRUE
 	idle_power_usage = 500
+	component_types = list(
+		/obj/item/circuitboard/iff_beacon,
+		/obj/item/stack/cable_coil = 2,
+		/obj/item/stock_parts/subspace/transmitter,
+		/obj/item/stock_parts/capacitor
+	)
 	var/datum/wires/iff/wires
 	var/disabled = FALSE
 	var/obfuscating = FALSE
@@ -24,6 +30,10 @@
 
 /obj/machinery/iff_beacon/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 	if(panel_open)

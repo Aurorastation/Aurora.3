@@ -400,3 +400,63 @@
   - rscadd: Fluff papers can now be set to a written language.
   - imageadd: Adds an Unathi skeleton sprite.
   - balance: Buffs the explosion radius of Bruiser HE rounds.
+2024-04-20:
+  FluffyGhost:
+  - refactor: Unified most of the procs into one definition, so there are no duplicate
+      around the codebase.
+  - refactor: Marked some of the above as overridable if a good enough case can be
+      made for them (eg. external dependency or unlikely to be used).
+  GeneralCamo:
+  - rscadd: Added Imogen Janse's custom item.
+  RustingWithYou:
+  - qol: Reworks blueprints to use an eye for area modification.
+  - rscadd: Adds outpost blueprints for creating areas on exoplanets, and shuttle
+      blueprints for modifying shuttles.
+  - qol: Moves eye creation to a component.
+  - rscadd: Adds several items and structures for use in Uueoa-Esa ruins.
+2024-04-21:
+  Crosarius:
+  - soundadd: Added footstep sound effects for barefoot Unathi.
+  DreamySkrell:
+  - rscadd: Cult Base away site.
+  - rscadd: Adds some mapped in cult runes.
+  - rscadd: Adds ooc welcome message, separate from normal welcome message.
+  - rscadd: Allows corpses to use outfits.
+  - rscadd: Allows corpses use different species.
+  - rscadd: Adds some generic outfits.
+  - rscadd: Ghostspawner spawn points are actually randomly picked.
+  - bugfix: Fixes marker layers.
+  FluffyGhost:
+  - code_imp: Refactored the use of the isprocessing var into the datum flag DF_ISPROCESSING.
+  - code_imp: Updated SSprocessing and SSmachinery to have a constant fire rate.
+  - code_imp: Updated gas cooler to be time-constant thanks to the above.
+  Geeves:
+  - bugfix: Fixed colorable glasses frames being affected by the alpha value.
+  ReadThisNamePlz, Noblerow:
+  - rscadd: Added a working HAPT shuttle.
+  - rscadd: Added the VIP ghostrole to the CCIA Ghostspawner.
+  - rscadd: Added a modified HAPT suit for NT HAPT use only.
+  - imageadd: Added new sprites for the tweaked HAPT suit
+  RustingWithYou:
+  - qol: Sensors, thrusters, and IFF beacons are now buildable and deconstructable.
+2024-04-22:
+  DreamySkrell:
+  - rscadd: Ghostspawner OOC description.
+  - qol: Ghostspawner desc and welcome_text minor tweaks.
+  - qol: Cult base minor tweaks.
+  - bugfix: Fixes cult base being guaranteed site.
+2024-04-23:
+  CourierBravo:
+  - rscadd: Reorganizes the helpers folder. Adds 4 maps of premade rooms and buildings
+      as a map design tool. Some objects in rooms will require access tweaks as required.
+  FluffyGhost:
+  - code_imp: Removed a background set.
+  - refactor: Refactored away some world loops.
+  MattAtlas:
+  - qol: Added preset mineral walls for mappers.
+  RustingWithYou:
+  - rscadd: Adds several ruins for the Untouched Lands of Moghes.
+  nauticall:
+  - rscadd: 'Adds three more radio stations to Tau Ceti: 87.5 Mendell City Bugle,
+      90.7 Hi-Fi Sports, and 93.1 Phoenix FM. Basketball game in Hi-Fi is written
+      by Desven.'
