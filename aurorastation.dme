@@ -1823,6 +1823,7 @@
 #include "code\modules\clothing\ears\xeno\bulwark.dm"
 #include "code\modules\clothing\ears\xeno\skrell.dm"
 #include "code\modules\clothing\ears\xeno\tajara.dm"
+#include "code\modules\clothing\factions\assunzione.dm"
 #include "code\modules\clothing\factions\dominia.dm"
 #include "code\modules\clothing\factions\einstein.dm"
 #include "code\modules\clothing\factions\elyra.dm"
