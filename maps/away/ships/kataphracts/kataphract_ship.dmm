@@ -6899,6 +6899,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Td" = (
