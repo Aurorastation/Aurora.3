@@ -43,7 +43,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 	initial_restricted_waypoints = list(
-		"Trawler Shuttle" = list("fishing_trawler_shuttle")
+		"Fishing League Shuttle" = list("fishing_trawler_shuttle")
 	)
 	initial_generic_waypoints = list(
 		"fishing_trawler_fore",

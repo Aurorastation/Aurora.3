@@ -63,6 +63,7 @@
 	master_tag = "trawler_shuttle_airlock";
 	name = "trawler_shuttle_airlock"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fishing_trawler)
 "ax" = (
@@ -3228,6 +3229,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "BK" = (
@@ -3856,6 +3858,7 @@
 	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "FV" = (
@@ -4373,6 +4376,7 @@
 /obj/effect/landmark/entry_point/fore{
 	name = "aft"
 	},
+/obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fishing_trawler)
 "KZ" = (
