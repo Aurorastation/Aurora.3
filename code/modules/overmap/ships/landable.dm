@@ -37,26 +37,27 @@
 
 // We autobuild our z levels.
 /obj/effect/overmap/visitable/ship/landable/find_z_levels()
-	for(var/i = 0 to multiz)
-		world.incrementMaxZ()
-		map_z += world.maxz
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+	if(!use_mapped_z_levels)
+		for(var/i = 0 to multiz)
+			world.incrementMaxZ()
+			map_z += world.maxz
+			SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 
-	var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
-	landmark = new (center_loc, shuttle)
-	add_landmark(landmark, shuttle)
+		var/turf/center_loc = locate(round(world.maxx/2), round(world.maxy/2), world.maxz)
+		landmark = new (center_loc, shuttle)
+		add_landmark(landmark, shuttle)
 
-	var/visitor_dir = fore_dir
-	for(var/landmark_name in list("FORE", "PORT", "AFT", "STARBOARD"))
-		var/turf/visitor_turf = get_ranged_target_turf(get_turf(landmark), visitor_dir, round(min(world.maxx/4, world.maxy/4)))
-		var/obj/effect/shuttle_landmark/visiting_shuttle/visitor_landmark = new (visitor_turf, landmark, landmark_name)
-		add_landmark(visitor_landmark)
-		visitor_dir = turn(visitor_dir, 90)
+		var/visitor_dir = fore_dir
+		for(var/landmark_name in list("FORE", "PORT", "AFT", "STARBOARD"))
+			var/turf/visitor_turf = get_ranged_target_turf(get_turf(landmark), visitor_dir, round(min(world.maxx/4, world.maxy/4)))
+			var/obj/effect/shuttle_landmark/visiting_shuttle/visitor_landmark = new (visitor_turf, landmark, landmark_name)
+			add_landmark(visitor_landmark)
+			visitor_dir = turn(visitor_dir, 90)
 
 		if(multiz)
 			new /obj/effect/landmark/map_data(locate(1, 1, world.maxz), (multiz + 1))
-		else
-			..()
+	else
+		..()
 
 /obj/effect/overmap/visitable/ship/landable/move_to_starting_location()
 	if(!use_mapped_z_levels)
