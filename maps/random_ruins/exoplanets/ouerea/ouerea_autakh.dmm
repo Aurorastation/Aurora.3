@@ -13,7 +13,7 @@
 	name = "Compound Gates";
 	pixel_y = 25;
 	id = "autakh_base_entry";
-	req_access = list(219)
+	req_access = list(228)
 	},
 /obj/machinery/light{
 	dir = 8
@@ -119,7 +119,7 @@
 /area/ouerea_autakh)
 "iF" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(219)
+	req_access = list(228)
 	},
 /obj/item/storage/box/shotgunshells,
 /obj/item/gun/projectile/shotgun/doublebarrel,
@@ -202,7 +202,7 @@
 /area/ouerea_autakh)
 "qE" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(219)
+	req_access = list(228)
 	},
 /obj/item/gun/projectile/shotgun/pump/rifle/scope,
 /obj/item/ammo_casing/a762,
@@ -235,7 +235,7 @@
 /area/ouerea_autakh)
 "to" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(219)
+	req_access = list(228)
 	},
 /obj/random/civgun,
 /obj/random/civgun,
@@ -245,7 +245,7 @@
 /area/ouerea_autakh)
 "tz" = (
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = list(219)
+	req_access = list(228)
 	},
 /obj/item/melee/hammer/powered,
 /obj/machinery/light{
@@ -297,7 +297,7 @@
 	name = "Compound Gates";
 	pixel_y = 25;
 	id = "autakh_base_entry";
-	req_access = list(219)
+	req_access = list(228)
 	},
 /obj/machinery/light{
 	dir = 4;
