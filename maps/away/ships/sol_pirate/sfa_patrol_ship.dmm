@@ -6061,7 +6061,6 @@
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	pixel_x = 24;
 	id_tag = "sfa_shuttle";
-	frequency = 1380;
 	child_names_txt = "SFA Shuttle Airlock";
 	child_tags_txt = "sfa_shuttle";
 	dir = 8
@@ -6830,7 +6829,6 @@
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	pixel_x = 24;
 	id_tag = "sfa_shuttle";
-	frequency = 1380;
 	child_names_txt = "SFA Shuttle Airlock";
 	child_tags_txt = "sfa_shuttle";
 	dir = 8
