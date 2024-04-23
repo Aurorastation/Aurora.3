@@ -6060,10 +6060,11 @@
 /obj/structure/table/steel,
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	pixel_x = 24;
-	id_tag = "sfa_shuttle";
+	id_tag = "sfa_shuttle_dock";
 	child_names_txt = "SFA Shuttle Airlock";
 	child_tags_txt = "sfa_shuttle";
-	dir = 8
+	dir = 8;
+	name = "SFA Shuttle docking port controller"
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
@@ -6828,10 +6829,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	pixel_x = 24;
-	id_tag = "sfa_shuttle";
+	id_tag = "sfa_shuttle_dock";
 	child_names_txt = "SFA Shuttle Airlock";
 	child_tags_txt = "sfa_shuttle";
-	dir = 8
+	dir = 8;
+	name = "SFA Shuttle docking port controller"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
