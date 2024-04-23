@@ -4765,6 +4765,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
 "pdZ" = (
@@ -5348,6 +5351,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
@@ -6058,14 +6064,6 @@
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "tIr" = (
 /obj/structure/table/steel,
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
-	id_tag = "sfa_shuttle_dock";
-	child_names_txt = "SFA Shuttle Airlock";
-	child_tags_txt = "sfa_shuttle";
-	dir = 8;
-	name = "SFA Shuttle docking port controller"
-	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
 	id = "elyran_shuttle_shutters";

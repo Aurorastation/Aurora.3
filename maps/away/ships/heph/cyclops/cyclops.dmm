@@ -46,17 +46,15 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	child_names_txt = "Cyclops Shuttle Airlock";
-	child_tags_txt = "cyclops_shuttle";
-	id_tag = "airlock_shuttle_cyclops";
-	pixel_y = 25;
-	pixel_x = -9;
-	name = "Cyclops Shuttle docking port controller";
-	frequency = 1380
-	},
 /obj/machinery/light/small/emergency{
 	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	id_tag = "airlock_cyclops_hangar";
+	pixel_y = -28;
+	dir = 1;
+	name = "Cyclops Shuttle docking port controller";
+	frequency = 1380
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
@@ -3064,6 +3062,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Ck" = (
@@ -3812,6 +3813,9 @@
 /obj/effect/shuttle_landmark/cyclops_shuttle/hangar{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "JC" = (
@@ -4416,15 +4420,6 @@
 	},
 /turf/template_noop,
 /area/space)
-"PT" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "PW" = (
 /obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark/full,
@@ -35466,8 +35461,8 @@ zL
 fi
 uT
 DO
-fi
 Kq
+fi
 uT
 DO
 fi
@@ -35724,7 +35719,7 @@ BM
 pG
 AR
 JB
-PT
+BM
 pG
 AR
 BM
