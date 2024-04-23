@@ -16,7 +16,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/barren
 	area_flags = AREA_FLAG_RAD_SHIELDED|AREA_FLAG_INDESTRUCTIBLE_TURFS
-	area_blurb = "An oddly fortified settlement, resting in the Ouerean wilderness. High fences and a checkpoint at th gate indicate that few visitors are expected to this place."
+	area_blurb = "An oddly fortified settlement, resting in the Ouerean wilderness. High fences and a checkpoint at the gate indicate that few visitors are expected to this place."
 
 /datum/ghostspawner/human/ouerea_autakh
 	name = "Aut'akh Faithful"
