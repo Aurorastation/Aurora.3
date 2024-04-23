@@ -233,6 +233,7 @@
 /area/space)
 "IE" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "IZ" = (
