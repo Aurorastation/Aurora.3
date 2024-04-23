@@ -1739,9 +1739,6 @@
 /obj/machinery/meter,
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"bpb" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_storage)
 "bpl" = (
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/grass,
@@ -2670,6 +2667,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
+"bRr" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "bRU" = (
 /obj/machinery/light{
 	dir = 1
@@ -3843,6 +3844,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
+"cIY" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "cJx" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "6,8"
@@ -4415,10 +4423,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "dcs" = (
-/obj/machinery/power/apc/north,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "ddJ" = (
@@ -7439,14 +7443,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/mining)
 "fdr" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/cable/green{
-	icon_state = "1-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_storage)
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/outpost/research/anomaly_storage)
 "fdA" = (
 /obj/structure/tank_wall{
 	icon_state = "m-2"
@@ -7961,6 +7959,14 @@
 /area/hangar/intrepid/interstitial)
 "fuU" = (
 /obj/structure/table/reinforced/steel,
+/obj/machinery/alarm/south{
+	alarm_id = 1501;
+	breach_detection = 0;
+	name = "Isolation A";
+	rcon_setting = 3;
+	report_danger_level = 0;
+	req_one_access = list(7,47,24,11)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "fvn" = (
@@ -10098,6 +10104,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
+"gQg" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "gQh" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -11029,16 +11042,6 @@
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
-"hza" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/tank/oxygen,
-/obj/item/clothing/head/hazmat/anomaly,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
-/obj/item/storage/box/gloves,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_storage)
 "hzv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11169,6 +11172,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
+"hCV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "hDd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -12483,6 +12496,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "iJi" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/outpost/research/anomaly_storage)
 "iJt" = (
@@ -12711,19 +12725,12 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "iPz" = (
+/obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 5;
-	pixel_y = -2
-	},
-/obj/item/storage/box/samplebags,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_storage)
+/area/outpost/research/anomaly_storage)
 "iPO" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -14999,6 +15006,9 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
 "ksH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "ksN" = (
@@ -16694,6 +16704,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"lEN" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/storage/box/samplebags,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "lEQ" = (
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck1_morgue2";
@@ -17701,6 +17725,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/canary)
+"mjd" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "mjG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -21056,10 +21090,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"oxp" = (
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/outpost/research/anomaly_storage)
 "oxw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -22640,6 +22670,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
+"pEb" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "pEi" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -24097,6 +24135,16 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
+"qzj" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "qzl" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -31350,6 +31398,9 @@
 /area/maintenance/wing/starboard/deck1)
 "vxE" = (
 /obj/structure/closet/secure_closet/guncabinet/sci,
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "vys" = (
@@ -31954,6 +32005,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
+"vXu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "vYV" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -32060,6 +32118,14 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
+"wbX" = (
+/obj/structure/table/reinforced/steel,
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/east,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "wce" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -33341,6 +33407,8 @@
 	name = "Artifact Secure Storage";
 	req_access = list(47)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "wWY" = (
@@ -34887,6 +34955,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
+"xOC" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/firealarm/south,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "xOV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -61211,7 +61284,7 @@ aWZ
 pMO
 jof
 mOf
-hza
+qzj
 tPx
 dgW
 txT
@@ -61411,9 +61484,9 @@ bek
 hWY
 idq
 aWZ
-bpb
+dcs
 iJV
-bpb
+dcs
 adE
 kkY
 bkV
@@ -61614,7 +61687,7 @@ ccZ
 eXb
 jqc
 rlW
-fdr
+wGp
 kjH
 nsS
 rCE
@@ -61818,11 +61891,11 @@ hEx
 wQv
 aWZ
 dcs
-iPz
+lEN
 pEF
 eog
 eWA
-bpb
+dcs
 wjW
 aWZ
 jEG
@@ -64245,7 +64318,7 @@ eSV
 eSV
 eSV
 eSV
-iJi
+fdr
 oJe
 oJe
 oJe
@@ -64448,12 +64521,12 @@ eSV
 eSV
 eSV
 eSV
-oxp
-fuU
+iJi
+gQg
 vxE
 cLC
-fuU
-fuU
+cIY
+bRr
 fuU
 oJe
 qWB
@@ -64651,13 +64724,13 @@ eSV
 eSV
 eSV
 eSV
-oxp
+iJi
 ksH
-ksH
+vXu
 wWV
-ksH
-ksH
-ksH
+hCV
+mjd
+pEb
 gsc
 dbq
 voZ
@@ -64854,13 +64927,13 @@ eSV
 eSV
 eSV
 eSV
-oxp
+iJi
 dRh
 dRh
 cLC
-fuU
-fuU
-fuU
+wbX
+iPz
+xOC
 oJe
 aKn
 jlo
@@ -65057,7 +65130,7 @@ eSV
 eSV
 eSV
 eSV
-iJi
+fdr
 oJe
 oJe
 oJe
