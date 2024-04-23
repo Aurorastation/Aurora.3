@@ -50,7 +50,7 @@
 	child_names_txt = "Cyclops Shuttle Airlock";
 	child_tags_txt = "cyclops_shuttle";
 	frequency = 1380;
-	id_tag = "cyclops_shuttle";
+	id_tag = "cyclops_shuttle_dock";
 	pixel_y = 25;
 	pixel_x = -9
 	},
@@ -135,7 +135,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -160,7 +160,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "bl" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply,
@@ -274,7 +274,7 @@
 	dir = 4
 	},
 /obj/item/clothing/head/cone,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "cr" = (
 /obj/machinery/door/airlock/mining{
@@ -309,7 +309,7 @@
 /obj/machinery/door/blast/shutters/open{
 	id = "cyclops_bridge_lockdown"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "cP" = (
 /obj/machinery/door/airlock/external{
@@ -336,8 +336,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "cW" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#4c4324";
+	frame_color = "#4c4324"
+	},
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "cX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -555,8 +560,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "eo" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#4c4324";
+	frame_color = "#4c4324"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "ex" = (
 /obj/structure/ore_box,
@@ -589,7 +599,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "eG" = (
 /obj/structure/railing/mapped{
@@ -625,17 +635,10 @@
 /turf/template_noop,
 /area/space)
 "fa" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
 	},
-/obj/structure/window/reinforced{
-	dir = 1
-	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, engines"
-	},
-/turf/simulated/floor,
 /area/shuttle/cyclops_shuttle)
 "fb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -687,7 +690,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "fz" = (
 /obj/structure/bed/stool/bar/padded/orange,
@@ -772,7 +775,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "gm" = (
 /obj/machinery/light/small,
@@ -844,7 +847,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "gV" = (
 /obj/structure/lattice/catwalk,
@@ -975,7 +978,7 @@
 	req_access = list(216);
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "iR" = (
 /obj/effect/floor_decal/corner/orange/full{
@@ -1004,7 +1007,7 @@
 	dir = 9
 	},
 /obj/machinery/floodlight,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "iX" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -1287,7 +1290,7 @@
 "mO" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/red,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "mX" = (
 /obj/structure/table/standard,
@@ -1385,7 +1388,7 @@
 /obj/effect/landmark/entry_point/south{
 	name = "fore, bridge"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "nK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1502,14 +1505,19 @@
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "pi" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#4c4324";
+	frame_color = "#4c4324"
+	},
 /obj/effect/landmark/entry_point/west{
 	name = "starboard, crew compartment"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "pl" = (
 /obj/machinery/atmospherics/unary/engine,
@@ -1517,7 +1525,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, port engine"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "pv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1614,9 +1622,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "qg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -1747,21 +1752,19 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "rr" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 6
 	},
-/obj/structure/window/reinforced{
-	dir = 1
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
 	},
-/turf/simulated/floor,
 /area/shuttle/cyclops_shuttle)
 "rv" = (
 /obj/machinery/conveyor{
 	id = "heph_3";
 	layer = 2.9
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "rD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1967,7 +1970,7 @@
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "ui" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2073,7 +2076,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "uT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2132,7 +2135,7 @@
 	layer = 2.9
 	},
 /obj/structure/plasticflaps/mining,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "vk" = (
 /obj/structure/cable/green{
@@ -2206,7 +2209,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "we" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2231,14 +2234,14 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "wk" = (
 /obj/machinery/mineral/stacking_machine{
 	id = "stacking_2"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "ws" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2289,13 +2292,13 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "wL" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "wO" = (
 /obj/structure/table/standard,
@@ -2364,7 +2367,7 @@
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "xU" = (
 /obj/structure/lattice/catwalk/indoor,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "yb" = (
 /obj/effect/floor_decal/corner/orange/full{
@@ -2466,6 +2469,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
+"yA" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
+	},
+/area/shuttle/cyclops_shuttle)
 "yB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2541,7 +2552,7 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, starboard engine"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "yY" = (
 /obj/machinery/door/firedoor,
@@ -2592,7 +2603,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops)
 "zn" = (
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "zx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2656,7 +2667,7 @@
 "Ai" = (
 /obj/structure/window/reinforced,
 /obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "Al" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2895,7 +2906,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "BC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -3021,8 +3032,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "CB" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/fuel,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/atmospherics/binary/pump/fuel,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/cyclops_shuttle)
 "CE" = (
 /turf/template_noop,
@@ -3353,11 +3364,16 @@
 "FZ" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)
 "Ga" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#4c4324";
+	frame_color = "#4c4324"
+	},
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops/bathroom)
 "Gd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -3695,14 +3711,14 @@
 	dir = 9
 	},
 /obj/structure/plasticflaps/mining,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Jq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "cyclops_bridge_lockdown"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_bridge)
 "Jv" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
@@ -3857,7 +3873,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/red,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "Ko" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3947,6 +3963,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
+"Lw" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/plating,
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Lx" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -4069,7 +4089,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Na" = (
 /obj/effect/floor_decal/corner/orange{
@@ -4371,9 +4391,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
 "Rg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -4388,7 +4405,8 @@
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
 	id_tag = "cyclops_shuttle_dock";
-	pixel_y = -28
+	pixel_y = -28;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -4397,7 +4415,7 @@
 	id = "processing_2"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "RZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4453,7 +4471,7 @@
 	dir = 5
 	},
 /obj/machinery/floodlight,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "SF" = (
 /obj/structure/closet/walllocker/medical/secure{
@@ -4688,9 +4706,24 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "TP" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#4c4324";
+	frame_color = "#4c4324"
+	},
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_barracks)
+"TY" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/cyclops_shuttle)
 "Ue" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -4742,7 +4775,7 @@
 	id = "heph_2";
 	layer = 2.9
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Ut" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -4822,7 +4855,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "VH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4870,11 +4903,16 @@
 /turf/simulated/floor/tiled/white,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "WI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#4c4324";
+	frame_color = "#4c4324"
+	},
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, crew quarters"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_barracks)
 "WP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
@@ -4933,7 +4971,7 @@
 	dir = 8
 	},
 /obj/item/clothing/head/cone,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "XE" = (
 /obj/effect/floor_decal/corner/orange{
@@ -4988,9 +5026,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops/cyclops_hangar)
 "Yh" = (
-/obj/machinery/atmospherics/binary/pump/fuel{
-	dir = 8;
-	name = "Fuel Tank to Thrusters"
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/effect/floor_decal/corner/brown/full{
@@ -5000,9 +5037,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Yj" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor,
-/area/hephmining_ship/cyclops/cyclops_hangar)
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/cyclops_shuttle)
 "Yo" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -5077,7 +5117,7 @@
 /area/hephmining_ship/cyclops)
 "Zg" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_engineering)
 "Zi" = (
 /obj/effect/floor_decal/corner/brown{
@@ -5089,8 +5129,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Zn" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/turf/simulated/floor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#4c4324";
+	frame_color = "#4c4324"
+	},
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_kitchen)
 "Zp" = (
 /obj/effect/floor_decal/corner/orange{
@@ -5172,7 +5217,7 @@
 "ZJ" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/structure/window/reinforced,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
 "ZV" = (
 /obj/structure/bed/padded,
@@ -36126,7 +36171,7 @@ BC
 bc
 zn
 zn
-Yj
+Lw
 vs
 Ry
 Qd
@@ -36381,9 +36426,9 @@ LW
 pE
 gw
 gw
-mA
+gw
 zn
-Yj
+Lw
 Je
 Mx
 Qd
@@ -36640,7 +36685,7 @@ gw
 Xu
 gw
 gw
-Yj
+gw
 Je
 ex
 Qd
@@ -37154,7 +37199,7 @@ oH
 jm
 CB
 fa
-Yj
+TY
 Je
 YZ
 Qd
@@ -37410,7 +37455,7 @@ MD
 sb
 Yh
 qg
-rr
+yA
 Yj
 Je
 Yc
@@ -37668,7 +37713,7 @@ Mk
 xG
 gw
 gw
-Yj
+gw
 HM
 Pv
 Qd
@@ -37925,7 +37970,7 @@ eo
 gw
 mA
 zn
-Yj
+Lw
 fb
 tO
 Qd
