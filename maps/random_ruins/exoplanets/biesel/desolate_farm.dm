@@ -7,7 +7,9 @@
 	spawn_cost = 0.5
 	sectors = list(SECTOR_TAU_CETI)
 
-	prefix = "bisel/"
+	prefix = "biesel/"
 	suffixes = list("desolate_farm.dmm")
-
+	requires_power = FALSE
+	dynamic_lighting = TRUE
+	no_light_control = FALSE
 	planet_types = PLANET_BIESEL
