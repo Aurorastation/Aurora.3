@@ -3272,10 +3272,10 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
-	master_tag = "airlock_elyran_shuttle";
-	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
-	shuttle_tag = "Elyran Naval Shuttle"
+	master_tag = "airlock_sfa_shuttle";
+	name = "airlock_sfa_shuttle";
+	req_one_access = list(203);
+	shuttle_tag = "SFA Shuttle"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/sfa_shuttle)
