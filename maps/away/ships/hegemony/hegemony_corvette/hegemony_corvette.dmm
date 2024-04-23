@@ -252,19 +252,6 @@
 "bo" = (
 /turf/simulated/floor/plating,
 /area/hegemony_ship/port_propulsion)
-"bp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "bs" = (
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
@@ -319,12 +306,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
-"bQ" = (
+"bO" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -360,6 +350,18 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/aux_cic)
+"ce" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "co" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
@@ -478,6 +480,26 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/hegemony_ship/temple)
+"cX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "cY" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -574,15 +596,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
-"dH" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "dK" = (
 /obj/structure/table/glass,
 /obj/structure/window/reinforced{
@@ -622,6 +635,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
+"dU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "dX" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/magshield/nav_light/red,
@@ -749,12 +775,15 @@
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/docking_port)
-"eY" = (
+"eT" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5
+	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -844,6 +873,28 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
+"fl" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,113);
+	name = "airlock_hegemony_generic";
+	landmark_tag = "nav_hegemony_corvette_generic";
+	master_tag = "airlock_hegemony_generic"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_ship)
 "fn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 1
@@ -922,18 +973,6 @@
 "fE" = (
 /turf/simulated/floor/foamedmetal,
 /area/hegemony_ship/gun_deck_flak)
-"fF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
-	name = "airlock_hegemony_generic";
-	landmark_tag = "nav_hegemony_corvette_generic";
-	master_tag = "airlock_hegemony_generic"
-	},
-/turf/simulated/floor/plating,
-/area/hegemony_ship)
 "fI" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
@@ -1146,6 +1185,16 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
+"gX" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "ha" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5b5b5b";
@@ -1314,6 +1363,14 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/aux_cic)
+"hU" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/structure/extinguisher_cabinet/west,
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "hV" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -1508,6 +1565,18 @@
 /obj/item/clothing/suit/unathi/robe/robe_coat/blue,
 /turf/simulated/floor/wood,
 /area/hegemony_ship/warpriests_quarters)
+"jC" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "jD" = (
 /obj/machinery/door/airlock/glass{
 	name = "Trophy Room";
@@ -1561,6 +1630,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
+"ke" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "kh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -1579,20 +1658,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/hegemony_ship/engineering)
-"kq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/hegemony_ship)
 "kr" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/light,
@@ -1606,6 +1671,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
+"ku" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "kw" = (
 /obj/structure/table/glass,
 /obj/effect/floor_decal/corner_wide/lime{
@@ -1786,6 +1860,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
+"lw" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "ly" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
@@ -1945,13 +2028,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
 "mr" = (
-/obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
-	name = "airlock_hegemony_generic";
-	landmark_tag = "nav_hegemony_corvette_generic";
-	master_tag = "airlock_hegemony_generic"
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
 	},
-/turf/simulated/floor/plating,
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "mv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2159,6 +2241,10 @@
 "nC" = (
 /turf/space/transit/north,
 /area/space)
+"nD" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/hegemony_ship/starboard_propulsion)
 "nG" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/medbay)
@@ -2601,9 +2687,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/port_propulsion)
 "pL" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/hegemony_ship/starboard_propulsion)
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "pO" = (
 /obj/item/clothing/mask/breath/medical,
 /obj/machinery/iv_drip,
@@ -2637,13 +2726,11 @@
 /area/hegemony_ship/bridge)
 "qb" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 9
+	dir = 6
 	},
-/obj/machinery/light{
-	dir = 8
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "qc" = (
@@ -2760,6 +2847,9 @@
 /area/hegemony_ship/eva_storage)
 "qO" = (
 /obj/machinery/light/colored/red,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
 "qU" = (
@@ -2813,6 +2903,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
+"rk" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_ship/port_propulsion)
 "ro" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2940,16 +3037,6 @@
 /obj/machinery/telecomms/allinone/ship,
 /turf/simulated/floor/carpet/rubber,
 /area/hegemony_ship/tcomms)
-"sd" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "sg" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light{
@@ -3023,14 +3110,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
-"sz" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/structure/extinguisher_cabinet/west,
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "sB" = (
@@ -3109,22 +3188,11 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/bridge)
 "sO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
@@ -3389,12 +3457,9 @@
 /area/hegemony_ship/brig)
 "ue" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 10
+	dir = 5
 	},
-/obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 4
-	},
+/obj/machinery/vending/zora,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "ul" = (
@@ -3415,16 +3480,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/trophy_room)
-"un" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "up" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, engine compartment"
@@ -3520,13 +3575,6 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
-"uL" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "uN" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 4
@@ -3816,16 +3864,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/armory)
-"wv" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/machinery/light,
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "wB" = (
 /obj/effect/map_effect/window_spawner/full/shuttle{
 	color = "#5b5b5b";
@@ -3845,12 +3883,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/engineering)
-"wD" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/hegemony_ship/starboard_propulsion)
 "wF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6;
@@ -3904,18 +3936,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
-"wV" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "wY" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -3938,13 +3958,6 @@
 /obj/structure/lattice/catwalk,
 /turf/template_noop,
 /area/space)
-"xi" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "xk" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4281,23 +4294,11 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "yQ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 4
-	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/vending/cigarette/merchant,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "yV" = (
@@ -4483,12 +4484,9 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
 "zI" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/machinery/vending/zora,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
+/obj/machinery/light/colored/red,
+/turf/simulated/floor/plating,
+/area/shuttle/hegemony)
 "zJ" = (
 /obj/structure/closet/crate,
 /obj/item/tank/hydrogen/shuttle,
@@ -4819,18 +4817,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/canteen)
-"Br" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
-	},
-/obj/machinery/light{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "Bz" = (
 /obj/structure/toilet,
 /obj/effect/decal/cleanable/blood/oil,
@@ -4892,7 +4878,7 @@
 	d2 = 4;
 	icon_state = "0-4"
 	},
-/obj/machinery/power/smes/buildable/main_engine,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/engineering)
 "BI" = (
@@ -4922,6 +4908,16 @@
 "BX" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/canteen)
+"BY" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "BZ" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/eva_storage)
@@ -4969,10 +4965,11 @@
 /area/hegemony_ship/starboard_propulsion)
 "Cx" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 5
+	dir = 10
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/machinery/vending/cigarette/merchant,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Cy" = (
@@ -4993,20 +4990,6 @@
 /obj/item/gun/energy/pistol/hegemony,
 /turf/simulated/floor/plating,
 /area/hegemony_ship/armory)
-"CI" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/plating,
-/area/hegemony_ship)
 "CK" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -5527,20 +5510,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
-"FR" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "FS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5562,6 +5531,12 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/hegemony_ship/temple)
+"FZ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_ship/starboard_propulsion)
 "Ga" = (
 /obj/machinery/computer/ship/sensors,
 /obj/effect/floor_decal/spline/plain{
@@ -5569,28 +5544,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
-"Gb" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = -6
-	},
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 28;
-	pixel_x = 6
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
-	name = "airlock_hegemony_generic";
-	landmark_tag = "nav_hegemony_corvette_generic";
-	master_tag = "airlock_hegemony_generic"
-	},
-/turf/simulated/floor/plating,
-/area/hegemony_ship)
 "Gd" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5739,8 +5692,24 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/gun_deck_bruiser)
 "GM" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,113);
+	name = "airlock_hegemony_generic";
+	landmark_tag = "nav_hegemony_corvette_generic";
+	master_tag = "airlock_hegemony_generic"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/shuttle/hegemony)
+/area/hegemony_ship)
 "GN" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5788,14 +5757,13 @@
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Ha" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
 	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/obj/machinery/light,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Hb" = (
@@ -6001,18 +5969,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
-"Im" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 5
-	},
-/obj/machinery/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "In" = (
 /obj/machinery/alarm/south{
 	req_one_access = null;
@@ -6151,19 +6107,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
-"IY" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 10
-	},
-/obj/machinery/alarm/south{
-	req_one_access = null;
-	req_access = list(113)
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "IZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -6704,6 +6647,17 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/hegemony_ship/gun_deck_bruiser)
+"Md" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "Mg" = (
 /obj/effect/floor_decal/spline/fancy/wood/corner{
 	dir = 8
@@ -6777,19 +6731,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
-"Mp" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
-	name = "airlock_hegemony_generic";
-	landmark_tag = "nav_hegemony_corvette_generic";
-	master_tag = "airlock_hegemony_generic"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
-/area/hegemony_ship)
 "Mr" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -6836,6 +6777,19 @@
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/tiled,
 /area/shuttle/hegemony)
+"MH" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 10
+	},
+/obj/machinery/alarm/south{
+	req_one_access = null;
+	req_access = list(113)
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "MJ" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -6886,9 +6840,6 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/port_propulsion)
 "MS" = (
-/obj/machinery/light/colored/red{
-	dir = 4
-	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
 "MW" = (
@@ -7002,14 +6953,16 @@
 /turf/simulated/floor/plating,
 /area/hegemony_ship/atmos_waste)
 "Ng" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,113);
+	name = "airlock_hegemony_generic";
+	landmark_tag = "nav_hegemony_corvette_generic";
+	master_tag = "airlock_hegemony_generic"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
 "Ni" = (
@@ -7076,13 +7029,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
-"NA" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hegemony_ship/port_propulsion)
 "NG" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -7159,16 +7105,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/eva_storage)
-"Og" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "Oi" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -7335,11 +7271,13 @@
 /area/hegemony_ship)
 "Pp" = (
 /obj/effect/floor_decal/corner/yellow{
-	dir = 6
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
+/obj/machinery/light{
+	dir = 8
 	},
+/obj/machinery/door/firedoor/noid,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
 "Pr" = (
@@ -7490,12 +7428,18 @@
 /turf/simulated/floor/wood,
 /area/hegemony_ship/canteen)
 "Qt" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 6
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor/noid,
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/turf/simulated/floor/tiled,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/hegemony_ship)
 "Qu" = (
 /obj/structure/fuel_port/hydrogen{
@@ -7613,6 +7557,18 @@
 	dir = 1
 	},
 /area/hegemony_ship/bridge)
+"Rv" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "Rw" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /turf/simulated/floor/tiled,
@@ -7673,19 +7629,6 @@
 "RS" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/brig)
-"RV" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock/docking{
-	req_one_access = list(13,113);
-	name = "airlock_hegemony_generic";
-	landmark_tag = "nav_hegemony_corvette_generic";
-	master_tag = "airlock_hegemony_generic"
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
-/area/hegemony_ship)
 "RZ" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
@@ -7823,6 +7766,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
+"Sy" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "Sz" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/light/colored/red{
@@ -7874,6 +7824,12 @@
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/captains_quarters)
+"SI" = (
+/obj/machinery/light/colored/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/hegemony)
 "SL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -7883,7 +7839,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/effect/floor_decal/industrial/outline_straight/yellow,
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
 "SN" = (
@@ -7986,6 +7941,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/hegemony_ship/bridge)
+"Th" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "Tj" = (
 /obj/structure/cable/green{
 	d1 = 2;
@@ -8083,6 +8048,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
+"TQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/plating,
+/area/hegemony_ship)
 "TW" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
@@ -8235,15 +8214,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/crew_quarters)
-"UP" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "US" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -8461,6 +8431,18 @@
 /obj/effect/floor_decal/industrial/outline_straight/yellow,
 /turf/simulated/floor/tiled,
 /area/hegemony_ship)
+"VS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/floor_decal/industrial/outline_straight/yellow,
+/turf/simulated/floor/plating,
+/area/hegemony_ship)
 "VW" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -8472,18 +8454,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/aux_cic)
-"VZ" = (
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "Wc" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 5
@@ -8556,6 +8526,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hegemony)
+"WO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "WR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 5
@@ -8567,6 +8557,18 @@
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/tiled/dark,
 /area/hegemony_ship/bridge)
+"WX" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,113);
+	name = "airlock_hegemony_generic";
+	landmark_tag = "nav_hegemony_corvette_generic";
+	master_tag = "airlock_hegemony_generic"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_ship)
 "Xa" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/crew_quarters)
@@ -8683,6 +8685,15 @@
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/plating,
 /area/space)
+"XN" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	req_one_access = list(13,113);
+	name = "airlock_hegemony_generic";
+	landmark_tag = "nav_hegemony_corvette_generic";
+	master_tag = "airlock_hegemony_generic"
+	},
+/turf/simulated/floor/plating,
+/area/hegemony_ship)
 "XU" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -8734,18 +8745,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/hegemony_ship/temple)
-"Yi" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 9
-	},
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/hegemony_ship)
 "Yk" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -8888,6 +8887,20 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/hegemony_ship/temple)
+"YL" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hegemony_ship)
 "YM" = (
 /obj/machinery/door/airlock/atmos{
 	name = "Atmospherics Air Supply";
@@ -8936,19 +8949,13 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/machinery/access_button{
-	pixel_x = -12;
-	pixel_y = -28;
-	dir = 8
-	},
 /obj/effect/map_effect/marker/airlock/docking{
 	req_one_access = list(13,113);
 	name = "airlock_hegemony_generic";
 	landmark_tag = "nav_hegemony_corvette_generic";
 	master_tag = "airlock_hegemony_generic"
 	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/hegemony_ship)
 "Zi" = (
@@ -9049,13 +9056,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hegemony_ship/brig)
-"ZL" = (
-/obj/machinery/light/colored/red,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/hegemony)
 "ZN" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/sign/securearea{
@@ -18417,18 +18417,18 @@ aJ
 aJ
 hm
 pF
-wD
+FZ
 Qp
 mX
 eC
 Nu
-un
+gX
 ll
-UP
+lw
 Sf
-uL
+Sy
 ll
-VZ
+ce
 KB
 Ev
 cD
@@ -18588,9 +18588,9 @@ Gn
 OA
 mv
 Yw
-CI
+TQ
 kh
-bp
+dU
 Dr
 PG
 fk
@@ -18746,13 +18746,13 @@ ii
 ml
 eC
 Ex
-sd
-Qt
+Th
+mr
 rU
-yQ
+WO
 Yu
-Qt
-Br
+mr
+bO
 FS
 Ev
 Wl
@@ -19065,16 +19065,16 @@ aJ
 aJ
 eC
 CP
-pL
+nD
 Qp
 dL
 eC
 Tb
 iB
 ip
-Im
-sO
-wv
+jC
+cX
+Ha
 Ym
 Nf
 aN
@@ -19396,7 +19396,7 @@ eC
 TW
 zw
 ip
-Cx
+yQ
 va
 SB
 Ym
@@ -19558,7 +19558,7 @@ eC
 rZ
 Rh
 ip
-zI
+ue
 GA
 SB
 Ym
@@ -21178,9 +21178,9 @@ oE
 wQ
 wQ
 wQ
-bQ
-yQ
-IY
+sO
+WO
+MH
 wQ
 HF
 lU
@@ -21503,7 +21503,7 @@ wQ
 HF
 wQ
 gg
-sO
+cX
 XG
 ll
 fo
@@ -21520,18 +21520,18 @@ rE
 Ay
 bh
 Pc
-sz
-qb
-Yi
+hU
+Pp
+eT
 xV
 xV
 ta
 Fs
 ta
 ta
-Og
+BY
 ll
-UP
+lw
 Pc
 zu
 yd
@@ -21666,9 +21666,9 @@ wQ
 wQ
 Va
 Hb
-SL
+VS
 kh
-FR
+YL
 US
 ZW
 Sx
@@ -21682,18 +21682,18 @@ Lf
 Bo
 Nx
 eZ
-Ha
+Md
 kh
-bp
+dU
 Sx
-Ng
-Ng
+SL
+SL
 wa
 os
 os
-Ha
+Md
 sQ
-kq
+Qt
 Oo
 Lu
 Ck
@@ -21827,9 +21827,9 @@ GF
 zt
 BX
 vr
-yQ
+WO
 TA
-Qt
+mr
 cr
 fB
 TC
@@ -21844,18 +21844,18 @@ rg
 GB
 IH
 iU
-xi
+pL
 LB
-Pp
+qb
 qc
 IH
 Ej
 iU
 IH
 IH
-sd
+Th
 fM
-Pp
+qb
 IH
 Mt
 jb
@@ -22150,9 +22150,9 @@ hc
 eb
 Bq
 oI
-eY
-sO
-dH
+ku
+cX
+Cx
 nG
 qY
 nG
@@ -23954,7 +23954,7 @@ PP
 gf
 lI
 DX
-qO
+zI
 rL
 MF
 Sh
@@ -24256,9 +24256,9 @@ oB
 TL
 HB
 BS
-wV
-yQ
-ue
+Rv
+WO
+ke
 Ot
 zN
 zN
@@ -24277,8 +24277,8 @@ rL
 PP
 zO
 WM
-GM
-ZL
+MS
+qO
 rL
 OY
 MF
@@ -24437,7 +24437,7 @@ aJ
 aJ
 Az
 yo
-GM
+MS
 EA
 gb
 bw
@@ -24578,11 +24578,11 @@ bo
 KD
 oB
 uA
-qb
-UP
+Pp
+lw
 Su
-sO
-dH
+cX
+Cx
 Ot
 kQ
 zQ
@@ -24599,7 +24599,7 @@ aJ
 aJ
 CS
 PP
-GM
+MS
 Qv
 Qv
 Qv
@@ -24761,7 +24761,7 @@ aJ
 aJ
 Az
 LX
-MS
+SI
 rL
 rL
 rL
@@ -24897,14 +24897,14 @@ aJ
 aJ
 Uv
 MQ
-NA
+rk
 yf
 bi
 oB
 aF
 wQ
-RV
-YZ
+Ng
+GM
 wQ
 Ut
 Ot
@@ -25065,8 +25065,8 @@ oB
 oB
 wQ
 wQ
-Gb
-fF
+fl
+WX
 wQ
 wQ
 Ot
@@ -25227,8 +25227,8 @@ aJ
 aJ
 aJ
 wQ
-mr
-mr
+XN
+XN
 wQ
 aJ
 aJ
@@ -25390,7 +25390,7 @@ aJ
 aJ
 wQ
 ic
-Mp
+YZ
 wQ
 aJ
 aJ
