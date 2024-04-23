@@ -1,0 +1,8 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Cult Base cultists spawn without cult books, so they can only use the runes mapped into the map, and can't make more."
+  - rscadd: "Cult Base mapping and ghostspawner tweaks."

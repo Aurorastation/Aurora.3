@@ -134,6 +134,15 @@
 		/obj/item/clothing/shoes/sneakers/brown,
 		/obj/item/clothing/shoes/sneakers/hitops/brown,
 	)
+	accessory = list(
+		/obj/item/clothing/accessory/storage/bayonet,
+		/obj/item/clothing/accessory/storage/brown_vest,
+		/obj/item/clothing/accessory/storage/overalls,
+		/obj/item/clothing/accessory/storage/pouches,
+		/obj/item/clothing/accessory/storage/pouches/white,
+		/obj/item/clothing/accessory/storage/webbing,
+		/obj/item/clothing/accessory/storage/webbingharness,
+	)
 	belt = list(
 		/obj/item/storage/belt/fannypack,
 		/obj/item/storage/belt/utility/full,
@@ -218,7 +227,7 @@
 
 	// make into a cultist
 	if(human.mind)
-		cult.add_antagonist(human.mind)
+		cult.add_antagonist(human.mind, do_not_equip=TRUE)
 
 	// add blood
 	if(prob(75))
