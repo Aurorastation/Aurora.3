@@ -4,11 +4,18 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"b" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/foundation{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "g" = (
 /obj/effect/ghostspawpoint{
 	name = "igs - moghes_siakh";
 	identifier = "moghes_siakh"
 	},
+/obj/item/bedsheet/brown,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
@@ -34,6 +41,14 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
@@ -53,9 +68,6 @@
 /obj/item/clothing/suit/unathi/robe/kilt{
 	color = "#DBC684"
 	},
-/obj/item/clothing/shoes/sandal,
-/obj/item/clothing/shoes/sandal,
-/obj/item/clothing/shoes/sandal,
 /obj/item/clothing/accessory/poncho,
 /obj/item/clothing/accessory/poncho,
 /obj/item/clothing/accessory/sinta_hood{
@@ -64,11 +76,8 @@
 /obj/item/clothing/accessory/sinta_hood{
 	color = "#DBC684"
 	},
-/obj/item/device/versebook/siakh,
-/obj/item/device/versebook/siakh,
-/obj/item/device/versebook/siakh,
-/obj/item/device/versebook/siakh,
-/obj/item/device/versebook/siakh,
+/obj/item/saddle,
+/obj/item/saddle,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
@@ -76,11 +85,16 @@
 "R" = (
 /obj/structure/closet/crate,
 /obj/item/material/sword/axe,
-/obj/item/material/sword/axe,
-/obj/random/civgun/rifle,
-/obj/random/civgun/rifle,
-/obj/item/clothing/suit/armor/unathi,
-/obj/item/clothing/suit/armor/unathi,
+/obj/item/gun/projectile/shotgun/wallgun,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/ammo_casing/shotgun/moghes,
+/obj/item/clothing/accessory/storage/bandolier,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
 /turf/simulated/floor/exoplanet/foundation{
 	temperature = 315.15
 	},
@@ -213,7 +227,7 @@ z
 z
 z
 z
-a
+z
 a
 a
 a
@@ -232,11 +246,11 @@ z
 z
 v
 v
+b
 v
-v
-v
+b
 z
-a
+z
 a
 a
 a
@@ -315,7 +329,7 @@ a
 (11,1,1) = {"
 a
 a
-a
+z
 z
 g
 v
@@ -359,7 +373,7 @@ a
 (13,1,1) = {"
 a
 a
-a
+z
 z
 v
 v
@@ -382,7 +396,7 @@ a
 a
 a
 a
-a
+z
 z
 v
 z

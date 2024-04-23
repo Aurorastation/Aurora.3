@@ -67,11 +67,12 @@
 	back = /obj/item/storage/backpack/satchel/leather
 
 /obj/outfit/admin/moghes_dorviza/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#42330f", "#DBC684")]"
+	if(!H)
+		return
 	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
+		H.w_uniform.color = pick("#42330f", "#DBC684")
 	if(H?.wear_suit)
-		H.wear_suit.color = uniform_color
+		H.wear_suit.color = pick("#42330f", "#DBC684")
 
 /obj/outfit/admin/moghes_dorviza/diona
 	uniform = /obj/item/clothing/under/gearharness

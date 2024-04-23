@@ -4076,6 +4076,7 @@
 #include "maps\random_ruins\exoplanets\moghes\moghes_wasteland_mikuetz.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_wasteland_ozeuoi.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_wasteland_queendom.dm"
+#include "maps\random_ruins\exoplanets\moghes\moghes_wasteland_tomb.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_wasteland_tyrant.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_wasteland_vihnmes.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_wasteland_oasis.dm"

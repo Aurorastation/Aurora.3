@@ -75,12 +75,13 @@
 	id = null
 
 /obj/outfit/admin/vihnmes/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#473b13", "#134718", "#0a6959")]"
-	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
-	if(H?.wear_suit)
+	if(!H)
+		return
+	if(H.w_uniform)
+		H.w_uniform.color = pick("#473b13", "#134718", "#0a6959")
+	if(H.wear_suit)
 		H.wear_suit.color = "#423509"
-	if(H?.shoes)
+	if(H.shoes)
 		H.shoes.color = "#423509"
 
 /obj/outfit/admin/moghes_vihnmes_patron
@@ -106,10 +107,10 @@
 	id = null
 
 /obj/outfit/admin/moghes_vihnmes_patron/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#42330f", "#DBC684")]"
+	if(!H)
 	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
-	if(H?.wear_suit)
+		H.w_uniform.color = pick("#42330f", "#DBC684")
+	if(H.wear_suit)
 		H.wear_suit.color = "#423509"
-	if(H?.shoes)
+	if(H.shoes)
 		H.shoes.color = "#423509"

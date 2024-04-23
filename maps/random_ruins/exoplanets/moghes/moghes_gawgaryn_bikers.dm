@@ -79,11 +79,12 @@
 	l_ear = null
 
 /obj/outfit/admin/moghes_gawgaryn/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#42330f", "#DBC684")]"
-	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
-	if(H?.wear_suit)
-		H.wear_suit.color = uniform_color
+	if(!H)
+		return
+	if(H.w_uniform)
+		H.w_uniform.color = pick("#42330f", "#DBC684")
+	if(H.wear_suit)
+		H.wear_suit.color = pick("#42330f", "#DBC684")
 
 /obj/outfit/admin/moghes_gawgaryn/leader
 	name = "Gawgaryn Raid Leader"
@@ -97,6 +98,7 @@
 	belt = /obj/item/material/knife/tacknife
 
 /obj/outfit/admin/moghes_gawgaryn/leader/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	var/uniform_color = "[pick("#42330f", "#DBC684")]"
-	if(H?.w_uniform)
-		H.w_uniform.color = uniform_color
+	if(!H)
+		return
+	if(H.w_uniform)
+		H.w_uniform.color = pick("#42330f", "#DBC684")

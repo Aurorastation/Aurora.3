@@ -62,3 +62,6 @@
 	l_ear = null
 	id = /obj/item/card/id
 	glasses = /obj/item/clothing/glasses/safety/goggles/wasteland
+
+/obj/outfit/admin/moghes_ozeuoi/get_id_access()
+	return list(ACCESS_OZEUOI)

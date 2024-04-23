@@ -12,7 +12,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ozeuoi_gate";
 	pixel_y = 25;
-	req_access = list(218)
+	req_access = list(227)
 	},
 /obj/structure/table/steel,
 /obj/item/device/radio,
@@ -109,7 +109,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ozeuoi_water";
 	pixel_y = 25;
-	req_access = list(218)
+	req_access = list(227)
 	},
 /obj/machinery/light{
 	dir = 1
@@ -183,7 +183,7 @@
 	},
 /obj/machinery/turretid{
 	pixel_y = 30;
-	req_access = list(218);
+	req_access = list(227);
 	control_area = "Clan Ozeui Outpost";
 	check_arrest = 0;
 	check_records = 0
@@ -402,7 +402,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ozeuoi_bikes";
 	pixel_y = 25;
-	req_access = list(218)
+	req_access = list(227)
 	},
 /obj/machinery/light{
 	dir = 1
@@ -418,7 +418,7 @@
 /obj/machinery/button/remote/blast_door{
 	id = "ozeuoi_gate";
 	pixel_y = 25;
-	req_access = list(218)
+	req_access = list(227)
 	},
 /obj/machinery/porta_turret/ballistic{
 	cover_set = 1;
