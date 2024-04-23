@@ -4513,6 +4513,24 @@
 	},
 /turf/simulated/floor/lino,
 /area/horizon/cafeteria)
+"dAq" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 6;
+	pixel_y = 35;
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/turret_protected/ai_upload_foyer)
 "dAI" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -5096,19 +5114,6 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/template_noop)
-"dUZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 23
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "dVE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -6766,18 +6771,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
-"eWK" = (
-/obj/machinery/computer/aiupload{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload_foyer)
 "eXd" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -15324,20 +15317,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
-"kzu" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "centcom_shuttle_dock_pump"
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "kzM" = (
 /turf/simulated/floor/grass,
 /area/horizon/cafeteria)
@@ -23087,27 +23066,6 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_three/primary/starboard)
-"pDy" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	pixel_x = -9;
-	pixel_y = 27;
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "pEk" = (
 /obj/machinery/porta_turret,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -25839,6 +25797,18 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/horizon/hallway/deck_three/primary/starboard)
+"rBy" = (
+/obj/machinery/computer/aiupload{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_upload_foyer)
 "rBA" = (
 /obj/machinery/light{
 	dir = 4
@@ -26711,24 +26681,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"seN" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = 6;
-	pixel_y = 35;
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/turret_protected/ai_upload_foyer)
 "sfh" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/cable/green{
@@ -28222,6 +28174,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/equipment)
+"tfh" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "tfi" = (
 /obj/effect/floor_decal/corner/green/full{
 	dir = 4
@@ -28705,6 +28669,27 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/lino,
 /area/horizon/security/investigators_office)
+"twY" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -9;
+	pixel_y = 27;
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "txh" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -28760,6 +28745,20 @@
 /obj/structure/cable/green,
 /turf/simulated/floor/wood,
 /area/journalistoffice)
+"tzV" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_pump"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "tzY" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_green{
@@ -29615,18 +29614,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
-"uci" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "ude" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -30797,15 +30784,6 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
-"uRN" = (
-/obj/machinery/power/terminal{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "uRU" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/access_button{
@@ -31958,6 +31936,15 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
+"vHe" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "vIe" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -32708,6 +32695,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/controlroom)
+"whH" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 23
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "wik" = (
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
@@ -32784,6 +32784,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/holodeck_control/beta)
+"wlD" = (
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - External";
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/turret_protected/ai_upload_foyer)
 "wlV" = (
 /obj/machinery/telecomms/server/presets/science,
 /turf/simulated/floor/bluegrid,
@@ -60325,7 +60333,7 @@ mFW
 alY
 tXP
 ihi
-eWK
+rBy
 neL
 hbW
 pNr
@@ -60931,7 +60939,7 @@ ihi
 ihi
 nxf
 ihi
-uRN
+vHe
 kMd
 sHn
 cJb
@@ -61336,7 +61344,7 @@ uJh
 uJh
 ihi
 cJb
-pDy
+twY
 cJb
 cJb
 ydF
@@ -61537,9 +61545,9 @@ hLZ
 hLZ
 uJh
 uJh
-dUZ
-uci
-kzu
+whH
+tfh
+tzV
 gFb
 ydF
 kwz
@@ -61739,8 +61747,8 @@ cPq
 cPq
 hLZ
 gFb
-gFb
-seN
+wlD
+dAq
 gFb
 vrL
 ydF

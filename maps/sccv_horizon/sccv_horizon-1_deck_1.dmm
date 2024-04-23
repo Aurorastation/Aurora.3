@@ -1740,10 +1740,6 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "bpb" = (
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology Suits";
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "bpl" = (
@@ -4031,6 +4027,10 @@
 /obj/structure/platform{
 	dir = 8
 	},
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenoarchaeology Suits";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "cOy" = (
@@ -4415,13 +4415,12 @@
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "dcs" = (
-/obj/structure/table/reinforced/steel,
 /obj/machinery/power/apc/north,
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "ddJ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -7166,6 +7165,10 @@
 "eWA" = (
 /obj/structure/dispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/camera/network/research{
+	c_tag = "Research - Xenoarchaeology Suits";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "eWB" = (
@@ -7443,7 +7446,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "fdA" = (
 /obj/structure/tank_wall{
 	icon_state = "m-2"
@@ -9415,6 +9418,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/research{
+	name = "Secure Artifact Storage";
+	req_access = list(47)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "gsd" = (
@@ -10825,7 +10832,7 @@
 "hqE" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "hqH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -11018,10 +11025,6 @@
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
-"hza" = (
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/outpost/research/anomaly_storage)
 "hzv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11152,6 +11155,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
+"hCV" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/outpost/research/anomaly_storage)
 "hDd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -12466,6 +12472,7 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "iJi" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/outpost/research/anomaly_storage)
 "iJt" = (
@@ -12507,7 +12514,7 @@
 	pixel_y = 51
 	},
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "iKo" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -12694,12 +12701,19 @@
 /turf/simulated/floor/reinforced/airless,
 /area/engineering/atmos/propulsion)
 "iPz" = (
-/obj/structure/table/reinforced/steel,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/emergency,
+/obj/item/storage/box/gloves,
+/obj/item/storage/box/lights/mixed{
+	pixel_x = 5;
+	pixel_y = -2
+	},
+/obj/item/storage/box/samplebags,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "iPO" = (
 /obj/effect/floor_decal/corner_wide/purple{
 	dir = 6
@@ -13333,9 +13347,13 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "jof" = (
-/obj/machinery/firealarm/west,
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "joF" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, deck 1 maintenance"
@@ -14663,7 +14681,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "kka" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/industrial/hatch/red,
@@ -14970,6 +14988,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
+"ksH" = (
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "ksN" = (
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
@@ -16663,6 +16684,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
+"lEN" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "lEQ" = (
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck1_morgue2";
@@ -19477,14 +19502,10 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/window/southleft{
-	name = "Artifact Storage";
-	req_access = list(47)
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "ntf" = (
 /obj/structure/tank_wall/nitrous_oxide{
 	density = 0;
@@ -21029,6 +21050,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
+"oxp" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "oxw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -22634,10 +22665,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "pEF" = (
-/obj/structure/window/reinforced,
-/obj/structure/table/reinforced/steel,
+/obj/machinery/space_heater,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "pEH" = (
 /obj/structure/shuttle_part/scc/scout{
 	icon_state = "7,7"
@@ -22919,12 +22950,14 @@
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "pMO" = (
-/obj/structure/anomaly_container,
-/obj/machinery/light{
-	dir = 8
+/obj/machinery/firealarm/west,
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	req_access = null;
+	req_one_access = list(7,47)
 	},
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "pMP" = (
 /obj/effect/shuttle_landmark/distress/blue,
 /turf/simulated/floor/plating,
@@ -25102,7 +25135,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
+/area/rnd/xenoarch_storage)
 "rmB" = (
 /obj/structure/shuttle/engine/propulsion/burst/right{
 	dir = 8
@@ -27007,13 +27040,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
-/obj/structure/table/rack,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
-/obj/item/tank/oxygen,
-/obj/item/clothing/head/hazmat/anomaly,
-/obj/item/storage/box/gloves,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -28722,18 +28748,17 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
 "tPx" = (
-/obj/structure/table/rack,
-/obj/item/storage/toolbox/emergency,
-/obj/item/storage/box/samplebags,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = 5;
-	pixel_y = -2
-	},
 /obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/storage/box/gloves,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_storage)
 "tPG" = (
@@ -30191,11 +30216,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/closet/secure_closet/xenoarchaeologist{
-	req_access = null;
-	req_one_access = list(7,47)
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenoarch_atrium)
 "uPx" = (
@@ -31327,6 +31348,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
+"vxE" = (
+/obj/structure/closet/secure_closet/guncabinet/sci,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "vys" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/door/window/northleft{
@@ -31364,7 +31389,6 @@
 /obj/structure/noticeboard/anomaly{
 	pixel_y = 30
 	},
-/obj/machinery/space_heater,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "vBb" = (
@@ -32261,16 +32285,6 @@
 /turf/simulated/floor/wood,
 /area/shuttle/intrepid/quarters)
 "wjW" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/structure/table/rack,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
-/obj/item/tank/oxygen,
-/obj/item/clothing/head/hazmat/anomaly,
-/obj/item/storage/box/gloves,
 /obj/machinery/light{
 	dir = 4
 	},
@@ -33323,6 +33337,10 @@
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "wWV" = (
+/obj/machinery/door/window/southleft{
+	name = "Artifact Secure Storage";
+	req_access = list(47)
+	},
 /turf/simulated/floor/tiled/dark,
 /area/outpost/research/anomaly_storage)
 "wWY" = (
@@ -60986,10 +61004,10 @@ mDt
 rPJ
 jAg
 kJG
-oJe
-oJe
-oJe
-oJe
+aWZ
+aWZ
+aWZ
+aWZ
 aWZ
 aWZ
 aWZ
@@ -61189,11 +61207,11 @@ mDt
 pom
 ggH
 pom
-oJe
+aWZ
 pMO
 jof
-cLC
 mOf
+oxp
 tPx
 dgW
 txT
@@ -61392,10 +61410,10 @@ xAr
 bek
 hWY
 idq
-oJe
-dRh
+aWZ
+bpb
 iJV
-cLC
+bpb
 adE
 kkY
 bkV
@@ -61798,7 +61816,7 @@ jNq
 vDT
 hEx
 wQv
-oJe
+aWZ
 dcs
 iPz
 pEF
@@ -62001,7 +62019,7 @@ sfh
 sfh
 sfh
 sfh
-oJe
+aWZ
 hqE
 hqE
 hqE
@@ -64227,7 +64245,7 @@ eSV
 eSV
 eSV
 eSV
-iJi
+hCV
 oJe
 oJe
 oJe
@@ -64430,13 +64448,13 @@ eSV
 eSV
 eSV
 eSV
-hza
-wWV
-wWV
-wWV
-wWV
-wWV
-wWV
+iJi
+lEN
+vxE
+cLC
+lEN
+lEN
+lEN
 oJe
 qWB
 scq
@@ -64633,13 +64651,13 @@ eSV
 eSV
 eSV
 eSV
-hza
+iJi
+ksH
+ksH
 wWV
-wWV
-wWV
-wWV
-wWV
-wWV
+ksH
+ksH
+ksH
 gsc
 dbq
 voZ
@@ -64836,13 +64854,13 @@ eSV
 eSV
 eSV
 eSV
-hza
-wWV
-wWV
-wWV
-wWV
-wWV
-wWV
+iJi
+dRh
+dRh
+cLC
+lEN
+lEN
+lEN
 oJe
 aKn
 jlo
@@ -65039,7 +65057,7 @@ eSV
 eSV
 eSV
 eSV
-iJi
+hCV
 oJe
 oJe
 oJe
