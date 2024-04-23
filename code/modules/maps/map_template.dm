@@ -59,6 +59,10 @@
 
 	var/list/atom/movable/movables = list()
 	var/list/area/areas = list()
+	var/list/obj/structure/cable/cables = list()
+	var/list/obj/machinery/atmospherics/atmos_machines = list()
+	var/list/obj/machinery/machines = list()
+	var/list/obj/machinery/power/apc/apcs = list()
 
 	var/list/turfs = block(
 		locate(
@@ -80,8 +84,36 @@
 
 		for(var/movable_in_turf in current_turf)
 			movables += movable_in_turf
+			if(istype(movable_in_turf, /obj/structure/cable))
+				cables += movable_in_turf
+				continue
+			if(istype(movable_in_turf, /obj/effect/landmark/map_load_mark))
+				LAZYADD(subtemplates_to_spawn, movable_in_turf)
+				continue
+			if(istype(movable_in_turf, /obj/machinery/atmospherics))
+				atmos_machines += movable_in_turf
+			if(istype(movable_in_turf, /obj/machinery))
+				machines += movable_in_turf
+			if(istype(movable_in_turf, /obj/machinery/power/apc))
+				apcs += movable_in_turf
 
 	SSatoms.InitializeAtoms(areas + turfs + movables, returns_created_atoms ? created_atoms : null)
+	SSmachinery.setup_powernets_for_cables(cables)
+	SSmachinery.setup_atmos_machinery(atmos_machines)
+
+	for(var/obj/machinery/power/apc/apc as anything in apcs)
+		apc.update()
+
+	for(var/obj/machinery/machine as anything in machines)
+		machine.power_change()
+
+	for(var/turf/T as anything in turfs)
+		T.post_change(FALSE)
+		if(template_flags & TEMPLATE_FLAG_NO_RUINS)
+			T.turf_flags |= TURF_NORUINS
+		if(istype(T, /turf/simulated))
+			T.update_air_properties()
+
 
 /datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
 	var/x = round((world.maxx - width) * 0.5) + 1
@@ -136,6 +168,7 @@
 	SSshuttle.block_queue = pre_init_state
 	SSshuttle.clear_init_queue() // We will flush the queue unless there were other blockers, in which case they will do it.
 
+//This should be nuked as it's not used anymore
 /datum/map_template/proc/init_atoms(var/list/atoms)
 	if (SSatoms.initialized == INITIALIZATION_INSSATOMS)
 		return // let proper initialisation handle it later
@@ -156,7 +189,7 @@
 		if(istype(A, /obj/structure/cable))
 			cables += A
 			continue
-		if(istype(A,/obj/effect/landmark/map_load_mark))
+		if(istype(A, /obj/effect/landmark/map_load_mark))
 			LAZYADD(subtemplates_to_spawn, A)
 			continue
 
