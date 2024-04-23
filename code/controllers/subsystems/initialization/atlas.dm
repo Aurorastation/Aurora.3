@@ -221,7 +221,7 @@ SUBSYSTEM_DEF(atlas)
 	var/mfile
 	var/first_dmm = TRUE
 	var/time
-	for (var/i in 1 to files.len)
+	for (var/i in 1 to length(files))
 		mfile = files[i]
 		if (!mapregex.Find(mfile))
 			continue
@@ -240,7 +240,7 @@ SUBSYSTEM_DEF(atlas)
 		if(!target_z)
 			world.incrementMaxZ()
 
-		if (!load_map(file(mfile), 0, 0, target_z ? target_z : world.maxz, no_changeturf = TRUE, new_z = TRUE))
+		if (!load_map(file(mfile), 1, 1, target_z ? target_z : world.maxz, no_changeturf = TRUE, new_z = TRUE))
 			log_subsystem_atlas("Failed to load '[mfile]'!")
 		else
 			log_subsystem_atlas("Loaded level in [(world.time - time)/10] seconds.")

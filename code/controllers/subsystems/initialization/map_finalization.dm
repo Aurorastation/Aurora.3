@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(finalize)
 		var/time = world.time
 		LOG_DEBUG("Attempting to load [mfile]")
 
-		if (!load_map(file(mfile), 0, 0, no_changeturf = TRUE))
+		if (!load_map(file(mfile), 1, 1, no_changeturf = TRUE))
 			log_subsystem_mapfinalization_error("Failed to load '[mfile]'!")
 			log_mapping("Failed to load '[mfile]'!")
 			admin_notice(SPAN_DANGER("Failed to load '[mfile]'!"), R_DEBUG)

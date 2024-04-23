@@ -960,6 +960,11 @@ GLOBAL_LIST_EMPTY(map_model_default)
 
 		if(GLOB.use_preloader && instance)//second preloader pass, for those atoms that don't ..() in New()
 			world.preloader_load(instance)
+
+	//Aurora snowflake code for markers
+	else if(members_attributes[index] != default_list)
+		create_atom(members[index], crds)
+
 	// If this isn't template work, we didn't change our turf and we changed area, then we've gotta handle area lighting transfer
 	// else if(!no_changeturf && old_area)
 		// Don't do contain/uncontain stuff, this happens a few lines up when the area actally changes
