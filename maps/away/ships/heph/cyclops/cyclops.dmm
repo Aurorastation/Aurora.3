@@ -49,7 +49,6 @@
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	child_names_txt = "Cyclops Shuttle Airlock";
 	child_tags_txt = "cyclops_shuttle";
-	frequency = 1380;
 	id_tag = "airlock_shuttle_cyclops";
 	pixel_y = 25;
 	pixel_x = -9;
@@ -4485,7 +4484,6 @@
 	dir = 10
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
-	frequency = 1380;
 	id_tag = "airlock_shuttle_cyclops";
 	pixel_y = -28;
 	dir = 1;
