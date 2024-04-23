@@ -59,6 +59,21 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"aN" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "aP" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/chemical_dispenser/full,
@@ -122,6 +137,16 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
 /area/space)
+"bm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "bs" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
@@ -137,7 +162,11 @@
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
@@ -239,6 +268,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
 /turf/simulated/floor,
 /area/space)
 "cn" = (
@@ -269,6 +301,13 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
+/area/space)
+"cA" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/multi_tile/flipped{
+	name = "Mining"
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "cF" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
@@ -327,12 +366,17 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "cS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -363,6 +407,10 @@
 	dir = 5
 	},
 /turf/simulated/floor,
+/area/space)
+"dq" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/turf/simulated/floor/tiled,
 /area/space)
 "dH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -397,7 +445,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -493,7 +545,11 @@
 /obj/machinery/pipedispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -545,7 +601,11 @@
 /obj/item/clothing/suit/storage/toggle/himeo/grey,
 /obj/item/clothing/suit/storage/toggle/himeo/grey,
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /obj/item/clothing/accessory/offworlder/bracer,
 /obj/item/clothing/accessory/offworlder/bracer,
@@ -558,12 +618,19 @@
 	dir = 4
 	},
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
 "ev" = (
 /obj/machinery/power/apc/north,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "ew" = (
@@ -575,6 +642,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -591,6 +661,7 @@
 	dir = 4;
 	pixel_x = -5
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "eO" = (
@@ -620,6 +691,9 @@
 "fd" = (
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -683,6 +757,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "fG" = (
@@ -709,7 +786,11 @@
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -863,6 +944,21 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
+"hL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "hM" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -911,6 +1007,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "ia" = (
@@ -939,6 +1038,9 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ie" = (
@@ -953,6 +1055,12 @@
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"ij" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "im" = (
 /obj/structure/railing/mapped,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -966,6 +1074,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/space)
@@ -1004,6 +1115,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "iD" = (
@@ -1016,14 +1130,10 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "iR" = (
-/obj/machinery/cryopod{
-	dir = 4
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
 	},
-/obj/effect/floor_decal/corner/lime/diagonal,
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/turf/simulated/floor/tiled/white,
+/turf/simulated/floor/tiled,
 /area/space)
 "iY" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -1059,6 +1169,13 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -1117,6 +1234,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1205,7 +1325,29 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor,
+/area/space)
+"jZ" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"ke" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "kj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -1234,6 +1376,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "ky" = (
@@ -1413,6 +1558,9 @@
 /area/space)
 "ly" = (
 /obj/machinery/alarm/east,
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "lB" = (
@@ -1438,6 +1586,13 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
 /turf/simulated/floor,
 /area/space)
 "lK" = (
@@ -1460,7 +1615,11 @@
 	dir = 1
 	},
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1518,7 +1677,11 @@
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -1529,11 +1692,10 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "mt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1551,7 +1713,30 @@
 	},
 /obj/item/clothing/mask/breath,
 /obj/item/tank/oxygen,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"mB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
+/turf/simulated/floor,
 /area/space)
 "mG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1588,12 +1773,19 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "mV" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor,
 /area/space)
 "mX" = (
@@ -1611,6 +1803,7 @@
 /area/space)
 "no" = (
 /obj/machinery/iv_drip,
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "nr" = (
@@ -1621,6 +1814,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
+/area/space)
+"nv" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	name = "Fore Hallway"
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "nx" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
@@ -1657,14 +1857,17 @@
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/space)
 "nN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/alarm/east,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "nQ" = (
@@ -1680,6 +1883,9 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "nS" = (
@@ -1688,7 +1894,11 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /obj/machinery/button/distress{
 	pixel_y = 21
@@ -1753,7 +1963,23 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
+/area/space)
+"oz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "oF" = (
 /obj/machinery/light,
@@ -1777,14 +2003,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1795,6 +2024,19 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/full,
+/area/space)
+"oL" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "oQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
@@ -1831,11 +2073,12 @@
 /area/space)
 "pa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
-/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/structure/table/rack,
 /turf/simulated/floor/reinforced,
 /area/space)
 "pc" = (
@@ -1848,6 +2091,25 @@
 	name = "Dorms"
 	},
 /turf/simulated/floor/tiled/full,
+/area/space)
+"po" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
 /area/space)
 "pp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1908,15 +2170,17 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
-/area/space)
-"pG" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/hatch{
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
 	dir = 8;
-	name = "Starboard Interstitial"
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "pJ" = (
 /obj/machinery/artifact_scanpad,
@@ -1941,7 +2205,11 @@
 /obj/item/inflatable_dispenser,
 /obj/item/pipewrench,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -1999,6 +2267,19 @@
 	reversed = 1
 	},
 /turf/simulated/floor,
+/area/space)
+"qB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "qD" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -2135,7 +2416,11 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -2163,10 +2448,16 @@
 /turf/simulated/floor/tiled,
 /area/space)
 "rq" = (
-/obj/machinery/power/apc/north,
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian{
 	pixel_y = 13
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/carpet/lightblue,
 /area/space)
@@ -2230,11 +2521,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/full,
 /area/space)
 "sh" = (
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -2330,6 +2628,19 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
 /area/space)
+"sT" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
 "sV" = (
 /obj/machinery/vending/cigarette/merchant,
 /turf/simulated/floor/tiled,
@@ -2346,6 +2657,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/space)
@@ -2475,6 +2789,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
 /turf/simulated/floor,
 /area/space)
 "ul" = (
@@ -2514,9 +2835,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
-	},
-/obj/machinery/alarm/west{
-	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -2615,6 +2933,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "vk" = (
@@ -2659,7 +2980,11 @@
 "vy" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2708,6 +3033,9 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "vU" = (
@@ -2739,19 +3067,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/tiled,
-/area/space)
-"wl" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/multi_tile/flipped{
-	name = "Mining"
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/space)
 "wn" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /obj/structure/closet/excavation,
 /obj/item/clothing/suit/storage/toggle/labcoat,
@@ -2848,7 +3176,11 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -2858,6 +3190,13 @@
 "wX" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -2875,6 +3214,17 @@
 	req_one_access = null
 	},
 /turf/simulated/floor,
+/area/space)
+"xs" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/reinforced,
 /area/space)
 "xu" = (
 /obj/effect/floor_decal/corner_wide/red{
@@ -2902,11 +3252,23 @@
 /area/space)
 "xB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
-/obj/item/ship_ammunition/grauwolf_bundle/ap,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
 /turf/simulated/floor/reinforced,
 /area/space)
 "xC" = (
@@ -3019,6 +3381,16 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/firedoor,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "yK" = (
@@ -3044,6 +3416,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
+/obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "yV" = (
@@ -3072,7 +3445,11 @@
 "yY" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
@@ -3161,6 +3538,19 @@
 /obj/machinery/meter,
 /turf/simulated/floor,
 /area/space)
+"zx" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "zA" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -3172,8 +3562,15 @@
 /area/space)
 "zF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/ship_ammunition/grauwolf_probe,
-/obj/item/ship_ammunition/grauwolf_probe,
+/obj/structure/table/rack,
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_x = 4;
+	pixel_y = 4
+	},
 /obj/item/ship_ammunition/grauwolf_probe,
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -3201,6 +3598,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -3247,6 +3647,13 @@
 	pixel_x = -7;
 	pixel_y = 23
 	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Am" = (
@@ -3273,6 +3680,17 @@
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
+/area/space)
+"Ax" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "AG" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -3304,7 +3722,11 @@
 "AO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /obj/machinery/alarm/east,
 /obj/effect/decal/cleanable/generic{
@@ -3456,9 +3878,28 @@
 "BW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/carpet/rubber,
+/area/space)
+"BX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "Ca" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
@@ -3468,12 +3909,18 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/machinery/light/floor{
+	pixel_y = -8
+	},
 /turf/simulated/floor,
 /area/space)
 "Ch" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -3493,6 +3940,7 @@
 	dir = 8;
 	icon_state = "warning"
 	},
+/obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Cx" = (
@@ -3654,6 +4102,9 @@
 /area/space)
 "Dp" = (
 /obj/machinery/door/firedoor,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "Ds" = (
@@ -3701,12 +4152,22 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled,
 /area/space)
+"DO" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/space)
 "DR" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -3778,7 +4239,7 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	name = "Flak Magazine";
+	name = "Flak Magazine and Armory";
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
@@ -3793,6 +4254,21 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
+/area/space)
+"EF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "EI" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
@@ -3839,6 +4315,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/space)
+"Fd" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Ff" = (
 /obj/item/flame/lighter/zippo/coalition,
 /obj/item/flame/lighter/zippo/coalition,
@@ -3864,7 +4346,11 @@
 	name = "Lighers"
 	},
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -3893,6 +4379,9 @@
 "Fw" = (
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -3928,6 +4417,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -3982,6 +4474,16 @@
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/east,
 /area/space)
+"Gi" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "Gn" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -3995,7 +4497,11 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -4005,6 +4511,22 @@
 /obj/structure/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"GI" = (
+/obj/structure/cable/yellow{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor,
+/area/space)
+"GL" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/structure/table/rack,
+/turf/simulated/floor/reinforced,
+/area/space)
 "GQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -4012,11 +4534,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "GR" = (
 /obj/structure/bed/handrail{
@@ -4024,12 +4545,17 @@
 	dir = 8;
 	pixel_x = 5
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "GS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -4177,6 +4703,15 @@
 "Iv" = (
 /obj/structure/bed/roller,
 /obj/structure/bed/handrail,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 16
+	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Iy" = (
@@ -4239,6 +4774,20 @@
 	},
 /turf/simulated/floor/tiled,
 /area/space)
+"IG" = (
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "IN" = (
 /obj/structure/sign/flag/konyang,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
@@ -4254,12 +4803,16 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
 	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor,
 /area/space)
 "IR" = (
 /obj/machinery/sleeper{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "IS" = (
@@ -4275,6 +4828,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/space)
@@ -4430,16 +4986,10 @@
 /turf/template_noop,
 /area/space)
 "Kq" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 1
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
 	},
-/obj/effect/decal/cleanable/dirt,
-/obj/structure/lattice/catwalk/indoor/grate,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled,
 /area/space)
 "Kr" = (
 /obj/structure/table/stone/marble,
@@ -4520,6 +5070,13 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
 "KL" = (
@@ -4563,6 +5120,9 @@
 	dir = 5
 	},
 /obj/machinery/alarm/west,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "KX" = (
@@ -4734,6 +5294,9 @@
 /area/space)
 "Ms" = (
 /obj/machinery/power/apc/east,
+/obj/structure/cable/yellow{
+	icon_state = "0-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "Mt" = (
@@ -4746,7 +5309,11 @@
 	dir = 9
 	},
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -4825,7 +5392,23 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
+/area/space)
+"MZ" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "Nc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -4834,14 +5417,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
-/turf/simulated/floor,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Nf" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -4885,6 +5468,12 @@
 	dir = 1
 	},
 /turf/simulated/floor,
+/area/space)
+"Nr" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "Ny" = (
 /obj/machinery/power/apc/south,
@@ -5025,9 +5614,6 @@
 /turf/template_noop,
 /area/space)
 "OT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -5035,6 +5621,12 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/alarm/north,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "OX" = (
@@ -5081,11 +5673,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/space)
 "Pf" = (
 /obj/structure/table/rack,
@@ -5096,7 +5687,11 @@
 /obj/item/device/gps,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
@@ -5175,7 +5770,11 @@
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/carpet/rubber,
@@ -5187,6 +5786,12 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"PX" = (
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/turf/simulated/floor,
+/area/space)
 "PZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5195,6 +5800,20 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"Qa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/carpet/lightblue,
 /area/space)
 "Qc" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -5228,7 +5847,11 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
@@ -5237,13 +5860,6 @@
 	id = "coalit_stacker_1"
 	},
 /turf/simulated/floor,
-/area/space)
-"Qn" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/airlock/hatch{
-	name = "Fore Hallway"
-	},
-/turf/simulated/floor/tiled/full,
 /area/space)
 "Qt" = (
 /obj/structure/sign/radiation{
@@ -5257,6 +5873,9 @@
 	dir = 5
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "Qv" = (
@@ -5266,6 +5885,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/cable/yellow{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor,
 /area/space)
 "Qx" = (
@@ -5323,9 +5945,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 8
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -5347,6 +5974,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
+/area/space)
+"QU" = (
+/obj/machinery/door/firedoor,
+/obj/machinery/door/airlock/hatch{
+	dir = 2;
+	name = "Starboard Interstitial"
+	},
+/turf/simulated/floor/tiled/full,
 /area/space)
 "QV" = (
 /turf/simulated/floor/tiled/dark,
@@ -5407,7 +6042,11 @@
 "RH" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -5428,6 +6067,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/full,
 /area/space)
 "RT" = (
@@ -5476,14 +6116,40 @@
 "RY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
-	dir = 2;
+	dir = 8;
 	name = "Starboard Interstitial"
 	},
 /turf/simulated/floor/tiled/full,
 /area/space)
+"RZ" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/space)
+"Si" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/space)
 "Sk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/space)
@@ -5561,6 +6227,18 @@
 	},
 /turf/simulated/floor,
 /area/space)
+"SK" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "SO" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -5594,7 +6272,11 @@
 "SW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
@@ -5678,7 +6360,11 @@
 	dir = 6
 	},
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
@@ -5746,6 +6432,9 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
+	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor,
 /area/space)
@@ -5899,6 +6588,9 @@
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 6
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "UW" = (
@@ -5929,13 +6621,15 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
 /area/space)
 "Vr" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Vy" = (
@@ -5951,6 +6645,15 @@
 	name = "Oxygen Supplies Access"
 	},
 /turf/simulated/floor/tiled/dark/full,
+/area/space)
+"VA" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
 /area/space)
 "VI" = (
 /obj/effect/decal/cleanable/dirt,
@@ -6050,6 +6753,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
 	},
+/obj/structure/cable/yellow{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/space)
 "WC" = (
@@ -6093,6 +6802,16 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "WY" = (
@@ -6108,6 +6827,9 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/space)
 "WZ" = (
@@ -6119,7 +6841,11 @@
 /area/space)
 "Xc" = (
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
@@ -6152,7 +6878,11 @@
 "Xl" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/machinery/light{
-	dir = 8
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/space)
@@ -6211,6 +6941,13 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	name = "Spark scrubber vent"
 	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "XD" = (
@@ -6225,7 +6962,11 @@
 	dir = 8
 	},
 /obj/machinery/light{
-	dir = 4
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
 	},
 /turf/simulated/floor,
 /area/space)
@@ -6285,6 +7026,19 @@
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/space)
+"Ym" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/space)
 "Yq" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -6340,7 +7094,11 @@
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
-	dir = 1
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
 /area/space)
@@ -6357,6 +7115,23 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
+/area/space)
+"YT" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/item/ship_ammunition/grauwolf_bundle,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/reinforced,
 /area/space)
 "YU" = (
 /obj/machinery/computer/shuttle_control/explore/coc_survey_shuttle{
@@ -14373,14 +15148,14 @@ lc
 Tf
 mo
 Vh
-Kq
+LR
 uK
 uK
 jN
 Ln
 Ln
 vI
-uK
+bm
 Pd
 QV
 uv
@@ -14525,15 +15300,15 @@ oF
 XR
 Gn
 Tb
+ux
 QV
 QV
 QV
 QV
 QV
+ux
 QV
-QV
-QV
-AM
+SK
 QV
 Dz
 wV
@@ -14986,14 +15761,14 @@ Uf
 Qh
 Zh
 XR
-iR
+Ac
 Ac
 XR
 bN
 VM
 ux
 QV
-QV
+ux
 XR
 pJ
 sz
@@ -15445,8 +16220,8 @@ XR
 bx
 qD
 XR
-QV
-AM
+ux
+SK
 AO
 aW
 oX
@@ -15611,7 +16386,7 @@ XR
 aS
 mX
 XR
-rX
+xs
 so
 qy
 LE
@@ -15742,21 +16517,21 @@ PG
 PG
 PG
 wV
-JI
+ij
 zM
-JI
-JI
-JI
+jZ
+jZ
+MZ
 iC
-JI
-JI
-AY
-JI
-JI
-JI
+jZ
+sT
+aN
+jZ
+jZ
+jZ
 Dp
-JI
-JI
+jZ
+dq
 XR
 Hp
 uC
@@ -15894,7 +16669,7 @@ PG
 PG
 PG
 wV
-JI
+oL
 lB
 LR
 LR
@@ -16212,7 +16987,7 @@ PG
 PG
 wV
 zg
-JI
+Kq
 XR
 wn
 vX
@@ -16364,7 +17139,7 @@ PG
 PG
 TL
 zg
-JI
+VA
 XR
 CW
 Wo
@@ -16374,7 +17149,7 @@ zJ
 fB
 Qu
 KT
-JI
+dq
 wV
 wV
 wV
@@ -16516,20 +17291,20 @@ PG
 PG
 TL
 zg
-JI
+Kq
 XR
 aP
 NL
 Nk
 tR
 XR
-JI
+Si
 Ag
-FK
-JI
-RY
-JI
-JI
+oz
+Nr
+QU
+ij
+dq
 wV
 wV
 PG
@@ -16651,10 +17426,10 @@ PG
 PG
 VP
 Ai
-QV
-UI
-UI
-UI
+Gi
+PX
+DO
+GI
 PZ
 QJ
 le
@@ -16668,20 +17443,20 @@ PG
 PG
 wV
 jC
-JI
+Kq
 XR
 XR
 XR
 XR
 XR
 XR
-pG
+RY
 XR
 XR
 XR
 XR
-JI
-JI
+Fd
+Kq
 XR
 wV
 TL
@@ -16820,7 +17595,7 @@ PG
 wV
 wV
 jC
-JI
+Kq
 XR
 qA
 Ul
@@ -16832,7 +17607,7 @@ Mx
 EU
 DB
 XR
-JI
+RZ
 Va
 XR
 Tj
@@ -16972,7 +17747,7 @@ PG
 wV
 fU
 oJ
-JI
+Pt
 XR
 Sq
 JM
@@ -17124,7 +17899,7 @@ wV
 wV
 wV
 Rn
-JI
+Kq
 XR
 Yx
 JM
@@ -17262,7 +18037,7 @@ Sk
 Yd
 BM
 QV
-Wv
+hL
 wT
 jk
 bU
@@ -17276,7 +18051,7 @@ GU
 za
 Xh
 sn
-JI
+Kq
 XR
 Sq
 JM
@@ -17289,7 +18064,7 @@ uq
 uW
 XR
 Fw
-JI
+Kq
 XR
 jt
 Hy
@@ -17428,7 +18203,7 @@ UI
 Zw
 gX
 KL
-JI
+VA
 XR
 fH
 JM
@@ -17441,7 +18216,7 @@ uq
 sc
 XR
 Ch
-JI
+Kq
 XR
 bF
 Hy
@@ -17562,7 +18337,7 @@ TL
 YU
 QV
 Id
-Tb
+Ym
 Id
 Id
 QV
@@ -17580,7 +18355,7 @@ UI
 Zw
 fG
 zg
-JI
+Kq
 XR
 yA
 XR
@@ -17592,8 +18367,8 @@ Fr
 uq
 sc
 XR
-JI
-JI
+Fd
+Kq
 XR
 DH
 DH
@@ -17718,7 +18493,7 @@ VP
 VP
 VP
 ev
-IS
+mB
 rt
 rt
 ps
@@ -17732,7 +18507,7 @@ wV
 wV
 wV
 zg
-JI
+Kq
 XR
 OL
 dJ
@@ -17744,8 +18519,8 @@ sx
 uq
 sc
 XR
-JI
-JI
+Fd
+Kq
 XR
 UR
 HH
@@ -17876,7 +18651,7 @@ dL
 ug
 VP
 dV
-rR
+IG
 VP
 ky
 PG
@@ -17884,7 +18659,7 @@ PG
 PG
 wV
 OT
-JI
+Oi
 XR
 DR
 JI
@@ -17896,8 +18671,8 @@ Pf
 uq
 sc
 XR
-JI
-JI
+Fd
+Kq
 XR
 dT
 HH
@@ -18036,8 +18811,8 @@ PG
 PG
 wV
 jC
-JI
-wl
+Kq
+cA
 hS
 JI
 JI
@@ -18048,8 +18823,8 @@ JI
 od
 gw
 XR
-JI
-JI
+Fd
+Kq
 XR
 NO
 hI
@@ -18188,7 +18963,7 @@ PG
 PG
 TL
 oq
-pA
+Ax
 RM
 fe
 kS
@@ -18200,8 +18975,8 @@ ok
 yn
 Uy
 XR
-JI
-JI
+RZ
+Kq
 XR
 wV
 TL
@@ -18328,7 +19103,7 @@ IR
 QV
 bV
 Qv
-Qv
+po
 Qv
 ku
 yQ
@@ -18340,7 +19115,7 @@ PG
 PG
 TL
 zg
-JI
+Kq
 XR
 xU
 ID
@@ -18351,8 +19126,8 @@ JI
 JI
 hM
 sc
-Qn
-JI
+nv
+Si
 ly
 wV
 wV
@@ -18492,7 +19267,7 @@ PG
 PG
 wV
 zg
-JI
+VA
 XR
 xU
 Oz
@@ -18644,7 +19419,7 @@ PG
 PG
 wV
 zg
-JI
+Kq
 XR
 Lq
 Uw
@@ -18796,14 +19571,14 @@ TL
 wV
 wV
 jC
-JI
+Kq
 XR
 xU
 HG
 JI
 sc
 XR
-pa
+YT
 aE
 jR
 sd
@@ -18939,7 +19714,7 @@ jj
 jj
 jj
 QL
-QL
+qB
 jj
 hZ
 vd
@@ -18948,14 +19723,14 @@ wH
 wH
 pA
 vR
-JI
+Kq
 XR
 YC
 iD
 LG
 Zy
 XR
-pa
+GL
 xS
 Uk
 AG
@@ -19086,21 +19861,21 @@ PG
 PG
 PG
 wV
-AY
-JI
-JI
-JI
-JI
-JI
-JI
-JI
-AY
-JI
-JI
-JI
-JI
-JI
-JI
+BX
+iR
+iR
+iR
+ke
+Ag
+iR
+zx
+EF
+iR
+iR
+iR
+iR
+iR
+Nr
 XR
 Pg
 aa
@@ -19110,7 +19885,7 @@ XR
 pa
 so
 lK
-zF
+HP
 UM
 PG
 PG
@@ -19259,7 +20034,7 @@ XR
 XR
 me
 XR
-pa
+zF
 eb
 XP
 zF
@@ -19404,7 +20179,7 @@ SZ
 pc
 SU
 YJ
-YJ
+Qa
 gD
 cM
 RJ
@@ -19414,7 +20189,7 @@ XR
 xB
 so
 so
-HP
+zF
 wV
 PG
 PG
