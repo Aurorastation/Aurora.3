@@ -1,0 +1,1017 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/flora/ausbushes/ppflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"am" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/cobweb2,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"dc" = (
+/turf/simulated/floor/exoplanet/grass/stalk,
+/area/space)
+"dS" = (
+/obj/structure/table/wood,
+/obj/item/trash/candle,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"fh" = (
+/obj/structure/bed/stool/chair/sofa/left/red{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/space)
+"fU" = (
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"gT" = (
+/turf/simulated/wall/wood,
+/area/space)
+"hj" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"hO" = (
+/obj/structure/closet/secure_closet/refrigerator/standard,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"hY" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"if" = (
+/obj/structure/bed/stool/chair/sofa/red{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/space)
+"jg" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"ky" = (
+/obj/item/stack/material/steel,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"mD" = (
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"mI" = (
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/mop,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"mK" = (
+/obj/structure/bed,
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"nz" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"nY" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ov" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"pl" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/floor_damage/broken3,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"qu" = (
+/obj/structure/railing,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"rd" = (
+/turf/simulated/floor/carpet/red,
+/area/space)
+"rs" = (
+/obj/item/circuitboard/rig_assembly/illegal/targeting,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"rG" = (
+/obj/structure/window_frame/wood,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"tk" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"tD" = (
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"uC" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/decal/cleanable/floor_damage,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"vb" = (
+/obj/item/storage/box/fancy/candle_box/empty,
+/obj/structure/closet/crate/bin,
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"wh" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/floor/exoplanet/grass/stalk,
+/area/space)
+"xs" = (
+/obj/structure/flora/ausbushes/grassybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"xJ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/stalk,
+/area/space)
+"zv" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/snacks/sliceable/bread,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"AF" = (
+/obj/structure/table/wood,
+/obj/item/flame/lighter/zippo,
+/obj/item/storage/box/fancy/cigarettes/rugged,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"AS" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Bb" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"BG" = (
+/obj/structure/closet/crate/hydroponics/prespawned,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Cb" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Cv" = (
+/obj/structure/flora/ausbushes/genericbush,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Em" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Eo" = (
+/obj/effect/decal/cleanable/floor_damage/wood_broken0,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"EV" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"FB" = (
+/obj/structure/bed/stool/chair/sofa/right/red{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/red,
+/area/space)
+"FM" = (
+/obj/structure/flora/ausbushes/genericbush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Gf" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"GA" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 22
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"GF" = (
+/obj/item/clothing/mask/gas/alt,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Hv" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"Im" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"IE" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"IZ" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/floor_damage/broken1,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"JF" = (
+/obj/structure/table/stone/marble,
+/obj/item/trash/candle,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Kx" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"MZ" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"NZ" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"Od" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"OH" = (
+/obj/structure/closet/cabinet,
+/obj/item/material/hatchet/lumber,
+/obj/item/clothing/head/boaterhat,
+/obj/item/clothing/suit/storage/toggle/brown_jacket,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"OO" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Qr" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/carpet/red,
+/area/space)
+"RU" = (
+/obj/structure/table/wood,
+/obj/item/trash/candle,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"SF" = (
+/obj/effect/decal/cleanable/blood/tracks{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Tn" = (
+/obj/structure/coatrack,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"Tr" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/kitchen/utensil/knife,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ts" = (
+/obj/item/clothing/suit/hazmat,
+/obj/item/clothing/head/hazmat,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Vx" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"VJ" = (
+/obj/structure/table/wood,
+/obj/item/gun/projectile/shotgun/pump/lever_action,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/item/ammo_casing/govt,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"VU" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/wood/walnut,
+/area/space)
+"Wk" = (
+/obj/effect/decal/cleanable/floor_damage/wood_broken1,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"WZ" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Ye" = (
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/obj/effect/decal/cleanable/floor_damage/broken0,
+/turf/simulated/floor/exoplanet/barren,
+/area/space)
+"Yl" = (
+/obj/structure/flora/ausbushes/grassybush,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/space)
+"Yt" = (
+/turf/simulated/floor/tiled/white,
+/area/space)
+
+(1,1,1) = {"
+WZ
+WZ
+xs
+xs
+FM
+xs
+WZ
+Kx
+Kx
+Kx
+tD
+Kx
+WZ
+GF
+Kx
+Kx
+Kx
+Kx
+WZ
+dc
+"}
+(2,1,1) = {"
+WZ
+WZ
+WZ
+WZ
+xs
+FM
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+dc
+"}
+(3,1,1) = {"
+WZ
+Cb
+WZ
+WZ
+WZ
+WZ
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+fU
+Gf
+Cb
+Gf
+WZ
+Gf
+Vx
+xs
+"}
+(4,1,1) = {"
+WZ
+dc
+WZ
+WZ
+WZ
+WZ
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+WZ
+"}
+(5,1,1) = {"
+WZ
+dc
+WZ
+dc
+WZ
+Cb
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+fU
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+ab
+"}
+(6,1,1) = {"
+WZ
+WZ
+WZ
+ab
+WZ
+WZ
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+fU
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+WZ
+"}
+(7,1,1) = {"
+WZ
+xs
+dc
+dc
+WZ
+WZ
+ov
+WZ
+WZ
+WZ
+WZ
+WZ
+fU
+WZ
+WZ
+WZ
+WZ
+WZ
+nz
+WZ
+"}
+(8,1,1) = {"
+xs
+FM
+dc
+dc
+dc
+WZ
+ov
+Gf
+WZ
+Gf
+Ts
+Gf
+fU
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+WZ
+"}
+(9,1,1) = {"
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+fU
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+WZ
+"}
+(10,1,1) = {"
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+WZ
+"}
+(11,1,1) = {"
+WZ
+WZ
+WZ
+Cb
+WZ
+WZ
+ov
+Gf
+WZ
+Gf
+FM
+Gf
+WZ
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+WZ
+"}
+(12,1,1) = {"
+dc
+WZ
+WZ
+WZ
+WZ
+WZ
+ov
+Gf
+WZ
+Gf
+WZ
+Gf
+fU
+Gf
+WZ
+Gf
+WZ
+Gf
+Vx
+WZ
+"}
+(13,1,1) = {"
+dc
+dc
+WZ
+WZ
+xs
+WZ
+WZ
+OO
+OO
+OO
+OO
+OO
+fU
+OO
+OO
+xJ
+Yl
+Cv
+FM
+WZ
+"}
+(14,1,1) = {"
+WZ
+WZ
+gT
+gT
+gT
+gT
+gT
+gT
+gT
+WZ
+WZ
+fU
+WZ
+WZ
+dc
+dc
+dc
+FM
+WZ
+WZ
+"}
+(15,1,1) = {"
+WZ
+WZ
+gT
+vb
+MZ
+AF
+VU
+Im
+gT
+WZ
+WZ
+WZ
+fU
+WZ
+WZ
+dc
+dc
+dc
+WZ
+WZ
+"}
+(16,1,1) = {"
+WZ
+WZ
+gT
+Im
+mD
+mD
+Im
+Im
+hj
+WZ
+WZ
+WZ
+fU
+fU
+ab
+WZ
+dc
+WZ
+WZ
+WZ
+"}
+(17,1,1) = {"
+WZ
+Cb
+gT
+RU
+Im
+Qr
+fh
+mD
+hj
+WZ
+WZ
+WZ
+WZ
+fU
+WZ
+WZ
+WZ
+Cb
+WZ
+fU
+"}
+(18,1,1) = {"
+WZ
+WZ
+gT
+Hv
+mD
+rd
+if
+mD
+hj
+BG
+WZ
+Cb
+fU
+WZ
+WZ
+WZ
+fU
+fU
+fU
+fU
+"}
+(19,1,1) = {"
+xs
+WZ
+gT
+RU
+mD
+Qr
+FB
+Im
+gT
+xs
+WZ
+WZ
+fU
+fU
+fU
+fU
+fU
+fU
+WZ
+WZ
+"}
+(20,1,1) = {"
+xs
+WZ
+gT
+mD
+mD
+Qr
+Qr
+mD
+gT
+xs
+fU
+fU
+fU
+WZ
+fU
+fU
+WZ
+WZ
+WZ
+WZ
+"}
+(21,1,1) = {"
+Cb
+WZ
+gT
+mI
+mD
+mD
+Im
+mD
+Bb
+fU
+fU
+fU
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+xs
+WZ
+"}
+(22,1,1) = {"
+WZ
+WZ
+gT
+rG
+rG
+rG
+mD
+Tn
+gT
+WZ
+WZ
+WZ
+WZ
+Cb
+Eo
+WZ
+WZ
+xs
+xs
+WZ
+"}
+(23,1,1) = {"
+WZ
+WZ
+gT
+AS
+zv
+JF
+mD
+mD
+gT
+gT
+gT
+gT
+dc
+WZ
+WZ
+IZ
+fU
+Wk
+WZ
+Cb
+"}
+(24,1,1) = {"
+WZ
+WZ
+gT
+GA
+Yt
+nY
+mD
+Im
+gT
+VJ
+dS
+gT
+dc
+dc
+WZ
+tk
+Ye
+tk
+fU
+WZ
+"}
+(25,1,1) = {"
+fU
+fU
+Em
+Od
+SF
+SF
+mD
+Im
+gT
+jg
+Im
+gT
+dc
+WZ
+rs
+fU
+pl
+WZ
+WZ
+WZ
+"}
+(26,1,1) = {"
+fU
+WZ
+gT
+hO
+IE
+Tr
+OH
+mD
+Bb
+am
+mK
+gT
+wh
+FM
+WZ
+WZ
+ky
+WZ
+WZ
+dc
+"}
+(27,1,1) = {"
+ab
+WZ
+gT
+gT
+gT
+gT
+gT
+gT
+gT
+gT
+gT
+gT
+xs
+xs
+WZ
+WZ
+WZ
+WZ
+WZ
+dc
+"}
+(28,1,1) = {"
+WZ
+WZ
+WZ
+WZ
+qu
+uC
+NZ
+hY
+WZ
+WZ
+WZ
+WZ
+WZ
+FM
+xs
+WZ
+dc
+WZ
+WZ
+dc
+"}
+(29,1,1) = {"
+WZ
+WZ
+dc
+WZ
+WZ
+ab
+EV
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+WZ
+dc
+dc
+WZ
+WZ
+"}
+(30,1,1) = {"
+WZ
+WZ
+dc
+dc
+dc
+WZ
+WZ
+WZ
+WZ
+Cb
+WZ
+WZ
+WZ
+WZ
+WZ
+xs
+WZ
+WZ
+WZ
+WZ
+"}
