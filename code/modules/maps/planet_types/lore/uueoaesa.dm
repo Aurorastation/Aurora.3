@@ -137,7 +137,7 @@
 	surface_color = "#e8faff"
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_village) //defaults to village bc for some reason nothing spawns if this is empty
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_village) //defaults to village bc for some reason nothing spawns if this is empty
 	place_near_main = list(2,2)
 	actors = list("reptilian humanoid", "three-faced reptilian humanoid", "a statue", "a sword", "an unidentifiable object", "an Unathi skull", "a staff", "a fishing spear", "reptilian humanoids", "unusual devices", "a pyramid")
 	var/landing_region
@@ -152,7 +152,7 @@
 			possible_themes = list(/datum/exoplanet_theme/grass/moghes) //non-nuked theme
 			surface_color = "#164a14"
 			//Untouched Lands ruins
-			//ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_village, /datum/map_template/ruin/exoplanet/moghes_heph_mining, /datum/map_template/ruin/exoplanet/moghes_bar, /datum/map_template/ruin/exoplanet/moghes_hegemony_base, /datum/map_template/ruin/exoplanet/moghes_skakh, /datum/map_template/ruin/exoplanet/moghes_thakh, /datum/map_template/ruin/exoplanet/moghes_kung_fu, /datum/map_template/ruin/exoplanet/moghes_fishing_spot, /datum/map_template/ruin/exoplanet/moghes_memorial, /datum/map_template/ruin/exoplanet/moghes_guild_mining, /datum/map_template/ruin/exoplanet/moghes_threshbeast_herd, /datum/map_template/ruin/exoplanet/moghes_diona_traders, /datum/map_template/ruin/exoplanet/moghes_untouched_tyrant)
+			ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/moghes_village, /datum/map_template/ruin/exoplanet/moghes_heph_mining, /datum/map_template/ruin/exoplanet/moghes_bar, /datum/map_template/ruin/exoplanet/moghes_hegemony_base, /datum/map_template/ruin/exoplanet/moghes_skakh, /datum/map_template/ruin/exoplanet/moghes_thakh, /datum/map_template/ruin/exoplanet/moghes_kung_fu, /datum/map_template/ruin/exoplanet/moghes_fishing_spot, /datum/map_template/ruin/exoplanet/moghes_memorial, /datum/map_template/ruin/exoplanet/moghes_guild_mining, /datum/map_template/ruin/exoplanet/moghes_threshbeast_herd, /datum/map_template/ruin/exoplanet/moghes_diona_traders, /datum/map_template/ruin/exoplanet/moghes_untouched_tyrant)
 
 		if("Wasteland")
 			possible_themes = list(/datum/exoplanet_theme/desert/wasteland) //nuked theme
