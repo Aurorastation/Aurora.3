@@ -43,7 +43,7 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 	initial_restricted_waypoints = list(
-		"Trawler Shuttle" = list("fishing_trawler_shuttle_dock")
+		"Trawler Shuttle" = list("fishing_trawler_shuttle")
 	)
 	initial_generic_waypoints = list(
 		"fishing_trawler_fore",
@@ -70,6 +70,7 @@
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#F06553")
+	designation = "Fisher's Net"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000
@@ -80,10 +81,6 @@
 	weapons = "No Apparent Weapons"
 	sizeclass = "Merchant Transport Shuttlecraft"
 
-/obj/effect/overmap/visitable/ship/landable/fishing_trawler_shuttle/New()
-	designation = "[pick("Fisher's Net")]"
-	..()
-
 /obj/machinery/computer/shuttle_control/explore/terminal/fishing_trawler
 	name = "shuttle control console"
 	shuttle_tag = "Fishing League Shuttle"
@@ -93,10 +90,10 @@
 	name = "Fishing League Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/fishing_trawler)
-	dock_target = "fishing_trawler_shuttle"
-	current_location = "fishing_trawler_shuttle_dock"
+	dock_target = "trawler_shuttle_airlock"
+	current_location = "fishing_trawler_shuttle"
 	landmark_transition = "fishing_trawler_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "fishing_trawler_shuttle_dock"
+	logging_home_tag = "fishing_trawler_shuttle"
 	defer_initialisation = TRUE

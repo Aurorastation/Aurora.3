@@ -4,7 +4,7 @@
 	desc = "Serve as a crewman aboard a Fishing League contracted Hegemony Freighter searching and collecting food for billions of sinta."
 	tags = list("External")
 
-	welcome_message = "You are a semi-skilled crewmember of a Hegemony Freighter bound by the Fishing League and thereby also Hepheastus Industries. You and your fellow crewman perform many duties around the ship and are not relegated to just one job. Your goal is to harvest the bounty of space and collect as much carp an other food as you can to feed the masses of the Hegemony. Fill the freezer with as much meat as the ship can carry."
+	welcome_message = "You are a semi-skilled crewmember of a Hegemony Freighter bound by the Fishing League and thereby also Hepheastus Industries. You and your fellow crewmen perform many duties around the ship and are not relegated to just one job. Your goal is to harvest the bounty of space and collect as much carp and other food as you can to feed the masses of the Hegemony. Fill the freezer with as much meat as the ship can carry."
 	spawnpoints = list("fishing_trawler_crewman")
 	max_count = 4
 
