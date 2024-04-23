@@ -41,13 +41,6 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock";
-	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
 /obj/machinery/airlock_sensor{
 	dir = 1;
 	pixel_y = -20
@@ -55,28 +48,23 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
 "aho" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_y = 21;
+	pixel_x = -4;
+	id_tag = "ranger_shuttle_dock";
+	name = "Ranger Shuttle docking port controller"
 	},
-/obj/effect/landmark/entry_point/east{
-	name = "port, crew compartment"
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/full,
-/area/shuttle/ranger_shuttle)
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/ranger_corvette/foyer)
 "aiD" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock/glass{
@@ -179,12 +167,12 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "aFp" = (
-/obj/machinery/computer/ship/engines{
-	dir = 8
-	},
-/obj/machinery/alarm/east,
-/obj/structure/cable/green{
-	icon_state = "1-2"
+/obj/machinery/computer/ship/sensors,
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	pixel_y = 21;
+	pixel_x = -4;
+	id_tag = "ranger_shuttle_dock";
+	name = "Ranger Shuttle docking port controller"
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -234,18 +222,17 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock";
-	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "aWb" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
@@ -305,32 +292,17 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine2)
 "bgA" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 2;
-	pixel_y = 28;
-	frequency = 1395
-	},
-/obj/machinery/airlock_sensor{
-	dir = 2;
-	pixel_y = 20;
-	frequency = 1395
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
@@ -393,16 +365,15 @@
 	pixel_y = 28;
 	frequency = 1394
 	},
+/obj/machinery/light/small/emergency{
+	dir = 1;
+	pixel_y = 8
+	},
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock";
 	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1;
-	pixel_y = 8
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
@@ -536,20 +507,14 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "bMK" = (
-/obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "bNr" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -1648,18 +1613,17 @@
 /area/ship/ranger_corvette/foyer)
 "grA" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock";
-	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
 /obj/machinery/light/small/emergency{
 	pixel_y = -22
 	},
 /obj/structure/cable{
 	icon_state = "4-8"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
@@ -1722,14 +1686,16 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "gLv" = (
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	pixel_y = 21;
-	pixel_x = -4;
-	id_tag = "ranger_shuttle_dock";
-	name = "Ranger Shuttle docking port controller"
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/ship/ranger_corvette/foyer)
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	pixel_x = 24;
+	pixel_y = 6
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/ranger_shuttle)
 "gMK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2053,13 +2019,6 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock";
-	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
 /obj/machinery/access_button{
 	pixel_x = 12;
 	pixel_y = 28;
@@ -2072,7 +2031,13 @@
 	base_turf = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "ioq" = (
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2131,18 +2096,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine2)
 "iDh" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
-	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/turf/simulated/floor/airless,
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "iFw" = (
 /obj/structure/table/wood,
@@ -2301,10 +2258,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
-"jrt" = (
-/obj/machinery/computer/shuttle_control/explore/ranger_shuttle,
-/turf/simulated/floor/tiled/full,
-/area/shuttle/ranger_shuttle)
 "jrY" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 6
@@ -2342,12 +2295,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/atmospherics)
-"jsz" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel,
-/turf/simulated/floor/tiled,
-/area/shuttle/ranger_shuttle)
 "jwy" = (
 /obj/machinery/light{
 	dir = 8;
@@ -2409,6 +2356,15 @@
 /obj/machinery/power/apc/east,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/voidsuits)
+"jzV" = (
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/shuttle/ranger_shuttle)
 "jBp" = (
 /obj/machinery/appliance/cooker/fryer,
 /obj/effect/floor_decal/corner/brown/diagonal,
@@ -2491,11 +2447,20 @@
 /turf/simulated/floor/carpet/lightblue,
 /area/ship/ranger_corvette/crew)
 "jXb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "jXh" = (
 /obj/effect/landmark/entry_point/port{
@@ -2740,11 +2705,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/bridge)
 "lvN" = (
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
+/obj/machinery/computer/shuttle_control/explore/ranger_shuttle,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "lxT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3169,14 +3131,14 @@
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/engine1)
 "mQF" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 1
+/obj/machinery/computer/ship/engines{
+	dir = 8
 	},
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
+/obj/machinery/alarm/east,
+/obj/structure/cable/green{
+	icon_state = "1-2"
 	},
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "mVV" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -3358,16 +3320,15 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	name = "ranger_shuttle_dock2";
 	master_tag = "ranger_shuttle_dock2";
 	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/structure/cable{
-	icon_state = "4-8"
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -3408,23 +3369,22 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/engine1)
 "nVM" = (
-/obj/machinery/computer/ship/sensors,
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	pixel_y = 21;
-	pixel_x = -4;
-	id_tag = "ranger_shuttle_dock";
-	name = "Ranger Shuttle docking port controller"
+/obj/structure/sign/flag/coalition{
+	pixel_y = 32
 	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/machinery/atmospherics/portables_connector/fuel{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "nZU" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/obj/machinery/light{
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/full,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "oey" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -3761,18 +3721,17 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock";
-	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/plating,
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "ppM" = (
 /obj/structure/sign/directions/medical{
@@ -3910,21 +3869,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "pRf" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/full,
+/obj/machinery/atmospherics/binary/pump/fuel,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "pSI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -4629,17 +4576,16 @@
 /area/ship/ranger_corvette/munitions)
 "sCd" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/obj/effect/map_effect/marker/airlock/docking{
-	name = "ranger_shuttle_dock";
-	master_tag = "ranger_shuttle_dock";
-	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
-	},
 /obj/machinery/airlock_sensor{
 	dir = 2;
 	pixel_y = 20;
 	frequency = 1394
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	name = "ranger_shuttle_dock";
+	master_tag = "ranger_shuttle_dock";
+	landmark_tag = "nav_hangar_ranger";
+	req_one_access = null
 	},
 /turf/simulated/floor/plating,
 /area/ship/ranger_corvette/foyer)
@@ -4799,9 +4745,16 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/ranger_corvette/bridge)
 "tbY" = (
-/obj/machinery/atmospherics/binary/pump/fuel/on,
-/obj/effect/floor_decal/corner_wide/blue/diagonal,
-/turf/simulated/floor/tiled,
+/obj/machinery/light/small/emergency{
+	dir = 8;
+	pixel_x = -11
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "tcC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -5327,7 +5280,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/tiled/dark,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "umS" = (
 /obj/structure/bed,
@@ -5425,8 +5378,7 @@
 	name = "ranger_shuttle_dock";
 	master_tag = "ranger_shuttle_dock";
 	landmark_tag = "nav_hangar_ranger";
-	req_one_access = null;
-	frequency = 1394
+	req_one_access = null
 	},
 /obj/machinery/access_button{
 	pixel_x = -23;
@@ -5435,7 +5387,7 @@
 	frequency = 1394
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/foyer)
 "uty" = (
 /obj/structure/table/steel,
@@ -5555,18 +5507,17 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "ranger_shuttle_dock2";
-	master_tag = "ranger_shuttle_dock2";
-	shuttle_tag = "Ranger Shuttle";
-	req_one_access = null;
-	frequency = 1395
-	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
 	pixel_x = -12;
 	pixel_y = -28;
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
@@ -5653,15 +5604,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/ranger_corvette/munitions)
 "vtU" = (
-/obj/structure/sign/flag/coalition{
-	pixel_y = 32
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/machinery/atmospherics/portables_connector/fuel{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/tiled/full,
+/obj/effect/floor_decal/corner_wide/blue/diagonal,
+/turf/simulated/floor/tiled,
 /area/shuttle/ranger_shuttle)
 "vuD" = (
 /obj/effect/landmark{
@@ -5991,15 +5938,22 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/ranger_corvette/medbay)
 "wrJ" = (
-/obj/machinery/light/small/emergency{
-	dir = 8;
-	pixel_x = -11
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector/aux{
+/obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/landmark/entry_point/east{
+	name = "port, crew compartment"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "wsA" = (
@@ -6312,6 +6266,32 @@
 "xCw" = (
 /obj/effect/floor_decal/corner_wide/blue/diagonal,
 /turf/simulated/floor/tiled,
+/area/shuttle/ranger_shuttle)
+"xFa" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "ranger_shuttle_dock2";
+	master_tag = "ranger_shuttle_dock2";
+	shuttle_tag = "Ranger Shuttle";
+	req_one_access = null
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	frequency = 1395
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 20;
+	frequency = 1395
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/ranger_shuttle)
 "xFA" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
@@ -39170,7 +39150,7 @@ tsn
 wkO
 xzl
 wUT
-gLv
+aho
 ulR
 fwA
 paq
@@ -40455,7 +40435,7 @@ xRX
 xRX
 xRX
 yau
-aho
+wrJ
 uGk
 yau
 xRX
@@ -40712,13 +40692,13 @@ yau
 yau
 yau
 yau
+xFa
 bgA
-bMK
 wlw
 wlw
 wlw
 wlw
-iDh
+gLv
 xRX
 xRX
 xRX
@@ -40966,10 +40946,10 @@ xRX
 xRX
 kYm
 yau
-vtU
-wrJ
+nVM
+tbY
 yau
-pRf
+jXb
 nPq
 yau
 nTL
@@ -41222,11 +41202,11 @@ xRX
 xRX
 xRX
 yau
-jrt
 lvN
+nZU
 tcC
 etR
-jXb
+vtU
 bsL
 oJk
 aHv
@@ -41480,14 +41460,14 @@ xRX
 xRX
 duC
 twl
-mQF
+bMK
 hnE
 yep
-jsz
+iDh
 pVw
 fqt
 aei
-tbY
+pRf
 lGa
 fAg
 xRX
@@ -41736,7 +41716,7 @@ xRX
 xRX
 xRX
 yau
-nVM
+aFp
 xCw
 xCw
 xCw
@@ -41995,11 +41975,11 @@ xRX
 oBx
 yau
 xHi
-nZU
+jzV
 nou
 eBG
 rEq
-aFp
+mQF
 rpr
 qcF
 yau
