@@ -1526,6 +1526,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "aZl" = (
@@ -4570,18 +4573,11 @@
 /turf/simulated/floor/wood,
 /area/journalistoffice)
 "drK" = (
-/obj/machinery/power/smes/buildable{
-	charge = 5000000;
-	input_attempt = 1;
-	input_level = 200000;
-	output_attempt = 1;
-	output_level = 200000
-	},
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
 	},
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)
@@ -6739,7 +6735,8 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
-	name = "Command Bunker Lockdown"
+	name = "Command Bunker Lockdown";
+	id = "command_bunker_lockdown"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -9545,14 +9542,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/security/evidence_storage)
 "gts" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "AICore";
-	name = "AI Core Blast Door"
-	},
+/obj/machinery/porta_turret,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload_foyer)
 "guk" = (
@@ -10102,7 +10093,8 @@
 	dir = 1
 	},
 /obj/item/device/flashlight/lamp{
-	pixel_y = 5
+	pixel_y = 5;
+	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -10518,12 +10510,12 @@
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
 "hbW" = (
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "hcg" = (
@@ -16340,6 +16332,13 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/power/sensor{
+	name = "Powernet Sensor - AI Subgrid";
+	name_tag = "AI Subgrid"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)
 "kMe" = (
@@ -18185,7 +18184,8 @@
 "lVh" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
-	name = "Command Bunker Lockdown"
+	name = "Command Bunker Lockdown";
+	id = "command_bunker_lockdown"
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/aibunker)
@@ -20102,6 +20102,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "nfn" = (
@@ -20553,6 +20556,15 @@
 /obj/effect/floor_decal/corner/yellow/diagonal,
 /obj/structure/cable/green{
 	icon_state = "1-4"
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "shutters_bunker";
+	name = "Command Bunker Blast Door";
+	pixel_x = -25;
+	pixel_y = 1;
+	req_access = list(19);
+	dir = 5;
+	tag = "command_bunker_lockdown"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
@@ -22457,6 +22469,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/door/blast/regular/open{
+	name = "Command Bunker Lockdown";
+	id = "command_bunker_lockdown"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "oAx" = (
@@ -23213,11 +23229,11 @@
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/maintenance/deck_three/aft/starboard)
 "oXx" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
-/obj/machinery/door/blast/regular/open{
-	id = "AICore";
-	name = "AI Core Blast Door"
+/obj/structure/cable{
+	icon_state = "4-8"
 	},
+/obj/machinery/porta_turret,
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload_foyer)
 "oXC" = (
@@ -23474,12 +23490,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/longbow)
 "pjD" = (
-/obj/machinery/power/sensor{
-	name = "Powernet Sensor - AI Subgrid";
-	name_tag = "AI Subgrid"
-	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
+	},
+/obj/machinery/power/smes/buildable{
+	charge = 5000000;
+	input_attempt = 1;
+	input_level = 200000;
+	output_attempt = 1;
+	output_level = 200000
 	},
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)
@@ -25894,9 +25913,6 @@
 /turf/simulated/floor/tiled/dark/cooled,
 /area/template_noop)
 "qXp" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
 	},
@@ -26097,6 +26113,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/investigations_hallway)
+"rgy" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "rgZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -27263,6 +27288,19 @@
 "rRe" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/template_noop)
+"rRq" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 23
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "rRE" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -27300,6 +27338,18 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
+"rTe" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "rTk" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 6
@@ -31150,10 +31200,22 @@
 /turf/simulated/floor/tiled,
 /area/horizon/stairwell/central)
 "urm" = (
-/obj/structure/cable{
-	icon_state = "4-8"
+/obj/machinery/door/airlock/external{
+	dir = 4
 	},
-/turf/simulated/floor,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 6;
+	pixel_y = 35;
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
 /area/turret_protected/ai_upload_foyer)
 "urM" = (
 /obj/effect/floor_decal/corner/dark_blue{
@@ -31290,6 +31352,18 @@
 /obj/effect/floor_decal/corner/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/horizon/security/washroom)
+"uzP" = (
+/obj/machinery/computer/aiupload{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_upload_foyer)
 "uAi" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -31538,12 +31612,10 @@
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
 "uER" = (
-/obj/machinery/power/terminal{
+/obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)
 "uFp" = (
@@ -31595,6 +31667,20 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
+"uGW" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_pump"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "uHb" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -33382,6 +33468,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/mob/living/silicon/robot/shell,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "vLH" = (
@@ -33690,15 +33777,6 @@
 "vWk" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/obj/machinery/door/airlock/highsecurity{
-	dir = 4;
-	name = "AI SMES";
-	req_access = list(16)
-	},
-/obj/machinery/door/blast/regular/open{
-	id = "AICore";
-	name = "AI Core Blast Door"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
@@ -34111,6 +34189,27 @@
 	},
 /turf/simulated/floor/plating,
 /area/crew_quarters/captain)
+"wkK" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -9;
+	pixel_y = 27;
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "wld" = (
 /turf/simulated/wall,
 /area/medical/ward/isolation)
@@ -61874,7 +61973,7 @@ mFW
 alY
 tXP
 ihi
-hIo
+uzP
 neL
 hbW
 pNr
@@ -62480,9 +62579,9 @@ ihi
 ihi
 nxf
 ihi
-sHn
+rgy
 kMd
-urm
+sHn
 cJb
 ydF
 riW
@@ -62885,7 +62984,7 @@ uJh
 uJh
 ihi
 cJb
-cJb
+wkK
 cJb
 cJb
 ydF
@@ -63086,9 +63185,9 @@ hLZ
 hLZ
 uJh
 uJh
-gFb
-gFb
-gFb
+rRq
+rTe
+uGW
 gFb
 ydF
 kwz
@@ -63287,10 +63386,10 @@ pmx
 cPq
 cPq
 hLZ
-hLZ
-hLZ
-hLZ
-hLZ
+gFb
+gFb
+urm
+gFb
 vrL
 ydF
 eUd
@@ -63488,9 +63587,9 @@ dSF
 hBq
 cPq
 cPq
-cPq
-cPq
-cPq
+hLZ
+hLZ
+hLZ
 ohD
 hLZ
 vrL
@@ -63694,7 +63793,7 @@ cPq
 cPq
 cPq
 cPq
-jeT
+hLZ
 vrL
 vrL
 vrL

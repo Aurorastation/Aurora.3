@@ -169,6 +169,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/effect/landmark/start{
+	name = "Cyborg"
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "agI" = (
@@ -2671,20 +2674,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
-"bRr" = (
-/obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/structure/bed/stool/chair/office/light{
-	dir = 1
-	},
-/obj/machinery/firealarm/west,
-/obj/machinery/requests_console/west{
-	department = "Telescience Lab";
-	departmentType = 2;
-	name = "Telescience Requests Console";
-	pixel_y = -28
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/telesci)
 "bRU" = (
 /obj/machinery/light{
 	dir = 1
@@ -3858,16 +3847,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
-"cIY" = (
-/obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/computer/telescience{
-	starting_crystals = 4
-	},
-/obj/machinery/light{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/telesci)
 "cJx" = (
 /turf/simulated/wall/shuttle/unique/scc/research{
 	icon_state = "6,8"
@@ -6837,7 +6816,6 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "eKo" = (
-/obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
@@ -6846,6 +6824,7 @@
 	c_tag = "First Deck - Hangar 1";
 	dir = 8
 	},
+/obj/machinery/cryopod/robot,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "eKr" = (
@@ -7977,15 +7956,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
-"fuU" = (
-/obj/structure/table/rack,
-/obj/item/tank/oxygen,
-/obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/telesci)
 "fvn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -9437,11 +9407,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
 "gsc" = (
-/obj/machinery/door/airlock/glass_research{
-	dir = 1;
-	name = "Telescience";
-	req_access = list(7)
-	},
 /obj/effect/map_effect/door_helper/unres{
 	dir = 1
 	},
@@ -9450,9 +9415,8 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/telesci)
+/area/outpost/research/anomaly_storage)
 "gsd" = (
 /obj/machinery/light{
 	dir = 4
@@ -9637,11 +9601,11 @@
 /turf/simulated/floor/plating,
 /area/engineering/atmos)
 "gye" = (
-/obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
+/obj/machinery/recharge_station,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "gyg" = (
@@ -10123,15 +10087,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/auxiliary)
-"gQg" = (
-/obj/machinery/light/small{
-	dir = 8
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 8
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/rnd/telesci)
 "gQh" = (
 /obj/machinery/light/small{
 	dir = 8;
@@ -11064,8 +11019,9 @@
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
 "hza" = (
-/turf/simulated/wall/r_wall,
-/area/rnd/telesci)
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/outpost/research/anomaly_storage)
 "hzv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11196,39 +11152,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
-"hCV" = (
-/obj/machinery/requests_console/west{
-	department = "Telescience Lab";
-	departmentType = 2;
-	name = "Telescience Requests Console"
-	},
-/obj/structure/table/standard,
-/obj/item/paper_scanner{
-	pixel_x = -7
-	},
-/obj/effect/floor_decal/corner/mauve/full{
-	dir = 8
-	},
-/obj/item/pen/black,
-/obj/item/device/gps/science{
-	pixel_x = 10;
-	pixel_y = 11
-	},
-/obj/item/device/gps/science{
-	pixel_x = 10;
-	pixel_y = 7
-	},
-/obj/item/device/gps/science{
-	pixel_x = 10;
-	pixel_y = 3
-	},
-/obj/item/device/gps/science{
-	pixel_x = 10;
-	pixel_y = -1
-	},
-/obj/item/paper_bin,
-/turf/simulated/floor/tiled/white,
-/area/rnd/telesci)
 "hDd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -12544,7 +12467,7 @@
 /area/maintenance/wing/starboard/deck1)
 "iJi" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/rnd/telesci)
+/area/outpost/research/anomaly_storage)
 "iJt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -15047,11 +14970,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/test_range)
-"ksH" = (
-/obj/machinery/telepad,
-/obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/reinforced,
-/area/rnd/telesci)
 "ksN" = (
 /obj/structure/shuttle_part/scc/research{
 	density = 0;
@@ -15247,6 +15165,9 @@
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
+	},
+/obj/effect/landmark{
+	name = "JoinLateCyborg"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
@@ -16742,13 +16663,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"lEN" = (
-/obj/machinery/power/apc/east,
-/obj/structure/cable/green{
-	icon_state = "0-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/telesci)
 "lEQ" = (
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck1_morgue2";
@@ -17756,14 +17670,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/canary)
-"mjd" = (
-/obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/structure/cable/green{
-	icon_state = "2-4"
-	},
-/obj/machinery/hologram/holopad,
-/turf/simulated/floor/tiled/white,
-/area/rnd/telesci)
 "mjG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -21123,18 +21029,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"oxp" = (
-/obj/machinery/door/airlock/glass_research{
-	dir = 1;
-	name = "Telescience";
-	req_access = list(7)
-	},
-/obj/effect/map_effect/door_helper/unres{
-	dir = 1
-	},
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/telesci)
 "oxw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -22715,19 +22609,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
-"pEb" = (
-/obj/effect/floor_decal/corner_wide/purple/diagonal,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
-	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/telesci)
 "pEi" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -23350,6 +23231,9 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
+	},
+/obj/effect/landmark{
+	name = "JoinLateCyborg"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
@@ -24180,15 +24064,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
-"qzj" = (
-/obj/machinery/light/small{
-	dir = 4
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 4
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/rnd/telesci)
 "qzl" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -24562,6 +24437,9 @@
 	},
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
+	},
+/obj/effect/landmark/start{
+	name = "Cyborg"
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
@@ -31449,12 +31327,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/deck1)
-"vxE" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/rnd/telesci)
 "vys" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/machinery/door/window/northleft{
@@ -32058,10 +31930,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/engineering/atmos/air)
-"vXu" = (
-/obj/effect/floor_decal/spline/plain,
-/turf/simulated/floor/carpet/rubber,
-/area/rnd/telesci)
 "vYV" = (
 /obj/structure/tank_wall/air{
 	density = 0;
@@ -32168,10 +32036,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/atmos)
-"wbX" = (
-/obj/machinery/alarm/east,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/telesci)
 "wce" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/railing/mapped{
@@ -33441,16 +33305,6 @@
 "wVV" = (
 /turf/simulated/wall,
 /area/maintenance/wing/starboard/deck1)
-"wVW" = (
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
-/obj/structure/sign/electricshock{
-	name = "\improper WARNING: HIGH VOLTAGE ELECTROMAGNETIC FIELDS IN USE sign";
-	pixel_x = 32
-	},
-/turf/simulated/floor/carpet/rubber,
-/area/rnd/telesci)
 "wWe" = (
 /obj/machinery/atmospherics/pipe/simple/visible/purple{
 	dir = 4
@@ -33469,9 +33323,8 @@
 /turf/simulated/floor/tiled/white,
 /area/storage/eva)
 "wWV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/rnd/telesci)
+/area/outpost/research/anomaly_storage)
 "wWY" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -35016,13 +34869,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hangar/intrepid)
-"xOC" = (
-/obj/machinery/suit_cycler/science/prepared,
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/telesci)
 "xOV" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -64382,13 +64228,13 @@ eSV
 eSV
 eSV
 iJi
-hza
-hza
-hza
-hza
-hza
-hza
-hza
+oJe
+oJe
+oJe
+oJe
+oJe
+oJe
+oJe
 qWB
 lbr
 xtK
@@ -64584,14 +64430,14 @@ eSV
 eSV
 eSV
 eSV
-iJi
-gQg
-vxE
-wWV
-cIY
-bRr
-fuU
 hza
+wWV
+wWV
+wWV
+wWV
+wWV
+wWV
+oJe
 qWB
 scq
 xtK
@@ -64787,13 +64633,13 @@ eSV
 eSV
 eSV
 eSV
-iJi
-ksH
-vXu
+hza
 wWV
-hCV
-mjd
-pEb
+wWV
+wWV
+wWV
+wWV
+wWV
 gsc
 dbq
 voZ
@@ -64990,14 +64836,14 @@ eSV
 eSV
 eSV
 eSV
-iJi
-qzj
-wVW
-oxp
-wbX
-lEN
-xOC
 hza
+wWV
+wWV
+wWV
+wWV
+wWV
+wWV
+oJe
 aKn
 jlo
 xtK
@@ -65194,13 +65040,13 @@ eSV
 eSV
 eSV
 iJi
-hza
-hza
-hza
-hza
-hza
-hza
-hza
+oJe
+oJe
+oJe
+oJe
+oJe
+oJe
+oJe
 xGs
 fQB
 oVl
