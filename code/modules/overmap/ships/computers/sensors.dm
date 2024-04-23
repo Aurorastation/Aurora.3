@@ -26,6 +26,15 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/sensors/cockpit/right
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	working_sound = 'sound/machines/sensors/ping.ogg'
+	icon_state = "right_wide"
+	icon_screen = "sensors_right"
+	icon_keyboard = null
+	circuit = null
+
 /obj/machinery/computer/ship/sensors/terminal
 	name = "sensors terminal"
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
