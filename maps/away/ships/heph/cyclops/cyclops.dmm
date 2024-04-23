@@ -131,7 +131,7 @@
 	shuttle_tag = "Cyclops Shuttle";
 	cycle_to_external_air = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/bed/handrail{
 	dir = 8
 	},
@@ -2211,6 +2211,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"vO" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/space_ship{
+	color = "#4c4324"
+	},
+/area/shuttle/cyclops_shuttle)
 "we" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
@@ -2468,14 +2476,6 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/cyclops_shuttle)
-"yA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/space_ship{
-	color = "#4c4324"
-	},
 /area/shuttle/cyclops_shuttle)
 "yB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3713,6 +3713,16 @@
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_hangar)
+"Jl" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/north{
+	name = "aft, engines"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/cyclops_shuttle)
 "Jq" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -3963,10 +3973,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hephmining_ship/cyclops)
-"Lw" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/plating,
-/area/hephmining_ship/cyclops/cyclops_hangar)
 "Lx" = (
 /turf/simulated/floor/tiled/dark/full,
 /area/hephmining_ship/cyclops/cyclops_hangar)
@@ -4084,6 +4090,13 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/cyclops_shuttle)
+"MH" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/cyclops_shuttle)
 "MV" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -4714,16 +4727,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hephmining_ship/cyclops/cyclops_barracks)
-"TY" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/obj/effect/landmark/entry_point/north{
-	name = "aft, engines"
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/cyclops_shuttle)
 "Ue" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
@@ -5037,12 +5040,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "Yj" = (
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
+/obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating,
-/area/shuttle/cyclops_shuttle)
+/area/hephmining_ship/cyclops/cyclops_hangar)
 "Yo" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -36171,7 +36171,7 @@ BC
 bc
 zn
 zn
-Lw
+Yj
 vs
 Ry
 Qd
@@ -36428,7 +36428,7 @@ gw
 gw
 gw
 zn
-Lw
+Yj
 Je
 Mx
 Qd
@@ -36942,7 +36942,7 @@ bm
 eg
 Rg
 rr
-Yj
+MH
 Je
 ex
 Qd
@@ -37199,7 +37199,7 @@ oH
 jm
 CB
 fa
-TY
+Jl
 Je
 YZ
 Qd
@@ -37455,8 +37455,8 @@ MD
 sb
 Yh
 qg
-yA
-Yj
+vO
+MH
 Je
 Yc
 Qd
@@ -37970,7 +37970,7 @@ eo
 gw
 mA
 zn
-Lw
+Yj
 fb
 tO
 Qd
