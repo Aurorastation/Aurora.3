@@ -14,14 +14,17 @@
 		"
 	welcome_message = "\
 		You were part of an archeological expedition, hired by some independent scientist, to look for artifacts in a asteroid belt. \
-		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay. \
-		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, or be sacrificed if they refuse it. \
-		You live and die for the Dark One, but your death must not be in vain. \
+		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay, \
+		as your mind is impure, your thoughts are clouded, and you are to prove your worth before leaving the material plane. \
+		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, or be left unbothered if they are unwilling. \
+		Your death must not be in vain, and your actions must not lead to the Cult being discovered. \
 		"
 	welcome_message_ooc = "\
 		This is an antagonist role which places typical antagonist expectations on you. \
 		You are expected to try to generate an interesting encounter with whoever has docked to the away site. \
 		You may try to blend in with the visitors, try to trick them, but you are not 'normal', you follow Nar-Sie. \
+		You are supposed to act covert, and not bring too much attention to Nar-Sie. \
+		You do not have the cult tome, but you may still use runes you find on the floor, or use cult languages. \
 		You may click a plasteel wall to push on it, and open a hidden door. \
 		Remember to follow basic escalation rules, and have fun! \
 		"
