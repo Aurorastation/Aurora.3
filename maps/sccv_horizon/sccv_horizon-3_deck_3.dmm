@@ -2635,24 +2635,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/bridge)
-"bVv" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/access_button{
-	pixel_x = 6;
-	pixel_y = 35;
-	dir = 4
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/turret_protected/ai_upload_foyer)
 "bVX" = (
 /obj/effect/floor_decal/corner/blue{
 	dir = 9
@@ -4987,6 +4969,19 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/bluegrid,
 /area/turret_protected/ai_upload)
+"dRq" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_y = 23
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "dRP" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -5114,20 +5109,6 @@
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
 /area/template_noop)
-"dUZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1;
-	frequency = 1380;
-	id_tag = "centcom_shuttle_dock_pump"
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "dVE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -6452,9 +6433,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	name = "Command Bunker Lockdown";
@@ -6493,6 +6471,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/wood,
 /area/bridge/cciaroom/lounge)
+"eKp" = (
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - External";
+	dir = 4;
+	pixel_x = 32
+	},
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/turret_protected/ai_upload_foyer)
 "eLw" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7121,18 +7107,6 @@
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
-"fiC" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "fiV" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 9
@@ -11708,6 +11682,18 @@
 	},
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hop/xo)
+"idS" = (
+/obj/machinery/computer/aiupload{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/dark_blue{
+	dir = 5
+	},
+/obj/structure/cable{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/turret_protected/ai_upload_foyer)
 "idV" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -15343,19 +15329,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)
-"kzu" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
-	pixel_y = 23
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "kzM" = (
 /turf/simulated/floor/grass,
 /area/horizon/cafeteria)
@@ -19818,12 +19791,12 @@
 	icon_state = "1-4"
 	},
 /obj/machinery/button/remote/blast_door{
-	id = "shutters_bunker";
-	name = "Command Bunker Blast Door";
+	id = "command_bunker_lockdown";
+	name = "Command Bunker Lockdown";
 	pixel_x = -25;
 	pixel_y = 1;
 	req_access = list(19);
-	dir = 5;
+	dir = 9;
 	tag = "command_bunker_lockdown"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -20394,11 +20367,14 @@
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "nNe" = (
-/obj/machinery/power/terminal{
+/obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
-/obj/structure/cable{
-	icon_state = "0-8"
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
 	},
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)
@@ -24179,27 +24155,6 @@
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
-"qwH" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/effect/map_effect/marker/airlock{
-	master_tag = "airlock_horizon_bunker";
-	name = "airlock_horizon_bunker";
-	frequency = 1109;
-	req_one_access = list(19)
-	},
-/obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	pixel_x = -9;
-	pixel_y = 27;
-	dir = 8
-	},
-/turf/simulated/floor,
-/area/turret_protected/ai_upload_foyer)
 "qxh" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
@@ -28789,6 +28744,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
+"tAw" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1380;
+	id_tag = "centcom_shuttle_dock_pump"
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "tAA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -30572,6 +30541,24 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/template_noop)
+"uLQ" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 6;
+	pixel_y = 35;
+	dir = 4
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/turret_protected/ai_upload_foyer)
 "uLZ" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -30975,6 +30962,27 @@
 	},
 /turf/simulated/floor/wood,
 /area/bridge/meeting_room)
+"vbi" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_horizon_bunker";
+	name = "airlock_horizon_bunker";
+	frequency = 1109;
+	req_one_access = list(19)
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -9;
+	pixel_y = 27;
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "vbE" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable/green{
@@ -34467,14 +34475,6 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/white,
 /area/hallway/medical/upper)
-"xsW" = (
-/obj/machinery/camera/network/command{
-	c_tag = "AI Core - External";
-	dir = 4;
-	pixel_x = 32
-	},
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/turret_protected/ai_upload_foyer)
 "xuf" = (
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -34652,18 +34652,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
-"xzr" = (
-/obj/machinery/computer/aiupload{
-	dir = 1
-	},
-/obj/effect/floor_decal/corner/dark_blue{
-	dir = 5
-	},
-/obj/structure/cable{
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/turret_protected/ai_upload_foyer)
 "xAc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -35115,6 +35103,15 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/maintenance/engineering_ladder)
+"xWP" = (
+/obj/machinery/power/terminal{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/turf/simulated/floor,
+/area/turret_protected/ai_upload_foyer)
 "xWX" = (
 /obj/structure/flora/ausbushes/sparsegrass,
 /obj/structure/railing/mapped,
@@ -60333,7 +60330,7 @@ mFW
 alY
 tXP
 ihi
-xzr
+idS
 neL
 hbW
 pNr
@@ -60939,7 +60936,7 @@ ihi
 ihi
 nxf
 ihi
-nNe
+xWP
 kMd
 sHn
 cJb
@@ -61344,7 +61341,7 @@ uJh
 uJh
 ihi
 cJb
-qwH
+vbi
 cJb
 cJb
 ydF
@@ -61545,9 +61542,9 @@ hLZ
 hLZ
 uJh
 uJh
-kzu
-fiC
-dUZ
+dRq
+nNe
+tAw
 gFb
 ydF
 kwz
@@ -61747,8 +61744,8 @@ cPq
 cPq
 hLZ
 gFb
-xsW
-bVv
+eKp
+uLQ
 gFb
 vrL
 ydF
