@@ -1345,35 +1345,6 @@
 	title = "Guide to Battlemonsters"
 	sub_page = "Guide_to_Battlemonsters"
 
-/obj/item/book/manual/pra_manifesto
-	name = "hadiist manifesto"
-	desc = "A compact red book with the ideas and guidance of Hadii for the Tajaran society."
-	icon_state = "hadii-manifesto"
-	item_state = "book4"
-	title = "Hadiist Manifesto"
-	author = "Al'Mari Hadii"
-	w_class = ITEMSIZE_SMALL
-	dat = {"<html>
-				<head>
-					<style>
-					h1 {font-size: 21px; margin: 15px 0px 5px;}
-					h2 {font-size: 15px; margin: 15px 0px 5px;}
-					li {margin: 2px 0px 2px 15px;}
-					ul {margin: 5px; padding: 0px;}
-					ol {margin: 5px; padding: 0px 15px;}
-					body {font-size: 13px; font-family: Verdana;}
-					</style>
-				</head>
-				<body>
-				<h1><center>The Hadiist Manifesto</center></h1>
-				<br>\
-				Ethnic, cultural, and religious differences have been used by the nobility to stop the Tajara people from uniting against the oppression. These barriers have finally been broken during the Revolution. \
-				As history shows them, the establishment of a united Adhomai under a Hadiist state is necessary to secure the future of the Tajara. They must abandon their past sectarianism and work as one. \
-				Hadiism will shape all aspects of their lives for the better. The Tajara will be powerful and free as long they are guided by the Party. Together the Tajara are undefeatable.<br>\
-				</body>
-			</html>
-			"}
-
 /obj/item/book/manual/dpra_manifesto
 	name = "in defense of al'mari's legacy"
 	desc = "A political manifesto containing the foundations of the Al'mariist ideology."

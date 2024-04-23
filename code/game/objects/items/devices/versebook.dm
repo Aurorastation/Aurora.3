@@ -61,7 +61,7 @@
 	randomquip = file2list("ingame_manuals/gadpathur.txt")
 
 /obj/item/device/versebook/biesel
-	name = "\improper Constitution of The Federal Republic of Biesel"
+	name = "\improper Constitution of The Federal Republic of Biesel (abridged)"
 	desc = "A common possession by Biesel government officals, the printed text of the constitution for the Federal Republic of Biesel and the Corporate Reconstruction Zone, adopted in 2452."
 	desc_extended = "This book has the Republic of Biesel's iconic symbol etched on the cover, the text within details the structure of the Federal Democracy the Republic is today."
 	icon_state = "bieselbook"
@@ -70,6 +70,17 @@
 /obj/item/device/versebook/biesel/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/biesel.txt")
+
+/obj/item/device/versebook/pra
+	name = "\improper Hadiist Manifesto"
+	desc = "A compact red book that outlines the principles of Hadiism, required reading for PRA citizens."
+	desc_extended = "TODO: HE/SHE LOVES HADII."
+	icon_state = "prabook"
+	item_state = "pra"
+
+/obj/item/device/versebook/pra/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/hadiism.txt")
 
 /obj/item/device/versebook/trinary
 	name = "\improper The Order (abdridged version)"

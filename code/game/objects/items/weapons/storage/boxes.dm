@@ -999,7 +999,7 @@
 	name = "hadiist manifesto box"
 	desc = "A box full of hadiist manifesto books."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/pra_manifesto = 6)
+	starts_with = list(/obj/item/device/versebook/pra = 6)
 
 /obj/item/storage/box/dpra_manifesto
 	name = "al'mariist manifesto box"
