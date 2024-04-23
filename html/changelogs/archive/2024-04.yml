@@ -445,3 +445,18 @@
   - qol: Ghostspawner desc and welcome_text minor tweaks.
   - qol: Cult base minor tweaks.
   - bugfix: Fixes cult base being guaranteed site.
+2024-04-23:
+  CourierBravo:
+  - rscadd: Reorganizes the helpers folder. Adds 4 maps of premade rooms and buildings
+      as a map design tool. Some objects in rooms will require access tweaks as required.
+  FluffyGhost:
+  - code_imp: Removed a background set.
+  - refactor: Refactored away some world loops.
+  MattAtlas:
+  - qol: Added preset mineral walls for mappers.
+  RustingWithYou:
+  - rscadd: Adds several ruins for the Untouched Lands of Moghes.
+  nauticall:
+  - rscadd: 'Adds three more radio stations to Tau Ceti: 87.5 Mendell City Bugle,
+      90.7 Hi-Fi Sports, and 93.1 Phoenix FM. Basketball game in Hi-Fi is written
+      by Desven.'
