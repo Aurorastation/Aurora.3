@@ -7166,7 +7166,7 @@
 /obj/structure/dispenser,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/camera/network/research{
-	c_tag = "Research - Xenoarchaeology Suits";
+	c_tag = "Research - Xenoarchaeology Suit Storage";
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
@@ -7959,6 +7959,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid/interstitial)
+"fuU" = (
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled/dark,
+/area/outpost/research/anomaly_storage)
 "fvn" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -11025,6 +11029,16 @@
 	},
 /turf/simulated/floor/reinforced/nitrogen,
 /area/engineering/atmos/air)
+"hza" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/tank/oxygen,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/storage/box/gloves,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenoarch_storage)
 "hzv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11155,9 +11169,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/intrepid/crew_compartment)
-"hCV" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/outpost/research/anomaly_storage)
 "hDd" = (
 /obj/machinery/atmospherics/pipe/simple/visible/black{
 	dir = 4
@@ -12472,7 +12483,6 @@
 /turf/simulated/floor/tiled,
 /area/maintenance/wing/starboard/deck1)
 "iJi" = (
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/outpost/research/anomaly_storage)
 "iJt" = (
@@ -16684,10 +16694,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/atmos)
-"lEN" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/dark,
-/area/outpost/research/anomaly_storage)
 "lEQ" = (
 /obj/machinery/button/remote/blast_door{
 	id = "shutters_deck1_morgue2";
@@ -21051,15 +21057,9 @@
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
 "oxp" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/hazmat/anomaly,
-/obj/item/tank/oxygen,
-/obj/item/clothing/head/hazmat/anomaly,
-/obj/item/clothing/mask/gas/alt,
-/obj/item/clothing/glasses/science,
-/obj/item/storage/box/gloves,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenoarch_storage)
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/outpost/research/anomaly_storage)
 "oxw" = (
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
@@ -61211,7 +61211,7 @@ aWZ
 pMO
 jof
 mOf
-oxp
+hza
 tPx
 dgW
 txT
@@ -64245,7 +64245,7 @@ eSV
 eSV
 eSV
 eSV
-hCV
+iJi
 oJe
 oJe
 oJe
@@ -64448,13 +64448,13 @@ eSV
 eSV
 eSV
 eSV
-iJi
-lEN
+oxp
+fuU
 vxE
 cLC
-lEN
-lEN
-lEN
+fuU
+fuU
+fuU
 oJe
 qWB
 scq
@@ -64651,7 +64651,7 @@ eSV
 eSV
 eSV
 eSV
-iJi
+oxp
 ksH
 ksH
 wWV
@@ -64854,13 +64854,13 @@ eSV
 eSV
 eSV
 eSV
-iJi
+oxp
 dRh
 dRh
 cLC
-lEN
-lEN
-lEN
+fuU
+fuU
+fuU
 oJe
 aKn
 jlo
@@ -65057,7 +65057,7 @@ eSV
 eSV
 eSV
 eSV
-hCV
+iJi
 oJe
 oJe
 oJe
