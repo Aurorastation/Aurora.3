@@ -1958,9 +1958,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
-"bpr" = (
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/turret_protected/ai)
 "bpD" = (
 /turf/simulated/wall,
 /area/horizon/crew_quarters/fitness/changing)
@@ -2140,6 +2137,9 @@
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/horizon/hallway/deck_three/primary/port/docks)
+"bwp" = (
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai)
 "bxN" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -3993,7 +3993,10 @@
 "dda" = (
 /obj/machinery/porta_turret/cannon,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark/full,
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
 /area/turret_protected/ai)
 "ddt" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
@@ -4290,6 +4293,14 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/bridge/minibar)
+"dpV" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
+	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
+	name = "airlock_horizon_dock_deck_3_starboard_2"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "dqe" = (
 /obj/machinery/newscaster/east,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -11098,14 +11109,6 @@
 /obj/machinery/telecomms/bus/preset_four,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
-"hEe" = (
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
-	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
-	name = "airlock_horizon_dock_deck_3_starboard_2"
-	},
-/turf/simulated/floor/reinforced/airless,
-/area/template_noop)
 "hED" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -27325,9 +27328,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
-"sul" = (
-/turf/simulated/wall/r_wall,
-/area/turret_protected/ai)
 "sum" = (
 /obj/machinery/door/airlock{
 	dir = 1;
@@ -31455,6 +31455,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/break_room)
+"vna" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/turret_protected/ai)
 "vnb" = (
 /obj/machinery/turretid/lethal{
 	ailock = 1;
@@ -47106,7 +47109,7 @@ wGH
 wGH
 wGH
 wGH
-hEe
+dpV
 wGH
 wGH
 rBT
@@ -60387,14 +60390,14 @@ dSF
 dSF
 hBq
 hLZ
-bpr
-sul
+vna
+bwp
 sYO
 iqK
 mFW
 alY
 tXP
-sul
+bwp
 idS
 neL
 hbW
@@ -60589,14 +60592,14 @@ dSF
 dSF
 hBq
 hLZ
-bpr
-sul
+vna
+bwp
 hSe
 srU
 qRE
 dTW
 xIN
-sul
+bwp
 aYW
 kHK
 qXp
@@ -60791,14 +60794,14 @@ dSF
 dSF
 hBq
 hLZ
-bpr
-sul
+vna
+bwp
 dRo
-sul
+bwp
 jUt
-sul
+bwp
 hxC
-sul
+bwp
 oXx
 vWk
 gts
@@ -60993,14 +60996,14 @@ dSF
 dSF
 hBq
 hLZ
-bpr
-sul
+vna
+bwp
 nxf
-sul
-sul
-sul
+bwp
+bwp
+bwp
 nxf
-sul
+bwp
 xWP
 kMd
 sHn
@@ -61195,14 +61198,14 @@ dSF
 dSF
 hAW
 mxt
-bpr
-sul
-sul
-sul
+vna
+bwp
+bwp
+bwp
 dda
-sul
-sul
-sul
+bwp
+bwp
+bwp
 pjD
 drK
 uER
@@ -61397,14 +61400,14 @@ dSF
 dSF
 dSF
 jRX
-bpr
-bpr
-bpr
-bpr
-bpr
-bpr
-bpr
-sul
+vna
+vna
+vna
+vna
+vna
+vna
+vna
+bwp
 cJb
 vbi
 cJb
