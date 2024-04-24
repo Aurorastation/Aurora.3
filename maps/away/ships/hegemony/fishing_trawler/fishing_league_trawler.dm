@@ -23,12 +23,12 @@
 /obj/effect/overmap/visitable/ship/fishing_trawler
 	name = "Fishing League Trawler"
 	class = "IHGV"
-	desc = "Replace this Description with something more original after checking with the lore team."
+	desc = "The Azkrazal-class freighter is a common civilian design from the Izweski Hegemony's shipbuilding guilds, designed in collaberation with Hephaestus Industries. They are mostly found in the possession of Unathi guilds, as well as the occasional smuggler or pirate fleet."
 	icon_state = "tramp"
 	moving_state = "tramp_moving"
 	colors = list("#F06553")
 	designer = "Hephaestus Industries, Izweski Hegemonic Naval Guilds"
-	volume = "65 meters length, 35 meters beam/width, 18 meters vertical height"
+	volume = "54 meters length, 54 meters beam/width, 18 meters vertical height"
 	drive = "Low-Speed Warp Acceleration FTL Drive"
 	weapons = "Not apparent, fore of ship shows extensive catwalk and lattice network designed for piercing carp"
 	sizeclass = "Azkrazal-class cargo freighter"
@@ -56,7 +56,7 @@
 	)
 
 /obj/effect/overmap/visitable/ship/fishing_trawler/New()
-	designation = "[pick("Hegemon's Bounty", "Fisher's Reach")]"
+	designation = "[pick("Hegemon's Bounty", "Fisher's Reach", "Fisher's Net", "Kasavakh Rising" , "Violet Scale" , "Feast Bringer")]"
 	..()
 
 
@@ -65,12 +65,12 @@
 /obj/effect/overmap/visitable/ship/landable/fishing_trawler_shuttle
 	name = "Fishing League Shuttle"
 	class = "IHGV"
-	desc = "A Seeker-class transportation shuttle, manufactured in the Izweski Hegemony. The design is small and somewhat cramped, but it is cheap to manufacture and maintain."
+	desc = "An Otzek class transportation shuttle, manufactured in the Izweski Hegemony. This simply designed transport shuttle is designed to reliably haul goods and is cheap and easy to maintain."
 	shuttle = "Fishing League Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#F06553")
-	designation = "Fisher's Net"
+	designation = "Shrieker"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000

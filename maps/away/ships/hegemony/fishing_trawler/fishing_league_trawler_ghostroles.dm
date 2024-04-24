@@ -1,10 +1,10 @@
 /datum/ghostspawner/human/fishing_trawler_crewman
 	name = "Fishing League Trawler Multipurpose Crewman"
 	short_name = "fishing_trawler_crewman"
-	desc = "Serve as a crewman aboard a Fishing League contracted Hegemony Freighter searching and collecting food for billions of sinta."
+	desc = "Serve as a crewman aboard a Fishing League contracted Hegemony Freighter; seeking and collecting carp and other food for billions of sinta."
 	tags = list("External")
 
-	welcome_message = "You are a semi-skilled crewmember of a Hegemony Freighter bound by the Fishing League and thereby also Hepheastus Industries. You and your fellow crewmen perform many duties around the ship and are not relegated to just one job. Your goal is to harvest the bounty of space and collect as much carp and other food as you can to feed the masses of the Hegemony. Fill the freezer with as much meat as the ship can carry."
+	welcome_message = "You are a semi-skilled crewmember of a Hegemony Freighter bound by the Fishing League and thereby also Hephaestus Industries. You and your fellow crewmen perform many duties around the ship and are not relegated to just one job. Your goal is to harvest the bounty of space and collect as much carp and other food as you can to feed the masses of the Hegemony. Fill the freezer with as much meat as the ship can carry."
 	spawnpoints = list("fishing_trawler_crewman")
 	max_count = 4
 
@@ -20,7 +20,7 @@
 /datum/ghostspawner/human/fishing_trawler_crewman/captain
 	name = "Fishing League Trawler Captain"
 	short_name = "fishing_trawler_captain"
-	desc = "Serve as Captain of a Fishing League contracted Hegemony Freighter searching and collecting food for billions of sinta."
+	desc = "Serve as Captain of a Fishing League contracted Hegemony Freighter; seeking and collecting carp and other food for billions of sinta."
 	welcome_message = "You are Captain of a Hegemony Freighter bound by the Fishing League and therefore also Hephaestus Industries. You must strive to keep your crew working and ensure your perishable storage is full to the brim before returning home."
 	max_count = 1
 	outfit = /obj/outfit/admin/fishing_trawler_crewman/captain
