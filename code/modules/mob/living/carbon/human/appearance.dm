@@ -48,6 +48,21 @@
 	update_hair()
 	return 1
 
+/mob/living/carbon/human/proc/change_gradient(var/gradient)
+	if(!gradient)
+		return
+
+	if(g_style == gradient)
+		return
+
+	if(!(gradient in GLOB.hair_gradient_styles_list))
+		return
+
+	g_style = gradient
+
+	update_hair()
+	return 1
+
 /mob/living/carbon/human/proc/change_facial_hair(var/facial_hair_style)
 	if(!facial_hair_style)
 		return
@@ -248,6 +263,19 @@
 		valid_hairstyles += hairstyle
 
 	return valid_hairstyles
+
+/mob/living/carbon/human/proc/generate_valid_gradients()
+	var/list/valid_gradient_styles = new()
+	if(species.bald)
+		return valid_gradient_styles
+	for(var/gradient in GLOB.hair_gradient_styles_list)
+		var/datum/sprite_accessory/S = GLOB.hair_gradient_styles_list[gradient]
+
+		if(!(species.type in S.species_allowed))
+			continue
+
+		valid_gradient_styles += gradient
+	return valid_gradient_styles
 
 /mob/living/carbon/human/proc/generate_valid_facial_hairstyles()
 	var/list/valid_facial_hairstyles = new()
