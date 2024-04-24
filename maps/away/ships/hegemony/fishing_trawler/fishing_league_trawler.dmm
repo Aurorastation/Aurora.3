@@ -4925,12 +4925,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
-"LP" = (
-/obj/structure/table/wood{
-	layer = 2.3
-	},
-/turf/template_noop,
-/area/space)
 "Mc" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(241)
@@ -47129,7 +47123,7 @@ mk
 mk
 mk
 mk
-LP
+mk
 mk
 mk
 mk
