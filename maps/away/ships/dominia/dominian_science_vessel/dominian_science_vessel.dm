@@ -6,7 +6,6 @@
 	suffixes = list("dominian_science_vessel.dmm")
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS)
-	sectors_blacklist = list(SECTOR_HANEUNIM)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "dominian_science_vessel"
