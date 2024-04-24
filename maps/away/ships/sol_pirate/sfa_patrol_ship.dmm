@@ -116,7 +116,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters"
+	id = "sfa_shuttle_shutters"
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/sfa_shuttle)
@@ -381,7 +381,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "aIR" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "aJd" = (
@@ -445,7 +445,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, workshop"
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "aVv" = (
@@ -618,6 +618,12 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = 19;
+	name = "Bridge Blast Door";
+	id = "sfa bridge blast"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
@@ -910,7 +916,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "sfa_shuttle_shutters";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -1311,7 +1317,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
 "ebV" = (
@@ -1459,7 +1465,7 @@
 /area/space)
 "euO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Brig)
 "ews" = (
@@ -1610,7 +1616,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "eVI" = (
@@ -1761,7 +1767,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/custodialammo)
 "foE" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white/airless,
 /area/ship/sfa_patrol_ship/head)
 "fpk" = (
@@ -2012,12 +2018,12 @@
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/destroyedrec)
 "gfP" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "gjk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "gka" = (
@@ -2051,7 +2057,7 @@
 	name = "fore, cockpit"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "sfa_shuttle_shutters";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2275,7 +2281,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "gJf" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/head)
 "gLL" = (
@@ -3072,7 +3078,7 @@
 /area/ship/sfa_patrol_ship/destroyedammo)
 "jrB" = (
 /obj/structure/lattice,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/docking)
 "jsy" = (
@@ -3452,7 +3458,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/head)
 "kAt" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white/airless,
 /area/ship/sfa_patrol_ship/destroyedmedbay)
 "kCw" = (
@@ -3899,7 +3905,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/plating,
 /area/shuttle/sfa_shuttle)
 "mfq" = (
@@ -4487,7 +4493,7 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "nQA" = (
 /obj/structure/lattice,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/sfa_patrol_ship/destroyedrec)
 "nQD" = (
@@ -5076,7 +5082,7 @@
 "qcx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip/oil,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "qcH" = (
@@ -5136,7 +5142,7 @@
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "qfX" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /obj/item/tape/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -5400,7 +5406,7 @@
 /area/ship/sfa_patrol_ship)
 "rbn" = (
 /obj/structure/lattice,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/head)
 "rcS" = (
@@ -5905,7 +5911,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/destroyedammo)
 "sPe" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "sQX" = (
@@ -6066,7 +6072,7 @@
 /obj/structure/table/steel,
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
-	id = "elyran_shuttle_shutters";
+	id = "sfa_shuttle_shutters";
 	name = "Shuttle Safety Shutters"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6199,7 +6205,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine2)
 "ucv" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship/docking)
 "ufa" = (
@@ -6521,7 +6527,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sfa_patrol_ship/destroyedammo)
 "vEW" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/destroyedmedbay)
 "vGd" = (
@@ -6591,7 +6597,7 @@
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "wfl" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
 "wfy" = (
@@ -6831,7 +6837,8 @@
 	child_names_txt = "SFA Shuttle Airlock";
 	child_tags_txt = "sfa_shuttle";
 	dir = 8;
-	name = "SFA Shuttle docking port controller"
+	name = "SFA Shuttle docking port controller";
+	frequency = 1380
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)

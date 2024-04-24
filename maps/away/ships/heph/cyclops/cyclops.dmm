@@ -49,13 +49,6 @@
 /obj/machinery/light/small/emergency{
 	dir = 1
 	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	id_tag = "airlock_cyclops_hangar";
-	pixel_y = -28;
-	dir = 1;
-	name = "Cyclops Shuttle docking port controller";
-	frequency = 1380
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cyclops_shuttle)
 "au" = (
@@ -265,6 +258,9 @@
 /obj/effect/map_effect/marker/large_tank{
 	name = "cyclops_tank_star";
 	master_tag = "cyclops_tank_star"
+	},
+/obj/machinery/air_sensor{
+	pixel_y = 18
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hephmining_ship/cyclops/cyclops_starboard_thrust)
@@ -3420,9 +3416,8 @@
 	},
 /area/hephmining_ship/cyclops/cyclops_captain)
 "FZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
-	dir = 8;
-	frequency = 1441
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
+	dir = 8
 	},
 /obj/effect/map_effect/marker/large_tank{
 	name = "cyclops_tank_port";
@@ -4389,7 +4384,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
+/obj/machinery/atmospherics/unary/vent_pump/siphon/atmos{
 	dir = 4
 	},
 /obj/effect/map_effect/marker/large_tank{
@@ -4993,6 +4988,9 @@
 /obj/effect/map_effect/marker/large_tank{
 	name = "cyclops_tank_port";
 	master_tag = "cyclops_tank_port"
+	},
+/obj/machinery/air_sensor{
+	pixel_y = 18
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/hephmining_ship/cyclops/cyclops_port_thrust)

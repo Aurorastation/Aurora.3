@@ -4363,9 +4363,7 @@
 /area/ship/elyran_corvette/starboardthrust)
 "yi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/smes/buildable/horizon_shuttle{
-	charge = 2e+006
-	},
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"

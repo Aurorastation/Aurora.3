@@ -6607,7 +6607,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/hangar)
 "Lv" = (
-/obj/machinery/power/smes/buildable/horizon_shuttle,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/machinery/light{
 	dir = 4
 	},
