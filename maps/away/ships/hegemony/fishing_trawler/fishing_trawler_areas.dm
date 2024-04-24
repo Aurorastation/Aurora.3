@@ -10,8 +10,12 @@
 	name = "Fishing Trawler - Bridge"
 	icon_state = "bridge"
 
-/area/ship/fishing_trawler/EVA
-	name = "Fishing Trawler - EVA"
+/area/ship/fishing_trawler/EVA_port
+	name = "Fishing Trawler - EVA Port"
+	icon_state = "eva"
+
+/area/ship/fishing_trawler/EVA_starboard
+	name = "Fishing Trawler - EVA Starboard"
 	icon_state = "eva"
 
 /area/ship/fishing_trawler/Captain
