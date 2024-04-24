@@ -7,6 +7,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "am" = (
@@ -28,6 +31,11 @@
 "an" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
@@ -225,6 +233,10 @@
 "bG" = (
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
+"cb" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/crew_quarters)
 "cl" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -234,10 +246,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
 "co" = (
-/obj/item/trap/punji/deployed,
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/ship/fishing/trawler/fishing_catwalk)
+/obj/structure/lattice,
+/turf/template_noop,
+/area/space)
 "cp" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/green/diagonal,
@@ -248,18 +259,8 @@
 	pixel_x = 8;
 	pixel_y = 8
 	},
-/obj/item/storage/firstaid/toxin{
-	pixel_x = -1
-	},
-/obj/item/storage/firstaid/o2{
-	pixel_x = -2
-	},
-/obj/item/storage/firstaid/adv,
-/obj/item/storage/firstaid/fire{
-	pixel_x = 1
-	},
-/obj/item/storage/firstaid/regular{
-	pixel_y = -1
+/obj/item/auto_cpr{
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/medical)
@@ -322,6 +323,14 @@
 "cH" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/fishing_trawler/corridor/port)
+"cJ" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/shutters/open,
+/obj/machinery/door/blast/shutters/open{
+	id = "trawler_shuttle_shutters"
+	},
+/turf/simulated/floor,
+/area/shuttle/fishing_trawler)
 "cT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
@@ -329,6 +338,12 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/corridor/starboard)
 "cW" = (
@@ -346,6 +361,8 @@
 /obj/item/storage/firstaid/surgery,
 /obj/effect/floor_decal/corner/green/diagonal,
 /obj/machinery/firealarm/south,
+/obj/item/clothing/mask/breath,
+/obj/item/tank/oxygen/red,
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/medical)
 "de" = (
@@ -408,9 +425,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "dN" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/industrial/hatch/grey,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
@@ -462,6 +477,9 @@
 /obj/effect/landmark/entry_point/aft{
 	name = "fore"
 	},
+/obj/machinery/door/blast/shutters/open{
+	id = "trawler_shuttle_shutters"
+	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "ez" = (
@@ -501,6 +519,16 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "eH" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_y = -21;
+	dir = 1
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA)
 "eJ" = (
@@ -523,8 +551,8 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "eM" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
+/obj/structure/lattice/catwalk/indoor,
+/turf/simulated/floor/airless,
 /area/ship/fishing/trawler/fishing_catwalk)
 "eX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -591,12 +619,32 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
+"fD" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/EVA)
 "fW" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
 /obj/machinery/light{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 24;
+	dir = 8
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
@@ -631,6 +679,7 @@
 /obj/machinery/power/apc/super/critical/north{
 	req_access = list(241)
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "gq" = (
@@ -640,7 +689,14 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 24
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/starboard)
 "gu" = (
@@ -671,6 +727,11 @@
 /area/ship/fishing_trawler/freezer)
 "gJ" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "trawler_lockdown";
+	name = "blast door"
+	},
 /turf/simulated/floor/plating,
 /area/ship/fishing_trawler/bridge)
 "gK" = (
@@ -687,6 +748,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "gX" = (
@@ -849,6 +911,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	pixel_y = 21
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/port)
 "iy" = (
@@ -882,6 +952,7 @@
 	icon_state = "2-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "iP" = (
@@ -890,6 +961,11 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/port)
@@ -997,6 +1073,16 @@
 	dir = 4
 	},
 /obj/structure/extinguisher_cabinet/south,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
+	},
+/obj/machinery/access_button{
+	pixel_y = -21;
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/port)
 "kf" = (
@@ -1122,7 +1208,7 @@
 /area/ship/fishing_trawler/Captain)
 "kK" = (
 /obj/structure/railing/mapped,
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/engineering/port)
 "kM" = (
 /obj/structure/bed/stool/chair/sofa/left/brown,
@@ -1192,6 +1278,27 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/walllocker/medical/secure{
+	req_access = list(241);
+	pixel_x = -33;
+	name = "Medical Kits"
+	},
+/obj/item/storage/firstaid/sleekstab,
+/obj/item/storage/firstaid/fire{
+	pixel_x = 1
+	},
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/o2{
+	pixel_x = -2
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -1
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = -1
+	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
 "lp" = (
@@ -1308,6 +1415,18 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA)
+"lX" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_y = 24
+	},
+/turf/template_noop,
+/area/space)
 "lY" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -1386,7 +1505,9 @@
 /area/ship/fishing_trawler/corridor/central)
 "mw" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/machinery/firealarm/north,
+/obj/structure/sink/kitchen{
+	pixel_y = 29
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "my" = (
@@ -1399,6 +1520,12 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/port)
 "mI" = (
@@ -1487,6 +1614,12 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/EVA)
 "ny" = (
@@ -1496,9 +1629,15 @@
 	pixel_x = 6;
 	pixel_y = 10
 	},
-/obj/item/material/knife{
+/obj/item/storage/box/produce{
 	layer = 2.99;
-	pixel_x = -9
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/storage/box/produce{
+	layer = 2.99;
+	pixel_x = 3;
+	pixel_y = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
@@ -1527,6 +1666,17 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
+"nB" = (
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/table/steel,
+/obj/machinery/button/remote/blast_door{
+	id = "trawler_shuttle_shutters";
+	name = "Window Shutters";
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/fishing_trawler)
 "nL" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -1534,7 +1684,14 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 24
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/starboard)
 "nM" = (
@@ -1542,7 +1699,7 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/engineering/port)
 "nN" = (
 /obj/structure/cable/green{
@@ -1552,11 +1709,6 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	pixel_x = 31;
-	pixel_y = 4;
-	dir = 1
-	},
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
@@ -1774,6 +1926,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 5
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/machinery/button/ignition{
+	pixel_y = -21;
+	id = "trawler_igniter";
+	name = "Igniter Switch"
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "pp" = (
@@ -1840,6 +1998,9 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
 "qb" = (
@@ -1859,6 +2020,20 @@
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
+"qj" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
+	},
+/obj/machinery/airlock_sensor{
+	pixel_y = 24
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/port)
 "ql" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1938,6 +2113,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "qF" = (
@@ -1946,6 +2122,17 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_shuttle";
+	master_tag = "fishing_trawler_shuttle";
+	name = "trawler_shuttle_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 25;
+	pixel_y = 1;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
@@ -1987,6 +2174,12 @@
 /area/ship/fishing_trawler/bridge)
 "ri" = (
 /obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/EVA)
 "ro" = (
@@ -1994,6 +2187,17 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/beige{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 1;
+	pixel_y = -23;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/steel,
@@ -2055,6 +2259,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
 "rP" = (
@@ -2089,6 +2296,11 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 4;
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "si" = (
@@ -2122,6 +2334,19 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/freezer)
+"sz" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "sA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 9
@@ -2208,6 +2433,12 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/structure/closet/crate{
+	name = "Graphite"
+	},
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
+/obj/item/stack/material/graphite/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
 "tr" = (
@@ -2244,11 +2475,6 @@
 	name = "trawler_aux_dock";
 	master_tag = "fishing_trawler_aux_dock"
 	},
-/obj/machinery/access_button{
-	pixel_x = -23;
-	pixel_y = -29;
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/central)
 "tB" = (
@@ -2278,7 +2504,7 @@
 "tM" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin{
-	pixel_x = -6
+	pixel_y = 3
 	},
 /obj/item/pen,
 /obj/effect/floor_decal/corner/black{
@@ -2345,6 +2571,7 @@
 	master_tag = "trawler_shuttle_airlock";
 	name = "trawler_shuttle_airlock"
 	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "ua" = (
@@ -2359,8 +2586,15 @@
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/fishing_trawler/starboard_dock{
-	dir = 4
+	dir = 4;
+	landmark_tag = sssssssss
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/starboard)
 "ui" = (
@@ -2436,6 +2670,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "uB" = (
@@ -2472,6 +2707,11 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
+	},
+/obj/machinery/door/blast/regular/open{
+	dir = 4;
+	id = "trawler_lockdown";
+	name = "blast door"
 	},
 /turf/simulated/floor/plating,
 /area/ship/fishing_trawler/bridge)
@@ -2535,7 +2775,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 8
 	},
-/obj/machinery/firealarm/north,
+/obj/machinery/vending/coffee,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
 "vt" = (
@@ -2620,6 +2860,16 @@
 /area/ship/fishing_trawler/engineering/port)
 "wc" = (
 /obj/machinery/firealarm/south,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_y = -21
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA)
 "wj" = (
@@ -2627,7 +2877,10 @@
 /obj/effect/floor_decal/corner/black{
 	dir = 10
 	},
-/obj/machinery/recharger,
+/obj/machinery/recharger{
+	pixel_y = 3;
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "wo" = (
@@ -2713,7 +2966,7 @@
 /obj/structure/sign/electricshock{
 	pixel_y = 32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/engineering/port)
 "wM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2759,12 +3012,20 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_x = 24;
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
 "xm" = (
 /obj/item/trap/punji/deployed,
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
+/turf/simulated/floor/airless,
 /area/ship/fishing/trawler/fishing_catwalk)
 "xn" = (
 /obj/structure/fuel_port/phoron,
@@ -2819,6 +3080,9 @@
 /area/ship/fishing_trawler/kitchen)
 "ye" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "trawler_shuttle_shutters"
+	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "ym" = (
@@ -2829,7 +3093,7 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/engineering/port)
 "yq" = (
 /obj/machinery/power/apc/north{
@@ -2860,6 +3124,17 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
+	},
+/obj/machinery/access_button{
+	pixel_y = -30;
+	dir = 4;
+	pixel_x = 9
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/port)
 "yE" = (
@@ -2950,6 +3225,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "zt" = (
@@ -2992,6 +3268,10 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/starboard)
+"zM" = (
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/EVA)
 "zO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -2999,7 +3279,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
-/obj/effect/map_effect/marker/airlock,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/starboard)
 "zU" = (
@@ -3012,6 +3296,11 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Aa" = (
@@ -3136,9 +3425,15 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "AQ" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/device/radio/off,
+/obj/item/device/radio/off{
+	pixel_x = -6;
+	pixel_y = 6
+	},
 /obj/effect/floor_decal/corner/black/full,
 /obj/item/device/binoculars/high_power,
+/obj/item/device/binoculars{
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "AR" = (
@@ -3157,7 +3452,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/engineering/port)
 "Be" = (
 /obj/structure/cable/green{
@@ -3204,6 +3499,10 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
+"Br" = (
+/obj/effect/landmark/entry_point/aft,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/freezer)
 "Bt" = (
 /obj/machinery/suit_cycler{
 	req_access = null
@@ -3216,6 +3515,11 @@
 "Bw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
@@ -3255,6 +3559,11 @@
 "BO" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/port)
@@ -3386,6 +3695,10 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/starboard)
+"Cw" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/kitchen)
 "Cz" = (
 /obj/machinery/alarm/west{
 	req_one_access = list(241)
@@ -3638,11 +3951,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "Ea" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
@@ -3846,6 +4165,17 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "FQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_aux_dock";
+	name = "trawler_aux_dock";
+	master_tag = "fishing_trawler_aux_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -23;
+	pixel_y = 1;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
 "FR" = (
@@ -3891,6 +4221,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/table/steel,
+/obj/item/storage/bag/inflatable{
+	pixel_y = 4
+	},
+/obj/item/storage/bag/inflatable{
+	pixel_y = 4
+	},
+/obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "Gj" = (
@@ -3965,6 +4302,12 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
+/obj/machinery/button/remote/blast_door{
+	id = "trawler_lockdown";
+	name = "Bridge Lockdown";
+	pixel_y = -25;
+	pixel_x = 6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "GO" = (
@@ -4010,12 +4353,35 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	shuttle_tag = "Fishing League Shuttle";
+	master_tag = "trawler_shuttle_airlock";
+	name = "trawler_shuttle_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 1;
+	pixel_y = -32;
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Ha" = (
 /obj/structure/bed/stool/padded/red,
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/crew_quarters)
+"Hb" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1005;
+	master_tag = "port_starboard_airlock";
+	name = "port_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/EVA)
 "Hd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -4072,6 +4438,14 @@
 /obj/machinery/recharger,
 /turf/simulated/floor/carpet/brown,
 /area/ship/fishing_trawler/galley)
+"HW" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/structure/extinguisher_cabinet/south,
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/Starboard)
 "Ib" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
 /turf/simulated/wall/shuttle/space_ship/mercenary,
@@ -4108,6 +4482,16 @@
 /obj/item/towel/random,
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/crew_quarters)
+"IC" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/fishing_trawler/EVA)
 "IO" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	dir = 8;
@@ -4191,6 +4575,9 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
+/obj/machinery/button/distress{
+	pixel_y = 30
+	},
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/bridge)
 "JH" = (
@@ -4264,7 +4651,7 @@
 /obj/structure/sign/electricshock{
 	pixel_y = 32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/engineering/port)
 "Ke" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
@@ -4299,6 +4686,15 @@
 	},
 /obj/machinery/light{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -24;
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
@@ -4348,6 +4744,17 @@
 "KI" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -6;
+	pixel_y = 27;
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/starboard)
@@ -4561,6 +4968,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	pixel_x = -24;
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
 "MB" = (
@@ -4613,6 +5029,13 @@
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/bridge)
+"Ne" = (
+/obj/machinery/sparker{
+	pixel_x = -12;
+	id = "trawler_igniter"
+	},
+/turf/simulated/floor/reinforced/carbon_dioxide,
+/area/ship/fishing_trawler/engineering/Starboard)
 "Nf" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4668,7 +5091,9 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
 "Nx" = (
-/obj/structure/sign/greencross,
+/obj/structure/sign/greencross{
+	pixel_y = 3
+	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/fishing_trawler/medical)
 "NF" = (
@@ -4863,10 +5288,6 @@
 "Pu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/structure/table/steel,
-/obj/item/storage/toolbox/mechanical,
-/obj/item/storage/bag/inflatable{
-	pixel_y = 4
-	},
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
@@ -4902,12 +5323,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
-/obj/effect/map_effect/marker_helper/airlock/out,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
 	name = "trawler_shuttle_airlock"
 	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
 /area/shuttle/fishing_trawler)
 "PY" = (
@@ -4961,6 +5382,17 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA)
+"QG" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/corridor/starboard)
 "QI" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4992,6 +5424,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/machinery/firealarm/north,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
 "QQ" = (
@@ -5067,6 +5500,18 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
+"Rl" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1004;
+	master_tag = "fore_starboard_airlock";
+	name = "fore_starboard_airlock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_y = 21
+	},
+/turf/template_noop,
+/area/space)
 "Rn" = (
 /obj/machinery/light{
 	dir = 8
@@ -5099,6 +5544,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/steel,
@@ -5149,6 +5597,10 @@
 "Sc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/closet/crate{
+	name = "Graphite"
+	},
+/obj/item/stack/material/graphite/full,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "Si" = (
@@ -5225,11 +5677,6 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/machinery/access_button{
-	pixel_x = 25;
-	pixel_y = -32;
-	dir = 8
-	},
 /obj/effect/map_effect/marker/airlock/docking{
 	landmark_tag = "fishing_trawler_shuttle";
 	master_tag = "fishing_trawler_shuttle";
@@ -5279,6 +5726,9 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/greencross{
+	pixel_x = -30
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA)
 "SX" = (
@@ -5293,6 +5743,12 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/port)
 "Th" = (
@@ -5334,6 +5790,10 @@
 /obj/item/reagent_containers/food/snacks/fish/carpmeat,
 /obj/item/reagent_containers/food/snacks/fish/carpmeat,
 /obj/item/reagent_containers/food/snacks/fish/carpmeat,
+/obj/item/material/knife{
+	layer = 2.99;
+	pixel_x = -9
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "Tz" = (
@@ -5418,6 +5878,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "Un" = (
@@ -5430,6 +5893,11 @@
 	},
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/crew_quarters)
+"Uv" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/firealarm/east,
+/turf/simulated/floor/tiled/white,
+/area/ship/fishing_trawler/kitchen)
 "Uw" = (
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -5637,6 +6105,12 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_starboard_dock";
+	master_tag = "fishing_trawler_starboard_dock";
+	name = "trawler_starboard_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/corridor/starboard)
 "Ws" = (
@@ -5673,10 +6147,27 @@
 	dir = 4
 	},
 /obj/effect/shuttle_landmark/fishing_trawler/port_dock{
-	dir = 8
+	dir = 8;
+	landmark_tag = ssss
 	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "fishing_trawler_port_dock";
+	master_tag = "fishing_trawler_port_dock";
+	name = "trawler_port_dock"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/port)
+"WC" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green,
+/obj/machinery/power/portgen/basic,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/fishing_trawler)
 "WF" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -6048,14 +6539,11 @@
 /area/ship/fishing_trawler/engineering/Starboard)
 "ZT" = (
 /obj/structure/closet/crate{
-	name = TritiumStores
+	name = Tritium Stores
 	},
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
 /obj/item/stack/material/tritium/full,
-/obj/item/stack/material/graphite/full,
-/obj/item/stack/material/graphite/full,
-/obj/item/stack/material/graphite/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
 "ZU" = (
@@ -31124,7 +31612,7 @@ mk
 mk
 mk
 mk
-eM
+pT
 eM
 eM
 eM
@@ -31396,7 +31884,7 @@ xm
 xm
 xm
 eM
-eM
+pT
 mk
 mk
 mk
@@ -31645,10 +32133,10 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -31902,10 +32390,10 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -32159,10 +32647,10 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -32413,13 +32901,13 @@ qO
 mk
 mk
 mk
+pT
 eM
-eM
-qO
-qO
-qO
-qO
-qO
+co
+co
+co
+co
+co
 mk
 mk
 mk
@@ -32634,11 +33122,11 @@ lf
 Lo
 lN
 AB
-tr
+Ne
 ZC
 ZQ
 gt
-gt
+QG
 Cr
 mk
 mk
@@ -32673,10 +33161,10 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -32930,10 +33418,10 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -33187,10 +33675,10 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -33429,12 +33917,12 @@ mk
 mk
 mk
 mk
+pT
 eM
-eM
-qO
-qO
-qO
-qO
+co
+co
+co
+co
 eM
 eM
 eM
@@ -33706,7 +34194,7 @@ xm
 xm
 xm
 eM
-eM
+pT
 mk
 mk
 mk
@@ -33955,10 +34443,10 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -34186,7 +34674,7 @@ rA
 rA
 rA
 rA
-rA
+Cw
 mk
 mk
 mk
@@ -34212,10 +34700,10 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -34469,10 +34957,10 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -34691,7 +35179,7 @@ md
 qD
 lP
 Jm
-Jm
+HW
 ZQ
 Pq
 lD
@@ -34722,14 +35210,14 @@ mk
 mk
 mk
 mk
-eM
-eM
-qO
-qO
-qO
-qO
-qO
-qO
+pT
+Si
+co
+co
+co
+co
+co
+co
 mk
 mk
 mk
@@ -34961,15 +35449,15 @@ PC
 Wm
 rA
 rA
-qO
-qO
-qO
-qO
-eM
-eM
-eM
-eM
-eM
+co
+co
+co
+co
+pT
+Si
+Si
+Si
+Si
 eM
 eM
 eM
@@ -34983,10 +35471,10 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -35222,11 +35710,11 @@ rA
 mk
 mk
 Si
-pT
 Si
 Si
 Si
-pT
+Si
+Si
 eM
 eM
 eM
@@ -35240,10 +35728,10 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -35497,10 +35985,10 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
-qO
+co
 mk
 mk
 mk
@@ -35726,10 +36214,10 @@ aV
 rA
 No
 PC
-ai
+sz
 PC
 PC
-PC
+Uv
 AR
 SX
 rA
@@ -35743,11 +36231,11 @@ mk
 mk
 eM
 eM
-qO
-qO
-qO
-qO
-eM
+co
+co
+co
+co
+pT
 eM
 eM
 eM
@@ -36013,10 +36501,10 @@ xm
 xm
 xm
 xm
-co
+xm
 xm
 eM
-eM
+pT
 mk
 mk
 mk
@@ -36218,9 +36706,9 @@ mk
 mk
 mk
 mk
-ye
+cJ
 gf
-Af
+nB
 oH
 OT
 xn
@@ -36249,7 +36737,7 @@ BU
 WF
 MA
 Kj
-ri
+IC
 eM
 eM
 eM
@@ -36505,8 +36993,8 @@ qy
 iM
 BV
 Ea
-an
-ri
+fD
+IC
 eM
 eM
 eM
@@ -36764,7 +37252,7 @@ lp
 nw
 nw
 Vm
-mk
+Rl
 mk
 mk
 mk
@@ -37020,7 +37508,7 @@ NZ
 Be
 GE
 wc
-Vm
+zM
 mk
 mk
 mk
@@ -37507,7 +37995,7 @@ Nk
 Pj
 vv
 zY
-Aa
+WC
 Nk
 Nk
 Nk
@@ -37793,10 +38281,10 @@ GE
 Op
 Vm
 zU
-qO
-qO
-qO
-qO
+co
+co
+co
+co
 eM
 xm
 mk
@@ -38543,7 +39031,7 @@ mk
 mk
 qO
 mk
-Bh
+Br
 Kw
 Nf
 TG
@@ -39339,7 +39827,7 @@ mk
 mk
 mk
 mk
-eM
+pT
 xm
 mk
 mk
@@ -40599,7 +41087,7 @@ mk
 mk
 qO
 mk
-Bh
+Br
 OB
 gI
 wT
@@ -40877,10 +41365,10 @@ GE
 aC
 Vm
 bk
-qO
-qO
-qO
-qO
+co
+co
+co
+co
 eM
 xm
 mk
@@ -41389,7 +41877,7 @@ lV
 DH
 GE
 hb
-Vm
+lp
 mk
 mk
 mk
@@ -41646,7 +42134,7 @@ jX
 SB
 GE
 eH
-lp
+zM
 mk
 mk
 mk
@@ -41901,10 +42389,10 @@ Vm
 yq
 bq
 Vm
-nw
-nw
+Hb
+Hb
 Vm
-mk
+lX
 mk
 mk
 mk
@@ -42689,7 +43177,7 @@ eM
 eM
 xm
 xm
-co
+xm
 xm
 xm
 xm
@@ -42698,7 +43186,7 @@ xm
 xm
 xm
 eM
-eM
+pT
 mk
 mk
 mk
@@ -42943,7 +43431,7 @@ qO
 qO
 qO
 qO
-eM
+pT
 eM
 eM
 eM
@@ -43207,7 +43695,7 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
 qO
@@ -43446,11 +43934,11 @@ PQ
 mk
 mk
 Si
-pT
 Si
 Si
 Si
-pT
+Si
+Si
 eM
 eM
 eM
@@ -43464,7 +43952,7 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
 qO
@@ -43699,15 +44187,15 @@ PQ
 Su
 PQ
 PQ
-qO
-qO
-qO
-qO
-eM
-eM
-eM
-eM
-eM
+co
+co
+co
+co
+pT
+Si
+Si
+Si
+Si
 eM
 eM
 eM
@@ -43721,7 +44209,7 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
 qO
@@ -43974,13 +44462,13 @@ mk
 mk
 mk
 mk
+pT
 eM
-eM
-qO
-qO
-qO
-qO
-qO
+co
+co
+co
+co
+co
 qO
 mk
 mk
@@ -44235,7 +44723,7 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
 qO
@@ -44466,7 +44954,7 @@ PQ
 PQ
 PQ
 PQ
-PQ
+cb
 mk
 mk
 mk
@@ -44492,7 +44980,7 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
 qO
@@ -44749,7 +45237,7 @@ eM
 eM
 mk
 mk
-qO
+co
 mk
 mk
 qO
@@ -44996,11 +45484,11 @@ mk
 mk
 eM
 eM
+mk
+mk
+mk
 eM
 eM
-eM
-eM
-eM
 xm
 xm
 xm
@@ -45014,7 +45502,7 @@ xm
 xm
 xm
 eM
-eM
+pT
 mk
 mk
 mk
@@ -45251,7 +45739,7 @@ mk
 mk
 mk
 mk
-eM
+pT
 eM
 qO
 qO
@@ -45523,7 +46011,7 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
 qO
@@ -45780,7 +46268,7 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
 qO
@@ -46001,7 +46489,7 @@ Bf
 wM
 qs
 fY
-BO
+qj
 BO
 cH
 mk
@@ -46037,7 +46525,7 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
 qO
@@ -46291,12 +46779,12 @@ qO
 mk
 mk
 mk
+pT
 eM
-eM
-qO
-qO
-qO
-qO
+co
+co
+co
+co
 qO
 mk
 mk
@@ -46551,7 +47039,7 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
 qO
@@ -46808,7 +47296,7 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
 qO
@@ -47065,7 +47553,7 @@ mk
 eM
 eM
 mk
-qO
+co
 mk
 mk
 qO
@@ -47330,7 +47818,7 @@ xm
 xm
 xm
 eM
-eM
+pT
 mk
 mk
 mk
@@ -47572,7 +48060,7 @@ mk
 mk
 mk
 mk
-eM
+pT
 eM
 eM
 eM
