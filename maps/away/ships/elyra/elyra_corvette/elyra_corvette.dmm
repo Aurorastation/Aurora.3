@@ -233,10 +233,6 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
-"aM" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor/plating,
-/area/ship/elyran_corvette/hangar)
 "aN" = (
 /obj/structure/railing/mapped{
 	icon_state = "railing0-0";
@@ -1710,11 +1706,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/machinery/access_button{
-	pixel_x = -22;
-	dir = 4;
-	pixel_y = 30
-	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1723,6 +1714,19 @@
 	name = "airlock_elyran_shuttle";
 	req_one_access = list(207);
 	shuttle_tag = "Elyran Naval Shuttle"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 26;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 37;
+	dir = 1;
+	pixel_y = 7
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
@@ -2992,9 +2996,6 @@
 /turf/simulated/floor/lino,
 /area/ship/elyran_corvette/messhall)
 "qy" = (
-/obj/effect/shuttle_landmark/elyran_shuttle/hangar{
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
@@ -3540,31 +3541,17 @@
 /turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "tM" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 8;
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_elyran_shuttle";
-	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
-	shuttle_tag = "Elyran Naval Shuttle"
+/obj/effect/shuttle_landmark/elyran_shuttle/hangar{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/elyran_shuttle)
+/area/ship/elyran_corvette/hangar)
 "tS" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -4647,13 +4634,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardhallway)
 "zP" = (
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor/plating,
-/area/ship/elyran_corvette/hangar)
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/elyran_shuttle)
 "zR" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -5013,9 +4998,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/engineering)
 "BR" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/elyran_shuttle)
@@ -7123,7 +7107,7 @@
 /area/ship/elyran_corvette/captain)
 "NG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
+	dir = 1;
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -42117,7 +42101,7 @@ dV
 tK
 cI
 XW
-aM
+ES
 mW
 oW
 Vr
@@ -42372,9 +42356,9 @@ NO
 PJ
 Zx
 QX
-ES
-Vr
-Vr
+Gw
+lu
+BR
 Vr
 TZ
 CS
@@ -42629,7 +42613,7 @@ xk
 Lp
 av
 jV
-mz
+Gw
 NG
 ag
 lP
@@ -43143,8 +43127,8 @@ qq
 Lp
 gV
 Gw
-lu
-BR
+Gw
+NG
 ap
 pd
 nt
@@ -43400,9 +43384,9 @@ wT
 TE
 No
 Gw
-YZ
-Vr
-Vr
+Gw
+mz
+zP
 Vr
 TZ
 Jh
@@ -43659,7 +43643,7 @@ ze
 Gw
 cI
 kf
-zP
+YZ
 gh
 zg
 Vr

@@ -980,9 +980,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/effect/shuttle_landmark/sfa_shuttle/hangar{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1490,11 +1487,10 @@
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "eyV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/wall,
 /area/shuttle/sfa_shuttle)
 "eBj" = (
 /obj/structure/closet/crate/medical,
@@ -3270,9 +3266,9 @@
 	dir = 1
 	},
 /obj/machinery/access_button{
-	pixel_x = -22;
-	dir = 4;
-	pixel_y = 30
+	pixel_x = 37;
+	dir = 1;
+	pixel_y = 7
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -3282,6 +3278,14 @@
 	name = "airlock_sfa_shuttle";
 	req_one_access = list(203);
 	shuttle_tag = "SFA Shuttle"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 26;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/sfa_shuttle)
@@ -4532,6 +4536,12 @@
 "nTk" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/destroyedmedbay)
+"nYj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/sfa_shuttle)
 "oaR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -5172,7 +5182,7 @@
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "qjY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
+	dir = 1;
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -7105,31 +7115,17 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "xPX" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 8;
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_sfa_shuttle";
-	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
-	shuttle_tag = "SFA Shuttle"
+/obj/effect/shuttle_landmark/sfa_shuttle/hangar{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "xRe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -44062,7 +44058,7 @@ mLa
 mET
 rDU
 eoS
-rDU
+iZb
 nSb
 gCs
 gxJ
@@ -44317,9 +44313,9 @@ uAK
 pFv
 mLa
 wha
-iZb
-ikP
-ikP
+rDU
+gtO
+nYj
 ikP
 mfb
 qil
@@ -44574,8 +44570,8 @@ sey
 aEm
 mLa
 wha
-aSJ
-eyV
+rDU
+qjY
 lQk
 hjW
 sfX
@@ -45088,7 +45084,7 @@ hyd
 uqX
 mLa
 rOk
-gtO
+rDU
 qjY
 rLR
 lGR
@@ -45345,9 +45341,9 @@ eXO
 iOh
 cUD
 hRm
-pIa
-ikP
-gxJ
+rDU
+aSJ
+eyV
 ikP
 sxp
 kMb
@@ -45604,7 +45600,7 @@ viZ
 puC
 rDU
 anS
-anS
+pIa
 fJS
 llg
 ikP
