@@ -33,8 +33,39 @@
 /area/sensor_relay
 	icon = 'maps/away/away_site/sensor_relay/sensor_relay_sprites.dmi'
 	name = "Sensor Relay"
-	icon_state = "sensor_relay_area"
+	icon_state = "sensor_base"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = TRUE
 	base_turf = /turf/space
-	no_light_control = TRUE
+
+/area/sensor_relay/maintenance
+	name = "Sensor Relay - Maintenance"
+	icon_state = "sensor_orange"
+
+/area/sensor_relay/quarters
+	name = "Sensor Relay - Quarters"
+	icon_state = "sensor_magenta"
+
+/area/sensor_relay/janitor
+	name = "Sensor Relay - Cleaning"
+	icon_state = "sensor_cyan"
+
+/area/sensor_relay/workshop
+	name = "Sensor Relay - Workshop & EVA"
+	icon_state = "sensor_purple"
+
+/area/sensor_relay/monitoring
+	name = "Sensor Relay - Monitoring"
+	icon_state = "sensor_red"
+
+/area/sensor_relay/dining
+	name = "Sensor Relay - Dining"
+	icon_state = "sensor_cyan"
+
+/area/sensor_relay/hydroponics
+	name = "Sensor Relay - Hydroponics"
+	icon_state = "sensor_green"
+
+/area/sensor_relay/airlocks
+	name = "Sensor Relay - Airlocks"
+	icon_state = "sensor_red"
