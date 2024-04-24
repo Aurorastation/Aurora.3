@@ -2,7 +2,7 @@
 	name = "FSF Corvette"
 	description = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
 
-	prefix = "ships/sol_merc/"
+	prefix = "ships/sol/sol_merc/"
 	suffixes = list("fsf_patrol_ship.dmm")
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
@@ -16,14 +16,6 @@
 /singleton/submap_archetype/fsf_patrol_ship
 	map = "FSF Corvette"
 	descriptor = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
-
-//areas
-/area/ship/fsf_patrol_ship
-	name = "FSF Corvette"
-
-/area/shuttle/fsf_shuttle
-	name = "FSF Shuttle"
-	icon_state = "shuttle2"
 
 //ship stuff
 
@@ -51,8 +43,11 @@
 	)
 
 	initial_generic_waypoints = list(
-		"nav_fsf_patrol_ship_1",
-		"nav_fsf_patrol_ship_2"
+		"nav_fsf_patrol_ship_fore",
+		"nav_fsf_patrol_ship_aft",
+		"nav_fsf_patrol_ship_port",
+		"nav_fsf_patrol_ship_starboard",
+		"nav_fsf_dock"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -67,22 +62,35 @@
 	skybox_image.pixel_y = rand(128,256)
 	return skybox_image
 
-/obj/effect/shuttle_landmark/fsf_patrol_ship/nav1
-	name = "FSF Corvette - Port Side"
-	landmark_tag = "nav_fsf_patrol_ship_1"
+/obj/effect/shuttle_landmark/fsf_fore
+	name = "Fore"
+	landmark_tag = "nav_fsf_patrol_ship_fore"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/fsf_patrol_ship/nav2
-	name = "FSF Corvette - Port Side"
-	landmark_tag = "nav_fsf_patrol_ship_2"
+/obj/effect/shuttle_landmark/fsf_aft
+	name = "Aft"
+	landmark_tag = "nav_fsf_patrol_ship_aft"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/fsf_patrol_ship/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_fsf_patrol_ship"
-	base_turf = /turf/space/transit/north
+/obj/effect/shuttle_landmark/fsf_port
+	name = "Port"
+	landmark_tag = "nav_fsf_patrol_ship_port"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/fsf_starboard
+	name = "Starboard"
+	landmark_tag = "nav_fsf_patrol_ship_starboard"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/fsf_dock
+	name = "Docking Port"
+	landmark_tag = "nav_fsf_dock"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/fsf_shuttle
@@ -91,8 +99,8 @@
 	designation = "Condottiere"
 	desc = "An inefficient design of ultra-light shuttle known as the Wisp-class. Its only redeeming features are the extreme cheapness of the design and the ease of finding replacement parts. Manufactured by Hephaestus."
 	shuttle = "FSF Shuttle"
-	icon_state = "pod"
-	moving_state = "pod_moving"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
 	colors = list("#9dc04c", "#52c24c")
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
@@ -107,22 +115,22 @@
 
 /datum/shuttle/autodock/overmap/fsf_shuttle
 	name = "FSF Shuttle"
-	move_time = 90
+	move_time = 20
 	shuttle_area = list(/area/shuttle/fsf_shuttle)
 	current_location = "nav_hangar_fsf"
 	landmark_transition = "nav_transit_fsf_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_fsf"
+	dock_target = "airlock_fsf_shuttle"
 	defer_initialisation = TRUE
 
 /obj/effect/shuttle_landmark/fsf_shuttle/hangar
 	name = "FSF Shuttle Hangar"
 	landmark_tag = "nav_hangar_fsf"
-	docking_controller = "fsf_shuttle_dock"
-	base_area = /area/ship/fsf_patrol_ship
+	docking_controller = "fsf_hangar"
+	base_area = /area/ship/fsf_patrol_ship/hangar
 	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/fsf_shuttle/transit
 	name = "In transit"
