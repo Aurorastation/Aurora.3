@@ -236,12 +236,6 @@
 "bG" = (
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
-"ce" = (
-/obj/structure/table/wood{
-	layer = 2.3
-	},
-/turf/simulated/floor/tiled/steel,
-/area/ship/fishing_trawler/EVA_port)
 "cl" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -383,10 +377,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/starboard)
-"di" = (
-/obj/structure/sign/vacuum,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/EVA_starboard)
 "dn" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/fishing_trawler/Captain)
@@ -1059,11 +1049,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
-"jU" = (
-/obj/machinery/light,
-/obj/machinery/portable_atmospherics/canister/oxygen,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/fishing_trawler/EVA_port)
 "jX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -1103,6 +1088,10 @@
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
+"kc" = (
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/EVA_starboard)
 "kd" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -1809,7 +1798,7 @@
 /area/ship/fishing_trawler/galley)
 "oi" = (
 /turf/simulated/floor/tiled/steel,
-/area/ship/fishing_trawler/EVA_port)
+/area/ship/fishing_trawler/EVA_starboard)
 "om" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -2217,6 +2206,11 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/EVA_starboard)
+"rn" = (
+/obj/machinery/light,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/fishing_trawler/EVA_port)
 "ro" = (
 /obj/effect/floor_decal/corner/beige{
 	dir = 10
@@ -2268,6 +2262,9 @@
 "rA" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/fishing_trawler/kitchen)
+"rB" = (
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/EVA_starboard)
 "rC" = (
 /obj/effect/floor_decal/corner/brown/diagonal,
 /obj/machinery/alarm/north{
@@ -2276,9 +2273,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/galley)
-"rG" = (
-/turf/simulated/floor/carpet/rubber,
-/area/ship/fishing_trawler/EVA_starboard)
 "rJ" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -2470,7 +2464,6 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/fishing_trawler/engineering/Starboard)
 "ts" = (
-/obj/structure/table/wood,
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
 	},
@@ -3094,6 +3087,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
+"xN" = (
+/obj/structure/table/wood{
+	layer = 2.3
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA_port)
 "xV" = (
 /obj/machinery/firealarm/north,
 /obj/effect/decal/cleanable/dirt,
@@ -3188,9 +3187,6 @@
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/starboard)
-"yG" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/EVA_port)
 "yJ" = (
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/machinery/computer/ship/engines/terminal,
@@ -3511,6 +3507,10 @@
 "Bh" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/fishing_trawler/freezer)
+"Bj" = (
+/obj/structure/sign/vacuum,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/ship/fishing_trawler/EVA_starboard)
 "Bq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -4046,15 +4046,20 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
-"Eq" = (
-/turf/simulated/floor/tiled/steel,
-/area/ship/fishing_trawler/EVA_starboard)
 "Ew" = (
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
+"ED" = (
+/obj/structure/table/rack/no_cargo,
+/obj/item/trap,
+/obj/item/trap,
+/obj/item/material/harpoon,
+/obj/item/material/harpoon,
+/turf/simulated/floor/carpet/rubber,
+/area/ship/fishing_trawler/EVA_port)
 "EK" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4916,6 +4921,12 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
+"LP" = (
+/obj/structure/table/wood{
+	layer = 2.3
+	},
+/turf/template_noop,
+/area/space)
 "Mc" = (
 /obj/machinery/alarm/north{
 	req_one_access = list(241)
@@ -5238,6 +5249,9 @@
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
 /turf/simulated/floor/carpet/rubber,
+/area/ship/fishing_trawler/EVA_starboard)
+"Os" = (
+/turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA_port)
 "Ou" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -5617,6 +5631,15 @@
 /obj/structure/extinguisher_cabinet/south,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
+"RH" = (
+/obj/machinery/suit_cycler{
+	req_access = null
+	},
+/obj/effect/floor_decal/corner/red{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/EVA_port)
 "RN" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8
@@ -5943,12 +5966,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
-"Uj" = (
-/obj/structure/table/wood{
-	layer = 2.3
-	},
-/turf/template_noop,
-/area/space)
 "Un" = (
 /obj/machinery/computer/ship/helm/terminal,
 /turf/simulated/floor/tiled/dark,
@@ -6045,7 +6062,7 @@
 /area/ship/fishing_trawler/Captain)
 "Vm" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/EVA_starboard)
+/area/ship/fishing_trawler/EVA_port)
 "Vs" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -6120,14 +6137,6 @@
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/Captain)
-"VM" = (
-/obj/structure/table/rack/no_cargo,
-/obj/item/trap,
-/obj/item/trap,
-/obj/item/material/harpoon,
-/obj/item/material/harpoon,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/fishing_trawler/EVA_starboard)
 "VR" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/door/airlock/external,
@@ -6152,10 +6161,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
-"We" = (
-/obj/effect/landmark/entry_point/fore,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/EVA_starboard)
 "Wf" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -6181,6 +6186,9 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
+"Wq" = (
+/turf/simulated/floor/carpet/rubber,
+/area/ship/fishing_trawler/EVA_starboard)
 "Wr" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
@@ -6290,15 +6298,6 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/tiled/dark/full,
-/area/ship/fishing_trawler/EVA_port)
-"Xo" = (
-/obj/machinery/suit_cycler{
-	req_access = null
-	},
-/obj/effect/floor_decal/corner/red{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA_port)
 "Xs" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -36848,7 +36847,7 @@ Xt
 pY
 Xt
 DE
-Vm
+rB
 ZB
 BU
 WF
@@ -37105,7 +37104,7 @@ zz
 rO
 zz
 Mt
-Vm
+rB
 qy
 iM
 BV
@@ -37362,13 +37361,13 @@ pf
 Ry
 cB
 jp
-Vm
+rB
 kf
 zt
-di
+Bj
 ll
 ll
-Vm
+rB
 jk
 mk
 mk
@@ -37623,9 +37622,9 @@ DQ
 GT
 NZ
 Be
-rG
+Wq
 wc
-We
+kc
 mk
 mk
 mk
@@ -37876,13 +37875,13 @@ Bz
 ua
 Bz
 Bz
-Vm
+rB
 UH
 kU
 PA
-rG
+Wq
 hb
-Vm
+rB
 mk
 mk
 mk
@@ -38133,13 +38132,13 @@ CM
 CM
 HM
 fi
-Vm
+rB
 Bt
-Eq
+oi
 Sb
-rG
-VM
-Vm
+Wq
+Op
+rB
 HI
 mk
 mk
@@ -38390,13 +38389,13 @@ Th
 CM
 Fr
 jo
-Vm
+rB
 DO
-Eq
+oi
 Az
-rG
-VM
-Vm
+Wq
+Op
+rB
 zU
 co
 co
@@ -38647,13 +38646,13 @@ kM
 CM
 vf
 ft
-Vm
+rB
 sJ
 eD
 lM
 uu
 eF
-Vm
+rB
 cu
 mk
 mk
@@ -41217,13 +41216,13 @@ Gz
 dn
 qB
 VF
-yG
+Vm
 uo
 Qy
 Py
 vt
 JI
-yG
+Vm
 rJ
 mk
 mk
@@ -41474,13 +41473,13 @@ la
 dn
 YB
 Zb
-yG
+Vm
 bd
-ce
+xN
 Dq
 GE
 aC
-yG
+Vm
 bk
 co
 co
@@ -41731,13 +41730,13 @@ dn
 dn
 dn
 dn
-yG
-Xo
+Vm
+RH
 cA
 TR
 GE
-Op
-yG
+ED
+Vm
 tI
 mk
 mk
@@ -41993,7 +41992,7 @@ ZM
 lV
 DH
 GE
-jU
+rn
 lp
 mk
 mk
@@ -42240,11 +42239,11 @@ pN
 jY
 Fm
 Ll
-oi
+Os
 Go
 xi
 Vu
-oi
+Os
 Ll
 Sl
 jX
@@ -42502,13 +42501,13 @@ Nx
 XJ
 Ad
 JV
-yG
+Vm
 yq
 bq
-yG
+Vm
 nw
 nw
-yG
+Vm
 Qs
 mk
 mk
@@ -42759,7 +42758,7 @@ nX
 js
 MB
 bB
-yG
+Vm
 RT
 mI
 px
@@ -43016,7 +43015,7 @@ Gj
 Yw
 Vs
 dc
-yG
+Vm
 RN
 TI
 Tt
@@ -47125,7 +47124,7 @@ mk
 mk
 mk
 mk
-Uj
+LP
 mk
 mk
 mk
