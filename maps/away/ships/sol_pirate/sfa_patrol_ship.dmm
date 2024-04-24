@@ -6841,14 +6841,12 @@
 /area/ship/sfa_patrol_ship/destroyedrec)
 "wTY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
 	id_tag = "sfa_shuttle_dock";
-	child_names_txt = "SFA Shuttle Airlock";
-	child_tags_txt = "sfa_shuttle";
 	dir = 8;
 	name = "SFA Shuttle docking port controller";
-	frequency = 1380
+	frequency = 1380;
+	pixel_x = 26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
