@@ -148,6 +148,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
+"abV" = (
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology/xenoflora)
 "acw" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5483,6 +5487,7 @@
 	name = "Xenobiology Requests Console"
 	},
 /obj/effect/floor_decal/corner/mauve/full,
+/obj/item/glass_jar,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
 "crP" = (
@@ -5590,6 +5595,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "cvb" = (
@@ -6759,6 +6765,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/horizon/security/hallway)
+"dbn" = (
+/obj/structure/window/shuttle/scc_space_ship/cardinal,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/rnd/xenobiology/xenoflora)
 "dcF" = (
 /obj/machinery/light{
 	dir = 4
@@ -12965,6 +12976,18 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"fYq" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/disposalpipe/segment{
+	dir = 8;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "fYC" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -15745,6 +15768,15 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/security/checkpoint2)
+"hfY" = (
+/obj/structure/disposaloutlet{
+	dir = 1;
+	spread = 90;
+	spread_point = 2;
+	pixel_y = -18
+	},
+/turf/template_noop,
+/area/template_noop)
 "hgK" = (
 /obj/machinery/door/airlock{
 	dir = 4;
@@ -20956,6 +20988,12 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/disposal/small/south,
+/obj/structure/disposalpipe/trunk,
+/obj/structure/sign/vacuum{
+	icon_state = "deathsposal";
+	pixel_y = 35
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "jCt" = (
@@ -23028,6 +23066,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "kDC" = (
@@ -24034,6 +24073,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
+	},
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
@@ -28314,6 +28356,18 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
+"mZd" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/hydroponics,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "nac" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -31060,6 +31114,16 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/telesci)
+"oqb" = (
+/obj/effect/floor_decal/corner/lime{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/disposalpipe/segment,
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology/xenoflora)
 "oqm" = (
 /obj/structure/bookcase,
 /obj/item/book/manual/mass_spectrometry,
@@ -38827,6 +38891,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
+/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "rZh" = (
@@ -41531,6 +41596,7 @@
 	dir = 10
 	},
 /obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/glass/bucket,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "tvX" = (
@@ -50675,6 +50741,13 @@
 /obj/structure/grille,
 /turf/simulated/floor/plating,
 /area/horizon/zta)
+"xzT" = (
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "xzV" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
@@ -83465,7 +83538,7 @@ ksk
 uIa
 rFn
 jCe
-wUn
+xzT
 wUn
 wUn
 thL
@@ -83658,16 +83731,16 @@ qgN
 qgN
 qgN
 qgN
-qgN
-xHv
-lEv
-lEv
-lEv
+hfY
+dbn
+mZd
+mZd
+mZd
 rYW
-wzN
+abV
 cuW
-xRv
-uxp
+oqb
+fYq
 uxp
 uxp
 uxp
