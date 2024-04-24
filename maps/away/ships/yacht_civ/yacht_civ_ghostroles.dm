@@ -33,4 +33,7 @@
 
 /obj/item/card/id/yacht_civ
 	name = "\improper Civilian yacht identification card"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS)
+
+
+/obj/outfit/admin/yacht_civ/get_id_access()
+	return list(ACCESS_EXTERNAL_AIRLOCKS)
