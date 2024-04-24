@@ -42,7 +42,8 @@
 /obj/structure/railing{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/grass/grove,
+/obj/item/reagent_containers/food/drinks/bottle/hooch,
+/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "if" = (
 /obj/structure/bed/stool/chair/sofa/red{
@@ -55,10 +56,6 @@
 	dir = 8
 	},
 /turf/simulated/floor/wood/walnut,
-/area/space)
-"ky" = (
-/obj/item/stack/material/steel,
-/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "mD" = (
 /turf/simulated/floor/wood/walnut,
@@ -86,16 +83,12 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
+/obj/item/gun/energy/disruptorpistol/magnum/security,
 /turf/simulated/floor/tiled/white,
 /area/space)
 "ov" = (
 /obj/structure/railing/fence,
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
-"pl" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/obj/effect/decal/cleanable/floor_damage/broken3,
-/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "qu" = (
 /obj/structure/railing,
@@ -105,16 +98,12 @@
 /turf/simulated/floor/carpet/red,
 /area/space)
 "rs" = (
-/obj/item/circuitboard/rig_assembly/illegal/targeting,
+/obj/item/material/hatchet/lumber,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/space)
 "rG" = (
 /obj/structure/window_frame/wood,
 /turf/simulated/floor/wood/walnut,
-/area/space)
-"tk" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "tD" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -187,10 +176,6 @@
 /obj/machinery/door/urban,
 /turf/simulated/floor/tiled/white,
 /area/space)
-"Eo" = (
-/obj/effect/decal/cleanable/floor_damage/wood_broken0,
-/turf/simulated/floor/exoplanet/barren,
-/area/space)
 "EV" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -237,9 +222,9 @@
 /turf/simulated/floor/tiled/white,
 /area/space)
 "IZ" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/obj/effect/decal/cleanable/floor_damage/broken1,
-/turf/simulated/floor/exoplanet/barren,
+/obj/structure/closet/body_bag,
+/obj/effect/landmark/corpse/idris,
+/turf/simulated/floor/exoplanet/grass/grove,
 /area/space)
 "JF" = (
 /obj/structure/table/stone/marble,
@@ -270,7 +255,6 @@
 /area/space)
 "OH" = (
 /obj/structure/closet/cabinet,
-/obj/item/material/hatchet/lumber,
 /obj/item/clothing/head/boaterhat,
 /obj/item/clothing/suit/storage/toggle/brown_jacket,
 /turf/simulated/floor/wood/walnut,
@@ -334,16 +318,11 @@
 /turf/simulated/floor/wood/walnut,
 /area/space)
 "Wk" = (
-/obj/effect/decal/cleanable/floor_damage/wood_broken1,
+/obj/structure/distillery,
 /turf/simulated/floor/exoplanet/barren,
 /area/space)
 "WZ" = (
 /turf/simulated/floor/exoplanet/grass/grove,
-/area/space)
-"Ye" = (
-/obj/effect/decal/cleanable/greenglow/radioactive,
-/obj/effect/decal/cleanable/floor_damage/broken0,
-/turf/simulated/floor/exoplanet/barren,
 /area/space)
 "Yl" = (
 /obj/structure/flora/ausbushes/grassybush,
@@ -833,7 +812,7 @@ WZ
 WZ
 WZ
 Cb
-Eo
+WZ
 WZ
 WZ
 xs
@@ -856,9 +835,9 @@ gT
 dc
 WZ
 WZ
-IZ
-fU
-Wk
+WZ
+WZ
+WZ
 WZ
 Cb
 "}
@@ -878,10 +857,10 @@ gT
 dc
 dc
 WZ
-tk
-Ye
-tk
 fU
+WZ
+WZ
+WZ
 WZ
 "}
 (25,1,1) = {"
@@ -899,16 +878,16 @@ Im
 gT
 dc
 WZ
-rs
+WZ
 fU
-pl
+WZ
 WZ
 WZ
 WZ
 "}
 (26,1,1) = {"
 fU
-WZ
+rs
 gT
 hO
 IE
@@ -923,14 +902,14 @@ wh
 FM
 WZ
 WZ
-ky
+WZ
 WZ
 WZ
 dc
 "}
 (27,1,1) = {"
 ab
-WZ
+IZ
 gT
 gT
 gT
@@ -943,7 +922,7 @@ gT
 gT
 xs
 xs
-WZ
+fU
 WZ
 WZ
 WZ
@@ -959,11 +938,11 @@ qu
 uC
 NZ
 hY
+Wk
+fU
+fU
 WZ
-WZ
-WZ
-WZ
-WZ
+fU
 FM
 xs
 WZ
@@ -980,11 +959,11 @@ WZ
 WZ
 ab
 EV
+fU
+fU
+FM
 WZ
-WZ
-WZ
-WZ
-WZ
+fU
 WZ
 WZ
 WZ
@@ -1002,8 +981,8 @@ dc
 dc
 WZ
 WZ
-WZ
-WZ
+xs
+xs
 Cb
 WZ
 WZ
