@@ -93,6 +93,7 @@
 /obj/item/material/harpoon,
 /obj/machinery/firealarm/south,
 /obj/item/material/harpoon,
+/obj/item/shield/energy/hegemony,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA_port)
 "aN" = (
@@ -820,6 +821,7 @@
 /obj/item/rig/industrial/equipped{
 	req_access = list(241)
 	},
+/obj/item/shield/energy/hegemony,
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/Captain)
 "hv" = (
@@ -3815,6 +3817,7 @@
 /obj/effect/floor_decal/corner/orange/full{
 	dir = 8
 	},
+/obj/item/stack/material/wood/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
 "De" = (
@@ -4058,6 +4061,7 @@
 /obj/item/trap,
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
+/obj/item/shield/energy/hegemony,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA_port)
 "EK" = (
@@ -5248,6 +5252,7 @@
 /obj/item/trap,
 /obj/item/material/harpoon,
 /obj/item/material/harpoon,
+/obj/item/shield/energy/hegemony,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA_starboard)
 "Os" = (
