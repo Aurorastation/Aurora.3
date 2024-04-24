@@ -398,8 +398,11 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "amy" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -1955,6 +1958,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/break_room)
+"bpr" = (
+/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/area/turret_protected/ai)
 "bpD" = (
 /turf/simulated/wall,
 /area/horizon/crew_quarters/fitness/changing)
@@ -3986,11 +3992,9 @@
 /area/crew_quarters/lounge)
 "dda" = (
 /obj/machinery/porta_turret/cannon,
-/obj/structure/window/borosilicate/reinforced/skrell{
-	dir = 6
-	},
+/obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark/full,
-/area/turret_protected/ai_upload)
+/area/turret_protected/ai)
 "ddt" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -4967,8 +4971,11 @@
 	pixel_x = 0
 	},
 /obj/machinery/firealarm/south,
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "dRq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/effect/map_effect/marker/airlock{
@@ -5075,7 +5082,7 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/turret_protected/ai_upload)
+/area/turret_protected/ai)
 "dUf" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner/dark_green{
@@ -8344,6 +8351,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload)
 "fWo" = (
@@ -10833,8 +10841,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "hxF" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 5
@@ -11087,6 +11098,14 @@
 /obj/machinery/telecomms/bus/preset_four,
 /turf/simulated/floor/bluegrid,
 /area/tcommsat/chamber)
+"hEe" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_horizon_dock_deck_3_starboard_2";
+	master_tag = "airlock_horizon_dock_deck_3_starboard_2";
+	name = "airlock_horizon_dock_deck_3_starboard_2"
+	},
+/turf/simulated/floor/reinforced/airless,
+/area/template_noop)
 "hED" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -11451,8 +11470,11 @@
 "hSe" = (
 /obj/machinery/porta_turret,
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark/full,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "hSf" = (
 /obj/machinery/computer/telecomms/server{
 	network = "tcommsat"
@@ -12004,8 +12026,11 @@
 /turf/simulated/open/airless,
 /area/template_noop)
 "iqK" = (
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "iqO" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
@@ -14386,7 +14411,7 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/turret_protected/ai_upload)
+/area/turret_protected/ai)
 "jUG" = (
 /obj/structure/table/wood,
 /obj/random/pottedplant_small{
@@ -18586,8 +18611,11 @@
 	dir = 4;
 	pixel_y = 3
 	},
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "mHh" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -19627,6 +19655,17 @@
 	c_tag = "AI Core - Foyer";
 	dir = 4
 	},
+/obj/machinery/power/apc/critical/south,
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/turretid/stun{
+	check_synth = 1;
+	name = "\improper AI Chamber Turret Control Console";
+	pixel_y = 1;
+	pixel_x = -31;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload)
 "nnC" = (
@@ -19914,8 +19953,11 @@
 /obj/item/modular_computer/console/preset/ai{
 	dir = 8
 	},
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "nxm" = (
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -24797,7 +24839,7 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/turret_protected/ai_upload)
+/area/turret_protected/ai)
 "qSd" = (
 /obj/effect/map_effect/door_helper/unres,
 /obj/machinery/door/firedoor{
@@ -25559,6 +25601,14 @@
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 1;
+	id = "ai_upload";
+	name = "AI Upload Blast Door";
+	pixel_x = 2;
+	pixel_y = 30;
+	req_access = list(16)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload_foyer)
@@ -27106,7 +27156,7 @@
 	name = "cooled mainframe floor";
 	temperature = 278
 	},
-/area/turret_protected/ai_upload)
+/area/turret_protected/ai)
 "ssd" = (
 /obj/item/paper_bin,
 /obj/item/pen,
@@ -27275,6 +27325,9 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/bridge/controlroom)
+"sul" = (
+/turf/simulated/wall/r_wall,
+/area/turret_protected/ai)
 "sum" = (
 /obj/machinery/door/airlock{
 	dir = 1;
@@ -28090,8 +28143,11 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "tav" = (
 /obj/effect/floor_decal/spline/plain,
 /obj/effect/floor_decal/spline/plain{
@@ -29174,6 +29230,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
+/obj/structure/cable/green{
+	icon_state = "1-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload)
 "tNF" = (
@@ -29485,8 +29544,11 @@
 /area/horizon/hallway/deck_three/primary/central)
 "tXP" = (
 /obj/machinery/light,
-/turf/simulated/floor/bluegrid,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "tXQ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/disposalpipe/segment,
@@ -34853,8 +34915,11 @@
 	icon_state = "1-4"
 	},
 /obj/effect/floor_decal/industrial/warning/full,
-/turf/simulated/floor/tiled/dark/full,
-/area/turret_protected/ai_upload)
+/turf/simulated/floor/bluegrid{
+	name = "cooled mainframe floor";
+	temperature = 278
+	},
+/area/turret_protected/ai)
 "xJq" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -47041,7 +47106,7 @@ wGH
 wGH
 wGH
 wGH
-wGH
+hEe
 wGH
 wGH
 rBT
@@ -60322,14 +60387,14 @@ dSF
 dSF
 hBq
 hLZ
-uJh
-ihi
+bpr
+sul
 sYO
 iqK
 mFW
 alY
 tXP
-ihi
+sul
 idS
 neL
 hbW
@@ -60524,14 +60589,14 @@ dSF
 dSF
 hBq
 hLZ
-uJh
-ihi
+bpr
+sul
 hSe
 srU
 qRE
 dTW
 xIN
-ihi
+sul
 aYW
 kHK
 qXp
@@ -60726,14 +60791,14 @@ dSF
 dSF
 hBq
 hLZ
-uJh
-ihi
+bpr
+sul
 dRo
-ihi
+sul
 jUt
-ihi
+sul
 hxC
-ihi
+sul
 oXx
 vWk
 gts
@@ -60928,14 +60993,14 @@ dSF
 dSF
 hBq
 hLZ
-uJh
-ihi
+bpr
+sul
 nxf
-ihi
-ihi
-ihi
+sul
+sul
+sul
 nxf
-ihi
+sul
 xWP
 kMd
 sHn
@@ -61130,14 +61195,14 @@ dSF
 dSF
 hAW
 mxt
-uJh
-ihi
-ihi
-ihi
+bpr
+sul
+sul
+sul
 dda
-ihi
-ihi
-ihi
+sul
+sul
+sul
 pjD
 drK
 uER
@@ -61332,14 +61397,14 @@ dSF
 dSF
 dSF
 jRX
-uJh
-uJh
-uJh
-uJh
-uJh
-uJh
-uJh
-ihi
+bpr
+bpr
+bpr
+bpr
+bpr
+bpr
+bpr
+sul
 cJb
 vbi
 cJb
@@ -61743,7 +61808,7 @@ pmx
 cPq
 cPq
 hLZ
-gFb
+nbl
 eKp
 uLQ
 gFb
@@ -62554,9 +62619,9 @@ dSF
 dSF
 dSF
 xrc
-wGH
-wGH
-wGH
+cPq
+cPq
+cPq
 uDS
 cPq
 cPq
@@ -62758,7 +62823,7 @@ dSF
 xrc
 dSF
 dSF
-wGH
+cPq
 uDS
 cPq
 cPq
