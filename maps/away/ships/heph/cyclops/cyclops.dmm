@@ -4729,6 +4729,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/hephmining_ship/cyclops/cyclops_captain)
+"Tw" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/undies_wardrobe,
+/turf/simulated/floor/tiled/dark,
+/area/hephmining_ship/cyclops/cyclops_barracks)
 "Ty" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -34958,7 +34965,7 @@ mA
 AY
 ch
 mY
-mY
+Tw
 YK
 Tu
 qo
