@@ -115,6 +115,16 @@
 					if(owner.change_hair_color(r_hair, g_hair, b_hair))
 						update_dna()
 						. = TRUE
+		if("gradient_color")
+			if(can_change(APPEARANCE_HAIR_COLOR))
+				var/new_gradient = input("Please select gradient color.", "Gradient Color", rgb(owner.r_grad, owner.g_grad, owner.b_grad)) as color|null
+				if(new_gradient)
+					var/r_grad = hex2num(copytext(new_gradient, 2, 4))
+					var/g_grad = hex2num(copytext(new_gradient, 4, 6))
+					var/b_grad = hex2num(copytext(new_gradient, 6, 8))
+					if(owner.change_gradient_color(r_grad, g_grad, b_grad))
+						update_dna()
+						. = TRUE
 		if("facial_hair")
 			if(can_change(APPEARANCE_FACIAL_HAIR) && (params["facial_hair"] in valid_facial_hairstyles))
 				if(owner.change_facial_hair(params["facial_hair"]))
@@ -266,6 +276,7 @@
 	data["valid_facial_hair_styles"] = valid_facial_hairstyles
 
 	data["change_hair_color"] = can_change(APPEARANCE_HAIR_COLOR)
+	data["change_gradient_color"] = can_change(APPEARANCE_HAIR_COLOR)
 	data["change_facial_hair_color"] = can_change(APPEARANCE_FACIAL_HAIR_COLOR)
 
 	return data

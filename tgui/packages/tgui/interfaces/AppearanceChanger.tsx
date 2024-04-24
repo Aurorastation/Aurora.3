@@ -48,6 +48,7 @@ export type ChangerData = {
   valid_facial_hair_styles: string[];
 
   change_hair_color: BooleanLike;
+  change_gradient_color: BooleanLike;
   change_facial_hair_color: BooleanLike;
 
   change_prosthetics: BooleanLike;
@@ -253,6 +254,14 @@ export const ColorsWindow = (props, context) => {
       )}
       {data.change_hair_color ? (
         <Button content="Hair Color" onClick={() => act('hair_color')} />
+      ) : (
+        ''
+      )}
+      {data.change_gradient_color ? (
+        <Button
+          content="Hair Gradient Color"
+          onClick={() => act('gradient_color')}
+        />
       ) : (
         ''
       )}

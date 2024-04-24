@@ -106,6 +106,19 @@
 	update_hair()
 	return 1
 
+/mob/living/carbon/human/proc/change_gradient_color(var/red, var/green, var/blue)
+	if(red == r_grad && green == g_grad && blue == b_grad)
+		return
+
+	r_grad = red
+	g_grad = green
+	b_grad = blue
+
+	force_update_limbs()
+	update_body()
+	update_hair()
+	return 1
+
 /mob/living/carbon/human/proc/change_facial_hair_color(var/red, var/green, var/blue)
 	if(red == r_facial && green == g_facial && blue == b_facial)
 		return
