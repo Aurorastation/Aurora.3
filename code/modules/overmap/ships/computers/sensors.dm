@@ -645,6 +645,7 @@
 	name = "beacon sensor array"
 	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a tremendous range befitting of its rugged design and large size."
 	icon = 'icons/obj/machinery/sensors_relay.dmi'
+	sensor_strength = 3
 	heat_reduction = 11
 	max_range = 24
 	deep_scan_range = 0

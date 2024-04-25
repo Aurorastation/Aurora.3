@@ -36,6 +36,7 @@
 	icon_state = "sensor_base"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 	requires_power = TRUE
+	ambience = AMBIENCE_GENERIC
 	base_turf = /turf/space
 
 /area/sensor_relay/maintenance
