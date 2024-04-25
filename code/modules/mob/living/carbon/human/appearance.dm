@@ -48,6 +48,9 @@
 	update_hair()
 	return 1
 
+/**
+ * Sets gradient style and updates hair overlay
+ */
 /mob/living/carbon/human/proc/change_gradient(var/gradient)
 	if(!gradient)
 		return
@@ -121,6 +124,9 @@
 	update_hair()
 	return 1
 
+/**
+ * Sets gradient colour and updates sprite
+ */
 /mob/living/carbon/human/proc/change_gradient_color(var/red, var/green, var/blue)
 	if(red == r_grad && green == g_grad && blue == b_grad)
 		return
@@ -264,8 +270,11 @@
 
 	return valid_hairstyles
 
+/**
+ * Returns a list of all valid gradient styles for this mob
+ */
 /mob/living/carbon/human/proc/generate_valid_gradients()
-	var/list/valid_gradient_styles = new()
+	var/list/valid_gradient_styles = list()
 	if(species.bald)
 		return valid_gradient_styles
 	for(var/gradient in GLOB.hair_gradient_styles_list)
