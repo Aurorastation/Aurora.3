@@ -10,7 +10,7 @@
 	spawn_cost = 1
 	id = "peoples_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang)
-
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	unit_test_groups = list(1)
 
 /singleton/submap_archetype/peoples_station
@@ -88,7 +88,7 @@
 	else
 		designation = "[pick("Adhomai's Finest", "Party's Dagger", "Sunray", "Kazarrhaldiye", "Revolutionary Courage", "Hadiist Avenger")]"
 	..()
-/obj/machinery/computer/shuttle_control/explore/peoples_station_fang
+/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_fang
 	name = "shuttle control console"
 	shuttle_tag = "Orbital Fleet Fang"
 
