@@ -64,7 +64,7 @@
 	g_style = gradient
 
 	update_hair()
-	return 1
+	return TRUE
 
 /mob/living/carbon/human/proc/change_facial_hair(var/facial_hair_style)
 	if(!facial_hair_style)
@@ -138,7 +138,7 @@
 	force_update_limbs()
 	update_body()
 	update_hair()
-	return 1
+	return TRUE
 
 /mob/living/carbon/human/proc/change_facial_hair_color(var/red, var/green, var/blue)
 	if(red == r_facial && green == g_facial && blue == b_facial)
