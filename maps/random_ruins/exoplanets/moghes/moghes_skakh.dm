@@ -10,6 +10,8 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_skakh.dmm")
 
+	unit_test_groups = list(3)
+
 /area/moghes_skakh
 	name = "Moghes - Sk'akh Chapel"
 	icon_state = "bluenew"
