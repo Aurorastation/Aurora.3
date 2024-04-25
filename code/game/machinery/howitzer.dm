@@ -75,7 +75,10 @@
 	set_dir(NORTH)
 
 /obj/machinery/howitzer/attack_hand(mob/user)
-	if(istype(user, /mob/living/carbon/human))
+		ui_interact(user)
+
+/obj/machinery/howitzer/AltClick(mob/user)
+	if(ishuman(user))
 		var/mob/living/carbon/human/user_human = user
 
 		if(loaded_shot)
@@ -92,7 +95,6 @@
 				loaded_shot = null
 			return
 
-		ui_interact(user)
 
 /obj/machinery/howitzer/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -253,7 +255,7 @@
 
 	vertical_angle = angle
 
-	balloon_alert_to_viewers("The howitzer steady the barrel at the requested elevation!")
+	balloon_alert_to_viewers("The howitzer steadies the barrel at the requested elevation!")
 	rotation_looping_sound.stop()
 	QDEL_NULL(rotation_looping_sound)
 
