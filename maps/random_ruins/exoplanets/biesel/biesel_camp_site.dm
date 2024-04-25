@@ -9,6 +9,8 @@
 	prefix = "biesel/"
 	suffixes = list("biesel_camp_site.dmm")
 
+	unit_test_groups = list(3)
+
 /area/biesel_camp_site
 	name = "Biesel Camp Site"
 	icon_state = "bluenew"
@@ -19,3 +21,5 @@
 	ambience = list('sound/effects/wind/wind_2_1.ogg','sound/effects/wind/wind_2_2.ogg','sound/effects/wind/wind_3_1.ogg','sound/effects/wind/wind_4_1.ogg')
 	base_turf = /turf/simulated/mineral
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
+
+	unit_test_groups = list(1)
