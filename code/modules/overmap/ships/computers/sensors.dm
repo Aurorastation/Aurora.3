@@ -640,3 +640,14 @@
 		/obj/item/bluespace_crystal,
 		/obj/item/stack/cable_coil = 30
 	)
+
+/obj/machinery/shipsensors/strong/venator/relay
+	name = "beacon sensor array"
+	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a tremendous range befitting of its rugged design and large size."
+	icon = 'icons/obj/machinery/sensors_relay.dmi'
+	heat_reduction = 11
+	max_range = 24
+	deep_scan_range = 0
+	component_types = list()
+	pixel_x = -32
+	pixel_y = -16
