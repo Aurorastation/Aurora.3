@@ -14,10 +14,10 @@
 	starlight_range = 2
 
 	lore_radio_stations = list(
-		"87.5 Mendell City Bugle Radio" = "config/example/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt",
-		"90.7 Hi-Fi Sports FM" = "config/example/lore_radio/tauceti/90.7_Hi_Fi_Sports.txt",
-		"93.1 Phoenix FM" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
-		"103.1 Nightingale Radio" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
+		"87.5 Mendell City Bugle Radio" = "config/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt",
+		"90.7 Hi-Fi Sports FM" = "config/lore_radio/tauceti/90.7_Hi_Fi_Sports.txt",
+		"93.1 Phoenix FM" = "config/lore_radio/tauceti/93.1_PhoenixFM.txt",
+		"103.1 Nightingale Radio" = "config/lore_radio/tauceti/93.1_PhoenixFM.txt",
 		"17.9 Adhomai Ceti-Connection" = "config/lore_radio/tauceti/17.9_Adhomai_Ceti-Connection.txt",
 		"28.1 D6 Citizen Radio" = "config/lore_radio/tauceti/28.1_D6_Citizen_Radio.txt",
 		"95.3 QRCC" = "config/lore_radio/tauceti/95.3_QRCC.txt",
