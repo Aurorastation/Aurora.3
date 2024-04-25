@@ -7,6 +7,8 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_memorial.dmm")
 
+	unit_test_groups = list(2)
+
 /obj/structure/sign/moghes_memorial
 	name = "Contact War memorial"
 	desc = "A stone monolith, engraved with the names of Unathi who perished in the Contact War. There are thousands of names upon this stone alone."

@@ -9,6 +9,8 @@
 	prefix = "konyang/"
 	suffixes = list("stranded_police.dmm")
 
+	unit_test_groups = list(1)
+
 /datum/ghostspawner/human/konyang_lostcop
 	short_name = "konyang_lostcop"
 	name = "Konyang Lost Police Patrolman"

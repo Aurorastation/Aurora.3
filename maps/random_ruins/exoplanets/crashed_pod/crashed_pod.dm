@@ -10,6 +10,8 @@
 	ruin_tags = RUIN_LOWPOP|RUIN_WRECK
 	spawn_weight = 0.33
 
+	unit_test_groups = list(2)
+
 /singleton/submap_archetype/crashed_pod
 	descriptor = "crashed survival pod"
 

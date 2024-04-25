@@ -445,3 +445,49 @@
   - qol: Ghostspawner desc and welcome_text minor tweaks.
   - qol: Cult base minor tweaks.
   - bugfix: Fixes cult base being guaranteed site.
+2024-04-23:
+  CourierBravo:
+  - rscadd: Reorganizes the helpers folder. Adds 4 maps of premade rooms and buildings
+      as a map design tool. Some objects in rooms will require access tweaks as required.
+  FluffyGhost:
+  - code_imp: Removed a background set.
+  - refactor: Refactored away some world loops.
+  MattAtlas:
+  - qol: Added preset mineral walls for mappers.
+  RustingWithYou:
+  - rscadd: Adds several ruins for the Untouched Lands of Moghes.
+  nauticall:
+  - rscadd: 'Adds three more radio stations to Tau Ceti: 87.5 Mendell City Bugle,
+      90.7 Hi-Fi Sports, and 93.1 Phoenix FM. Basketball game in Hi-Fi is written
+      by Desven.'
+2024-04-24:
+  CourierBravo:
+  - rscadd: Adds 7 new biesel exclusive ruins. These include camp sites, abandoned
+      cargo, a very recently crashed ship, and abandoned warehouses
+  SimpleMaroon:
+  - bugfix: Removes nearly invisible stray pixels from the right-side Vaurca mecha
+      faceplate.
+  nauticall:
+  - rscadd: Added several items relating to Luceism, the religion of Assunzione.
+  - rscadd: 'Added chaplain items for Luceism: robes, a cassock, and a new null rod,
+      the Luminous Sceptre.'
+  - rscadd: Added a new versebook, the Luceian Book of Scripture, available to Assunzionii
+      characters. It's a versebook with various texts from Luceism.
+  - imageadd: Resprited the Luceian amulet, Luceian Book of Scripture, and the Assunzione
+      cloak.
+  - qol: Compressed the loadout warding sphere and warding sphere case into just one
+      loadout item that already comes with a case.
+  - qol: Religions with unique religious books (versebooks) now have their chaplains
+      spawn with the versebook in question, rather than a generic black tome.
+  - qol: To compensate for the above, null rods are now able to create holy water
+      the same way a bible can.
+2024-04-25:
+  ClemTheDuck:
+  - balance: tweaks values of unathi kataphract and pirate armour to be more inline
+      with other voidsuits.
+  Lavillastrangiato:
+  - qol: Completely remaps the Kataphract ship.
+  hazlemouse:
+  - rscadd: Adds the Scarab Salvager offship to the Badlands and Valley Hale sectors.
+  - bugfix: Resolves a few minor mapping issues in the Scarab Salvager and Hivebot
+      Hub maps.

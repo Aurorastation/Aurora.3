@@ -9,6 +9,8 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_hegemony_base.dmm")
 
+	unit_test_groups = list(2)
+
 /area/moghes/hegemony_base
 	name = "Hegemony Base"
 	icon_state = "bluenew"
