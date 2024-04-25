@@ -1600,7 +1600,6 @@
 /obj/machinery/shipsensors/strong/venator/relay{
 	pixel_y = -16
 	},
-/obj/structure/grille,
 /turf/space/dynamic,
 /area/sensor_relay)
 "asy" = (
