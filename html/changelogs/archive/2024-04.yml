@@ -481,3 +481,13 @@
       spawn with the versebook in question, rather than a generic black tome.
   - qol: To compensate for the above, null rods are now able to create holy water
       the same way a bible can.
+2024-04-25:
+  ClemTheDuck:
+  - balance: tweaks values of unathi kataphract and pirate armour to be more inline
+      with other voidsuits.
+  Lavillastrangiato:
+  - qol: Completely remaps the Kataphract ship.
+  hazlemouse:
+  - rscadd: Adds the Scarab Salvager offship to the Badlands and Valley Hale sectors.
+  - bugfix: Resolves a few minor mapping issues in the Scarab Salvager and Hivebot
+      Hub maps.
