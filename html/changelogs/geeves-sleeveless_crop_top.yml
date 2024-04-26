@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a sleeveless crop top hoodie."
+  - imageadd: "Tweaked a single pixel on the hoodie south facing sprite to make both sides symmetrical."

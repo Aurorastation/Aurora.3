@@ -1725,7 +1725,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/shuttle_landmark/freighter_shuttle/hangar,
+/obj/effect/shuttle_landmark/freighter_shuttle/hangar{
+	docking_controller = "freighter_hangar"
+	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},

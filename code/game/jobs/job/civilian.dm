@@ -271,7 +271,7 @@
 	selection_color = "#90524b"
 	access = list(ACCESS_CHAPEL_OFFICE, ACCESS_MAINT_TUNNELS)
 	minimal_access = list(ACCESS_CHAPEL_OFFICE)
-	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor")
+	alt_titles = list("Presbyter", "Rabbi", "Imam", "Priest", "Shaman", "Counselor", "Keeper")
 	outfit = /obj/outfit/job/chaplain
 
 	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
@@ -302,24 +302,30 @@
 	if(visualsOnly)
 		return
 
-	var/obj/item/storage/bible/B = new /obj/item/storage/bible(get_turf(H)) //BS12 EDIT
-	var/obj/item/storage/S = locate() in H.contents
-	if(S && istype(S))
-		B.forceMove(S)
-
 	var/datum/religion/religion = SSrecords.religions[H.religion]
 	if (religion)
+		if(religion.unique_book_path)
+			var/obj/item/device/versebook/U = new religion.unique_book_path(get_turf(H))
+			var/obj/item/storage/S = locate() in H.contents
+			if(S && istype(S))
+				U.forceMove(S)
+				return 1
+		else
+			var/obj/item/storage/bible/B = new /obj/item/storage/bible(get_turf(H)) //BS12 EDIT
+			var/obj/item/storage/S = locate() in H.contents
+			if(S && istype(S))
+				B.forceMove(S)
 
-		if(religion.name == "None" || religion.name == "Other")
-			B.verbs += /obj/item/storage/bible/verb/Set_Religion
+			if(religion.name == "None" || religion.name == "Other")
+				B.verbs += /obj/item/storage/bible/verb/Set_Religion
+				return 1
+
+			B.icon_state = religion.book_sprite
+			B.name = religion.book_name
+			SSticker.Bible_icon_state = religion.book_sprite
+			SSticker.Bible_item_state = religion.book_sprite
+			SSticker.Bible_name = religion.book_name
 			return 1
-
-		B.icon_state = religion.book_sprite
-		B.name = religion.book_name
-		SSticker.Bible_icon_state = religion.book_sprite
-		SSticker.Bible_item_state = religion.book_sprite
-		SSticker.Bible_name = religion.book_name
-		return 1
 
 
 //Operations

@@ -12,3 +12,5 @@
 
 	planet_types = PLANET_DESERT
 	ruin_tags = RUIN_NATURAL
+
+	unit_test_groups = list(1)

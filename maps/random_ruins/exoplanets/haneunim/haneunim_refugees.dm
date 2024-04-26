@@ -9,6 +9,8 @@
 	prefix = "haneunim/"
 	suffixes = list("haneunim_refugees.dmm")
 
+	unit_test_groups = list(2)
+
 /area/haneunim_refugees
 	name = "Wrecked Shuttle"
 	icon_state = "bluenew"

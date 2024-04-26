@@ -10,6 +10,8 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_untouched_tyrant.dmm")
 
+	unit_test_groups = list(3)
+
 /datum/ghostspawner/simplemob/moghes_plains_tyrant
 	short_name = "moghes_plains_tyrant"
 	name = "Plains Tyrant"
