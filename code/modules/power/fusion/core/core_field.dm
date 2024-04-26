@@ -441,7 +441,7 @@
 			tick_instability += rand(30,50)
 			AM.emp_act(EMP_LIGHT)
 
- 	//heat transfer into local air
+	//heat transfer into local air
 	if(owned_core && owned_core.loc)
 		var/datum/gas_mixture/environment = owned_core.loc.return_air()
 		if(environment && (environment.temperature < (plasma_temperature*0.20))) // plugging an INDRA into a TEG is still a bad idea if TEG temperature and power ratings arent considered.
