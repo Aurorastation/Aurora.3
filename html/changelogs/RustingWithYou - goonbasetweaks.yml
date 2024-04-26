@@ -40,4 +40,4 @@ delete-after: True
 changes:
   - qol: "Gives the pirate base shuttle a proper docking airlock."
   - qol: "Replaces the syndicate spacesuits on the pirate base with an assortment of random ones."
-  - maptweak: "Changes the pirate base description to not tell everyone scanning it that there are pirates there."
+  - qol: "Changes the pirate base description to not tell everyone scanning it that there are pirates there."
