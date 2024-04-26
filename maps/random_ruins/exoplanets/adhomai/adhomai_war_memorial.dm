@@ -9,6 +9,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_war_memorial.dmm")
 
+	unit_test_groups = list(1)
+
 /obj/structure/sign/adhomai_memorial
 	name = "memorial monument"
 	desc = "A stone monument engraved with the names of soldiers who fought and died in one of the Tajaran civil wars."

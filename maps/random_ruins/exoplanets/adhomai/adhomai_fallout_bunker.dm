@@ -8,6 +8,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_fallout_bunker.dmm")
 
+	unit_test_groups = list(2)
+
 /area/adhomai_fallout_bunker
 	name = "Fallout Bunker"
 	icon_state = "bluenew"

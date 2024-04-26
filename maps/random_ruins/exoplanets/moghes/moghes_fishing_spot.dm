@@ -6,3 +6,5 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_fishing_spot.dmm")
+
+	unit_test_groups = list(1)

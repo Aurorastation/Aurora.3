@@ -10,6 +10,8 @@
 	suffixes = list("moghes_heph_mining.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_guild_mining)
 
+	unit_test_groups = list(1)
+
 /area/moghes_heph_mining
 	name = "Hephaestus Mining Camp"
 	icon_state = "bluenew"

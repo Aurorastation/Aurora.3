@@ -9,6 +9,8 @@
 	prefix = "new_gibson/"
 	suffixes = list("gibson_resupply.dmm")
 
+	unit_test_groups = list(2)
+
 /area/gibson_resupply
 	name = "New Gibson Supply Outpost"
 	icon_state = "bluenew"

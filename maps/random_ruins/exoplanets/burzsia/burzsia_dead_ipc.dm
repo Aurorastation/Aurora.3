@@ -10,3 +10,5 @@
 
 	prefix = "burzsia/"
 	suffixes = list("burzsia_dead_ipc.dmm")
+
+	unit_test_groups = list(3)
