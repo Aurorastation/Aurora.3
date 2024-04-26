@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_village.dmm")
 
+	unit_test_groups = list(1)
+
 /area/adhomai_village
 	name = "Adhomian Village"
 	icon_state = "bluenew"

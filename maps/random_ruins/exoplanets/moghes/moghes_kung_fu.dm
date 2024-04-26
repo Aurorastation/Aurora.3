@@ -10,6 +10,8 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_kung_fu.dmm")
 
+	unit_test_groups = list(3)
+
 /datum/ghostspawner/human/moghes_kung_fu
 	name = "Kis-Khan Master"
 	short_name = "moghes_kung_fu"

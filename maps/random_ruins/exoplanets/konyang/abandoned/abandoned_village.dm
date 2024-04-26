@@ -11,6 +11,8 @@
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_village)
 
+	unit_test_groups = list(2)
+
 /obj/effect/landmark/corpse/konyang_villager
 	name = "Konyang Villager"
 	corpseuniform = /obj/item/clothing/under/konyang

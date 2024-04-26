@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_bar.dmm")
 
+	unit_test_groups = list(2)
+
 /area/adhomai_bar
 	name = "Adhomian Inn"
 	icon_state = "bluenew"

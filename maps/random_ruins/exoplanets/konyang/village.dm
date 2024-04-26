@@ -13,6 +13,8 @@
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_abandoned_village)
 
+	unit_test_groups = list(3)
+
 /area/konyang_village
 	name = "Konyang Village"
 	icon_state = "bluenew"
