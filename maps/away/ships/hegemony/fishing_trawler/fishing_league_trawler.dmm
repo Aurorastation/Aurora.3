@@ -498,6 +498,8 @@
 	pixel_y = 1;
 	pixel_x = -1
 	},
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA_starboard)
 "eG" = (
@@ -3715,6 +3717,7 @@
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
+/obj/item/stack/rods/full,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "Cr" = (
@@ -3818,6 +3821,7 @@
 	dir = 8
 	},
 /obj/item/stack/material/wood/full,
+/obj/item/stack/rods/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
 "De" = (
@@ -4626,6 +4630,8 @@
 	pixel_x = -1
 	},
 /obj/structure/table/standard,
+/obj/item/tank/jetpack/oxygen,
+/obj/item/tank/jetpack/oxygen,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA_port)
 "JK" = (
