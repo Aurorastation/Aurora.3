@@ -5,10 +5,21 @@
 	the Sol Alliance over the loss of such a wealthy system, while NanoTrasen continues to have a heavy hand in all levels of Tau Ceti."
 	cargo_price_coef = list("nt" = 0.8, "hpi" = 0.8, "zhu" = 0.8, "een" = 1, "get" = 0.8, "arz" = 1, "blm" = 1,
 								"iac" = 1, "zsc" = 1, "vfc" = 1, "bis" = 0,8, "xmg" = 0.8, "npi" = 0.8)
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/barren)
+	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/biesel)
+	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/lava/caprice, /obj/effect/overmap/visitable/sector/exoplanet/desert/luthien, /obj/effect/overmap/visitable/sector/exoplanet/barren/valkyrie,
+							/obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ice/chandras, /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas)
+	ports_of_call = list("the city of Mendell, Republic's Landing")
+	scheduled_port_visits = list("Saturday", "Sunday")
 	starlight_color = "#9cd0fd"
 	starlight_power = 5
 	starlight_range = 2
+
+	lore_radio_stations = list(
+		"87.5 Mendell City Bugle Radio" = "config/example/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt",
+		"90.7 Hi-Fi Sports FM" = "config/example/lore_radio/tauceti/90.7_Hi_Fi_Sports.txt",
+		"93.1 Phoenix FM" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
+		"103.1 Nightingale Radio" = "config/example/lore_radio/tauceti/93.1_PhoenixFM.txt",
+	)
 
 /datum/space_sector/romanovich
 	name = SECTOR_ROMANOVICH

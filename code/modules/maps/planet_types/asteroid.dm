@@ -13,6 +13,8 @@
 
 	place_near_main = list(1, 1)
 
+	unit_test_groups = list(2)
+
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/update_icon()
 	icon_state = "asteroid[rand(1,3)]"
 

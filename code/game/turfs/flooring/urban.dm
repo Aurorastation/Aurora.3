@@ -91,7 +91,7 @@
 	name = "roof ledge"
 	desc = "A basic roofing ledge to mark the edge of a rooftop. Don't trip!"
 	icon_state = "roof_ledge"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/structure/ledge/roof/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(istype(mover,/obj/item/projectile))
@@ -115,3 +115,18 @@
 
 /obj/structure/ledge/roof/corner
 	icon_state = "roof_ledge_corner"
+
+/turf/simulated/floor/concrete // The more conk they crete the more brutalismer it is
+	name = "concrete"
+	icon = 'icons/turf/flooring/concrete.dmi'
+	icon_state = "concrete0"
+	initial_flooring = /singleton/flooring/concrete
+
+/turf/simulated/floor/concrete/square
+	icon_state = "concrete3"
+	tile_outline = "tiled"
+	tile_decal_state = "tiled_light"
+	tile_outline_alpha = 125
+	broken_overlay = "tiled"
+	burned_overlay = "tiled"
+	initial_flooring = /singleton/flooring/concrete/square

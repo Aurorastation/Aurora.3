@@ -65,11 +65,11 @@
 
 	update_icon()
 
-/obj/item/battle_monsters/deck/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
+/obj/item/battle_monsters/deck/MouseDrop_T(atom/dropping, mob/user) //Dropping C onto the card
 
-	if(istype(C,/obj/item/battle_monsters/deck/))
+	if(istype(dropping, /obj/item/battle_monsters/deck/))
 
-		var/obj/item/battle_monsters/deck/added_deck = C
+		var/obj/item/battle_monsters/deck/added_deck = dropping
 		stored_card_names += added_deck.stored_card_names
 
 		user.visible_message(\
@@ -77,7 +77,7 @@
 			SPAN_NOTICE("You combine two decks together.")\
 		)
 
-		qdel(C)
+		qdel(dropping)
 		return
 
 	. = ..()

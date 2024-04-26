@@ -45,6 +45,8 @@
 
 	smoothing_flags = SMOOTH_MORE | SMOOTH_NO_CLEAR_ICON | SMOOTH_UNDERLAYS
 
+	pathing_pass_method = TURF_PATHING_PASS_NO //Literally a wall, until we implement bots that can wallwarp, we might aswell save the processing
+
 // Walls always hide the stuff below them.
 /turf/simulated/wall/levelupdate(mapload)
 	if (mapload)
@@ -125,10 +127,10 @@
 			plant.pixel_y = 0
 		INVOKE_ASYNC(src, TYPE_PROC_REF(/obj/effect/plant, update_neighbors))
 
-/turf/simulated/wall/ChangeTurf(var/newtype)
+/turf/simulated/wall/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	clear_plants()
 	clear_bulletholes()
-	..(newtype)
+	..()
 
 //Appearance
 /turf/simulated/wall/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

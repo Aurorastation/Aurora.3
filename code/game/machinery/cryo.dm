@@ -22,14 +22,24 @@
 	icon_state = "pod_preview"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	interact_offline = TRUE
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/on = 0
 	idle_power_usage = 20
 	active_power_usage = 200
 	clicksound = 'sound/machines/buttonbeep.ogg'
 	clickvol = 30
+
+	component_types = list(
+		/obj/item/circuitboard/cryotube,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/scanning_module,
+		/obj/item/stock_parts/manipulator,
+		/obj/item/stock_parts/console_screen,
+		/obj/item/reagent_containers/glass/beaker/large
+	)
 
 	var/temperature_archived
 	var/mob/living/carbon/human/occupant = null
@@ -40,8 +50,8 @@
 	var/temperature_warning_threshold = 170
 	var/temperature_danger_threshold = T0C
 
-	var/fast_stasis_mult = 0.8
-	var/slow_stasis_mult = 1.25
+	var/fast_stasis_mult = 0.6
+	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
 	var/global/list/screen_overlays
@@ -76,6 +86,9 @@
 			. += SPAN_NOTICE("It is loaded with a beaker.")
 		if(occupant)
 			occupant.examine(arglist(args))
+
+	if(panel_open)
+		. += "The maintenance hatch is open."
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/generate_overlays(force = FALSE)
 	if(LAZYLEN(screen_overlays) && !force)
@@ -264,14 +277,22 @@
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
 				qdel(attacking_item)
+
+	else if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	else if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 	return TRUE
 
-/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/dropping, mob/user)
 	if(!istype(user))
 		return
-	if(!ismob(O))
+	if(!ismob(dropping))
 		return
-	var/mob/living/L = O
+	var/mob/living/L = dropping
 	for(var/mob/living/carbon/slime/M in range(1,L))
 		if(M.victim == L)
 			to_chat(usr, SPAN_WARNING("[L.name] will not fit into the cryo because they have a slime latched onto their head."))
@@ -343,6 +364,10 @@
 			return
 		occupant.bodytemperature += 2*(air_contents.temperature - occupant.bodytemperature)*current_heat_capacity/(current_heat_capacity + air_contents.heat_capacity())
 		occupant.bodytemperature = max(occupant.bodytemperature, air_contents.temperature) // this is so ugly i'm sorry for doing it i'll fix it later i promise
+
+		if(occupant.isSynthetic())
+			return
+
 		occupant.set_stat(UNCONSCIOUS)
 		var/has_cryo = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/cryoxadone) >= 1
 		var/has_clonexa = REAGENT_VOLUME(occupant.reagents, /singleton/reagent/clonexadone) >= 1
@@ -457,8 +482,8 @@
 	for(var/obj/item/stock_parts/P in component_parts)
 		if(ismanipulator(P))
 			man_rating += P.rating
-	fast_stasis_mult = max(1 - (man_rating * 0.06), 0.66)
-	slow_stasis_mult = min(1 + (man_rating * 0.06), 1.5)
+	fast_stasis_mult = max(0.6/man_rating, 0.2)
+	slow_stasis_mult = min(1.6+(man_rating/10), 2)
 
 /datum/data/function/proc/reset()
 	return

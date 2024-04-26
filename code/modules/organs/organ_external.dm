@@ -502,8 +502,9 @@
 
 				var/edge_eligible = FALSE
 				var/blunt_eligible = FALSE
-				var/maim_bonus = 0
 				var/dam_flags = 0
+				/// Certain limbs like zombie limbs have an integrated maiming bonus that make them easier to delimb. Add that.
+				var/maim_bonus_to_add = src.maim_bonus
 
 				if(isitem(used_weapon))
 					var/obj/item/W = used_weapon
@@ -512,17 +513,17 @@
 						var/obj/item/projectile/P = W
 						if(dam_flags & DAMAGE_FLAG_BULLET)
 							blunt_eligible = TRUE
-						maim_bonus += P.maim_rate
+						maim_bonus_to_add += P.maim_rate
 					if(W.w_class >= w_class && (dam_flags & DAMAGE_FLAG_EDGE))
 						edge_eligible = TRUE
 
-				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus)))
+				if(!blunt_eligible && edge_eligible && (brute >= max_damage / (DROPLIMB_THRESHOLD_EDGE + maim_bonus_to_add)))
 					droplimb(0, DROPLIMB_EDGE)
-				else if(burn >= max_damage / ((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
+				else if(burn >= max_damage / ((dam_flags & DAMAGE_FLAG_LASER ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
 					droplimb(0, DROPLIMB_BURN)
-				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus))
+				else if(blunt_eligible && brute >= max_damage / ((dam_flags & DAMAGE_FLAG_BULLET ? DROPLIMB_THRESHOLD_DESTROY_PROJECTILE :  DROPLIMB_THRESHOLD_DESTROY) + maim_bonus_to_add))
 					droplimb(0, DROPLIMB_BLUNT)
-				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus))
+				else if(brute >= max_damage / (DROPLIMB_THRESHOLD_TEAROFF + maim_bonus_to_add))
 					droplimb(0, DROPLIMB_EDGE)
 
 /obj/item/organ/external/heal_damage(brute, burn, internal = 0, robo_repair = 0)
@@ -959,15 +960,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/limb_loss_threshold = max_damage
 	brute_ratio = brute_dam / (limb_loss_threshold * 2)
 	burn_ratio = burn_dam / (limb_loss_threshold * 2)
-
-// new damage icon system
-// adjusted to set damage_state to brute/burn code only (without r_name0 as before)
-/obj/item/organ/external/update_icon()
-	var/n_is = damage_state_text()
-	if (n_is != damage_state)
-		damage_state = n_is
-		return 1
-	return 0
 
 // new damage icon system
 // returns just the brute/burn damage code
@@ -1525,7 +1517,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 	if(genetic_degradation <= 30)
 		if(status & ORGAN_MUTATED)
 			unmutate()
-			to_chat(src, "<span class = 'notice'>Your [name] is shaped normally again.</span>")
+			to_chat(src, SPAN_NOTICE("Your [name] is shaped normally again."))
 	return -(genetic_degradation - last_gene_dam)
 
 /obj/item/organ/external/proc/add_genetic_damage(var/amount)
@@ -1535,10 +1527,12 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	var/last_gene_dam = genetic_degradation
 	genetic_degradation = min(100,max(0,genetic_degradation + amount))
-	if(genetic_degradation > 30)
+	if(genetic_degradation > 10)
+		owner.infest_with_parasite(owner, BP_TUMOUR_SPREADING, src)
+	if(genetic_degradation > 20)
 		if(!(status & ORGAN_MUTATED) && prob(genetic_degradation))
 			mutate()
-			to_chat(owner, "<span class = 'notice'>Something is not right with your [name]...</span>")
+			to_chat(owner, SPAN_NOTICE("Something is not right with your [name]..."))
 	return (genetic_degradation - last_gene_dam)
 
 // Pain/halloss
@@ -1568,6 +1562,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/last_pain = pain
 	if(owner)
 		amount *= owner.species.pain_mod
+		if(HAS_TRAIT(owner, TRAIT_ORIGIN_PAIN_RESISTANCE))
+			amount = max(amount-1, 1)
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return

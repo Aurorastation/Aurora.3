@@ -128,7 +128,7 @@
 			if(contents_count())
 				to_chat(user, SPAN_WARNING("Eject the items first!"))
 				return TRUE
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			switch(mode)
 				if(MODE_OFF)
 					mode = MODE_UNSCREWED
@@ -246,7 +246,8 @@
 
 // mouse drop another mob or self
 //
-/obj/machinery/disposal/MouseDrop_T(mob/target, mob/user)
+/obj/machinery/disposal/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/target = dropping
 	if(user.stat || !user.canmove || !istype(target))
 		return
 	if(target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1)
@@ -785,7 +786,7 @@
 	var/dpdir = 0		// bitmask of pipe directions
 	dir = 0				// dir will contain dominant direction for junction pipes
 	var/health = 10 	// health points 0-10
-	layer = 2.3			// slightly lower than wires and other pipes
+	layer = DISPOSALS_PIPE_LAYER
 	var/sortType = ""
 	var/subtype = 0
 	// new pipe, set the icon_state as on map
@@ -795,8 +796,8 @@
 
 	if(mapload)
 		var/turf/T = loc
-		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
-		I.plane = 0
+		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
+		I.layer = ABOVE_TILE_LAYER
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
 
@@ -841,7 +842,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1033,30 +1034,6 @@
 
 	qdel(src)
 
-// pipe is deleted
-// ensure if holder is present, it is expelled
-/obj/structure/disposalpipe/Destroy()
-	var/obj/disposalholder/H = locate() in src
-	if(H)
-		// holder was present
-		STOP_PROCESSING(SSdisposals, H)
-		var/turf/T = src.loc
-		if(T.density)
-			// deleting pipe is inside a dense turf (wall)
-			// this is unlikely, but just dump out everything into the turf in case
-
-			for(var/atom/movable/AM in H)
-				AM.forceMove(T)
-				AM.pipe_eject(0)
-			qdel(H)
-
-			return ..()
-
-		// otherwise, do normal expel from turf
-		if(H)
-			expel(H, T, 0)
-	return ..()
-
 /obj/structure/disposalpipe/hides_under_flooring()
 	return 1
 
@@ -1118,7 +1095,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1167,7 +1144,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1362,7 +1339,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1612,12 +1589,12 @@
 	if(attacking_item.isscrewdriver())
 		if(mode==0)
 			mode=1
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You remove the screws around the power connection.")
 			return
 		else if(mode==1)
 			mode=0
-			playsound(src.loc, attacking_item.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
 	else if(attacking_item.iswelder() && mode==1)

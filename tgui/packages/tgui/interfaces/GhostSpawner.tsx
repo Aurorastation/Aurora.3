@@ -14,6 +14,7 @@ type Spawner = {
   short_name: string;
   name: string;
   desc: string;
+  desc_ooc: string;
   type: string;
   cant_spawn: BooleanLike;
   can_edit: BooleanLike;
@@ -105,16 +106,20 @@ export const GhostSpawner = (props, context) => {
 
   let loc_to_color: Map<string, string> = new Map();
 
-  paginate(
-    Array.from(
-      new Set(
-        spawners
-          .filter((s) => s.spawn_overmap_location)
-          .map((s) => s.spawn_overmap_location)
-      )
-    ),
-    colors.length
-  ).map((p) => p.map((l, i) => (loc_to_color[l] = colors[i % colors.length])));
+  if (spawners) {
+    paginate(
+      Array.from(
+        new Set(
+          spawners
+            .filter((s) => s.spawn_overmap_location)
+            .map((s) => s.spawn_overmap_location)
+        )
+      ),
+      colors.length
+    ).map((p) =>
+      p.map((l, i) => (loc_to_color[l] = colors[i % colors.length]))
+    );
+  }
 
   return (
     <Window resizable width={1000} height={700}>
@@ -169,7 +174,14 @@ export const GhostSpawner = (props, context) => {
                     </Table.Cell>
                     <Table.Cell>
                       <Box pb={2} pt={2}>
-                        {spawner.desc}
+                        <Box>{spawner.desc}</Box>
+                        {spawner.desc_ooc ? (
+                          <Box color={spawner.cant_spawn ? null : 'blue'}>
+                            OOC Note: {spawner.desc_ooc}
+                          </Box>
+                        ) : (
+                          ''
+                        )}
                         {spawner.manifest.length > 0 ? (
                           <Box
                             style={{

@@ -55,7 +55,7 @@
 /area/ship/dominian_unathi/captain
 	name = "Kazhkz Privateer Ship - Captain's Quarters"
 	icon_state = "captain"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/ship/dominian_unathi/canteen
 	name = "Kazhkz Privateer Ship - Canteen"
@@ -84,13 +84,18 @@
 /area/ship/dominian_unathi/toilet
 	name = "Kazhkz Privateer Ship - Head"
 	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/ship/dominian_unathi/storage
 	name = "Kazhkz Privateer Ship - Storeroom"
 	icon_state = "storage"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
+
+/area/ship/dominian_unathi/dock
+	name = "Kazhkz Privateer Ship - Docking Arm"
+	icon_state = "exit"
 
 //Shuttle
 /area/shuttle/dominian_unathi
 	name = "Kazhkz Privateer Fighter"
+	requires_power = TRUE

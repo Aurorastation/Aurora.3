@@ -1,7 +1,5 @@
 // Alien larva are quite simple.
 /mob/living/carbon/alien/Life()
-	set background = BACKGROUND_ENABLED
-
 	if (transforming)	return
 	if(!loc)			return
 
@@ -143,6 +141,7 @@
 	return 1
 
 /mob/living/carbon/alien/handle_environment(var/datum/gas_mixture/environment)
+	..()
 	// Both alien subtypes survive in vaccum and suffer in high temperatures,
 	// so I'll just define this once, for both (see radiation comment above)
 	if(!environment) return

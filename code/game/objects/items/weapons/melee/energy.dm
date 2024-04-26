@@ -39,7 +39,7 @@
 	edge = initial(edge)
 	w_class = initial(w_class)
 
-/obj/item/melee/energy/dropped(var/mob/user)
+/obj/item/melee/energy/dropped(mob/user)
 	..()
 	if(!istype(loc,/mob))
 		deactivate(user)
@@ -132,7 +132,7 @@
 	name = "energy glaive"
 	desc = "An energized glaive."
 	icon_state = "eglaive0"
-	force = 20
+	force = 25
 	throwforce = 30
 	active_force = 40
 	active_throwforce = 60
@@ -179,13 +179,10 @@
 	name = "energy axe"
 	desc = "An energised battle axe."
 	icon_state = "axe0"
-	//active_force = 150 //holy...
 	active_force = 60
 	active_throwforce = 35
 	active_w_class = ITEMSIZE_HUGE
-	//force = 40
-	//throwforce = 25
-	force = 20
+	force = 25
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 5
@@ -242,8 +239,11 @@
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 	sharp = 1
 	edge = TRUE
-	var/blade_color
 	shield_power = 75
+	can_block_bullets = TRUE
+	base_reflectchance = 30
+	base_block_chance = 30
+	var/blade_color
 
 /obj/item/melee/energy/sword/New()
 	blade_color = pick("red","blue","green","purple")
@@ -274,13 +274,41 @@
 	attack_verb = list()
 	icon_state = initial(icon_state)
 
+/obj/item/melee/energy/sword/perform_technique(mob/living/carbon/human/target, mob/living/carbon/human/user, target_zone)
+	. = ..()
+	var/armor_reduction = target.get_blocked_ratio(target_zone, DAMAGE_BRUTE, DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP, damage = force)*100
+	var/obj/item/organ/external/affecting = target.get_organ(target_zone)
+	if(!affecting)
+		return
+	user.do_attack_animation(target)
+
+	if(target_zone == BP_HEAD || target_zone == BP_EYES || target_zone == BP_MOUTH)
+		if(prob(70 - armor_reduction))
+			target.eye_blurry += 5
+			target.confused += 10
+			return TRUE
+
+	if(target_zone == BP_R_ARM || target_zone == BP_L_ARM || target_zone == BP_R_HAND || target_zone == BP_L_HAND)
+		if(prob(80 - armor_reduction))
+			if(target_zone == BP_R_ARM || target_zone == BP_R_HAND)
+				target.drop_r_hand()
+			else
+				target.drop_l_hand()
+			return TRUE
+
+	if(target_zone == BP_R_FOOT || target_zone == BP_R_FOOT || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
+		if(prob(60 - armor_reduction))
+			target.Weaken(5)
+			return TRUE
+
+	return FALSE
+
 /obj/item/melee/energy/sword/pirate
 	name = "energy cutlass"
 	desc = "Arrrr matey."
 	icon_state = "cutlass0"
 
 	slot_flags = SLOT_BELT
-
 	base_reflectchance = 60
 	base_block_chance = 60
 
@@ -331,7 +359,7 @@
 	base_reflectchance = 10
 	base_block_chance = 10
 	active_force = 20
-	force = 10
+	force = 15
 	origin_tech = list(TECH_MAGNET = 3)
 
 /obj/item/melee/energy/sword/knife/activate(mob/living/user)
@@ -345,7 +373,7 @@
 	base_reflectchance = 10
 	base_block_chance = 10
 	active_force = 20
-	force = 10
+	force = 15
 	origin_tech = list(TECH_MAGNET = 3)
 
 /obj/item/melee/energy/sword/knife/sol/activate(mob/living/user)
@@ -395,7 +423,7 @@
 	name = "energy blade"
 	desc = "A concentrated beam of energy in the shape of a blade. Very stylish... and lethal."
 	icon_state = "blade"
-	force = 40
+	force = 30
 	active_force = 40 //Normal attacks deal very high damage - about the same as wielded fire axe
 	sharp = TRUE
 	edge = TRUE

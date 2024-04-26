@@ -11,15 +11,19 @@
 	icon_state = "nullrod"
 	item_state = "nullrod"
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throw_speed = 1
 	throw_range = 4
 	throwforce = 10
 	w_class = ITEMSIZE_SMALL
 	var/can_change_form = TRUE // For holodeck check.
 	var/cooldown = 0 // Floor tap cooldown.
-	var/static/list/nullchoices = list("Null Rod" = /obj/item/nullrod, "Null Staff" = /obj/item/nullrod/staff, "Null Orb" = /obj/item/nullrod/orb, "Null Athame" = /obj/item/nullrod/athame, "Tribunal Rod" = /obj/item/nullrod/dominia, "Tajaran charm" = /obj/item/nullrod/charm,
-									"Mata'ke Sword" = /obj/item/nullrod/matake, "Rredouane Sword" = /obj/item/nullrod/rredouane, "Shumaila Hammer" = /obj/item/nullrod/shumaila, "Zhukamir Ladle" = /obj/item/nullrod/zhukamir, "Azubarre Torch" = /obj/item/nullrod/azubarre)
+	var/list/null_choices = list( //Generic nullrods only here, religion-specific ones should be on the religion datum
+		"Null Rod" = /obj/item/nullrod,
+		"Null Staff" = /obj/item/nullrod/staff,
+		"Null Orb" = /obj/item/nullrod/orb,
+		"Null Athame" = /obj/item/nullrod/athame,
+	)
 
 /obj/item/nullrod/obsidianshards
 	name = "obsidian shards"
@@ -145,32 +149,108 @@
 /obj/item/nullrod/azubarre/isFlameSource()
 	return lit
 
-/obj/item/nullrod/verb/change(mob/user)
+/obj/item/nullrod/shaman
+	name = "shaman staff"
+	desc = "A seven foot staff traditionally carried by Unathi shamans both as a symbol of authority and to aid them in walking. It is made out of dark, polished wood and is curved at the end."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "shaman_staff"
+	item_state = "shaman_staff"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_LARGE
+	slot_flags = null
+
+/obj/item/nullrod/skakh_warrior
+	name = "\improper Sk'akh sword"
+	desc = "A silver-bladed ceremonial sword, made in the image of the Warrior Mukari's holy weapon. These blades are often carried by Sk'akh Priests of the Warrior in representation of His strength, though they are of little use in practical combat."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "skakh_sword"
+	item_state = "skakh_sword"
+	slot_flags = SLOT_BACK|SLOT_BELT
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_LARGE
+
+/obj/item/nullrod/skakh_healer
+	name = "\improper Sk'akh staff"
+	desc = "A long staff topped with a green gemstone set in silver, made in the image of the Healer Simi's holy item. These staves are often carried by Sk'akh Priestesses of the Healer, in representation of Her wisdom."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "skakh_staff"
+	item_state = "skakh_staff"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_LARGE
+	slot_flags = null
+
+/obj/item/nullrod/skakh_fisher
+	name = "\improper Sk'akh sickle"
+	desc = "A silver-bladed ceremonial sickle, made in the image of the Fisher Verrix's holy item. These sickles are often carried by Sk'akh Priests of the Fisher, in representation of Their benevolence."
+	icon = 'icons/obj/unathi_items.dmi'
+	icon_state = "skakh_sickle"
+	item_state = "skakh_sickle"
+	contained_sprite = TRUE
+
+/obj/item/nullrod/autakh //not included in the list as it's meant to be an augment
+	name = "blessed cybernetic claw"
+	desc = "A prosthetic limb etched in Sinta'Mador runes and inlayed with obsidian."
+	icon = 'icons/obj/organs/augments.dmi'
+	icon_state = "anchor"
+	item_state = "anchor" //won't appear in-hand and looks suitably aut'akh spiritual
+	can_change_form = FALSE //this is integrated so we dont want anything silly with it
+
+/obj/item/nullrod/autakh/throw_at()
+	usr.drop_from_inventory(src)
+
+/obj/item/nullrod/autakh/dropped()
+	. = ..()
+	loc = null
+	qdel(src)
+
+/obj/item/nullrod/luceiansceptre
+	name = "\improper Luminous Sceptre"
+	desc = "The Luminous Sceptre is a ceremonial staff optionally carried by the ministerial clergy of Luceism. It is fashioned from cedar and 18-karat gold, wrapped in sacred luce vine, \
+	and topped with a miniature, specialized warding sphere. Such sceptres are traditionally employed in Luceian exorcisms or rituals to rid a corrupted soul of the darkness in their body - often, curiously, to great effect."
+	icon = 'icons/obj/luceian_sceptre.dmi'
+	icon_state = "luceian_sceptre"
+	item_state = "luceian_sceptre"
+	contained_sprite = TRUE
+
+	force = 25
+	w_class = ITEMSIZE_LARGE
+	slot_flags = SLOT_BACK
+	light_range = 4
+	light_power = 2
+	light_color = LIGHT_COLOR_BLUE
+
+/obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
 	set src in usr
 
-	// Holodeck Check
+	// Holodeck/Augment Check
 	if(!can_change_form)
-		to_chat(user, SPAN_NOTICE("You can't change a holographic item's form..."))
+		to_chat(user, SPAN_NOTICE("You can't change this item's form!"))
 		return
 
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
 
-	var/picked = tgui_input_list(user, "What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", nullchoices)
+	var/mob/living/carbon/human/H = user
+	if(istype(H))
+		var/datum/religion/R = SSrecords.religions[H.religion]
+		if(R.nulloptions)
+			null_choices.Add(R.nulloptions)
+
+	var/picked = tgui_input_list(user, "What form would you like your obsidian relic to take?", "Reassembling your obsidian relic", null_choices)
 
 	if(use_check_and_message(user, USE_FORCE_SRC_IN_USER))
 		return
-	if(!ispath(nullchoices[picked]))
+	if(!ispath(null_choices[picked]))
 		return
 
 	to_chat(user, SPAN_NOTICE("You start reassembling your obsidian relic."))
 	if(!do_after(user, 2 SECONDS))
 		return
 
-	var/obj/item/nullrod/chosenitem = nullchoices[picked]
-	new chosenitem(get_turf(user))
+	var/nullrodpath = null_choices[picked]
+	var/obj/item/nullrod/chosenitem = new nullrodpath(get_turf(user))
 	qdel(src)
 	user.put_in_hands(chosenitem)
 
@@ -197,7 +277,28 @@
 
 	if(M.stat != DEAD && ishuman(M) && user.a_intent != I_HURT)
 		var/mob/living/K = M
-		if(cult && (K.mind in cult.current_antagonists) && prob(75))
+		var/datum/vampire/vampire = K.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire)
+			if(vampire.status & VAMP_ISTHRALL)
+				if(do_after(user, 1.5 SECONDS))
+					K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
+				var/choice = alert(K,"Do you want to give into the light and be freed from your vampiric master?","Become cleansed","Resist","Give in")
+				switch(choice)
+					if("Resist")
+						K.visible_message(SPAN_WARNING("The gaze in [K]'s eyes remains determined."), SPAN_NOTICE("You turn away from the light, remaining true to your vampiric master!"))
+						K.say("*scream")
+						K.take_overall_damage(5, 15)
+						admin_attack_log(user, M, "attempted to deconvert", "was unsuccessfully deconverted by", "attempted to deconvert")
+					if("Give in")
+						K.visible_message(SPAN_NOTICE("[K]'s eyes become clearer, the evil gone, but not without leaving scars."))
+						K.take_overall_damage(10, 20)
+						thralls.remove_antagonist(K.mind)
+						admin_attack_log(user, M, "successfully deconverted", "was successfully deconverted by", "successfully deconverted")
+			else if (vampire.status & VAMP_FRENZIED)
+				K.visible_message(SPAN_DANGER("[user] thrusts \the [src] towards [K], who recoils in horror as they erupt into flames!"), SPAN_DANGER("[user] thrusts \the [src] towards you, its holy light scorching your corrupted flesh!"))
+				K.adjust_fire_stacks(10)
+				K.IgniteMob()
+		else if(cult && (K.mind in cult.current_antagonists) && prob(75))
 			if(do_after(user, 1.5 SECONDS))
 				K.visible_message(SPAN_DANGER("[user] waves \the [src] over \the [K]'s head, [K] looks captivated by it."), SPAN_WARNING("[user] waves the [src] over your head. <b>You see a foreign light, asking you to follow it. Its presence burns and blinds.</b>"))
 				var/choice = alert(K,"Do you want to give up your goal?","Become cleansed","Resist","Give in")
@@ -215,6 +316,7 @@
 			else
 				user.visible_message(SPAN_WARNING("[user]'s concentration is broken!"), SPAN_WARNING("Your concentration is broken! You and your target need to stay uninterrupted for longer!"))
 				return
+
 		else
 			to_chat(user, SPAN_DANGER("The [src] appears to do nothing."))
 			M.visible_message(SPAN_DANGER("\The [user] waves \the [src] over \the [M]'s head."))
@@ -241,6 +343,15 @@
 		if(rune_found)
 			visible_message(SPAN_NOTICE("A holy glow permeates the air!"))
 		return
+	if(user.mind && (user.mind.assigned_role == "Chaplain"))
+		if(A.reagents && A.reagents.has_reagent(/singleton/reagent/water)) //blesses all the water in the holder
+			if(REAGENT_VOLUME(A.reagents, /singleton/reagent/water) > 60)
+				to_chat(user, SPAN_NOTICE("There's too much water for you to bless at once!"))
+			else
+				to_chat(user, SPAN_NOTICE("You bless the water in [A], turning it into holy water."))
+				var/water2holy = REAGENT_VOLUME(A.reagents, /singleton/reagent/water)
+				A.reagents.del_reagent(/singleton/reagent/water)
+				A.reagents.add_reagent(/singleton/reagent/water/holywater, water2holy)
 
 /obj/item/reagent_containers/spray/aspergillum
 	name = "aspergillum"
@@ -291,13 +402,13 @@
 	name = "warding sphere"
 	desc = "A religious artefact commonly associated with Luceism, this transparent globe gives off a faint ghostly white light at all times."
 	desc_extended = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
-	Constructed out of glass and a luce vine bulb these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
+	Constructed out of glass and a luce vine bulb, these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
 	point towards Assunzione. It is considered extremely bad luck to have one's warding sphere break, to extinguish its flame, or to relinquish it (permanently) to an unbeliever."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "assunzioneorb"
 	item_state = "assunzioneorb"
 	throwforce = 5
-	force = 5
+	force = 11
 	light_range = 1.4
 	light_power = 1.4
 	light_color = LIGHT_COLOR_BLUE
@@ -338,6 +449,15 @@
 		icon_state = "assunzionesheath"
 	else
 		icon_state = "assunzionesheath_empty"
+
+/obj/item/storage/assunzionesheath/filled
+	starts_with = list(
+		/obj/item/assunzioneorb = 1
+	)
+
+/obj/item/storage/assunzionesheath/Initialize()
+	. = ..()
+	update_icon()
 
 /obj/item/storage/altar
 	name = "altar"

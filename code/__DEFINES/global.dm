@@ -36,9 +36,6 @@ GLOBAL_PROTECT(href_logfile)
 GLOBAL_VAR_INIT(game_version, "Aurorastation")
 GLOBAL_PROTECT(game_version)
 
-GLOBAL_VAR_INIT(changelog_hash, "")
-GLOBAL_PROTECT(changelog_hash)
-
 GLOBAL_VAR_INIT(game_year, (text2num(time2text(world.realtime, "YYYY")) + 442))
 
 GLOBAL_VAR_INIT(round_progressing, 1)
@@ -93,6 +90,7 @@ GLOBAL_LIST_INIT(reverse_dir, list( // reverse_dir[dir] = reverse of dir
 	41, 43, 36, 38, 37, 39, 44, 46, 45, 47, 16, 18, 17, 19, 24, 26, 25, 27, 20, 22, 21,
 	23, 28, 30, 29, 31, 48, 50, 49, 51, 56, 58, 57, 59, 52, 54, 53, 55, 60, 62, 61, 63
 ))
+GLOBAL_LIST_INIT(all_days, list("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"))
 
 GLOBAL_LIST_EMPTY(combatlog)
 GLOBAL_PROTECT(lawchanges)

@@ -1,4 +1,5 @@
 /obj
+	layer = OBJ_LAYER
 	animate_movement = 2
 
 	var/list/matter //Used to store information about the contents of the object.
@@ -23,17 +24,28 @@
 	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
 	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
 	//requires that the wearer's species is listed in icon_supported_species_tags
-	var/list/icon_supported_species_tags //Used with icon_auto_adapt, a list of species which have differing appearances for this item
-	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
+
+	/**
+	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,
+	 * based on the specie short name
+	 */
+	var/list/icon_supported_species_tags
+
+	///If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand
+	var/icon_species_in_hand = FALSE
 
 	var/equip_slot = 0
+	///Played when the item is used, for example tools
 	var/usesound
+
 	var/toolspeed = 1
 
 	var/surgerysound
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	unbuckle()
+	QDEL_NULL(talking_atom)
 	return ..()
 
 /obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
@@ -198,15 +210,23 @@
 					step(src, pick(NORTH,SOUTH,EAST,WEST))
 					sleep(rand(2,4))
 
-
-/obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
+/**
+ * Sets the `icon_species_tag` on the `/obj` based on the wearer specie, which is
+ * then used by the icon generator to select the correct overlay of the object
+ *
+ * * wearer - A `/mob/living/carbon/human` to adapt the object to the specie of
+ *
+ * Returns `TRUE` on successful adaptation, `FALSE` otherwise
+ */
+/obj/proc/auto_adapt_species(mob/living/carbon/human/wearer)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(icon_auto_adapt)
 		icon_species_tag = ""
-		if (wearer && icon_supported_species_tags.len)
-			if (wearer.species.short_name in icon_supported_species_tags)
+		if(wearer && length(icon_supported_species_tags))
+			if(wearer.species.short_name in icon_supported_species_tags)
 				icon_species_tag = wearer.species.short_name
-				return 1
-	return 0
+				return TRUE
+	return FALSE
 
 
 //This function should be called on an item when it is:
@@ -261,3 +281,8 @@
 
 /obj/proc/set_pixel_offsets()
 	return
+
+//wash an object
+/obj/proc/clean()
+	clean_blood()
+	color = initial(color)

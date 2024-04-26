@@ -178,6 +178,18 @@
 	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment = 5, /singleton/reagent/drink/milk/cream = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("baked dough" = 2))
 
+/obj/item/reagent_containers/food/snacks/adhomian_porridge
+	name = "adhomian porridge"
+	desc = "A truly basic adhomian peasant food that is very similar to oatmeal."
+	icon = 'icons/obj/item/reagent_containers/food/soup.dmi'
+	icon_state = "oatmeal"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#caaf7c"
+	center_of_mass = list("x"=15, "y"=9)
+	reagents_to_add = list(/singleton/reagent/nutriment = 8, /singleton/reagent/drink/milk/adhomai = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("oatmeal" = 3))
+	bitesize = 2
+
 // Tajaran ingredients
 /obj/item/mollusc/clam/rasval
 	name = "ras'val clam"
@@ -406,8 +418,8 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/tajara.dmi'
 	icon_state = "roast_dirtberries"
 	bitesize = 2
-	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/drink/syrup_caramel = 4)
-	reagent_data = list(/singleton/reagent/nutriment = list("warm crunchy nuts" = 2, "cinnamon" = 2), /singleton/reagent/drink/syrup_caramel = list("caramel" = 5))
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/condiment/syrup_caramel = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("warm crunchy nuts" = 2, "cinnamon" = 2), /singleton/reagent/condiment/syrup_caramel = list("caramel" = 5))
 	desc_extended = "A traditional snack consisting of oven-roasted dirtberries covered in a mixture of spice and caramel. These crunchy fruits are usually sold at outdoor festivals and events and are enjoyed for their warming effect and pleasant taste."
 	filling_color = "#BD8939"
 

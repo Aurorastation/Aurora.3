@@ -111,3 +111,46 @@
 	desc = "A lightweight red jumpsuit with a brown-orange vest, this uniform is an odd fusion of modern design and traditional Unathi aesthetics. Its golden ornamentation indicates it as belonging to an officer of the Izweski Hegemony's Navy."
 	icon_state = "izweski_officer"
 	item_state = "izweski_officer"
+
+/obj/item/clothing/under/unathi/skakh
+	name = "\improper Sk'akh priest robes"
+	desc = "A simple brown robe with gilded ornamentation, the standard garment for the clergy of the Sk'akh Church. The ornamentation this one bears identifies its wearer as holding the rank of an ordained priest within the Church hierarchy."
+	icon_state = "skakh"
+	item_state = "skakh"
+
+/obj/item/clothing/under/unathi/skakh/fisher
+	name = "\improper Sk'akh fisher robes"
+	desc = "A simple brown and orange robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Fisher."
+	icon_state = "skakh-fisher"
+	item_state = "skakh-fisher"
+
+/obj/item/clothing/under/unathi/skakh/healer
+	name = "\improper Sk'akh healer robes"
+	desc = "A simple brown and green robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Healer."
+	icon_state = "skakh-healer"
+	item_state = "skakh-healer"
+
+/obj/item/clothing/under/unathi/skakh/warrior
+	name = "\improper Sk'akh warrior robes"
+	desc = "A simple brown and red robe with gilded ornamentation, identifying its wearer as a member of the Sk'akh Church's clergy. The ornamentation and colors of this one identify its wearer as an Aspect Priest of the Warrior."
+	icon_state = "skakh-warrior"
+	item_state = "skakh-warrior"
+
+/obj/item/clothing/under/unathi/ancient
+	name = "ancient unathi vestments"
+	desc = "A set of faded cloth vestments that look very, very old. They look like they are made to fit an Unathi"
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_clothing1"
+	item_state = "ancient_clothing1"
+
+/obj/item/clothing/under/unathi/ancient/robes
+	name = "ancient unathi robes"
+	desc = "A set of faded cloth robes that look very, very old. They resemble traditional Unathi garb."
+	icon_state = "ancient_clothing2"
+	item_state = "ancient_clothing2"
+
+/obj/item/clothing/under/unathi/ancient/mador
+	name = "\improper Sinta'Mador burial wrappings"
+	desc = "A set of gray cloth wrappings, used in traditional Sinta'Mador burials. Remarkably well preserved with age."
+	icon_state = "mador_wrappings"
+	item_state = "mador_wrappings"

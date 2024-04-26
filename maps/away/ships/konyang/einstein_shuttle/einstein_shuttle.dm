@@ -2,7 +2,10 @@
 	name = "Einstein Engines Shuttle"
 	id = "einstein_shuttle"
 	description = "An Einstein Engines transport shuttle."
-	suffixes = list("ships/konyang/einstein_shuttle/einstein_shuttle.dmm")
+
+	prefix = "ships/konyang/einstein_shuttle/"
+	suffixes = list("einstein_shuttle.dmm")
+
 	spawn_weight = 1
 	ship_cost = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/einstein_shuttle)
@@ -13,14 +16,6 @@
 /singleton/submap_archetype/einstein_shuttle
 	map = "Einstein Engines Shuttle"
 	descriptor = "An Einstein Engines transport shuttle."
-
-/obj/effect/overmap/visitable/sector/einstein_shuttle
-	name = "empty sector"
-	desc = "An empty sector."
-	icon_state = null //this away site only exists so the shuttle can spawn and doesn't need to be seen. Invisible var causes issues when used for this purpose.
-	initial_restricted_waypoints = list(
-		"Einstein Shuttle" = list("nav_start_einstein")
-	)
 
 //Areas
 /area/shuttle/einstein_shuttle
@@ -85,6 +80,7 @@
 	vessel_mass = 3000
 	vessel_size = SHIP_SIZE_SMALL
 	fore_dir = SOUTH
+	use_mapped_z_levels = TRUE
 
 /obj/machinery/computer/shuttle_control/explore/einstein_shuttle
 	name = "shuttle control console"
@@ -102,14 +98,11 @@
 	logging_home_tag = "nav_start_einstein"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/einstein_shuttle/start
-	name = "Empty Space"
+/obj/effect/shuttle_landmark/ship/einstein_shuttle
+	shuttle_name = "Einstein Shuttle"
 	landmark_tag = "nav_start_einstein"
-	base_area = /area/space
-	base_turf = /turf/space
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
-/obj/effect/shuttle_landmark/einstein_shuttle/transit
+/obj/effect/shuttle_landmark/einstein_shuttle_transit
 	name = "In transit"
 	landmark_tag = "nav_transit_einstein"
 	base_turf = /turf/space/transit/north
@@ -124,7 +117,7 @@
 	spawnpoints = list("einstein_pilot")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/einstein_crew
+	outfit = /obj/outfit/admin/einstein_crew
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC_SHELL, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -133,7 +126,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/einstein_crew
+/obj/outfit/admin/einstein_crew
 	name = "Einstein Shuttle Pilot"
 
 	uniform = /obj/item/clothing/under/rank/einstein
@@ -149,8 +142,15 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/einstein_crew/get_id_access()
+/obj/outfit/admin/einstein_crew/get_id_access()
 	return list(ACCESS_EE_SPY_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
+
+/obj/outfit/admin/einstein_crew/post_equip(mob/living/carbon/human/H, visualsOnly)
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+		tag.ownership_info = IPC_OWNERSHIP_SELF
+		tag.citizenship_info = CITIZENSHIP_COALITION
 
 /datum/ghostspawner/human/einstein_crew/suit
 	short_name = "einstein_suit"
@@ -161,7 +161,7 @@
 	spawnpoints = list("einstein_suit")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/einstein_crew/suit
+	outfit = /obj/outfit/admin/einstein_crew/suit
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -169,8 +169,9 @@
 	special_role = "Einstein Engines Corporate Representative"
 	respawn_flag = null
 
-/datum/outfit/admin/einstein_crew/suit
-	uniform = /obj/item/clothing/under/suit_jacket/navy
+/obj/outfit/admin/einstein_crew/suit
+	uniform = /obj/item/clothing/under/rank/liaison/einstein
+	accessory = /obj/item/clothing/accessory/tie/black
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/satchel/leather
 	accessory = null

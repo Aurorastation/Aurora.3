@@ -40,11 +40,30 @@
 	 */
 	var/list/sectors_blacklist = list()
 
-	/// Prefix part of the path to the dmm maps.
+	/**
+	 * Static part of the ruin path, ie the folder
+	 * have to start without a slash, and end with a slash
+	 *
+	 * eg. `away_site/`
+	 *
+	 * Gets combined with the other prefixes in the inheritance tree
+	 * (under /New()) to form the relative path from the root of the codebase
+	 * to the folder this ruin is in
+	 *
+	 * If you implement a subtype of another subtype, it is *your* responsibility to
+	 * ensure that `/New()` chains the path correctly
+	 */
 	var/prefix = null
 
-	/// A list of suffix parts of paths of the dmm maps.
-	/// Combined with prefix to get the actual path.
+	/**
+	 * The dynamic part of the ruin path, ie the files
+	 *
+	 * A `/list` with only the file names of the DMM files
+	 *
+	 * eg. `my_awesome_ruin.dmm`
+	 *
+	 * Gets combined with the prefix to form the path to the map files, that are loaded when the ruin loads
+	 */
 	var/list/suffixes = null
 
 	/// Template flags for this ruin
@@ -59,7 +78,13 @@
 	///Listed ruins are removed from the set of available spawns
 	var/list/ban_ruins
 
-/datum/map_template/ruin/New()
+/**
+ * Ensure to call the parent constructor *last*
+ *
+ * If you have subtypes and you change the `prefix`, it is *your* responsibility to
+ * chain your changed `prefix` here, before calling the parent constructor
+ */
+/datum/map_template/ruin/New(var/list/paths = null, rename = null)
 	// get the map paths
 	if (suffixes)
 		mappaths = list()
@@ -69,10 +94,7 @@
 	// set up sectors
 	sectors = flatten_list(sectors)
 	sectors_blacklist = flatten_list(sectors_blacklist)
-//opendream doesn't have this proc for lists yet so we need this to prevent the linter from shitting itself
-#if !defined(OPENDREAM)
 	sectors.RemoveAll(sectors_blacklist)
-#endif
 
 	// adjust weight from sector dependent override
 	var/datum/space_sector/current_sector = SSatlas.current_sector
@@ -82,6 +104,7 @@
 			var/list/sectors_flattened = flatten_list(list(sectors))
 			if(current_sector.name in sectors_flattened)
 				spawn_weight = weight_in_sector
+				break
 
 	// fin
 	..()

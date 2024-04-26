@@ -4,10 +4,13 @@
 	spawn_cost = 1
 	spawn_weight = 1
 	description = "An arctic planet and an alien underground surface."
-	suffixes = list("away_site/blueriver/blueriver-1.dmm","away_site/blueriver/blueriver-2.dmm")
+
+	prefix = "away_site/blueriver/"
+	suffixes = list("blueriver-1.dmm","blueriver-2.dmm")
+
 	generate_mining_by_z = 2
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	sectors_blacklist = list(SECTOR_BURZSIA, SECTOR_HANEUNIM) //it's a whole ass planet, shouldn't have it in predefined sectors
+	sectors_blacklist = list(ALL_SPECIFIC_SECTORS) //it's a whole ass planet, shouldn't have it in predefined sectors
 
 	unit_test_groups = list(1)
 

@@ -80,9 +80,6 @@
 /obj/structure/bed/stool/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-/obj/structure/bed/stool/wood/New(var/newloc)
-	..(newloc, MATERIAL_WOOD)
-
 /obj/structure/bed/stool/bar
 	name = "bar stool"
 	desc = "It has some unsavory stains on it..."
@@ -136,10 +133,6 @@
 /obj/structure/bed/stool/bar/padded/violet/New(var/newloc)
 	..(newloc, MATERIAL_STEEL, MATERIAL_CLOTH, COLOR_VIOLET)
 
-
-/obj/structure/bed/stool/bar/wood/New(var/newloc)
-	..(newloc, MATERIAL_WOOD)
-
 /obj/structure/bed/stool/hover
 	name = "hoverstool"
 	desc = "As comfortable as a cloud."
@@ -179,7 +172,7 @@
 	desc_info = "Use in-hand or alt-click to right this."
 	randpixel = 0
 	center_of_mass = null
-	force = 10	// Doesn't really matter. Will get overriden by set_material.
+	force = 15	// Doesn't really matter. Will get overriden by set_material.
 	throwforce = 10
 	throw_range = 5
 	force_divisor = 0.4
@@ -227,20 +220,6 @@
 		user.visible_message(SPAN_DANGER("[user] [material.destruction_desc] \the [src] to pieces against \the [target]'s [hit_zone]!"), SPAN_DANGER("\The [src] [material.destruction_desc] to pieces against \the [target]'s [hit_zone]!"))
 		use_material_shatter = FALSE
 		shatter()
-
-/obj/item/material/stool/ex_act(severity)
-	switch(severity)
-		if(1.0)
-			qdel(src)
-			return
-		if(2.0)
-			if (prob(50))
-				qdel(src)
-				return
-		if(3.0)
-			if (prob(5))
-				qdel(src)
-				return
 
 /obj/item/material/stool/proc/deploy(mob/user)
 	for(var/obj/A in get_turf(loc))

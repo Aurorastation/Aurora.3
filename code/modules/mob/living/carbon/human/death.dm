@@ -58,8 +58,6 @@
 
 			remove_verb(src, /mob/living/carbon/proc/release_control)
 
-	callHook("death", list(src, gibbed))
-
 	if(!gibbed)
 		if(species.death_sound)
 			playsound(loc, species.death_sound, 80, 1, 1)
@@ -109,9 +107,11 @@
 	if((mutations & SKELETON))
 		return
 
-	if(f_style)
+	var/datum/sprite_accessory/hair/hair = GLOB.hair_styles_list[h_style]
+	var/datum/sprite_accessory/facial_hair/facial = GLOB.facial_hair_styles_list[f_style]
+	if(!facial.keep_as_skeleton && f_style)
 		f_style = "Shaved"
-	if(h_style)
+	if(!hair.keep_as_skeleton && h_style)
 		h_style = "Bald"
 	update_hair(0)
 

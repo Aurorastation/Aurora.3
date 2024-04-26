@@ -25,9 +25,7 @@
 /singleton/surgery_step/generic/cut_with_laser
 	name = "Make Laser Incision"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel/laser3 = 95, \
-	/obj/item/surgery/scalpel/laser2 = 85, \
-	/obj/item/surgery/scalpel/laser1 = 75
+	/obj/item/surgery/scalpel/laser = 100
 	)
 	priority = 2
 	min_duration = 50

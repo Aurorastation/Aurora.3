@@ -157,7 +157,7 @@ var/list/ai_verbs_default = list(
 	//Languages
 	add_language(LANGUAGE_ROBOT, TRUE)
 	add_language(LANGUAGE_TCB, TRUE)
-	add_language(LANGUAGE_SOL_COMMON, FALSE)
+	add_language(LANGUAGE_SOL_COMMON, TRUE)
 	add_language(LANGUAGE_ELYRAN_STANDARD, FALSE)
 	add_language(LANGUAGE_UNATHI, FALSE)
 	add_language(LANGUAGE_SIIK_MAAS, FALSE)
@@ -197,9 +197,16 @@ var/list/ai_verbs_default = list(
 	hud_list[SPECIALROLE_HUD] = new /image/hud_overlay('icons/mob/hud.dmi', src, "hudblank")
 
 	ai_list += src
+
+	GLOB.cameranet.add_source(src)
+
+	create_eyeobj()
+
 	return ..()
 
 /mob/living/silicon/ai/Destroy()
+	GLOB.cameranet.remove_source(src)
+
 	QDEL_NULL(ai_multi)
 	QDEL_NULL(ai_radio)
 	QDEL_NULL(psupply)
@@ -343,9 +350,6 @@ var/list/ai_verbs_default = list(
 	if(powered_ai.anchored)
 		update_use_power(POWER_USE_ACTIVE)
 
-/mob/living/silicon/ai/rejuvenate()
-	return 	// TODO: Implement AI rejuvination
-
 /mob/living/silicon/ai/proc/ai_help()
 	set category = "OOC"
 	set name = "AI Help"
@@ -419,7 +423,7 @@ var/list/ai_verbs_default = list(
 	if(message_cooldown)
 		to_chat(src, "Please allow one minute to pass between announcements.")
 		return
-	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement")
+	var/input = tgui_input_text(usr, "Please write a message to announce to the station crew.", "A.I. Announcement", multiline = TRUE)
 	if(!input)
 		return
 
@@ -547,10 +551,15 @@ var/list/ai_verbs_default = list(
 	return
 
 /mob/living/silicon/ai/ex_act(severity)
+	if(severity == 1.0)
+		qdel(src)
+		return
 	if (health > 0)
 		adjustBruteLoss(min(30/severity, health))
 		updatehealth()
-	return
+
+	. = ..()
+
 
 /mob/living/silicon/ai/reset_view(atom/A)
 	if(camera)
@@ -824,13 +833,6 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/proc/is_in_chassis()
 	return istype(loc, /turf)
-
-
-/mob/living/silicon/ai/ex_act(var/severity)
-	if(severity == 1.0)
-		qdel(src)
-		return
-	..()
 
 /mob/living/silicon/ai/proc/multitool_mode()
 	set name = "Toggle Multitool Mode"

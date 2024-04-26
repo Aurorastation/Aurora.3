@@ -7,7 +7,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 8
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/a454
 	name = "speed loader (.454)"
@@ -17,7 +17,7 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38
 	name = "speed loader (.38)"
@@ -27,7 +27,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38/rubber
 	name = "speed loader (.38 rubber)"
@@ -43,6 +43,8 @@
 	icon_state = "a454"
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45/revolver
+	max_ammo = 6
+	multiple_sprites = TRUE
 
 // End of Revolvos //
 
@@ -713,3 +715,35 @@
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 9
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/spitterpistol
+	name = "spitter pistol magazine"
+	icon_state = "spitterpistol_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 8
+
+/obj/item/ammo_magazine/hookmg
+	name = "hook machinegun magazine"
+	icon_state = "hookmg_ammobox"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 50
+
+/obj/item/ammo_magazine/crackrifle
+	name = "crack rifle magazine"
+	icon_state = "crackrifle_mag"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 33
+
+/obj/item/ammo_magazine/tempestsmg
+	name = "tempest smg magazine"
+	icon_state = "tempestsmg_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 20

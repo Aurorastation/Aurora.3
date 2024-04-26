@@ -76,7 +76,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_camera_access(user, ACCESS_SECURITY) && security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
+	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
@@ -234,13 +234,6 @@
 			L.tracking_cancelled()
 	current_camera = null
 	update_use_power(POWER_USE_IDLE)
-
-//Camera control: mouse.
-/atom/DblClick()
-	..()
-	if(istype(usr.machine,/obj/machinery/computer/security))
-		var/obj/machinery/computer/security/console = usr.machine
-		console.jump_on_click(usr,src)
 
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"

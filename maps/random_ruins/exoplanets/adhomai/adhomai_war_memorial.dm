@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_war_memorial.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_war_memorial.dmm")
+
+	unit_test_groups = list(1)
 
 /obj/structure/sign/adhomai_memorial
 	name = "memorial monument"
@@ -15,4 +19,4 @@
 	density = TRUE
 	anchored = TRUE
 	pixel_x = -16
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER

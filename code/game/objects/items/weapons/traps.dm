@@ -180,7 +180,8 @@
 	health = 100
 	var/datum/weakref/captured = null
 
-/obj/item/trap/animal/MouseDrop_T(mob/living/M, mob/living/user)
+/obj/item/trap/animal/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/M = dropping
 	if(!istype(M))
 		return
 
@@ -535,7 +536,7 @@
 	icon_base = "medium"
 	icon_state = "medium0"
 	throwforce = 4
-	force = 5
+	force = 11
 	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_ENGINEERING = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 5750)
@@ -644,7 +645,7 @@
 	icon = 'icons/obj/item/traps/traps.dmi'
 	icon_state = "large_foundation"
 	throwforce = 4
-	force = 5
+	force = 11
 	w_class = ITEMSIZE_HUGE
 
 /obj/item/large_trap_foundation/attackby(obj/item/attacking_item, mob/user)

@@ -71,6 +71,7 @@
 #define CE_STRAIGHTWALK "straightwalk"  // prevents the confused walking chem side effect
 #define CE_NOSTUTTER    "nostutter"		// helps alleviate stuttering
 #define CE_HAUNTED      "haunted"       // Spectrocybin's ghost vision
+#define CE_BLOODTHIN    "bloodthin"     // Makes you bleed out quicker
 
 // Apply healing effects
 #define CE_ANTIBIOTIC   "antibiotic"	// Thetamycin
@@ -82,6 +83,7 @@
 #define CE_BLOODCLOT    "bloodclot"		// Coagzolug
 #define CE_ORGANREPAIR  "organrepair"	// Rezadone
 #define CE_ANTIPARASITE "antiparasite"  // Helmizole, garlic
+#define CE_ANTIBODIES   "antibodies"    // Hylemnomil-Zeta antibodies
 
 // Deal damage
 #define CE_BREATHLOSS   "breathloss"
@@ -91,6 +93,7 @@
 #define CE_HEPATOTOXIC  "livertoxic"	// Liver damage
 #define CE_CARDIOTOXIC  "hearttoxic"	// Heart damage
 #define CE_PNEUMOTOXIC  "lungtoxic"		// Lung damage
+#define CE_OCULOTOXIC   "eyetoxic"      // Eye damage
 
 //Alcohol
 #define INTOX_BUZZED     0.01

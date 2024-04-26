@@ -56,7 +56,7 @@
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
 	poison_type = GAS_NITROGEN //a species that breathes plasma shouldn't be poisoned by it.
 	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
-	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
+	mob_size = 10 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
 	climb_coeff = 0.75
 
@@ -147,6 +147,8 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 	psi_deaf = TRUE
+	possible_speech_bubble_types = list("robot", "default")
+	valid_prosthetics = list(PROSTHETIC_VAURCA)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

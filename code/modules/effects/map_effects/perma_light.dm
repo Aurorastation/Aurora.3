@@ -8,6 +8,14 @@
 	light_power = 1
 	light_color = "#FFFFFF"
 
+	var/uses_starlight_color = FALSE
+
+/obj/effect/map_effect/perma_light/Initialize(mapload, ...)
+	if (uses_starlight_color)
+		light_color = SSskybox.background_color
+		light_power = SSatlas.current_sector.starlight_power
+	return ..()
+
 /obj/effect/map_effect/perma_light/brighter
 	name = "permanent light (bright)"
 	icon_state = "permalight"
@@ -26,3 +34,11 @@
 	name = "permanent light (concentrated halogen)"
 
 	light_color = LIGHT_COLOR_HALOGEN
+
+/obj/effect/map_effect/perma_light/starlight
+	name = "permanent starlight"
+	uses_starlight_color = TRUE
+
+/obj/effect/map_effect/perma_light/starlight/wide
+	name = "permanent starlight (wide)"
+	light_range = 5

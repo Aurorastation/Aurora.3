@@ -6,7 +6,7 @@
 	icon_state = "setup_medium-open"
 	item_state = "restock_unit"
 	desc = "A vending machine restock cart."
-	force = 7
+	force = 16
 	throwforce = 10
 	throw_speed = 1
 	throw_range = 7
@@ -98,6 +98,11 @@
 	name = "Zo'ra Soda resupply canister"
 	vend_id = "zora"
 	charges = 40
+
+/obj/item/device/vending_refill/frontiervend
+	name = "frontiervend resupply canister"
+	vend_id = "frontiervend"
+	charges = 220
 
 /obj/item/device/vending_refill/battlemonsters
 	name = "Battlemonsters resupply canister"

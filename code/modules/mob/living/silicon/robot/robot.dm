@@ -147,7 +147,7 @@
 
 	robot_modules_background = new()
 	robot_modules_background.icon_state = "block"
-	robot_modules_background.layer = SCREEN_LAYER //Objects that appear on screen are on layer 20, UI should be just below it.
+	robot_modules_background.layer = HUD_BASE_LAYER
 	updatename(mod_type)
 
 	if(!client)
@@ -253,7 +253,7 @@
 	if(has_jetpack)
 		jetpack = new /obj/item/tank/jetpack/carbondioxide/synthetic(src)
 
-	playsound(get_turf(src), spawn_sound, 75, pitch_toggle)
+	playsound(get_turf(src), spawn_sound, 75, pitch_toggle, ignore_walls = FALSE)
 
 /mob/living/silicon/robot/SetName(pickedName as text)
 	custom_name = pickedName
@@ -326,7 +326,7 @@
 				to_chat(src, SPAN_WARNING("Custom Sprite Sheet does not contain a valid icon_state for [sprite.synthicon]-[mod_type]"))
 		else
 			icontype = module_sprites[1]
-		icon_state = module_sprites[icontype][ROBOT_CHASSIS]
+		icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
 	return module_sprites
 
 /mob/living/silicon/robot/proc/pick_module(var/set_module)
@@ -338,7 +338,7 @@
 		return
 	var/list/modules = list()
 	modules.Add(GLOB.robot_module_types)
-	if((crisis_override && security_level == SEC_LEVEL_RED) || security_level == SEC_LEVEL_DELTA || crisis == TRUE)
+	if((crisis_override && GLOB.security_level == SEC_LEVEL_RED) || GLOB.security_level == SEC_LEVEL_DELTA || crisis == TRUE)
 		to_chat(src, SPAN_WARNING("Crisis mode active. Combat module available."))
 		modules += "Combat"
 	mod_type = tgui_input_list(src, "Please, select a module!", "Robot", modules)
@@ -825,7 +825,7 @@
 
 //Robots take half damage from basic attacks.
 /mob/living/silicon/robot/attack_generic(var/mob/user, var/damage, var/attack_message)
-	return ..(user,FLOOR(damage/2),attack_message)
+	return ..(user,FLOOR(damage/2, 1),attack_message)
 
 /mob/living/silicon/robot/proc/allowed(mob/M)
 	// Check if the borg doesn't require any access at all
@@ -921,19 +921,19 @@
 			return TRUE
 		if(!module_state_1)
 			module_state_1 = O
-			O.layer = SCREEN_LAYER
+			O.hud_layerise()
 			contents += O
 			if(istype(module_state_1,/obj/item/borg/sight))
 				sight_mode |= module_state_1:sight_mode
 		else if(!module_state_2)
 			module_state_2 = O
-			O.layer = SCREEN_LAYER
+			O.hud_layerise()
 			contents += O
 			if(istype(module_state_2,/obj/item/borg/sight))
 				sight_mode |= module_state_2:sight_mode
 		else if(!module_state_3)
 			module_state_3 = O
-			O.layer = SCREEN_LAYER
+			O.hud_layerise()
 			contents += O
 			if(istype(module_state_3,/obj/item/borg/sight))
 				sight_mode |= module_state_3:sight_mode
@@ -964,49 +964,6 @@
 
 /mob/living/silicon/robot/proc/radio_menu()
 	radio.interact(src) //Just use the radio's Topic() instead of bullshit special-snowflake code
-
-/mob/living/silicon/robot/Move(a, b, flag)
-	. = ..()
-
-	if(module)
-		if(module.type == /obj/item/robot_module/janitor)
-			var/obj/item/robot_module/janitor/J = module
-			var/turf/tile = get_turf(src)
-			if(isturf(tile) && J.mopping)
-				tile.clean_blood()
-				if(istype(tile, /turf/simulated))
-					var/turf/simulated/S = tile
-					S.dirt = FALSE
-					S.color = null
-				for(var/A in tile)
-					if(istype(A, /obj/effect))
-						if(istype(A, /obj/effect/decal/cleanable))
-							qdel(A)
-						if(istype(A, /obj/effect/overlay))
-							var/obj/effect/overlay/O = A
-							if(O.no_clean)
-								continue
-							qdel(O)
-					else if(istype(A, /obj/item))
-						var/obj/item/cleaned_item = A
-						cleaned_item.clean_blood()
-					else if(istype(A, /mob/living/carbon/human))
-						var/mob/living/carbon/human/cleaned_human = A
-						if(cleaned_human.lying)
-							if(cleaned_human.head)
-								cleaned_human.head.clean_blood()
-								cleaned_human.update_inv_head(0)
-							if(cleaned_human.wear_suit)
-								cleaned_human.wear_suit.clean_blood()
-								cleaned_human.update_inv_wear_suit(0)
-							else if(cleaned_human.w_uniform)
-								cleaned_human.w_uniform.clean_blood()
-								cleaned_human.update_inv_w_uniform(0)
-							if(cleaned_human.shoes)
-								cleaned_human.shoes.clean_blood()
-								cleaned_human.update_inv_shoes(0)
-							cleaned_human.clean_blood(1)
-							to_chat(cleaned_human, SPAN_WARNING("\The [src] runs its bottom mounted bristles all over you!"))
 
 /mob/living/silicon/robot/proc/start_self_destruct(var/anti_theft = FALSE)
 	if(self_destructing)
@@ -1039,12 +996,6 @@
 	density = FALSE
 	fragem(src, 50, 100, 2, 1, 5, 1, FALSE)
 	gib()
-
-/mob/living/silicon/robot/update_canmove() // to fix lockdown issues w/ chairs
-	. = ..()
-	if(lock_charge)
-		canmove = FALSE
-		. = FALSE
 
 /mob/living/silicon/robot/proc/UnlinkSelf()
 	disconnect_from_ai()
@@ -1118,8 +1069,8 @@
 	if(!icontype)
 		return
 
-	icon_state = module_sprites[icontype][ROBOT_CHASSIS]
-	if(!module_sprites[icontype][ROBOT_ICON])
+	icon_state = module_sprites?[icontype]?[ROBOT_CHASSIS]
+	if(!module_sprites?[icontype]?[ROBOT_ICON])
 		icon = initial(icon)
 	icon_selected = TRUE
 

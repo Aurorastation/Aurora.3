@@ -14,9 +14,9 @@
 	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP, ACCESS_FIRST_RESPONDER)
 	opacity = 0
 	density = 0
-	layer = LAYER_UNDER_TABLE
-	open_layer = LAYER_UNDER_TABLE // Just below doors when open
-	closed_layer = DOOR_CLOSED_LAYER + 0.2 // Just above doors when closed
+	layer = OPEN_DOOR_LAYER
+	open_layer = OPEN_DOOR_LAYER // Just below doors when open
+	closed_layer = CLOSED_DOOR_LAYER + 0.2 // Just above doors when closed
 
 	//These are frequenly used with windows, so make sure zones can pass.
 	//Generally if a firedoor is at a place where there should be a zone boundery then there will be a regular door underneath it.
@@ -58,6 +58,8 @@
 	var/close_sound = 'sound/machines/firelockclose.ogg'
 
 	init_flags = 0
+
+	can_astar_pass = CANASTARPASS_DENSITY
 
 /obj/machinery/door/firedoor/Initialize(var/mapload)
 	. = ..()
@@ -464,7 +466,7 @@
 		if(blocked)
 			add_overlay("welded")
 		if(pdiff_alert)
-			add_overlay(overlay_image(icon, icon_state = "palert", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+			add_overlay(overlay_image(icon, icon_state = "palert", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
@@ -475,9 +477,9 @@
 				if (!dir_alerts[d])
 					continue
 				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
-					add_overlay(overlay_image(icon, icon_state = "alert_cold", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+					add_overlay(overlay_image(icon, icon_state = "alert_cold", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
 				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
-					add_overlay(overlay_image(icon, icon_state = "alert_hot", layer = EFFECTS_ABOVE_LIGHTING_LAYER))
+					add_overlay(overlay_image(icon, icon_state = "alert_hot", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
 
 				do_set_light = TRUE
 	else

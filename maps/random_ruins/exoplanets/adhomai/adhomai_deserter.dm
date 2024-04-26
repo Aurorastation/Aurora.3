@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_deserter.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_deserter.dmm")
+
+	unit_test_groups = list(1)
 
 //ghost roles
 
@@ -21,7 +25,7 @@
 	max_count = 1
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/adhomai_deserter
+	outfit = /obj/outfit/admin/adhomai_deserter
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -29,7 +33,7 @@
 	special_role = "Liberation Army Deserter"
 	respawn_flag = null
 
-/datum/outfit/admin/adhomai_deserter
+/obj/outfit/admin/adhomai_deserter
 	name = "Liberation Army Deserter"
 
 	uniform = /obj/item/clothing/under/tajaran/ala/wraps

@@ -90,10 +90,12 @@ There are several things that need to be remembered:
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 #define GET_TAIL_ACC_LAYER (dir == NORTH ? TAIL_NORTH_ACC_LAYER : TAIL_SOUTH_ACC_LAYER)
 
-/proc/overlay_image(icon, icon_state,color, flags, layer)
+/proc/overlay_image(icon, icon_state,color, flags, plane, layer)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
 	ret.appearance_flags = PIXEL_SCALE | flags
+	if(plane)
+		ret.plane = plane
 	if(layer)
 		ret.layer = layer
 	return ret
@@ -239,7 +241,7 @@ There are several things that need to be remembered:
 
 		LAZYADD(ovr, DI)
 
-	overlays_raw[DAMAGE_LAYER] = ovr
+	overlays_raw[MOB_DAMAGE_LAYER] = ovr
 	update_bandages(update_icons)
 	if(update_icons)
 		update_icon()
@@ -250,7 +252,7 @@ There are several things that need to be remembered:
 		return
 
 	var/list/ovr
-	if(overlays_raw[DAMAGE_LAYER])
+	if(overlays_raw[MOB_DAMAGE_LAYER])
 		for(var/obj/item/organ/external/O in organs)
 			if(O.is_stump())
 				continue
@@ -1184,7 +1186,10 @@ There are several things that need to be remembered:
 			else
 				mob_icon = l_hand.icon
 			l_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
+			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
+				mob_state = "[l_hand.item_state_slots[slot_l_hand_str]][WORN_LHAND]"
+			else
+				mob_state = "[UNDERSCORE_OR_NULL(l_hand.icon_species_in_hand ? l_hand.icon_species_tag : null)][l_hand.item_state][WORN_LHAND]"
 		else
 			if(l_hand.item_state_slots && l_hand.item_state_slots[slot_l_hand_str])
 				mob_state = l_hand.item_state_slots[slot_l_hand_str]
@@ -1220,7 +1225,10 @@ There are several things that need to be remembered:
 			else
 				mob_icon = r_hand.icon
 			r_hand.auto_adapt_species(src)
-			mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
+			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
+				mob_state = "[r_hand.item_state_slots[slot_r_hand_str]][WORN_RHAND]"
+			else
+				mob_state = "[UNDERSCORE_OR_NULL(r_hand.icon_species_in_hand ? r_hand.icon_species_tag : null)][r_hand.item_state][WORN_RHAND]"
 		else
 			if(r_hand.item_state_slots && r_hand.item_state_slots[slot_r_hand_str])
 				mob_state = r_hand.item_state_slots[slot_r_hand_str]
@@ -1244,7 +1252,10 @@ There are several things that need to be remembered:
 	if (QDELETED(src))
 		return
 
-	overlays_raw[WRISTS_LAYER] = null
+	overlays_raw[WRISTS_LAYER_UNDER] = null
+	overlays_raw[WRISTS_LAYER_UNIFORM] = null
+	overlays_raw[WRISTS_LAYER_OVER] = null
+
 	if(check_draw_wrists())
 		var/mob_icon
 		var/mob_state = wrists.item_state || wrists.icon_state
@@ -1272,20 +1283,12 @@ There are several things that need to be remembered:
 
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
-		var/normal_layer = TRUE
+		var/wrist_layer = WRISTS_LAYER_OVER
 		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
-			normal_layer = W.normal_layer
+			wrist_layer = W.mob_wear_layer
 
-		if(normal_layer)
-			overlays_raw[WRISTS_LAYER] = wrists_overlay
-			overlays_raw[WRISTS_LAYER_ALT] = null
-		else
-			overlays_raw[WRISTS_LAYER] = null
-			overlays_raw[WRISTS_LAYER_ALT] = wrists_overlay
-	else
-		overlays_raw[WRISTS_LAYER] = null
-		overlays_raw[WRISTS_LAYER_ALT] = null
+		overlays_raw[wrist_layer] = wrists_overlay
 
 	if(update_icons)
 		update_icon()
@@ -1567,7 +1570,7 @@ There are several things that need to be remembered:
 		return FALSE
 	else if (wrists.flags_inv & ALWAYSDRAW)
 		return TRUE
-	else if (wrists && (wrists.flags_inv & HIDEWRISTS))
+	else if (wear_suit?.flags_inv & HIDEWRISTS)
 		return FALSE
 	else
 		return TRUE

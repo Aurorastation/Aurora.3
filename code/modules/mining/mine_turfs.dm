@@ -20,14 +20,13 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-/turf/simulated/mineral //wall piece
+/turf/simulated/mineral
 	name = "rock"
 	icon = 'icons/turf/smooth/rock_dense.dmi'
 	icon_state = "preview_wall"
 	desc = "It's a greyish rock. Exciting."
 	gender = PLURAL
 	var/icon/actual_icon = 'icons/turf/smooth/rock_dense.dmi'
-	layer = ON_TURF_LAYER
 	color = "#6e632f"
 
 	// canSmoothWith is set in Initialize().
@@ -427,9 +426,9 @@ var/list/mineral_can_smooth_with = list(
 	//otherwise, they come out inside a chunk of rock
 	var/obj/item/X
 	if(prob_clean)
-		X = new /obj/item/archaeological_find(src, new_item_type = F.find_type)
+		X = new /obj/item/archaeological_find(src, F.find_type)
 	else
-		var/obj/item/ore/strangerock/SR = new /obj/item/ore/strangerock(src, inside_item_type = F.find_type)
+		var/obj/item/ore/strangerock/SR = new /obj/item/ore/strangerock(src, F.find_type)
 		SR.geologic_data = get_geodata()
 		X = SR
 
@@ -497,7 +496,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 8,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2
+		ORE_SILVER = 2,
+		ORE_BAUXITE = 6,
+		ORE_GALENA = 4
 	)
 	var/mineralChance = 55
 
@@ -510,6 +511,8 @@ var/list/mineral_can_smooth_with = list(
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
 		ORE_SILVER = 2,
+		ORE_BAUXITE = 6,
+		ORE_GALENA = 4,
 		ORE_PHORON = 5
 	)
 
@@ -526,8 +529,7 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
+	color = "#97A7AA"
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/high_chance
@@ -538,7 +540,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 2,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2
+		ORE_SILVER = 2,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 1
 	)
 	mineralChance = 55
 
@@ -550,15 +554,15 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 2,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 2,
-		ORE_SILVER = 2
+		ORE_SILVER = 2,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 1
 	)
 
 /turf/simulated/mineral/random/high_chance/exoplanet
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/random/high_chance/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/random/higher_chance
@@ -569,7 +573,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_COAL = 1,
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 3,
-		ORE_SILVER = 3
+		ORE_SILVER = 3,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 2
 	)
 	mineralChance = 75
 
@@ -582,7 +588,9 @@ var/list/mineral_can_smooth_with = list(
 		ORE_DIAMOND = 1,
 		ORE_GOLD = 3,
 		ORE_SILVER = 3,
-		ORE_PHORON = 2
+		ORE_PHORON = 2,
+		ORE_BAUXITE = 1,
+		ORE_GALENA = 2
 	)
 
 /turf/simulated/mineral/attack_hand(var/mob/user)
@@ -598,6 +606,61 @@ var/list/mineral_can_smooth_with = list(
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src, 20)
 
+/** Preset mineral walls.
+ * These are used to spawn specific types of mineral walls in the map.
+ * Use one of the subtypes below or, in case a new ore is added but the preset isn't created, set preset_mineral_name to the ORE_X define.
+*/
+/turf/simulated/mineral/preset
+	var/preset_mineral_name
+
+/turf/simulated/mineral/preset/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/turf/simulated/mineral/preset/LateInitialize()
+	. = ..()
+	change_mineral(preset_mineral_name, TRUE)
+
+/turf/simulated/mineral/preset/phoron
+	name = "phoron mineral wall"
+	preset_mineral_name = ORE_PHORON
+
+/turf/simulated/mineral/preset/coal
+	name = "coal mineral wall"
+	preset_mineral_name = ORE_COAL
+
+/turf/simulated/mineral/preset/gold
+	name = "gold mineral wall"
+	preset_mineral_name = ORE_GOLD
+
+/turf/simulated/mineral/preset/diamond
+	name = "diamond mineral wall"
+	preset_mineral_name = ORE_DIAMOND
+
+/turf/simulated/mineral/preset/iron
+	name = "iron mineral wall"
+	preset_mineral_name = ORE_IRON
+
+/turf/simulated/mineral/preset/platinum
+	name = "platinum mineral wall"
+	preset_mineral_name = ORE_PLATINUM
+
+/turf/simulated/mineral/preset/bauxite
+	name = "bauxite mineral wall"
+	preset_mineral_name = ORE_BAUXITE
+
+/turf/simulated/mineral/preset/galena
+	name = "galena mineral wall"
+	preset_mineral_name = ORE_GALENA
+
+/turf/simulated/mineral/preset/uranium
+	name = "uranium mineral wall"
+	preset_mineral_name = ORE_URANIUM
+
+/turf/simulated/mineral/preset/metallic_hydrogen
+	name = "metallic_hydrogen mineral wall"
+	preset_mineral_name = ORE_HYDROGEN
+
 // Some extra types for the surface to keep things pretty.
 /turf/simulated/mineral/surface
 	mined_turf = /turf/unsimulated/floor/asteroid/ash
@@ -606,12 +669,13 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/mineral
 
 /turf/simulated/mineral/adhomai
-	icon = 'icons/turf/smooth/icy_wall.dmi'
-	actual_icon = 'icons/turf/smooth/icy_wall.dmi'
 	mined_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 
 /turf/simulated/mineral/crystal
 	color = "#6fb1b5"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt
+
+/turf/simulated/mineral/lava
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /**********************Asteroid**************************/
@@ -852,6 +916,8 @@ var/list/asteroid_floor_smooth = list(
 					ore += /obj/item/ore/gold
 				if(ORE_SILVER)
 					ore += /obj/item/ore/silver
+				if(ORE_GALENA)
+					ore += /obj/item/ore/lead
 				if(ORE_DIAMOND)
 					ore += /obj/item/ore/diamond
 				if(ORE_URANIUM)
@@ -862,6 +928,8 @@ var/list/asteroid_floor_smooth = list(
 					ore += /obj/item/ore/osmium
 				if(ORE_HYDROGEN)
 					ore += /obj/item/ore/hydrogen
+				if(ORE_BAUXITE)
+					ore += /obj/item/ore/aluminium
 				else
 					if(prob(25))
 						switch(rand(1,5))

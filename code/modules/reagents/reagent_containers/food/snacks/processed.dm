@@ -632,3 +632,194 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("fruit cake" = 4))
 	bitesize = 2
 
+// coalition snax go here
+
+/obj/item/reagent_containers/food/snacks/fishjerky
+	name = "Go-Go Gwok! Great Grouper"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "fishjerky"
+	desc = "Ethically-sourced Konyang fish, seasoned with the classic Go-Go Gwok! spice blend."
+	filling_color = "#a7633f"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/fishjerky
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/sodiumchloride = 3)
+	bitesize = 3
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("dried fish" = 2, "gwok spices" = 2))
+
+/obj/item/reagent_containers/food/snacks/pepperoniroll
+	name = "Inverkeithing Imports Number-Nine Roll"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "pepperoniroll"
+	desc = "A warm bread roll stuffed with meat and cheese. A classic miner's lunch."
+	filling_color = "#a7633f"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/pepperoniroll
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4, /singleton/reagent/sodiumchloride = 2)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("pepperoni" = 2, "cheesy bread" = 2))
+
+/obj/item/reagent_containers/food/snacks/salmiak
+	name = "Inverkeithing Imports Viipuri Salmiak"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "saltyliquorice"
+	desc = "A generous portion of salted mushroom licorice. An incredibly difficult-to-acquire taste. Traditionally found on the desks of unpleasant Himean government workers."
+	filling_color = "#1d141f"
+	trash = /obj/item/trash/salmiakpack
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sodiumchloride = 4)
+	bitesize = 1
+	reagent_data = list(/singleton/reagent/nutriment = list("medicine" = 3,"black licorice" = 3))
+
+/obj/item/reagent_containers/food/snacks/hakhspam
+	name = "maps salty hakhma"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "hakhmaps"
+	desc = "A variant of the famous spiced ham product. Popular among Scarabs and the Star-Men."
+	filling_color = "#7f168d"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/hakhmaps
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/sodiumchloride = 4)
+	bitesize = 3
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("alien meat" = 6))
+
+/obj/item/reagent_containers/food/snacks/pemmicanbar
+	name = "Vedabar"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "pemmicanbar"
+	desc = "A bar of dried ohdker meat and berries. Excellent for hiking!"
+	filling_color = "#a7633f"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/pemmican
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6)
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/choctruffles
+	name = "Dalyoni Dimlights"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "choctruffles"
+	desc = "A bag of Assunzionii chocolate truffles. Remarkably unremarkable."
+	filling_color = "#a7633f"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/trufflebag
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sugar = 1)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("rich dark chocolate" = 3, "cocoa powder" = 2))
+
+/obj/item/reagent_containers/food/snacks/peanutsnack
+	name = "Annapurna Classic Munch"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "peanuts_xanu"
+	desc = "A bag of roasted peanuts."
+	filling_color = "#e48552"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/peanutsnack
+	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/sodiumchloride = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("peanuts" = 5))
+	bitesize = 4
+
+/obj/item/reagent_containers/food/snacks/peanutsnack/pepper
+	name = "Annapurna Salt N' Pepper"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "peanuts_sp"
+	desc = "A bag of roasted peanuts, seasoned with salt and pepper."
+	trash = /obj/item/trash/peanutsnack/pepper
+	reagent_data = list(/singleton/reagent/nutriment = list("peanuts" = 2,"pepper" = 3))
+
+/obj/item/reagent_containers/food/snacks/peanutsnack/choc
+	name = "Annapurna Cinnamon Chocolate"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "peanuts_choc"
+	desc = "A bag of roasted peanuts, coated with chocolate and cinnamon."
+	trash = /obj/item/trash/peanutsnack/choc
+	reagent_data = list(/singleton/reagent/nutriment = list("peanuts" = 2,"chocolate" = 2, "cinnamon" = 1))
+
+/obj/item/reagent_containers/food/snacks/peanutsnack/masala
+	name = "Annapurna Masala Masterpiece"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "peanuts_masala"
+	desc = "A bag of roasted peanuts, seasoned with Xanan garam masala."
+	trash = /obj/item/trash/peanutsnack/masala
+	reagent_data = list(/singleton/reagent/nutriment = list("peanuts" = 2,"garam masala" = 3))
+
+/obj/item/reagent_containers/food/snacks/chana
+	name = "NexChana Mild"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "chanamild"
+	desc = "Seasoned, crispy chickpeas. A proud product of the All-Xanu Republic."
+	filling_color = "#e48552"
+	center_of_mass = list("x"=15, "y"=9)
+	trash = /obj/item/trash/chana
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sodiumchloride = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("roasted chickpeas" = 3,"spices" = 3))
+	bitesize = 4
+
+/obj/item/reagent_containers/food/snacks/chana/wild
+	name = "NexChana Wild"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "chanawild"
+	desc = "Crispy chickpeas, coated in a spicy masala mix."
+	trash = /obj/item/trash/chana/wild
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/capsaicin = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("roasted chickpeas" = 3,"spices" = 3))
+
+/obj/item/reagent_containers/food/snacks/papad
+	name = "Vollendaal Papad Crackers"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "papad"
+	desc = "A Xanan brand of crispy papad crackers. Brighten up your snacking!"
+	trash = /obj/item/trash/papad
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 4, /singleton/reagent/sodiumchloride = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 3,"salt" = 1))
+	bitesize = 4
+
+/obj/item/reagent_containers/food/snacks/papad/garlic
+	name = "Vollendaal Gracious Garlic"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "papadgarlic"
+	desc = "The All-Xanu Republic's favorite papad crackers. A sunrise of natural garlic flavor!"
+	trash = /obj/item/trash/papad/garlic
+	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 2,"garlic" = 2))
+
+/obj/item/reagent_containers/food/snacks/papad/ginger
+	name = "Vollendaal Ginger Justice"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "papadginger"
+	desc = "The sale of this box of crackers directly funds the Frontier Protection Bureau."
+	trash = /obj/item/trash/papad/ginger
+	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 2,"fresh ginger" = 2))
+
+/obj/item/reagent_containers/food/snacks/papad/apple
+	name = "Vollendaal Awesome Apple"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "papadapple"
+	desc = "A healthy, crispy comrade to any lunchbox sandwich or movie night."
+	trash = /obj/item/trash/papad/apple
+	reagent_data = list(/singleton/reagent/nutriment = list("fried chickpeas" = 2,"crisp apples" = 2))
+
+/obj/item/storage/box/fancy/foysnack
+	name = "Brown Palace cocoa biscuits"
+	desc = "A little packet of cocoa biscuits. A companion for any afternoon tea."
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "foypack"
+	icon_type = "cookie"
+	storage_type = "packaging"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/foy = 6)
+	can_hold = list(/obj/item/reagent_containers/food/snacks/foy)
+	max_storage_space = 6
+
+	use_sound = 'sound/items/storage/wrapper.ogg'
+	drop_sound = 'sound/items/drop/wrapper.ogg'
+	pickup_sound = 'sound/items/pickup/wrapper.ogg'
+
+	trash = /obj/item/trash/foysnack
+	closable = FALSE
+	icon_overlays = FALSE
+
+/obj/item/reagent_containers/food/snacks/foy
+	name = "foy biscuit"
+	icon = 'icons/obj/item/reagent_containers/food/processed.dmi'
+	icon_state = "cookie_foy"
+	desc = "Tea's favorite cookie."
+	reagents_to_add = list(/singleton/reagent/nutriment = 0.5)
+	reagent_data = list(/singleton/reagent/nutriment = list("light cocoa" = 2))
+	bitesize = 1

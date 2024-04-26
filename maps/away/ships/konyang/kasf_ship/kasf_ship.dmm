@@ -2073,6 +2073,9 @@
 /obj/item/circuitboard/exosystem/medical,
 /obj/item/circuitboard/exosystem/utility,
 /obj/item/circuitboard/exosystem/weapons,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/engie)
 "mG" = (
@@ -3932,10 +3935,15 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
-/obj/machinery/suit_cycler{
-	req_access = null
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
+/obj/item/clothing/accessory/flagpatch/konyang,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/armory)
 "xK" = (
@@ -4122,6 +4130,22 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
+/obj/structure/table/rack,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/tank/emergency_oxygen/double,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/armory)
 "yr" = (
@@ -5171,25 +5195,6 @@
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/kasf_corvette/starboardthrust)
-"DZ" = (
-/obj/structure/table/rack,
-/obj/machinery/door/window/eastright{
-	dir = 1;
-	req_one_access = list(218)
-	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/konyang,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/konyang,
-/obj/item/clothing/head/helmet/space/void/sol/konyang,
-/obj/item/device/gps,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/armory)
 "Ea" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -5906,7 +5911,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/reagent_containers/food/drinks/carton/cream,
 /obj/item/reagent_containers/food/condiment/enzyme{
 	pixel_x = -9;
@@ -6240,25 +6245,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/kasf_shuttle)
-"Jh" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 4
-	},
-/obj/machinery/door/window/westleft{
-	dir = 2;
-	req_one_access = list(218)
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/konyang,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/konyang,
-/obj/item/clothing/head/helmet/space/void/sol/konyang,
-/obj/item/device/gps,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/armory)
 "Jj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 10
@@ -6563,25 +6549,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/ship/kasf_corvette/mainhall)
-"Ld" = (
-/obj/structure/table/rack,
-/obj/machinery/door/window/eastleft{
-	dir = 1;
-	req_one_access = list(218)
-	},
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/konyang,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/konyang,
-/obj/item/clothing/head/helmet/space/void/sol/konyang,
-/obj/item/device/gps,
-/turf/simulated/floor/carpet/rubber,
-/area/ship/kasf_corvette/armory)
 "Li" = (
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
 	dir = 8
@@ -7193,12 +7160,6 @@
 	pixel_x = 4;
 	pixel_y = -24
 	},
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
-/obj/item/gun/projectile/pistol/sol,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
@@ -7211,6 +7172,12 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
+/obj/item/gun/projectile/pistol/sol/konyang,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/armory)
 "OS" = (
@@ -7480,6 +7447,22 @@
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 5
 	},
+/obj/structure/table/rack,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/suit_cooling_unit,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/item/device/gps,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/armory)
 "Qq" = (
@@ -7754,22 +7737,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/kasf_corvette/porthangarfoyer)
 "RJ" = (
-/obj/structure/table/rack,
-/obj/structure/window/reinforced{
-	dir = 8
-	},
-/obj/machinery/door/window/westright{
-	dir = 2;
-	req_one_access = list(218)
-	},
-/obj/item/device/suit_cooling_unit,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/konyang,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/sol/konyang,
-/obj/item/clothing/head/helmet/space/void/sol/konyang,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/konyang,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/kasf_corvette/armory)
 "RO" = (
@@ -41428,9 +41397,9 @@ vn
 AD
 Iq
 Ui
-Jh
+RJ
 gu
-Ld
+RJ
 yx
 yx
 Mb
@@ -41687,7 +41656,7 @@ Di
 Ui
 rB
 gu
-DZ
+RJ
 yx
 gl
 xg
@@ -43229,7 +43198,7 @@ sd
 Ui
 LR
 EV
-Ld
+RJ
 yx
 vV
 YK
@@ -43486,7 +43455,7 @@ ql
 Ui
 RJ
 EV
-DZ
+RJ
 yx
 yx
 zv

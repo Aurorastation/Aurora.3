@@ -52,16 +52,15 @@
 
 	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message linkify'>\"[message]\"</span>", src)
 
-/mob/proc/say_understands(var/mob/other,var/datum/language/speaking = null)
-
-	if (src.stat == 2)		//Dead
+/mob/proc/say_understands(var/mob/other, var/datum/language/speaking = null)
+	if(src.stat == DEAD)
 		return TRUE
 
-	//Universal speak makes everything understandable, for obvious reasons.
-	else if(src.universal_speak || src.universal_understand)
+	// Universal speak makes everything understandable, for obvious reasons.
+	if(src.universal_speak || src.universal_understand)
 		return TRUE
 
-	//Languages are handled after.
+	// Languages are handled after.
 	if (!speaking)
 		if(!other)
 			return TRUE
@@ -76,7 +75,7 @@
 	if(speaking.flags & INNATE)
 		return TRUE
 
-	//Language check.
+	// Language check.
 	for(var/datum/language/L in src.languages)
 		if(speaking.name == L.name)
 			return TRUE
@@ -174,7 +173,7 @@
 			L = GLOB.language_keys[language_prefix]
 
 		//Check if we can speak the language, otherwise return null
-		if(can_speak(L))
+		if(istype(L) && can_speak(L))
 			return L
 		else
 			return null

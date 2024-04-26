@@ -5,7 +5,7 @@
 	icon_state = "window_frame"
 	color = COLOR_GRAY20
 	build_amt = 4
-	layer = LAYER_ABOVE_TABLE
+	layer = ABOVE_TABLE_LAYER
 	anchored = TRUE
 	density = TRUE
 	climbable = TRUE
@@ -32,7 +32,9 @@
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/should_check_mapload = TRUE
 	var/has_glass_installed = FALSE
+	var/has_grille_installed = FALSE
 	var/glass_needed = 4
+	var/rods_needed = 2
 
 /obj/structure/window_frame/cardinal_smooth(adjacencies, var/list/dir_mods)
 	dir_mods = handle_blending(adjacencies, dir_mods)
@@ -97,42 +99,74 @@
 				return
 			if(WT.use(0, user))
 				to_chat(user, SPAN_NOTICE("You use \the [WT] to weld apart \the [src]."))
-				playsound(src, WT.usesound, 50, 1)
+				WT.play_tool_sound(get_turf(src), 50)
 				new /obj/item/stack/material/steel(get_turf(src), 4)
 				qdel(src)
 				return
 
-	else if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED && anchored)
-		if(has_glass_installed)
-			to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
+	else if(istype(attacking_item, /obj/item/stack/material))
+		if(!anchored)
+			to_chat(user, SPAN_NOTICE("\The [src] needs to be anchored."))
 			return
-		var/obj/item/stack/material/G = attacking_item
-		if(do_after(user, 2 SECONDS))
-			if(G.use(glass_needed))
-				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
-				to_chat(user, SPAN_NOTICE("You place the [MATERIAL_GLASS_REINFORCED] in the window frame."))
-				new /obj/structure/window/full/reinforced(get_turf(src), constructed = TRUE)
-				desc = "A steel window frame."
-				has_glass_installed = TRUE
-				return
-		else
-			to_chat(user, SPAN_NOTICE("You need at least [glass_needed] sheets of [MATERIAL_GLASS_REINFORCED] to install a window in \the [src]."))
 
-	else if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED_PHORON && anchored)
-		if(has_glass_installed)
-			to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
-			return
-		var/obj/item/stack/material/G = attacking_item
-		if(do_after(user, 2 SECONDS))
-			if(G.use(glass_needed))
-				playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
-				to_chat(user, SPAN_WARNING("You place the [MATERIAL_GLASS_REINFORCED_PHORON] in the window frame."))
-				new /obj/structure/window/full/phoron/reinforced(get_turf(src), constructed = TRUE)
-				desc = "A steel window frame."
-				has_glass_installed = TRUE
+		var/material_name = attacking_item.get_material_name()
+		if(material_name in list(MATERIAL_GLASS_REINFORCED, MATERIAL_GLASS_REINFORCED_PHORON))
+			if(has_glass_installed)
+				to_chat(user, SPAN_NOTICE("\The [src] already has glass installed."))
 				return
-		else
-			to_chat(user, SPAN_WARNING("You need at least [glass_needed] sheets of [MATERIAL_GLASS_REINFORCED_PHORON] to finished the window."))
+
+			var/obj/item/stack/material/glass_stack = attacking_item
+
+			if(!do_after(user, 2 SECONDS))
+				return
+
+			if(!glass_stack.use(glass_needed))
+				var/message = "You need at least [glass_needed] sheets of " \
+					+ "[material_name] to install a window in \the [src]."
+				to_chat(user, SPAN_NOTICE(message))
+				return
+
+			playsound(src, 'sound/items/Deconstruct.ogg', 50, 1)
+			to_chat(user, SPAN_NOTICE("You place the [material_name] in the window frame."))
+
+			switch(material_name)
+				if(MATERIAL_GLASS_REINFORCED)
+					new /obj/structure/window/full/reinforced(get_turf(src), constructed = TRUE)
+				if(MATERIAL_GLASS_REINFORCED_PHORON)
+					new /obj/structure/window/full/phoron/reinforced(get_turf(src), constructed = TRUE)
+
+			has_glass_installed = TRUE
+			return
+
+	else if(istype(attacking_item, /obj/item/stack/rods))
+		if(!anchored)
+			to_chat(user, SPAN_NOTICE("\The [src] needs to be anchored."))
+			return
+
+		if(has_glass_installed)
+			to_chat(user, SPAN_NOTICE("You can't install the grille, the glass is in the way!"))
+			return
+
+		if(has_grille_installed)
+			to_chat(user, SPAN_NOTICE("\The [src] already has grille installed."))
+			return
+
+		var/obj/item/stack/rods/rods_stack = attacking_item
+
+		if(!do_after(user, 3 SECONDS))
+			return
+
+		if(!rods_stack.use(rods_needed))
+			var/message = "You need at least [rods_needed] rods to install the grille in \the [src]."
+			to_chat(user, SPAN_NOTICE(message))
+			return
+
+		playsound(src, 'sound/items/Screwdriver.ogg', 50, 1)
+		to_chat(user, SPAN_NOTICE("You place the grille in the window frame."))
+		var/obj/structure/grille/over/new_grille = new /obj/structure/grille/over(get_turf(src))
+		new_grille.shock(user, 70) // You haven't forgotten your precautions, have you?
+		has_grille_installed = TRUE
+		return
 
 /obj/structure/window_frame/hitby(atom/movable/AM, speed)
 	. = ..()
@@ -171,7 +205,6 @@
 
 /obj/structure/window_frame/shuttle/merc
 	color = "#8b7d86"
-
 /obj/structure/window_frame/shuttle/khaki
 	color = "#ac8b78"
 

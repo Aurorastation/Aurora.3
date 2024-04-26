@@ -101,6 +101,7 @@
 
 	var/allowed_module_types = MODULE_GENERAL // All rigs by default should have access to general
 	var/list/species_restricted = list(BODYTYPE_HUMAN,BODYTYPE_TAJARA,BODYTYPE_UNATHI, BODYTYPE_SKRELL, BODYTYPE_IPC, BODYTYPE_IPC_BISHOP, BODYTYPE_IPC_ZENGHU)
+	var/anomaly_protection = FALSE //If TRUE, this rig will protect against anomalies. Currently only used for AMI hardsuit.
 
 /obj/item/rig/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -510,7 +511,7 @@
 
 	data["charge"] =       cell ? round(cell.charge,1) : 0
 	data["maxcharge"] =    cell ? cell.maxcharge : 0
-	data["chargestatus"] = cell ? FLOOR((cell.charge/cell.maxcharge)*50) : 0
+	data["chargestatus"] = cell ? FLOOR((cell.charge/cell.maxcharge)*50, 1) : 0
 
 	data["emagged"] =       subverted
 	data["coverlock"] =     locked
@@ -800,7 +801,7 @@
 	..()
 	null_wearer(user)
 
-/obj/item/rig/dropped(var/mob/user)
+/obj/item/rig/dropped(mob/user)
 	..()
 
 	if(user.client)
@@ -815,6 +816,10 @@
 
 /obj/item/rig/emp_act(severity)
 	. = ..()
+
+	var/obj/item/rig_module/storage/storage = locate() in installed_modules
+	if(storage)
+		storage.pockets.emp_act(severity)
 
 	//set malfunctioning
 	if(emp_protection < 30) //for ninjas, really.

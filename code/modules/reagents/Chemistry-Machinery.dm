@@ -17,7 +17,7 @@
 	icon_state = "mixer0"
 	use_power = POWER_USE_IDLE
 	idle_power_usage = 20
-	layer = 2.9
+	layer = BELOW_OBJ_LAYER
 	clicksound = /singleton/sound_category/button_sound
 
 	var/obj/item/reagent_containers/glass/beaker = null
@@ -95,9 +95,10 @@
 	else if(attacking_item.iswrench())
 		anchored = !anchored
 		to_chat(user, "You [anchored ? "attach" : "detach"] the [src] [anchored ? "to" : "from"] the ground")
-		playsound(src.loc, attacking_item.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 
-	ui = SStgui.try_update_ui(user, src, ui)
+	if(ui?.user)
+		ui = SStgui.try_update_ui(user, src, ui)
 
 
 /obj/machinery/chem_master/ui_interact(mob/user, datum/tgui/ui)
@@ -327,7 +328,7 @@
 	name = "All-In-One Grinder"
 	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	icon_state = "juicer1"
-	layer = 2.99
+	layer = BELOW_OBJ_LAYER
 	density = 0
 	anchored = 0
 	use_power = POWER_USE_IDLE
@@ -572,7 +573,8 @@
 	updateUsrDialog()
 
 
-/obj/machinery/reagentgrinder/MouseDrop_T(mob/living/carbon/human/target as mob, mob/user as mob)
+/obj/machinery/reagentgrinder/MouseDrop_T(atom/dropping, mob/user)
+	var/mob/living/carbon/human/target = dropping
 	if (!istype(target) || target.buckled_to || get_dist(user, src) > 1 || get_dist(user, target) > 1 || user.stat || istype(user, /mob/living/silicon/ai))
 		return
 	if(target == user)

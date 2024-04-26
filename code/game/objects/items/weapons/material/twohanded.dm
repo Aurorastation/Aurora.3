@@ -83,7 +83,7 @@
 			O.unwield()
 	return ..()
 
-/obj/item/material/twohanded/dropped(mob/user as mob)
+/obj/item/material/twohanded/dropped(mob/user)
 	. = ..()
 	//handles unwielding a twohanded weapon when dropped as well as clearing up the offhand
 	if(user)
@@ -244,7 +244,7 @@
 	base_icon = "spearglass"
 	name = "spear"
 	desc = "A haphazardly-constructed yet still deadly weapon of ancient design."
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_divisor = 0.35 // 21 damage for steel (hardness 60)
@@ -352,7 +352,7 @@
 	icon_state = "chainsaw_off"
 	base_icon = "chainsaw_off"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	force_unwielded = 10
 	force_wielded = 20
 	throwforce = 5
@@ -538,7 +538,7 @@
 	base_icon = "pike"
 	name = "pike"
 	desc = "A long spear used by the infantry in ancient times."
-	force = 5
+	force = 11
 	unwielded_force_divisor = 0.2
 	force_divisor = 0.3
 	edge = TRUE
@@ -558,7 +558,7 @@
 	base_icon = "halberd"
 	name = "halberd"
 	desc = "A sharp axe mounted on the top of a long spear."
-	force = 10
+	force = 15
 	unwielded_force_divisor = 0.4
 	force_divisor = 0.6
 	sharp = 1
@@ -639,7 +639,7 @@
 	base_icon = "zweihander"
 	name = "zweihander"
 	desc = "A german upgrade to the einhander models of ancient times."
-	force = 20
+	force = 25
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	force_wielded = 30
@@ -670,3 +670,27 @@
 	reach = 2
 	attack_verb = list("attacked", "poked", "jabbed", "torn", "gored")
 	armor_penetration = wielded_ap
+
+/obj/item/material/twohanded/pike/halberd/warscythe
+	name = "war scythe"
+	desc = "An ancient Unathi weapon, this heavy polearm was frequently wielded by cavalry forces of pre-Hegemony kingdoms."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "warspike0"
+	base_icon = "warspike"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+
+/obj/item/material/twohanded/pike/halberd/warscythe/bronze/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_BRONZE)
+
+/obj/item/material/twohanded/pike/mador_trident
+	name = "ancient trident"
+	desc = "An ancient weapon, this three-pointed polearm was often wielded by the ancient Sinta'Mador civilization of Moghes."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "mador_trident0"
+	base_icon = "mador_trident"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+
+/obj/item/material/twohanded/pike/mador_trident/bronze/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_BRONZE)

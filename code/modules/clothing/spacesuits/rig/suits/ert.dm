@@ -177,6 +177,33 @@
 
 	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL
 
+/obj/item/rig/ert/einstein
+	name = "apotheosis suit control module"
+	desc = "A heavy suit with Einstein Engines branding coating it, not to mention the obvious colors."
+	suit_type = "apotheosis"
+	icon = 'icons/clothing/rig/apotheosis.dmi'
+	icon_state = "apotheosis"
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_RIFLE,
+		energy = ARMOR_ENERGY_SMALL,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+	req_access = list()
+	req_one_access = list()
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_UTILITY
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/vision/nvg,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/storage,
+		/obj/item/rig_module/recharger
+	)
+
 /obj/item/rig/ert/assetprotection
 	name = "\improper heavy asset protection suit control module"
 	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
@@ -218,12 +245,44 @@
 /obj/item/rig/ert/assetprotection/empty
 	initial_modules = list()
 
-/obj/item/rig/ert/assetprotection/einstein
-	name = "apotheosis suit control module"
-	desc = "A heavy suit with Einstein Engines branding coating it, not to mention the obvious colors."
-	suit_type = "apotheosis"
-	icon = 'icons/clothing/rig/apotheosis.dmi'
-	icon_state = "apotheosis"
+/obj/item/rig/ert/ntassetprotection
+	name = "\improper heavy asset protection suit control module"
+	desc = "A heavy suit worn by the highest level of Asset Protection, don't mess with the person wearing this. Armored and space ready."
+	suit_type = "heavy asset protection"
+	icon = 'icons/clothing/rig/nt_asset_protection.dmi'
+	icon_state = "asset_protection_rig"
+	icon_supported_species_tags = null
+	armor = list(
+		melee = ARMOR_MELEE_SHIELDED,
+		bullet = ARMOR_BALLISTIC_RIFLE,
+		laser = ARMOR_LASER_HEAVY,
+		energy = ARMOR_ENERGY_SHIELDED,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_SHIELDED
+	)
+	slowdown = 0
+	emp_protection = 50
 
-	req_access = list()
-	req_one_access = list()
+	species_restricted = list(BODYTYPE_HUMAN)
+
+	initial_modules = list(
+		/obj/item/rig_module/ai_container,
+		/obj/item/rig_module/maneuvering_jets,
+		/obj/item/rig_module/grenade_launcher,
+		/obj/item/rig_module/vision/multi,
+		/obj/item/rig_module/mounted/pulse,
+		/obj/item/rig_module/chem_dispenser/combat,
+		/obj/item/rig_module/chem_dispenser/injector,
+		/obj/item/rig_module/device/drill,
+		/obj/item/rig_module/device/rfd_c,
+		/obj/item/rig_module/datajack,
+		/obj/item/rig_module/actuators/combat,
+		/obj/item/rig_module/recharger
+		)
+
+	allowed_module_types = MODULE_GENERAL | MODULE_LIGHT_COMBAT | MODULE_HEAVY_COMBAT | MODULE_SPECIAL | MODULE_MEDICAL | MODULE_UTILITY | MODULE_VAURCA // all modules
+
+/obj/item/rig/ert/ntassetprotection/lead
+	icon = 'icons/clothing/rig/nt_asset_protection_commander.dmi'
+	icon_state = "c_asset_protection_rig"

@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/Taser.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	max_shots = 20
 	fire_delay = 6
 	burst_delay = 3
@@ -211,7 +211,7 @@
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 4)
 	w_class = ITEMSIZE_LARGE
 	accuracy = 1
-	force = 10
+	force = 15
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	charge_cost = 300
@@ -233,11 +233,11 @@
 /obj/item/gun/energy/rifle/laser/qukala
 	name = "geop cannon"
 	desc = "An advanced weapon of Skrell design, this Geop Cannon uses a tiny warp accelerator to super heat particles."
-	desc_extended = ""
 	icon = 'icons/obj/item/gun/energy/rifle/qukala_heavy.dmi'
 	icon_state = "qukala_heavy"
 	item_state = "qukala_heavy"
 	max_shots = 10
+	self_recharge = TRUE
 	projectile_type = /obj/item/projectile/beam/midlaser/skrell/heavy
 
 /obj/item/gun/energy/rifle/hegemony

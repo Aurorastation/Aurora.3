@@ -63,6 +63,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		)
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	z_flags = ZMM_MANGLE_PLANES
 
 	///The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/department = "Unknown"
@@ -520,8 +521,8 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			if(Console.paperstock < paperstock_usage)
 				audible_message("<b>The Requests Console</b> beeps, \"Error! Receiving console out of paper! Aborting!\"")
 				return
-			playsound(Console.loc, 'sound/machines/twobeep.ogg')
-			playsound(Console.loc, 'sound/items/polaroid1.ogg')
+			playsound(Console.loc, 'sound/machines/twobeep.ogg', 40)
+			playsound(Console.loc, 'sound/items/polaroid1.ogg', 40)
 			if(!is_paper_bundle)
 				var/obj/item/paper/P = copy(Console, O, FALSE, FALSE, 0, 15, user)
 				P.forceMove(Console.loc)

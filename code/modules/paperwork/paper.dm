@@ -16,7 +16,7 @@
 	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	slot_flags = SLOT_HEAD
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
@@ -341,6 +341,8 @@
 		t = replacetext(t, "\[logo_hp_small\]", "")
 		t = replacetext(t, "\[logo_be\]", "")
 		t = replacetext(t, "\[logo_golden\]", "")
+		t = replacetext(t, "\[logo_pvpolice\]", "")
+		t = replacetext(t, "\[logo_pvpolice_small\]", "")
 		t = replacetext(t, "\[barcode\]", "")
 
 	if(istypewriter)
@@ -608,13 +610,13 @@
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.l_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.r_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.r_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.head == src)
@@ -638,7 +640,7 @@
 			return
 
 		var/obj/item/pen/robopen/RP = attacking_item
-		if ( istype(RP) && RP.mode == 2 )
+		if(istype(RP) && RP.mode == RENAME_PAPER)
 			RP.RenamePaper(user,src)
 		else
 			var/datum/browser/paper_win = new(user, name, null, 450, 500, null, TRUE)
@@ -763,6 +765,19 @@
 /obj/item/paper/fluff
 	name = "fluff paper"
 	desc = "You aren't supposed to see this."
+	///The language to translate the paper into. Set to the name of the language.
+	var/language
+
+/obj/item/paper/fluff/Initialize()
+	. = ..()
+	if(language)
+		var/datum/language/L = GLOB.all_languages[language]
+		if(istype(L) && L.written_style) //Don't want to try and write in Hivenet or something
+			var/key = L.key
+			var/languagetext = "\[lang=[key]]"
+			languagetext += "[info]\[/lang]"
+			info = parsepencode(languagetext)
+			update_icon()
 
 // Used in the deck 3 cafe on the SCCV Horizon.
 /obj/item/paper/fluff/microwave

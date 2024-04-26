@@ -3,13 +3,9 @@
 	sort_category = "Religion"
 	flags = GEAR_HAS_DESC_SELECTION
 
-/datum/gear/religion/shaman_staff
-	display_name = "shaman staff"
-	path = /obj/item/cane/shaman
-	slot = slot_l_hand
-
 /datum/gear/religion/trinary
 	abstract_type = /datum/gear/religion/trinary
+	religion = RELIGION_TRINARY
 
 /datum/gear/religion/trinary/mask
 	display_name = "trinary perfection mask"
@@ -111,13 +107,13 @@
 
 /datum/gear/religion/dominia
 	abstract_type = /datum/gear/religion/dominia
+	religion = RELIGION_MOROZ
 
 /datum/gear/religion/dominia/robe
 	display_name = "dominian robe selection"
 	description = "A selection of robes belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_w_uniform
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/robe/New()
 	..()
@@ -131,7 +127,6 @@
 	description = "A selection of modified berets belonging to Dominia's Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot= slot_head
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret/New()
 	..()
@@ -146,7 +141,6 @@
 	description = "A selection of capes and outerwear worn by the Moroz Holy Tribunal."
 	path = /obj/item/clothing/under/dominia/priest
 	slot = slot_wear_suit
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape/New()
 	..()
@@ -160,11 +154,11 @@
 	display_name = "tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia
 	slot = slot_tie
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/accessory/lyodii
 	display_name = "lyodic tribunal necklace"
 	path = /obj/item/clothing/accessory/dominia/lyodii
+	culture_restriction = list(/singleton/origin_item/culture/dominia)
 
 /datum/gear/religion/dominia/accessory/tic
 	display_name = "retired tribunal investigator card selection"
@@ -183,7 +177,6 @@
 	path = /obj/item/clothing/head/beret/dominia/medical
 	slot = slot_head
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/robe_consular
 	display_name = "tribunalist consular uniform"
@@ -191,7 +184,6 @@
 	path = /obj/item/clothing/under/dominia/priest/consular
 	slot = slot_w_uniform
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/beret_consular
 	display_name = "tribunalist consular beret"
@@ -199,7 +191,6 @@
 	path = /obj/item/clothing/head/beret/dominia/consular
 	slot = slot_head
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/cape_consular
 	display_name = "tribunalist cousular cape"
@@ -207,17 +198,14 @@
 	path = /obj/item/clothing/accessory/poncho/dominia/consular
 	slot = slot_wear_suit
 	allowed_roles = list("Consular Officer")
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/codex
 	display_name = "tribunal codex"
 	path = /obj/item/device/versebook/tribunal
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/icon
 	display_name = "tribunal iconography"
 	description = "A selection of Dominian religious icons."
-	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
 
 /datum/gear/religion/dominia/icon/New()
 	..()
@@ -233,33 +221,54 @@
 
 /datum/gear/religion/assunzione
 	abstract_type = /datum/gear/religion/assunzione
-	origin_restriction = list(/singleton/origin_item/origin/assunzione, /singleton/origin_item/origin/ipc_assunzione)
+	religion = RELIGION_LUCEISM
+
+/datum/gear/religion/assunzione/scripture
+	display_name = "luceian scripture"
+	description = "A collection of texts belonging to Luceism, the dominant religion of Assunzione."
+	path = /obj/item/device/versebook/assunzione
+
+/datum/gear/religion/assunzione/cloak
+	display_name = "assunzione cloak selection"
+	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
+	path = /obj/item/clothing/accessory/poncho/assunzione
+	slot = slot_wear_suit
+
+/datum/gear/religion/assunzione/cassock
+	display_name = "assunzione clerical cassock"
+	description = "A simple black-and-purple linen cassock worn by clergyfolk of Luceism, the dominant faith of Assunzione."
+	path = /obj/item/clothing/under/assunzione/priest
+	slot = slot_w_uniform
 
 /datum/gear/religion/assunzione/robe
-	display_name = "assunzione robe selection"
-	description = "A selection of robes worn by adherents to Luceism."
-	path = /obj/item/clothing/accessory/poncho/assunzione
+	display_name = "assunzione clerical robe"
+	description = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
 	slot = slot_wear_suit
 
 /datum/gear/religion/assunzione/robe/New()
 	..()
-	var/list/assunzionerobe = list()
-	assunzionerobe["assunzione robe"] = /obj/item/clothing/accessory/poncho/assunzione
-	assunzionerobe["assunzione vine-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/vine
-	assunzionerobe["assunzione gold-inlaid robe"] = /obj/item/clothing/accessory/poncho/assunzione/gold
-	gear_tweaks += new /datum/gear_tweak/path(assunzionerobe)
+	var/list/robe = list()
+	robe["Pyramidical keeper robe"] = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe
+	robe["Astructural keeper robe"] = /obj/item/clothing/suit/storage/hooded/wintercoat/assunzione_robe/alt
+	gear_tweaks += new /datum/gear_tweak/path(robe)
 
 /datum/gear/religion/assunzione/accessory
 	display_name = "luceian amulet"
 	path = /obj/item/clothing/accessory/assunzione
 	slot = slot_tie
 
+/datum/gear/religion/assunzione/scripture
+	display_name = "luceian scripture"
+	path = /obj/item/device/versebook/assunzione
+
+/datum/gear/religion/assunzione/scripture/New()
+	..()
+	var/list/book = list()
+	book["luceian book of scripture"] = /obj/item/device/versebook/assunzione
+	book["pocket luceian book of scripture"] = /obj/item/device/versebook/assunzione/pocket
+	gear_tweaks += new /datum/gear_tweak/path(book)
+
 /datum/gear/religion/assunzione/orb
 	display_name = "assunzione warding sphere"
-	description = "A religious artefact commonly associated with Luceism."
-	path = /obj/item/assunzioneorb
-
-/datum/gear/religion/assunzione/sheath
-	display_name = "assunzione warding sphere sheath"
-	description = "A small metal shell designed to hold a warding sphere."
-	path = /obj/item/storage/assunzionesheath
+	description = "A holy religious artifact and a core aspect of worship in Luceism. Comes in a protective case."
+	path = /obj/item/storage/assunzionesheath/filled

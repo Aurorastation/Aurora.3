@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/pra_mining_camp.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("pra_mining_camp.dmm")
+
+	unit_test_groups = list(2)
 
 /area/pra_mining_camp
 	name = "People's Republic Mining Camp"
@@ -17,6 +21,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "The sound of heavy machinery is heard around this camp."
 
 //ghostroles
 
@@ -29,7 +34,7 @@
 	spawnpoints = list("adhomai_pra_miner")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/adhomai_pra_miner
+	outfit = /obj/outfit/admin/adhomai_pra_miner
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -39,7 +44,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_pra_miner
+/obj/outfit/admin/adhomai_pra_miner
 	name = "Adhomai Corporate Miner"
 
 	uniform = /obj/item/clothing/under/tajaran/nt
@@ -63,7 +68,7 @@
 	spawnpoints = list("adhomai_pra_miner_teslabody")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/adhomai_pra_miner_teslabody
+	outfit = /obj/outfit/admin/adhomai_pra_miner_teslabody
 	possible_species = list(SPECIES_TAJARA_TESLA_BODY)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -73,7 +78,7 @@
 
 	uses_species_whitelist = TRUE
 
-/datum/outfit/admin/adhomai_pra_miner_teslabody
+/obj/outfit/admin/adhomai_pra_miner_teslabody
 	name = "Tesla Rejuvenation Suit Mining Worker"
 
 	uniform = /obj/item/clothing/under/tajaran/tesla_body

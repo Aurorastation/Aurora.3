@@ -16,18 +16,6 @@
 		body.MouseDrop_T(dropping, user)
 	else . = ..()
 
-/mob/living/heavy_vehicle/MouseDrop_T(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
-	if(!user || incapacitated() || user.incapacitated() || lockdown)
-		return FALSE
-
-	if(!(user in pilots) && user != src)
-		return FALSE
-
-	//This is handled at active module level really, it is the one who has to know if it's supposed to act
-	if(selected_system)
-		return selected_system.MouseDragInteraction(src_object, over_object, src_location, over_location, src_control, over_control, params, user)
-
-
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
 
 	if(!user || incapacitated() || user.incapacitated() || lockdown)
@@ -244,7 +232,7 @@
 	if(user.client) user.client.screen |= hud_elements
 	LAZYDISTINCTADD(user.additional_vision_handlers, src)
 	update_icon()
-	walk(src, 0) // stop it from auto moving when the pilot gets in
+	SSmove_manager.stop_looping(src) // stop it from auto moving when the pilot gets in
 	return 1
 
 /mob/living/heavy_vehicle/proc/eject(var/mob/user, var/silent)
@@ -298,9 +286,9 @@
 			if(S.aura)
 				S.aura.dir = direction
 				if(S.aura.dir == NORTH)
-					S.aura.layer = MECH_UNDER_LAYER
+					S.aura.layer = MOB_LAYER
 				else
-					S.aura.layer = ABOVE_MOB_LAYER
+					S.aura.layer = ABOVE_HUMAN_LAYER
 		update_icon()
 
 	if(!turn_only)
@@ -318,9 +306,10 @@
 
 /mob/living/heavy_vehicle/Move()
 	if(..() && !istype(loc, /turf/space))
-		if(legs && legs.mech_step_sound)
-			playsound(src.loc,legs.mech_step_sound,40,1)
-		use_cell_power(legs.power_use * CELLRATE)
+		if(legs)
+			if(legs.mech_step_sound)
+				playsound(src.loc, legs.mech_step_sound, 40, TRUE)
+			use_cell_power(legs.power_use * CELLRATE)
 	update_icon()
 
 /mob/living/heavy_vehicle/Post_Incorpmove()
@@ -452,7 +441,7 @@
 
 				user.put_in_hands(body.cell)
 				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
-				playsound(user.loc, attacking_item.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [attacking_item].</span>")
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
@@ -542,12 +531,6 @@
 			return ..()
 	else return STATUS_CLOSE
 	return ..()
-
-/mob/living/heavy_vehicle/get_inventory_slot(obj/item/I)
-	for(var/h in hardpoints)
-		if(hardpoints[h] == I)
-			return h
-	return 0
 
 /mob/living/heavy_vehicle/proc/rename(var/mob/user)
 	if(user != src && !(user in pilots))
@@ -714,7 +697,7 @@
 			// stop following who you were assigned to follow
 			if(findtext(text, "stop"))
 				unassign_following()
-				walk(src, 0)
+				SSmove_manager.stop_looping(src)
 				say("Holding position.")
 				return
 

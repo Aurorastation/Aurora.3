@@ -161,39 +161,6 @@ AURORA_ESCAPE_POD(4)
 	base_turf = /turf/space
 	base_area = /area/space
 
-//-// Admin Corvette //-//
-
-/datum/shuttle/autodock/multi/admin
-	name = "Crescent Shuttle"
-	current_location = "nav_admin_start"
-	warmup_time = 10
-	shuttle_area = /area/shuttle/administration
-	dock_target = "admin_shuttle"
-	destination_tags = list(
-		"nav_admin_start",
-		"nav_admin_green",
-		"nav_admin_command"
-		)
-
-/obj/effect/shuttle_landmark/admin/start
-	name = "Corvette Hangar"
-	landmark_tag = "nav_admin_start"
-	docking_controller = "admin_shuttle_bay"
-	base_turf = /turf/unsimulated/floor/plating
-	base_area = /area/centcom
-
-/obj/effect/shuttle_landmark/admin/green
-	name = "Emergency Services Dock"
-	landmark_tag = "nav_admin_green"
-	docking_controller = "green_dock_north"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
-/obj/effect/shuttle_landmark/admin/command
-	name = "Command Surface Dock"
-	landmark_tag = "nav_admin_command"
-	docking_controller = "admin_shuttle_dock_airlock"
-	landmark_flags = SLANDMARK_FLAG_AUTOSET
-
 //-// CCIA Shuttle //-//
 
 /datum/shuttle/autodock/ferry/autoreturn/ccia
@@ -227,7 +194,7 @@ AURORA_ESCAPE_POD(4)
 	warmup_time = 10
 	shuttle_area = /area/shuttle/specops
 	dock_target = "specops_shuttle_port"
-	waypoint_station = "nav_ert_dock"
+	waypoint_station = "nav_horizon_dock_deck_3_port_5"
 	waypoint_offsite = "nav_ert_start"
 
 /obj/effect/shuttle_landmark/ert/start
@@ -239,7 +206,7 @@ AURORA_ESCAPE_POD(4)
 
 /obj/effect/shuttle_landmark/ert/dock
 	name = "Third Deck Port Dock 3"
-	landmark_tag = "nav_ert_dock"
+	landmark_tag = "nav_horizon_dock_deck_3_port_5"
 	docking_controller = "specops_dock_airlock"
 	special_dock_targets = list("Phoenix Shuttle" = "specops_shuttle_fore")
 	landmark_flags = SLANDMARK_FLAG_AUTOSET

@@ -99,7 +99,8 @@
 	//everything else is visible, so doesn't need to be mentioned
 
 
-/obj/structure/janitorialcart/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/structure/janitorialcart/MouseDrop_T(atom/dropping, mob/user)
+	var/atom/movable/O = dropping
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
 		O.forceMove(src)
 		mybucket = O
@@ -202,7 +203,11 @@
 		spill()
 
 	if(user)
-		playsound(src.loc, I.usesound, 50, 1)
+
+		if(iswelder(I))
+			var/obj/item/welder = I
+			welder.play_tool_sound(get_turf(src), 50)
+
 		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
 		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			return

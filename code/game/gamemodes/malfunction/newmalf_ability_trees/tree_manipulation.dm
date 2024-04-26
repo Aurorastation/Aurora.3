@@ -206,7 +206,7 @@
 	if(!ability_pay(user,price))
 		return
 
-	M.use_power_oneoff(250 KILOWATTS)
+	M.use_power_oneoff(250 KILO WATTS)
 
 	// Trigger a powernet alarm. Careful engineers will probably notice something is going on.
 	var/area/temp_area = get_area(M)

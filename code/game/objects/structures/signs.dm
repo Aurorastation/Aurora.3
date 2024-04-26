@@ -9,7 +9,7 @@
 	anchored = TRUE
 	density = FALSE
 	opacity = FALSE
-	layer = 3.5
+	layer = ABOVE_WINDOW_LAYER
 	w_class = ITEMSIZE_NORMAL
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
@@ -359,6 +359,12 @@
 	name = "empty frame"
 	desc = "An empty painting frame."
 	icon_state = "painting_frame"
+	w_class = ITEMSIZE_SMALL
+
+/obj/structure/sign/painting_frame/tsunami_kami
+	name = "tsunami kami"
+	desc = "A painting designed to replicate traditional woodblock styles. This one seems to be based off an ancient and venerable painting of a wave, paired with that of a woman."
+	icon_state = "tsunami_kami"
 	w_class = ITEMSIZE_SMALL
 
 /obj/structure/sign/painting_frame/hadii

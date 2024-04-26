@@ -101,7 +101,14 @@
 	if(length(species.unarmed_attacks))
 		set_default_attack(species.unarmed_attacks[1])
 
-/mob/living/carbon/human/Destroy()
+/mob/living/carbon/human/Destroy(force)
+	ghost_spawner = null
+
+	//Srom (Shared Dreaming)
+	srom_pulled_by = null
+	srom_pulling = null
+	bg = null //Just to be sure.
+
 	GLOB.human_mob_list -= src
 	GLOB.intent_listener -= src
 	QDEL_LIST(organs)
@@ -127,11 +134,20 @@
 	QDEL_NULL(l_store)
 	QDEL_NULL(s_store)
 	QDEL_NULL(wear_suit)
+	QDEL_NULL(wear_mask)
 	// Do this last so the mob's stuff doesn't drop on del.
 	QDEL_NULL(w_uniform)
 
+	//Yes this is shit, but since someone had the brillant mind to use images for this, we must suffer
+	if(length(hud_list))
+		for(var/image/hud_overlay/an_hud_overlay in hud_list)
+			if(an_hud_overlay.owner)
+				an_hud_overlay.owner.client?.images -= an_hud_overlay
+			an_hud_overlay.owner = null
+			qdel(an_hud_overlay)
+		hud_list = null
+
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/human/can_devour(atom/movable/victim, var/silent = FALSE)
 	if(!should_have_organ(BP_STOMACH))
@@ -218,6 +234,21 @@
 		if(changeling)
 			. += "Chemical Storage: [changeling.chem_charges]"
 			. += "Genetic Damage Time: [changeling.geneticdamage]"
+
+	if(. && istype(back,/obj/item/rig))
+		var/obj/item/rig/R = back
+		if(R && !R.canremove && R.installed_modules.len)
+			var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
+			. += "Suit Charge: [cell_status]"
+
+	var/obj/item/technomancer_core/core = get_technomancer_core()
+	if(core)
+		var/charge_status = "[core.energy]/[core.max_energy] ([round( (core.energy / core.max_energy) * 100)]%) \
+		([round(core.energy_delta)]/s)"
+		var/instability_delta = instability - last_instability
+		var/instability_status = "[src.instability] ([round(instability_delta, 0.1)]/s)"
+		. += "Core Charge: [charge_status]"
+		. += "User instability: [instability_status]"
 
 /mob/living/carbon/human/ex_act(severity)
 	if(!blinded)
@@ -576,7 +607,7 @@
 									U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecord"])
 		if(hasHUD(usr,"security"))
@@ -591,15 +622,16 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr,"security"))
-					to_chat(usr, "<b>Name:</b> [R.name]")
-					to_chat(usr, "<b>Criminal Status:</b> [R.security.criminal]")
-					to_chat(usr, "<b>Crimes:</b> [R.security.crimes]")
-					to_chat(usr, "<b>Notes:</b> [R.security.notes]")
-					to_chat(usr, "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>")
+					var/message = "<b>Security Records: [R.name]</b>\n\n" \
+						+ "<b>Criminal Status:</b> [R.security.criminal]\n" \
+						+ "<b>Crimes:</b> [R.security.crimes]\n" \
+						+ "<b>Notes:</b> [R.security.notes]\n" \
+						+ "<a href='?src=\ref[src];secrecordComment=`'>\[View Comment Log\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_RED(message))
 					read = 1
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordComment"])
 		if(hasHUD(usr,"security"))
@@ -614,16 +646,18 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.security))
 				if(hasHUD(usr, "security"))
+					var/message = "<b>Security Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.security.comments.len > 0)
 						for(var/comment in R.security.comments)
-							to_chat(usr, comment)
+							message += comment + "\n\n"
 					else
-						to_chat(usr, "No comments found")
-					to_chat(usr, "<a href='?src=\ref[src];secrecordadd=`'>\[Add comment\]</a>")
+						message += "No comments found.\n"
+					message += "<a href='?src=\ref[src];secrecordadd=`'>\[Add Comment\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_RED(message))
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_RED(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["secrecordadd"])
 		if(hasHUD(usr,"security"))
@@ -675,7 +709,7 @@
 								U.handle_regular_hud_updates()
 
 			if(!modified)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecord"])
 		if(hasHUD(usr,"medical"))
@@ -690,15 +724,17 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				if(hasHUD(usr, "medical"))
-					to_chat(usr, "<b>Name:</b> [R.name]	<b>Blood Type:</b> [R.medical.blood_type]")
-					to_chat(usr, "<b>DNA:</b> [R.medical.blood_dna]")
-					to_chat(usr, "<b>Disabilities:</b> [R.medical.disabilities]")
-					to_chat(usr, "<b>Notes:</b> [R.medical.notes]")
-					to_chat(usr, "<a href='?src=\ref[src];medrecordComment=`'>\[View Comment Log\]</a>")
+					var/message = "<b>Medical Records: [R.name]</b>\n\n" \
+						+ "<b>Name:</b> [R.name] <b>Blood Type:</b> [R.medical.blood_type]\n" \
+						+ "<b>DNA:</b> [R.medical.blood_dna]\n" \
+						+ "<b>Disabilities:</b> [R.medical.disabilities]\n" \
+						+ "<b>Notes:</b> [R.medical.notes]\n" \
+						+ "<a href='?src=\ref[src];medrecordComment=`'>\[View Comment Log\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 					read = 1
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordComment"])
 		if(hasHUD(usr,"medical"))
@@ -713,16 +749,18 @@
 			var/datum/record/general/R = SSrecords.find_record("name", perpname)
 			if(istype(R) && istype(R.medical))
 				if(hasHUD(usr, "medical"))
+					var/message = "<b>Medical Record Comments: [name]</b>\n\n"
 					read = 1
 					if(R.medical.comments.len > 0)
 						for(var/comment in R.medical.comments)
-							to_chat(usr, comment)
+							message += comment + "\n\n"
 					else
-						to_chat(usr, "No comments found")
-					to_chat(usr, "<a href='?src=\ref[src];medrecordadd=`'>\[Add comment\]</a>")
+						message += "No comments found.\n"
+					message += "<a href='?src=\ref[src];medrecordadd=`'>\[Add Comment\]</a>"
+					to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(message))
 
 			if(!read)
-				to_chat(usr, SPAN_WARNING("Unable to locate a data core entry for this person."))
+				to_chat(usr, EXAMINE_BLOCK_DEEP_CYAN(SPAN_WARNING("Unable to locate a data core entry for this person.")))
 
 	if (href_list["medrecordadd"])
 		if(hasHUD(usr,"medical"))
@@ -791,12 +829,37 @@
 				flavor_texts[href_list["flavor_change"]] = msg
 				set_flavor()
 				return
+
+	if (href_list["metadata"])
+		var/message = "<b>OOC Notes: [name]</b>" \
+			+ "\n\n" \
+			+ client.prefs.metadata \
+			+ "\n\n" \
+			+ SPAN_WARNING("Remember, this is OOC information.")
+		to_chat(usr, EXAMINE_BLOCK(message))
+
+	if(href_list["default_attk"])
+		if(href_list["default_attk"] == "reset_attk")
+			set_default_attack(null)
+		else
+			var/datum/unarmed_attack/u_attack = locate(href_list["default_attk"])
+			if(u_attack && (u_attack in species.unarmed_attacks))
+				set_default_attack(u_attack)
+		check_attacks()
+		return 1
+
 	..()
 	return
 
 ///eyecheck()
 ///Returns a number between -1 to 2
 /mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
+
+	//Ling
+	var/datum/changeling/changeling = changeling_power(0, 0, 0)
+	if(changeling && changeling.using_thermals)
+		return FLASH_PROTECTION_REDUCED
+
 	if(!species.vision_organ || !species.has_organ[species.vision_organ]) //No eyes, can't hurt them.
 		return FLASH_PROTECTION_MAJOR
 
@@ -1448,10 +1511,9 @@
 	maxHealth = species.total_health
 	health = maxHealth
 
-	spawn(0)
-		regenerate_icons()
-		if (vessel)
-			restore_blood()
+	regenerate_icons()
+	if (vessel)
+		restore_blood()
 
 	// Rebuild the HUD. If they aren't logged in then login() should reinstantiate it for them.
 	if(client && client.screen)
@@ -1467,6 +1529,8 @@
 	brute_mod = species.brute_mod
 
 	max_stamina = species.stamina
+	if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+		max_stamina *= 1.1
 	stamina = max_stamina
 	sprint_speed_factor = species.sprint_speed_factor
 	sprint_cost_factor = species.sprint_cost_factor
@@ -1505,6 +1569,9 @@
 		ADD_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
 	else if(HAS_TRAIT(src, TRAIT_PSIONICALLY_DEAF))
 		REMOVE_TRAIT(src, TRAIT_PSIONICALLY_DEAF, INNATE_TRAIT)
+
+	if(psi && species.character_creation_psi_points && species.has_psionics)
+		psi.psi_points = max(species.character_creation_psi_points - psi.spent_psi_points, 0) //to prevent species-switching for more points
 
 	if(client)
 		client.init_verbs()
@@ -1588,7 +1655,7 @@
 			to_chat(src, SPAN_WARNING("You ran out of blood to write with!"))
 
 		var/obj/effect/decal/cleanable/blood/writing/W = new(T)
-		W.basecolor = (hand_blood_color) ? hand_blood_color : "#A10808"
+		W.basecolor = (hand_blood_color) ? hand_blood_color : COLOR_HUMAN_BLOOD
 		W.update_icon()
 		W.message = message
 		W.add_fingerprint(src)
@@ -1800,6 +1867,8 @@
 	..()
 	if(update_hud)
 		handle_regular_hud_updates()
+	if(eyeobj)
+		eyeobj.remove_visual(src)
 
 
 /mob/living/carbon/human/can_stand_overridden()
@@ -1929,7 +1998,7 @@
 	var/obj/item/organ/internal/heart/heart = internal_organs_by_name[BP_HEART]
 	return heart ? heart.pulse : PULSE_NONE
 
-/mob/living/carbon/human/move_to_stomach(atom/movable/victim)
+/mob/living/carbon/human/proc/move_to_stomach(atom/movable/victim)
 	var/obj/item/organ/internal/stomach/stomach = internal_organs_by_name[BP_STOMACH]
 	if(istype(stomach))
 		victim.forceMove(stomach)
@@ -1942,9 +2011,9 @@
 //Get fluffy numbers
 /mob/living/carbon/human/proc/blood_pressure()
 	if(status_flags & FAKEDEATH)
-		return list(FLOOR(species.bp_base_systolic+rand(-5,5))*0.25, FLOOR(species.bp_base_disatolic+rand(-5,5))*0.25)
+		return list(FLOOR(species.bp_base_systolic+rand(-5,5), 1)*0.25, FLOOR(species.bp_base_disatolic+rand(-5,5), 1)*0.25)
 	var/blood_result = get_blood_circulation()
-	return list(FLOOR((species.bp_base_systolic+rand(-5,5))*(blood_result/100)), FLOOR((species.bp_base_disatolic+rand(-5,5))*(blood_result/100)))
+	return list(FLOOR((species.bp_base_systolic+rand(-5,5))*(blood_result/100), 1), FLOOR((species.bp_base_disatolic+rand(-5,5))*(blood_result/100), 1))
 
 //Formats blood pressure for text display
 /mob/living/carbon/human/proc/get_blood_pressure()
