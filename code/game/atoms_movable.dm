@@ -58,7 +58,7 @@
 	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
 	var/mutable_appearance/em_block
 
-/atom/movable/Initialize()
+/atom/movable/Initialize(mapload, ...)
 	. = ..()
 	update_emissive_blocker()
 	if (em_block)
