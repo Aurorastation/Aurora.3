@@ -602,7 +602,6 @@
 	},
 /obj/item/storage/bag/trash,
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/janitor)
 "abV" = (
@@ -901,13 +900,11 @@
 /turf/simulated/floor/plating,
 /area/sensor_relay/maintenance)
 "agS" = (
-/obj/structure/janitorialcart/full{
-	dir = 8
-	},
 /obj/machinery/power/apc/empty/west,
 /obj/structure/cable/green,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/random/dirt_75,
+/obj/structure/closet/secure_closet/custodial/offship,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/janitor)
 "aha" = (
@@ -1013,6 +1010,10 @@
 	},
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/cobweb2,
+/obj/random/soap{
+	pixel_x = 2;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled/freezer,
 /area/sensor_relay/quarters)
 "aiE" = (
@@ -1149,12 +1150,11 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/alarm/north,
 /obj/structure/table/reinforced/steel,
-/obj/item/storage/box/produce{
-	layer = 2.99;
-	pixel_y = 9
+/obj/item/material/kitchen/utensil/knife{
+	pixel_x = -7
 	},
-/obj/item/storage/box/condiment{
-	pixel_y = 2
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/dining)
@@ -1224,7 +1224,12 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/random/tool,
+/obj/item/toy/comic/azmarian/issue_2{
+	pixel_y = 8
+	},
+/obj/item/toy/comic/azmarian/issue_1{
+	pixel_y = 4
+	},
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "alh" = (
@@ -1650,8 +1655,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
-/obj/random/dirt_75,
 /obj/machinery/alarm/west,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "asX" = (
@@ -1862,13 +1867,14 @@
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "ayL" = (
-/obj/structure/closet/secure_closet/custodial/offship,
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
-/obj/item/storage/bag/trash,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/random/dirt_75,
+/obj/structure/janitorialcart/full{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/janitor)
 "ayV" = (
@@ -1888,9 +1894,6 @@
 /obj/item/device/oxycandle{
 	pixel_y = 7;
 	pixel_x = 3
-	},
-/obj/item/material/kitchen/rollingpin{
-	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/dining)
@@ -2273,20 +2276,13 @@
 /area/sensor_relay)
 "aEO" = (
 /obj/structure/table/steel,
-/obj/item/toy/comic/azmarian/issue_2{
-	pixel_y = 8
-	},
-/obj/item/toy/comic/azmarian/issue_1{
-	pixel_y = 1
-	},
-/obj/random/soap{
-	pixel_x = 2;
-	pixel_y = -2
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/structure/bedsheetbin{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/quarters)
 "aEX" = (
@@ -2654,7 +2650,20 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/table/steel,
+/obj/item/paper_bin{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/pen{
+	pixel_x = -3;
+	pixel_y = 4
+	},
 /obj/random/dirt_75,
+/obj/item/grenade/chem_grenade/antifuel{
+	pixel_y = 4;
+	pixel_x = 9
+	},
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/janitor)
 "aNk" = (
@@ -2802,9 +2811,7 @@
 	},
 /obj/random/dirt_75,
 /obj/random/junk,
-/obj/item/reagent_containers/food/drinks/bottle/whiskey{
-	pixel_y = 2
-	},
+/obj/item/device/paicard,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "aRK" = (
@@ -2822,7 +2829,18 @@
 /area/sensor_relay/hydroponics)
 "aRL" = (
 /obj/structure/table/wood,
-/obj/item/device/paicard,
+/obj/item/reagent_containers/food/drinks/bottle/whiskey{
+	pixel_y = 7;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/food/drinks/bottle/vintage_wine{
+	pixel_y = 11;
+	pixel_x = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/rocks{
+	pixel_y = 2;
+	pixel_x = 4
+	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "aSa" = (
@@ -2906,6 +2924,10 @@
 	},
 /obj/structure/sink{
 	pixel_y = 21
+	},
+/obj/item/reagent_containers/toothbrush{
+	pixel_y = 5;
+	pixel_x = 6
 	},
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/quarters)
@@ -3332,6 +3354,7 @@
 "hNl" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/random/dirt_75,
+/obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/janitor)
 "ijN" = (

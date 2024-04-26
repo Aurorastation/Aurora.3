@@ -647,7 +647,7 @@
 	icon = 'icons/obj/machinery/sensors_relay.dmi'
 	density = 1
 	sensor_strength = 3
-	heat_reduction = 11
+	heat_reduction = 11 //can sustain range 10
 	max_range = 24
 	deep_scan_range = 0
 	component_types = list()
