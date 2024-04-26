@@ -8,3 +8,5 @@
 
 	prefix = "biesel/"
 	suffixes = list("biesel_crash.dmm")
+
+	unit_test_groups = list(2)

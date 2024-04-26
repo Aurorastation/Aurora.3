@@ -8,3 +8,5 @@
 
 	prefix = "biesel/"
 	suffixes = list("cargo_ruins_1.dmm")
+
+	unit_test_groups = list(3)

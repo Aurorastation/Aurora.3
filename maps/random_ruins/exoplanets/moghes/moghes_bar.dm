@@ -10,6 +10,8 @@
 	suffixes = list("moghes_bar.dmm")
 	ban_ruins = list("ouerea_bar")
 
+	unit_test_groups = list(3)
+
 /area/moghes_bar
 	name = "Moghes Bar"
 	icon_state = "bar"
