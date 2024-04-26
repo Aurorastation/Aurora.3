@@ -61,8 +61,6 @@
 /turf/simulated/floor/exoplanet/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!(SSATOMS_IS_PROBABLY_DONE))
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
-	clean(src)
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
 		return
@@ -80,8 +78,6 @@
 /turf/simulated/floor/exoplanet/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
-	clean(src)
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
 		return
@@ -96,7 +92,6 @@
 	..()
 
 /turf/simulated/floor/exoplanet/water/process()
-	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
 	for(var/mob/living/L in src)
 		var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
@@ -176,11 +171,6 @@
 	icon_state = "water"
 
 /turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O)
-
-	var/obj/effect/effect/water/W = new(O)
-	W.create_reagents(100)
-	W.reagents.add_reagent(/singleton/reagent/water, 100)
-	W.set_up(O, 100)
 
 	if(ishuman(O))
 		var/mob/living/carbon/human/H = O

@@ -7,6 +7,8 @@
 	suffixes = list("pid_kois_farm.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
+	unit_test_groups = list(3)
+
 /area/pid_kois_farm
 	name = "K'lax Farm"
 	icon_state = "bluenew"

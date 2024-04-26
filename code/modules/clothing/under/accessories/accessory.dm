@@ -748,9 +748,9 @@
 	overlay_state = "trinary_shouldercape"
 
 /obj/item/clothing/accessory/poncho/assunzione
-	name = "assunzione robe"
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
-	icon = 'icons/clothing/suits/capes/assunzione_robe.dmi'
+	name = "\improper Luceian cloak"
+	desc = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
+	icon = 'icons/clothing/suits/capes/assunzione_cloak.dmi'
 	icon_override = null
 	icon_state = "assunzione_robe"
 	item_state = "assunzione_robe"
@@ -769,20 +769,6 @@
 	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
 	base.add_overlay(robe_backing)
 	return base
-
-/obj/item/clothing/accessory/poncho/assunzione/vine
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
-	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
-	icon_state = "assunzione_robe_vine"
-	item_state = "assunzione_robe_vine"
-	overlay_state = "assunzione_robe_vine"
-
-/obj/item/clothing/accessory/poncho/assunzione/gold
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. The Luceian Square, Luceism's \
-	holy symbol is present on the back in gold fabric."
-	icon_state = "assunzione_robe_gold"
-	item_state = "assunzione_robe_gold"
-	overlay_state = "assunzione_robe_gold"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion

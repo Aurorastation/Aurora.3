@@ -11,6 +11,8 @@
 	prefix = "burzsia/"
 	suffixes = list("burzsia_mining.dmm")
 
+	unit_test_groups = list(1)
+
 /area/burzsia_mining
 	name = "Hephaestus Burzsia Mining Outpost"
 	icon_state = "bluenew"
