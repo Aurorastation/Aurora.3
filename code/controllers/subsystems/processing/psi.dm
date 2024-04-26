@@ -15,6 +15,7 @@ PROCESSING_SUBSYSTEM_DEF(psi)
 	var/list/all_psi_complexes = list()
 
 /datum/controller/subsystem/processing/psi/fire(resumed)
+	CAN_BE_REDEFINED(TRUE)
 	..()
 	if((world.time >= (last_nlom_awareness_check + 30 MINUTES)) && !checking_nlom && !completing_nlom)
 		checking_nlom = TRUE

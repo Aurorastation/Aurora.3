@@ -958,18 +958,26 @@
 
 /obj/item/storage/box/toothpaste
 	can_hold = list(/obj/item/reagent_containers/toothpaste,
-					/obj/item/reagent_containers/toothbrush)
+					/obj/item/reagent_containers/toothbrush,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
+					)
 
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush = 1)
+					/obj/item/reagent_containers/toothbrush = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/green
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush/green = 1)
+					/obj/item/reagent_containers/toothbrush/green = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/red
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-				/obj/item/reagent_containers/toothbrush/red = 1)
+				/obj/item/reagent_containers/toothbrush/red = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/holobadge
 	name = "holobadge box"
@@ -1244,10 +1252,6 @@
 		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
 	)
 
-/obj/item/storage/box/produce/fill()
-	. = ..()
-	make_exact_fit()
-
 /obj/item/storage/box/cleaner_tablets
 	name = "\improper Idris cleaner tablets box"
 	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
@@ -1275,6 +1279,11 @@
 	name = "box of standstill landmines"
 	desc = "A box containing 5 standstill landmines."
 	starts_with = list(/obj/item/landmine/standstill = 5)
+
+/obj/item/storage/box/landmines/door_rigging
+	name = "box of door rigging landmines"
+	desc = "A box containing 5 door rigging landmines."
+	starts_with = list(/obj/item/landmine/frag/door_rigging = 5)
 
 /obj/item/storage/box/landmines/claymore
 	name = "box of claymore landmines"

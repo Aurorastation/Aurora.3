@@ -349,6 +349,8 @@ var/list/localhost_addresses = list(
 		del(src)
 		return
 
+	dir = NORTH
+
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
 	connection_time = world.time

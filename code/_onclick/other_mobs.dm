@@ -39,9 +39,6 @@
 /mob/proc/attack_empty_hand(var/bp_hand)
 	return
 
-/mob/living/carbon/human/RestrainedClickOn(var/atom/A)
-	return
-
 /mob/living/carbon/human/RangedAttack(var/atom/A)
 	var/obj/item/clothing/gloves/GV = gloves
 	var/obj/item/clothing/glasses/GS = glasses
@@ -174,5 +171,10 @@
 
 /mob/living/CtrlClickOn(var/atom/A)
 	. = ..()
+
+	if(client && client.hardsuit_click_mode == 2) //HARDSUIT_MODE_CTRL_CLICK
+		if(HardsuitClickOn(A))
+			return
+
 	if(!. && a_intent == I_GRAB && length(available_maneuvers))
 		. = perform_maneuver(prepared_maneuver || available_maneuvers[1], A)

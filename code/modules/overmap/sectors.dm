@@ -78,24 +78,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	initial_generic_waypoints = flatten_list(initial_generic_waypoints)
 	tracked_dock_tags = flatten_list(tracked_dock_tags)
 
-	var/map_low = OVERMAP_EDGE
-	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
-	var/turf/home
-	if (place_near_main)
-		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
-		if(islist(place_near_main))
-			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
-		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
-		start_x = home.x
-		start_y = home.y
-		LOG_DEBUG("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
-	else
-		start_x = start_x || rand(map_low, map_high)
-		start_y = start_y || rand(map_low, map_high)
-		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
-
-	if(!invisible_until_ghostrole_spawn)
-		forceMove(home)
+	move_to_starting_location()
 
 	update_name()
 
@@ -127,6 +110,26 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	gravity_generator = null
 	STOP_PROCESSING(SSovermap, src)
 	. = ..()
+
+/obj/effect/overmap/visitable/proc/move_to_starting_location()
+	var/map_low = OVERMAP_EDGE
+	var/map_high = SSatlas.current_map.overmap_size - OVERMAP_EDGE
+	var/turf/home
+	if (place_near_main)
+		var/obj/effect/overmap/visitable/main = GLOB.map_sectors["1"] ? GLOB.map_sectors["1"] : GLOB.map_sectors[GLOB.map_sectors[1]]
+		if(islist(place_near_main))
+			place_near_main = Roundm(Frand(place_near_main[1], place_near_main[2]), 0.1)
+		home = CircularRandomTurfAround(main, abs(place_near_main), map_low, map_low, map_high, map_high)
+		start_x = home.x
+		start_y = home.y
+		LOG_DEBUG("place_near_main moving [src] near [main] ([main.x],[main.y]) with radius [place_near_main], got ([home.x],[home.y])")
+	else
+		start_x = start_x || rand(map_low, map_high)
+		start_y = start_y || rand(map_low, map_high)
+		home = locate(start_x, start_y, SSatlas.current_map.overmap_z)
+
+	if(!invisible_until_ghostrole_spawn)
+		forceMove(home)
 
 //This is called later in the init order by SSshuttle to populate sector objects. Importantly for subtypes, shuttles will be created by then.
 /obj/effect/overmap/visitable/proc/populate_sector_objects()
@@ -204,6 +207,7 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 		return
 	if(comms_support)
 		update_away_freq(name, get_real_name())
+	SEND_SIGNAL(src, COMSIG_BASENAME_SETNAME, args)
 	name = get_real_name()
 
 /obj/effect/overmap/visitable/proc/get_real_name()

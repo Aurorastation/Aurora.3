@@ -11,6 +11,3 @@
 	item_state = "violin"
 	sound_player = /datum/sound_player/violin
 	path = /datum/instrument/obsolete/violin
-
-/obj/structure/synthesized_instrument/synthesizer/shouldStopPlaying(mob/user)
-	return !(src && in_range(src, user))

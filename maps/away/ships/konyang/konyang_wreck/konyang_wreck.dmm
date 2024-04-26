@@ -2808,11 +2808,24 @@
 /area/konyang_wreck/pod2)
 "xA" = (
 /obj/structure/table/reinforced/steel,
-/obj/item/stack/material/steel/full,
+/obj/item/stack/material/steel/full{
+	pixel_x = 6
+	},
 /obj/item/stack/material/glass/full{
-	pixel_y = 6
+	pixel_y = 6;
+	pixel_x = 6
 	},
 /obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/stack/material/aluminium/full{
+	pixel_x = -5
+	},
+/obj/item/stack/material/plastic/full{
+	pixel_y = 6;
+	pixel_x = -5
+	},
+/obj/item/stack/material/lead/full{
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/konyang_wreck/engineering)
 "xO" = (

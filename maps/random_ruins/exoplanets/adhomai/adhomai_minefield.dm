@@ -9,6 +9,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_minefield.dmm")
 
+	unit_test_groups = list(1)
+
 /obj/structure/adhomai_minefield
 	name = "siik'maas sign"
 	desc = "A sign with something written in Siik'maas."

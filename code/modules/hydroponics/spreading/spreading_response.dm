@@ -16,9 +16,6 @@
 		//so we don't appear to teleport from two tiles away when moving into a turf adjacent to vines.
 		addtimer(CALLBACK(src, PROC_REF(entangle), M), 1)
 
-/obj/effect/plant/attack_hand(var/mob/user)
-	manual_unbuckle(user)
-
 /obj/effect/plant/attack_generic(var/mob/user)
 	manual_unbuckle(user)
 

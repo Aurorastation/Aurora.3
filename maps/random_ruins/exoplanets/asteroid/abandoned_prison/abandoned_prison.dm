@@ -12,6 +12,8 @@
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP
 
+	unit_test_groups = list(1)
+
 /area/abandoned_prison
 	name = "abandoned prison"
 	icon_state = "unknown"
