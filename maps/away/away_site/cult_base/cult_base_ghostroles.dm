@@ -6,10 +6,11 @@
 	name = "Cult Base Cultist"
 	tags = list("External")
 	desc = "\
-		You are a follower of the Geometer of Blood. Others have already left the material plane, but you were told to stay. \
-		You were part of some archeological expedition, but that is important no more. \
+		You are a follower of the Geometer of Blood. \
 		You wake up, visitors are coming, and they do not know the word of Nar-Sie yet. \
-		(OOC Note: This is an antagonist role.) \
+		"
+	desc_ooc = "\
+		This is an antagonist role. \
 		"
 	welcome_message = "\
 		You were part of an archeological expedition, hired by some independent scientist, to look for artifacts in a asteroid belt. \
@@ -47,11 +48,8 @@
 /datum/ghostspawner/human/cult_base_cultist/more
 	short_name = "cult_base_cultist_more"
 	name = "Cult Base Cultist, More"
-	desc = "\
-		(OOC Note: This is enabled by staff if more cultists are desired. This is an antagonist role.) \
-		You are a follower of the Geometer of Blood. Others have already left the material plane, but you were told to stay. \
-		You were part of some archeological expedition, but that is important no more. \
-		You wake up, visitors are coming, and they do not know the word of Nar-Sie yet. \
+	desc_ooc = "\
+		This is enabled by staff if more cultists are desired. This is an antagonist role. \
 		"
 
 // ---------------------- corpses

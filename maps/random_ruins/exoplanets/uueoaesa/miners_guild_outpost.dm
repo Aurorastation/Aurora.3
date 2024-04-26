@@ -9,6 +9,8 @@
 	spawn_cost = 2
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/heph_mining_station)
 
+	unit_test_groups = list(1)
+
 /area/miners_guild_outpost
 	name = "Miners' Guild Outpost"
 	icon_state = "bluenew"

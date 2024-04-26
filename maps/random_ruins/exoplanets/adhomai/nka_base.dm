@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("nka_base.dmm")
 
+	unit_test_groups = list(3)
+
 /area/nka_base
 	name = "NKA Military Outpost"
 	icon_state = "bluenew"
