@@ -9,6 +9,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_battlefield.dmm")
 
+	unit_test_groups = list(3)
+
 /obj/effect/landmark/corpse/pra_soldier
 	name = "PRA Soldier"
 	corpseuniform = /obj/item/clothing/under/tajaran/pra_uniform

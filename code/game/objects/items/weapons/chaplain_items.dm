@@ -203,6 +203,22 @@
 	loc = null
 	qdel(src)
 
+/obj/item/nullrod/luceiansceptre
+	name = "\improper Luminous Sceptre"
+	desc = "The Luminous Sceptre is a ceremonial staff optionally carried by the ministerial clergy of Luceism. It is fashioned from cedar and 18-karat gold, wrapped in sacred luce vine, \
+	and topped with a miniature, specialized warding sphere. Such sceptres are traditionally employed in Luceian exorcisms or rituals to rid a corrupted soul of the darkness in their body - often, curiously, to great effect."
+	icon = 'icons/obj/luceian_sceptre.dmi'
+	icon_state = "luceian_sceptre"
+	item_state = "luceian_sceptre"
+	contained_sprite = TRUE
+
+	force = 25
+	w_class = ITEMSIZE_LARGE
+	slot_flags = SLOT_BACK
+	light_range = 4
+	light_power = 2
+	light_color = LIGHT_COLOR_BLUE
+
 /obj/item/nullrod/verb/change(mob/living/user)
 	set name = "Reassemble Null Item"
 	set category = "Object"
@@ -327,6 +343,15 @@
 		if(rune_found)
 			visible_message(SPAN_NOTICE("A holy glow permeates the air!"))
 		return
+	if(user.mind && (user.mind.assigned_role == "Chaplain"))
+		if(A.reagents && A.reagents.has_reagent(/singleton/reagent/water)) //blesses all the water in the holder
+			if(REAGENT_VOLUME(A.reagents, /singleton/reagent/water) > 60)
+				to_chat(user, SPAN_NOTICE("There's too much water for you to bless at once!"))
+			else
+				to_chat(user, SPAN_NOTICE("You bless the water in [A], turning it into holy water."))
+				var/water2holy = REAGENT_VOLUME(A.reagents, /singleton/reagent/water)
+				A.reagents.del_reagent(/singleton/reagent/water)
+				A.reagents.add_reagent(/singleton/reagent/water/holywater, water2holy)
 
 /obj/item/reagent_containers/spray/aspergillum
 	name = "aspergillum"
@@ -377,7 +402,7 @@
 	name = "warding sphere"
 	desc = "A religious artefact commonly associated with Luceism, this transparent globe gives off a faint ghostly white light at all times."
 	desc_extended = "Luceian warding spheres are made on the planet of Assunzione in the great domed city of Guelma, and are carried by followers of the faith heading abroad. \
-	Constructed out of glass and a luce vine bulb these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
+	Constructed out of glass and a luce vine bulb, these spheres can burn for years upon years, and it is said that the lights in the truly faithful's warding sphere will always \
 	point towards Assunzione. It is considered extremely bad luck to have one's warding sphere break, to extinguish its flame, or to relinquish it (permanently) to an unbeliever."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "assunzioneorb"
@@ -424,6 +449,15 @@
 		icon_state = "assunzionesheath"
 	else
 		icon_state = "assunzionesheath_empty"
+
+/obj/item/storage/assunzionesheath/filled
+	starts_with = list(
+		/obj/item/assunzioneorb = 1
+	)
+
+/obj/item/storage/assunzionesheath/Initialize()
+	. = ..()
+	update_icon()
 
 /obj/item/storage/altar
 	name = "altar"

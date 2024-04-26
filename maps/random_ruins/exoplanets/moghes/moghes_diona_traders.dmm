@@ -1,0 +1,1729 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bi" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"bD" = (
+/obj/structure/simple_door/wood{
+	name = "Cell Three";
+	initial_lock_value = "cells"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"bJ" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"cJ" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"cL" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"dV" = (
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"ex" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"eS" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"fb" = (
+/obj/structure/simple_door/wood{
+	name = "Cell Two";
+	initial_lock_value = "cells"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"fd" = (
+/obj/structure/table/rack,
+/obj/item/watertank,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"ff" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = -6;
+	pixel_x = -12
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"gf" = (
+/turf/simulated/wall/wood,
+/area/moghes_diona_traders)
+"gT" = (
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/apron/blue,
+/obj/item/clothing/accessory/apron/blue,
+/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/item/clothing/gloves/botanic_leather/unathi,
+/obj/item/key{
+	name = "key - cells";
+	key_data = "cells"
+	},
+/obj/item/storage/box/zipties,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"hD" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"iP" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"js" = (
+/obj/structure/table/rack,
+/obj/random/toolbox,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"jL" = (
+/obj/structure/blocker/steel/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"mB" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"ns" = (
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"nP" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/black,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"oa" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"oK" = (
+/obj/structure/table/rack,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"oL" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin,
+/obj/item/pen/fountain/white,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"pd" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 4
+	},
+/obj/item/paper/fluff/moghes_diona_ad,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"pG" = (
+/obj/structure/flora/grass/junglegrass/random,
+/obj/structure/flora/tree/jungle/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"pS" = (
+/obj/structure/flora/tree/jungle/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"qM" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"qX" = (
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"sj" = (
+/obj/random/dirt_75,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_diona";
+	identifier = "moghes_diona"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"sv" = (
+/obj/structure/closet/crate/hydroponics{
+	name = "diona seeds"
+	},
+/obj/item/seeds/replicapod,
+/obj/item/seeds/replicapod,
+/obj/item/seeds/replicapod,
+/obj/item/seeds/replicapod,
+/obj/item/seeds/replicapod,
+/obj/item/seeds/replicapod,
+/obj/item/seeds/replicapod,
+/obj/item/seeds/replicapod,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"sx" = (
+/obj/structure/simple_door/wood{
+	name = "Cell One";
+	initial_lock_value = "cells"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"tj" = (
+/obj/structure/table/wood,
+/obj/item/paper/fluff/moghes_diona_ad,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"tm" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"ui" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"vy" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"wp" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"xc" = (
+/turf/template_noop,
+/area/exoplanet/moghes)
+"xB" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"xD" = (
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -6
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 6
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"xZ" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"yy" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"zs" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"zL" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"AQ" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"BA" = (
+/obj/structure/table/wood,
+/obj/item/paper/fluff/moghes_diona_ad,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Em" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/unathi/mogazali,
+/obj/item/clothing/under/unathi/mogazali/blue,
+/obj/item/clothing/under/unathi/mogazali/green,
+/obj/item/clothing/under/unathi/mogazali/orange,
+/obj/item/clothing/accessory/poncho/unathimantle/merchant{
+	color = "#6e3703"
+	},
+/obj/item/clothing/suit/unathi/robe/robe_coat,
+/obj/item/clothing/suit/unathi/robe/robe_coat/orange,
+/obj/item/clothing/suit/unathi/robe/robe_coat/blue,
+/obj/item/clothing/suit/unathi/robe/robe_coat/red,
+/obj/item/clothing/suit/unathi/jokfar{
+	color = "#1f1d1c"
+	},
+/obj/item/clothing/shoes/sandals/caligae/socks,
+/obj/item/clothing/accessory/holster/hip/brown,
+/obj/random/civgun,
+/obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
+/obj/item/toy/plushie/nymph,
+/obj/item/cane/concealed,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Ey" = (
+/obj/structure/table/wood,
+/obj/item/paper/fluff/moghes_diona_ad,
+/obj/item/paper/fluff/moghes_diona_ad,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"EC" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"EL" = (
+/obj/structure/table/wood,
+/obj/item/modular_computer/laptop/preset/civilian,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Gn" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_diona_assistant";
+	identifier = "moghes_diona_assistant"
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"GC" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/template_noop,
+/area/exoplanet/moghes)
+"GV" = (
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"JF" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"Kb" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Kd" = (
+/obj/structure/reagent_dispensers/water_cooler,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Ll" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"Lu" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Mf" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/goblet,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"MV" = (
+/obj/random/dirt_75,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"NG" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"NW" = (
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_diona";
+	identifier = "moghes_diona"
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"OC" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"OE" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"OG" = (
+/obj/structure/table/rack,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"QP" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"Rk" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"Rl" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/red,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_diona_trader";
+	identifier = "moghes_diona_trader"
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"SK" = (
+/obj/structure/table/wood,
+/obj/item/key{
+	name = "key - cells";
+	key_data = "cells"
+	},
+/obj/item/key{
+	name = "key - cells";
+	key_data = "cells"
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"SU" = (
+/obj/structure/closet/crate/hydroponics/prespawned,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/material/hatchet/lumber,
+/obj/item/reagent_containers/spray/plantbgone,
+/obj/item/shovel,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"SZ" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"TI" = (
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"TP" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/exoplanet/moghes)
+"TX" = (
+/obj/structure/closet/crate/freezer/rations,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Ux" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"WN" = (
+/obj/machinery/atm{
+	dir = 1;
+	pixel_y = 30
+	},
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Xb" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"Xc" = (
+/obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"Xv" = (
+/obj/structure/bed/stool/chair/sofa/corner/concave/brown{
+	dir = 8
+	},
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/carpet/red{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"YK" = (
+/obj/structure/closet/crate/loot,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"YR" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+"ZA" = (
+/obj/structure/simple_door/wood,
+/turf/simulated/floor/exoplanet/wood{
+	temperature = 303.15
+	},
+/area/moghes_diona_traders)
+"ZX" = (
+/obj/structure/flora/grass/junglegrass/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/exoplanet/moghes)
+
+(1,1,1) = {"
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+"}
+(2,1,1) = {"
+xc
+xc
+xc
+xc
+tm
+tm
+xc
+GC
+xc
+xc
+xc
+xc
+GC
+tm
+tm
+tm
+tm
+xc
+xc
+xc
+ZX
+ZX
+tm
+tm
+tm
+ZX
+ZX
+xc
+xc
+xc
+xc
+xc
+"}
+(3,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+bJ
+qM
+oa
+qM
+Rk
+tm
+ZX
+xc
+xc
+xc
+xc
+"}
+(4,1,1) = {"
+xc
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+ZX
+ui
+xZ
+AQ
+xZ
+yy
+tm
+tm
+ZX
+tm
+xc
+xc
+"}
+(5,1,1) = {"
+xc
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+ui
+xZ
+AQ
+xZ
+yy
+tm
+tm
+ZX
+tm
+xc
+xc
+"}
+(6,1,1) = {"
+xc
+tm
+tm
+tm
+tm
+tm
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+tm
+tm
+tm
+ui
+xZ
+AQ
+xZ
+yy
+ZX
+tm
+tm
+ZX
+xc
+xc
+"}
+(7,1,1) = {"
+xc
+tm
+tm
+tm
+tm
+tm
+gf
+Rl
+qX
+qX
+qX
+gf
+xD
+wp
+qX
+qX
+bi
+gf
+tm
+tm
+tm
+ui
+xZ
+AQ
+xZ
+yy
+tm
+tm
+tm
+ZX
+tm
+xc
+"}
+(8,1,1) = {"
+xc
+tm
+tm
+tm
+tm
+tm
+gf
+pd
+qX
+qX
+qX
+gf
+oL
+EL
+Ey
+Gn
+qX
+gf
+tm
+tm
+tm
+ui
+xZ
+AQ
+xZ
+yy
+tm
+tm
+ZX
+pS
+tm
+xc
+"}
+(9,1,1) = {"
+xc
+tm
+tm
+tm
+ZX
+tm
+gf
+Lu
+qX
+qX
+qX
+xB
+qX
+TI
+TI
+qX
+tj
+gf
+tm
+tm
+tm
+ui
+xZ
+AQ
+xZ
+yy
+tm
+tm
+tm
+tm
+ZX
+xc
+"}
+(10,1,1) = {"
+xc
+tm
+tm
+tm
+ZX
+tm
+gf
+qX
+qX
+Mf
+mB
+gf
+WN
+qX
+qX
+qX
+ns
+gf
+tm
+tm
+tm
+ui
+xZ
+AQ
+xZ
+yy
+tm
+tm
+tm
+tm
+tm
+xc
+"}
+(11,1,1) = {"
+xc
+tm
+tm
+tm
+pG
+tm
+gf
+Em
+qX
+qX
+cL
+gf
+Kd
+qX
+qX
+cJ
+Xv
+gf
+tm
+tm
+tm
+JF
+TP
+AQ
+TP
+hD
+tm
+tm
+tm
+tm
+xc
+xc
+"}
+(12,1,1) = {"
+xc
+xc
+tm
+tm
+ZX
+tm
+gf
+gf
+gf
+gf
+gf
+gf
+Ux
+ZA
+Ux
+gf
+gf
+gf
+tm
+ZX
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+"}
+(13,1,1) = {"
+xc
+xc
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+"}
+(14,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+ZX
+ZX
+ZX
+tm
+tm
+xc
+xc
+"}
+(15,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+xc
+xc
+"}
+(16,1,1) = {"
+xc
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+xc
+xc
+"}
+(17,1,1) = {"
+xc
+gf
+SU
+dV
+zL
+YK
+gT
+fd
+gf
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+"}
+(18,1,1) = {"
+xc
+gf
+sv
+zL
+dV
+zL
+dV
+zL
+ZA
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+ZX
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+"}
+(19,1,1) = {"
+xc
+gf
+sv
+dV
+zL
+zL
+zL
+dV
+gf
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+"}
+(20,1,1) = {"
+xc
+gf
+sv
+dV
+dV
+zL
+dV
+dV
+gf
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+"}
+(21,1,1) = {"
+xc
+gf
+dV
+dV
+dV
+dV
+dV
+zL
+gf
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+QP
+Xb
+Xb
+tm
+Xb
+Xb
+eS
+xc
+"}
+(22,1,1) = {"
+xc
+gf
+iP
+zs
+TX
+OG
+oK
+js
+gf
+tm
+tm
+gf
+gf
+Ux
+Ux
+ZA
+Ux
+Ux
+gf
+gf
+gf
+tm
+tm
+tm
+SZ
+tm
+tm
+tm
+ZX
+tm
+OE
+xc
+"}
+(23,1,1) = {"
+xc
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+gf
+tm
+tm
+gf
+SK
+zL
+dV
+dV
+dV
+dV
+nP
+Xc
+gf
+tm
+tm
+tm
+SZ
+OC
+tm
+ZX
+tm
+tm
+OE
+xc
+"}
+(24,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+gf
+Kb
+dV
+dV
+dV
+zL
+dV
+BA
+ex
+gf
+tm
+tm
+tm
+SZ
+ZX
+ZX
+ZX
+tm
+tm
+OE
+xc
+"}
+(25,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+gf
+ff
+dV
+zL
+dV
+dV
+dV
+zL
+dV
+gf
+tm
+tm
+tm
+SZ
+tm
+ZX
+ZX
+tm
+ZX
+OE
+xc
+"}
+(26,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+pS
+tm
+tm
+tm
+gf
+dV
+zL
+dV
+dV
+dV
+dV
+dV
+dV
+gf
+tm
+tm
+tm
+SZ
+tm
+OC
+ZX
+tm
+tm
+OE
+xc
+"}
+(27,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+gf
+Ux
+sx
+gf
+Ux
+fb
+gf
+Ux
+bD
+gf
+tm
+tm
+tm
+SZ
+tm
+tm
+tm
+tm
+OC
+OE
+xc
+"}
+(28,1,1) = {"
+xc
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+gf
+zL
+zL
+jL
+dV
+dV
+jL
+zL
+zL
+gf
+tm
+tm
+tm
+SZ
+ZX
+tm
+tm
+tm
+tm
+OE
+xc
+"}
+(29,1,1) = {"
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+tm
+gf
+MV
+NW
+jL
+GV
+sj
+jL
+dV
+NG
+gf
+tm
+tm
+tm
+EC
+vy
+vy
+YR
+vy
+vy
+Ll
+xc
+"}
+(30,1,1) = {"
+xc
+xc
+tm
+tm
+tm
+tm
+ZX
+tm
+tm
+tm
+tm
+gf
+Ux
+Ux
+gf
+Ux
+Ux
+gf
+Ux
+Ux
+gf
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+xc
+xc
+xc
+"}
+(31,1,1) = {"
+xc
+xc
+xc
+xc
+xc
+tm
+tm
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+tm
+tm
+tm
+tm
+tm
+tm
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+"}
+(32,1,1) = {"
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+xc
+"}

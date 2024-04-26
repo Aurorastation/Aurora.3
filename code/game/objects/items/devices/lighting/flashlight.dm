@@ -298,6 +298,9 @@
 /obj/item/device/flashlight/empty
 	starts_with_cell = FALSE
 
+/obj/item/device/flashlight/on
+	on = TRUE
+
 /obj/item/device/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
@@ -332,6 +335,9 @@
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
 
+/obj/item/device/flashlight/heavy/on
+	on = TRUE
+
 /obj/item/device/flashlight/maglight
 	name = "maglight"
 	desc = "A heavy flashlight, designed for security personnel."
@@ -353,6 +359,9 @@
 		item_state = "maglight-on"
 	else
 		item_state = "maglight"
+
+/obj/item/device/flashlight/maglight/on
+	on = TRUE
 
 /obj/item/device/flashlight/slime
 	gender = PLURAL
@@ -409,3 +418,6 @@
 		item_state = "lantern-on"
 	else
 		item_state = "lantern"
+
+/obj/item/device/flashlight/lantern/on
+	on = TRUE

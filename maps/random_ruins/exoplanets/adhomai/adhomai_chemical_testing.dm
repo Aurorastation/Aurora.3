@@ -8,3 +8,5 @@
 
 	prefix = "adhomai/"
 	suffixes = list("adhomai_chemical_testing.dmm")
+
+	unit_test_groups = list(3)
