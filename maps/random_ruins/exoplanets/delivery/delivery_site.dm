@@ -15,3 +15,5 @@
 
 	prefix = "delivery/"
 	suffixes = list("delivery_site.dmm")
+
+	unit_test_groups = list(3)

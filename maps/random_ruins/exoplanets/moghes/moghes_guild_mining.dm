@@ -8,6 +8,8 @@
 	suffixes = list("moghes_guild_mining.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_heph_mining)
 
+	unit_test_groups = list(3)
+
 /area/moghes_guild_mining
 	name = "Miners' Guild Camp"
 	icon_state = "bluenew"

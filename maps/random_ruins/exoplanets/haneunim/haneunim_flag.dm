@@ -8,3 +8,5 @@
 
 	prefix = "haneunim/"
 	suffixes = list("haneunim_mystery.dmm")
+
+	unit_test_groups = list(2)
