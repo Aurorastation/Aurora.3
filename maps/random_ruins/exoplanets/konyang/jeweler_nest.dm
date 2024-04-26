@@ -8,3 +8,5 @@
 
 	prefix = "konyang/"
 	suffixes = list("jeweler_nest.dmm")
+
+	unit_test_groups = list(3)

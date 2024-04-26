@@ -3,6 +3,7 @@
 	desc = "A strange collection of symbols drawn in blood."
 	icon = 'icons/obj/rune.dmi'
 	icon_state = "1"
+	color = COLOR_HUMAN_BLOOD
 	anchored = TRUE
 	unacidable = TRUE
 	layer = RUNE_LAYER

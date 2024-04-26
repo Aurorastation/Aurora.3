@@ -11,6 +11,8 @@
 	prefix = "konyang/"
 	suffixes = list("pirate_moonshine.dmm")
 
+	unit_test_groups = list(2)
+
 
 /area/konyang_pirate_moonshine
 	name = "Konyang Moonshiner Den"

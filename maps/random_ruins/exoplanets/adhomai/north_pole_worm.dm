@@ -8,3 +8,5 @@
 
 	prefix = "adhomai/"
 	suffixes = list("north_pole_worm.dmm")
+
+	unit_test_groups = list(1)
