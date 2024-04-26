@@ -690,10 +690,13 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/kataphract_chapter/bridge)
 "cK" = (
-/obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/machinery/light,
-/turf/simulated/floor/tiled/white,
-/area/kataphract_chapter/mess)
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/bridge)
 "cL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
@@ -4012,6 +4015,9 @@
 "oe" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/mess)
 "op" = (
@@ -4357,6 +4363,7 @@
 /obj/item/storage/box/fancy/egg_box,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/item/storage/box/produce,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/mess)
 "so" = (
@@ -5325,14 +5332,6 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/kataphract_shuttle/main_compartment)
-"CK" = (
-/obj/machinery/shipsensors/weak,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/bridge)
 "CL" = (
 /obj/structure/toilet{
 	dir = 1;
@@ -6038,8 +6037,8 @@
 	id = "katamess"
 	},
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
-/obj/machinery/light{
-	dir = 1
+/obj/structure/sink/kitchen{
+	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/mess)
@@ -6219,6 +6218,14 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"ME" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/bridge)
 "Nl" = (
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8
@@ -6774,14 +6781,6 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/mess)
-"Sb" = (
-/obj/machinery/iff_beacon,
-/obj/structure/railing/mapped,
-/obj/structure/railing/mapped{
-	dir = 8
-	},
-/turf/simulated/floor/airless,
-/area/kataphract_chapter/bridge)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
@@ -33520,7 +33519,7 @@ Kw
 VJ
 ma
 ma
-cK
+ma
 lz
 DX
 XI
@@ -35543,7 +35542,7 @@ GW
 GW
 GW
 GW
-CK
+cK
 iB
 iB
 iB
@@ -37559,7 +37558,7 @@ GW
 GW
 GW
 GW
-Sb
+ME
 iB
 iB
 iB
