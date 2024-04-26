@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - bugfix: "Removed access variable definition in yacht ghostroles. Replaced it with the get ID access proc to add external airlock access for the crew."
+  - bugfix: "Removed access requirements on airlocks; set to null. Removed the ID altogether, per request."
