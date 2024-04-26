@@ -199,6 +199,7 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "aao" = (
@@ -268,7 +269,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/item/device/radio/intercom/ship/north,
 /turf/simulated/floor/airless,
-/area/sensor_relay/airlocks)
+/area/sensor_relay)
 "aau" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -826,13 +827,14 @@
 /area/sensor_relay)
 "afL" = (
 /obj/effect/floor_decal/industrial/warning/corner,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+/obj/machinery/atmospherics/unary/outlet_injector{
+	dir = 1;
 	use_power = 1;
-	icon_state = "map_vent_out";
-	dir = 1
+	name = "waste outlet";
+	volume_rate = 700
 	},
 /turf/simulated/floor/airless,
-/area/sensor_relay/airlocks)
+/area/sensor_relay)
 "afN" = (
 /obj/item/ore/glass,
 /obj/item/ore/lead,
@@ -1179,18 +1181,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 9
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 4
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
-/obj/random/dirt_75,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
-/obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/recharge_station,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "akv" = (
@@ -1601,11 +1602,10 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay/hydroponics)
 "asv" = (
-/obj/structure/lattice,
 /obj/machinery/shipsensors/strong/venator/relay{
 	pixel_y = -16
 	},
-/turf/space/dynamic,
+/turf/simulated/floor/airless,
 /area/sensor_relay)
 "asy" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -2480,6 +2480,7 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "aJn" = (
@@ -2510,7 +2511,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/sensor_relay/airlocks)
+/area/sensor_relay)
 "aKt" = (
 /obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/carpet/rubber,
@@ -3278,6 +3279,18 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
+"ffz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/airless,
+/area/sensor_relay)
+"ftE" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/sensor_relay)
 "fvm" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -3288,6 +3301,12 @@
 /obj/structure/inflatable/wall,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating,
+/area/sensor_relay)
+"fHz" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/airless,
 /area/sensor_relay)
 "fIV" = (
 /obj/structure/lattice/catwalk/indoor,
@@ -3546,7 +3565,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/sensor_relay/airlocks)
+/area/sensor_relay)
 "mQU" = (
 /obj/structure/window_frame,
 /obj/structure/grille/over,
@@ -3601,7 +3620,7 @@
 "pta" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
-/area/sensor_relay/airlocks)
+/area/sensor_relay)
 "pvG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3718,6 +3737,12 @@
 /obj/item/ore/uranium,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
+"sxi" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/airless,
+/area/sensor_relay)
 "sAb" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -3754,7 +3779,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/sensor_relay/airlocks)
+/area/sensor_relay)
 "tin" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -34955,9 +34980,9 @@ aZK
 aZK
 pta
 aef
-aef
 aEA
-aef
+aEA
+aEA
 aef
 deH
 fCA
@@ -35211,11 +35236,11 @@ atU
 aBL
 xVr
 aKh
-aef
 aEA
+ffz
+bNO
+ftE
 aEA
-aEA
-aef
 deH
 ahL
 uOx
@@ -35469,9 +35494,9 @@ agb
 aer
 sWe
 aEA
-aEA
+deH
 asv
-aEA
+pta
 aEA
 deH
 aEg
@@ -35725,11 +35750,11 @@ aZI
 aBF
 aZK
 mDs
-aef
 aEA
+sxi
+abc
+fHz
 aEA
-aEA
-aef
 deH
 ahL
 wHN
@@ -35983,9 +36008,9 @@ aZK
 aZK
 aat
 aef
-aef
 aEA
-aef
+aEA
+aEA
 aef
 deH
 ahL
