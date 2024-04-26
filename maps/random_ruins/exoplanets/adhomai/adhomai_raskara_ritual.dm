@@ -9,6 +9,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_raskara_ritual.dmm")
 
+	unit_test_groups = list(1)
+
 /area/adhomai_raskara_ritual
 	name = "Adhomian Wilderness"
 	icon_state = "bluenew"
