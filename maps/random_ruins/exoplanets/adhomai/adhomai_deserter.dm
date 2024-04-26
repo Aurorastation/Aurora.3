@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_deserter.dmm")
 
+	unit_test_groups = list(1)
+
 //ghost roles
 
 /datum/ghostspawner/human/adhomai_deserter

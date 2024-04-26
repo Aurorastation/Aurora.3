@@ -9,6 +9,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_tunneler_nest.dmm")
 
+	unit_test_groups = list(1)
+
 
 /obj/structure/ice_tunneler_nest
 	name = "ice tunneler nest"

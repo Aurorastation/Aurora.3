@@ -7,6 +7,8 @@
 	suffixes = list("pid_crashed_shuttle.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
+	unit_test_groups = list(2)
+
 /obj/effect/landmark/corpse/hegemony_shuttle
 	name = "Hegemony Shuttle Pilot"
 	corpseuniform = /obj/item/clothing/under/unathi/izweski
