@@ -2689,7 +2689,9 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/kataphract_chapter/office)
 "ke" = (
-/obj/machinery/vending/medical,
+/obj/machinery/vending/medical{
+	req_access = list(113)
+	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
@@ -7383,7 +7385,8 @@
 /obj/structure/table/standard,
 /obj/structure/closet/walllocker/medical/secure{
 	name = "Stabilization Kit";
-	pixel_x = -32
+	pixel_x = -32;
+	req_access = list(113)
 	},
 /obj/item/clothing/mask/breath/medical,
 /obj/item/auto_cpr,
