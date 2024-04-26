@@ -5325,6 +5325,14 @@
 	},
 /turf/simulated/floor/airless,
 /area/shuttle/kataphract_shuttle/main_compartment)
+"CK" = (
+/obj/machinery/shipsensors/weak,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/bridge)
 "CL" = (
 /obj/structure/toilet{
 	dir = 1;
@@ -6766,6 +6774,14 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/mess)
+"Sb" = (
+/obj/machinery/iff_beacon,
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
+/area/kataphract_chapter/bridge)
 "Sf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
@@ -35527,7 +35543,7 @@ GW
 GW
 GW
 GW
-iB
+CK
 iB
 iB
 iB
@@ -37543,7 +37559,7 @@ GW
 GW
 GW
 GW
-iB
+Sb
 iB
 iB
 iB
