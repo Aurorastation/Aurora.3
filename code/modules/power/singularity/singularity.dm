@@ -507,7 +507,8 @@
 	return FALSE
 
 /obj/singularity/proc/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		forceMove(destination)
 

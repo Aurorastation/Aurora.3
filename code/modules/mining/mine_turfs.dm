@@ -599,7 +599,8 @@ var/list/mineral_can_smooth_with = list(
 
 	if(ishuman(user) && user.a_intent == I_GRAB)
 		var/mob/living/carbon/human/H = user
-		var/turf/destination = GetAbove(H)
+		var/turf/T = get_turf(H)
+		var/turf/destination = GET_TURF_ABOVE(T)
 		if(destination)
 			var/turf/start = get_turf(H)
 			if(start.CanZPass(H, UP))
@@ -810,7 +811,7 @@ var/list/asteroid_floor_smooth = list(
 		if(digging)
 			return
 		if(dug)
-			if(!GetBelow(src))
+			if(!GET_TURF_BELOW(src))
 				return
 			to_chat(user, SPAN_NOTICE("You start digging deeper."))
 			playsound(get_turf(user), 'sound/effects/stonedoor_openclose.ogg', 50, TRUE)
@@ -954,7 +955,7 @@ var/list/asteroid_floor_smooth = list(
 		dug += 1
 		add_overlay("asteroid_dug", TRUE)
 	else
-		var/turf/below = GetBelow(src)
+		var/turf/below = GET_TURF_BELOW(src)
 		if(below)
 			var/area/below_area = get_area(below)	// Let's just assume that the turf is not in nullspace.
 			if(below_area.station_area)

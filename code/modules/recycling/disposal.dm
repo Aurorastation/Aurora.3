@@ -1080,7 +1080,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 12)
-		T = GetAbove(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_ABOVE(current_turf)
 		if(!T)
 			H.forceMove(loc)
 			return
@@ -1129,7 +1130,8 @@
 	var/obj/structure/disposalpipe/P
 
 	if(nextdir == 11)
-		T = GetBelow(src)
+		var/turf/current_turf = get_turf(src)
+		T = GET_TURF_BELOW(current_turf)
 		if(!T)
 			H.forceMove(src.loc)
 			return

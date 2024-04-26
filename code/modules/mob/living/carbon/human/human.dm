@@ -2272,7 +2272,8 @@
 			reset_view(null)
 			QDEL_NULL(z_eye)
 			return
-		var/turf/above = GetAbove(src)
+		var/turf/T = get_turf(src)
+		var/turf/above = GET_TURF_ABOVE(T)
 		if(TURF_IS_MIMICING(above))
 			z_eye = new /atom/movable/z_observer/z_up(src, src)
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
@@ -2293,14 +2294,14 @@
 			QDEL_NULL(z_eye)
 			return
 		var/turf/T = get_turf(src)
-		if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+		if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 			z_eye = new /atom/movable/z_observer/z_down(src, src)
 			visible_message(SPAN_NOTICE("[src] looks below."), SPAN_NOTICE("You look below."))
 			reset_view(z_eye)
 			return
 		else
 			T = get_step(T, dir)
-			if(TURF_IS_MIMICING(T) && HasBelow(T.z))
+			if(TURF_IS_MIMICING(T) && GET_TURF_BELOW(T))
 				z_eye = new /atom/movable/z_observer/z_down(src, src, TRUE)
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)

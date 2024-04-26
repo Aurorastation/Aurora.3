@@ -153,9 +153,8 @@
 
 /datum/map/proc/get_empty_zlevel()
 	if(empty_levels == null)
-		world.maxz++
-		empty_levels = list(world.maxz)
-		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
+		var/datum/space_level/empty_level = SSmapping.add_new_zlevel("Empty Level", ZTRAITS_AWAY, contain_turfs = FALSE)
+		empty_levels = list(empty_level.z_value)
 	return pick(empty_levels)
 
 /datum/map/proc/setup_shuttles()

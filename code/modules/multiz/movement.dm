@@ -40,7 +40,8 @@
 		to_chat(src, SPAN_WARNING("You lack means of travel in that direction."))
 		return FALSE
 
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 
 	if(!destination)
 		to_chat(src, SPAN_NOTICE("There is nothing of interest in this direction."))
@@ -104,14 +105,16 @@
 	return ..()
 
 /mob/abstract/eye/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		setLoc(destination)
 	else
 		to_chat(owner, SPAN_NOTICE("There is nothing of interest in this direction."))
 
 /mob/abstract/observer/zMove(direction)
-	var/turf/destination = (direction == UP) ? GetAbove(src) : GetBelow(src)
+	var/turf/T = get_turf(src)
+	var/turf/destination = (direction == UP) ? GET_TURF_ABOVE(T) : GET_TURF_BELOW(T)
 	if(destination)
 		forceMove(destination)
 	else
@@ -151,9 +154,9 @@
 /mob/living/carbon/human/proc/climb(var/direction, var/turf/source, var/climb_bonus)
 	var/turf/destination
 	if(direction == UP)
-		destination = GetAbove(source)
+		destination = GET_TURF_ABOVE(source)
 	else
-		destination = GetBelow(source)
+		destination = GET_TURF_BELOW(source)
 
 	if(!destination)
 		return

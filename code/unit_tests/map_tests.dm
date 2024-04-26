@@ -124,7 +124,7 @@
 		for (var/turf/T in A)	// Areas don't just contain turfs, so typed loop it is.
 			T = thing
 			tiles_total++
-			above = GetAbove(T)
+			above = GET_TURF_ABOVE(T)
 
 			if (above && above.is_hole)
 				bad_tiles++
@@ -160,7 +160,8 @@
 			continue
 
 		var/bad = 0
-		if (ladder.target_up && !isopenturf(GetAbove(ladder)))
+		var/turf/T = get_turf(ladder)
+		if (ladder.target_up && !isopenturf(GET_TURF_ABOVE(T)))
 			bad |= BLOCKED_UP
 
 		if (ladder.target_down && !isopenturf(ladder.loc))
