@@ -8,20 +8,16 @@
 	invisibility = INVISIBILITY_ABSTRACT
 	layer = ABOVE_HUMAN_LAYER
 
-/obj/effect/landmark/New()
-	..()
-	tag = text("landmark*[]", name)
-	return TRUE
-
+INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /obj/effect/landmark/Initialize(mapload)
 	. = ..()
+	tag = text("landmark*[]", name)
 	GLOB.landmarks_list += src
 
 /obj/effect/landmark/Destroy()
 	GLOB.landmarks_list -= src
 	tag = null
 	. = ..()
-	GC_TEMPORARY_HARDDEL
 
 /*#######################
 	LATEJOIN LANDMARKS
