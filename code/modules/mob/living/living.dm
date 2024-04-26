@@ -1021,6 +1021,12 @@ default behaviour is:
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
 
+/mob/living/verb/toggle_intentionally_lying()
+	set hidden = 1
+	set name = "lie_down"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click(params="button=middle")
+
 /**
  * Used by a macro in skin.dmf to toggle the throw
  */

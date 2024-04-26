@@ -8,3 +8,5 @@
 
 	prefix = "raskara/"
 	suffixes = list("raskara_wreck.dmm")
+
+	unit_test_groups = list(1)
