@@ -16,6 +16,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicked"
+	faction = "Moghes"
 
 	maxHealth = 100
 	health = 100
@@ -59,6 +60,7 @@
 	response_disarm = "gently pushes aside"
 	response_harm   = "kicks"
 	attacktext = "kicked"
+	faction = "Moghes"
 
 	maxHealth = 200
 	health = 200
@@ -94,6 +96,7 @@
 /mob/living/simple_animal/aquatic/fish/moghes
 	name = "orszi fish"
 	desc = "A small fish native to the rivers and seas of the planet Moghes, the orzsi or 'swarm fish' is a common food source for noble and common Unathi alike."
+	faction = "Moghes"
 
 /mob/living/simple_animal/otzek
 	name = "otzek"
@@ -110,6 +113,7 @@
 	emote_see = list("flicks its tongue", "shakes its head")
 	speak_chance = 1
 	turns_per_move = 5
+	faction = "Moghes"
 
 	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg", "tail")
 	response_help  = "pets"
@@ -138,6 +142,7 @@
 	emote_see = list("pecks at the ground","flaps its wings","flicks out its tongue")
 	speak_chance = 1
 	turns_per_move = 5
+	faction = "Moghes"
 
 	organ_names = list("head", "chest", "left leg", "right leg", "left wing", "right wing")
 	response_help  = "pets"

@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("psis_outpost.dmm")
 
+	unit_test_groups = list(3)
+
 /area/psis_outpost
 	name = "PSIS Outpost"
 	icon_state = "bluenew"

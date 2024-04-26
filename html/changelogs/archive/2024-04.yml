@@ -341,3 +341,164 @@
       instances.
   meep109:
   - bugfix: Fixes the orion express courier shuttle leaving plating behind.
+2024-04-17:
+  CourierBravo:
+  - qol: Adds the new materials to nearly every offship with an autolathe. Exceptions
+      made at this time to ship with open PRs
+  FluffyGhost:
+  - code_imp: Made the Destroy proc not sleepable.
+  Lavillastrangiato:
+  - bugfix: Fixes any access problems on the NKA merchant navy vessel.
+  - qol: Adds various dirt, decorations, and a CO2 tank to the NKA merchant navy vessel.
+  - bugfix: Gives the civvie yacht crew IDs.
+  - bugfix: Fixes access problems on the Headmaster ship.
+  - bugfix: Fixes some typoes in the ZI machine pistol and various Medina stuff.
+  - bugfix: Fixes Vaurca workers causing quakes when they jump.
+  - bugfix: Adds Dominian armor and helmets to their gear crates.
+  RustingWithYou:
+  - rscadd: Overmap shuttles can now be mapped directly onto their open space z-level,
+      without the need for empty sectors.
+  - rscadd: Adds various ruins for the minor planets and asteroids of Uueoa-Esa.
+  - qol: Clothing items can now be set to refit to a species on initialize.
+  kermit, Caelphon, hollyhock:
+  - rscadd: Replaces EUM origins/accents with Hieroaetherian origins/accents.
+2024-04-18:
+  FluffyGhost:
+  - bugfix: Fixed exoplanet turf icons for floors.
+  GeneralCamo:
+  - bugfix: Disposals Pipes will now layer above tiles in strongdmm.
+  RustingWithYou:
+  - rscadd: Adds more exoplanet variants of turfs.
+  - rscadd: Adds marble walls.
+  SidVeld:
+  - rscadd: Added a universal augment translator that can be used to understand human
+      languages, but not speak them.
+2024-04-19:
+  Alberyk:
+  - rscadd: Added two new ruins to New Gibson.
+  - rscadd: New Gibson now has a more proper environment.
+  ChangeMe:
+  - rscadd: added some more military and medical belts and webbing for the Xanu Military
+      Frigate
+  Chevy:
+  - balance: Raised jackboot armor values to meet those of workboots, except for the
+      radiation armor, which remains unique to workboots.
+  FluffyGhost:
+  - qol: Reduced engine volume.
+  - refactor: Refactored archeological finds to use Initialize() instead of New()
+      where possible.
+  RustingWithYou:
+  - bugfix: Fixes shuttle open space landmarks generating on the wrong z-levels.
+  - rscadd: Adds the Uueoa-Esa sector, along with its lore planets.
+  - rscadd: Adds two new origin traits - stamina bonus and pain resistance, currently
+      available to Tza and Zazalai Unathi.
+  - qol: Crevan Tajara now have drug and alcohol resistance.
+  - rscadd: Prosthetic/amputated limbs and organs can now be edited in the appearance
+      changer.
+  - qol: Height and speech bubbles can now be edited when unable to change species
+      in appearance editor.
+  - rscadd: Fluff papers can now be set to a written language.
+  - imageadd: Adds an Unathi skeleton sprite.
+  - balance: Buffs the explosion radius of Bruiser HE rounds.
+2024-04-20:
+  FluffyGhost:
+  - refactor: Unified most of the procs into one definition, so there are no duplicate
+      around the codebase.
+  - refactor: Marked some of the above as overridable if a good enough case can be
+      made for them (eg. external dependency or unlikely to be used).
+  GeneralCamo:
+  - rscadd: Added Imogen Janse's custom item.
+  RustingWithYou:
+  - qol: Reworks blueprints to use an eye for area modification.
+  - rscadd: Adds outpost blueprints for creating areas on exoplanets, and shuttle
+      blueprints for modifying shuttles.
+  - qol: Moves eye creation to a component.
+  - rscadd: Adds several items and structures for use in Uueoa-Esa ruins.
+2024-04-21:
+  Crosarius:
+  - soundadd: Added footstep sound effects for barefoot Unathi.
+  DreamySkrell:
+  - rscadd: Cult Base away site.
+  - rscadd: Adds some mapped in cult runes.
+  - rscadd: Adds ooc welcome message, separate from normal welcome message.
+  - rscadd: Allows corpses to use outfits.
+  - rscadd: Allows corpses use different species.
+  - rscadd: Adds some generic outfits.
+  - rscadd: Ghostspawner spawn points are actually randomly picked.
+  - bugfix: Fixes marker layers.
+  FluffyGhost:
+  - code_imp: Refactored the use of the isprocessing var into the datum flag DF_ISPROCESSING.
+  - code_imp: Updated SSprocessing and SSmachinery to have a constant fire rate.
+  - code_imp: Updated gas cooler to be time-constant thanks to the above.
+  Geeves:
+  - bugfix: Fixed colorable glasses frames being affected by the alpha value.
+  ReadThisNamePlz, Noblerow:
+  - rscadd: Added a working HAPT shuttle.
+  - rscadd: Added the VIP ghostrole to the CCIA Ghostspawner.
+  - rscadd: Added a modified HAPT suit for NT HAPT use only.
+  - imageadd: Added new sprites for the tweaked HAPT suit
+  RustingWithYou:
+  - qol: Sensors, thrusters, and IFF beacons are now buildable and deconstructable.
+2024-04-22:
+  DreamySkrell:
+  - rscadd: Ghostspawner OOC description.
+  - qol: Ghostspawner desc and welcome_text minor tweaks.
+  - qol: Cult base minor tweaks.
+  - bugfix: Fixes cult base being guaranteed site.
+2024-04-23:
+  CourierBravo:
+  - rscadd: Reorganizes the helpers folder. Adds 4 maps of premade rooms and buildings
+      as a map design tool. Some objects in rooms will require access tweaks as required.
+  FluffyGhost:
+  - code_imp: Removed a background set.
+  - refactor: Refactored away some world loops.
+  MattAtlas:
+  - qol: Added preset mineral walls for mappers.
+  RustingWithYou:
+  - rscadd: Adds several ruins for the Untouched Lands of Moghes.
+  nauticall:
+  - rscadd: 'Adds three more radio stations to Tau Ceti: 87.5 Mendell City Bugle,
+      90.7 Hi-Fi Sports, and 93.1 Phoenix FM. Basketball game in Hi-Fi is written
+      by Desven.'
+2024-04-24:
+  CourierBravo:
+  - rscadd: Adds 7 new biesel exclusive ruins. These include camp sites, abandoned
+      cargo, a very recently crashed ship, and abandoned warehouses
+  SimpleMaroon:
+  - bugfix: Removes nearly invisible stray pixels from the right-side Vaurca mecha
+      faceplate.
+  nauticall:
+  - rscadd: Added several items relating to Luceism, the religion of Assunzione.
+  - rscadd: 'Added chaplain items for Luceism: robes, a cassock, and a new null rod,
+      the Luminous Sceptre.'
+  - rscadd: Added a new versebook, the Luceian Book of Scripture, available to Assunzionii
+      characters. It's a versebook with various texts from Luceism.
+  - imageadd: Resprited the Luceian amulet, Luceian Book of Scripture, and the Assunzione
+      cloak.
+  - qol: Compressed the loadout warding sphere and warding sphere case into just one
+      loadout item that already comes with a case.
+  - qol: Religions with unique religious books (versebooks) now have their chaplains
+      spawn with the versebook in question, rather than a generic black tome.
+  - qol: To compensate for the above, null rods are now able to create holy water
+      the same way a bible can.
+2024-04-25:
+  ClemTheDuck:
+  - balance: tweaks values of unathi kataphract and pirate armour to be more inline
+      with other voidsuits.
+  Lavillastrangiato:
+  - qol: Completely remaps the Kataphract ship.
+  hazlemouse:
+  - rscadd: Adds the Scarab Salvager offship to the Badlands and Valley Hale sectors.
+  - bugfix: Resolves a few minor mapping issues in the Scarab Salvager and Hivebot
+      Hub maps.
+2024-04-26:
+  Ben10083:
+  - server: Adjusted variables for Tau Ceti Sector relating to Port of Call, to reflect
+      future plans for sector.
+  FluffyGhost:
+  - code_imp: Removed most reagent stuffs from water turf, they were hogging the server
+      CPU.
+  - code_imp: Split ruins tests into different pods.
+  - code_imp: Improved ease of access to output info for the unit test.
+  Yonnimer:
+  - rscdel: Removes the ability for the dominian research vessel to spawn coc space.

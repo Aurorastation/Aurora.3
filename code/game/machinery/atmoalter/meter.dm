@@ -3,13 +3,16 @@
 	desc = "It measures something."
 	desc_info = "Measures the volume and temperature of the pipe under the meter."
 	icon = 'icons/obj/meter.dmi'
-	icon_state = "meterX"
+	icon_state = "meter_base"
 	var/obj/machinery/atmospherics/pipe/target = null
 	anchored = 1.0
 	power_channel = ENVIRON
 	var/frequency = 0
 	var/id
 	idle_power_usage = 15
+
+	var/image/button_overlay
+	var/image/atmos_overlay
 
 
 /obj/machinery/meter/Initialize()
@@ -18,33 +21,75 @@
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
 /obj/machinery/meter/process()
+	cut_overlays()
 	if(!target)
-		icon_state = "meterX"
-		return 0
+		add_overlay("pressure_off")
+		add_overlay("buttons-x")
+		return FALSE
 
 	if(stat & (BROKEN|NOPOWER))
-		icon_state = "meter0"
-		return 0
+		add_overlay("pressure_off")
+		return FALSE
 
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
-		icon_state = "meterX"
-		return 0
+		add_overlay("buttons_x")
+		add_overlay("pressure0")
+		return FALSE
 
+	var/button_overlay_name
+	var/atmos_overlay_name
 	var/env_pressure = environment.return_pressure()
 	if(env_pressure <= 0.15*ONE_ATMOSPHERE)
-		icon_state = "meter0"
+		button_overlay_name = "buttons_0"
+		atmos_overlay_name = "pressure0"
 	else if(env_pressure <= 1.8*ONE_ATMOSPHERE)
 		var/val = round(env_pressure/(ONE_ATMOSPHERE*0.3) + 0.5)
-		icon_state = "meter1_[val]"
+		button_overlay_name = "buttons_1"
+		atmos_overlay_name = "pressure1_[val]"
 	else if(env_pressure <= 30*ONE_ATMOSPHERE)
 		var/val = round(env_pressure/(ONE_ATMOSPHERE*5)-0.35) + 1
-		icon_state = "meter2_[val]"
+		button_overlay_name = "buttons_2"
+		atmos_overlay_name = "pressure2_[val]"
 	else if(env_pressure <= 59*ONE_ATMOSPHERE)
 		var/val = round(env_pressure/(ONE_ATMOSPHERE*5) - 6) + 1
-		icon_state = "meter3_[val]"
+		button_overlay_name = "buttons_3"
+		atmos_overlay_name = "pressure3_[val]"
 	else
-		icon_state = "meter4"
+		atmos_overlay_name = "pressure4"
+
+	button_overlay = image(icon, button_overlay_name)
+	atmos_overlay = image(icon, atmos_overlay_name)
+
+	var/env_temperature = environment.temperature
+
+	var/temp_color
+
+	if(env_pressure == 0 || env_temperature == 0)
+		temp_color = COLOR_GRAY
+
+	else
+		switch(env_temperature)
+			if((BODYTEMP_HEAT_DAMAGE_LIMIT + 360) to INFINITY)
+				temp_color = COLOR_RED
+			if((BODYTEMP_HEAT_DAMAGE_LIMIT + 120) to (BODYTEMP_HEAT_DAMAGE_LIMIT + 360))
+				temp_color = COLOR_ORANGE
+			if(BODYTEMP_HEAT_DAMAGE_LIMIT to (BODYTEMP_HEAT_DAMAGE_LIMIT + 120))
+				temp_color = COLOR_YELLOW
+			if(BODYTEMP_COLD_DAMAGE_LIMIT to BODYTEMP_HEAT_DAMAGE_LIMIT)
+				temp_color = COLOR_LIME
+			if((BODYTEMP_COLD_DAMAGE_LIMIT - 120) to BODYTEMP_COLD_DAMAGE_LIMIT)
+				temp_color = COLOR_CYAN
+			if((BODYTEMP_COLD_DAMAGE_LIMIT - 360) to (BODYTEMP_COLD_DAMAGE_LIMIT - 120))
+				temp_color = COLOR_BLUE
+			else
+				temp_color = COLOR_VIOLET
+
+	if(atmos_overlay.color != temp_color)
+		atmos_overlay.color = temp_color
+
+	add_overlay(button_overlay)
+	add_overlay(atmos_overlay)
 
 	if(frequency)
 		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)

@@ -1,0 +1,2004 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aE" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/adv,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"cs" = (
+/obj/machinery/hologram/holopad/long_range,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"cH" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"dh" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/closet,
+/obj/item/clothing/suit/vaurca/brown,
+/obj/item/clothing/under/vaurca,
+/obj/item/clothing/accessory/poncho/vaurca,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/storage/backpack/cloak/klax,
+/obj/item/clothing/head/shroud/red,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"dI" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/light,
+/obj/machinery/botany/extractor,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"dM" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/melee/energy/vaurca,
+/obj/item/melee/energy/vaurca,
+/obj/item/melee/energy/vaurca,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"dZ" = (
+/obj/structure/sign/flag/klax{
+	stand_icon = "banner";
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"eA" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/seed_extractor,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"fm" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 15
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"fH" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/closet/crate,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"fV" = (
+/obj/machinery/portable_atmospherics/hydroponics,
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"gR" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1889;
+	master_tag = "airlock_klax";
+	name = "airlock_klax"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = -6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/turf/simulated/floor/plating,
+/area/pid_kois_farm)
+"hd" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/reagent_containers/inhaler/phoron_special,
+/obj/item/reagent_containers/inhaler/phoron_special,
+/obj/item/reagent_containers/inhaler/phoron_special,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"ir" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"iM" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"jc" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"jt" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"jO" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/gun/energy/vaurca/blaster,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"kb" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/curtain/open/bed,
+/obj/machinery/light,
+/obj/effect/ghostspawpoint{
+	name = "igs - pid_vaurca";
+	identifier = "pid_vaurca"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"kv" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1889;
+	master_tag = "airlock_klax";
+	name = "airlock_klax"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/pid_kois_farm)
+"kO" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/clothing/gloves/botanic_leather/vaurca,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"lj" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"md" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"mq" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"mU" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1889;
+	master_tag = "airlock_klax";
+	name = "airlock_klax"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = -10
+	},
+/turf/simulated/floor/plating,
+/area/pid_kois_farm)
+"oc" = (
+/turf/template_noop,
+/area/space)
+"pb" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"pm" = (
+/obj/structure/bed/stool/bar/padded/green,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"pY" = (
+/obj/effect/landmark/clear,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"qq" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"qZ" = (
+/obj/structure/bed/stool/bar/padded/green,
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"rc" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"rj" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/machinery/biogenerator{
+	icon_state = "biogen-empty"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"rU" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"rV" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/machinery/autolathe,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"sg" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/vaurca,
+/obj/item/clothing/suit/space/void/vaurca,
+/obj/item/clothing/suit/space/void/vaurca,
+/obj/item/clothing/suit/space/void/vaurca,
+/obj/item/clothing/head/helmet/space/void/vaurca,
+/obj/item/clothing/head/helmet/space/void/vaurca,
+/obj/item/clothing/head/helmet/space/void/vaurca,
+/obj/item/clothing/head/helmet/space/void/vaurca,
+/obj/item/clothing/shoes/magboots/vaurca,
+/obj/item/clothing/shoes/magboots/vaurca,
+/obj/item/clothing/shoes/magboots/vaurca,
+/obj/item/clothing/shoes/magboots/vaurca,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"sj" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/storage/bag/inflatable,
+/obj/item/storage/bag/inflatable,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"sC" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/accessory/apron/blue,
+/obj/item/clothing/accessory/apron/blue,
+/obj/item/clothing/accessory/apron/blue,
+/obj/item/clothing/accessory/apron/blue,
+/obj/item/clothing/mask/gas/vaurca,
+/obj/item/clothing/mask/gas/vaurca,
+/obj/item/clothing/mask/gas/vaurca,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"sX" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"tn" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/material/hatchet,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/obj/item/reagent_containers/glass/bucket,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"tu" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1889;
+	master_tag = "airlock_klax";
+	name = "airlock_klax"
+	},
+/turf/simulated/floor/plating,
+/area/pid_kois_farm)
+"tB" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"uv" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"uK" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"vC" = (
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
+/obj/machinery/door/airlock/service{
+	name = "Hydroponics Bay"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"vZ" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"ws" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"wB" = (
+/obj/effect/floor_decal/corner/green/full{
+	dir = 1
+	},
+/obj/machinery/seed_storage/xenobotany,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"xh" = (
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"xn" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"xw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/watertank,
+/obj/item/watertank,
+/obj/item/watertank,
+/obj/item/watertank,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/obj/item/reagent_containers/spray/chemsprayer/mister,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"xL" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"yb" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/door/window{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"yS" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/machinery/vending/zora,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"zw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/closet/hazmat/general,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"zC" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"zN" = (
+/obj/machinery/door/airlock/security{
+	name = "Equipment Storage"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"zU" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"Ad" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/item/seeds/koisspore,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Al" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Bn" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1889;
+	master_tag = "airlock_klax";
+	name = "airlock_klax"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/turf/simulated/floor/plating,
+/area/pid_kois_farm)
+"Bw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"BN" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/curtain/open/bed,
+/obj/effect/ghostspawpoint{
+	name = "igs - pid_vaurca";
+	identifier = "pid_vaurca"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Ci" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/obj/structure/closet,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Co" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Cu" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Cw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"CN" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/closet,
+/obj/item/clothing/gloves/botanic_leather/vaurca,
+/obj/item/clothing/suit/vaurca/brown,
+/obj/item/clothing/under/vaurca,
+/obj/item/clothing/accessory/poncho/vaurca,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/storage/backpack/cloak/klax,
+/obj/item/clothing/head/shroud/red,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"CO" = (
+/obj/machinery/door/airlock/service{
+	name = "Habitation";
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Dx" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Dy" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/structure/table/rack,
+/obj/item/device/analyzer/plant_analyzer,
+/obj/item/device/analyzer/plant_analyzer,
+/obj/item/device/analyzer/plant_analyzer,
+/obj/item/device/analyzer/plant_analyzer,
+/obj/item/device/analyzer/plant_analyzer,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"DA" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Ea" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Es" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/space)
+"EK" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/item/reagent_containers/food/snacks/koisbar,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"EQ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"Fr" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"Gc" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Gz" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/structure/table/rack,
+/obj/item/storage/toolbox/electrical,
+/obj/item/storage/toolbox/electrical,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Hc" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Hm" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/structure/closet/firecloset/full,
+/obj/effect/floor_decal/industrial/outline/firefighting_closet,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Hq" = (
+/obj/structure/bed/stool/bar/padded/green,
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Jc" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"Jp" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Ll" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Lw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"LB" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/vaurca/box,
+/obj/item/vaurca/box,
+/obj/item/vaurca/box,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Mc" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/item/storage/box/botanydisk{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/item/storage/box/botanydisk{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"MI" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 6
+	},
+/obj/structure/table/rack,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"MS" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"NH" = (
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"Ov" = (
+/obj/machinery/door/airlock/engineering{
+	name = "Tool Storage"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Pa" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 5
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Pf" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1889;
+	master_tag = "airlock_klax";
+	name = "airlock_klax"
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/pid_kois_farm)
+"Pr" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/curtain/open/bed,
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Qh" = (
+/obj/effect/map_effect/marker/airlock{
+	frequency = 1889;
+	master_tag = "airlock_klax";
+	name = "airlock_klax"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = 28;
+	pixel_y = 12
+	},
+/turf/simulated/floor/plating,
+/area/pid_kois_farm)
+"QX" = (
+/obj/machinery/door/airlock/service{
+	name = "Habitation"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"RA" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/vending/hydronutrients/xenobotany,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Sk" = (
+/obj/effect/floor_decal/corner/blue{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner/blue{
+	dir = 10
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/suit/space/void/scout,
+/obj/item/clothing/head/helmet/space/void/scout,
+/obj/item/clothing/shoes/magboots/vaurca,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"SF" = (
+/obj/machinery/door/airlock/service{
+	name = "Hydroponics Bay"
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Tz" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Ux" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"UD" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/obj/structure/sign/flag/klax/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Vl" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Vz" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/structure/table/rack,
+/obj/item/device/multitool,
+/obj/item/device/multitool,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"VZ" = (
+/obj/structure/bed/stool/bar/padded/green,
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/light,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Wl" = (
+/obj/effect/floor_decal/corner/lime/diagonal,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"Xh" = (
+/turf/simulated/wall,
+/area/pid_kois_farm)
+"Xv" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 15
+	},
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"XA" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/structure/table/steel,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"XH" = (
+/turf/simulated/wall/r_wall,
+/area/pid_kois_farm)
+"Yw" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/machinery/botany/editor,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"YZ" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 6
+	},
+/obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary,
+/turf/simulated/floor/tiled/white,
+/area/pid_kois_farm)
+"Zr" = (
+/obj/effect/landmark/clear,
+/obj/structure/sign/flag/klax{
+	stand_icon = "banner";
+	pixel_y = 32
+	},
+/turf/template_noop,
+/area/space)
+"Zv" = (
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+"ZH" = (
+/obj/effect/floor_decal/corner/green{
+	dir = 10
+	},
+/obj/structure/reagent_dispensers/fertilizer,
+/turf/simulated/floor/tiled,
+/area/pid_kois_farm)
+
+(1,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+"}
+(2,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+Es
+"}
+(3,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+jO
+Dx
+Sk
+Xh
+yS
+fH
+sX
+Ci
+Xh
+UD
+Wl
+Wl
+dh
+XH
+Es
+"}
+(4,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+aE
+xh
+sg
+Xh
+Lw
+xh
+xh
+iM
+Xh
+Wl
+Wl
+Wl
+dh
+XH
+Es
+"}
+(5,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+hd
+xh
+EK
+Xh
+qZ
+ws
+ws
+VZ
+Xh
+MS
+Wl
+Wl
+kb
+XH
+Es
+"}
+(6,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+Pa
+xh
+mq
+Xh
+Hq
+ws
+ws
+pm
+Xh
+Wl
+Wl
+Wl
+BN
+XH
+Es
+"}
+(7,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+Pa
+cs
+mq
+zN
+Hq
+ws
+ws
+pm
+QX
+Wl
+Wl
+Wl
+BN
+XH
+Es
+"}
+(8,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+Pa
+xh
+mq
+Xh
+Hq
+ws
+ws
+pm
+Xh
+Wl
+Wl
+Wl
+BN
+XH
+Es
+"}
+(9,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+rU
+xh
+lj
+Xh
+Hq
+ws
+ws
+pm
+Xh
+Wl
+Wl
+Wl
+BN
+XH
+Es
+"}
+(10,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+Hm
+xh
+dM
+Xh
+Ll
+xh
+xh
+uK
+Xh
+MS
+Wl
+Wl
+Pr
+XH
+Es
+"}
+(11,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+xn
+xh
+LB
+Xh
+Lw
+xh
+xh
+iM
+Xh
+UD
+Wl
+Wl
+dh
+XH
+Es
+"}
+(12,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+XH
+MI
+Co
+Jp
+Xh
+Ea
+Al
+Al
+uv
+Xh
+Wl
+Wl
+Wl
+CN
+XH
+Es
+"}
+(13,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+CO
+Xh
+Xh
+Xh
+Xh
+Xh
+XH
+Zr
+"}
+(14,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+rc
+DA
+cH
+Gz
+xL
+Xh
+dZ
+vZ
+xh
+xh
+xh
+vZ
+xh
+xh
+vZ
+yb
+XH
+XH
+XH
+XH
+Es
+"}
+(15,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+rV
+xh
+xh
+xh
+Gc
+Ov
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+Zv
+Bn
+Pf
+tu
+kv
+Es
+"}
+(16,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+XA
+xh
+xh
+xh
+Gc
+Ov
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+xh
+Qh
+gR
+tu
+mU
+Es
+"}
+(17,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+Es
+Es
+XH
+Vl
+jt
+Tz
+Vz
+sj
+Xh
+dZ
+Cu
+xh
+xh
+xh
+Cu
+xh
+xh
+Cu
+Ux
+XH
+XH
+XH
+XH
+Es
+"}
+(18,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+Xh
+vC
+Xh
+Xh
+Xh
+Xh
+Xh
+XH
+Zr
+"}
+(19,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+Bw
+md
+Jc
+Jc
+qq
+md
+qq
+Jc
+qq
+md
+Jc
+Jc
+Jc
+md
+Jc
+tB
+Xh
+xw
+Hc
+Hc
+sC
+XH
+Es
+"}
+(20,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+zC
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+Cw
+Xh
+tn
+xh
+xh
+kO
+XH
+Es
+"}
+(21,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+zC
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+Cw
+Xh
+Dy
+xh
+xh
+Mc
+XH
+Es
+"}
+(22,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+zC
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+zU
+Xh
+rj
+xh
+xh
+dI
+XH
+Es
+"}
+(23,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+zC
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+NH
+Cw
+SF
+Lw
+xh
+xh
+Yw
+XH
+Es
+"}
+(24,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+zC
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+zU
+Xh
+Lw
+xh
+xh
+eA
+XH
+Es
+"}
+(25,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+zC
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+Cw
+Xh
+Ad
+xh
+xh
+zw
+XH
+Es
+"}
+(26,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+zC
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+fV
+NH
+Cw
+Xh
+jc
+xh
+xh
+ZH
+XH
+Es
+"}
+(27,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+pb
+EQ
+Fr
+Fr
+YZ
+EQ
+YZ
+Fr
+YZ
+EQ
+Fr
+Fr
+Fr
+EQ
+Xv
+fm
+Xh
+jc
+xh
+xh
+ir
+XH
+Es
+"}
+(28,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+XH
+wB
+Al
+Al
+RA
+XH
+Es
+"}
+(29,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+XH
+XH
+XH
+XH
+XH
+XH
+Es
+"}
+(30,1,1) = {"
+oc
+oc
+oc
+oc
+oc
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+pY
+Es
+Es
+Es
+Es
+Es
+Es
+Es
+"}

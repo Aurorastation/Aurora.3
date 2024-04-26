@@ -63,3 +63,45 @@
 		M.pixel_y = 12
 		I.add_overlay(M)
 	return I
+
+/obj/item/clothing/head/helmet/unathi/ancient
+	name = "ancient bronze helmet"
+	desc = "An outdated helmet designated to be worn by an Unathi, it was commonly used by the Hegemony Levies."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_helm"
+	item_state = "ancient_helm"
+	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL
+	)
+	matter = list(MATERIAL_BRONZE = 1000)
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+
+/obj/item/clothing/head/helmet/unathi/ancient/mador
+	name = "\improper Sinta'Mador bronze helmet"
+	desc = "A large and unusual helmet of corroded bronze. Those familiar with Moghresian archaeology might recognize this item as being forged in a Sinta'Mador style."
+	icon_state = "mador_helm"
+	item_state = "mador_helm"
+
+/obj/item/clothing/head/unathi/ancienthood
+	name = "ragged ancient hood"
+	desc = "An ancient cloth hood, remarkably intact given the wear of centuries."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_hood"
+	item_state = "ancient_hood"
+
+/obj/item/clothing/head/unathi/ancienthood/crown
+	name = "worn ancient crown"
+	desc = "An ancient and elaborate crowned hood - clearly meant to adorn the head of someone important."
+	icon_state = "ancient_crown"
+	item_state = "ancient_crown"
+	species_restricted = list(BODYTYPE_UNATHI)
+
+/obj/item/clothing/head/unathi/mador
+	name = "\improper Sinta'Mador head wrappings"
+	desc = "A set of gray cloth wrappings, used in traditional Sinta'Mador burials. Remarkably well preserved with age."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "mador_headwrappings"
+	item_state = "mador_headwrappings"
