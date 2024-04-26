@@ -9975,7 +9975,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
-	req_one_access = list(12)
+	req_one_access = list(12,26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard)
@@ -44841,7 +44841,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(12)
+	req_one_access = list(12,26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard)
