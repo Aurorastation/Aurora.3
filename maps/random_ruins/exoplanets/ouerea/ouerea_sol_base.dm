@@ -6,6 +6,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_sol_base.dmm")
+	unit_test_groups = list(1)
 
 /area/ouerea_sol
 	name = "Solarian Shuttle Port"

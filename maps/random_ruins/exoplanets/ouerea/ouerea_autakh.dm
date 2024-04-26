@@ -7,6 +7,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_autakh.dmm")
+	unit_test_groups = list(3)
 
 /area/ouerea_autakh
 	name = "Aut'akh Compound"

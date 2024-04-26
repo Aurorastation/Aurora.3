@@ -8,6 +8,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_farm.dmm")
+	unit_test_groups = list(3)
 
 /area/ouerea_farm
 	name = "Ouerea Farm"

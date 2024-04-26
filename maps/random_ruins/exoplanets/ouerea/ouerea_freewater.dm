@@ -7,6 +7,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_freewater.dmm")
+	unit_test_groups = list(2)
 
 /area/ouerea_freewater
 	name = "Freewater Camp"

@@ -7,3 +7,4 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_threshbeast_herd.dmm")
+	unit_test_groups = list(2)

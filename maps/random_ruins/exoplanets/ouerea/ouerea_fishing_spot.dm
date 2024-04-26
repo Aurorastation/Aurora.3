@@ -6,3 +6,4 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_fishing_spot.dmm")
+	unit_test_groups = list(1)

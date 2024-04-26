@@ -9,6 +9,7 @@
 	prefix = "ouerea/"
 	suffixes = list("ouerea_guild_mining.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/ouerea_heph_mining)
+	unit_test_groups = list(3)
 
 /area/ouerea_guild_mining
 	name = "Miners' Guild Camp"

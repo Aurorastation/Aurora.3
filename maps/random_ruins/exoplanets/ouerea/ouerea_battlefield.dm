@@ -6,6 +6,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_battlefield.dmm")
+	unit_test_groups = list(2)
 
 /obj/effect/landmark/corpse/ouerea_revolutionary
 	name = "Ouerean Revolutionary"

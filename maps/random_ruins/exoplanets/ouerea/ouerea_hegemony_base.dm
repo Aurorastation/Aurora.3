@@ -8,6 +8,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_hegemony_base.dmm")
+	unit_test_groups = list(1)
 
 /area/ouerea_hegemony_base
 	name = "Hegemony Base"

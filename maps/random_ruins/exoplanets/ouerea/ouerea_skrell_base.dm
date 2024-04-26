@@ -6,6 +6,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "ouerea/"
 	suffixes = list("ouerea_skrell_base.dmm")
+	unit_test_groups = list(3)
 
 /area/ouerea_skrell
 	name = "Nralakk Research Base"
