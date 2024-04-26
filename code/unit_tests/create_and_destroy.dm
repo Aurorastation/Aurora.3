@@ -167,6 +167,9 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	// do_spread sleeps and tries to addtimer after the src is qdeleted
 	ignore += typesof(/obj/effect/plant)
 
+	// Cannot be deleted
+	ignore += typesof(/obj/effect/landmark/entry_point)
+
 	/*
 	 * END EXCLUSIONS OF THE TEST
 	 */
