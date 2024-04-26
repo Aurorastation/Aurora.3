@@ -227,6 +227,10 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 		SSshuttle.entry_points_to_initialize += src
 	name += " [x], [y]"
 
+/obj/effect/landmark/entry_point/Destroy()
+	..()
+	return QDEL_HINT_LETMELIVE
+
 /obj/effect/landmark/entry_point/proc/get_candidate()
 	var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[z]"]
 	if(!sector)
