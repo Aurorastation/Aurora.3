@@ -71,7 +71,7 @@
 	accuracy_wielded = 1
 	fire_delay = ROF_UNWIELDY
 	fire_delay_wielded = ROF_SUPERHEAVY
-	force = 10
+	force = 15
 	recoil = 10
 	recoil_wielded = 5
 
@@ -89,7 +89,7 @@
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
-	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber. Maybe the Tajara made it?"
+	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber."
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
@@ -288,7 +288,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38
-	force = 15
+	force = 22
 	sharp = TRUE
 	edge = TRUE
 	fire_delay = ROF_PISTOL

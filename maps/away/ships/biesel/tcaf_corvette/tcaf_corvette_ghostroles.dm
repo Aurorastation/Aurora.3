@@ -43,20 +43,13 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/list/fullname = splittext(H.real_name, " ")
-		var/surname = fullname[3] //prefix bumps it up
-		switch(surname)
-			if("K'lax")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
-			if("C'thur")
-				var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/cthur(H)
-				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-				A.replaced(H, affected)
 		H.update_body()
 	if(isoffworlder(H))
 		H.equip_or_collect(new /obj/item/storage/pill_bottle/rmt, slot_in_backpack)
+	if(isipc(H))
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data()
 
 /obj/outfit/admin/tcaf_crewman/get_id_access()
 	return list(ACCESS_TCAF_SHIPS, ACCESS_EXTERNAL_AIRLOCKS)

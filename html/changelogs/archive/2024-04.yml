@@ -1,0 +1,504 @@
+2024-04-01:
+  DreamySkrell:
+  - rscadd: Adds large tank markers.
+  - maptweak: Updates SCC Scout Ship to use large tank markers.
+  - maptweak: Updates Civilian Yacht to use large tank markers.
+  - rscadd: Adds highvis pants to match the two highvis jackets.
+  FluffyGhost:
+  - tweak: Tweaked reloading sounds, single-bullet fiddlings are way quieter than
+      magazines, both have reduced range than before; unloading sound is less hearable
+      over distance than the loading one.
+  - tweak: Reduced the volume of passing through a bush on Konyang.
+  - tweak: The stethoscope message, for the user, is now inside an examine block.
+  - tweak: Tuned the delay a little, so the display is not immediate, as you&#x27;d
+      need a moment to determine the breathing and heart status.
+  - tweak: Reduced the emitter and sparks sound range.
+  - tweak: Tweaked walking sound ranges, now running is hearable more afar than walking,
+      and they both have less range than they did before.
+  - tweak: Reduced the range and marked as wall unpassable some additional trivial
+      sounds.
+  - backend: Updated mutable appearances to only set the floating plane if they&#x27;re
+      not copying from an image, as per TG version.
+  GeneralCamo:
+  - refactor: Changed the layers of every object in the game, and added a long list
+      of defines, for eventual movement into render planes.
+  RustingWithYou:
+  - bugfix: Fixes Konyang voidsuits not using the correct refitted sprites.
+  - tweak: Removes Gakal&#x27;zaal from the corporate sectors list and refluffs the
+      PVSM voidsuits to not be based on corporate models.
+  - rscadd: Adds several pre-contact Unathi ballistic guns.
+  - tweak: Resprites, restats, and refluffs the generic Unathi armor.
+  - rscadd: Adds IPC sprites for the Einstein &amp; Zeng-Hu voidsuits, and adds Skrell
+      sprites for the Einstein suit.
+  - bugfix: Fixes Longbow warheads exploding when picked up by mechs.
+  - bugfix: Fixes ice exoplanet turfs being invisible.
+  - bugfix: Fixes the Haneunim shuttle crash from leaving its thrusters behind on
+      launch.
+  SidVeld:
+  - bugfix: Fixed an issue that caused the character examine message to disappear
+      when the player controlling it is not in the body.
+  SimpleMaroon:
+  - rscadd: Adds 2 new uniforms for the Ve&#x27;katak Phalanx.
+  - bugfix: Fixes minor spriting issues with the existing Ve&#x27;katak uniforms.
+  - rscadd: Adds four new flagpatches (Sedantis, Zo&#x27;ra, K&#x27;lax, C&#x27;thur).
+  - bugfix: Fixes minor issues with the Ve&#x27;katak faceplate.
+  SleepyGemmy:
+  - imageadd: Tweaked the safety goggles sprite so the strap isn&#x27;t so thick.
+  - tweak: Tweaked holomenus to be readable from a distance.
+2024-04-02:
+  Alberyk:
+  - rscadd: Updated and fixed some content from old space sectors.
+  Furrycactus:
+  - rscadd: Takes the 30 phoron sheets off of the Intrepid and splits it into 15 for
+      Scientists and 15 for the Machinists.
+  ReadThisNamePlz:
+  - bugfix: Fixes the broken wood turfs on the Odin and in Antagonist bases.
+2024-04-03:
+  FluffyGhost:
+  - bugfix: Fix the runtime seen in the CI, as well as standarize the apply_damage
+      proc header that leaded to those runtimes (and possibly others/more).
+  GeneralCamo:
+  - bugfix: Fixed platforms layering over vending machines.
+  - bugfix: Fixed chairs rendering over railings.
+  - bugfix: Fixed pipes rendering under plating.
+  - bugfix: Fixed closed blastdoors rendering under windows.
+2024-04-04:
+  Ben10083:
+  - bugfix: Items set to be layered below tables will not have initial layer changed,
+      fixing certain interactions.
+  FluffyGhost:
+  - bugfix: Get_sfx() now also returns /sound types back, preventing some runtimes
+      without having to rewrite 300 lines.
+  - bugfix: Food containers like frosted donuts and meat nuggets now maintain the
+      proper icon.
+  - bugfix: Recharger backpacks now intuitively handle the connection with a simple
+      item-on-backpack click.
+  - backend: Improved backend handling, cleanly handle ref dropping to gun, localized
+      management of the backpack, DMdoc, you know the deal.
+  - tweak: Reduced simple animal emote sounds to short range.
+  - backend: Turned the var that hold those sounds into a lazylist, saving memory
+      (as most simple animals don&#x27;t have emote sounds).
+  - bugfix: Fixed a runtime found on mechs.
+  - bugfix: Fixed machine processing for ores going in the negatives for alloying.
+  - backend: Some more optimizations, DMdocs, turned a var into a global one, some
+      defines added and made into bitflags, yada yada you know the usual deal.
+  - backend: Optimized some procs, ported from Daedalus Dock.
+  FluffyGhost, ReadThisNamePlz:
+  - backend: Tweaked the sounds to dampen the volume depending on what is present
+      between the source and the destination, accounts for walls/doors/windows.
+  GeneralCamo:
+  - rscadd: Added bauxite and galena to map generation.
+  Lavillastrangiato:
+  - maptweak: Overhauls the PRA Headmaster ship. Updates airlocks and shuttle to mapping
+      standards.
+  Noble Row, Stryker:
+  - rscadd: Adds 19 new assorted Golden Deep clothing items to the Xenowear - IPC
+      tab. Spritework done by Noble Row.
+  ReadThisNamePlz:
+  - maptweak: Added blastdoors to the Grauwolf compartment and moved the longbow blastdoors
+      button to be more visible.
+  RustingWithYou:
+  - rscadd: Adds the Konyang guns and armor used in the Silicon Nightmares events.
+  SidVeld:
+  - rscadd: Added buttons that can be used to quickly change a character&#x27;s hairstyle
+      or beard without using a list.
+  atteria:
+  - bugfix: Fixed seams in the smoothing of mineral turfs.
+2024-04-05:
+  MattAtlas:
+  - rscadd: Added new Baseline sprites made by Noble Row.
+  - rscadd: Added new Baseline head types, sprites made by Noble Row. To select them,
+      change the head prosthesis type as you would with a normal limb.
+  - rscadd: Added a system to allow markings and hair to be restricted to certain
+      prosthesis types.
+  RustingWithYou:
+  - bugfix: Exoplanet minerals will no longer spawn unsimulated turfs when mined.
+  - bugfix: Plants will no longer cause runtimes by looking for the wrong number of
+      growth stages.
+  - bugfix: Tempest SMG will now correctly display its wielded icon state.
+  - bugfix: Delivery point packages will now correctly generate a destination.
+  - tweak: Barren exoplanets and asteroids are now properly airless.
+2024-04-06:
+  AlaunusLux:
+  - bugfix: Ghosts will now see bolded messages even if the speaker is inside an exosuit
+      or other location.
+  Alberyk:
+  - rscadd: Added weather to jungle, lava, snow, and some lore planets.
+  Ben10083:
+  - rscadd: Added a new flag and banner for the Golden Deep. Credit to Fyni for the
+      sprite.
+  FluffyGhost:
+  - bugfix: Fixed buildmode help making a runtime due to empty to_chat() call.
+  Geeves:
+  - tweak: Shotguns are no longer extremely accurate when shot one-handed, and must
+      be wielded to be fired accurately.
+  - bugfix: Firearms that set their accuracy, firing delay, or recoil to 0 when wielded
+      will now properly do that.
+  Lavillastrangiato:
+  - tweak: Vaurca can now equip more Skrell shoulder capes and wetshirts.
+  ReadThisNamePlz:
+  - rscdel: Removes Heroin, Cocaine and Raskara dust from the warehouse spawners.
+  - rscdel: Removes Ambrosia and other legal substances from the contraband list.
+  - rscadd: Added a variety of new contraband to the contraband spawner to be found
+      around maintenance.
+  - maptweak: Added multiple new spawn locations for contraband on the Horizon across
+      all decks.
+  - maptweak: Remapped the Machinist workshop to be swapped with RnD and Exploratory
+      Chemistry
+  - maptweak: Added a mecha-gantry, along with a random spawning mismatched exosuit
+  - maptweak: Moved Telescience to the xenoarcheology section of the ship
+  - maptweak: Combined xeno-archeology equipment storage with artifact storage
+  RustingWithYou:
+  - bugfix: Fixes the Intrepid being unable to land on the racer station away site.
+  - tweak: The shuttles on the racer station away site are now functional.
+2024-04-07:
+  FluffyGhost:
+  - backend: Bump megalinter version to v7.10.0.
+  Greenjoe12345:
+  - bugfix: Fixes PRA Diplomatic Aides being given the DPRA Diplomatic Aide outfit
+      and bag contents.
+  RustingWithYou:
+  - tweak: Offship RND servers and consoles will no longer sync with the Horizon&#x27;s
+      database.
+  - tweak: Einstein ERT rigs now use the correct ERT rig statss.
+  - bugfix: Fixes missing ID accesses on ERT outfits.
+2024-04-10:
+  Alberyk:
+  - rscadd: Added primitive versions of ship computers for less advanced factions.
+  - rscadd: Added planets to the Tau Ceti system.
+  FluffyGhost:
+  - code_imp: Removed duplicated cameras with ctags, mainly from the old aurora map.
+  - code_imp: Added a scanner for camera ctags uniqueness in the CI.
+  - bugfix: For some cursed reason the gamemode selection uses the config tag instead
+      of the name, that sometimes is the same as the config tag, either way this should
+      fix some gamemodes from not being votable and thus the system reverting to extended.
+  - code_imp: Forgot to remove the original implementation after moving it, this fixes
+      it, as that code is already in the other definition.
+  - code_imp: Ports and adapts TG's maplint, not all checks it has are present, this
+      is just the first iteration.
+  - code_imp: Updated python dependency to 3.11.9.
+  - code_imp: Updated bootstrap.
+  - code_imp: Fixed various maps to not fail maplint.
+  - code_imp: Updated node version to 20.
+  - code_imp: Removes some additional waitfors and backgrounds, mark the relative
+      procs as should not sleep.
+  Furrycactus:
+  - code_imp: Fixes the maintenance access requirements on two of the airlocks just
+      north of ammunition storage.
+  - code_imp: Fixes an alert access marker on the right-side bridge doors.
+  - code_imp: Fixes the missing Phoron from the Machinist Workshop.
+  - code_imp: Removes some metal sheets and welding fuel accidentally left in a window.
+  - code_imp: Replaces the Dermaline pill bottles in Medbay with Kelotane pill bottles.
+      This brings it into line with the existing Bicaridine pill bottles.
+  - code_imp: Adds two pill bottles of basic Dexalin to the Medbay Stabilization Kits.
+2024-04-11:
+  FluffyGhost:
+  - code_imp: Updated pygit version to 1.14.1.
+  - code_imp: Updated the changelog system.
+  - code_imp: Updated pyyaml dependency to version 6.0.1
+  Furrycactus:
+  - rscadd: Fixes the missing cable on the Science Chem Lab APC.
+  SimpleMaroon:
+  - bugfix: Golden Deep cowls and cube hoods are no longer invisible when worn on
+      the ears.
+2024-04-13:
+  Alberyk:
+  - bugfix: Fixed the hailstorm having the wrong gun loaders.
+  CometBlaze:
+  - bugfix: Hoplan Primary Color now uses the correct marking.
+  - bugfix: Removed Hoplan Lights marking.
+  - bugfix: Added the missing torso and arm markings to the list of available markings
+      for baseline frames.
+  - bugfix: Fixed markings for baseline frames using a lighter color than the one
+      selected.
+  - bugfix: Baseline - Primary Color no longer applies markings to the head to prevent
+      issues where the default marking would be layered over the alternative ones.
+  FluffyGhost:
+  - refactor: Implemented SI prefixes (KILO, MEGA, GIGA, TERA etc.).
+  - code_imp: Properly split and use prefixes and suffixes, unit test to verify the
+      file exists and is not empty, and that the format convention is respected.
+  RustingWithYou:
+  - rscadd: The camera MIU is now available in the uplink.
+  - rscadd: TTS accent synthetic vocal cords are now available in loadout.
+  - rscdel: IPCs can no longer take synthetic vocal cords.
+2024-04-14:
+  GeneralCamo:
+  - refactor: Ported plane masters from Bay.
+  - refactor: Ported some Z-Mimic changes/improvements/bugfixes from Nebula/Bay.
+  - bugfix: Floor lights no longer render under floor decals.
+  MattAtlas:
+  - qol: The rules button now directly links to the rules page.
+  - qol: TGUIfied the interface button alerts.
+  QuestioningMark:
+  - balance: Adjusted changeling bone dart damaged via throwforce force from 5->15
+      and added armour penetration 15.
+  - rscadd: Adds new nucleosynthesis reaction in INDRA reactor for producing small
+      amounts of uranium, borosilicate glass & lead.
+  RustingWithYou:
+  - bugfix: Non-natural exoplanet turfs will no longer generate mineral resources
+      overlays.
+  - rscadd: Ports Baystation click handlers and build mode.
+  The Stryker:
+  - rscadd: Adds two Konyanger medals for use in events/as admin spawns.
+  kermit:
+  - qol: Cryotubes apply less stasis at temperatures between 120K and 200K, meaning
+      cryotube beaker mixes are more viable.
+  - rscadd: 'Cataleptinol (new recipe: 0.5u phoron, 2u alkysine, 1u clonexadone and
+      a 5u cryosilicate catalyst) has been reworked from the ground up to be more
+      useful and versatile. Cataleptinol will heal brain activity regardless of oxygenation
+      - at cryo temperatures, this is with no consequence; outside of cryogenics,
+      the benefits come with large consequences which will exacerbate any medical
+      conditions.'
+  - rscadd: Cryo/Clonexadone both overdose at 5u. This isn't anything to worry about
+      when using Cryo/Clonexadone in a cryotube; using these two chemicals outside
+      of cryotubes requires much greater care. Added ocular toxicity (eye damage)
+      for use by Cryo/Clonexadone's overdose.
+  - balance: Significantly nerfs Cryo/Clonexadone's organ healing. It's still there,
+      but pharmacist's can improve upon the organ healing - it's also required due
+      to metabolisation/stasis changes. Cryo/Clonexadone only heals brain damage above
+      the 50% mark.
+  - rscadd: Renames Cryosurfactant -> Cryosilicate. The recipe now also uses silicate
+      instead of surfactant.
+  - rscadd: Pyrosilicate and Cryosilicate respectively superheat or supercool the
+      body, making them useful for inducing cryogenic conditions or chemically incinerating
+      someone. Leporazine inhibits these functions.
+  - rscadd: Adds a chemical effect for blood thinning - essentially an anti-coagzolug
+      effect, it makes you bleed faster. Will prevent coagzolug from working. Currently
+      used by Cataleptinol, Fluvectionem and Synaptizine.
+  - qol: Bicaridine's AB fixing requires a minimum of 30u (you should still use more
+      than this - every 0.1u above this is another roll of 'will it fix the AB?')
+      instead of a minimum of 50u. Alternatively, you can used bicaridine in a cryotube.
+  - rscadd: Kelotane can now be used in a cryotube to fix disfiguration. Red Nightshade
+      in cryogenic conditions will restore bone breaks. Peridaxon+Thetamycin combo
+      can de-necrose livers/kidneys in cryogenic conditions.
+  - rscadd: Overdosing peridaxon results in the developing of benign tumours; benign
+      tumours do not spread or cause collateral damage to organs, they simply cause
+      pain. Ryetalyn will put a tumour into recession.
+  - rscadd: Genetic damage now results in the developing of malignant tumours; malignant
+      tumours will eventually spread and cause collateral damage to organs. Symptoms
+      will be different depending on the tumour's location. Ryetalyn will put a tumour
+      into recession - some ryetalyn pills can be found in the GTR's Medication Cabinet.
+  - balance: Limb deformities resulting from genetic damage may occur more often.
+  - imageadd: Renames Blood Pack -> IV Bag. Adds 'Cryonics Mixture' and 'Other Mixture'
+      IV bag labels.
+  - rscadd: Cryocells can be deconstructed or have their components upgraded. Upgrading
+      the components increases the effectiveness of the Cryostasis Settings.
+  - bugfix: Coolant tanks no longer anti-nuke an environment's atmosphere when destroyed.
+  - bugfix: Cryotubes no longer render synthetics unconscious - IPCs can now bathe
+      in cryotubes to cool off.
+2024-04-15:
+  RustingWithYou:
+  - qol: Fuel ports are now buildable and removable.
+  nauticall:
+  - rscadd: Added the All-Xanu Spacefleet Frigate, a massive military offship in use
+      by the navy of Xanu Prime.
+  - rscadd: Added uniforms and an ID variant for Xanu military and Coalition government
+      personnel, respectively.
+  - rscadd: Added new walls/windows for 'Coalition'-type vessels, finished in a light
+      bluish-gray.
+  - rscadd: Added Coalition military mechs, a light variant (in use on the Frigate)
+      and a heavy variant (ERT).
+  - bugfix: Fixed the dNAXS-52 Xanu hardsuit presets being wrongly configured and
+      added a base equipment preset for the hardsuit as well.
+2024-04-16:
+  Alberyk:
+  - rscadd: Added Biesel as an exoplanet.
+  ChangeMe:
+  - bugfix: Fixed a runtime error with the new gadpathur origin item.
+  FluffyGhost:
+  - bugfix: Character preferences / records are now decoded correctly for the computer
+      UI and character preference.
+  - rscadd: Added a door rigging tool, it allows you to mine a door, so that when
+      it opens, it explodes. Requires the door to be welded shut first.
+  - rscadd: Added a box and antag uplink item for the above.
+  Geeves:
+  - bugfix: Wristwear now gets properly hidden by overwear that has the HIDEWRISTS
+      flag set.
+  - bugfix: Spacesuits and voidsuits now hide wristwear.
+  Lavillastrangiato:
+  - qol: Airlock updates and assorted fixes and retouches to the SSMD Corvette.
+  - qol: Renames the SSMD Corvette to the Sol Recon Corvette as per lore.
+  - bugfix: Cleans up a lot of mapping and older code for the SFA corvette.
+  - qol: Changes some names on the SFA corvette for lore purposes.
+  LynxSolstice:
+  - qol: Removes a thin_clothing check, meaning all bleeding, regardless of clothing,
+      will now be more visible upon physical examinations of people (shift click).
+  RustingWithYou:
+  - rscadd: Survey probes can now print their output in different languages.
+  - bugfix: Origin traits and species natural armor will now remove themselves on
+      origin change.
+  - rscadd: Vaurca language processors are now applied as origin traits rather than
+      loadout items.
+  SidVeld:
+  - rscadd: Added the ability to install a grille in windows.
+  SimpleMaroon:
+  - bugfix: Fixes the side-facing sprites of Vaurca Robotic Limbs being the wrong
+      shading.
+  - rscadd: 'Added five new flavors of soda to the Zo''ra soda machines: Zo''ra Caprician
+      Craze, Zo''ra Seismic Slammer, Zo''ra Buzzin'' Cola, K''lax Xuizi Xplosion,
+      and C''thur Dyn-A-Mite!'
+  - spellcheck: Changes 'K'laxan Energy Crush' to 'K'lax Energy Crush' in all code
+      instances.
+  meep109:
+  - bugfix: Fixes the orion express courier shuttle leaving plating behind.
+2024-04-17:
+  CourierBravo:
+  - qol: Adds the new materials to nearly every offship with an autolathe. Exceptions
+      made at this time to ship with open PRs
+  FluffyGhost:
+  - code_imp: Made the Destroy proc not sleepable.
+  Lavillastrangiato:
+  - bugfix: Fixes any access problems on the NKA merchant navy vessel.
+  - qol: Adds various dirt, decorations, and a CO2 tank to the NKA merchant navy vessel.
+  - bugfix: Gives the civvie yacht crew IDs.
+  - bugfix: Fixes access problems on the Headmaster ship.
+  - bugfix: Fixes some typoes in the ZI machine pistol and various Medina stuff.
+  - bugfix: Fixes Vaurca workers causing quakes when they jump.
+  - bugfix: Adds Dominian armor and helmets to their gear crates.
+  RustingWithYou:
+  - rscadd: Overmap shuttles can now be mapped directly onto their open space z-level,
+      without the need for empty sectors.
+  - rscadd: Adds various ruins for the minor planets and asteroids of Uueoa-Esa.
+  - qol: Clothing items can now be set to refit to a species on initialize.
+  kermit, Caelphon, hollyhock:
+  - rscadd: Replaces EUM origins/accents with Hieroaetherian origins/accents.
+2024-04-18:
+  FluffyGhost:
+  - bugfix: Fixed exoplanet turf icons for floors.
+  GeneralCamo:
+  - bugfix: Disposals Pipes will now layer above tiles in strongdmm.
+  RustingWithYou:
+  - rscadd: Adds more exoplanet variants of turfs.
+  - rscadd: Adds marble walls.
+  SidVeld:
+  - rscadd: Added a universal augment translator that can be used to understand human
+      languages, but not speak them.
+2024-04-19:
+  Alberyk:
+  - rscadd: Added two new ruins to New Gibson.
+  - rscadd: New Gibson now has a more proper environment.
+  ChangeMe:
+  - rscadd: added some more military and medical belts and webbing for the Xanu Military
+      Frigate
+  Chevy:
+  - balance: Raised jackboot armor values to meet those of workboots, except for the
+      radiation armor, which remains unique to workboots.
+  FluffyGhost:
+  - qol: Reduced engine volume.
+  - refactor: Refactored archeological finds to use Initialize() instead of New()
+      where possible.
+  RustingWithYou:
+  - bugfix: Fixes shuttle open space landmarks generating on the wrong z-levels.
+  - rscadd: Adds the Uueoa-Esa sector, along with its lore planets.
+  - rscadd: Adds two new origin traits - stamina bonus and pain resistance, currently
+      available to Tza and Zazalai Unathi.
+  - qol: Crevan Tajara now have drug and alcohol resistance.
+  - rscadd: Prosthetic/amputated limbs and organs can now be edited in the appearance
+      changer.
+  - qol: Height and speech bubbles can now be edited when unable to change species
+      in appearance editor.
+  - rscadd: Fluff papers can now be set to a written language.
+  - imageadd: Adds an Unathi skeleton sprite.
+  - balance: Buffs the explosion radius of Bruiser HE rounds.
+2024-04-20:
+  FluffyGhost:
+  - refactor: Unified most of the procs into one definition, so there are no duplicate
+      around the codebase.
+  - refactor: Marked some of the above as overridable if a good enough case can be
+      made for them (eg. external dependency or unlikely to be used).
+  GeneralCamo:
+  - rscadd: Added Imogen Janse's custom item.
+  RustingWithYou:
+  - qol: Reworks blueprints to use an eye for area modification.
+  - rscadd: Adds outpost blueprints for creating areas on exoplanets, and shuttle
+      blueprints for modifying shuttles.
+  - qol: Moves eye creation to a component.
+  - rscadd: Adds several items and structures for use in Uueoa-Esa ruins.
+2024-04-21:
+  Crosarius:
+  - soundadd: Added footstep sound effects for barefoot Unathi.
+  DreamySkrell:
+  - rscadd: Cult Base away site.
+  - rscadd: Adds some mapped in cult runes.
+  - rscadd: Adds ooc welcome message, separate from normal welcome message.
+  - rscadd: Allows corpses to use outfits.
+  - rscadd: Allows corpses use different species.
+  - rscadd: Adds some generic outfits.
+  - rscadd: Ghostspawner spawn points are actually randomly picked.
+  - bugfix: Fixes marker layers.
+  FluffyGhost:
+  - code_imp: Refactored the use of the isprocessing var into the datum flag DF_ISPROCESSING.
+  - code_imp: Updated SSprocessing and SSmachinery to have a constant fire rate.
+  - code_imp: Updated gas cooler to be time-constant thanks to the above.
+  Geeves:
+  - bugfix: Fixed colorable glasses frames being affected by the alpha value.
+  ReadThisNamePlz, Noblerow:
+  - rscadd: Added a working HAPT shuttle.
+  - rscadd: Added the VIP ghostrole to the CCIA Ghostspawner.
+  - rscadd: Added a modified HAPT suit for NT HAPT use only.
+  - imageadd: Added new sprites for the tweaked HAPT suit
+  RustingWithYou:
+  - qol: Sensors, thrusters, and IFF beacons are now buildable and deconstructable.
+2024-04-22:
+  DreamySkrell:
+  - rscadd: Ghostspawner OOC description.
+  - qol: Ghostspawner desc and welcome_text minor tweaks.
+  - qol: Cult base minor tweaks.
+  - bugfix: Fixes cult base being guaranteed site.
+2024-04-23:
+  CourierBravo:
+  - rscadd: Reorganizes the helpers folder. Adds 4 maps of premade rooms and buildings
+      as a map design tool. Some objects in rooms will require access tweaks as required.
+  FluffyGhost:
+  - code_imp: Removed a background set.
+  - refactor: Refactored away some world loops.
+  MattAtlas:
+  - qol: Added preset mineral walls for mappers.
+  RustingWithYou:
+  - rscadd: Adds several ruins for the Untouched Lands of Moghes.
+  nauticall:
+  - rscadd: 'Adds three more radio stations to Tau Ceti: 87.5 Mendell City Bugle,
+      90.7 Hi-Fi Sports, and 93.1 Phoenix FM. Basketball game in Hi-Fi is written
+      by Desven.'
+2024-04-24:
+  CourierBravo:
+  - rscadd: Adds 7 new biesel exclusive ruins. These include camp sites, abandoned
+      cargo, a very recently crashed ship, and abandoned warehouses
+  SimpleMaroon:
+  - bugfix: Removes nearly invisible stray pixels from the right-side Vaurca mecha
+      faceplate.
+  nauticall:
+  - rscadd: Added several items relating to Luceism, the religion of Assunzione.
+  - rscadd: 'Added chaplain items for Luceism: robes, a cassock, and a new null rod,
+      the Luminous Sceptre.'
+  - rscadd: Added a new versebook, the Luceian Book of Scripture, available to Assunzionii
+      characters. It's a versebook with various texts from Luceism.
+  - imageadd: Resprited the Luceian amulet, Luceian Book of Scripture, and the Assunzione
+      cloak.
+  - qol: Compressed the loadout warding sphere and warding sphere case into just one
+      loadout item that already comes with a case.
+  - qol: Religions with unique religious books (versebooks) now have their chaplains
+      spawn with the versebook in question, rather than a generic black tome.
+  - qol: To compensate for the above, null rods are now able to create holy water
+      the same way a bible can.
+2024-04-25:
+  ClemTheDuck:
+  - balance: tweaks values of unathi kataphract and pirate armour to be more inline
+      with other voidsuits.
+  Lavillastrangiato:
+  - qol: Completely remaps the Kataphract ship.
+  hazlemouse:
+  - rscadd: Adds the Scarab Salvager offship to the Badlands and Valley Hale sectors.
+  - bugfix: Resolves a few minor mapping issues in the Scarab Salvager and Hivebot
+      Hub maps.
+2024-04-26:
+  Ben10083:
+  - server: Adjusted variables for Tau Ceti Sector relating to Port of Call, to reflect
+      future plans for sector.
+  FluffyGhost:
+  - code_imp: Removed most reagent stuffs from water turf, they were hogging the server
+      CPU.
+  - code_imp: Split ruins tests into different pods.
+  - code_imp: Improved ease of access to output info for the unit test.
+  Yonnimer:
+  - rscdel: Removes the ability for the dominian research vessel to spawn coc space.

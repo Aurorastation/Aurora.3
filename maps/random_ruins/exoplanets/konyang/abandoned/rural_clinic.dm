@@ -5,13 +5,17 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned/rural_clinic.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("rural_clinic.dmm")
+
+	unit_test_groups = list(1)
 
 /area/konyang/rural_clinic
 	name = "Konyang Rural Clinic"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
-	sound_env = ROOM
+	sound_environment = SOUND_ENVIRONMENT_ROOM
 
 /obj/effect/landmark/corpse/konyang_cop
 	name = "Konyang National Police Patrolman"

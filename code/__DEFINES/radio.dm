@@ -5,7 +5,7 @@
 // Reminder: frequencies should only be odd numbers
 
 // Public frequencies (no encryption key required), see range above
-#define EXP_FREQ	1445
+#define BEACONS_FREQ 1445
 #define BOT_FREQ	1447
 #define INT_FREQ	1449
 #define PEN_FREQ	1451
@@ -14,6 +14,7 @@
 #define HAIL_FREQ	1463
 #define SEC_I_FREQ	1475
 #define MED_I_FREQ	1485
+#define EXP_FREQ	1487
 
 // Department / private frequencies
 

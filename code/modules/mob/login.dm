@@ -25,6 +25,9 @@
 						message_admins("<span class='warning'><B>Notice: </B></span><span class='notice'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </span>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).",ckey=key_name(src))
 
+/mob
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
+
 /**
  * Currently marked as SHOULD_NOT_OVERRIDE.
  *
@@ -73,6 +76,8 @@
 	set_sight(sight|SEE_SELF)
 	disconnect_time = null
 
+	my_client = client
+
 	player_age = client.player_age
 
 	if(loc && !isturf(loc))
@@ -95,6 +100,7 @@
 	clear_important_client_contents(client)
 	enable_client_mobs_in_contents(client)
 
+	CreateRenderers()
 	update_client_color()
 	add_click_catcher()
 
@@ -106,3 +112,8 @@
 
 	if(client && !istype(src, /mob/abstract/new_player)) //Do not update the skybox if it's a new player mob, they don't see it anyways and it can runtime
 		client.update_skybox(TRUE)
+
+	if(spell_masters)
+		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+			spell_master.toggle_open(1)
+			client.screen -= spell_master

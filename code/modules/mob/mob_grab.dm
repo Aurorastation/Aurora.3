@@ -30,7 +30,7 @@
 	var/obj/item/grab/linked_grab
 	var/wielded = FALSE
 
-	layer = SCREEN_LAYER
+	layer = HUD_ABOVE_ITEM_LAYER
 	abstract = 1
 	item_state = "nothing"
 	w_class = ITEMSIZE_HUGE

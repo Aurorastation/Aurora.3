@@ -3,7 +3,7 @@
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
 	icon_state = "headset"
 	item_state = "headset"
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_ALUMINIUM = 75)
 	subspace_transmission = TRUE
 	canhear_range = 0 // can't hear headsets from very far away
 
@@ -806,12 +806,9 @@
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
 
 /obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	myAi = null
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
 /obj/item/device/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
 	return ..(input_frequency, level, !disabledAi)
-
-/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
-	myAi = null
-	return ..()

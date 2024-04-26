@@ -1,6 +1,5 @@
-#define KILOWATTS *1000
-#define MEGAWATTS *1000000
-#define GIGAWATTS *1000000000
+//Watts, yes this is stupid but it's just for visual reference to the code reader, so deal with it
+#define WATTS *1
 
 /**
  * Multiplier for watts per tick <> cell storage (e.g., 0.02 means if there is a load of 1000 watts, 20 units will be taken from a cell per second)

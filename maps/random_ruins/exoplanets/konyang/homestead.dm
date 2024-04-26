@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/homestead.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("homestead.dmm")
+
+	unit_test_groups = list(1)
 
 /area/konyang_homestead
 	name = "Konyang Homestead"
@@ -29,7 +33,7 @@
 	max_count = 2
 
 	extra_languages = list(LANGUAGE_SOL_COMMON)
-	outfit = /obj/outfit/admin/konyang_homesteader
+	outfit = /obj/outfit/admin/konyang/homesteader
 	possible_species = list(SPECIES_HUMAN, SPECIES_IPC, SPECIES_IPC_BISHOP, SPECIES_IPC_G1, SPECIES_IPC_G2, SPECIES_IPC_SHELL, SPECIES_IPC_XION, SPECIES_IPC_ZENGHU)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -42,7 +46,7 @@
 	culture_restriction = list(/singleton/origin_item/culture/solarian)
 	origin_restriction = list(/singleton/origin_item/origin/konyang)
 
-/obj/outfit/admin/konyang_homesteader
+/obj/outfit/admin/konyang/homesteader
 	name = "Konyang Homesteader"
 
 	uniform = list(

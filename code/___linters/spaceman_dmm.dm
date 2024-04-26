@@ -59,6 +59,9 @@
 	///If wrapped in this, will not lint.
 	#define UNLINT(X) SpacemanDMM_unlint(X)
 
+	///The proc can be redefined in other parts of the codebase
+	#define CAN_BE_REDEFINED(X) set SpacemanDMM_can_be_redefined = X
+
 	///If set, overriding their value isn't permitted by types that inherit it.
 	#define VAR_FINAL var/SpacemanDMM_final
 
@@ -77,6 +80,7 @@
 	#define SHOULD_BE_PURE(X)
 	#define PRIVATE_PROC(X)
 	#define PROTECTED_PROC(X)
+	#define CAN_BE_REDEFINED(X)
 	#define VAR_FINAL var
 	#define VAR_PRIVATE var
 	#define VAR_PROTECTED var

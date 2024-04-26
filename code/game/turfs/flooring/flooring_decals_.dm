@@ -5,7 +5,7 @@
 /obj/effect/floor_decal
 	name = "floor decal"
 	icon = 'icons/turf/decals/decals.dmi'
-	layer = ON_TURF_LAYER
+	layer = DECAL_LAYER
 	appearance_flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR
 	var/outline = TRUE //whether it applies the tile outline to shading.
 	var/supplied_dir
@@ -16,7 +16,7 @@
 	var/turf/T = get_turf(src)
 	var/list/floor_decals = SSicon_cache.floor_decals
 	if(istype(T, /turf/simulated/floor) || istype(T, /turf/unsimulated/floor))
-		layer = T.is_plating() ? DECAL_PLATING_LAYER : ON_TURF_LAYER
+		layer = T.is_plating() ? DECAL_PLATING_LAYER : DECAL_LAYER
 		var/cache_key = "[name]-[alpha]-[color]-[dir]-[icon_state]-[layer]-[blend_state ? blend_state : ""]-[blend_process]-[T.icon]-[T.icon_state]-[T.tile_outline ? T.tile_outline : ""]-[T.tile_outline_blend_process]"
 		if(!floor_decals[cache_key])
 			var/icon/decal_icon
@@ -102,6 +102,7 @@
 	color = COLOR_GRAY20
 
 /obj/effect/floor_decal/corner/black/diagonal
+	icon_state = "preview_diagonal"
 	blend_state = "diagonal"
 
 /obj/effect/floor_decal/corner/black/full
@@ -305,11 +306,12 @@
 	color = "#00fbff"
 
 /obj/effect/floor_decal/corner/teal/diagonal
-	icon_state = "corner_white_diagonal"
+	icon_state = "preview_diagonal"
+	blend_state = "diagonal"
 
 /obj/effect/floor_decal/corner/teal/full
-	icon_state = "corner_white_full"
-
+	icon_state = "preview_threethirds"
+	blend_state = "threethirds"
 
 //Wide Corners// - Works better with some kinds of floors when you want the line of corner decals to connect
 

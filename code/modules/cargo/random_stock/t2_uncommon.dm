@@ -91,15 +91,15 @@ STOCK_ITEM_UNCOMMON(chempack, 5)
 	var/list/chems = GET_SINGLETON_SUBTYPE_MAP(/singleton/reagent/)
 	var/list/exclusion = list(/singleton/reagent/drink, /singleton/reagent, /singleton/reagent/adminordrazine, /singleton/reagent/polysomnine/beer2, /singleton/reagent/azoth, /singleton/reagent/elixir,\
 		/singleton/reagent/liquid_fire, /singleton/reagent/philosopher_stone, /singleton/reagent/toxin/undead, /singleton/reagent/love_potion, /singleton/reagent/shapesand, /singleton/reagent/usolve,\
-		/singleton/reagent/sglue, /singleton/reagent/black_matter, /singleton/reagent/bottle_lightning, /singleton/reagent/toxin/trioxin, /singleton/reagent/toxin/nanites, /singleton/reagent/nitroglycerin, \
-		/singleton/reagent/aslimetoxin, /singleton/reagent/sanasomnum, /singleton/reagent/rezadone, /singleton/reagent/toxin/carpotoxin)
+		/singleton/reagent/sglue, /singleton/reagent/black_matter, /singleton/reagent/drugs/cocaine, /singleton/reagent/drugs/raskara_dust, /singleton/reagent/drugs/heroin, /singleton/reagent/drugs/joy, /singleton/reagent/toxin/stimm, /singleton/reagent/drugs/impedrezene, /singleton/reagent/bottle_lightning, /singleton/reagent/toxin/hylemnomil, /singleton/reagent/toxin/nanites, /singleton/reagent/nitroglycerin,
+		/singleton/reagent/aslimetoxin, /singleton/reagent/sanasomnum, /singleton/reagent/rezadone, /singleton/reagent/kois/black, /singleton/reagent/toxin/carpotoxin, /singleton/reagent/toxin/malignant_tumour_cells)
 	chems -= exclusion
 	for (var/i in 1 to rand(2, 4))
 		var/obj/item/reagent_containers/chem_disp_cartridge/C = new /obj/item/reagent_containers/chem_disp_cartridge(L)
 		var/rname = pick(chems)
 		//If we get a drink, reroll it once.
 		//Should result in a higher chance of getting medicines and chemicals
-		if (ispath(rname, /singleton/reagent/drink) || ispath(rname, /singleton/reagent/alcohol))
+		if (ispath(rname, /singleton/reagent/drink) || ispath(rname, /singleton/reagent/alcohol/ethanol))
 			rname = pick(chems)
 		var/singleton/reagent/R = GET_SINGLETON(rname)
 		C.reagents.add_reagent(rname, C.volume)
@@ -283,13 +283,7 @@ STOCK_ITEM_UNCOMMON(blade, 1.2)
 	new type(L)
 
 STOCK_ITEM_UNCOMMON(laserscalpel, 1.3)
-	var/list/lasers = list(
-		/obj/item/surgery/scalpel/laser1 = 3,
-		/obj/item/surgery/scalpel/laser2 = 2,
-		/obj/item/surgery/scalpel/laser3 = 1
-	)
-	var/type = pickweight(lasers)
-	new type(L)
+	new /obj/item/surgery/scalpel/laser(L)
 
 STOCK_ITEM_UNCOMMON(electropack, 1)
 	new /obj/item/device/radio/electropack(L)

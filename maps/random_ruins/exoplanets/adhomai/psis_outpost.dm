@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/psis_outpost.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("psis_outpost.dmm")
+
+	unit_test_groups = list(3)
 
 /area/psis_outpost
 	name = "PSIS Outpost"
@@ -18,6 +22,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
+	area_blurb = "You feel watched inside this ominous compound."
 
 //ghost roles
 
@@ -56,7 +61,9 @@
 						/obj/item/melee/telebaton = 1,
 						/obj/item/handcuffs = 2
 						)
-
+	backpack_contents = list(
+		/obj/item/clothing/accessory/badge/hadii_card/member = 1
+	)
 	l_ear = null
 
 	id = /obj/item/card/id

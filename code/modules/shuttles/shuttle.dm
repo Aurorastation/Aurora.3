@@ -49,6 +49,7 @@
 		if(!istype(A))
 			CRASH("Shuttle \"[name]\" couldn't locate area [T].")
 		areas += A
+		RegisterSignal(A, COMSIG_QDELETING, PROC_REF(remove_shuttle_area))
 	shuttle_area = areas
 
 	if(initial_location)
@@ -92,7 +93,7 @@
 	if(sound_takeoff)
 		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
 			return
-		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 25, 20)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -118,7 +119,7 @@
 	if(sound_takeoff)
 		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
 			return
-		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 50, 20)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -138,7 +139,7 @@
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
-					playsound(destination, sound_landing, 50, 20, is_global = TRUE)
+					playsound(destination, sound_landing, 50, 20)
 				sleep(5)
 			if(!attempt_move(destination))
 				destination.clear_landing_indicators()
@@ -311,3 +312,10 @@
 
 /datum/shuttle/proc/on_move_interim()
 	return
+
+/datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
+	UnregisterSignal(area_to_remove, COMSIG_QDELETING)
+	SSshuttle.shuttle_areas -= area_to_remove
+	shuttle_area -= area_to_remove
+	if(!length(shuttle_area))
+		qdel(src)

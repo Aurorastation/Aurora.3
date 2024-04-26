@@ -22,13 +22,14 @@ pixel_x = 8;
 		Otherwise, you would likely just use a handheld shortwave radio instead."
 	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "intercom"
-	layer = 2.99
+	layer = ABOVE_WINDOW_LAYER
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
 	w_class = ITEMSIZE_LARGE
 	canhear_range = 2
 	atom_flags = ATOM_FLAG_NO_BLOOD
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED | OBJ_FLAG_CONDUCTABLE
+	z_flags = ZMM_MANGLE_PLANES
 	var/number = 0
 	var/obj/machinery/abstract/intercom_listener/power_interface
 	var/global/list/screen_overlays
@@ -392,11 +393,6 @@ pixel_x = 8;
 
 /obj/item/device/radio/intercom/raider/east
 	PRESET_EAST
-
-/obj/item/device/radio/intercom/syndicate/Initialize()
-	. = ..()
-	set_frequency(RAID_FREQ)
-	internal_channels[num2text(RAID_FREQ)] = list(ACCESS_SYNDICATE)
 
 /obj/item/device/radio/intercom/Destroy()
 	QDEL_NULL(power_interface)

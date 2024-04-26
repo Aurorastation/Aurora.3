@@ -367,6 +367,7 @@
 	gfi_layer_rotation = GFI_ROTATION_DEFDIR
 	clicksound = /singleton/sound_category/switch_sound
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 	var/area/area
 	var/areastring = null
 	var/obj/item/cell/cell
@@ -815,12 +816,12 @@
 				if (has_electronics == HAS_ELECTRONICS_CONNECT && terminal)
 					has_electronics = HAS_ELECTRONICS_SECURED
 					stat &= ~MAINT
-					playsound(loc, attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					to_chat(user, "You screw the circuit electronics into place.")
 				else if (has_electronics == HAS_ELECTRONICS_SECURED)
 					has_electronics = HAS_ELECTRONICS_CONNECT
 					stat |= MAINT
-					playsound(loc, attacking_item.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					to_chat(user, "You unfasten the electronics.")
 				else /* has_electronics == HAS_ELECTRONICS_NONE */
 					to_chat(user, SPAN_WARNING("There is nothing to secure."))

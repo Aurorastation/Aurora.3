@@ -951,6 +951,9 @@
 	amount = 25
 	},
 /obj/item/stack/rods/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/tirakqi_smuggler/engi)
 "gF" = (
@@ -3893,7 +3896,7 @@
 	pixel_x = -9;
 	dir = 8
 	},
-/obj/item/paper/tirakqi_smuggler{
+/obj/item/paper/fluff/tirakqi_smuggler{
 	pixel_x = 4;
 	pixel_y = 10
 	},
@@ -4458,7 +4461,7 @@
 /turf/simulated/floor/plating,
 /area/ship/tirakqi_smuggler/bridge)
 "Bf" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null;
 	anchored = 1
 	},

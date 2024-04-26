@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_village.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_village.dmm")
+
+	unit_test_groups = list(1)
 
 /area/adhomai_village
 	name = "Adhomian Village"
@@ -17,6 +21,7 @@
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
 	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A cozy Tajaran village. The heat and smell of food emanating from the houses may be a relief from the cold wilderness."
 
 //ghost roles
 

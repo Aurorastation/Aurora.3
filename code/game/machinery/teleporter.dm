@@ -58,14 +58,14 @@
 	cut_overlays()
 	if (engaged)
 		var/image/I = image(icon, src, "[initial(icon_state)]_active_overlay")
-		I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		add_overlay(I)
 		set_light(4, 0.4)
 	else
 		set_light(0)
 		if (operable())
 			var/image/I = image(icon, src, "[initial(icon_state)]_idle_overlay")
-			I.layer = EFFECTS_ABOVE_LIGHTING_LAYER
+			I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			add_overlay(I)
 
 /obj/machinery/teleport/pad/proc/within_range(var/target)

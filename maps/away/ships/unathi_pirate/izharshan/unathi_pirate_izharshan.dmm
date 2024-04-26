@@ -333,7 +333,6 @@
 "lE" = (
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,
@@ -423,7 +422,9 @@
 	dir = 8;
 	level = 2
 	},
-/obj/machinery/alarm/east,
+/obj/machinery/alarm/east{
+	req_one_access = list(210)
+	},
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
@@ -455,7 +456,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "re" = (
-/obj/machinery/power/apc/high/south,
+/obj/machinery/power/apc/high/south{
+	req_access = list(210)
+	},
 /obj/structure/cable/green,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8;
@@ -545,7 +548,7 @@
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/alarm/west{
-	pixel_x = -32
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -556,7 +559,6 @@
 	},
 /obj/structure/curtain/black{
 	icon_state = "open";
-	layer = 4;
 	opacity = 0
 	},
 /obj/item/bedsheet/brown,
@@ -564,7 +566,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "sZ" = (
-/obj/effect/shuttle_landmark/unathi_pirate_izharshan/transit,
+/obj/effect/shuttle_landmark/izharshan_transit{
+	dir = 1
+	},
 /turf/space/transit/north,
 /area/space)
 "tB" = (
@@ -606,7 +610,7 @@
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "uK" = (
 /obj/machinery/alarm/west{
-	pixel_x = -28
+	req_one_access = list(210)
 	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -824,6 +828,9 @@
 	},
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "CJ" = (
@@ -1192,10 +1199,6 @@
 /obj/structure/bed/handrail,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"Ob" = (
-/obj/effect/overmap/visitable/sector/unathi_pirate_izharshan,
-/turf/template_noop,
-/area/space)
 "Ol" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -1319,7 +1322,9 @@
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Ti" = (
-/obj/effect/shuttle_landmark/unathi_pirate_izharshan/start,
+/obj/effect/shuttle_landmark/ship/unathi_pirate_izharshan{
+	dir = 1
+	},
 /turf/template_noop,
 /area/space)
 "Tt" = (
@@ -1507,22 +1512,22 @@
 	dir = 4
 	},
 /obj/item/storage/box/shotgunshells,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
-/obj/item/ammo_magazine/boltaction,
 /obj/machinery/light{
 	dir = 4
 	},
 /obj/item/clothing/gloves/ballistic,
-/obj/item/gun/projectile/shotgun/pump/rifle,
 /obj/item/gun/projectile/pistol/super_heavy,
 /obj/item/ammo_magazine/super_heavy,
 /obj/item/gun/projectile/shotgun/pump/combat,
 /obj/random/civgun/rifle,
 /obj/random/civgun,
-/obj/random/civgun,
-/obj/random/civgun,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/gun/projectile/pistol/spitter,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/spitterpistol,
+/obj/item/ammo_magazine/crackrifle,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "XV" = (
@@ -13667,7 +13672,7 @@ RS
 cg
 RS
 RS
-sZ
+RS
 RS
 RS
 RS
@@ -13931,7 +13936,7 @@ RS
 RS
 RS
 RS
-RS
+sZ
 RS
 RS
 RS
@@ -33147,7 +33152,7 @@ yN
 yN
 yN
 yN
-Ob
+yN
 yN
 yN
 yN

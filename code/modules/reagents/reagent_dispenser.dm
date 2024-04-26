@@ -228,6 +228,14 @@
 	..()
 	ex_act(2.0)
 
+//Fertilizer tank
+/obj/structure/reagent_dispensers/fertilizer
+	name = "fertilizer tank"
+	desc = "A tank filled with nutrients for plant growth"
+	icon_state = "lubetank"
+	amount_per_transfer_from_this = 30
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer = 1000)
+
 //Wall Dispensers
 
 /obj/structure/reagent_dispensers/peppertank
@@ -309,7 +317,7 @@
 /obj/structure/reagent_dispensers/water_cooler/attackby(obj/item/attacking_item, mob/user)
 	if (attacking_item.isscrewdriver())
 		src.add_fingerprint(user)
-		playsound(src.loc, attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		if(do_after(user, 20))
 			if(!src) return
 			switch (anchored)
@@ -419,11 +427,8 @@
 
 	if(src.loc)
 		var/datum/gas_mixture/env = src.loc.return_air()
-		if(env)
-			if (reagents.total_volume > 750)
-				env.temperature = 0
-			else if (reagents.total_volume > 500)
-				env.temperature -= 100
+		if(env && reagents.total_volume)
+			env.temperature = max(173, env.temperature - (reagents.total_volume/10))
 
 	QDEL_IN(src, 10)
 

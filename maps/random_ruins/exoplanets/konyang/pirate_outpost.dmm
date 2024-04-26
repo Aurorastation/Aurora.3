@@ -3,7 +3,7 @@
 /turf/simulated/floor/exoplanet/water/shallow/konyang,
 /area/konyang_pirate_outpost)
 "am" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /obj/item/trash/ramen,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
@@ -27,6 +27,15 @@
 	},
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
+"cF" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/landmark/entry_point/fore,
+/turf/simulated/floor/plating,
+/area/shuttle/konyang_pirate)
+"cG" = (
+/obj/effect/landmark/entry_point/starboard,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/konyang_pirate)
 "cN" = (
 /obj/structure/bed/chair,
 /obj/item/bedsheet/random,
@@ -122,6 +131,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 8
 	},
+/obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/konyang_pirate)
 "gB" = (
@@ -463,6 +473,10 @@
 /obj/machinery/computer/ship/sensors,
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
+"yq" = (
+/obj/effect/landmark/entry_point/port,
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/konyang_pirate)
 "yQ" = (
 /obj/random/dirt_75,
 /obj/machinery/door/urban,
@@ -520,6 +534,11 @@
 	},
 /turf/simulated/floor/tiled/rust,
 /area/shuttle/konyang_pirate)
+"Df" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/effect/landmark/entry_point/north,
+/turf/simulated/floor/exoplanet/konyang,
+/area/konyang_pirate_outpost)
 "Dw" = (
 /obj/structure/flora/tree/konyang/spring,
 /obj/structure/flora/bush/konyang_reeds,
@@ -926,6 +945,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/konyang_pirate_outpost)
+"Ya" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/tiled,
+/area/konyang_pirate_outpost)
 "YF" = (
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/rust,
@@ -1328,7 +1351,7 @@ AV
 xe
 xe
 Dw
-tZ
+Ya
 tZ
 UF
 UF
@@ -1477,7 +1500,7 @@ tZ
 tZ
 tZ
 xe
-tZ
+Df
 tZ
 Dw
 xe
@@ -1541,7 +1564,7 @@ FO
 TH
 Ex
 oL
-oL
+cG
 oL
 oL
 wK
@@ -1704,7 +1727,7 @@ Ik
 dL
 zY
 qM
-aD
+cF
 wK
 wK
 tZ
@@ -1852,7 +1875,7 @@ kF
 oL
 oL
 oL
-oL
+yq
 oL
 oL
 oL

@@ -9,6 +9,7 @@
 	density = 0
 	mob_size = 1//As a holographic projection, a pAI is massless except for its card device
 	can_pull_size = 2 //max size for an object the pAI can pull
+	can_hear_hivenet = FALSE //Unlike most silicons, this is a consumer product with minimal lawbinding, and isn't trusted with Hivenet logs
 
 	var/network = "SS13"
 	var/obj/machinery/camera/current = null
@@ -210,6 +211,16 @@
 
 /mob/living/silicon/pai/get_status_tab_items()
 	. = ..()
+
+	if(istype(card.loc, /mob/living/bot))
+		var/mob/living/bot/B = card.loc
+		. += "Piloting: [B.name]"
+		. += "Bot Status: [B.on ? "Active" : "Inactive"]"
+		. += "Maintenance Hatch: [B.open ? "Open" : "Closed"]"
+		. += "Maintenance Lock: [B.locked ? "Locked" : "Unlocked"]"
+		if(B.emagged)
+			. += "Bot M#$FUN90: MALFUNC--"
+
 	if(silence_time)
 		var/timeleft = round((silence_time - world.timeofday)/10 ,1)
 		. += "Communications system reboot in -[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]"

@@ -12,11 +12,11 @@
 	caliber = SHIP_CALIBER_ZTA
 	firing_effects = FIRING_EFFECT_FLAG_THROW_MOBS|FIRING_EFFECT_FLAG_EXTREMELY_LOUD
 	screenshake_type = SHIP_GUN_SCREENSHAKE_ALL_MOBS
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 	use_power = POWER_USE_OFF //Start off.
-	idle_power_usage = 100 KILOWATTS
-	active_power_usage = 20 MEGAWATTS
+	idle_power_usage = 100 KILO WATTS
+	active_power_usage = 20 MEGA WATTS
 	var/obj/machinery/power/smes/buildable/smes
 
 /obj/machinery/ship_weapon/leviathan/Destroy()
@@ -334,7 +334,7 @@
 			key = LK
 			user.drop_from_inventory(attacking_item, src)
 			icon_state = "safeguard_open"
-			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg')
+			playsound(src, 'sound/effects/ship_weapons/levi_key_insert.ogg', 50)
 
 /obj/machinery/leviathan_safeguard/attack_hand(mob/user)
 	if(key && !stat && opened && !locked)
@@ -345,7 +345,7 @@
 			flick("safeguard_locking", src)
 			icon_state = "safeguard_locked"
 			locked = TRUE
-			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg')
+			playsound(src, 'sound/effects/ship_weapons/levi_key_twist.ogg', 50)
 			button.open()
 
 /obj/machinery/leviathan_button
@@ -401,7 +401,7 @@
 			if(length(possible_entry_points) && !(targeted_landmark == SHIP_HAZARD_TARGET))
 				landmark = possible_entry_points[targeted_landmark]
 			if(do_after(user, 1 SECOND) && !use_check_and_message(user))
-				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg')
+				playsound(src, 'sound/effects/ship_weapons/levi_button_press.ogg', 50)
 				visible_message(SPAN_DANGER("[user] presses \the [src]!"))
 				for(var/obj/machinery/ship_weapon/leviathan/LT in linked.ship_weapons)
 					if(istype(LT))

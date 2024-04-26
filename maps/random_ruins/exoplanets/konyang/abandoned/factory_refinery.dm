@@ -5,10 +5,14 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned/factory_refinery.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("factory_refinery.dmm")
+
+	unit_test_groups = list(1)
 
 /area/konyang/refinery
 	name = "Planetary Material Refinery"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS
 	base_turf = /turf/simulated/floor/exoplanet/dirt_konyang
-	sound_env = HANGAR
+	sound_environment = SOUND_ENVIRONMENT_HANGAR

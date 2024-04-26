@@ -7,7 +7,6 @@
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "opendebug"
-	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
@@ -15,6 +14,7 @@
 	footstep_sound = null
 	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
 	turf_flags = TURF_FLAG_BACKGROUND
+	pathing_pass_method = TURF_PATHING_PASS_NO //You'll fall down most likely, unless no gravity, but not worth the processing just for this special case
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.
@@ -271,7 +271,7 @@
 /turf/simulated/open/is_plating()
 	return TRUE
 
-/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor=COLOR_HUMAN_BLOOD)
 	return
 
 //Returns the roof type of the turf below
@@ -280,6 +280,3 @@
 	if(!t)
 		return null
 	return t.roof_type
-
-/turf/simulated/open/is_open()
-	return TRUE

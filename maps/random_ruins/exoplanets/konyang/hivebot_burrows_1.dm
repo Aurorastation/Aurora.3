@@ -5,9 +5,13 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/hivebot_burrows_1.dmm")
+
+	prefix = "konyang/"
+	suffixes = list("hivebot_burrows_1.dmm")
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_2)
+
+	unit_test_groups = list(1)
 
 /area/hivebot_burrows_1
 	name = "Abandoned Mineshaft"
@@ -17,7 +21,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/basalt/cave
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_INDESTRUCTIBLE_TURFS
 
-	sound_env = TUNNEL_ENCLOSED
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
 	ambience = AMBIENCE_FOREBODING
 
 /obj/effect/landmark/corpse/miner/hivebot_burrows

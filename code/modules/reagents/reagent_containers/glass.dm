@@ -194,6 +194,13 @@
 	possible_transfer_amounts = list(5,10,15,25)
 	fragile = 1 // very fragile
 
+/obj/item/reagent_containers/glass/beaker/vial/antidote
+	name = "hylemnomil-zeta antidote vial"
+	desc = "<span class='cult'>Your lifeline. Defend it with your life.</span>"
+	volume = 60
+	amount_per_transfer_from_this = 5
+	reagents_to_add = list(/singleton/reagent/antibodies = 60)
+
 /obj/item/reagent_containers/glass/beaker/medcup
 	name = "medicine cup"
 	desc = "A glass medicine cup. Like a shot glass for medicine."
@@ -240,7 +247,7 @@
 	item_state = "bucket"
 	center_of_mass = list("x" = 16,"y" = 10)
 	accuracy = 1
-	matter = list(DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_PLASTIC = 200)
 	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 120
 	possible_transfer_amounts = list(5,10,15,25,30,50,60,100,120,250,300)

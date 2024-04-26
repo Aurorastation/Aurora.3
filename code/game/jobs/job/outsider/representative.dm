@@ -93,10 +93,6 @@
 	outfit = /obj/outfit/job/representative
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/job/consular/pre_spawn(mob/abstract/new_player/player)
-	var/datum/faction/faction = SSjobs.name_factions[player.client.prefs.faction]
-	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
-
 /datum/job/representative/after_spawn(mob/living/carbon/human/H)
 	var/datum/faction/faction = SSjobs.GetFaction(H)
 	LAZYREMOVE(faction.allowed_role_types, REPRESENTATIVE_ROLE)
@@ -183,12 +179,6 @@
 		SPECIES_HUMAN = 30,
 		SPECIES_SKRELL = 150,
 		SPECIES_SKRELL_AXIORI = 150
-	)
-
-	ideal_character_age = list(
-		SPECIES_HUMAN = 30,
-		SPECIES_SKRELL = 170,
-		SPECIES_SKRELL_AXIORI = 170
 	)
 
 	access = list(ACCESS_CONSULAR, ACCESS_MAINT_TUNNELS)

@@ -649,21 +649,6 @@
 /obj/structure/sign/flag/traverse/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
-// CT-EUM
-
-/obj/item/flag/cteum
-	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
-	desc = "The flag of the CT-EUM."
-	flag_path = "cteum"
-	flag_structure = /obj/structure/sign/flag/cteum
-
-/obj/structure/sign/flag/cteum
-	name = "\improper Co-operative Territories of Epsilon Ursae Minoris Flag"
-	desc = "The flag of the CT-EUM."
-	icon_state = "cteum"
-	flag_path = "cteum"
-	flag_item = /obj/item/flag/cteum
-
 // Nanotrasen.
 
 /obj/item/flag/nanotrasen
@@ -1329,6 +1314,49 @@
 /obj/structure/sign/flag/trinaryperfection/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+// Golden Deep
+
+/obj/item/flag/goldendeep
+	name = "\improper Golden Deep flag"
+	desc = "The flag of the Golden Deep, depicting the Midas surrounded by a set of shields."
+	desc_extended = "The true meaning of the sigil on the Golden Deep's flag are shrouded in mystery and more than a few Estriconian merchants have dedicated small fortunes to studying it. The marking first appeared within the halls of the Midas; the Golden Deep's enormous and ancient mothership where the merchant collective is believed to have been founded. Whatever its original purpose, this sigil has since been co-opted by the Golden Deep and placed on a backdrop of gold, diamond, and black, symbolizing the collective's pursuit of wealth amidst the void of space. Wherever this flag flies, commerce is sure to follow."
+	flag_path = "goldendeep"
+	flag_structure = /obj/structure/sign/flag/goldendeep
+
+/obj/structure/sign/flag/goldendeep
+	name = "\improper Golden Deep flag"
+	desc = "The flag of the Golden Deep Collective."
+	desc_extended = "The true meaning of the sigil on the Golden Deep's flag are shrouded in mystery and more than a few Estriconian merchants have dedicated small fortunes to studying it. The marking first appeared within the halls of the Midas; the Golden Deep's enormous and ancient mothership where the merchant collective is believed to have been founded. Whatever its original purpose, this sigil has since been co-opted by the Golden Deep and placed on a backdrop of gold, diamond, and black, symbolizing the collective's pursuit of wealth amidst the void of space. Wherever this flag flies, commerce is sure to follow."
+	flag_path = "goldendeep"
+	icon_state = "goldendeep"
+	flag_item = /obj/item/flag/goldendeep
+
+/obj/structure/sign/flag/goldendeep/unmovable
+	unmovable = TRUE
+
+/obj/item/flag/goldendeep/l
+	name = "large Golden Deep flag"
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/goldendeep/large
+
+/obj/structure/sign/flag/goldendeep/large
+	icon_state = "goldendeep_l"
+	flag_path = "goldendeep"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/goldendeep/l
+
+/obj/structure/sign/flag/goldendeep/large/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/goldendeep/large/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/goldendeep/large/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/goldendeep/large/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
 // Dominian Standards
 
 /obj/item/flag/diona
@@ -1975,7 +2003,7 @@
 /obj/structure/sign/flag/assunzione/large/east/Initialize(mapload)
 	. = ..(mapload, EAST)
 
-/obj/structure/sign/flag/himeo/large/west/Initialize(mapload)
+/obj/structure/sign/flag/assunzione/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
 // New Gibson
@@ -3246,3 +3274,214 @@
 
 /obj/structure/sign/flag/hiskyn/unmovable
 	unmovable = TRUE
+
+//Unathi Ruin Flags/Tapestries
+/obj/item/flag/unathi_tapestry
+	name = "folded tapestry"
+	desc = "An ancient piece of woven cloth, carefully folded."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "tapestry_folded"
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry
+
+/obj/structure/sign/flag/unathi_tapestry
+	name = "sun tapestry"
+	desc = "A worn and faded tapestry depicting a bright sun shining down on the surface of Moghes."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "sun"
+	flag_path = "sun"
+	flag_item = /obj/item/flag/unathi_tapestry
+
+/obj/item/flag/unathi_tapestry/moon
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/moon
+
+/obj/structure/sign/flag/unathi_tapestry/moon
+	name = "moon tapestry"
+	desc = "A worn and faded tapestry depicting a crescent moon."
+	icon_state = "moon"
+	flag_path = "moon"
+	flag_item = /obj/item/flag/unathi_tapestry/moon
+
+/obj/item/flag/unathi_tapestry/crown
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/crown
+
+/obj/structure/sign/flag/unathi_tapestry/crown
+	name = "crown tapestry"
+	desc = "A worn and faded tapestry depicting an Unathi figure, with a crown being lowered onto their head."
+	icon_state = "crown"
+	flag_path = "crown"
+	flag_item = /obj/item/flag/unathi_tapestry/crown
+
+/obj/item/flag/unathi_tapestry/warrior
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/warrior
+
+/obj/structure/sign/flag/unathi_tapestry/warrior
+	name = "warrior tapestry"
+	desc = "A worn and faded tapestry depicting an Unathi figure in full battle armor."
+	icon_state = "warrior"
+	flag_path = "warrior"
+	flag_item = /obj/item/flag/unathi_tapestry/warrior
+
+/obj/item/flag/unathi_tapestry/brothers
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/brothers
+
+/obj/structure/sign/flag/unathi_tapestry/brothers
+	name = "brothers tapestry"
+	desc = "A large and faded tapestry depicting two Unathi wielding war scythes, standing back to back."
+	icon_state = "brothers_l"
+	flag_path = "brothers"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/unathi_tapestry/brothers
+
+/obj/structure/sign/flag/unathi_tapestry/brothers/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/unathi_tapestry/brothers/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/unathi_tapestry/brothers/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/unathi_tapestry/brothers/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/unathi_tapestry/city
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/city
+
+/obj/structure/sign/flag/unathi_tapestry/city
+	name = "city tapestry"
+	desc = "A large and faded tapestry depicting an ancient city, towering resplendent over the land."
+	icon_state = "city_l"
+	flag_path = "city"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/unathi_tapestry/city
+
+/obj/structure/sign/flag/unathi_tapestry/city/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/unathi_tapestry/city/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/unathi_tapestry/city/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/unathi_tapestry/city/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/unathi_tapestry/wall
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/wall
+
+/obj/structure/sign/flag/unathi_tapestry/wall
+	name = "wall tapestry"
+	desc = "A large and faded tapestry depicting a mighty wall, staffed by hundreds of warriors. Storm clouds gather above it."
+	icon_state = "wall_l"
+	flag_path = "wall"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/unathi_tapestry/wall
+
+/obj/structure/sign/flag/unathi_tapestry/wall/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/unathi_tapestry/wall/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/unathi_tapestry/wall/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/unathi_tapestry/wall/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/unathi_tapestry/unathi
+	flag_size = TRUE
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/unathi
+
+/obj/structure/sign/flag/unathi_tapestry/unathi
+	name = "unathi tapestry"
+	desc = "A large and faded tapestry depicting a single Unathi figure - regal, resplendent, and utterly alone.."
+	icon_state = "unathi_l"
+	flag_path = "unathi"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/unathi_tapestry/unathi
+
+/obj/structure/sign/flag/unathi_tapestry/unathi/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/unathi_tapestry/unathi/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/unathi_tapestry/unathi/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/unathi_tapestry/unathi/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/unathi_tapestry/mador
+	icon_state = "mador_tapestry_folded"
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/mador_1
+
+/obj/structure/sign/flag/unathi_tapestry/mador_1
+	name = "\improper Sinta'Mador tapestry"
+	desc = "A worn and faded tapestry bearing script in the lost language of the Sinta'Mador."
+	icon_state = "mador3"
+	flag_path = "mador3"
+	flag_item = /obj/item/flag/unathi_tapestry/mador
+
+/obj/item/flag/unathi_tapestry/mador/mador_2
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/mador_2
+
+/obj/structure/sign/flag/unathi_tapestry/mador_2
+	name = "\improper Sinta'Mador tapestry"
+	desc = "A worn and faded tapestry bearing script in the lost language of the Sinta'Mador."
+	icon_state = "mador4"
+	flag_path = "mador4"
+	flag_item = /obj/item/flag/unathi_tapestry/mador/mador_2
+
+/obj/item/flag/unathi_tapestry/mador_3
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/mador_3
+	flag_size = TRUE
+
+/obj/structure/sign/flag/unathi_tapestry/mador_3
+	name = "large Sinta'Mador tapestry"
+	desc = "A large tapestry bearing script in the lost language of the Sinta'Mador"
+	icon_state = "mador1_l"
+	flag_path = "mador1"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/unathi_tapestry/mador_3
+
+/obj/structure/sign/flag/unathi_tapestry/mador_3/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/unathi_tapestry/mador_3/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/unathi_tapestry/mador_3/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/unathi_tapestry/mador_3/west/Initialize(mapload)
+	. = ..(mapload, WEST)
+
+/obj/item/flag/unathi_tapestry/mador_4
+	flag_structure = /obj/structure/sign/flag/unathi_tapestry/mador_4
+	flag_size = TRUE
+
+/obj/structure/sign/flag/unathi_tapestry/mador_4
+	name = "large Sinta'Mador tapestry"
+	desc = "A large tapestry bearing script in the lost language of the Sinta'Mador"
+	icon_state = "mador2_l"
+	flag_path = "mador2"
+	flag_size = TRUE
+	flag_item = /obj/item/flag/unathi_tapestry/mador_4
+
+/obj/structure/sign/flag/unathi_tapestry/mador_4/north/Initialize(mapload)
+	. = ..(mapload, NORTH)
+
+/obj/structure/sign/flag/unathi_tapestry/mador_4/south/Initialize(mapload)
+	. = ..(mapload, SOUTH)
+
+/obj/structure/sign/flag/unathi_tapestry/mador_4/east/Initialize(mapload)
+	. = ..(mapload, EAST)
+
+/obj/structure/sign/flag/unathi_tapestry/mador_4/west/Initialize(mapload)
+	. = ..(mapload, WEST)

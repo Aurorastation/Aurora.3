@@ -38,7 +38,7 @@
 		else
 			name = ("bookcase ([newname])")
 	else if(attacking_item.iswrench())
-		playsound(src.loc, attacking_item.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, (anchored ? "<span class='notice'>You unfasten \the [src] from the floor.</span>" : "<span class='notice'>You secure \the [src] to the floor.</span>"))
 		anchored = !anchored
 	else if(attacking_item.isscrewdriver())

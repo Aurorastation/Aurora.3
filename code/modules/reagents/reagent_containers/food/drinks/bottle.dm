@@ -11,7 +11,7 @@
 	amount_per_transfer_from_this = 5//Smaller sip size for more BaRP and less guzzling a litre of vodka before you realise it
 	volume = 100
 	item_state = "broken_beer" //Generic held-item sprite until unique ones are made.
-	force = 5
+	force = 11
 	hitsound = /singleton/sound_category/bottle_hit_intact_sound
 	var/smash_duration = 5 //Directly relates to the 'weaken' duration. Lowered by armor (i.e. helmets)
 	matter = list(MATERIAL_GLASS = 800)
@@ -229,7 +229,7 @@
 	desc = "A bottle with a sharp broken bottom."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/bottle.dmi'
 	icon_state = "broken_bottle"
-	force = 9
+	force = 20
 	throwforce = 5
 	throw_speed = 3
 	throw_range = 5

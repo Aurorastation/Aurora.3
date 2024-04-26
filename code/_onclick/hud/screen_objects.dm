@@ -9,7 +9,8 @@
 /obj/screen
 	name = ""
 	icon = 'icons/mob/screen/generic.dmi'
-	layer = SCREEN_LAYER
+	plane = HUD_PLANE
+	layer = HUD_BASE_LAYER
 	unacidable = 1
 	var/obj/master = null	//A reference to the object in the slot. Grabs or items, generally.
 	var/datum/hud/hud = null // A reference to the owner HUD, if any.
@@ -137,7 +138,6 @@
 
 /obj/screen/storage
 	name = "storage"
-	layer = SCREEN_LAYER
 	screen_loc = "7,7 to 10,8"
 
 /obj/screen/storage/Click()
@@ -153,7 +153,7 @@
 
 /obj/screen/storage/background
 	name = "background storage"
-	layer = SCREEN_LAYER+0.01
+	layer = HUD_BASE_LAYER
 
 /obj/screen/storage/background/Initialize(mapload, var/obj/set_master, var/set_icon_state)
 	. = ..()
@@ -205,7 +205,7 @@
 
 	if(hovering_choice == choice)
 		return
-	vis_contents -= hover_overlays_cache[hovering_choice]
+	remove_vis_contents(hover_overlays_cache[hovering_choice])
 	hovering_choice = choice
 
 	var/obj/effect/overlay/zone_sel/overlay_object = hover_overlays_cache[choice]
@@ -213,7 +213,7 @@
 		overlay_object = new
 		overlay_object.icon_state = "[choice]"
 		hover_overlays_cache[choice] = overlay_object
-	vis_contents += overlay_object
+	add_vis_contents(overlay_object)
 
 
 /obj/effect/overlay/zone_sel
@@ -221,11 +221,11 @@
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha = 128
 	anchored = TRUE
-	layer = SCREEN_LAYER + 0.1
+	plane = HUD_ITEM_LAYER
 
 /obj/screen/zone_sel/MouseExited(location, control, params)
 	if(!isobserver(usr) && hovering_choice)
-		vis_contents -= hover_overlays_cache[hovering_choice]
+		remove_vis_contents(hover_overlays_cache[hovering_choice])
 		hovering_choice = null
 
 /obj/screen/zone_sel/proc/get_zone_at(icon_x, icon_y)
@@ -453,7 +453,6 @@
 /obj/screen/movement_intent
 	name = "mov_intent"
 	screen_loc = ui_movi
-	layer = SCREEN_LAYER
 
 //This updates the run/walk button on the hud
 /obj/screen/movement_intent/proc/update_move_icon(var/mob/living/user)
@@ -495,15 +494,14 @@
 			C.m_intent = M_WALK	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1
+
 		switch(usr.m_intent)
 			if(M_RUN)
 				usr.m_intent = M_WALK
 			if(M_WALK)
 				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
 					usr.m_intent = M_RUN
-
 			if(M_LAY)
-
 				// No funny "haha i get the bonuses then stand up"
 				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 				if(gun_in_hand?.wielded)
@@ -514,13 +512,16 @@
 					usr.m_intent = M_WALK
 
 		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
-
 			// You want this bonus weapon or not? Wield it when you are lying, not before!
 			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 			if(gun_in_hand?.wielded)
 				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
 				return
 			C.m_intent = M_LAY
+
+		// this works in conjunction with M_LAY to make the mob stand up or lie down instantly
+		C.update_canmove()
+		C.update_icon()
 
 	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
 		var/mob/living/simple_animal/hostile/morph/M = usr

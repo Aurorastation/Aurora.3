@@ -46,12 +46,12 @@
 		H.internal = preserve
 		H.internals.icon_state = "internal1"
 		H.equip_or_collect(new /obj/item/reagent_containers/food/snacks/koisbar, slot_in_backpack)
-		var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-		var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-		A.replaced(H, affected)
-		H.update_body()
 	if(H?.wear_suit)
 		H.wear_suit.color = pick("#4f3911", "#292826")
+	if(isipc(H))
+		var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+		if(istype(tag))
+			tag.modify_tag_data()
 
 /obj/outfit/admin/heph_security/get_id_access()
 	return list(ACCESS_HEPHAESTUS, ACCESS_EXTERNAL_AIRLOCKS)

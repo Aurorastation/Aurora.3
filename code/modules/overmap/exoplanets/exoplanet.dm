@@ -54,6 +54,9 @@
 	var/list/possible_themes = list(/datum/exoplanet_theme)
 	var/datum/exoplanet_theme/theme
 
+	///What weather state to use for this planet initially. If null, will not initialize any weather system. Must be a typepath rather than an instance.
+	var/singleton/state/weather/initial_weather_state = /singleton/state/weather/calm
+
 	var/features_budget = 4
 	var/list/possible_features = list()
 	var/list/spawned_features
@@ -197,9 +200,12 @@
 /obj/effect/overmap/visitable/sector/exoplanet/proc/build_level()
 	generate_habitability()
 	generate_atmosphere()
+	if(ispath(initial_weather_state))
+		generate_weather()
 	generate_flora()
 	generate_map()
 	generate_features()
+	theme.after_map_generation(src)
 	generate_landing(2)
 	update_biome()
 	generate_planet_image()
@@ -507,10 +513,6 @@
 
 	. += jointext(extra_data, "<br>")
 
-/obj/effect/overmap/visitable/sector/exoplanet/get_skybox_representation()
-	return skybox_image
-
-
 /obj/effect/overmap/visitable/sector/exoplanet/proc/get_surface_color()
 	return surface_color
 
@@ -533,3 +535,15 @@
 
 /obj/effect/landmark/exoplanet_spawn/proc/do_spawn(obj/effect/overmap/visitable/sector/exoplanet/planet)
 	return
+
+///Sets the given weather state to our planet replacing the old one, and trigger updates. Can be a type path or instance.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/set_weather(var/singleton/state/weather/W)
+	initial_weather_state = W
+	//Tells all our levels exposed to the sky to force change the weather.
+	SSweather.setup_weather_system(map_z[length(map_z)], initial_weather_state)
+
+///Setup the initial weather state for the planet. Doesn't apply it to our z levels however.
+/obj/effect/overmap/visitable/sector/exoplanet/proc/generate_weather()
+	if(ispath(initial_weather_state))
+		initial_weather_state = GET_SINGLETON(initial_weather_state)
+	set_weather(initial_weather_state)

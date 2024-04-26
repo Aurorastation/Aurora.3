@@ -298,6 +298,9 @@
 /obj/item/device/flashlight/empty
 	starts_with_cell = FALSE
 
+/obj/item/device/flashlight/on
+	on = TRUE
+
 /obj/item/device/flashlight/pen
 	name = "penlight"
 	desc = "A pen-sized light, used by medical staff."
@@ -332,18 +335,21 @@
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_GLASS = 70)
 	light_wedge = LIGHT_SEMI
 
+/obj/item/device/flashlight/heavy/on
+	on = TRUE
+
 /obj/item/device/flashlight/maglight
 	name = "maglight"
 	desc = "A heavy flashlight, designed for security personnel."
 	icon_state = "maglight"
 	item_state = "maglight"
-	force = 10
+	force = 5
 	brightness_on = 5
 	efficiency_modifier = 0.8
 	w_class = ITEMSIZE_NORMAL
 	uv_intensity = 70
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	matter = list(DEFAULT_WALL_MATERIAL = 200, MATERIAL_GLASS = 100)
+	matter = list(MATERIAL_ALUMINIUM = 200, MATERIAL_GLASS = 100)
 	hitsound = 'sound/weapons/smash.ogg'
 	light_wedge = LIGHT_NARROW
 
@@ -353,6 +359,9 @@
 		item_state = "maglight-on"
 	else
 		item_state = "maglight"
+
+/obj/item/device/flashlight/maglight/on
+	on = TRUE
 
 /obj/item/device/flashlight/slime
 	gender = PLURAL
@@ -409,3 +418,6 @@
 		item_state = "lantern-on"
 	else
 		item_state = "lantern"
+
+/obj/item/device/flashlight/lantern/on
+	on = TRUE

@@ -7,7 +7,11 @@
 	spawn_cost = 1
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_BURZSIA)
-	suffixes = list("burzsia/burzsia_mining.dmm")
+
+	prefix = "burzsia/"
+	suffixes = list("burzsia_mining.dmm")
+
+	unit_test_groups = list(1)
 
 /area/burzsia_mining
 	name = "Hephaestus Burzsia Mining Outpost"
@@ -73,6 +77,13 @@
 
 /obj/outfit/admin/burzsia_miner/get_id_access()
 	return list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+
+/obj/outfit/admin/burzsia_miner/post_equip(mob/living/carbon/human/H, visualsOnly)
+	var/obj/item/organ/internal/ipc_tag/tag = H.internal_organs_by_name[BP_IPCTAG]
+	if(istype(tag))
+		tag.serial_number = uppertext(dd_limittext(md5(H.real_name), 12))
+		tag.ownership_info = pick(IPC_OWNERSHIP_COMPANY)
+		tag.citizenship_info = CITIZENSHIP_NONE
 
 /datum/ghostspawner/human/burzsia_miner/foreman
 	short_name = "burzsia_foreman"

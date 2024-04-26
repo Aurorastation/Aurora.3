@@ -179,10 +179,13 @@
 	///When you want to slice out a chunk from a sprite
 	var/alpha_mask
 
-	///Boolean, determines whether accent colour is applied or not
+	/// Boolean, determines whether accent colour is applied or not
 	var/has_accents = FALSE
 
-	///used for accents which are coloured differently to the main body of the sprite
+	/// appearance_flags Bitflag, when has_accents is set to true, this will determine which flags will be applied to the accent image
+	var/accent_flags = RESET_COLOR
+
+	/// used for accents which are coloured differently to the main body of the sprite
 	var/accent_color = COLOR_GRAY
 
 	/**
@@ -231,7 +234,8 @@
 	///Used to determine whether something can pick a lock, and how well
 	var/lock_picking_level = 0
 
-	// Its vital that if you make new power tools or new recipies that you include this
+	///Used to determine what this item can be changed into with a modkit
+	var/list/convert_options
 
 /obj/item/Initialize(mapload, ...)
 	. = ..()
@@ -270,7 +274,7 @@
 	if(build_from_parts)
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	if(has_accents)
-		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
+		add_overlay(overlay_image(icon, "[icon_state]_acc", accent_color, accent_flags))
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
@@ -451,7 +455,7 @@
 			else
 				playsound(hit_atom, 'sound/weapons/throwtap.ogg', 1, volume, -1)
 	else
-		playsound(src, drop_sound, THROW_SOUND_VOLUME)
+		playsound(src, drop_sound, YEET_SOUND_VOLUME)
 	return ..()
 
 /**
@@ -475,6 +479,9 @@
 		zoom(user) //binoculars, scope, etc
 
 	SEND_SIGNAL(src, COMSIG_ITEM_DROPPED, user)
+
+	if(user && (z_flags & ZMM_MANGLE_PLANES))
+		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 /obj/item/proc/remove_item_verbs(mob/user)
 	if(ismech(user)) //very snowflake, but necessary due to how mechs work
@@ -526,7 +533,7 @@
 // for items that can be placed in multiple slots
 /obj/item/proc/equipped(var/mob/user, var/slot)
 	SHOULD_CALL_PARENT(TRUE)
-	layer = SCREEN_LAYER+0.01
+	hud_layerise()
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
@@ -534,9 +541,9 @@
 		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	else if(slot_flags && slot)
 		if(equip_sound)
-			playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
+			playsound(src, equip_sound, EQUIP_SOUND_VOLUME, TRUE, ignore_walls = FALSE)
 		else
-			playsound(src, drop_sound, DROP_SOUND_VOLUME)
+			playsound(src, drop_sound, DROP_SOUND_VOLUME, ignore_walls = FALSE)
 	if(item_action_slot_check(user, slot))
 		add_verb(user, verbs)
 		for(var/v in verbs)
@@ -548,6 +555,9 @@
 	GLOB.mob_equipped_event.raise_event(user, src, slot)
 	item_equipped_event.raise_event(src, user, slot)
 	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
+
+	if(user && (z_flags & ZMM_MANGLE_PLANES))
+		addtimer(CALLBACK(user, /mob/proc/check_emissive_equipment), 0, TIMER_UNIQUE)
 
 //sometimes we only want to grant the item's action if it's equipped in a specific slot.
 /obj/item/proc/item_action_slot_check(mob/user, slot)
@@ -1099,7 +1109,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/tool_use_check(mob/living/user, amount)
 	return TRUE
 
-// Plays item's usesound, if any.
+/// Plays item's usesound, if any
 /obj/item/proc/play_tool_sound(atom/target, volume=null) // null, so default value of this proc won't override default value of the playsound.
 	if(target && volume)
 		var/played_sound
@@ -1113,7 +1123,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 				played_sound = pick(hitsound)
 
 		//playsound(target, played_sound, VOL_EFFECTS_MASTER, volume) implement sound channel system in future
-		playsound(target, played_sound, volume, TRUE)
+		playsound(target, played_sound, volume, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Generic use proc. Depending on the item, it uses up fuel, charges, sheets, etc.
 // Returns TRUE on success, FALSE on failure.
@@ -1226,4 +1236,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	return FALSE
 
 /obj/item/proc/is_shovel()
+	return FALSE
+
+/obj/item/proc/gives_weather_protection()
 	return FALSE
