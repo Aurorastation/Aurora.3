@@ -8,3 +8,5 @@
 
 	prefix = "konyang/"
 	suffixes = list("tribute.dmm")
+
+	unit_test_groups = list(2)

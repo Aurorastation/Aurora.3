@@ -7,6 +7,8 @@
 	suffixes = list("heph_survey_post.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
+	unit_test_groups = list(1)
+
 /area/heph_survey_post
 	name = "Hephaestus Survey Post"
 	icon_state = "bluenew"

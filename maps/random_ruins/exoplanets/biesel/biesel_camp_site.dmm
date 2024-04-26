@@ -1,0 +1,504 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"c" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"d" = (
+/obj/item/stack/material/wood/log{
+	pixel_x = -7
+	},
+/obj/item/stack/material/wood/log{
+	pixel_x = 2
+	},
+/obj/item/stack/material/wood/log{
+	pixel_x = -3;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"e" = (
+/obj/structure/table/standard,
+/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle{
+	pixel_x = 1;
+	pixel_y = 11
+	},
+/obj/item/material/hatchet/lumber{
+	pixel_x = 8;
+	pixel_y = -7
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"f" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"g" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"h" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"i" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"j" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"k" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/hotdog,
+/obj/item/reagent_containers/food/snacks/hotdog,
+/obj/item/reagent_containers/food/snacks/hotdog,
+/obj/item/reagent_containers/food/snacks/hotdog,
+/obj/item/reagent_containers/food/snacks/burger,
+/obj/item/reagent_containers/food/snacks/burger,
+/obj/item/reagent_containers/food/snacks/burger,
+/obj/item/reagent_containers/food/snacks/burger,
+/obj/item/reagent_containers/food/snacks/salad/tossedsalad,
+/obj/item/reagent_containers/food/snacks/salad/tossedsalad,
+/obj/item/storage/box/drinkingglasses,
+/obj/item/material/kitchen/utensil/fork/plastic,
+/obj/item/material/kitchen/utensil/fork/plastic,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"l" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"m" = (
+/obj/structure/flora/ausbushes/genericbush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"o" = (
+/obj/structure/flora/log_bench{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"p" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"s" = (
+/obj/structure/reagent_dispensers/keg/beerkeg,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"t" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"w" = (
+/obj/structure/flora/stump,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"y" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/snacks/sosjerky{
+	pixel_y = 11;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"A" = (
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"D" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer/light,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer/light,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer/light,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer/light,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/obj/item/reagent_containers/food/drinks/waterbottle/large,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"F" = (
+/obj/structure/bed/stool/chair/folding,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"G" = (
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/weapons.dmi';
+	icon_state = "towel_flat";
+	pixel_x = 10;
+	pixel_y = 26;
+	color = "#903A64";
+	desc = "A soft fleece picnic blanket.";
+	name = "picnic blanket";
+	layer = 2.99
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/weapons.dmi';
+	icon_state = "towel_flat";
+	pixel_x = -10;
+	pixel_y = 12;
+	color = "#903A64";
+	desc = "A soft fleece picnic blanket.";
+	name = "picnic blanket";
+	layer = 2.99
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/weapons.dmi';
+	icon_state = "towel_flat";
+	pixel_x = 10;
+	pixel_y = -2;
+	color = "#903A64";
+	desc = "A soft fleece picnic blanket.";
+	name = "picnic blanket";
+	layer = 2.99
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/weapons.dmi';
+	icon_state = "towel_flat";
+	pixel_x = -6;
+	pixel_y = 26;
+	color = "#914789";
+	desc = "A soft fleece picnic blanket.";
+	name = "picnic blanket"
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/weapons.dmi';
+	icon_state = "towel_flat";
+	pixel_x = -6;
+	pixel_y = -2;
+	color = "#914789";
+	desc = "A soft fleece picnic blanket.";
+	name = "picnic blanket"
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/weapons.dmi';
+	icon_state = "towel_flat";
+	pixel_x = 13;
+	pixel_y = 12;
+	color = "#914789";
+	desc = "A soft fleece picnic blanket.";
+	name = "picnic blanket"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"I" = (
+/obj/machinery/appliance/cooker/grill,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"J" = (
+/turf/template_noop,
+/area/template_noop)
+"K" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"L" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"M" = (
+/obj/structure/flora/bush/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"O" = (
+/obj/structure/automobile/random{
+	dir = 4
+	},
+/obj/machinery/media/jukebox{
+	anchored = 1;
+	pixel_x = -11;
+	density = 0;
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"P" = (
+/obj/structure/table/standard,
+/obj/item/material/hatchet/butch,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"S" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+"Y" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/small/beer/root{
+	pixel_y = 11;
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/food/snacks/fishjerky{
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/biesel_camp_site)
+
+(1,1,1) = {"
+J
+J
+w
+A
+t
+t
+m
+t
+w
+t
+p
+t
+c
+J
+J
+"}
+(2,1,1) = {"
+J
+c
+m
+t
+t
+c
+t
+p
+t
+t
+K
+i
+t
+p
+J
+"}
+(3,1,1) = {"
+t
+A
+i
+t
+t
+t
+A
+t
+t
+c
+t
+t
+K
+t
+w
+"}
+(4,1,1) = {"
+m
+A
+t
+m
+A
+L
+t
+t
+t
+t
+t
+p
+t
+t
+K
+"}
+(5,1,1) = {"
+t
+t
+M
+L
+t
+t
+A
+t
+t
+L
+t
+t
+t
+c
+i
+"}
+(6,1,1) = {"
+t
+c
+m
+h
+D
+Y
+y
+p
+p
+w
+t
+t
+t
+t
+p
+"}
+(7,1,1) = {"
+K
+t
+G
+a
+f
+a
+k
+s
+t
+t
+A
+t
+t
+t
+t
+"}
+(8,1,1) = {"
+L
+t
+f
+F
+d
+a
+f
+a
+i
+t
+w
+K
+m
+t
+w
+"}
+(9,1,1) = {"
+c
+m
+h
+f
+g
+j
+f
+O
+t
+p
+t
+p
+t
+t
+K
+"}
+(10,1,1) = {"
+K
+t
+I
+a
+S
+a
+f
+f
+A
+M
+t
+t
+t
+c
+p
+"}
+(11,1,1) = {"
+t
+c
+K
+e
+P
+o
+h
+t
+t
+t
+t
+t
+t
+t
+t
+"}
+(12,1,1) = {"
+K
+t
+A
+l
+t
+t
+t
+t
+t
+c
+A
+t
+t
+t
+i
+"}
+(13,1,1) = {"
+w
+t
+i
+p
+t
+A
+p
+t
+t
+t
+L
+p
+t
+m
+t
+"}
+(14,1,1) = {"
+J
+K
+t
+t
+c
+m
+L
+t
+t
+t
+t
+K
+A
+p
+J
+"}
+(15,1,1) = {"
+J
+J
+t
+t
+t
+t
+K
+w
+p
+i
+m
+t
+w
+J
+J
+"}

@@ -2832,6 +2832,7 @@
 	name = "Engine"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/engine)
 "pj" = (
@@ -5230,6 +5231,9 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold4w/visible/supply,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/forehallway)
 "Bp" = (
@@ -5380,6 +5384,11 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/washroom)
 "BO" = (
@@ -6666,14 +6675,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/starboardhallway)
-"IG" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/turf/space/dynamic,
-/area/ship/coc_scarab/exterior)
 "II" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -46878,7 +46879,7 @@ BZ
 Al
 Al
 Al
-IG
+nr
 Al
 cW
 cW
