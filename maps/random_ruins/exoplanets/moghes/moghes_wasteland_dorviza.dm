@@ -9,6 +9,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_dorviza.dmm")
+	unit_test_groups = list(2)
 
 /area/moghes_dorviza
 	name = "Clan Dorviza Camp"

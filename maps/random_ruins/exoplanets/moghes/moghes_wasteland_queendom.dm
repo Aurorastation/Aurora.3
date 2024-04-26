@@ -9,6 +9,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_queendom.dmm")
+	unit_test_groups = list(3)
 
 /area/moghes_queendom
 	name = "Queendom Patrol Camp"

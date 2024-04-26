@@ -9,9 +9,16 @@
 	temperature = 315.15
 	},
 /area/template_noop)
+"C" = (
+/obj/effect/landmark/scorcher,
+/obj/effect/decal/cleanable/greenglow/radioactive,
+/turf/simulated/floor/exoplanet/desert/rough{
+	temperature = 315.15
+	},
+/area/template_noop)
 "J" = (
 /obj/effect/landmark/scorcher,
-/obj/structure/moghes_fakenuke,
+/obj/structure/undetonated_nuke/buried,
 /turf/simulated/floor/exoplanet/desert/rough{
 	temperature = 315.15
 	},
@@ -136,7 +143,7 @@ f
 T
 f
 f
-T
+C
 f
 a
 a
@@ -147,7 +154,7 @@ a
 a
 T
 f
-T
+C
 T
 T
 T
@@ -184,7 +191,7 @@ f
 T
 T
 T
-T
+C
 T
 T
 f
@@ -232,7 +239,7 @@ a
 a
 T
 f
-T
+C
 T
 T
 T
@@ -255,7 +262,7 @@ f
 T
 f
 T
-T
+C
 a
 a
 a

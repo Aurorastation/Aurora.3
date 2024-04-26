@@ -9,6 +9,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_guwandi.dmm")
+	unit_test_groups = list(3)
 
 /datum/ghostspawner/human/moghes_guwandi
 	short_name = "moghes_guwandi"

@@ -9,6 +9,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_ozeuoi.dmm")
+	unit_test_groups = list(1)
 
 /area/moghes_ozeuoi
 	name = "Clan Ozeuoi Outpost"

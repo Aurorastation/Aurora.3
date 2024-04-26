@@ -9,6 +9,7 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_kataphract_wasteland.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_wasteland_izweski)
+	unit_test_groups = list(1)
 
 /area/moghes/kataphract_wasteland
 	name = "Kataphract Campsite"

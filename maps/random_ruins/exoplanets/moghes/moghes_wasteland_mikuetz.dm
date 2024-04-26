@@ -8,6 +8,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_mikuetz.dmm")
+	unit_test_groups = list(2)
 
 /area/moghes_mikuetz
 	name = "Mi'kuetz Camp"

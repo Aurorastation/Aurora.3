@@ -10,6 +10,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_vihnmes.dmm")
+	unit_test_groups = list(1)
 
 /area/moghes_vihnmes
 	name = "Clan Vihnmes Waystation"

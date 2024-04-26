@@ -9,6 +9,7 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_izweski.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_kataphract_wasteland)
+	unit_test_groups = list(3)
 
 /area/moghes/hegemony_wasteland
 	name = "Hegemony Wasteland Outpost"

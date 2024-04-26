@@ -6,16 +6,4 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_bomb.dmm")
-
-/obj/structure/moghes_fakenuke
-	name = "unexploded nuclear bomb"
-	desc = "This bomb looks like it's been here for decades. You probably shouldn't touch it. Something is written in Sinta'Unathi on the side."
-	icon = 'icons/obj/nuke.dmi' //replace this with something else if we sprite it
-	icon_state = "greenlight"
-	anchored = 1
-	density = 1
-
-/obj/structure/moghes_fakenuke/examine(mob/user)
-	. = ..()
-	if(GLOB.all_languages[LANGUAGE_UNATHI] in user.languages)
-		to_chat(user, SPAN_NOTICE("The inscription reads: \"WARNING - FISSILE MATERIAL HANDLE WITH CARE.\" Underneath are a few words, scratched into the metal. They read \"If Found, Return To Darakath At High Velocity\""))
+	unit_test_groups = list(2)

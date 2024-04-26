@@ -6,6 +6,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_wasteland_tomb.dmm")
+	unit_test_groups = list(2)
 
 /area/moghes_wasteland_tomb
 	name = "Wasteland Tomb"

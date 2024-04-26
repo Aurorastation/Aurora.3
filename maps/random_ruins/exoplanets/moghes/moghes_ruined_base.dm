@@ -6,3 +6,4 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_ruined_base.dmm")
+	unit_test_groups = list(2)

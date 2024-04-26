@@ -10,6 +10,7 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_gawgaryn_bikers.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_gawgaryn_riders)
+	unit_test_groups = list(1)
 
 /area/moghes_gawgaryn_bikers
 	name = "Gawgaryn Raider Camp"

@@ -10,6 +10,7 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_gawgaryn_riders.dmm")
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/moghes_gawgaryn_bikers)
+	unit_test_groups = list(2)
 
 /datum/ghostspawner/human/moghes_gawgaryn_rider
 	name = "Gawgaryn War Rider"

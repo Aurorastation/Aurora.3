@@ -9,6 +9,7 @@
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
 	suffixes = list("moghes_siakh.dmm")
+	unit_test_groups = list(3)
 
 /datum/ghostspawner/human/moghes_siakh
 	name = "Si'akh Knight-Hopeful"
