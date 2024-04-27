@@ -3334,9 +3334,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/machinery/door/firedoor{
-	req_one_access = list(204,111)
-	},
 /turf/simulated/floor/shuttle/tan,
 /area/tcaf_corvette/captain)
 "Bw" = (
@@ -5731,9 +5728,6 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
-	},
-/obj/machinery/door/firedoor{
-	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
