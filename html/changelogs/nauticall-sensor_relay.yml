@@ -57,3 +57,4 @@ delete-after: True
 changes:
   - rscadd: "Revamped the sensor relay to be up to modern standards; it is also more decrepit."
   - rscadd: "Added a new sensor suite sprite for the relay's own sensor array."
+  - rscadd: "The new sensor suite reaches farther than the Horizon's sensor suite in exchange for being slower to scan and unable to perform deep scans."
