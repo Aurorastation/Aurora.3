@@ -81,19 +81,13 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
  * The match is done based on the `name` property, *you must set the name*
  */
 /obj/effect/landmark/start
-	name = "start (rename me to match the job title)"
+	name = "start (rename me to match the job title)" //This is checked in the maplint `tools\maplint\lints\startmarker_unset.yml` file, if you change the name here, do there too
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x"
 
 /obj/effect/landmark/start/Initialize(mapload)
 	. = ..()
-
-	//The mapper *has* to set the name of the start landmark, otherwise it's an error
-	if(name == initial(name))
-		stack_trace("The start landmark at [src.x] - [src.y] - [src.z] has no name set, please set a name for it!")
-		return INITIALIZE_HINT_QDEL
-	else
-		tag = "start*[name]"
+	tag = "start*[name]"
 
 ///Used for spawn sync, all mobs at roundstart are moved to this as they are equipped, before being sent to their final position
 /obj/effect/landmark/newplayer_start
