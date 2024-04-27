@@ -835,6 +835,7 @@
 /obj/item/stack/material/lead/full{
 	pixel_y = 3
 	},
+/obj/item/device/robotanalyzer,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
 "gh" = (
