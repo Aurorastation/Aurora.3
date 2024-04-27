@@ -7,6 +7,8 @@
 	suffixes = list("izweski_probe.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
+	unit_test_groups = list(2)
+
 /obj/structure/survey_probe/hegemony/old
 	name = "\improper Hegemony space probe"
 	desc = "An unmanned probe, clearly a very old and unsophisticated design. The flag of the Izweski Hegemony is displayed on the side, and a fading screen displays a readout in Sinta'Unathi"

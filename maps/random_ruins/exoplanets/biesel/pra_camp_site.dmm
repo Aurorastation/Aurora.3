@@ -1,0 +1,628 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/flora/ausbushes/sunnybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"d" = (
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"e" = (
+/obj/structure/flora/ausbushes/leafybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"f" = (
+/obj/structure/table/standard,
+/obj/machinery/media/jukebox/phonograph{
+	pixel_x = -3;
+	pixel_y = 15
+	},
+/obj/item/clothing/mask/smokable/cigarette/adhomai{
+	pixel_x = 10
+	},
+/obj/item/deck/tarot/adhomai{
+	pixel_x = -5;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"g" = (
+/obj/vehicle/bike/monowheel{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"h" = (
+/obj/structure/flora/ausbushes/brflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"i" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/item/reagent_containers/food/snacks/adhomian_sausage,
+/obj/item/clothing/accessory/temperature/blizzard,
+/obj/item/clothing/accessory/temperature/blizzard,
+/obj/item/reagent_containers/food/snacks/hardbread,
+/obj/item/reagent_containers/food/snacks/hardbread_pudding,
+/obj/item/reagent_containers/food/snacks/hardbread_bun,
+/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
+/obj/item/reagent_containers/food/drinks/cans/adhomai_milk,
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
+/obj/item/reagent_containers/food/drinks/cans/hrozamal_soda,
+/obj/item/reagent_containers/food/snacks/meat_rikazu,
+/obj/item/reagent_containers/food/snacks/vegetable_rikazu,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/item/reagent_containers/food/snacks/fruit_rikazu,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/tajaran_bread,
+/obj/item/reagent_containers/food/snacks/sarmikhir_sandwich,
+/obj/item/reagent_containers/food/snacks/sarmikhir_sandwich,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"j" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"l" = (
+/obj/structure/flora/ausbushes,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"m" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = 10;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = 2;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/pra{
+	pixel_x = 10
+	},
+/obj/item/reagent_containers/food/snacks/hardbread_slice{
+	pixel_x = -9;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"n" = (
+/obj/structure/flora/tree/grove,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"q" = (
+/obj/structure/flora/rock/konyang,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"r" = (
+/obj/structure/flora/ausbushes/sunnybush,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"s" = (
+/obj/structure/flora/ausbushes/leafybush,
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"u" = (
+/turf/simulated/floor/exoplanet/water/shallow,
+/area/template_noop)
+"v" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"w" = (
+/obj/structure/flora/stump/log{
+	pixel_x = 9;
+	pixel_y = 2
+	},
+/obj/structure/flora/stump/log{
+	pixel_y = -5
+	},
+/obj/item/gun/projectile/automatic/rifle/adhomian,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"x" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"y" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"z" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"C" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"D" = (
+/obj/item/reagent_containers/food/snacks/stew/tajaran{
+	pixel_y = 8
+	},
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"E" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/bottle/victorygin{
+	pixel_x = -6;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/food/drinks/bottle/victorygin{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/book/manual/pra_manifesto{
+	pixel_x = 10;
+	pixel_y = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"F" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"G" = (
+/obj/item/stack/material/wood/log{
+	pixel_x = -2
+	},
+/obj/item/stack/material/wood/log{
+	pixel_x = 6
+	},
+/obj/item/stack/material/wood/log{
+	pixel_x = 2;
+	pixel_y = 7
+	},
+/obj/item/clothing/suit/storage/tajaran/pra_jacket{
+	pixel_x = 2;
+	pixel_y = 8
+	},
+/obj/item/storage/pill_bottle/dice/tajara,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"H" = (
+/obj/structure/bed/stool/chair/folding{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"I" = (
+/obj/structure/flora/stump,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"J" = (
+/obj/structure/bed/stool/chair/folding,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"M" = (
+/obj/structure/table/standard,
+/obj/item/pocketwatch/adhomai,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"O" = (
+/obj/structure/flora/ausbushes/ywflowers,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"P" = (
+/obj/structure/bed/stool/chair/folding,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"R" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"S" = (
+/turf/template_noop,
+/area/template_noop)
+"T" = (
+/obj/structure/automobile,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"V" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/grass/grove,
+/area/template_noop)
+"W" = (
+/obj/item/material/hatchet/lumber,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Y" = (
+/obj/structure/table/standard,
+/obj/item/flame/lighter/adhomai{
+	pixel_x = 11;
+	pixel_y = 2
+	},
+/obj/item/storage/box/fancy/cigarettes/pra{
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/obj/item/storage/box/fancy/cigarettes/pra{
+	pixel_y = 1;
+	pixel_x = -1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+
+(1,1,1) = {"
+S
+S
+S
+S
+S
+S
+S
+S
+S
+S
+d
+l
+I
+d
+e
+V
+O
+V
+d
+V
+"}
+(2,1,1) = {"
+S
+S
+S
+S
+S
+S
+S
+S
+V
+d
+V
+V
+O
+e
+h
+I
+d
+d
+d
+n
+"}
+(3,1,1) = {"
+S
+S
+S
+S
+S
+S
+S
+d
+d
+n
+h
+T
+d
+f
+m
+E
+g
+d
+d
+d
+"}
+(4,1,1) = {"
+S
+S
+S
+S
+S
+S
+d
+d
+d
+d
+d
+d
+y
+j
+x
+F
+x
+y
+d
+O
+"}
+(5,1,1) = {"
+S
+S
+S
+S
+O
+l
+a
+R
+V
+e
+d
+d
+x
+x
+F
+y
+x
+Y
+V
+V
+"}
+(6,1,1) = {"
+S
+S
+S
+d
+n
+d
+V
+d
+d
+I
+d
+P
+F
+D
+x
+F
+H
+M
+q
+I
+"}
+(7,1,1) = {"
+S
+S
+d
+d
+d
+d
+u
+u
+u
+u
+d
+J
+x
+F
+F
+x
+i
+v
+a
+d
+"}
+(8,1,1) = {"
+S
+S
+V
+d
+V
+u
+u
+u
+u
+u
+u
+d
+x
+G
+w
+W
+F
+O
+d
+h
+"}
+(9,1,1) = {"
+S
+V
+d
+h
+u
+u
+u
+u
+u
+u
+u
+u
+d
+x
+v
+d
+V
+I
+d
+S
+"}
+(10,1,1) = {"
+V
+l
+d
+u
+u
+u
+u
+u
+u
+u
+u
+u
+V
+d
+l
+d
+a
+h
+S
+S
+"}
+(11,1,1) = {"
+O
+d
+a
+u
+u
+u
+u
+u
+u
+u
+u
+u
+d
+e
+R
+I
+d
+e
+S
+S
+"}
+(12,1,1) = {"
+d
+n
+O
+u
+u
+u
+u
+u
+u
+u
+u
+u
+C
+V
+d
+V
+d
+S
+S
+S
+"}
+(13,1,1) = {"
+V
+d
+d
+u
+u
+u
+u
+u
+u
+u
+u
+z
+I
+h
+d
+a
+S
+S
+S
+S
+"}
+(14,1,1) = {"
+V
+d
+V
+d
+u
+u
+u
+u
+u
+u
+z
+C
+O
+d
+e
+S
+S
+S
+S
+S
+"}
+(15,1,1) = {"
+d
+n
+l
+e
+d
+u
+u
+u
+u
+d
+d
+n
+l
+V
+S
+S
+S
+S
+S
+S
+"}
+(16,1,1) = {"
+d
+d
+h
+d
+a
+V
+e
+h
+d
+d
+d
+d
+d
+S
+S
+S
+S
+S
+S
+S
+"}
+(17,1,1) = {"
+r
+d
+V
+O
+V
+d
+l
+R
+V
+d
+s
+d
+S
+S
+S
+S
+S
+S
+S
+S
+"}

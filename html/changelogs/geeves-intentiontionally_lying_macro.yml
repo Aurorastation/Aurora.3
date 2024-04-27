@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - qol: "Lying down intentionally is now instant."
+  - rscadd: "Added a new macro that makes you lie down, the key is lie_down."
