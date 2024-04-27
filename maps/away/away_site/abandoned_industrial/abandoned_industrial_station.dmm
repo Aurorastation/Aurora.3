@@ -1374,15 +1374,11 @@
 /area/abandoned_industrial_station/maint_a1)
 "eo" = (
 /obj/structure/table/standard,
-/obj/item/book/manual/wiki/engineering_construction{
-	desc = "Blueprints for a vessel.";
-	icon = 'icons/obj/items.dmi';
-	icon_state = "blueprints";
-	item_icons = null;
-	item_state = null;
-	name = "ship blueprints"
-	},
 /obj/random/dirt_75,
+/obj/item/book/manual/wiki/engineering_construction{
+	pixel_x = 3;
+	pixel_y = 6
+	},
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "ep" = (
@@ -5126,11 +5122,11 @@
 /turf/simulated/floor/tiled,
 /area/abandoned_industrial_station/engineering)
 "qn" = (
-/obj/machinery/power/smes/buildable,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /obj/random/dirt_75,
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/engineering)
 "qp" = (
@@ -6977,17 +6973,12 @@
 /turf/simulated/floor/plating,
 /area/abandoned_industrial_station/hangar)
 "wl" = (
-/obj/structure/table/reinforced,
-/obj/effect/decal/fake_object{
-	density = 1;
-	desc = "It won't be sending any faxes anymore.";
-	icon = 'icons/obj/library.dmi';
-	icon_state = "fax";
-	name = "broken fax machine";
-	pixel_x = -2;
-	pixel_y = 4
-	},
 /obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/structure/table/wood,
+/obj/item/storage/box/fancy/cigarettes/cigar{
+	pixel_x = 5;
+	pixel_y = 5
+	},
 /turf/simulated/floor/wood,
 /area/abandoned_industrial_station/service)
 "wm" = (
