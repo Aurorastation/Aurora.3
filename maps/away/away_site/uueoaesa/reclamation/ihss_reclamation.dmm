@@ -7263,6 +7263,13 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/armory)
+"HD" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk,
+/turf/simulated/floor/airless,
+/area/ihss_reclamation/solars)
 "HI" = (
 /obj/structure/cable/green{
 	icon_state = "2-8"
@@ -47748,9 +47755,9 @@ Da
 Da
 Da
 Da
-Da
-Da
-Da
+HD
+HD
+HD
 KM
 aP
 Ec
