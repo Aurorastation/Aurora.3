@@ -166,7 +166,7 @@
 	on_hit(A)
 	return TRUE
 
-/obj/machinery/zta_lever
+/obj/machinery/zat_lever
 	name = "activation lever"
 	desc = "An old-style lever that couples the Leviathan's capacitors. <span class='danger'>Flicking this will result in extreme power usage!</span>"
 	icon = 'icons/obj/power.dmi'
@@ -175,20 +175,20 @@
 	var/toggled = FALSE
 	var/cooldown = 0
 
-/obj/machinery/zta_lever/Initialize(mapload, d, populate_components, is_internal)
+/obj/machinery/zat_lever/Initialize(mapload, d, populate_components, is_internal)
 	..()
 	return INITIALIZE_HINT_LATELOAD
 
-/obj/machinery/zta_lever/LateInitialize()
+/obj/machinery/zat_lever/LateInitialize()
 	for(var/obj/machinery/ship_weapon/leviathan/cannon in get_area(src))
 		ZAT = cannon
 		break
 
-/obj/machinery/zta_lever/Destroy()
+/obj/machinery/zat_lever/Destroy()
 	ZAT = null
 	return..()
 
-/obj/machinery/zta_lever/attack_hand(mob/user)
+/obj/machinery/zat_lever/attack_hand(mob/user)
 	if(!use_check_and_message(user, USE_DISALLOW_SILICONS) && !stat && (cooldown + 10 SECONDS < world.time))
 		if(do_after(user, 1 SECOND))
 			visible_message(SPAN_DANGER("[user] pulls \the [src] [toggled ? "up" : "down"]!"))
