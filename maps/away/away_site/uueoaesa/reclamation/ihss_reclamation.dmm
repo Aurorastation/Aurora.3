@@ -2952,7 +2952,6 @@
 	icon_state = "1-2"
 	},
 /obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
 "nC" = (
@@ -3517,7 +3516,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
 "pX" = (
@@ -5354,7 +5352,6 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
 "yq" = (
@@ -6371,14 +6368,6 @@
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor,
 /area/shuttle/ihss_reclamation)
-"Da" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor/airless,
-/area/ihss_reclamation/solars)
 "Dg" = (
 /obj/effect/floor_decal/corner/yellow/diagonal{
 	dir = 1;
@@ -8551,7 +8540,6 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
 "Ng" = (
@@ -10888,7 +10876,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
 "Xq" = (
@@ -11134,7 +11121,6 @@
 	icon_state = "4-8"
 	},
 /obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/airless,
 /area/ihss_reclamation/solars)
 "Yu" = (
@@ -47725,36 +47711,36 @@ gn
 nm
 gn
 Pl
-Da
-Da
+HD
+HD
 nB
-Da
-Da
-Da
+HD
+HD
+HD
 nB
-Da
-Da
-Da
+HD
+HD
+HD
 nB
-Da
-Da
-Da
+HD
+HD
+HD
 nB
-Da
-Da
-Da
+HD
+HD
+HD
 nB
-Da
-Da
-Da
+HD
+HD
+HD
 nB
-Da
-Da
-Da
-Da
-Da
-Da
-Da
+HD
+HD
+HD
+HD
+HD
+HD
+HD
 HD
 HD
 HD
