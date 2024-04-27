@@ -119,6 +119,7 @@
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define GENERIC_ITEM_TRAIT "generic_item"
+#define DISABILITY_TRAIT "disability"
 
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
@@ -174,3 +175,21 @@
 
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
+
+
+// DISABILITY TRAITS
+
+
+// ALLERGIES
+
+// HELPERS
+#define ALLERGY_MINOR(type) "allergy_" + type + "_minor"
+#define ALLERGY_MAJOR(type) "allergy_" + type + "_major"
+#define HAS_MINOR_ALLERGY(target, allergy) HAS_TRAIT(target, ALLERGY_MINOR(allergy))
+#define HAS_MAJOR_ALLERGY(target, allergy) HAS_TRAIT(target, ALLERGY_MAJOR(allergy))
+
+// ALLERGY TYPES
+// Blueberry
+#define ALLERGY_TYPE_BLUEBERRY "blueberry"
+#define TRAIT_ALLERGY_BLUEBERRY_MINOR ALLERGY_MINOR(ALLERGY_TYPE_BLUEBERRY)
+#define TRAIT_ALLERGY_BLUEBERRY_MAJOR ALLERGY_MAJOR(ALLERGY_TYPE_BLUEBERRY)

@@ -66,3 +66,30 @@
 		H.max_stamina *= 0.8
 		H.stamina = H.max_stamina
 
+// ALLERGIES
+
+/datum/character_disabilities/allergy
+	abstract_type = /datum/character_disabilities/allergy
+
+	name = "Abstract Allergy"
+	/// A string, only used in the description building
+	var/allergen = "allergy"
+	/// This takes a TRAIT_ALLERGY_* type trait, and assigns it to the character on apply_self
+	var/trait_type
+
+/datum/character_disabilities/allergy/New()
+	..()
+	desc = "You are allergic to [allergen]. Consuming it will cause you to go into anaphylactic shock."
+
+/datum/character_disabilities/allergy/apply_self(var/mob/living/carbon/human/H)
+	ADD_TRAIT(H, trait_type, DISABILITY_TRAIT)
+
+
+/datum/character_disabilities/allergy/blueberry
+	name = "Minor Blueberry Allergy"
+	allergen = "blueberries"
+	trait_type = TRAIT_ALLERGY_BLUEBERRY_MINOR
+
+/datum/character_disabilities/allergy/blueberry/major
+	name = "Major Blueberry Allergy"
+	trait_type = TRAIT_ALLERGY_BLUEBERRY_MAJOR

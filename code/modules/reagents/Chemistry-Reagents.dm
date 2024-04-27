@@ -39,6 +39,9 @@
 	var/germ_adjust = 0 // for makeshift bandages/disinfectant
 	var/carbonated = FALSE // if it's carbonated or not
 
+	/// This is an ALLERGY_TYPE_* string, if a character has this type of allergy, they will go into anaphylactic shock upon ingesting it
+	var/allergy_type
+
 /singleton/reagent/proc/initialize_data(var/newdata, var/datum/reagents/holder) // Called when the reagent is created.
 	if(!isnull(newdata))
 		return newdata
@@ -120,6 +123,11 @@
 				affect_touch(M, alien, removed, holder)
 			if(CHEM_BREATHE)
 				affect_breathe(M, alien, removed, holder)
+
+	if(HAS_MAJOR_ALLERGY(M, allergy_type))
+		M.bloodstr.add_reagent(/singleton/reagent/toxin/anaphylactic_cocktail, removed * 10)
+	else if(HAS_MINOR_ALLERGY(M, allergy_type))
+		M.bloodstr.add_reagent(/singleton/reagent/toxin/anaphylactic_cocktail, removed * 6)
 
 	remove_self(removed, holder)
 
