@@ -1502,6 +1502,9 @@
 	},
 /obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
 /obj/item/gun/energy/taser,
 /obj/item/gun/energy/taser,
 /obj/item/grenade/flashbang,
@@ -1515,12 +1518,9 @@
 /obj/item/melee/baton/loaded,
 /obj/item/device/flash,
 /obj/item/device/flash,
-/obj/item/storage/belt/security/full,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/storage/belt/security/full,
-/obj/item/storage/belt/security/full,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/armory)
 "lB" = (
@@ -1573,11 +1573,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/thruststarb)
-"mE" = (
-/obj/structure/table/steel,
-/obj/item/lore_radio,
-/turf/simulated/floor/tiled/dark,
-/area/tcaf_corvette/messhall)
 "mX" = (
 /obj/structure/bed/handrail{
 	dir = 1
@@ -2544,6 +2539,11 @@
 	},
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/engineering)
+"uN" = (
+/obj/structure/table/steel,
+/obj/item/lore_radio,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/messhall)
 "uO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -3425,7 +3425,6 @@
 /obj/item/clothing/head/helmet/pilot/legion{
 	name = "tau ceti flight helmet"
 	},
-/obj/item/stamp/biesel,
 /obj/item/gun/energy/blaster/pilot_special,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/bridge)
@@ -5474,6 +5473,10 @@
 	pixel_y = 5
 	},
 /obj/item/pen/fountain/captain,
+/obj/item/stamp/biesel{
+	pixel_x = -4;
+	pixel_y = 8
+	},
 /turf/simulated/floor/carpet/lightblue,
 /area/tcaf_corvette/captain)
 "Vy" = (
@@ -38327,7 +38330,7 @@ BI
 BK
 vE
 zN
-mE
+uN
 zN
 RO
 UI
