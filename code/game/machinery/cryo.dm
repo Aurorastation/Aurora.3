@@ -87,6 +87,9 @@
 		if(occupant)
 			occupant.examine(arglist(args))
 
+	if(panel_open)
+		. += "The maintenance hatch is open."
+
 /obj/machinery/atmospherics/unary/cryo_cell/proc/generate_overlays(force = FALSE)
 	if(LAZYLEN(screen_overlays) && !force)
 		return
@@ -274,6 +277,14 @@
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
 				qdel(attacking_item)
+
+	else if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	else if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 	return TRUE
 
 /obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/dropping, mob/user)
@@ -464,21 +475,6 @@
 	//draws from the cryo tube's environment, instead of the cold internal air.
 	if(loc)
 		return loc.return_air()
-
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
-	if(default_deconstruction_screwdriver(user, attacking_item))
-		return TRUE
-	if(default_deconstruction_crowbar(user, attacking_item))
-		return TRUE
-	if(default_part_replacement(user, attacking_item))
-		return TRUE
-
-	return ..()
-
-/obj/machinery/atmospherics/unary/cryo_cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(panel_open)
-		. += "The maintenance hatch is open."
 
 /obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
 	..()

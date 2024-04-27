@@ -494,15 +494,14 @@
 			C.m_intent = M_WALK	//Just incase
 			C.hud_used.move_intent.icon_state = "walking"
 			return 1
+
 		switch(usr.m_intent)
 			if(M_RUN)
 				usr.m_intent = M_WALK
 			if(M_WALK)
 				if(!(usr.get_species() in BLACKLIST_SPECIES_RUNNING))
 					usr.m_intent = M_RUN
-
 			if(M_LAY)
-
 				// No funny "haha i get the bonuses then stand up"
 				var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 				if(gun_in_hand?.wielded)
@@ -513,13 +512,16 @@
 					usr.m_intent = M_WALK
 
 		if(modifiers["button"] == "middle" && !C.lying)	// See /mob/proc/update_canmove() for more logic on the lying FSM
-
 			// You want this bonus weapon or not? Wield it when you are lying, not before!
 			var/obj/item/gun/gun_in_hand = C.get_type_in_hands(/obj/item/gun)
 			if(gun_in_hand?.wielded)
 				to_chat(C, SPAN_WARNING("You cannot wield and lie down!"))
 				return
 			C.m_intent = M_LAY
+
+		// this works in conjunction with M_LAY to make the mob stand up or lie down instantly
+		C.update_canmove()
+		C.update_icon()
 
 	else if(istype(usr, /mob/living/simple_animal/hostile/morph))
 		var/mob/living/simple_animal/hostile/morph/M = usr

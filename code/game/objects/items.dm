@@ -179,10 +179,13 @@
 	///When you want to slice out a chunk from a sprite
 	var/alpha_mask
 
-	///Boolean, determines whether accent colour is applied or not
+	/// Boolean, determines whether accent colour is applied or not
 	var/has_accents = FALSE
 
-	///used for accents which are coloured differently to the main body of the sprite
+	/// appearance_flags Bitflag, when has_accents is set to true, this will determine which flags will be applied to the accent image
+	var/accent_flags = RESET_COLOR
+
+	/// used for accents which are coloured differently to the main body of the sprite
 	var/accent_color = COLOR_GRAY
 
 	/**
@@ -271,7 +274,7 @@
 	if(build_from_parts)
 		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	if(has_accents)
-		add_overlay(overlay_image(icon,"[icon_state]_acc",accent_color, RESET_COLOR))
+		add_overlay(overlay_image(icon, "[icon_state]_acc", accent_color, accent_flags))
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'

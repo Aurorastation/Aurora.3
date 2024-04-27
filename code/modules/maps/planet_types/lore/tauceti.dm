@@ -76,8 +76,13 @@
 	desc = "An ice world just outside the outer edge of the habitable zone."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "globe1"
+	features_budget = 1
+	possible_themes = list(/datum/exoplanet_theme/snow/tundra)
+	rock_colors = list(COLOR_GUNMETAL)
 	generated_name = FALSE
 	ring_chance = 0
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/gibson_mining, /datum/map_template/ruin/exoplanet/gibson_resupply)
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/update_icon()
 	return
@@ -157,7 +162,14 @@
 	plant_colors = null//pre colored
 	generated_name = FALSE
 	ruin_planet_type = PLANET_LORE
-	ruin_type_whitelist = list()
+	ruin_type_whitelist = list(
+		/datum/map_template/ruin/exoplanet/abandoned_warehouse_1,
+		/datum/map_template/ruin/exoplanet/abandoned_warehouse_2,
+		/datum/map_template/ruin/exoplanet/biesel_camp_site,
+		/datum/map_template/ruin/exoplanet/cargo_ruins_1,
+		/datum/map_template/ruin/exoplanet/cargo_ruins_2,
+		/datum/map_template/ruin/exoplanet/cargo_ruins_3,
+		/datum/map_template/ruin/exoplanet/pra_camp_site)
 	place_near_main = list(2, 2)
 
 /obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_habitability()

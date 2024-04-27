@@ -7,7 +7,6 @@
 	name = "shuttle docking airlock marker"
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_airlock_shuttle"
-	layer = LIGHTING_LAYER
 
 	/// Radio frequency of this airlock.
 	/// For docking airlocks, the frequency of docking port airlock and the shuttle airlock needs to match,

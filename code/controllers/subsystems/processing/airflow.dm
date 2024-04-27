@@ -15,6 +15,7 @@ PROCESSING_SUBSYSTEM_DEF(airflow)
 	priority = SS_PRIORITY_AIRFLOW
 
 /datum/controller/subsystem/processing/airflow/fire(resumed = FALSE)
+	CAN_BE_REDEFINED(TRUE)
 	if (!resumed)
 		currentrun = processing.Copy()	// Defined in parent.
 

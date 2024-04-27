@@ -146,8 +146,8 @@
 					for(var/_R in reagents.reagent_volumes)
 						var/singleton/reagent/R = GET_SINGLETON(_R)
 						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
-						if(ispath(_R, /singleton/reagent/alcohol))
-							var/singleton/reagent/alcohol/A = R
+						if(ispath(_R, /singleton/reagent/alcohol/ethanol))
+							var/singleton/reagent/alcohol/ethanol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)

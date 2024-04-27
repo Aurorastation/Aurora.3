@@ -88,7 +88,7 @@
 	SSicon_smooth.can_fire = TRUE
 	loaded++
 
-	return locate(world.maxx/2, world.maxy/2, world.maxz)
+	return bounds
 
 /datum/map_template/proc/pre_init_shuttles()
 	. = SSshuttle.block_queue

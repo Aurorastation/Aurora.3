@@ -10,6 +10,10 @@
 /datum/shuttle/autodock/overmap/New(var/_name, var/obj/effect/shuttle_landmark/start_waypoint)
 	..(_name, start_waypoint)
 	refresh_fuel_ports_list()
+	for(var/area/A in shuttle_area) //If shuttles initialize after the blueprints, they won't set correctly so we do it here.
+		var/obj/item/blueprints/shuttle/blueprints = locate() in A
+		if(blueprints)
+			blueprints.set_valid_z_levels()
 
 /datum/shuttle/autodock/overmap/proc/refresh_fuel_ports_list() //loop through all
 	fuel_ports = list()

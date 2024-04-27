@@ -151,3 +151,9 @@
 
 /obj/screen/fullscreen/teleport
 	icon_state = "teleport"
+
+/obj/screen/fullscreen/blueprints
+	icon = 'icons/effects/blueprints.dmi'
+	icon_state = "base"
+	screen_loc = ui_entire_screen
+	alpha = 100

@@ -139,6 +139,8 @@
 		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
 		BP_HIVENET_SHIELD	   = /obj/item/organ/internal/augment/hiveshield
 	)
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
+	valid_prosthetics = null
 
 /datum/species/bug/type_c/New()
 	..()
@@ -228,6 +230,8 @@
 	)
 
 	default_h_style = "Bald"
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species
+	valid_prosthetics = null
 
 /datum/species/bug/type_big/handle_post_spawn(var/mob/living/carbon/human/H)
 	H.mutations |= HULK
@@ -296,6 +300,8 @@ Bulwarks are much larger and have significantly thicker carapaces than most Vaur
 
 	sprint_speed_factor = 1.0
 	stamina = 50
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any limb modfications for this species, yet
+	valid_prosthetics = null
 
 /datum/species/bug/type_e/New()
 	..()
