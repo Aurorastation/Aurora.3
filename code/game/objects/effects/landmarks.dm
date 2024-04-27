@@ -2,9 +2,9 @@
 	name = "landmark"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x2"
-	anchored = 1.0
-	unacidable = 1
-	simulated = 0
+	anchored = TRUE
+	unacidable = TRUE
+	simulated = FALSE
 	invisibility = INVISIBILITY_ABSTRACT
 	layer = ABOVE_HUMAN_LAYER
 
@@ -76,20 +76,37 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark)
 /**
  * # Start marker
  *
- * Used for spawn sync, positions all the mobs at roundstart there before they are sent to their roundstart points
+ * The position at which the player mob is moved after the spawn sync happened, based on the job/role
+ *
+ * The match is done based on the `name` property, *you must set the name*
  */
 /obj/effect/landmark/start
-	name = "start"
+	name = "start (rename me to match the job title)"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x"
-	anchored = 1.0
-	invisibility = 101
 
-/obj/effect/landmark/start/New()
+/obj/effect/landmark/start/Initialize(mapload)
+	. = ..()
+
+	//The mapper *has* to set the name of the start landmark, otherwise it's an error
+	if(name == initial(name))
+		stack_trace("The start landmark at [src.x] - [src.y] - [src.z] has no name set, please set a name for it!")
+		return INITIALIZE_HINT_QDEL
+	else
+		tag = "start*[name]"
+
+///Used for spawn sync, all mobs at roundstart are moved to this as they are equipped, before being sent to their final position
+/obj/effect/landmark/newplayer_start
+	name = "newplayer start"
+
+/obj/effect/landmark/newplayer_start/Initialize(mapload)
 	..()
-	tag = "start*[name]"
+	if(GLOB.newplayer_start)
+		stack_trace("There must be one, and only one, /obj/effect/landmark/newplayer_start effect in any single server session!")
+	else
+		GLOB.newplayer_start = get_turf(src)
 
-	return 1
+	return INITIALIZE_HINT_QDEL
 
 /**
  * # Lobby mob location marker

@@ -14172,6 +14172,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aOg" = (
+/obj/effect/landmark/newplayer_start,
 /turf/unsimulated/floor,
 /area/centcom/start)
 "aOi" = (
@@ -15284,9 +15285,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aQX" = (
-/turf/unsimulated/floor,
-/area/centcom/start)
 "aQY" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
@@ -19592,7 +19590,6 @@
 	name = "external airlock";
 	opacity = 0;
 	permit_ao = 0;
-	dir = 2;
 	pixel_x = -16;
 	pixel_y = -16
 	},
@@ -21343,9 +21340,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bep" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
@@ -32048,7 +32043,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "blue";
-	layer = 2.03;
 	name = "blue lights";
 	pixel_x = -8;
 	pixel_y = 11
@@ -34171,7 +34165,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "blink";
-	layer = 2.03;
 	name = "flashing lights";
 	pixel_x = 7;
 	pixel_y = 14
@@ -37006,7 +36999,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "red";
-	layer = 2.03;
 	name = "red lights";
 	pixel_x = 7;
 	pixel_y = 14
@@ -37189,7 +37181,6 @@
 	name = "external airlock";
 	opacity = 0;
 	permit_ao = 0;
-	dir = 2;
 	pixel_x = -16;
 	pixel_y = -16
 	},
@@ -40433,17 +40424,17 @@ aaa
 aNQ
 aNQ
 aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aNQ
 aNQ
 aNQ
@@ -40690,21 +40681,21 @@ aaa
 aNQ
 cst
 aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aNQ
+aNQ
+aNQ
+aNQ
 aNQ
 "}
 (3,1,1) = {"
@@ -40947,21 +40938,21 @@ aaa
 aNQ
 aNQ
 aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aNQ
+aNQ
 aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aNQ
 aNQ
 "}
 (4,1,1) = {"
@@ -41203,22 +41194,22 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aNQ
+aNQ
+aNQ
 aNQ
 "}
 (5,1,1) = {"
@@ -41460,22 +41451,22 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aNQ
+aNQ
+aNQ
 aNQ
 "}
 (6,1,1) = {"
@@ -41717,23 +41708,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (7,1,1) = {"
 aab
@@ -41974,23 +41965,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (8,1,1) = {"
 aab
@@ -42231,23 +42222,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (9,1,1) = {"
 aab
@@ -42488,23 +42479,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aQX
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (10,1,1) = {"
 aab
@@ -42745,23 +42736,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (11,1,1) = {"
 aab
@@ -43002,23 +42993,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (12,1,1) = {"
 aab
@@ -43259,23 +43250,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (13,1,1) = {"
 aab
@@ -43516,23 +43507,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (14,1,1) = {"
 aab
@@ -43773,23 +43764,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (15,1,1) = {"
 aab
@@ -44030,23 +44021,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (16,1,1) = {"
 aab
@@ -44287,23 +44278,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (17,1,1) = {"
 aab
@@ -44544,23 +44535,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (18,1,1) = {"
 aab
