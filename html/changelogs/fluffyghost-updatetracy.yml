@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: CourierBravo
+author: FluffyGhost
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,6 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Adds 7 new biesel exclusive ruins. These include camp sites, abandoned cargo, a very recently crashed ship, and abandoned warehouses"
-
-
+  - server: "Updated tracy to our v27042024, now supports 515.1636."

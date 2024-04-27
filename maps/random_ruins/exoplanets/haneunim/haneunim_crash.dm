@@ -11,6 +11,8 @@
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/haneunim_crash)
 
+	unit_test_groups = list(1)
+
 /area/shuttle/haneunim_crash
 	name = "Crashed Shuttle"
 	requires_power = TRUE
