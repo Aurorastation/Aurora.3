@@ -58,3 +58,4 @@ changes:
   - qol: "TCAF Corvette had some items added to compensate for high ghost role count."
   - bugfix: "Legion deployable turret now useable by TCAF Ghostroles."
   - bugfix: "Wiring fixes to TCAF Corvette."
+  - spellcheck: "Legion ballistic shield renamed to TCAF Ballistic Shield, description changed as well."

@@ -1515,10 +1515,10 @@
 /obj/item/melee/baton/loaded,
 /obj/item/device/flash,
 /obj/item/device/flash,
+/obj/item/storage/belt/security/full,
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
 /obj/item/storage/belt/security/full,
 /turf/simulated/floor/tiled/dark,
@@ -1573,6 +1573,11 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel,
 /turf/simulated/wall/shuttle/legion,
 /area/tcaf_corvette/thruststarb)
+"mE" = (
+/obj/structure/table/steel,
+/obj/item/lore_radio,
+/turf/simulated/floor/tiled/dark,
+/area/tcaf_corvette/messhall)
 "mX" = (
 /obj/structure/bed/handrail{
 	dir = 1
@@ -2290,6 +2295,7 @@
 /obj/item/clothing/accessory/storage/chestpouch,
 /obj/item/clothing/accessory/storage/chestpouch,
 /obj/item/clothing/accessory/tcaf_senior_legion_pauldron,
+/obj/item/shield/riot/tact/legion,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/armory)
 "sN" = (
@@ -38321,7 +38327,7 @@ BI
 BK
 vE
 zN
-zN
+mE
 zN
 RO
 UI
