@@ -54,7 +54,7 @@ SUBSYSTEM_DEF(jobs)
 			continue
 		occupations += job
 		name_occupations[job.title] = job
-		if(length(job.alt_titles))
+		if(LAZYLEN(job.alt_titles))
 			for(var/alt_title in job.alt_titles)
 				name_occupations[alt_title] = job
 		type_occupations[J] = job
