@@ -26,10 +26,10 @@
 	pass_flags = PASSTABLE
 	speak_chance = 3
 	turns_per_move = 5
-	see_in_dark = 6
 	maxHealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/rat
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "stomps on"
@@ -82,30 +82,16 @@
 			dust()
 
 /mob/living/simple_animal/rat/Destroy()
-	SSmob.all_rats -= src
+	SSmobs.all_rats -= src
 
 	return ..()
-
-//Pixel offsetting as they scamper around
-/mob/living/simple_animal/rat/Move()
-	if(..())
-		if (prob(50))
-			var/new_pixelx = pixel_x
-			new_pixelx += rand(-2,2)
-			new_pixelx = Clamp(new_pixelx, -10, 10)
-			animate(src, pixel_x = new_pixelx, time = 0.5)
-		else
-			var/new_pixely = pixel_y
-			new_pixely += rand(-2,2)
-			new_pixely = Clamp(new_pixely, -4, 14)
-			animate(src, pixel_y = new_pixely, time = 0.5)
 
 /mob/living/simple_animal/rat/Initialize()
 	. = ..()
 
 	nutrition = rand(max_nutrition*0.25, max_nutrition*0.75)
-	verbs += /mob/living/proc/ventcrawl
-	verbs += /mob/living/proc/hide
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/proc/hide)
 
 	if(name == initial(name))
 		name = "[name] ([rand(1, 1000)])"
@@ -130,7 +116,7 @@
 		holder_type = /obj/item/holder/rat/irish
 
 
-	SSmob.all_rats += src
+	SSmobs.all_rats += src
 
 /mob/living/simple_animal/rat/speak_audio()
 	squeak_soft(0)
@@ -236,7 +222,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>\icon[src] Squeek!</span>")
+			to_chat(M, "<span class='notice'>[icon2html(src, M)] Squeek!</span>")
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
@@ -264,12 +250,12 @@
 	if(client)
 		client.time_died_as_rat = world.time
 
-	SSmob.all_rats -= src
+	SSmobs.all_rats -= src
 
 	..()
 
 /mob/living/simple_animal/rat/dust()
-	..(anim = "dust_[body_color]", remains = /obj/effect/decal/remains/rat, iconfile = 'icons/mob/npc/rat.dmi')
+	..(remains = /obj/effect/decal/remains/rat)
 
 /mob/living/simple_animal/rat/airlock_crush(var/crush_damage)
 	. = ..()

@@ -1,0 +1,62 @@
+@font-face { font-family: bluebird; src: url(bluebird.woff); }
+@font-face { font-family: grandhotel; src: url(grandhotel.woff); }
+@font-face { font-family: lashema; src: url(lashema.woff); }
+@font-face { font-family: sourcecodepro; src: url(sourcecodepro.woff); }
+@font-face { font-family: sovjetbox; src: url(sovjetbox.woff); }
+@font-face { font-family: torsha; src: url(torsha.woff); }
+@font-face { font-family: web3of9ascii; src: url(web3of9ascii.woff); }
+@font-face { font-family: zeshit; src: url(zeshit.woff); }
+@font-face { font-family: bilboinc; src: url(bilboinc.woff); }
+@font-face { font-family: fproject; src: url(fproject.woff); }
+@font-face { font-family: gelasio; src: url(gelasio.woff); }
+@font-face { font-family: mo5v56; src: url(mo5v56.woff); }
+@font-face { font-family: runasans; src: url(runasans.woff); }
+@font-face { font-family: classica; src: url(classica.woff); }
+@font-face { font-family: stormning; src: url(stormning.woff); }
+@font-face { font-family: copt-b; src: url(copt-b.woff); }
+@font-face { font-family: ducados; src: url(ducados.woff); }
+@font-face { font-family: kawkabmono; src: url(kawkabmono.woff); }
+@font-face { font-family: kaushanscript; src: url(kaushanscript.woff); }
+
+.siikmaas.understood { font-family: sovjetbox; }
+.siikmaas.scramble { font-family: lashema; }
+
+.yassa.understood { font-family: grandhotel; }
+.yassa.scramble { font-family: torsha; }
+
+.delvahhi.understood { font-family: bluebird; }
+.delvahhi.scramble { font-family: zeshit; }
+
+.encodedaudiolanguage.understood { font-family: sourcecodepro; }
+.encodedaudiolanguage.scramble { font-family: web3of9ascii; }
+
+.solcommon.understood { font-family: mo5v56; }
+.solcommon.scramble { font-family: ducados; }
+
+.elyranstandard.understood {font-family: gelasio; }
+.elyranstandard.scramble {font-family: mo5v56; }
+
+.tradeband.understood { font-family: gelasio; }
+.tradeband.scramble { font-family: gelasio; }
+
+.freespeak.understood { font-family: kawkabmono; }
+.freespeak.scramble { font-family: kaushanscript; }
+
+.sintaunathi.understood { font-family: classica; }
+.sintaunathi.scramble { font-family: copt-b; }
+
+.sintaazaziba.understood { font-family: fproject; }
+.sintaazaziba.scramble { font-family: stormning; }
+
+.nralmalic.understood { font-family: bilboinc; font-size: 150%; }
+.nralmalic.scramble { font-family: runasans; }
+
+.redacted {
+  color: rgb(0, 0, 0);
+  background: black;
+
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}

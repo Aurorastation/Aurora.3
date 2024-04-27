@@ -14,80 +14,85 @@
 	if(!LAZYLEN(hud_elements))
 		var/i = 1
 		for(var/hardpoint in hardpoints)
-			var/obj/screen/movable/mecha/hardpoint/H = new(src, hardpoint)
+			var/obj/screen/mecha/hardpoint/H = new(src, hardpoint)
 			H.screen_loc = "1:6,[15-i]" //temp
 			hud_elements |= H
 			hardpoint_hud_elements[hardpoint] = H
 			i++
 
 		var/list/additional_hud_elements = list(
-			/obj/screen/movable/mecha/toggle/maint,
-			/obj/screen/movable/mecha/eject,
-			/obj/screen/movable/mecha/toggle/hardpoint,
-			/obj/screen/movable/mecha/toggle/hatch,
-			/obj/screen/movable/mecha/toggle/hatch_open,
-			/obj/screen/movable/mecha/radio,
-			/obj/screen/movable/mecha/toggle/camera,
-			/obj/screen/movable/mecha/rename
+			/obj/screen/mecha/toggle/power_control,
+			/obj/screen/mecha/toggle/maint,
+			/obj/screen/mecha/eject,
+			/obj/screen/mecha/toggle/hardpoint,
+			/obj/screen/mecha/toggle/hatch,
+			/obj/screen/mecha/toggle/hatch_open,
+			/obj/screen/mecha/radio,
+			/obj/screen/mecha/toggle/sensor,
+			/obj/screen/mecha/toggle/megaspeakers,
+			/obj/screen/mecha/rename
 			)
 
 		if(body && body.pilot_coverage >= 100)
-			additional_hud_elements += /obj/screen/movable/mecha/toggle/air
+			additional_hud_elements += /obj/screen/mecha/toggle/air
 
 		i = 0
 		var/pos = 7
 		for(var/additional_hud in additional_hud_elements)
-			var/obj/screen/movable/mecha/M = new additional_hud(src)
-			M.screen_loc = "1:6,[pos]:[i * -12]"
+			var/obj/screen/mecha/M = new additional_hud(src)
+			var/y_position = i * -12
+			if(M.icon_state == "large_base")
+				y_position += 2
+			if(!i)
+				y_position += 2
+			M.screen_loc = "1:6,[pos]:[y_position]"
 			hud_elements |= M
 			i++
-			if(i == 3)
-				pos--
-				i = 0
 
-		hud_health = new /obj/screen/movable/mecha/health(src)
+		hud_health = new /obj/screen/mecha/health(src)
 		hud_health.screen_loc = "EAST-1:28,CENTER-3:11"
 		hud_elements |= hud_health
-		hud_open = locate(/obj/screen/movable/mecha/toggle/hatch_open) in hud_elements
-		hud_power = new /obj/screen/movable/mecha/power(src)
+		hud_open = locate(/obj/screen/mecha/toggle/hatch_open) in hud_elements
+		hud_power = new /obj/screen/mecha/power(src)
 		hud_power.screen_loc = "EAST-1:12,CENTER-4:25"
 		hud_elements |= hud_power
+		hud_power_control = locate(/obj/screen/mecha/toggle/power_control) in hud_elements
 
 	refresh_hud()
 
 /mob/living/heavy_vehicle/handle_hud_icons()
 	for(var/hardpoint in hardpoint_hud_elements)
-		var/obj/screen/movable/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
+		var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[hardpoint]
 		if(H) H.update_system_info()
 	handle_hud_icons_health()
 	var/obj/item/cell/C = get_cell()
 	if(istype(C))
 		var/power_percentage = round((get_cell()?.charge / get_cell()?.maxcharge) * 100)
 		if(power_percentage >= 100)
-			hud_power.maptext_x = 21
+			hud_power?.maptext_x = 21
 		else if(power_percentage < 10)
-			hud_power.maptext_x = 25
+			hud_power?.maptext_x = 25
 		else if(power_percentage < 100)
-			hud_power.maptext_x = 22
+			hud_power?.maptext_x = 22
 		hud_power.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 8px;\">[power_percentage]%</span>"
 	else
-		hud_power.maptext_x = 13
-		hud_power.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"
+		hud_power?.maptext_x = 13
+		hud_power?.maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">NO CELL</span>"
 	refresh_hud()
 
 
 /mob/living/heavy_vehicle/handle_hud_icons_health()
 
-	hud_health.overlays.Cut()
+	hud_health?.overlays.Cut()
 
 	if(!body || !get_cell() || (get_cell().charge <= 0))
 		return
 
 
 	if(!body.diagnostics || !body.diagnostics.is_functional() || ((emp_damage>EMP_GUI_DISRUPT) && prob(emp_damage*2)))
-		if(!global.mecha_damage_overlay_cache["critfail"])
-			global.mecha_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_error")
-		hud_health.overlays |= global.mecha_damage_overlay_cache["critfail"]
+		if(!GLOB.mecha_damage_overlay_cache["critfail"])
+			GLOB.mecha_damage_overlay_cache["critfail"] = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_error")
+		hud_health?.overlays |= GLOB.mecha_damage_overlay_cache["critfail"]
 		return
 
 	var/list/part_to_state = list("legs" = legs,"body" = body,"head" = head,"arms" = arms)
@@ -99,7 +104,7 @@
 				state = rand(0,4)
 			else
 				state = MC.damage_state
-		if(!global.mecha_damage_overlay_cache["[part]-[state]"])
+		if(!GLOB.mecha_damage_overlay_cache["[part]-[state]"])
 			var/image/I = image(icon='icons/mecha/mecha_hud.dmi',icon_state="dam_[part]")
 			switch(state)
 				if(1)
@@ -112,5 +117,6 @@
 					I.color = "#ff0000"
 				else
 					I.color = "#f5f5f0"
-			global.mecha_damage_overlay_cache["[part]-[state]"] = I
-		hud_health.overlays |= global.mecha_damage_overlay_cache["[part]-[state]"]
+			GLOB.mecha_damage_overlay_cache["[part]-[state]"] = I
+
+		hud_health?.overlays |= GLOB.mecha_damage_overlay_cache["[part]-[state]"]

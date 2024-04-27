@@ -2,31 +2,21 @@
 	filename = "pai_radio"
 	filedesc = "Radio Configuration"
 	program_icon_state = "generic"
+	program_key_icon_state = "green_key"
 	extended_desc = "This program is used to configure the integrated pAI radio."
 	size = 0
 
 	usage_flags = PROGRAM_SILICON_PAI
-
-/datum/computer_file/program/pai_radio/ui_interact(mob/user)
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
-	if (!ui)
-		ui = new /datum/vueui/modularcomputer(user, src, "mcomputer-pai-radio", 400, 150, "pAI Radio Configuration")
-	ui.open()
-
-/datum/computer_file/program/pai_radio/vueui_transfer(oldobj)
-	SSvueui.transfer_uis(oldobj, src, "mcomputer-pai-radio", 400, 150, "pAI Radio Configuration")
-	return TRUE
+	tgui_id = "pAIRadio"
 
 // Gaters data for ui
-/datum/computer_file/program/pai_radio/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	. = ..()
-	data = . || data || list()
+/datum/computer_file/program/pai_radio/ui_data(mob/user)
+	var/list/data = list()
 	// Gather data for computer header
 	var/headerdata = get_header_data(data["_PC"])
 	if(headerdata)
 		data["_PC"] = headerdata
-		. = data
-	
+
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
 	var/obj/item/modular_computer/silicon/true_computer = computer
@@ -34,16 +24,25 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-	VUEUI_SET_CHECK(data["listening"], host.radio.broadcasting, ., data)
-	VUEUI_SET_CHECK(data["frequency"], format_frequency(host.radio.frequency), ., data)
+	data["listening"] = host.radio.get_broadcasting()
+	data["frequency"] = format_frequency(host.radio.get_frequency())
+	data["radio_range"] = host.radio.canhear_range
 
-	LAZYINITLIST(data["channels"])
+	var/list/pai_channels = list()
 	for(var/ch_name in host.radio.channels)
-		var/ch_stat = host.radio.channels[ch_name]
-		VUEUI_SET_CHECK(data["channels"][ch_name], !!(ch_stat & host.radio.FREQ_LISTENING), ., data)
-	
-/datum/computer_file/program/pai_radio/Topic(href, href_list)
+		var/list/channel_info = list(
+			"name" = ch_name,
+			"listening" = (host.radio.channels[ch_name] & host.radio.FREQ_LISTENING)
+		)
+		pai_channels += list(channel_info)
+	data["channels"] = pai_channels
+
+	return data
+
+/datum/computer_file/program/pai_radio/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
+	if(.)
+		return
 
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return
@@ -52,5 +51,8 @@
 		return
 	var/mob/living/silicon/pai/host = true_computer.computer_host
 
-	host.radio.Topic(href, href_list)
-	SSvueui.check_uis_for_change(src)
+	if(action == "radio_range") //fuck nanoUI and fuck vueui two-way bullshit, and fuck topic hooking
+		host.radio.canhear_range = params["radio_range"]
+	else
+		host.radio.Topic(action, params)
+	. = TRUE

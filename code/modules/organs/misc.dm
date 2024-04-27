@@ -17,24 +17,3 @@
 		B.ckey = owner.ckey
 
 	qdel(src)
-
-//VOX ORGANS.
-/obj/item/organ/internal/stack
-	name = "cortical stack"
-	icon_state = "brain-prosthetic"
-	organ_tag = "stack"
-	parent_organ = BP_HEAD
-	robotic = 2
-	vital = 1
-	var/backup_time = 0
-	var/datum/mind/backup
-	origin_tech = list(TECH_ENGINEERING = 5, TECH_DATA=3, TECH_BIO=3)
-
-/obj/item/organ/internal/stack/process()
-	if(owner && owner.stat != DEAD && !is_broken())
-		backup_time = world.time
-		if(owner.mind) backup = owner.mind
-
-/obj/item/organ/internal/stack/vox
-	name = "vox cortical stack"
-	vital = 0

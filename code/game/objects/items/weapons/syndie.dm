@@ -11,10 +11,16 @@
 	item_state = "c-4small"
 	name = "normal-sized package"
 	desc = "A small wrapped package."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 
-	var/power = 1  /*Size of the explosion.*/
+	///Size of the explosion
+	var/power = 1
+
+	///Used for the icon
 	var/size = "small"  /*Used for the icon, this one will make c-4small_0 for the off state.*/
+
+	///The detonator that makes this C4 charge explode
+	var/obj/item/syndie/c4detonator/detonator = null
 
 /obj/item/syndie/c4explosive/heavy
 	icon_state = "c-4large_0"
@@ -23,20 +29,26 @@
 	power = 2
 	size = "large"
 
-/obj/item/syndie/c4explosive/New()
+/obj/item/syndie/c4explosive/Initialize()
+	. = ..()
+
 	var/K = rand(1,2000)
 	K = md5(num2text(K)+name)
 	K = copytext(K,1,7)
 	src.desc += "\n You see [K] engraved on \the [src]."
-	var/obj/item/syndie/c4detonator/detonator = new(src.loc)
+	detonator = new(src.loc)
 	detonator.desc += "\n You see [K] engraved on the lighter."
 	detonator.bomb = src
+
+/obj/item/syndie/c4explosive/Destroy()
+	. = ..()
+	QDEL_NULL(detonator)
 
 /obj/item/syndie/c4explosive/proc/detonate()
 	icon_state = "c-4[size]_1"
 	spawn(50)
 		explosion(get_turf(src), power, power*2, power*3, power*4, power*4)
-		for(var/dirn in cardinal)		//This is to guarantee that C4 at least breaks down all immediately adjacent walls and doors.
+		for(var/dirn in GLOB.cardinal)		//This is to guarantee that C4 at least breaks down all immediately adjacent walls and doors.
 			var/turf/simulated/wall/T = get_step(src,dirn)
 			if(locate(/obj/machinery/door/airlock) in T)
 				var/obj/machinery/door/airlock/D = locate() in T
@@ -55,10 +67,14 @@
 	item_state = "c-4detonator"
 	name = "\improper Zippo lighter"  /*Sneaky, thanks Dreyfus.*/
 	desc = "The zippo."
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 
 	var/obj/item/syndie/c4explosive/bomb
 	var/pr_open = 0  /*Is the "What do you want to do?" prompt open?*/
+
+/obj/item/syndie/c4detonator/Destroy()
+	bomb = null
+	. = ..()
 
 /obj/item/syndie/c4detonator/attack_self(mob/user as mob)
 	switch(src.icon_state)
@@ -82,3 +98,68 @@
 						src.icon_state = "c-4detonator_0"
 						to_chat(user, "You close the lighter.")
 				pr_open = 0
+
+/obj/item/syndie/teleporter
+	name = "pen"
+	desc = "An instrument for writing or drawing with ink. This one is in black, in a classic, grey casing. Stylish, classic and professional."
+	desc_antag = "While this may look like a bog-standard pen, in reality, this is a handheld teleportation device. Simply click on any turf within view to attempt to teleport there! The teleporter will recharge after a minute."
+	icon = 'icons/obj/bureaucracy.dmi'
+	icon_state = "pen"
+	item_state = "pen"
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
+	slot_flags = SLOT_BELT | SLOT_EARS
+	throwforce = 0
+	w_class = ITEMSIZE_TINY
+	throw_speed = 7
+	throw_range = 15
+	drop_sound = 'sound/items/drop/accessory.ogg'
+	pickup_sound = 'sound/items/pickup/accessory.ogg'
+	maptext_x = 3
+	maptext_y = 2
+	var/ready_to_use = TRUE
+	var/recharge_time = 1 MINUTE
+	var/when_recharge = 0
+
+/obj/item/syndie/teleporter/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(!ready_to_use && burglars.is_antagonist(user.mind))
+		. += SPAN_NOTICE("Charging: [num2loadingbar(world.time / when_recharge)]")
+
+/obj/item/syndie/teleporter/set_initial_maptext()
+	held_maptext = SMALL_FONTS(7, "Ready")
+
+/obj/item/syndie/teleporter/attack()
+	return
+
+/obj/item/syndie/teleporter/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	if(!ready_to_use)
+		to_chat(user, SPAN_WARNING("\The [src] isn't ready to use yet!"))
+		return
+	var/turf/T = target
+	if(!istype(T))
+		T = get_turf(target)
+	if(!T)
+		to_chat(user, SPAN_WARNING("Something has gone terribly wrong while choosing a target, please try again somewhere else!"))
+		return
+	if(T.density || T.contains_dense_objects())
+		to_chat(user, SPAN_WARNING("You cannot teleport to a location with solid objects!"))
+		return
+	if(isAdminLevel(T.z))
+		to_chat(user, SPAN_WARNING("You cannot use the device on this Z-level."))
+		return
+
+	user.visible_message("<b>[user]</b> blinks into nothingness!", SPAN_NOTICE("You jump into the nothing."))
+	user.forceMove(T)
+	spark(user, 3, GLOB.alldirs)
+	user.visible_message("<b>[user]</b> appears out of thin air!", SPAN_NOTICE("You successfully step into your destination."))
+	use()
+
+/obj/item/syndie/teleporter/use()
+	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
+	ready_to_use = FALSE
+	check_maptext(SMALL_FONTS(6, "Charge"))
+	when_recharge = world.time + recharge_time
+
+/obj/item/syndie/teleporter/proc/recharge()
+	ready_to_use = TRUE
+	check_maptext(SMALL_FONTS(7, "Ready"))

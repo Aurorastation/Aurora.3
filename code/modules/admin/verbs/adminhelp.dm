@@ -10,7 +10,7 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	//explode the input msg into a list
 	var/list/msglist = splittext(msg, " ")
 
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		var/list/indexing = list(M.real_name, M.name)
 		if(M.mind)	indexing += M.mind.name
 
@@ -111,12 +111,12 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 	//Options bar:  mob, details ( admin = 2, undibbsed admin = 3, mentor = 4, character name (0 = just ckey, 1 = ckey and character name), link? (0 no don't make it a link, 1 do so),
 	//		highlight special roles (0 = everyone has same looking name, 1 = antags / special roles get a golden name)
 
-	msg = "<span class='notice'><b><font color=red>HELP: </font>[get_options_bar(mob, 2, 1, 1, 1, ticket)] (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>):</b> [msg]</span>"
+	msg = "<span class='notice'><b>[create_text_tag("HELP")][get_options_bar(mob, 2, 1, 1, 1, ticket)] (<a href='?_src_=holder;take_ticket=\ref[ticket]'>[(ticket.status == TICKET_OPEN) ? "TAKE" : "JOIN"]</a>) (<a href='?src=\ref[usr];close_ticket=\ref[ticket]'>CLOSE</a>):</b> [msg]</span>"
 
 	var/admin_number_present = 0
 	var/admin_number_afk = 0
 
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if((R_ADMIN|R_MOD) & C.holder.rights)
 			admin_number_present++
@@ -128,13 +128,13 @@ var/list/adminhelp_ignored_words = list("unknown","the","a","an","of","monkey","
 			to_chat(C, msg)
 
 	//show it to the person adminhelping too
-	to_chat(src, "<font color='blue'>PM to-<b>Staff </b>: [original_msg]</font>")
+	to_chat(src, "<span class='notice'>PM to-<b>Staff </b>: [original_msg]</span>")
 
 	var/admin_number_active = admin_number_present - admin_number_afk
 	log_admin("HELP: [key_name(src)]: [original_msg] - heard by [admin_number_present] non-AFK admins.",admin_key=key_name(src))
 	if(admin_number_active <= 0)
-		post_webhook_event(WEBHOOK_ADMIN_PM_IMPORTANT, list("title"="Help is requested", "message"="Request for Help from **[key_name(src)]**: ```[html_decode(original_msg)]```\n[admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!"))
-		discord_bot.send_to_admins("@here Request for Help from [key_name(src)]: [html_decode(original_msg)] - !![admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!")
+		SSdiscord.post_webhook_event(WEBHOOK_ADMIN_PM_IMPORTANT, list("title"="Help is requested", "message"="Request for Help from **[key_name(src)]**: ```[html_decode(original_msg)]```\n[admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!"))
+		SSdiscord.send_to_admins("@here Request for Help from [key_name(src)]: [html_decode(original_msg)] - !![admin_number_afk ? "All admins AFK ([admin_number_afk])" : "No admins online"]!!")
 		adminhelped = ADMINHELPED_DISCORD
 	feedback_add_details("admin_verb","AH") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	return

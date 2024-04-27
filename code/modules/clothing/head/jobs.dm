@@ -5,31 +5,67 @@
 	icon_state = "chefhat"
 	item_state = "chefhat"
 
-//Captain
-/obj/item/clothing/head/caphat
-	name = "captain's hat"
-	icon_state = "captain"
-	desc = "It's good being the king."
-	item_state_slots = list(
-		slot_l_hand_str = "caphat",
-		slot_r_hand_str = "caphat"
+/obj/item/clothing/head/chefhat/nt
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_chef_hat"
+	item_state = "nt_chef_hat"
+
+/obj/item/clothing/head/chefhat/idris
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "idris_chef_hat"
+	item_state = "idris_chef_hat"
+
+/obj/item/clothing/head/chefhat/orion
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_chef_hat"
+	item_state = "orion_chef_hat"
+
+
+/obj/item/clothing/head/hairnet
+	name = "hairnet"
+	desc = "A hairnet used to keep the hair out of the way and out of the food."
+	icon_state = "hairnet"
+	item_state = "hairnet"
+	flags_inv = BLOCKHEADHAIR
+	sprite_sheets = list(
+		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi'
 		)
-
-/obj/item/clothing/head/caphat/cap
-	name = "captain's cap"
-	desc = "You fear to wear it for the negligence it brings."
-	icon_state = "capcap"
-
-/obj/item/clothing/head/caphat/formal
-	name = "parade hat"
-	desc = "No one in a commanding position should be without a perfect, white hat of ultimate authority."
-	icon_state = "officercap"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/items/lefthand.dmi',
+		slot_r_hand_str = 'icons/mob/items/righthand.dmi',
+		)
 
 //HOP
 /obj/item/clothing/head/caphat/hop
 	name = "crew resource's hat"
 	desc = "A stylish hat that both protects you from enraged former-crewmembers and gives you a false sense of authority."
 	icon_state = "hopcap"
+
+/obj/item/clothing/head/caphat/xo
+	name = "executive officer cap"
+	desc = "A stylish cap issued to SCC executive officers."
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
+	contained_sprite = TRUE
+	icon_state = "executive_officer_cap"
+	item_state = "executive_officer_cap"
+
+/obj/item/clothing/head/caphat/bridge_crew
+	name = "bridge crew cap"
+	desc = "A stylish cap issued to the bridge crew of SCC vessels."
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
+	contained_sprite = TRUE
+	icon_state = "bridge_crew_cap"
+	item_state = "bridge_crew_cap"
+
+/obj/item/clothing/head/caphat/bridge_crew/alt
+	name = "bridge crew cap"
+	desc = "A more formal hat in a Colettish style, authorized for the bridge crew of SCC vessels."
+	desc_extended = "Designed to allow the wearer to wear both a peaked cap and a radio headset, Colettish 'crusher' caps are prized throughout the Alliance and Republic for their comfort."
+	icon_state = "bridge_crew_cap_alt"
+	item_state = "bridge_crew_cap_alt"
 
 //Chaplain
 /obj/item/clothing/head/chaplain_hood
@@ -45,183 +81,138 @@
 	icon_state = "nun_hood"
 	flags_inv = BLOCKHAIR
 
-//Mime
-/obj/item/clothing/head/beret
-	name = "beret"
-	desc = "A beret, an artists favorite headwear."
-	icon_state = "beret"
-
-//berets
-/obj/item/clothing/head/beret/sec
-	name = "security beret"
-	desc = "A beret with the security insignia emblazoned on it. For officers that are more inclined towards style than safety."
-	icon_state = "beret_badge"
-
-/obj/item/clothing/head/beret/sec/alt
-	name = "officer beret"
-	desc = "A navy blue beret with an officer's rank emblem. For officers that are more inclined towards style than safety."
-	icon_state = "officerberet"
-
-/obj/item/clothing/head/beret/sec/idris
-	name = "idris security beret"
-	desc = "A beret with the Idris Incorporated insignia emblazoned on it."
-	icon_state = "idrissecberet"
-
-/obj/item/clothing/head/beret/sec/zavodskoi
-	name = "zavodskoi interstellar security beret"
-	desc = "A brown beret with the Zavodskoi Interstellar insignia emblazoned on it."
-	icon_state = "necrosecberet"
-
-/obj/item/clothing/head/beret/sec/zavodskoi/alt
-	name = "zavodskoi interstellar security beret"
-	desc = "A black beret with the Zavodskoi Interstellar insignia emblazoned on it."
-	icon_state = "necrosecaltberet"
-
-/obj/item/clothing/head/beret/sec/eri
-	name = "eridani security beret"
-	desc = "A beret with the Eridani PMC insignia emblazoned on it."
-	icon_state = "erisecberet"
-
-/obj/item/clothing/head/beret/sec/cadet
-	name = "cadet beret"
-	desc = "A beret with the security insignia emblazoned on it. This one is for in training security personnel."
-	icon_state = "cadetberet"
-
-/obj/item/clothing/head/beret/sec/hos
-	name = "commander beret"
-	desc = "A navy blue beret with a commander's rank emblem. For officers that are more inclined towards style than safety."
-	icon_state = "hosberet"
-
-/obj/item/clothing/head/beret/sec/warden
-	name = "warden beret"
-	desc = "A navy blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety."
-	icon_state = "wardenberet"
-
-/obj/item/clothing/head/beret/engineering
-	name = "engineering beret"
-	desc = "A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety."
-	icon_state = "e_beret"
-
-/obj/item/clothing/head/beret/medical
-	name = "medical beret"
-	desc = "A beret with the medical insignia emblazoned on it. For medical members that want to crush their brains after college left them in massive debt."
-	icon_state = "medberet"
-
-/obj/item/clothing/head/beret/zeng
-	name = "zeng-hu beret"
-	desc = "A purple beret with the Zeng-Hu insignia emblazoned on it."
-	icon_state = "zengberet"
-
-/obj/item/clothing/head/beret/zeng/alt
-	name = "zeng-hu beret"
-	desc = "A white beret with the Zeng-Hu insignia emblazoned on it."
-	icon_state = "zengaltberet"
-
-/obj/item/clothing/head/beret/heph
-	name = "hephaestus beret"
-	desc = "A green beret with the Hephaestus insignia emblazoned on it."
-	icon_state = "hephberet"
-
-/obj/item/clothing/head/beret/purple
-	name = "purple beret"
-	desc = "A stylish, if purple, beret."
-	icon_state = "purpleberet"
-
-/obj/item/clothing/head/beret/liaison
-	name = "corporate liaison beret"
-	desc = "A stylish beret worn by corporate liaisons."
-	icon_state = "centcomofficerberet"
-
-/obj/item/clothing/head/beret/centcom/officer
-	name = "officers beret"
-	desc = "A black beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
-	icon_state = "centcomofficerberet"
-
-/obj/item/clothing/head/beret/centcom/officer/civilprotection
-	name = "civil protection beret"
-	desc = "A black beret adorned with the shield - a gold kite shield with an engraved sword - of the NanoTrasen security forces."
-	icon_state = "civilprotection_beret"
-	item_state = "civilprotection_beret"
-
-/obj/item/clothing/head/beret/centcom/captain
-	name = "captains beret"
-	desc = "A white beret adorned with the shield - a silver kite shield with an engraved sword - of the NanoTrasen security forces."
-	icon_state = "centcomcaptain"
-
-/obj/item/clothing/head/beret/centcom/commander
-	name = "commanders beret"
-	desc = "A white beret adorned with the crest of an ERT detachment. Worn by commanders of Nanotrasen response teams."
-	icon_state = "centcomcaptain"
-
-/obj/item/clothing/head/beret/misc
-	name = "beret"
-	desc = "A colorful beret, treasured by artists and the French."
-	icon_state = "miscberet"
-	item_state = "miscberet"
-
 //Medical
+
+/obj/item/clothing/head/headmirror
+	name = "otolaryngologist's mirror"
+	desc = "Turn your head and cough."
+	desc_extended = "That's an Ear, Nose and/or Throat surgeon to you, mister."
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
+	contained_sprite = TRUE
+	icon_state = "headmirror"
+	item_state = "headmirror"
+
 /obj/item/clothing/head/surgery
 	name = "surgical cap"
 	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs."
-	icon_state = "surgcap_blue"
+	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
+	icon_state = "surgcap_nt"
+	item_state = "surgcap_nt"
+	contained_sprite = TRUE
 	flags_inv = BLOCKHEADHAIR
 
-/obj/item/clothing/head/surgery/purple
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is deep purple."
-	icon_state = "surgcap_purple"
+/obj/item/clothing/head/surgery/generic
+	icon = 'icons/clothing/head/generic_surgeon_cap.dmi'
+	icon_state = "surgcap_generic"
+	item_state = "surgcap_generic"
 
-/obj/item/clothing/head/surgery/blue
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is baby blue."
-	icon_state = "surgcap_blue"
+/obj/item/clothing/head/surgery/zeng
+	icon_state = "surgcap_zeng"
+	item_state = "surgcap_zeng"
 
-/obj/item/clothing/head/surgery/green
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is dark green."
-	icon_state = "surgcap_green"
+/obj/item/clothing/head/surgery/pmc
+	icon_state = "surgcap_pmc"
+	item_state = "surgcap_pmc"
 
-/obj/item/clothing/head/surgery/black
-	desc = "A cap surgeons wear during operations. Keeps their hair from tickling your internal organs. This one is black."
-	icon_state = "surgcap_black"
+/obj/item/clothing/head/surgery/pmc/alt
+	icon_state = "surgcap_pmc_alt"
+	item_state = "surgcap_pmc_alt"
 
-//Detective
+// Zavodskoi and Idris don't have medical jobs, but jobs like xenobiologist and investigators use them ancilliarily.
 
-/obj/item/clothing/head/det
-	name = "fedora"
-	desc = "A brown fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
-	icon_state = "brown_fedora"
-	item_state_slots = list(
-		slot_l_hand_str = "det_hat",
-		slot_r_hand_str = "det_hat"
-		)
-	allowed = list(/obj/item/reagent_containers/food/snacks/candy_corn, /obj/item/pen)
-	armor = list(melee = 50, bullet = 5, laser = 25,energy = 10, bomb = 0, bio = 0, rad = 0)
-	siemens_coefficient = 0.75
+/obj/item/clothing/head/surgery/zavod
+	icon_state = "surgcap_zav"
+	item_state = "surgcap_zav"
 
-/obj/item/clothing/head/det/grey
-	icon_state = "grey_fedora"
-	desc = "A grey fedora - either the cornerstone of a detective's style or a poor attempt at looking cool, depending on the person wearing it."
+/obj/item/clothing/head/surgery/idris
+	icon_state = "surgcap_idris"
+	item_state = "surgcap_idris"
 
-/obj/item/clothing/head/det/technicolor
-	desc = "A 23rd-century fedora. It's fibres are hyper-absorbent."
-	icon = 'icons/obj/clothing/coloured_detective_hats.dmi'
-	icon_state = "hat_detective_black"
-	item_state = "hat_detective_black"
-	var/hat_color
-	contained_sprite = 1
+/obj/item/clothing/head/warden
+	name = "warden hat"
+	desc = "A warden hat. For showing who is in charge of the brig."
+	icon = 'icons/obj/item/clothing/department_uniforms/security.dmi'
+	icon_state = "nt_warden_hat"
+	item_state = "nt_warden_hat"
+	flags_inv = HIDEEARS
+	contained_sprite = TRUE
 
-/obj/item/clothing/head/det/technicolor/Initialize()
-	if(prob(5))
-		var/list/colors = list("yellow"=2,"red"=1,"white"=1,"orange"=1,"purple"=1,"green"=1,"blue"=1 )
-		var/color = pickweight(colors)
-		icon_state = "hat_detective_[color]"
-		item_state = "hat_detective_[color]"
-	. = ..()
+/obj/item/clothing/head/warden/zavod
+	icon_state = "zav_warden_hat"
+	item_state = "zav_warden_hat"
 
-/obj/item/clothing/head/det/technicolor/attackby(obj/item/O as obj, mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/glass/paint))
-		var/obj/item/reagent_containers/glass/paint/P = O
-		hat_color = P.paint_type
-		name = "[hat_color] fedora"
-		user.visible_message("<span class='warning'>[user] soaks \the [src] into [P]!</span>")
-		icon_state = "hat_detective_[hat_color]"
-		item_state = "hat_detective_[hat_color]"
-	..()
+/obj/item/clothing/head/warden/zavod/alt
+	icon_state = "zav_warden_hat_alt"
+	item_state = "zav_warden_hat_alt"
+
+/obj/item/clothing/head/warden/pmc
+	icon_state = "pmc_warden_hat"
+	item_state = "pmc_warden_hat"
+
+/obj/item/clothing/head/warden/idris
+	icon_state = "idris_warden_hat"
+	item_state = "idris_warden_hat"
+
+/obj/item/clothing/head/hos
+	name = "head of security hat"
+	desc = "The navy blue parade hat of the Head of Security. For showing the officers who's in charge."
+	icon = 'icons/obj/item/clothing/department_uniforms/command.dmi'
+	icon_state = "hos_hat"
+	item_state = "hos_hat"
+	flags_inv = HIDEEARS
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/flatcap/bartender
+	name = "bartender flatcap"
+	desc = "A simple hat issued to bartenders to protect their eyes from the glare of crappy neo-contemporary hipster light installations."
+	desc_extended = "The hat once associated with the chimney sweeps and coal miners of yesteryear. \
+	Now resigned to sit on the heads of snooty upper-class bartenders and baristas. \
+	You consider the irony. The service industry is equally as soul-crushing, just with minimum wage. \
+	Worker's rights tentatively grace your grey matter before you return to your job. \
+	Hey, at least it isn't as physically demanding. \
+	You should probably stop singing sixteen-tons when wearing this hat, though."
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "nt_bartender_flatcap"
+	item_state = "nt_bartender_flatcap"
+
+
+/obj/item/clothing/head/flatcap/bartender/idris
+	icon_state = "idris_bartender_flatcap"
+	item_state = "idris_bartender_flatcap"
+
+/obj/item/clothing/head/flatcap/bartender/orion
+	icon_state = "orion_bartender_flatcap"
+	item_state = "orion_bartender_flatcap"
+
+/obj/item/clothing/head/sidecap
+	name = "side cap"
+	desc = "A simple cap, often worn by pilots."
+	icon = 'icons/obj/item/clothing/head/sidecap.dmi'
+	contained_sprite = TRUE
+	icon_state = "side_cap"
+	item_state = "side_cap"
+
+/obj/item/clothing/head/sidecap/zavod
+	name = "zavodskoi pilotka cap"
+	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
+	icon_state = "zavodskoi_pilotka"
+	item_state = "zavodskoi_pilotka"
+
+/obj/item/clothing/head/sidecap/pmcg
+	name = "pmcg garrison cap"
+	desc = "A simple cap, often worn by pilots. This one is in PMCG colors."
+	icon_state = "pmcg_side_cap"
+	item_state = "pmcg_side_cap"
+
+/obj/item/clothing/head/sidecap/heph
+	name = "hephaestus side cap"
+	desc = "A simple cap, often worn by pilots. This one is in Hephaestus colors."
+	icon_state = "heph_side_cap"
+	item_state = "heph_side_cap"
+
+/obj/item/clothing/head/sidecap/zavod/alt
+	name = "black zavodskoi pilotka cap"
+	desc = "A simple cap, often worn by pilots. This one is in Zavodskoi colors."
+	icon_state = "zavodskoi_pilotka_alt"
+	item_state = "zavodskoi_pilotka_alt"

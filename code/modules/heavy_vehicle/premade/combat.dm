@@ -9,32 +9,38 @@
 	e_legs = /obj/item/mech_component/propulsion/combat
 	e_color = COLOR_DARK_GUNMETAL
 
-	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/grenadetear
-	h_l_hand = /obj/item/mecha_equipment/mounted_system/blaster
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/taser/ion
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/smg
 
 /obj/item/mech_component/manipulators/combat
 	name = "combat arms"
 	exosuit_desc_string = "flexible, advanced manipulators"
+	desc = "Extremely fast and responsive weapon mounts for combat mechas. These seem sturdy, but their short nature only permits access to shoulder-mounted weapons."
 	icon_state = "combat_arms"
 	melee_damage = 30
-	action_delay = 10
-	power_use = 5000
+	action_delay = 5
+	max_damage = 130
+	power_use = 2500
+	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 
 /obj/item/mech_component/propulsion/combat
 	name = "combat legs"
 	exosuit_desc_string = "sleek hydraulic legs"
+	desc = "Complex armor provides excellent protective coverage over the internals of these combat-oriented legs."
 	icon_state = "combat_legs"
 	move_delay = 3
 	turn_delay = 3
-	power_use = 5000
+	max_damage = 100
+	power_use = 2500
 	trample_damage = 35
 
 /obj/item/mech_component/sensors/combat
 	name = "combat sensors"
 	gender = PLURAL
 	exosuit_desc_string = "high-resolution sensors"
+	desc = "A highly advanced cockpit with high-resolution thermal optics installed on its faces. Poorly armored with excellent situational awareness."
 	icon_state = "combat_head"
+	max_damage = 50
 	power_use = 50000
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
@@ -42,16 +48,17 @@
 /obj/item/mech_component/sensors/combat/prebuild()
 	..()
 	software = new(src)
-	software.installed_software |= MECH_SOFTWARE_WEAPONS
-	software.installed_software |= MECH_SOFTWARE_ADVWEAPONS
+	software.installed_software = list(MECH_SOFTWARE_WEAPONS, MECH_SOFTWARE_UTILITY)
 
 /obj/item/mech_component/chassis/combat
 	name = "sealed exosuit chassis"
 	hatch_descriptor = "canopy"
 	pilot_coverage = 100
-	exosuit_desc_string = "an armoured chassis"
+	exosuit_desc_string = "an armored chassis"
+	desc = "A lightweight composite frame keeps the armor of this chassis respectable, but the interior spacious."
 	icon_state = "combat_body"
-	power_use = 2500
+	max_damage = 200
+	power_use = 250
 	transparent_cabin =  TRUE
 
 /obj/item/mech_component/chassis/combat/prebuild()
@@ -69,3 +76,32 @@
 	)
 
 	. = ..()
+
+/mob/living/heavy_vehicle/premade/combat/tcaf
+	name = "\improper Vigilance combat exosuit"
+	desc = "A heavy-duty combat exosuit manufactured by Zavodskoi Interstellar, and issued to the Tau Ceti Armed Forces."
+	e_head = /obj/item/mech_component/sensors/combat
+	e_body = /obj/item/mech_component/chassis/combat
+	e_arms = /obj/item/mech_component/manipulators/heavy
+	e_legs = /obj/item/mech_component/propulsion/combat
+	e_color = COLOR_TCFL
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/blaster
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/gauss
+	h_head = /obj/item/mecha_equipment/light
+
+/mob/living/heavy_vehicle/premade/combat/coalition
+	name = "\improper Vigilance-C combat exosuit"
+	desc = "A heavy combat exosuit manufactured by Zavodskoi Interstellar, licensed to and slightly modified by the All-Xanu Armed Forces. Used by proponents of the combined Coalition of Colonies military."
+	e_head = /obj/item/mech_component/sensors/combat
+	e_body = /obj/item/mech_component/chassis/combat
+	e_arms = /obj/item/mech_component/manipulators/heavy
+	e_legs = /obj/item/mech_component/propulsion/combat
+	e_color = COLOR_COALITION
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadestinger
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/blaster
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/gauss
+	h_back = /obj/item/mecha_equipment/quick_enter
+	h_head = /obj/item/mecha_equipment/light

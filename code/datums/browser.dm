@@ -16,7 +16,7 @@
 	var/title_buttons = ""
 
 
-/datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null)
+/datum/browser/New(nuser, nwindow_id, ntitle = 0, nwidth = 0, nheight = 0, var/atom/nref = null, var/skip_common_stylesheet = FALSE)
 
 	user = nuser
 	window_id = nwindow_id
@@ -28,7 +28,8 @@
 		height = nheight
 	if (nref)
 		ref = nref
-	add_stylesheet("common", 'html/browser/common.css') // this CSS sheet is common to all UIs
+	if(!skip_common_stylesheet)
+		add_stylesheet("common", 'html/browser/common.css') // this CSS sheet is common to all UIs
 
 /datum/browser/proc/set_user(nuser)
 	user = nuser
@@ -50,11 +51,11 @@
 
 /datum/browser/proc/add_stylesheet(name, file)
 	stylesheets["[ckey(name)].css"] = file
-	register_asset("[ckey(name)].css", file)
+	SSassets.transport.register_asset("[ckey(name)].css", file)
 
 /datum/browser/proc/add_script(name, file)
 	scripts["[ckey(name)].js"] = file
-	register_asset("[ckey(name)].js", file)
+	SSassets.transport.register_asset("[ckey(name)].js", file)
 
 /datum/browser/proc/set_content(ncontent)
 	content = ncontent
@@ -65,10 +66,10 @@
 /datum/browser/proc/get_header()
 	var/file
 	for (file in stylesheets)
-		head_content += "<link rel='stylesheet' type='text/css' href='[file]'>"
+		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
 	for (file in scripts)
-		head_content += "<script type='text/javascript' src='[file]'></script>"
+		head_content += "<script type='text/javascript' src='[SSassets.transport.get_asset_url(file)]'></script>"
 
 	var/title_attributes = "class='uiTitle'"
 	if (title_image)
@@ -77,7 +78,7 @@
 	return {"<!DOCTYPE html>
 <html>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<meta http-equiv="Content-Type" content="text/html; utf-8">
 	<head>
 		[head_content]
 	</head>
@@ -106,9 +107,9 @@
 	if (width && height)
 		window_size = "size=[width]x[height];"
 	if (stylesheets.len)
-		send_asset_list(user, stylesheets, verify = FALSE)
+		SSassets.transport.send_assets(user.client, stylesheets)
 	if (scripts.len)
-		send_asset_list(user, scripts, verify = FALSE)
+		SSassets.transport.send_assets(user.client, scripts)
 	user << browse(get_content(), "window=[window_id];[window_size][window_options]")
 	if (use_onclose)
 		setup_onclose()

@@ -1,10 +1,10 @@
 //Crew
-
 /area/crew_quarters
 	name = "Dormitories"
 	icon_state = "Sleep"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/sconference_room
 	name = "Surface - Conference Room"
@@ -14,24 +14,17 @@
 /area/crew_quarters/toilet
 	name = "Surface - Washroom"
 	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/crew_quarters/sleep
 	name = "Dormitories"
 	icon_state = "Sleep"
 	allow_nightmode = 1
-	holomap_color = HOLOMAP_AREACOLOR_DORMS
-
-/area/crew_quarters/sleep/engi_wash
-	name = "Engineering - Washroom"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-	holomap_color = HOLOMAP_AREACOLOR_ENGINEERING
 
 /area/crew_quarters/sleep/bedrooms
 	name = "Dormitory Bedroom One"
 	icon_state = "Sleep"
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/crew_quarters/sleep/cryo
 	name = "Cryogenic Storage"
@@ -61,24 +54,6 @@
 	icon_state = "Sleep"
 	holomap_color = HOLOMAP_AREACOLOR_MEDICAL
 
-/area/crew_quarters/sleep_male
-	name = "Male Dorm"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep_male/toilet_male
-	name = "Male Toilets"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-
-/area/crew_quarters/sleep_female
-	name = "Female Dorm"
-	icon_state = "Sleep"
-
-/area/crew_quarters/sleep_female/toilet_female
-	name = "Female Toilets"
-	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
-
 /area/crew_quarters/locker
 	name = "Locker Room"
 	icon_state = "locker"
@@ -87,7 +62,7 @@
 /area/crew_quarters/locker/locker_toilet
 	name = "Main Level Toilets"
 	icon_state = "toilet"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/crew_quarters/fitness
 	name = "Surface - Fitness Center"
@@ -96,10 +71,11 @@
 
 /area/crew_quarters/fitness/pool
 	name = "Surface - Pool"
+	lightswitch = TRUE
 
 /area/crew_quarters/fitness/changing
 	name = "Surface - Changing Room"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/crew_quarters/fitness/running
 	name = "Surface - Running Track"
@@ -115,59 +91,83 @@
 
 /area/crew_quarters/kitchen/freezer
 	name = "Kitchen Freezer"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/crew_quarters/bar
 	name = "Bar"
 	icon_state = "bar"
-	sound_env = LARGE_SOFTFLOOR
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 	lightswitch = TRUE
 	allow_nightmode = 0
 
 /area/crew_quarters/bar/below
 	name = "Bar - Sublevel"
 	icon_state = "red"
-	sound_env = TUNNEL_ENCLOSED
-	flags = HIDE_FROM_HOLOMAP
+	sound_environment = SOUND_AREA_TUNNEL_ENCLOSED
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/crew_quarters/theatre
 	name = "Theatre"
 	icon_state = "Theatre"
-	sound_env = LARGE_SOFTFLOOR
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
 
 /area/library
- 	name = "Library"
- 	icon_state = "library"
- 	sound_env = LARGE_SOFTFLOOR
- 	station_area = 1
+	name = "Library"
+	icon_state = "library"
+	sound_environment = SOUND_AREA_LARGE_SOFTFLOOR
+	station_area = 1
 
 /area/chapel
- 	station_area = 1
+	station_area = 1
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/chapel/main
 	name = "Chapel"
 	icon_state = "chapel"
-	ambience = list('sound/ambience/ambicha1.ogg','sound/ambience/ambicha2.ogg','sound/ambience/ambicha3.ogg','sound/ambience/ambicha4.ogg','sound/music/traitor.ogg')
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	ambience = AMBIENCE_CHAPEL
 
 /area/chapel/office
 	name = "Chapel Office"
 	icon_state = "chapeloffice"
 
 /area/lawoffice
-	name = "Representative Office"
+	name = "Diplomatic Reception"
 	icon_state = "law"
-	station_area = 1
+	station_area = TRUE
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/lawoffice/consular
+	name = "Consular Office A"
+	icon_state = "law_con"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/lawoffice/consular_two
+	name = "Consular Office B"
+	icon_state = "law_con_b"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/lawoffice/representative
+	name = "Representative Office A"
+	icon_state = "law_rep"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
+
+/area/lawoffice/representative_two
+	name = "Representative Office B"
+	icon_state = "law_rep_b"
+	holomap_color = HOLOMAP_AREACOLOR_CIVILIAN
 
 /area/quartermaster
-	name = "Quartermasters"
+	name = "Operations Manager"
 	icon_state = "quart"
 	station_area = 1
-	holomap_color = HOLOMAP_AREACOLOR_CARGO
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/quartermaster/office
 	name = "Cargo Office"
 	icon_state = "quartoffice"
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
 
 /area/quartermaster/lobby
 	name = "Cargo Lobby"
@@ -184,24 +184,26 @@
 /area/quartermaster/storage
 	name = "Cargo Warehouse"
 	icon_state = "quartstorage"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/quartermaster/loading
 	name = "Cargo Bay"
 	icon_state = "quartloading"
 
 /area/quartermaster/qm
-	name = "Cargo - Quartermaster's Office"
+	name = "Cargo - Operations Manager's Office"
 	icon_state = "quart"
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR
 
 /area/quartermaster/miningdock
 	name = "Cargo Mining Dock"
 	icon_state = "mining"
 
-/area/janitor/
+/area/janitor
 	name = "Custodial Closet"
 	icon_state = "janitor"
 	station_area = 1
+	ambience = AMBIENCE_MAINTENANCE
 
 /area/janitor/stairs
 	name = "Stairwell Custodial Closet"
@@ -224,4 +226,4 @@
 /area/journalistoffice
 	name = "Journalist's Office"
 	station_area = 1
-	sound_env = SMALL_SOFTFLOOR
+	sound_environment = SOUND_AREA_SMALL_SOFTFLOOR

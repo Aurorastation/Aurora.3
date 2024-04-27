@@ -38,23 +38,23 @@
 			to_chat(src, "<span class='notice'><b>APU GENERATOR FAILURE! (System Damaged)</b></span>")
 			stop_apu(1)
 
-		if (!is_blinded())
+		if (!is_blind())
 			if (ai_restore_power_routine==2)
 				to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 				ai_restore_power_routine = 0
-				src.blind.invisibility = 101
-				updateicon()
+				clear_fullscreen("blind")
+				update_icon()
 				return
 			else if (ai_restore_power_routine==3)
 				to_chat(src, "Alert cancelled. Power has been restored.")
 				ai_restore_power_routine = 0
-				src.blind.invisibility = 101
-				updateicon()
+				clear_fullscreen("blind")
+				update_icon()
 				return
 			else if (APU_power)
 				ai_restore_power_routine = 0
-				src.blind.invisibility = 101
-				updateicon()
+				clear_fullscreen("blind")
+				update_icon()
 				return
 		else
 			var/area/current_area = get_area(src)
@@ -73,7 +73,7 @@
 							if (!istype(T, /turf/space))
 								to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 								ai_restore_power_routine = 0
-								src.blind.invisibility = 101
+								clear_fullscreen("blind")
 								return
 						to_chat(src, "Fault confirmed: missing external power. Shutting down main control system to save power.")
 						sleep(20)
@@ -103,7 +103,7 @@
 								if (!istype(T, /turf/space))
 									to_chat(src, "Alert cancelled. Power has been restored without our assistance.")
 									ai_restore_power_routine = 0
-									src.blind.invisibility = 101 //This, too, is a fix to issue 603
+									clear_fullscreen("blind")
 									return
 							switch(PRP)
 								if (1) to_chat(src, "APC located. Optimizing route to APC to avoid needless power waste.")
@@ -120,7 +120,7 @@
 									ai_restore_power_routine = 3
 									to_chat(src, "Here are your current laws:")
 									show_laws()
-									updateicon()
+									update_icon()
 							sleep(50)
 							theAPC = null
 
@@ -140,27 +140,30 @@
 	return ((!A.power_equip) && A.requires_power == 1 || istype(T, /turf/space)) && !istype(src.loc,/obj/item)
 
 /mob/living/silicon/ai/rejuvenate()
+	var/was_dead = stat == DEAD
+
 	..()
+
+	if(was_dead && stat != DEAD)
+		// Arise!
+		GLOB.cameranet.update_visibility(src, FALSE)
+
 	add_ai_verbs(src)
 
 /mob/living/silicon/ai/update_sight()
-	if(is_blinded())
-		updateicon()
-		src.blind.screen_loc = ui_entire_screen
-		if (src.blind.invisibility != 0)
-			src.blind.invisibility = 0
-		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 0
-		see_invisible = SEE_INVISIBLE_LIVING
+	if(is_blind())
+		update_icon()
+		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 	else if(stat == DEAD)
 		update_dead_sight()
 	else
-		sight |= (SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_LIVING
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
-/mob/living/silicon/ai/proc/is_blinded()
+/mob/living/silicon/ai/is_blind()
 	var/area/A = get_area(src)
 	if (A && !A.power_equip && !istype(src.loc,/obj/item) && !APU_power)
-		return 1
-	return 0
+		return TRUE
+	return FALSE

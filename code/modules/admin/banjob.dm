@@ -42,7 +42,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  * @return	num		1
  */
 /hook/startup/proc/loadJobBans()
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		jobban_loadbanfile()
 	else
 		jobban_loaddatabase()
@@ -87,7 +87,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobban_keylist[key][rank] = list(reason, unban_time)
 
 	// Log the ban to the appropriate place.
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		jobban_savebanfile()
 	else
 		DB_ban_record(minutes < 0 ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP, null, minutes, reason, rank, banckey = key)
@@ -111,11 +111,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (ckey)
-		if (guest_jobbans(rank))
-			if (config.guest_jobban && IsGuestKey(ckey))
-				return "GUEST JOB-BAN"
-			if (config.usewhitelist && ismob(player) && !check_whitelist(player))
-				return "WHITELISTED"
+		if (guest_jobbans(rank) && GLOB.config.guest_jobban && IsGuestKey(ckey))
+			return "GUEST JOB-BAN"
+		if (GLOB.config.usewhitelist && ismob(player) && !check_whitelist_rank(player, rank))
+			return "WHITELISTED"
 
 		var/age_whitelist = player_old_enough_for_role(player, rank)
 		if (age_whitelist)
@@ -125,8 +124,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 		if (isnull(antag_bantypes))
 			antag_bantypes = list()
-			for (var/antag_type in all_antag_types)
-				var/datum/antagonist/antag = all_antag_types[antag_type]
+			for (var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 				if (antag && antag.bantype)
 					antag_bantypes |= antag.bantype
 
@@ -180,15 +179,15 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /proc/jobban_loaddatabase()
 	// No database. Weee.
-	if (!establish_db_connection(dbcon))
-		error("Database connection failed. Reverting to the legacy ban system.")
+	if (!establish_db_connection(GLOB.dbcon))
+		log_world("ERROR: Database connection failed. Reverting to the legacy ban system.")
 		log_misc("Database connection failed. Reverting to the legacy ban system.")
-		config.ban_legacy_system = 1
+		GLOB.config.ban_legacy_system = 1
 		jobban_loadbanfile()
 		return
 
 	// All jobbans in one query. Because we don't actually care.
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
 	query.Execute()
 
 	while (query.NextRow())
@@ -231,7 +230,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (!ckey)
-		log_debug("JOBBAN: jobban_unban called without a mob and a backup ckey.")
+		LOG_DEBUG("JOBBAN: jobban_unban called without a mob and a backup ckey.")
 		return
 
 	// Check for a player record.
@@ -250,7 +249,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 				jobban_keylist -= ckey
 
 			// Update appropriate ban files.
-			if (config.ban_legacy_system)
+			if (GLOB.config.ban_legacy_system)
 				jobban_savebanfile()
 
 /**
@@ -270,7 +269,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  *					FALSE if ban is not expired.
  */
 /proc/jobban_isexpired(var/list/tuple, var/player, var/rank)
-	if (config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
+	if (GLOB.config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
 		// It's expired. Remove it.
 		jobban_unban(player, rank)
 
@@ -320,9 +319,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 	************************************WARNING!***********************************/
 	var/counter = 0
 	//Regular jobs
-	//Command (Blue)
+	//Command
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr align='center' bgcolor='ccccff'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_positions)]'><a href='?src=\ref[src];jobban_job=commanddept;jobban_tgt=[ckey]'>Command Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in command_positions)
 		if (!jobPos)
 			continue
@@ -342,10 +341,32 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Security (Red)
+	//Command Support
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr align='center' bgcolor='114dc1'><th colspan='[length(command_support_positions)]'><a href='?src=\ref[src];jobban_job=commandsupportdept;jobban_tgt=[ckey]'>Command Support Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in command_support_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = SSjobs.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 6) //So things dont get squiiiiished!
+			jobs += "</tr><tr>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Security
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ffddf0'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='991818'><th colspan='[length(security_positions)]'><a href='?src=\ref[src];jobban_job=securitydept;jobban_tgt=[ckey]'>Security Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in security_positions)
 		if (!jobPos)
 			continue
@@ -365,10 +386,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Engineering (Yellow)
+	//Engineering
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='fff5cc'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='c67519'><th colspan='[length(engineering_positions)]'><a href='?src=\ref[src];jobban_job=engineeringdept;jobban_tgt=[ckey]'>Engineering Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in engineering_positions)
 		if (!jobPos)
 			continue
@@ -388,10 +409,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Medical (White)
+	//Medical
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='ffeef0'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='15903a'><th colspan='[length(medical_positions)]'><a href='?src=\ref[src];jobban_job=medicaldept;jobban_tgt=[ckey]'>Medical Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in medical_positions)
 		if (!jobPos)
 			continue
@@ -411,10 +432,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Science (Purple)
+	//Science
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='e79fff'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='a44799'><th colspan='[length(science_positions)]'><a href='?src=\ref[src];jobban_job=sciencedept;jobban_tgt=[ckey]'>Science Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in science_positions)
 		if (!jobPos)
 			continue
@@ -434,10 +455,10 @@ var/list/jobban_keylist = list() // Global jobban list.
 			counter = 0
 	jobs += "</tr></table>"
 
-	//Cargo (Brown ish)
+	//Cargo
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='f49d50'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='593616'><th colspan='[length(cargo_positions)]'><a href='?src=\ref[src];jobban_job=cargodept;jobban_tgt=[ckey]'>Cargo Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in cargo_positions)
 		if (!jobPos)
 			continue
@@ -456,10 +477,33 @@ var/list/jobban_keylist = list() // Global jobban list.
 			jobs += "</tr><tr align='center'>"
 			counter = 0
 
-	//Civilian (Grey)
+	//Service
 	counter = 0
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
-	jobs += "<tr bgcolor='dddddd'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
+	jobs += "<tr bgcolor='90524b'><th colspan='[length(service_positions)]'><a href='?src=\ref[src];jobban_job=servicedept;jobban_tgt=[ckey]'>Service Positions</a></th></tr><tr align='center'>"
+	for (var/jobPos in service_positions)
+		if (!jobPos)
+			continue
+		var/datum/job/job = SSjobs.GetJob(jobPos)
+		if (!job)
+			continue
+
+		if (jobban_isbanned(ckey, job.title))
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'><font color=red>[replacetext(job.title, " ", "&nbsp")]</font></a></td>"
+			counter++
+		else
+			jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=[job.title];jobban_tgt=[ckey]'>[replacetext(job.title, " ", "&nbsp")]</a></td>"
+			counter++
+
+		if (counter >= 5) //So things dont get squiiiiished!
+			jobs += "</tr><tr align='center'>"
+			counter = 0
+	jobs += "</tr></table>"
+
+	//Civilian
+	counter = 0
+	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
+	jobs += "<tr bgcolor='999999'><th colspan='[length(civilian_positions)]'><a href='?src=\ref[src];jobban_job=civiliandept;jobban_tgt=[ckey]'>Civilian Positions</a></th></tr><tr align='center'>"
 	for (var/jobPos in civilian_positions)
 		if (!jobPos)
 			continue
@@ -477,13 +521,6 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (counter >= 5) //So things dont get squiiiiished!
 			jobs += "</tr><tr align='center'>"
 			counter = 0
-
-	if (jobban_isbanned(ckey, "Internal Affairs Agent"))
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'><font color=red>Internal Affairs Agent</font></a></td>"
-	else
-		jobs += "<td width='20%'><a href='?src=\ref[src];jobban_job=Internal Affairs Agent;jobban_tgt=[ckey]'>Internal Affairs Agent</a></td>"
-
-	jobs += "</tr></table>"
 
 	//Non-Human (Green)
 	counter = 0
@@ -506,6 +543,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (counter >= 5) //So things dont get squiiiiished!
 			jobs += "</tr><tr align='center'>"
 			counter = 0
+	jobs += "</tr></table>"
 
 	//pAI isn't technically a job, but it goes in here.
 
@@ -520,14 +558,12 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobs += "</tr></table>"
 
 	//Antagonist (Orange)
+	counter = 0
 	var/isbanned_dept = jobban_isbanned(ckey, "Antagonist")
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=\ref[src];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
-
-	// Antagonists.
-	counter = 0
-	for (var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for (var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if (!antag || !antag.bantype)
 			continue
 		if (isbanned_dept || jobban_isbanned(ckey, antag.bantype))
@@ -540,10 +576,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 		if (counter >= 5) //So things dont get squiiiiished!
 			jobs += "</tr><tr align='center'>"
 			counter = 0
-
 	jobs += "</tr></table>"
 
-	//Other races  (BLUE, because I have no idea what other color to make this)
+	//Other Races
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 	jobs += "<tr bgcolor='ccccff'><th colspan='1'>Other Races</th></tr><tr align='center'>"
 
@@ -573,7 +608,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		to_chat(usr, "<span class='warning'>You do not have the appropriate permissions to add job bans!</span>")
 		return 0
 
-	if (check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0) && !config.mods_can_job_tempban) // If mod and tempban disabled
+	if (check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0) && !GLOB.config.mods_can_job_tempban) // If mod and tempban disabled
 		to_chat(usr, "<span class='warning'>Mod jobbanning is disabled!</span>")
 		return 0
 
@@ -596,6 +631,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 	switch (job)
 		if ("commanddept")
 			for (var/jobPos in command_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("commandsupportdept")
+			for (var/jobPos in command_support_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -628,6 +671,14 @@ var/list/jobban_keylist = list() // Global jobban list.
 				joblist += temp.title
 		if ("sciencedept")
 			for (var/jobPos in science_positions)
+				if (!jobPos)
+					continue
+				var/datum/job/temp = SSjobs.GetJob(jobPos)
+				if (!temp)
+					continue
+				joblist += temp.title
+		if ("servicedept")
+			for (var/jobPos in service_positions)
 				if (!jobPos)
 					continue
 				var/datum/job/temp = SSjobs.GetJob(jobPos)
@@ -678,8 +729,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 				var/mins = input(usr, "How long (in minutes)?", "Ban time", 1440) as num|null
 				if (!mins)
 					return 0
-				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > config.mod_job_tempban_max)
-					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [config.mod_job_tempban_max] minutes!</span>")
+				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_job_tempban_max)
+					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [GLOB.config.mod_job_tempban_max] minutes!</span>")
 					return 0
 				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
 				if (!reason)
@@ -697,7 +748,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 						msg = R
 					else
 						msg += ", [R]"
-				if (config.ban_legacy_system)
+				if (GLOB.config.ban_legacy_system)
 					notes_add(ckey, "Banned from [msg] - [reason]", usr)
 				else
 					notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
@@ -726,7 +777,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 						else
 							msg += ", [R]"
 
-					if (config.ban_legacy_system)
+					if (GLOB.config.ban_legacy_system)
 						notes_add(ckey, "Banned  from [msg] - [reason]", usr)
 					else
 						notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
@@ -744,7 +795,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Unbanning joblist
 	//all jobs in joblist are banned already OR we didn't give a reason (implying they shouldn't be banned)
 	if (joblist.len) //at least 1 banned job exists in joblist so we have stuff to unban.
-		if (!config.ban_legacy_system)
+		if (!GLOB.config.ban_legacy_system)
 			// This is important. jobban_unban() can't actually lift DB bans. So the DB unban
 			// panel must be used instead.
 			to_chat(usr, "Unfortunately, database based unbanning cannot be done through this panel")

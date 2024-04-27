@@ -29,6 +29,10 @@
 	icon_state = "boxers_loveheart"
 	has_color = TRUE
 
+/datum/category_item/underwear/bottom/boxers_Lprint
+	name = "Boxers, Leopard Print"
+	icon_state = "boxers_lprint"
+
 /datum/category_item/underwear/bottom/panties
 	name = "Panties"
 	icon_state = "panties"
@@ -70,6 +74,10 @@
 	name = "Shorts, Expedition"
 	icon_state = "shorts_expedition"
 
+/datum/category_item/underwear/bottom/shorts_scc
+	name = "Shorts, SCC"
+	icon_state = "shorts_scc"
+
 /datum/category_item/underwear/bottom/shorts_fleet
 	name = "Shorts, Fleet"
 	icon_state = "shorts_fleet"
@@ -78,9 +86,9 @@
 	name = "Shorts, Zavodskoi Interstellar"
 	icon_state = "shorts_necropolis"
 
-/datum/category_item/underwear/bottom/shorts_epmc
-	name = "Shorts, EPMC"
-	icon_state = "shorts_epmc"
+/datum/category_item/underwear/bottom/shorts_pmc
+	name = "Shorts, PMCG"
+	icon_state = "shorts_pmc"
 
 /datum/category_item/underwear/bottom/midway
 	name = "Midway Briefs"
@@ -113,5 +121,6 @@
 	has_color = TRUE
 
 /datum/category_item/underwear/bottom/fishnet_lower
-	name = "Fishnets"
+	name = "Fishnet Bottoms"
 	icon_state = "fishnet_lower"
+	has_color = TRUE

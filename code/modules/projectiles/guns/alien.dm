@@ -1,9 +1,7 @@
-//Vox pinning weapon.
+//Alien pinning weapon.
 /obj/item/gun/launcher/spikethrower
-
 	name = "spike thrower"
 	desc = "A vicious alien projectile weapon. Parts of it quiver gelatinously, as though the thing is insectile and alive."
-
 	var/last_regen = 0
 	var/spike_gen_time = 100
 	var/max_spikes = 3
@@ -34,23 +32,23 @@
 	spikes++
 	update_icon()
 	if (spikes < max_spikes)
-		addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(regen_spike)), spike_gen_time, TIMER_UNIQUE)
 
-/obj/item/gun/launcher/spikethrower/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/launcher/spikethrower/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance > 1)
 		return
-	to_chat(user, "It has [spikes] spike\s remaining.")
+	. += "It has [spikes] spike\s remaining."
 
 /obj/item/gun/launcher/spikethrower/update_icon()
 	icon_state = "spikethrower[spikes]"
 
 /obj/item/gun/launcher/spikethrower/special_check(user)
-	if(istype(user,/mob/living/carbon/human))
+	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.species && H.species.name != "Vox" && H.species.name != "Vox Armalis")
+		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
 			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
-			return 0
+			return FALSE
 	return ..()
 
 /obj/item/gun/launcher/spikethrower/update_release_force()
@@ -59,10 +57,10 @@
 /obj/item/gun/launcher/spikethrower/consume_next_projectile()
 	if(spikes < 1) return null
 	spikes--
-	addtimer(CALLBACK(src, .proc/regen_spike), spike_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(regen_spike)), spike_gen_time, TIMER_UNIQUE)
 	return new /obj/item/spike(src)
 
-//This gun only functions for armalis. The on-sprite is too huge to render properly on other sprites.
+//This gun only functions for vaurca warriors. The on-sprite is too huge to render properly on other sprites.
 /obj/item/gun/energy/noisecannon
 	name = "alien heavy cannon"
 	desc = "It's some kind of enormous alien weapon, as long as a man is tall."
@@ -72,7 +70,7 @@
 	item_state = "noisecannon"
 	recoil = 1
 
-	force = 10
+	force = 15
 	projectile_type = /obj/item/projectile/energy/sonic
 	cell_type = /obj/item/cell/super
 	fire_delay = 40
@@ -81,15 +79,11 @@
 
 	var/mode = 1
 
-	sprite_sheets = list(
-		"Vox Armalis" = 'icons/mob/species/armalis/held.dmi'
-		)
-
 /obj/item/gun/energy/noisecannon/attack_hand(mob/user as mob)
 	if(loc != user)
 		var/mob/living/carbon/human/H = user
 		if(istype(H))
-			if(H.species.name == "Vox Armalis")
+			if(H.species.name == SPECIES_VAURCA_WARRIOR)
 				..()
 				return
 		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
@@ -101,11 +95,11 @@
 //Projectile.
 /obj/item/projectile/energy/sonic
 	name = "distortion"
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	icon_state = "particle"
 	damage = 60
-	damage_type = BRUTE
-	check_armour = "bullet"
+	damage_type = DAMAGE_BRUTE
+	check_armor = "bullet"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE
 
 	embed = 0

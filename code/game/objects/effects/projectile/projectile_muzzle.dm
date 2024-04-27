@@ -6,6 +6,10 @@
 	icon_state = "muzzle_laser"
 	light_color = LIGHT_COLOR_RED
 
+/obj/effect/projectile/muzzle/laser/scc
+	icon_state = "muzzle_scc"
+	light_color = COLOR_INDIGO
+
 /obj/effect/projectile/muzzle/laser/blue
 	icon_state = "muzzle_blue"
 	light_color = LIGHT_COLOR_BLUE
@@ -79,3 +83,7 @@
 /obj/effect/projectile/muzzle/hegemony
 	icon_state = "muzzle_hegemony"
 	light_color = LIGHT_COLOR_ORANGE
+
+/obj/effect/projectile/muzzle/tesla
+	icon_state = "muzzle_lightning"
+	light_color = LIGHT_COLOR_CYAN

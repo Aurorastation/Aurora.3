@@ -1,12 +1,11 @@
-
-//Hallway
-
+// Hallways
 /area/hallway
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	allow_nightmode = TRUE
 	station_area = TRUE
 	lightswitch = TRUE
 	holomap_color = HOLOMAP_AREACOLOR_HALLWAYS
+	emergency_lights = TRUE
 
 /area/hallway/primary/fore
 	name = "Fore Primary Hallway"
@@ -40,7 +39,7 @@
 	name = "Surface - Red Dock"
 	icon_state = "escape"
 	no_light_control = TRUE
-	holomap_color = HOLOMAP_AREACOLOR_ESCAPE
+	holomap_color = HOLOMAP_AREACOLOR_HANGAR
 
 /area/hallway/secondary/construction
 	name = "Construction Area"
@@ -71,7 +70,7 @@
 /area/hallway/secondary/entry/dock
 	name = "Surface - Blue Dock"
 	icon_state = "arrivals_dock"
-	holomap_color = HOLOMAP_AREACOLOR_ARRIVALS
+	holomap_color = HOLOMAP_AREACOLOR_DOCK
 
 /area/hallway/secondary/entry/emergency
 	name = "Emergency Services Dock"

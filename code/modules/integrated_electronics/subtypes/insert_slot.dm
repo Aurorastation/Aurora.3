@@ -7,13 +7,13 @@
 	var/list/items_contained = list()
 	activators = list("eject contents" = IC_PINTYPE_PULSE_IN)
 	outputs = list("has item" = IC_PINTYPE_BOOLEAN)
-	power_draw_per_use = 1 
+	power_draw_per_use = 1
 	w_class = ITEMSIZE_NORMAL
 	size = 5
 	complexity = 1
 
 //call this function from components that want to get items from this component
-//set remove to FALSE if you dont want the item removed from the component and just want a reference to it 
+//set remove to FALSE if you dont want the item removed from the component and just want a reference to it
 //(e.g. for beakers)
 /obj/item/integrated_circuit/insert_slot/proc/get_item(var/remove = FALSE)
 	if(items_contained.len > 0)
@@ -56,7 +56,7 @@
 	power_draw_per_use = 3
 	allowed_types = list(/obj/item/paper)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_MATERIALS = 2)
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_MATERIAL = 2)
 
 /obj/item/integrated_circuit/insert_slot/beaker_holder
 	name = "beaker holder"
@@ -67,4 +67,4 @@
 	capacity = 1
 	allowed_types = list(/obj/item/reagent_containers/glass/beaker)
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 2, TECH_MATERIALS = 2)
+	origin_tech = list(TECH_ENGINEERING = 2, TECH_BIO = 2, TECH_MATERIAL = 2)

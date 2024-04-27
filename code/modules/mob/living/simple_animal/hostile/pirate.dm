@@ -7,6 +7,7 @@
 	icon_dead = "piratemelee_dead"
 	speak_chance = 0
 	turns_per_move = 5
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help = "pushes"
 	response_disarm = "shoves"
 	response_harm = "hits"
@@ -40,7 +41,7 @@
 	icon_state = "pirateranged"
 	icon_living = "pirateranged"
 	icon_dead = "piratemelee_dead"
-	projectilesound = 'sound/weapons/laser.ogg'
+	projectilesound = 'sound/weapons/laser1.ogg'
 	ranged = 1
 	rapid = 1
 	projectiletype = /obj/item/projectile/beam

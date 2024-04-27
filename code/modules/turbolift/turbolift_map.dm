@@ -7,6 +7,7 @@
 	var/depth = 1       // Number of floors to generate, including the initial floor.
 	var/lift_size_x = 2 // Number of turfs on each axis to generate in addition to the first
 	var/lift_size_y = 2 // ie. a 3x3 lift would have a value of 2 in each of these variables.
+	var/no_first_z_level = TRUE
 
 	// Various turf and door types used when generating the turbolift floors.
 	var/wall_type =  /turf/simulated/wall/elevator
@@ -52,7 +53,7 @@
 
 		if(NORTH)
 
-			int_panel_x = ux + Floor(lift_size_x/2)
+			int_panel_x = ux + FLOOR(lift_size_x/2, 1)
 			int_panel_y = uy + 1
 			ext_panel_x = ux
 			ext_panel_y = ey + 2
@@ -69,7 +70,7 @@
 
 		if(SOUTH)
 
-			int_panel_x = ux + Floor(lift_size_x/2)
+			int_panel_x = ux + FLOOR(lift_size_x/2, 1)
 			int_panel_y = ey - 1
 			ext_panel_x = ex
 			ext_panel_y = uy - 2
@@ -87,7 +88,7 @@
 		if(EAST)
 
 			int_panel_x = ux+1
-			int_panel_y = uy + Floor(lift_size_y/2)
+			int_panel_y = uy + FLOOR(lift_size_y/2, 1)
 			ext_panel_x = ex+2
 			ext_panel_y = ey
 
@@ -104,7 +105,7 @@
 		if(WEST)
 
 			int_panel_x = ex-1
-			int_panel_y = uy + Floor(lift_size_y/2)
+			int_panel_y = uy + FLOOR(lift_size_y/2, 1)
 			ext_panel_x = ux-2
 			ext_panel_y = uy
 
@@ -119,7 +120,7 @@
 			light_y2 = uy + lift_size_y - 1
 
 	// Generate each floor and store it in the controller datum.
-	if(uz != 1)
+	if(no_first_z_level && uz != 1)
 		for(var/i = 1, i < uz, i++)
 			lift.floors += null // This silly hack allows lifts to not start on the first zlevel
 
@@ -136,7 +137,7 @@
 				var/turf/checking = locate(tx,ty,cz)
 
 				if(!istype(checking))
-					log_debug("[name] cannot find a component turf at [tx],[ty] on floor [cz]. Aborting.")
+					LOG_DEBUG("[name] cannot find a component turf at [tx],[ty] on floor [cz]. Aborting.")
 					qdel(src)
 					return
 
@@ -205,12 +206,12 @@
 				light1.set_dir(SOUTH)
 				light2.set_dir(NORTH)
 
-			light1.no_z_overlay = 1
-			light2.no_z_overlay = 1
+			light1.z_flags = ZMM_IGNORE
+			light2.z_flags = ZMM_IGNORE
 
 		// Update area.
 		if(az > areas_to_use.len)
-			log_debug("Insufficient defined areas in turbolift datum, aborting.")
+			LOG_DEBUG("Insufficient defined areas in turbolift datum, aborting.")
 			qdel(src)
 			return
 

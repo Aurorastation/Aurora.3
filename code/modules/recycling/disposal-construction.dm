@@ -5,7 +5,7 @@
 
 	name = "disposal pipe segment"
 	desc = "A huge pipe segment used for constructing disposal systems."
-	icon = 'icons/obj/pipes/disposal.dmi'
+	icon = 'icons/obj/disposals.dmi'
 	icon_state = "conpipe-s"
 	anchored = 0
 	density = 0
@@ -81,6 +81,9 @@
 			base_state = "pipe-tagger-partial"
 			dpdir = dir | flip
 
+		if(15)
+			base_state = "disposal_small"
+
 ///// Z-Level stuff
 	if(!(ptype in list(6, 7, 8, 11, 12, 13, 14)))
 ///// Z-Level stuff
@@ -97,7 +100,7 @@
 	// hide called by levelupdate if turf intact status changes
 	// change visibility status and force update of icon
 /obj/structure/disposalconstruct/hide(var/intact)
-	invisibility = (intact && level==1) ? 101: 0	// hide if floor is intact
+	set_invisibility((intact && level==1) ? 101: 0)	// hide if floor is intact
 	update()
 
 
@@ -178,7 +181,7 @@
 	// wrench: (un)anchor
 	// weldingtool: convert to real pipe
 
-/obj/structure/disposalconstruct/attackby(var/obj/item/I, var/mob/user)
+/obj/structure/disposalconstruct/attackby(obj/item/attacking_item, mob/user)
 	var/nicetype = "pipe"
 	var/ispipe = 0 // Indicates if we should change the level of this pipe
 	src.add_fingerprint(user)
@@ -204,6 +207,8 @@
 		if(14)
 			nicetype = "partial tagging pipe"
 			ispipe = 1
+		if(15)
+			nicetype = "compact disposal bin"
 		else
 			nicetype = "pipe"
 			ispipe = 1
@@ -215,17 +220,17 @@
 
 	var/obj/structure/disposalpipe/CP = locate() in T
 
-	if(I.iswrench())
+	if(attacking_item.iswrench())
 		if(anchored)
 			anchored = 0
 			if(ispipe)
 				level = 2
 				density = 0
-			else
+			else if(ptype != 15)
 				density = 1
 			to_chat(user, "You detach the [nicetype] from the underfloor.")
 		else
-			if(ptype>=6 && ptype <= 8) // Disposal or outlet
+			if(ptype>=6 && ptype <= 8 || ptype == 15) // Disposal bin, outlet or small disposal bin
 				if(CP) // There's something there
 					if(!istype(CP,/obj/structure/disposalpipe/trunk))
 						to_chat(user, "The [nicetype] requires a trunk underneath it in order to work.")
@@ -247,19 +252,18 @@
 			if(ispipe)
 				level = 1 // We don't want disposal bins to disappear under the floors
 				density = 0
-			else
+			else if(ptype != 15)
 				density = 1 // We don't want disposal bins or outlets to go density 0
 			to_chat(user, "You attach the [nicetype] to the underfloor.")
-		playsound(src.loc, I.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		update()
 
-	else if(I.iswelder())
+	else if(attacking_item.iswelder())
 		if(anchored)
-			var/obj/item/weldingtool/W = I
-			if(W.remove_fuel(0,user))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			var/obj/item/weldingtool/W = attacking_item
+			if(W.use(0,user))
 				to_chat(user, "Welding the [nicetype] in place.")
-				if(do_after(user, 20/W.toolspeed))
+				if(W.use_tool(src, user, 20, volume = 50))
 					if(!src || !W.isOn()) return
 					to_chat(user, "The [nicetype] has been welded in place!")
 					update() // TODO: Make this neat
@@ -268,10 +272,10 @@
 						var/pipetype = dpipetype()
 						var/obj/structure/disposalpipe/P = new pipetype(src.loc)
 						src.transfer_fingerprints_to(P)
-						P.base_icon_state = base_state
+						P.icon_state = base_state
 						P.set_dir(dir)
 						P.dpdir = dpdir
-						P.updateicon()
+						P.update_icon()
 
 						//Needs some special treatment ;)
 						if(ptype==9 || ptype==10)
@@ -299,6 +303,11 @@
 						var/obj/machinery/disposal/deliveryChute/P = new /obj/machinery/disposal/deliveryChute(src.loc)
 						src.transfer_fingerprints_to(P)
 						P.set_dir(dir)
+
+					else if(ptype==15) // Small Disposal bin
+						var/obj/machinery/disposal/small/P = new /obj/machinery/disposal/small(src.loc, dir, 1)
+						src.transfer_fingerprints_to(P)
+						P.mode = 0 // start with pump off
 
 					qdel(src)
 					return

@@ -1,6 +1,4 @@
-/mob/abstract/observer/say(var/message)
-	message = sanitize(message)
-
+/mob/abstract/observer/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if (!message)
 		return
 
@@ -12,20 +10,3 @@
 			return
 
 	. = src.say_dead(message)
-
-
-/mob/abstract/observer/emote(var/act, var/type, var/message)
-	if(!message)
-		return
-
-	if(act != "me")
-		return
-
-	log_emote("Ghost/[src.key] : [message]",ckey=key_name(src))
-
-	if(src.client)
-		if(src.client.prefs.muted & (MUTE_DEADCHAT|MUTE_IC))
-			to_chat(src, "<span class='warning'>You cannot emote in deadchat (muted).</span>")
-			return
-
-	. = src.emote_dead(message)

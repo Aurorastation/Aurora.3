@@ -31,14 +31,14 @@
 		//Tier 3
 		if("dark blue")
 			slime_mutation[1] = "purple"
-			slime_mutation[2] = "purple"
-			slime_mutation[3] = "blue"
-			slime_mutation[4] = "blue"
+			slime_mutation[2] = "blue"
+			slime_mutation[3] = "cerulean"
+			slime_mutation[4] = "cerulean"
 		if("dark purple")
 			slime_mutation[1] = "purple"
-			slime_mutation[2] = "purple"
-			slime_mutation[3] = "orange"
-			slime_mutation[4] = "orange"
+			slime_mutation[2] = "orange"
+			slime_mutation[3] = "sepia"
+			slime_mutation[4] = "sepia"
 		if("yellow")
 			slime_mutation[1] = "metal"
 			slime_mutation[2] = "metal"
@@ -46,9 +46,9 @@
 			slime_mutation[4] = "orange"
 		if("silver")
 			slime_mutation[1] = "metal"
-			slime_mutation[2] = "metal"
-			slime_mutation[3] = "blue"
-			slime_mutation[4] = "blue"
+			slime_mutation[2] = "blue"
+			slime_mutation[3] = "pyrite"
+			slime_mutation[4] = "pyrite"
 		//Tier 4
 		if("pink")
 			slime_mutation[1] = "pink"

@@ -11,34 +11,35 @@
 		)
 	icon_state = "soap"
 	item_state = "soap"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throwforce = 0
 	throw_speed = 4
 	throw_range = 20
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/key_data
 	var/clean_msg
 	var/last_clean
+	var/capacity = 10
 	drop_sound = 'sound/misc/slip.ogg'
 
 /obj/item/soap/New()
 	..()
-	create_reagents(10)
+	create_reagents(capacity)
 	wet()
 
 /obj/item/soap/proc/wet()
 	playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-	reagents.add_reagent("cleaner", 10)
+	reagents.add_reagent(/singleton/reagent/spacecleaner, capacity)
 
-/obj/item/soap/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/key))
+/obj/item/soap/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key))
 		if(!key_data)
-			to_chat(user, span("notice", "You imprint \the [I] into \the [src]."))
-			var/obj/item/key/K = I
+			to_chat(user, SPAN_NOTICE("You imprint \the [attacking_item] into \the [src]."))
+			var/obj/item/key/K = attacking_item
 			key_data = K.key_data
 			update_icon()
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/soap/update_icon()
 	overlays.Cut()
@@ -46,7 +47,11 @@
 		overlays += image('icons/obj/items.dmi', icon_state = "soap_key_overlay")
 
 /obj/item/soap/Crossed(AM as mob|obj)
-	if (istype(AM, /mob/living))
+	if(isliving(AM))
+		if(ishuman(AM))
+			var/mob/living/carbon/human/H = AM
+			if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
+				return
 		var/mob/living/M =	AM
 		M.slip("the [src.name]",3)
 
@@ -55,13 +60,13 @@
 	//I couldn't feasibly  fix the overlay bugs caused by cleaning items we are wearing.
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))
-		to_chat(user, span("notice", "You need to take that [target.name] off before cleaning it."))
+		to_chat(user, SPAN_NOTICE("You need to take that [target.name] off before cleaning it."))
 	else if(istype(target,/obj/structure/sink) || istype(target,/obj/structure/sink))
-		to_chat(user, span("notice", "You wet \the [src] in the sink."))
+		to_chat(user, SPAN_NOTICE("You wet \the [src] in the sink."))
 		wet()
 	else if (istype(target, /obj/structure/mopbucket) || istype(target, /obj/item/reagent_containers/glass) || istype(target, /obj/structure/reagent_dispensers/watertank))
 		if (target.reagents && target.reagents.total_volume)
-			to_chat(user, span("notice", "You wet \the [src] in the [target]."))
+			to_chat(user, SPAN_NOTICE("You wet \the [src] in the [target]."))
 			wet()
 		else
 			to_chat(user, "\The [target] is empty!")
@@ -73,10 +78,10 @@
 		else
 			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
-		if (do_after(user, 25, needhand = 0))
+		if (do_after(user, 2.5 SECONDS, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			target.clean_blood()
 			if(clean_msg)
-				to_chat(user, span("notice", "You scrub \the [target.name] out."))
+				to_chat(user, SPAN_NOTICE("You scrub \the [target.name] out."))
 			if(istype(target, /turf) || istype(target, /obj/effect/decal/cleanable) || istype(target, /obj/effect/overlay))
 				var/turf/T = get_turf(target)
 				if(T)
@@ -86,13 +91,13 @@
 //attack_as_weapon
 /obj/item/soap/attack(mob/living/target, mob/living/user, var/target_zone)
 	if(target && user && ishuman(target) && ishuman(user) && !target.stat && !user.stat && user.zone_sel &&user.zone_sel.selecting == BP_MOUTH )
-		user.visible_message(span("danger", "\The [user] washes \the [target]'s mouth out with soap!"))
+		user.visible_message(SPAN_DANGER("\The [user] washes \the [target]'s mouth out with soap!"))
 		user.setClickCooldown(DEFAULT_QUICK_COOLDOWN) //prevent spam
 		return
 	..()
 
 /obj/item/soap/nanotrasen
-	desc = "A NanoTrasen-brand bar of soap. Smells of phoron."
+	desc = "A NanoTrasen-brand bar of soap. Smells of acai berries and white chocolate."
 	icon_state = "soapnt"
 	item_state = "soapnt"
 
@@ -109,103 +114,85 @@
 	desc = "A deluxe Waffle Co. brand bar of soap. Smells of [pick("lavender", "vanilla", "strawberry", "chocolate" ,"space")]."
 
 /obj/item/soap/syndie
-	desc = "An untrustworthy bar of soap. Smells of fear."
+	desc = "A lackluster bar of soap. It smells like cranberries."
 	icon_state = "soapsyndie"
 	item_state = "soapsyndie"
+	capacity = 20
 
 /obj/item/soap/space_soap
-	name = "Soap"
-	desc = "Smells like burnt meat."
+	desc = "Smells like cedarwood and almonds."
 	icon_state = "space_soap"
 
 /obj/item/soap/water_soap
-	name = "Soap"
-	desc = "Smells like chlorine."
+	desc = "Smells like rain water and vanilla."
 	icon_state = "water_soap"
 
 /obj/item/soap/fire_soap
-	name = "Soap"
-	desc = "Smells like burnt charcoal."
+	desc = "Smells like charcoal and chestnuts."
 	icon_state = "fire_soap"
 
 /obj/item/soap/rainbow_soap
-	name = "Soap"
-	desc = "Smells sweet."
+	desc = "Smells like carnations and honey."
 	icon_state = "rainbow_soap"
 
 /obj/item/soap/diamond_soap
-	name = "Soap"
-	desc = "Smells like saffron."
+	desc = "Smells like saffron and vanilla."
 	icon_state = "diamond_soap"
 
 /obj/item/soap/uranium_soap
-	name = "Soap"
-	desc = "Doesn't smell... it's glowing though."
+	desc = "Smells like lime."
 	icon_state = "uranium_soap"
 
 /obj/item/soap/silver_soap
-	name = "Soap"
-	desc = "Smells bitter."
+	desc = "Smells like birch and amaranth."
 	icon_state = "silver_soap"
 
 /obj/item/soap/brown_soap
-	name = "Soap"
-	desc = "Smells like chocolate."
+	desc = "Smells like cinnamon and cognac."
 	icon_state = "brown_soap"
 
 /obj/item/soap/white_soap
-	name = "Soap"
-	desc = "Smells like vanilla."
+	desc = "Smells like nutmeg and oats."
 	icon_state = "white_soap"
 
 /obj/item/soap/grey_soap
-	name = "Soap"
-	desc = "Smells acidic."
+	desc = "Smells like bergamot and lilies."
 	icon_state = "grey_soap"
 
 /obj/item/soap/pink_soap
-	name = "Soap"
-	desc = "Smells like bubble gum"
+	desc = "Smells like cherry blossoms."
 	icon_state = "pink_soap"
 
 /obj/item/soap/purple_soap
-	name = "Soap"
-	desc = "Smells like wisteria."
+	desc = "Smells like lavender."
 	icon_state = "purple_soap"
 
 /obj/item/soap/blue_soap
-	name = "Soap"
-	desc = "Smells like lilies."
+	desc = "Smells like cardamom."
 	icon_state = "blue_soap"
 
 /obj/item/soap/cyan_soap
-	name = "Soap"
-	desc = "Smells like bluebells."
+	desc = "Smells like bluebells and peaches."
 	icon_state = "cyan_soap"
 
 /obj/item/soap/green_soap
-	name = "Soap"
-	desc = "Smells like a freshly mowed lawn."
+	desc = "Smells like rosemary and thyme."
 	icon_state = "green_soap"
 
 /obj/item/soap/yellow_soap
-	name = "Soap"
-	desc = "Smells like sunflowers."
+	desc = "Smells like citron and ginger."
 	icon_state = "yellow_soap"
 
 /obj/item/soap/orange_soap
-	name = "Soap"
-	desc = "Smells like oranges."
+	desc = "Smells like oranges and dark chocolate."
 	icon_state = "orange_soap"
 
 /obj/item/soap/red_soap
-	name = "Soap"
-	desc = "Smells like cherries."
+	desc = "Smells like roses and oats."
 	icon_state = "red_soap"
 
 /obj/item/soap/golden_soap
-	name = "Soap"
-	desc = "Smells like honey."
+	desc = "Smells like agave nectar."
 	icon_state = "golden_soap"
 
 /obj/random/soap/

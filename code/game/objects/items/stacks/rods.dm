@@ -3,6 +3,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	new /datum/stack_recipe("floor-mounted catwalk", /obj/structure/lattice/catwalk/indoor, 4, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, dark", /obj/structure/lattice/catwalk/indoor/grate, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("grate, light", /obj/structure/lattice/catwalk/indoor/grate/light, 1, time = 10, one_per_turf = TRUE, on_floor = TRUE),
+	new /datum/stack_recipe("table frame", /obj/structure/table, 2, time = 10, one_per_turf = 1, on_floor = 1),
 	new /datum/stack_recipe("mine track", /obj/structure/track, 3, time = 10, one_per_turf = TRUE, on_floor = TRUE),
 	new /datum/stack_recipe("cane", /obj/item/cane, 1, time = 6),
 	new /datum/stack_recipe("crowbar", /obj/item/crowbar, 1, time = 6),
@@ -21,18 +22,25 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 	Clicking on a floor without any tiles will reinforce the floor.  You can make reinforced glass by combining rods and normal glass sheets."
 	singular_name = "metal rod"
 	icon_state = "rods"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_NORMAL
-	force = 9.0
+	force = 20
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 20
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	matter = list(DEFAULT_WALL_MATERIAL = 1875)
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	recyclable = TRUE
 	max_amount = 60
 	attack_verb = list("hit", "bludgeoned", "whacked")
 	lock_picking_level = 3
+	stacktype = /obj/item/stack/rods
+	icon_has_variants = TRUE
+
+/obj/item/stack/rods/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/stack/rods/full/Initialize()
 	. = ..()
@@ -50,27 +58,18 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 
 /obj/item/stack/rods/New(var/loc, var/amount=null)
 	..()
-
 	recipes = rod_recipes
-	update_icon()
 
-/obj/item/stack/rods/update_icon()
-	var/amount = get_amount()
-	if((amount <= 5) && (amount > 0))
-		icon_state = "rods-[amount]"
-	else
-		icon_state = "rods"
-
-/obj/item/stack/rods/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/stack/rods/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if (attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 
 		if(get_amount() < 2)
 			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
 			return
 
-		if(WT.remove_fuel(0,user))
+		if(WT.use(0,user))
 			var/obj/item/stack/material/steel/new_item = new(usr.loc)
 			new_item.add_to_stacks(usr)
 			for (var/mob/M in viewers(src))
@@ -83,7 +82,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 				user.put_in_hands(new_item)
 		return
 
-	if (istype(W, /obj/item/tape_roll))
+	if (istype(attacking_item, /obj/item/tape_roll))
 		var/obj/item/stack/medical/splint/makeshift/new_splint = new(user.loc)
 		new_splint.add_fingerprint(user)
 
@@ -93,3 +92,69 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		return
 
 	..()
+
+/obj/item/stack/barbed_wire
+	name = "barbed wire"
+	desc = "A spiky length of wire."
+	icon = 'icons/obj/barricades.dmi'
+	icon_state = "barbed_wire"
+	singular_name = "length"
+	max_amount = 50
+	w_class = ITEMSIZE_SMALL
+	matter = list(DEFAULT_WALL_MATERIAL = 937.5)
+	attack_verb = list("hit", "whacked", "sliced")
+
+/obj/item/stack/barbed_wire/half_full
+	amount = 25
+
+/obj/item/stack/barbed_wire/full
+	amount = 50
+
+/obj/item/stack/liquidbags
+	name = "liquid bags"
+	desc = "Bags filled with non-Newtonian liquid for the creation of barricades. These bags feel weird when you touch them: liquid to the gentle touch and the hardest thing you've felt if you smack them."
+	singular_name = "liquid bag"
+	max_amount = 50
+	icon = 'icons/obj/barricades.dmi'
+	icon_state = "liquidbags"
+	w_class = ITEMSIZE_SMALL
+	matter = list(DEFAULT_WALL_MATERIAL = 650, MATERIAL_PHORON = 100, MATERIAL_PLASTEEL = 150)
+
+/obj/item/stack/liquidbags/half_full
+	amount = 25
+
+/obj/item/stack/liquidbags/full
+	amount = 50
+
+/obj/item/stack/liquidbags/attack_self(mob/living/user)
+	..()
+	add_fingerprint(user)
+
+	if(!isturf(user.loc))
+		return
+
+	if(istype(user.loc, /turf/space))
+		to_chat(user, SPAN_WARNING("The liquidbag barricade must be constructed on a proper surface!"))
+		return
+
+	user.visible_message(SPAN_NOTICE("[user] starts assembling a liquidbag barricade."),
+	SPAN_NOTICE("You start assembling a liquidbag barricade."))
+
+	if(!do_after(user, 3 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
+		return
+
+	for(var/obj/O in user.loc) //Objects, we don't care about mobs. Turfs are checked elsewhere
+		if(O.density)
+			if(!(O.atom_flags & ATOM_FLAG_CHECKS_BORDER) || O.dir == user.dir)
+				return
+
+	var/build_stack = amount
+	if(amount >= 5)
+		build_stack = 5
+
+	var/obj/structure/barricade/liquid/SB = new(user.loc, user, user.dir, build_stack)
+	user.visible_message(SPAN_NOTICE("[user] assembles a liquidbag barricade."),
+	SPAN_NOTICE("You assemble a liquidbag barricade."))
+	SB.set_dir(user.dir)
+	SB.add_fingerprint(user)
+	use(build_stack)

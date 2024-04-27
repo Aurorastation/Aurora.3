@@ -3,7 +3,7 @@
 	name = "fox"
 	real_name = "fox"
 	desc = "It's a fox. I wonder what it says?"
-	icon = 'icons/mob/npc/pets.dmi'
+	icon = 'icons/mob/npc/fox.dmi'
 	icon_state = "fox"
 	icon_living = "fox"
 	icon_dead = "fox_dead"
@@ -13,9 +13,9 @@
 	emote_see = list("shakes its head", "shivers")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 	meat_amount = 3
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm = "kicks"
@@ -30,3 +30,4 @@
 	name = "Chauncey"
 	real_name = "Chauncey"
 	desc = "Chauncey, the Captain's trustworthy fox. I wonder what it says?"
+	named = TRUE

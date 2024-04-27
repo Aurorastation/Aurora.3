@@ -8,10 +8,10 @@
 	icon_state = "rtg"
 	density = TRUE
 	anchored = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	// You can buckle someone to RTG, then open its panel. Fun stuff.
-	can_buckle = TRUE
+	can_buckle = list(/mob/living)
 	buckle_lying = FALSE
 	buckle_require_restraints = TRUE
 
@@ -30,12 +30,12 @@
 	. = ..()
 	connect_to_network()
 
-/obj/machinery/power/rtg/machinery_process()
+/obj/machinery/power/rtg/process()
 	..()
 	add_avail(power_gen)
 	if(panel_open && irradiate)
 		for (var/mob/living/L in range(2, src))
-			L.apply_effect(10, IRRADIATE, blocked = L.getarmor(null, "rad"))	// Weak but noticeable.
+			L.apply_damage(10, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)	// Weak but noticeable.
 
 /obj/machinery/power/rtg/update_icon()
 	icon_state = panel_open ? "[initial(icon_state)]-open" : initial(icon_state)
@@ -47,17 +47,17 @@
 
 	power_gen = initial(power_gen) * part_level
 
-/obj/machinery/power/rtg/attackby(obj/item/I, mob/user, params)
-	if(default_part_replacement(user, I))
+/obj/machinery/power/rtg/attackby(obj/item/attacking_item, mob/user, params)
+	if(default_part_replacement(user, attacking_item))
 		return
-	else if(default_deconstruction_screwdriver(user, I))
+	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	else if(default_deconstruction_crowbar(user, I))
+	else if(default_deconstruction_crowbar(user, attacking_item))
 		return
 	return ..()
 
 /obj/machinery/power/rtg/attack_hand(mob/user)
-	if(user.a_intent == I_GRAB && user_buckle_mob(user.pulling, user))
+	if(user.a_intent == I_GRAB && user_buckle(user.pulling, user))
 		return
 	..()
 
@@ -98,7 +98,7 @@
 	origin_tech = list(
 		TECH_DATA = 3,
 		TECH_MATERIAL = 4,
-		TECH_POWER = 3, 
+		TECH_POWER = 3,
 		TECH_ENGINEERING = 3,
 		TECH_PHORON = 3
 	)

@@ -26,9 +26,9 @@ var/intercom_range_display_status = 0
 	icon = 'icons/480x480.dmi'
 	icon_state = "25percent"
 
-	New()
-		src.pixel_x = -224
-		src.pixel_y = -224
+/obj/effect/debugging/camera_range/New()
+	src.pixel_x = -224
+	src.pixel_y = -224
 
 /obj/effect/debugging/marker
 	icon = 'icons/turf/areas.dmi'
@@ -56,7 +56,7 @@ var/intercom_range_display_status = 0
 		qdel(C)
 
 	if(camera_range_display_status)
-		for(var/obj/machinery/camera/C in cameranet.cameras)
+		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 			new/obj/effect/debugging/camera_range(C.loc)
 	feedback_add_details("admin_verb","mCRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -72,7 +72,7 @@ var/intercom_range_display_status = 0
 
 	var/list/obj/machinery/camera/CL = list()
 
-	for(var/obj/machinery/camera/C in cameranet.cameras)
+	for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (isturf(C.loc))
 			CL += C
 
@@ -81,13 +81,13 @@ var/intercom_range_display_status = 0
 
 	for(var/obj/machinery/camera/C1 in CL)
 		if(C1.c_tag == null)
-			output += "<li><font color='red'>null c_tag for sec camera at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc])</font></li>"
+			output += "<li><span class='warning'>null c_tag for sec camera at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc])</span></li>"
 		for(var/obj/machinery/camera/C2 in CL)
 			if(C1 != C2)
 				if(C1.c_tag == C2.c_tag)
-					output += "<li><font color='red'>c_tag match for sec. cameras at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) and \[[C2.x], [C2.y], [C2.z]\] ([C2.loc.loc]) - c_tag is [C1.c_tag]</font></li>"
+					output += "<li><span class='warning'>c_tag match for sec. cameras at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) and \[[C2.x], [C2.y], [C2.z]\] ([C2.loc.loc]) - c_tag is [C1.c_tag]</span></li>"
 				if(C1.loc == C2.loc && C1.dir == C2.dir && C1.pixel_x == C2.pixel_x && C1.pixel_y == C2.pixel_y)
-					output += "<li><font color='red'>FULLY overlapping sec. cameras at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) Networks: [C1.network] and [C2.network]</font></li>"
+					output += "<li><span class='warning'>FULLY overlapping sec. cameras at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) Networks: [C1.network] and [C2.network]</span></li>"
 				if(C1.loc == C2.loc)
 					output += "<li>overlapping sec. cameras at \[[C1.x], [C1.y], [C1.z]\] ([C1.loc.loc]) Networks: [C1.network] and [C2.network]</font></li>"
 		var/turf/T = get_step(C1,turn(C1.dir,180))
@@ -136,8 +136,7 @@ var/list/debug_verbs = list (
 	,/client/proc/count_objects_all
 	,/client/proc/cmd_assume_direct_control
 	,/client/proc/jump_to_dead_group
-	,/client/proc/startSinglo
-	,/client/proc/ticklag
+	,/client/proc/set_server_fps
 	,/client/proc/cmd_admin_grantfullaccess
 	,/client/proc/kaboom
 	,/client/proc/splash
@@ -171,11 +170,11 @@ var/list/debug_verbs = list (
 
 /client/proc/enable_debug_verbs()
 	set category = "Debug"
-	set name = "Debug verbs"
+	set name = "Debug Verbs"
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	verbs += debug_verbs
+	add_verb(src, debug_verbs)
 
 	feedback_add_details("admin_verb","mDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -185,8 +184,9 @@ var/list/debug_verbs = list (
 
 	if(!check_rights(R_DEBUG|R_DEV)) return
 
-	verbs -= debug_verbs
+	remove_verb(src, debug_verbs)
 
+	init_verbs()
 	feedback_add_details("admin_verb","hDV") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 

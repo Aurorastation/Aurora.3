@@ -1,12 +1,11 @@
 /obj/structure/bigDelivery
 	desc = "A big wrapped package."
 	name = "large parcel"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/misc.dmi'
 	icon_state = "deliverycloset"
 	var/obj/wrapped = null
 	density = 1
 	var/sortTag = null
-	flags = NOBLUDGEON
 	mouse_drag_pointer = MOUSE_ACTIVE_POINTER
 	var/examtext = null
 	var/nameset = 0
@@ -17,6 +16,10 @@
 /obj/structure/bigDelivery/attack_hand(mob/user as mob)
 	unwrap()
 
+/obj/structure/bigDelivery/attack_ai(mob/user)
+	if(isrobot(user) && Adjacent(user)) // Robots can open packages.
+		attack_hand(user)
+
 /obj/structure/bigDelivery/proc/unwrap()
 	playsound(loc, 'sound/items/package_unwrap.ogg', 50, 1)
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
@@ -26,9 +29,9 @@
 			O.welded = 0
 	qdel(src)
 
-/obj/structure/bigDelivery/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = W
+/obj/structure/bigDelivery/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/destTagger))
+		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
@@ -43,14 +46,14 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(W.ispen())
+	else if(attacking_item.ispen())
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
 					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
-				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
+				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -70,7 +73,7 @@
 					update_icon()
 				else
 					examtext = str
-				user.visible_message("\The [user] labels \the [src] with \a [W], scribbling down: \"[examtext]\"",\
+				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -79,7 +82,7 @@
 /obj/structure/bigDelivery/update_icon()
 	cut_overlays()
 	if(nameset || examtext)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_label")
 		if(icon_state == "deliverycloset")
 			I.pixel_x = 2
 			if(label_y == null)
@@ -92,7 +95,7 @@
 			I.pixel_y = -3
 		add_overlay(I)
 	if(src.sortTag)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_tag")
 		if(icon_state == "deliverycloset")
 			if(tag_x == null)
 				tag_x = rand(-2, 3)
@@ -105,18 +108,18 @@
 			I.pixel_y = -3
 		add_overlay(I)
 
-/obj/structure/bigDelivery/examine(mob/user)
-	if(..(user, 4))
+/obj/structure/bigDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 4)
 		if(sortTag)
-			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
+			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
 		if(examtext)
-			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
-	return
+			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
 
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
 	name = "small parcel"
-	icon = 'icons/obj/storage.dmi'
+	icon = 'icons/obj/storage/misc.dmi'
 	icon_state = "deliverycrate3"
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
@@ -129,17 +132,29 @@
 /obj/item/smallDelivery/attack_self(mob/user as mob)
 	if (src.wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
 		wrapped.forceMove(user.loc)
+		to_chat(user, SPAN_NOTICE("You tear open the parcel, revealing \a [wrapped]!"))
 		if(ishuman(user))
 			user.put_in_hands(wrapped)
+		else if(isrobot(user))
+			var/obj/item/gripper/G = user.get_active_hand()
+			if(istype(G))
+				G.drop(src, user, FALSE)
+				if(is_type_in_list(wrapped, G.can_hold))
+					G.grip_item(wrapped, user, FALSE)
+				else
+					to_chat(user, SPAN_WARNING("\The [wrapped] tumbles from \the [G] as you unwrap it!"))
+					wrapped.forceMove(get_turf(src))
+			else
+				wrapped.forceMove(get_turf(src))
 		else
 			wrapped.forceMove(get_turf(src))
 
 	qdel(src)
 	return
 
-/obj/item/smallDelivery/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/destTagger))
-		var/obj/item/device/destTagger/O = W
+/obj/item/smallDelivery/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/destTagger))
+		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
 				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
@@ -154,14 +169,14 @@
 		else
 			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
 
-	else if(W.ispen())
-		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
+	else if(attacking_item.ispen())
+		switch(tgui_input_list(user, "What would you like to alter?", null, list("Title", "Description"), "Cancel"))
 			if("Title")
-				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
+				var/str = sanitizeSafe( tgui_input_text(usr, "Label text?", "Set label", "", MAX_NAME_LEN), MAX_NAME_LEN )
 				if(!str || !length(str))
 					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
-				user.visible_message("\The [user] titles \the [src] with \a [W], marking down: \"[str]\"",\
+				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -173,7 +188,7 @@
 					nameset = 1
 
 			if("Description")
-				var/str = sanitize(input(usr,"Label text?","Set label",""))
+				var/str = sanitize(tgui_input_text(usr, "Label text?", "Set label", ""))
 				if(!str || !length(str))
 					to_chat(usr, "<span class='warning'>Invalid text.</span>")
 					return
@@ -182,7 +197,7 @@
 					update_icon()
 				else
 					examtext = str
-				user.visible_message("\The [user] labels \the [src] with \a [W], scribbling down: \"[examtext]\"",\
+				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
 				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
@@ -191,12 +206,12 @@
 /obj/item/smallDelivery/update_icon()
 	cut_overlays()
 	if((nameset || examtext) && icon_state != "deliverycrate1")
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_label")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_label")
 		if(icon_state == "deliverycrate5")
 			I.pixel_y = -1
 		add_overlay(I)
 	if(src.sortTag)
-		var/image/I = new/image('icons/obj/storage.dmi',"delivery_tag")
+		var/image/I = new/image('icons/obj/storage/misc.dmi',"delivery_tag")
 		switch(icon_state)
 			if("deliverycrate1")
 				I.pixel_y = -5
@@ -213,13 +228,13 @@
 				I.pixel_y = -3
 		add_overlay(I)
 
-/obj/item/smallDelivery/examine(mob/user)
-	if(..(user, 4))
+/obj/item/smallDelivery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 4)
 		if(sortTag)
-			to_chat(user, "<span class='notice'>It is labeled \"[sortTag]\"</span>")
+			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
 		if(examtext)
-			to_chat(user, "<span class='notice'>It has a note attached which reads, \"[examtext]\"</span>")
-	return
+			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0
@@ -238,9 +253,9 @@
 	icon_state = "dest_tagger"
 	var/currTag = 0
 	matter = list(DEFAULT_WALL_MATERIAL = 250, MATERIAL_GLASS = 140)
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 
 /obj/item/device/destTagger/proc/openwindow(mob/user as mob)
@@ -336,31 +351,30 @@
 	update()
 	return
 
-/obj/machinery/disposal/deliveryChute/attackby(var/obj/item/I, var/mob/user)
-	if(!I || !user)
+/obj/machinery/disposal/deliveryChute/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item || !user)
 		return
 
-	if(istype(I, /obj/item/holder))
-		user.drop_item(I)
-		CollidedWith(I)
+	if(istype(attacking_item, /obj/item/holder))
+		user.drop_item(attacking_item)
+		CollidedWith(attacking_item)
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(c_mode==0)
 			c_mode=1
-			playsound(src.loc, I.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You remove the screws around the power connection.")
 			return
 		else if(c_mode==1)
 			c_mode=0
-			playsound(src.loc, I.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "You attach the screws around the power connection.")
 			return
-	else if(I.iswelder() && c_mode==1)
-		var/obj/item/weldingtool/W = I
-		if(W.remove_fuel(1,user))
+	else if(attacking_item.iswelder() && c_mode==1)
+		var/obj/item/weldingtool/W = attacking_item
+		if(W.use(1,user))
 			to_chat(user, "You start slicing the floorweld off the delivery chute.")
-			if(do_after(user,20/W.toolspeed))
-				playsound(src.loc, 'sound/items/Welder2.ogg', 100, 1)
+			if(W.use_tool(src, user, 20, volume = 50))
 				if(!src || !W.isOn()) return
 				to_chat(user, "You sliced the floorweld off the delivery chute.")
 				var/obj/structure/disposalconstruct/C = new (src.loc)

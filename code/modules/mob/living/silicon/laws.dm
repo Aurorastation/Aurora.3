@@ -1,5 +1,3 @@
-#define DEFAULT_LAW_CHANNEL "Main Frequency"
-
 /mob/living/silicon/proc/laws_sanity_check()
 	if(!src.laws)
 		laws = new base_law_type
@@ -106,4 +104,4 @@
 
 /mob/living/silicon/proc/log_law(var/law_message)
 	log_and_message_admins(law_message)
-	lawchanges += "[worldtime2text()] - [usr ? "[key_name(usr)]" : "EVENT"] [law_message]"
+	GLOB.lawchanges += "[worldtime2text()] - [usr ? "[key_name(usr)]" : "EVENT"] [law_message]"

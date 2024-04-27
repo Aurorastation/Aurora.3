@@ -4,8 +4,10 @@
 	lastKnownIP	= client.address
 	computer_id	= client.computer_id
 	log_access("Login: [key_name(src)] from [lastKnownIP ? lastKnownIP : "localhost"]-[computer_id] || BYOND v[client.byond_version]",ckey=key_name(src))
-	if(config.log_access)
-		for(var/mob/M in player_list)
+	if(GLOB.config.guests_allowed) // shut up if guests allowed for testing
+		return
+	if(GLOB.config.logsettings["log_access"])
+		for(var/mob/M in GLOB.player_list)
 			if(M == src)	continue
 			if( M.key && (M.key != key) )
 				var/matches
@@ -17,11 +19,14 @@
 					spawn() alert("You have logged in already with another key this round, please log out of this one NOW or risk being banned!")
 				if(matches)
 					if(M.client)
-						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.</font>", 1)
+						message_admins("<span class='warning'><B>Notice: </B></span><span class='notice'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as <A href='?src=\ref[usr];priv_msg=\ref[M]'>[key_name_admin(M)]</A>.</span>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)].",ckey=key_name(src))
 					else
-						message_admins("<font color='red'><B>Notice: </B></font><font color='blue'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </font>", 1)
+						message_admins("<span class='warning'><B>Notice: </B></span><span class='notice'><A href='?src=\ref[usr];priv_msg=\ref[src]'>[key_name_admin(src)]</A> has the same [matches] as [key_name_admin(M)] (no longer logged in). </span>", 1)
 						log_access("Notice: [key_name(src)] has the same [matches] as [key_name(M)] (no longer logged in).",ckey=key_name(src))
+
+/mob
+	var/client/my_client // Need to keep track of this ourselves, since by the time Logout() is called the client has already been nulled
 
 /**
  * Currently marked as SHOULD_NOT_OVERRIDE.
@@ -52,11 +57,13 @@
  * ckey.
  */
 /mob/proc/LateLogin()
+	SHOULD_NOT_SLEEP(TRUE)
 	SHOULD_CALL_PARENT(TRUE)
+	SEND_SIGNAL(src, COMSIG_MOB_LOGIN)
 
-	player_list |= src
+	GLOB.player_list |= src
 	update_Login_details()
-	SSfeedback.update_status()
+	SSstatistics.update_status()
 
 	client.images.Cut()				//remove the images such as AIs being unable to see runes
 	client.screen.Cut()				//remove hud items just in case
@@ -66,8 +73,10 @@
 
 	disconnect_time = null
 	next_move = 1
-	sight |= SEE_SELF
+	set_sight(sight|SEE_SELF)
 	disconnect_time = null
+
+	my_client = client
 
 	player_age = client.player_age
 
@@ -82,10 +91,29 @@
 		eyeobj.possess(src)
 
 	//set macro to normal incase it was overriden (like cyborg currently does)
-	winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true input.background-color=#D3B5B5")
+	if(client.prefs.toggles_secondary & HOTKEY_DEFAULT)
+		winset(src, null, "mainwindow.macro=hotkeymode hotkey_toggle.is-checked=true mapwindow.map.focus=true")
+	else
+		winset(src, null, "mainwindow.macro=macro hotkey_toggle.is-checked=false input.focus=true")
 	MOB_STOP_THINKING(src)
 
+	clear_important_client_contents(client)
+	enable_client_mobs_in_contents(client)
+
+	CreateRenderers()
 	update_client_color()
+	add_click_catcher()
+
+	if(machine)
+		machine.on_user_login(src)
 
 	// Check code/modules/admin/verbs/antag-ooc.dm for definition
 	client.add_aooc_if_necessary()
+
+	if(client && !istype(src, /mob/abstract/new_player)) //Do not update the skybox if it's a new player mob, they don't see it anyways and it can runtime
+		client.update_skybox(TRUE)
+
+	if(spell_masters)
+		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+			spell_master.toggle_open(1)
+			client.screen -= spell_master

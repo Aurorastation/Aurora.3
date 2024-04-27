@@ -15,7 +15,7 @@
 		if (I_GRAB)
 			if (M == src)
 				return
-			var/obj/item/grab/G = new /obj/item/grab( M, src )
+			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
 
 			M.put_in_active_hand(G)
 
@@ -33,14 +33,14 @@
 		else
 			var/damage = rand(1, 9)
 			if (prob(90))
-				if (HULK in M.mutations)
+				if ((M.mutations & HULK))
 					damage += 5
 					spawn(0)
 						Paralyse(1)
 						step_away(src,M,15)
 						sleep(3)
 						step_away(src,M,15)
-				playsound(loc, "punch", 25, 1, -1)
+				playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
 				for(var/mob/O in viewers(src, null))
 					if ((O.client && !( O.blinded )))
 						O.show_message(text("<span class='danger'>[] has punched []!</span>", M, src), 1)
@@ -52,7 +52,7 @@
 				adjustBruteLoss(damage)
 				updatehealth()
 			else
-				playsound(loc, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
 				for(var/mob/O in viewers(src, null))
 					if ((O.client && !( O.blinded )))
 						O.show_message(text("<span class='danger'>[] has attempted to punch []!</span>", M, src), 1)

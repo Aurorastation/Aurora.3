@@ -1,19 +1,20 @@
 /obj
+	layer = OBJ_LAYER
 	animate_movement = 2
 
-	
 	var/list/matter //Used to store information about the contents of the object.
+	var/recyclable = FALSE //Whether the object can be recycled (eaten) by something like the Autolathe
 	var/w_class // Size of the object.
 	var/list/origin_tech = null	//Used by R&D to determine what research bonuses it grants.
 	var/unacidable = 0 //universal "unacidabliness" var, here so you can use it in any obj.
-	
+
 	var/obj_flags //Special flags such as whether or not this object can be rotated.
 	var/throwforce = 1
 	var/list/attack_verb //Used in attackby() to say how something was attacked "[x] has been [z.attack_verb] by [y] with [z]"
 	var/sharp = 0		// whether this object cuts
-	var/edge = 0		// whether this object is more likely to dismember
+	var/edge = FALSE	// whether this object is more likely to dismember
 	var/in_use = 0 // If we have a user using us, this will be set on. We will check if the user has stopped using us, and thus stop updating and LAGGING EVERYTHING!
-	var/damtype = BRUTE
+	var/damtype = DAMAGE_BRUTE
 	var/force = 0
 	var/armor_penetration = 0
 	var/noslice = 0 // To make it not able to slice things.
@@ -23,18 +24,31 @@
 	var/icon_species_tag = ""//If set, this holds the 3-letter shortname of a species, used for species-specific worn icons
 	var/icon_auto_adapt = 0//If 1, this item will automatically change its species tag to match the wearer's species.
 	//requires that the wearer's species is listed in icon_supported_species_tags
-	var/list/icon_supported_species_tags //Used with icon_auto_adapt, a list of species which have differing appearances for this item
-	var/icon_species_in_hand = 0//If 1, we will use the species tag even for rendering this item in the left/right hand.
+
+	/**
+	 * A list of strings used with icon_auto_adapt, a list of species which have differing appearances for this item,
+	 * based on the specie short name
+	 */
+	var/list/icon_supported_species_tags
+
+	///If `TRUE`, will use the `icon_species_tag` var for rendering this item in the left/right hand
+	var/icon_species_in_hand = FALSE
 
 	var/equip_slot = 0
+	///Played when the item is used, for example tools
 	var/usesound
+
 	var/toolspeed = 1
+
+	var/surgerysound
 
 /obj/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+	unbuckle()
+	QDEL_NULL(talking_atom)
 	return ..()
 
-/obj/Topic(href, href_list, var/datum/topic_state/state = default_state)
+/obj/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
@@ -47,10 +61,10 @@
 	CouldNotUseTopic(usr)
 	return 1
 
-/obj/CanUseTopic(var/mob/user, var/datum/topic_state/state)
+/obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>\icon[src]Access Denied!</span>")
+	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)
@@ -78,6 +92,12 @@
 /obj/proc/CouldNotUseTopic(var/mob/user)
 	// Nada
 
+/obj/proc/ai_can_interact(var/mob/user)
+	if(!Adjacent(user) && within_jamming_range(src, FALSE)) // if not adjacent to it, it uses wireless signal
+		to_chat(user, SPAN_WARNING("Something in the area of \the [src] is blocking the remote signal!"))
+		return FALSE
+	return TRUE
+
 /obj/item/proc/is_used_on(obj/O, mob/user)
 
 /obj/assume_air(datum/gas_mixture/giver)
@@ -95,8 +115,6 @@
 /obj/return_air()
 	if(loc)
 		return loc.return_air()
-	else
-		return null
 
 /obj/proc/updateUsrDialog()
 	if(in_use)
@@ -150,7 +168,7 @@
 		src.attack_self(M)
 
 /obj/proc/hide(var/hide)
-	invisibility = hide ? INVISIBILITY_MAXIMUM : initial(invisibility)
+	set_invisibility(hide ? INVISIBILITY_MAXIMUM : initial(invisibility))
 	level = hide ? 1 : initial(level)
 
 /obj/proc/hides_under_flooring()
@@ -159,33 +177,26 @@
 /obj/proc/hear_talk(mob/M as mob, text, verb, datum/language/speaking)
 	if(talking_atom)
 		talking_atom.catchMessage(text, M)
-/*
-	var/mob/mo = locate(/mob) in src
-	if(mo)
-		var/rendered = "<span class='game say'><span class='name'>[M.name]: </span> <span class='message'>[text]</span></span>"
-		mo.show_message(rendered, 2)
-		*/
-	return
 
 /obj/proc/see_emote(mob/M as mob, text, var/emote_type)
 	return
 
 /obj/proc/tesla_act(var/power, var/melt = FALSE)
 	if(melt)
-		visible_message(span("danger", "\The [src] melts down until ashes are left!"))
+		visible_message(SPAN_DANGER("\The [src] melts down until ashes are left!"))
 		new /obj/effect/decal/cleanable/ash(loc)
 		qdel(src)
 		return
 	being_shocked = 1
 	var/power_bounced = power / 2
 	tesla_zap(src, 3, power_bounced)
-	addtimer(CALLBACK(src, .proc/reset_shocked), 10)
+	addtimer(CALLBACK(src, PROC_REF(reset_shocked)), 10)
 
 /obj/proc/reset_shocked()
 	being_shocked = 0
 
 
-/obj/proc/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
+/obj/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 	return
 
 //To be called from things that spill objects on the floor.
@@ -199,15 +210,23 @@
 					step(src, pick(NORTH,SOUTH,EAST,WEST))
 					sleep(rand(2,4))
 
-
-/obj/proc/auto_adapt_species(var/mob/living/carbon/human/wearer)
+/**
+ * Sets the `icon_species_tag` on the `/obj` based on the wearer specie, which is
+ * then used by the icon generator to select the correct overlay of the object
+ *
+ * * wearer - A `/mob/living/carbon/human` to adapt the object to the specie of
+ *
+ * Returns `TRUE` on successful adaptation, `FALSE` otherwise
+ */
+/obj/proc/auto_adapt_species(mob/living/carbon/human/wearer)
+	SHOULD_NOT_SLEEP(TRUE)
 	if(icon_auto_adapt)
 		icon_species_tag = ""
-		if (loc == wearer && icon_supported_species_tags.len)
-			if (wearer.species.short_name in icon_supported_species_tags)
+		if(wearer && length(icon_supported_species_tags))
+			if(wearer.species.short_name in icon_supported_species_tags)
 				icon_species_tag = wearer.species.short_name
-				return 1
-	return 0
+				return TRUE
+	return FALSE
 
 
 //This function should be called on an item when it is:
@@ -219,22 +238,17 @@
 /obj/proc/Created()
 	return
 
-/obj/proc/animate_shake()
-	var/init_px = pixel_x
-	var/shake_dir = pick(-1, 1)
-	animate(src, transform = turn(matrix(), 8*shake_dir), pixel_x = init_px + 2*shake_dir, time = 1)
-	animate(transform = null, pixel_x = init_px, time = 6, easing = ELASTIC_EASING)
-
 /obj/proc/rotate(var/mob/user, var/anchored_ignore = FALSE)
 	if(use_check_and_message(user))
 		return
-	
+
 	if(anchored && !anchored_ignore)
 		to_chat(user, SPAN_WARNING("\The [src] is bolted down to the floor!"))
 		return
-	
+
 	set_dir(turn(dir, 90))
 	update_icon()
+	return TRUE
 
 /obj/AltClick(var/mob/user)
 	if(obj_flags & OBJ_FLAG_ROTATABLE)
@@ -245,11 +259,34 @@
 		return
 	..()
 
-/obj/examine(mob/user)
+/obj/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((obj_flags & OBJ_FLAG_ROTATABLE) || (obj_flags & OBJ_FLAG_ROTATABLE_ANCHORED))
-		to_chat(user, SPAN_SUBTLE("Can be rotated with alt-click."))
+		. +=  SPAN_SUBTLE("Can be rotated with alt-click.")
+	if(contaminated)
+		. += SPAN_ALIEN("\The [src] has been contaminated!")
 
-// have the object do something when it crosses a stair turf
+// whether mobs can unequip and drop items into us or not
+/obj/proc/can_hold_dropped_items()
+	return TRUE
+
+/obj/proc/damage_flags()
+	. = 0
+	if(has_edge(src))
+		. |= DAMAGE_FLAG_EDGE
+	if(is_sharp(src))
+		. |= DAMAGE_FLAG_SHARP
+		if(damtype == DAMAGE_BURN)
+			. |= DAMAGE_FLAG_LASER
+
+/obj/proc/set_pixel_offsets()
+	return
+
+//wash an object
+/obj/proc/clean()
+	clean_blood()
+	color = initial(color)
+
+/// This fires when the object /crosses() a stair object
 /obj/proc/stair_act()
 	return

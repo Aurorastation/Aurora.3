@@ -12,7 +12,7 @@
 
 	if(!bypass_checks)
 
-		if(wear_mask && wear_mask.item_flags & BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
+		if(wear_mask && wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT) //Check if the gasmask blocks an effect
 			return 0
 
 		if (internals && internals.icon_state == "internal1") //Check for internals
@@ -21,15 +21,18 @@
 	return from.trans_to_holder(target,amount,multiplier,copy) //complete transfer
 
 /mob/living/carbon/proc/breathe(var/volume_needed = BREATH_VOLUME)
-	if(species && (species.flags & NO_BREATHE)) return
-	
+	if(species && (species.flags & NO_BREATHE))
+		return
+	if(HAS_TRAIT(src, TRAIT_PRESSURE_IMMUNITY))
+		return
+
 	volume_needed *= (species?.breath_vol_mul || 1)
 
 	var/datum/gas_mixture/breath = null
 
 	//First, check if we can breathe at all
 	if(is_asystole() && !(CE_STABLE in chem_effects)) //crit aka circulatory shock
-		losebreath++
+		losebreath = max(2, losebreath + 1)
 
 	if(losebreath>0) //Suffocating so do not take a breath
 		losebreath--
@@ -48,7 +51,7 @@
 	if(internal)
 		if (!contents.Find(internal))
 			internal = null
-		if (!(wear_mask && (wear_mask.item_flags & AIRTIGHT)))
+		if (!(wear_mask && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT)))
 			internal = null
 		if(internal)
 			if (internals)
@@ -83,7 +86,7 @@
 /mob/living/carbon/proc/handle_chemical_smoke(var/datum/gas_mixture/environment)
 	if(species && environment.return_pressure() < species.breath_pressure/5)
 		return //pressure is too low to even breathe in.
-	if(wear_mask && (wear_mask.flags & BLOCK_GAS_SMOKE_EFFECT))
+	if(wear_mask && (wear_mask.item_flags & ITEM_FLAG_BLOCK_GAS_SMOKE_EFFECT))
 		return
 
 	for(var/obj/effect/effect/smoke/chem/smoke in view(1, src))

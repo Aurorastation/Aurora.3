@@ -18,10 +18,11 @@
 	stuff_to_display = null
 
 /obj/item/integrated_circuit/output/screen/any_examine(mob/user)
+	. = ..()
 	if (displayed_name)
-		to_chat(user, "There is a little screen labeled '[displayed_name]', which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"].")
+		. += "There is a little screen labeled '[displayed_name]', which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"]."
 	else
-		to_chat(user, "There is an unlabelled little screen, which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"].")
+		. += "There is an unlabelled little screen, which displays [!isnull(stuff_to_display) ? "'[stuff_to_display]'" : "nothing"]."
 
 /obj/item/integrated_circuit/output/screen/do_work()
 	var/datum/integrated_io/I = inputs[1]
@@ -43,7 +44,7 @@
 	var/list/nearby_things = range(0, get_turf(src))
 	for(var/mob/M in nearby_things)
 		var/obj/O = assembly ? assembly : src
-		to_chat(M, "<span class='notice'>\icon[O] [stuff_to_display]</span>")
+		to_chat(M, "<span class='notice'>[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]</span>")
 
 /obj/item/integrated_circuit/output/screen/large
 	name = "large screen"
@@ -54,7 +55,7 @@
 /obj/item/integrated_circuit/output/screen/large/do_work()
 	..()
 	var/obj/O = assembly ? loc : assembly
-	O.visible_message("<span class='notice'>\icon[O] [stuff_to_display]</span>")
+	O.visible_message("<span class='notice'>[icon2html(O, viewers(get_turf(src)))] [stuff_to_display]</span>")
 
 /obj/item/integrated_circuit/output/light
 	name = "light"
@@ -153,7 +154,7 @@
 	text = get_pin_data(IC_INPUT, 1)
 	if(!isnull(text))
 		var/obj/O = assembly ? loc : assembly
-		audible_message("\icon[O] \The [O.name] states, \"[text]\"")
+		audible_message("[icon2html(O, viewers(get_turf(O)))] \The [O.name] states, \"[text]\"")
 
 /obj/item/integrated_circuit/output/sound/Initialize()
 	. = ..()
@@ -209,7 +210,7 @@
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2)
 
 /obj/item/integrated_circuit/output/sound/medbot
-	name = "medbot sound circuit"
+	name = "medibot sound circuit"
 	desc = "A miniature speaker is attached to this component, used to annoy patients while they get pricked by a medbot."
 	sounds = list(
 		"surgeon"     = 'sound/voice/medbot/msurgeon.ogg',
@@ -251,7 +252,7 @@
 
 /obj/item/integrated_circuit/output/video_camera/Initialize()
 	. = ..()
-	camera = new(src)
+	camera = new(src, 0, TRUE, TRUE)
 	on_data_written()
 
 /obj/item/integrated_circuit/output/video_camera/Destroy()
@@ -302,6 +303,7 @@
 	push_data()
 
 /obj/item/integrated_circuit/output/led/any_examine(mob/user)
+	. = ..()
 	var/text_output = list()
 	var/initial_name = initial(name)
 
@@ -312,7 +314,7 @@
 	else
 		text_output += "\an ["\improper[initial_name]"] labeled '[name]'"
 	text_output += " which is currently [get_pin_data(IC_INPUT, 1) ? "lit <font color=[led_color]>[color_name]</font>" : "unlit."]"
-	to_chat(user,jointext(text_output,null))
+	. += jointext(text_output,null)
 
 /obj/item/integrated_circuit/output/led/red
 	name = "red LED"

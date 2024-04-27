@@ -1,7 +1,7 @@
 /mob/living/silicon/robot/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		return
 	health = maxHealth - (getBruteLoss() + getFireLoss())
 	return
@@ -54,10 +54,10 @@
 		if(C.installed == 1) rval += C
 	return rval
 
-/mob/living/silicon/robot/proc/get_armour()
+/mob/living/silicon/robot/proc/get_armor()
 	if(!length(components))
 		return FALSE
-	var/datum/robot_component/C = components["armour"]
+	var/datum/robot_component/C = components["armor"]
 	if(C?.installed == TRUE)
 		return C
 	return FALSE
@@ -74,7 +74,7 @@
 	if(!length(components))
 		return
 
-	 //Combat shielding absorbs a percentage of damage directly into the cell.
+	//Combat shielding absorbs a percentage of damage directly into the cell.
 	if(module_active && istype(module_active, /obj/item/borg/combat/shield))
 		var/obj/item/borg/combat/shield/shield = module_active
 		//Shields absorb a certain percentage of damage based on their power setting.
@@ -92,7 +92,7 @@
 			to_chat(src, SPAN_WARNING("Your shield absorbs some of the impact!"))
 
 	if(!emp)
-		var/datum/robot_component/armor/A = get_armour()
+		var/datum/robot_component/armor/A = get_armor()
 		if(A)
 			A.take_damage(brute, burn, damage_flags)
 			return
@@ -121,7 +121,7 @@
 		return
 
 	var/list/datum/robot_component/parts = get_damageable_components()
-	 //Combat shielding absorbs a percentage of damage directly into the cell.
+	//Combat shielding absorbs a percentage of damage directly into the cell.
 	if(module_active && istype(module_active,/obj/item/borg/combat/shield))
 		var/obj/item/borg/combat/shield/shield = module_active
 		//Shields absorb a certain percentage of damage based on their power setting.
@@ -138,7 +138,7 @@
 			burn -= absorb_burn
 			to_chat(src, SPAN_WARNING("Your shield absorbs some of the impact!"))
 
-	var/datum/robot_component/armor/A = get_armour()
+	var/datum/robot_component/armor/A = get_armor()
 	if(A)
 		A.take_damage(brute, burn, damage_flags)
 		return
@@ -157,6 +157,8 @@
 		parts -= picked
 
 /mob/living/silicon/robot/emp_act(severity)
+	. = ..()
+
 	var/datum/robot_component/surge/C = components["surge"]
 	if(C?.installed)
 		if(C.surge_left >= 1)
@@ -175,4 +177,6 @@
 			return
 		else
 			to_chat(src, SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement!"))
-	..()
+
+/mob/living/silicon/robot/get_flash_protection(ignore_inherent)
+	return (flash_resistant || overclocked) ? FLASH_PROTECTION_MODERATE : FLASH_PROTECTION_NONE

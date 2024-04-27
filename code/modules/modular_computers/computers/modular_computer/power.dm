@@ -3,8 +3,9 @@
 		visible_message(SPAN_WARNING("\The [src]'s screen flickers briefly and then goes dark."))
 		if(active_program)
 			active_program.event_powerfailure(FALSE)
-		for(var/datum/computer_file/program/PRG in idle_threads)
-			PRG.event_powerfailure(TRUE)
+		for(var/datum/computer_file/program/PRG in hard_drive.stored_files)
+			if(PRG != active_program)
+				PRG.event_powerfailure(TRUE)
 		shutdown_computer(FALSE)
 	power_has_failed = TRUE
 	update_icon()
@@ -34,7 +35,7 @@
 		power_usage += tesla_link.passive_charging_rate
 		battery_module.battery.give(tesla_link.passive_charging_rate * CELLRATE)
 
-	A.use_power(power_usage, EQUIP)
+	A.use_power_oneoff(power_usage, EQUIP)
 	return TRUE
 
 

@@ -11,17 +11,14 @@
 	h_l_hand = /obj/item/mecha_equipment/drill
 	h_r_hand = /obj/item/mecha_equipment/clamp
 
-/mob/living/heavy_vehicle/premade/miner/Initialize()
-	. = ..()
-	body.armor = new /obj/item/robot_parts/robot_component/armor(src)
-
 /mob/living/heavy_vehicle/premade/miner/remote
 	name = "remote mining mecha"
 	dummy_colour = "#ffc44f"
-	remote_network = "remotemechs"
+	remote_network = REMOTE_GENERIC_MECH
 	does_hardpoint_lock = FALSE
 
 /mob/living/heavy_vehicle/premade/miner/remote_prison
 	name = "penal mining mecha"
 	dummy_colour = "#302e2b"
-	remote_network = "prisonmechs"
+	remote_network = REMOTE_PRISON_MECH
+	remote_type = /obj/item/remote_mecha/penal

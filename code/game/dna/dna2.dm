@@ -79,7 +79,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	var/real_name          // Stores the real name of the person who originally got this dna datum. Used primarily for changelings,
 
 	// New stuff
-	var/species = "Human"
+	var/species = SPECIES_HUMAN
 	var/list/body_markings = list()
 
 // Make a copy of this strand.
@@ -120,35 +120,35 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	// FIXME:  Species-specific defaults pls
 	if(!character.h_style)
 		character.h_style = "Skinhead"
-	var/hair = hair_styles_list.Find(character.h_style)
+	var/hair = GLOB.hair_styles_list.Find(character.h_style)
 
 	// Facial Hair
 	if(!character.f_style)
 		character.f_style = "Shaved"
-	var/beard	= facial_hair_styles_list.Find(character.f_style)
+	var/beard	= GLOB.facial_hair_styles_list.Find(character.f_style)
 
-	SetUIValueRange(DNA_UI_HAIR_R,    character.r_hair,    255,    1)
-	SetUIValueRange(DNA_UI_HAIR_G,    character.g_hair,    255,    1)
-	SetUIValueRange(DNA_UI_HAIR_B,    character.b_hair,    255,    1)
+	SetUIValueRange(DNA_UI_HAIR_R, character.r_hair, 255, 1)
+	SetUIValueRange(DNA_UI_HAIR_G, character.g_hair, 255, 1)
+	SetUIValueRange(DNA_UI_HAIR_B, character.b_hair, 255, 1)
 
-	SetUIValueRange(DNA_UI_BEARD_R,   character.r_facial,  255,    1)
-	SetUIValueRange(DNA_UI_BEARD_G,   character.g_facial,  255,    1)
-	SetUIValueRange(DNA_UI_BEARD_B,   character.b_facial,  255,    1)
+	SetUIValueRange(DNA_UI_BEARD_R, character.r_facial, 255, 1)
+	SetUIValueRange(DNA_UI_BEARD_G, character.g_facial, 255, 1)
+	SetUIValueRange(DNA_UI_BEARD_B, character.b_facial, 255, 1)
 
-	SetUIValueRange(DNA_UI_EYES_R,    character.r_eyes,    255,    1)
-	SetUIValueRange(DNA_UI_EYES_G,    character.g_eyes,    255,    1)
-	SetUIValueRange(DNA_UI_EYES_B,    character.b_eyes,    255,    1)
+	SetUIValueRange(DNA_UI_EYES_R, character.r_eyes, 255, 1)
+	SetUIValueRange(DNA_UI_EYES_G, character.g_eyes, 255, 1)
+	SetUIValueRange(DNA_UI_EYES_B, character.b_eyes, 255, 1)
 
-	SetUIValueRange(DNA_UI_SKIN_R,    character.r_skin,    255,    1)
-	SetUIValueRange(DNA_UI_SKIN_G,    character.g_skin,    255,    1)
-	SetUIValueRange(DNA_UI_SKIN_B,    character.b_skin,    255,    1)
+	SetUIValueRange(DNA_UI_SKIN_R, character.r_skin, 255, 1)
+	SetUIValueRange(DNA_UI_SKIN_G, character.g_skin, 255, 1)
+	SetUIValueRange(DNA_UI_SKIN_B, character.b_skin, 255, 1)
 
-	SetUIValueRange(DNA_UI_SKIN_TONE, 35-character.s_tone, 220,    1) // Value can be negative.
+	SetUIValueRange(DNA_UI_SKIN_TONE, character.s_tone, 220, 1)
 
-	SetUIState(DNA_UI_GENDER,         character.gender!=MALE,        1)
+	SetUIState(DNA_UI_GENDER, character.gender != MALE, 1)
 
-	SetUIValueRange(DNA_UI_HAIR_STYLE,  hair,  hair_styles_list.len,       1)
-	SetUIValueRange(DNA_UI_BEARD_STYLE, beard, facial_hair_styles_list.len,1)
+	SetUIValueRange(DNA_UI_HAIR_STYLE, hair, GLOB.hair_styles_list.len, 1)
+	SetUIValueRange(DNA_UI_BEARD_STYLE, beard, GLOB.facial_hair_styles_list.len,1)
 
 	body_markings.Cut()
 	for(var/obj/item/organ/external/E in character.organs)
@@ -160,7 +160,6 @@ var/global/list/datum/dna/gene/dna_genes[0]
 // Set a DNA UI block's raw value.
 /datum/dna/proc/SetUIValue(var/block,var/value,var/defer=0)
 	if (block<=0) return
-	ASSERT(value>0)
 	ASSERT(value<=4095)
 	UI[block]=value
 	dirtyUI=1
@@ -207,7 +206,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // Get a hex-encoded UI block.
 /datum/dna/proc/GetUIBlock(var/block)
-	return EncodeDNABlock(GetUIValue(block))
+	return num2hex(GetUIValue(block), 3)
 
 // Do not use this unless you absolutely have to.
 // Set a block from a hex string.  This is inefficient.  If you can, use SetUIValue().
@@ -294,7 +293,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 
 // Get hex-encoded SE block.
 /datum/dna/proc/GetSEBlock(var/block)
-	return EncodeDNABlock(GetSEValue(block))
+	return num2hex(GetSEValue(block), 3)
 
 // Do not use this unless you absolutely have to.
 // Set a block from a hex string.  This is inefficient.  If you can, use SetUIValue().
@@ -323,14 +322,10 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	//testing("SetSESubBlock([block],[subBlock],[newSubBlock],[defer]): [oldBlock] -> [newBlock]")
 	SetSEBlock(block,newBlock,defer)
 
-
-/proc/EncodeDNABlock(var/value)
-	return add_zero2(num2hex(value,1), 3)
-
 /datum/dna/proc/UpdateUI()
 	src.uni_identity=""
 	for(var/block in UI)
-		uni_identity += EncodeDNABlock(block)
+		uni_identity += num2hex(block, 3)
 	//testing("New UI: [uni_identity]")
 	dirtyUI=0
 
@@ -338,7 +333,7 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	//var/oldse=struc_enzymes
 	struc_enzymes=""
 	for(var/block in SE)
-		struc_enzymes += EncodeDNABlock(block)
+		struc_enzymes += num2hex(block, 3)
 	//testing("Old SE: [oldse]")
 	//testing("New SE: [struc_enzymes]")
 	dirtySE=0
@@ -369,4 +364,4 @@ var/global/list/datum/dna/gene/dna_genes[0]
 	ResetSE()
 
 	unique_enzymes = md5(character.real_name)
-	reg_dna[unique_enzymes] = character.real_name
+	GLOB.reg_dna[unique_enzymes] = character.real_name

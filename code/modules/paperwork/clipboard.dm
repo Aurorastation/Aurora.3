@@ -1,10 +1,12 @@
 /obj/item/clipboard
 	name = "clipboard"
+	desc = "When other writing surfaces are unavailable."
+	desc_info = "You can store a pen in this."
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "clipboard"
 	item_state = "clipboard"
 	throwforce = 0
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 10
 	var/obj/item/pen/haspen		//The stored pen.
@@ -25,12 +27,12 @@
 
 		if(!M.restrained() && !M.stat)
 			switch(over_object.name)
-				if(BP_R_HAND)
+				if("right hand")
 					M.u_equip(src)
-					M.put_in_r_hand(src)
-				if(BP_L_HAND)
+					M.equip_to_slot_if_possible(src, slot_r_hand)
+				if("left hand")
 					M.u_equip(src)
-					M.put_in_l_hand(src)
+					M.equip_to_slot_if_possible(src, slot_l_hand)
 
 			add_fingerprint(usr)
 			return
@@ -48,19 +50,19 @@
 	to_add += "clipboard_over"
 	add_overlay(to_add)
 
-/obj/item/clipboard/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clipboard/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(W, /obj/item/paper) || istype(W, /obj/item/photo))
-		user.drop_from_inventory(W,src)
-		if(istype(W, /obj/item/paper))
-			toppaper = W
+	if(istype(attacking_item, /obj/item/paper) || istype(attacking_item, /obj/item/photo))
+		user.drop_from_inventory(attacking_item, src)
+		if(istype(attacking_item, /obj/item/paper))
+			toppaper = attacking_item
 		r_contents = reverselist(contents)
-		to_chat(user, "<span class='notice'>You clip the [W] onto \the [src].</span>")
+		to_chat(user, "<span class='notice'>You clip the [attacking_item] onto \the [src].</span>")
 
-	else if(istype(toppaper) && W.ispen())
-		toppaper.attackby(W, user)
+	else if(istype(toppaper) && attacking_item.ispen())
+		toppaper.attackby(attacking_item, user)
 
-	else if(W.ispen())
+	else if(attacking_item.ispen())
 		add_pen(user)
 
 	if(ui_open)
@@ -106,7 +108,7 @@
 			haspen = W
 			to_chat(user, "<span class='notice'>You slot the pen into \the [src].</span>")
 	else
-		to_chat(user, span("notice", "This clipboard already has a pen!"))
+		to_chat(user, SPAN_NOTICE("This clipboard already has a pen!"))
 
 /obj/item/clipboard/Topic(href, href_list)
 	..()
@@ -166,15 +168,8 @@
 
 		else if(href_list["read"])
 			var/obj/item/paper/P = locate(href_list["read"])
-
-			if(P && (P.loc == src) && istype(P, /obj/item/paper) )
-
-				if(!(istype(usr, /mob/living/carbon/human) || istype(usr, /mob/abstract/observer) || istype(usr, /mob/living/silicon)))
-					usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[stars(P.info)][P.stamps]</BODY></HTML>", "window=[P.name]")
-					onclose(usr, "[P.name]")
-				else
-					usr << browse("<HTML><HEAD><TITLE>[P.name]</TITLE></HEAD><BODY>[P.info][P.stamps]</BODY></HTML>", "window=[P.name]")
-					onclose(usr, "[P.name]")
+			if(istype(P) && (P.loc == src))
+				P.show_content(usr)
 
 		else if(href_list["look"])
 			var/obj/item/photo/P = locate(href_list["look"])

@@ -1,7 +1,7 @@
 /datum/rune/reveal_runes
 	name = "revealing rune"
 	desc = "This rune is used to reveal hidden runes in a radius around us."
-	rune_flags = HAS_SPECIAL_TALISMAN_ACTION
+	rune_flags = HAS_SPECIAL_TALISMAN_ACTION | CAN_MEMORIZE
 
 /datum/rune/reveal_runes/do_rune_action(mob/living/user, atom/movable/A)
 	reveal(user, A, 6, SPAN_WARNING("\The [A] turns into red dust, reveaing the surrounding runes."))
@@ -14,7 +14,7 @@
 	for(var/obj/effect/rune/R in orange(radius, get_turf(A)))
 		if(R == src)
 			continue
-		R.invisibility = 0
+		R.set_invisibility(0)
 		did_reveal = TRUE
 	if(did_reveal)
 		if(iscultist(user))

@@ -87,7 +87,7 @@
 /datum/export/radio
 	cost = 5
 	unit_name = "radio"
-	export_types = list(/obj/item/radio)
+	export_types = list(/obj/item/device/radio)
 
 
 /datum/export/rfd_construction

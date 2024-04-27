@@ -6,20 +6,14 @@
 	S["lastchangelog"]    >> pref.lastchangelog
 	S["default_slot"]     >> pref.default_slot
 	S["toggles"]          >> pref.toggles
-	S["asfx_togs"]        >> pref.asfx_togs
-	S["motd_hash"]        >> pref.motd_hash
-	S["memo_hash"]        >> pref.memo_hash
-	S["parallax_speed"]   >> pref.parallax_speed
+	S["sfx_toggles"]        >> pref.sfx_toggles
 	S["toggles_secondary"] >> pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/save_preferences(var/savefile/S)
 	S["lastchangelog"]    << pref.lastchangelog
 	S["default_slot"]     << pref.default_slot
 	S["toggles"]          << pref.toggles
-	S["asfx_togs"]        << pref.asfx_togs
-	S["motd_hash"]        << pref.motd_hash
-	S["memo_hash"]        << pref.memo_hash
-	S["parallax_speed"]   << pref.parallax_speed
+	S["sfx_toggles"]        << pref.sfx_toggles
 	S["toggles_secondary"] << pref.toggles_secondary
 
 /datum/category_item/player_setup_item/player_global/settings/gather_load_query()
@@ -29,11 +23,8 @@
 				"lastchangelog",
 				"current_character",
 				"toggles",
-				"asfx_togs",
-				"lastmotd" = "motd_hash",
-				"lastmemo" = "memo_hash",
-				"toggles_secondary",
-				"parallax_speed"
+				"sfx_toggles",
+				"toggles_secondary"
 			),
 			"args" = list("ckey")
 		)
@@ -48,12 +39,9 @@
 			"lastchangelog",
 			"current_character",
 			"toggles",
-			"asfx_togs",
-			"lastmotd",
-			"lastmemo",
+			"sfx_toggles",
 			"ckey" = 1,
 			"toggles_secondary",
-			"parallax_speed"
 		)
 	)
 
@@ -63,11 +51,8 @@
 		"lastchangelog" = pref.lastchangelog,
 		"current_character" = pref.current_character,
 		"toggles" = pref.toggles,
-		"asfx_togs" = pref.asfx_togs,
-		"lastmotd" = pref.motd_hash,
-		"lastmemo" = pref.memo_hash,
-		"toggles_secondary" = pref.toggles_secondary,
-		"parallax_speed" = pref.parallax_speed
+		"sfx_toggles" = pref.sfx_toggles,
+		"toggles_secondary" = pref.toggles_secondary
 	)
 
 /datum/category_item/player_setup_item/player_global/settings/sanitize_preferences(var/sql_load = 0)
@@ -76,12 +61,9 @@
 		pref.current_character = validate_current_character()
 
 	pref.lastchangelog  = sanitize_text(pref.lastchangelog, initial(pref.lastchangelog))
-	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, config.character_slots, initial(pref.default_slot))
+	pref.default_slot   = sanitize_integer(text2num(pref.default_slot), 1, GLOB.config.character_slots, initial(pref.default_slot))
 	pref.toggles        = sanitize_integer(text2num(pref.toggles), 0, BITFIELDMAX, initial(pref.toggles))
-	pref.asfx_togs      = sanitize_integer(text2num(pref.asfx_togs), 0, BITFIELDMAX, initial(pref.toggles))
-	pref.motd_hash      = sanitize_text(pref.motd_hash, initial(pref.motd_hash))
-	pref.memo_hash      = sanitize_text(pref.memo_hash, initial(pref.memo_hash))
-	pref.parallax_speed = sanitize_integer(text2num(pref.parallax_speed), 1, 10, initial(pref.parallax_speed))
+	pref.sfx_toggles      = sanitize_integer(text2num(pref.sfx_toggles), 0, BITFIELDMAX, initial(pref.toggles))
 	pref.toggles_secondary  = sanitize_integer(text2num(pref.toggles_secondary), 0, BITFIELDMAX, initial(pref.toggles_secondary))
 
 /datum/category_item/player_setup_item/player_global/settings/content(mob/user)
@@ -91,11 +73,10 @@
 		"<b>Ghost ears:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTEARS]'><b>[(pref.toggles & CHAT_GHOSTEARS) ? "All Speech" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost sight:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTSIGHT]'><b>[(pref.toggles & CHAT_GHOSTSIGHT) ? "All Emotes" : "Nearest Creatures"]</b></a><br>",
 		"<b>Ghost radio:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTRADIO]'><b>[(pref.toggles & CHAT_GHOSTRADIO) ? "All Chatter" : "Nearest Speakers"]</b></a><br>",
-		"<b>Space Parallax:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_SPACE]'><b>[(pref.toggles_secondary & PARALLAX_SPACE) ? "Yes" : "No"]</b></a><br>",
-		"<b>Space Dust:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_DUST]'><b>[(pref.toggles_secondary & PARALLAX_DUST) ? "Yes" : "No"]</b></a><br>",
+		"<b>Observer LOOC:</b> <a href='?src=\ref[src];toggle=[CHAT_GHOSTLOOC]'><b>[(pref.toggles & CHAT_GHOSTLOOC) ? "Visible" : "Hidden"]</b></a><br>",
 		"<b>Progress Bars:</b> <a href='?src=\ref[src];paratoggle=[PROGRESS_BARS]'><b>[(pref.toggles_secondary & PROGRESS_BARS) ? "Yes" : "No"]</b></a><br>",
 		"<b>Floating Messages:</b> <a href='?src=\ref[src];paratoggle=[FLOATING_MESSAGES]'><b>[(pref.toggles_secondary & FLOATING_MESSAGES) ? "Yes" : "No"]</b></a><br>",
-		"<b>Static Space:</b> <a href='?src=\ref[src];paratoggle=[PARALLAX_IS_STATIC]'><b>[(pref.toggles_secondary & PARALLAX_IS_STATIC) ? "Yes" : "No"]</b></a><br>"
+		"<b>Hotkey Mode Default:</b> <a href='?src=\ref[src];paratoggle=[HOTKEY_DEFAULT]'><b>[(pref.toggles_secondary & HOTKEY_DEFAULT) ? "On" : "Off"]</b></a><br>"
 	)
 
 	. = dat.Join()
@@ -119,10 +100,10 @@
 	return ..()
 
 /datum/category_item/player_setup_item/player_global/settings/proc/validate_current_character()
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return pref.current_character
 
-	var/DBQuery/is_ours = dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char: AND deleted_at IS NULL")
+	var/DBQuery/is_ours = GLOB.dbcon.NewQuery("SELECT COUNT(*) as valid_id FROM ss13_characters WHERE ckey = :ckey: AND id = :curr_char: AND deleted_at IS NULL")
 	is_ours.Execute(list("ckey" = pref.client.ckey, "curr_char" = pref.current_character))
 
 	if (!is_ours.NextRow())
@@ -136,10 +117,10 @@
 		return pref.current_character
 
 /datum/category_item/player_setup_item/player_global/settings/proc/select_default_character()
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return 0
 
-	var/DBQuery/first_char = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL LIMIT 1")
+	var/DBQuery/first_char = GLOB.dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL LIMIT 1")
 	first_char.Execute(list("ckey" = pref.client.ckey))
 
 	if (!first_char.NextRow())

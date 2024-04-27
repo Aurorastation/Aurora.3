@@ -7,7 +7,6 @@
 
 	anchored = 1
 	density = 1
-	use_power = 1
 	idle_power_usage = 40
 
 	icon_state = "bioprinter"
@@ -30,7 +29,7 @@
 
 /obj/machinery/bioprinter/attack_hand(mob/user)
 
-	var/choice = input("What would you like to print?") as null|anything in products
+	var/choice = tgui_input_list(usr, "What would you like to print?", "Bioprinter", products)
 	if(!choice)
 		return
 
@@ -41,7 +40,7 @@
 		var/obj/item/organ/O = new new_organ(get_turf(src))
 
 		if(prints_prosthetics)
-			O.robotic = 2
+			O.robotic = ROBOTIC_MECHANICAL
 		else if(loaded_dna)
 			visible_message("<span class='notice'>The printer injects the stored DNA into the biomass.</span>.")
 			O.transplant_data = list()
@@ -57,30 +56,30 @@
 	else
 		to_chat(user, "<span class='warning'>There is not enough matter in the printer.</span>")
 
-/obj/machinery/bioprinter/attackby(obj/item/W, mob/user)
+/obj/machinery/bioprinter/attackby(obj/item/attacking_item, mob/user)
 
 	// DNA sample from syringe.
-	if(!prints_prosthetics && istype(W,/obj/item/reagent_containers/syringe))
-		var/obj/item/reagent_containers/syringe/S = W
-		var/datum/reagent/blood/injected = locate() in S.reagents.reagent_list //Grab some blood
-		if(injected && injected.data)
-			loaded_dna = injected.data
+	if(!prints_prosthetics && istype(attacking_item, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = attacking_item
+		if(REAGENT_DATA(S.reagents, /singleton/reagent/blood))
+			loaded_dna = REAGENT_DATA(S.reagents, /singleton/reagent/blood)
+			S.reagents.clear_reagents()
 			to_chat(user, "<span class='info'>You inject the blood sample into the bioprinter.</span>")
-		return
+		return TRUE
 	// Meat for biomass.
-	if(!prints_prosthetics && istype(W, /obj/item/reagent_containers/food/snacks/meat))
+	if(!prints_prosthetics && istype(attacking_item, /obj/item/reagent_containers/food/snacks/meat))
 		stored_matter += 50
-		user.drop_from_inventory(W,src)
-		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored biomass now: [stored_matter]</span>")
-		qdel(W)
-		return
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, "<span class='info'>\The [src] processes \the [attacking_item]. Levels of stored biomass now: [stored_matter]</span>")
+		qdel(attacking_item)
+		return TRUE
 	// Steel for matter.
-	if(prints_prosthetics && istype(W, /obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
-		var/obj/item/stack/S = W
+	if(prints_prosthetics && istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
+		var/obj/item/stack/S = attacking_item
 		stored_matter += S.amount * 10
-		user.drop_from_inventory(W,src)
-		to_chat(user, "<span class='info'>\The [src] processes \the [W]. Levels of stored matter now: [stored_matter]</span>")
-		qdel(W)
-		return
+		user.drop_from_inventory(attacking_item, src)
+		to_chat(user, "<span class='info'>\The [src] processes \the [attacking_item]. Levels of stored matter now: [stored_matter]</span>")
+		qdel(attacking_item)
+		return TRUE
 
 	return..()

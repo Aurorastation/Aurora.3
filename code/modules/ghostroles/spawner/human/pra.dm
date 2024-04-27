@@ -10,16 +10,14 @@
 	max_count = 3
 	uses_species_whitelist = FALSE
 
-	outfit = /datum/outfit/admin/pra_cosmonaut
-	possible_species = list("Tajara", "M'sai Tajara", "Zhan-Khazan Tajara")
-	possible_genders = list(MALE,FEMALE)
+	outfit = /obj/outfit/admin/pra_cosmonaut
+	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "Kosmostrelki"
 	special_role = "Kosmostrelki"
 	respawn_flag = null
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	uses_species_whitelist = FALSE
 	away_site = TRUE
 
 /datum/ghostspawner/human/pra_cosmonaut/commissar
@@ -32,28 +30,28 @@
 	assigned_role = "Party Commissar"
 	special_role = "Party Commissar"
 
-	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
-	possible_species = list("Tajara", "M'sai Tajara")
-	req_species_whitelist = "Tajara"
+	outfit = /obj/outfit/admin/pra_cosmonaut/commissar
+	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/datum/outfit/admin/pra_cosmonaut
+/obj/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
-	shoes = /obj/item/clothing/shoes/jackboots/toeless
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
-	back = /obj/item/gun/projectile/shotgun/pump/rifle
+	back = /obj/item/gun/projectile/automatic/rifle/adhomian
 	id = /obj/item/card/id/syndicate
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	belt_contents = list(
 						/obj/item/ammo_magazine/boltaction = 3,
 						/obj/item/grenade/smokebomb = 2,
 						/obj/item/plastique = 1,
-						/obj/item/gun/projectile/pistol/adhomai = 1
+						/obj/item/gun/projectile/pistol/adhomai = 1,
+						/obj/item/ammo_magazine/mc9mm = 2
 						)
 	r_hand = /obj/item/storage/field_ration
 
-/datum/outfit/admin/pra_cosmonaut/commissar
+/obj/outfit/admin/pra_cosmonaut/commissar
 	name = "Party Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
@@ -61,10 +59,11 @@
 	accessory = /obj/item/clothing/accessory/hadii_pin
 	belt = /obj/item/gun/projectile/deagle/adhomai
 	belt_contents = null
-	back = /obj/item/storage/backpack/satchel
+	back = /obj/item/storage/backpack/satchel/leather
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)

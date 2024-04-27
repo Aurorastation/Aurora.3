@@ -1,10 +1,11 @@
 //generic procs copied from obj/effect/alien
 /obj/effect/spider
 	name = "web"
-	desc = "It's stringy and sticky, eugh. Probably came from one of those giant spiders..."
+	desc = "It's stringy and sticky, eugh. Probably came from one of those greimorians..."
 	icon = 'icons/effects/effects.dmi'
 	anchored = TRUE
 	density = FALSE
+	mouse_opacity = MOUSE_OPACITY_ICON
 	var/health = 15
 
 //similar to weeds, but only barfed out by nurses manually
@@ -20,15 +21,18 @@
 				qdel(src)
 	return
 
-/obj/effect/spider/attackby(var/obj/item/W, var/mob/user)
-	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(W.attack_verb, "attacked")] with [W][(user ? " by [user]." : ".")]"))
-
-	var/damage = W.force / 4.0
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+/obj/effect/spider/attackby(obj/item/attacking_item, mob/user)
+	visible_message(SPAN_WARNING("\The [src] has been [LAZYPICK(attacking_item.attack_verb, "attacked")] with [attacking_item][(user ? " by [user]." : ".")]"))
+	var/damage = attacking_item.force / 4.0
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
+		if(WT.use(0, user))
 			damage = 15
 			playsound(loc, 'sound/items/Welder.ogg', 100, 1)
+		return TRUE
+	else
+		user.do_attack_animation(src)
+		playsound(loc, attacking_item.hitsound, 50, 1, -1)
 
 	health -= damage
 	healthcheck()
@@ -57,13 +61,13 @@
 		icon_state = "stickyweb2"
 
 	if(prob(75))
-		var/image/web_overlay = image(icon, icon_state = "[initial(icon_state)]-overlay[pick(1, 2, 3)]", layer = ABOVE_MOB_LAYER)
+		var/image/web_overlay = image(icon, icon_state = "[initial(icon_state)]-overlay[pick(1, 2, 3)]", layer = ABOVE_HUMAN_LAYER)
 		add_overlay(web_overlay)
 
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || height == 0)
 		return TRUE
-	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider) || istype(mover,/mob/living/simple_animal/hostile/spider_queen))
+	if(istype(mover, /mob/living/simple_animal/hostile/giant_spider))
 		return TRUE
 	else if(istype(mover, /mob/living))
 		if(prob(50))
@@ -77,6 +81,7 @@
 	name = "egg cluster"
 	desc = "They seem to pulse slightly with an inner life."
 	icon_state = "eggs"
+	health = 10
 	var/amount_grown = 0
 	var/last_itch = 0
 
@@ -117,9 +122,20 @@
 			last_itch = world.time
 			to_chat(O.owner, "<span class='notice'>Your [O.name] itches.</span>")
 
+/obj/effect/spider/eggcluster/proc/take_damage(var/damage)
+	health -= damage
+	if(health <= 0)
+		var/obj/item/organ/external/O = loc
+		if(istype(O) && O.owner)
+			to_chat(O.owner, SPAN_WARNING("You feel something dissolve in your [O.name]..."))
+		qdel(src)
+
 /obj/effect/spider/spiderling
-	name = "spiderling"
-	desc = "It never stays still for long."
+	name = "greimorian larva"
+	desc = "A small, agile alien creature. It oozes some disgusting slime."
+	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
+	They originate from the Badlands planet Greima, once covered in crystalized phoron. A decaying orbit led to its combustion from proximity to its sun, and its dominant inhabitants \
+	managed to survive in orbit. Countless years later, they prove to be a menace across the galaxy, having carried themselves within the hulls of Human vessels to spread wildly."
 	icon_state = "spiderling"
 	anchored = 0
 	layer = 2.7
@@ -131,7 +147,7 @@
 	var/travelling_in_vent = 0
 	var/list/possible_offspring
 
-/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = typesof(/mob/living/simple_animal/hostile/giant_spider))
+/obj/effect/spider/spiderling/Initialize(var/mapload, var/atom/parent, var/new_rate = 1, var/list/spawns = list(/mob/living/simple_animal/hostile/giant_spider, /mob/living/simple_animal/hostile/giant_spider/nurse, /mob/living/simple_animal/hostile/giant_spider/emp, /mob/living/simple_animal/hostile/giant_spider/hunter, /mob/living/simple_animal/hostile/giant_spider/bombardier))
 	. = ..(mapload)
 
 	pixel_x = rand(6,-6)
@@ -160,7 +176,7 @@
 
 /obj/effect/spider/spiderling/proc/die()
 	visible_message(SPAN_WARNING("\The [src] dies!"))
-	new /obj/effect/decal/cleanable/spiderling_remains(src.loc)
+	new /obj/effect/decal/cleanable/spiderling_remains(loc)
 	qdel(src)
 
 /obj/effect/spider/spiderling/healthcheck()
@@ -212,7 +228,7 @@
 		var/list/nearby = oview(5, src)
 		if(nearby.len)
 			var/target_atom = pick(nearby)
-			walk_to(src, target_atom, 5)
+			SSmove_manager.move_to(src, target_atom, 0, 5)
 			if(prob(25))
 				src.visible_message(SPAN_NOTICE("\The [src] skitters[pick(" away"," around","")]."))
 	else if(prob(5))
@@ -220,7 +236,7 @@
 		for(var/obj/machinery/atmospherics/unary/vent_pump/v in view(7,src))
 			if(!v.welded)
 				entry_vent = v
-				walk_to(src, entry_vent, 5)
+				SSmove_manager.move_to(src, entry_vent, 0, 5)
 				break
 
 	if(isturf(loc) && amount_grown >= 100)
@@ -233,7 +249,7 @@
 			burst_out(O)
 		if (O.owner)
 			if(amount_grown > 40 && prob(1))
-				O.owner.apply_damage(1, TOX, O.limb_name)
+				O.owner.apply_damage(1, DAMAGE_TOXIN, O.limb_name)
 				if(world.time > last_itch + 30 SECONDS)
 					last_itch = world.time
 					O.owner.visible_message(
@@ -257,10 +273,18 @@
 		visible_message(SPAN_WARNING("\The [user] tries to stomp on \the [src], but misses!"))
 		var/list/nearby = oview(2, src)
 		if(length(nearby))
-			walk_to(src, pick(nearby), 2)
+			SSmove_manager.move_to(src, pick(nearby), 0, 2)
 			return
 	visible_message(SPAN_WARNING("\The [user] stomps \the [src] dead!"))
 	die()
+
+/obj/effect/spider/spiderling/attackby(obj/item/attacking_item, mob/user)
+	. = ..()
+	if(istype(attacking_item, /obj/item/newspaper))
+		var/obj/item/newspaper/N = attacking_item
+		if(N.rolled)
+			die()
+			return TRUE
 
 /**
  * Makes the organ spew out all of the spiderlings it has. It's triggered at the point
@@ -300,14 +324,14 @@
 		qdel(O)
 
 /obj/effect/decal/cleanable/spiderling_remains
-	name = "spiderling remains"
+	name = "greimorian larva remains"
 	desc = "Green squishy mess."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "greenshatter"
 
 /obj/effect/spider/cocoon
 	name = "cocoon"
-	desc = "Something wrapped in silky spider web"
+	desc = "Something wrapped in silky greimorian web"
 	icon_state = "cocoon1"
 	health = 60
 

@@ -3,8 +3,12 @@
 //////////////////////////////////////////////////////////////
 
 //global datum that will preload variables on atoms instanciation
-var/global/use_preloader = FALSE
-var/global/dmm_suite/preloader/_preloader = new
+GLOBAL_VAR_INIT(use_preloader, FALSE)
+GLOBAL_DATUM_INIT(_preloader, /dmm_suite/preloader, new)
+
+/datum/map_load_metadata
+	var/bounds
+	var/list/atoms_to_initialise
 
 /dmm_suite
 		// /"([a-zA-Z]+)" = \(((?:.|\n)*?)\)\n(?!\t)|\((\d+),(\d+),(\d+)\) = \{"([a-zA-Z\n]*)"\}/g
@@ -60,6 +64,9 @@ var/global/dmm_suite/preloader/_preloader = new
 	var/key_len = 0
 
 	var/stored_index = 1
+	var/list/atoms_to_initialise = list()
+	var/has_expanded_world_maxx = FALSE
+	var/has_expanded_world_maxy = FALSE
 
 	while(dmmRegex.Find(tfile, stored_index))
 		stored_index = dmmRegex.next
@@ -99,6 +106,7 @@ var/global/dmm_suite/preloader/_preloader = new
 					continue
 				else
 					world.maxz = zcrd //create a new z_level if needed
+					SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_Z, world.maxz)
 				if(!no_changeturf)
 					WARNING("Z-level expansion occurred without no_changeturf set, this may cause problems when /turf/post_change is called.")
 
@@ -125,6 +133,7 @@ var/global/dmm_suite/preloader/_preloader = new
 			if(!cropMap && ycrd > world.maxy)
 				if(!measureOnly)
 					world.maxy = ycrd // Expand Y here.  X is expanded in the loop below
+					has_expanded_world_maxy = TRUE
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(ycrd, y_lower, y_upper))
 			else
 				bounds[MAP_MAXY] = max(bounds[MAP_MAXY], Clamp(min(ycrd, world.maxy), y_lower, y_upper))
@@ -149,6 +158,7 @@ var/global/dmm_suite/preloader/_preloader = new
 									break
 								else
 									world.maxx = xcrd
+									has_expanded_world_maxx = TRUE
 
 							if(xcrd >= 1)
 								var/model_key = copytext(line, tpos, tpos + key_len)
@@ -156,7 +166,9 @@ var/global/dmm_suite/preloader/_preloader = new
 								if(!no_afterchange || (model_key != space_key))
 									if(!grid_models[model_key])
 										throw EXCEPTION("Undefined model key in DMM.")
-									parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
+									var/datum/grid_load_metadata/M = parse_grid(grid_models[model_key], model_key, xcrd, ycrd, zcrd, no_changeturf || zexpansion)
+									if (M)
+										atoms_to_initialise += M.atoms_to_initialise
 								#ifdef TESTING
 								else
 									++turfsSkipped
@@ -175,11 +187,22 @@ var/global/dmm_suite/preloader/_preloader = new
 	else
 		if(!measureOnly)
 			if(!no_changeturf)
-				for(var/t in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
-					var/turf/T = t
+				for(var/turf/T as anything in block(locate(bounds[MAP_MINX], bounds[MAP_MINY], bounds[MAP_MINZ]), locate(bounds[MAP_MAXX], bounds[MAP_MAXY], bounds[MAP_MAXZ])))
 					//we do this after we load everything in. if we don't; we'll have weird atmos bugs regarding atmos adjacent turfs
-					T.post_change(TRUE)
-		return bounds
+					T.post_change(FALSE)
+
+			if(has_expanded_world_maxx || has_expanded_world_maxy)
+				SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXPANDED_WORLD_BOUNDS, has_expanded_world_maxx, has_expanded_world_maxy)
+
+		var/datum/map_load_metadata/M = new
+		M.bounds = bounds
+		M.atoms_to_initialise = atoms_to_initialise
+		return M
+
+/datum/grid_load_metadata
+	var/list/atoms_to_initialise
+	var/list/atoms_to_delete
+
 
 /**
  * Fill a given tile with its area/turf/objects/mobs
@@ -281,6 +304,11 @@ var/global/dmm_suite/preloader/_preloader = new
 	//Instanciation
 	////////////////
 
+	//since we've switched off autoinitialisation, record atoms to initialise later
+	var/list/atoms_to_initialise = list()
+	//turn off base new Initialization until the whole thing is loaded
+	SSatoms.map_loader_begin(text_ref(src))
+
 	//The next part of the code assumes there's ALWAYS an /area AND a /turf on a given tile
 	var/turf/crds = locate(xcrd,ycrd,zcrd)
 
@@ -288,30 +316,30 @@ var/global/dmm_suite/preloader/_preloader = new
 	index = members.len
 	if(members[index] != /area/template_noop)
 		var/atype = members[index]
-		var/atom/instance = areas_by_type[atype]
+		var/atom/instance = GLOB.areas_by_type[atype]
 		var/list/attr = members_attributes[index]
 		if (LAZYLEN(attr))
-			_preloader.setup(attr)//preloader for assigning  set variables on atom creation
+			GLOB._preloader.setup(attr)//preloader for assigning  set variables on atom creation
 		if(!instance)
 			instance = new atype(null)
+			atoms_to_initialise += instance
 		if(crds)
 			instance.contents += crds
 
-		if(use_preloader && instance)
-			_preloader.load(instance)
+		if(GLOB.use_preloader && instance)
+			GLOB._preloader.load(instance)
 
-	//then instance the /turf and, if multiple tiles are presents, simulates the DMM underlays piling effect
+	//then instance the /turf
 
 	var/first_turf_index = 1
 	while(!ispath(members[first_turf_index], /turf)) //find first /turf object in members
 		first_turf_index++
 
-	//turn off base new Initialization until the whole thing is loaded
-	SSatoms.map_loader_begin()
 	//instanciate the first /turf
 	var/turf/T
 	if(members[first_turf_index] != /turf/template_noop)
 		T = instance_atom(members[first_turf_index],members_attributes[first_turf_index],crds,no_changeturf)
+		atoms_to_initialise += T
 
 	if(T)
 		//if others /turf are presents, simulates the underlays piling effect
@@ -321,12 +349,17 @@ var/global/dmm_suite/preloader/_preloader = new
 			T = instance_atom(members[index],members_attributes[index],crds,no_changeturf)//instance new turf
 			T.underlays += underlay
 			index++
+			atoms_to_initialise += T
 
 	//finally instance all remainings objects/mobs
 	for(index in 1 to first_turf_index-1)
-		instance_atom(members[index],members_attributes[index],crds,no_changeturf)
+		atoms_to_initialise += instance_atom(members[index],members_attributes[index],crds,no_changeturf)
 	//Restore initialization to the previous value
-	SSatoms.map_loader_stop()
+	SSatoms.map_loader_stop(text_ref(src))
+
+	var/datum/grid_load_metadata/M = new
+	M.atoms_to_initialise = atoms_to_initialise
+	return M
 
 ////////////////
 //Helpers procs
@@ -335,26 +368,26 @@ var/global/dmm_suite/preloader/_preloader = new
 //Instance an atom at (x,y,z) and gives it the variables in attributes
 /dmm_suite/proc/instance_atom(path,list/attributes, turf/crds, no_changeturf)
 	if (LAZYLEN(attributes))
-		_preloader.setup(attributes, path)
+		GLOB._preloader.setup(attributes, path)
 
 	if(crds)
 		if(!no_changeturf && ispath(path, /turf))
-			. = crds.ChangeTurf(path, FALSE, TRUE)
+			. = crds.ChangeTurf(path, FALSE, TRUE, TRUE)
 		else
 			. = create_atom(path, crds)//first preloader pass
 
-	if(use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
-		_preloader.load(.)
+	if(GLOB.use_preloader && .)//second preloader pass, for those atoms that don't ..() in New()
+		GLOB._preloader.load(.)
 
 	//custom CHECK_TICK here because we don't want things created while we're sleeping to not initialize
 	if(TICK_CHECK)
-		SSatoms.map_loader_stop()
+		SSatoms.map_loader_stop(text_ref(src))
 		stoplag()
-		SSatoms.map_loader_begin()
+		SSatoms.map_loader_begin(text_ref(src))
 
 /dmm_suite/proc/create_atom(path, crds)
-	set waitfor = FALSE
-	. = new path (crds)
+	// Doing this async is impossible, as we must return the ref.
+	return new path (crds)
 
 //text trimming (both directions) helper proc
 //optionally removes quotes before and after the text (for variable name)
@@ -452,16 +485,17 @@ var/global/dmm_suite/preloader/_preloader = new
 //Preloader datum
 //////////////////
 
+GLOBAL_LIST_INIT(_preloader_path, null)
+
 /dmm_suite/preloader
 	parent_type = /datum
 	var/list/attributes
-	var/target_path
 
 /dmm_suite/preloader/proc/setup(list/the_attributes, path)
 	if(LAZYLEN(the_attributes))
-		use_preloader = TRUE
+		GLOB.use_preloader = TRUE
 		attributes = the_attributes
-		target_path = path
+		GLOB._preloader_path = path
 
 /dmm_suite/preloader/proc/load(atom/what)
 	for(var/attribute in attributes)
@@ -469,7 +503,7 @@ var/global/dmm_suite/preloader/_preloader = new
 		if(islist(value))
 			value = deepCopyList(value)
 		what.vars[attribute] = value
-	use_preloader = FALSE
+	GLOB.use_preloader = FALSE
 
 /area/template_noop
 	name = "Area Passthrough"

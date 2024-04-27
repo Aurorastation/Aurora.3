@@ -1,6 +1,4 @@
-/var/global/datum/controller/subsystem/law/SSlaw
-
-/datum/controller/subsystem/law
+SUBSYSTEM_DEF(law)
 	name = "Law"
 	flags = SS_NO_FIRE
 
@@ -9,14 +7,13 @@
 	var/list/med_severity = list()
 	var/list/high_severity = list()
 
-/datum/controller/subsystem/law/New()
-	NEW_SS_GLOBAL(SSlaw)
-
 /datum/controller/subsystem/law/Initialize(timeofday)
-	if(config.sql_enabled)
+	if(GLOB.config.sql_enabled)
 		load_from_sql()
 	else
 		load_from_code()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/law/proc/load_from_code()
 	for (var/L in subtypesof(/datum/law/low_severity))
@@ -31,11 +28,11 @@
 	laws = low_severity + med_severity + high_severity
 
 /datum/controller/subsystem/law/proc/load_from_sql()
-	if(!establish_db_connection(dbcon))
-		log_debug("SSlaw: SQL ERROR - Failed to connect.")
+	if(!establish_db_connection(GLOB.dbcon))
+		log_subsystem_law("SQL ERROR - Failed to connect.")
 		return load_from_code()
-	
-	var/DBQuery/law_query = dbcon.NewQuery("SELECT law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony FROM ss13_law WHERE deleted_at IS NULL ORDER BY law_id ASC")
+
+	var/DBQuery/law_query = GLOB.dbcon.NewQuery("SELECT law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony FROM ss13_law WHERE deleted_at IS NULL ORDER BY law_id ASC")
 	law_query.Execute()
 	while(law_query.NextRow())
 		CHECK_TICK
@@ -61,21 +58,21 @@
 				throw("Law with id: [L.id] deleted due to invalid severity: [L.severity]")
 				qdel(L)
 		catch(var/exception/el)
-			log_debug("SSlaw: Error when loading law: [el]")
-	
+			log_subsystem_law("Error when loading law: [el]")
+
 	laws = low_severity + med_severity + high_severity
 	if(!laws.len)
-		log_debug("SSlaw: No laws loaded. Loading from code and migrating to SQL")
+		log_subsystem_law("No laws loaded. Loading from code and migrating to SQL")
 		load_from_code()
 		migrate_to_sql()
 
 /datum/controller/subsystem/law/proc/migrate_to_sql()
 	for(var/datum/law/L in laws)
-		log_debug("SSlaw: Migrating law [L.id] to SQL")
-		var/DBQuery/law_update_query = dbcon.NewQuery({"
+		log_subsystem_law("Migrating law [L.id] to SQL")
+		var/DBQuery/law_update_query = GLOB.dbcon.NewQuery({"
 		INSERT IGNORE INTO ss13_law
 			(law_id, name, description, min_fine, max_fine, min_brig_time, max_brig_time, severity, felony)
-		VALUES 
+		VALUES
 			(:law_id:, :name:, :desc:, :min_fine:, :max_fine:, :min_brig_time:, :max_brig_time:, :severity:, :felony:)
 		"})
 		law_update_query.Execute(list(

@@ -1,6 +1,7 @@
 //Dionaea regenerate health and nutrition in light.
 
 /mob/living/carbon/alien/diona/handle_environment(datum/gas_mixture/environment)
+	..()
 	if(environment && consume_nutrition_from_air)
 		environment.remove(diona_handle_air(get_dionastats(), pressure))
 
@@ -14,6 +15,12 @@
 	if(touching) touching.metabolize()
 	if(bloodstr) bloodstr.metabolize()
 	if(breathing) breathing.metabolize()
+	if(ingested) ingested.metabolize()
+
+	for(var/_R in chem_doses)
+		if ((_R in bloodstr.reagent_volumes) || (_R in ingested.reagent_volumes) || (_R in breathing.reagent_volumes) || (_R in touching.reagent_volumes))
+			continue
+		chem_doses -= _R //We're no longer metabolizing this reagent. Remove it from chem_doses
 
 	// nutrition decrease
 	if(nutrition > 0 && stat != DEAD)
@@ -41,6 +48,6 @@
 	if(!gestalt)
 		if(stat != DEAD)
 			if(master_nymph && !client && master_nymph != src)
-				walk_to(src, master_nymph, 1, movement_delay())
+				SSmove_manager.move_to(src, master_nymph, 1, movement_delay())
 			else
-				walk_to(src, 0)
+				SSmove_manager.stop_looping(src)

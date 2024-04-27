@@ -12,8 +12,8 @@ A [2]\      /[8] result
 B [1]-\|++|/
 C [4]-/|++|
 D [1]/  ||
-        ||
-     Activator
+		||
+	Activator
 
 
 
@@ -33,7 +33,7 @@ D [1]/  ||
 	holder = newloc
 	if(!istype(holder))
 		message_admins("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
-		log_debug("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
+		LOG_DEBUG("ERROR: An integrated_io ([src.name]) spawned without a valid holder!  This is a bug.")
 
 /datum/integrated_io/Destroy()
 	disconnect()
@@ -144,20 +144,20 @@ list[](
 		linked -= their_io
 
 /datum/integrated_io/proc/ask_for_data_type(mob/user, var/default, var/list/allowed_data_types = list("string","number","null"))
-	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in allowed_data_types
+	var/type_to_use = tgui_input_list(user, "Please choose a type to use.", "[src] type setting", allowed_data_types)
 	if(!holder.check_interactivity(user))
 		return
 
 	var/new_data = null
 	switch(type_to_use)
 		if("string")
-			new_data = sanitize(input("Now type in a string.","[src] string writing", istext(default) ? default : null) as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
+			new_data = tgui_input_text(user, "Now type in a string.", "[src] string writing", istext(default) ? default : "", MAX_MESSAGE_LEN)
 			if(istext(new_data) && holder.check_interactivity(user) )
 				to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
 				return new_data
 
 		if("number")
-			new_data = input("Now type in a number.","[src] number writing", isnum(default) ? default : null) as null|num
+			new_data = tgui_input_number(user, "Now type in a number.", "[src] number writing", isnum(default) ? default : 0)
 			if(isnum(new_data) && holder.check_interactivity(user) )
 				to_chat(user, "<span class='notice'>You input [new_data] into the pin.</span>")
 				return new_data

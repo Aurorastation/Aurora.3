@@ -1,12 +1,17 @@
 /datum/species/machine
-	name = "Baseline Frame"
+	name = SPECIES_IPC
 	short_name = "ipc"
 	name_plural = "Baselines"
-	bodytype = "Machine"
+	category_name = "Integrated Positronic Chassis"
+	bodytype = BODYTYPE_IPC
+	species_height = HEIGHT_CLASS_SHORT
+	height_min = 100
+	height_max = 250
 	age_min = 1
-	age_max = 30
+	age_max = 60
 	economic_modifier = 3
 	default_genders = list(NEUTER)
+	selectable_pronouns = list(NEUTER, PLURAL)
 
 	blurb = "IPCs are, quite simply, \"Integrated Positronic Chassis.\" In this scenario, 'positronic' implies that the chassis possesses a positronic processing core (or positronic brain), meaning that an IPC must be positronic to be considered an IPC. The Baseline model is more of a category - the long of the short is that they represent all unbound synthetic units. Baseline models cover anything that is not an Industrial chassis or a Shell chassis. They can be custom made or assembly made. The most common feature of the Baseline model is a simple design, skeletal or semi-humanoid, and ordinary atmospheric diffusion cooling systems."
 
@@ -29,10 +34,11 @@
 
 	name_language = "Encoded Audio Language"
 	num_alternate_languages = 2
-	secondary_langs = list("Encoded Audio Language", "Sol Common")
+	secondary_langs = list("Encoded Audio Language", "Sol Common", "Elyran Standard")
 	ethanol_resistance = -1//Can't get drunk
 	radiation_mod = 0	// not affected by radiation
 	remains_type = /obj/effect/decal/remains/robot
+	dust_remains_type = /obj/effect/decal/remains/robot/burned
 
 	hud_type = /datum/hud_data/ipc
 
@@ -49,6 +55,8 @@
 	knockout_message = "encounters a hardware fault and suddenly reboots!"
 	halloss_message = "encounters a hardware fault and suddenly reboots."
 	halloss_message_self = "ERROR: Unrecoverable machine check exception.<BR>System halted, rebooting..."
+
+	stutter_verbs = list("sputters", "crackles", "stutters")
 
 	warning_low_pressure = 50
 	hazard_low_pressure = -1
@@ -71,22 +79,22 @@
 	)
 
 	flags = IS_IPC
-	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR
+	appearance_flags = HAS_SKIN_COLOR | HAS_HAIR_COLOR | HAS_UNDERWEAR | HAS_SOCKS
 	spawn_flags = CAN_JOIN | IS_WHITELISTED | NO_AGE_MINIMUM
 
+	blood_type = "oil"
 	blood_color = COLOR_IPC_BLOOD
 	flesh_color = "#575757"
-	virus_immune = 1
 	reagent_tag = IS_MACHINE
 
 	has_organ = list(
 		BP_BRAIN   = /obj/item/organ/internal/mmi_holder/posibrain,
 		BP_CELL    = /obj/item/organ/internal/cell,
-		BP_OPTICS  = /obj/item/organ/internal/eyes/optical_sensor,
+		BP_EYES  = /obj/item/organ/internal/eyes/optical_sensor,
 		BP_IPCTAG = /obj/item/organ/internal/ipc_tag
 	)
 
-	vision_organ = BP_OPTICS
+	vision_organ = BP_EYES
 
 	has_limbs = list(
 		BP_CHEST =  list("path" = /obj/item/organ/external/chest/ipc),
@@ -109,40 +117,69 @@
 		)
 	stamina = -1	// Machines use power and generate heat, stamina is not a thing
 	sprint_speed_factor = 1  // About as capable of speed as a human
+	sprint_cost_factor = 1.5
 
 	max_hydration_factor = -1
+	max_nutrition_factor = -1
 
-	allowed_citizenships = list(CITIZENSHIP_NONE, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION, CITIZENSHIP_ERIDANI)
-	default_citizenship = CITIZENSHIP_NONE
-	bodyfall_sound = "bodyfall_machine"
+	bodyfall_sound = /singleton/sound_category/bodyfall_machine_sound
+
+	possible_cultures = list(
+		/singleton/origin_item/culture/ipc_sol,
+		/singleton/origin_item/culture/ipc_elyra,
+		/singleton/origin_item/culture/ipc_coalition,
+		/singleton/origin_item/culture/ipc_tau_ceti,
+		/singleton/origin_item/culture/golden_deep,
+		/singleton/origin_item/culture/megacorporate,
+		/singleton/origin_item/culture/scrapper
+	)
+
+	alterable_internal_organs = list()
+	possible_speech_bubble_types = list("robot", "default")
 
 	// Special snowflake machine vars.
 	var/sprint_temperature_factor = 1.15
-	var/sprint_charge_factor = 0.65
+	var/move_charge_factor = 1
 
-datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
+	use_alt_hair_layer = TRUE
+	psi_deaf = TRUE
+
+/datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.move_charge_factor = move_charge_factor
 
-/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost)
-	if (H.stat == CONSCIOUS)
+/datum/species/machine/handle_sprint_cost(var/mob/living/carbon/human/H, var/cost, var/pre_move)
+	if(!pre_move && H.stat == CONSCIOUS)
 		H.bodytemperature += cost * sprint_temperature_factor
-		H.adjustNutritionLoss(cost * sprint_charge_factor)
-		if(H.nutrition <= 0 && H.max_nutrition > 0)
-			H.Weaken(15)
-			H.m_intent = "walk"
-			H.hud_used.move_intent.update_move_icon(H)
-			to_chat(H, span("danger", "ERROR: Power reserves depleted, emergency shutdown engaged. Backup power will come online in approximately 30 seconds, initiate charging as primary directive."))
-			playsound(H.loc, 'sound/machines/buzz-two.ogg', 100, 0)
-		else
-			return 1
+	var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.use(cost * sprint_cost_factor)
+	return TRUE
 
-	return 0
+/datum/species/machine/handle_emp_act(mob/living/carbon/human/H, var/severity)
+	var/obj/item/organ/internal/surge/S = H.internal_organs_by_name["surge"]
+	if(!isnull(S))
+		if(S.surge_left >= 1)
+			playsound(H.loc, 'sound/magic/LightningShock.ogg', 25, 1)
+			S.surge_left -= 1
+			if(S.surge_left)
+				to_chat(H, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [S.surge_left] preventions left."))
+			else
+				S.broken = TRUE
+				S.icon_state = "surge_ipc_broken"
+				to_chat(H, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
+			return TRUE
+		else
+			to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
+	return FALSE
 
 /datum/species/machine/handle_death(var/mob/living/carbon/human/H)
 	..()
 	H.f_style = ""
-	addtimer(CALLBACK(H, /mob/living/carbon/human/.proc/update_hair), 100)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, update_hair)), 100)
 
 /datum/species/machine/sanitize_name(var/new_name)
 	return sanitizeName(new_name, allow_numbers = 1)
@@ -171,14 +208,14 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 	if (!target || !player)
 		return
 
-	if (establish_db_connection(dbcon))
+	if (establish_db_connection(GLOB.dbcon) && target.character_id)
 		var/status = FALSE
 		var/sql_status = FALSE
 		if (target.internal_organs_by_name[BP_IPCTAG])
 			status = TRUE
 
-		var/list/query_details = list("ckey" = player.ckey, "character_name" = target.real_name)
-		var/DBQuery/query = dbcon.NewQuery("SELECT tag_status FROM ss13_ipc_tracking WHERE player_ckey = :ckey: AND character_name = :character_name:")
+		var/list/query_details = list("char_id" = target.character_id)
+		var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT tag_status FROM ss13_characters_ipc_tags WHERE char_id = :char_id:")
 		query.Execute(query_details)
 
 		if (query.NextRow())
@@ -187,7 +224,7 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 				return
 
 			query_details["status"] = status
-			var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_ipc_tracking SET tag_status = :status: WHERE player_ckey = :ckey: AND character_name = :character_name:")
+			var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_characters_ipc_tags SET tag_status = :status: WHERE char_id = :char_id:")
 			update_query.Execute(query_details)
 
 /datum/species/machine/get_light_color(mob/living/carbon/human/H)
@@ -293,14 +330,64 @@ datum/species/machine/handle_post_spawn(var/mob/living/carbon/human/H)
 		if ("waiting IPC screen")
 			return "#FFFFFF"
 
+		if ("nanotrasen IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("hephaestus IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("idris IPC screen")
+			return LIGHT_COLOR_CYAN
+
+		if ("zavodskoi IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("zeng-hu IPC screen")
+			return "#FFFFFF"
+
+		if ("scc IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of biesel IPC screen")
+			return "#FFFFFF"
+
+		if ("sol alliance IPC screen")
+			return "#FFFFFF"
+
+		if ("coalition of colonies IPC screen")
+			return LIGHT_COLOR_BLUE
+
+		if ("republic of elyra IPC screen")
+			return LIGHT_COLOR_YELLOW
+
+		if ("eridani IPC screen")
+			return "#FFFFFF"
+
+		if ("burzsia IPC screen")
+			return LIGHT_COLOR_ORANGE
+
+		if ("trinary perfection IPC screen")
+			return LIGHT_COLOR_RED
+
+		if ("golden deep IPC screen")
+			return LIGHT_COLOR_YELLOW
+
 /datum/species/machine/before_equip(var/mob/living/carbon/human/H)
 	. = ..()
 	check_tag(H, H.client)
 
 /datum/species/machine/handle_death_check(var/mob/living/carbon/human/H)
-	if(H.get_total_health() <= config.health_threshold_dead)
+	if(H.get_total_health() <= GLOB.config.health_threshold_dead)
 		return TRUE
 	return FALSE
 
-/datum/species/machine/has_psi_potential()
-	return FALSE
+/datum/species/machine/has_stamina_for_pushup(var/mob/living/carbon/human/human)
+	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	if(!C.cell)
+		return FALSE
+	return C.cell.charge > (C.cell.maxcharge / 10)
+
+/datum/species/machine/drain_stamina(var/mob/living/carbon/human/human, var/stamina_cost)
+	var/obj/item/organ/internal/cell/C = human.internal_organs_by_name[BP_CELL]
+	if(C)
+		C.use(stamina_cost * 8)

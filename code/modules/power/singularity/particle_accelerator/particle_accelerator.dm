@@ -34,9 +34,9 @@ process()
 check_build()
 
 Setup map
-  |EC|
-CC|FC|
-  |PB|
+	|EC|
+--CC|FC|
+	|PB|
 PE|PE|PE
 
 
@@ -61,7 +61,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/structure/particle_accelerator
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
-	icon = 'icons/obj/machines/particle_accelerator.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator.dmi'
 	anchored = FALSE
 	density = TRUE
 	obj_flags = OBJ_FLAG_ROTATABLE
@@ -83,24 +83,21 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	icon_state = "end_cap"
 	reference = "end_cap"
 
-/obj/structure/particle_accelerator/examine(mob/user)
+/obj/structure/particle_accelerator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	switch(construction_state)
 		if(0)
-			desc = "[initial(desc)] Looks like it's not attached to the flooring."
+			. += "Looks like it's not attached to the flooring."
 		if(1)
-			desc = "[initial(desc)] It's missing some cables."
+			. += "It's missing some cables."
 		if(2)
-			desc = "[initial(desc)] The panel is open."
+			. += "The panel is open."
 		if(3)
-			desc = "[initial(desc)] It seems completely assembled."
-			if(powered)
-				desc = initial(desc)
-	..()
-	return
+			. += "It seems completely assembled."
 
-/obj/structure/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(istool(W))
-		if(process_tool_hit(W, user))
+/obj/structure/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
+	if(istool(attacking_item))
+		if(process_tool_hit(attacking_item, user))
 			return
 	..()
 	return
@@ -110,7 +107,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	..()
 	if(master && master.active)
 		master.toggle_power()
-		investigate_log("was moved whilst active; it <font color='red'>powered down</font>.","singulo")
+		investigate_log("was moved whilst active; it <span class='warning'>powered down</span>.","singulo")
 
 /obj/structure/particle_accelerator/ex_act(severity)
 	switch(severity)
@@ -125,7 +122,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(prob(25))
 				qdel(src)
 				return
-		else
+
 	return
 
 /obj/structure/particle_accelerator/update_icon()
@@ -168,7 +165,7 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	return FALSE
 
 
-/obj/structure/particle_accelerator/proc/process_tool_hit(var/obj/O, var/mob/user)
+/obj/structure/particle_accelerator/proc/process_tool_hit(var/obj/item/O, var/mob/user)
 	if(!O || !user)
 		return FALSE
 	if(!ismob(user) || !isobj(O))
@@ -178,14 +175,14 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	switch(construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
 		if(0)
 			if(O.iswrench())
-				playsound(get_turf(src), O.usesound, 75, TRUE)
+				O.play_tool_sound(get_turf(src), 75)
 				anchored = TRUE
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
 			if(O.iswrench())
-				playsound(get_turf(src), O.usesound, 75, TRUE)
+				O.play_tool_sound(get_turf(src), 75)
 				anchored = FALSE
 				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
 					SPAN_NOTICE("You remove the external bolts."))
@@ -222,10 +219,10 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/machinery/particle_accelerator
 	name = "Particle Accelerator"
 	desc = "Part of a Particle Accelerator."
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	anchored = FALSE
 	density = TRUE
-	use_power = 0
+	use_power = POWER_USE_OFF
 	idle_power_usage = 0
 	active_power_usage = 0
 	var/construction_state = 0
@@ -237,25 +234,21 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 /obj/machinery/particle_accelerator/update_icon()
 	return
 
-/obj/machinery/particle_accelerator/examine(mob/user)
+/obj/machinery/particle_accelerator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	switch(construction_state)
 		if(0)
-			desc = "[initial(desc)] Looks like it's not attached to the flooring."
+			. += "Looks like it's not attached to the flooring."
 		if(1)
-			desc = "[initial(desc)] It's missing some cables."
+			. += "It's missing some cables."
 		if(2)
-			desc = "[initial(desc)] The panel is open."
+			. += "The panel is open."
 		if(3)
-			desc = "[initial(desc)] It seems completely assembled."
-			if(powered)
-				desc = initial(desc)
-	..()
-	return
+			. += "It seems completely assembled."
 
-
-/obj/machinery/particle_accelerator/attackby(obj/item/W, mob/user)
-	if(istool(W))
-		if(process_tool_hit(W,user))
+/obj/machinery/particle_accelerator/attackby(obj/item/attacking_item, mob/user)
+	if(istool(attacking_item))
+		if(process_tool_hit(attacking_item, user))
 			return
 	..()
 	return
@@ -273,13 +266,13 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 			if(prob(25))
 				qdel(src)
 			return
-		else
+
 	return
 
 /obj/machinery/particle_accelerator/proc/update_state()
 	return FALSE
 
-/obj/machinery/particle_accelerator/proc/process_tool_hit(var/obj/O, var/mob/user)
+/obj/machinery/particle_accelerator/proc/process_tool_hit(var/obj/item/O, var/mob/user)
 	if(!O || !user)
 		return FALSE
 	if(!ismob(user) || !isobj(O))
@@ -288,14 +281,14 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 	switch(construction_state)//TODO:Might be more interesting to have it need several parts rather than a single list of steps
 		if(0)
 			if(O.iswrench())
-				playsound(get_turf(src), O.usesound, 75, TRUE)
+				O.play_tool_sound(get_turf(src), 75)
 				anchored = TRUE
 				user.visible_message(SPAN_NOTICE("\The [user] secures \the [src] to the floor."), \
 					SPAN_NOTICE("You secure the external bolts."))
 				temp_state++
 		if(1)
 			if(O.iswrench())
-				playsound(get_turf(src), O.usesound, 75, TRUE)
+				O.play_tool_sound(get_turf(src), 75)
 				anchored = FALSE
 				user.visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the floor."), \
 					SPAN_NOTICE("You remove the external bolts."))
@@ -327,9 +320,9 @@ So, hopefully this is helpful if any more icons are to be added/changed/wonderin
 		if(construction_state < 3)//Was taken apart, update state
 			update_state()
 			if(use_power)
-				use_power = 0
+				update_use_power(POWER_USE_OFF)
 		construction_state = temp_state
 		if(construction_state >= 3)
-			use_power = 1
+			update_use_power(POWER_USE_IDLE)
 		update_icon()
 		return TRUE

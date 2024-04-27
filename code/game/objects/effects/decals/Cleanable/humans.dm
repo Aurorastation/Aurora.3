@@ -14,11 +14,16 @@
 	var/base_icon = 'icons/effects/blood.dmi'
 	var/list/viruses = list()
 	blood_DNA = list()
-	var/basecolor="#A10808" // Color when wet.
+	color = COLOR_HUMAN_BLOOD
+	var/basecolor = COLOR_HUMAN_BLOOD // Color when wet.
 	var/list/datum/disease2/disease/virus2 = list()
 	var/amount = 5
 	var/drytime
 	var/dries = TRUE
+	var/bleed_time
+
+/obj/effect/decal/cleanable/blood/no_dry
+	dries = FALSE
 
 /obj/effect/decal/cleanable/blood/reveal_blood()
 	if(!fluorescent)
@@ -29,7 +34,7 @@
 /obj/effect/decal/cleanable/blood/clean_blood()
 	fluorescent = 0
 	if(invisibility != 100)
-		invisibility = 100
+		set_invisibility(100)
 		amount = 0
 	..(ignore=1)
 
@@ -48,20 +53,33 @@
 				if(B != src)
 					if (B.blood_DNA)
 						blood_DNA |= B.blood_DNA.Copy()
-					qdel(B)
+					QDEL_IN(B, 1 SECOND)
 	drytime = DRYING_TIME * (amount+1)
-	if (dries && !mapload)
-		addtimer(CALLBACK(src, /obj/effect/decal/cleanable/blood/.proc/dry), drytime)
-	else if (dries)
-		dry()
+	bleed_time = world.time
+	if (dries)
+		animate(src, color = "#000000", time = drytime, loop = 0, flags = ANIMATION_RELATIVE)
+
+/obj/effect/decal/cleanable/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	if(dries && world.time > (bleed_time + drytime))
+		name = dryname
+		desc = drydesc
+	. = ..()
+
+/obj/effect/decal/cleanable/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/gun/energy/rifle/cult))
+		return TRUE
+	return ..()
 
 /obj/effect/decal/cleanable/blood/update_icon()
-	if(basecolor == "rainbow") basecolor = get_random_colour(1)
+	if(basecolor == "rainbow")
+		basecolor = get_random_colour(1)
 	color = basecolor
 
 /obj/effect/decal/cleanable/blood/Crossed(mob/living/carbon/human/perp)
 	if (!istype(perp))
 		return
+	if(dries && world.time > (bleed_time + drytime))
+		amount = 0
 	if(amount < 1)
 		return
 
@@ -72,47 +90,54 @@
 	var/hasfeet = 1
 	if((!l_foot || l_foot.is_stump()) && (!r_foot || r_foot.is_stump()))
 		hasfeet = 0
-	if(perp.shoes && !perp.buckled)//Adding blood to shoes
-		var/obj/item/clothing/shoes/S = perp.shoes
-		if(istype(S))
-			S.blood_color = basecolor
-			S.track_footprint = max(amount, S.track_footprint)
-			if(!S.blood_overlay)
-				S.generate_blood_overlay()
-			if(!S.blood_DNA)
-				S.blood_DNA = list()
-				S.blood_overlay.color = basecolor
-				S.add_overlay(S.blood_overlay)
-			if(S.blood_overlay && S.blood_overlay.color != basecolor)
-				S.cut_overlay(S.blood_overlay, TRUE)
-				S.blood_overlay.color = basecolor
-				S.add_overlay(S.blood_overlay, TRUE)
+
+	//If thrown (or leap manouvering), the mob is considered flying, so don't dirt its shoes
+	if(!perp.throwing)
+
+		if(perp.shoes && !perp.buckled_to)//Adding blood to shoes
+			var/obj/item/clothing/shoes/S = perp.shoes
+			if(istype(S))
+				if(S.item_flags & ITEM_FLAG_LIGHT_STEP)
+					return
+				S.blood_color = basecolor
+				S.track_footprint = max(amount, S.track_footprint)
+				if(!S.blood_overlay)
+					S.generate_blood_overlay()
+				if(!S.blood_DNA)
+					S.blood_DNA = list()
+					S.blood_overlay.color = basecolor
+					S.add_overlay(S.blood_overlay)
+				if(S.blood_overlay && S.blood_overlay.color != basecolor)
+					S.cut_overlay(S.blood_overlay, TRUE)
+					S.blood_overlay.color = basecolor
+					S.add_overlay(S.blood_overlay, TRUE)
+				if(blood_DNA)
+					S.blood_DNA |= blood_DNA.Copy()
+
+		else if(hasfeet) //Or feet
+			perp.footprint_color = basecolor
+			perp.track_footprint = max(amount,perp.track_footprint)
+			LAZYINITLIST(perp.feet_blood_DNA)
 			if(blood_DNA)
-				S.blood_DNA |= blood_DNA.Copy()
+				perp.feet_blood_DNA |= blood_DNA.Copy()
+		else if(perp.buckled_to && istype(perp.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+			var/obj/structure/bed/stool/chair/office/wheelchair/W = perp.buckled_to
+			W.bloodiness = 4
 
-	else if (hasfeet)//Or feet
-		perp.footprint_color = basecolor
-		perp.track_footprint = max(amount,perp.track_footprint)
-		LAZYINITLIST(perp.feet_blood_DNA)
-		if (blood_DNA)
-			perp.feet_blood_DNA |= blood_DNA.Copy()
-	else if (perp.buckled && istype(perp.buckled, /obj/structure/bed/chair/wheelchair))
-		var/obj/structure/bed/chair/wheelchair/W = perp.buckled
-		W.bloodiness = 4
+		perp.update_inv_shoes(1)
+		amount--
 
-	perp.update_inv_shoes(1)
-	amount--
-	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == "run" ? 20 : 5)))
+	//Point and laugh
+	if(amount > 2 && prob(perp.slip_chance(perp.m_intent == M_RUN ? 20 : 5)))
 		perp.slip(src, 4)
 
-/obj/effect/decal/cleanable/blood/proc/dry()
-	name = dryname
-	desc = drydesc
-	color = adjust_brightness(color, -50)
-	amount = 0
+		if(perp.throwing)
+			amount--
 
 /obj/effect/decal/cleanable/blood/attack_hand(mob/living/carbon/human/user)
 	..()
+	if(dries && world.time > (bleed_time + drytime))
+		amount = 0
 	if (amount && istype(user))
 		add_fingerprint(user)
 		if (user.gloves)
@@ -128,11 +153,11 @@
 		user.bloody_hands = taken
 		user.hand_blood_color = basecolor
 		user.update_inv_gloves(1)
-		user.verbs += /mob/living/carbon/human/proc/bloody_doodle
+		add_verb(user,  /mob/living/carbon/human/proc/bloody_doodle)
 
 /obj/effect/decal/cleanable/blood/splatter
-        random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
-        amount = 2
+	random_icon_states = list("mgibbl1", "mgibbl2", "mgibbl3", "mgibbl4", "mgibbl5")
+	amount = 2
 
 /obj/effect/decal/cleanable/blood/drip
 	name = "drips of blood"
@@ -165,9 +190,9 @@
 	else
 		icon_state = "writing1"
 
-/obj/effect/decal/cleanable/blood/writing/examine(mob/user)
-	..(user)
-	to_chat(user, "It reads: <font color='[basecolor]'>\"[message]\"</font>")
+/obj/effect/decal/cleanable/blood/writing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. +=  "It reads: <font color='[basecolor]'>\"[message]\"</font>"
 
 /obj/effect/decal/cleanable/blood/gibs
 	name = "gibs"
@@ -175,10 +200,9 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "gib1"
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5")
 	var/fleshcolor = "#FFFFFF"
 
 /obj/effect/decal/cleanable/blood/gibs/update_icon()
@@ -197,10 +221,10 @@
 	add_overlay(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibup1","gibup1","gibup1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibup1","gibup1","gibup1")
 
 /obj/effect/decal/cleanable/blood/gibs/down
-	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gib6","gibdown1","gibdown1","gibdown1")
+	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibdown1","gibdown1","gibdown1")
 
 /obj/effect/decal/cleanable/blood/gibs/body
 	random_icon_states = list("gibhead", "gibtorso")
@@ -238,17 +262,14 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
 	icon = 'icons/effects/blood.dmi'
 	icon_state = "mucus"
 	random_icon_states = null
 
 	var/list/datum/disease2/disease/virus2 = list()
-	var/dry = 0 // Keeps the lag down
 
 /obj/effect/decal/cleanable/mucus/Initialize()
 	. = ..()
-	addtimer(CALLBACK(src, .proc/dry), DRYING_TIME * 2)
+	animate(src, color = "#000000", time = DRYING_TIME * 2, loop = 0, flags = ANIMATION_RELATIVE)
 
-/obj/effect/decal/cleanable/mucus/proc/dry()
-	dry = TRUE
+#undef DRYING_TIME

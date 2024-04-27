@@ -8,48 +8,13 @@
 	if(volume)
 		create_reagents(volume)
 
-/obj/item/integrated_circuit/reagent/smoke
-	name = "smoke generator"
-	desc = "Unlike most electronics, creating smoke is completely intentional."
-	icon_state = "smoke"
-	extended_desc = "This smoke generator creates clouds of smoke on command.  It can also hold liquids inside, which will go \
-	into the smoke clouds when activated.  The reagents are consumed when smoke is made."
-	flags = OPENCONTAINER
-	complexity = 20
-	cooldown_per_use = 30 SECONDS
-	inputs = list()
-	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF)
-	activators = list("create smoke" = IC_PINTYPE_PULSE_IN)
-	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 3, TECH_BIO = 3)
-	volume = 100
-	power_draw_per_use = 20
-
-/obj/item/integrated_circuit/reagent/smoke/on_reagent_change()
-	set_pin_data(IC_OUTPUT, 1, reagents.total_volume)
-	push_data()
-
-/obj/item/integrated_circuit/reagent/smoke/interact(mob/user)
-	set_pin_data(IC_OUTPUT, 2, src)
-	push_data()
-	..()
-
-/obj/item/integrated_circuit/reagent/smoke/do_work()
-	playsound(src.loc, 'sound/effects/smoke.ogg', 50, 1, -3)
-	var/datum/effect/effect/system/smoke_spread/chem/smoke_system = new()
-	smoke_system.set_up(reagents, 10, 0, get_turf(src))
-	spawn(0)
-		for(var/i = 1 to 8)
-			smoke_system.start()
-		reagents.clear_reagents()
-
 /obj/item/integrated_circuit/reagent/injector
 	name = "integrated hypo-injector"
 	desc = "This scary looking thing is able to pump liquids into whatever it's pointed at."
 	icon_state = "injector"
 	extended_desc = "This autoinjector can push reagents into another container or someone else outside of the machine.  The target \
 	must be adjacent to the machine, and if it is a person, they cannot be wearing thick clothing."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 20
 	cooldown_per_use = 6 SECONDS
 	inputs = list("target" = IC_PINTYPE_REF, "injection amount" = IC_PINTYPE_NUMBER)
@@ -129,7 +94,7 @@
 		if(!TS.Adjacent(TT))
 			activate_pin(3)
 			return
-		var/tramount = Clamp(min(transfer_amount, reagents.get_free_space()), 0, reagents.maximum_volume)
+		var/tramount = Clamp(min(transfer_amount, REAGENTS_FREE_SPACE(reagents)), 0, reagents.maximum_volume)
 		if(ismob(target))//Blood!
 			if(istype(target, /mob/living/carbon))
 				var/mob/living/carbon/T = target
@@ -139,27 +104,13 @@
 					else
 						activate_pin(3)
 					return
-				if(NOCLONE in T.mutations) //target done been et, no more blood in him
+				if((T.mutations & NOCLONE)) //target done been et, no more blood in him
 					if(T.reagents.trans_to_obj(src, tramount))
 						activate_pin(2)
 					else
 						activate_pin(3)
 					return
-				var/datum/reagent/B
-				if(istype(T, /mob/living/carbon/human))
-					var/mob/living/carbon/human/H = T
-					if(H.species && !H.has_organ(BP_HEART))
-						H.reagents.trans_to_obj(src, tramount)
-					else
-						B = T.take_blood(src, tramount)
-				else
-					B = T.take_blood(src,tramount)
-				if (B)
-					reagents.reagent_list |= B
-					reagents.update_total()
-					on_reagent_change()
-					reagents.handle_reactions()
-					B = null
+				T.take_blood(src,tramount)
 				visible_message( "<span class='notice'>[assembly] takes a blood sample from [target].</span>")
 			else
 				activate_pin(3)
@@ -180,7 +131,7 @@
 	extended_desc = "This is a pump, which will move liquids from the source ref to the target ref.  The third pin determines \
 	how much liquid is moved per pulse, between 0 and 50.  The pump can move reagents to any open container inside the machine, or \
 	outside the machine if it is next to the machine.  Note that this cannot be used on entities."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 8
 	inputs = list(
 		"source" = IC_PINTYPE_REF,
@@ -229,11 +180,11 @@
 		if(!source.is_open_container() || !target.is_open_container())
 			return
 		if(direc)
-			if(!target.reagents.get_free_space())
+			if(!REAGENTS_FREE_SPACE(target.reagents))
 				return
 			source.reagents.trans_to(target, transfer_amount)
 		else
-			if(!source.reagents.get_free_space())
+			if(!REAGENTS_FREE_SPACE(source.reagents))
 				return
 			target.reagents.trans_to(source, transfer_amount)
 		activate_pin(2)
@@ -243,7 +194,7 @@
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u."
 	icon_state = "reagent_storage"
 	extended_desc = "This is effectively an internal beaker."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 4
 	inputs = list()
 	outputs = list("volume used" = IC_PINTYPE_NUMBER, "self reference" = IC_PINTYPE_REF)
@@ -266,17 +217,17 @@
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u.  This will also suppress reactions."
 	icon_state = "reagent_storage_cryo"
 	extended_desc = "This is effectively an internal cryo beaker."
-	flags = OPENCONTAINER | NOREACT
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER | ATOM_FLAG_NO_REACT
 	complexity = 8
 	spawn_flags = IC_SPAWN_RESEARCH
-	origin_tech = list(TECH_MATERIALS = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
+	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 
 /obj/item/integrated_circuit/reagent/storage/big
 	name = "big reagent storage"
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 180u."
 	icon_state = "reagent_storage_big"
 	extended_desc = "This is effectively an internal beaker."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 16
 	volume = 180
 	spawn_flags = IC_SPAWN_RESEARCH
@@ -287,7 +238,7 @@
 	desc = "Stores liquid inside, and away from electrical components.  Can store up to 60u.  On pulse this beaker will send list of contained reagents, as well as analyse their taste."
 	icon_state = "reagent_scan"
 	extended_desc = "Mostly useful for reagent filters."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 8
 	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF,"list of reagents" = IC_PINTYPE_LIST,"taste" = IC_PINTYPE_STRING)
 	activators = list("scan" = IC_PINTYPE_PULSE_IN)
@@ -296,8 +247,9 @@
 
 /obj/item/integrated_circuit/reagent/storage/scan/do_work()
 	var/list/cont = list()
-	for(var/datum/reagent/RE in reagents.reagent_list)
-		cont += RE.id
+	for(var/_RE in reagents.reagent_volumes)
+		var/singleton/reagent/RE = GET_SINGLETON(_RE)
+		cont += RE.name
 	set_pin_data(IC_OUTPUT, 3, cont)
 	set_pin_data(IC_OUTPUT, 4, reagents.generate_taste_message(src))
 	push_data()
@@ -311,7 +263,7 @@
 	It will move all reagents, except list, given in fourth pin if amount value is positive.\
 	Or it will move only desired reagents if amount is negative, The third pin determines \
 	how much reagent is moved per pulse, between 0 and 50. Amount is given for each separate reagent."
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 8
 	inputs = list("source" = IC_PINTYPE_REF, "target" = IC_PINTYPE_REF, "injection amount" = IC_PINTYPE_NUMBER, "list of reagents" = IC_PINTYPE_LIST)
 	inputs_default = list("3" = 5)
@@ -348,14 +300,15 @@
 			return
 		if(!source.is_open_container() || !target.is_open_container())
 			return
-		if(!target.reagents.get_free_space())
+		if(!REAGENTS_FREE_SPACE(target.reagents))
 			return
-		for(var/datum/reagent/G in source.reagents.reagent_list)
+		for(var/_G in source.reagents.reagent_volumes)
+			var/singleton/reagent/G = GET_SINGLETON(_G)
 			if (!direc)
-				if(G.id in demand)
-					source.reagents.trans_id_to(target, G.id, transfer_amount)
+				if(lowertext(G.name) in demand)
+					source.reagents.trans_type_to(target, _G, transfer_amount)
 			else
-				if(!(G.id in demand))
-					source.reagents.trans_id_to(target, G.id, transfer_amount)
+				if(!(lowertext(G.name) in demand))
+					source.reagents.trans_type_to(target, _G, transfer_amount)
 		activate_pin(2)
 		push_data()

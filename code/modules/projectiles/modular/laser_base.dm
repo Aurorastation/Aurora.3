@@ -1,6 +1,6 @@
 /obj/item/laser_components
 	icon = 'icons/obj/guns/modular_laser.dmi'
-	var/base_icon_state = "bfg"
+	icon_state = "bfg"
 	contained_sprite = TRUE
 	var/reliability = 0
 	var/damage = 1
@@ -18,11 +18,11 @@
 		if(condition > reliability)
 			condition = reliability
 
-/obj/item/laser_components/attackby(var/obj/item/D as obj, var/mob/user as mob)
-	if(!istype(D,repair_item))
+/obj/item/laser_components/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, repair_item))
 		return ..()
 	to_chat(user, "<span class='warning'>You begin repairing \the [src].</span>")
-	if(do_after(user,20) && repair_module(D))
+	if(do_after(user, 20) && repair_module(attacking_item))
 		to_chat(user, "<span class='notice'>You repair \the [src].</span>")
 	else
 		to_chat(user, "<span class='warning'>You fail to repair \the [src].</span>")
@@ -44,11 +44,11 @@
 	var/criticality
 	repair_item = /obj/item/weldingtool
 
-/obj/item/laser_components/modifier/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
+/obj/item/laser_components/modifier/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
 		if(malus > base_malus)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+			. += "<span class='warning'>\The [src] appears damaged.</span>"
 
 /obj/item/laser_components/modifier/degrade(var/increment = 1)
 	if(increment)
@@ -61,7 +61,7 @@
 		return
 	if(malus == base_malus)
 		return 0
-	if(W.remove_fuel(5))
+	if(W.use(5))
 		malus = max(malus - 5, base_malus)
 		return 1
 	return 0
@@ -69,7 +69,7 @@
 /obj/item/laser_components/capacitor
 	name = "capacitor"
 	desc = "A basic laser weapon capacitor."
-	base_icon_state = "capacitor"
+	icon_state = "capacitor"
 	shots = 5
 	damage = 10
 	reliability = 50
@@ -85,11 +85,10 @@
 		return 1
 	return 0
 
-/obj/item/laser_components/capacitor/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
-		if(condition > 0)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+/obj/item/laser_components/capacitor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1 && condition > 0)
+		. += "<span class='warning'>\The [src] appears damaged.</span>"
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	return
@@ -104,7 +103,7 @@
 /obj/item/laser_components/focusing_lens
 	name = "focusing lens"
 	desc = "A basic laser weapon focusing lens."
-	base_icon_state = "lens"
+	icon_state = "lens"
 	var/list/dispersion = list(0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2,0.6,1.0,1.0,1.0,1.2)
 	reliability = 25
 	repair_item = /obj/item/stack/nanopaste
@@ -119,19 +118,18 @@
 		return 1
 	return 0
 
-/obj/item/laser_components/focusing_lens/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
-		if(condition > 0)
-			to_chat(user, "<span class='warning'>\The [src] appears damaged.</span>")
+/obj/item/laser_components/focusing_lens/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1 && condition > 0)
+		. += "<span class='warning'>\The [src] appears damaged.</span>"
 
 /obj/item/laser_components/modulator
 	name = "laser modulator"
 	desc = "A modification that modulates the beam into a standard laser beam."
-	base_icon_state = "laser"
+	icon_state = "laser"
 	origin_tech = list(TECH_COMBAT = 1, TECH_MAGNET = 2)
 	var/obj/item/projectile/beam/projectile = /obj/item/projectile/beam
-	var/firing_sound = 'sound/weapons/Laser.ogg'
+	var/firing_sound = 'sound/weapons/laser1.ogg'
 
 /obj/item/laser_components/modulator/degrade()
 	return
@@ -139,7 +137,7 @@
 /obj/item/device/laser_assembly
 	name = "laser assembly (small)"
 	desc = "A case for shoving things into. Hopefully they work."
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	icon = 'icons/obj/guns/modular_laser.dmi'
 	var/base_icon_state = "small"
 	contained_sprite = TRUE
@@ -159,8 +157,8 @@
 	. = ..()
 	update_icon()
 
-/obj/item/device/laser_assembly/attackby(var/obj/item/D as obj, var/mob/user as mob)
-	var/obj/item/laser_components/A = D
+/obj/item/device/laser_assembly/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/laser_components/A = attacking_item
 	var/success = FALSE
 	if(!istype(A))
 		return ..()
@@ -173,7 +171,7 @@
 		for(var/v in gun_mods)
 			var/obj/item/laser_components/modifier/M = v
 			if(M.type == m.type)
-				to_chat(user, span("warning", "\The [name] already has [m]."))
+				to_chat(user, SPAN_WARNING("\The [name] already has [m]."))
 				return FALSE
 		gun_mods += A
 		user.drop_from_inventory(A,src)
@@ -251,3 +249,20 @@
 	capacitor = null
 	qdel(src)
 	return TRUE
+
+/obj/item/device/laser_assembly/get_print_info()
+	. = ""
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+		if(!l_component)
+			continue
+
+		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
+		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+		. += "Reliability: [initial(l_component.reliability)]<br>"
+		. += "Damage Modifier: [initial(l_component.damage)]<br>"
+		. += "Fire Delay Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Shots Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Burst Modifier: [initial(l_component.burst)]<br>"
+		. += "Accuracy Modifier: [initial(l_component.accuracy)]<br>"
+		. += "Repair Tool: [l_repair_name]<br>"

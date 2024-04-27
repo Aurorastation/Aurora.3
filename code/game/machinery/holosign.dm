@@ -4,8 +4,7 @@
 	desc = "Small wall-mounted holographic projector"
 	icon = 'icons/obj/holosign.dmi'
 	icon_state = "sign_off"
-	layer = 4
-	use_power = 1
+	layer = ABOVE_DOOR_LAYER
 	idle_power_usage = 2
 	active_power_usage = 4
 	anchored = 1
@@ -29,7 +28,7 @@
 	if (stat & (BROKEN|NOPOWER))
 		return
 	lit = !lit
-	use_power = lit ? 2 : 1
+	update_use_power(lit ? POWER_USE_ACTIVE : POWER_USE_IDLE)
 	update_icon()
 
 /obj/machinery/holosign/update_icon()
@@ -42,7 +41,7 @@
 	..()
 	if (stat & NOPOWER)
 		lit = 0
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 	update_icon()
 
 /obj/machinery/holosign/surgery
@@ -51,27 +50,22 @@
 	on_icon = "surgery"
 ////////////////////SWITCH///////////////////////////////////////
 
-/obj/machinery/button/holosign
+/obj/machinery/button/switch/holosign
 	name = "holosign switch"
 	desc = "A remote control switch for holosign."
-	icon = 'icons/obj/power.dmi'
-	icon_state = "holosign_switch"
+	icon_state = "light0"
 
-/obj/machinery/button/holosign/update_icon()
-	return
-
-/obj/machinery/button/holosign/attack_hand(mob/user as mob)
+/obj/machinery/button/switch/holosign/attack_hand(mob/user as mob)
 	if(..())
 		return
 	add_fingerprint(user)
 
-	use_power(5)
+	use_power_oneoff(5)
 
 	active = !active
-	icon_state = "light[active]"
-
-	for(var/obj/machinery/holosign/M in SSmachinery.all_machines)
+	update_icon()
+	for(var/obj/machinery/holosign/M in SSmachinery.machinery)
 		if (M.id == src.id)
-			INVOKE_ASYNC(M, /obj/machinery/holosign/proc/toggle)
+			INVOKE_ASYNC(M, TYPE_PROC_REF(/obj/machinery/holosign, toggle))
 
 	return

@@ -1,8 +1,8 @@
 var/global/image/default_hardpoint_background
 var/global/image/hardpoint_error_icon
 var/global/image/hardpoint_bar_empty
-var/global/list/hardpoint_bar_cache = list()
-var/global/list/mecha_damage_overlay_cache = list()
+GLOBAL_LIST_EMPTY(hardpoint_bar_cache)
+GLOBAL_LIST_EMPTY(mecha_damage_overlay_cache)
 
 #define HARDPOINT_BACK "back"
 #define HARDPOINT_LEFT_HAND "left hand"
@@ -14,8 +14,8 @@ var/global/list/mecha_damage_overlay_cache = list()
 // No software required: taser. light, radio.
 #define MECH_SOFTWARE_UTILITY "utility equipment"                // Plasma torch, clamp, drill.
 #define MECH_SOFTWARE_MEDICAL "medical support systems"          // Sleeper.
-#define MECH_SOFTWARE_WEAPONS "ballistic weapon systems"         // Ballistics.
-#define MECH_SOFTWARE_ADVWEAPONS "advanced weapon systems"       // Railguns, ion rifle, missile launcher.
+#define MECH_SOFTWARE_WEAPONS "exosuit weapon systems"           // Combat equipment
+#define MECH_SOFTWARE_CULT "daemon systems"                      // Souljavelin, Doomblade
 #define MECH_SOFTWARE_ENGINEERING "advanced engineering systems" // RCD.
 
 // EMP damage points before various effects occur.
@@ -36,3 +36,8 @@ var/global/list/mecha_damage_overlay_cache = list()
 
 #define FRAME_WIRED 1
 #define FRAME_WIRED_ADJUSTED 2
+
+//POWER!
+#define MECH_POWER_OFF 0
+#define MECH_POWER_TRANSITION 1
+#define MECH_POWER_ON 2

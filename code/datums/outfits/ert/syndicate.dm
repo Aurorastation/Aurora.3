@@ -1,4 +1,4 @@
-/datum/outfit/admin/deathsquad/syndicate
+/obj/outfit/admin/deathsquad/syndicate
 	name = "Syndicate Commando"
 
 	uniform = /obj/item/clothing/under/syndicate
@@ -6,7 +6,7 @@
 	mask = /obj/item/clothing/mask/gas/syndicate
 	l_ear = /obj/item/device/radio/headset/syndicate
 	glasses = /obj/item/clothing/glasses/thermal
-	id = /obj/item/card/id/syndicate_ert
+	id = /obj/item/card/id/syndicate/ert
 	l_pocket = /obj/item/ammo_magazine/c45m
 	l_hand = /obj/item/gun/projectile/automatic/rifle/sts35
 
@@ -22,7 +22,9 @@
 
 	syndie = TRUE
 
-/datum/outfit/admin/deathsquad/syndicate/leader
+	id_iff = IFF_SYNDICATE
+
+/obj/outfit/admin/deathsquad/syndicate/leader
 	name = "Syndicate Commando Lead"
 
 	l_pocket = /obj/item/pinpointer

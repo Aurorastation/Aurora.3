@@ -35,7 +35,7 @@
 	alarms |= existing
 	alarms_assoc[origin] = existing
 	if(new_alarm)
-		sortTim(alarms, /proc/cmp_alarm, FALSE)
+		sortTim(alarms, GLOBAL_PROC_REF(cmp_alarm), FALSE)
 		on_alarm_change(existing, ALARM_RAISED)
 
 	return new_alarm
@@ -104,3 +104,7 @@
 /datum/alarm_handler/proc/notify_listeners(var/alarm, var/was_raised)
 	for(var/listener in listeners)
 		call(listener, listeners[listener])(src, alarm, was_raised)
+
+
+#undef ALARM_RAISED
+#undef ALARM_CLEARED

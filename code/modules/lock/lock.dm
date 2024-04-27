@@ -67,7 +67,7 @@
 	if(!unlock_power)
 		return 0
 	user.visible_message("\The [user] takes out \the [I], picking \the [holder]'s lock.")
-	if(!do_after(user, 20, holder))
+	if(!do_after(user, 2 SECONDS, holder))
 		return 0
 	if(prob(20*(unlock_power/getComplexity())))
 		to_chat(user, "<span class='notice'>You pick open \the [holder]'s lock!</span>")
@@ -79,3 +79,6 @@
 	else
 		to_chat(user, "<span class='warning'>You fail to pick open \the [holder].</span>")
 	return 0
+
+#undef LOCK_LOCKED
+#undef LOCK_BROKEN

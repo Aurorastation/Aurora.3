@@ -9,7 +9,7 @@ Used In File(s): \code\game\machinery\cryo.dm
 		<div class="line">Cell Unoccupied</div>
 	{{else}}
 		<div class="line">
-			{{:data.occupant.name}}&nbsp;=>&nbsp;
+			{{:data.occupant.name}}&nbsp;|&nbsp;{{:helper.round(data.occupant.bodyTemperature - 273.15)}} C&nbsp;=>&nbsp;
 			{{if data.occupant.stat == 0}}
 				<span class="good">Conscious</span>
 			{{else data.occupant.stat == 1}}
@@ -18,6 +18,94 @@ Used In File(s): \code\game\machinery\cryo.dm
 				<span class="bad">DEAD</span>
 			{{/if}}
 		</div>
+
+		{{if data.occupant.stat < 2}}
+			<div class="line">
+				<div class="statusLabel">Brain Activity:</div>
+				<div class="statusValue">{{:data.occupant.brain_activity}}</div>
+			</div>
+			<div class="line">
+				<div class="statusLabel">Pulse rate:</div>
+				<div class="statusValue">{{:data.occupant.pulse}}bpm</div>
+			</div>
+			<div class="line">
+				<div class="statusLabel">Blood Pressure:</div>
+				<div class="statusValue">{{:data.occupant.blood_pressure}}&nbsp;({{:data.occupant.blood_o2}}% blood oxy)</div>
+			</div>
+			<br>
+			<div class="line">
+				<div class="statusLabel">=&gt; Genetic Damage:</div>
+				{{if data.occupant.cloneLoss > 50}}
+					<span class="bad">Severe</span>
+				{{else data.occupant.cloneLoss > 25}}
+					<span class="bad">Significant</span>
+				{{else data.occupant.cloneLoss > 10}}
+					<span class="average">Moderate</span>
+				{{else data.occupant.cloneLoss > 1}}
+					<span class="notgood">Minor</span>
+				{{else}}
+					<span class="good">None.</span>
+				{{/if}}
+			</div>
+
+			<div class="line">
+				<div class="statusLabel">=&gt; Physical Trauma:</div>
+				{{if data.occupant.bruteLoss > 50}}
+					<span class="bad">Severe</span>
+				{{else data.occupant.bruteLoss > 25}}
+					<span class="bad">Significant</span>
+				{{else data.occupant.bruteLoss > 10}}
+					<span class="average">Moderate</span>
+				{{else data.occupant.bruteLoss > 1}}
+					<span class="notgood">Minor</span>
+				{{else}}
+					<span class="good">None.</span>
+				{{/if}}
+			</div>
+
+			<div class="line">
+				<div class="statusLabel">=&gt; Burn Severity:</div>
+				{{if data.occupant.fireLoss > 50}}
+					<span class="bad">Severe</span>
+				{{else data.occupant.fireLoss > 25}}
+					<span class="bad">Significant</span>
+				{{else data.occupant.fireLoss > 10}}
+					<span class="average">Moderate</span>
+				{{else data.occupant.fireLoss > 1}}
+					<span class="notgood">Minor</span>
+				{{else}}
+					<span class="good">None.</span>
+				{{/if}}
+			</div>
+
+			<div class ="line">
+				<div class ="statusLabel">=&gt; Organ Damage:</div>
+				{{if data.occupant.toxLoss > 50}}
+					<span class="bad">Major systemic organ failure detected.</span>
+				{{else data.occupant.toxLoss > 25}}
+					<span class="bad">Significant.</span>
+				{{else data.occupant.toxLoss > 10}}
+					<span class="average">Moderate.</span>
+				{{else data.occupant.toxLoss > 1}}
+					<span class="notgood">Minor.</span>
+				{{else}}
+					<span class="good"> None.</span>
+				{{/if}}
+			</div>
+
+			<div class="line">
+				<div class="statusLabel">=&gt; Oxygenation:</div>
+				{{if data.occupant.oxyLoss > 50}}
+					<span class="bad">Severe oxygen deprivation.</span>
+				{{else data.occupant.oxyLoss > 25}}
+					<span class="average">Moderate oxygen deprivation.</span>
+				{{else data.occupant.oxyLoss > 10}}
+					<span class="average">Low oxygen deprivation.</span>
+				{{else}}
+					<span class="good">Normal oxygenation levels.</span>
+				{{/if}}
+			</div>
+		{{/if}}
 	{{/if}}
 	<hr>
 	<div class="line">

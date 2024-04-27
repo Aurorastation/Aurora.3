@@ -1,30 +1,42 @@
 // Screen objects hereon out.
-/obj/screen/movable/mecha
+/obj/screen/mecha
 	name = "hardpoint"
 	icon = 'icons/mecha/mecha_hud.dmi'
 	icon_state = "hardpoint"
 	var/mob/living/heavy_vehicle/owner
+	maptext_y = 11
 
-/obj/screen/movable/mecha/radio
+/obj/screen/mecha/proc/notify_user(var/mob/user, var/text)
+	if(user && user.loc == owner)
+		to_chat(user, text)
+
+/obj/screen/mecha/radio
 	name = "radio"
-	icon_state = "radio"
+	icon_state = "base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">RADIO</span>"
+	maptext_x = 2
+	maptext_y = 11
 
-/obj/screen/movable/mecha/radio/Click()
+/obj/screen/mecha/radio/Click()
 	if(..())
 		if(owner.radio)
 			owner.radio.attack_self(usr)
 
-/obj/screen/movable/mecha/Initialize()
+/obj/screen/mecha/Initialize()
 	. = ..()
 	var/mob/living/heavy_vehicle/newowner = loc
 	if(!istype(newowner))
-		return qdel(src)
+		return INITIALIZE_HINT_QDEL
 	owner = newowner
 
-/obj/screen/movable/mecha/Click()
+/obj/screen/mecha/Destroy(force)
+	owner = null
+	. = ..()
+
+/obj/screen/mecha/Click()
 	return (!owner || !usr.incapacitated() && (usr == owner || usr.loc == owner))
 
-/obj/screen/movable/mecha/hardpoint
+/obj/screen/mecha/hardpoint
 	name = "hardpoint"
 	var/hardpoint_tag
 	var/obj/item/holding
@@ -33,16 +45,16 @@
 	maptext_y = 3
 	maptext_width = 120
 
-/obj/screen/movable/mecha/hardpoint/Destroy()
-	owner = null
+/obj/screen/mecha/hardpoint/Destroy()
 	holding = null
+	hardpoint_tag = null
 	. = ..()
 
-/obj/screen/movable/mecha/hardpoint/MouseDrop()
+/obj/screen/mecha/hardpoint/MouseDrop()
 	..()
 	if(holding) holding.screen_loc = screen_loc
 
-/obj/screen/movable/mecha/hardpoint/proc/update_system_info()
+/obj/screen/mecha/hardpoint/proc/update_system_info()
 	// No point drawing it if we have no item to use or nobody to see it.
 	if(!holding || !owner)
 		return
@@ -61,6 +73,7 @@
 	var/list/new_overlays = list()
 	if(!owner.get_cell() || (owner.get_cell().charge <= 0))
 		overlays.Cut()
+		maptext = ""
 		return
 
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">[holding.get_hardpoint_maptext()]</span>"
@@ -104,7 +117,7 @@
 	else
 		value = min(value, BAR_CAP)
 		// Draw statbar.
-		if(!LAZYLEN(hardpoint_bar_cache))
+		if(!LAZYLEN(GLOB.hardpoint_bar_cache))
 			for(var/i=0;i<BAR_CAP;i++)
 				var/image/bar = image(icon='icons/mecha/mecha_hud.dmi',icon_state="bar")
 				bar.pixel_x = 24+(i*2)
@@ -114,17 +127,17 @@
 					bar.color = "#ffff00"
 				else
 					bar.color = "#ff0000"
-				hardpoint_bar_cache += bar
+				GLOB.hardpoint_bar_cache += bar
 		for(var/i = 1; i <= value; i++)
-			new_overlays += hardpoint_bar_cache[i]
+			new_overlays += GLOB.hardpoint_bar_cache[i]
 	overlays = new_overlays
 
-/obj/screen/movable/mecha/hardpoint/Initialize(mapload, var/newtag)
+/obj/screen/mecha/hardpoint/Initialize(mapload, var/newtag)
 	. = ..()
 	hardpoint_tag = newtag
 	name = "hardpoint ([hardpoint_tag])"
 
-/obj/screen/movable/mecha/hardpoint/Click(var/location, var/control, var/params)
+/obj/screen/mecha/hardpoint/Click(var/location, var/control, var/params)
 
 	if(!(..()))
 		return
@@ -132,12 +145,12 @@
 	var/modifiers = params2list(params)
 	if(modifiers["ctrl"])
 		if(owner.hardpoints_locked)
-			to_chat(usr, "<span class='warning'>Hardpoint ejection system is locked.</span>")
+			notify_user(usr, SPAN_WARNING("The hardpoint ejection system is locked."))
 			return
 		if(owner.remove_system(hardpoint_tag))
-			to_chat(usr, "<span class='notice'>You disengage and discard the system mounted to your [hardpoint_tag] hardpoint.</span>")
+			notify_user(usr, SPAN_NOTICE("You disengage and discard the system mounted to your [hardpoint_tag] hardpoint."))
 		else
-			to_chat(usr, "<span class='danger'>You fail to remove the system mounted to your [hardpoint_tag] hardpoint.</span>")
+			notify_user(usr, SPAN_DANGER("You fail to remove the system mounted to your [hardpoint_tag] hardpoint."))
 		return
 
 	if(owner.selected_hardpoint == hardpoint_tag)
@@ -147,115 +160,190 @@
 		if(owner.set_hardpoint(hardpoint_tag))
 			icon_state = "hardpoint_selected"
 
-/obj/screen/movable/mecha/eject
+/obj/screen/mecha/eject
 	name = "eject"
-	icon_state = "eject"
+	icon_state = "large_base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">EJECT</span>"
+	maptext_x = 3
+	maptext_y = 10
 
-/obj/screen/movable/mecha/eject/Click()
+/obj/screen/mecha/eject/Click()
 	if(..())
 		owner.eject(usr)
 
-/obj/screen/movable/mecha/rename
+/obj/screen/mecha/rename
 	name = "rename"
-	icon_state = "rename"
+	icon_state = "base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 5px;\">RENAME</span>"
+	maptext_x = 1
+	maptext_y = 12
 
-/obj/screen/movable/mecha/rename/Click()
+/obj/screen/mecha/rename/Click()
 	if(..())
 		owner.rename(usr)
 
-/obj/screen/movable/mecha/power
+/obj/screen/mecha/power
 	name = "power"
 	icon_state = null
 
 	maptext_width = 64
 	maptext_y = 2
 
-/obj/screen/movable/mecha/toggle
+/obj/screen/mecha/toggle
 	name = "toggle"
 	var/toggled
 
-/obj/screen/movable/mecha/toggle/Click()
+/obj/screen/mecha/toggle/Click()
 	if(..()) toggled()
 
-/obj/screen/movable/mecha/toggle/proc/toggled()
+/obj/screen/mecha/toggle/proc/toggled()
 	toggled = !toggled
 	icon_state = "[initial(icon_state)][toggled ? "_enabled" : ""]"
 	return toggled
 
-/obj/screen/movable/mecha/toggle/air
+/obj/screen/mecha/toggle/air
 	name = "air"
-	icon_state = "air"
+	icon_state = "base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
+	maptext_x = 8
 
-/obj/screen/movable/mecha/toggle/air/toggled()
-	owner.use_air = ..()
-	to_chat(usr, "<span class='notice'>Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"].</span>")
+/obj/screen/mecha/toggle/air/toggled()
+	toggled = !toggled
+	owner.use_air = toggled
+	var/main_color = owner.use_air ? "#d1d1d1" : "#525252"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">AIR</span>"
+	notify_user(usr, SPAN_NOTICE("Auxiliary atmospheric system [owner.use_air ? "enabled" : "disabled"]."))
 
-/obj/screen/movable/mecha/toggle/maint
+/obj/screen/mecha/toggle/maint
 	name = "toggle maintenance protocol"
-	icon_state = "maint"
+	icon_state = "large_base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
+	maptext_x = 2
+	maptext_y = 10
 
-/obj/screen/movable/mecha/toggle/maint/toggled()
-	owner.maintenance_protocols = ..()
-	to_chat(usr, "<span class='notice'>Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"].</span>")
+/obj/screen/mecha/toggle/maint/toggled()
+	toggled = !toggled
+	owner.maintenance_protocols = toggled
+	var/main_color = owner.maintenance_protocols ? "#d1d1d1" : "#525252"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">MAINT</span>"
+	notify_user(usr, SPAN_NOTICE("Maintenance protocols [owner.maintenance_protocols ? "enabled" : "disabled"]."))
 
-/obj/screen/movable/mecha/toggle/hardpoint
+/obj/screen/mecha/toggle/power_control
+	name = "power control"
+	icon_state = "large_base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
+	maptext_x = 1
+	maptext_y = 11
+
+/obj/screen/mecha/toggle/power_control/toggled()
+	toggled = !toggled
+	owner.toggle_power(usr)
+	var/main_color = toggled ? "#d1d1d1" : "#525252"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">POWER</span>"
+
+/obj/screen/mecha/toggle/power_control/update_icon()
+	toggled = (owner.power == MECH_POWER_ON)
+	return ..()
+
+/obj/screen/mecha/toggle/hardpoint
 	name = "toggle hardpoint lock"
-	icon_state = "hardpoint_lock"
+	icon_state = "base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
+	maptext_x = 4
 
-/obj/screen/movable/mecha/toggle/hardpoint/toggled()
+/obj/screen/mecha/toggle/hardpoint/toggled()
 	if(owner.force_locked)
-		to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
+		notify_user(usr, SPAN_WARNING("The locking system cannot be operated due to software restriction. Contact the manufacturer for more details."))
 		return
-	owner.hardpoints_locked = ..()
-	to_chat(usr, "<span class='notice'>Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"].</span>")
+	toggled = !toggled
+	owner.hardpoints_locked = toggled
+	var/main_color = owner.hardpoints_locked ? "#d1d1d1" : "#525252"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 6px;\">GEAR</span>"
+	notify_user(usr, SPAN_NOTICE("Hardpoint system access is now [owner.hardpoints_locked ? "disabled" : "enabled"]."))
 
-/obj/screen/movable/mecha/toggle/hatch
+/obj/screen/mecha/toggle/hatch
 	name = "toggle hatch lock"
-	icon_state = "hatch_lock"
+	icon_state = "base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">LOCK</span>"
+	maptext_x = 5
 
-/obj/screen/movable/mecha/toggle/hatch/toggled()
+/obj/screen/mecha/toggle/hatch/toggled()
 	if(!owner.hatch_locked && !owner.hatch_closed)
-		to_chat(usr, "<span class='warning'>You cannot lock the hatch while it is open.</span>")
+		notify_user(usr, SPAN_WARNING("You cannot lock the hatch while it is open."))
 		return
 	if(owner.force_locked)
-		to_chat(usr, "<span class='warning'>The locking system cannot be operated due to software restriction. Contact the manufacturer for more details.</span>")
+		notify_user(usr, SPAN_WARNING("The locking system cannot be operated due to software restriction. Contact the manufacturer for more details."))
 		return
-	owner.hatch_locked = ..()
-	to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked.</span>")
+	toggled = !toggled
+	owner.hatch_locked = toggled
+	if(owner.hatch_locked)
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 5px;\">UNLOCK</span>"
+		maptext_y = 12
+		maptext_x = 1
+	else
+		maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">LOCK</span>"
+		maptext_y = 11
+		maptext_x = 5
+	notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is [owner.hatch_locked ? "now" : "no longer" ] locked."))
 
-/obj/screen/movable/mecha/toggle/hatch_open
+/obj/screen/mecha/toggle/hatch_open
 	name = "open or close hatch"
-	icon_state = "hatch_status"
+	icon_state = "base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">CLOSE</span>"
+	maptext_x = 3
 
-/obj/screen/movable/mecha/toggle/hatch_open/update_icon()
-	toggled = owner.hatch_closed
-	icon_state = "hatch_status[owner.hatch_closed ? "" : "_enabled"]"
+/obj/screen/mecha/toggle/hatch_open/update_icon()
+	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 #242424; font-size: 6px;\">[owner.hatch_closed ? "OPEN" : "CLOSE"]</span>"
+	maptext_x = owner.hatch_closed ? 4 : 3
 
-/obj/screen/movable/mecha/toggle/hatch_open/toggled()
+/obj/screen/mecha/toggle/hatch_open/toggled(var/notify_user = TRUE)
 	if(owner.hatch_locked && owner.hatch_closed)
-		to_chat(usr, "<span class='warning'>You cannot open the hatch while it is locked.</span>")
+		notify_user(usr, SPAN_WARNING("You cannot open the hatch while it is locked."))
 		return
-	owner.hatch_closed = ..()
-	to_chat(usr, "<span class='notice'>The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ].</span>")
+	toggled = !toggled
+	owner.hatch_closed = toggled
+	if(notify_user)
+		notify_user(usr, SPAN_NOTICE("The [owner.body.hatch_descriptor] is now [owner.hatch_closed ? "closed" : "open" ]."))
+	update_icon()
 	owner.update_icon()
 
 // This is basically just a holder for the updates the mech does.
-/obj/screen/movable/mecha/health
+/obj/screen/mecha/health
 	name = "exosuit integrity"
 	icon_state = "health"
 
-/obj/screen/movable/mecha/toggle/camera
-	name = "toggle camera matrix"
-	icon_state = "camera"
+/obj/screen/mecha/toggle/sensor
+	name = "toggle sensor matrix"
+	icon_state = "base"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
+	maptext_x = 1
+	maptext_y = 12
 
-/obj/screen/movable/mecha/toggle/camera/toggled()
+/obj/screen/mecha/toggle/sensor/toggled()
 	if(!owner.head)
-		to_chat(usr, "<span class='warning'>I/O Error: Camera systems not found.</span>")
+		notify_user(usr, SPAN_WARNING("I/O Error: Sensor systems not found."))
 		return
 	if(!owner.head.vision_flags)
-		to_chat(usr, "<span class='warning'>Alternative sensor configurations not found. Contact manufacturer for more details.</span>")
+		notify_user(usr, SPAN_WARNING("\The [owner.head] does not have any special sensor configurations."))
 		return
-	owner.head.active_sensors = ..()
-	to_chat(usr, "<span class='notice'>[owner.head.name] advanced sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active.</span>")
+	toggled = !toggled
+	owner.head.active_sensors = toggled
+	var/main_color = owner.head.active_sensors ? "#d1d1d1" : "#525252"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">SENSOR</span>"
+	notify_user(usr, SPAN_NOTICE("[capitalize_first_letters(owner.head.name)] Advanced Sensor mode is [owner.head.active_sensors ? "now" : "no longer" ] active."))
+
+/obj/screen/mecha/toggle/megaspeakers
+	name = "toggle integrated megaspeakers"
+	icon_state = "base" // based
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: #525252; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
+	maptext_x = 1
+	maptext_y = 12
+
+/obj/screen/mecha/toggle/megaspeakers/toggled()
+	toggled = !toggled
+	owner.loudening = toggled
+	var/main_color = owner.loudening ? "#d1d1d1" : "#525252"
+	maptext = "<span style=\"font-family: 'Small Fonts'; color: [main_color]; -dm-text-outline: 1 #242424; font-size: 5px;\">VOLUME</span>"
+	notify_user(usr, SPAN_NOTICE("You [owner.loudening ? "activate" : "deactivate"] \the [owner]'s integrated megaspeakers."))
 
 #undef BAR_CAP

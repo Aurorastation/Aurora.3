@@ -7,19 +7,22 @@ var/datum/antagonist/mercenary/mercs
 	antag_indicator = "synd"
 	role_text_plural = "Mercenaries"
 	landmark_id = "Syndicate-Spawn"
-	leader_welcome_text = "You are the leader of the mercenary strikeforce; hail to the chief. Use :t to speak to your underlings."
+	leader_welcome_text = "You are the leader of the mercenary strike force; hail to the chief. Use :t to speak to your underlings."
 	welcome_text = "To speak on the strike team's private channel use :t."
-	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_HAS_NUKE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER
+	flags = ANTAG_OVERRIDE_JOB | ANTAG_CLEAR_EQUIPMENT | ANTAG_CHOOSE_NAME | ANTAG_HAS_NUKE | ANTAG_SET_APPEARANCE | ANTAG_HAS_LEADER | ANTAG_NO_FLAVORTEXT
 	id_type = /obj/item/card/id/syndicate
 	antaghud_indicator = "hudoperative"
 	required_age = 10
 
-	hard_cap = 4
-	hard_cap_round = 8
+	hard_cap = 5
+	hard_cap_round = 10
 	initial_spawn_req = 4
-	initial_spawn_target = 4
+	initial_spawn_target = 5
 
 	faction = "syndicate"
+
+	idris_account_min = 1200
+	idris_account_max = 2000
 
 /datum/antagonist/mercenary/New()
 	..()
@@ -43,8 +46,8 @@ var/datum/antagonist/mercenary/mercs
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/syndicate/mercenary, FALSE)
-	player.equipOutfit(/datum/outfit/admin/syndicate/mercenary, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/syndicate/mercenary, FALSE)
+	player.equipOutfit(/obj/outfit/admin/syndicate/mercenary, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()

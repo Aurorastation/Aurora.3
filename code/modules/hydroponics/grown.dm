@@ -54,7 +54,7 @@
 			var/list/data = list()
 			if(reagent_data.len > 1 && potency > 0)
 				rtotal += round(potency/reagent_data[2])
-			if(rid == "nutriment")
+			if(rid == /singleton/reagent/nutriment)
 				data[seed.seed_name] = max(1,rtotal)
 			reagents.add_reagent(rid,max(1,rtotal),data)
 	update_desc()
@@ -74,33 +74,33 @@
 		desc = SSplants.product_descs["[seed.uid]"]
 	else
 		var/list/descriptors = list()
-		if(reagents.has_reagent("sugar") || reagents.has_reagent("cherryjelly") || reagents.has_reagent("honey") || reagents.has_reagent("berryjuice"))
+		if(reagents.has_reagent(/singleton/reagent/sugar) || reagents.has_reagent(/singleton/reagent/nutriment/cherryjelly) || reagents.has_reagent(/singleton/reagent/nutriment/honey) || reagents.has_reagent(/singleton/reagent/drink/berryjuice))
 			descriptors |= "sweet"
-		if(reagents.has_reagent("dylovene"))
+		if(reagents.has_reagent(/singleton/reagent/dylovene))
 			descriptors |= "astringent"
-		if(reagents.has_reagent("frostoil"))
+		if(reagents.has_reagent(/singleton/reagent/frostoil))
 			descriptors |= "numbing"
-		if(reagents.has_reagent("nutriment"))
+		if(reagents.has_reagent(/singleton/reagent/nutriment))
 			descriptors |= "nutritious"
-		if(reagents.has_reagent("condensedcapsaicin") || reagents.has_reagent("capsaicin"))
+		if(reagents.has_reagent(/singleton/reagent/capsaicin/condensed) || reagents.has_reagent(/singleton/reagent/capsaicin))
 			descriptors |= "spicy"
-		if(reagents.has_reagent("coco"))
+		if(reagents.has_reagent(/singleton/reagent/nutriment/coco))
 			descriptors |= "bitter"
-		if(reagents.has_reagent("orangejuice") || reagents.has_reagent("lemonjuice") || reagents.has_reagent("limejuice"))
+		if(reagents.has_reagent(/singleton/reagent/drink/orangejuice) || reagents.has_reagent(/singleton/reagent/drink/lemonjuice) || reagents.has_reagent(/singleton/reagent/drink/limejuice))
 			descriptors |= "sweet-sour"
-		if(reagents.has_reagent("radium") || reagents.has_reagent("uranium"))
+		if(reagents.has_reagent(/singleton/reagent/radium) || reagents.has_reagent(/singleton/reagent/uranium))
 			descriptors |= "radioactive"
-		if(reagents.has_reagent("amatoxin") || reagents.has_reagent("toxin"))
+		if(reagents.has_reagent(/singleton/reagent/toxin/amatoxin) || reagents.has_reagent(/singleton/reagent/toxin))
 			descriptors |= "poisonous"
-		if(reagents.has_reagent("psilocybin") || reagents.has_reagent("space_drugs"))
+		if(reagents.has_reagent(/singleton/reagent/drugs/psilocybin) || reagents.has_reagent(/singleton/reagent/drugs/ambrosia_extract) || reagents.has_reagent(/singleton/reagent/drugs/mms) || reagents.has_reagent(/singleton/reagent/drugs/mindbreaker))
 			descriptors |= "hallucinogenic"
-		if(reagents.has_reagent("bicaridine") || reagents.has_reagent("dylovene"))
+		if(reagents.has_reagent(/singleton/reagent/bicaridine) || reagents.has_reagent(/singleton/reagent/dylovene))
 			descriptors |= "medicinal"
-		if(reagents.has_reagent("gold"))
+		if(reagents.has_reagent(/singleton/reagent/gold))
 			descriptors |= "shiny"
-		if(reagents.has_reagent("lube"))
+		if(reagents.has_reagent(/singleton/reagent/lube))
 			descriptors |= "slippery"
-		if(reagents.has_reagent("pacid") || reagents.has_reagent("sacid") || reagents.has_reagent("hclacid"))
+		if(reagents.has_reagent(/singleton/reagent/acid/polyacid) || reagents.has_reagent(/singleton/reagent/acid) || reagents.has_reagent(/singleton/reagent/acid/hydrochloric))
 			descriptors |= "acidic"
 		if(seed.get_trait(TRAIT_JUICY))
 			descriptors |= "juicy"
@@ -119,7 +119,7 @@
 			descriptors -= chosen
 			desc += "[(descriptor_count>1 && descriptor_count!=descriptor_num) ? "," : "" ] [chosen]"
 			descriptor_num--
-		if(seed.seed_noun == "spores")
+		if(seed.seed_noun == SEED_NOUN_SPORES)
 			desc += " mushroom"
 		else
 			desc += " fruit"
@@ -150,12 +150,12 @@
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
 		if(istype(M))
 
-			if(M.buckled)
+			if(M.buckled_to)
 				return
 
 			if(istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
-				if(H.shoes && H.shoes.item_flags & NOSLIP)
+				if(H.shoes && H.shoes.item_flags & ITEM_FLAG_NO_SLIP)
 					return
 
 			M.stop_pulling()
@@ -172,11 +172,27 @@
 	if(seed) seed.thrown_at(src,hit_atom)
 	..()
 
-/obj/item/reagent_containers/food/snacks/grown/attackby(var/obj/item/W, var/mob/user)
+/obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/attacking_item, mob/user)
+
+	if(istype(attacking_item, /obj/item/paper))
+		if(!dry)
+			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
+			return
+		if(user.unEquip(attacking_item))
+			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
+			R.chem_volume = reagents.total_volume
+			reagents.trans_to_holder(R.reagents, R.chem_volume)
+			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [attacking_item] and [src]."),
+								SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."))
+			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
+			user.put_in_active_hand(R)
+			qdel(attacking_item)
+			qdel(src)
+			return
 
 	if(seed)
-		if(seed.get_trait(TRAIT_PRODUCES_POWER) && W.iscoil())
-			var/obj/item/stack/cable_coil/C = W
+		if(seed.get_trait(TRAIT_PRODUCES_POWER) && attacking_item.iscoil())
+			var/obj/item/stack/cable_coil/C = attacking_item
 			if(C.use(5))
 				//TODO: generalize this.
 				to_chat(user, "<span class='notice'>You add some cable to the [src.name] and slide it inside the battery casing.</span>")
@@ -187,14 +203,14 @@
 				pocell.charge = pocell.maxcharge
 				qdel(src)
 				return
-		else if(W.sharp && !W.noslice)
+		else if(attacking_item.sharp && !attacking_item.noslice)
 			if(seed.kitchen_tag == "pumpkin") // Ugggh these checks are awful.
 				user.show_message("<span class='notice'>You carve a face into [src]!</span>", 1)
 				user.put_in_hands(new /obj/item/clothing/head/pumpkin)
 				qdel(src)
 				return
 			else if(seed.chems)
-				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems["woodpulp"]))
+				if(istype(attacking_item,/obj/item/material/hatchet) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
 					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
 					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
@@ -211,17 +227,22 @@
 						to_chat(user, "You add the newly-formed wood to the stack. It now contains [NG.amount] planks.")
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["potato"]))
+				else if(!isnull(seed.chems[/singleton/reagent/drink/potatojuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/rawsticks(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["carrotjuice"]))
+				else if(!isnull(seed.chems[/singleton/reagent/drink/carrotjuice]))
 					to_chat(user, "You slice \the [src] into sticks.")
 					new /obj/item/reagent_containers/food/snacks/carrotfries(get_turf(src))
 					qdel(src)
 					return
-				else if(!isnull(seed.chems["soymilk"]))
+				else if(!isnull(seed.chems[/singleton/reagent/drink/earthenrootjuice]))
+					to_chat(user, "You slice \the [src] into sticks.")
+					new /obj/item/reagent_containers/food/snacks/earthenroot_chopped(get_turf(src))
+					qdel(src)
+					return
+				else if(!isnull(seed.chems[/singleton/reagent/drink/milk/soymilk]))
 					to_chat(user, "You roughly chop up \the [src].")
 					new /obj/item/reagent_containers/food/snacks/soydope(get_turf(src))
 					qdel(src)
@@ -234,6 +255,8 @@
 						for(var/i=0;i<slices;i++)
 							var/obj/item/reagent_containers/food/snacks/fruit_slice/F = new(get_turf(src),seed)
 							reagents.trans_to_obj(F,reagents_to_transfer)
+							if(dry)
+								F.on_dry()
 						qdel(src)
 						return
 	..()
@@ -274,7 +297,7 @@
 		var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 		if(!flesh_colour) flesh_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 		for(var/i=0,i<2,i++)
-			var/obj/item/stack/tile/grass_alt/G = new (user.loc)
+			var/obj/item/stack/tile/grass/G = new (user.loc)
 			if(flesh_colour) G.color = flesh_colour
 			for (var/obj/item/stack/tile/grass/NG in user.loc)
 				if(G==NG)
@@ -329,6 +352,10 @@
 	desc = "A slice of some tasty fruit."
 	icon = 'icons/obj/hydroponics_misc.dmi'
 	icon_state = ""
+	drop_sound = 'sound/items/drop/herb.ogg'
+	pickup_sound = 'sound/items/pickup/herb.ogg'
+	dried_type = /obj/item/reagent_containers/food/snacks/fruit_slice
+	var/datum/seed/seed
 
 var/list/fruit_icon_cache = list()
 
@@ -341,19 +368,53 @@ var/list/fruit_icon_cache = list()
 
 	name = "[S.seed_name] slice"
 	desc = "A slice of \a [S.seed_name]. Tasty, probably."
-	drop_sound = 'sound/items/drop/herb.ogg'
-	pickup_sound = 'sound/items/pickup/herb.ogg'
+	seed = S
 
-	var/rind_colour = S.get_trait(TRAIT_PRODUCT_COLOUR)
-	var/flesh_colour = S.get_trait(TRAIT_FLESH_COLOUR)
+	var/rind_colour = seed.get_trait(TRAIT_PRODUCT_COLOUR)
+	var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)
 	if(!flesh_colour) flesh_colour = rind_colour
 	if(!fruit_icon_cache["rind-[rind_colour]"])
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
 		fruit_icon_cache["rind-[rind_colour]"] = I
-	overlays |= fruit_icon_cache["rind-[rind_colour]"]
+	add_overlay(fruit_icon_cache["rind-[rind_colour]"])
 	if(!fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
 		fruit_icon_cache["slice-[rind_colour]"] = I
-	overlays |= fruit_icon_cache["slice-[rind_colour]"]
+	add_overlay(fruit_icon_cache["slice-[rind_colour]"])
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea
+	name = "sencha leaves"
+	desc = "A type of green tea originating from Japan on Earth, sencha is unique in that it is steamed instead of pan-roasted like most teas. \
+			It has a fresh flavor profile as a result, with flavors like seaweed, grass, or spinach greens predominant. On Konyang, it is most popular in Aoyama."
+	plantname = "sencha"
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "sencha"
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/update_desc()
+	return
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/afterattack(atom/target, mob/user, proximity, params)
+	if(proximity && target.is_open_container() && target.reagents)
+		if(!target.reagents.total_volume)
+			to_chat(user, SPAN_WARNING("You can't steep tea inside of an empty pot!"))
+			return
+		to_chat(user, SPAN_NOTICE("You steep \the [src] inside \the [target]."))
+
+		reagents.trans_to(target, reagents.total_volume)
+		qdel(src)
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin
+	name = "tieguanyin leaves"
+	desc = "A type of oolong tea originating from China on Earth. Like most oolongs, its flavor is somewhere between green and black tea. \
+			It has a nutty, peppery, and floral flavor profile. On Konyang, it is most popular in Ganzaodeng and New Hong Kong."
+	plantname = "tieguanyin"
+	icon_state = "tieguanyin"
+
+/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol
+	name = "jaekseol leaves"
+	desc = "A type of black tea originating from Korea on Earth. It has a relatively typical flavor for a black tea, with a sweet, toasty flavor. \
+			On Konyang, it is most popular in Suwon, although coffee is still a more popular beverage in general."
+	plantname = "jaekseol"
+	icon_state = "jaekseol"

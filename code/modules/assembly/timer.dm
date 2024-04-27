@@ -3,107 +3,95 @@
 	desc = "Used to time things. Works well with contraptions which has to count down. Tick tock."
 	icon_state = "timer"
 	drop_sound = 'sound/items/drop/component.ogg'
-	pickup_sound =  'sound/items/pickup/component.ogg'
+	pickup_sound = 'sound/items/pickup/component.ogg'
 	origin_tech = list(TECH_MAGNET = 1)
 	matter = list(DEFAULT_WALL_MATERIAL = 500, MATERIAL_GLASS = 50)
 
-	wires = WIRE_PULSE
+	wires = WIRE_PULSE_ASSEMBLY
+	secured = FALSE
 
-	secured = 0
-
-	var/timing = 0
+	var/timing = FALSE
 	var/time = 10
 
-	proc
-		timer_end()
+/obj/item/device/assembly/timer/activate()
+	. = ..()
+	if(!.)
+		return FALSE //Cooldown check
 
+	timing = !timing
+	update_icon()
+	return FALSE
 
-	activate()
-		if(!..())	return 0//Cooldown check
+/obj/item/device/assembly/timer/toggle_secure()
+	secured = !secured
+	if(secured)
+		START_PROCESSING(SSprocessing, src)
+	else
+		timing = FALSE
+		STOP_PROCESSING(SSprocessing, src)
+	update_icon()
+	return secured
 
-		timing = !timing
+/obj/item/device/assembly/timer/proc/timer_end()
+	if(!secured)
+		return FALSE
+	pulse(FALSE)
+	if(!holder)
+		audible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
+	cooldown = 2
+	addtimer(CALLBACK(src, PROC_REF(process_cooldown)), 1 SECOND)
 
-		update_icon()
-		return 0
-
-
-	toggle_secure()
-		secured = !secured
-		if(secured)
-			START_PROCESSING(SSprocessing, src)
-		else
-			timing = 0
-			STOP_PROCESSING(SSprocessing, src)
-		update_icon()
-		return secured
-
-
-	timer_end()
-		if(!secured)	return 0
-		pulse(0)
-		if(!holder)
-			visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
-		cooldown = 2
-		addtimer(CALLBACK(src, .proc/process_cooldown), 10)
-		return
-
-
-	process()
-		if(timing && (time > 0))
+/obj/item/device/assembly/timer/process()
+	if(timing)
+		if(time > 0)
 			time--
-		if(timing && time <= 0)
-			timing = 0
+		if(time <= 0)
+			timing = FALSE
 			timer_end()
 			time = 10
+
+/obj/item/device/assembly/timer/update_icon()
+	cut_overlays()
+	attached_overlays = list()
+	if(timing)
+		add_overlay("timer_timing")
+		attached_overlays += "timer_timing"
+	if(holder)
+		holder.update_icon()
+
+/obj/item/device/assembly/timer/interact(mob/user)
+	if(!secured)
+		to_chat(user, SPAN_WARNING("\The [src] is unsecured!"))
 		return
 
+	ui_interact(user)
 
-	update_icon()
-		cut_overlays()
-		attached_overlays = list()
-		if(timing)
-			add_overlay("timer_timing")
-			attached_overlays += "timer_timing"
-		if(holder)
-			holder.update_icon()
+/obj/item/device/assembly/timer/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Timer", "Timer Assembly", 320, 220)
+		ui.open()
+
+/obj/item/device/assembly/timer/ui_data(mob/user)
+	var/list/data = list()
+
+	data["timeractive"] = timing
+	data["time"] = time
+
+	return data
+
+/obj/item/device/assembly/timer/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
 
-
-	interact(mob/user as mob)//TODO: Have this use the wires
-		if(!secured)
-			user.show_message("<span class='warning'>The [name] is unsecured!</span>")
-			return 0
-		var/second = time % 60
-		var/minute = (time - second) / 60
-		var/dat = text("<TT><B>Timing Unit</B>\n[] []:[]\n<A href='?src=\ref[];tp=-30'>-</A> <A href='?src=\ref[];tp=-1'>-</A> <A href='?src=\ref[];tp=1'>+</A> <A href='?src=\ref[];tp=30'>+</A>\n</TT>", (timing ? text("<A href='?src=\ref[];time=0'>Timing</A>", src) : text("<A href='?src=\ref[];time=1'>Not Timing</A>", src)), minute, second, src, src, src, src)
-		dat += "<BR><BR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
-		dat += "<BR><BR><A href='?src=\ref[src];close=1'>Close</A>"
-		user << browse(dat, "window=timer")
-		onclose(user, "timer")
-		return
-
-
-	Topic(href, href_list)
-		..()
-		if(!usr.canmove || usr.stat || usr.restrained() || !in_range(loc, usr))
-			usr << browse(null, "window=timer")
-			onclose(usr, "timer")
-			return
-
-		if(href_list["time"])
-			timing = text2num(href_list["time"])
+	switch(action)
+		if("time")
+			timing = !timing
 			update_icon()
+			. = TRUE
 
-		if(href_list["tp"])
-			var/tp = text2num(href_list["tp"])
-			time += tp
-			time = min(max(round(time), 0), 600)
-
-		if(href_list["close"])
-			usr << browse(null, "window=timer")
-			return
-
-		if(usr)
-			attack_self(usr)
-
-		return
+		if("tp")
+			var/tp = text2num(params["tp"])
+			time = clamp(tp, 1, 600)
+			. = TRUE

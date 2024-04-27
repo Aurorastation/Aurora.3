@@ -1,5 +1,4 @@
 /turf/simulated/wall/proc/update_material()
-
 	if(!material)
 		return
 
@@ -19,15 +18,23 @@
 
 	if(reinf_material)
 		name = "reinforced [material.display_name] wall"
-		desc = "It seems to be a section of hull reinforced with [reinf_material.display_name] and plated with [material.display_name]."
+		if(material.display_name == reinf_material.display_name)
+			desc = "It seems to be a section of hull reinforced and plated with [material.display_name]."
+		else
+			desc = "It seems to be a section of hull reinforced with [reinf_material.display_name] and plated with [material.display_name]."
 	else
 		name = "[material.display_name] wall"
 		desc = "It seems to be a section of hull plated with [material.display_name]."
 
-	if(material.opacity > 0.5 && !opacity)
-		set_light(1)
-	else if(material.opacity < 0.5 && opacity)
-		set_light(0)
+	if(material.opacity < 0.5)
+		opacity = FALSE
+		alpha = 125
+
+	if(!opacity)
+		var/turf/under_floor = under_turf
+		var/image/under_image = image(initial(under_floor.icon), icon_state = initial(under_floor.icon_state))
+		under_image.alpha = 255
+		underlays += under_image
 
 	update_icon()
 
@@ -58,12 +65,12 @@
 		fake_wall_image = image('icons/turf/wall_masks.dmi', "[material.icon_base]fwall_open")
 		fake_wall_image.color = material.icon_colour
 		add_overlay(fake_wall_image)
-		smooth = SMOOTH_FALSE
+		smoothing_flags = SMOOTH_FALSE
 		return
 	else if (fake_wall_image)
 		cut_overlay(fake_wall_image)
 		fake_wall_image = null
-		smooth = initial(smooth)
+		smoothing_flags = initial(smoothing_flags)
 
 	calculate_adjacencies()	// Update cached_adjacency
 
@@ -77,7 +84,7 @@
 			if (reinf_material.multipart_reinf_icon)
 				LAZYADD(reinforcement_images, cardinal_smooth_fromicon(reinf_material.multipart_reinf_icon, cached_adjacency))
 			else
-				I = image('icons/turf/wall_masks.dmi', reinf_material.icon_reinf)
+				I = image('icons/turf/wall_masks.dmi', reinf_material.reinf_icon)
 				I.color = reinf_material.icon_colour
 				LAZYADD(reinforcement_images, I)
 
@@ -98,7 +105,9 @@
 
 	add_overlay(overlays_to_add, TRUE)
 	UNSETEMPTY(reinforcement_images)
-	queue_smooth(src)
+	SSicon_smooth.add_to_queue(src)
+	if(smoothing_flags & SMOOTH_UNDERLAYS)
+		get_underlays(cached_adjacency)
 
 /turf/simulated/wall/proc/generate_overlays()
 	var/alpha_inc = 256 / damage_overlays.len
@@ -108,17 +117,3 @@
 		img.blend_mode = BLEND_MULTIPLY
 		img.alpha = (i * alpha_inc) - 1
 		damage_overlays[i] = img
-
-/turf/simulated/wall/calculate_adjacencies()
-	if(use_standard_smoothing)
-		return ..()
-	. = 0
-	if (!loc || !material)
-		return
-
-	var/turf/simulated/wall/W
-	var/our_icon_base = material.icon_base
-
-	CALCULATE_NEIGHBORS(src, ., W, istype(W) && (W.smooth || !W.density) && W.material && W.material.icon_base == our_icon_base)
-
-	cached_adjacency = .

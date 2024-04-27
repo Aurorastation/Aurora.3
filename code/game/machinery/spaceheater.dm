@@ -1,17 +1,18 @@
 /obj/machinery/space_heater
-	anchored = 0
-	density = 1
+	name = "portable air conditioning unit"
+	desc = "A portable air conditioning unit. It can heat or cool a room to your liking."
 	icon = 'icons/obj/atmos.dmi'
-	icon_state = "sheater0"
-	name = "space A/C"
-	desc = "Made by Space Amish using traditional space techniques, this A/C unit can heat or cool a room to your liking."
+	icon_state = "sheater-off"
+	anchored = FALSE
+	density = TRUE
+	use_power = POWER_USE_OFF
+	clicksound = /singleton/sound_category/switch_sound
+	var/on = FALSE
+	var/active = 0
+	var/heating_power = 40 KILO WATTS
+	var/set_temperature = T0C + 20
+
 	var/obj/item/cell/apc/cell
-	var/on = 0
-	var/set_temperature = T0C + 50	//K
-	var/heating_power = 42000
-	emagged = FALSE
-	has_special_power_checks = TRUE
-	clicksound = "switch"
 
 /obj/machinery/space_heater/Initialize()
 	. = ..()
@@ -20,84 +21,80 @@
 
 /obj/machinery/space_heater/update_icon()
 	cut_overlays()
-	icon_state = "sheater[on]"
+	if(!on)
+		icon_state = "sheater-off"
+		set_light(0)
+	else if(active > 0)
+		icon_state = "sheater-heat"
+		set_light(0.7, 1, COLOR_SEDONA)
+	else if(active < 0)
+		icon_state = "sheater-cool"
+		set_light(0.7, 1, COLOR_DEEP_SKY_BLUE)
+	else
+		icon_state = "sheater-standby"
+		set_light(0)
 	if(panel_open)
 		add_overlay("sheater-open")
 
-/obj/machinery/space_heater/examine(mob/user)
-	..(user)
-
-	to_chat(user, "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"].")
+/obj/machinery/space_heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
 	if(panel_open)
-		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
+		. += "The power cell is [cell ? "installed" : "missing"]."
 	else
-		to_chat(user, "The charge meter reads [cell ? round(cell.percent(),1) : 0]%")
+		. += "The charge meter reads [cell ? round(cell.percent(),1) : 0]%"
 	return
 
 /obj/machinery/space_heater/powered()
 	if(cell && cell.charge)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/machinery/space_heater/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	if(cell)
 		cell.emp_act(severity)
-	..(severity)
 
-/obj/machinery/space_heater/emag_act(var/remaining_charges, mob/user)
-	if(!emagged)
-		emagged = TRUE
-		to_chat(user, span("warning", "You disable \the [src]'s temperature safety checks!"))
-		spark(src, 3)
-		playsound(src, "sparks", 100, 1)
-		heating_power = 45000 //Overridden safeties make it stronger, and it needs to work more efficiently to make use of big temp ranges
-		return 1
-	else
-		to_chat(user, span("danger", "\The [src]'s temperature safety checks have already been disabled!"))
-		return 0
-
-/obj/machinery/space_heater/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/cell))
+/obj/machinery/space_heater/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(panel_open)
 			if(cell)
 				to_chat(user, "There is already a power cell inside.")
-				return
 			else
 				// insert cell
-				user.drop_from_inventory(I,src)
-				cell = I
-				I.add_fingerprint(user)
+				user.drop_from_inventory(attacking_item,src)
+				cell = attacking_item
+				attacking_item.add_fingerprint(user)
 
-				visible_message(span("notice", "[user] inserts a power cell into [src]."),
-					span("notice", "You insert the power cell into [src]."))
+				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
+					SPAN_NOTICE("You insert the power cell into [src]."))
 				power_change()
 		else
-			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
-			return
-	else if(I.isscrewdriver())
+			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
+		return TRUE
+	else if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
-		user.visible_message(span("notice", "[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
-				span("notice", "You [panel_open ? "open" : "close"] the hatch on the [src]."))
+		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
+				SPAN_NOTICE("You [panel_open ? "open" : "close"] the hatch on the [src]."))
 		update_icon()
 
 		if(!panel_open && user.machine == src)
 			user << browse(null, "window=spaceheater")
 			user.unset_machine()
 
-		return
-	else
-		..()
-	return
+		return TRUE
+	return ..()
 
 /obj/machinery/space_heater/attack_hand(mob/user)
 	src.add_fingerprint(user)
 	if(panel_open)
 		if(cell)
-			user.visible_message(span("notice", "\The [user] removes \the [cell] from \the [src]."),
-				span("notice", "You remove \the [cell] from \the [src]."))
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [cell] from \the [src]."),
+				SPAN_NOTICE("You remove \the [cell] from \the [src]."))
 			cell.update_icon()
 			user.put_in_hands(cell)
 			cell.add_fingerprint(user)
@@ -109,35 +106,28 @@
 		interact(user)
 
 /obj/machinery/space_heater/interact(mob/user)
-
-
-	var/dat
-	dat = "Power cell: "
+	var/dat = "Power cell: "
 	if(cell)
-		dat += "Detected<BR>"
+		dat += "Detected<br>"
 	else
-		dat += "Not Detected<BR>"
+		dat += "Not Detected<br>"
 	dat += "Power: "
 	if(on)
-		dat += "<A href='?src=\ref[src];op=off'>On</A><BR>"
+		dat += "<A href='?src=\ref[src];op=off'>On</A><br>"
 	else
-		dat += "<A href='?src=\ref[src];op=on'>Off</A><BR>"
+		dat += "<A href='?src=\ref[src];op=on'>Off</A><br>"
 
-	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<BR><BR>"
+	dat += "Power Level: [cell ? round(cell.percent(),1) : 0]%<br><br>"
 
 	dat += "Set Temperature: "
-
 	dat += "<A href='?src=\ref[src];op=temp;val=-5'>-</A>"
-
-	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C)"
-	dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><BR>"
+	dat += " [set_temperature]K ([set_temperature-T0C]&deg;C) "
+	dat += "<A href='?src=\ref[src];op=temp;val=5'>+</A><br>"
 
 	user.set_machine(src)
-	user << browse("<HEAD><TITLE>Space Heater Control Panel</TITLE></HEAD><TT>[dat]</TT>", "window=spaceheater")
-	onclose(user, "spaceheater")
-	return // needed?
-
-
+	var/datum/browser/heater_win = new(user, "spaceheater", "Space Heater Control Panel")
+	heater_win.set_content(dat)
+	heater_win.open()
 
 /obj/machinery/space_heater/Topic(href, href_list)
 	if (usr.stat)
@@ -150,26 +140,23 @@
 			if("temp")
 				var/value = text2num(href_list["val"])
 
-				// limit to 0-90 degC unless emagged
-				if(!emagged)
-					set_temperature = dd_range(T0C, T0C + 90, set_temperature + value)
-				else
-					set_temperature = dd_range(T0C - 100, T0C + 150, set_temperature + value)
+				// limit to 0-90 degC
+				set_temperature = dd_range(T0C, T0C + 90, set_temperature + value)
 
 			if("off")
 				on = !on
-				usr.visible_message(span("notice", "[usr] switches off the [src]."),
-					span("notice", "You switch off the [src]."))
+				usr.visible_message(SPAN_NOTICE("[usr] switches off the [src]."),
+					SPAN_NOTICE("You switch off the [src]."))
 				update_icon()
 
 			if("on")
 				if(cell)
 					on = !on
-					usr.visible_message(span("notice", "\The [usr] switches on \the [src]."),
-						span("notice", "You switch on \the [src]."))
+					usr.visible_message(SPAN_NOTICE("\The [usr] switches on \the [src]."),
+						SPAN_NOTICE("You switch on \the [src]."))
 					update_icon()
 				else
-					to_chat(usr, span("notice", "You can't turn it on without a cell installed!"))
+					to_chat(usr, SPAN_NOTICE("You can't turn it on without a cell installed!"))
 					return
 		updateDialog()
 	else
@@ -179,37 +166,46 @@
 
 
 
-/obj/machinery/space_heater/machinery_process()
-	if(on)
+/obj/machinery/space_heater/process()
+	if(on && loc)
 		if(cell && cell.charge)
 			var/datum/gas_mixture/env = loc.return_air()
-			if(env && abs(env.temperature - set_temperature) > 0.1)
-				var/transfer_moles = 0.3 * env.total_moles
+			if(env && abs(env.temperature - set_temperature) <= 0.1)
+				active = FALSE
+			else
+				var/transfer_moles = 0.25 * env.total_moles
 				var/datum/gas_mixture/removed = env.remove(transfer_moles)
-				if(emagged)
-					transfer_moles = 0.4 * env.total_moles //Moves a little faster for big temperature swings
 				if(removed)
 					var/heat_transfer = removed.get_thermal_energy_change(set_temperature)
-					if(heat_transfer > 0)	//heating air
-						heat_transfer = min( heat_transfer , heating_power ) //limit by the power rating of the heater
+					var/power_draw
+					if(heat_transfer > 0) // Heating.
+						heat_transfer = min(heat_transfer , heating_power) // Limit by the power rating of the heater.
 
 						removed.add_thermal_energy(heat_transfer)
-						cell.use(heat_transfer*CELLRATE)
-					else	//cooling air
+						power_draw = heat_transfer
+					else // Cooling.
 						heat_transfer = abs(heat_transfer)
 
-						//Assume the heat is being pumped into the hull which is fixed at 20 C
-						var/cop = removed.temperature/T20C	//coefficient of performance from thermodynamics -> power used = heat_transfer/cop
-						heat_transfer = min(heat_transfer, cop * heating_power)	//limit heat transfer by available power
+						// Assume the heat is being pumped into the hull which is fixed at 20 C.
+						var/cop = removed.temperature/T20C	// Co-efficient of performance from thermodynamics -> power used = heat_transfer/cop.
+						heat_transfer = min(heat_transfer, cop * heating_power)	// Limit heat transfer by available power.
 
-						heat_transfer = removed.add_thermal_energy(-heat_transfer)	//get the actual heat transfer
+						heat_transfer = removed.add_thermal_energy(-heat_transfer)	// Get the actual heat transfer.
 
-						var/power_used = abs(heat_transfer)/cop
-						cell.use(power_used*CELLRATE)
+						power_draw = abs(heat_transfer)/cop
+					cell.use(power_draw * CELLRATE)
+					active = heat_transfer
 
 				env.merge(removed)
 		else
-			on = 0
-			src.visible_message("\The [src] clicks off and whirrs slowly as it powers down.")
+			on = FALSE
+			active = FALSE
 			power_change()
-			update_icon()
+		update_icon()
+
+/obj/machinery/space_heater/stationary//For mounting on walls in planetary buildings and stuff.
+	name = "stationary air conditioning unit"
+	desc = "A stationary air conditioning unit. It can heat or cool a room to your liking."
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	density = FALSE

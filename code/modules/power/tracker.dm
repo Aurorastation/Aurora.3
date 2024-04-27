@@ -10,7 +10,7 @@
 	icon_state = "tracker"
 	anchored = 1
 	density = 1
-	use_power = 0
+	use_power = POWER_USE_OFF
 
 	var/id = 0
 	var/sun_angle = 0		// sun angle as set by sun datum
@@ -48,21 +48,21 @@
 	update_icon()
 
 //updates the tracker icon and the facing angle for the control computer
-/obj/machinery/power/tracker/proc/set_angle(var/angle)
+/obj/machinery/power/tracker/proc/modify_angle(var/angle)
 	sun_angle = angle
 
 	//set icon dir to show sun illumination
 	set_dir(turn(NORTH, -angle - 22.5))	// 22.5 deg bias ensures, e.g. 67.5-112.5 is EAST
 
-	if(powernet && (powernet == control.powernet)) //update if we're still in the same powernet
+	if(powernet && (powernet == control?.powernet)) //update if we're still in the same powernet
 		control.cdir = angle
 
-/obj/machinery/power/tracker/attackby(var/obj/item/W, var/mob/user)
+/obj/machinery/power/tracker/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.iscrowbar())
+	if(attacking_item.iscrowbar())
 		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
 		user.visible_message("<span class='notice'>[user] begins to take the glass off the solar tracker.</span>")
-		if(do_after(user, 50/W.toolspeed))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			var/obj/item/solar_assembly/S = locate() in src
 			if(S)
 				S.forceMove(src.loc)
@@ -76,8 +76,7 @@
 // Tracker Electronic
 
 /obj/item/tracker_electronics
-
 	name = "tracker electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL

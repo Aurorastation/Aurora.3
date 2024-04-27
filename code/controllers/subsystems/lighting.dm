@@ -1,14 +1,13 @@
-var/datum/controller/subsystem/lighting/SSlighting
-
 /var/lighting_profiling = FALSE
+/var/lighting_overlays_initialized = FALSE
 
-/datum/controller/subsystem/lighting
+SUBSYSTEM_DEF(lighting)
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
-	flags = SS_FIRE_IN_LOBBY
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
-	init_order = SS_INIT_LIGHTING
+	init_order = INIT_ORDER_LIGHTING
 
 	var/total_lighting_overlays = 0
 	var/total_lighting_sources = 0
@@ -33,10 +32,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/force_override = FALSE	// For admins.
 #endif
 
-/datum/controller/subsystem/lighting/New()
-	NEW_SS_GLOBAL(SSlighting)
-
-/datum/controller/subsystem/lighting/stat_entry()
+/datum/controller/subsystem/lighting/stat_entry(msg)
 	var/list/out = list(
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 		"IUR: [total_ss_updates ? round(total_instant_updates/(total_instant_updates+total_ss_updates)*100, 0.1) : "NaN"]%\n",
@@ -45,14 +41,17 @@ var/datum/controller/subsystem/lighting/SSlighting
 		"\tP:{L:[light_queue.len - (lq_idex - 1)]|C:[corner_queue.len - (cq_idex - 1)]|O:[overlay_queue.len - (oq_idex - 1)]}\n",
 		"\tL:{L:[processed_lights]|C:[processed_corners]|O:[processed_overlays]}\n"
 	)
-	..(out.Join())
+	msg = out.Join()
+	return ..()
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
+	can_fire = FALSE
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
+	can_fire = TRUE
 	if (!force_override)
 		force_queued = FALSE
 
@@ -71,8 +70,13 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/turf/T
 	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (thing in Z_ALL_TURFS(zlevel))
+		for (thing in Z_TURFS(zlevel))
 			T = thing
+			if(GLOB.config.starlight)
+				var/turf/space/S = T
+				if(istype(S) && S.use_starlight)
+					S.update_starlight()
+
 			if (!T.dynamic_lighting)
 				continue
 
@@ -80,29 +84,31 @@ var/datum/controller/subsystem/lighting/SSlighting
 			if (!A.dynamic_lighting)
 				continue
 
-			new /atom/movable/lighting_overlay(T)
+			T.lighting_build_overlay()
 			overlaycount++
 
 			CHECK_TICK
 
-	admin_notice(span("danger", "Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
+	lighting_overlays_initialized = TRUE
+
+	admin_notice(SPAN_DANGER("Created [overlaycount] lighting overlays in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
 	starttime = REALTIMEOFDAY
 	// Tick once to clear most lights.
 	fire(FALSE, TRUE)
 
-	admin_notice(span("danger", "Processed [processed_lights] light sources."), R_DEBUG)
-	admin_notice(span("danger", "Processed [processed_corners] light corners."), R_DEBUG)
-	admin_notice(span("danger", "Processed [processed_overlays] light overlays."), R_DEBUG)
-	admin_notice(span("danger", "Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Processed [processed_lights] light sources."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Processed [processed_corners] light corners."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Processed [processed_overlays] light overlays."), R_DEBUG)
+	admin_notice(SPAN_DANGER("Lighting pre-bake completed in [(REALTIMEOFDAY - starttime)/10] seconds."), R_DEBUG)
 
-	log_ss("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
+	log_subsystem("lighting", "NOv:[overlaycount] L:[processed_lights] C:[processed_corners] O:[processed_overlays]")
 
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
-	SSticker.OnRoundstart(CALLBACK(src, .proc/handle_roundstart))
+	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
 #endif
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
@@ -120,6 +126,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (lq_idex <= curr_lights.len)
 		var/datum/light_source/L = curr_lights[lq_idex++]
+		if(QDELETED(L))
+			continue
 
 		if (L.needs_update != LIGHTING_NO_UPDATE)
 			total_ss_updates += 1
@@ -143,6 +151,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (cq_idex <= curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[cq_idex++]
+		if(QDELETED(C))
+			continue
 
 		if (C.needs_update)
 			C.update_overlays()
@@ -171,7 +181,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 			O.needs_update = FALSE
 
 			processed_overlays++
-		
+
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)

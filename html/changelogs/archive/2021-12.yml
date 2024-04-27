@@ -1,0 +1,136 @@
+2021-12-01:
+  Alberyk:
+  - rscdel: Briefcases with captain gear no longer shows up in the warehouse loot.
+  Geeves:
+  - tweak: Replaced the high priority phoron canister bounty with the ability to export
+      a phoron canister with more than 2000 moles for 2000 credits.
+  - rscadd: Added a phoron scarcity bounty, assembled solar panels. Solar panels must
+      be build by wrenching the assemblies, then adding glass to them.
+  - tweak: Phoron scarcity bounties now only have a 60% chance of occuring a round.
+      Otherwise, a random bounty will be made high priority.
+  - rscadd: Printed bounty sheets now gets the fluff description too.
+  TheGreyWolf:
+  - bugfix: Fixed paper bags sometimes becoming invisible.
+  - rscadd: You can now do toasts! Hold a glass (including normal drinking ones, most
+      special bar glasses and coffee cups), target the hands and click on another
+      person also  hoding a glass while on help intent.
+  - rscadd: The holomenu given to chefs and bartenders can now be read from any distance
+      when examined.
+  - rscadd: The uplink now offers an ion rifle for 5 TC.
+  WickedCybs:
+  - rscadd: Added two more hair variations to the Tajara Swoop. Swoop bangs and alt.
+  - tweak: Updates the side sprites of the shoulderlength and sideparted Taj hairs.
+2021-12-02:
+  Geeves:
+  - bugfix: Teleporters from antag bases and admin areas can now reach the station,
+      but the station cannot reach back to those areas.
+  TheGreyWolf:
+  - rscadd: Neck bandannas now fit in both the mask slot and on suits/uniforms as
+      accessories, in addition to the ears. They will need to be re-selected in the
+      loadout under accessories.
+  - rscdel: Food and fruits will no longer show a piece of paper indicating their
+      original name when renamed.
+  Wowzewow (Wezzy):
+  - rscdel: Removed paint from backpressure surge events.
+  - refactor: Refactors stools and chair code to make use of material code.
+  - rscadd: You can now pick up unpadded chairs (and hit people with them). Note that
+      stools are now also click and drag to pick up.
+2021-12-04:
+  Geeves:
+  - rscadd: Readded the telecomms lounge, it can be found north of the telecomms control
+      area.
+  Lly2:
+  - bugfix: Nralakk projector typo fixed.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes picking up wheelchairs.
+2021-12-05:
+  TheGreyWolf & RyverStyx:
+  - rscadd: Added the qeblak mantle to the skrell loadout. It is selectable by skrell
+      &amp; diona.
+  - bugfix: Fixed the various skrell capes not showing up when worn in the suit slot.
+  - rscadd: 'Added a new headtail style for skrell: &#x27;Skrell Reef Ponytail, short&#x27;.'
+2021-12-07:
+  Wowzewow (Wezzy):
+  - tweak: Adds a short delay for dismantling chairs to prevent accidental deconstruction.
+  - bugfix: Fixes some density problems with wheelchairs and office chairs.
+2021-12-08:
+  Arrow768:
+  - experiment: Adds a lock to conveyors so they only create max one timer each.
+2021-12-19:
+  Desven:
+  - rscadd: QM can now choose Cargo shorts.
+  Geeves:
+  - rscadd: Half-wall Windows, or windows built into window frames, will now blend
+      and smooth into walls.
+  - tweak: Dragging two people at once with a grab will no longer awkwardly move them
+      in the direction you&#x27;re going.
+  - rscadd: Bulwarks can now comfortably hold grabs on two people at once, as well
+      as fireman carrying both.
+  Karolis2011:
+  - bugfix: Fixed UI state checks for few UIs
+  SpaceBaa:
+  - rscadd: Added some new tips.
+  TheGreyWolf:
+  - tweak: Vomitting now makes people slightly hungrier and they don&#x27;t need to
+      have eaten recently to vomit instead of dry heave.
+  - tweak: Unathi now take 10 seconds to break out of handcuffs instead of 5.
+  - tweak: Updated the eridani, heph, idris, zavod, zeng-hu and small nanotrasen paperwork
+      logos.
+  - bugfix: Folders can now be renamed while standing next to them rather than having
+      to carry them.
+  - rscadd: Added hairnets. They can be found in the loadout under hats and headwear
+      and in the chef&#x27;s closet.
+  - bugfix: People can now be properly moved in all moveable chairs again.
+  - bugfix: Only office chairs, wheelchairs &amp; subtypes can now be propelled using
+      a fire extinguisher.
+  - bugfix: Beds and chairs can now be properly dismantled again.
+  - bugfix: Eridani no longer have consulars, as they were sol consulars.
+  - maptweak: All sofas in the security break room are now red sofas.
+  - rscadd: Cortical Borer naming now has a randomised number at the end to help identify
+      them.
+  - bugfix: Small enough mobs can now be properly put into glass jars.
+  - bugfix: Fixes some problems when checking the security record of someone using
+      the security hud.
+  - bugfix: Cult communication rune now properly says who the sender is.
+  - bugfix: Jumping over railings will no longer move people into solid objects.
+  - bugfix: Fixed a set of reversed checks regarding when sensitive hearing would
+      give halloss.
+  Wowzewow (Wezzy):
+  - bugfix: Fixes redeployed chairs not spawning with the correct materials.
+  - imageadd: Does a second pass on labcoat sprites. Non-contractor labcoat users
+      rejoyce.
+2021-12-22:
+  TheGreyWolf:
+  - rscadd: Forensic slides now deposit to the inactive hand if it is free.
+  - rscadd: The forensic fiber &amp; fingerprint kits will now only activate things
+      if clicked on with help intent. Otherwise it will only collect fibers/prints.
+  - rscadd: Several bits of forensic equipment now have additional text to explain
+      how to use them, when examined.
+  - tweak: Swabs will now take GSR tests from the gloves if the person it is used
+      on is wearing any, and only if the gloves have any residue left on them.
+  Wowzewow (Wezzy):
+  - bugfix: Wheelchairs can be picked up again. For real this time.
+  - rscadd: Adds new show-off function to business cards.
+  - imageadd: Updates sprites for origami swans and business card related stuff.
+2021-12-23:
+  TheGreyWOlf:
+  - bugfix: Skrell psi ping can now detect simplemobs.
+2021-12-26:
+  Dekser:
+  - rscadd: Added new Unathi hissing sound effects.
+  TheGreyWolf:
+  - tweak: When using the psi mindread ability, the target now gets informed they
+      only have 25 seconds to respond.
+  - rscadd: Added a new waistcoat to the loadout. It has been combined with the old
+      one under acccesories into a selection.
+  Wowzewow (Wezzy):
+  - rscadd: Coatracks are now able to support every concievable toggleable coat, poncho
+      and hat. Except helmets, armor and rigsuits, obviously.
+  - imageadd: Coatracks have a shiny new sprite.
+  - rscadd: You can now paint padded chairs, beds, and stools using the paint gun.
+  - bugfix: Fixes colored materials coloring the stack number weirdly.
+2021-12-27:
+  Geeves:
+  - tweak: Whispering has now been tied into saycode, meaning things like accents
+      should appear as normal.
+  - rscadd: All living mobs can now whisper, pAI, borgs, the AI, etc.

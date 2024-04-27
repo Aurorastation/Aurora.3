@@ -1,18 +1,12 @@
 /datum/design/item/integrated_electronics
-	design_order = 8
-
-/datum/design/item/integrated_electronics/AssembleDesignName()
-	..()
-	name = "Integrated Electronic Design ([item_name])"
+	p_category = "Integrated Electronics Designs"
 
 /datum/design/item/integrated_electronics/wirer
-	name = "Custom Wirer Tool"
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	build_path = /obj/item/device/integrated_electronics/wirer
 
 /datum/design/item/integrated_electronics/debugger
-	name = "Custom Circuit Debugger Tool"
 	req_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 2500)
 	build_path = /obj/item/device/integrated_electronics/debugger

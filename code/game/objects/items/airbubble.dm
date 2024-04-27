@@ -25,7 +25,7 @@
 		"<span class='warning'>[user] begins deploying \the [src].</span>",
 		"<span class='notice'>You begin deplyoing \the [src].</span>"
 	)
-	if (!do_after(user, 0.45 SECONDS, act_target = src))
+	if (!do_after(user, 0.45 SECONDS))
 		return
 	user.visible_message(
 		"<span class='warning'>[user] deployed \the [src].</span>" ,
@@ -38,7 +38,7 @@
 		R = new /obj/structure/closet/airbubble(user.loc)
 	if(!used)
 		internal_tank = new /obj/item/tank/emergency_oxygen/engi(src)
-		internal_tank.air_contents.adjust_gas("oxygen", (42*ONE_ATMOSPHERE)/(R_IDEAL_GAS_EQUATION*T20C))
+		internal_tank.air_contents.adjust_gas(GAS_OXYGEN, (42*ONE_ATMOSPHERE)/(R_IDEAL_GAS_EQUATION*T20C))
 	R.internal_tank = internal_tank
 	if(!isnull(internal_tank))
 		internal_tank.forceMove(R)
@@ -57,8 +57,6 @@
 	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 	icon = 'icons/obj/airbubble.dmi'
 	icon_state = "airbubble"
-	icon_closed = "airbubble"
-	icon_opened = "airbubble_open"
 	open_sound = 'sound/items/zip.ogg'
 	close_sound = 'sound/items/zip.ogg'
 	var/item_path = /obj/item/airbubble
@@ -81,18 +79,19 @@
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
 	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
+	slowdown = 0
 
 // Examine to see tank pressure
-/obj/structure/closet/airbubble/examine(mob/user)
-	..()
+/obj/structure/closet/airbubble/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(!isnull(internal_tank))
-		to_chat(user, "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>")
+		. += "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>"
 	else
-		to_chat(user, "<span class='notice'>\The [src] has no tank attached.</span>")
+		. += "<span class='notice'>\The [src] has no tank attached.</span>"
 	if (cell)
-		to_chat(user, "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%.")
+		. += "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%."
 	else
-		to_chat(user, "<span class='warning'>[src] has no power cell installed.</span>")
+		. += "<span class='warning'>[src] has no power cell installed.</span>"
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
@@ -136,8 +135,8 @@
 	qdel(internal_tank)
 	if(parts)
 		new parts(loc)
-	if (smooth)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue_neighbors(src)
 	return ..()
 
 /obj/structure/closet/airbubble/toggle(mob/user as mob)
@@ -156,7 +155,7 @@
 
 	dump_contents()
 
-	icon_state = icon_opened
+	update_icon()
 	opened = 1
 	playsound(loc, open_sound, 15, 1, -3)
 	density = 0
@@ -177,7 +176,7 @@
 	if(store_mobs)
 		stored_units += store_mobs(stored_units)
 
-	icon_state = icon_closed
+	update_icon()
 	opened = 0
 
 	playsound(loc, close_sound, 25, 0, -3)
@@ -198,7 +197,7 @@
 		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
 		"<span class='notice'>You begin folding up the [src.name].</span>"
 		)
-		if (!do_after(usr, 0.45 SECONDS, act_target = src))
+		if (!do_after(usr, 0.45 SECONDS))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] folds up the [src.name].</span>" ,
@@ -224,12 +223,13 @@
 		bag.desc += " <span class='notice'>It appears to be poorly hand folded.</span>"
 
 		if(ripped)
-			bag.icon_state = "[icon_closed]_man_folded_ripped"
+			bag.icon_state = "[icon_state]_man_folded_ripped"
 			bag.desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
 		else
-			bag.icon_state = "[icon_closed]_man_folded"
+			bag.icon_state = "[icon_state]_man_folded"
 		qdel(src)
 		return
+	return ..()
 
 /obj/structure/closet/airbubble/req_breakout()
 
@@ -246,8 +246,9 @@
 		return FALSE
 
 	if ((world.time - last_shake) > 5 SECONDS)
-		playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
-		animate_shake()
+		var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
+		playsound(loc, sound_to_play, 100, 1)
+		shake_animation()
 		last_shake = world.time
 
 	if (!req_breakout())
@@ -268,16 +269,17 @@
 	var/time = 360 * breakout_time * 2
 	breakout = TRUE
 
-	if (!do_after(escapee, time, act_target = src, extra_checks = CALLBACK(src, .proc/breakout_callback, escapee)))
+	if (!do_after(escapee, time, src, extra_checks = CALLBACK(src, PROC_REF(breakout_callback), escapee)))
 		breakout = FALSE
 		return
 
 	breakout = FALSE
-	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>")
+	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>") // holy shit this is hilarious
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
-	playsound(loc, "sound/items/[pick("rip1","rip2")].ogg", 100, 1)
+	var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
+	playsound(loc, sound_to_play, 100, 1)
 	break_open()
-	animate_shake()
+	shake_animation()
 	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
 
 // We are out finally, the bubble is ripped. So dump everything out from it. Especially air and user.
@@ -312,7 +314,7 @@
 		"<span class='warning'>[usr] is setting [src] internals.</span>",
 		"<span class='notice'>You are settting [src] internals.</span>"
 		)
-		if (!do_after(usr, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has set [src] internals.</span>" ,
@@ -345,7 +347,7 @@
 		"<span class='warning'>[usr] is removing [internal_tank] from [src].</span>",
 		"<span class='notice'>You are removing [internal_tank] from [src].</span>"
 		)
-		if (!do_after(usr, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has removed [internal_tank] from [src].</span>",
@@ -378,7 +380,7 @@
 		"<span class='warning'>[usr] is removing [cell] from [src].</span>",
 		"<span class='notice'>You are removing [cell] from [src].</span>"
 		)
-		if (!do_after(usr, 2 SECONDS, act_target = src))
+		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		"<span class='warning'>[usr] has removed [cell] from [src].</span>",
@@ -392,45 +394,46 @@
 		to_chat(usr, "<span class='warning'>[src] has no power cell.</span>")
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
-/obj/structure/closet/airbubble/attackby(obj/W, mob/user as mob)
-	if(istype(W, /obj/item/tank))
+/obj/structure/closet/airbubble/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/tank))
 		if(!isnull(use_internal_tank))
 			user.visible_message(
-			"<span class='warning'>[user] is attaching [W] to [src].</span>",
-			"<span class='notice'>You are attaching [W] to [src].</span>"
+			"<span class='warning'>[user] is attaching [attacking_item] to [src].</span>",
+			"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
 			)
-			if (!do_after(user, 2 SECONDS, act_target = src))
+			if (!do_after(user, 2 SECONDS, src))
 				return
 			user.visible_message(
-			"<span class='warning'>[user] has attached [W] to [src].</span>",
-			"<span class='notice'>You attached [W] to [src].</span>"
+			"<span class='warning'>[user] has attached [attacking_item] to [src].</span>",
+			"<span class='notice'>You attached [attacking_item] to [src].</span>"
 			)
-			internal_tank = W
-			user.drop_from_inventory(W, src)
+			internal_tank = attacking_item
+			user.drop_from_inventory(attacking_item, src)
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
-			return
 		else
 			to_chat(user, "<span class='warning'>[src] already has a tank attached.</span>")
+		return TRUE
 	if(opened)
-		if(istype(W, /obj/item/grab))
-			var/obj/item/grab/G = W
+		if(istype(attacking_item, /obj/item/grab))
+			var/obj/item/grab/G = attacking_item
 			MouseDrop_T(G.affecting, user)
-			return 0
-		if(!dropsafety(W))
-			return
+			return FALSE
+		if(!attacking_item.dropsafety())
+			return FALSE
 		user.drop_item()
-	else if(istype(W, /obj/item/handcuffs/cable))
+		return TRUE
+	else if(istype(attacking_item, /obj/item/handcuffs/cable))
 		if(zipped)
 			to_chat(user, "<span class='warning'>[src]'s zipper is already restrained.</span>")
-			return
+			return TRUE
 		user.visible_message(
 		"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-			return
+		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
+			return TRUE
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
@@ -438,20 +441,21 @@
 		"<span class='notice'>You put restrains on [src]'s zipper.</span>"
 		)
 
-		qdel(W)
+		qdel(attacking_item)
 		update_icon()
-	else if(W.iswirecutter())
+		return TRUE
+	else if(attacking_item.iswirecutter())
 		if(!zipped)
 			to_chat(user, "<span class='warning'>[src] has no cables to cut.</span>")
 			attack_hand(user)
-			return
+			return TRUE
 		user.visible_message(
 		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		if (!do_after(user, 3 SECONDS, act_target = src, extra_checks = CALLBACK(src, .proc/is_closed)))
-			return
+		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
+			return TRUE
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
@@ -460,43 +464,42 @@
 		)
 		new/obj/item/handcuffs/cable(src.loc)
 		update_icon()
-	else if(istype(W, /obj/item/cell))
+		return TRUE
+	else if(istype(attacking_item, /obj/item/cell))
 		if(!isnull(cell))
 			to_chat(user, "<span class='warning'>[src] already has [cell] attached to it.</span>")
 			attack_hand(user)
-			return
+			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] is attaching [W] to [src].</span>",
-		"<span class='notice'>You are attaching [W] to [src].</span>"
+		"<span class='warning'>[user] is attaching [attacking_item] to [src].</span>",
+		"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
 		)
-		if (!do_after(user, 2 SECONDS, act_target = src))
-			return
+		if (!do_after(user, 2 SECONDS, src))
+			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] has attached [W] to [src].</span>",
-		"<span class='notice'>You attached [W] to [src].</span>"
+		"<span class='warning'>[user] has attached [attacking_item] to [src].</span>",
+		"<span class='notice'>You attached [attacking_item] to [src].</span>"
 		)
-		cell = W
+		cell = attacking_item
 		cooling = TRUE
-		user.drop_from_inventory(W, src)
+		user.drop_from_inventory(attacking_item, src)
+		return TRUE
 	else
-		attack_hand(user)
-	return
+		return attack_hand(user)
 
-/obj/structure/closet/airbubble/store_mobs(var/stored_units)
-	contains_body = ..()
+/obj/structure/closet/airbubble/store_mobs(var/stored_units, var/mob_limit)
+	contains_body = ..(stored_units, mob_limit = TRUE)
 	return contains_body
 
 /obj/structure/closet/airbubble/update_icon()
 	cut_overlays()
-	if(opened)
-		icon_state = icon_opened
-	else if(ripped)
+	if(ripped)
 		name = "ripped air bubble"
-		icon_state = "[icon_closed]_ripped"
+		icon_state = "[icon_state]_ripped"
 	else
-		icon_state = icon_closed
+		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	if(zipped)
-		add_overlay("[icon_closed]_restrained")
+		add_overlay("[icon_state]_restrained")
 	add_overlay("pressure_[(use_internal_tank) ?("on") : ("off") ]")
 
 // Process transfer of air from the tank. Handle if it is ripped open.
@@ -512,11 +515,11 @@
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
 				visible_message("<span class='warning'>You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?</span>")
-				playsound(loc, "sound/effects/wind/wind_2_1.ogg", 100, 1)
+				playsound(loc, 'sound/effects/wind/wind_2_1.ogg', 100, 1)
 				return
 			inside_air = get_turf_air()
 			visible_message("<span class='warning'>You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?</span>")
-			playsound(loc, "sound/effects/wind/wind_2_2.ogg", 100, 1)
+			playsound(loc, 'sound/effects/wind/wind_2_2.ogg', 100, 1)
 
 			var/transfer_moles = inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)
 			var/datum/gas_mixture/removed = tank_air.remove(transfer_moles)
@@ -579,8 +582,7 @@
 /obj/structure/closet/airbubble/proc/get_turf_air()
 	var/turf/T = get_turf(src)
 	if(T)
-		. = T.return_air()
-	return
+		return T.return_air()
 
 /obj/structure/closet/airbubble/proc/return_pressure()
 	. = 0
@@ -611,7 +613,7 @@
 	inside_air = new
 	inside_air.temperature = T20C
 	inside_air.volume = 2
-	inside_air.adjust_multi("oxygen", O2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature), "nitrogen", N2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature))
+	inside_air.adjust_multi(GAS_OXYGEN, O2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature), GAS_NITROGEN, N2STANDARD*inside_air.volume/(R_IDEAL_GAS_EQUATION*inside_air.temperature))
 	return inside_air
 
 // Syndicate airbubble
@@ -625,8 +627,5 @@
 	name = "air bubble"
 	desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate. This does not seem like a regular color scheme."
 	icon_state = "airbubble_syndie"
-	icon_closed = "airbubble_syndie"
-	icon_closed = "airbubble_syndie"
-	icon_opened = "airbubble_syndie_open"
 	item_path = /obj/item/airbubble/syndie
 	syndie = TRUE

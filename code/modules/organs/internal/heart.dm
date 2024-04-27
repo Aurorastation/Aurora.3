@@ -5,10 +5,10 @@
 	parent_organ = BP_CHEST
 	dead_icon = "heart-off"
 	robotic_name = "circulatory pump"
-	robotic_sprite = "heart-prosthetic"
 	toxin_type = CE_CARDIOTOXIC
 
-	max_damage = 45
+	max_damage = 60
+	min_broken_damage = 45
 	relative_size = 5
 	damage_reduction = 0.7
 
@@ -51,12 +51,12 @@
 		pulse_mod++
 
 	var/oxy = owner.get_blood_oxygenation()
-	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get MOAR OXY
+	if(oxy < BLOOD_VOLUME_OKAY) //brain wants us to get moar oxygen
 		pulse_mod++
 	if(oxy < BLOOD_VOLUME_BAD) //MOAR
 		pulse_mod++
 
-	if(owner.status_flags & FAKEDEATH || owner.chem_effects[CE_NOPULSE])
+	if(owner.status_flags & FAKEDEATH)
 		pulse = Clamp(PULSE_NONE + pulse_mod, PULSE_NONE, PULSE_2FAST) //pretend that we're dead. unlike actual death, can be inflienced by meds
 		return
 
@@ -67,6 +67,7 @@
 		var/should_stop = prob(80) && owner.get_blood_circulation() < BLOOD_VOLUME_SURVIVE //cardiovascular shock, not enough liquid to pump
 		should_stop = should_stop || prob(max(0, owner.getBrainLoss() - owner.maxHealth * 0.75)) //brain failing to work heart properly
 		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
+		should_stop = should_stop || owner.chem_effects[CE_NOPULSE]
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
 			to_chat(owner, "<span class='danger'>Your heart has stopped!</span>")
 			pulse = PULSE_NONE
@@ -112,34 +113,25 @@
 	if(owner.species && owner.species.flags & NO_BLOOD)
 		return
 
-	if(!owner || owner.stat == DEAD || owner.bodytemperature < 170 || owner.in_stasis)	//Dead or cryosleep people do not pump the blood.
+	if(!owner || owner.stat == DEAD || owner.bodytemperature < 170 || owner.InStasis())	//Dead or cryosleep people do not pump the blood.
 		return
 
 	if(pulse != PULSE_NONE || BP_IS_ROBOTIC(src))
-		var/blood_volume = round(owner.vessel.get_reagent_amount("blood"))
+		var/blood_volume = round(REAGENT_VOLUME(owner.vessel, /singleton/reagent/blood))
 
 		//Blood regeneration if there is some space
 		if(blood_volume < species.blood_volume && blood_volume)
-			var/datum/reagent/blood/B = locate() in owner.vessel.reagent_list //Grab some blood
-			if(B) // Make sure there's some blood at all
-				if(weakref && B.data["donor"] != weakref) //If it's not theirs, then we look for theirs - donor is a weakref here, but it should be safe to just directly compare it.
-					for(var/datum/reagent/blood/D in owner.vessel.reagent_list)
-						if(weakref && D.data["donor"] == weakref)
-							B = D
-							break
-
-				B.volume += 0.1 // regenerate blood VERY slowly
-				if(blood_volume <= BLOOD_VOLUME_SAFE) //We loose nutrition and hydration very slowly if our blood is too low
+			if(REAGENT_DATA(owner.vessel, /singleton/reagent/blood)) // Make sure there's blood at all
+				owner.vessel.add_reagent(/singleton/reagent/blood, BLOOD_REGEN_RATE + LAZYACCESS(owner.chem_effects, CE_BLOODRESTORE), temperature = species?.body_temperature)
+				if(blood_volume <= BLOOD_VOLUME_SAFE) //We lose nutrition and hydration very slowly if our blood is too low
 					owner.adjustNutritionLoss(2)
 					owner.adjustHydrationLoss(1)
-				if(CE_BLOODRESTORE in owner.chem_effects)
-					B.volume += owner.chem_effects[CE_BLOODRESTORE]
 
 		//Bleeding out
 		var/blood_max = 0
 		var/open_wound
 		var/list/do_spray = list()
-		for(var/obj/item/organ/external/temp in owner.organs)
+		for(var/obj/item/organ/external/temp in owner.bad_external_organs)
 			if((temp.status & ORGAN_BLEEDING) && !BP_IS_ROBOTIC(temp))
 				for(var/datum/wound/W in temp.wounds)
 					if(W.bleeding())
@@ -154,13 +146,17 @@
 							blood_max += ((W.damage / 40) * species.bleed_mod)
 
 			if(temp.status & ORGAN_ARTERY_CUT)
-				var/bleed_amount = Floor(owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250))
+				var/bleed_amount = FLOOR((owner.vessel.total_volume / (temp.applied_pressure || !open_wound ? 450 : 250)) * temp.arterial_bleed_severity, 1)
 				if(bleed_amount)
+					if((CE_BLOODCLOT in owner.chem_effects) && !(owner.chem_effects[CE_BLOODTHIN]))
+						bleed_amount *= 0.8 // won't do much, but it'll help
+					if(CE_BLOODTHIN in owner.chem_effects)
+						bleed_amount *= 1+(owner.chem_effects[CE_BLOODTHIN]/100)
 					if(open_wound)
 						blood_max += bleed_amount
 						do_spray += "[temp.name]"
 					else
-						owner.vessel.remove_reagent("blood", bleed_amount)
+						owner.vessel.remove_reagent(/singleton/reagent/blood, bleed_amount)
 
 		switch(pulse)
 			if(PULSE_SLOW)
@@ -170,11 +166,14 @@
 			if(PULSE_2FAST, PULSE_THREADY)
 				blood_max *= 1.5
 
-		if(CE_STABLE in owner.chem_effects)
+		if(CE_BLOODCLOT in owner.chem_effects)
+			blood_max *= 0.7
+		else if(CE_STABLE in owner.chem_effects)
 			blood_max *= 0.8
 
 		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)
-			owner.visible_message("<span class='danger'>Blood squirts from \the [owner]'s [pick(do_spray)]!</span>", "<span class='danger'><font size=3>Blood is squirting out of your [pick(do_spray)]!</font></span>")
+			owner.visible_message("<span class='danger'>Blood squirts from \the [owner]'s [pick(do_spray)]!</span>", \
+								"<span class='danger'><font size=3>Blood sprays out of your [pick(do_spray)]!</font></span>")
 			owner.eye_blurry = 2
 			owner.Stun(1)
 			next_blood_squirt = world.time + 100
@@ -192,6 +191,12 @@
 		return FALSE
 
 	return pulse > PULSE_NONE || BP_IS_ROBOTIC(src) || (owner.status_flags & FAKEDEATH)
+
+/obj/item/organ/internal/heart/do_surge_effects()
+	var/obj/item/organ/external/E = owner.organs_by_name[parent_organ]
+	if(prob(surge_damage))
+		owner.custom_pain(SPAN_DANGER("Your [E.name] stings horribly!"), 15, FALSE, E)
+		sound_to(owner, sound('sound/effects/singlebeat.ogg', 0, 0, 0, 100))
 
 /obj/item/organ/internal/heart/listen()
 	if(BP_IS_ROBOTIC(src) && is_working())

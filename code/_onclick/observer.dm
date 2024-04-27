@@ -11,9 +11,6 @@
 		to_chat(src, "<span class='notice'>You will no longer examine things you click on.</span>")
 
 /mob/abstract/observer/DblClickOn(var/atom/A, var/params)
-	if(client.buildmode)
-		build_click(src, client.buildmode, params, A)
-		return
 	if(can_reenter_corpse && mind && mind.current)
 		if(A == mind.current || (mind.current in A)) // double click your corpse or whatever holds it
 			reenter_corpse()						// (cloning scanner, body bag, closet, mech, etc)
@@ -29,9 +26,6 @@
 		forceMove(get_turf(A))
 
 /mob/abstract/observer/ClickOn(var/atom/A, var/params)
-	if(client.buildmode)
-		build_click(src, client.buildmode, params, A)
-		return
 	if(!canClick()) return
 	setClickCooldown(4)
 	// You are responsible for checking config.ghost_interaction when you override this function
@@ -41,18 +35,18 @@
 // Oh by the way this didn't work with old click code which is why clicking shit didn't spam you
 /atom/proc/attack_ghost(mob/abstract/observer/user as mob)
 	if(user.client && user.client.inquisitive_ghost)
-		user.examinate(src)
+		examinate(user, src)
 	return
 
 // ---------------------------------------
 // And here are some good things for free:
 // Now you can click through portals, wormholes, gateways, and teleporters while observing. -Sayu
 
-/obj/machinery/teleport/hub/attack_ghost(mob/user as mob)
-	var/atom/l = loc
-	var/obj/machinery/computer/teleporter/com = locate(/obj/machinery/computer/teleporter, locate(l.x - 2, l.y, l.z))
-	if(com.locked)
-		user.forceMove(get_turf(com.locked))
+/obj/machinery/teleport/pad/attack_ghost(mob/user as mob)
+	if(locked_obj)
+		var/obj/teleport_obj = locked_obj.resolve()
+		if(teleport_obj)
+			user.forceMove(get_turf(teleport_obj))
 
 /obj/effect/portal/attack_ghost(mob/user as mob)
 	if(target)

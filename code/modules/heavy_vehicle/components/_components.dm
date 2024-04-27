@@ -1,6 +1,6 @@
 /obj/item/mech_component
 	icon = 'icons/mecha/mech_parts.dmi'
-	w_class = 5
+	w_class = ITEMSIZE_HUGE
 	pixel_x = -8
 	gender = PLURAL
 	var/on_mech_icon = 'icons/mecha/mech_parts.dmi'
@@ -26,17 +26,19 @@
 	color = new_colour
 	return color != last_colour
 
-/obj/item/mech_component/emp_act(var/severity)
+/obj/item/mech_component/emp_act(severity)
+	. = ..()
+
 	take_burn_damage(rand((10 - (severity*3)),15-(severity*4)))
 	for(var/obj/item/thing in contents)
 		thing.emp_act(severity)
 
-/obj/item/mech_component/examine(mob/user)
+/obj/item/mech_component/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(ready_to_install())
-		to_chat(user, "<span class='notice'>It is ready for installation.</span>")
+		. += SPAN_NOTICE("It is ready for installation.")
 	else
-		show_missing_parts(user)
+		. = show_missing_parts(user)
 
 /obj/item/mech_component/set_dir()
 	..(SOUTH)
@@ -44,13 +46,18 @@
 /obj/item/mech_component/proc/show_missing_parts(var/mob/user)
 	return
 
+/obj/item/mech_component/proc/return_diagnostics(var/mob/user)
+	. = list()
+	to_chat(user, SPAN_NOTICE("[capitalize_first_letters(src.name)]:"))
+	to_chat(user, SPAN_NOTICE(" - Integrity: <b>[round(((max_damage - total_damage) / max_damage) * 100, 0.1)]%</b>" ))
+
 /obj/item/mech_component/proc/prebuild()
 	return
 
 /obj/item/mech_component/proc/install_component(var/obj/item/thing, var/mob/user)
 	user.drop_from_inventory(thing)
 	thing.forceMove(src)
-	user.visible_message("<span class='notice'>\The [user] installs \the [thing] in \the [src].</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] installs \the [thing] in \the [src]."))
 	return 1
 
 /obj/item/mech_component/proc/update_health()
@@ -89,22 +96,22 @@
 		qdel(RC)
 		update_components()
 
-/obj/item/mech_component/attackby(var/obj/item/thing, var/mob/user)
-	if(thing.isscrewdriver())
+/obj/item/mech_component/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(contents.len)
 			var/obj/item/removed = pick(contents)
-			user.visible_message("<span class='notice'>\The [user] removes \the [removed] from \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] removes \the [removed] from \the [src]."))
 			removed.forceMove(user.loc)
 			playsound(user.loc, 'sound/effects/pop.ogg', 50, 0)
 			update_components()
 		else
-			to_chat(user, "<span class='warning'>There is nothing to remove.</span>")
+			to_chat(user, SPAN_WARNING("There is nothing to remove."))
 		return
-	if(thing.iswelder())
-		repair_brute_generic(thing, user)
+	if(attacking_item.iswelder())
+		repair_brute_generic(attacking_item, user)
 		return
-	if(thing.iscoil())
-		repair_burn_generic(thing, user)
+	if(attacking_item.iscoil())
+		repair_burn_generic(attacking_item, user)
 		return
 	return ..()
 
@@ -115,28 +122,28 @@
 	if(!istype(WT))
 		return
 	if(!brute_damage)
-		to_chat(user, "<span class='notice'>You inspect \the [src] but find nothing to weld.</span>")
+		to_chat(user, SPAN_NOTICE("You inspect \the [src] but find nothing to weld."))
 		return
 	if(!WT.isOn())
-		to_chat(user, "<span class='warning'>Turn \the [WT] on, first.</span>")
+		to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 		return
-	if(WT.remove_fuel(0, user))
+	if(WT.use(0, user))
 		var/repair_value = 15
 		if(brute_damage)
 			repair_brute_damage(repair_value)
-			to_chat(user, "<span class='notice'>You mend the damage to \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]."))
 			playsound(user.loc, 'sound/items/Welder.ogg', 25, 1)
 
 /obj/item/mech_component/proc/repair_burn_generic(var/obj/item/stack/cable_coil/CC, var/mob/user)
 	if(!istype(CC))
 		return
 	if(!burn_damage)
-		to_chat(user, "<span class='notice'>\The [src]'s wiring doesn't need replacing.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src]'s wiring doesn't need replacing."))
 		return
 
 	var/needed_amount = 3
 	if(CC.get_amount() < needed_amount)
-		to_chat(user, "<span class='warning'>You need at least [needed_amount] unit\s of cable to repair this section.</span>")
+		to_chat(user, SPAN_WARNING("You need at least [needed_amount] unit\s of cable to repair this section."))
 		return
 
 	user.visible_message("\The [user] begins replacing the wiring of \the [src]...")
@@ -146,6 +153,6 @@
 			return
 
 		repair_burn_damage(25)
-		to_chat(user, "<span class='notice'>You mend the damage to \the [src]'s wiring.</span>")
+		to_chat(user, SPAN_NOTICE("You mend the damage to \the [src]'s wiring."))
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 25, 1)
 	return

@@ -215,27 +215,27 @@
 	return find_type
 
 var/list/responsive_carriers = list(
-	"carbon", 
+	"carbon",
 	"potassium",
-	"hydrogen", 
-	"nitrogen", 
-	"mercury", 
-	"iron", 
-	"chlorine", 
-	"phosphorus", 
+	"hydrogen",
+	"nitrogen",
+	"mercury",
+	"iron",
+	"chlorine",
+	"phosphorus",
 	"phoron"
 	)
 
 var/list/finds_as_strings = list(
-	"Trace organic cells", 
-	"Long exposure particles", 
-	"Trace water particles", 
-	"Crystalline structures", 
-	"Metallic derivative", 
-	"Metallic composite", 
-	"Metamorphic/igneous rock composite", 
+	"Trace organic cells",
+	"Long exposure particles",
+	"Trace water particles",
+	"Crystalline structures",
+	"Metallic derivative",
+	"Metallic composite",
+	"Metamorphic/igneous rock composite",
 	"Metamorphic/sedimentary rock composite",
-	"Anomalous material" 
+	"Anomalous material"
 	)
 
 #undef ARCHAEO_BOWL

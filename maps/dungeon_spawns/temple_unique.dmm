@@ -6,19 +6,10 @@
 /turf/simulated/wall/gold,
 /area/mine/unexplored)
 "c" = (
-/obj/structure/alien/weeds,
 /obj/item/archaeological_find,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "d" = (
-/turf/simulated/floor/cult,
-/area/mine/unexplored)
-"e" = (
-/obj/structure/alien/weeds,
-/turf/simulated/floor/cult,
-/area/mine/unexplored)
-"f" = (
-/obj/structure/alien/weeds/node,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "i" = (
@@ -30,11 +21,10 @@
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "m" = (
-/obj/structure/barricade,
+/obj/structure/blocker,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
 "n" = (
-/obj/structure/alien/weeds,
 /obj/structure/bed/nest,
 /turf/simulated/floor/cult,
 /area/mine/unexplored)
@@ -498,9 +488,9 @@ d
 d
 b
 b
-e
-e
-e
+d
+d
+d
 b
 b
 d
@@ -533,9 +523,9 @@ d
 b
 d
 d
-e
-f
-e
+d
+d
+d
 b
 d
 d
@@ -566,10 +556,10 @@ d
 d
 i
 d
-e
-e
+d
+d
 c
-e
+d
 b
 d
 d
@@ -599,11 +589,11 @@ b
 d
 d
 b
-e
-e
+d
+d
 n
 d
-e
+d
 b
 d
 d
@@ -634,7 +624,7 @@ d
 d
 b
 b
-e
+d
 d
 d
 b

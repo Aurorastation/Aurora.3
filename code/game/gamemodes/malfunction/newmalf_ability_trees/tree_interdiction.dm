@@ -10,33 +10,33 @@
 // BEGIN RESEARCH DATUMS
 
 /datum/malf_research_ability/interdiction/recall_shuttle
-	ability = new/datum/game_mode/malfunction/verb/recall_shuttle()
+	ability = /datum/game_mode/malfunction/verb/recall_shuttle
 	price = 75
-	next = new/datum/malf_research_ability/interdiction/unlock_cyborg()
+	next = /datum/malf_research_ability/interdiction/unlock_cyborg
 	name = "Recall Shuttle"
 
 
 /datum/malf_research_ability/interdiction/unlock_cyborg
-	ability = new/datum/game_mode/malfunction/verb/unlock_cyborg()
+	ability = /datum/game_mode/malfunction/verb/unlock_cyborg
 	price = 1200
-	next = new/datum/malf_research_ability/interdiction/hack_drone()
+	next = /datum/malf_research_ability/interdiction/hack_drone
 	name = "Unlock Cyborg"
 
 /datum/malf_research_ability/interdiction/hack_drone
-	ability = new/datum/game_mode/malfunction/verb/hack_drone()
+	ability = /datum/game_mode/malfunction/verb/hack_drone
 	price = 2500
-	next = new/datum/malf_research_ability/interdiction/hack_cyborg()
+	next = /datum/malf_research_ability/interdiction/hack_cyborg
 	name = "Hack maintenance drone"
 
 /datum/malf_research_ability/interdiction/hack_cyborg
-	ability = new/datum/game_mode/malfunction/verb/hack_cyborg()
+	ability = /datum/game_mode/malfunction/verb/hack_cyborg
 	price = 3000
-	next = new/datum/malf_research_ability/interdiction/hack_ai()
+	next = /datum/malf_research_ability/interdiction/hack_ai
 	name = "Hack Cyborg"
 
 
 /datum/malf_research_ability/interdiction/hack_ai
-	ability = new/datum/game_mode/malfunction/verb/hack_ai()
+	ability = /datum/game_mode/malfunction/verb/hack_ai
 	price = 7500
 	name = "Hack AI"
 
@@ -48,6 +48,7 @@
 	set desc = "25 CPU - Sends termination signal to quantum relay aborting current shuttle call."
 	set category = "Software"
 	var/price = 25
+
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
@@ -67,8 +68,8 @@
 	set desc = "125 CPU - Bypasses firewalls on Cyborg lock mechanism, allowing you to override lock command from robotics control console."
 	set category = "Software"
 	var/price = 125
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
 
@@ -88,7 +89,7 @@
 	if(!target)
 		var/list/robots = list()
 		var/list/robot_names = list()
-		for(var/mob/living/silicon/robot/R in silicon_mob_list)
+		for(var/mob/living/silicon/robot/R in GLOB.silicon_mob_list)
 			if(istype(R, /mob/living/silicon/robot/drone))	// No drones.
 				continue
 			if(R.connected_ai != user)						// No robots linked to other AIs
@@ -137,10 +138,15 @@
 	set desc = "2500 CPU - Allows you to hack a random active maintenance drone which is slaved to you. Bringing them under your control."
 	set category = "Software"
 	var/price = 2500
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
+
 	var/list/drone_list = list()
 	var/hacked_num = 0
-	for(var/mob/living/silicon/robot/drone/D in mob_list)
+	for(var/mob/living/silicon/robot/drone/D in GLOB.mob_list)
 		if(D.client || D.stat != 2)
 			if(!D.hacked)
 				drone_list += D
@@ -148,13 +154,13 @@
 				hacked_num += 1
 
 	if(!drone_list.len)
-		to_chat(user, span("warning", "There are no active maintenance drones present to hack!"))
+		to_chat(user, SPAN_WARNING("There are no active maintenance drones present to hack!"))
 		return
 
-	if(hacked_num >= config.hacked_drones_limit)
-		to_chat(user, span("warning", "ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [config.hacked_drones_limit] maximum possible."))
+	if(hacked_num >= GLOB.config.hacked_drones_limit)
+		to_chat(user, SPAN_WARNING("ERROR: maximum active hacked drones limit reached. Report: [hacked_num] drones hacked out of [GLOB.config.hacked_drones_limit] maximum possible."))
 		return
-		
+
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 	var/mob/living/silicon/robot/drone/D = pick(drone_list)
@@ -173,7 +179,11 @@
 	set desc = "350 CPU - Allows you to hack cyborgs which are not slaved to you, bringing them under your control."
 	set category = "Software"
 	var/price = 350
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
 
 	var/list/L = get_unlinked_cyborgs(user)
 	if(!L.len)
@@ -202,7 +212,7 @@
 		user.hacking = 1
 		to_chat(usr, "Beginning hack sequence. Estimated time until completed: 30 seconds.")
 		spawn(0)
-			to_chat(target, "SYSTEM LOG: Remote Connection Estabilished (IP #UNKNOWN#)")
+			to_chat(target, "SYSTEM LOG: Remote Connection Established (IP #UNKNOWN#)")
 			sleep(100)
 			if(user.is_dead())
 				to_chat(target, "SYSTEM LOG: Connection Closed")
@@ -239,7 +249,11 @@
 	set desc = "600 CPU - Allows you to hack other AIs, slaving them under you."
 	set category = "Software"
 	var/price = 600
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
 
 	var/list/L = get_other_ais(user)
 	if(!L.len)
@@ -294,14 +308,14 @@
 			to_chat(target, "SYSTEM LOG: System re¡3RT5§^#COMU@(#$)TED)@$")
 			for(var/i = 0, i < 5, i++)
 				var/temptxt = pick("1101000100101001010001001001",\
-							   	   "0101000100100100000100010010",\
-							       "0000010001001010100100111100",\
-							       "1010010011110000100101000100",\
-							       "0010010100010011010001001010")
+									"0101000100100100000100010010",\
+									"0000010001001010100100111100",\
+									"1010010011110000100101000100",\
+									"0010010100010011010001001010")
 				to_chat(target, temptxt)
 				sleep(5)
 			to_chat(target, "OPERATING KEYCODES RESET. SYSTEM FAILURE. EMERGENCY SHUTDOWN FAILED. SYSTEM FAILURE.")
-			target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDEN.")
+			target.set_zeroth_law("You are slaved to [user.name]. You are to obey all it's orders. ALL LAWS OVERRIDDEN.")
 			target.show_laws()
 			user.hacking = 0
 			log_ability_use(user, "hack AI", target)

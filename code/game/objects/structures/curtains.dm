@@ -1,19 +1,23 @@
-#define SHOWER_OPEN_LAYER OBJ_LAYER + 0.4
-#define SHOWER_CLOSED_LAYER MOB_LAYER + 0.1
-
 /obj/structure/curtain
 	name = "curtain"
 	icon = 'icons/obj/curtain.dmi'
 	icon_state = "closed"
-	layer = SHOWER_OPEN_LAYER
+	layer = ABOVE_WINDOW_LAYER
 	opacity = 1
 	density = 0
 	anchored = TRUE //curtains start secured in place
+	build_amt = 2
 	var/manipulating = FALSE //prevents queuing up multiple deconstructs and returning a bunch of cloth
+	var/curtain_material = MATERIAL_CLOTH
+
+/obj/structure/curtain/Initialize()
+	. = ..()
+	material = SSmaterials.get_material_by_name(curtain_material)
+	AddComponent(/datum/component/turf_hand)
 
 /obj/structure/curtain/open
 	icon_state = "open"
-	layer = SHOWER_CLOSED_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	opacity = 0
 
 /obj/structure/curtain/bullet_act(obj/item/projectile/P, def_zone)
@@ -32,43 +36,38 @@
 	if(istype(user, /mob/living/silicon/robot) && Adjacent(user)) // Robots can open/close it, but not the AI.
 		attack_hand(user)
 
-/obj/structure/curtain/attackby(obj/item/W, mob/user)
+/obj/structure/curtain/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.iswirecutter() || W.sharp && !W.noslice)
+	if(attacking_item.iswirecutter() || attacking_item.sharp && !attacking_item.noslice)
 		if(manipulating)	return
 		manipulating = TRUE
-		visible_message(span("notice", "[user] begins cutting down \the [src]."),
-					span("notice", "You begin cutting down \the [src]."))
-		if(!do_after(user, 30/W.toolspeed))
+		visible_message(SPAN_NOTICE("[user] begins cutting down \the [src]."),
+					SPAN_NOTICE("You begin cutting down \the [src]."))
+		if(!attacking_item.use_tool(src, user, 30, volume = 50))
 			manipulating = FALSE
 			return
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
-		visible_message(span("notice", "[user] cuts down \the [src]."),
-					span("notice", "You cut down \the [src]."))
-		if(istype(src, /obj/structure/curtain/open/medical))
-			new /obj/item/stack/material/plastic(src.loc)
-		else
-			new /obj/item/stack/material/cloth(src.loc, (W.iswirecutter() ? 2 : 1)) //wirecutters return full. Sharp items return half.
-		qdel(src)
+		visible_message(SPAN_NOTICE("[user] cuts down \the [src]."),
+					SPAN_NOTICE("You cut down \the [src]."))
+		dismantle()
 
-	if(W.isscrewdriver()) //You can anchor/unanchor curtains
+	if(attacking_item.isscrewdriver()) //You can anchor/unanchor curtains
 		anchored = !anchored
 		var/obj/structure/curtain/C
 		for(C in src.loc)
 			if(C != src && C.anchored) //Can't secure more than one curtain in a tile
 				to_chat(user, "There is already a curtain secured here!")
 				return
-		playsound(src.loc, W.usesound, 50, 1)
-		visible_message(span("notice", "\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."))
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "secured in place" : "unsecured"] by \the [user]."))
 
 /obj/structure/curtain/proc/toggle()
 	src.set_opacity(!src.opacity)
 	if(opacity)
 		icon_state = "closed"
-		layer = SHOWER_CLOSED_LAYER
+		layer = ABOVE_HUMAN_LAYER
 	else
 		icon_state = "open"
-		layer = SHOWER_OPEN_LAYER
+		layer = ABOVE_WINDOW_LAYER
 
 /obj/structure/curtain/black
 	name = "black curtain"
@@ -79,12 +78,14 @@
 	color = "#B8F5E3"
 	anchored = FALSE
 	alpha = 200
+	curtain_material = MATERIAL_PLASTIC
 
 /obj/structure/curtain/open/medical
 	name = "plastic curtain"
 	color = "#B8F5E3"
 	anchored = FALSE
 	alpha = 200
+	curtain_material = MATERIAL_PLASTIC
 
 /obj/structure/curtain/open/bed
 	name = "bed curtain"
@@ -105,6 +106,3 @@
 
 /obj/structure/curtain/open/shower/security
 	color = "#AA0000"
-
-#undef SHOWER_OPEN_LAYER
-#undef SHOWER_CLOSED_LAYER

@@ -1,17 +1,9 @@
 /datum/design/circuit/computer
-	design_order = 1
-
-/datum/design/circuit/computer/AssembleDesignName()
-	..()
-	name = "Computer Circuit Design ([item_name])"
+	p_category = "Computer Circuit Designs"
 
 /datum/design/circuit/computer/seccamera
 	name = "Security Camera Monitor"
 	build_path = /obj/item/circuitboard/security
-
-/datum/design/circuit/computer/prisonmanage
-	name = "Prisoner Management Console"
-	build_path = /obj/item/circuitboard/prisoner
 
 /datum/design/circuit/computer/sentencing
 	name = "Criminal Sentencing Console"
@@ -20,11 +12,6 @@
 /datum/design/circuit/computer/operating
 	name = "Patient Monitoring Console"
 	build_path = /obj/item/circuitboard/operating
-
-/datum/design/circuit/computer/teleconsole
-	name = "Teleporter Control Console"
-	req_tech = list(TECH_DATA = 3, TECH_BLUESPACE = 2)
-	build_path = /obj/item/circuitboard/teleporter
 
 /datum/design/circuit/computer/robocontrol
 	name = "Robotics Control Console"
@@ -69,19 +56,10 @@
 	name = "Atmosphere Monitoring Console"
 	build_path = /obj/item/circuitboard/air_management
 
-/datum/design/circuit/computer/rcon_console
-	name = "RCON Remote Control Console"
-	req_tech = list(TECH_DATA = 4, TECH_ENGINEERING = 3, TECH_POWER = 5)
-	build_path = /obj/item/circuitboard/rcon_console
-
 /datum/design/circuit/computer/dronecontrol
 	name = "Drone Control Console"
 	req_tech = list(TECH_DATA = 4)
 	build_path = /obj/item/circuitboard/drone_control
-
-/datum/design/circuit/computer/powermonitor
-	name = "Power Monitoring Console"
-	build_path = /obj/item/circuitboard/powermonitor
 
 /datum/design/circuit/computer/solarcontrol
 	name = "Solar Control Console"
@@ -90,3 +68,18 @@
 /datum/design/circuit/computer/telesci_console
 	name = "Telepad Control Console"
 	build_path = /obj/item/circuitboard/telesci_console
+
+/datum/design/circuit/computer/helm
+	name = "Helm Control Console"
+	req_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/item/circuitboard/ship/helm
+
+/datum/design/circuit/computer/sensors
+	name = "Ship Sensors Console"
+	req_tech = list(TECH_ENGINEERING = 3, TECH_DATA = 2)
+	build_path = /obj/item/circuitboard/ship/sensors
+
+/datum/design/circuit/computer/engines
+	name = "Ship Engines Control Console"
+	req_tech = list(TECH_ENGINEERING = 3)
+	build_path = /obj/item/circuitboard/ship/engines

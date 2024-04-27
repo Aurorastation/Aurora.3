@@ -15,7 +15,8 @@
 	return 0
 
 /obj/item/proc/GetAccess()
-	return list()
+	var/obj/item/card/id = GetID()
+	return istype(id) ? id.GetAccess() : list()
 
 /obj/proc/GetID()
 	return null
@@ -41,57 +42,54 @@
 
 /proc/get_centcom_access(job)
 	switch(job)
-		if("VIP Guest")
-			return list(access_cent_general)
-		if("Custodian")
-			return list(access_cent_general, access_cent_living, access_cent_storage)
-		if("Thunderdome Overseer")
-			return list(access_cent_general, access_cent_thunder)
-		if("Intel Officer")
-			return list(access_cent_general, access_cent_living)
-		if("Medical Officer")
-			return list(access_cent_general, access_cent_living, access_cent_medical)
+		if("SCC Agent", "SCC Executive", "SCC Bodyguard")
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_CCIA, ACCESS_CENT_SPECOPS)
+		if("CCIA Agent")
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_CCIA, ACCESS_CENT_SPECOPS)
+		if("Emergency Response Team")
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING)
+		if("Odin Security")
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING)
+		if("Medical Doctor")
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_MEDICAL)
+		if("Service")
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_LIVING)
 		if("Death Commando")
-			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
-		if("NanoTrasen Representative")
-			return list(access_cent_general, access_cent_living, access_cent_storage, access_cent_thunder, access_cent_medical, access_cent_specops, access_cent_teleporter)
-		if("Research Officer")
-			return list(access_cent_general, access_cent_specops, access_cent_medical, access_cent_teleporter, access_cent_storage)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_CENT_MEDICAL)
 		if("BlackOps Commander")
-			return list(access_cent_general, access_cent_thunder, access_cent_specops, access_cent_living, access_cent_storage, access_cent_creed)
+			return list(ACCESS_CENT_GENERAL, ACCESS_CENT_THUNDER, ACCESS_CENT_SPECOPS, ACCESS_CENT_LIVING, ACCESS_CENT_STORAGE, ACCESS_CENT_CREED)
+		if("NanoTrasen Representative") //Adminspawn roles
+			return get_all_centcom_access()
 		if("Supreme Commander")
 			return get_all_centcom_access()
-		if("CCIA Agent")
-			return list(access_cent_general, access_cent_captain, access_cent_living, access_cent_storage)
-		if("Emergency Response Team")
-			return list(access_cent_general, access_cent_specops, access_cent_living, access_cent_storage)
-	log_debug("Invalid job [job] passed to get_centcom_access")
+
+	LOG_DEBUG("Invalid job [job] passed to get_centcom_access")
 	return list()
 
 /proc/get_syndicate_access(job)
 	switch(job)
 		if("Syndicate Operative")
-			return list(access_syndicate)
+			return list(ACCESS_SYNDICATE)
 		if("Syndicate Operative Leader")
-			return list(access_syndicate, access_syndicate_leader)
+			return list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
 		if("Syndicate Agent")
-			return list(access_syndicate, access_maint_tunnels)
+			return list(ACCESS_SYNDICATE, ACCESS_MAINT_TUNNELS)
 		if("Syndicate Commando")
-			return list(access_syndicate, access_syndicate_leader)
-	log_debug("Invalid job [job] passed to get_syndicate_access")
+			return list(ACCESS_SYNDICATE, ACCESS_SYNDICATE_LEADER)
+	LOG_DEBUG("Invalid job [job] passed to get_syndicate_access")
 	return list()
 
 /proc/get_distress_access()
-	return list(access_legion, access_distress, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	return list(ACCESS_LEGION, ACCESS_DISTRESS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP, ACCESS_CONSTRUCTION)
 
 /proc/get_distress_access_lesser()
-	return list(access_distress, access_external_airlocks)
+	return list(ACCESS_DISTRESS, ACCESS_EXTERNAL_AIRLOCKS)
 
 /var/list/datum/access/priv_all_access_datums
 /proc/get_all_access_datums()
 	if(!priv_all_access_datums)
 		priv_all_access_datums = init_subtypes(/datum/access)
-		sortTim(priv_all_access_datums, /proc/cmp_access, FALSE)
+		sortTim(priv_all_access_datums, GLOBAL_PROC_REF(cmp_access), FALSE)
 
 	return priv_all_access_datums
 
@@ -181,7 +179,7 @@
 		if(ACCESS_REGION_GENERAL) //station general
 			return "Station General"
 		if(ACCESS_REGION_SUPPLY) //supply
-			return "Supply"
+			return "Operations"
 
 /proc/get_access_desc(id)
 	var/list/AS = get_all_access_datums_by_id()
@@ -195,7 +193,7 @@
 /proc/get_all_jobs()
 	var/list/all_jobs = list()
 	var/list/all_datums = typesof(/datum/job)
-	all_datums -= exclude_jobs
+	all_datums -= GLOB.exclude_jobs
 	var/datum/job/jobdatum
 	for(var/jobtype in all_datums)
 		jobdatum = new jobtype
@@ -203,23 +201,26 @@
 	return all_jobs
 
 /proc/get_all_centcom_jobs()
-	return list("VIP Guest",
-		"Custodian",
-		"Thunderdome Overseer",
-		"Intel Officer",
-		"General",
+	return list("NanoTrasen Representative",
+		"NanoTrasen Navy Officer",
+		"NanoTrasen Navy Captain",
+		"ERT Protection Detail",
+		"ERT Commander",
 		"Bluespace Technician",
-		"Internal Affairs Agent",
-		"VIP Guest",
-		"Medical Officer",
-		"Death Commando",
-		"Research Officer",
-		"BlackOps Commander",
-		"Supreme Commander",
+		"CCIA Agent",
+		"CCIA Escort",
+		"Odin Checkpoint Security",
+		"Odin Security",
+		"Aurora Prepatory Wing Security",
+		"Odin Medical Doctor",
+		"Odin Pharmacist",
+		"Odin Chef",
+		"Odin Bartender",
+		"Sanitation Specialist",
 		"Emergency Response Team",
 		"Emergency Response Team Leader",
 		"Emergency Responder",
-		"Central Command Internal Affairs Agent")
+		"Death Commando")
 
 /mob/proc/GetIdCard()
 	return null
@@ -239,32 +240,32 @@ var/obj/item/card/id/all_access/ghost_all_access
 /mob/living/simple_animal/spiderbot/GetIdCard()
 	return internal_id
 
-/mob/living/carbon/human/GetIdCard()
+/mob/living/carbon/human/GetIdCard(var/ignore_hand = FALSE)
+	var/obj/item/I = get_active_hand()
+	if(I && !ignore_hand)
+		var/id = I.GetID()
+		if(id)
+			return id
 	if(wear_id)
 		var/id = wear_id.GetID()
 		if(id)
 			return id
-	var/obj/item/I = get_active_hand()
-	if(I)
-		var/id = I.GetID()
-		if(id)
-			return id
-	if(gloves)
-		var/id = gloves.GetID()
+	if(wrists)
+		var/id = wrists.GetID()
 		if(id)
 			return id
 
 /mob/living/silicon/GetIdCard()
 	return id_card
 
-proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
+/proc/FindNameFromID(var/mob/M, var/missing_id_name = "Unknown")
 	var/obj/item/card/id/C = M.GetIdCard()
 	if(C)
 		return C.registered_name
 	return missing_id_name
 
-proc/get_all_job_icons() //For all existing HUD icons
-	return joblist + list("Prisoner")
+/proc/get_all_job_icons() //For all existing HUD icons
+	return GLOB.joblist + list("Prisoner")
 
 /obj/proc/GetJobName() //Used in secHUD icon generation
 	var/obj/item/card/id/I = GetID()

@@ -13,16 +13,16 @@
 		CHECK_TICK //This stuff is a little intensive I think.
 		if(prob(25))
 			if(prob(50))
-				var/datum/battle_monsters/selected_trap = SSbattlemonsters.GetRandomTrap()
+				var/datum/battle_monsters/selected_trap = SSbattle_monsters.GetRandomTrap()
 				deck_data += "trap_type,[selected_trap.id],no_title"
 			else
-				var/datum/battle_monsters/selected_spell = SSbattlemonsters.GetRandomSpell()
+				var/datum/battle_monsters/selected_spell = SSbattle_monsters.GetRandomSpell()
 				deck_data += "spell_type,[selected_spell.id],no_title"
 			continue
 
-		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix_Filtered(rarity_min,rarity_max)
-		var/datum/battle_monsters/selected_root = SSbattlemonsters.GetRandomRoot_Filtered(rarity_min,rarity_max)
-		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_prefix = SSbattle_monsters.GetRandomPrefix_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_root = SSbattle_monsters.GetRandomRoot_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_suffix = SSbattle_monsters.GetRandomSuffix_Filtered(rarity_min,rarity_max)
 		deck_data += "[selected_prefix.id],[selected_root.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
 
 	generated_deck.stored_card_names = deck_data
@@ -30,8 +30,8 @@
 /obj/item/battle_monsters/wrapped/attack_self(mob/user)
 
 	user.visible_message(\
-		span("notice","\The [user] unwraps \the [src]."),\
-		span("notice","You unwrap \the [src].")\
+		SPAN_NOTICE("\The [user] unwraps \the [src]."),\
+		SPAN_NOTICE("You unwrap \the [src].")\
 	)
 	var/obj/item/battle_monsters/deck/generated_deck = new(get_turf(src))
 	GenerateCards(user,generated_deck)
@@ -40,26 +40,34 @@
 	generated_deck.update_icon()
 	qdel(src)
 
+/obj/item/battle_monsters/wrapped/basic
+	name = "battle monsters basic booster pack"
+	desc = "A pack of 7 basic battle monster cards, merely to prod the imagination."
+	icon_state = "pack2"
+	contained_cards = 7
+	rarity_max = BATTLE_MONSTERS_RARITY_COMMON
+	rarity_min = BATTLE_MONSTERS_RARITY_COMMON
+
 /obj/item/battle_monsters/wrapped/pro
 	name = "battle monsters booster pack"
-	desc = "A pack of 10 rare battle monster cards, with a chance of having legendary cards."
+	desc = "A pack of 15 rare battle monster cards, with a chance of having legendary cards."
 	icon_state = "pack2"
-	contained_cards = 10
+	contained_cards = 15
 	rarity_max = BATTLE_MONSTERS_RARITY_UNCOMMON
 	rarity_min = BATTLE_MONSTERS_RARITY_LEGENDARY
 
 /obj/item/battle_monsters/wrapped/rare
 	name = "battle monsters rare booster pack"
-	desc = "A pack of 10 ultra-rare battle monster cards."
+	desc = "A pack of 15 ultra-rare battle monster cards."
 	icon_state = "pack2"
-	contained_cards = 10
+	contained_cards = 15
 	rarity_max = BATTLE_MONSTERS_RARITY_RARE
 	rarity_min = BATTLE_MONSTERS_RARITY_LEGENDARY
 
 /obj/item/battle_monsters/wrapped/legendary
-	name = "battle monsters rare booster pack"
-	desc = "A pack of 4 legendary battle monster cards."
+	name = "battle monsters legendary booster pack"
+	desc = "A pack of 8 legendary battle monster cards."
 	icon_state = "pack2"
-	contained_cards = 4
+	contained_cards = 8
 	rarity_max = BATTLE_MONSTERS_RARITY_LEGENDARY
 	rarity_min = BATTLE_MONSTERS_RARITY_LEGENDARY

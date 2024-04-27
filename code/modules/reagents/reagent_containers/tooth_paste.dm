@@ -3,14 +3,11 @@
 	desc = "A simple tube full of toothpaste."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "toothpaste"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	possible_transfer_amounts = null
 	amount_per_transfer_from_this = 5
 	volume = 20
-
-/obj/item/reagent_containers/toothpaste/Initialize()
-	. = ..()
-	reagents.add_reagent("toothpaste", 20)
+	reagents_to_add = list(/singleton/reagent/drink/toothpaste = 20)
 
 /obj/item/reagent_containers/toothpaste/on_reagent_change()
 	update_icon()
@@ -30,7 +27,7 @@
 	desc = "An essential tool in dental hygiene."
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "toothbrush_b"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	possible_transfer_amounts = null
 	amount_per_transfer_from_this = 5
 	volume = 5
@@ -41,7 +38,7 @@
 /obj/item/reagent_containers/toothbrush/update_icon()
 	cut_overlays()
 
-	if(reagents.has_reagent("toothpaste"))
+	if(reagents.has_reagent(/singleton/reagent/drink/toothpaste))
 		add_overlay("toothpaste_overlay")
 
 /obj/item/reagent_containers/toothbrush/attack_self(mob/user as mob)
@@ -51,7 +48,7 @@
 		playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 		if(do_after(user, 30))
 			user.visible_message(
-			"<span class='notice'>\The [user] brushes [user.get_pronoun(1)] teeth with \the [src]</span>",
+			"<span class='notice'>\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]</span>",
 			"<span class='notice'>You brush your teeth with \the [src].</span>")
 			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
 			update_icon()
@@ -71,7 +68,7 @@
 			if(!reagents.total_volume)
 				to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message("<span class='warning'>[user] is trying to brush \the [target]'s teeth \the [src]!</span>")
 					playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
@@ -91,7 +88,7 @@
 		return
 
 	if(istype(A, /obj/structure/reagent_dispensers) || istype(A, /obj/structure/mopbucket) || istype(A, /obj/item/reagent_containers/glass))
-		if(!reagents.get_free_space())
+		if(!REAGENTS_FREE_SPACE(reagents))
 			return
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))

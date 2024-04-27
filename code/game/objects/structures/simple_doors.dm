@@ -6,6 +6,7 @@
 	icon = 'icons/obj/doors/material_doors.dmi'
 	icon_state = "metal"
 
+	build_amt = 10
 	var/state = 0 //closed, 1 == open
 	var/isSwitchingStates = 0
 	var/oreAmount = 7
@@ -57,10 +58,10 @@
 	lock = null
 	return ..()
 
-/obj/structure/simple_door/examine(mob/user)
-	..(user)
+/obj/structure/simple_door/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(lock)
-		to_chat(user, "<span class='notice'>It appears to have a lock.</span>")
+		. += SPAN_NOTICE("It appears to have a lock.")
 
 /obj/structure/simple_door/CollidedWith(atom/user)
 	..()
@@ -71,9 +72,8 @@
 /obj/structure/simple_door/attack_ai(mob/user as mob) //those aren't machinery, they're just big fucking slabs of a mineral
 	if(isAI(user)) //so the AI can't open it
 		return
-	else if(isrobot(user)) //but cyborgs can
-		if(get_dist(user,src) <= 1) //not remotely though
-			return TryToSwitchState(user)
+	else if(isrobot(user) && Adjacent(user)) //but cyborgs can
+		return TryToSwitchState(user)
 
 /obj/structure/simple_door/attack_hand(mob/user as mob)
 	return TryToSwitchState(user)
@@ -147,36 +147,36 @@
 	else
 		icon_state = material.door_icon_base
 
-/obj/structure/simple_door/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/key) && lock)
-		var/obj/item/key/K = W
-		if(!lock.toggle(W))
+/obj/structure/simple_door/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/key) && lock)
+		var/obj/item/key/K = attacking_item
+		if(!lock.toggle(attacking_item))
 			to_chat(user, "<span class='warning'>\The [K] does not fit in the lock!</span>")
 		return
 
-	if(lock && lock.pick_lock(W,user))
+	if(lock && lock.pick_lock(attacking_item, user))
 		return
 
-	if(istype(W,/obj/item/material/lock_construct))
+	if(istype(attacking_item, /obj/item/material/lock_construct))
 		if(lock)
 			to_chat(user, "<span class='warning'>\The [src] already has a lock.</span>")
 		else
-			var/obj/item/material/lock_construct/L = W
+			var/obj/item/material/lock_construct/L = attacking_item
 			lock = L.create_lock(src,user)
 		return
 
-	else if(istype(W,/obj/item))
-		var/obj/item/I = W
+	else if(istype(attacking_item, /obj/item))
+		var/obj/item/I = attacking_item
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		if(I.damtype == BRUTE || I.damtype == BURN)
+		if(I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_BURN)
 			if(I.force < 10)
 				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I] with no visible effect.</span>")
 			else
 				user.do_attack_animation(src)
-				animate_shake()
+				shake_animation()
 				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
-				playsound(src.loc, material.hitsound, 100, 1)
-				src.health -= W.force * 1
+				playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
+				src.health -= attacking_item.force * 1
 				CheckHealth()
 
 	else
@@ -185,24 +185,20 @@
 
 /obj/structure/simple_door/bullet_act(var/obj/item/projectile/Proj)
 	health -= Proj.damage
+	bullet_ping(Proj)
 	CheckHealth()
-	return
 
 /obj/structure/simple_door/proc/CheckHealth()
 	if(health <= 0)
-		Dismantle(1)
-
-/obj/structure/simple_door/proc/Dismantle(devastated = 0)
-	material.place_dismantled_product(get_turf(src))
-	qdel(src)
+		dismantle()
 
 /obj/structure/simple_door/ex_act(severity = 1)
 	switch(severity)
 		if(1)
-			Dismantle(1)
+			dismantle()
 		if(2)
 			if(prob(20))
-				Dismantle(1)
+				dismantle()
 			else
 				health--
 				CheckHealth()
@@ -215,7 +211,7 @@
 	if(!material.radioactivity)
 		return
 	for(var/mob/living/L in range(1,src))
-		L.apply_effect(round(material.radioactivity/3),IRRADIATE,0)
+		L.apply_damage(round(material.radioactivity/3),DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 
 /obj/structure/simple_door/iron/New(var/newloc,var/material_name, var/complexity)
 	..(newloc, MATERIAL_IRON, complexity)

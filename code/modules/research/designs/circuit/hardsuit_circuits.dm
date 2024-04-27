@@ -1,9 +1,8 @@
 /datum/design/circuit/hardsuit
-	design_order = 2
+	p_category = "Hardsuit Circuit Designs"
 
-/datum/design/circuit/hardsuit/AssembleDesignName()
-	..()
-	name = "Hardsuit Circuit Design ([item_name])"
+/datum/design/circuit/hardsuit/AssembleDesignDesc()
+	desc = "Contains the software required to make this model of hardsuit."
 
 /datum/design/circuit/hardsuit/industrial
 	name = "Industrial Suit Central Circuit Board"
@@ -14,6 +13,11 @@
 	name = "EVA suit central circuit Board"
 	req_tech = list(TECH_DATA = 3)
 	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva
+
+/datum/design/circuit/hardsuit/eva/pilot
+	name = "pilot suit central circuit Board"
+	req_tech = list(TECH_DATA = 3)
+	build_path = /obj/item/circuitboard/rig_assembly/civilian/eva/pilot
 
 /datum/design/circuit/hardsuit/ce
 	name = "Advanced Voidsuit Central Circuit Board"

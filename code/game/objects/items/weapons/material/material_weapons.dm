@@ -3,27 +3,29 @@
 // They are also fragile based on material data and many can break/smash apart.
 /obj/item/material
 	health = 10
-	hitsound = 'sound/weapons/bladeslice.ogg'
 	gender = NEUTER
 	throw_speed = 3
 	throw_range = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	sharp = 0
-	edge = 0
+	edge = FALSE
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 
 	var/use_material_name = TRUE // Does the finished item put the material name in front of it?
-	var/applies_material_colour = 1
+	var/use_material_sound = TRUE
+	var/use_material_shatter = TRUE // If it has a custom shatter message.
+	var/applies_material_colour = TRUE
 	var/unbreakable
 	var/force_divisor = 0.5
+	var/max_force = 40	 //any damage above this is added to armor penetration value
+	var/max_pen = 100 //any penetration above this value is ignored
 	var/thrown_force_divisor = 0.5
 	var/default_material = DEFAULT_WALL_MATERIAL
 	var/material/material
-	var/drops_debris = 1
+	var/drops_debris = TRUE
 
-/obj/item/material/New(var/newloc, var/material_key)
-	..(newloc)
+/obj/item/material/Initialize(var/newloc, var/material_key)
+	. = ..()
 	if(!material_key)
 		material_key = default_material
 	set_material(material_key)
@@ -37,15 +39,26 @@
 			if(!isnull(matter[material_type]))
 				matter[material_type] *= force_divisor // May require a new var instead.
 
+/obj/item/material/should_equip()
+	return TRUE
+
 /obj/item/material/get_material()
 	return material
 
 /obj/item/material/proc/update_force()
+	var/new_force
 	if(edge || sharp)
-		force = material.get_edge_damage()
+		new_force = material.get_edge_damage()
 	else
-		force = material.get_blunt_damage()
-	force = round(force*force_divisor)
+		new_force = material.get_blunt_damage()
+	new_force = round(new_force*force_divisor)
+	force = min(new_force, max_force)
+
+	if(new_force > max_force)
+		armor_penetration = initial(armor_penetration) + new_force - max_force
+	armor_penetration += 2*max(0, material.protectiveness - 2)
+	armor_penetration = min(max_pen, armor_penetration)
+
 	throwforce = round(material.get_blunt_damage()*thrown_force_divisor)
 
 /obj/item/material/proc/set_material(var/new_material)
@@ -55,6 +68,13 @@
 	else
 		if(use_material_name)
 			name = "[material.display_name] [initial(name)]"
+		if(use_material_sound)
+			if(sharp && !material.weapon_hitsound == 'sound/weapons/metalhit.ogg' || !sharp)
+				// wooden swords don't sound like metal swords.
+				// metalhit check is so swords when metal use their regular slice sfx.
+				hitsound = material.weapon_hitsound
+				drop_sound = material.weapon_drop_sound
+				pickup_sound = material.weapon_pickup_sound
 		health = round(material.integrity/10)
 		if(applies_material_colour)
 			color = material.icon_colour
@@ -81,11 +101,11 @@
 
 /obj/item/material/proc/shatter(var/consumed)
 	var/turf/T = get_turf(src)
-	T.visible_message("<span class='danger'>\The [src] [material.destruction_desc]!</span>")
+	if(use_material_shatter)
+		T.visible_message(SPAN_DANGER("\The [src] [material.destruction_desc]!"))
 	if(istype(loc, /mob/living))
 		var/mob/living/M = loc
 		M.drop_from_inventory(src)
-	playsound(src, "shatter", 70, 1)
+	playsound(src, material.shatter_sound, 70, 1)
 	if(!consumed && drops_debris) material.place_shard(T)
 	qdel(src)
-

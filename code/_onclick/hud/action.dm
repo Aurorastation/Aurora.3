@@ -10,6 +10,12 @@
 #define AB_CHECK_ALIVE 8
 #define AB_CHECK_INSIDE 16
 
+///Eye action targets the parent datum.
+#define PARENT_TARGET		0
+///Eye action targets the eye mob itself.
+#define EYE_TARGET			1
+///Eye action targets the eye component.
+#define COMPONENT_TARGET	2
 
 /datum/action
 	var/name = "Generic Action"
@@ -22,6 +28,7 @@
 	var/obj/screen/movable/action_button/button = null
 	var/button_icon = 'icons/obj/action_buttons/actions.dmi'
 	var/button_icon_state = "default"
+	var/button_icon_color
 	var/background_icon_state = "bg_default"
 	var/mob/living/owner
 
@@ -31,6 +38,7 @@
 /datum/action/Destroy()
 	if(owner)
 		Remove(owner)
+	target = null
 	return ..()
 
 /datum/action/proc/SetTarget(var/atom/Target)
@@ -42,16 +50,21 @@
 			return
 		Remove(owner)
 	owner = T
-	owner.actions.Add(src)
-	owner.update_action_buttons()
+	//This shit is because our actions are different than TG ones, remove it when we update the action datum
+	if(istype(T))
+		owner.actions.Add(src)
+		owner.update_action_buttons()
 	return
 
 /datum/action/proc/Remove(mob/living/T)
+	//This shit is because our actions are different than TG ones, remove it when we update the action datum
+	if(!istype(T))
+		return
+
 	if(button)
 		if(T.client)
 			T.client.screen -= button
-		qdel(button)
-		button = null
+		QDEL_NULL(button)
 	T.actions.Remove(src)
 	T.update_action_buttons()
 	owner = null
@@ -121,6 +134,10 @@
 	var/datum/action/owner
 	screen_loc = "WEST,NORTH"
 
+/obj/screen/movable/action_button/Destroy(force)
+	owner = null
+	. = ..()
+
 /obj/screen/movable/action_button/Click(location,control,params)
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"])
@@ -131,7 +148,7 @@
 	owner.Trigger()
 	return 1
 
-/obj/screen/movable/action_button/proc/UpdateIcon()
+/obj/screen/movable/action_button/update_icon()
 	if(!owner)
 		return
 	icon = owner.button_icon
@@ -146,6 +163,8 @@
 		img = image(owner.button_icon,src,owner.button_icon_state)
 	img.pixel_x = 0
 	img.pixel_y = 0
+	if(owner.button_icon_color)
+		img.color = owner.button_icon_color
 	add_overlay(img)
 
 	if(!owner.IsAvailable())
@@ -168,7 +187,7 @@
 		name = "Show Buttons"
 	else
 		name = "Hide Buttons"
-	UpdateIcon()
+	update_icon()
 	usr.update_action_buttons()
 
 
@@ -177,10 +196,10 @@
 		icon_state = "bg_alien"
 	else
 		icon_state = "bg_default"
-	UpdateIcon()
+	update_icon()
 	return
 
-/obj/screen/movable/action_button/hide_toggle/UpdateIcon()
+/obj/screen/movable/action_button/hide_toggle/update_icon()
 	cut_overlays()
 	add_overlay(hidden ? "show" : "hide")
 
@@ -221,6 +240,32 @@
 /datum/action/item_action/hands_free
 	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
 
+/datum/action/item_action/hands_free/activate
+	name = "Activate"
+
+/datum/action/item_action/hands_free/activate/implant
+	action_type = AB_ITEM_USE_ICON
+	button_icon = 'icons/obj/action_buttons/implants.dmi'
+	button_icon_state = "default"
+
+/datum/action/item_action/hands_free/activate/implant/adrenaline
+	button_icon_state = "adrenal"
+
+/datum/action/item_action/hands_free/activate/implant/chemical
+	button_icon_state = "reagents"
+
+/datum/action/item_action/hands_free/activate/implant/compressed
+	button_icon_state = "storage"
+
+/datum/action/item_action/hands_free/activate/implant/emp
+	button_icon_state = "emp"
+
+/datum/action/item_action/hands_free/activate/implant/explosive
+	button_icon_state = "explosive"
+
+/datum/action/item_action/hands_free/activate/implant/freedom
+	button_icon_state = "freedom"
+
 /datum/action/item_action/organ
 	action_type = AB_ITEM_USE_ICON
 	button_icon = 'icons/obj/action_buttons/organs.dmi'
@@ -231,6 +276,61 @@
 	if(istype(O))
 		O.refresh_action_button()
 
+/datum/action/item_action/organ/night_eyes
+	check_flags = AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
+	button_icon_state = "night_eyes"
+
+/datum/action/item_action/organ/night_eyes/rev
+	check_flags = AB_CHECK_ALIVE|AB_CHECK_INSIDE
+	button_icon_state = "rev_eyes"
+
+/datum/action/item_action/integrated_circuit
+	check_flags = AB_CHECK_RESTRAINED|AB_CHECK_STUNNED|AB_CHECK_ALIVE|AB_CHECK_INSIDE
+
+/datum/action/item_action/integrated_circuit/Trigger()
+	if(!Checks())
+		return
+	var/obj/item/clothing/target_clothing = target
+	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
+	target_clothing.action_circuit.activate_pin(1)
+
+/datum/action/eye
+	action_type = AB_GENERIC
+	check_flags = AB_CHECK_LYING|AB_CHECK_STUNNED
+	///The type of /mob/abstract/eye used by the action.
+	var/eye_type = /mob/abstract/eye
+	///The relevant owner of the proc to be called by the eye action.
+	var/target_type = PARENT_TARGET
+
+/datum/action/eye/New(var/datum/component/eye/eye_component)
+	if(!istype(eye_component))
+		crash_with("Attempted to generate eye action [src], but no eye component was provided!")
+	switch(target_type)
+		if(PARENT_TARGET)
+			return ..(eye_component.parent)
+		if(EYE_TARGET)
+			return ..(eye_component.component_eye)
+		if(COMPONENT_TARGET)
+			return ..(eye_component)
+		else
+			crash_with("Attempted to generate eye action [src] but an improper target_type ([target_type]) was defined.")
+
+/datum/action/eye/CheckRemoval(mob/living/user)
+	if(!user.eyeobj || !istype(user.eyeobj, eye_type))
+		return TRUE
+
 #undef AB_WEST_OFFSET
 #undef AB_NORTH_OFFSET
 #undef AB_MAX_COLUMNS
+
+#undef AB_ITEM
+#undef AB_SPELL
+#undef AB_INNATE
+#undef AB_GENERIC
+#undef AB_ITEM_USE_ICON
+
+#undef AB_CHECK_RESTRAINED
+#undef AB_CHECK_STUNNED
+#undef AB_CHECK_LYING
+#undef AB_CHECK_ALIVE
+#undef AB_CHECK_INSIDE

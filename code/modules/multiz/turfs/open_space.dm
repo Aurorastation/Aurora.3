@@ -7,13 +7,14 @@
 	name = "open space"
 	icon = 'icons/turf/space.dmi'
 	icon_state = "opendebug"
-	plane = PLANE_SPACE_BACKGROUND
 	density = 0
 	pathweight = 100000 //Seriously, don't try and path over this one numbnuts
 	is_hole = TRUE
-	flags = MIMIC_BELOW | MIMIC_OVERWRITE | MIMIC_NO_AO
 	roof_type = null
 	footstep_sound = null
+	z_flags = ZM_MIMIC_DEFAULTS | ZM_MIMIC_OVERWRITE | ZM_MIMIC_NO_AO | ZM_ALLOW_ATMOS
+	turf_flags = TURF_FLAG_BACKGROUND
+	pathing_pass_method = TURF_PATHING_PASS_NO //You'll fall down most likely, unless no gravity, but not worth the processing just for this special case
 
 	// A lazy list to contain a list of mobs who are currently scaling
 	// up this turf. Used in human/can_fall.
@@ -25,10 +26,53 @@
 /turf/simulated/open/Enter(mob/living/carbon/human/mover, atom/oldloc)
 	if (istype(mover) && isturf(oldloc))
 		if (mover.Check_Shoegrip(FALSE) && mover.can_fall(below, src))
-			to_chat(mover, span("notice", "You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
+			to_chat(mover, SPAN_NOTICE("You are stopped from falling off the edge by \the [mover.shoes] you're wearing!"))
 			return FALSE
 
 	return ..()
+
+/turf/proc/CanZPass(atom/A, direction)
+	if(z == A.z) //moving FROM this turf
+		return direction == UP //can't go below
+	else
+		if(direction == UP) //on a turf below, trying to enter
+			return 0
+		if(direction == DOWN) //on a turf above, trying to enter
+			return !density
+
+/turf/proc/GetZPassBlocker()
+	return src
+
+/turf/simulated/open/CanZPass(atom/A, direction)
+	if(locate(/obj/structure/lattice/catwalk, src))
+		if(z == A.z)
+			if(direction == DOWN)
+				return FALSE
+		else if(direction == UP)
+			return FALSE
+	return 1
+
+/turf/simulated/open/GetZPassBlocker()
+	var/obj/structure/lattice/catwalk/catwalk = locate(/obj/structure/lattice/catwalk, src)
+	if(catwalk)
+		return catwalk
+	return src
+
+/turf/space/CanZPass(atom/A, direction)
+	if(locate(/obj/structure/lattice/catwalk, src))
+		if(z == A.z)
+			if(direction == DOWN)
+				return 0
+		else if(direction == UP)
+			return 0
+	return 1
+
+/turf/space/GetZPassBlocker()
+	var/obj/structure/lattice/catwalk/catwalk = locate(/obj/structure/lattice/catwalk, src)
+	if(catwalk)
+		return catwalk
+	return src
+
 
 // Add a falling atom by default. Even if it's not an atom that can actually fall.
 // SSfalling will check this on its own and remove if necessary. This is saner, as it
@@ -95,22 +139,20 @@
 		LAZYREMOVE(climbers, climber)
 
 /turf/simulated/open/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	icon_state = "opendebug_airless"
 
 /turf/simulated/open/chasm
 	icon = 'icons/turf/smooth/chasms_seethrough.dmi'
 	icon_state = "debug"
-	smooth = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	smoothing_hints = SMOOTHHINT_CUT_F | SMOOTHHINT_ONLY_MATCH_TURF | SMOOTHHINT_TARGETS_NOT_UNIQUE
-	flags = MIMIC_BELOW
+	z_flags = ZM_MIMIC_BELOW
 	name = "hole"
 
 /turf/simulated/open/chasm/airless
-	oxygen = 0
-	nitrogen = 0
+	initial_gas = null
 	temperature = TCMB
 	icon_state = "debug_airless"
 
@@ -165,25 +207,37 @@
 	for(var/obj/O in src)
 		O.hide(0)
 
+/turf/simulated/open/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 2)
+		var/depth = 1
+		for(var/T = GetBelow(src); isopenspace(T); T = GetBelow(T))
+			depth += 1
+		. += "It is about [depth] level\s deep."
+
+
+/turf/simulated/open/is_open()
+	return TRUE
+
 /turf/simulated/open/update_icon(mapload)
 	update_mimic(!mapload)
 
-/turf/simulated/open/attackby(obj/item/C as obj, mob/user as mob)
-	if (istype(C, /obj/item/stack/rods))
+/turf/simulated/open/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
 			return
-		var/obj/item/stack/rods/R = C
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>You lay down the support lattice.</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice(locate(src.x, src.y, src.z))
 		return
 
-	if (istype(C, /obj/item/stack/tile))
+	if (istype(attacking_item, /obj/item/stack/tile))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
-			var/obj/item/stack/tile/floor/S = C
+			var/obj/item/stack/tile/floor/S = attacking_item
 			if (S.get_amount() < 1)
 				return
 			qdel(L)
@@ -195,8 +249,8 @@
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
 	//To lay cable.
-	if(C.iscoil())
-		var/obj/item/stack/cable_coil/coil = C
+	if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 		return
 	return
@@ -217,7 +271,7 @@
 /turf/simulated/open/is_plating()
 	return TRUE
 
-/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor="#A10808")
+/turf/simulated/open/add_tracks(var/list/DNA, var/comingdir, var/goingdir, var/bloodcolor=COLOR_HUMAN_BLOOD)
 	return
 
 //Returns the roof type of the turf below

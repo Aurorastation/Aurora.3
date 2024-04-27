@@ -15,9 +15,9 @@
 	emote_see = list("stares ferociously", "stomps")
 	speak_chance = 10
 	turns_per_move = 10
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	meat_amount = 5
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "hits"
@@ -25,6 +25,9 @@
 	maxHealth = 80
 	melee_damage_lower = 10
 	melee_damage_upper = 18
+	armor_penetration = 30 //Standard armor probably doesn't help against a bear, does it?
+	attack_flags = DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP
+	resist_mod = 4
 	break_stuff_probability = 80
 	mob_size = 17
 	butchering_products = list(/obj/item/clothing/head/bearpelt = 1)
@@ -87,6 +90,7 @@
 	var/previous = stance
 	stance = input
 	if (stance != previous)
+		change_stance(stance)
 		stance_step = 0
 
 /mob/living/simple_animal/hostile/bear/think()
@@ -112,7 +116,7 @@
 			stop_automated_movement = 1
 			stance_step++
 			if(stance_step >= 15) //rests for 10 ticks
-				if(target_mob && (target_mob in ListTargets(10)))
+				if(target_mob && (target_mob in get_targets(10)))
 					set_stance(HOSTILE_STANCE_ATTACK) //If the mob he was chasing is still nearby, resume the attack, otherwise go idle.
 				else
 					set_stance(HOSTILE_STANCE_IDLE)
@@ -120,7 +124,7 @@
 		if(HOSTILE_STANCE_ALERT)
 			stop_automated_movement = 1
 			var/found_mob = 0
-			if(target_mob && (target_mob in ListTargets(10)) && !(SA_attackable(target_mob)))
+			if(target_mob && (target_mob in get_targets(10)) && !(SA_attackable(target_mob)))
 				found_mob = 1
 			else
 				LoseTarget()
@@ -136,7 +140,7 @@
 				if(stance_step in list(1,4,7)) //every 3 ticks
 					var/action = pick( list( "growls at [target_mob]", "stares angrily at [target_mob]", "prepares to attack [target_mob]", "closely watches [target_mob]" ) )
 					if(action)
-						custom_emote(1,action)
+						custom_emote(VISIBLE_MESSAGE,action)
 						speak_audio()
 			else
 				stance_step--
@@ -178,7 +182,7 @@
 	var/mob/nearest_downed_target = null
 	var/nearest_downed_dist = 99999
 
-	for(var/atom/A in ListTargets(10))
+	for(var/atom/A in get_targets(10))
 
 		if(A == src || A == target_mob)//We're only interested in alternatives to our current target
 			continue
@@ -239,18 +243,18 @@
 
 
 /mob/living/simple_animal/hostile/bear/proc/tire_out()
-	custom_emote(1, "is worn out and needs to rest." )
+	custom_emote(VISIBLE_MESSAGE, "is worn out and needs to rest." )
 	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
 	stance_step = 0
-	walk(src, 0) //This stops the bear's walking
+	SSmove_manager.stop_looping(src) //This stops the bear's walking
 
 /mob/living/simple_animal/hostile/bear/spatial/tire_out()
 	..()
 	spawn(5)
 		teleport()//Bluespace bears teleport away to rest
 
-/mob/living/simple_animal/hostile/bear/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/hostile/bear/attackby(obj/item/attacking_item, mob/user)
 	var/healthbefore = health
 	..()
 	spawn(1)
@@ -293,7 +297,7 @@
 /mob/living/simple_animal/hostile/bear/FoundTarget()
 	if(target_mob)
 		turns_since_hit = 0
-		custom_emote(1,"stares alertly at [target_mob]")
+		custom_emote(VISIBLE_MESSAGE,"stares alertly at [target_mob]")
 		speak_audio()
 
 		//If we're idle, move up to alert.
@@ -316,13 +320,13 @@
 		if (stance > HOSTILE_STANCE_ALERT)//If we're currently above alert
 			set_stance(HOSTILE_STANCE_ALERT)//Drop to alert and cease attacking
 		target_mob = null
-		walk(src, 0)
+		SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
 	var/targetname = target_mob.name
 	if(..())
 		turns_since_hit = 0
-		custom_emote(1, pick( list("crushes [targetname] in its arms","slashes at [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]") ) )
+		custom_emote(VISIBLE_MESSAGE, pick( list("crushes [targetname] in its arms","slashes at [targetname]", "bites [targetname]", "mauls [targetname]", "tears into [targetname]", "rends [targetname]") ) )
 		if (prob(15))
 			growl_loud()
 		else if (prob(10))
@@ -349,7 +353,7 @@
 	if (bearmode != former)
 		var/healthpercent
 		if (bearmode == BEARMODE_SPACE)
-			custom_emote(1, "looks bright, energised and aggressive!" )
+			custom_emote(VISIBLE_MESSAGE, "looks bright, energised and aggressive!" )
 			healthpercent = health / maxHealth
 			maxHealth = initial(maxHealth) * 1.5
 			health = maxHealth * healthpercent
@@ -358,7 +362,7 @@
 			turns_per_move -= 2
 			growl_loud()
 		else
-			custom_emote(1, "looks darker and more subdued." )
+			custom_emote(VISIBLE_MESSAGE, "looks darker and more subdued." )
 			healthpercent = health / maxHealth
 			maxHealth = initial(maxHealth)
 			health = maxHealth * healthpercent
@@ -366,10 +370,10 @@
 			melee_damage_upper = initial(melee_damage_upper)
 			growl_soft()
 
-	update_icons()
+	update_icon()
 
 
-/mob/living/simple_animal/hostile/bear/update_icons()
+/mob/living/simple_animal/hostile/bear/update_icon()
 	if (stat == DEAD)
 		icon_state = "bear_dead"
 	else if (bearmode == BEARMODE_INDOORS)
@@ -389,14 +393,14 @@
 //This is triggered randomly periodically by the bear
 /mob/living/simple_animal/hostile/bear/proc/growl_soft()
 	var/sound = pick(quiet_sounds)
-	playsound(src, sound, 50, 1,3, usepressure = 0)
+	playsound(src, sound, 50, 1,3, pressure_affected = 0)
 
 
 //Plays a loud sound from a selection of four
 //Played when bear is attacking or dies
 /mob/living/simple_animal/hostile/bear/proc/growl_loud()
 	var/sound = pick(loud_sounds)
-	playsound(src, sound, 85, 1, 5, usepressure = 0)
+	playsound(src, sound, 85, 1, 5, pressure_affected = 0)
 
 //A special bear subclass which is more powerful and has the ability to teleport around to seek out prey.
 //It dislikes other bears and refuses to cooperate with them. If two of them see each other, one or both will teleport away

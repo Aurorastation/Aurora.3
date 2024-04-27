@@ -8,27 +8,12 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	external_examine(user)
 	. = ..()
 
-// This should be used when someone is examining while the case is opened.
-/obj/item/integrated_circuit/proc/internal_examine(mob/user)
-	to_chat(user, "This board has [inputs.len] input pin\s, [outputs.len] output pin\s and [activators.len] activation pin\s.")
-	for(var/datum/integrated_io/I in inputs)
-		if(I.linked.len)
-			to_chat(user, "The '[I]' is connected to [I.get_linked_to_desc()].")
-	for(var/datum/integrated_io/O in outputs)
-		if(O.linked.len)
-			to_chat(user, "The '[O]' is connected to [O.get_linked_to_desc()].")
-	for(var/datum/integrated_io/activate/A in activators)
-		if(A.linked.len)
-			to_chat(user, "The '[A]' is connected to [A.get_linked_to_desc()].")
-	any_examine(user)
-	interact(user)
-
 // This should be used when someone is examining from an 'outside' perspective, e.g. reading a screen or LED.
 /obj/item/integrated_circuit/proc/external_examine(mob/user)
 	any_examine(user)
 
 /obj/item/integrated_circuit/proc/any_examine(mob/user)
-	return
+	. = list()
 
 /obj/item/integrated_circuit/Initialize()
 	displayed_name = name
@@ -47,10 +32,20 @@ a creative player the means to solve many problems.  Circuits are held inside an
 /obj/item/integrated_circuit/Destroy()
 	for(var/datum/integrated_io/I in inputs)
 		qdel(I)
+	inputs = null
+
+
 	for(var/datum/integrated_io/O in outputs)
 		qdel(O)
+	outputs = null
+
+
 	for(var/datum/integrated_io/A in activators)
 		qdel(A)
+	activators = null
+
+	assembly = null
+
 	. = ..()
 
 /obj/item/integrated_circuit/ui_host()
@@ -60,13 +55,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	return ..()
 
 /obj/item/integrated_circuit/emp_act(severity)
+	. = ..()
+
 	for(var/datum/integrated_io/io in inputs + outputs + activators)
 		io.scramble()
 
 /obj/item/integrated_circuit/proc/check_interactivity(mob/user)
 	if(assembly)
 		return assembly.check_interactivity(user)
-	else if(!CanInteract(user, physical_state))
+	else if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
@@ -183,7 +180,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	B.set_content(HTML.Join())
 	B.open()
 
-/obj/item/integrated_circuit/Topic(href, href_list, state = interactive_state)
+/obj/item/integrated_circuit/Topic(href, href_list, state = GLOB.always_state)
 	if(!check_interactivity(usr))
 		return
 	if (assembly && !assembly.opened)
@@ -201,6 +198,15 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		linked = locate(href_list["link"]) in pin.linked
 
 	var/obj/held_item = usr.get_active_hand()
+	var/obj/off_hand = usr.get_inactive_hand()
+	var/obj/item/device/multitool/M
+	if(held_item?.ismultitool())
+		M = held_item
+	if(!M && off_hand?.ismultitool())
+		M = off_hand
+	if(M?.tracking_apc)
+		to_chat(usr, SPAN_WARNING("\The [M]'s smart tracking is enabled! Disable it to regain I/O functionality."))
+		return TRUE
 
 	if(href_list["rename"])
 		rename_component(usr)
@@ -211,25 +217,22 @@ a creative player the means to solve many problems.  Circuits are held inside an
 				ea.interact(usr)
 
 	if(href_list["pin_name"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			var/obj/item/device/multitool/M = held_item
 			M.wire(pin,usr)
 
 	if(href_list["pin_data"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
-
 		else
 			var/datum/integrated_io/io = pin
 			io.ask_for_pin_data(usr) // The pins themselves will determine how to ask for data, and will validate the data.
 
 	if(href_list["pin_unwire"])
-		if (!held_item.ismultitool() || !allow_multitool)
+		if(!M || !allow_multitool)
 			href_list["wire"] = 1
 		else
-			var/obj/item/device/multitool/M = held_item
 			M.unwire(pin, linked, usr)
 
 	if(href_list["wire"])
@@ -295,7 +298,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		var/turf/T = get_turf(src)
 		forceMove(T)
 		assembly = null
-		playsound(T, 'sound/items/Crowbar.ogg', 50, 1)
+		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
 		to_chat(usr, "<span class='notice'>You pop \the [src] out of the case, and slide it out.</span>")
 
 		if(istype(ea))

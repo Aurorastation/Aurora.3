@@ -1,5 +1,4 @@
 /datum/antagonist/proc/print_player_summary()
-
 	if(!current_antagonists.len)
 		return 0
 
@@ -11,6 +10,8 @@
 		if(P.ambitions)
 			text += "<br><font color='purple'><b>Their goals for today were:</b></font>"
 			text += "<br>  '[P.ambitions]'"
+		if(P.current.stat == DEAD && P.last_words)
+			text += "<br><b>Their last words were:</b> '[P.last_words]'"
 		if(!global_objectives.len && P.objectives && P.objectives.len)
 			var/failed
 			var/num = 1
@@ -21,12 +22,12 @@
 					text += "<font color='green'><B>Success!</B></font>"
 					feedback_add_details(feedback_tag,"[O.type]|SUCCESS")
 				else
-					text += "<font color='red'>Fail.</font>"
+					text += "<span class='warning'>Fail.</span>"
 					feedback_add_details(feedback_tag,"[O.type]|FAIL")
 					failed = 1
 				num++
 				if(failed)
-					text += "<br><font color='red'><B>The [role_text] has failed.</B></font>"
+					text += "<br><span class='warning'><B>The [role_text] has failed.</B></span>"
 				else
 					text += "<br><font color='green'><B>The [role_text] was successful!</B></font>"
 
@@ -46,7 +47,7 @@
 		if(O.check_completion())
 			text += "<font color='green'><B>Success!</B></font>"
 		else
-			text += "<font color='red'>Fail.</font>"
+			text += "<span class='warning'>Fail.</span>"
 	return text
 
 /datum/antagonist/proc/print_special_role_report(var/datum/mind/ply)
@@ -64,14 +65,22 @@
 	var/role = ply.assigned_role ? "\improper[ply.assigned_role]" : "\improper[ply.special_role]"
 	var/text = "<br><b>[ply.name]</b> as \a <b>[role]</b> ("
 	if(ply.current)
-		if(ply.current.stat == DEAD)
+		var/mob/living/M = ply.current
+		var/mob/living/carbon/C = M
+		var/area/A = get(M.loc, /area)
+		if(M.stat == DEAD)
 			text += "died"
-		else if(isNotStationLevel(ply.current.z))
-			text += "fled the station"
+		else if(A?.is_prison() || (!A?.is_no_crew_expected() && C?.handcuffed))
+			// they are either imprisoned, or handcuffed in an area that can't be considered a hideout
+			text += "apprehended"
+		else if(isNotStationLevel(M.z))
+			text += "fled the [SSatlas.current_map.station_type]"
 		else
 			text += "survived"
-		if(ply.current.real_name != ply.name)
-			text += " as <b>[ply.current.real_name]</b>"
+		if(M.stat == UNCONSCIOUS)
+			text += " - unconscious"
+		if(M.real_name != ply.name)
+			text += " as <b>[M.real_name]</b>"
 	else
 		text += "body destroyed"
 	text += ")"
@@ -81,16 +90,18 @@
 /datum/antagonist/proc/print_player_full(var/datum/mind/ply)
 	var/text = print_player_lite(ply)
 
-	var/TC_uses = 0
+	var/telecrystal_uses = 0
+	var/bluecrystal_uses = 0
 	var/uplink_true = 0
 	var/purchases = ""
-	for(var/obj/item/device/uplink/H in world_uplinks)
+	for(var/obj/item/device/uplink/H in GLOB.world_uplinks)
 		if(H && H.uplink_owner && H.uplink_owner == ply)
-			TC_uses += H.used_TC
+			telecrystal_uses += H.used_telecrystals
+			bluecrystal_uses += H.used_bluecrystals
 			uplink_true = 1
 			purchases += get_uplink_purchases(H)
 	if(uplink_true)
-		text += " (used [TC_uses] TC)"
+		text += " (used [telecrystal_uses] TC and [bluecrystal_uses] BC)"
 		if(purchases)
 			text += "<br>[purchases]"
 
@@ -98,12 +109,12 @@
 
 /proc/print_ownerless_uplinks()
 	var/has_printed = 0
-	for(var/obj/item/device/uplink/H in world_uplinks)
-		if(isnull(H.uplink_owner) && H.used_TC)
+	for(var/obj/item/device/uplink/H in GLOB.world_uplinks)
+		if(isnull(H.uplink_owner) && (H.used_telecrystals || H.used_bluecrystals))
 			if(!has_printed)
 				has_printed = 1
 				to_world("<b>Ownerless Uplinks</b>")
-			to_world("[H.loc] (used [H.used_TC] TC)")
+			to_world("[H.loc] (used [H.used_telecrystals] TC and [H.used_bluecrystals] BC)")
 			to_world(get_uplink_purchases(H))
 
 /proc/get_uplink_purchases(var/obj/item/device/uplink/H)

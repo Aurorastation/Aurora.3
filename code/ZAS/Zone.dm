@@ -53,9 +53,6 @@ Class Procs:
 
 	var/datum/gas_mixture/air = new
 
-	var/list/graphic_add
-	var/list/graphic_remove
-
 /zone/New()
 	SSair.add_zone(src)
 	air.temperature = TCMB
@@ -156,16 +153,15 @@ Class Procs:
 		if(istype(T))
 			T.create_fire(vsc.fire_firelevel_multiplier)
 
-	LAZYINITLIST(graphic_add)
-	LAZYINITLIST(graphic_remove)
+	var/world_time_counter = world.time
+	var/list/graphic_add = list()
+	var/list/graphic_remove = list()
 	if(air.check_tile_graphic(graphic_add, graphic_remove))
 		for(var/turf/simulated/T in contents)
 			T.update_graphic(graphic_add, graphic_remove)
-
-		LAZYCLEARLIST(graphic_add)
-		LAZYCLEARLIST(graphic_remove)
-		UNSETEMPTY(graphic_add)
-		UNSETEMPTY(graphic_remove)
+	var/delta_time = world.time - world_time_counter
+	if(delta_time > 5 SECONDS)
+		log_admin("AN AREA IS TAKING EXTREMELY LONG TO UPDATE: [name] WITH CONTENTS LENGTH [length(contents)] TELL MATT WITH THE ROUND ID!")
 
 	for(var/connection_edge/E in edges)
 		if(E.sleeping)
@@ -176,7 +172,7 @@ Class Procs:
 	for(var/g in air.gas)
 		to_chat(M, "[gas_data.name[g]]: [air.gas[g]]")
 	to_chat(M, "P: [air.return_pressure()] kPa V: [air.volume]L T: [air.temperature]�K ([air.temperature - T0C]�C)")
-	to_chat(M, "O2 per N2: [(air.gas["nitrogen"] ? air.gas["oxygen"]/air.gas["nitrogen"] : "N/A")] Moles: [air.total_moles]")
+	to_chat(M, "O2 per N2: [(air.gas[GAS_NITROGEN] ? air.gas[GAS_OXYGEN]/air.gas[GAS_NITROGEN] : "N/A")] Moles: [air.total_moles]")
 	to_chat(M, "Simulated: [contents.len] ([air.group_multiplier])")
 	//to_chat(M, "Unsimulated: [unsimulated_contents.len]")
 	//to_chat(M, "Edges: [LAZYLEN(edges)]")

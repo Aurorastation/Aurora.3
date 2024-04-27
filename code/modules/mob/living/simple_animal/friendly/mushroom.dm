@@ -12,6 +12,7 @@
 	maxHealth = 5
 	health = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/hugemushroomslice
+	organ_names = list("cap", "chest", "left leg", "right leg")
 	response_help  = "pets"
 	response_disarm = "gently pushes aside"
 	response_harm   = "whacks"
@@ -29,7 +30,7 @@
 	. = ..()
 	harvest_time = world.time
 	var/count = 0
-	for (var/mob/living/simple_animal/mushroom in living_mob_list)
+	for (var/mob/living/simple_animal/mushroom in GLOB.living_mob_list)
 		count++
 
 	if (count > GLOBAL_MUSHROOM_LIMIT)
@@ -68,7 +69,7 @@
 		spore_explode()
 		return
 	else
-		src.stat = DEAD
+		set_stat(DEAD)
 		name = "mushroom"
 		desc = "Shame, he was a really fun-gi"
 	..()

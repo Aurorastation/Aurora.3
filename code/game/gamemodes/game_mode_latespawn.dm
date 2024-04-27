@@ -6,12 +6,12 @@
 ///process()
 ///Called by the gameticker
 /datum/game_mode/process()
-	if(round_autoantag && world.time >= next_spawn && !emergency_shuttle.departed)
+	if(round_autoantag && world.time >= next_spawn && !evacuation_controller.round_over())
 		process_autoantag()
 
 	// Process loop for objectives like the brig one.
-	if (process_objectives.len)
-		for (var/datum/objective/A in process_objectives)
+	if (GLOB.process_objectives.len)
+		for (var/datum/objective/A in GLOB.process_objectives)
 			A.process()
 
 //This can be overriden in case a game mode needs to do stuff when a player latejoins
@@ -21,7 +21,7 @@
 /datum/game_mode/proc/process_autoantag()
 	message_admins("[uppertext(name)]: Attempting autospawn.")
 
-	if(emergency_shuttle.online())
+	if(evacuation_controller.is_evacuating())
 		message_admins("[uppertext(name)]: An evac or transfer shuttle is on the way. Aborted.")
 		next_spawn = world.time + min_autotraitor_delay
 		return

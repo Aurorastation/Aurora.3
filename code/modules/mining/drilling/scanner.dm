@@ -1,5 +1,5 @@
 /obj/item/mining_scanner
-	name = "ore detector"
+	name = "deep ore scanner"
 	desc = "A complex device used to locate ore deep underground."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "forensic0-old" //GET A BETTER SPRITE.
@@ -28,19 +28,19 @@
 			var/ore_type
 
 			switch(metal)
-				if("silicates", "carbonaceous rock", "iron")
+				if(ORE_SAND, ORE_COAL, ORE_IRON)
 					ore_type = "surface minerals"
-				if("gold", "silver", "diamond")
+				if(ORE_GOLD, ORE_SILVER, ORE_DIAMOND)
 					ore_type = "precious metals"
-				if("uranium")
+				if(ORE_URANIUM)
 					ore_type = "nuclear fuel"
-				if("phoron", "osmium", "hydrogen")
+				if(ORE_PHORON, ORE_PLATINUM, ORE_HYDROGEN)
 					ore_type = "exotic matter"
 
 			if(ore_type)
 				metals[ore_type] += T.resources[metal]
 
-	to_chat(user, "\icon[src] [SPAN_NOTICE("The scanner beeps and displays a readout:")]")
+	to_chat(user, "[icon2html(src, user)] [SPAN_NOTICE("The scanner beeps and displays a readout:")]")
 
 	for(var/ore_type in metals)
 		var/result = "no sign"

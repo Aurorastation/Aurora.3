@@ -7,16 +7,22 @@
 	icon_state = "large"
 	randpixel = 8
 	sharp = 1
-	edge = 1
-	w_class = 2
+	edge = TRUE
+	recyclable = TRUE
+	w_class = ITEMSIZE_SMALL
 	force_divisor = 0.2 // 6 with hardness 30 (glass)
 	thrown_force_divisor = 0.4 // 4 with weight 15 (glass)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	default_material = "glass"
 	unbreakable = 1 //It's already broken.
-	drops_debris = 0
+	drops_debris = FALSE
 	drop_sound = 'sound/effects/glass_step.ogg'
+	surgerysound = 'sound/items/surgery/scalpel.ogg'
+
+/obj/item/material/shard/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/material/shard/set_material(var/new_material)
 	..(new_material)
@@ -24,6 +30,7 @@
 		return
 
 	icon_state = "[material.shard_icon][pick("large", "medium", "small")]"
+
 	randpixel_xy()
 	update_icon()
 
@@ -47,10 +54,10 @@
 		color = "#ffffff"
 		alpha = 255
 
-/obj/item/material/shard/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswelder() && material.shard_can_repair)
-		var/obj/item/weldingtool/WT = W
-		if(WT.remove_fuel(0, user))
+/obj/item/material/shard/attackby(obj/item/attacking_item, mob/user as mob)
+	if(attacking_item.iswelder() && material.shard_can_repair)
+		var/obj/item/weldingtool/WT = attacking_item
+		if(WT.use(0, user))
 			material.place_sheet(user.loc)
 			qdel(src)
 			return
@@ -61,10 +68,10 @@
 	if(isliving(AM))
 		var/mob/M = AM
 
-		if(M.buckled) //wheelchairs, office chairs, rollerbeds
+		if(M.buckled_to) //wheelchairs, office chairs, rollerbeds
 			return
 
-		to_chat(M, span("danger", "You step on \the [src]!"))
+		to_chat(M, SPAN_DANGER("You step on \the [src]!"))
 		playsound(src.loc, 'sound/effects/glass_step.ogg', 50, 1) // not sure how to handle metal shards with sounds
 		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
@@ -92,14 +99,14 @@
 			return
 
 // Preset types - left here for the code that uses them
-/obj/item/material/shard/shrapnel/New(loc)
-	..(loc, MATERIAL_STEEL)
+/obj/item/material/shard/shrapnel/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_STEEL)
 
-/obj/item/material/shard/shrapnel/flechette/New(loc)
-	..(loc, MATERIAL_TITANIUM)
+/obj/item/material/shard/shrapnel/flechette/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_TITANIUM)
 
-/obj/item/material/shard/phoron/New(loc)
-	..(loc, MATERIAL_GLASS_PHORON)
+/obj/item/material/shard/phoron/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_GLASS_PHORON)
 
-/obj/item/material/shard/wood/New(loc)
-	..(loc, MATERIAL_WOOD)
+/obj/item/material/shard/wood/Initialize(newloc, material_key)
+	. = ..(loc, MATERIAL_WOOD)

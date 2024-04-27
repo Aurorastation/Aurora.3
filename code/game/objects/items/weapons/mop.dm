@@ -8,12 +8,14 @@
 		)
 	icon_state = "mop"
 	item_state = "mop"
-	force = 3.0
+	force = 3
 	throwforce = 10.0
 	throw_speed = 3
 	throw_range = 7
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	attack_verb = list("mopped", "bashed", "bludgeoned", "whacked")
+	drop_sound = 'sound/items/drop/woodweapon.ogg'
+	pickup_sound = 'sound/items/pickup/woodweapon.ogg'
 	var/mopping = 0
 	var/mopcount = 0
 	var/cleantime = 25
@@ -23,48 +25,51 @@
 /obj/item/mop/Initialize()
 	. = ..()
 	create_reagents(30)
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 /obj/item/mop/Destroy()
-	janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	return ..()
 
 /obj/item/mop/afterattack(atom/A, mob/user, proximity)
-	if(!proximity) return
-	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || istype(A, /obj/effect/overlay) || istype(A, /obj/effect/rune))
+	if(!proximity)
+		return
+
+	var/has_overlay = FALSE
+	if(istype(A, /obj/effect/overlay))
+		var/obj/effect/overlay/O = A
+		if(O.no_clean)
+			return
+		has_overlay = TRUE
+
+	if(istype(A, /turf) || istype(A, /obj/effect/decal/cleanable) || has_overlay || istype(A, /obj/effect/rune))
 		if(reagents.total_volume < 1)
 			if(clean_msg)
-				to_chat(user, span("notice", "Your mop is dry!"))
+				to_chat(user, SPAN_NOTICE("Your mop is dry!"))
 			return
-		if (!(last_clean && world.time < last_clean + 120)) //spam is bad
-			user.visible_message(span("warning", "[user] begins to mop \the [get_turf(A)]."))
+		if(!(last_clean && world.time < last_clean + 120)) //spam is bad
+			user.visible_message(SPAN_WARNING("[user] begins to mop \the [get_turf(A)]."))
 			clean_msg = TRUE
 			last_clean = world.time
 		else
 			clean_msg = FALSE
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)
-
 		if(do_after(user, cleantime))
 			var/turf/T = get_turf(A)
 			if(T)
 				T.clean(src, user)
 			if(clean_msg)
-				to_chat(user, span("notice", "You have finished mopping!"))
-			update_icon()
+				to_chat(user, SPAN_NOTICE("You have finished mopping!"))
 
-
-/obj/effect/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/mop) || istype(I, /obj/item/soap))
-		return
-	..()
+/obj/effect/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mop) || istype(attacking_item, /obj/item/soap))
+		return FALSE
+	return ..()
 
 /obj/item/mop/update_icon()
-	if(reagents.total_volume < 1)
-		icon_state = "[initial(icon_state)]"
-		item_state = icon_state
-	if(reagents.total_volume > 1)
-		icon_state = "[initial(icon_state)]_wet"
-		item_state = icon_state
+	icon_state = "[initial(icon_state)][reagents.total_volume > 1 ? "_wet" : null]"
+	item_state = icon_state
+	update_held_icon()
 
 /obj/item/mop/on_reagent_change()
 	update_icon()
@@ -75,17 +80,23 @@
 	icon = 'icons/obj/janitor.dmi'
 	icon_state = "advmop"
 	item_state = "advmop"
-	force = 6.0
+	force = 14
 	throwforce = 14
 	throw_range = 8
 	cleantime = 15
 	var/refill_enabled = TRUE //Self-refill toggle for when a janitor decides to mop with something other than water.
 	var/refill_rate = 0.5 //Rate per process() tick mop refills itself
-	var/refill_reagent = "water" //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
+	var/refill_reagent = /singleton/reagent/water //Determins what reagent to use for refilling, just in case someone wanted to make a HOLY MOP OF PURGING
 
-/obj/item/mop/advanced/New()
-	..()
+/obj/item/mop/advanced/Initialize()
+	. = ..()
+
 	START_PROCESSING(SSprocessing, src)
+
+/obj/item/mop/advanced/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+
+	. = ..()
 
 /obj/item/mop/advanced/attack_self(mob/user)
 	refill_enabled = !refill_enabled
@@ -93,18 +104,13 @@
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing,src)
-	to_chat(user, span("notice", "You set the condenser switch to the <b>'[refill_enabled ? "ON" : "OFF"]'</b> position."))
+	to_chat(user, SPAN_NOTICE("You set the condenser switch to the <b>'[refill_enabled ? "ON" : "OFF"]'</b> position."))
 	playsound(user, 'sound/machines/click.ogg', 25, 1)
 
 /obj/item/mop/advanced/process()
 	if(reagents.total_volume < 30)
 		reagents.add_reagent(refill_reagent, refill_rate)
 
-/obj/item/mop/advanced/examine(mob/user)
-	..()
-	to_chat(user, span("notice", "\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>."))
-
-/obj/item/mop/advanced/Destroy()
-	if(refill_enabled)
-		STOP_PROCESSING(SSprocessing, src)
-	return ..()
+/obj/item/mop/advanced/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += SPAN_NOTICE("\The condenser switch is set to <b>[refill_enabled ? "ON" : "OFF"]</b>.")

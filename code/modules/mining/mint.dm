@@ -22,17 +22,17 @@
 
 /obj/machinery/mineral/mint/Initialize()
 	. = ..()
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		src.input = locate(/obj/machinery/mineral/input, get_step(src, dir))
 		if(src.input)
 			break
-	for(var/dir in cardinal)
+	for(var/dir in GLOB.cardinal)
 		src.output = locate(/obj/machinery/mineral/output, get_step(src, dir))
 		if(src.output)
 			break
 	START_PROCESSING(SSprocessing, src)
 
-/obj/machinery/mineral/mint/machinery_process()
+/obj/machinery/mineral/mint/process()
 	if(input)
 		var/obj/item/stack/O
 		O = locate(/obj/item/stack, get_turf(input))
@@ -61,10 +61,10 @@
 
 	if(!input)
 		dat += text("input connection status: ")
-		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
+		dat += text("<b><span class='warning'>NOT CONNECTED</span></b><br>")
 	if(!output)
 		dat += text("<br>output connection status: ")
-		dat += text("<b><font color='red'>NOT CONNECTED</font></b><br>")
+		dat += text("<b><span class='warning'>NOT CONNECTED</span></b><br>")
 
 	dat += text("<br><font color='#ffcc00'><b>Gold inserted: </b>[amt_gold]</font> ")
 	if(chosen == "gold")

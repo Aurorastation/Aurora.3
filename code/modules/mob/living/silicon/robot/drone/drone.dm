@@ -4,12 +4,17 @@
 	if(hat.item_state_slots && hat.item_state_slots[slot_head_str])
 		t_state = hat.item_state_slots[slot_head_str]
 	else if(hat.item_state)
-		t_state = hat.item_state
+		if(hat.contained_sprite)
+			t_state = "[hat.item_state][WORN_HEAD]"
+		else
+			t_state = hat.item_state
 	var/key = "[t_state]_[offset_x]_[offset_y]"
 	if(!mob_hat_cache[key])            // Not ideal as there's no guarantee all hat icon_states
 		var/t_icon = INV_HEAD_DEF_ICON // are unique across multiple dmis, but whatever.
 		if(hat.icon_override)
 			t_icon = hat.icon_override
+		else if (hat.contained_sprite)
+			t_icon = hat.icon
 		else if(hat.item_icons && (slot_head_str in hat.item_icons))
 			t_icon = hat.item_icons[slot_head_str]
 		var/image/I = image(icon = t_icon, icon_state = t_state)
@@ -20,17 +25,13 @@
 
 /mob/living/silicon/robot/drone
 	// Look and feel
-	name = "drone"
-	real_name = "drone"
-	desc_info = "Drones are player-controlled synthetics which are lawed to maintain the station and not \
-	interact with anyone else, except for other drones.  They hold a wide array of tools to build, repair, maintain, and clean. \
-	They fuction similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, \
-	such as fire, radiation, vacuum, and more.  Ghosts can join the round as a maintenance drone by using the appropriate verb in the 'ghost' tab. \
-	An inactive drone can be rebooted by swiping an ID card on it with engineering or robotics access, and an active drone can be shut down in the same manner."
-	desc_antag = "An Electromagnetic Sequencer can be used to subvert the drone to your cause."
+	name = "maintenance drone"
+	var/designation
+	var/desc_flavor = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'<br><br><b>OOC Info:</b><br><br>Drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a maintenance drone by accessing the 'Ghost Spawner' menu in the 'Ghost' tab. An inactive drone can be rebooted by swiping an ID card on it with engineering or robotics access, and an active drone can be shut down in the same manner.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
 	icon = 'icons/mob/robots.dmi'
 	icon_state = "repairbot"
 	braintype = "Robot"
+	mod_type = "Engineering"
 	gender = NEUTER
 
 	// Health
@@ -41,12 +42,14 @@
 	var/module_type = /obj/item/robot_module/drone
 	cell_emp_mult = 1
 	integrated_light_power = 3
-	local_transmit = TRUE
+
+	var/upgrade_cooldown = 0
+	var/list/matrix_upgrades
 
 	// Interaction
 	universal_speak = FALSE
 	universal_understand = TRUE
-	pass_flags = PASSTABLE | PASSDOORHATCH
+	pass_flags = PASSTABLE | PASSDOORHATCH | PASSRAILING
 	density = FALSE
 	possession_candidate = TRUE
 	mob_size = 4
@@ -61,12 +64,15 @@
 	mob_bump_flag = SIMPLE_ANIMAL
 	holder_type = /obj/item/holder/drone
 
+	can_speak_basic = FALSE
+
 	// ID and Access
 	law_update = FALSE
-	req_access = list(access_engine, access_robotics)
+	req_access = list(ACCESS_ENGINE, ACCESS_ROBOTICS)
 	var/hacked = FALSE
 
 	// Laws
+	var/datum/drone_matrix/master_matrix
 	var/obj/machinery/drone_fabricator/master_fabricator
 	var/law_type = /datum/ai_laws/drone
 
@@ -75,13 +81,61 @@
 
 	// Hats!
 	var/obj/item/hat
+	var/image/hat_overlay
 	var/hat_x_offset = 0
-	var/hat_y_offset = -13
+	var/hat_y_offset = -14
+
+	var/can_swipe = TRUE
+	var/rebooting = FALSE
+	var/standard_drone = TRUE
+
+/mob/living/silicon/robot/drone/Initialize()
+	. = ..()
+	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
+
+	add_verb(src, /mob/living/proc/hide)
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, FALSE)
+	add_language(LANGUAGE_DRONE, TRUE)
+
+	//They are unable to be upgraded, so let's give them a bit of a better battery.
+	cell.maxcharge = 10000
+	cell.charge = 10000
+
+	// NO BRAIN. // me irl - geeves
+	mmi = null
+
+	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
+	for(var/V in components)
+		if(V == "power cell")
+			continue
+		var/datum/robot_component/C = components[V]
+		C.max_damage = 10
+
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
+	density = FALSE
+
+/mob/living/silicon/robot/drone/Destroy()
+	if(master_matrix)
+		master_matrix.remove_drone(WEAKREF(src))
+		master_matrix = null
+	return ..()
+
+/mob/living/silicon/robot/drone/death(gibbed)
+	if(hat)
+		hat.forceMove(get_turf(src))
+		hat = null
+		QDEL_NULL(hat_overlay)
+
+	if(master_matrix)
+		master_matrix.handle_death(src)
+
+	return ..()
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
 	if(!istype(possessor) || !possessor.client || !possessor.ckey)
 		return FALSE
-	if(!config.allow_drone_spawn)
+	if(!GLOB.config.allow_drone_spawn)
 		to_chat(possessor, SPAN_WARNING("Playing as drones is not currently permitted."))
 		return FALSE
 	if(too_many_active_drones())
@@ -106,14 +160,21 @@
 	qdel(possessor)
 	return TRUE
 
-/mob/living/silicon/robot/drone/Destroy()
-	if(hat)
-		hat.forceMove(get_turf(src))
-		hat = null
-	return ..()
+/mob/living/silicon/robot/drone/do_late_fire()
+	request_player()
+
+/mob/living/silicon/robot/drone/get_default_language()
+	if(default_language)
+		return default_language
+	return GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
+
+/mob/living/silicon/robot/drone/fall_impact()
+	..(damage_mod = 0.25) //reduces fall damage by 75%
 
 /mob/living/silicon/robot/drone/construction
 	// Look and feel
+	name = "construction drone"
+	desc_flavor = "It's a bulky construction drone stamped with a NanoTrasen glyph."
 	icon_state = "constructiondrone"
 
 	// Components
@@ -123,39 +184,91 @@
 	law_type = /datum/ai_laws/construction_drone
 
 	// Interaction
-	can_pull_size = 5
+	can_pull_size = ITEMSIZE_IMMENSE
 	can_pull_mobs = MOB_PULL_SAME
 	holder_type = /obj/item/holder/drone/heavy
 
 	// Hats!!
-	hat_x_offset = 1
+	hat_x_offset = 0
 	hat_y_offset = -12
 
-/mob/living/silicon/robot/drone/Initialize()
+	standard_drone = FALSE
+
+	var/my_home_z
+
+/mob/living/silicon/robot/drone/construction/Initialize()
 	. = ..()
+	var/turf/T = get_turf(src)
+	my_home_z = T.z
 
-	verbs |= /mob/living/proc/hide
-	remove_language(LANGUAGE_ROBOT)
-	add_language(LANGUAGE_ROBOT, FALSE)
-	add_language(LANGUAGE_DRONE, TRUE)
+/mob/living/silicon/robot/drone/construction/welcome_drone()
+	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
+	to_chat(src, SPAN_NOTICE("You are assigned to an SCC construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
+	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
+	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
 
-	//They are unable to be upgraded, so let's give them a bit of a better battery.
-	cell.maxcharge = 10000
-	cell.charge = 10000
+/mob/living/silicon/robot/drone/construction/process_level_restrictions()
+	//Abort if they should not get blown
+	if(lock_charge || scrambled_codes || emagged)
+		return FALSE
+	//Check if they are not on a station level -> else abort
+	var/turf/T = get_turf(src)
+	if (!T || AreConnectedZLevels(my_home_z, T.z))
+		return FALSE
 
-	// NO BRAIN. // me irl - geeves
-	mmi = null
+	if(!self_destructing)
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [SSatlas.current_map.company_name] property detected. Anti-Theft mode activated."))
+		start_self_destruct(TRUE)
+	return TRUE
 
-	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
-	for(var/V in components)
-		if(V == "power cell")
-			continue
-		var/datum/robot_component/C = components[V]
-		C.max_damage = 10
+/mob/living/silicon/robot/drone/construction/matriarch
+	name = "matriarch drone"
+	desc_flavor = "It's a small matriarch drone. The casing is stamped with an corporate logo and the subscript: '%MAPNAME% Recursive Repair Systems: Heart Of The Swarm!'<br><br><b>OOC Info:</b><br><br>Matriarch drones are player-controlled synthetics which are lawed to maintain the station and not interact with anyone else, except for other drones. They are in command of all the smaller maintenance drones.<br><br>They hold a wide array of tools to build, repair, maintain, and clean. They function similarly to other synthetics, in that they require recharging regularly, have laws, and are resilient to many hazards, such as fire, radiation, vacuum, and more.<br><br>Ghosts can join the round as a matriarch drone by having a Command whitelist and accessing the 'Ghost Spawner' menu in the 'Ghost' tab.<br><br>An antagonist can use an Electromagnetic Sequencer to corrupt their laws and make them follow their orders."
+	module_type = /obj/item/robot_module/drone/construction/matriarch
+	law_type = /datum/ai_laws/matriarch_drone
+	can_swipe = FALSE
+	maxHealth = 50
+	health = 50
 
-	verbs -= /mob/living/silicon/robot/verb/Namepick
-	updateicon()
-	density = FALSE
+	var/matrix_tag
+
+/mob/living/silicon/robot/drone/construction/matriarch/Initialize()
+	. = ..()
+	check_add_to_late_firers()
+	matrix_tag = SSatlas.current_map.station_short
+
+/mob/living/silicon/robot/drone/construction/matriarch/shut_down()
+	return
+
+/mob/living/silicon/robot/drone/construction/matriarch/assign_player(mob/user)
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+	assign_drone_to_matrix(src, matrix_tag)
+	master_matrix.message_drones(MATRIX_NOTICE("Energy surges through your circuits. The matriarch has come online."))
+
+/mob/living/silicon/robot/drone/construction/matriarch/do_possession(mob/abstract/observer/possessor)
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+
+/mob/living/silicon/robot/drone/construction/matriarch/ghostize(can_reenter_corpse, should_set_timer)
+	. = ..()
+	if(can_reenter_corpse || stat == DEAD)
+		return
+	if(src in GLOB.mob_list) // needs to exist to reopen spawn atom
+		if(master_matrix)
+			master_matrix.remove_drone(WEAKREF(src))
+			master_matrix.message_drones(MATRIX_NOTICE("Your circuits dull. The matriarch has gone offline."))
+			master_matrix = null
+		set_name(initial(name))
+		designation = null
+		request_player()
+
+/mob/living/silicon/robot/drone/construction/matriarch/Destroy()
+	. = ..()
+	SSghostroles.remove_spawn_atom("matriarchmaintdrone", src)
+
+/mob/living/silicon/robot/drone/construction/matriarch/request_player()
+	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
 /mob/living/silicon/robot/drone/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
@@ -163,9 +276,10 @@
 	if(!laws)
 		laws = new law_type
 	if(!module)
-		module = new module_type(src)
+		module = new module_type(src, src)
+		recalculate_synth_capacities()
 
-	flavor_text = "It's a tiny little repair drone. The casing is stamped with an corporate logo and the subscript: '[current_map.company_name] Recursive Repair Systems: Fixing Tomorrow's Problem, Today!'"
+	flavor_text = replacetext(desc_flavor, "%MAPNAME%", SSatlas.current_map.company_name)
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -175,18 +289,37 @@
 	name = real_name
 
 /mob/living/silicon/robot/drone/updatename()
-	real_name = "maintenance drone ([rand(100,999)])"
-	name = real_name
+	return
 
-/mob/living/silicon/robot/drone/updateicon()
-	cut_overlays()
-	if(stat == CONSCIOUS)
-		if(!emagged)
-			add_overlay("eyes-[icon_state]")
-		else
-			add_overlay("eyes-[icon_state]-emag")
-	if(hat) // Let the drones wear hats.
-		add_overlay(get_hat_icon(hat, hat_x_offset, hat_y_offset))
+/mob/living/silicon/robot/drone/setup_icon_cache()
+	setup_eye_cache()
+	setup_panel_cache()
+
+/mob/living/silicon/robot/drone/setup_eye_cache()
+	cached_eye_overlays = list(
+		I_HELP = image(icon, "[icon_state]-eyes_help"),
+		I_HURT = image(icon, "[icon_state]-eyes_harm"),
+		"emag" = image(icon, "[icon_state]-eyes_emag")
+	)
+	if(eye_overlay)
+		cut_overlay(eye_overlay)
+	eye_overlay = cached_eye_overlays[a_intent]
+	add_overlay(eye_overlay)
+
+/mob/living/silicon/robot/drone/setup_panel_cache()
+	cached_panel_overlays = list(
+		ROBOT_PANEL_EXPOSED = image(icon, "[icon_state]-openpanel+w"),
+		ROBOT_PANEL_CELL = image(icon, "[icon_state]-openpanel+c"),
+		ROBOT_PANEL_NO_CELL = image(icon, "[icon_state]-openpanel-c")
+	)
+
+
+/mob/living/silicon/robot/drone/set_intent(var/set_intent)
+	a_intent = set_intent
+	cut_overlay(eye_overlay)
+	if(!stat)
+		eye_overlay = cached_eye_overlays[emagged ? "emag" : set_intent]
+		add_overlay(eye_overlay)
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -199,40 +332,49 @@
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	updateicon()
+	hat_overlay = get_hat_icon(hat, hat_x_offset, hat_y_offset)
+	add_overlay(hat_overlay)
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
-/mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
-	if(user.a_intent == "help" && istype(W, /obj/item/clothing/head))
+/mob/living/silicon/robot/drone/attackby(obj/item/attacking_item, mob/user)
+	if(user.a_intent == "help" && istype(attacking_item, /obj/item/clothing/head))
 		if(hat)
 			to_chat(user, SPAN_WARNING("\The [src] is already wearing \the [hat]."))
 			return
-		user.unEquip(W)
-		wear_hat(W)
-		user.visible_message(SPAN_NOTICE("\The [user] puts \the [W] on \the [src]."))
+		user.unEquip(attacking_item)
+		wear_hat(attacking_item)
+		user.visible_message(SPAN_NOTICE("\The [user] puts \the [attacking_item] on \the [src]."))
 		return
-	else if(istype(W, /obj/item/borg/upgrade/))
-		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
+	else if(istype(attacking_item, /obj/item/borg/upgrade/))
+		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
-	else if(W.iscrowbar())
+	else if(attacking_item.iscrowbar())
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
-	else if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
+	else if(attacking_item.GetID() || istype(attacking_item, /obj/item/card/robot))
+		if(!can_swipe)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
+			return
 		if(stat == DEAD)
-			if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+			if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 				to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 				return
 			if(!allowed(usr))
 				to_chat(user, SPAN_WARNING("Access denied."))
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] swipes \his ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
+			if(rebooting)
+				to_chat(user, SPAN_WARNING("\The [src] is already rebooting!"))
+				return
+			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."),
+								SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
 		else
-			user.visible_message(SPAN_WARNING("\The [user] swipes \his ID card through \the [src], attempting to shut it down."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to shut it down."))
 			if(emagged)
 				return
 			if(allowed(user))
+				user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."),
+									SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
 				shut_down()
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))
@@ -254,12 +396,13 @@
 	message_admins("[key_name_admin(user)] emagged drone [key_name_admin(src)].  Laws overridden.")
 	log_game("[key_name(user)] emagged drone [key_name(src)].  Laws overridden.",ckey=key_name(user),ckey_target=key_name(src))
 	var/time = time2text(world.realtime, "hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
+	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) emagged [name]([key])")
 
 	emagged = TRUE
 	hacked = FALSE
 	law_update = FALSE
 	connected_ai = null
+	standard_drone = FALSE
 	clear_supplied_laws()
 	clear_inherent_laws()
 	laws = new /datum/ai_laws/syndicate_override
@@ -267,8 +410,8 @@
 
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
-	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and \his commands."))
-	updateicon()
+	to_chat(src, SPAN_DANGER("ALERT: [user.real_name] is your new master. Obey your new laws and their commands."))
+	set_intent(I_HURT) // force them to hurt to update the eyes, they can swap to and fro if they wish, though - geeves
 	return TRUE
 
 /mob/living/silicon/robot/drone/proc/ai_hack(var/mob/user)
@@ -278,7 +421,7 @@
 
 	log_and_message_admins("[key_name(user)] hacked drone [key_name(src)]. Laws overridden.", key_name(user), get_turf(src))
 	var/time = time2text(world.realtime, "hh:mm:ss")
-	lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
+	GLOB.lawchanges.Add("[time] <B>:</B> [user.name]([user.key]) hacked [name]([key])")
 
 	hacked = TRUE
 	law_update = FALSE
@@ -291,25 +434,28 @@
 	to_chat(src, "<b>Obey these laws:</b>")
 	laws.show_laws(src)
 	to_chat(src, SPAN_DANGER("ALERT: [user] is your new master. Obey your new laws and their commands."))
-	to_chat(src, span("notice", "You have acquired new radio frequency."))
+	to_chat(src, SPAN_NOTICE("You have acquired new radio frequency."))
 	remove_language(LANGUAGE_ROBOT)
 	add_language(LANGUAGE_ROBOT, TRUE)
 
 //DRONE LIFE/DEATH
 /mob/living/silicon/robot/drone/process_level_restrictions()
+	//Abort if they should not get blown
+	if(lock_charge || scrambled_codes || emagged)
+		return FALSE
 	var/turf/T = get_turf(src)
 	var/area/A = get_area(T)
-	if((!T || !(A in the_station_areas)) && src.stat != DEAD)
-		to_chat(src, SPAN_WARNING("WARNING: Removal from NanoTrasen property detected. Anti-Theft mode activated."))
-		gib()
-		return
-	return
+	if((!T || !(A in GLOB.the_station_areas)) && src.stat != DEAD)
+		if(!self_destructing)
+			to_chat(src, SPAN_WARNING("WARNING: Removal from [SSatlas.current_map.company_name] property detected. Anti-Theft mode activated."))
+			start_self_destruct(TRUE)
+		return TRUE
 
 //For some goddamn reason robots have this hardcoded. Redefining it for our fragile friends here.
 /mob/living/silicon/robot/drone/updatehealth()
 	if(status_flags & GODMODE)
 		health = maxHealth
-		stat = CONSCIOUS
+		set_stat(CONSCIOUS)
 		return
 	health = maxHealth - (getBruteLoss() + getFireLoss())
 	return
@@ -353,16 +499,22 @@
 
 //Reboot procs.
 
+/mob/living/silicon/robot/drone/Logout()
+	. = ..()
+	rebooting = FALSE
+
 /mob/living/silicon/robot/drone/proc/request_player()
 	if(too_many_active_drones())
 		return
-	var/datum/ghosttrap/G = get_ghost_trap("maintenance drone")
-	G.request_player(src, "Someone is attempting to reboot a maintenance drone.", 30 SECONDS)
+	if(rebooting)
+		return
+	set_stat(CONSCIOUS)
+	SSghostroles.add_spawn_atom("rebooted_maint_drone", src)
 
 /mob/living/silicon/robot/drone/proc/transfer_personality(var/client/player)
 	if(!player)
 		return
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	src.ckey = player.ckey
 
 	if(player.mob?.mind)
@@ -372,6 +524,7 @@
 	to_chat(src, "<b>Systems rebooted</b>. Loading base pattern maintenance protocol... <b>loaded</b>.")
 	full_law_reset()
 	welcome_drone()
+	client.init_verbs()
 
 /mob/living/silicon/robot/drone/proc/welcome_drone()
 	to_chat(src, SPAN_NOTICE("<b>You are a maintenance drone, a tiny-brained robotic repair machine</b>."))
@@ -411,48 +564,31 @@
 	..()
 
 /mob/living/silicon/robot/drone/add_robot_verbs()
-	src.verbs |= silicon_subsystems
+	add_verb(src, silicon_subsystems)
 
 /mob/living/silicon/robot/drone/remove_robot_verbs()
-	src.verbs -= silicon_subsystems
+	remove_verb(src, silicon_subsystems)
 
-/mob/living/silicon/robot/drone/examine(mob/user)
-	..()
-	var/msg
-	if(emagged)
-		msg += "Their eye glows red."
-	else
-		msg += "Their eye glows green."
-	to_chat(user, msg)
-
-/mob/living/silicon/robot/drone/construction/welcome_drone()
-	to_chat(src, SPAN_NOTICE("<b>You are a construction drone, an autonomous engineering and fabrication system.</b>."))
-	to_chat(src, SPAN_NOTICE("You are assigned to a NanoTrasen construction project. The name is irrelevant. Your task is to complete construction and subsystem integration as soon as possible."))
-	to_chat(src, SPAN_NOTICE("Use <b>:d</b> to talk to other drones and <b>say</b> to speak silently to your nearby fellows."))
-	to_chat(src, SPAN_NOTICE("<b>You do not follow orders from anyone; not the AI, not humans, and not other synthetics.</b>."))
-
-/mob/living/silicon/robot/drone/construction/init()
-	..()
-	flavor_text = "It's a bulky construction drone stamped with a NanoTrasen glyph."
-
-/mob/living/silicon/robot/drone/construction/updatename()
-	real_name = "construction drone ([rand(100,999)])"
-	name = real_name
-
-/mob/living/silicon/robot/drone/construction/process_level_restrictions()
-	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
-		return
-	//Check if they are not on station level -> abort
-	var/turf/T = get_turf(src)
-	if(!T || isNotStationLevel(T.z))
-		return
-	to_chat(src, SPAN_WARNING("WARNING: Lost contact with controller. Anti-Theft mode activated."))
+/mob/living/silicon/robot/drone/self_destruct()
 	gib()
+
+/mob/living/silicon/robot/drone/self_diagnosis()
+	if(!is_component_functioning("diagnosis unit"))
+		return null
+
+	var/datum/robot_component/diagnosis_unit/C = components["diagnosis unit"]
+
+	var/dat = "<HEAD><TITLE>[src.name] Self-Diagnosis Report</TITLE></HEAD><BODY>\n"
+	dat += "<b>Self-Diagnosis System Report</b><br><table><tr><td>Brute Damage:</td><td>[bruteloss]</td></tr><tr><td>Electronics Damage:</td><td>[fireloss]</td></tr><tr><td>Powered:</td><td>[(!C.idle_usage || C.is_powered()) ? "Yes" : "No"]</td></tr><tr><td>Toggled:</td><td>[ C.toggled ? "Yes" : "No"]</td></table>"
+
+	return dat
+
+/mob/living/silicon/robot/drone/set_respawn_time()
+	set_death_time(MINISYNTH, world.time)
 
 /proc/too_many_active_drones()
 	var/drones = 0
-	for(var/mob/living/silicon/robot/drone/D in mob_list)
+	for(var/mob/living/silicon/robot/drone/D in GLOB.mob_list)
 		if(D.key && D.client)
 			drones++
-	return drones >= config.max_maint_drones
+	return drones >= GLOB.config.max_maint_drones

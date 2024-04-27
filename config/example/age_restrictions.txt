@@ -49,7 +49,6 @@ Shaft_Miner 0
 Lawyer 0
 Chaplain 0
 Assistant 0
-Internal_Affairs_Agent 0
 
 #Synth
 AI 0

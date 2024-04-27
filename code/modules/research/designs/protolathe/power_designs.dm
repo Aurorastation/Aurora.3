@@ -1,15 +1,12 @@
 /datum/design/item/powercell
 	build_type = PROTOLATHE | MECHFAB
 	category = "Misc" // For the mechfab
-	design_order = 7
-
-/datum/design/item/powercell/AssembleDesignName()
-	name = "Power Cell Design ([item_name])"
+	p_category = "Power Cell Designs"
 
 /datum/design/item/powercell/AssembleDesignDesc()
-	if(build_path)
-		var/obj/item/cell/C = build_path
-		desc = "Allows the construction of power cells that can hold [initial(C.maxcharge)] units of energy."
+	..()
+	var/obj/item/cell/C = build_path
+	desc += " This level of power cell stores [initial(C.maxcharge)] units of energy."
 
 /datum/design/item/powercell/Fabricate()
 	var/obj/item/cell/C = ..()
@@ -43,5 +40,11 @@
 /datum/design/item/powercell/device
 	name = "Device"
 	req_tech = list(TECH_POWER = 1)
-	materials = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 50)
+	materials = list(DEFAULT_WALL_MATERIAL = 70, MATERIAL_GLASS = 5)
 	build_path = /obj/item/cell/device
+
+/datum/design/item/powercell/device/high
+	name = "Advanced Device"
+	req_tech = list(TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 150, MATERIAL_GLASS = 10)
+	build_path = /obj/item/cell/device/high

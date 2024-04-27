@@ -1,10 +1,6 @@
 /mob/abstract/new_player/Logout()
-	ready = 0
-
-	// see login.dm
-	if(my_client)
-		my_client.screen -= lobby_image
-		my_client = null
+	ready = FALSE
+	SSticker.update_ready_list(src)
 
 	..()
 	if(!spawning)//Here so that if they are spawning and log out, the other procs can play out and they will have a mob to come back to.

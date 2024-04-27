@@ -4,14 +4,13 @@
 	icon = 'icons/obj/smooth/chalkline-smooth.dmi'
 	icon_state = "preview"
 	color = "#FFFFFF"
-	layer = 2.1
 	anchored = TRUE
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 
 /obj/effect/decal/cleanable/draftingchalk/Initialize(mapload)
 	. = ..()
 	if (mapload)
-		queue_smooth(src)
+		SSicon_smooth.add_to_queue(src)
 	else
 		smooth_icon(src)
 		for (var/obj/effect/decal/cleanable/draftingchalk/C in orange(1, src))
@@ -20,7 +19,7 @@
 /obj/item/pen/drafting
 	name = "white drafting chalk"
 	desc = "A piece of white chalk for marking areas of floor."
-	icon = 'icons/obj/crayons.dmi'
+	icon = 'icons/obj/storage/fancy/crayon.dmi'
 	icon_state = "dchalk"
 	color = "#FFFFFF"
 	var/colorName = "whitec"
@@ -34,7 +33,7 @@
 
 	to_chat(user, "You start marking a line on [target].")
 
-	if (!do_after(user, 1 SECONDS, act_target = target))
+	if (!do_after(user, 1 SECONDS, target))
 		return
 
 	for (var/obj/effect/decal/cleanable/draftingchalk/C in target)
@@ -96,7 +95,7 @@
 	desc = "A line drawn in a purple chalk."
 	color = "#a489c2"
 
-/obj/item/storage/fancy/crayons/chalkbox
+/obj/item/storage/box/fancy/crayons/chalkbox
 	name = "box of drafting chalk"
 	desc = "A box of drafting chalk for drafting floor plans."
 	icon_state = "chalkbox"
@@ -105,7 +104,7 @@
 		/obj/item/pen/drafting
 	)
 
-/obj/item/storage/fancy/crayons/chalkbox/fill()
+/obj/item/storage/box/fancy/crayons/chalkbox/fill()
 	new /obj/item/pen/drafting/red(src)
 	new /obj/item/pen/drafting(src)
 	new /obj/item/pen/drafting/yellow(src)
@@ -114,7 +113,7 @@
 	new /obj/item/pen/drafting/purple(src)
 	update_icon()
 
-/obj/item/storage/fancy/crayons/chalkbox/update_icon()
+/obj/item/storage/box/fancy/crayons/chalkbox/update_icon()
 	cut_overlays()
 	for(var/obj/item/pen/drafting/chalk in contents)
 		add_overlay("[chalk.colorName]")

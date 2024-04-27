@@ -1,8 +1,5 @@
-/mob/living/carbon/slime/say(var/message)
-
-	message = sanitize(message)
-
-	var/verb = say_quote(message)
+/mob/living/carbon/slime/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
+	verb = say_quote(message)
 
 	if(copytext(message,1,2) == "*")
 		return emote(copytext(message,2))
@@ -25,15 +22,15 @@
 	return ..()
 
 /mob/living/carbon/slime/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
-	if(speaker in friends)
+	if(is_friend(speaker))
 		speech_buffer = list()
 		speech_buffer.Add(speaker)
 		speech_buffer.Add(lowertext(html_decode(message)))
-	..()
+	return ..()
 
-/mob/living/carbon/slime/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
-	if(speaker in friends)
+/mob/living/carbon/slime/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0, var/vname ="")
+	if(is_friend(speaker))
 		speech_buffer = list()
 		speech_buffer.Add(speaker)
 		speech_buffer.Add(lowertext(html_decode(message)))
-	..()
+	return ..()

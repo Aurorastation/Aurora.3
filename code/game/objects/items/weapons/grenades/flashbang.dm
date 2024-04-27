@@ -3,112 +3,63 @@
 	icon_state = "flashbang"
 	item_state = "flashbang"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_COMBAT = 1)
-	var/banglet = 0
 
 /obj/item/grenade/flashbang/prime()
 	..()
-	for(var/obj/structure/closet/L in hear(7, get_turf(src)))
-		if(locate(/mob/living/carbon/, L))
-			for(var/mob/living/carbon/M in L)
-				bang(get_turf(src), M)
+	var/turf/T = get_turf(src)
+	for(var/mob/living/L in get_hearers_in_view(7, src))
+		bang(T, L)
 
-	for(var/mob/living/carbon/M in hear(7, get_turf(src)))
-		bang(get_turf(src), M)
-
-	for(var/obj/effect/blob/B in hear(8,get_turf(src)))       		//Blob damage here
+	// Damage blobs.
+	for(var/obj/effect/blob/B in get_hear(8,get_turf(src)))
 		var/damage = round(30/(get_dist(B,get_turf(src))+1))
 		B.health -= damage
 		B.update_icon()
 
-	single_spark(src.loc)
-	new/obj/effect/effect/smoke/illumination(src.loc, brightness=15)
+	single_spark(T)
+	new /obj/effect/effect/smoke/illumination(T, brightness=15)
 	qdel(src)
-	return
 
-/obj/item/grenade/flashbang/proc/bang(var/turf/T , var/mob/living/carbon/M)  // Added a new proc called 'bang' that takes a location and a person to be banged.
-	if (locate(/obj/item/cloaking_device, M))								// Called during the loop that bangs people in lockers/containers and when banging
-		for(var/obj/item/cloaking_device/S in M)								// people in normal view.  Could theroetically be called during other explosions.
-			S.active = 0															// -- Polymorph
-			S.icon_state = "shield0"
-
-	to_chat(M, "<span class='danger'>BANG</span>")
-	playsound(src.loc, 'sound/weapons/flashbang.ogg', 50, 1, 3, 0.5, 1)
-
-//Checking for protections
-	var/eye_safety = 0
-	var/ear_safety = 0
-	if(iscarbon(M))
-		eye_safety = M.eyecheck(TRUE)
-		if(ishuman(M))
-			var/mob/living/carbon/human/H = M
-			if(istype(H.l_ear, /obj/item/clothing/ears/earmuffs) || istype(H.r_ear, /obj/item/clothing/ears/earmuffs))
-				ear_safety += 2
-			if(HULK in H.mutations)
-				ear_safety += 1
-			if(istype(H.head, /obj/item/clothing/head/helmet))
-				ear_safety += 1
-
-//Flashing everyone
-	if(eye_safety < FLASH_PROTECTION_MODERATE)
-		flick("e_flash", M.flash)
-		M.Weaken(10)
-			//Vaurca damage 15/01/16
-		var/mob/living/carbon/human/H = M
-		if(isvaurca(H))
-			var/obj/item/organ/internal/eyes/E = H.get_eyes()
-			if(!E)
-				return
-
-			E.flash_act()
-
-//Now applying sound
-	if((get_dist(M, T) <= 2 || src.loc == M.loc || src.loc == M))
-		if(!(ear_safety > 0))
-			if ((prob(14) || (M == src.loc && prob(70))))
-				M.ear_damage += rand(1, 10)
-			else
-				M.ear_damage += rand(0, 5)
-				M.ear_deaf = max(M.ear_deaf,15)
-
-	else if(get_dist(M, T) <= 5)
-		if(!ear_safety)
-			sound_to(M, sound('sound/weapons/flash_ring.ogg',0,1,0,100))
-			M.ear_damage += rand(0, 3)
-			M.ear_deaf = max(M.ear_deaf,10)
-
-	else if(!ear_safety)
-		M.ear_damage += rand(0, 1)
-		M.ear_deaf = max(M.ear_deaf,5)
-
-//This really should be in mob not every check
-	if(ishuman(M))
-		var/mob/living/carbon/human/H = M
-		var/obj/item/organ/internal/eyes/E = H.get_eyes(no_synthetic = TRUE)
-		if (E && E.damage >= E.min_bruised_damage)
-			to_chat(M, "<span class='danger'>Your eyes start to burn badly!</span>")
-			if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
-				if (E.damage >= E.min_broken_damage)
-					to_chat(M, "<span class='danger'>You can't see anything!</span>")
-	if (M.ear_damage >= 15)
-		to_chat(M, "<span class='danger'>Your ears start to ring badly!</span>")
-		if(!banglet && !(istype(src , /obj/item/grenade/flashbang/clusterbang)))
-			if (prob(M.ear_damage - 10 + 5))
-				to_chat(M, "<span class='danger'>You can't hear anything!</span>")
-				M.sdisabilities |= DEAF
+/obj/item/grenade/flashbang/explode_in_hand(var/mob/living/carbon/human/victim, var/obj/item/organ/external/exploded_hand)
+	. = ..()
+	if(exploded_hand)
+		victim.apply_damage(30, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
+		victim.apply_damage(20, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE, 20)
 	else
-		if (M.ear_damage >= 5)
-			to_chat(M, "<span class='danger'>Your ears start to ring!</span>")
-	M.update_icons()
+		victim.apply_damage(20, DAMAGE_BRUTE, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
+		victim.apply_damage(30, DAMAGE_BURN, exploded_hand, src, DAMAGE_FLAG_EXPLODE|DAMAGE_FLAG_DISPERSED, 20)
 
-/obj/item/grenade/flashbang/clusterbang//Created by Polymorph, fixed by Sieve
+/obj/item/grenade/flashbang/proc/bang(turf/T, mob/living/M)
+	to_chat(M, SPAN_HIGHDANGER("BANG!"))
+	playsound(T, 'sound/weapons/flashbang.ogg', 50, 1, 3, 0.5, 1)
+
+	if(M.flash_act(ignore_inherent = TRUE))
+		M.Weaken(10)
+
+	// 1 - 9x/70 gives us 100% at zero, 87% at 1 turf, all the way to 10% at 7
+	var/bang_intensity = 1 - (9 * get_dist(T, M) / 70)
+	M.noise_act(intensity = EAR_PROTECTION_MODERATE, damage_pwr = 10 * bang_intensity, deafen_pwr = 15 * (1 - bang_intensity))
+
+	if(M.get_hearing_sensitivity()) // we only stun if they've got sensitive ears
+		// checking for protection is handled by noise_act
+		M.noise_act(intensity = EAR_PROTECTION_MAJOR, stun_pwr = 2)
+
+	M.disable_cloaking_device()
+	M.update_icon()
+
+/obj/item/grenade/flashbang/clusterbang
 	name = "clusterbang"
 	icon = 'icons/obj/grenade.dmi'
 	icon_state = "clusterbang"
 
+/obj/item/grenade/flashbang/clusterbang/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/grenade/flashbang/clusterbang/prime()
 	var/numspawned = rand(4,8)
 	var/again = 0
-	var/atom/A = loc
+	var/atom/A = get_turf(src)
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			again++
@@ -135,12 +86,11 @@
 
 	icon_state = "clusterbang_segment_active"
 	active = 1
-	banglet = 1
 	var/stepdist = rand(1,4)//How far to step
 	var/temploc = src.loc//Saves the current location to know where to step away from
 	walk_away(src,temploc,stepdist)//I must go, my people need me
 	var/dettime = rand(15,60)
-	addtimer(CALLBACK(src, .proc/prime), dettime)
+	addtimer(CALLBACK(src, PROC_REF(prime)), dettime)
 	..()
 
 /obj/item/grenade/flashbang/clusterbang/segment/prime()
@@ -148,7 +98,7 @@
 	for(var/more = numspawned,more > 0,more--)
 		if(prob(35))
 			numspawned --
-	var/atom/A = src.loc
+	var/atom/A = get_turf(src)
 	for(,numspawned > 0, numspawned--)
 		spawn(0)
 			new /obj/item/grenade/flashbang/cluster(A)
@@ -160,10 +110,13 @@
 	set waitfor = FALSE
 	icon_state = "flashbang_active"
 	active = 1
-	banglet = 1
 	var/stepdist = rand(1,3)
 	var/temploc = src.loc
 	walk_away(src,temploc,stepdist)
 	var/dettime = rand(15,60)
-	addtimer(CALLBACK(src, .proc/prime), dettime)
+	addtimer(CALLBACK(src, PROC_REF(prime)), dettime)
 	..()
+
+/obj/item/grenade/flashbang/cluster/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL

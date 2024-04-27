@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+- name: Feature suggestions
+  url: https://forums.aurorastation.org/forum/4-suggestions-ideas/
+  about: Suggest a new feature to be added to Aurora.
+- name: Policy suggestions
+  url: https://forums.aurorastation.org/forum/84-policy-suggestions/
+  about: Suggest a change to server policies, including IC regulations.
+- name: Aurora Discord Server
+  url: https://discord.gg/0sYA49zHYGnKWM9p
+  about: For help with running the game, or joining the server, join our Discord server.

@@ -14,7 +14,8 @@
 	body_parts_covered = 0
 	species_restricted = null
 	sprite_sheets = list(
-		"Vaurca Breeder" = 'icons/mob/species/breeder/suit.dmi'
+		BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/suit.dmi',
+		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/uniform.dmi'
 		)
 
 /obj/item/clothing/under/pj/blue
@@ -45,20 +46,12 @@
 	item_state = "waiter"
 	worn_state = "waiter"
 
-/obj/item/clothing/under/sexyclown
-	name = "sexy-clown suit"
-	desc = "It makes you look HONKable!"
-	icon_state = "sexyclown"
-	item_state = "clown"
-	worn_state = "sexyclown"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO
-
 //This set of uniforms looks fairly fancy and is generally used for high-ranking NT personnel from what I've seen, so lets give them appropriate ranks.
 /obj/item/clothing/under/rank/centcom
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Captain.\""
 	name = "officer's dress uniform"
 	icon_state = "officer"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -66,7 +59,7 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral.\""
 	icon_state = "officer"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "officer"
 	displays_id = 0
 
@@ -74,15 +67,32 @@
 	name = "officer's dress uniform"
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Admiral-Executive.\""
 	icon_state = "centcom"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "centcom"
 	displays_id = 0
 
-/obj/item/clothing/under/rank/fib
-	name = "\improper FIB agent uniform"
-	desc = "A formal uniform used by Federal Investigations Bureau agents."
-	icon_state = "fib_uniform"
-	worn_state = "fib_uniform"
+/obj/item/clothing/under/rank/bssb
+	name = "\improper BSSB agent uniform"
+	desc = "A formal uniform used by Biesel Security Services Bureau agents."
+	icon_state = "bssb_uniform"
+	worn_state = "bssb_uniform"
+
+/obj/item/clothing/under/rank/scc
+	name = "Stellar Corporate Conglomerate agent uniform"
+	desc = "A formal blue uniform worn by agents of the Stellar Corporate Conglomerate."
+	desc_extended = "The Stellar Corporate Conglomerate, also known as Chainlink, is a joint alliance between the NanoTrasen Corporation, Hephaestus Industries, Idris Incorporated, Zeng-Hu Pharmaceuticals and Zavodskoi Interstellar to exercise an undisputed economic dominance over the Orion Spur."
+	icon = 'icons/clothing/under/uniforms/scc.dmi'
+	icon_state = "scc_agent"
+	item_state = "scc_agent"
+	worn_state = "scc_agent"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/scc/executive
+	name = "Stellar Corporate Conglomerate executive uniform"
+	desc = "A stylish purple uniform worn by executive agents of the Stellar Corporate Conglomerate."
+	icon_state = "scc_executive"
+	item_state = "scc_executive"
+	worn_state = "scc_executive"
 
 /obj/item/clothing/under/ert
 	name = "ERT tactical uniform"
@@ -102,7 +112,7 @@
 	desc = "Gold trim on space-black cloth, this uniform displays the rank of \"Commander.\ It has a patch denoting a Pheonix on the sleeves."
 	name = "\improper ERT commander's dress uniform"
 	icon_state = "centcom"
-	item_state = "lawyer_black"
+	item_state = "bl_suit"
 	worn_state = "centcom"
 
 /obj/item/clothing/under/space
@@ -111,7 +121,7 @@
 	icon_state = "black"
 	item_state = "bl_suit"
 	worn_state = "black"
-	w_class = 4//bulky item
+	w_class = ITEMSIZE_LARGE//bulky item
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
@@ -127,7 +137,15 @@
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.01
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
-	armor = list(melee = 100, bullet = 100, laser = 100,energy = 100, bomb = 100, bio = 100, rad = 100)
+	armor = list(
+			melee = ARMOR_MELEE_VERY_HIGH,
+			bullet = ARMOR_BALLISTIC_AP,
+			laser = ARMOR_LASER_HEAVY,
+			energy = ARMOR_ENERGY_SHIELDED,
+			bomb = ARMOR_BOMB_SHIELDED,
+			bio = ARMOR_BIO_SHIELDED,
+			rad = ARMOR_RAD_SHIELDED
+			)
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	siemens_coefficient = 0
@@ -180,7 +198,7 @@
 	desc = "A formal black suit and red tie, intended for the station's finest."
 	icon_state = "really_black_suit"
 	item_state = "jensensuit"
-	worn_state = "black_suit"
+	worn_state = "really_black_suit"
 
 /obj/item/clothing/under/suit_jacket/red
 	name = "red suit"
@@ -188,6 +206,14 @@
 	icon_state = "red_suit"
 	item_state = "r_suit"
 	worn_state = "red_suit"
+
+/obj/item/clothing/under/suit_jacket/nt_skirtsuit
+	name = "nanotrasen skirtsuit"
+	desc = "A black coat with an NT blue kerchief accompanied by a swept skirt with a tasteful blue stripe. Works for every occasion."
+	icon_state = "nt_skirtsuit"
+	item_state = "bl_suit"
+	worn_state = "nt_skirtsuit"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
 
 /obj/item/clothing/under/kilt
 	name = "kilt"
@@ -252,14 +278,6 @@
 	item_state = "y_suit"
 	worn_state = "dress_yellow"
 
-/obj/item/clothing/under/dress/dress_cap
-	name = "captain's dress uniform"
-	desc = "Feminine fashion for the style concious captain."
-	icon_state = "dress_cap"
-	item_state = "b_suit"
-	worn_state = "dress_cap"
-	body_parts_covered = UPPER_TORSO|LOWER_TORSO|ARMS
-
 /obj/item/clothing/under/dress/dress_hop
 	name = "head of personnel dress uniform"
 	desc = "Feminine fashion for the style concious HoP."
@@ -275,6 +293,7 @@
 	item_state = "bl_suit"
 	worn_state = "sundress"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO
+	no_overheat = TRUE
 
 /obj/item/clothing/under/sundress_white
 	name = "white sundress"
@@ -316,15 +335,11 @@
 /obj/item/clothing/under/dress/offworlder
 	name = "\improper CR dress"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear, made of strong woven spider-silk. This variant seems to be tailored to resemble a dress, revealing much more skin."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crdress"
+	item_state = "crdress"
 	worn_state = "crdress"
-
-/obj/item/clothing/under/captainformal
-	name = "captain's formal uniform"
-	desc = "A captain's formal-wear, for special occasions."
-	icon_state = "captain_formal"
-	item_state = "b_suit"
-	worn_state = "captain_formal"
 
 /obj/item/clothing/under/hosformalmale
 	name = "head of security's formal uniform"
@@ -375,7 +390,7 @@
 	item_state = "lb_suit"
 	worn_state = "tan_suit"
 
-/obj/item/clothing/under/serviceoveralls
+/obj/item/clothing/under/service_overalls
 	name = "workman outfit"
 	desc = "The very image of a working man. Not that you're probably doing work."
 	icon_state = "mechanic"
@@ -454,11 +469,19 @@
 	icon_state = "swim_red"
 	siemens_coefficient = 1
 
+/obj/item/clothing/under/zhongshan
+	name = "zhongshan"
+	desc = "A type of tunic suit popular in Earth's Federal Republic of China."
+	icon_state = "zhongshan"
+	item_state = "zhongshan"
+
 /obj/item/clothing/under/kimono
 	name = "kimono"
 	desc = "A traditional Japanese kimono."
 	icon_state = "kimono"
 	item_state = "kimono"
+	icon = 'icons/clothing/under/uniforms/kimono.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/under/kimono/ronin
 	name = "ronin kimono"
@@ -468,7 +491,7 @@
 
 /obj/item/clothing/under/kimono/fancy
 	name = "fancy kimono"
-	desc = "A Japanese kimono, this one is very luxurious. It brings to mine iced tea cans."
+	desc = "A Japanese kimono, this one is very luxurious. It brings to mind iced tea cans."
 	icon_state = "fancy_kimono"
 	item_state = "fancy_kimono"
 
@@ -477,8 +500,8 @@
 	desc = "A loose pieces of clothing, commonly worn by medical patients."
 	icon_state = "medicalgown"
 	item_state = "medicalgown"
-	has_sensor = 2
-	sensor_mode = 3
+	has_sensor = SUIT_LOCKED_SENSORS
+	sensor_mode = SUIT_SENSOR_TRACKING
 
 /obj/item/clothing/under/medical_gown/white
 	icon_state = "whitemedicalgown"
@@ -486,33 +509,53 @@
 
 /obj/item/clothing/under/legion
 	name = "Tau Ceti Foreign Legion uniform"
-	desc = "A blue field uniform used by the force of the Tau Ceti Foreign Legion forces."
-	icon_state = "taucetilegion"
-	item_state = "bl_suit"
-	worn_state = "taucetilegion"
+	desc = "A blue field uniform worn by Tau Ceti Foreign Legion forces."
+	icon = 'icons/clothing/under/uniforms/tcfl_uniform.dmi'
+	icon_state = "tauceti_volunteer"
+	item_state = "tauceti_volunteer"
+	worn_state = "tauceti_volunteer"
+	contained_sprite = TRUE
 	siemens_coefficient = 0.7
+	armor = list(
+		melee = ARMOR_MELEE_MINOR)
 
 /obj/item/clothing/under/legion/sentinel
-	name = "Tau Ceti Foreign Legion sentinel uniform."
-	desc = "A blue uniform with purple trimming, indicating that the wearer is a sentinel of the TCFL."
-	worn_state = "taucetilegion_sentinel"
+	name = "Tau Ceti Foreign Legion sentinel uniform"
+	desc = "A blue field uniform with black trimming, indicating that the wearer is a sentinel of the TCFL."
+	icon_state = "tauceti_sentinel"
+	item_state = "tauceti_sentinel"
+	worn_state = "tauceti_sentinel"
 
 /obj/item/clothing/under/legion/legate
-	name = "Legate uniform"
-	desc = "A stark red uniform worn by senior officers of the Tau Ceti Foreign Legion."
-	icon_state = "taucetilegion_legate"
-	worn_state = "taucetilegion_legate"
+	name = "Tau Ceti Foreign Legion legate uniform"
+	desc = "A stark red field uniform worn by senior officers of the Tau Ceti Foreign Legion."
+	icon_state = "tauceti_legate"
+	item_state = "tauceti_legate"
+	worn_state = "tauceti_legate"
 
 /obj/item/clothing/under/legion/pilot
 	name = "Tau Ceti Foreign Legion flightsuit"
-	desc = "The uniform worn by Tau Ceti Foreign Legion pilots."
-	icon_state = "taucetilegion_pilot"
-	worn_state = "taucetilegion_pilot"
+	desc = "A green flightsuit worn by Tau Ceti Foreign Legion pilots."
+	icon_state = "tauceti_pilot"
+	item_state = "tauceti_pilot"
+	worn_state = "tauceti_pilot"
+
+/obj/item/clothing/under/legion/tcaf
+	name = "\improper TCAF armsman uniform"
+	desc = "A black longsleeved top over rough khaki tactical pants. Designed for the use of on-ship legionnaires serving the Republic."
+	icon = 'icons/clothing/under/uniforms/tcaf_uniform.dmi'
+	contained_sprite = TRUE
+	icon_state = "tcaf_armsman_uniform"
+	item_state = "tcaf_armsman_uniform"
+	worn_state = "tcaf_armsman_uniform"
 
 /obj/item/clothing/under/offworlder
 	name = "\improper CR suit"
 	desc = "A very tight form-fitting padded suit that looks extremely comfortable to wear."
+	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "crsuit"
+	item_state = "crsuit"
 	worn_state = "crsuit"
 
 /obj/item/clothing/under/tactical
@@ -521,7 +564,9 @@
 	icon_state = "swatunder"
 	//item_state = "swatunder"
 	worn_state = "swatunder"
-	armor = list(melee = 10, bullet = 5, laser = 5,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR
+		)
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/lance
@@ -531,7 +576,9 @@
 	item_state = "lance_fatigues"
 	worn_state = "lance_fatigues"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
-	armor = list(melee = 10, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+		melee = ARMOR_MELEE_MINOR
+		)
 	siemens_coefficient = 0.7
 
 /obj/item/clothing/under/dress/lance_dress
@@ -541,7 +588,6 @@
 	item_state = "lance_dress_f"
 	worn_state = "lance_dress_f"
 
-
 /obj/item/clothing/under/dress/lance_dress/male
 	name = "lance dress uniform"
 	desc = "A dark black uniform indicative of a Ceres' Lance official with a badge atop the chest."
@@ -550,33 +596,192 @@
 	worn_state = "lance_dress_m"
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|ARMS
 
+/obj/item/clothing/under/qipao
+	name = "qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk."
+	icon_state = "qipao"
+	item_state = "qipao"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
-/obj/item/clothing/under/dress/bluedress
-	name = "blue dress"
-	desc = "A plain blue dress with a white belt."
-	icon_state = "bluedress"
-	item_state = "bluedress_s"
-	worn_state = "bluedress"
+/obj/item/clothing/under/qipao2
+	name = "slim qipao"
+	desc = "A traditional Solarian women's garment, typically made of (synthetic) silk. This one is fairly slim."
+	icon_state = "qipao2"
+	item_state = "qipao2"
+	body_parts_covered = UPPER_TORSO|LOWER_TORSO
 
+/obj/item/clothing/under/rank/elyran_fatigues
+	name = "elyran navy uniform"
+	desc = "An utility uniform worn by Elyran navy staff serving aboard ships and in the field."
+	icon_state = "elyran_fatigues"
+	item_state = "elyran_fatigues"
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
 
-/obj/item/clothing/under/dress/darkreddress
-	name = "dark red dress"
-	desc = "A short, red dress with a black belt. Fancy."
-	icon_state = "darkreddress"
-	item_state = "darkreddress_s"
-	worn_state = "darkreddress"
+/obj/item/clothing/under/rank/elyran_fatigues/commander
+	name = "elyran navy officer uniform"
+	desc = "An utility uniform worn by Elyran navy officers serving aboard ships and in the field."
+	icon_state = "elyran_commander"
+	item_state = "elyran_commander"
 
+/obj/item/clothing/under/rank/konyang
+	name = "konyang army uniform"
+	desc = "A set of dark green fatigues issued to the soldiers of the Konyang Army. Its design is similar to the uniforms of the Solarian Army."
+	icon = 'icons/clothing/under/uniforms/konyang_uniforms.dmi'
+	icon_state = "konyang_army"
+	item_state = "konyang_army"
+	contained_sprite = TRUE
+	armor = list(
+		melee = ARMOR_MELEE_SMALL,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
 
-/obj/item/clothing/under/cropdress
-	name = "crop dress"
-	desc = "A red skirt and longsleeved button-up crop top."
-	icon_state = "cropdress"
-	item_state = "cropdress_s"
-	worn_state = "cropdress"
+/obj/item/clothing/under/rank/konyang/officer
+	name = "konyang army officer's uniform"
+	desc = "A green service uniform worn by the officers of the Konyang Army. Its design is similar to the uniforms of the Solarian Army"
+	icon_state = "konyang_army_officer"
+	item_state = "konyang_army_officer"
 
-/obj/item/clothing/under/croptop
-	name = "crop top"
-	desc = "Light shirt which shows the midsection of the wearer."
-	icon_state = "croptop"
-	item_state = "croptop_s"
-	worn_state = "croptop"
+/obj/item/clothing/under/rank/konyang/navy
+	name = "konyang navy uniform"
+	desc = "A blue utility uniform worn by the enlisted personnel of the Konyang Navy - often derided as more of a coast guard than a true armed force."
+	icon_state = "konyang_navy"
+	item_state = "konyang_navy"
+
+/obj/item/clothing/under/rank/konyang/navy/officer
+	name = "konyang navy officer's uniform"
+	desc = "A white service uniform worn by the officers of the Konyang Navy - often derided as more of a coast guard than a true armed force."
+	icon_state = "konyang_navy_officer"
+	item_state = "konyang_navy_officer"
+
+/obj/item/clothing/under/rank/konyang/space
+	name = "konyang aerospace force uniform"
+	desc = "A set of black coveralls worn by the soldiers of the Konyang Aerospace Forces, whether on-ship or in the field."
+	icon_state = "konyang_space"
+	item_state = "konyang_space"
+
+/obj/item/clothing/under/rank/konyang/space/officer
+	name = "konyang aerospace force officer's uniform"
+	desc = "A military service uniform issued to officers of the Konyang Aerospace Forces."
+	icon_state = "konyang_space_officer"
+	item_state = "konyang_space_officer"
+
+/obj/item/clothing/under/rank/konyang/mech_pilot
+	name = "konyang mechatronic corps jumpsuit"
+	desc = "A sky-blue jumpsuit worn by the exosuit pilots of the Konyang Army Mechatronic Corps - an elite exosuit unit that is often deployed abroad."
+	icon_state = "mech_pilot"
+	item_state = "mech_pilot"
+
+/obj/item/clothing/under/rank/konyang/police
+	name = "konyang national police uniform"
+	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders."
+	icon_state = "police"
+	item_state = "police"
+
+/obj/item/clothing/under/rank/konyang/police/lieutenant
+	name = "konyang national police lieutenant's uniform"
+	desc = "A white shirt and blue tie, bearing the insignia of the Konyang National Police on the shoulders. This one is emblazoned with red, marking the wearer as a lieutenant."
+	icon_state = "konyang_police_lieutenant"
+	item_state = "konyang_police_lieutenant"
+
+/obj/item/clothing/under/konyang/pirate
+	name = "ragged konyanger clothing"
+	desc = "A grey shirt and dark shorts in a Konyang style, accentuated with a red scarf. The clothes are dirty, torn, and ragged - evidently not well-maintained by their owner."
+	icon = 'icons/clothing/under/uniforms/konyang_pirates.dmi'
+	icon_state = "pirate"
+	item_state = "pirate"
+	armor = null
+
+/obj/item/clothing/under/konyang/pirate/tanktop
+	name = "disheveled konyanger clothing"
+	desc = "A dark yellow outfit in a Konyang style, with the sleeves cut off. It is stained with dirt, grease and a splatter of what looks like blood."
+	icon_state = "pirate1"
+	item_state = "pirate1"
+	armor = null
+
+/obj/item/clothing/under/rank/konyang/krc
+	name = "konyang robotics company uniform"
+	desc = "A blue button-up shirt and brown trousers, with a red and white-striped tie. On the shirt, the logo of the Konyang Robotics Company is clearly displayed."
+	icon_state = "krc"
+	item_state = "krc"
+	armor = null
+
+/obj/item/clothing/under/rank/konyang/pachrom
+	name = "PACHROM uniform"
+	desc = "A well-worn and practical dark yellow jumpsuit, with the logo of PACHROM - a prominent Konyang corporation - emblazoned on the left arm."
+	icon_state = "pachrom"
+	item_state = "pachrom"
+	armor = null
+
+/obj/item/clothing/under/rank/konyang/burger
+	name = "\improper UP! Burger uniform"
+	desc = "An astoundingly bright orange uniform, worn by employees of UP! Burger (or Burger UP!, depending on preference), a Gwok Group subsidiary."
+	icon_state = "upburger"
+	item_state = "upburger"
+	contained_sprite = TRUE
+	has_sensor = SUIT_NO_SENSORS
+
+//Galatea
+/obj/item/clothing/under/galatea
+	name = "\improper Galatean uniform"
+	desc = "A pair of slacks and matching protected shirt in the traditional black and green colors of a Galatean worker, seeing use across their space for all matter of jobs. Has a small plate to protect against chemical spills and small stab wounds, though providing little actual protection. Traditionally, one's planet of origin is marked on the right side of its high collar while the Technocracy's flag is on the left side of the collar."
+	icon = 'icons/clothing/under/uniforms/galatea.dmi'
+	icon_state = "underglove"
+	item_state = "underglove"
+	contained_sprite = TRUE
+
+//Xanu
+
+/obj/item/clothing/under/xanu
+	name = "xanu armed forces fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by enlisted personnel of the All-Xanu Armed Forces."
+	icon = 'icons/clothing/under/uniforms/xanu.dmi'
+	icon_state = "xanu"
+	item_state = "xanu"
+	contained_sprite = TRUE
+	siemens_coefficient = 0.5
+	armor = list(
+		melee = ARMOR_MELEE_KNIVES,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_MINOR
+		)
+
+/obj/item/clothing/under/xanu/med
+	name = "xanu armed forces medic fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by medics of the All-Xanu Armed Forces."
+	icon_state = "xanu_med"
+	item_state = "xanu_med"
+
+/obj/item/clothing/under/xanu/engi
+	name = "xanu armed forces engineer fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by engineers of the All-Xanu Armed Forces."
+	icon_state = "xanu_engi"
+	item_state = "xanu_engi"
+
+/obj/item/clothing/under/xanu/maa
+	name = "xanu armed forces master-at-arms fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by masters-at-arms of the All-Xanu Armed Forces."
+	icon_state = "xanu_maa"
+	item_state = "xanu_maa"
+
+/obj/item/clothing/under/xanu/pilot
+	name = "xanu armed forces pilot fatigues"
+	desc = "Fireproof, kevlar-reinforced combat fatigues used by pilots of the All-Xanu Armed Forces."
+	icon_state = "xanu_pilot"
+	item_state = "xanu_pilot"
+
+/obj/item/clothing/under/xanu/officer
+	name = "xanu armed forces officer coat"
+	desc = "A shirt and tie underneath a shortcoat, used by commissioned officers of the All-Xanu Armed Forces."
+	icon_state = "xanu_comm"
+	item_state = "xanu_comm"
+
+/obj/item/clothing/under/xanu/officer/senior
+	name = "xanu armed forces senior officer coat"
+	desc = "A shirt and tie underneath a shortcoat, used by high-ranking commissioned officers of the All-Xanu Armed Forces."
+	icon_state = "xanu_cap"
+	item_state = "xanu_cap"

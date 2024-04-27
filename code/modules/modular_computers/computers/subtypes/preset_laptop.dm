@@ -3,6 +3,10 @@
 	screen_on = FALSE
 	icon_state = "laptop-closed"
 
+/obj/item/modular_computer/laptop/preset/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/modular_computer/laptop/preset/install_default_hardware()
 	..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
@@ -13,16 +17,19 @@
 	nano_printer = new /obj/item/computer_hardware/nano_printer(src)
 	nano_printer.max_paper = 10
 	nano_printer.stored_paper = 5
+	tesla_link = new /obj/item/computer_hardware/tesla_link/charging_cable(src)
 
-/obj/item/modular_computer/laptop/preset/install_default_programs()
-	..()
+// the laptop in the modular computer loadout
+/obj/item/modular_computer/laptop/preset/loadout/install_default_hardware()
+	. = ..()
+	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
 // Engineering
 /obj/item/modular_computer/laptop/preset/engineering
 	name = "engineering laptop"
 	desc = "A portable computer belonging to the engineering department. It appears to have been used as a door stop at one point or another."
 	_app_preset_type = /datum/modular_computer_app_presets/engineering
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
 
 /obj/item/modular_computer/laptop/preset/engineering/ce
 	name = "chief engineer's laptop"
@@ -34,7 +41,7 @@
 	name = "medical laptop"
 	desc = "A portable computer belonging to the medical department."
 	_app_preset_type = /datum/modular_computer_app_presets/medical
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
 
 /obj/item/modular_computer/laptop/preset/medical/cmo
 	name = "chief medical officer's laptop"
@@ -46,7 +53,7 @@
 	name = "research laptop"
 	desc = "A portable computer belonging to the research department."
 	_app_preset_type = /datum/modular_computer_app_presets/research
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
 
 /obj/item/modular_computer/laptop/preset/research/install_default_hardware()
 	..()
@@ -61,21 +68,26 @@
 /obj/item/modular_computer/laptop/preset/command
 	name = "command laptop"
 	_app_preset_type = /datum/modular_computer_app_presets/command
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
 
-/obj/item/modular_computer/laptop/preset/command/hop
-	name = "head of personnel's laptop"
-	desc = "A portable computer beloning to the head of personnel. The fan is filled with dog hair."
+/obj/item/modular_computer/laptop/preset/command/teleporter
+	name = "teleporter control laptop"
+	desc = "A portable computer that has a special teleporter control program loaded."
+	_app_preset_type = /datum/modular_computer_app_presets/command/teleporter
+
+/obj/item/modular_computer/laptop/preset/command/xo
+	name = "executive officer's laptop"
+	desc = "A portable computer beloning to the executive officer. The fan is filled with dog hair."
 	_app_preset_type = /datum/modular_computer_app_presets/command/hop
 
-/obj/item/modular_computer/laptop/preset/command/hop/install_default_hardware()
+/obj/item/modular_computer/laptop/preset/command/xo/install_default_hardware()
 	..()
 	card_slot = new /obj/item/computer_hardware/card_slot(src)
 
 /obj/item/modular_computer/laptop/preset/command/captain
 	name = "captain's laptop"
 	desc = "A portable computer belonging to the captain."
-	_app_preset_type = /datum/modular_computer_app_presets/captain
+	_app_preset_type = /datum/modular_computer_app_presets/command/captain
 
 /obj/item/modular_computer/laptop/preset/command/captain/install_default_hardware()
 	..()
@@ -86,7 +98,7 @@
 	name = "security laptop"
 	desc = "A portable computer belonging to the security department."
 	_app_preset_type = /datum/modular_computer_app_presets/security
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
 
 /obj/item/modular_computer/laptop/preset/security/hos
 	name = "head of security's laptop"
@@ -96,18 +108,23 @@
 // Civilian
 /obj/item/modular_computer/laptop/preset/civilian
 	_app_preset_type = /datum/modular_computer_app_presets/civilian
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
 
 // Supply
 /obj/item/modular_computer/laptop/preset/supply
 	name = "supply laptop"
 	desc = "A portable computer belonging to cargo."
 	_app_preset_type = /datum/modular_computer_app_presets/supply
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
+
+/obj/item/modular_computer/laptop/preset/supply/om
+	name = "operations manager's laptop"
+	desc = "A portable computer belonging to the operation's manager."
+	_app_preset_type = /datum/modular_computer_app_presets/supply/om
 
 // Representative
 /obj/item/modular_computer/laptop/preset/representative
 	name = "representative's laptop"
 	desc = "A portable computer belonging to the representative's office."
 	_app_preset_type = /datum/modular_computer_app_presets/representative
-	enrolled = 1
+	enrolled = DEVICE_COMPANY

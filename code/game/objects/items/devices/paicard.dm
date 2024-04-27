@@ -6,6 +6,7 @@
 	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_DATA = 2)
+	var/list/installed_encryptionkeys = list()
 	var/obj/item/device/radio/radio
 	var/looking_for_personality = 0
 	var/mob/living/silicon/pai/pai
@@ -44,10 +45,61 @@
 		pai.death(0)
 	return ..()
 
-/obj/item/device/paicard/attackby(obj/item/C as obj, mob/user as mob)
-	if(istype(C, /obj/item/card/id))
-		scan_ID(C, user)
+/obj/item/device/paicard/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		scan_ID(attacking_item, user)
+		return TRUE
+	else if(istype(attacking_item, /obj/item/device/encryptionkey))
+		if(length(installed_encryptionkeys) > 2)
+			to_chat(user, SPAN_WARNING("\The [src] already has the full number of possible encryption keys installed!"))
+			return TRUE
+		var/obj/item/device/encryptionkey/EK = attacking_item
+		var/added_channels = FALSE
+		for(var/thing in (EK.channels | EK.additional_channels))
+			if(!radio.channels[thing])
+				added_channels = TRUE
+				break
+		if(added_channels)
+			installed_encryptionkeys += EK
+			user.drop_from_inventory(EK, src)
+			user.visible_message("<b>[user]</b> slides \the [EK] into \the [src]'s encryption key slot.", SPAN_NOTICE("You slide \the [EK] into \the [src]'s encryption key slot, granting it access to the radio channels."))
+			recalculateChannels()
+			if(pai)
+				to_chat(pai, SPAN_NOTICE("You now have access to these radio channels: [english_list(radio.channels)]."))
+		else
+			to_chat(user, SPAN_WARNING("\The [src] would not gain any new channels from \the [EK]."))
+		return TRUE
+	else if(attacking_item.isscrewdriver())
+		if(!length(installed_encryptionkeys))
+			to_chat(user, SPAN_WARNING("There are no installed encryption keys to remove!"))
+			return
+		user.visible_message("<b>[user]</b> uses \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src].", SPAN_NOTICE("You use \the [attacking_item] to pop the encryption key[length(installed_encryptionkeys) > 1 ? "s" : ""] out of \the [src]."))
+		for(var/key in installed_encryptionkeys)
+			var/obj/item/device/encryptionkey/EK = key
+			EK.forceMove(get_turf(src))
+			installed_encryptionkeys -= EK
+		recalculateChannels()
+		return TRUE
+	else if(istype(attacking_item, /obj/item/stack/nanopaste))
+		if(!pai)
+			to_chat(user, SPAN_WARNING("You cannot repair a pAI device if there's no active pAI personality installed."))
+		return TRUE
+	pai.attackby(attacking_item, user)
 
+/obj/item/device/paicard/proc/recalculateChannels()
+	radio.channels = list("Common" = radio.FREQ_LISTENING, "Entertainment" = radio.FREQ_LISTENING)
+	for(var/keyslot in installed_encryptionkeys)
+		var/obj/item/device/encryptionkey/EK = keyslot
+		for(var/ch_name in (EK.channels | EK.additional_channels))
+			radio.channels[ch_name] = radio.FREQ_LISTENING
+
+	for(var/ch_name in radio.channels)
+		if(!SSradio)
+			sleep(30) // Waiting for the SSradio to be created.
+		if(!SSradio)
+			radio.name = "broken radio headset"
+			return
+		radio.secure_radio_connections[ch_name] = SSradio.add_object(radio, radiochannels[ch_name], RADIO_CHAT)
 
 //This proc is called when the user scans their ID on the pAI card.
 //It registers their ID and copies their access to the pai, allowing it to use airlocks the owner can
@@ -56,17 +108,17 @@
 //Possible TODO in future, allow emagging a paicard to let it work like an agent ID, accumulating access from any ID
 /obj/item/device/paicard/proc/scan_ID(var/obj/item/card/id/card, var/mob/user)
 	if (!pai)
-		to_chat(user, "<span class='warning'>Error: ID Registration failed. No pAI personality installed.</span>")
+		to_chat(user, SPAN_WARNING("Error: ID Registration failed. No pAI personality installed."))
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (!pai.master_dna)
-		to_chat(user, "<span class='warning'>Error: ID Registration failed. User not registered as owner. Please complete imprinting process first.</span>")
+		to_chat(user, SPAN_WARNING("Error: ID Registration failed. User not registered as owner. Please complete imprinting process first."))
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
 	if (pai.master_dna != card.dna_hash)
-		to_chat(user, "<span class='warning'>Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner.</span>")
+		to_chat(user, SPAN_WARNING("Error: ID Registration failed. Biometric data on ID card does not match DNA sample of registered owner."))
 		playsound(src.loc, 'sound/machines/buzz-two.ogg', 20, 0)
 		return 0
 
@@ -74,14 +126,14 @@
 	pai.id_card.access = card.access.Copy()
 	pai.id_card.registered_name = card.registered_name
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
-	to_chat(user, "<span class='notice'>ID Registration for [pai.id_card.registered_name] is a success. PAI access updated!</span>")
+	to_chat(user, SPAN_NOTICE("ID Registration for [pai.id_card.registered_name] is a success. PAI access updated!"))
 	return 1
 
 /obj/item/device/paicard/proc/ID_readout()
-	if (pai.id_card.registered_name)
-		return "<span class='notice'>Identity of owner: [pai.id_card.registered_name] registered.</span>"
+	if (pai.id_card && pai.id_card.registered_name)
+		return SPAN_NOTICE("Identity of owner: [pai.id_card.registered_name] registered.")
 	else
-		return "<span class='warning'>No ID card registered! Please scan your ID to share access.</span>"
+		return SPAN_WARNING("No ID card registered! Please scan your ID to share access.")
 
 /obj/item/device/paicard/attack_self(mob/user)
 	if (!in_range(src, user))
@@ -93,90 +145,90 @@
 			<head>
 				<style>
 					body {
-					    margin-top:5px;
-					    font-family:Verdana;
-					    color:white;
-					    font-size:13px;
-					    background-image:url('uiBackground.png');
-					    background-repeat:repeat-x;
-					    background-color:#272727;
+						margin-top:5px;
+						font-family:Verdana;
+						color:white;
+						font-size:13px;
+						background-image:url('uiBackground.png');
+						background-repeat:repeat-x;
+						background-color:#272727;
 						background-position:center top;
 					}
 					table {
-					    font-size:13px;
-					    margin-left:-2px;
+						font-size:13px;
+						margin-left:-2px;
 					}
 					table.request {
-					    border-collapse:collapse;
+						border-collapse:collapse;
 					}
 					table.desc {
-					    border-collapse:collapse;
-					    font-size:13px;
-					    border: 1px solid #161616;
-					    width:100%;
+						border-collapse:collapse;
+						font-size:13px;
+						border: 1px solid #161616;
+						width:100%;
 					}
 					table.download {
-					    border-collapse:collapse;
-					    font-size:13px;
-					    border: 1px solid #161616;
-					    width:100%;
+						border-collapse:collapse;
+						font-size:13px;
+						border: 1px solid #161616;
+						width:100%;
 					}
 					tr.d0 td, tr.d0 th {
-					    background-color: #506070;
-					    color: white;
+						background-color: #506070;
+						color: white;
 					}
 					tr.d1 td, tr.d1 th {
-					    background-color: #708090;
-					    color: white;
+						background-color: #708090;
+						color: white;
 					}
 					tr.d2 td {
-					    background-color: #00FF00;
-					    color: white;
-					    text-align:center;
+						background-color: #00FF00;
+						color: white;
+						text-align:center;
 					}
 					td.button {
-					    border: 1px solid #161616;
-					    background-color: #40628a;
+						border: 1px solid #161616;
+						background-color: #40628a;
 					}
 					td.button {
-					    border: 1px solid #161616;
-					    background-color: #40628a;
-					    text-align: center;
+						border: 1px solid #161616;
+						background-color: #40628a;
+						text-align: center;
 					}
 					td.button_red {
-					    border: 1px solid #161616;
-					    background-color: #B04040;
-					    text-align: center;
+						border: 1px solid #161616;
+						background-color: #B04040;
+						text-align: center;
 					}
 					td.download {
-					    border: 1px solid #161616;
-					    background-color: #40628a;
-					    text-align: center;
+						border: 1px solid #161616;
+						background-color: #40628a;
+						text-align: center;
 					}
 					th {
-					    text-align:left;
-					    width:125px;
+						text-align:left;
+						width:125px;
 					}
 					td.request {
-					    width:140px;
-					    vertical-align:top;
+						width:140px;
+						vertical-align:top;
 					}
 					td.radio {
-					    width:90px;
-					    vertical-align:top;
+						width:90px;
+						vertical-align:top;
 					}
 					td.request {
-					    vertical-align:top;
+						vertical-align:top;
 					}
 					a {
-					    color:#4477E0;
+						color:#4477E0;
 					}
 					a.button {
-					    color:white;
-					    text-decoration: none;
+						color:white;
+						text-decoration: none;
 					}
 					h2 {
-					    font-size:15px;
+						font-size:15px;
 					}
 				</style>
 			</head>
@@ -228,13 +280,13 @@
 				<table class="request">
 					<tr>
 						<td class="radio">Transmit:</td>
-						<td><a href='byond://?src=\ref[src];wires=4'>[radio.broadcasting ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=4'>[radio.get_broadcasting() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
 					<tr>
 						<td class="radio">Receive:</td>
-						<td><a href='byond://?src=\ref[src];wires=2'>[radio.listening ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
+						<td><a href='byond://?src=\ref[src];wires=2'>[radio.get_listening() ? "<font color=#55FF55>En" : "<font color=#FF5555>Dis" ]abled</font></a>
 
 						</td>
 					</tr>
@@ -269,7 +321,7 @@
 		else
 			dat += {"
 				<b><font size='3px'>pAI Request Module</font></b><br><br>
-			    <p>No personality is installed.</p>
+				<p>No personality is installed.</p>
 				<table>
 					<tr>
 						<td class="button"><a href='byond://?src=\ref[src];request=1' class="button">Request personality</a>
@@ -303,7 +355,7 @@
 		src.looking_for_personality = 1
 		SSpai.findPAI(src, usr)
 	if(href_list["wipe"])
-		var/confirm = input("Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe") in list("Yes", "No")
+		var/confirm = tgui_alert(usr, "Are you CERTAIN you wish to delete the current personality? This action cannot be undone.", "Personality Wipe", list("Yes", "No"))
 		if(confirm == "Yes")
 			for(var/mob/M in src)
 				to_chat(M, "<font color = #ff0000><h2>You feel yourself slipping away from reality.</h2></font>")
@@ -319,9 +371,9 @@
 		var/t1 = text2num(href_list["wires"])
 		switch(t1)
 			if(4)
-				radio.ToggleBroadcast()
+				radio.set_broadcasting(!radio.get_broadcasting())
 			if(2)
-				radio.ToggleReception()
+				radio.set_listening(!radio.get_listening())
 	if(href_list["setlaws"])
 		var/newlaws = sanitize(input("Enter any additional directives you would like your pAI personality to follow. Note that these directives will not override the personality's allegiance to its imprinted master. Conflicting directives will be ignored.", "pAI Directive Configuration", pai.pai_laws) as message)
 		if(newlaws)
@@ -338,6 +390,7 @@
 /obj/item/device/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
 	src.pai = personality
 	add_overlay("pai-happy")
+	playsound(src, 'sound/effects/pai/pai_restore.ogg', 75)
 
 /obj/item/device/paicard/proc/removePersonality()
 	src.pai = null
@@ -373,9 +426,11 @@
 /obj/item/device/paicard/proc/alertUpdate()
 	var/turf/T = get_turf_or_move(src.loc)
 	for (var/mob/M in viewers(T))
-		M.show_message("<span class='notice'>\The [src] flashes a message across its screen, \"Additional personalities available for download.\"</span>", 3, "<span class='notice'>\The [src] bleeps electronically.</span>", 2)
+		M.show_message(SPAN_NOTICE("\The [src] flashes a message across its screen, \"Additional personalities available for download.\""), 3, SPAN_NOTICE("\The [src] bleeps electronically."), 2)
 
 /obj/item/device/paicard/emp_act(severity)
+	. = ..()
+
 	for(var/mob/M in src)
 		M.emp_act(severity)
 
@@ -387,12 +442,12 @@
 
 /obj/item/device/paicard/see_emote(mob/living/M, text)
 	if(pai && pai.client && !pai.canmove)
-		var/rendered = "<span class='message'>[text]</span>"
+		var/rendered = span("message", "[text]")
 		pai.show_message(rendered, 2)
 	..()
 
 /obj/item/device/paicard/dropped(mob/user)
-
+	. = ..()
 	///When an object is put into a container, drop fires twice.
 	//once with it on the floor, and then once in the container
 	//We only care about the second one
@@ -416,6 +471,6 @@
 
 /obj/item/device/paicard/show_message(msg, type, alt, alt_type)
 	if(pai && pai.client)
-		var/rendered = "<span class='message'>[msg]</span>"
+		var/rendered = span("message", "[msg]")
 		pai.show_message(rendered, type)
 	..()

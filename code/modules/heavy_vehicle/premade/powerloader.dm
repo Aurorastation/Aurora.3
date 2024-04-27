@@ -11,18 +11,35 @@
 	h_l_hand = /obj/item/mecha_equipment/drill
 	h_r_hand = /obj/item/mecha_equipment/clamp
 
-/mob/living/heavy_vehicle/premade/ripley/Initialize()
-	. = ..()
-	body.armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
-
 /mob/living/heavy_vehicle/premade/ripley/cargo
 	h_back = /obj/item/mecha_equipment/autolathe
+
+/mob/living/heavy_vehicle/premade/ripley/loader
+	h_l_hand = /obj/item/mecha_equipment/clamp
+
+/mob/living/heavy_vehicle/premade/ripley/loader/sol
+	name = "solarian powerloader"
+	e_color = COLOR_DARK_GREEN_GRAY
+
+/mob/living/heavy_vehicle/premade/ripley/loader/sol/damaged
+	name = "damaged solarian powerloader"
+	h_l_hand = null
+
+/mob/living/heavy_vehicle/premade/ripley/janitorial
+	name = "janitorial power loader"
+	desc = "A standard cargo-handling power loader converted into a cleaning machine."
+
+	e_color = COLOR_PURPLE
+	h_l_hand = /obj/item/mecha_equipment/clamp
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/grenadecleaner
+	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/grenadecleaner
+	h_back = /obj/item/mecha_equipment/quick_enter
 
 /obj/item/mech_component/manipulators/ripley
 	name = "exosuit arms"
 	exosuit_desc_string = "heavy-duty industrial lifters"
 	max_damage = 150
-	power_use = 2000
+	power_use = 1000
 	melee_damage = 40
 	desc = "The Xion Manufacturing Group Digital Interaction Manifolds allow you poke untold dangers from the relative safety of your cockpit."
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
@@ -34,7 +51,7 @@
 	max_damage = 150
 	move_delay = 4
 	turn_delay = 4
-	power_use = 2000
+	power_use = 1000
 	trample_damage = 10
 
 /obj/item/mech_component/sensors/ripley
@@ -55,13 +72,13 @@
 	hatch_descriptor = "roll cage"
 	pilot_coverage = 40
 	exosuit_desc_string = "an industrial rollcage"
-	desc = "A Xion industrial brand roll cage. Technically OSHA compliant. Technically."
+	desc = "A Xion industrial brand roll cage. Technically OSHA compliant. Technically. This variant has an extra compartment for a copilot, but has no sealed atmosphere."
 	max_damage = 200
-	power_use = 5000
+	power_use = 500
 
 /obj/item/mech_component/chassis/ripley/prebuild()
 	. = ..()
-	armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
+	mech_armor = new /obj/item/robot_parts/robot_component/armor/mech(src)
 
 /obj/item/mech_component/chassis/ripley/Initialize()
 	pilot_positions = list(
@@ -115,6 +132,10 @@
 	software = new(src)
 	software.installed_software = list(MECH_SOFTWARE_UTILITY, MECH_SOFTWARE_ENGINEERING)
 
+/mob/living/heavy_vehicle/premade/firefighter/sol
+	name = "solarian firefighting exosuit"
+	e_color = COLOR_DARK_GREEN_GRAY
+
 /mob/living/heavy_vehicle/premade/combatripley
 	name = "combat APLU \"Ripley\""
 	desc = "A large APLU unit fitted with specialized composite armor and fancy, though old targeting systems."
@@ -127,14 +148,14 @@
 	e_legs = /obj/item/mech_component/propulsion/ripley
 	e_color = COLOR_TCFL
 
-	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/grenadesmoke
+	h_l_shoulder = /obj/item/mecha_equipment/mounted_system/combat/grenadesmoke
 	h_r_shoulder = /obj/item/mecha_equipment/mounted_system/flarelauncher
-	h_l_hand = /obj/item/mecha_equipment/mounted_system/blaster
-	h_r_hand = /obj/item/mecha_equipment/mounted_system/gauss
+	h_l_hand = /obj/item/mecha_equipment/mounted_system/combat/blaster
+	h_r_hand = /obj/item/mecha_equipment/mounted_system/combat/gauss
 
 /mob/living/heavy_vehicle/premade/combatripley/Initialize()
 	. = ..()
-	body.mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(src)
+	body.mech_armor = new /obj/item/robot_parts/robot_component/armor/mech/combat(body)
 
 /obj/item/mech_component/sensors/combatripley
 	name = "exosuit sensors"
@@ -151,20 +172,22 @@
 /mob/living/heavy_vehicle/premade/ripley/remote
 	name = "remote power loader"
 	dummy_colour = "#ffc44f"
-	remote_network = "remotemechs"
+	remote_network = REMOTE_GENERIC_MECH
 	does_hardpoint_lock = FALSE
 
 /mob/living/heavy_vehicle/premade/ripley/remote_prison
 	name = "penal power loader"
 	dummy_colour = "#302e2b"
-	remote_network = "prisonmechs"
+	remote_network = REMOTE_PRISON_MECH
+	remote_type = /obj/item/remote_mecha/penal
 
 /mob/living/heavy_vehicle/premade/ripley/remote_ai
 	name = "stationbound power loader"
 	e_color = COLOR_GREEN_GRAY
 	dummy_colour = COLOR_GREEN_GRAY
 	dummy_type = /mob/living/simple_animal/spiderbot/ai
-	remote_network = "aimechs"
+	remote_network = REMOTE_AI_MECH
+	remote_type = /obj/item/remote_mecha/ai
 	does_hardpoint_lock = FALSE
 
 	h_l_hand = /obj/item/mecha_equipment/toolset

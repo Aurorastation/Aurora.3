@@ -21,6 +21,9 @@
 	var/crusty = FALSE
 	var/image/overlay
 
+	var/offset_pixel_y = 0
+	var/offset_pixel_x = 0
+
 /datum/fluidtrack/New(_direction, _color, _wet)
 	src.direction = _direction
 	src.basecolor = _color
@@ -32,10 +35,9 @@
 	random_icon_states = null
 	var/dirs=0
 	icon = 'icons/effects/fluidtracks.dmi'
-	icon_state = ""
+	icon_state = "human2"
 	var/coming_state = "blood1"
 	var/going_state = "blood2"
-	var/updated_tracks = 0
 
 	// dir = id in stack
 	var/list/setdirs = list(
@@ -51,6 +53,9 @@
 
 	// List of laid tracks and their colors.
 	var/list/datum/fluidtrack/stack = list()
+
+	/// Amount of pixels to shift either way in an attempt to make the tracks more organic
+	var/transverse_amplitude = 3
 
 /obj/effect/decal/cleanable/blood/tracks/reveal_blood()
 	if(!fluorescent)
@@ -97,7 +102,6 @@
 			track = new /datum/fluidtrack(b, footprint_color, t)
 			stack.Add(track)
 			setdirs["[b]"] = stack.Find(track)
-			updated_tracks |= b
 			updated=1
 
 		// GOING BIT (shift up 4)
@@ -114,7 +118,6 @@
 			track= new /datum/fluidtrack(b, footprint_color, t)
 			stack.Add(track)
 			setdirs["[b]"] = stack.Find(track)
-			updated_tracks |= b
 			updated = 1
 
 	dirs |= comingdir|realgoing
@@ -142,11 +145,19 @@
 		var/image/I = image(icon, icon_state = state, dir = num2dir(truedir))
 		I.color = track.basecolor
 
+		switch(truedir)
+			if(NORTH, SOUTH)
+				I.pixel_x += track.offset_pixel_x ? track.offset_pixel_x : rand(-transverse_amplitude, transverse_amplitude)
+			if(EAST, WEST)
+				I.pixel_y += track.offset_pixel_y ? track.offset_pixel_y : rand(-transverse_amplitude, transverse_amplitude)
+
+		track.offset_pixel_x = I.pixel_x
+		track.offset_pixel_y = I.pixel_y
+
 		track.fresh = 0
 		track.overlay = I
 		stack[stack_idx] = track
 		add_overlay(I)
-	updated_tracks = 0 // Clear our memory of updated tracks.
 
 /obj/effect/decal/cleanable/blood/tracks/footprints
 	name = "wet footprints"
@@ -156,6 +167,14 @@
 	coming_state = "human1"
 	going_state  = "human2"
 	amount = 0
+
+/obj/effect/decal/cleanable/blood/tracks/footprints/barefoot
+	desc = "They look like still wet tracks left by bare feet."
+	drydesc = "They look like dried tracks left by bare feet."
+
+/obj/effect/decal/cleanable/blood/tracks/footprints/barefoot/del_dry/Initialize()
+	. = ..()
+	QDEL_IN(src, TRACKS_CRUSTIFY_TIME)
 
 /obj/effect/decal/cleanable/blood/tracks/wheels
 	name = "wet tracks"
@@ -187,3 +206,11 @@
 	going_state  = "claw2"
 	random_icon_states = null
 	amount = 0
+
+/obj/effect/decal/cleanable/blood/tracks/body
+	name = "wet trails"
+	dryname = "dried trails"
+	desc = "A still-wet trail left by someone crawling."
+	drydesc = "A dried trail left by someone crawling."
+	coming_state = "trail1"
+	going_state  = "trail2"

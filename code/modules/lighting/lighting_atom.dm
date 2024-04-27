@@ -1,5 +1,3 @@
-#define MINIMUM_USEFUL_LIGHT_RANGE 1.4
-
 /atom
 	var/light_power = 1 // Intensity of the light.
 	var/light_range = 0 // Range in tiles of the light.
@@ -19,28 +17,32 @@
 // The proc you should always use to set the light of this atom.
 /atom/proc/set_light(var/l_range, var/l_power, var/l_color = NONSENSICAL_VALUE, var/uv = NONSENSICAL_VALUE, var/angle = NONSENSICAL_VALUE, var/no_update = FALSE)
 	//L_PROF(src, "atom_setlight")
+	. = FALSE // don't update if nothing changed
 
 	if(l_range > 0 && l_range < MINIMUM_USEFUL_LIGHT_RANGE)
 		l_range = MINIMUM_USEFUL_LIGHT_RANGE	//Brings the range up to 1.4, which is just barely brighter than the soft lighting that surrounds players.
-	if (l_power != null)
+		. = TRUE
+	if (l_power != null && light_power != l_power)
 		light_power = l_power
-
-	if (l_range != null)
+		. = TRUE
+	if (l_range != null && light_range != l_range)
 		light_range = l_range
+		. = TRUE
 
-	if (l_color != NONSENSICAL_VALUE)
+	if (l_color != NONSENSICAL_VALUE && light_color != l_color)
 		light_color = l_color
+		. = TRUE
 
-	if (uv != NONSENSICAL_VALUE)
+	if (uv != NONSENSICAL_VALUE && uv_intensity != uv)
 		set_uv(uv, no_update = TRUE)
+		. = TRUE
 
-	if (angle != NONSENSICAL_VALUE)
+	if (angle != NONSENSICAL_VALUE && light_wedge != angle)
 		light_wedge = angle
+		. = TRUE
 
-	if (no_update)
-		return
-
-	update_light()
+	if(!no_update && .)
+		update_light()
 
 #undef NONSENSICAL_VALUE
 
@@ -59,6 +61,8 @@
 // Will update the light (duh).
 // Creates or destroys it if needed, makes it update values, makes sure it's got the correct source turf...
 /atom/proc/update_light()
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if (QDELING(src))
 		return
 
@@ -67,10 +71,7 @@
 	if (!light_power || !light_range) // We won't emit light anyways, destroy the light source.
 		QDEL_NULL(light)
 	else
-		if (!istype(loc, /atom/movable)) // We choose what atom should be the top atom of the light here.
-			. = src
-		else
-			. = loc
+		. = get_light_atom()
 
 #ifdef ENABLE_SUNLIGHT
 		if (light) // Update the light or create it if it does not exist.
@@ -79,36 +80,31 @@
 			light = new/datum/light_source/sunlight(src, .)
 		else
 			light = new/datum/light_source(src, .)
-#else 
+#else
 		if (light)
 			light.update(.)
 		else
 			light = new /datum/light_source(src, .)
 #endif
 
-// If we have opacity, make sure to tell (potentially) affected light sources.
-/atom/movable/Destroy()
-	var/turf/T = loc
-
-	. = ..()
-	
-	if (opacity && istype(T))
-		T.recalc_atom_opacity()
-		T.reconsider_lights()
+/atom/proc/get_light_atom()
+	if (!istype(loc, /atom/movable)) // We choose what atom should be the top atom of the light here.
+		return src
+	return loc
 
 
 // Should always be used to change the opacity of an atom.
 // It notifies (potentially) affected light sources so they can update (if needed).
 /atom/proc/set_opacity(var/new_opacity)
 	if (new_opacity == opacity)
-		return
+		return FALSE
 
 	//L_PROF(src, "atom_setopacity")
 
 	opacity = new_opacity
 	var/turf/T = loc
 	if (!isturf(T))
-		return
+		return FALSE
 
 	if (new_opacity == TRUE)
 		T.has_opaque_atom = TRUE
@@ -122,11 +118,6 @@
 		if (old_has_opaque_atom != T.has_opaque_atom)
 			T.reconsider_lights()
 
-/atom/movable/forceMove()
-	. = ..()
+	updateVisibility(src, FALSE)
 
-	var/datum/light_source/L
-	var/thing
-	for (thing in light_sources)
-		L = thing
-		L.source_atom.update_light()
+	return TRUE

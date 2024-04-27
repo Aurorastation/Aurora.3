@@ -5,7 +5,7 @@
 /obj/machinery/mining
 	icon = 'icons/obj/mining_drill.dmi'
 	anchored = FALSE
-	use_power = 0 //The drill takes power directly from a cell.
+	use_power = POWER_USE_OFF //The drill takes power directly from a cell.
 	density = TRUE
 	layer = MOB_LAYER + 0.1 //So it draws over mobs in the tile north of it.
 
@@ -23,17 +23,19 @@
 	var/list/resource_field = list()
 
 	var/ore_types = list(
-		MATERIAL_IRON = /obj/item/ore/iron,
-		MATERIAL_URANIUM = /obj/item/ore/uranium,
-		MATERIAL_GOLD = /obj/item/ore/gold,
-		MATERIAL_SILVER = /obj/item/ore/silver,
-		MATERIAL_DIAMOND = /obj/item/ore/diamond,
-		MATERIAL_PHORON = /obj/item/ore/phoron,
-		MATERIAL_OSMIUM = /obj/item/ore/osmium,
-		"hydrogen" = /obj/item/ore/hydrogen,
-		"silicates" = /obj/item/ore/glass,
-		"carbonaceous rock" = /obj/item/ore/coal
-		)
+		ORE_URANIUM = /obj/item/ore/uranium,
+		ORE_IRON = /obj/item/ore/iron,
+		ORE_COAL = /obj/item/ore/coal,
+		ORE_SAND = /obj/item/ore/glass,
+		ORE_PHORON = /obj/item/ore/phoron,
+		ORE_SILVER = /obj/item/ore/silver,
+		ORE_GOLD = /obj/item/ore/gold,
+		ORE_DIAMOND = /obj/item/ore/diamond,
+		ORE_PLATINUM = /obj/item/ore/osmium,
+		ORE_HYDROGEN = /obj/item/ore/hydrogen,
+		ORE_BAUXITE = /obj/item/ore/aluminium,
+		ORE_GALENA = /obj/item/ore/lead
+	)
 
 	//Upgrades
 	var/harvest_speed
@@ -65,7 +67,7 @@
 	QDEL_NULL(spark_system)
 	return ..()
 
-/obj/machinery/mining/drill/machinery_process()
+/obj/machinery/mining/drill/process()
 	if(need_player_check)
 		return
 
@@ -96,10 +98,19 @@
 				ore.forceMove(src)
 				if(attached_satchel?.linked_box)
 					attached_satchel.insert_into_storage(ore)
+	else if(istype(get_turf(src), /turf/simulated/floor/exoplanet))
+		var/turf/simulated/floor/exoplanet/T = get_turf(src)
+		if(T.diggable)
+			new /obj/structure/pit(T)
+			T.diggable = 0
+			for(var/obj/item/ore/ore in range(1, src)) // gets_dug causes ore to spawn, this picks that ore up as well
+				ore.forceMove(src)
+				if(attached_satchel?.linked_box)
+					attached_satchel.insert_into_storage(ore)
 	else if(istype(get_turf(src), /turf/simulated/floor))
 		var/turf/simulated/floor/T = get_turf(src)
 		var/turf/below_turf = GetBelow(T)
-		if(!istype(below_turf.loc, /area/mine))
+		if(below_turf && !istype(below_turf.loc, /area/mine) && !istype(below_turf.loc, /area/exoplanet) && !istype(below_turf.loc, /area/template_noop))
 			system_error("Potential station breach below.")
 			return
 		T.ex_act(2.0)
@@ -111,8 +122,11 @@
 		while(length(resource_field) && !harvesting.resources)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
-			harvesting = pick(resource_field)
+			if(length(resource_field))
+				harvesting = pick(resource_field)
 
 		if(!harvesting)
 			return
@@ -155,6 +169,8 @@
 		if(!found_resource)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
+			harvesting.cut_overlay(harvesting.resource_indicator)
+			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 	else
 		active = FALSE
@@ -162,20 +178,20 @@
 		system_error("Resource field depleted.")
 		update_icon()
 
-/obj/machinery/mining/drill/examine(mob/user)
-	..(user)
+/obj/machinery/mining/drill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(need_player_check)
-		to_chat(user, SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"]."))
+		. += SPAN_WARNING("The drill error light is flashing. The cell panel is [panel_open ? "open" : "closed"].")
 	else
-		to_chat(user, "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"].")
+		. += "The drill is [active ? "active" : "inactive"] and the cell panel is [panel_open ? "open" : "closed"]."
 	if(panel_open)
-		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
-	to_chat(user, "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%.")
-	if(user.Adjacent(src))
+		. += "The power cell is [cell ? "installed" : "missing"]."
+	. += "The cell charge meter reads [cell ? round(cell.percent(),1) : 0]%."
+	if(is_adjacent)
 		if(attached_satchel)
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it.")))
+			. += FONT_SMALL(SPAN_NOTICE("It has a [attached_satchel] attached to it."))
 		if(current_error)
-			to_chat(user, FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\".")))
+			. += FONT_SMALL(SPAN_WARNING("The error display reads \"[current_error]\"."))
 	return
 
 /obj/machinery/mining/drill/proc/activate_light(var/lights = DRILL_LIGHT_IDLE)
@@ -188,24 +204,48 @@
 			set_light(4, 1, LIGHT_COLOR_LAVA)
 
 /obj/machinery/mining/drill/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
-/obj/machinery/mining/drill/attackby(obj/item/O, mob/user)
-	if(istype(O, /obj/item/mecha_equipment/drill_mover)) // the drill mover afterattack handles it
+/obj/machinery/mining/drill/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mecha_equipment/drill_mover)) // the drill mover afterattack handles it
 		return
 	if(!active)
-		if(default_deconstruction_screwdriver(user, O))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return
-		if (!panel_open)
-			if(default_deconstruction_crowbar(user, O))
+		if(default_part_replacement(user, attacking_item))
+			return
+
+	if(istype(attacking_item, /obj/item/mining_scanner))
+		if(!length(resource_field))
+			to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
+			return
+		to_chat(user, SPAN_NOTICE("You start drawing the data from \the [src]..."))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
+			if(!length(resource_field))
+				to_chat(user, SPAN_WARNING("\The [src] has no resource field to draw data from!"))
 				return
-			if(default_part_replacement(user, O))
-				return
+			var/list/ore_data = list()
+			for(var/ore_type in ore_types)
+				ore_data[ore_type] = 0
+			for(var/field in resource_field)
+				var/turf/T = field
+				if(!T.resources)
+					continue
+				for(var/ore in ore_types)
+					if(T.resources[ore])
+						ore_data[ore] += T.resources[ore]
+			to_chat(user, SPAN_NOTICE("\The [src] has found this ore in the vicinity, and is able to gather it:"))
+			for(var/entry in ore_data)
+				to_chat(user, SPAN_NOTICE(" | <b>[entry]</b> - <b>[ore_data[entry]]</b>"))
+		return
+
 	if(active)
 		return ..()
 
-	if(istype(O, /obj/item/storage/bag/ore))
-		var/obj/item/storage/bag/ore/S = O
+	if(istype(attacking_item, /obj/item/storage/bag/ore))
+		var/obj/item/storage/bag/ore/S = attacking_item
 		if(attached_satchel)
 			to_chat(user, SPAN_WARNING("\The [src] already has a satchel attached to it!"))
 			return
@@ -222,12 +262,12 @@
 			attached_satchel.insert_into_storage(ore)
 		return
 
-	if(O.iswrench())
+	if(attacking_item.iswrench())
 		if(!attached_satchel)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have a satchel attached to it!"))
 			return
 		user.visible_message(SPAN_NOTICE("\The [user] starts detaching \the [attached_satchel]."), SPAN_NOTICE("You start detaching \the [attached_satchel]."))
-		if(do_after(user, 30, TRUE, src))
+		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			if(!attached_satchel)
 				return
 			attached_satchel.forceMove(get_turf(user))
@@ -236,34 +276,55 @@
 			attached_satchel = null
 		return
 
-	if(O.iscrowbar())
-		if (panel_open)
+	if(attacking_item.iscrowbar())
+		if(panel_open)
 			if(cell)
-				to_chat(user, SPAN_NOTICE("You wrench out \the [cell]."))
+				to_chat(user, SPAN_NOTICE("You shimmy out \the [cell]."))
 				cell.forceMove(get_turf(user))
 				component_parts -= cell
+				user.put_in_hands(cell)
 				cell = null
 				return
 			else
 				to_chat(user, SPAN_WARNING("There's no cell to remove!"))
 				return
+		else
+			to_chat(user, SPAN_WARNING("The hatch must be open to take out a power cell."))
+			return
 
-	if(istype(O, /obj/item/cell))
+	if(istype(attacking_item, /obj/item/gripper/miner)) // the gripper will always be empty, because it passes its wrapped object's attack if it has one
+		var/obj/item/gripper/miner/M = attacking_item
+		if(panel_open)
+			if(cell)
+				to_chat(user, SPAN_NOTICE("You use your gripper to squeeze the cell out of its case."))
+				cell.forceMove(get_turf(user))
+				component_parts -= cell
+				M.grip_item(cell, user, FALSE)
+				cell = null
+				return
+			else
+				to_chat(user, SPAN_WARNING("There's no cell to remove!"))
+				return
+		else
+			to_chat(user, SPAN_WARNING("The hatch must be open to take out a power cell."))
+			return
+
+	if(istype(attacking_item, /obj/item/cell))
 		if(panel_open)
 			if(cell)
 				to_chat(user, SPAN_WARNING("There is already a power cell inside."))
 				return
 			else
 				// insert cell
-				user.drop_from_inventory(O, src)
-				cell = O
-				component_parts += O
-				O.add_fingerprint(user)
-				visible_message(span("notice", "\The [user] inserts a power cell into \the [src]."),
-					span("notice", "You insert the power cell into \the [src]."))
+				user.drop_from_inventory(attacking_item, src)
+				cell = attacking_item
+				component_parts += attacking_item
+				attacking_item.add_fingerprint(user)
+				visible_message("<b>\The [user]</b> inserts a power cell into \the [src].",
+					SPAN_NOTICE("You insert the power cell into \the [src]."))
 				power_change()
 		else
-			to_chat(user, span("notice", "The hatch must be open to insert a power cell."))
+			to_chat(user, SPAN_WARNING("The hatch must be open to insert a power cell."))
 			return
 	else
 		..()
@@ -296,9 +357,9 @@
 				system_error("Unbraced drill error.")
 				sleep(30)
 				if(!supported) //if you can resolve it manually in three seconds then power to you good-sir.
-					visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
+					visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
 				else
-					visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\""))
+					visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unbraced drill error manually resolved. Operations may resume normally.\""))
 			if(supported && panel_open)
 				if(cell)
 					system_error("Unsealed cell fitting error. Volatile cell discharge may occur if not immediately corrected.")
@@ -319,7 +380,7 @@
 							component_parts -= cell
 							cell = null
 					else
-						visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\""))
+						visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unsealed cell fitting error manually resolved. Operations may resume normally.\""))
 		else
 			to_chat(user, SPAN_NOTICE("\The [src] is unpowered."))
 	update_icon()
@@ -369,7 +430,7 @@
 
 /obj/machinery/mining/drill/proc/system_error(var/error)
 	if(error)
-		visible_message(SPAN_WARNING("\icon[src] <b>[capitalize_first_letters(src.name)]</b> flashes a system warning: \"[error]\"."))
+		visible_message(SPAN_WARNING("[icon2html(src, viewers(get_turf(src)))] <b>[capitalize_first_letters(src.name)]</b> flashes a system warning: \"[error]\"."))
 		current_error = error
 		playsound(get_turf(src), 'sound/machines/warning-buzzer.ogg', 100, 1)
 	need_player_check = TRUE
@@ -429,7 +490,7 @@
 		/obj/item/circuitboard/miningdrillbrace
 	)
 
-/obj/machinery/mining/brace/attackby(obj/item/W, mob/user)
+/obj/machinery/mining/brace/attackby(obj/item/attacking_item, mob/user)
 	if(connected?.active)
 		to_chat(user, SPAN_WARNING("You know you ought not work with the brace of a <i>running</i> drill, but you do anyways."))
 		sleep(5)
@@ -447,19 +508,19 @@
 				connected.system_error("Unexpected user interface error.")
 				return
 			else
-				H.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+				H.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 				connected.system_error("Unexpected user interface error.")
 				return
 		else
 			var/mob/living/M = user
-			M.apply_damage(25, BRUTE, damage_flags = DAM_SHARP|DAM_EDGE)
+			M.apply_damage(25, DAMAGE_BRUTE, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE)
 
-	if(default_deconstruction_screwdriver(user, W))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, W))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(istype(get_turf(src), /turf/space))
 			to_chat(user, SPAN_NOTICE("You send \the [src] careening into space. Idiot."))
 			var/inertia = rand(10, 30)
@@ -476,12 +537,12 @@
 				connected.system_error("Unbraced drill error.")
 				sleep(30)
 				if(connected?.active) //if you can resolve it manually in three seconds then power to you good-sir.
-					visible_message(SPAN_NOTICE("\icon[src] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
+					visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] [src.name] beeps, \"Unbraced drill error automatically corrected. Please brace your drill.\""))
 			else
 				connected.system_error("Unexpected user interface error.")
 				return
 
-		playsound(get_turf(src), W.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]anchor the brace."))
 
 		anchored = !anchored
@@ -495,7 +556,7 @@
 	return ..()
 
 /obj/machinery/mining/brace/proc/connect()
-	for(var/angle in cardinal) // make it face any drill in cardinal direction from it
+	for(var/angle in GLOB.cardinal) // make it face any drill in GLOB.cardinal direction from it
 		var/obj/machinery/mining/drill/D = locate() in get_step(src, angle)
 		if(D)
 			src.dir = angle
@@ -525,3 +586,7 @@
 	connected.supports -= src
 	connected.check_supports()
 	connected = null
+
+#undef DRILL_LIGHT_IDLE
+#undef DRILL_LIGHT_WARNING
+#undef DRILL_LIGHT_ACTIVE

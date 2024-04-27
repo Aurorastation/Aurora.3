@@ -3,40 +3,40 @@
 // Abilities in this tree allow the AI to physically manipulate systems around the station.
 // T1 - Hack Holopad - Allows the AI to hack a holopad. Hacked holopads only activate the listening feature when turned on.
 // T2 - Hack Camera - Allows the AI to hack a camera. Deactivated areas may be reactivated, and functional cameras can be upgraded.
-// T3 - Emergency Forcefield - Allows the AI to project 1 tile forcefield that blocks movement and air flow. Forcefield�dissipates over time. It is also very susceptible to energetic weaponry.
+// T3 - Emergency Forcefield - Allows the AI to project 1 tile forcefield that blocks movement and air flow. Forcefield dissipates over time. It is also very susceptible to energetic weaponry.
 // T4 - Machine Overload - Detonates machine of choice in a minor explosion. Two of these are usually enough to kill or K/O someone.
 
 
 // BEGIN RESEARCH DATUMS
 
 /datum/malf_research_ability/manipulation/hack_holopad
-	ability = new/datum/game_mode/malfunction/verb/hack_holopad()
+	ability = /datum/game_mode/malfunction/verb/hack_holopad
 	price = 50
-	next = new/datum/malf_research_ability/manipulation/hack_camera()
+	next = /datum/malf_research_ability/manipulation/hack_camera
 	name = "Hack Holopad"
 
 
 /datum/malf_research_ability/manipulation/hack_camera
-	ability = new/datum/game_mode/malfunction/verb/hack_camera()
+	ability = /datum/game_mode/malfunction/verb/hack_camera
 	price = 1200
-	next = new/datum/malf_research_ability/manipulation/emergency_forcefield()
+	next = /datum/malf_research_ability/manipulation/emergency_forcefield
 	name = "Hack Camera"
 
 
 /datum/malf_research_ability/manipulation/emergency_forcefield
-	ability = new/datum/game_mode/malfunction/verb/emergency_forcefield()
+	ability = /datum/game_mode/malfunction/verb/emergency_forcefield
 	price = 1750
-	next = new/datum/malf_research_ability/manipulation/gravity_malfunction()
+	next = /datum/malf_research_ability/manipulation/gravity_malfunction
 	name = "Emergency Forcefield"
 
 /datum/malf_research_ability/manipulation/gravity_malfunction
-	ability = new/datum/game_mode/malfunction/verb/gravity_malfunction()
+	ability = /datum/game_mode/malfunction/verb/gravity_malfunction
 	price = 2500
-	next = new/datum/malf_research_ability/manipulation/machine_overload()
+	next = /datum/malf_research_ability/manipulation/machine_overload
 	name = "Gravity Malfunction"
 
 /datum/malf_research_ability/manipulation/machine_overload
-	ability = new/datum/game_mode/malfunction/verb/machine_overload()
+	ability = /datum/game_mode/malfunction/verb/machine_overload
 	price = 5000
 	name = "Machine Overload"
 
@@ -48,6 +48,7 @@
 	set desc = "50 CPU - Hacks a holopad shorting out its projector. Using a hacked holopad only turns on the audio feature."
 	set category = "Software"
 	var/price = 50
+
 	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price) || !ability_pay(user,price))
 		return
@@ -63,12 +64,16 @@
 	to_chat(user, "Holopad hacked.")
 	user.hacking = 0
 
-/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in cameranet.cameras)
+/datum/game_mode/malfunction/verb/hack_camera(var/obj/machinery/camera/target = null as obj in GLOB.cameranet.cameras)
 	set name = "Hack Camera"
 	set desc = "100 CPU - Hacks existing camera, allowing you to add upgrade of your choice to it. Alternatively it lets you reactivate broken camera."
 	set category = "Software"
 	var/price = 100
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
 
 	if(target && !istype(target))
 		to_chat(user, "This is not a camera.")
@@ -124,11 +129,12 @@
 		to_chat(user, "Please pick a suitable camera.")
 
 
-/datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T as turf in turfs)
+/datum/game_mode/malfunction/verb/emergency_forcefield(var/turf/T in world)
 	set name = "Emergency Forcefield"
 	set desc = "275 CPU - Uses station's emergency shielding system to create temporary barrier which lasts for few minutes, but won't resist gunfire."
 	set category = "Software"
 	var/price = 275
+
 	var/mob/living/silicon/ai/user = usr
 	if(!T || !istype(T))
 		return
@@ -143,13 +149,13 @@
 	user.hacking = 0
 
 
-/datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in SSmachinery.processing_machines)
+/datum/game_mode/malfunction/verb/machine_overload(obj/machinery/M in SSmachinery.machinery)
 	set name = "Machine Overload"
 	set desc = "400 CPU - Causes cyclic short-circuit in machine, resulting in weak explosion after some time."
 	set category = "Software"
 	var/price = 400
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, price))
 		return
 
@@ -200,7 +206,7 @@
 	if(!ability_pay(user,price))
 		return
 
-	// M.use_power(1 MEGAWATTS)
+	M.use_power_oneoff(250 KILO WATTS)
 
 	// Trigger a powernet alarm. Careful engineers will probably notice something is going on.
 	var/area/temp_area = get_area(M)
@@ -209,7 +215,7 @@
 		if(temp_apc && temp_apc.terminal && temp_apc.terminal.powernet)
 			temp_apc.terminal.powernet.trigger_warning(50) // Long alarm
 		if(temp_apc)
-			temp_apc.emp_act(3) // Such power surges are not good for APC electronics/cell in general.
+			temp_apc.emp_act(EMP_LIGHT) // Such power surges are not good for APC electronics/cell in general.
 			if(prob(explosion_intensity))
 				temp_apc.set_broken()
 
@@ -226,7 +232,12 @@
 	set desc = "300 CPU - Hacks the gravity generator. Making gravity reverse for short moment and making victims fall down really hard on the floor."
 	set category = "Software"
 	var/price = 300
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
+
 	var/area/Area = get_area(user?.eyeobj.loc)
 	if(!Area)
 		return

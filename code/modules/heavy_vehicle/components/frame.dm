@@ -8,7 +8,7 @@
 
 /obj/structure/heavy_vehicle_frame
 	name = "exosuit frame"
-	desc = "The frame for am exosuit, apparently."
+	desc = "The frame for an exosuit, apparently."
 	icon = 'icons/mecha/mech_parts.dmi'
 	icon_state = "backbone"
 	density = 1
@@ -39,37 +39,64 @@
 	QDEL_NULL(body)
 	. = ..()
 
-/obj/structure/heavy_vehicle_frame/examine(mob/user)
+/obj/structure/heavy_vehicle_frame/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!arms)
-		to_chat(user, "<span class='warning'>It is missing some manipulators.</span>")
+		. += SPAN_WARNING("It is missing some <a href='?src=\ref[src];info=manipulators'>manipulators</a>.")
 	if(!legs)
-		to_chat(user, "<span class='warning'>It is missing a means of propulsion.</span>")
+		. += SPAN_WARNING("It is missing a means of <a href='?src=\ref[src];info=propulsion'>propulsion</a>.")
 	if(!head)
-		to_chat(user, "<span class='warning'>It is missing some sensors.</span>")
+		. += SPAN_WARNING("It is missing some <a href='?src=\ref[src];info=sensors'>sensors</a>.")
 	if(!body)
-		to_chat(user, "<span class='warning'>It is missing a chassis.</span>")
+		. += SPAN_WARNING("It is missing a <a href='?src=\ref[src];info=chassis'>chassis</a>.")
 	if(is_wired == FRAME_WIRED)
-		to_chat(user, "<span class='warning'>Its wiring is unadjusted.</span>")
+		. += SPAN_WARNING("Its wiring is <a href='?src=\ref[src];info=wire'>unadjusted</a>.")
 	else if(!is_wired)
-		to_chat(user, "<span class='warning'>It has not yet been wired.</span>")
+		. += SPAN_WARNING("It has not yet been <a href='?src=\ref[src];info=wire'>wired</a>.")
 	if(is_reinforced == FRAME_REINFORCED)
-		to_chat(user, "<span class='warning'>It has not had its internal reinforcement secured.</span>")
+		. += SPAN_WARNING("It has not had its <a href='?src=\ref[src];info=reinforcement'>internal reinforcement</a> secured.")
 	else if(is_reinforced == FRAME_REINFORCED_SECURE)
-		to_chat(user, "<span class='warning'>It has not had its internal reinforcement welded in.</span>")
+		. += SPAN_WARNING("It has not had its <a href='?src=\ref[src];info=reinforcement'>internal reinforcement</a> welded in.")
 	else if(!is_reinforced)
-		to_chat(user, "<span class='warning'>It does not have any internal reinforcement.</span>")
+		. += SPAN_WARNING("It does not have any <a href='?src=\ref[src];info=reinforcement'>internal reinforcement</a>.")
 
+/obj/structure/heavy_vehicle_frame/Topic(href, href_list)
+	. = ..()
+	if(.)
+		return
+	switch(href_list["info"])
+		if("manipulators")
+			to_chat(usr, SPAN_NOTICE("Manipulators, the arms of the exosuit, can be created at a mechatronic fabricator."))
+		if("propulsion")
+			to_chat(usr, SPAN_NOTICE("Propulsion, the legs of the exosuit, can be created at a mechatronic fabricator."))
+		if("sensors")
+			to_chat(usr, SPAN_NOTICE("Sensors, the head of the exosuit, can be created at a mechatronic fabricator."))
+		if("chassis")
+			to_chat(usr, SPAN_NOTICE("A chassis, the body of the exosuit, can be created at a mechatronic fabricator."))
+		if("wire")
+			if(!is_wired)
+				to_chat(usr, SPAN_NOTICE("The frame requires wiring between its components. This can be added with cable coil."))
+			else if(is_wired == FRAME_WIRED)
+				to_chat(usr, SPAN_NOTICE("The wiring of the frame is messy, and requires a wirecutter to trim it for use."))
+		if("reinforcement")
+			if(!is_reinforced)
+				to_chat(usr, SPAN_NOTICE("The frame requires reinforcement, this can be added with steel sheets."))
+			else if(is_reinforced == FRAME_REINFORCED)
+				to_chat(usr, SPAN_NOTICE("The frame's reinforcement has been installed, now it must be wrenched into place."))
+			else if(is_reinforced == FRAME_REINFORCED_SECURE)
+				to_chat(usr, SPAN_NOTICE("The frame's reinforcement has been installed and secured, now it must be welded into place."))
 
 /obj/structure/heavy_vehicle_frame/update_icon()
-	var/list/new_overlays = get_mech_icon(list(body, head), MECH_BASE_LAYER)
+	//As mech icons uses a caching system, any changes here, particularly to layers, must be reflected in /mob/living/heavy_vehicle/update_icon().
+	var/list/new_overlays = get_mech_icon(list(body), MECH_BASE_LAYER)
 	if(body)
 		density = TRUE
-		overlays += get_mech_image("[body.icon_state]_cockpit", body.icon, body.color)
-		if(body.pilot_coverage < 100 || body.transparent_cabin)
-			new_overlays += get_mech_image("[body.icon_state]_open_overlay", body.icon, body.color)
+		new_overlays += get_mech_image("[body.icon_state]_cockpit", body.on_mech_icon, MECH_BASE_LAYER)
 	else
 		density = FALSE
+	if(head)
+		new_overlays += get_mech_image("[head.icon_state]", head.on_mech_icon, head.color, MECH_HEAD_LAYER)
+		new_overlays += get_mech_image("[head.icon_state]_eyes", head.on_mech_icon, null, EYEGLOW_LAYER)
 	if(arms)
 		new_overlays += get_mech_image(arms.icon_state, arms.on_mech_icon, arms.color, MECH_ARM_LAYER)
 	if(legs)
@@ -81,19 +108,20 @@
 /obj/structure/heavy_vehicle_frame/set_dir()
 	..(SOUTH)
 
-/obj/structure/heavy_vehicle_frame/attackby(var/obj/item/thing, var/mob/user)
+/obj/structure/heavy_vehicle_frame/attackby(obj/item/attacking_item, mob/user)
 
 	// Removing components.
-	if(thing.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(is_reinforced == FRAME_REINFORCED)
-			user.visible_message("<span class='notice'>\The [user] crowbars \the reinforcement off \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] crowbars the reinforcement off \the [src]."))
+			new /obj/item/stack/material/steel(loc, 15)
 			is_reinforced = 0
 			return
 
-		var/to_remove = input("Which component would you like to remove") as null|anything in list(arms, body, legs, head)
+		var/to_remove = tgui_input_list(user, "Which component would you like to remove?", "Remove Component", list(arms, body, legs, head))
 
 		if(!to_remove)
-			to_chat(user, "<span class='warning'>There are no components to remove..</span>")
+			to_chat(user, SPAN_WARNING("There are no components to remove.."))
 			return
 
 		if(uninstall_component(to_remove, user))
@@ -110,29 +138,29 @@
 		return
 
 	// Final construction step.
-	else if(thing.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 
 		// Check for basic components.
 		if(!(arms && legs && head && body))
-			to_chat(user, "<span class='warning'>There are still parts missing from \the [src].</span>")
+			to_chat(user, SPAN_WARNING("There are still parts missing from \the [src]."))
 			return
 
 		// Check for wiring.
 		if(is_wired < FRAME_WIRED_ADJUSTED)
 			if(is_wired == FRAME_WIRED)
-				to_chat(user, "<span class='warning'>\The [src]'s wiring has not been adjusted!</span>")
+				to_chat(user, SPAN_WARNING("\The [src]'s wiring has not been adjusted!"))
 			else
-				to_chat(user, "<span class='warning'>\The [src] is not wired!</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is not wired!"))
 			return
 
 		// Check for basing metal internal plating.
 		if(is_reinforced < FRAME_REINFORCED_WELDED)
 			if(is_reinforced == FRAME_REINFORCED)
-				to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has not been secured!</span>")
+				to_chat(user, SPAN_WARNING("\The [src]'s internal reinforcement has not been secured!"))
 			else if(is_reinforced == FRAME_REINFORCED_SECURE)
-				to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has not been welded down!</span>")
+				to_chat(user, SPAN_WARNING("\The [src]'s internal reinforcement has not been welded down!"))
 			else
-				to_chat(user, "<span class='warning'>\The [src] has no internal reinforcement!</span>")
+				to_chat(user, SPAN_WARNING("\The [src] has no internal reinforcement!"))
 			return
 
 		if(is_reinforced < FRAME_REINFORCED_WELDED || is_wired < FRAME_WIRED_ADJUSTED || !(arms && legs && head && body) || QDELETED(src) || QDELETED(user))
@@ -152,15 +180,15 @@
 		return
 
 	// Installing wiring.
-	else if(thing.iscoil())
+	else if(attacking_item.iscoil())
 
 		if(is_wired)
-			to_chat(user, "<span class='warning'>\The [src] has already been wired.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has already been wired."))
 			return
 
-		var/obj/item/stack/cable_coil/CC = thing
+		var/obj/item/stack/cable_coil/CC = attacking_item
 		if(CC.amount < 10)
-			to_chat(user, "<span class='warning'>You need at least ten units of cable to complete the exosuit.</span>")
+			to_chat(user, SPAN_WARNING("You need at least ten units of cable to complete the exosuit."))
 			return
 
 		user.visible_message("\The [user] begins wiring \the [src]...")
@@ -176,23 +204,23 @@
 		playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 		is_wired = FRAME_WIRED
 	// Securing wiring.
-	else if(thing.iswirecutter())
+	else if(attacking_item.iswirecutter())
 		if(!is_wired)
 			to_chat(user, "There is no wiring in \the [src] to neaten.")
 			return
 
 		visible_message("\The [user] [(is_wired == FRAME_WIRED_ADJUSTED) ? "snips some of" : "neatens"] the wiring in \the [src].")
-		playsound(user.loc, 'sound/items/Wirecutter.ogg', 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		is_wired = (is_wired == FRAME_WIRED_ADJUSTED) ? FRAME_WIRED : FRAME_WIRED_ADJUSTED
 	// Installing metal.
-	else if(istype(thing, /obj/item/stack/material))
-		var/obj/item/stack/material/M = thing
-		if(M.material && M.material.name == "steel")
+	else if(istype(attacking_item, /obj/item/stack/material))
+		var/obj/item/stack/material/M = attacking_item
+		if(M.material?.name == MATERIAL_STEEL)
 			if(is_reinforced)
-				to_chat(user, "<span class='warning'>There is already metal reinforcement installed in \the [src].</span>")
+				to_chat(user, SPAN_WARNING("There is already metal reinforcement installed in \the [src]."))
 				return
 			if(M.amount < 15)
-				to_chat(user, "<span class='warning'>You need at least fifteen sheets of steel to reinforce \the [src].</span>")
+				to_chat(user, SPAN_WARNING("You need at least fifteen sheets of steel to reinforce \the [src]."))
 				return
 			visible_message("\The [user] reinforces \the [src] with \the [M].")
 			playsound(user.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -201,72 +229,72 @@
 		else
 			return ..()
 	// Securing metal.
-	else if(thing.iswrench())
+	else if(attacking_item.iswrench())
 		if(!is_reinforced)
-			to_chat(user, "<span class='warning'>There is no metal to secure inside \the [src].</span>")
+			to_chat(user, SPAN_WARNING("There is no metal to secure inside \the [src]."))
 			return
 		if(is_reinforced == FRAME_REINFORCED_WELDED)
-			to_chat(user, "<span class='warning'>\The [src]'s internal reinforcement has been welded in.</span>")
+			to_chat(user, SPAN_WARNING("\The [src]'s internal reinforcement has been welded in."))
 			return
 		visible_message("\The [user] [(is_reinforced == 2) ? "unsecures" : "secures"] the metal reinforcement in \the [src].")
-		playsound(user.loc, 'sound/items/Ratchet.ogg', 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		is_reinforced = (is_reinforced == FRAME_REINFORCED_SECURE) ? FRAME_REINFORCED : FRAME_REINFORCED_SECURE
 	// Welding metal.
-	else if(thing.iswelder())
-		var/obj/item/weldingtool/WT = thing
+	else if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!is_reinforced)
-			to_chat(user, "<span class='warning'>There is no metal to secure inside \the [src].</span>")
+			to_chat(user, SPAN_WARNING("There is no metal to secure inside \the [src]."))
 			return
 		if(is_reinforced == FRAME_REINFORCED)
-			to_chat(user, "<span class='warning'>The reinforcement inside \the [src] has not been secured.</span>")
+			to_chat(user, SPAN_WARNING("The reinforcement inside \the [src] has not been secured."))
 			return
 		if(!WT.isOn())
-			to_chat(user, "<span class='warning'>Turn \the [WT] on, first.</span>")
+			to_chat(user, SPAN_WARNING("Turn \the [WT] on, first."))
 			return
-		if(WT.remove_fuel(1, user))
+		if(WT.use(1, user))
 			visible_message("\The [user] [(is_reinforced == 3) ? "unwelds the reinforcement from" : "welds the reinforcement into"] \the [src].")
 			is_reinforced = (is_reinforced == FRAME_REINFORCED_WELDED) ? FRAME_REINFORCED_SECURE : FRAME_REINFORCED_WELDED
-			playsound(user.loc, 'sound/items/Welder.ogg', 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 		else
-			to_chat(user, "<span class='warning'>Not enough fuel!</span>")
+			to_chat(user, SPAN_WARNING("Not enough fuel!"))
 			return
 	// Installing basic components.
-	else if(istype(thing,/obj/item/mech_component/manipulators))
+	else if(istype(attacking_item,/obj/item/mech_component/manipulators))
 		if(arms)
-			to_chat(user, "<span class='warning'>\The [src] already has manipulators installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has manipulators installed."))
 			return
-		if(install_component(thing, user))
+		if(install_component(attacking_item, user))
 			if(arms)
-				thing.dropInto(loc)
+				attacking_item.dropInto(loc)
 				return
-			arms = thing
-	else if(istype(thing,/obj/item/mech_component/propulsion))
+			arms = attacking_item
+	else if(istype(attacking_item,/obj/item/mech_component/propulsion))
 		if(legs)
-			to_chat(user, "<span class='warning'>\The [src] already has a propulsion system installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a propulsion system installed."))
 			return
-		if(install_component(thing, user))
+		if(install_component(attacking_item, user))
 			if(legs)
-				thing.dropInto(loc)
+				attacking_item.dropInto(loc)
 				return
-			legs = thing
-	else if(istype(thing,/obj/item/mech_component/sensors))
+			legs = attacking_item
+	else if(istype(attacking_item,/obj/item/mech_component/sensors))
 		if(head)
-			to_chat(user, "<span class='warning'>\The [src] already has a sensor array installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a sensor array installed."))
 			return
-		if(install_component(thing, user))
+		if(install_component(attacking_item, user))
 			if(head)
-				thing.dropInto(loc)
+				attacking_item.dropInto(loc)
 				return
-			head = thing
-	else if(istype(thing,/obj/item/mech_component/chassis))
+			head = attacking_item
+	else if(istype(attacking_item,/obj/item/mech_component/chassis))
 		if(body)
-			to_chat(user, "<span class='warning'>\The [src] already has an outer chassis installed.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has an outer chassis installed."))
 			return
-		if(install_component(thing, user))
+		if(install_component(attacking_item, user))
 			if(body)
-				thing.dropInto(loc)
+				attacking_item.dropInto(loc)
 				return
-			body = thing
+			body = attacking_item
 	else
 		return ..()
 	update_icon()
@@ -274,7 +302,7 @@
 /obj/structure/heavy_vehicle_frame/proc/install_component(var/obj/item/thing, var/mob/user)
 	var/obj/item/mech_component/MC = thing
 	if(istype(MC) && !MC.ready_to_install())
-		if(user) to_chat(user, "<span class='warning'>\The [MC] is not ready to install.</span>")
+		if(user) to_chat(user, SPAN_WARNING("\The [MC] is not ready to install."))
 		return 0
 	user.unEquip(thing)
 	thing.forceMove(src)

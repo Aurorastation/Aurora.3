@@ -4,14 +4,14 @@
 /obj/machinery/crusher_base
 	name = "trash compactor"
 	desc = "A colossal piston used for crushing garbage."
-	icon = 'icons/obj/machines/crusherbase.dmi'
+	icon = 'icons/obj/machinery/crusherbase.dmi'
 	icon_state = "standalone"
 	anchored = 1
 	density = 1
 	opacity = 1
 	//Just 300 Watts here. Power is drawn by the piston when it moves
-	use_power = 1
 	idle_power_usage = 300
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/obj/machinery/crusher_piston/pstn //Piston
 
@@ -86,33 +86,33 @@
 	QDEL_NULL(pstn)
 	return ..()
 
-/obj/machinery/crusher_base/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/crusher_base/attackby(obj/item/attacking_item, mob/user)
 	if(status != "idle" && prob(40) && ishuman(user))
 		var/mob/living/carbon/human/M = user
-		M.apply_damage(45, BRUTE, user.get_active_hand())
-		M.apply_damage(45, PAIN)
+		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
+		M.apply_damage(45, DAMAGE_PAIN)
 		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
 		M.say("*scream")
-		return
-	if(default_deconstruction_screwdriver(user, O))
-		return
-	if(default_deconstruction_crowbar(user, O))
-		return
-	if(default_part_replacement(user, O))
-		return
+		return TRUE
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
 
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
-		if(O.iswrench())
+		if(attacking_item.iswrench())
 			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
-			if(do_after(user,50/O.toolspeed))
+			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open
 				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
 				if(valve_open)
 					blocked = 0
 					action = "retract"
-			return
-	..()
+			return TRUE
+	return ..()
 
 /obj/machinery/crusher_base/default_deconstruction_crowbar(var/mob/user, var/obj/item/crowbar/C)
 	if(!istype(C))
@@ -170,12 +170,12 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/crusher_base/machinery_process()
+/obj/machinery/crusher_base/process()
 	set waitfor = FALSE
 	if(!pstn) //We dont process if theres no piston
 		return
 	if(process_lock)
-		log_debug("crusher_piston process() has been called while it was still locked. Aborting")
+		LOG_DEBUG("crusher_piston process() has been called while it was still locked. Aborting")
 		return
 	process_lock = 1
 	var/timediff = world.time - action_start_time
@@ -365,7 +365,7 @@
 /obj/machinery/crusher_piston
 	name = "trash compactor piston"
 	desc = "A colossal piston used for crushing garbage."
-	icon = 'icons/obj/machines/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
+	icon = 'icons/obj/machinery/crusherpiston.dmi' //Placeholder TODO: Get a proper icon
 	icon_state = "piston_0"
 	density = 0
 	anchored = 1
@@ -403,7 +403,7 @@
 	QDEL_NULL(pb3)
 
 /obj/machinery/crusher_piston/proc/extend_0_1()
-	use_power(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(src)
 	if(!can_extend_into(T))
 		return 0
@@ -415,7 +415,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_1_2()
-	use_power(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb1)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
@@ -428,7 +428,7 @@
 	return 1
 
 /obj/machinery/crusher_piston/proc/extend_2_3()
-	use_power(5 KILOWATTS)
+	use_power_oneoff(5 KILO WATTS)
 	var/turf/T = get_turf(pb2)
 	var/turf/extension_turf = get_step(T,SOUTH)
 	if(!can_extend_into(extension_turf))
@@ -468,7 +468,7 @@
 	density = 1
 	anchored = 1
 	opacity = 1
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 //
 // The piston_move proc for various objects
@@ -479,7 +479,7 @@
 	var/turf/T = get_turf(src)
 
 	var/list/valid_turfs = list()
-	for(var/dir_to_test in cardinal)
+	for(var/dir_to_test in GLOB.cardinal)
 		var/turf/new_turf = get_step(T, dir_to_test)
 		if(!new_turf.contains_dense_objects())
 			valid_turfs += new_turf
@@ -501,8 +501,7 @@
 	return ..()
 
 /mob/living/carbon/piston_move()
-	if(can_feel_pain())
-		emote("scream")
+	emote("scream")
 	return ..()
 
 //Dont call the parent and return 1 to prevent effects from getting moved

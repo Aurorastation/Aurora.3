@@ -1,18 +1,18 @@
 /datum/gas_mixture
-	//Associative list of gas moles.
-	//Gases with 0 moles are not tracked and are pruned by update_values()
+	///Associative list of gas moles.
+	///Gases with 0 moles are not tracked and are pruned by update_values()
 	var/list/gas
-	//Temperature in Kelvin of this gas mix.
+	///Temperature in Kelvin of this gas mix.
 	var/temperature = 0
 
-	//Sum of all the gas moles in this mix.  Updated by update_values()
+	///Sum of all the gas moles in this mix.  Updated by update_values()
 	var/total_moles = 0
-	//Volume of this mix.
+	///Volume of this mix.
 	var/volume = CELL_VOLUME
-	//Size of the group this gas_mixture is representing.  1 for singletons.
+	///Size of the group this gas_mixture is representing.  1 for singletons.
 	var/group_multiplier = 1
 
-	//List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
+	///List of active tile overlays for this gas_mixture.  Updated by check_tile_graphic()
 	var/list/graphic
 
 /datum/gas_mixture/New(_volume = CELL_VOLUME, _temperature = 0, _group_multiplier = 1)
@@ -359,16 +359,17 @@
 		else
 			//Overlay isn't applied for this gas, check if it's valid and needs to be added.
 			if(gas[g] > gas_data.overlay_limit[g])
-				LAZYADD(graphic_add, gas_data.tile_overlay[g])
+				if(!(gas_data.tile_overlay[g] in graphic))
+					LAZYADD(graphic_add, gas_data.tile_overlay[g])
 
 	. = 0
 	//Apply changes
-	if(LAZYLEN(graphic_add))
+	if(graphic_add && LAZYLEN(graphic_add))
 		LAZYINITLIST(graphic)
 		for (var/entry in graphic_add)
 			graphic[entry] = TRUE	// This is an assoc list to make checking it a bit faster.
 		. = 1
-	if(LAZYLEN(graphic_remove))
+	if(graphic_add && LAZYLEN(graphic_remove))
 		graphic -= graphic_remove
 		. = 1
 

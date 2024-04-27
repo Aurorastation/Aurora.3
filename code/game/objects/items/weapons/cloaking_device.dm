@@ -9,12 +9,12 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	var/active = 0.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	throwforce = 10.0
 	throw_speed = 2
 	throw_range = 10
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MAGNET = 3, TECH_ILLEGAL = 4)
 
 	var/power_usage = 35000//A high powered cell allows 5 minutes of continuous usage
@@ -26,22 +26,20 @@
 
 /obj/item/cloaking_device/New()
 	..()
-	cloaking_devices += src
+	GLOB.cloaking_devices += src
 	cell = new /obj/item/cell/high(src)
 
 /obj/item/cloaking_device/Destroy()
 	. = ..()
-	cloaking_devices -= src
-
+	GLOB.cloaking_devices -= src
 
 /obj/item/cloaking_device/equipped(var/mob/user, var/slot)
 	..()
 	//Picked up or switched hands or worn
 	register_owner(user)
 
-
 //Handles dropped or thrown cloakers
-/obj/item/cloaking_device/dropped(var/mob/user)
+/obj/item/cloaking_device/dropped(mob/user)
 	..()
 	var/mob/M = get_holding_mob()
 	if(!M)
@@ -69,7 +67,7 @@
 	if (!cell || !cell.checked_use(power_usage*5*CELLRATE))//Costs a small burst to enter cloak
 		if (owner)
 			to_chat(owner, "The [src] clicks uselessly, it has no power left.")
-		playsound(get_turf(src), 'sound/weapons/empty.ogg', 25, 1)
+		playsound(get_turf(src), 'sound/weapons/click.ogg', 25, 1)
 		return
 
 	START_PROCESSING(SSprocessing, src)
@@ -94,11 +92,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/cloaking_device/emp_act(severity)
+	. = ..()
+
 	deactivate()
 	if (cell)
 		cell.emp_act(severity)
-	..()
-
 
 /obj/item/cloaking_device/proc/register_owner(var/mob/user)
 	if (!owner || owner != user)
@@ -107,7 +105,6 @@
 
 	if (!modifier)
 		start_modifier()
-
 
 /obj/item/cloaking_device/proc/start_modifier()
 	if (!owner)
@@ -121,18 +118,17 @@
 		modifier.stop(1)
 		modifier = null
 
-
-/obj/item/cloaking_device/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/cell))
+/obj/item/cloaking_device/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(!cell)
-			user.drop_from_inventory(W,src)
-			cell = W
+			user.drop_from_inventory(attacking_item, src)
+			cell = attacking_item
 			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))
@@ -142,13 +138,12 @@
 			return
 	..()
 
-
-/obj/item/cloaking_device/examine(mob/user)
-	..()
+/obj/item/cloaking_device/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (!cell)
-		to_chat(user, "It needs a power cell to function.")
+		. += SPAN_WARNING("It needs a power cell to function.")
 	else
-		to_chat(user, "It has [cell.percent()]% power remaining")
+		. += SPAN_NOTICE("It has [cell.percent()]% power remaining.")
 
 /obj/item/cloaking_device/process()
 	if (!cell || !cell.checked_use(power_usage*CELLRATE))
@@ -158,6 +153,13 @@
 		owner = null
 		start_modifier()
 
+/mob/proc/disable_cloaking_device()
+	for(var/datum/modifier/cloaking_device/mod in modifiers)
+		if(istype(mod))
+			var/obj/item/cloaking_device/CD = locate(/obj/item/cloaking_device, src)
+			if(CD)
+				CD.deactivate()
+
 /*
 	Modifier
 */
@@ -165,13 +167,12 @@
 	..()
 	var/mob/living/L = target
 	L.cloaked = 1
-	L.mouse_opacity = 0
-	L.update_icons()
-
+	L.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	L.update_icon()
 
 /datum/modifier/cloaking_device/deactivate()
 	..()
-	for (var/a in cloaking_devices)//Check for any other cloaks
+	for (var/a in GLOB.cloaking_devices)//Check for any other cloaks
 		if (a != source)
 			var/obj/item/cloaking_device/CD = a
 			if (CD.get_holding_mob() == target)
@@ -179,9 +180,8 @@
 					return
 	var/mob/living/L = target
 	L.cloaked = 0
-	L.mouse_opacity = 1
-	L.update_icons()
-
+	L.mouse_opacity = MOUSE_OPACITY_ICON
+	L.update_icon()
 
 /datum/modifier/cloaking_device/check_validity()
 	.=..()

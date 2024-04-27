@@ -22,19 +22,36 @@
 	return 0
 
 /datum/martial_art/sol_combat/proc/leg_sweep(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
-	A.do_attack_animation(D)
-	if(D.stat || D.weakened)
-		return 0
-	A.visible_message("<span class='warning'>[A] leg sweeps [D]!</span>")
-	playsound(get_turf(A), "swing_hit", 50, 1, -1)
-	D.apply_damage(5, BRUTE)
-	D.Weaken(2)
-	return 1
+	var/list/sweepedatoms = list()
+	var/atom/sweeptarget
+	var/distfromcaster
+
+	for(var/turf/T in range(1,A))
+		for(var/atom/movable/AM in T)
+			sweepedatoms += AM
+
+	for(var/am in sweepedatoms - A)
+		var/atom/movable/AM = am
+		if(AM.anchored)
+			continue
+
+		sweeptarget = get_edge_target_turf(A, get_dir(A, get_step_away(AM, A)))
+		distfromcaster = get_dist(A, AM)
+		if(isliving(AM))
+			var/mob/living/M = AM
+			if(M.stat || M.incapacitated() || distfromcaster == 0)
+				D.apply_damage(25, DAMAGE_BRUTE)
+				A.visible_message("<span class='danger'>[A] hits [M] with a powerful kick!</span>")
+			else
+				A.spin(10,1)
+				M.Weaken(3)
+				A.visible_message(M, "<span class='danger'>[A] swiftly leg sweeps [M]!</span>")
+				AM.throw_at(sweeptarget, ((Clamp((1 - (Clamp(distfromcaster - 2, 0, distfromcaster))), 1, 1))), 1)
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>")
-	playsound(get_turf(A), 'sound/weapons/punch1.ogg', 50, 1, -1)
+	playsound(get_turf(A), "punch", 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
 		D.losebreath += 5
 		D.adjustOxyLoss(10)
@@ -43,12 +60,12 @@
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
 	A.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
-	playsound(get_turf(A), "punch", 50, 1, -1)
-	D.apply_damage(5, BRUTE)
-	D.silent += 10
+	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
+	D.apply_damage(5, DAMAGE_BRUTE)
+	D.silent += 30
 	return 1
 
-datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
+/datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(check_streak(A,D))
 		return 1
 	..()
@@ -64,14 +81,14 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	if(D.weakened || D.resting || D.lying)
 		bonus_damage += 5
 		picked_hit_type = "stomped on"
-	D.apply_damage(bonus_damage, BRUTE)
+	D.apply_damage(bonus_damage, DAMAGE_BRUTE)
 	if(picked_hit_type == "kicked" || picked_hit_type == "stomped")
-		playsound(get_turf(D), "swing_hit", 50, 1, -1)
+		playsound(get_turf(D), /singleton/sound_category/swing_hit_sound, 50, 1, -1)
 	else
-		playsound(get_turf(D), "punch", 50, 1, -1)
+		playsound(get_turf(D), /singleton/sound_category/punch_sound, 50, 1, -1)
 
 	A.visible_message("<span class='danger'>[A] [picked_hit_type] [D]!</span>")
-	A.attack_log += text("\[[time_stamp()]\] <font color='red'>["[picked_hit_type]"] [D.name] ([D.ckey])</font>")
+	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>["[picked_hit_type]"] [D.name] ([D.ckey])</span>")
 	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>["Has Been [picked_hit_type]"] by [A.name] ([A.ckey])</font>")
 	msg_admin_attack("[key_name(A)] ["has [picked_hit_type]"] [key_name(D)] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[A.x];Y=[A.y];Z=[A.z]'>JMP</a>)",ckey=key_name(A),ckey_target=key_name(D))
 
@@ -83,7 +100,7 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 	if(check_streak(A,D))
 		return 1
 
-	A.attack_log += text("\[[time_stamp()]\] <font color='red'>Disarmed [D.name] ([D.ckey])</font>")
+	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>Disarmed [D.name] ([D.ckey])</span>")
 	D.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been disarmed by [A.name] ([A.ckey])</font>")
 	msg_admin_attack("[key_name(A)] disarmed [D.name] ([D.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)",ckey=key_name(D),ckey_target=key_name(A))
 
@@ -96,15 +113,19 @@ datum/martial_art/sol_combat/grab_act(var/mob/living/carbon/human/A, var/mob/liv
 			A.put_in_hands(I)
 	else
 		A.visible_message("<span class='danger'>[A] attempted to disarm [D]!</span>")
-		playsound(D, 'sound/weapons/punchmiss.ogg', 25, 1, -1)
+		playsound(D, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
 	return 1
 
 /datum/martial_art/sol_combat/proc/sol_combat_help()
-	set name = "Recall Teachings"
+	set name = "Recall Solarian Combat"
 	set desc = "Remember the martial techniques of the Solarian Combat."
-	set category = "Solarian Combat"
+	set category = "Abilities"
 
 	to_chat(usr, "<b><i>You clench your fists and have a flashback of knowledge...</i></b>")
 	to_chat(usr, "<span class='notice'>Neck Chop</span>: Harm Harm Disarm. Injures the neck, stopping the victim from speaking for a while.")
-	to_chat(usr, "<span class='notice'>Leg Sweep</span>: Disarm Harm Disarm. Trips the victim, rendering them prone and unable to move for a short time.")
+	to_chat(usr, "<span class='notice'>Leg Sweep</span>: Disarm Harm Disarm. Trips the victim and everyone else around you, rendering them prone and unable to move for a short time.")
 	to_chat(usr, "<span class='notice'>Lung Punch</span>: Harm Disarm Harm. Delivers a strong punch just above the victim's abdomen, constraining the lungs. The victim will be unable to breathe for a short time.")
+
+#undef NECK_CHOP
+#undef LEG_SWEEP
+#undef QUICK_CHOKE

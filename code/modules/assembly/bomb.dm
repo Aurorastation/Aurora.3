@@ -3,17 +3,18 @@
 	icon = 'icons/obj/tank.dmi'
 	item_state = "assembly"
 	throwforce = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2
 	throw_range = 4
-	flags = CONDUCT | PROXMOVE
-	var/status = 0   //0 - not readied //1 - bomb finished with welder
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	movable_flags = MOVABLE_FLAG_PROXMOVE
+	var/status = FALSE   // FALSE - not readied // TRUE - bomb finished with welder
 	var/obj/item/device/assembly_holder/bombassembly = null   //The first part of the bomb is an assembly holder, holding an igniter+some device
 	var/obj/item/tank/bombtank = null //the second part of the bomb is a phoron tank
 
 /obj/item/device/onetankbomb/examine(mob/user)
-	..(user)
-	user.examinate(bombtank)
+	. = ..()
+	examinate(user, bombtank)
 
 /obj/item/device/onetankbomb/update_icon()
 	if(bombtank)
@@ -22,14 +23,15 @@
 		add_overlay(bombassembly)
 		add_overlay("bomb_assembly")
 
-/obj/item/device/onetankbomb/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/analyzer))
-		bombtank.attackby(W, user)
+/obj/item/device/onetankbomb/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/analyzer))
+		bombtank.attackby(attacking_item, user)
 		return
-	if(!status && (W.iswrench() || istype(W, /obj/item/wirecutters/bomb)))	//This is basically bomb assembly code inverted. apparently it works.
+	if(!status && (attacking_item.iswrench() || istype(attacking_item, /obj/item/wirecutters/bomb)))	//This is basically bomb assembly code inverted. apparently it works.
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]."))
 
 		bombassembly.forceMove(get_turf(user))
+		bombassembly.detached()
 		bombassembly.master = null
 		bombassembly = null
 
@@ -39,28 +41,34 @@
 
 		qdel(src)
 		return
-	if((W.iswelder() && W:welding))
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
+		if(!WT.welding)
+			return
 		if(!status)
-			status = 1
-			bombers += "[key_name(user)] welded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
+			status = TRUE
+			GLOB.bombers += "[key_name(user)] welded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
 			message_admins("[key_name_admin(user)] welded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]")
 			to_chat(user, "<span class='notice'>A pressure hole has been bored to [bombtank] valve. \The [bombtank] can now be ignited.</span>")
 		else
-			status = 0
-			bombers += "[key_name(user)] unwelded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
+			status = FALSE
+			GLOB.bombers += "[key_name(user)] unwelded a single tank bomb. Temp: [bombtank.air_contents.temperature-T0C]"
 			to_chat(user, "<span class='notice'>The hole has been closed.</span>")
 	add_fingerprint(user)
 	..()
 
-/obj/item/device/onetankbomb/attack_self(mob/user as mob) //pressing the bomb accesses its assembly
-	bombassembly.attack_self(user, 1)
+/obj/item/device/onetankbomb/attack_self(mob/user) //pressing the bomb accesses its assembly
+	bombassembly.attack_self(user, TRUE)
 	add_fingerprint(user)
 	return
 
 /obj/item/device/onetankbomb/receive_signal()	//This is mainly called by the sensor through sense() to the holder, and from the holder to here.
-	visible_message("\icon[src] *beep* *beep*", "*beep* *beep*")
-	sleep(10)
-	if(!src)
+	visible_message("[icon2html(src, viewers(get_turf(src)))] *beep* *beep*", "*beep* *beep*")
+	addtimer(CALLBACK(src, PROC_REF(delayed_explosion)), 10 SECONDS)
+
+
+/obj/item/device/onetankbomb/proc/delayed_explosion()
+	if(QDELETED(src))
 		return
 	if(status)
 		bombtank.ignite()	//if its not a dud, boom (or not boom if you made shitty mix) the ignite proc is below, in this file
@@ -73,7 +81,7 @@
 
 // ---------- Procs below are for tanks that are used exclusively in 1-tank bombs ----------
 
-/obj/item/tank/proc/bomb_assemble(W,user)	//Bomb assembly proc. This turns assembly+tank into a bomb
+/obj/item/tank/proc/bomb_assemble(W, user)	//Bomb assembly proc. This turns assembly+tank into a bomb
 	var/obj/item/device/assembly_holder/S = W
 	var/mob/M = user
 	if(!S.secured)										//Check if the assembly is secured
@@ -99,7 +107,7 @@
 	return
 
 /obj/item/tank/proc/ignite()	//This happens when a bomb is told to explode
-	var/fuel_moles = air_contents.gas["phoron"] + air_contents.gas["oxygen"] / 6
+	var/fuel_moles = air_contents.gas[GAS_PHORON] + air_contents.gas[GAS_OXYGEN] / 6
 	var/strength = 1
 
 	var/turf/ground_zero = get_turf(loc)

@@ -34,7 +34,6 @@
 
 /obj/screen/ai
 	icon = 'icons/mob/screen/ai.dmi'
-	layer = SCREEN_LAYER
 
 /obj/screen/ai/core
 	name = "AI Core"
@@ -54,7 +53,7 @@
 /obj/screen/ai/camera_list/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		var/camera = input(AI) as null|anything in AI.get_camera_list()
+		var/camera = tgui_input_list(AI, "Select a camera.", "Show Camera List", AI.get_camera_list())
 		if (camera)
 			AI.ai_camera_list(camera)
 
@@ -66,7 +65,7 @@
 /obj/screen/ai/camera_track/Click()
 	if (isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		var/target_name = input(AI) as null|anything in AI.trackable_mobs()
+		var/target_name = tgui_input_list(AI, "Select a mob to track.", "Track With Camera", AI.trackable_mobs())
 		if (target_name)
 			AI.ai_camera_track(target_name)
 
@@ -87,18 +86,7 @@
 
 /obj/screen/ai/crew_manifest/Click()
 	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.show_station_manifest()
-
-/obj/screen/ai/alerts
-	name = "Show Alerts"
-	icon_state = "alerts"
-	screen_loc = ui_ai_alerts
-
-/obj/screen/ai/alerts/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_alarm_monitor()
+		SSrecords.open_manifest_tgui(usr)
 
 /obj/screen/ai/announcement
 	name = "Announcement"
@@ -111,7 +99,7 @@
 		AI.ai_announcement()
 
 /obj/screen/ai/call_shuttle
-	name = "Call Emergency Shuttle"
+	name = "Call Evacuation"
 	icon_state = "call_shuttle"
 	screen_loc = ui_ai_shuttle
 
@@ -126,29 +114,10 @@
 	screen_loc = ui_ai_state_laws
 
 /obj/screen/ai/state_laws/Click()
-	if (isAI(usr))
+	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.subsystem_law_manager()
-
-/obj/screen/ai/pda_msg
-	name = "PDA - Send Message"
-	icon_state = "pda_send"
-	screen_loc = ui_ai_pda_send
-
-/obj/screen/ai/pda_msg/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.ai_pda.cmd_send_pdamesg(usr)
-
-/obj/screen/ai/pda_log
-	name = "PDA - Show Message Log"
-	icon_state = "pda_receive"
-	screen_loc = ui_ai_pda_log
-
-/obj/screen/ai/pda_log/Click()
-	if (isAI(usr))
-		var/mob/living/silicon/ai/AI = usr
-		AI.ai_pda.cmd_show_message_log(usr)
+		AI.computer.ui_interact(usr)
+		AI.computer.run_program("lawmanager")
 
 /obj/screen/ai/take_image
 	name = "Take Image"
@@ -181,14 +150,17 @@
 		AI.sensor_mode()
 
 /obj/screen/ai/remote_mech
-	name = "Remote Control Mech"
+	name = "Remote Control Shell"
 	icon_state = "remote_mech"
 	screen_loc = ui_ai_mech
 
 /obj/screen/ai/remote_mech/Click()
 	if(isAI(usr))
 		var/mob/living/silicon/ai/AI = usr
-		AI.remote_control_mech()
+		if(AI.anchored)
+			AI.remote_control_shell()
+		else
+			to_chat(AI, SPAN_WARNING("You are unable to get a good connection while unanchored from the station systems."))
 
 /obj/screen/ai/move_up
 	name = "Move Up"

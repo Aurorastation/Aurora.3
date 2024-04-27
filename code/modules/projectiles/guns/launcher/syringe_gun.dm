@@ -5,22 +5,22 @@
 	icon_state = "syringe-cartridge"
 	var/icon_flight = "syringe-cartridge-flight" //so it doesn't look so weird when shot
 	matter = list(DEFAULT_WALL_MATERIAL = 125, MATERIAL_GLASS = 375)
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT | SLOT_EARS
 	throwforce = 3
 	force = 3
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	var/obj/item/reagent_containers/syringe/syringe
 
 /obj/item/syringe_cartridge/update_icon()
-	underlays.Cut()
 	if(syringe)
-		underlays += image(syringe.icon, src, syringe.icon_state)
-		underlays += syringe.filling
+		icon_state = "syringe-cartridge-loaded"
+	else
+		icon_state = "syringe-cartridge"
 
-/obj/item/syringe_cartridge/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/reagent_containers/syringe))
-		syringe = I
+/obj/item/syringe_cartridge/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+		syringe = attacking_item
 		to_chat(user, "<span class='notice'>You carefully insert [syringe] into [src].</span>")
 		user.remove_from_mob(syringe)
 		syringe.forceMove(src)
@@ -51,9 +51,9 @@
 			var/mob/living/L = hit_atom
 			//unfortuately we don't know where the dart will actually hit, since that's done by the parent.
 			if(L.can_inject() && syringe.reagents)
-				var/datum/reagent/reagent_log = syringe.reagents.get_reagents()
+				var/singleton/reagent/reagent_log = syringe.reagents.get_reagents()
 				syringe.reagents.trans_to_mob(L, 15, CHEM_BLOOD)
-				admin_inject_log(thrower, L, src, reagent_log, reagent_log.get_temperature(), 15, violent=1)
+				admin_inject_log(thrower, L, src, reagent_log, syringe.reagents.get_temperature(), 15, violent=1)
 
 		syringe.break_syringe(iscarbon(hit_atom)? hit_atom : null)
 		syringe.update_icon()
@@ -67,12 +67,12 @@
 	icon = 'icons/obj/guns/syringegun.dmi'
 	icon_state = "syringegun"
 	item_state = "syringegun"
-	w_class = 3
-	force = 7
+	w_class = ITEMSIZE_NORMAL
+	force = 16
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	slot_flags = SLOT_BELT
 
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/click.ogg'
 	fire_sound_text = "a metallic thunk"
 	recoil = 0
 	release_force = 10
@@ -95,7 +95,7 @@
 	darts -= next
 	next = null
 
-/obj/item/gun/launcher/syringe/attack_self(mob/living/user as mob)
+/obj/item/gun/launcher/syringe/unique_action(mob/living/user)
 	if(next)
 		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", "<span class='warning'>You unlatch and carefully relax the bolt on [src], unloading the spring.</span>")
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
@@ -121,9 +121,9 @@
 	else
 		..()
 
-/obj/item/gun/launcher/syringe/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/syringe_cartridge))
-		var/obj/item/syringe_cartridge/C = A
+/obj/item/gun/launcher/syringe/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/syringe_cartridge))
+		var/obj/item/syringe_cartridge/C = attacking_item
 		if(darts.len >= max_darts)
 			to_chat(user, "<span class='warning'>[src] is full!</span>")
 			return

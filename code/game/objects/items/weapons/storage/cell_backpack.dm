@@ -1,7 +1,7 @@
 /obj/item/storage/backpack/cell
 	name = "power cell backpack"
 	desc = "A specially designed power cell rack backpack. Includes an interior holographic display that shows held cells' charge."
-	desc_fluff = "Designed by Nanotrasen Scientists in 2462, the power cell backpack, formally known as the 'NT-100 Zeus' or more informally, the 'ABT-DMN-TME'. Using sophisticated sensors first designed four centuries earlier, hooked up to screens designed three centuries earlier, it allows the user to hotswap batteries at a glance, without spending many eye-hours wasted counting charge and doing mental arithmetic."
+	desc_extended = "Designed by NanoTrasen Scientists in 2462, the power cell backpack, formally known as the 'NT-100 Zeus' or more informally, the 'ABT-DMN-TME'. Using sophisticated sensors first designed four centuries earlier, hooked up to screens designed three centuries earlier, it allows the user to hotswap batteries at a glance, without spending many eye-hours wasted counting charge and doing mental arithmetic."
 	icon = 'icons/obj/cell_backpack.dmi'
 	icon_state = "cell_rack"
 	item_state = "cell_rack"
@@ -45,7 +45,7 @@
 			if(-INFINITY to 1)
 				maptext_color = COLOR_RED
 		C.maptext = "<font color='[maptext_color]'>[current_charge]%</font>"
-		C.layer = SCREEN_LAYER + 0.01
+		C.hud_layerise()
 		cx++
 		if (cx > (4+cols))
 			cx = 4

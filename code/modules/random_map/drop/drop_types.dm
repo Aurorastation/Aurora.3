@@ -3,7 +3,7 @@ var/global/list/datum/supply_drop_loot/supply_drop
 /proc/supply_drop_random_loot_types()
 	if(!supply_drop)
 		supply_drop = init_subtypes(/datum/supply_drop_loot)
-		sortTim(supply_drop, /proc/cmp_supply_drop, FALSE)
+		sortTim(supply_drop, GLOBAL_PROC_REF(cmp_supply_drop), FALSE)
 	return supply_drop
 
 /datum/supply_drop_loot
@@ -48,20 +48,8 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/gun/projectile/automatic/wt550,
 		/obj/item/gun/projectile/automatic/rifle/z8)
 
-/datum/supply_drop_loot/ballistics
-	name = "Ballistics"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/ballistics/New()
-	..()
-	contents = list(
-		/obj/item/gun/projectile/sec,
-		/obj/item/gun/projectile/shotgun/doublebarrel,
-		/obj/item/gun/projectile/shotgun/pump/combat,
-		/obj/item/gun/projectile/automatic/wt550,
-		/obj/item/gun/projectile/automatic/rifle/z8)
-
 /datum/supply_drop_loot/seeds
-	name = "Seeds"
+	name = SEED_NOUN_SEEDS
 	container = /obj/structure/closet/crate
 /datum/supply_drop_loot/seeds/New()
 	..()
@@ -92,32 +80,32 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/reagent_containers/food/condiment/flour,
 		/obj/item/reagent_containers/food/condiment/flour,
 		/obj/item/reagent_containers/food/condiment/flour,
-		/obj/item/reagent_containers/food/drinks/milk,
-		/obj/item/reagent_containers/food/drinks/milk,
-		/obj/item/storage/fancy/egg_box,
+		/obj/item/reagent_containers/food/drinks/carton/milk,
+		/obj/item/reagent_containers/food/drinks/carton/milk,
+		/obj/item/storage/box/fancy/egg_box,
 		/obj/item/reagent_containers/food/snacks/tofu,
 		/obj/item/reagent_containers/food/snacks/tofu,
 		/obj/item/reagent_containers/food/snacks/meat,
 		/obj/item/reagent_containers/food/snacks/meat)
 
-/datum/supply_drop_loot/armour
-	name = "Armour"
+/datum/supply_drop_loot/armor
+	name = "Armor"
 	container = /obj/structure/largecrate
-/datum/supply_drop_loot/armour/New()
+/datum/supply_drop_loot/armor/New()
 	..()
 	contents = list(
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/head/helmet/riot,
-		/obj/item/clothing/suit/armor/riot,
+		/obj/item/clothing/suit/armor/carrier/riot,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/armor/vest,
 		/obj/item/clothing/suit/storage/vest,
 		/obj/item/clothing/suit/storage/vest,
-		/obj/item/clothing/suit/armor/laserproof,
-		/obj/item/clothing/suit/armor/bulletproof)
+		/obj/item/clothing/suit/armor/carrier/ablative,
+		/obj/item/clothing/suit/armor/carrier/ballistic)
 
 /datum/supply_drop_loot/materials
 	name = "Materials"
@@ -142,12 +130,14 @@ var/global/list/datum/supply_drop_loot/supply_drop
 	..()
 	contents = list(
 		/obj/item/storage/firstaid/regular,
+		/obj/item/storage/firstaid/trauma,
 		/obj/item/storage/firstaid/fire,
 		/obj/item/storage/firstaid/toxin,
 		/obj/item/storage/firstaid/o2,
+		/obj/item/storage/firstaid/radiation,
 		/obj/item/storage/firstaid/adv,
 		/obj/item/reagent_containers/glass/bottle/antitoxin,
-		/obj/item/reagent_containers/glass/bottle/norepinephrine,
+		/obj/item/reagent_containers/glass/bottle/inaprovaline,
 		/obj/item/reagent_containers/glass/bottle/stoxin,
 		/obj/item/storage/box/syringes,
 		/obj/item/storage/box/autoinjectors)
@@ -168,6 +158,9 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/item/stack/material/glass/reinforced,
 		/obj/item/stack/material/plasteel)
 
+/datum/supply_drop_loot/power/contents()
+	return list(pick(contents))
+
 /datum/supply_drop_loot/hydroponics
 	name = "Hydroponics"
 	container = /obj/structure/largecrate
@@ -177,16 +170,3 @@ var/global/list/datum/supply_drop_loot/supply_drop
 		/obj/machinery/portable_atmospherics/hydroponics,
 		/obj/machinery/portable_atmospherics/hydroponics,
 		/obj/machinery/portable_atmospherics/hydroponics)
-
-/datum/supply_drop_loot/power
-	name = "Power"
-	container = /obj/structure/largecrate
-/datum/supply_drop_loot/power/New()
-	..()
-	contents = list(
-		/obj/machinery/power/port_gen/pacman,
-		/obj/machinery/power/port_gen/pacman/super,
-		/obj/machinery/power/port_gen/pacman/mrs)
-
-/datum/supply_drop_loot/power/contents()
-	return list(pick(contents))

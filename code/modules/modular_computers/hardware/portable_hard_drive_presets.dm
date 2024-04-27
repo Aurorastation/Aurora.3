@@ -2,9 +2,13 @@
 	. = ..()
 	add_programs()
 
+/obj/item/computer_hardware/hard_drive/portable/super/preset/all/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/computer_hardware/hard_drive/portable/super/preset/all/proc/add_programs()
 	for(var/F in typesof(/datum/computer_file/program))
-		var/datum/computer_file/program/prog = new F
+		var/datum/computer_file/program/prog = new F("Compless")
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue
@@ -25,15 +29,16 @@
 	if(_program == null)
 		qdel(src) //Delete itself if no program is set
 		return
-	var/datum/computer_file/program/PRG = ntnet_global.find_ntnet_file_by_name(_program)
-	if(!PRG)
+	var/datum/computer_file/program/program = GLOB.ntnet_global.find_ntnet_file_by_name(_program)
+	if(!program)
 		qdel(src) //Delete itself it no matching program is found
 		return
-	max_capacity = PRG.size // Set the capacity of the backup disk to the capacity of the program
-	store_file(PRG)
+	var/datum/computer_file/program/program_cloned = program.clone(FALSE, "Compless")
+	max_capacity = program_cloned.size // Set the capacity of the backup disk to the capacity of the program
+	store_file(program_cloned)
 	read_only = TRUE
-	desc = "A read-only backup storage crystal containing a backup of the following software: [PRG.filedesc]"
-	name = "[PRG.filedesc] backup crystal"
+	desc = "A read-only backup storage crystal containing a backup of the following software: [program_cloned.filedesc]"
+	name = "[program_cloned.filedesc] backup crystal"
 
 /obj/structure/closet/crate/software_backup
 	desc = "A crate containing a backup of all the NT Software available."
@@ -42,7 +47,7 @@
 /obj/structure/closet/crate/software_backup/Initialize()
 	. = ..()
 	for(var/F in subtypesof(/datum/computer_file/program))
-		var/datum/computer_file/program/prog = new F
+		var/datum/computer_file/program/prog = new F("Compless")
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
 		if(!prog || !istype(prog) || prog.filename == "UnknownProgram" || prog.filetype != "PRG")
 			continue

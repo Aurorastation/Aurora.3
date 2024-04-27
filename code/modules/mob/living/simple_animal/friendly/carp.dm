@@ -15,12 +15,15 @@
 	emote_see = list("floats steadily", "inflates its gills")
 	speak_chance = 1
 	turns_per_move = 5
-	see_in_dark = 6
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("head", "chest", "tail", "left flipper", "right flipper")
 	response_help = "brushes"
 	response_disarm = "attempts to push"
 	response_harm = "injures"
+	blood_overlay_icon = 'icons/mob/npc/blood_overlay_carp.dmi'
 	gender = NEUTER
+	faction = "carp"
+	flying = TRUE
 
 	//Space carp aren't affected by atmos.
 	min_oxy = 0
@@ -41,14 +44,22 @@
 	stomach_size_mult = 3 //They're just baby
 
 	density = TRUE
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	canbrush = TRUE
 	brush = /obj/item/reagent_containers/glass/rag
 
 	possession_candidate = TRUE
 
+/mob/living/simple_animal/carp/update_icon()
+	..()
+	if(resting || stat == DEAD)
+		blood_overlay_icon = 'icons/mob/npc/blood_overlay.dmi'
+	else
+		blood_overlay_icon = initial(blood_overlay_icon)
+	handle_blood(TRUE)
+
 /mob/living/simple_animal/carp/fall_impact()
-	src.visible_message(span("notice","\The [src] gently floats to a stop."))
+	src.visible_message(SPAN_NOTICE("\The [src] gently floats to a stop."))
 	return FALSE
 
 //Basic friend AI
@@ -58,17 +69,17 @@
 
 /mob/living/simple_animal/carp/fluff/think()
 	..()
-	if(!stat && !buckled && (turns_since_move > 5))
-		walk_to(src,0)
+	if(!stat && !buckled_to && (turns_since_move > 5))
+		SSmove_manager.stop_looping(src)
 		turns_since_move = 0
 		handle_movement_target()
 	if(!movement_target && (turns_since_move > 5))
-		walk_to(src,0)
+		SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/carp/fluff/proc/handle_movement_target()
 	if(!QDELETED(friend))
 		var/follow_dist = 5
-		if(friend.stat >= DEAD || friend.health <= config.health_threshold_softcrit) //danger
+		if(friend.stat >= DEAD || friend.health <= GLOB.config.health_threshold_softcrit) //danger
 			follow_dist = 1
 		else if(friend.stat || friend.health <= 50) //danger or just sleeping
 			follow_dist = 2
@@ -78,17 +89,17 @@
 		if(movement_target != friend)
 			if(current_dist > follow_dist && (friend in oview(src)))
 				//stop existing movement
-				walk_to(src,0)
+				SSmove_manager.stop_looping(src)
 				turns_since_scan = 0
 
 				//walk to friend
 				stop_automated_movement = 1
 				movement_target = friend
-				walk_to(src, movement_target, near_dist, DS2TICKS(seek_move_delay))
+				SSmove_manager.move_to(src, movement_target, near_dist, seek_move_delay)
 
 		//already following and close enough, stop
 		else if(current_dist <= near_dist)
-			walk_to(src,0)
+			SSmove_manager.stop_looping(src)
 			movement_target = null
 			stop_automated_movement = 0
 			if(prob(10))

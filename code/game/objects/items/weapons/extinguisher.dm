@@ -5,80 +5,81 @@
 	icon_state = "metal_canister"
 	item_state = "metal_canister"
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = CONDUCT | OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 8
-	w_class = 4.0 // Don't want to give people free bluespace beakers.
+	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2
 	throw_range = 10
-	force = 8
+	force = 18
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
-	amount_per_transfer_from_this = 300
+	amount_per_transfer_from_this = 150
 	possible_transfer_amounts = null
-	volume = 300
+	volume = 150
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
-/obj/item/reagent_containers/extinguisher_refill/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		if(is_open_container())
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
+		else
+			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+		to_chat(user, SPAN_NOTICE("Using \the [attacking_item], you [is_open_container() ? "unsecure" : "secure"] the cartridge's lid!"))
+		return TRUE
 
-	if(istype(O,/obj/item/extinguisher))
-		var/obj/item/extinguisher/E = O
-		if(src.is_open_container())
+	if(istype(attacking_item, /obj/item/extinguisher))
+		var/obj/item/extinguisher/E = attacking_item
+		if(is_open_container())
 			to_chat(user,"<span class='notice'>\The [src] needs to be secured first!</span>")
-		else if(src.reagents.total_volume <= 0)
+		else if(reagents.total_volume <= 0)
 			to_chat(user,"<span class='notice'>\The [src] is empty!</span>")
 		else if(E.reagents.total_volume < E.reagents.maximum_volume)
-			src.reagents.trans_to(E, src.reagents.total_volume)
+			reagents.trans_to(E, src.reagents.total_volume)
 			user.visible_message("<span class='notice'>[user] fills \the [E] with the [src].</span>", "<span class='notice'>You fill \the [E] with the [src].</span>")
 			playsound(E.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>\The [E] is full!</span>")
-		return
+		return TRUE
 
 	. = ..()
 
 /obj/item/reagent_containers/extinguisher_refill/attack_self(mob/user as mob) //Copied from inhalers.
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
+		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
 	else
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
 
-/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the extinguisher refill cartridge's lid.</span>") // it locks shut after being secured
-		flags |= OPENCONTAINER
-		return
+/obj/item/reagent_containers/extinguisher_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-
-/obj/item/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
-	if(!..(user, 2))
+	if(!distance <= 2)
 		return
 
 	if(is_open_container())
-		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+		if(LAZYLEN(reagents?.reagent_volumes))
+			. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.")
 		else
-			to_chat(user,"<span class='notice'>It is empty.</span>")
+			. += SPAN_NOTICE("It is empty.")
 	else
-		if(reagents && reagents.reagent_list.len)
-			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
+		if(LAZYLEN(reagents?.reagent_volumes))
+			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
 		else
-			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
+			. += SPAN_NOTICE("The cartridge seems spent.")
 
 /obj/item/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
 	desc = "A one time use extinguisher refiller that allows fire extinguishers to be refilled with an aerosol mix. This one contains monoammonium phosphate."
 
 /obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
-		. =..()
-		reagents.add_reagent("monoammoniumphosphate", volume)
-		flags &= ~OPENCONTAINER
-		return
+	. = ..()
+	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
+	atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/extinguisher
 	name = "fire extinguisher"
@@ -87,12 +88,12 @@
 	icon_state = "fire_extinguisher0"
 	item_state = "fire_extinguisher"
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 10
-	w_class = 3.0
+	w_class = ITEMSIZE_HUGE
 	throw_speed = 2
 	throw_range = 10
-	force = 10.0
+	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	drop_sound = 'sound/items/drop/gascan.ogg'
@@ -112,10 +113,10 @@
 	icon_state = "miniFE0"
 	item_state = "miniFE"
 	hitsound = null	//it is much lighter, after all.
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	throwforce = 2
-	w_class = 2.0
-	force = 2.0
+	w_class = ITEMSIZE_SMALL
+	force = 2
 	max_water = 60
 	spray_amount = 10
 	spray_particles = 1
@@ -124,14 +125,20 @@
 
 /obj/item/extinguisher/New()
 	create_reagents(max_water)
-	reagents.add_reagent("monoammoniumphosphate", max_water)
+	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
-/obj/item/extinguisher/examine(mob/user)
-	if(..(user, 0))
-		to_chat(user,"\The [src] contains [src.reagents.total_volume] units of reagents.")
-		to_chat(user,"The safety is [safety ? "on" : "off"].")
+/obj/item/extinguisher/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 0)
+		. += SPAN_NOTICE("\The [src] contains [src.reagents.total_volume] units of reagents.")
+		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
 	return
+
+/obj/item/extinguisher/attack(mob/living/M, mob/living/user, target_zone)
+	if(ismob(M) && user.a_intent != I_HURT)
+		return FALSE
+	return ..()
 
 /obj/item/extinguisher/attack_self(mob/user as mob)
 	safety = !safety
@@ -140,10 +147,10 @@
 	to_chat(user, "The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/extinguisher/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(O,/obj/item/reagent_containers/extinguisher_refill))
-		var/obj/item/reagent_containers/extinguisher_refill/ER = O
+	if(istype(attacking_item,/obj/item/reagent_containers/extinguisher_refill))
+		var/obj/item/reagent_containers/extinguisher_refill/ER = attacking_item
 		if(ER.is_open_container())
 			to_chat(user,"<span class='notice'>\The [ER] needs to be secured first!</span>")
 		else if(ER.reagents.total_volume <= 0)
@@ -154,16 +161,18 @@
 			playsound(ER.loc, 'sound/items/stimpack.ogg', 50, 1)
 		else
 			to_chat(user,"<span class='notice'>\The [src] is full!</span>")
-		return
+		return TRUE
 
 	. = ..()
 
 /obj/item/extinguisher/proc/propel_object(var/obj/O, mob/user, movementdirection)
 	if(O.anchored) return
 
-	var/obj/structure/bed/chair/C
-	if(istype(O, /obj/structure/bed/chair))
-		C = O
+	var/obj/structure/bed/stool/chair/C
+	if(!istype(O, /obj/structure/bed/stool/chair/office))
+		return
+
+	C = O
 
 	var/list/move_speed = list(1, 1, 1, 2, 2, 3)
 	for(var/i in 1 to 6)
@@ -177,24 +186,23 @@
 		sleep(3)
 
 /obj/item/extinguisher/afterattack(var/atom/target, var/mob/user, var/flag)
-
-	if (!safety)
-		if (src.reagents.total_volume < 1)
-			to_chat(usr, "<span class='notice'>\The [src] is empty.</span>")
+	if(!safety)
+		if(reagents.total_volume < 1)
+			to_chat(user, SPAN_WARNING("\The [src] is empty."))
 			return
 
-		if (world.time < src.last_use + 20)
+		if(world.time < last_use + 20)
 			return
 
-		src.last_use = world.time
+		last_use = world.time
 
 		playsound(src.loc, 'sound/effects/extinguish.ogg', 75, 1, -3)
 
 		var/direction = get_dir(src,target)
 
-		if(user.buckled && isobj(user.buckled))
+		if(user.buckled_to && isobj(user.buckled_to))
 			spawn(0)
-				propel_object(user.buckled, user, turn(direction,180))
+				propel_object(user.buckled_to, user, turn(direction,180))
 
 		var/turf/T = get_turf(target)
 		var/turf/T1 = get_step(T,turn(direction, 90))
@@ -204,14 +212,16 @@
 
 		for(var/a = 1 to spray_particles)
 			spawn(0)
-				if(!src || !reagents.total_volume) return
+				if(!src || !reagents.total_volume)
+					return
 
-				var/obj/effect/effect/water/W = new(get_turf(src))
 				var/turf/my_target
 				if(a <= the_targets.len)
 					my_target = the_targets[a]
 				else
 					my_target = pick(the_targets)
+
+				var/obj/effect/effect/water/W = new(get_turf(src))
 				W.create_reagents(spray_amount)
 				reagents.trans_to_obj(W, spray_amount)
 				W.set_color()

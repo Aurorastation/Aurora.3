@@ -1,18 +1,17 @@
-
 /obj/machinery/mech_recharger
 	name = "exosuit dock"
 	desc = "A exosuit recharger, built into the floor."
 	icon = 'icons/mecha/mech_bay.dmi'
 	icon_state = "recharge_floor"
 	density = FALSE
-	layer = TURF_LAYER + 0.1
+	layer = ABOVE_TILE_LAYER
 	anchored = TRUE
 	idle_power_usage = 300	// Some electronics, passive drain.
-	active_power_usage = 90 KILOWATTS // When charging
+	active_power_usage = 90 KILO WATTS // When charging
 
 	var/mob/living/heavy_vehicle/charging
-	var/base_charge_rate = 90 KILOWATTS
-	var/repair_power_usage = 15 KILOWATTS		// Per 1 HP of health.
+	var/base_charge_rate = 90 KILO WATTS
+	var/repair_power_usage = 15 KILO WATTS		// Per 1 HP of health.
 	var/repair = 0
 	var/charge
 
@@ -47,9 +46,9 @@
 		else if(ismanipulator(P))
 			repair += P.rating * 2
 
-/obj/machinery/mech_recharger/machinery_process()
+/obj/machinery/mech_recharger/process()
 	if(!charging)
-		update_use_power(1)
+		update_use_power(POWER_USE_IDLE)
 		return
 	if(charging.loc != loc)
 		stop_charging()
@@ -83,6 +82,13 @@
 	if(cell && remaining_energy > 0)
 		cell.give(remaining_energy * CELLRATE)
 
+/obj/machinery/mech_recharger/power_change()
+	..()
+	if(!(stat & NOPOWER) && !(stat & BROKEN) && !charging)
+		var/mob/living/heavy_vehicle/HV = locate() in get_turf(src)
+		if(HV)
+			start_charging(HV)
+
 // An ugly proc, but apparently mechs don't have maxhealth var of any kind.
 /obj/machinery/mech_recharger/proc/fully_repaired()
 	return charging && (charging.health == charging.maxHealth)
@@ -94,7 +100,7 @@
 		no_power = TRUE
 	if(!no_power && C)
 		charging = M
-		update_use_power(2)
+		update_use_power(POWER_USE_ACTIVE)
 	for(var/pilot in M.pilots)
 		if(no_power)
 			to_chat(pilot, SPAN_WARNING("Power port not responding. Terminating."))
@@ -103,5 +109,29 @@
 			to_chat(pilot, SPAN_NOTICE("Now charging..."))
 
 /obj/machinery/mech_recharger/proc/stop_charging()
-	update_use_power(1)
+	update_use_power(POWER_USE_IDLE)
 	charging = null
+
+
+/obj/machinery/mech_recharger/hephaestus
+	name = "hephaestus exosuit dock"
+	desc = "A massive vehicle dock elevated slightly above the ground, constructed for equally massive charging speeds."
+	icon_state = "supermechcharger"
+	idle_power_usage = 400
+	active_power_usage = 120 KILO WATTS
+
+	base_charge_rate = 120 KILO WATTS
+	repair = 1
+
+	component_types = list(
+		/obj/item/circuitboard/mech_recharger/hephaestus,
+		/obj/item/stock_parts/capacitor = 3,
+		/obj/item/stock_parts/scanning_module = 2,
+		/obj/item/stock_parts/manipulator = 3
+	)
+
+/obj/machinery/mech_recharger/automobile
+	name = "vehicle charging port"
+	desc = "A vehicle battery recharger, built into the ground."
+	icon = 'icons/obj/structure/urban/infrastructure.dmi'
+	icon_state = "chargeport"

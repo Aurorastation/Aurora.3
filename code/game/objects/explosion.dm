@@ -1,6 +1,6 @@
 // explosion logic is in code/controllers/Processes/explosives.dm now
 
-/proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, spreading = config.use_spreading_explosions)
+/proc/explosion(turf/epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range, adminlog = 1, z_transfer = UP|DOWN, spreading = GLOB.config.use_spreading_explosions)
 	UNLINT(src = null)	//so we don't abort once src is deleted
 	var/datum/explosiondata/data = new
 	data.epicenter = epicenter
@@ -17,13 +17,9 @@
 	SSexplosives.queue(data)
 
 	//Machines which report explosions.
-	for(var/i,i<=doppler_arrays.len,i++)
-		var/obj/machinery/doppler_array/Array = doppler_arrays[i]
-		if(Array)
-			var/x0 = epicenter.x
-			var/y0 = epicenter.y
-			var/z0 = epicenter.z
-			Array.sense_explosion(x0,y0,z0,devastation_range,heavy_impact_range,light_impact_range)
+	for(var/thing in doppler_arrays)
+		var/obj/machinery/doppler_array/Array = thing
+		Array.sense_explosion(epicenter.x,epicenter.y,epicenter.z,devastation_range,heavy_impact_range,light_impact_range)
 
 // == Recursive Explosions stuff ==
 

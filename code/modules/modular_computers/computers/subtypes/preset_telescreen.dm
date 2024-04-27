@@ -1,3 +1,7 @@
+/obj/item/modular_computer/telescreen/preset/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
 /obj/item/modular_computer/telescreen/preset/install_default_hardware()
 	..()
 	processor_unit = new/obj/item/computer_hardware/processor_unit(src)
@@ -7,8 +11,8 @@
 
 /obj/item/modular_computer/telescreen/preset/generic
 	_app_preset_type = /datum/modular_computer_app_presets/wall_generic
-	enrolled = 1
+	enrolled = DEVICE_COMPANY
 
 /obj/item/modular_computer/telescreen/preset/trashcompactor
 	_app_preset_type = /datum/modular_computer_app_presets/trashcompactor
-	enrolled = 1
+	enrolled = DEVICE_COMPANY

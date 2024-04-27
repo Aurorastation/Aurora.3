@@ -1,11 +1,9 @@
-//CCIAA's PDA.
-/obj/item/device/pda/central
-	default_cartridge = /obj/item/cartridge/captain
-	icon_state = "pda-h"
-	detonate = 0
-
 //CCIAA's tape recorder
 /obj/item/device/taperecorder/cciaa
+	name = "Human Resources Recorder"
+	desc = "A modified recorder used for interviews by human resources personnel around the galaxy."
+	desc_extended = "This recorder is a modified version of a standard universal recorder. It features additional audit-proof records keeping, access controls and is tied to a central management system."
+	desc_info = "This recorder records the fingerprints of the interviewee, to do so, interact with this recorder when asked."
 	w_class = ITEMSIZE_TINY
 	timestamp = list()	//This actually turns timestamp into a string later on
 
@@ -28,6 +26,7 @@
 	var/antag_involvement_text = null
 
 	var/datum/ccia_report/selected_report = null
+	var/interviewer_id = null
 	var/interviewee_id = null
 	var/interviewee_name = null
 	var/date_string = null
@@ -57,10 +56,10 @@
 
 	//If nothing has been done with the device yet
 	if(!selected_report && !interviewee_id)
-		if(config.sql_ccia_logs)
+		if(GLOB.config.sql_ccia_logs)
 			//Get the active cases from the database and display them
 			var/list/reports = list()
-			var/DBQuery/report_query = dbcon.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")
+			var/DBQuery/report_query = GLOB.dbcon.NewQuery("SELECT id, report_date, title, public_topic, internal_topic, game_id, status FROM ss13_ccia_reports WHERE status IN ('in progress', 'approved') AND deleted_at IS NULL")
 			report_query.Execute()
 			while(report_query.NextRow())
 				CHECK_TICK
@@ -85,9 +84,12 @@
 				to_chat(usr, "<span class='notice'>The device beeps and flashes \"No data entered, Aborting\".</span>")
 				return
 			selected_report = new(report_id, time2text(world.realtime, "YYYY_MM_DD"), report_name)
+		var/mob/living/carbon/human/H = usr
+		if(istype(H))
+			interviewer_id = H.character_id
 		return
 	//If we are ready to record, but no interviewee is selected
-	else if(!selected_report && !interviewee_id)
+	else if(selected_report && !interviewee_id)
 		to_chat(usr,"<span class='notice'>The device beeps and flashes \"Fingerprint of interviewee required\"</span>")
 		return
 	//If the report has been selected and the person scanned their frinterprint
@@ -147,23 +149,23 @@
 	P.forceMove(get_turf(src.loc))
 
 	//If we have sql ccia logs enabled, then persist it here
-	if(config.sql_ccia_logs && establish_db_connection(dbcon))
+	if(GLOB.config.sql_ccia_logs && establish_db_connection(GLOB.dbcon))
 		//This query is split up into multiple parts due to the length limitations of byond.
 		//To avoid this the text and the antag_involvement_text are saved separately
-		var/DBQuery/save_log = dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :antag_involvement:, :text:)")
+		var/DBQuery/save_log = GLOB.dbcon.NewQuery("INSERT INTO ss13_ccia_reports_transcripts (id, report_id, character_id, interviewer, antag_involvement, text) VALUES (NULL, :report_id:, :character_id:, :interviewer:, :antag_involvement:, :text:)")
 		save_log.Execute(list("report_id" = selected_report.id, "character_id" = interviewee_id, "interviewer" = usr.name, "antag_involvement" = antag_involvement, "text" = P.info))
 
 		//Run the query to get the inserted id
 		var/transcript_id = null
-		var/DBQuery/tid = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+		var/DBQuery/tid = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 		tid.Execute()
 		if (tid.NextRow())
 			transcript_id = text2num(tid.item[1])
 
 		if(tid)
-			var/DBQuery/add_text = dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET text = :text: WHERE id = :id:")
+			var/DBQuery/add_text = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET text = :text: WHERE id = :id:")
 			add_text.Execute(list("id" = transcript_id, "text" = P.info))
-			var/DBQuery/add_antag_involvement_text = dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET antag_involvement_text = :antag_involvement_text: WHERE id = :id:")
+			var/DBQuery/add_antag_involvement_text = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports_transcripts SET antag_involvement_text = :antag_involvement_text: WHERE id = :id:")
 			add_antag_involvement_text.Execute(list("id" = transcript_id, "antag_involvement_text" = antag_involvement_text))
 		else
 			message_cciaa("Transcript could not be saved correctly. TiD Missing")
@@ -171,7 +173,7 @@
 		//Check if we need to update the status to review required
 		if(antag_involvement && selected_report.status == "in progress")
 			to_chat(usr, "<span class='notice'>The device beeps and flashes \"Liaison Review Required. Interviewee claimed antag involvement.\".</span>")
-			var/DBQuery/update_db = dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
+			var/DBQuery/update_db = GLOB.dbcon.NewQuery("UPDATE ss13_ccia_reports SET status = 'review required' WHERE id = :id:")
 			update_db.Execute(list("id" = selected_report.id))
 
 	sLogFile = null
@@ -261,16 +263,18 @@
 		sLogFile << "Recorder paused at: [get_time()]"
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording paused\".</span>")
 		paused = TRUE
+		icon_state = "taperecorderpause"
 	else
 		sLogFile << "Recorder resumed at: [get_time()]"
 		sLogFile << "--------------------------------"
 		to_chat(usr, "<span class='notice'>The device beeps and flashes \"Recording resumed\".</span>")
 		paused = FALSE
+		icon_state = "taperecorderrecording"
 	return
 
 /obj/item/device/taperecorder/cciaa/attack_self(mob/user)
 	//If we are a ccia agent, then always go to the record function (to prompt for the report or start the recording)
-	if(check_rights(R_CCIAA,FALSE))
+	if(check_rights(R_CCIAA,FALSE) && !selected_report)
 		record()
 		return
 
@@ -285,6 +289,10 @@
 			to_chat(user,"<span class='notice'>The device beeps and flashes \"Fingerprint is not recognized\".</span>")
 			return
 
+		if(H.character_id == interviewer_id)
+			to_chat(user,"<span class='notice'>You need to pass the recorder to the interviewee to scan their fingerprint.</span>")
+			return
+
 		//Sync the intervieweee_id and interviewee_name
 		interviewee_id = H.character_id
 		interviewee_name = H.name
@@ -294,11 +302,12 @@
 			send_link(usr, selected_report.public_topic)
 
 		//Ask them if there was antag involvement
-		var/a = input(user, "Were your actions influenced by antagonists?", "Antagonist involvement") in list("yes","no")
+		var/a = input(user, "Were your actions influenced by antagonists or OOC issues/concerns ?", "Antagonist involvement / OOC Issue") in list("yes","no")
 		if(a == "yes")
 			antag_involvement = TRUE
-			antag_involvement_text = sanitizeSafe(input("Describe how your actions were influenced by the antagonists.", "Antag involvement") as message|null)
-			message_cciaa("CCIA Interview: [user] claimed their actions were influenced by antagonists.", R_CCIAA)
+			antag_involvement_text = sanitizeSafe(input("Describe how your actions were influenced by the antagonists or OOC issues/concerns.", "Antag involvement / OOC Issue") as message|null)
+			message_cciaa("CCIA Interview: [user] claimed their actions were influenced by antagonists or OOC issues.", R_CCIAA)
+			message_cciaa("CCIA Interview: [antag_involvement_text]")
 		else
 			antag_involvement = FALSE
 
@@ -332,20 +341,25 @@
 	name = "central command internal affairs radio headset"
 	ks2type = /obj/item/device/encryptionkey/ccia
 
+/obj/item/device/radio/headset/ert/ccia/alt
+	name = "central command internal affairs bowman headset"
+	icon_state = "com_headset_alt"
+	item_state = "headset_alt"
+
 /obj/item/device/encryptionkey/ccia
 	name = "\improper CCIA radio encryption key"
-	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Supply" = 0, "Service" = 0)
+	channels = list("Response Team" = 1, "Science" = 0, "Command" = 1, "Medical" = 0, "Engineering" = 0, "Security" = 0, "Operations" = 0, "Service" = 0)
 
 /obj/item/clothing/suit/storage/toggle/internalaffairs/cciaa
 	name = "central command internal affairs jacket"
 
 /obj/item/storage/lockbox/cciaa
-	req_access = list(access_cent_captain)
+	req_access = list(ACCESS_CENT_CCIA)
 	name = "CCIA agent briefcase"
-	desc = "A smart looking briefcase with a NT logo on the side"
+	desc = "A smart looking briefcase with an SCC logo on the side."
 	storage_slots = 8
 	max_storage_space = 16
 
-/obj/item/storage/lockbox/cciaa/fib
-	name = "FIB agent briefcase"
+/obj/item/storage/lockbox/cciaa/bssb
+	name = "BSSB agent briefcase"
 	desc = "A smart looking ID locked briefcase."

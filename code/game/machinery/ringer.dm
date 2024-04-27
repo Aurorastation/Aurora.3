@@ -1,30 +1,78 @@
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 24;
+
+#define PRESET_SOUTH \
+dir = SOUTH; \
+pixel_y = -24;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -8;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 8;
+
 /obj/machinery/ringer
 	name = "ringer terminal"
 	desc = "A ringer terminal, PDAs can be linked to it."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "bell"
 	anchored = TRUE
+	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	z_flags = ZMM_MANGLE_PLANES
 
 	req_access = list() //what access it needs to link your pda
 
 	var/id = null
-	var/list/obj/item/device/pda/rings_pdas = list() //A list of PDAs to alert upon someone touching the machine
+
+	///A list of PDAs to alert upon someone touching the machine
+	var/list/obj/item/modular_computer/rings_pdas = list()
+
 	var/listener/ringers
 	var/on = TRUE
-	var/department = "Somewhere" //whatever department/desk you put this thing
-	var/pinged = FALSE //for cooldown
+
+	///Whatever department/desk you put this thing
+	var/department = "Somewhere"
+
+	///If the pinging is in cooldown, boolean
+	var/pinged = FALSE
+
 	var/global/list/screen_overlays
 
-/obj/machinery/ringer/Initialize()
+/obj/machinery/ringer/north
+	PRESET_NORTH
+
+/obj/machinery/ringer/south
+	PRESET_SOUTH
+
+/obj/machinery/ringer/west
+	PRESET_WEST
+
+/obj/machinery/ringer/east
+	PRESET_EAST
+
+/obj/machinery/ringer/Initialize(mapload)
 	. = ..()
 	if(id)
 		ringers = new(id, src)
+
+	if(src.dir & NORTH)
+		alpha = 127
 	generate_overlays()
 	update_icon()
+
+	if(!mapload)
+		set_pixel_offsets()
 
 /obj/machinery/ringer/power_change()
 	..()
 	update_icon()
+
+/obj/machinery/ringer/set_pixel_offsets()
+	pixel_x = DIR2PIXEL_X(dir)
+	pixel_y = DIR2PIXEL_Y(dir)
 
 /obj/machinery/ringer/Destroy()
 	QDEL_NULL(ringers)
@@ -57,26 +105,26 @@
 		add_overlay(screen_overlays["bell-standby"])
 		set_light(1.4, 1, COLOR_CYAN)
 
-/obj/machinery/ringer/attackby(obj/item/C as obj, mob/living/user as mob)
+/obj/machinery/ringer/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
-		return
+		return TRUE
 
-	if (istype(C, /obj/item/device/pda))
-		if(!check_access(C))
+	if (istype(attacking_item, /obj/item/modular_computer))
+		if(!check_access(attacking_item))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
-			return
-		else if (C in rings_pdas)
-			to_chat(user, "<span class='notice'>You unlink \the [C] from \the [src].</span>")
-			remove_pda(C)
-			return
-		to_chat(user, "<span class='notice'>You link \the [C] to \the [src], it will now ring upon someone using \the [src].</span>")
-		rings_pdas += C
+			return TRUE
+		else if (attacking_item in rings_pdas)
+			to_chat(user, "<span class='notice'>You unlink \the [attacking_item] from \the [src].</span>")
+			remove_pda(attacking_item)
+			return TRUE
+		to_chat(user, "<span class='notice'>You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src].</span>")
+		rings_pdas += attacking_item
 		// WONT FIX: This requires callbacks fuck my dick.
-		destroyed_event.register(C, src, .proc/remove_pda)
+		GLOB.destroyed_event.register(attacking_item, src, PROC_REF(remove_pda))
 		update_icon()
-
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/ringer/attack_hand(mob/user as mob)
 	if(..())
@@ -107,27 +155,24 @@
 
 	playsound(src.loc, 'sound/machines/ringer.ogg', 50, 1)
 
-	for (var/obj/item/device/pda/pda in rings_pdas)
-		if (pda.toff || pda.message_silent)
-			continue
+	for (var/obj/item/modular_computer/P in rings_pdas)
+		var/message = "Attention required!"
+		P.get_notification(message, 1, "[capitalize(department)]")
 
-		var/message = "Notification from \the [department]!"
-		pda.new_info(pda.message_silent, pda.ttone, "\icon[pda] <b>[message]</b>")
-
-	addtimer(CALLBACK(src, .proc/unping), 45 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(unping)), 45 SECONDS)
 
 /obj/machinery/ringer/proc/unping()
 	pinged = FALSE
 	update_icon()
 
-/obj/machinery/ringer/proc/remove_pda(var/obj/item/device/pda/pda)
-	if (istype(pda))
-		rings_pdas -= pda
+/obj/machinery/ringer/proc/remove_pda(var/obj/item/modular_computer/P)
+	if (istype(P))
+		rings_pdas -= P
 
 /obj/machinery/ringer_button
 	name = "ringer button"
 	desc = "Use this to get someone's attention, or to annoy them."
-	icon = 'icons/obj/terminals.dmi'
+	icon = 'icons/obj/machinery/wall/terminals.dmi'
 	icon_state = "ringer"
 	anchored = TRUE
 	var/id = ""
@@ -152,11 +197,18 @@
 
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 
+	flick(src, "ringer_on")
+
 	if(use_power)
-		use_power(active_power_usage)
+		use_power_oneoff(active_power_usage)
 
 	for (var/thing in GET_LISTENERS(id))
 		var/listener/L = thing
 		var/obj/machinery/ringer/C = L.target
 		if (istype(C))
 			C.ring_pda()
+
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

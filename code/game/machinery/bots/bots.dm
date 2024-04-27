@@ -1,10 +1,10 @@
 // AI (i.e. game AI, not the AI player) controlled bots
 
 /obj/machinery/bot
-	icon = 'icons/obj/aibots.dmi'
+	icon = 'icons/mob/npc/aibots.dmi'
 	layer = MOB_LAYER
 	light_range = 3
-	use_power = 0
+	use_power = POWER_USE_OFF
 	var/obj/item/card/id/botcard			// the ID card that the bot "holds"
 	var/on = 1
 	var/health = 0 //do not forget to set health for your bot!
@@ -14,6 +14,14 @@
 	var/open = 0//Maint panel
 	var/locked = 1
 	//var/emagged = 0 //Urist: Moving that var to the general /bot tree as it's used by most bots
+
+/obj/machinery/bot/Initialize(mapload, d, populate_components, is_internal)
+	. = ..()
+	add_to_target_grid()
+
+/obj/machinery/bot/Destroy()
+	clear_from_target_grid()
+	return ..()
 
 /obj/machinery/bot/proc/turn_on()
 	if(stat)	return 0
@@ -45,21 +53,21 @@
 		log_and_message_admins("emagged [src]'s inner circuits")
 		return 1
 
-/obj/machinery/bot/examine(mob/user)
-	..(user)
+/obj/machinery/bot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (src.health < maxhealth)
 		if (src.health > maxhealth/3)
-			to_chat(user, "<span class='warning'>[src]'s parts look loose.</span>")
+			. += "<span class='warning'>[src]'s parts look loose.</span>"
 		else
-			to_chat(user, "<span class='danger'>[src]'s parts look very loose!</span>")
-	return
+			. += "<span class='danger'>[src]'s parts look very loose!</span>"
 
-/obj/machinery/bot/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/machinery/bot/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!locked)
 			open = !open
 			to_chat(user, "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>")
-	else if(W.iswelder())
+		return TRUE
+	else if(attacking_item.iswelder())
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
@@ -69,21 +77,23 @@
 				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
+		return TRUE
 	else
-		if(hasvar(W,"force") && hasvar(W,"damtype"))
-			switch(W.damtype)
+		if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
+			switch(attacking_item.damtype)
 				if("fire")
-					src.health -= W.force * fire_dam_coeff
+					src.health -= attacking_item.force * fire_dam_coeff
 				if("brute")
-					src.health -= W.force * brute_dam_coeff
+					src.health -= attacking_item.force * brute_dam_coeff
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-			..()
+			. = ..()
 			healthcheck()
+			return .
 		else
-			..()
+			return ..()
 
 /obj/machinery/bot/bullet_act(var/obj/item/projectile/Proj)
-	if(!(Proj.damage_type == BRUTE || Proj.damage_type == BURN))
+	if(!(Proj.damage_type == DAMAGE_BRUTE || Proj.damage_type == DAMAGE_BURN))
 		return
 	health -= Proj.damage
 	..()
@@ -108,6 +118,8 @@
 	return
 
 /obj/machinery/bot/emp_act(severity)
+	. = ..()
+
 	var/was_on = on
 	stat |= EMPED
 	var/obj/effect/overlay/pulse2 = new /obj/effect/overlay(src.loc)
@@ -115,13 +127,13 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(cardinal))
+	pulse2.set_dir(pick(GLOB.cardinal))
 
 	QDEL_IN(pulse2, 10)
 
 	if (on)
 		turn_off()
-	addtimer(CALLBACK(src, .proc/post_emp, was_on), severity * 300)
+	addtimer(CALLBACK(src, PROC_REF(post_emp), was_on), severity * 300)
 
 /obj/machinery/bot/proc/post_emp(was_on)
 	stat &= ~EMPED
@@ -129,6 +141,8 @@
 		turn_on()
 
 /obj/machinery/bot/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	src.attack_hand(user)
 
 /obj/machinery/bot/attack_hand(var/mob/living/carbon/human/user)
@@ -156,7 +170,7 @@
 
 	//	for(var/turf/simulated/t in oview(src,1))
 
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/T = get_step(src, d)
 		if(istype(T) && !T.density)
 			if(!LinkBlockedWithAccess(src, T, ID))
@@ -188,7 +202,7 @@
 		return 1
 
 	for(var/obj/O in B)
-		if(O.density && !istype(O, /obj/machinery/door) && !(O.flags & ON_BORDER))
+		if(O.density && !istype(O, /obj/machinery/door) && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 1
 
 	return 0

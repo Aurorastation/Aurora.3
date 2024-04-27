@@ -7,7 +7,7 @@ All commits whose authorship dates are not prior to `1420675200 +0000` are assum
 
 All assets including icons and sound are under a [Creative Commons 3.0 BY-SA](https://creativecommons.org/licenses/by-sa/3.0/) license unless otherwise indicated.
 
-# Github Standards
+# GitHub Standards
 
 ### Sub-licensing External Content
 **When does this section apply to me?** When you are integrating content that is **not** licensed under [AGPLv3](https://www.gnu.org/licenses/agpl-3.0.en.html) (code)
@@ -46,11 +46,13 @@ license permits the intended use of the content in the appropriate manner.
 All pull requests are subject to peer review prior to being merged. After said reviews, they are given a final once-over by a maintainer and
 then merged if good.
 
-A **feature** pull request will require *two* reviews, with one of them being a community developer's. There is also a minimum time out of
-*three days* before a feature pull request can be merged. This is to ensure that there is enough time to review and discuss new additions
-from the game.
+A **feature** pull request will require **two** reviews, with one of them being a community developer's.
+The other review can come from a "trusted reviewer" or a developer.
+Contributors who have shown that they are capable of properly reviewing pull requests can request the "trusted reviewer" role.
+There is also a minimum time-out of **three days** before a feature pull request can be merged.
+This is to ensure that there is enough time to review and discuss new additionsfrom the game.
 
-A **bug fix** pull request will require *two* reviews, if it is to be merged in the first 24 hours, or *one* following the first 24 hours.
+A **bug fix** pull request will require **two** reviews, if it is to be merged in the first 24 hours, or **one** following the first 24 hours.
 
 ### Prefer Atomic Pull-Requests
 Pull requests should do **one** thing.
@@ -168,7 +170,7 @@ For reference, here are the standard span classes for user output, and the corre
 * `<span class='warning'></span>` also corresponds to `\red` and is not bold.
 * `<span class='notice'></span>` corresponds to `\blue` and is not bold.
 
-There exist pre-processor macros for using these spans. `span(class, text)` which is the equivalent of typing a string that looks like this: `"<span class='[class]'>[text]</span>"` and macros such as `SPAN_WARNING(text)`, `SPAN_NOTICE(text)`, `SPAN_DANGER(text)`.
+There exist pre-processor macros for using these spans. `span(class, text)` which is the equivalent of typing a string that looks like this: `"<span class='[class]'>[text]</span>"` and macros such as `SPAN_WARNING(text)`, `SPAN_NOTICE(text)`, `SPAN_DANGER(text)`. Using the SPAN_X() macros is preferred.
 
 The stylesheet available for use within DM can be found in `code/stylesheet.dm`.
 
@@ -223,20 +225,15 @@ All tables for the database should be prefixed according to the following list:
 # HTML UI Standards
 
 ### UI conversion policy
-Due to our current situation with 5 different HTML UI systems we are now enforcing a policy that all new UIs should be made using the VueUi UI system. This policy also applies to editing existing UIs, with the following exceptions:
+Due to our current situation with 5 different HTML UI systems we are now enforcing a policy that all new UIs should be made using the TGUI system. This policy also applies to editing existing UIs, with the following exceptions:
 
  1. Modification is security / severe bug fix.
  0. It is typo fix.
  0. Touched UI file is too large.
- 0. VueUi can't accommodate that type of UI.
+ 0. TGUI can't accommodate that type of UI.
 
-### Responsiveness
-All new UIs must be responsive, that means that when parameters change in game world, UI data must update as quickly as possible to reflect that change. If change is time dependant, then client side time approximation should be used.
-
-### Conditional usage policy
-If you need to use conditional rendering inside UI, then try to put conditional statements on elements you want to hide, then try using `<template>` to apply condition to multiple components.
-
-For conditional rendering try to prefer to use `v-show` attribute when change is expected to be often occurring. Use `v-if` when you need `v-else` and switch is expected expected not often.
-
-### Reusability
-If there is segment of UI that is used multiple times with different content, then we strongly encourage making of new component. If that component is general or may be reused globally, then it should be made in to global component (placed in `vui` folder), else it should be made in to UI specific component that must be placed in folder inside `view` folder.
+### Globals
+All globals must use the defines found in `__defines/_globals.dm`. This is to store globals inside the Global Controller, allowing us to view and edit them at runtime. Here are a few examples.
+`GLOBAL_VAR(thing)` will create a global variable `var/thing` accessed with `GLOB.thing`.
+`GLOBAL_LIST_INIT(list_of_stuff, list("stuff", "thing"))` will create a global list `var/list/list_of_stuff = list("stuff, thing")` accessed with `GLOB.list_of_stuff`.
+`GLOBAL_DATUM_INIT(cake, /datum/cake, new)` will create a global `/datum/cake/cake` and `new` it, accessed with `GLOB.cake`.

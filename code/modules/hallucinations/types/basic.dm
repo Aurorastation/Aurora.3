@@ -5,19 +5,19 @@
 
 /datum/hallucination/announcement/start()
 	var/list/hal_sender = SShallucinations.message_sender
-	for(var/mob/living/carbon/human/H in living_mob_list)
-		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//We're not going to add ninjas, mercs, borers, etc to prevent meta.
+	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
+		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE) && isStationLevel(H.z))	//We're not going to add ninjas, mercs, borers, etc to prevent meta. No people off-station, either
 			hal_sender += H
 	switch(rand(1,15))
 		if(1)
-			sound_to(holder, 'sound/AI/radiation.ogg')
+			sound_to(holder, 'sound/AI/radiation_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Anomaly Break</h2>")
 			to_chat(holder, SPAN_ALERT("Comfortable levels of radiation detected near the station. [pick(SShallucinations.hallucinated_phrases)] Please cower among the shielded maintenance burrows."))	//hallucinated phrases contains the punctuation
 
 		if(2)
 			sound_to(holder, 'sound/AI/strangeobject.ogg')
 			to_chat(holder, "<h2 class='alert'>Welcome Object</h2>")
-			to_chat(holder, SPAN_ALERT("Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard NSS Upsilon. [pick(SShallucinations.hallucinated_phrases)]"))
+			to_chat(holder, SPAN_ALERT("Transport signature of [pick(adjectives)] origin detected in your path, an object appears to have been nesting aboard the Intrepid. [pick(SShallucinations.hallucinated_phrases)]"))
 
 		if(3)
 			sound_to(holder, 'sound/AI/scrubbers.ogg')
@@ -25,9 +25,9 @@
 			to_chat(holder, SPAN_ALERT("The scrubbers network is expecting \an [pick(adjectives)] surge. Some ejection of [pick(adjectives)] contents will occur."))
 
 		if(4)
-			sound_to(holder, 'sound/AI/emergencyshuttlecalled.ogg')
+			sound_to(holder, 'sound/AI/emergency_shuttle_leaving_dock.ogg')
 			to_chat(holder, "<h2 class='alert'>Emergency Departure</h2>")
-			to_chat(holder, SPAN_ALERT("The emergency evacuation shuttle has arrived. It will depart in approximately two minutes. Please do not allow [holder] to board."))
+			to_chat(holder, SPAN_ALERT("An emergency evacuation shuttle has arrived in the hangar to extract the crew of [SSatlas.current_map.station_name]. It will depart in approximately two minutes. Please do not allow [holder] to board."))
 
 		if(5)
 			sound_to(holder, 'sound/AI/vermin.ogg')
@@ -35,35 +35,35 @@
 			to_chat(holder, SPAN_ALERT("We indicate that [pick("rats", "lizards", "hivebots", "children")] have nested nearby. Free them before this starts to affect longetivity."))
 
 		if(6)
-			sound_to(holder, 'sound/AI/outbreak7.ogg')
+			sound_to(holder, 'sound/AI/level_7_biohazard.ogg')
 			to_chat(holder, "<h2 class='alert'>What have you done?</h2>")
 			to_chat(holder, SPAN_ALERT("Confirmed outbreak of help level 17 viral biohazard aboard [holder]. Help me. All personnel must destroy the outbreak. What have you helpME done?"))
 			to_chat(holder, SPAN_ALERT("-[pick(hal_sender)]"))
 		if(7)
-			sound_to(holder, 'sound/AI/meteors.ogg')
+			sound_to(holder, 'sound/AI/meteors_detected_message.ogg')
 			to_chat(holder, "<h2 class='alert'>Meteor Alarm</h2>")
-			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with your station. Less than three minutes until impact, shields cannot help you; seek shelter in the upper level."))
+			to_chat(holder, SPAN_ALERT("A [pick(adjectives)] meteor storm has been authorized for a destruction course with your station. Less than three minutes until impact, shields cannot help you; seek shelter in the central ring."))
 
 		if(8)
-			sound_to(holder, pick('sound/AI/fungi.ogg', 'sound/AI/funguy.ogg', 'sound/AI/fun_guy.ogg', 'sound/AI/fun_gi.ogg'))
+			sound_to(holder,'sound/AI/fungi.ogg')
 			to_chat(holder, "<h2 class='alert'>Biohealth Notice</h2>")
 			to_chat(holder, SPAN_ALERT("Healthy fungi detected on station. Your bodies may be contaminated. This is mandatory, [holder]."))
 
 		if(9)
 			sound_to(holder, 'sound/effects/nuclearsiren.ogg')
-			to_chat(holder, "<font color='#008000'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</font>")
-			addtimer(CALLBACK(src, .proc/delam_call), 20)
-			addtimer(CALLBACK(src, .proc/delam_call), 35)
+			to_chat(holder, "<span class='radio'><b>Supermatter Monitor</b> states, \"WARNING: SUPERMATTER CRYSTAL DELAMINATION IMMINENT.\"</span>")
+			addtimer(CALLBACK(src, PROC_REF(delam_call)), 20)
+			addtimer(CALLBACK(src, PROC_REF(delam_call)), 35)
 
 		if(10 to 15)    //Announcements that would be made by a player instead of random event
 			var/list/body = list(
-                        "Please avoid [pick("medical", "security", "the bar", "engineering", "cargo")] at this time due to [pick("a k'ois outbreak.", "a hostage situation.", "hostile boarders.", "[holder].")]",
+						"Please avoid [pick("medical", "security", "the bar", "engineering", "operations", "the hangar")] at this time due to [pick("a k'ois outbreak.", "a hostage situation.", "hostile boarders.", "[holder].")]",
 						"Due to various complaints about [holder], we have conducted an investigation and due to the findings, we will [pick("arrest them. Please turn yourself in, [holder]", "terminate their employment with us.", "inform their family of their shortcomings.", "cyborgify them immediately.")]. Thank you.",
 						"[pick("Boarders have", "The AI has", "Intruders have")] demanded we sacrifice a crewmember to them. After [pick("much", "little", "quick")] deliberation, we have chosen [holder]. Please turn yourself over, or [pick("we", "your family", "all of us", "those you love")] will die.",
-						"Central Command has chosen [holder] as the NanoTrasen employee of the month! Everyone please congratulate them.",
+						"Central Command has chosen [holder] as the SCC employee of the month! Everyone please congratulate them.",
 						"Everything is fine.",
 						"The tesla may or may not be loose.",
-						"This is your directive 11. [pick("Spiders have killed several crew.", "Boarders have taken a hostage.", "[holder] is armed and dangerous. Avoid them at all costs.", "Two black-suited individuals have taken items from the vault and armory.")]",
+						"This is your directive 11. [pick("Greimorians have killed several crew.", "Boarders have taken a hostage.", "[holder] is armed and dangerous. Avoid them at all costs.", "Two black-suited individuals have taken items from the armory.")]",
 						"Please stop [pick("drawing in blood. It's unsanitary.", "killing your fellow crew. It's rude.", "[holder] at all costs.", "falling down holes.")]",
 						"[holder] disappoints us all once again.")
 			sound_to(holder, 'sound/misc/announcements/notice.ogg')
@@ -74,14 +74,16 @@
 //for REALLY selling that fake delamination
 /datum/hallucination/announcement/proc/delam_call()
 	var/list/people = list()
-	for(var/mob/living/carbon/human/M in living_mob_list)
-		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE))	//Antag check prevents meta
+	for(var/mob/living/carbon/human/M in GLOB.living_mob_list)
+		if(!M.isMonkey() && !player_is_antag(M, only_offstation_roles = TRUE) && isStationLevel(M.z))	//Antag check prevents meta, isStationLevel prevents people offsite doing it
 			people += M
 	people -= holder
-	if(!people.len)
+	if(!length(people))
 		return
 	var/radio_exclaim = pick("Oh SHIT!", "Oh fuck.", "Uhhh!", "That's not good!", "FUCK.", "Engineering?", "It's under control!", "We're fucked!", "Ohhhh boy.", "What?!", "Um, <b>what?!</b>")
-	to_chat(holder, "<font color='#008000'><b>[pick(people)]</b> says, \"[radio_exclaim]\"</font>")
+	var/mob/living/carbon/human/caller = pick(people)
+
+	to_chat(holder, "[caller.get_accent_icon(null, holder)] <span class='radio'><b>[caller]</b> says, \"[radio_exclaim]\"</span>")
 
 
 /datum/hallucination/pda	//fake PDA messages. this only plays the beep and sends something to chat; it won't show up in the PDA.
@@ -91,14 +93,10 @@
 
 /datum/hallucination/pda/start()
 	var/list/sender = SShallucinations.message_sender
-	var/hall_job = "Unknown"
-	if(ishuman(holder))
-		var/mob/living/carbon/human/M = holder
-		hall_job = M.job
-	for(var/mob/living/carbon/human/H in living_mob_list)
+	for(var/mob/living/carbon/human/H in GLOB.living_mob_list)
 		if(H.client && !player_is_antag(H, only_offstation_roles = TRUE))	//adds current players to default list to provide variety. leaves out offstation antags.
 			sender += H
-	to_chat(holder, "<b>Message from [pick(sender)] to [holder.name] ([hall_job]),</b> \"[pick(SShallucinations.hallucinated_phrases)]\" (<FONT color = blue><u>reply</u></FONT>)")
+	to_chat(holder, FONT_SMALL("<i>[pick(sender)]</i>: [pick(SShallucinations.hallucinated_phrases)] (<FONT color = blue><u>reply</u></FONT>)"))
 	sound_to(holder, 'sound/machines/twobeep.ogg')
 
 //hallucinate someone else doing something.
@@ -111,7 +109,7 @@
 	for(var/mob/living/M in oview(C))
 		if(!M.stat)
 			hal_target += M
-	if(hal_target.len)
+	if(length(hal_target))
 		return TRUE
 
 /datum/hallucination/paranoia/start()
@@ -124,7 +122,7 @@
 	max_power = 60
 
 /datum/hallucination/skitter/start()
-	to_chat(holder, "The spiderling skitters around.")
+	to_chat(holder, "The greimorian larva skitters around.")
 
 
 /datum/hallucination/prick
@@ -139,7 +137,7 @@
 			return TRUE
 
 /datum/hallucination/prick/start()
-	to_chat(holder,SPAN_NOTICE("You feel a tiny prick!"))
+	to_chat(holder, SPAN_NOTICE("You feel a tiny prick!"))
 
 /datum/hallucination/prick/end()	//chance to feel another effect after duration time
 	switch(rand(1,6))
@@ -148,7 +146,9 @@
 		if(2)
 			holder.make_dizzy(105)
 		if(3)
-			to_chat(holder,SPAN_GOOD("You feel good."))
+			to_chat(holder, SPAN_GOOD("You feel good."))
+		else
+			. = null //This does nothing, it's to avoid a dreamchecker error
 	..()
 
 //the prick feeling but you actually imagine someone injecting you
@@ -169,7 +169,7 @@
 	to_chat(holder, SPAN_WARNING("\The [injector] is trying to inject \the [holder] with \the [needle]!"))
 
 /datum/hallucination/prick/by_person/end()
-	to_chat(holder,SPAN_NOTICE("\The [injector] injects \the [holder] with \the [needle]!"))
+	to_chat(holder, SPAN_NOTICE("\The [injector] injects \the [holder] with \the [needle]!"))
 	..()
 
 
@@ -181,11 +181,11 @@
 	if(ishuman(holder))
 		var/mob/living/carbon/human/H = holder
 		var/obj/O = pick(H.organs)
-		to_chat(holder,SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
+		to_chat(holder, SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of your [O.name]!"))
 	else
-		to_chat(holder,SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
+		to_chat(holder, SPAN_DANGER("You feel something [pick("moving","squirming","skittering", "writhing", "burrowing", "crawling")] inside of you!"))
 	if(prob(min(holder.hallucination/2, 80)))
-		sound_to(holder, pick('sound/misc/zapsplat/chitter1.ogg', 'sound/misc/zapsplat/chitter2.ogg', 'sound/effects/squelch1.ogg', 'sound/effects/lingextends.ogg'))
+		sound_to(holder, pick('sound/voice/chitter1.ogg', 'sound/voice/chitter2.ogg', 'sound/effects/squelch1.ogg', 'sound/effects/lingextends.ogg'))
 
 /datum/hallucination/insides/end()
 	if(prob(50))
@@ -208,7 +208,7 @@
 		holder.adjustHalLoss(min(holder.hallucination / 3, 25))	//always cause fake pain
 	switch(pain_type)
 		if(1)
-			to_chat(holder,SPAN_DANGER("You feel a sharp pain in your head!"))
+			to_chat(holder, SPAN_DANGER("You feel a sharp pain in your head!"))
 		if(2)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -217,7 +217,7 @@
 					to_chat(holder, SPAN_DANGER("You feel a throbbing pain in your [O.name]!"))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("You feel an excruciating pain in your [O.name]!"))
-					holder.emote("me",1,"winces.")
+					holder.emote("whimper")
 		if(3)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -226,7 +226,7 @@
 					to_chat(holder, SPAN_DANGER("The muscles in your body cramp up painfully."))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("There's pain all over your body!"))
-					holder.emote("me",1,"flinches as all the muscles in their body cramp up.")
+					holder.emote("twitch_v")
 		if(4)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -235,7 +235,7 @@
 					to_chat(holder, SPAN_DANGER("You want to scratch the itch on your [O.name] badly!"))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("You can't focus on anything but scratching the itch on your [O.name]!"))
-					holder.emote("me",1,"shivers slightly.")
+					holder.emote("shiver")
 		if(5)
 			switch(holder.hallucination)
 				if(1 to 15)
@@ -244,7 +244,7 @@
 					to_chat(holder, SPAN_DANGER("You feel a horrible burning sensation on your [O.name]!"))
 				if(HAL_POWER_MED to INFINITY)
 					to_chat(holder, SPAN_DANGER("It feels like your [O.name] is being burnt to the bone!"))
-					holder.emote("me",1,"flinches.")
+					holder.emote(pick("whimper", "twitch_v", "gasp"))
 
 //sort of like the vampire friend messages.
 /datum/hallucination/friendly
@@ -255,7 +255,7 @@
 	var/list/halpal = list()
 	for(var/mob/living/L in oview(holder))
 		halpal += L
-	if(halpal.len)
+	if(length(halpal))
 		var/pal = pick(halpal)
 		var/list/halpal_emotes = list("[pal] looks trustworthy.",
 			"You feel as if [pal] is a relatively friendly individual.",
@@ -266,7 +266,7 @@
 			"[pal] will keep you safe.",
 			"You feel captivated by [pal]'s charisma.",
 			"[pal] might as well be family to you.")
-		to_chat(holder, "<font color='green'><i>[pick(halpal_emotes)]</i></font>")
+		to_chat(holder, "<span class='good'><i>[pick(halpal_emotes)]</i></span>")
 
 /datum/hallucination/passive
 	duration = 600	//minute fallback
@@ -286,7 +286,7 @@
 	to_chat(holder, SPAN_DANGER("A sudden realization surges to the forefront of your mind. [message]"))
 	holder.disabilities |= PACIFIST
 	for(var/i = 1; i <= 2; i++)
-		addtimer(CALLBACK(src, .proc/calm_feeling), rand(80, 150)*i)
+		addtimer(CALLBACK(src, PROC_REF(calm_feeling)), rand(80, 150)*i)
 
 /datum/hallucination/passive/end()
 	if(holder.disabilities & PACIFIST)
@@ -349,7 +349,7 @@
 	for(var/mob/living/M in oview(C,1))
 		if(!M.stat)
 			attacker_candidates += M
-	if(attacker_candidates.len)
+	if(length(attacker_candidates))
 		return TRUE
 
 /datum/hallucination/fakeattack/start()
@@ -357,20 +357,20 @@
 	attacker_candidates -= attacker
 	if(prob(50))
 		to_chat(holder, SPAN_DANGER("[attacker] has hit [holder]!"))
-		sound_to(holder, pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
+		sound_to(holder, "punch")
 	else
 		to_chat(holder, SPAN_DANGER("[attacker] attempted to shove [holder]!"))
-		sound_to(holder, 'sound/weapons/thudswoosh.ogg')
+		sound_to(holder, 'sound/weapons/push.ogg')
 
 	//If we are hallucinating particularly hard and there's another person adjacent to us, we imagine they attack us, too.
-	if(holder.hallucination >= 70 && attacker_candidates.len)
+	if(holder.hallucination >= 70 && length(attacker_candidates))
 		attacker = pick(attacker_candidates)
 		if(prob(50))
 			to_chat(holder, SPAN_DANGER("[attacker] has hit [holder]!"))
-			sound_to(holder, pick('sound/weapons/punch1.ogg','sound/weapons/punch2.ogg','sound/weapons/punch3.ogg','sound/weapons/punch4.ogg'))
+			sound_to(holder, "punch")
 		else
 			to_chat(holder, SPAN_DANGER("[attacker] attempted to shove [holder]!"))
-			sound_to(holder, 'sound/weapons/thudswoosh.ogg')
+			sound_to(holder, 'sound/weapons/push.ogg')
 
 
 /////////////////////////////////////////////
@@ -410,11 +410,13 @@
 				if(ishuman(M))
 					candidates += M
 
-	if(!candidates.len)	//No candidates, no effect.
+	if(!length(candidates))	//No candidates, no effect.
 		end()
+		return
 
 	var/mob/living/talker = pick(candidates)	//Who is talking to us?
 	var/message		//What will they say?
+	var/forced_accent_tag = get_hallucinated_accent(talker) //Can't forget the accent
 
 	//Name selection. This gives us variety. Sometimes it will be your last name, sometimes your first.
 	var/list/names = list()
@@ -424,7 +426,7 @@
 		names += lastname
 	if(firstname)
 		names += firstname
-	if(!names.len)
+	if(!length(names))
 		names += holder.real_name
 
 	switch(rand(1,8))	//Deciding how we're going to manifest this hallucinated conversation.
@@ -440,19 +442,18 @@
 				phrases += list("What did you come here for[add]?","Don't touch me[add].","You're not getting out of here[add].", "You're a failure, [pick(names)].","Just kill yourself already, [pick(names)].","Put on some clothes[add].","You're a horrible person[add].","You know nobody wants you here, right[add]?")
 
 			message = pick(phrases)
-			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'>[talker.get_accent_icon(null, holder, forced_accent_tag)] <B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		else	//More varied messages using text list and different speech prefixes
-			
 			//message prep
-			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah", "")		//For variety, we have a different greeting. This one has a chance of picking a starter....
-			speak_prefix = "[speak_prefix][pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
+			var/speak_prefix = pick("Hey", "Uh", "Um", "Oh", "Ah")		//For variety, we have a different greeting. This one has a chance of picking a starter....
+			speak_prefix = "[speak_prefix], [pick(names)][pick(".","!","?")]"		//...then adds the name, and ends it randomly with ., !, or ? ("Hey, name?" "Oh, name!" "Ah, name." "Name!"") etc.
 
 			message = prob(70) ? "[speak_prefix] [pick(SShallucinations.hallucinated_phrases)]" : pick(SShallucinations.hallucinated_phrases) //Here's the message that uses the hallucinated_phrases text list. Won't always apply the speak_prefix; sometimes they say weird shit without addressing you.
-			to_chat(holder,"<span class='game say'><B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
+			to_chat(holder,"<span class='game say'>[talker.get_accent_icon(null, holder, forced_accent_tag)] <B>[talker]</B> [talker.say_quote(message)], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 
 	repeats -= 1
 	if(repeats)	//And we do it all over again, one or two more times.
-		addtimer(CALLBACK(src, .proc/start), rand(50, 100))
+		addtimer(CALLBACK(src, PROC_REF(start)), rand(50, 100))
 	else
 		end()
 
@@ -472,10 +473,11 @@
 	for(var/mob/living/M in oview(holder, 1))
 		if(!M.stat)
 			whisper_candidates += M
-	if(whisper_candidates.len)
-		var/whisperer = pick(whisper_candidates)
+	if(length(whisper_candidates))
+		var/mob/living/whisperer = pick(whisper_candidates)
+		var/whisper_accent_tag = get_hallucinated_accent(whisperer)
 		if(prob(70))
-			to_chat(holder, "<B>[whisperer]</B> whispers, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
+			to_chat(holder, "[whisperer.get_accent_icon(null, holder, whisper_accent_tag)] <B>[whisperer]</B> whispers, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 		else
 			to_chat(holder, "<B>[whisperer]</B> [pick("gently nudges", "pokes at", "taps", "looks at", "pats")] [holder], trying to get their attention.")
 
@@ -490,4 +492,4 @@
 	var/list/whisper_candidates = list("A familiar voice", "A distant voice", "A child's voice", "Something inside your head", "Your own voice", "A ghastly voice")
 	to_chat(holder, "<B>[pick(whisper_candidates)]</B> whispers directly into your mind, <I>\"[pick(SShallucinations.hallucinated_phrases)]\"</I>")
 	sound_to(holder, pick('sound/hallucinations/behind_you1.ogg', 'sound/hallucinations/behind_you2.ogg', 'sound/hallucinations/i_see_you1.ogg', 'sound/hallucinations/i_see_you2.ogg', 'sound/hallucinations/turn_around1.ogg', 'sound/hallucinations/turn_around2.ogg'))
-	holder.emote("me",1,"shivers.")
+	holder.emote("shiver")

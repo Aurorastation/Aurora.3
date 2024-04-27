@@ -3,10 +3,17 @@
 	category = "Hardsuit (Modules)"
 	time = 10
 
+/datum/design/hardsuitmodules/storage
+	name = "Storage Module"
+	desc = "A storage unit for storing a precious few items in a hardsuit."
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3)
+	materials = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 20000)
+	build_path = /obj/item/rig_module/storage
+
 /datum/design/hardsuitmodules/iss_module
 	name = "IIS Module"
 	desc = "An integrated intelligence system module suitable for most hardsuits."
-	req_tech = list(TECH_DATA = 4, TECH_MATERIAL = 3)
+	req_tech = list(TECH_DATA = 3, TECH_MATERIAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 5000, MATERIAL_GLASS = 7500)
 	build_path = /obj/item/rig_module/ai_container
 
@@ -16,13 +23,6 @@
 	req_tech = list(TECH_POWER = 4, TECH_MATERIAL = 3, TECH_ENGINEERING = 4, TECH_ILLEGAL = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 10000, MATERIAL_GOLD = 2000, MATERIAL_SILVER = 3000, MATERIAL_GLASS = 2000)
 	build_path = /obj/item/rig_module/power_sink
-
-/datum/design/hardsuitmodules/meson_module
-	name = "Hardsuit Meson Scanner"
-	desc = "A layered, translucent visor system for a hardsuit."
-	req_tech = list(TECH_MAGNET = 4, TECH_MATERIAL = 2, TECH_ENGINEERING = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 1500, MATERIAL_GLASS = 5000)
-	build_path = /obj/item/rig_module/vision/meson
 
 /datum/design/hardsuitmodules/sechud_module
 	name = "Hardsuit Security HUD"
@@ -91,7 +91,7 @@
 	name = "Leg Actuators"
 	desc = "A set of electromechanical actuators, for safe traversal of multilevelled areas."
 	req_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_POWER = 3)
-	materials = list(DEFAULT_WALL_MATERIAL = 85000, MATERIAL_GLASS = 1250, MATERIAL_SILVER = 5250, MATERIAL_GOLD = 2750)
+	materials = list(DEFAULT_WALL_MATERIAL = 85000, MATERIAL_GLASS = 1250)
 	build_path = /obj/item/rig_module/actuators
 
 /datum/design/hardsuitmodules/taser_module
@@ -114,3 +114,17 @@
 	req_tech = list(TECH_MATERIAL = 2, TECH_POWER = 3, TECH_ENGINEERING = 3)
 	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 5500)
 	build_path = /obj/item/rig_module/cooling_unit
+
+/datum/design/hardsuitmodules/foam_sprayer
+	name = "Mounted Foam Sprayer"
+	desc = "A shoulder-mounted metal foam sprayer."
+	req_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_POWER = 2)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 6000)
+	build_path = /obj/item/rig_module/foam_sprayer
+
+/datum/design/hardsuitmodules/recharge_module
+	name = "Mounted Weapon Recharger"
+	desc = "A hardsuit-integrated recharging system for energy weapons."
+	req_tech = list(TECH_MATERIAL = 3, TECH_POWER = 7, TECH_COMBAT = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 7000, MATERIAL_GLASS = 2250, MATERIAL_URANIUM = 3250, MATERIAL_GOLD = 2500)
+	build_path = /obj/item/rig_module/recharger

@@ -3,11 +3,11 @@
 	var/reload = 180
 	name = "bluespace artillery control"
 	icon_state = "control_boxp1"
-	icon = 'icons/obj/machines/particle_accelerator2.dmi'
+	icon = 'icons/obj/machinery/particle_accelerator2.dmi'
 	density = 1
 	anchored = 1
 
-/obj/machinery/computer/artillerycontrol/machinery_process()
+/obj/machinery/computer/artillerycontrol/process()
 	if(src.reload<180)
 		src.reload++
 
@@ -18,17 +18,17 @@
 	dat += "<B>Charge progress: [reload]/180:</B><BR>"
 	dat += "<A href='byond://?src=\ref[src];fireArea=1'>Open Fire - Area</A><BR>"
 	dat += "<A href='byond://?src=\ref[src];fireCords=1'>Open Fire - Coordinates</A><BR>"
-	dat += "Deployment of weapon authorized by <br>[current_map.company_name] Chief Naval Director<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
+	dat += "Deployment of weapon authorized by <br>[SSatlas.current_map.company_name] Chief Naval Director<br><br>Remember, friendly fire is grounds for termination of your contract and life.<HR>"
 	user << browse(dat, "window=scroll")
 	onclose(user, "scroll")
 	return
 
-/obj/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/topic_state/state = default_state)
+/obj/machinery/computer/artillerycontrol/Topic(href, href_list, var/datum/ui_state/state = GLOB.default_state)
 	if(..())
 		return 1
 
 	if(href_list["fireArea"])
-		var/area/A = input("Area to jump bombard", "Open Fire") in all_areas
+		var/area/A = input("Area to jump bombard", "Open Fire") in GLOB.all_areas
 		var/turf/loc = pick(get_area_turfs(A))
 		announce_and_fire(loc, usr)
 	else if(href_list["fireCords"])
@@ -48,14 +48,14 @@
 		if (src.reload < 180) return
 		if ((user.contents.Find(src) || (in_range(src, user) && istype(src.loc, /turf))) || (istype(user, /mob/living/silicon)))
 			command_announcement.Announce("Bluespace artillery fire detected. Brace for impact.")
-			to_world(sound('sound/effects/yamato_fire.ogg'))
+			sound_to(world, ('sound/effects/yamato_fire.ogg'))
 			message_admins("[key_name_admin(usr)] has launched an artillery strike.", 1)
 			explosion(t,2,5,11)
 			reload = 0
 
 /obj/structure/artilleryplaceholder
 	name = "artillery"
-	icon = 'icons/obj/machines/artillery.dmi'
+	icon = 'icons/obj/machinery/artillery.dmi'
 	anchored = 1
 	density = 1
 

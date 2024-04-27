@@ -3,9 +3,9 @@
 /obj/machinery/computer/aiupload
 	name = "\improper AI upload console"
 	desc = "Used to upload laws to the AI."
-	light_color = LIGHT_COLOR_GREEN
-
-	icon_screen = "command"
+	icon_screen = "aiupload"
+	icon_keyboard = "blue_key"
+	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/aiupload
 	var/mob/living/silicon/ai/current = null
 	var/opened = 0
@@ -26,15 +26,16 @@
 	return
 
 
-/obj/machinery/computer/aiupload/attackby(obj/item/O as obj, mob/user as mob)
+/obj/machinery/computer/aiupload/attackby(obj/item/attacking_item, mob/user)
 	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
-		return
-	if(istype(O, /obj/item/aiModule))
-		var/obj/item/aiModule/M = O
+		return TRUE
+	if(istype(attacking_item, /obj/item/aiModule))
+		var/obj/item/aiModule/M = attacking_item
 		M.install(src)
+		return TRUE
 	else
-		..()
+		return ..()
 
 
 /obj/machinery/computer/aiupload/attack_hand(var/mob/user as mob)
@@ -60,19 +61,21 @@
 /obj/machinery/computer/borgupload
 	name = "cyborg upload console"
 	desc = "Used to upload laws to Cyborgs."
-	light_color = LIGHT_COLOR_GREEN
-
-	icon_screen = "command"
+	icon_screen = "aiupload"
+	icon_keyboard = "blue_key"
+	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/borgupload
 	var/mob/living/silicon/robot/current = null
 
 
-/obj/machinery/computer/borgupload/attackby(obj/item/aiModule/module as obj, mob/user as mob)
+/obj/machinery/computer/borgupload/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/aiModule/module = attacking_item
 	if(isNotStationLevel(src.z))
 		to_chat(user, "<span class='danger'>Unable to establish a connection:</span>")
-		return
+		return TRUE
 	if(istype(module, /obj/item/aiModule))
 		module.install(src)
+		return TRUE
 	else
 		return ..()
 

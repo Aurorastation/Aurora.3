@@ -2,7 +2,7 @@
 
 var/list/preferences_datums = list()
 
-datum/preferences
+/datum/preferences
 	//doohickeys for savefiles
 	var/path
 	var/default_slot = 1				//Holder so it doesn't default to slot 1, rather the last one used
@@ -23,37 +23,53 @@ datum/preferences
 	var/list/be_special_role = list()		//Special role selection
 	var/UI_style = "Midnight"
 	var/toggles = TOGGLES_DEFAULT
-	var/asfx_togs = ASFX_DEFAULT
+	var/sfx_toggles = ASFX_DEFAULT
 	var/UI_style_color = "#ffffff"
 	var/UI_style_alpha = 255
-	var/html_UI_style = "Nano"
-	var/skin_theme = "Light"
+	var/tgui_fancy = TRUE
+	var/tgui_lock = FALSE
+	var/tgui_inputs = TRUE
+	var/tgui_buttons_large = FALSE
+	var/tgui_inputs_swapped = FALSE
 	//Style for popup tooltips
 	var/tooltip_style = "Midnight"
-	var/motd_hash = ""					//Hashes for the new server greeting window.
-	var/memo_hash = ""
 
 	//character preferences
 	var/real_name						//our character's name
 	var/can_edit_name = TRUE				//Whether or not a character's name can be edited. Used with SQL saving.
 	var/can_edit_ipc_tag = TRUE
 	var/gender = MALE					//gender of character (well duh)
+	var/pronouns = NEUTER				//what the character will appear as to others when examined
 	var/age = 30						//age of character
+	var/height						//character's height
 	var/spawnpoint = "Arrivals Shuttle" //where this character will spawn (0-2).
 	var/b_type = "A+"					//blood type (not-chooseable)
-	var/backbag = 2						//backpack type
-	var/backbag_style = 1
-	var/h_style = "Bald"				//Hair type
+	var/backbag = OUTFIT_BACKPACK		//backpack type (defines in outfit.dm)
+	var/backbag_style = OUTFIT_FACTIONSPECIFIC
+	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = OUTFIT_NORMAL
+	var/pda_choice = OUTFIT_TAB_PDA
+	var/headset_choice = OUTFIT_HEADSET
+	var/primary_radio_slot = "Left Ear"
+	///Suit sensors setting in the loadout.
+	var/sensor_setting
+	var/h_style = "Bedhead 2"				//Hair type
+	var/tail_style = null
 	var/hair_colour = "#000000"			//Hair colour hex value, for SQL loading
 	var/r_hair = 0						//Hair color
 	var/g_hair = 0						//Hair color
 	var/b_hair = 0						//Hair color
+	var/g_style = "None"				//Gradient style
+	var/grad_colour = "#000000"			//Gradient colour hex value, for SQL loading
+	var/r_grad = 0						//Gradient color
+	var/g_grad = 0						//Gradient color
+	var/b_grad = 0						//Gradient color
 	var/f_style = "Shaved"				//Face hair type
 	var/facial_colour = "#000000"		//Facial colour hex value, for SQL loading
 	var/r_facial = 0					//Face hair color
 	var/g_facial = 0					//Face hair color
 	var/b_facial = 0					//Face hair color
-	var/s_tone = 0						//Skin tone
+	var/s_tone = -90						//Skin tone
 	var/skin_colour = "#000000"			//Skin colour hex value, for SQL loading
 	var/r_skin = 37						//Skin color
 	var/g_skin = 3						//Skin color
@@ -62,13 +78,15 @@ datum/preferences
 	var/r_eyes = 0						//Eye color
 	var/g_eyes = 0						//Eye color
 	var/b_eyes = 0						//Eye color
-	var/species = "Human"               //Species datum to use.
+	var/species = SPECIES_HUMAN               //Species datum to use.
 	var/species_preview                 //Used for the species selection window.
 	var/list/alternate_languages = list() //Secondary language(s)
 	var/list/language_prefixes = list() // Language prefix keys
-	var/list/gear						// Custom/fluff item loadout.
-	var/list/gear_list = list()			//Custom/fluff item loadouts.
+	var/autohiss_setting = AUTOHISS_OFF
+	var/list/gear						// The gear in the currently selected loadout item preset
+	var/list/gear_list = list()			// The gear list holds all the different loadout item prests
 	var/gear_slot = 1					//The current gear save slot
+	var/gear_modified = FALSE
 
 	// IPC Stuff
 	var/machine_tag_status = TRUE
@@ -80,10 +98,20 @@ datum/preferences
 	var/citizenship = "None"            //Current home system.
 	var/faction = "None"                //Antag faction/general associated faction.
 	var/religion = "None"               //Religious association.
+	var/accent = "None"               //Character accent.
 
-		//Mob preview
-	var/icon/preview_icon = null
-	var/is_updating_icon = 0
+	var/culture
+	var/origin
+
+	var/list/psionics = list()
+
+	var/list/char_render_holders		//Should only be a key-value list of north/south/east/west = obj/screen.
+	var/static/list/preview_screen_locs = list(
+		"1" = list(1, 0, 5, -12),
+		"2" = list(1, 0, 3, 15),
+		"4" = list(1, 0, 2, 10),
+		"8" = list(1, 0, 1, 5)
+	)
 
 		//Jobs, uses bitflags
 	var/job_civilian_high = 0
@@ -98,15 +126,15 @@ datum/preferences
 	var/job_engsec_med = 0
 	var/job_engsec_low = 0
 
+	var/job_event_high = 0
+	var/job_event_med = 0
+	var/job_event_low = 0
+
 	// A text blob which temporarily houses data from the SQL.
 	var/unsanitized_jobs = ""
 
 	//Keeps track of preferrence for not getting any wanted jobs
 	var/alternate_option = RETURN_TO_LOBBY
-
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list() // skills can range from 0 to 3
 
 	// maps each organ to either null(intact), "cyborg" or "amputated"
 	// will probably not be able to do this for head and torso ;)
@@ -127,7 +155,7 @@ datum/preferences
 	var/list/ccia_actions = list()
 	var/list/disabilities = list()
 
-	var/nanotrasen_relation = "Neutral"
+	var/economic_status = ECONOMICALLY_AVERAGE
 
 	var/uplinklocation = "PDA"
 
@@ -135,9 +163,10 @@ datum/preferences
 	var/metadata = ""
 
 	// SPAAAACE
-	var/parallax_speed = 2
-	var/toggles_secondary = PARALLAX_SPACE | PARALLAX_DUST | PROGRESS_BARS | FLOATING_MESSAGES
-	var/clientfps = 0
+	var/toggles_secondary = PROGRESS_BARS | FLOATING_MESSAGES | HOTKEY_DEFAULT
+	var/clientfps = 100
+	var/floating_chat_color
+	var/speech_bubble_type = "default"
 
 	var/list/pai = list()	// A list for holding pAI related data.
 
@@ -151,9 +180,26 @@ datum/preferences
 	var/savefile/loaded_character
 	var/datum/category_collection/player_setup_collection/player_setup
 
-	var/dress_mob = TRUE
+	var/bgstate = "000000"
+	var/list/bgstate_options = list(
+		"FFFFFF",
+		"000000",
+		"tiled_preview",
+		"monotile_preview",
+		"dark_preview",
+		"wood",
+		"grass",
+		"reinforced",
+		"white_preview",
+		"freezer",
+		"carpet",
+		"reinforced"
+		)
 
+	var/fov_cone_alpha = 255
 
+	var/scale_x = 1
+	var/scale_y = 1
 
 /datum/preferences/New(client/C)
 	new_setup()
@@ -165,6 +211,10 @@ datum/preferences
 			load_preferences()
 			load_and_update_character()
 
+/datum/preferences/Destroy()
+	. = ..()
+	QDEL_LIST(char_render_holders)
+
 /datum/preferences/proc/load_and_update_character(var/slot)
 	load_character(slot)
 	if(update_setup(loaded_preferences, loaded_character))
@@ -172,64 +222,24 @@ datum/preferences
 		save_character()
 
 /datum/preferences/proc/getMinAge()
-	var/datum/species/mob_species = all_species[species]
+	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.age_min
 
 /datum/preferences/proc/getMaxAge()
-	var/datum/species/mob_species = all_species[species]
+	var/datum/species/mob_species = GLOB.all_species[species]
 	return mob_species.age_max
 
-/datum/preferences/proc/ZeroSkills(var/forced = 0)
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		if(!skills.Find(S.ID) || forced)
-			skills[S.ID] = SKILL_NONE
+/datum/preferences/proc/getMinHeight()
+	var/datum/species/mob_species = GLOB.all_species[species]
+	return mob_species.height_min
 
-/datum/preferences/proc/CalculateSkillPoints()
-	used_skillpoints = 0
-	for(var/V in SKILLS) for(var/datum/skill/S in SKILLS[V])
-		var/multiplier = 1
-		switch(skills[S.ID])
-			if(SKILL_NONE)
-				used_skillpoints += 0 * multiplier
-			if(SKILL_BASIC)
-				used_skillpoints += 1 * multiplier
-			if(SKILL_ADEPT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 1 * multiplier
-				else
-					used_skillpoints += 3 * multiplier
-			if(SKILL_EXPERT)
-				// secondary skills cost less
-				if(S.secondary)
-					used_skillpoints += 3 * multiplier
-				else
-					used_skillpoints += 6 * multiplier
+/datum/preferences/proc/getMaxHeight()
+	var/datum/species/mob_species = GLOB.all_species[species]
+	return mob_species.height_max
 
-/datum/preferences/proc/GetSkillClass(points)
-	return CalculateSkillClass(points, age)
-
-/proc/CalculateSkillClass(points, age)
-	if(points <= 0) return "Unconfigured"
-	// skill classes describe how your character compares in total points
-	points -= min(round((age - 20) / 2.5), 4) // every 2.5 years after 20, one extra skillpoint
-	if(age > 30)
-		points -= round((age - 30) / 5) // every 5 years after 30, one extra skillpoint
-	switch(points)
-		if(-1000 to 3)
-			return "Terrifying"
-		if(4 to 6)
-			return "Below Average"
-		if(7 to 10)
-			return "Average"
-		if(11 to 14)
-			return "Above Average"
-		if(15 to 18)
-			return "Exceptional"
-		if(19 to 24)
-			return "Genius"
-		if(24 to 1000)
-			return "God"
+/datum/preferences/proc/getAvgHeight()
+	var/datum/species/mob_species = GLOB.all_species[species]
+	return mob_species.species_height
 
 /datum/preferences/proc/ShowChoices(mob/user)
 	if(!user || !user.client)	return
@@ -239,31 +249,95 @@ datum/preferences
 		dat += "<a href='?src=\ref[src];load=1'>Load slot</a> - "
 		dat += "<a href='?src=\ref[src];save=1'>Save slot</a> - "
 		dat += "<a href='?src=\ref[src];reload=1'>Reload slot</a>"
-		if (config.sql_saves)
-			dat += " - <a href='?src=\ref[src];delete=1'>Delete slot</a>"
+		if (GLOB.config.sql_saves)
+			dat += " - <a href='?src=\ref[src];delete=1'>Permanently delete slot</a>"
 
 	else
 		dat += "Please create an account to save your preferences."
+
+	if(!char_render_holders)
+		update_preview_icon()
+	show_character_previews()
 
 	dat += "<br>"
 	dat += player_setup.header()
 	dat += "<br><HR></center>"
 	dat += player_setup.content(user)
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=preferences;size=1200x800")
+
+	winshow(user, "preferences_window", TRUE)
+	var/datum/browser/popup = new(user, "preferences_browser", "Character Setup", 1400, 1000)
+	popup.set_content(dat)
+	popup.open(FALSE) // Skip registering onclose on the browser pane
+	onclose(user, "preferences_window", src) // We want to register on the window itself
+
+/datum/preferences/proc/update_character_previews(mutable_appearance/MA, var/big_mob = FALSE)
+	if(!client)
+		return
+
+	var/mob/abstract/new_player/NP = client.mob
+	if(istype(NP) && istype(NP.late_choices_ui)) // update character icon in late-choices UI
+		NP.late_choices_ui.update_character_icon()
+
+	var/obj/screen/BG= LAZYACCESS(char_render_holders, "BG")
+	if(!BG)
+		BG = new
+		BG.appearance_flags = TILE_BOUND|PIXEL_SCALE|NO_CLIENT_COLOR
+		BG.layer = TURF_LAYER
+		BG.icon = 'icons/turf/flooring/tiles.dmi'
+		LAZYSET(char_render_holders, "BG", BG)
+		client.screen |= BG
+	BG.icon_state = bgstate
+	BG.screen_loc = "character_preview_map:1,1 to 1,5"
+
+	var/index = 0
+	for(var/D in GLOB.cardinal)
+		var/obj/screen/O = LAZYACCESS(char_render_holders, "[D]")
+		if(!O)
+			O = new
+			LAZYSET(char_render_holders, "[D]", O)
+			client.screen |= O
+		O.appearance = MA
+		O.dir = D
+		O.plane = HUD_PLANE
+		var/list/screen_locs = preview_screen_locs["[D]"]
+		var/screen_x = screen_locs[1]
+		var/screen_x_minor = screen_locs[2]
+		screen_x_minor -= MA.pixel_x
+		var/screen_y = screen_locs[3]
+		var/screen_y_minor = screen_locs[4]
+		if(big_mob)
+			screen_y_minor += round(30 - (index * 15))
+		screen_y_minor -= MA.pixel_y
+		O.screen_loc = "character_preview_map:[screen_x]:[screen_x_minor],[screen_y]:[screen_y_minor]"
+		index++
+
+/datum/preferences/proc/show_character_previews()
+	if(!client || !char_render_holders)
+		return
+	for(var/render_holder in char_render_holders)
+		client.screen |= char_render_holders[render_holder]
+
+/datum/preferences/proc/clear_character_previews()
+	for(var/index in char_render_holders)
+		var/obj/screen/S = char_render_holders[index]
+		client?.screen -= S
+		qdel(S)
+	QDEL_LIST_ASSOC_VAL(char_render_holders)
+	char_render_holders = null
 
 /datum/preferences/proc/process_link(mob/user, list/href_list)
-	if(!user)	return
+	if(!user)
+		return
 
-	if(!istype(user, /mob/abstract/new_player))	return
+	if(!istype(user, /mob/abstract/new_player))
+		return
 
 	if(href_list["preference"] == "open_whitelist_forum")
-		if(config.forumurl)
-			send_link(user, config.forumurl)
+		if(GLOB.config.forumurl)
+			send_link(user, GLOB.config.forumurl)
 		else
 			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
 			return
-	ShowChoices(usr)
 	return 1
 
 /datum/preferences/Topic(href, list/href_list)
@@ -278,7 +352,7 @@ datum/preferences
 		load_character()
 	else if(href_list["load"])
 		if(!IsGuestKey(usr.key))
-			if (config.sql_saves)
+			if (GLOB.config.sql_saves)
 				open_load_dialog_sql(usr)
 			else
 				open_load_dialog_file(usr)
@@ -289,16 +363,22 @@ datum/preferences
 	else if(href_list["new_character_sql"])
 		new_setup(1)
 		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
 		close_load_dialog(usr)
 	else if(href_list["delete"])
-		if (!config.sql_saves)
+		if (!GLOB.config.sql_saves)
 			return 0
-		if (alert(usr, "This will permanently delete the character you have loaded. Are you sure?", "Delete Character", "No", "Yes") == "Yes")
-			delete_character_sql(usr.client)
+		if (alert(usr, "You will be unable to re-create a character with the same name! Are you sure you want to permanently [real_name]? The slot can not be restored.", "Permanently Delete Character", "No", "Yes") == "Yes")
+			if(alert(usr, "Are you sure you want to PERMANENTLY delete your character?","Confirm Permanent Deletion","Yes","No") == "Yes")
+				delete_character_sql(usr.client)
+	else if(href_list["close"])
+		// User closed preferences window, cleanup anything we need to.
+		clear_character_previews()
+		return 1
 	else
-		return 0
+		return
 
 	ShowChoices(usr)
 	return 1
@@ -307,7 +387,7 @@ datum/preferences
 	// Sanitizing rather than saving as someone might still be editing when copy_to occurs.
 	player_setup.sanitize_setup()
 
-	if(config.humans_need_surnames)
+	if(GLOB.config.humans_need_surnames)
 		var/firstspace = findtext(real_name, " ")
 		var/name_length = length(real_name)
 		if(!firstspace)	//we need a surname
@@ -320,6 +400,7 @@ datum/preferences
 	character.set_species(species)
 	if(character.dna)
 		character.dna.real_name = character.real_name
+	character.set_floating_chat_color(floating_chat_color)
 
 	character.flavor_texts["general"] = flavor_texts["general"]
 	character.flavor_texts[BP_HEAD] = flavor_texts[BP_HEAD]
@@ -341,12 +422,17 @@ datum/preferences
 	character.exploit_record = exploit_record
 
 	character.gender = gender
+	character.pronouns = pronouns
 	character.age = age
 	character.b_type = b_type
+	character.height = height
 
 	character.r_eyes = r_eyes
 	character.g_eyes = g_eyes
 	character.b_eyes = b_eyes
+
+	character.set_tail_style(tail_style)
+	character.speech_bubble_type = speech_bubble_type
 
 	character.h_style = h_style
 	character.r_hair = r_hair
@@ -358,21 +444,26 @@ datum/preferences
 	character.g_facial = g_facial
 	character.b_facial = b_facial
 
+	character.g_style = g_style
+	character.r_grad = r_grad
+	character.g_grad = g_grad
+	character.b_grad = b_grad
+
 	character.r_skin = r_skin
 	character.g_skin = g_skin
 	character.b_skin = b_skin
 
 	character.s_tone = s_tone
 
-	character.h_style = h_style
-	character.f_style = f_style
+	character.lipstick_color = null
 
 	character.citizenship = citizenship
 	character.employer_faction = faction
 	character.religion = religion
+	character.accent = accent
+	character.set_culture(GET_SINGLETON(text2path(culture)))
+	character.set_origin(GET_SINGLETON(text2path(origin)))
 
-	character.skills = skills
-	character.used_skillpoints = used_skillpoints
 
 	// Destroy/cyborgize organs & setup body markings
 	character.sync_organ_prefs_to_mob(src)
@@ -391,10 +482,28 @@ datum/preferences
 		else
 			all_underwear -= underwear_category_name
 
-	if(backbag > 6 || backbag < 1)
-		backbag = 1 //Same as above
+	if(backbag > OUTFIT_POCKETBOOK || backbag < OUTFIT_NOTHING)
+		backbag = OUTFIT_NOTHING //Same as above
 	character.backbag = backbag
 	character.backbag_style = backbag_style
+	character.backbag_color = backbag_color
+	character.backbag_strap = backbag_strap
+
+	if(pda_choice > OUTFIT_WRISTBOUND || pda_choice < OUTFIT_NOTHING)
+		pda_choice = OUTFIT_TAB_PDA
+
+	character.pda_choice = pda_choice
+
+	if(headset_choice > OUTFIT_THIN_WRISTRAD || headset_choice < OUTFIT_NOTHING)
+		headset_choice = OUTFIT_HEADSET
+
+	character.headset_choice = headset_choice
+
+	if(length(psionics))
+		for(var/power in psionics)
+			var/singleton/psionic_power/P = GET_SINGLETON(text2path(power))
+			if(istype(P) && (P.ability_flags & PSI_FLAG_CANON))
+				P.apply(character)
 
 	if(icon_updates)
 		character.force_update_limbs()
@@ -402,7 +511,7 @@ datum/preferences
 		character.update_body(0)
 		character.update_hair(0)
 		character.update_underwear(0)
-		character.update_icons()
+		character.update_icon()
 
 /datum/preferences/proc/open_load_dialog_sql(mob/user)
 	var/dat = "<tt><center>"
@@ -410,11 +519,10 @@ datum/preferences
 	for(var/ckey in preferences_datums)
 		var/datum/preferences/D = preferences_datums[ckey]
 		if(D == src)
-			establish_db_connection(dbcon)
-			if(!dbcon.IsConnected())
+			if(!establish_db_connection(GLOB.dbcon))
 				return open_load_dialog_file(user)
 
-			var/DBQuery/query = dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
+			var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, name FROM ss13_characters WHERE ckey = :ckey: AND deleted_at IS NULL ORDER BY id ASC")
 			query.Execute(list("ckey" = user.client.ckey))
 
 			dat += "<b>Select a character slot to load</b><hr>"
@@ -430,8 +538,8 @@ datum/preferences
 					dat += "<a href='?src=\ref[src];changeslot=[id];'>[name]</a><br>"
 
 			dat += "<hr>"
-			dat += "<b>[query.RowCount()]/[config.character_slots] slots used</b><br>"
-			if (query.RowCount() < config.character_slots)
+			dat += "<b>[query.RowCount()]/[GLOB.config.character_slots] slots used</b><br>"
+			if (query.RowCount() < GLOB.config.character_slots)
 				dat += "<a href='?src=\ref[src];new_character_sql=1'>New Character</a>"
 			else
 				dat += "<strike>New Character</strike>"
@@ -439,9 +547,12 @@ datum/preferences
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];close_load_dialog=1'>Close</a><br>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
 
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.width = 300
+	load_diag.height = 390
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/open_load_dialog_file(mob/user)
 	var/dat = "<tt><center>"
@@ -450,7 +561,7 @@ datum/preferences
 	if(S)
 		dat += "<b>Select a character slot to load</b><hr>"
 		var/name
-		for(var/i=1, i<= config.character_slots, i++)
+		for(var/i=1, i<= GLOB.config.character_slots, i++)
 			S.cd = "/character[i]"
 			S["real_name"] >> name
 			if(!name)	name = "Character[i]"
@@ -460,22 +571,24 @@ datum/preferences
 
 	dat += "<hr>"
 	dat += "</center></tt>"
-	send_theme_resources(user)
-	user << browse(enable_ui_theme(user, dat), "window=saves;size=300x390")
+
+	var/datum/browser/load_diag = new(user, "load_diag", "Character Slots")
+	load_diag.set_content(dat)
+	load_diag.open()
 
 /datum/preferences/proc/close_load_dialog(mob/user)
-	user << browse(null, "window=saves")
+	user << browse(null, "window=load_diag")
 
 // Logs a character to the database. For statistics.
 /datum/preferences/proc/log_character(var/mob/living/carbon/human/H)
-	if (!config.sql_saves || !config.sql_stats || !establish_db_connection(dbcon) || !H)
+	if (!GLOB.config.sql_saves || !GLOB.config.sql_stats || !establish_db_connection(GLOB.dbcon) || !H)
 		return
 
 	if(!H.mind.assigned_role)
-		log_debug("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
+		LOG_DEBUG("Char-Log: Char [current_character] - [H.name] has joined with mind.assigned_role set to NULL")
 
-	var/DBQuery/query = dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
-	query.Execute(list("char_id" = current_character, "game_id" = game_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
+	var/DBQuery/query = GLOB.dbcon.NewQuery("INSERT INTO ss13_characters_log (char_id, game_id, datetime, job_name, alt_title) VALUES (:char_id:, :game_id:, NOW(), :job:, :alt_title:)")
+	query.Execute(list("char_id" = current_character, "game_id" = GLOB.round_id, "job" = H.mind.assigned_role, "alt_title" = H.mind.role_alt_title))
 
 // Turned into a proc so we could reuse it for SQL shenanigans.
 /datum/preferences/proc/new_setup(var/re_initialize = 0)
@@ -496,6 +609,8 @@ datum/preferences
 	can_edit_name = 1
 
 	gear = list()
+	gear_list = list() //Dont copy the loadout
+	gear_modified = FALSE
 
 	//Reset the records when making a new char
 	med_record = ""
@@ -504,8 +619,6 @@ datum/preferences
 	gen_record = ""
 	exploit_record = ""
 	ccia_record = ""
-
-	ZeroSkills(1)
 
 	// Do we need to reinitialize a whole bunch more vars?
 	if (re_initialize)
@@ -525,13 +638,14 @@ datum/preferences
 		g_eyes = 0
 		b_eyes = 0
 
-		species = "Human"
+		species = SPECIES_HUMAN
 		home_system = "Unset"
 		citizenship = "None"
 		faction = "None"
 		religion = "None"
+		accent = "None"
 
-		species = "Human"
+		species = SPECIES_HUMAN
 
 		job_civilian_high = 0
 		job_civilian_med = 0
@@ -545,7 +659,11 @@ datum/preferences
 		job_engsec_med = 0
 		job_engsec_low = 0
 
-		alternate_option = 0
+		job_event_high = 0
+		job_event_med = 0
+		job_event_low = 0
+
+		alternate_option = 1
 		metadata = ""
 
 		organ_data = list()
@@ -558,10 +676,9 @@ datum/preferences
 
 		ccia_actions = list()
 		disabilities = list()
+		psionics = list()
 
-		nanotrasen_relation = "Neutral"
-
-		update_preview_icon()
+		economic_status = ECONOMICALLY_AVERAGE
 
 // Deletes a character from the database
 /datum/preferences/proc/delete_character_sql(var/client/C)
@@ -572,11 +689,11 @@ datum/preferences
 		to_chat(C, "<span class='notice'>You do not have a character loaded.</span>")
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW() WHERE id = :char_id:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
 	query.Execute(list("char_id" = current_character))
 
 	// Create a new character.
@@ -586,6 +703,6 @@ datum/preferences
 
 /datum/preferences/proc/get_species_datum()
 	if (species)
-		return all_species[species]
+		return GLOB.all_species[species]
 
 	return null

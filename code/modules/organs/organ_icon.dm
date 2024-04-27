@@ -3,7 +3,7 @@
 
 /obj/item/organ/external/proc/compile_icon()
 	cut_overlays()
-	 // This is a kludge, only one icon has more than one generation of children though.
+	// This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
@@ -17,10 +17,10 @@
 	hair_color = null
 	var/limb_exception = FALSE
 	if(robotize_type)
-		var/datum/robolimb/R = all_robolimbs[robotize_type]
-		if(R.paintable)
+		var/datum/robolimb/R = GLOB.all_robolimbs[robotize_type]
+		if(R?.paintable)
 			limb_exception = TRUE
-	if(status & ORGAN_ROBOT && !(isipc(human)) && !limb_exception)
+	if((status & ORGAN_ROBOT) && !limb_exception)
 		return
 	if(species && human.species && species.name != human.species.name)
 		return
@@ -48,18 +48,19 @@
 	if(eyes)
 		eyes.update_colour()
 
-/obj/item/organ/external/head/removed()
-	get_icon()
-	..()
-
 /obj/item/organ/external/head/get_icon()
 	..()
 	cut_overlays()
 	if(!owner || !owner.species)
 		return
+	var/is_frenzied = FALSE
+	if(owner.mind)
+		var/datum/vampire/vampire = owner.mind.antag_datums[MODE_VAMPIRE]
+		if(vampire && (vampire.status & VAMP_FRENZIED))
+			is_frenzied = TRUE
 	if(owner.species.has_organ[owner.species.vision_organ])
 		var/obj/item/organ/internal/eyes/eyes = owner.get_eyes()
-		if(eyes && species.eyes)
+		if(eyes && species.eyes && !is_frenzied)
 			var/eyecolor
 			if (eyes.eye_colour)
 				eyecolor = rgb(eyes.eye_colour[1], eyes.eye_colour[2], eyes.eye_colour[3])
@@ -79,11 +80,12 @@
 			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
 			add_overlay(eyes_icon)
 
-	if(owner.lip_style && (species && (species.appearance_flags & HAS_LIPS)))
-		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lip_style]"]
+	if(owner.lipstick_color && (species && (species.appearance_flags & HAS_LIPS)))
+		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lipstick_color]"]
 		if (!lip_icon)
-			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "[owner.lip_style]")
-			SSicon_cache.human_lip_cache["[owner.lip_style]"] = lip_icon
+			lip_icon = new/icon('icons/mob/human_face/lips.dmi', "lips")
+			lip_icon.Blend(owner.lipstick_color, species.eyes_icon_blend)
+			SSicon_cache.human_lip_cache["[owner.lipstick_color]"] = lip_icon
 
 		add_overlay(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
@@ -97,6 +99,17 @@
 	compile_overlays()
 
 	return mob_icon
+
+/obj/item/organ/external/head/get_additional_images(var/mob/living/carbon/human/H)
+	if(!H.mind)
+		return
+	var/datum/vampire/vampire = H.mind.antag_datums[MODE_VAMPIRE]
+	if(vampire && (vampire.status & VAMP_FRENZIED))
+		var/image/return_image = image(H.species.eyes_icons, H, "[H.species.eyes]_frenzy")
+		return_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		return_image.appearance_flags = KEEP_APART
+		LAZYADD(additional_images, return_image)
+		return list(return_image)
 
 /obj/item/organ/external/proc/apply_markings(restrict_to_robotic = FALSE)
 	if (!cached_markings)
@@ -123,11 +136,15 @@
 /obj/item/organ/external/proc/get_internal_organs_overlay()
 	for(var/obj/item/organ/internal/O in internal_organs)
 		if(O.on_mob_icon)
-			var/cache_key = "[O.on_mob_icon]-[O.icon_state]"
+			var/internal_organ_icon = O.on_mob_icon
+			var/cache_key = "[internal_organ_icon]-[O.item_state || O.icon_state]"
+			if(owner && O.sprite_sheets && O.sprite_sheets[owner.species.get_bodytype()])
+				cache_key = "[O.sprite_sheets[owner.species.get_bodytype()]]-[O.item_state || O.icon_state]"
+				internal_organ_icon = O.sprite_sheets[owner.species.get_bodytype()]
 
 			var/icon/organ_icon = SSicon_cache.internal_organ_cache[cache_key]
 			if (!organ_icon)
-				organ_icon = new /icon(O.on_mob_icon, O.icon_state)
+				organ_icon = new /icon(internal_organ_icon, O.item_state || O.icon_state)
 				SSicon_cache.internal_organ_cache[cache_key] = organ_icon
 
 			add_overlay(organ_icon)
@@ -142,8 +159,13 @@
 
 	if(force_icon)
 		mob_icon = new /icon(force_icon, "[icon_name][gendered_icon ? "_[gender]" : ""]")
-		if(painted && skin_color)
+		if((painted && skin_color) || robotize_type == PROSTHETIC_SYNTHSKIN)
 			mob_icon.Blend(skin_color, ICON_ADD)
+		if(!isnull(s_tone))
+			if(s_tone >= 0)
+				mob_icon.Blend(rgb(s_tone, s_tone, s_tone), ICON_ADD)
+			else
+				mob_icon.Blend(rgb(-s_tone, -s_tone, -s_tone), ICON_SUBTRACT)
 		apply_markings(restrict_to_robotic = TRUE)
 		get_internal_organs_overlay()
 	else
@@ -159,7 +181,7 @@
 					gender = "m"
 
 			if(skeletal)
-				mob_icon = new /icon('icons/mob/human_races/r_skeleton.dmi', "[icon_name][gender ? "_[gender]" : ""]")
+				mob_icon = new /icon(species.skeleton_icon, "[icon_name][gender ? "_[gender]" : ""]")
 			else if (status & ORGAN_ROBOT && !force_skintone)
 				mob_icon = new /icon('icons/mob/human_races/ipc/robotic.dmi', "[icon_name][gender ? "_[gender]" : ""]")
 			else
@@ -170,6 +192,10 @@
 
 				if(status & ORGAN_DEAD)
 					mob_icon.ColorTone(rgb(10,50,0))
+					mob_icon.SetIntensity(0.7)
+
+				if(status & ORGAN_ZOMBIFIED)
+					mob_icon.ColorTone(rgb(30, 30, 30))
 					mob_icon.SetIntensity(0.7)
 
 				if(skin_color)
@@ -199,14 +225,22 @@
 
 	return mob_icon
 
+/obj/item/organ/external/proc/get_additional_images(var/mob/living/carbon/human/H)
+	return
+
+/obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
+	if(LAZYLEN(additional_images))
+		H.cut_overlay(additional_images, TRUE)
+		LAZYCLEARLIST(additional_images)
+
 // new damage icon system
 // adjusted to set damage_state to brute/burn code only (without r_name0 as before)
 /obj/item/organ/external/update_icon()
 	var/n_is = damage_state_text()
 	if (n_is != damage_state)
 		damage_state = n_is
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 // This is NOT safe for caching the organ's own icon, it's only meant to be used for the mob icon cache.
 /obj/item/organ/external/proc/get_mob_cache_key()
@@ -236,7 +270,10 @@
 
 	for(var/obj/item/organ/internal/O in internal_organs)
 		if(O.on_mob_icon)
-			keyparts += "[O.on_mob_icon]-[O.icon_state]"
+			if(owner && O.sprite_sheets && O.sprite_sheets[owner.species.get_bodytype()])
+				keyparts += "[O.sprite_sheets[owner.species.get_bodytype()]]-[O.item_state || O.icon_state]"
+			else
+				keyparts += "[O.on_mob_icon]-[O.item_state || O.icon_state]"
 
 	. = keyparts.Join("_")
 
@@ -279,3 +316,17 @@ var/list/robot_hud_colours = list("#ffffff","#cccccc","#aaaaaa","#888888","#6666
 	var/list/hud_colours = !BP_IS_ROBOTIC(src) ? flesh_hud_colours : robot_hud_colours
 	hud_damage_image.color = hud_colours[max(1,min(Ceiling(dam_state*hud_colours.len),hud_colours.len))]
 	return hud_damage_image
+
+/obj/item/organ/external/proc/bandage_level()
+	if(damage_state_text() == "00")
+		return 0
+	if(!is_bandaged())
+		return 0
+	if(burn_dam + brute_dam == 0)
+		. = 0
+	else if (burn_dam + brute_dam < (max_damage * 0.25 / 2))
+		. = 1
+	else if (burn_dam + brute_dam < (max_damage * 0.75 / 2))
+		. = 2
+	else
+		. = 3

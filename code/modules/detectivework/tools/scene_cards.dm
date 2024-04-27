@@ -1,10 +1,10 @@
-/obj/item/storage/fancy/csi_markers
+/obj/item/storage/box/fancy/csi_markers
 	name = "crime scene markers box"
 	desc = "A cardboard box for crime scene marker cards."
 	icon = 'icons/obj/forensics.dmi'
 	icon_state = "markerbox"
 	icon_type = "marker"
-	w_class = 1
+	w_class = ITEMSIZE_TINY
 	storage_slots = 7
 	can_hold = list(/obj/item/csi_marker)
 	starts_with = list(
@@ -24,10 +24,23 @@
 	icon_state = "card1"
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
-	w_class = 1
+	w_class = ITEMSIZE_TINY
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	randpixel = 1
-	layer = ABOVE_MOB_LAYER //so you can mark bodies
+	layer = ABOVE_HUMAN_LAYER //so you can mark bodies
 	var/number = 1
+
+/obj/item/csi_marker/afterattack(atom/A, mob/user, proximity)
+	if(!proximity)
+		return
+	if(!istype(A, /obj/item/storage))
+		if(!user.Adjacent(A))
+			return
+		if(A.density)
+			return
+
+		user.drop_from_inventory(src, get_turf(A))
+	return
 
 /obj/item/csi_marker/Initialize(mapload)
 	. = ..()

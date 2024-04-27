@@ -4,9 +4,9 @@
 	desc = "A pair of binoculars."
 	icon_state = "binoculars"
 
-	flags = CONDUCT
-	force = 5.0
-	w_class = 2.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 11
+	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
 	throw_range = 15
 	throw_speed = 3
@@ -15,7 +15,7 @@
 	var/viewsize = 7
 
 /obj/item/device/binoculars/attack_self(mob/user)
-	zoom(user,tileoffset,viewsize)
+	zoom(user,tileoffset,viewsize, show_zoom_message = FALSE)
 
 /obj/item/device/binoculars/high_power
 	name = "high power binoculars"

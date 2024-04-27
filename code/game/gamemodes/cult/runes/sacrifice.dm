@@ -1,7 +1,7 @@
 /datum/rune/sacrifice
 	name = "sacrificial rune"
 	desc = "This rune is used to sacrifice an unbeliever."
-	rune_flags = NO_TALISMAN
+	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/sacrifice/do_rune_action(mob/living/user, atom/movable/A)
 	var/list/mob/living/carbon/human/cultists_in_range = list()
@@ -23,7 +23,7 @@
 		else if(istype(I,/obj/item/aicard))
 			for(var/mob/living/silicon/ai/AI in I)
 				victims += AI
-	
+
 	for(var/mob/living/carbon/C in orange(1, A))
 		if(iscultist(C) && !C.stat)
 			cultists_in_range += C
@@ -45,14 +45,14 @@
 						H.dust() // To prevent the MMI from remaining
 					else
 						H.gib()
-					output = span("cult", "The Geometer of Blood accepts this sacrifice, your objective is now complete.")
+					output = SPAN_CULT("The Geometer of Blood accepts this sacrifice, your objective is now complete.")
 				else
-					output = span("cult", "Your target's earthly bonds are too strong. You need more cultists to succeed in this ritual.")
+					output = SPAN_CULT("Your target's earthly bonds are too strong. You need more cultists to succeed in this ritual.")
 			else
 				do_sacrifice(cultists_in_range, H, H.stat, 80, worthy)
 		else
 			fizzle(user)
-		
+
 		if(output)
 			for(var/mob/C in cultists_in_range)
 				to_chat(C, output)
@@ -73,12 +73,12 @@
 	for(var/mob/C in cultists)
 		if(!victim_dead && enough_cultists)
 			if(prob(probability) || worthy)
-				to_chat(C, span("cult", "The Geometer of Blood accepts this sacrifice."))
+				to_chat(C, SPAN_CULT("The Geometer of Blood accepts this sacrifice."))
 			else
-				to_chat(C, span("cult", "The Geometer of Blood accepts this sacrifice."))
-				to_chat(C, span("warning", "However, this soul was not enough to gain His favor."))
+				to_chat(C, SPAN_CULT("The Geometer of Blood accepts this sacrifice."))
+				to_chat(C, SPAN_WARNING("However, this soul was not enough to gain His favor."))
 		else if(!victim_dead && !enough_cultists)
-			to_chat(C, span("warning", "The victim is still alive, you will need more cultists chanting for the sacrifice to succeed."))
+			to_chat(C, SPAN_WARNING("The victim is still alive, you will need more cultists chanting for the sacrifice to succeed."))
 			victim_sacrifice = FALSE
 
 	if(victim_sacrifice)
@@ -86,3 +86,6 @@
 			victim.dust() // To prevent the MMI from remaining
 		else
 			victim.gib()
+
+/obj/effect/rune/sacrifice/Initialize(mapload)
+	. = ..(mapload, SScult.runes_by_name[/datum/rune/sacrifice::name])

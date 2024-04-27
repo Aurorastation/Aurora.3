@@ -1,0 +1,30 @@
+[
+ {
+ "ckey": "arrow768",
+ "character_name": "Jane Doe",
+ "item_path": "/obj/item/toy/plushie",
+ "item_data": {"name":"ugly plush toy","desc":"It's truly hideous."},
+ "req_titles": ["Assistant", "Security Officer"]
+ },
+ {
+ "ckey": "arrow768",
+ "character_name": "Jane Doe",
+ "item_path": "/obj/item/device/kit/paint",
+ "item_data": {"name":"APLU customisation kit","desc":"It's truly hideous."},
+ "additional_data": "ripley, firefighter"
+ },
+ {
+ "ckey": "arrow768",
+ "character_name": "Jane Doe",
+ "item_path": "/obj/item/device/kit/suit",
+ "item_data": {"name":"salvage suit customisation kit","desc":"A customisation kit with all the parts needed to convert a suit."}
+ },
+ {
+ "ckey": "arrow768",
+ "character_name": "John Doe",
+ "item_path": "/obj/item/gun/energy/lawgiver",
+ "item_name":"Executioner",
+ "item_desc":"When you really need to motivate your crew."
+ }
+]
+

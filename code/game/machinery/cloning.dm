@@ -9,7 +9,7 @@
 		return
 
 	var/mob/selected = null
-	for(var/mob/living/M in player_list)
+	for(var/mob/living/M in GLOB.player_list)
 		//Dead people only thanks!
 		if((M.stat != 2) || (!M.client))
 			continue
@@ -32,7 +32,7 @@
 	anchored = 1
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "pod_0"
-	req_access = list(access_medical_equip) //since we have no genetics for now
+	req_access = list(ACCESS_MEDICAL_EQUIP) //since we have no genetics for now
 	var/mob/living/occupant
 	var/heal_level = 20 //The clone is released once its health reaches this level.
 	var/heal_rate = 1
@@ -61,7 +61,8 @@
 	return ..()
 
 /obj/machinery/clonepod/attack_ai(mob/user as mob)
-
+	if(!ai_can_interact(user))
+		return
 	add_hiddenprint(user)
 	return attack_hand(user)
 
@@ -86,7 +87,7 @@
 		if(ckey(clonemind.key) != R.ckey)
 			return 0
 	else
-		for(var/mob/abstract/observer/G in player_list)
+		for(var/mob/abstract/observer/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -164,7 +165,7 @@
 	return between(0, 100 * (occupant.health - occupant.maxHealth * 75 / 100) / (occupant.maxHealth * (heal_level - 75) / 100), 100)
 
 //Grow clones to maturity then kick them out.  FREELOADERS
-/obj/machinery/clonepod/machinery_process()
+/obj/machinery/clonepod/process()
 
 	if(stat & NOPOWER) //Autoeject if power is lost
 		if(occupant)
@@ -193,13 +194,13 @@
 		occupant.adjustCloneLoss(-2 * heal_rate)
 
 		//So clones don't die of oxyloss in a running pod.
-		if(occupant.reagents.get_reagent_amount("norepinephrine") < 30)
-			occupant.reagents.add_reagent("norepinephrine", 60)
+		if(REAGENT_VOLUME(occupant.reagents, /singleton/reagent/inaprovaline) < 30)
+			occupant.reagents.add_reagent(/singleton/reagent/inaprovaline, 60)
 		occupant.Sleeping(30)
-		//Also heal some oxyloss ourselves because norepinephrine is so bad at preventing it!!
+		//Also heal some oxyloss ourselves because inaprovaline is so bad at preventing it!!
 		occupant.adjustOxyLoss(-4)
 
-		use_power(7500) //This might need tweaking.
+		use_power_oneoff(7500) //This might need tweaking.
 		return
 
 	else if((!occupant) || (occupant.loc != src))
@@ -211,33 +212,33 @@
 	return
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/clonepod/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/clonepod/attackby(obj/item/attacking_item, mob/user)
 	if(isnull(occupant))
-		if(default_deconstruction_screwdriver(user, W))
-			return
-		if(default_deconstruction_crowbar(user, W))
-			return
-		if(default_part_replacement(user, W))
-			return
-	if(istype(W, /obj/item/card/id)||istype(W, /obj/item/device/pda))
-		if(!check_access(W))
+		if(default_deconstruction_screwdriver(user, attacking_item))
+			return TRUE
+		if(default_deconstruction_crowbar(user, attacking_item))
+			return TRUE
+		if(default_part_replacement(user, attacking_item))
+			return TRUE
+	if(attacking_item.GetID())
+		if(!check_access(attacking_item.GetID()))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
-			return
+			return TRUE
 		if((!locked) || (isnull(occupant)))
-			return
+			return TRUE
 		if((occupant.health < -20) && (occupant.stat != 2))
 			to_chat(user, "<span class='warning'>Access Refused.</span>")
-			return
+			return TRUE
 		else
 			locked = 0
 			to_chat(user, "System unlocked.")
-	else if(istype(W, /obj/item/reagent_containers/food/snacks/meat))
-		to_chat(user, "<span class='notice'>\The [src] processes \the [W].</span>")
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/meat))
+		to_chat(user, "<span class='notice'>\The [src] processes \the [attacking_item].</span>")
 		biomass += 50
-		user.drop_from_inventory(W,src)
-		qdel(W)
-		return
-	else if(W.iswrench())
+		user.drop_from_inventory(attacking_item, src)
+		qdel(attacking_item)
+		return TRUE
+	else if(attacking_item.iswrench())
 		if(locked && (anchored || occupant))
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 		else
@@ -247,13 +248,14 @@
 				connected = null
 			else
 				anchored = 1
-			playsound(loc, W.usesound, 100, 1)
+			attacking_item.play_tool_sound(get_turf(src), 100)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else
 				user.visible_message("[user] unsecures [src] from the floor.", "You unsecure [src] from the floor.")
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/machinery/clonepod/emag_act(var/remaining_charges, var/mob/user)
 	if(isnull(occupant))
@@ -338,9 +340,10 @@
 	return
 
 /obj/machinery/clonepod/emp_act(severity)
+	. = ..()
+
 	if(prob(100/severity))
 		malfunction()
-	..()
 
 /obj/machinery/clonepod/ex_act(severity)
 	switch(severity)
@@ -364,7 +367,6 @@
 					ex_act(severity)
 				qdel(src)
 				return
-		else
 	return
 
 /obj/machinery/clonepod/update_icon()
@@ -375,23 +377,6 @@
 	else if (mess)
 		icon_state = "pod_g"
 
-//Health Tracker Implant
-
-/obj/item/implant/health
-	name = "health implant"
-	var/healthstring = ""
-
-/obj/item/implant/health/proc/sensehealth()
-	if(!implanted)
-		return "ERROR"
-	else
-		if(isliving(implanted))
-			var/mob/living/L = implanted
-			healthstring = "[round(L.getOxyLoss())] - [round(L.getFireLoss())] - [round(L.getToxLoss())] - [round(L.getBruteLoss())]"
-		if(!healthstring)
-			healthstring = "ERROR"
-		return healthstring
-
 //Disk stuff.
 //The return of data disks?? Just for transferring between genetics machine/cloning machine.
 //TO-DO: Make the genetics machine accept them.
@@ -400,7 +385,7 @@
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "datadisk0" //Gosh I hope syndies don't mistake them for the nuke disk.
 	item_state = "card-id"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	var/datum/dna2/record/buf = null
 	var/read_only = 0 //Well,it's still a floppy disk
 
@@ -447,10 +432,9 @@
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
-/obj/item/disk/data/examine(mob/user)
-	..(user)
-	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
-	return
+/obj/item/disk/data/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
 
 /*
  *	Diskette Box
@@ -458,7 +442,7 @@
 
 /obj/item/storage/box/disks
 	name = "Diskette Box"
-	icon_state = "disk_kit"
+	illustration = "disk_kit"
 
 /obj/item/storage/box/disks/fill()
 	new /obj/item/disk/data(src)

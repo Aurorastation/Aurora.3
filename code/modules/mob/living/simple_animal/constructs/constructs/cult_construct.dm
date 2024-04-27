@@ -27,7 +27,6 @@
 	show_stat_health = TRUE
 	faction = "cult"
 	supernatural = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_LEVEL_ONE
 	blood_type = "#000000"
 
@@ -42,7 +41,11 @@
 	var/can_repair = FALSE
 
 	var/health_prefix = ""
-	appearance_flags = NO_CLIENT_COLOR
+	appearance_flags = NO_CLIENT_COLOR|KEEP_TOGETHER
+
+	psi_pingable = FALSE
+
+	simple_default_language = LANGUAGE_CULT
 
 
 /mob/living/simple_animal/construct/cultify()
@@ -53,18 +56,32 @@
 	var/static/list/construct_descriptors = list("lumbering", "ponderous", "rumbling", "sleek", "solid", "ephemeral", "dense", "shimmering", "dull", "glittering", "shining", "sluggish", "quiet", "ominious", "weighty", "mysterious")
 	name = "[capitalize(pick(construct_descriptors))] [initial(name)]"
 	real_name = name
-	add_language(LANGUAGE_CULT)
 	add_language(LANGUAGE_OCCULT)
 	for(var/spell in construct_spells)
 		src.add_spell(new spell, "const_spell_ready")
-	updateicon()
+	update_icon()
 	add_glow()
+
+/mob/living/simple_animal/construct/LateLogin()
+	. = ..()
+	if(!iscultist(src))
+		cult.add_antagonist_mind(mind)
 
 /mob/living/simple_animal/construct/death()
 	new /obj/item/ectoplasm(get_turf(src))
 	..(null, "collapses in a shattered heap.")
 	ghostize()
 	qdel(src)
+
+/mob/living/simple_animal/construct/ghostize()
+	. = ..()
+	if(!QDELETED(src) && stat != DEAD)
+		SSghostroles.add_spawn_atom("construct", src)
+
+/mob/living/simple_animal/construct/can_name(var/mob/living/M)
+	if(iscultist(M))
+		return ..()
+	return FALSE
 
 /mob/living/simple_animal/construct/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
@@ -77,22 +94,22 @@
 			if(getBruteLoss())
 				adjustBruteLoss(-5)
 				adjustFireLoss(-5)
-				user.visible_message(span("notice", "\The [user] mends some of \the [src]'s wounds."))
+				user.visible_message(SPAN_NOTICE("\The [user] mends some of \the [src]'s wounds."))
 			else
 				if (health < maxHealth)
-					to_chat(user, span("notice", "Healing \the [src] any further is beyond your abilities."))
+					to_chat(user, SPAN_NOTICE("Healing \the [src] any further is beyond your abilities."))
 				else
-					to_chat(user, span("notice", "\The [src] is undamaged."))
+					to_chat(user, SPAN_NOTICE("\The [src] is undamaged."))
 			return
 	return ..()
 
-/mob/living/simple_animal/construct/examine(mob/user)
-	..(user)
+/mob/living/simple_animal/construct/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(health < maxHealth)
 		if(health >= maxHealth / 2)
-			to_chat(user, span("warning", "It looks slightly dented."))
+			. += SPAN_WARNING("It looks slightly dented.")
 		else
-			to_chat(user, span("warning", "It looks severely dented!"))
+			. += SPAN_WARNING("It looks severely dented!")
 
 /mob/living/simple_animal/construct/UnarmedAttack(var/atom/A, var/proximity)
 	if(istype(A, /obj/effect/rune))
@@ -104,11 +121,12 @@
 
 /mob/living/simple_animal/construct/proc/add_glow()
 	cut_overlays()
-	var/overlay_layer = EFFECTS_ABOVE_LIGHTING_LAYER
-	if(layer != MOB_LAYER)
-		overlay_layer = TURF_LAYER + 0.2
+	var/overlay_plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
-	add_overlay(image(icon, "glow-[icon_state]", overlay_layer))
+	var/image/glow = image(icon, "glow-[icon_state]")
+	glow.plane = overlay_plane
+
+	add_overlay(glow)
 	set_light(2, -2, l_color = COLOR_WHITE)
 
 /mob/living/simple_animal/construct/Life()
@@ -156,6 +174,3 @@
 		newstate = "[health_prefix]_health[newstate]"
 		if(healths.icon_state != newstate)
 			healths.icon_state = newstate
-
-/mob/living/simple_animal/construct/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)

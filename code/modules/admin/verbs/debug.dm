@@ -3,16 +3,42 @@
 	set name = "Debug-Game"
 	if(!check_rights(R_DEBUG|R_DEV))	return
 
-	if(Debug2)
-		Debug2 = 0
+	if(GLOB.Debug2)
+		GLOB.Debug2 = 0
 		message_admins("[key_name(src)] toggled debugging off.")
 		log_admin("[key_name(src)] toggled debugging off.",admin_key=key_name(usr))
 	else
-		Debug2 = 1
+		GLOB.Debug2 = 1
 		message_admins("[key_name(src)] toggled debugging on.")
 		log_admin("[key_name(src)] toggled debugging on.",admin_key=key_name(usr))
 
+	switch(alert("Do you want to print all logs to world? This should ONLY EVER HAPPEN IN CRISIS OR DURING DEBUGGING / DEVELOPMENT.", "All logs to world?", "No", "Yes"))
+		if("Yes")
+			GLOB.config.all_logs_to_chat = 1
+		else
+			GLOB.config.all_logs_to_chat = 0
+
 	feedback_add_details("admin_verb","DG2") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
+
+/client/proc/DebugToggle()
+	set category = "Debug"
+	set name = "Debugs Toggle"
+	if(!check_rights(R_DEBUG|R_DEV))	return
+
+	var/target = input(usr, "Select which log to toggle", "Debugs Toggle", null) in sortAssoc(GLOB.config.logsettings)
+	if(target)
+		GLOB.config.logsettings[target] = !GLOB.config.logsettings[target]
+		to_chat(usr, "The log category [target] is now [GLOB.config.logsettings[target]]")
+
+/client/proc/DebugToggleAll()
+	set category = "Debug"
+	set name = "Debugs Toggle ALL"
+	if(!check_rights(R_DEBUG|R_DEV))	return
+
+	switch(alert("Do you want to turn on ALL LOGS?.", "All logs to ON?", "No", "Yes"))
+		if("Yes")
+			for(var/k in GLOB.config.logsettings)
+				GLOB.config.logsettings[k] = TRUE
 
 // callproc moved to code/modules/admin/callproc
 
@@ -22,9 +48,9 @@
 	set name = "Cell"
 	if(!mob)
 		return
-	var/turf/T = mob.loc
+	var/turf/T = get_turf(mob)
 
-	if (!( istype(T, /turf) ))
+	if (!istype(T))
 		return
 
 	var/datum/gas_mixture/env = T.return_air()
@@ -38,7 +64,7 @@
 	usr.show_message(t, 1)
 	feedback_add_details("admin_verb","ASL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_admin_robotize(var/mob/M in mob_list)
+/client/proc/cmd_admin_robotize(var/mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Robot"
 
@@ -53,7 +79,7 @@
 	else
 		alert("Invalid mob")
 
-/client/proc/cmd_admin_animalize(var/mob/M in mob_list)
+/client/proc/cmd_admin_animalize(var/mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make Simple Animal"
 
@@ -74,7 +100,7 @@
 		M.Animalize()
 
 
-/client/proc/cmd_admin_slimeize(var/mob/M in mob_list)
+/client/proc/cmd_admin_slimeize(var/mob/M in GLOB.mob_list)
 	set category = "Fun"
 	set name = "Make slime"
 
@@ -108,21 +134,12 @@
 /client/proc/cmd_debug_make_powernets()
 	set category = "Debug"
 	set name = "Make Powernets"
-	makepowernets()
+	SSmachinery.makepowernets()
 	log_admin("[key_name(src)] has remade the powernet. makepowernets() called.",admin_key=key_name(usr))
 	message_admins("[key_name_admin(src)] has remade the powernets. makepowernets() called.", 0)
 	feedback_add_details("admin_verb","MPWN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
-/client/proc/cmd_debug_tog_aliens()
-	set category = "Server"
-	set name = "Toggle Aliens"
-
-	config.aliens_allowed = !config.aliens_allowed
-	log_admin("[key_name(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].",admin_key=key_name(usr))
-	message_admins("[key_name_admin(src)] has turned aliens [config.aliens_allowed ? "on" : "off"].", 0)
-	feedback_add_details("admin_verb","TAL") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/cmd_admin_grantfullaccess(var/mob/M in mob_list)
+/client/proc/cmd_admin_grantfullaccess(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Grant Full Access"
 
@@ -131,11 +148,8 @@
 		return
 	if (istype(M, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = M
-		if (H.wear_id)
-			var/obj/item/card/id/id = H.wear_id
-			if(istype(H.wear_id, /obj/item/device/pda))
-				var/obj/item/device/pda/pda = H.wear_id
-				id = pda.id
+		if (H.GetIdCard())
+			var/obj/item/card/id/id = H.GetIdCard()
 			id.icon_state = "gold"
 			id.access = get_all_accesses()
 		else
@@ -153,7 +167,7 @@
 	log_admin("[key_name(src)] has granted [M.key] full access.",admin_key=key_name(usr),ckey=key_name(M))
 	message_admins("<span class='notice'>[key_name_admin(usr)] has granted [M.key] full access.</span>", 1)
 
-/client/proc/cmd_assume_direct_control(var/mob/M in mob_list)
+/client/proc/cmd_assume_direct_control(var/mob/M in GLOB.mob_list)
 	set category = "Admin"
 	set name = "Assume direct control"
 	set desc = "Direct intervention"
@@ -273,20 +287,16 @@
 
 	var/list/chosen_observers = list()
 	var/next_observer = "NotGeeves"
-	while(next_observer != "== Finished ==")
-		var/list/valid_choices = player_list
+	while(next_observer)
+		var/list/valid_choices = GLOB.player_list.Copy()
 		for(var/choice in valid_choices)
 			if(choice in chosen_observers)
 				valid_choices -= choice
 			if(!isobserver(choice))
 				valid_choices -= choice
-		valid_choices += "== Finished =="
 		next_observer = input("Choose an observer you want to add to the list.", "Choose Observer") as null|anything in valid_choices
-		if(!next_observer || isnull(next_observer))
-			next_observer = "== Finished =="
-		else
+		if(next_observer)
 			chosen_observers += next_observer
-	chosen_observers -= "== Finished =="
 
 	for(var/spawn_observer in chosen_observers)
 		var/mob/living/carbon/human/H = new /mob/living/carbon/human(get_turf(usr))
@@ -295,7 +305,7 @@
 		H.ckey = O.ckey
 		qdel(O)
 
-/client/proc/cmd_admin_dress(mob/living/carbon/human/H in human_mob_list)
+/client/proc/cmd_admin_dress(mob/living/carbon/human/H in GLOB.human_mob_list)
 	set category = "Fun"
 	set name = "Set Human Outfit"
 
@@ -305,7 +315,7 @@
 
 /client/proc/do_dressing(var/mob/living/carbon/human/M = null)
 	if(!M || !istype(M))
-		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in human_mob_list
+		M = input("Select a mob you would like to dress.", "Set Human Outfit") as null|anything in GLOB.human_mob_list
 	if(!M)
 		return
 
@@ -314,22 +324,30 @@
 		if("Cancel")
 			return
 		if("ERT")
-			outfit_catagories["NT-ERT"] = typesof(/datum/outfit/admin/ert/nanotrasen)
-			outfit_catagories["Deathsquad"] = typesof(/datum/outfit/admin/deathsquad)
-			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/ert/legion)
-			outfit_catagories["Syndicate"] = typesof(/datum/outfit/admin/deathsquad/syndicate)
-			outfit_catagories["Freelance Mercenaries"] = typesof(/datum/outfit/admin/ert/mercenary)
-			outfit_catagories["Kataphracts"] = typesof(/datum/outfit/admin/ert/kataphract)
-			outfit_catagories["IAC"] = typesof(/datum/outfit/admin/ert/iac)
+			outfit_catagories["SCC-ERT"] = typesof(/obj/outfit/admin/ert/scc)
+			outfit_catagories["NT-ERT"] = typesof(/obj/outfit/admin/ert/nanotrasen)
+			outfit_catagories["Deathsquad"] = typesof(/obj/outfit/admin/deathsquad)
+			outfit_catagories["TCFL"] = typesof(/obj/outfit/admin/ert/legion)
+			outfit_catagories["Syndicate"] = typesof(/obj/outfit/admin/deathsquad/syndicate)
+			outfit_catagories["Freelance Mercenaries"] = typesof(/obj/outfit/admin/ert/mercenary)
+			outfit_catagories["Free Solarian Fleets Marines"] = typesof(/obj/outfit/admin/ert/fsf)
+			outfit_catagories["Kataphracts"] = typesof(/obj/outfit/admin/ert/kataphract)
+			outfit_catagories["Eridani"] = typesof(/obj/outfit/admin/ert/ap_eridani)
+			outfit_catagories["IAC"] = typesof(/obj/outfit/admin/ert/iac)
+			outfit_catagories["Kosmostrelki"] = typesof(/obj/outfit/admin/ert/pra_cosmonaut)
+			outfit_catagories["Elyran Navy"] = typesof(/obj/outfit/admin/ert/elyran_trooper)
 		if("Admin")
-			outfit_catagories["NanoTrasen"] = typesof(/datum/outfit/admin/nt)
-			outfit_catagories["Antagonist"] = typesof(/datum/outfit/admin/syndicate)
-			outfit_catagories["Ceres Lance"] = typesof(/datum/outfit/admin/lance)
-			outfit_catagories["TCFL"] = typesof(/datum/outfit/admin/tcfl)
-			outfit_catagories["Killers"] = typesof(/datum/outfit/admin/killer)
-			outfit_catagories["Job"] = subtypesof(/datum/outfit/job)
-			outfit_catagories["Miscellaneous"] = typesof(/datum/outfit/admin/random)
-			outfit_catagories["Miscellaneous"] += /datum/outfit/admin/random_employee
+			outfit_catagories["Stellar Corporate Conglomerate"] = typesof(/obj/outfit/admin/scc)
+			outfit_catagories["NanoTrasen"] = typesof(/obj/outfit/admin/nt)
+			outfit_catagories["Antagonist"] = typesof(/obj/outfit/admin/syndicate)
+			outfit_catagories["Event"] = typesof(/obj/outfit/admin/event)
+			outfit_catagories["TCFL"] = typesof(/obj/outfit/admin/tcfl)
+			outfit_catagories["Killers"] = typesof(/obj/outfit/admin/killer)
+			outfit_catagories["Job"] = subtypesof(/obj/outfit/job)
+			outfit_catagories["Megacorps"] = subtypesof(/obj/outfit/admin/megacorp)
+			outfit_catagories["Pod Survivors"] = subtypesof(/obj/outfit/admin/pod)
+			outfit_catagories["Miscellaneous"] = typesof(/obj/outfit/admin/random)
+			outfit_catagories["Miscellaneous"] += /obj/outfit/admin/random_employee
 
 	var/chosen_catagory = input("Select an outfit catagory.", "Robust Quick-dress Shop") as null|anything in outfit_catagories
 	if(isnull(chosen_catagory))
@@ -337,7 +355,7 @@
 
 	var/list/outfit_types = list()
 	for(var/outfit in outfit_catagories[chosen_catagory])
-		var/datum/outfit/admin/A = new outfit
+		var/obj/outfit/admin/A = new outfit
 		outfit_types[A.name] = A
 
 	var/chosen_outfit = input("Select an outfit.", "Robust Quick-dress Shop") as null|anything in outfit_types
@@ -346,7 +364,7 @@
 
 	feedback_add_details("admin_verb","SEQ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc
 
-	var/datum/outfit/O = outfit_types[chosen_outfit]
+	var/obj/outfit/O = outfit_types[chosen_outfit]
 	if(O)
 		for(var/obj/item/I in M)
 			if(istype(I, /obj/item/implant))
@@ -363,75 +381,26 @@
 	message_admins("<span class='notice'>[key_name_admin(usr)] changed the equipment of [key_name_admin(M)] to [chosen_outfit].</span>", 1)
 	return
 
-/client/proc/startSinglo()
-
-	set category = "Debug"
-	set name = "Start Singularity"
-	set desc = "Sets up the singularity and all machines to get power flowing through the station"
-
-	if(alert("Are you sure? This will start up the engine. Should only be used during debug!",,"Yes","No") != "Yes")
-		return
-
-	for(var/obj/machinery/power/emitter/E in world)
-		if(E.anchored)
-			E.active = 1
-
-	for(var/obj/machinery/field_generator/F in world)
-		if(F.anchored)
-			F.Varedit_start = 1
-	spawn(30)
-		for(var/obj/machinery/the_singularitygen/G in world)
-			if(G.anchored)
-				var/obj/singularity/S = new /obj/singularity(get_turf(G), 50)
-				spawn(0)
-					qdel(G)
-				S.energy = 1750
-				S.current_size = 7
-				S.icon = 'icons/effects/224x224.dmi'
-				S.icon_state = "singularity_s7"
-				S.pixel_x = -96
-				S.pixel_y = -96
-				S.grav_pull = 0
-				//S.consume_range = 3
-				S.dissipate = 0
-				//S.dissipate_delay = 10
-				//S.dissipate_track = 0
-				//S.dissipate_strength = 10
-
-	for(var/obj/machinery/power/rad_collector/Rad in world)
-		if(Rad.anchored)
-			if(!Rad.P)
-				var/obj/item/tank/phoron/Phoron = new/obj/item/tank/phoron(Rad)
-				Phoron.air_contents.gas["phoron"] = 70
-				Rad.drainratio = 0
-				Rad.P = Phoron
-				Phoron.forceMove(Rad)
-
-			if(!Rad.active)
-				Rad.toggle_power()
-
-	for(var/obj/machinery/power/smes/SMES in world)
-		if(SMES.anchored)
-			SMES.input_attempt = 1
-
 /client/proc/cmd_debug_mob_lists()
 	set category = "Debug"
 	set name = "Debug Mob Lists"
 	set desc = "For when you just gotta know"
 
-	switch(input("Which list?") in list("Players","Staff","Mobs","Living Mobs","Dead Mobs", "Clients"))
+	switch(input("Which list?") in list("Players","Staff","Mobs","Living Mobs","Dead Mobs","Frozen Mobs","Clients"))
 		if("Players")
-			to_chat(usr, jointext(player_list,", "))
+			to_chat(usr, jointext(GLOB.player_list,", "))
 		if("Staff")
-			to_chat(usr, jointext(staff,", "))
+			to_chat(usr, jointext(GLOB.staff,", "))
 		if("Mobs")
-			to_chat(usr, jointext(mob_list,", "))
+			to_chat(usr, jointext(GLOB.mob_list,", "))
 		if("Living Mobs")
-			to_chat(usr, jointext(living_mob_list,", "))
+			to_chat(usr, jointext(GLOB.living_mob_list,", "))
 		if("Dead Mobs")
-			to_chat(usr, jointext(dead_mob_list,", "))
+			to_chat(usr, jointext(GLOB.dead_mob_list,", "))
+		if("Frozen Mobs")
+			to_chat(usr, jointext(GLOB.frozen_crew,", "))
 		if("Clients")
-			to_chat(usr, jointext(clients,", "))
+			to_chat(usr, jointext(GLOB.clients,", "))
 
 // DNA2 - Admin Hax
 /client/proc/cmd_admin_toggle_block(var/mob/M,var/block)
@@ -452,21 +421,80 @@
 /client/proc/cmd_display_del_log()
 	set category = "Debug"
 	set name = "Display del() Log"
-	set desc = "Displays a list of things that have failed to GC this round"
+	set desc = "Display del's log of everything that's passed through it."
 
-	var/dat = "<B>List of things that failed to GC this round</B><BR><BR>"
-	for(var/path in SSgarbage.didntgc)
-		dat += "[path] - [SSgarbage.didntgc[path]] times<BR>"
+	var/list/dellog = list("<B>List of things that have gone through qdel this round</B><BR><BR><ol>")
+	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	for(var/path in SSgarbage.items)
+		var/datum/qdel_item/I = SSgarbage.items[path]
+		dellog += "<li><u>[path]</u><ul>"
+		if (I.qdel_flags & QDEL_ITEM_SUSPENDED_FOR_LAG)
+			dellog += "<li>SUSPENDED FOR LAG</li>"
+		if (I.failures)
+			dellog += "<li>Failures: [I.failures]</li>"
+		dellog += "<li>qdel() Count: [I.qdels]</li>"
+		dellog += "<li>Destroy() Cost: [I.destroy_time]ms</li>"
+		if (I.hard_deletes)
+			dellog += "<li>Total Hard Deletes [I.hard_deletes]</li>"
+			dellog += "<li>Time Spent Hard Deleting: [I.hard_delete_time]ms</li>"
+			dellog += "<li>Highest Time Spent Hard Deleting: [I.hard_delete_max]ms</li>"
+			if (I.hard_deletes_over_threshold)
+				dellog += "<li>Hard Deletes Over Threshold: [I.hard_deletes_over_threshold]</li>"
+		if (I.slept_destroy)
+			dellog += "<li>Sleeps: [I.slept_destroy]</li>"
+		if (I.no_respect_force)
+			dellog += "<li>Ignored force: [I.no_respect_force]</li>"
+		if (I.no_hint)
+			dellog += "<li>No hint: [I.no_hint]</li>"
+		if(LAZYLEN(I.extra_details))
+			var/details = I.extra_details.Join("</li><li>")
+			dellog += "<li>Extra Info: <ul><li>[details]</li></ul>"
+		dellog += "</ul></li>"
 
-	dat += "<B>List of paths that did not return a qdel hint in Destroy()</B><BR><BR>"
-	for(var/path in SSgarbage.noqdelhint)
-		dat += "[path]<BR>"
+	dellog += "</ol>"
 
-	dat += "<B>List of paths that slept in Destroy()</B><BR><BR>"
-	for(var/path in SSgarbage.sleptDestroy)
-		dat += "[path]<BR>"
+	usr << browse(dellog.Join(), "window=dellog")
 
-	usr << browse(dat, "window=dellog")
+/**
+ * Same as `cmd_display_del_log`, but only shows harddels
+ */
+/client/proc/cmd_display_harddel_log()
+	set category = "Debug"
+	set name = "Display harddel() Log"
+	set desc = "Display harddel's log."
+
+	var/list/dellog = list("<B>List of things that have harddel'd this round</B><BR><BR><ol>")
+	sortTim(SSgarbage.items, cmp=/proc/cmp_qdel_item_time, associative = TRUE)
+	for(var/path in SSgarbage.items)
+		var/datum/qdel_item/I = SSgarbage.items[path]
+		if(I.hard_deletes)
+			dellog += "<li><u>[path]</u><ul>"
+			if (I.qdel_flags & QDEL_ITEM_SUSPENDED_FOR_LAG)
+				dellog += "<li>SUSPENDED FOR LAG</li>"
+			if (I.failures)
+				dellog += "<li>Failures: [I.failures]</li>"
+			dellog += "<li>qdel() Count: [I.qdels]</li>"
+			dellog += "<li>Destroy() Cost: [I.destroy_time]ms</li>"
+			if (I.hard_deletes)
+				dellog += "<li>Total Hard Deletes [I.hard_deletes]</li>"
+				dellog += "<li>Time Spent Hard Deleting: [I.hard_delete_time]ms</li>"
+				dellog += "<li>Highest Time Spent Hard Deleting: [I.hard_delete_max]ms</li>"
+				if (I.hard_deletes_over_threshold)
+					dellog += "<li>Hard Deletes Over Threshold: [I.hard_deletes_over_threshold]</li>"
+			if (I.slept_destroy)
+				dellog += "<li>Sleeps: [I.slept_destroy]</li>"
+			if (I.no_respect_force)
+				dellog += "<li>Ignored force: [I.no_respect_force]</li>"
+			if (I.no_hint)
+				dellog += "<li>No hint: [I.no_hint]</li>"
+			if(LAZYLEN(I.extra_details))
+				var/details = I.extra_details.Join("</li><li>")
+				dellog += "<li>Extra Info: <ul><li>[details]</li></ul>"
+			dellog += "</ul></li>"
+
+	dellog += "</ol>"
+
+	usr << browse(dellog.Join(), "window=harddellog")
 
 /client/proc/cmd_display_init_log()
 	set category = "Debug"
@@ -474,3 +502,40 @@
 	set desc = "Displays a list of things that didn't handle Initialize() properly"
 
 	usr << browse(replacetext(SSatoms.InitLog(), "\n", "<br>"), "window=initlog")
+
+/client/proc/reload_nanoui_resources()
+	set category = "Debug"
+	set name = "Reload NanoUI Resources"
+	set desc = "Force the client to redownload NanoUI Resources"
+
+	// Close open NanoUIs.
+	SSnanoui.close_user_uis(usr)
+
+	// Re-load the assets.
+	var/datum/asset/assets = get_asset_datum(/datum/asset/nanoui)
+	assets.register()
+
+	// Clear the user's cache so they get resent.
+	usr.client.sent_assets = list()
+
+/**
+ * Used to generate lag and load the MC to test how things work under live server stress
+ */
+/client/proc/cmd_generate_lag()
+	set name = "Generate Lag"
+	set category = "Debug"
+	set desc = "Generate lag, to be used for LOCAL TESTS ONLY"
+
+	var/mollyguard = tgui_alert(src, "This is to be used only on local instances, DO NOT USE IT ON LIVE, YOU CANNOT UNDO THIS, do you understand?", "Molly Guard", list("No", "Yes"))
+
+	if(mollyguard != "Yes")
+		return
+
+	var/tick_offenses = tgui_input_number(src, "Tick usage offset from 100?", "Tick Offset", 0, min_value = -100, round_value=TRUE)
+	var/jitter = tgui_input_number(src, "What jitter should be applied?", "Jitter", 0, min_value = 0, round_value=TRUE)
+
+	while(TRUE)
+		var/jitter_this_run = rand(0, jitter)
+		for(var/atom/an_atom in world)
+			if(world.tick_usage > (100+(tick_offenses+jitter_this_run)))
+				stoplag()

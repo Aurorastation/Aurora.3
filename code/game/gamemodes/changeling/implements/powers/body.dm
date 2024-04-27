@@ -15,7 +15,7 @@
 	for(var/datum/absorbed_dna/DNA in changeling.absorbed_dna)
 		names += "[DNA.name]"
 
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
+	var/S = tgui_input_list(src, "Select the target DNA.", "Target DNA", names)
 	if(!S)
 		return
 
@@ -23,13 +23,15 @@
 	if(!chosen_dna)
 		return
 
-	changeling.chem_charges -= 5
+	changeling.use_charges(5)
 	changeling.geneticdamage = 30
 
 	handle_changeling_transform(chosen_dna)
 
-	src.verbs -= /mob/proc/changeling_transform
+	remove_verb(src, /mob/proc/changeling_transform)
 	ADD_VERB_IN(src, 10, /mob/proc/changeling_transform)
+
+	client.init_verbs()
 
 	changeling_update_languages(changeling.absorbed_languages)
 
@@ -38,15 +40,25 @@
 
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
 	if(ishuman(src))
-		src.visible_message("<span class='warning'>[src] transforms!</span>")
 		var/mob/living/carbon/human/H = src
+		H.visible_message("<span class='warning'>[H] transforms!</span>")
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
-
+		if(mind) //likely transfomration sting on ghosted corpse if no mind
+			var/datum/changeling/changeling = mind.antag_datums[MODE_CHANGELING]
+			if(changeling && !changeling.mimicing)
+				changeling.mimiced_accent = chosen_dna.accent
 		H.dna = chosen_dna.dna
 		H.real_name = chosen_dna.name
 		H.sync_organ_dna()
 		H.flavor_text = ""
+		H.height = chosen_dna.height
+		H.gender = chosen_dna.gender
+		H.pronouns = chosen_dna.pronouns
+		H.g_style = chosen_dna.hairGradient.style
+		H.r_grad = chosen_dna.hairGradient.red
+		H.g_grad = chosen_dna.hairGradient.green
+		H.b_grad = chosen_dna.hairGradient.blue
 		domutcheck(H, null) //donut check heh heh heh - Geeves
 		H.UpdateAppearance()
 
@@ -69,12 +81,18 @@
 		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
 		return
 
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
 	if(H.handcuffed)
 		var/cuffs = H.handcuffed
 		H.u_equip(H.handcuffed)
 		qdel(cuffs)
 
-	changeling.chem_charges--
+	if(H.buckled_to)
+		H.buckled_to.unbuckle()
+
+	changeling.use_charges(1)
 	H.visible_message("<span class='warning'>[H] transforms!</span>")
 	changeling.geneticdamage = 30
 	to_chat(H, "<span class='warning'>Our genes cry out!</span>")
@@ -96,11 +114,12 @@
 	effect.density = FALSE
 	effect.anchored = TRUE
 	effect.icon = 'icons/effects/effects.dmi'
-	effect.layer = 3
+	effect.layer = LYING_HUMAN_LAYER
 	flick("summoning", effect)
 	QDEL_IN(effect, 10)
 	H.forceMove(ling)
 	H.status_flags |= GODMODE
+	ling.client.init_verbs()
 
 	feedback_add_details("changeling_powers", "LF")
 	return TRUE
@@ -118,7 +137,7 @@
 	for(var/datum/dna/DNA in changeling.absorbed_dna)
 		names += "[DNA.real_name]"
 
-	var/S = input("Select the target DNA: ", "Target DNA", null) as null|anything in names
+	var/S = tgui_input_list(src, "Select the target DNA.", "Target DNA", names)
 	if(!S)
 		return
 
@@ -128,7 +147,7 @@
 
 	var/mob/living/carbon/C = src
 
-	changeling.chem_charges--
+	changeling.use_charges(1)
 	C.remove_changeling_powers()
 	C.visible_message("<span class='warning'>[C] transforms!</span>")
 	C.dna = chosen_dna.Clone()
@@ -141,7 +160,7 @@
 	C.canmove = FALSE
 	C.icon = null
 	C.cut_overlays()
-	C.invisibility = 101
+	C.set_invisibility(101)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay(C.loc)
 	animation.icon_state = "blank"
 	animation.icon = 'icons/mob/mob.dmi'
@@ -173,7 +192,7 @@
 	O.adjustBruteLoss(C.getBruteLoss())
 	O.setOxyLoss(C.getOxyLoss())
 	O.adjustFireLoss(C.getFireLoss())
-	O.stat = C.stat
+	O.set_stat(C.stat)
 	for (var/obj/item/implant/I in implants)
 		I.forceMove(O)
 		I.implanted = O
@@ -192,7 +211,7 @@
 	set category = "Changeling"
 	set name = "Regenerative Stasis (20)"
 
-	var/datum/changeling/changeling = changeling_power(20,1,100,DEAD)
+	var/datum/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
 	if(!changeling)
 		return
 
@@ -204,20 +223,35 @@
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
 	C.remove_changeling_powers()
+	if(ishuman(C))
+		var/mob/living/carbon/human/H = C
+		H.handle_hud_list(TRUE)
 
 	C.emote("gasp")
 	C.tod = worldtime2text()
 
-	spawn(1000)
-		if(changeling_power(20,1,100,DEAD))
-			// charge the changeling chemical cost for stasis
-			changeling.chem_charges -= 20
+	changeling.has_entered_stasis = TRUE
 
-			to_chat(C, "<span class='notice'><font size='5'>We are ready to rise. Use the <b>Revive</b> verb when you are ready.</font></span>")
-			C.verbs += /mob/proc/changeling_revive
+	addtimer(CALLBACK(src, PROC_REF(add_changeling_revive)), 100 SECONDS)
+
+	remove_verb(src, /mob/proc/changeling_fakedeath)
 
 	feedback_add_details("changeling_powers", "FD")
 	return TRUE
+
+/mob/proc/add_changeling_revive()
+	if(stat == DEAD)
+		to_chat(src, SPAN_HIGHDANGER("We died while regenerating! Our last resort is detaching our head now..."))
+		return
+
+	var/datum/changeling/changeling = changeling_power(20, 1, 100, UNCONSCIOUS)
+	if(!changeling)
+		return
+
+	// charge the changeling chemical cost for stasis
+	changeling.use_charges(20)
+	to_chat(src, SPAN_NOTICE(FONT_GIANT("We are ready to rise. Use the <b>Revive</b> verb when we are ready.")))
+	add_verb(src, /mob/proc/changeling_revive)
 
 /mob/proc/changeling_revive()
 	set category = "Changeling"
@@ -234,7 +268,66 @@
 	C.make_changeling()
 	// sending display messages
 	to_chat(C, "<span class='notice'>We have regenerated fully.</span>")
-	C.verbs -= /mob/proc/changeling_revive
+	remove_verb(C, /mob/proc/changeling_revive)
+
+/// Rip the changeling's head off as a last ditch effort to revive
+/mob/proc/changeling_emergency_transform()
+	set category = "Changeling"
+	set name = "Emergency Transform (1)"
+
+	var/datum/changeling/changeling = changeling_power(1, 0, 100, DEAD)
+	if(!changeling)
+		return
+
+	var/mob/living/carbon/human/H = src
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
+		return
+
+	var/obj/item/organ/external/head = H.get_organ(BP_HEAD)
+	if(!head)
+		return
+
+	var/datum/absorbed_dna/DNA = changeling.GetDNA(H.real_name)
+	var/datum/dna/chosen_dna = DNA.dna
+	if(!chosen_dna)
+		return
+
+	if(H.handcuffed)
+		var/cuffs = H.handcuffed
+		H.u_equip(H.handcuffed)
+		qdel(cuffs)
+
+	if(H.buckled_to)
+		H.buckled_to.unbuckle()
+
+	changeling.use_charges(1)
+	changeling.geneticdamage = 70
+
+	H.remove_changeling_powers()
+
+	var/mob/living/simple_animal/hostile/lesser_changeling/revive/ling = new(get_turf(H))
+
+	var/mob/living/carbon/human/O = new /mob/living/carbon/human(ling)
+	O.make_changeling(H.mind)
+	O.changeling_update_languages(changeling.absorbed_languages)
+	O.accent = DNA.accent
+	O.handle_changeling_transform(DNA)
+	O.status_flags |= GODMODE
+
+	if(H.mind)
+		H.mind.transfer_to(ling)
+	else
+		ling.key = H.key
+
+	ling.untransform_occupant = O
+	ling.client.init_verbs()
+
+	H.visible_message(SPAN_HIGHDANGER("[H]'s head decouples from their body in a shower of gore!"))
+	head.droplimb(FALSE, DROPLIMB_BLUNT)
+
+	feedback_add_details("changeling_powers", "EMT")
+
+	return TRUE
 
 //Recover from stuns.
 /mob/proc/changeling_unstun()
@@ -245,19 +338,20 @@
 	var/datum/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
 	if(!changeling)
 		return FALSE
-	changeling.chem_charges -= 30
+	changeling.use_charges(30)
 
 	var/mob/living/carbon/human/C = src
-	C.stat = 0
+	C.set_stat(0)
 	C.SetParalysis(0)
 	C.SetStunned(0)
 	C.SetWeakened(0)
 	C.lying = FALSE
-	C.reagents.add_reagent("hyperzine", 0.10) //Certainly this can't be abused. - Geeves
-	C.reagents.add_reagent("oxycodone", 0.10)
+	C.reagents.add_reagent(/singleton/reagent/hyperzine, 9)
+	C.reagents.add_reagent(/singleton/reagent/mortaphenyl, 6)
+	C.reagents.add_reagent(/singleton/reagent/synaptizine, 3) // To counter mortaphenyl's side effects.
 	C.update_canmove()
 
-	src.verbs -= /mob/proc/changeling_unstun
+	remove_verb(src, /mob/proc/changeling_unstun)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_unstun)
 	feedback_add_details("changeling_powers", "UNS")
 	return TRUE
@@ -280,11 +374,11 @@
 	C.digitalcamo = !C.digitalcamo
 
 	spawn(0)
-		while(C && C.digitalcamo && C.mind && C.mind.changeling)
-			C.mind.changeling.chem_charges = max(C.mind.changeling.chem_charges - 1, 0)
+		while(C && C.digitalcamo && C.mind && changeling)
+			changeling.use_charges(1)
 			sleep(40)
 
-	src.verbs -= /mob/proc/changeling_digitalcamo
+	remove_verb(src, /mob/proc/changeling_digitalcamo)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_digitalcamo)
 	feedback_add_details("changeling_powers", "CAM")
 	return TRUE
@@ -298,7 +392,7 @@
 	var/datum/changeling/changeling = changeling_power(30, 0, 100, UNCONSCIOUS)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 30
+	changeling.use_charges(30)
 
 	var/mob/living/carbon/human/C = src
 	spawn(0)
@@ -311,7 +405,7 @@
 				C.adjustCloneLoss(-10)
 				sleep(10)
 
-	src.verbs -= /mob/proc/changeling_rapidregen
+	remove_verb(src, /mob/proc/changeling_rapidregen)
 	ADD_VERB_IN(src, 5, /mob/proc/changeling_rapidregen)
 	feedback_add_details("changeling_powers", "RR")
 	return TRUE
@@ -327,7 +421,9 @@
 		return
 
 	if(changeling.mimicing)
+		var/datum/absorbed_dna/current_dna = changeling.GetDNA(real_name)
 		changeling.mimicing = ""
+		changeling.mimiced_accent = current_dna.accent
 		to_chat(src, "<span class='notice'>We return our vocal glands to their original form.</span>")
 		return
 
@@ -335,19 +431,24 @@
 	if(!mimic_voice)
 		return
 
-	changeling.mimicing = mimic_voice
+	var/chosen_accent = tgui_input_list(src, "Choose an accent to mimic.", "Accent Mimicry", SSrecords.accents)
+	if(!chosen_accent)
+		return
 
-	to_chat(src, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, this will stop us from regenerating chemicals while active.</span>")
+	changeling.mimicing = mimic_voice
+	changeling.mimiced_accent = chosen_accent
+
+	to_chat(src, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, using the <b>[chosen_accent]</b> accent. This will stop us from regenerating chemicals while active.</span>")
 	to_chat(src, "<span class='notice'>Use this power again to return to our original voice and reproduce chemicals again.</span>")
 
 	feedback_add_details("changeling_powers","MV")
 
 	spawn(0)
-		while(src && src.mind && src.mind.changeling && src.mind.changeling.mimicing)
-			src.mind.changeling.chem_charges = max(src.mind.changeling.chem_charges - 1, 0)
+		while(src?.mind && changeling?.mimicing)
+			changeling.use_charges(1)
 			sleep(40)
-		if(src && src.mind && src.mind.changeling)
-			src.mind.changeling.mimicing = ""
+		if(changeling)
+			changeling.mimicing = ""
 
 /mob/proc/armblades()
 	set category = "Changeling"
@@ -357,7 +458,7 @@
 	var/datum/changeling/changeling = changeling_power(20, 0, 0)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 20
+	changeling.use_charges(20)
 
 	var/mob/living/carbon/M = src
 
@@ -395,7 +496,7 @@
 	var/datum/changeling/changeling = changeling_power(20,0,0)
 	if(!changeling)
 		return FALSE
-	src.mind.changeling.chem_charges -= 20
+	changeling.use_charges(20)
 
 	var/mob/living/carbon/M = src
 
@@ -427,23 +528,26 @@
 
 /mob/proc/horror_form()
 	set category = "Changeling"
-	set name = "Horror Form (40)"
+	set name = "Horror Form (50)"
 	set desc = "Tear apart your human disguise, revealing your true form."
 
-	var/datum/changeling/changeling = changeling_power(40,0,0)
+	var/datum/changeling/changeling = changeling_power(50,0,0)
 	if(!changeling)
 		return FALSE
 
-	var/mob/living/M = src
-
-	if(alert("Are we sure we wish to reveal ourselves? This will only revert after ten minutes.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
+	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
 		return
 
-	src.mind.changeling.chem_charges -= 40
+	var/mob/living/carbon/human/M = src
+
+	if(alert("Are we sure we wish to reveal ourselves and assume our ultimate form? This is irreversible, and we will not be able to revert to our disguised form.", , "Yes", "No") == "No") //Changelings have to confirm whether they want to go full horrorform
+		return
+
+	changeling.use_charges(50)
 
 	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
 						"<span class='danger'>We begin our transformation to our true form!</span>")
-	if(!do_after(src,60))
+	if(!do_after(src, 6 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
 							"<span class='danger'>Our transformation has been interrupted!</span>")
 		return FALSE
@@ -454,10 +558,18 @@
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))
 
 	if(istype(M,/mob/living/carbon/human))
+		if(M.handcuffed)
+			var/cuffs = M.handcuffed
+			M.u_equip(M.handcuffed)
+			qdel(cuffs)
+
 		for(var/obj/item/I in M.contents)
 			if(isorgan(I))
 				continue
 			M.drop_from_inventory(I)
+
+	if(M.buckled_to)
+		M.buckled_to.unbuckle()
 
 	if(M.mind)
 		M.mind.transfer_to(ling)
@@ -467,22 +579,134 @@
 	effect.density = FALSE
 	effect.anchored = TRUE
 	effect.icon = 'icons/effects/effects.dmi'
-	effect.layer = 3
+	effect.layer = LYING_HUMAN_LAYER
 	flick("summoning", effect)
 	QDEL_IN(effect, 10)
 	M.forceMove(ling) //move inside the new dude to hide him.
 	ling.occupant = M
 	M.status_flags |= GODMODE //dont want him to die or breathe or do ANYTHING
-	addtimer(CALLBACK(src, .proc/revert_horror_form,ling), 10 MINUTES)
+	ling.client.init_verbs()
 
-/mob/proc/revert_horror_form(var/mob/living/ling)
-	if(QDELETED(ling))
-		return
-	src.status_flags &= ~GODMODE //no more godmode.
-	if(ling.mind)
-		ling.mind.transfer_to(src)
+// Chiropteran Screech
+/mob/proc/resonant_shriek()
+	set category = "Changeling"
+	set name = "Resonant Shriek (30)"
+	set desc = "Emit a powerful screech which shatters glass within a seven-tile radius, and disorients hearers."
+
+	var/datum/changeling/changeling = changeling_power(30,0,0)
+	if(!changeling)
+		return FALSE
+
+	visible_message(SPAN_DANGER("<font size=4>[src] lets out an ear piercing shriek!</font>"), SPAN_DANGER("<font size=4>You let out an ear-shattering shriek!</font>"), SPAN_DANGER("You hear a painfully loud shriek!"))
+	changeling.use_charges(30)
+
+	var/list/victims = list()
+	for(var/mob/living/carbon/human/T in hearers(7, src) - src)
+		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
+			continue
+		if(T.changeling_power())
+			continue
+		to_chat(T, SPAN_DANGER("<font size=4><b>You hear an ear piercing shriek and feel your senses go dull!</b></font>"))
+		if (T.get_hearing_sensitivity())
+			if (T.is_listening())
+				shake_camera(T, 6 SECONDS, 10)
+				T.Weaken(10)
+				T.Stun(10)
+				T.earpain(4)
+			else
+				shake_camera(T, 5 SECONDS, 10)
+				T.Stun(3)
+				T.earpain(3)
+		else
+			shake_camera(T, 4 SECONDS, 10)
+
+		T.stuttering = 20
+		T.confused = 5
+		T.adjustEarDamage(10, 20, TRUE)
+
+		victims += T
+
+	for(var/obj/structure/window/W in view(7))
+		W.shatter()
+
+	for(var/obj/machinery/door/window/WD in view(7))
+		if(get_dist(src, WD) > 5) //Windoors are strong, may only take damage instead of break if far away.
+			WD.take_damage(rand(12, 16) * 10)
+		else
+			WD.shatter()
+
+	for(var/obj/machinery/light/L in view(7))
+		L.broken()
+		CHECK_TICK
+
+	playsound(src.loc, 'sound/effects/creepyshriek.ogg', 100, 1)
+
+	if(length(victims))
+		admin_attacker_log_many_victims(src, victims, "used resonant shriek to stun", "was stunned by [key_name(src)] using resonant shriek", "used resonant shriek to stun")
 	else
-		src.key = ling.key
-	playsound(get_turf(src),'sound/effects/blobattack.ogg',50,1)
-	src.forceMove(get_turf(ling))
-	qdel(ling)
+		log_and_message_admins("used resonant shriek.")
+
+	remove_verb(src, /mob/proc/resonant_shriek)
+	ADD_VERB_IN(src, 3600, /mob/proc/resonant_shriek)
+
+/mob/proc/dissonant_shriek()
+	set category = "Changeling"
+	set name = "Dissonant Shriek (30)"
+	set desc = "Emit a moderate sized EMP."
+
+	var/datum/changeling/changeling = changeling_power(30,0,0)
+	if(!changeling)
+		return FALSE
+
+	visible_message(SPAN_DANGER("<font size=4>[src] opens their mouth and a horrid, high-pitched noise comes out!</font>"))
+	log_and_message_admins("used dissonant shriek.")
+	empulse(get_turf(src), 2, 3)
+	remove_verb(src, /mob/proc/dissonant_shriek)
+	ADD_VERB_IN(src, 3600, /mob/proc/dissonant_shriek)
+
+/mob/proc/changeling_thermals()
+	set category = "Changeling"
+	set name = "Enable Heat Receptors (5)"
+	set desc = "Toggles our thermal vision."
+
+	var/datum/changeling/changeling = changeling_power(5,0,0)
+	if(!changeling)
+		return FALSE
+
+	var/mob/living/carbon/human/H = src
+	if(!ishuman(H))
+		return
+
+	changeling.use_charges(5)
+
+	if(H.sight & SEE_MOBS)
+		H.sight &= ~SEE_MOBS
+		changeling.using_thermals = FALSE
+		H.stop_sight_update = FALSE
+		to_chat(H, SPAN_NOTICE("We have turned off our heat receptors. We are now more vulnerable to sudden lights."))
+	else
+		H.sight |= SEE_MOBS
+		changeling.using_thermals = TRUE
+		H.stop_sight_update = TRUE
+		to_chat(H, SPAN_NOTICE("We have turned on our heat receptors."))
+
+/mob/proc/changeling_electric_lockpick()
+	set category = "Changeling"
+	set name = "Electric Lockpick (5 + 10/use)"
+	set desc = "Bruteforces open most electrical locking systems, at 10 chemicals per use."
+
+	var/datum/changeling/changeling = changeling_power(5,0,100,CONSCIOUS)
+
+	var/mob/living/carbon/human/H = src
+
+	if(!changeling || !ishuman(H))
+		return FALSE
+
+	var/obj/held_item = H.get_active_hand()
+	if(!held_item)
+		var/obj/item/finger_lockpick/FL = new(H)
+		H.put_in_hands(FL)
+		to_chat(H, SPAN_NOTICE("We have recreated our finger to act like an electric lockpick."))
+		changeling.use_charges(5)
+
+

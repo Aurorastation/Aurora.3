@@ -4,7 +4,7 @@
 /obj/effect/effect/smoke/chem
 	icon = 'icons/effects/chemsmoke.dmi'
 	opacity = 0
-	layer = 6
+	layer = ABOVE_PROJECTILE_LAYER
 	time_to_live = 300
 	pass_flags = PASSTABLE | PASSGRILLE | PASSGLASS //PASSGLASS is fine here, it's just so the visual effect can "flow" around glass
 	var/splash_amount = 10 //atoms moving through a smoke cloud get splashed with up to 10 units of reagent
@@ -20,17 +20,17 @@
 	if(cached_icon)
 		icon = cached_icon
 
-	set_dir(pick(cardinal))
+	set_dir(pick(GLOB.cardinal))
 	pixel_x = -32 + rand(-8, 8)
 	pixel_y = -32 + rand(-8, 8)
 
 	//float over to our destination, if we have one
 	destination = dest_turf
 	if(destination)
-		walk_to(src, destination)
+		SSmove_manager.move_to(src, destination, priority = MOVEMENT_SPACE_PRIORITY)
 
 /obj/effect/effect/smoke/chem/Destroy()
-	walk(src, 0)
+	SSmove_manager.stop_looping(src)
 	return ..()
 
 /obj/effect/effect/smoke/chem/Move()
@@ -48,13 +48,19 @@
 /obj/effect/effect/smoke/chem/Crossed(atom/movable/AM)
 	..()
 	if(!istype(AM, /obj/effect/effect/smoke/chem))
-		reagents.splash(AM, splash_amount, copy = 1)
+		if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+			return
+		else
+			reagents.splash(AM, splash_amount, copy = 1)
 
 /obj/effect/effect/smoke/chem/proc/initial_splash()
 	for(var/turf/T in view(1, src))
 		for(var/atom/movable/AM in T)
 			if(!istype(AM, /obj/effect/effect/smoke/chem))
-				reagents.splash(AM, splash_amount, copy = 1)
+				if(istype(AM, /obj/item/reagent_containers) && !AM.is_open_container())
+					return
+				else
+					reagents.splash(AM, splash_amount, copy = 1)
 
 /////////////////////////////////////////////
 // Chem Smoke Effect System
@@ -171,7 +177,7 @@
 	if(!location)
 		return
 
-	if(chemholder.reagents.reagent_list.len) //reagent application - only run if there are extra reagents in the smoke
+	if(LAZYLEN(chemholder.reagents.reagent_volumes)) //reagent application - only run if there are extra reagents in the smoke
 		for(var/turf/T in wallList)
 			chemholder.reagents.touch_turf(T)
 		for(var/turf/T in targetTurfs)
@@ -208,7 +214,7 @@
 
 		var/offset = 0
 		var/points = round((radius * 2 * M_PI) / arcLength)
-		var/angle = round(ToDegrees(arcLength / radius), 1)
+		var/angle = round(TO_DEGREES(arcLength / radius), 1)
 
 		if(!IsInteger(radius))
 			offset = 45		//degrees
@@ -226,7 +232,7 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/start()
 	..()
-	if(seed.get_trait(TRAIT_SPREAD))
+	if(seed && seed.get_trait(TRAIT_SPREAD))
 		var/sporecount = 0
 		for(var/turf/T in targetTurfs)
 			var/bad_turf = 0
@@ -236,9 +242,11 @@
 					break
 			if(bad_turf)
 				continue
-			if(prob(min(seed.get_trait(TRAIT_POTENCY),50)) && sporecount < max(1,round(seed.get_trait(TRAIT_POTENCY)/20),1))
+			if(prob(min(seed.get_trait(TRAIT_POTENCY), 50)))
 				new /obj/machinery/portable_atmospherics/hydroponics/soil/invisible(T,seed)
 				sporecount++
+			if(sporecount < max(1, round(seed.get_trait(TRAIT_POTENCY) / 20), 1))
+				break
 
 
 //------------------------------------------
@@ -253,7 +261,7 @@
 	else
 		smoke = new /obj/effect/effect/smoke/chem(location, smoke_duration + rand(smoke_duration*-0.25, smoke_duration*0.25), T, I)
 
-	if(chemholder.reagents.reagent_list.len)
+	if(LAZYLEN(chemholder?.reagents?.reagent_volumes))
 		chemholder.reagents.trans_to_obj(smoke, chemholder.reagents.total_volume / dist, copy = 1) //copy reagents to the smoke so mob/breathe() can handle inhaling the reagents
 
 	//Kinda ugly, but needed unless the system is reworked
@@ -263,7 +271,8 @@
 
 /datum/effect/effect/system/smoke_spread/chem/spores/spawnSmoke(var/turf/T, var/icon/I, var/smoke_duration, var/dist = 1)
 	var/obj/effect/effect/smoke/chem/spores = new /obj/effect/effect/smoke/chem(location)
-	spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
+	if(spores && seed)
+		spores.name = "cloud of [seed.seed_name] [seed.seed_noun]"
 	..(T, I, smoke_duration, dist, spores)
 
 
@@ -276,7 +285,7 @@
 
 	while(pending.len)
 		for(var/turf/current in pending)
-			for(var/D in cardinal)
+			for(var/D in GLOB.cardinal)
 				var/turf/target = get_step(current, D)
 				if(wallList)
 					if(istype(target, /turf/simulated/wall))

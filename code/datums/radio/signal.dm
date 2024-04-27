@@ -1,10 +1,7 @@
 /datum/signal
 	var/obj/source
 
-	var/transmission_method = 0 //unused at the moment
-	//0 = wire
-	//1 = radio transmission
-	//2 = subspace transmission
+	var/transmission_method = TRANSMISSION_WIRE
 
 	var/list/data = list()
 	var/encryption

@@ -36,10 +36,10 @@
 	var/list/paramlist = params2list(params)
 	if (paramlist["shift"] && permit_mark && target)
 		if (target in usr.client.holder.watched_processes)
-			to_chat(usr, span("notice", "[target] removed from watchlist."))
+			to_chat(usr, SPAN_NOTICE("[target] removed from watchlist."))
 			LAZYREMOVE(usr.client.holder.watched_processes, target)
 		else
-			to_chat(usr, span("notice", "[target] added to watchlist."))
+			to_chat(usr, SPAN_NOTICE("[target] added to watchlist."))
 			LAZYADD(usr.client.holder.watched_processes, target)
 	else
 		usr.client.debug_variables(target)
@@ -67,7 +67,7 @@
 // Subsystems that cmd_ss_panic can hard-restart.
 // *MUST* have New() use NEW_SS_GLOBAL.
 var/list/panic_targets = list(
-	"Garbage" = /datum/controller/subsystem/garbage_collector,
+	"Garbage" = /datum/controller/subsystem/garbage,
 	"Air" = /datum/controller/subsystem/air,
 	"Explosives" = /datum/controller/subsystem/explosives,
 	"Game Ticker" = /datum/controller/subsystem/ticker,
@@ -99,11 +99,11 @@ var/list/panic_targets_data_loss = list(
 			to_chat(usr, "Aborted.")
 			return
 
-	log_and_message_admins(span("danger", "hard-restarted the [controller] subsystem."))
-	log_debug("SS PANIC: [controller] hard-restart by [usr]!")
+	log_and_message_admins(SPAN_DANGER("hard-restarted the [controller] subsystem."))
+	LOG_DEBUG("SS PANIC: [controller] hard-restart by [usr]!")
 
 	// NEW_SS_GLOBAL will handle destruction of old controller & data transfer, just create a new one and add it to the MC.
 	var/ctype = panic_targets[controller]
 	Master.subsystems += new ctype
 
-	sortTim(Master.subsystems, /proc/cmp_subsystem_display)
+	sortTim(Master.subsystems, GLOBAL_PROC_REF(cmp_subsystem_display))

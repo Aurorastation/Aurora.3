@@ -5,7 +5,7 @@
 	icon_state = "waterpack"
 	item_state = "waterpack"
 	contained_sprite = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	slot_flags = SLOT_BACK
 
 	var/obj/item/reagent_containers/spray/chemsprayer/mister/noz
@@ -26,6 +26,8 @@
 /obj/item/watertank/verb/toggle_mister()
 	set name = "Toggle Mister"
 	set category = "Object"
+	set src in usr
+
 	var/mob/living/carbon/human/user
 	if(istype(usr,/mob/living/carbon/human))
 		user = usr
@@ -81,10 +83,10 @@
 	noz = null
 	return ..()
 
-/obj/item/watertank/attackby(obj/item/W, mob/user, params)
-	if(W == noz)
+/obj/item/watertank/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item == noz)
 		remove_noz()
-		return 1
+		return TRUE
 	else
 		return ..()
 
@@ -95,7 +97,7 @@
 	icon_state = "mister"
 	item_state = "mister"
 	contained_sprite = 1
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	amount_per_transfer_from_this = 50
 	volume = 500
 	slot_flags = 0
@@ -123,14 +125,11 @@
 
 //Janitor tank
 /obj/item/watertank/janitor
-	name = "backpack water tank"
-	desc = "A janitorial watertank backpack with nozzle to clean dirt and graffiti."
+	name = "backpack cleaner tank"
+	desc = "A janitorial cleaner tank that is worn on the back, with a nozzle to clean dirt and graffiti."
 	icon_state = "waterpackjani"
 	item_state = "waterpackjani"
-
-/obj/item/watertank/janitor/Initialize()
-	. = ..()
-	reagents.add_reagent("cleaner", 500)
+	reagents_to_add = list(/singleton/reagent/spacecleaner = 500)
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/janitor
 	name = "janitor spray nozzle"

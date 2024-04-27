@@ -3,7 +3,7 @@
 	var/weight = 1
 	var/autoselect = TRUE
 	var/list/map_files = null
-	var/list/valid_maps = null
+	var/list/valid_sectors = null
 	var/list/characteristics = null
 
 	var/base_dir = null
@@ -13,14 +13,14 @@
 	weight = config["weight"]
 	autoselect = config["autoselect"]
 	map_files = config["map_files"]
-	valid_maps = config["valid_maps"]
+	valid_sectors = config["valid_sectors"]
 	characteristics = config["characteristics"]
 	base_dir = i_base_dir
 
 /datum/away_mission/proc/validate_maps()
 	for(var/map in map_files)
 		if(!fexists("[base_dir][map]"))
-			log_debug("[base_dir][map] does not exist")
+			LOG_DEBUG("[base_dir][map] does not exist")
 			return FALSE
 	return TRUE
 
@@ -35,7 +35,7 @@
 
 	ruintext += "</ul><HR>"
 
-	ruintext += "<b><font face='Courier New'>This reading has been detected within shuttle range of the [current_map.station_name] and deemed safe for survey by [current_map.company_name] personnel. \
+	ruintext += "<b><font face='Courier New'>This reading has been detected within shuttle range of the [SSatlas.current_map.station_name] and deemed safe for survey by [SSatlas.current_map.company_name] personnel. \
 	The designated research director, or a captain level decision may determine the goal of any missions to this site. On-site command is deferred to any nearby command staff.</font></b><br>"
 
 	return ruintext

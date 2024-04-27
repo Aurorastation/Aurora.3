@@ -2,78 +2,126 @@
 
 /obj/machinery/computer/operating
 	name = "patient monitoring console"
-	desc_info = "This console gives information on the status of the patient on the adjacent operating table, notably their consciousness."
+	desc = "A console that displays information on the status of the patient on an adjacent operating table."
 	density = TRUE
 	anchored = TRUE
-
-	light_color = LIGHT_COLOR_CYAN
 	icon_screen = "crew"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/operating
-	var/mob/living/carbon/human/victim = null
-	var/obj/machinery/optable/table = null
+
+	///The operating table we are hooked into
+	var/obj/machinery/optable/table
+
+	///The paper with the scan of the patient
+	var/obj/item/paper/medscan/primer
+
+	var/obj/machinery/body_scanconsole/embedded/embedded_scanner
 
 /obj/machinery/computer/operating/Initialize()
+	..()
+
+	embedded_scanner = new /obj/machinery/body_scanconsole/embedded(src, 0, TRUE, TRUE)
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/operating/LateInitialize()
 	. = ..()
-	for(dir in list(NORTH,EAST,SOUTH,WEST))
-		table = locate(/obj/machinery/optable, get_step(src, dir))
-		if (table)
-			table.computer = src
+
+	for(var/obj/machinery/optable/T in orange(1, src))
+		var/successfully_hooked = hook_table(T)
+		if(successfully_hooked)
 			break
 
-/obj/machinery/computer/operating/attack_ai(mob/user)
-	add_fingerprint(user)
-	if(stat & (BROKEN|NOPOWER))
-		return
-	interact(user)
+/obj/machinery/computer/operating/Destroy()
+	QDEL_NULL(embedded_scanner)
+	QDEL_NULL(primer)
 
+	//Clear the operating table
+	if(table)
+		unhook_table(table)
+
+	. = ..()
+
+/**
+ * Used to connect (hook) the computer to the operating table
+ *
+ * Returns `TRUE` on successful hook, `FALSE` otherwise
+ *
+ * * table_to_hook - An `/obj/machinery/optable` to hook to
+ */
+/obj/machinery/computer/operating/proc/hook_table(obj/machinery/optable/table_to_hook)
+	if(table)
+		return FALSE
+
+	if(QDELETED(table_to_hook))
+		crash_with("Trying to hook a QDELETED optable!")
+		return FALSE
+
+	if(!istype(table_to_hook))
+		crash_with("Trying to hook a table that is not of the correct type!")
+		return FALSE
+
+	table = table_to_hook
+	table.computer = src
+
+	return TRUE
+
+/**
+ * Used to disconnect (unhook) the computer to the operating table
+ *
+ * Returns `TRUE` on successful unhook, `FALSE` otherwise
+ *
+ * * table_to_unhook - An `/obj/machinery/optable` to hook to
+ */
+/obj/machinery/computer/operating/proc/unhook_table(obj/machinery/optable/table_to_unhook)
+	if(table_to_unhook != table)
+		crash_with("Trying to unhook a table that is not hooked!")
+		return FALSE
+
+	table.computer = null
+	table = null
+
+	return TRUE
+
+/obj/machinery/computer/operating/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/paper/medscan))
+		if(primer)
+			to_chat(user, SPAN_WARNING("\The [src] already has a primer!"))
+			return
+		user.visible_message("\The [user] slides \the [attacking_item] into \the [src].", SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."), range = 3)
+		user.drop_from_inventory(attacking_item, src)
+		primer = attacking_item
+
+/obj/machinery/computer/operating/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
+	return attack_hand(user)
 
 /obj/machinery/computer/operating/attack_hand(mob/user)
-	add_fingerprint(user)
-	if(stat & (BROKEN|NOPOWER))
-		return
-	interact(user)
-
-
-/obj/machinery/computer/operating/interact(mob/user)
-	if ( (get_dist(src, user) > 1 ) || (stat & (BROKEN|NOPOWER)) )
-		if (!istype(user, /mob/living/silicon))
-			user.unset_machine()
-			user << browse(null, "window=op")
-			return
-
-	user.set_machine(src)
-	var/dat = "<HEAD><TITLE>Operating Computer</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
-	dat += "<A HREF='?src=\ref[user];mach_close=op'>Close</A><br><br>" //| <A HREF='?src=\ref[user];update=1'>Update</A>"
-	if(src.table && (src.table.check_victim()))
-		src.victim = src.table.victim
-		var/brain_result = victim.get_brain_status()
-		if(victim.isFBP())
-			brain_result = "<span class='danger'>N/A</span>"
-		dat += {"
-<B>Patient Information:</B><BR>
-Brain Activity: <b>[brain_result]</b><br>
-Pulse: <b>[victim.get_pulse(GETPULSE_TOOL)]</b><br>
-BP: <b>[victim.get_blood_pressure()]</b><br>
-Blood Oxygenation: <b>[victim.get_blood_oxygenation()]</b><br>
-"}
-	else
-		src.victim = null
-		dat += {"
-<B>Patient Information:</B><BR>
-<BR>
-<B>No Patient Detected</B>
-"}
-	user << browse(dat, "window=op")
-	onclose(user, "op")
-
-/obj/machinery/computer/operating/Topic(href, href_list)
 	if(..())
-		return 1
-	if ((usr.contents.Find(src) || (in_range(src, usr) && istype(src.loc, /turf))) || (istype(usr, /mob/living/silicon)))
-		usr.set_machine(src)
-	return
+		return
+	embedded_scanner.ui_interact(user)
 
+/obj/machinery/computer/operating/verb/eject_primer()
+	set src in oview(1)
+	set category = "Object"
+	set name = "Eject Primer"
 
-/obj/machinery/computer/operating/machinery_process()
-	if(operable())
-		src.updateDialog()
+	if(!primer)
+		to_chat(usr, SPAN_WARNING("\The [src] doesn't have a primer!"))
+		return
+
+	usr.visible_message("\The [usr] takes \the [primer] out of \the [src].", SPAN_NOTICE("You take \the [primer] out of \the [src]"), range = 3)
+	usr.put_in_hands(primer)
+	primer = null
+
+/obj/machinery/computer/operating/terminal
+	name = "patient monitoring terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "med_comp"
+	icon_keyboard = "med_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1

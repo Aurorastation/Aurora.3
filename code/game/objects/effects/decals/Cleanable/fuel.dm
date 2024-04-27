@@ -1,8 +1,10 @@
 /obj/effect/decal/cleanable/liquid_fuel
 	//Liquid fuel is used for things that used to rely on volatile fuels or phoron being contained to a couple tiles.
+	name = "liquid fuel"
+	desc = "Some kind of sticky, flammable liquid."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "fuel"
-	layer = TURF_LAYER+0.2
+	layer = BLOOD_LAYER
 	anchored = 1
 	var/amount = 1
 
@@ -31,7 +33,7 @@
 	if(amount < 15) return //lets suppose welder fuel is fairly thick and sticky. For something like water, 5 or less would be more appropriate.
 	var/turf/simulated/S = loc
 	if(!istype(S)) return
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/target = get_step(src,d)
 		var/turf/simulated/origin = get_turf(src)
 		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))
@@ -46,7 +48,6 @@
 			amount *= 0.75
 
 /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel
-	icon_state = "mustard"
 	anchored = 0
 
 /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel/Initialize(mapload, amt = 1, d = 0)
@@ -55,17 +56,17 @@
 
 /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel/Spread()
 	//The spread for flamethrower fuel is much more precise, to create a wide fire pattern.
-	if(amount < 0.1) return
+	if(amount < 1) return
 	var/turf/simulated/S = loc
 	if(!istype(S)) return
 
-	for(var/d in list(turn(dir,90),turn(dir,-90), dir))
+	for(var/d in list(turn(dir, 45), turn(dir, -45), dir))
 		var/turf/simulated/O = get_step(S,d)
 		if(locate(/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel) in O)
 			continue
 		if(O.CanPass(null, S, 0, 0) && S.CanPass(null, O, 0, 0))
-			new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(O,amount*0.25,d)
-			O.hotspot_expose((T20C*2) + 380,500) //Light flamethrower fuel on fire immediately.
+			new/obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(O,amount * 0.25,d)
+			O.hotspot_expose((T20C*2) + 400, 500) //Light flamethrower fuel on fire immediately.
 
 	amount *= 0.25
 
@@ -87,7 +88,7 @@
 	var/turf/simulated/S = loc
 	if(!istype(S))
 		return
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/target = get_step(src,d)
 		var/turf/simulated/origin = get_turf(src)
 		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))
@@ -114,12 +115,17 @@
 	gender = PLURAL
 	density = 0
 	anchored = 1
-	layer = 2
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "white_foam"
 	var/amount = 1
 
 /obj/effect/decal/cleanable/foam/Initialize(mapload, amt = 1, nologs = 0)
+	SHOULD_CALL_PARENT(FALSE)
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
 	src.amount = amt
 
 	var/has_spread = 0
@@ -134,14 +140,16 @@
 	if(!has_spread)
 		Spread()
 		QDEL_IN(src, 2 MINUTES)
+		return INITIALIZE_HINT_NORMAL
 	else
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
+
 
 /obj/effect/decal/cleanable/foam/proc/Spread(exclude=list())
 	if(amount < 15) return
 	var/turf/simulated/S = loc
 	if(!istype(S)) return
-	for(var/d in cardinal)
+	for(var/d in GLOB.cardinal)
 		var/turf/simulated/target = get_step(src,d)
 		var/turf/simulated/origin = get_turf(src)
 		if(origin.CanPass(null, target, 0, 0) && target.CanPass(null, origin, 0, 0))

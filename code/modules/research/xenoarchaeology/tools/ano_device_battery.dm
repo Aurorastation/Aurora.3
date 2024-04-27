@@ -22,7 +22,7 @@
 /obj/item/anodevice
 	name = "anomaly power utilizer"
 	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "anodev"
+	icon_state = "anodev_empty"
 	var/activated = 0
 	var/duration = 0
 	var/interval = 0
@@ -37,12 +37,12 @@
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I, /obj/item/anobattery))
+/obj/item/anodevice/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/anobattery))
 		if(!inserted_battery)
 			to_chat(user, "<span class='notice'>You insert the battery.</span>")
-			user.drop_from_inventory(I,src)
-			inserted_battery = I
+			user.drop_from_inventory(attacking_item, src)
+			inserted_battery = attacking_item
 			UpdateSprite()
 	else
 		return ..()
@@ -75,8 +75,9 @@
 	dat += "<hr>"
 	dat += "<a href='?src=\ref[src];refresh=1'>Refresh</a> <a href='?src=\ref[src];close=1'>Close</a>"
 
-	user << browse(dat, "window=anodevice;size=400x500")
-	onclose(user, "anodevice")
+	var/datum/browser/battery_win = new(user, "anodevice", capitalize_first_letters(name), 400, 500)
+	battery_win.set_content(dat)
+	battery_win.open()
 
 /obj/item/anodevice/process()
 	if(activated)
@@ -102,9 +103,9 @@
 					if(interval > 0)
 						//apply the touch effect to the holder
 						if(holder)
-							to_chat(holder, "the \icon[src] [src] held by [holder] shudders in your grasp.")
+							to_chat(holder, "[icon2html(src, viewers(get_turf(src)))] [src] held by [holder] shudders in your grasp.")
 						else
-							src.loc.visible_message("the \icon[src] [src] shudders.")
+							src.loc.visible_message("[icon2html(src, viewers(get_turf(src)))] [src] shudders.")
 						inserted_battery.battery_effect.DoEffectTouch(holder)
 
 						//consume power
@@ -130,13 +131,13 @@
 
 			//work out if we need to shutdown
 			if(inserted_battery.stored_charge <= 0)
-				src.loc.visible_message("<span class='notice'>\icon[src] [src] buzzes.</span>", "<span class='notice'>\icon[src] You hear something buzz.</span>")
+				src.loc.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] buzzes.</span>", "<span class='notice'>You hear something buzz.</span>")
 				shutdown_emission()
 			else if(world.time > time_end)
-				src.loc.visible_message("<span class='notice'>\icon[src] [src] chimes.</span>", "<span class='notice'>\icon[src] You hear something chime.</span>")
+				src.loc.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] chimes.</span>", "<span class='notice'>You hear something chime.</span>")
 				shutdown_emission()
 		else
-			src.visible_message("<span class='notice'>\icon[src] [src] buzzes.</span>", "<span class='notice'>\icon[src] You hear something buzz.</span>")
+			src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] buzzes.</span>", "<span class='notice'>You hear something buzz.</span>")
 			shutdown_emission()
 		last_process = world.time
 
@@ -163,7 +164,7 @@
 	if(href_list["startup"])
 		if(inserted_battery && inserted_battery.battery_effect && (inserted_battery.stored_charge > 0) )
 			activated = 1
-			src.visible_message("<span class='notice'>\icon[src] [src] whirrs.</span>", "\icon[src]<span class='notice'>You hear something whirr.</span>")
+			src.visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] [src] whirrs.</span>", "<span class='notice'>You hear something whirr.</span>")
 			if(!inserted_battery.battery_effect.activated)
 				inserted_battery.battery_effect.ToggleActivate(1)
 			time_end = world.time + duration
@@ -183,7 +184,7 @@
 
 /obj/item/anodevice/proc/UpdateSprite()
 	if(!inserted_battery)
-		icon_state = "anodev"
+		icon_state = initial(icon_state)
 		return
 	var/p = (inserted_battery.stored_charge/inserted_battery.capacity)*100
 	p = min(p, 100)
@@ -209,6 +210,6 @@
 	M.lastattacker = user
 
 	if(inserted_battery.battery_effect)
-		user.attack_log += "\[[time_stamp()]\]<font color='red'> Tapped [M.name] ([M.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</font>"
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Tapped [M.name] ([M.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</span>"
 		M.attack_log += "\[[time_stamp()]\]<font color='orange'> Tapped by [user.name] ([user.ckey]) with [name] (EFFECT: [inserted_battery.battery_effect.effecttype])</font>"
 		msg_admin_attack("[key_name_admin(user)] tapped [key_name_admin(M)] with [name] (EFFECT: [inserted_battery.battery_effect.effecttype]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(M) )

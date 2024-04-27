@@ -1,7 +1,7 @@
 /obj/item/device/dociler
 	name = "dociler"
 	desc = "A complex single use recharging injector that spreads a complex neurological serum that makes animals docile and friendly. Somewhat."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_BIO = 5, TECH_MATERIAL = 2)
 	// To-do track down where the hell this sprite went?
 	icon = 'icons/obj/guns/decloner.dmi'
@@ -12,9 +12,9 @@
 	var/loaded = 1
 	var/mode = "completely"
 
-/obj/item/device/dociler/examine(var/mob/user)
-	. = ..(user)
-	to_chat(user, "<span class='notice'>It is currently set to [mode] docile mode.</span>")
+/obj/item/device/dociler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "<span class='notice'>It is currently set to [mode] docile mode.</span>"
 
 /obj/item/device/dociler/attack_self(var/mob/user)
 	if(mode == "somewhat")
@@ -50,6 +50,7 @@
 			H.LoseTarget()
 			H.attack_same = 0
 			H.friends += user
+			H.hostile_nameable = TRUE
 
 	L.desc += "<br><span class='notice'>It looks especially docile.</span>"
 	var/name = input(user, "Would you like to rename \the [L]?", "Dociler", L.name) as text
@@ -59,7 +60,7 @@
 
 	loaded = 0
 	icon_state = "animal_tagger0"
-	addtimer(CALLBACK(src, .proc/do_recharge), 5 MINUTES)
+	addtimer(CALLBACK(src, PROC_REF(do_recharge)), 5 MINUTES)
 
 
 /obj/item/device/dociler/proc/do_recharge()

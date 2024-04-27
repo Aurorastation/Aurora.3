@@ -2,43 +2,39 @@
 //not sure if there's an immediate place for secure wall lockers, but i'm sure the players will think of something
 
 /obj/structure/closet/walllocker
+	name = "wall locker"
 	desc = "A wall mounted storage locker."
-	name = "Wall Locker"
 	icon = 'icons/obj/walllocker.dmi'
-	icon_state = "wall-locker"
-	density = 0
-	anchored = 1
-	icon_closed = "wall-locker"
-	icon_opened = "wall-lockeropen"
+	icon_state = "walllocker" //...man, how OLD is this $#!?
+	door_anim_angle = 132
+	door_anim_squish = 0.38
+	door_hinge = -7
+	door_anim_time = 2.7
+	store_mobs = FALSE
+	density = FALSE
+	anchored = TRUE
+	wall_mounted = TRUE
 
-//spawns endless (3 sets) amounts of breathmask, emergency oxy tank and crowbar
+/obj/structure/closet/walllocker/secure
+	name = "secure wall locker"
+	icon_door = "walllocker_secure"
+	icon_door_override = TRUE
+	locked = TRUE
+	secure = TRUE
 
 /obj/structure/closet/walllocker/emerglocker
 	name = "emergency locker"
 	desc = "A wall mounted locker with emergency supplies."
-	var/list/spawnitems = list(/obj/item/tank/emergency_oxygen,/obj/item/clothing/mask/breath)
-	var/amount = 2 // spawns each items X times.
 	icon_state = "emerg"
+	store_mobs = FALSE
+	door_anim_time = 0
 
-/obj/structure/closet/walllocker/emerglocker/toggle(mob/user as mob)
-	attack_hand(user)
-	return
-
-/obj/structure/closet/walllocker/emerglocker/attackby(obj/item/W as obj, mob/user as mob)
-	return
-
-/obj/structure/closet/walllocker/emerglocker/attack_hand(mob/user as mob)
-	if (istype(user, /mob/living/silicon/ai))	//Added by Strumpetplaya - AI shouldn't be able to
-		return									//activate emergency lockers.  This fixes that.  (Does this make sense, the AI can't call attack_hand, can it? --Mloc)
-	if(!amount)
-		to_chat(usr, "<spawn class='notice'>It's empty..")
-		return
-	if(amount)
-		to_chat(usr, "<spawn class='notice'>You take out some items from \the [src].")
-		for(var/path in spawnitems)
-			new path(loc)
-		amount--
-	return
+/obj/structure/closet/walllocker/emerglocker/fill()
+	for(var/i = 1 to 3)
+		new /obj/item/tank/emergency_oxygen(src)
+		new /obj/item/clothing/mask/breath(src)
+		if(prob(20))
+			new /obj/item/reagent_containers/hypospray/autoinjector/emergency(src)
 
 /obj/structure/closet/walllocker/emerglocker/north
 	pixel_y = 32
@@ -55,3 +51,46 @@
 /obj/structure/closet/walllocker/emerglocker/east
 	pixel_x = 32
 	dir = EAST
+
+/obj/structure/closet/walllocker/firecloset //wall mounted fire closet
+	name = "firefighting closet"
+	desc = "It's a storage unit for firefighting supplies."
+	icon_state = "hydrant"
+
+/obj/structure/closet/walllocker/firecloset/fill()
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/device/flashlight(src)
+	new /obj/item/crowbar/rescue_axe/red(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/extinguisher(src)
+	new /obj/item/inflatable/door(src)
+	new /obj/item/inflatable/wall(src)
+	new /obj/item/inflatable/wall(src)
+
+	if (prob(25))
+		new /obj/item/ladder_mobile(src)
+
+/obj/structure/closet/walllocker/firecloset/medical/fill()
+	new /obj/item/clothing/head/hardhat/firefighter(src)
+	new /obj/item/clothing/suit/fire(src)
+	new /obj/item/clothing/mask/gas/alt(src)
+	new /obj/item/device/flashlight(src)
+	new /obj/item/tank/oxygen/red(src)
+	new /obj/item/extinguisher(src)
+	new /obj/item/ladder_mobile(src)
+	new /obj/item/storage/bag/inflatable/emergency(src)
+
+/obj/structure/closet/walllocker/medical //wall mounted medical closet
+	name = "first-aid closet"
+	desc = "It's wall-mounted storage unit for first aid supplies."
+	icon_state = "medical_wall"
+
+/obj/structure/closet/walllocker/medical/secure
+	desc = "It's a secure wall-mounted storage unit for first aid supplies."
+	icon_door = "medical_wall_secure"
+	icon_door_override = TRUE
+	locked = TRUE
+	secure = TRUE
+	req_access = list(ACCESS_MEDICAL_EQUIP)

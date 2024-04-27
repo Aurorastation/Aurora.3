@@ -34,17 +34,17 @@
 		if("singulo", "telesci")			//general one-round-only stuff
 			var/F = investigate_subject2file(subject)
 			if(!F)
-				to_chat(src, "<font color='red'>Error: admin_investigate: [INVESTIGATE_DIR][subject] is an invalid path or cannot be accessed.</font>")
+				to_chat(src, "<span class='warning'>Error: admin_investigate: [INVESTIGATE_DIR][subject] is an invalid path or cannot be accessed.</span>")
 				return
 			src << browse(F,"window=investigate[subject];size=800x300")
 
 		if("hrefs")				//persistant logs and stuff
-			if(config && config.log_hrefs)
-				if(href_logfile)
-					src << browse(href_logfile,"window=investigate[subject];size=800x300")
+			if(GLOB.config && GLOB.config.logsettings["log_hrefs"])
+				if(GLOB.config.logfiles["world_href_log"])
+					src << browse(GLOB.config.logfiles["world_href_log"], "window=investigate[subject];size=800x300")
 				else
-					to_chat(src, "<font color='red'>Error: admin_investigate: No href logfile found.</font>")
+					to_chat(src, "<span class='warning'>Error: admin_investigate: No href logfile found.</span>")
 					return
 			else
-				to_chat(src, "<font color='red'>Error: admin_investigate: Href Logging is not on.</font>")
+				to_chat(src, "<span class='warning'>Error: admin_investigate: Href Logging is not on.</span>")
 				return

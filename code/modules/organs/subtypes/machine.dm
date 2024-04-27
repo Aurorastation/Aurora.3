@@ -62,26 +62,101 @@
 	desc = "A small, powerful cell for use in fully prosthetic bodies."
 	icon = 'icons/obj/power.dmi'
 	icon_state = "scell"
-	organ_tag = "cell"
+	organ_tag = BP_CELL
 	parent_organ = BP_CHEST
-	vital = 1
-	var/emp_counter = 0
+	max_damage = 80
+	relative_size = 80
+	robotic_sprite = FALSE
+	var/open = FALSE
+	var/obj/item/cell/cell = /obj/item/cell/super
+	var/move_charge_factor = 1
+	//at 0.8 completely depleted after 60ish minutes of constant walking or 130 minutes of standing still
+	var/servo_cost = 0.8
 
 /obj/item/organ/internal/cell/Initialize()
 	robotize()
+	replace_cell(new cell(src))
 	. = ..()
+
+/obj/item/organ/internal/cell/proc/percent()
+	if(!cell)
+		return 0
+	return get_charge()/cell.maxcharge * 100
+
+/obj/item/organ/internal/cell/proc/get_charge()
+	if(!cell)
+		return 0
+	if(status & ORGAN_DEAD)
+		return 0
+	return round(cell.charge*(1 - damage/max_damage))
+
+/obj/item/organ/internal/cell/use(var/amount)
+	if(!is_usable() || !cell)
+		return
+	return cell.use(amount)
 
 /obj/item/organ/internal/cell/process()
 	..()
-	if(emp_counter)
-		emp_counter--
+	if(!owner)
+		return
+	if(owner.stat == DEAD)	//not a drain anymore
+		return
+	var/cost = get_power_drain()
+	if(world.time - owner.l_move_time < 15)
+		cost *= 2
+	cost *= move_charge_factor
+	use(cost)
+
+/obj/item/organ/internal/cell/proc/get_power_drain()
+	return servo_cost
 
 /obj/item/organ/internal/cell/emp_act(severity)
-	emp_counter += 30/severity
-	if(emp_counter >= 30)
-		owner.Paralyse(emp_counter/6)
-		to_chat(owner, "<span class='danger'>%#/ERR: Power leak detected!$%^/</span>")
+	. = ..()
 
+	if(cell)
+		cell.emp_act(severity)
+
+/obj/item/organ/internal/cell/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		if(open)
+			open = FALSE
+			to_chat(user, SPAN_NOTICE("You screw the battery panel in place."))
+		else
+			open = TRUE
+			to_chat(user, SPAN_NOTICE("You unscrew the battery panel."))
+
+	if(attacking_item.iscrowbar())
+		if(open)
+			if(cell)
+				user.put_in_hands(cell)
+				to_chat(user, SPAN_NOTICE("You remove \the [cell] from \the [src]."))
+				cell = null
+			else
+				to_chat(user, SPAN_WARNING("There is no cell to remove."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
+
+	if(istype(attacking_item, /obj/item/cell))
+		if(open)
+			if(cell)
+				to_chat(user, SPAN_WARNING("There is a power cell already installed."))
+			else if(user.unEquip(attacking_item, src))
+				replace_cell(attacking_item)
+				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
+		else
+			to_chat(user, SPAN_WARNING("You need to unscrew the battery panel first."))
+
+/obj/item/organ/internal/cell/proc/replace_cell(var/obj/item/cell/C)
+	if(istype(cell))
+		qdel(cell)
+	if(C.loc != src)
+		C.forceMove(src)
+	cell = C
+	name = "[initial(name)] ([C.name])"
+
+/obj/item/organ/internal/cell/listen()
+	if(get_charge())
+		return "faint hum of the power bank"
 
 /obj/item/organ/internal/surge
 	name = "surge preventor"
@@ -90,7 +165,8 @@
 	icon_state = "surge_ipc"
 	organ_tag = "surge"
 	parent_organ = BP_CHEST
-	vital = 0
+	vital = FALSE
+	robotic_sprite = FALSE
 	var/surge_left = 0
 	var/broken = 0
 
@@ -125,10 +201,11 @@
 /obj/item/organ/internal/eyes/optical_sensor
 	name = "optical sensor"
 	singular_name = "optical sensor"
-	organ_tag = "optics"
+	organ_tag = BP_EYES
 	icon = 'icons/obj/robot_component.dmi'
 	icon_state = "camera"
 	dead_icon = "camera_broken"
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/eyes/optical_sensor/Initialize()
 	robotize()
@@ -136,82 +213,119 @@
 
 /obj/item/organ/internal/ipc_tag
 	name = "identification tag"
-	organ_tag = "ipc tag"
+	organ_tag = BP_IPCTAG
 	parent_organ = BP_HEAD
 	icon = 'icons/obj/ipc_utilities.dmi'
 	icon_state = "ipc_tag"
 	item_state = "ipc_tag"
 	dead_icon = "ipc_tag_dead"
 	contained_sprite = TRUE
+	robotic_sprite = FALSE
 	var/auto_generate = TRUE
 	var/serial_number = ""
 	var/ownership_info = IPC_OWNERSHIP_COMPANY
-	var/citizenship_info = CITIZENSHIP_BIESEL
+	var/citizenship_info = CITIZENSHIP_NONE
 
 /obj/item/organ/internal/ipc_tag/Initialize()
 	robotize()
 	. = ..()
 
-/obj/item/organ/internal/ipc_tag/examine(mob/user)
-	..()
-	to_chat(user, SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]"))
-	to_chat(user, SPAN_NOTICE("Serial Number: [serial_number]"))
-	to_chat(user, SPAN_NOTICE("Ownership Info: [ownership_info]"))
-	to_chat(user, SPAN_NOTICE("Citizenship Info: [citizenship_info]"))
+/obj/item/organ/internal/ipc_tag/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += SPAN_NOTICE("Serial Autogeneration: [auto_generate ? "Yes" : "No"]")
+	. += SPAN_NOTICE("Serial Number: [serial_number]")
+	. += SPAN_NOTICE("Ownership Info: [ownership_info]")
+	. += SPAN_NOTICE("Citizenship Info: [citizenship_info]")
 
-/obj/item/organ/internal/ipc_tag/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/ipc_tag_scanner))
+/obj/item/organ/internal/ipc_tag/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ipc_tag_scanner))
 		if(src.loc != user)
 			to_chat(user, SPAN_WARNING("You can't scan \the [src] if it's not on your person!"))
 			return
-		var/obj/item/ipc_tag_scanner/S = W
+		var/obj/item/ipc_tag_scanner/S = attacking_item
 		if(!S.powered)
 			to_chat(user, SPAN_WARNING("\The [src] reads, \"Scanning failure, please submit scanner for repairs.\""))
 			return
 		if(!S.hacked)
-			user.examinate(src)
+			examinate(user, src)
 		else
 			user.visible_message(SPAN_WARNING("\The [user] starts fiddling with \the [src]..."), SPAN_NOTICE("You start fiddling with \the [src]..."))
-			if(do_after(user, 30, TRUE, src))
+			if(do_after(user, 30, src))
 				if(src.loc != user)
 					to_chat(user, SPAN_WARNING("You can only modify \the [src] if it's on your person!"))
 					return
+
 				var/static/list/modification_options = list("Serial Number", "Ownership Status", "Citizenship")
-				var/choice = input(user, "How do you want to modify the IPC tag?", "IPC Tag Modification") as null|anything in modification_options
-				if(choice)
-					if(choice == "Serial Number")
-						var/serial_selection = alert(user, "In what way do you want to modify the serial number?", "Serial Number Selection", "Auto Generation", "Manual Input", "Cancel")
+				var/choice = tgui_input_list(user, "How do you want to modify the IPC tag?", "IPC Tag Modification", modification_options)
+				switch(choice)
+
+					if("Serial Number")
+						var/serial_selection = tgui_input_list(user, "In what way do you want to modify the serial number?","Serial Number Selection",
+																list("Auto Generation", "Manual Input", "Cancel"), default = "Cancel")
 						if(serial_selection != "Cancel")
 							if(serial_selection == "Auto Generation")
-								var/auto_generation_choice = alert(user, "Do you wish for the IPC tag to automatically generate its serial number based on the IPCs name?", "Serial Autogeneration", "Yes", "No")
+								var/auto_generation_choice = tgui_input_list(user, "Do you wish for the IPC tag to automatically generate its serial number based on the IPCs name?", "Serial Autogeneration",
+																			list("Yes", "No"), "No")
 								if(auto_generation_choice == "Yes")
 									auto_generate = TRUE
 								else
 									auto_generate = FALSE
+
 							if(serial_selection == "Manual Input")
-								var/new_serial = input(user, "What do you wish for the new serial number to be? (Limit of 12 characters)", "Serial Number Modification", serial_number) as text|null
+								var/new_serial = tgui_input_text(user, "What do you wish for the new serial number to be? (Limit of 12 characters)", "Serial Number Modification", serial_number, 12)
 								new_serial = uppertext(dd_limittext(new_serial, 12))
 								if(new_serial)
 									serial_number = new_serial
 									auto_generate = FALSE
-					if(choice == "Ownership Status")
+
+					if("Ownership Status")
 						var/static/list/ownership_options = list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF)
-						var/new_ownership = input(user, "What do you wish for the new ownership status to be?", "Ownership Status Modification") as null|anything in ownership_options
+						var/new_ownership = tgui_input_list(user, "What do you wish for the new ownership status to be?", "Ownership Status Modification", ownership_options)
 						if(new_ownership)
 							ownership_info = new_ownership
-					if(choice == "Citizenship")
-						var/datum/citizenship/citizenship = input(user, "What do you wish for the new citizenship setting to be?", "Citizenship Setting Modification") as null|anything in SSrecords.citizenships
+
+					if("Citizenship")
+						var/datum/citizenship/citizenship = tgui_input_list(user, "What do you wish for the new citizenship setting to be?", "Citizenship Setting Modification", SSrecords.citizenships)
 						if(citizenship)
 							citizenship_info = citizenship
 	else
 		..()
+
+/obj/item/organ/internal/ipc_tag/proc/modify_tag_data(var/can_be_untagged = FALSE)
+	if(!owner || owner.stat)
+		return
+	if(can_be_untagged)
+		var/untagged = tgui_alert(owner, "Do you wish to remove your tag? This is highly illegal in most nations!", "Untagged IPC", list("Remove Tag", "Keep Tag"))
+		if(untagged == "Remove Tag")
+			to_chat(owner, SPAN_WARNING("You are now an untagged synthetic - don't get caught!"))
+			qdel(src)
+			return
+	var/new_ownership = tgui_input_list(owner, "Choose an ownership status for your IPC tag.", "Tag Ownership", list(IPC_OWNERSHIP_COMPANY, IPC_OWNERSHIP_PRIVATE, IPC_OWNERSHIP_SELF))
+	if(!new_ownership)
+		return
+	ownership_info = new_ownership
+	if(ownership_info == IPC_OWNERSHIP_SELF) //Owned IPCs don't have citizenship
+		var/new_citizenship = tgui_input_list(owner, "Choose a citizenship for your IPC tag.", "Tag Citizenship", CITIZENSHIPS_ALL_IPC)
+		if(!new_citizenship)
+			return
+		citizenship_info = new_citizenship
+	else
+		citizenship_info = CITIZENSHIP_NONE
+	var/new_serial = tgui_input_text(owner, "Choose a serial number for your IPC tag, or leave blank for a random one.", "Serial Number")
+	if(!new_serial)
+		serial_number = uppertext(dd_limittext(md5(owner.real_name), 12))
+	else
+		serial_number = uppertext(dd_limittext(new_serial, 12))
+	to_chat(owner, SPAN_NOTICE("IPC tag data has been updated."))
+
 
 // Used for an MMI or posibrain being installed into a human.
 /obj/item/organ/internal/mmi_holder
 	name = "brain"
 	organ_tag = BP_BRAIN
 	parent_organ = BP_HEAD
-	vital = 1
+	vital = TRUE
+	robotic_sprite = FALSE
 	var/obj/item/device/mmi/stored_mmi
 
 /obj/item/organ/internal/mmi_holder/proc/update_from_mmi()
@@ -239,7 +353,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/posibrain(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+	addtimer(CALLBACK(src, PROC_REF(setup_brain)), 30)
 
 /obj/item/organ/internal/mmi_holder/posibrain/proc/setup_brain()
 	if(owner)
@@ -256,7 +370,7 @@
 	robotize()
 	stored_mmi = new /obj/item/device/mmi/digital/robot(src)
 	. = ..()
-	addtimer(CALLBACK(src, .proc/setup_brain), 1)
+	addtimer(CALLBACK(src, PROC_REF(setup_brain)), 1)
 
 /obj/item/organ/internal/mmi_holder/circuit/proc/setup_brain()
 	if(owner)
@@ -276,7 +390,7 @@
 	name = BP_BRAIN
 	organ_tag = BP_BRAIN
 	parent_organ = BP_CHEST
-	vital = 1
+	vital = TRUE
 	emp_coeff = 0.1
 
 /obj/item/organ/internal/data
@@ -285,8 +399,9 @@
 	parent_organ = BP_GROIN
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "harddisk"
-	vital = 0
+	vital = FALSE
 	emp_coeff = 0.1
+	robotic_sprite = FALSE
 
 /obj/item/organ/internal/data/Initialize()
 	robotize()
@@ -299,12 +414,8 @@
 	icon_state = "scell"
 	organ_tag = "shielded cell"
 	parent_organ = BP_CHEST
-	vital = 1
+	vital = TRUE
 	emp_coeff = 0.1
-
-/obj/item/organ/internal/cell/Initialize()
-	robotize()
-	. = ..()
 
 /obj/item/organ/external/head/terminator
 	dislocated = -1
@@ -380,58 +491,58 @@
 //Industrial//
 //////////////
 
-/obj/item/organ/external/head/industrial
+/obj/item/organ/external/head/ipc/industrial
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/chest/industrial
+/obj/item/organ/external/chest/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/groin/industrial
+/obj/item/organ/external/groin/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/arm/industrial
+/obj/item/organ/external/arm/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/arm/right/industrial
+/obj/item/organ/external/arm/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/leg/industrial
+/obj/item/organ/external/leg/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/leg/right/industrial
+/obj/item/organ/external/leg/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/foot/industrial
+/obj/item/organ/external/foot/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/foot/right/industrial
+/obj/item/organ/external/foot/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/hand/industrial
+/obj/item/organ/external/hand/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
 
-/obj/item/organ/external/hand/right/industrial
+/obj/item/organ/external/hand/right/ipc/industrial
 	dislocated = -1
 	encased = "support frame"
 	robotize_type = PROSTHETIC_IND
@@ -440,68 +551,68 @@
 //Shell limbs//
 ///////////////
 
-/obj/item/organ/external/head/shell
+/obj/item/organ/external/head/ipc/shell
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/chest/shell
+/obj/item/organ/external/chest/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/groin/shell
+/obj/item/organ/external/groin/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/arm/shell
+/obj/item/organ/external/arm/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/arm/right/shell
+/obj/item/organ/external/arm/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/leg/shell
+/obj/item/organ/external/leg/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/leg/right/shell
+/obj/item/organ/external/leg/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/foot/shell
+/obj/item/organ/external/foot/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/foot/right/shell
+/obj/item/organ/external/foot/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/hand/shell
+/obj/item/organ/external/hand/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
 	robotize_type = PROSTHETIC_SYNTHSKIN
 
-/obj/item/organ/external/hand/right/shell
+/obj/item/organ/external/hand/right/ipc/shell
 	dislocated = -1
 	encased = "support frame"
 	force_skintone = TRUE
@@ -509,58 +620,74 @@
 
 //unbranded
 
-/obj/item/organ/external/head/unbranded
+/obj/item/organ/external/head/ipc/unbranded
 	dislocated = -1
 	can_intake_reagents = 0
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/chest/unbranded
+/obj/item/organ/external/chest/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/groin/unbranded
+/obj/item/organ/external/groin/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/arm/unbranded
+/obj/item/organ/external/groin/ipc/unbranded/cap // extreme nugget action
+	force_prosthetic_name = "prosthetic groin cap"
+	supports_children = FALSE
+
+/obj/item/organ/external/groin/ipc/unbranded/cap/Initialize(mapload)
+	. = ..()
+	var/obj/item/organ/internal/kidneys/K = new(src)
+	K.robotize()
+	internal_organs += K
+	var/obj/item/organ/internal/liver/L = new(src)
+	L.robotize()
+	internal_organs += L
+	var/obj/item/organ/internal/stomach/S = new(src)
+	S.robotize()
+	internal_organs += S
+
+/obj/item/organ/external/arm/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/arm/right/unbranded
+/obj/item/organ/external/arm/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/leg/unbranded
+/obj/item/organ/external/leg/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/leg/right/unbranded
+/obj/item/organ/external/leg/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/foot/unbranded
+/obj/item/organ/external/foot/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/foot/right/unbranded
+/obj/item/organ/external/foot/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/hand/unbranded
+/obj/item/organ/external/hand/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED
 
-/obj/item/organ/external/hand/right/unbranded
+/obj/item/organ/external/hand/right/ipc/unbranded
 	dislocated = -1
 	encased = "support frame"
-	robotize_type = "Unbranded"
+	robotize_type = PROSTHETIC_UNBRANDED

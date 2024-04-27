@@ -3,12 +3,12 @@
 	desc = "Should anything ever go wrong..."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
-	flags = CONDUCT
-	force = 3.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 3
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("called", "rang")
 	hitsound = 'sound/weapons/ring.ogg'
 
@@ -22,7 +22,7 @@
 	anchored = 0.0
 	var/stored_matter = 0
 	var/mode = 1
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 
 /obj/item/bikehorn
 	name = "bike horn"
@@ -31,7 +31,7 @@
 	icon_state = "bike_horn"
 	item_state = "bike_horn"
 	throwforce = 3
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 15
 	attack_verb = list("HONKED")
@@ -50,12 +50,13 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "cane"
 	item_state = "stick"
-	flags = CONDUCT
-	force = 10
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 15
 	throwforce = 7.0
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
 	attack_verb = list("bludgeoned", "whacked", "disciplined", "thrashed")
+	var/can_support = TRUE
 
 /obj/item/cane/attack(mob/living/target, mob/living/carbon/human/user, target_zone = BP_CHEST)
 
@@ -72,20 +73,20 @@
 	var/armorpercent = 0
 	var/wasblocked = 0
 	var/shoulddisarm = 0
-	var/damagetype = PAIN
+	var/damagetype = DAMAGE_PAIN
 	var/chargedelay = 4 // 4 half frames = 2 seconds
 
 	if(targetIsHuman && targetashuman == user)
 		wasselfattack = 1
 
-	if (user.intent == I_HURT)
+	if (user.a_intent == I_HURT)
 		target_zone = get_zone_with_miss_chance(target_zone, target) //Vary the attack
-		damagetype = BRUTE
+		damagetype = DAMAGE_BRUTE
 
 	if (targetIsHuman)
 		var/mob/living/carbon/human/targethuman = target
-		armorpercent = targethuman.run_armor_check(target_zone,"melee")
-		wasblocked = targethuman.check_shields(force, src, user, target_zone, null) //returns 1 if it's a block
+		armorpercent = targethuman.get_blocked_ratio(target_zone, DAMAGE_BRUTE, damage = force)*100
+		wasblocked = targethuman.check_shields(force, src, user, target_zone, null)
 
 	var/damageamount = force
 
@@ -103,7 +104,7 @@
 			verbtouse = pick("smacked","slapped")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a disarm...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a disarm...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						var/chancemod = (100 - armorpercent)*0.05*damageamount // Lower chance if lower damage + high armor. Base chance is 50% at 10 damage.
@@ -119,21 +120,21 @@
 							if (prob(chancemod*0.5) && target.r_hand && target.r_hand != src)
 								shoulddisarm += 2
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
 					return 0
 			damageamount *= 0.25
 		if(I_GRAB)
 			verbtouse = pick("hooked")
 			soundname = "punch"
 			if(targetIsHuman)
-				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name]...</span>", "<span class='[class]'>You flip the [name], preparing a grab...</span>")
+				user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name]...</span>", "<span class='[class]'>You flip [src], preparing a grab...</span>")
 				if (do_mob(user,target,chargedelay,display_progress=0))
 					if(!wasblocked && damageamount)
 						user.start_pulling(target)
 					else
 						verbtouse = pick("awkwardly tries to hook","fails to grab")
 				else
-					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun(1)] [name] back to it's original position.</span>", "<span class='[class]'>You flip the [name] back to it's original position.</span>")
+					user.visible_message("<span class='[class]'>[user] flips [user.get_pronoun("his")] [name] back to its original position.</span>", "<span class='[class]'>You flip [src] back to its original position.</span>")
 					return 0
 			else
 				soundname = "punch"
@@ -144,7 +145,7 @@
 	user.lastattacked = target
 	target.lastattacker = user
 	if(!no_attack_log)
-		user.attack_log += "\[[time_stamp()]\]<font color='red'> Attacked [target.name] ([target.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
+		user.attack_log += "\[[time_stamp()]\]<span class='warning'> Attacked [target.name] ([target.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</span>"
 		target.attack_log += "\[[time_stamp()]\]<font color='orange'> Attacked by [user.name] ([user.ckey]) with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)])</font>"
 		msg_admin_attack("[key_name(user, highlight_special = 1)] attacked [key_name(target, highlight_special = 1)] with [name] (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(damagetype)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target) )
 	/////////////////////////
@@ -156,11 +157,11 @@
 	if(!target_zone || get_dist(user,target) > 1) //Dodged
 		endmessage1st = "Your [name] was dodged by [target]"
 		endmessage3rd = "[target] dodged the [name]"
-		soundname = "sound/weapons/punchmiss.ogg"
+		soundname = "punchmiss"
 	else if(wasblocked) // Blocked by Shield
 		endmessage1st = "Your [name] was blocked by [target]"
 		endmessage3rd = "[target] blocks the [name]"
-		soundname = "sound/weapons/punchmiss.ogg"
+		soundname = "punchmiss"
 	else
 
 		washit = 1
@@ -170,7 +171,7 @@
 		if(shoulddisarm)
 			if(wasselfattack)
 				selfnoun = "your grip"
-				noun = "[target.get_pronoun(1)] grip"
+				noun = "[target.get_pronoun("his")] grip"
 			else
 				noun = "[target]'s grip"
 				selfnoun = noun
@@ -180,14 +181,14 @@
 			if (O.is_stump())
 				if(wasselfattack)
 					selfnoun = "your missing [O.name]"
-					noun = "[target.get_pronoun(1)] missing [O.name]"
+					noun = "[target.get_pronoun("his")] missing [O.name]"
 				else
 					noun = "[target]'s missing [O.name]"
 					selfnoun = noun
 			else
 				if(wasselfattack)
 					selfnoun = "your [O.name]"
-					noun = "[target.get_pronoun(1)] [O.name]"
+					noun = "[target.get_pronoun("his")] [O.name]"
 				else
 					noun = "[target]'s [O.name]"
 					selfnoun = noun
@@ -233,7 +234,7 @@
 
 /obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
-		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from \his [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
+		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
@@ -246,16 +247,18 @@
 	else
 		..()
 
-/obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
-	if(!src.concealed_blade && istype(W))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into \his [src]!</span>", "You sheathe \the [W] into \the [src].")
+/obj/item/cane/concealed/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/canesword/attacking_canesword = attacking_item
+	if(!src.concealed_blade && istype(attacking_canesword))
+		user.visible_message("<span class='warning'>[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [attacking_canesword] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
-		user.drop_from_inventory(W)
-		W.forceMove(src)
-		src.concealed_blade = W
+		user.drop_from_inventory(attacking_canesword)
+		attacking_canesword.forceMove(src)
+		src.concealed_blade = attacking_canesword
 		update_icon()
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/cane/concealed/update_icon()
 	if(concealed_blade)
@@ -273,6 +276,63 @@
 	icon_state = "crutch"
 	item_state = "crutch"
 
+/obj/item/cane/white
+	name = "white cane"
+	desc = "A white cane, used by the visually impaired."
+	icon_state = "whitecane"
+	item_state = "whitecane"
+	can_support = FALSE
+
+/obj/item/cane/shillelagh
+	name = "adhomian shillelagh"
+	desc = "A sturdy walking stick made from adhomian wood."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "shillelagh"
+	item_state = "shillelagh"
+	contained_sprite = TRUE
+
+/obj/item/cane/telecane
+	name = "telescopic cane"
+	desc = "A compact cane which can be collapsed for storage."
+	icon = 'icons/obj/item/telecane.dmi'
+	icon_state = "telecane"
+	contained_sprite = TRUE
+	w_class = ITEMSIZE_SMALL
+	slot_flags = SLOT_BELT
+	drop_sound = 'sound/items/drop/crowbar.ogg'
+	pickup_sound = 'sound/items/pickup/crowbar.ogg'
+	var/on = FALSE
+	can_support = FALSE
+
+/obj/item/cane/telecane/attack_self(mob/user)
+	on = !on
+	if(on)
+		user.visible_message(SPAN_WARNING("With a flick of their wrist, [user] extends their telescopic cane."), SPAN_WARNING("You extend the cane."), SPAN_WARNING("You hear an ominous click."))
+		icon_state = "telecane_1"
+		item_state = "telestick"
+		w_class = ITEMSIZE_LARGE
+		slot_flags = null
+		force = 14
+		attack_verb = list("smacked", "struck", "slapped")
+		can_support = TRUE
+	else
+		user.visible_message(SPAN_NOTICE("\The [user] collapses their telescopic cane."), SPAN_NOTICE("You collapse the cane."), SPAN_NOTICE("You hear a click."))
+		icon_state = "telecane"
+		item_state = "telestick_0"
+		w_class = ITEMSIZE_SMALL
+		slot_flags = SLOT_BELT
+		force = 3
+		attack_verb = list("hit", "punched")
+		can_support = FALSE
+
+	if(istype(user,/mob/living/carbon/human))
+		var/mob/living/carbon/human/H = user
+		H.update_inv_l_hand()
+		H.update_inv_r_hand()
+
+	playsound(src.loc, 'sound/weapons/click.ogg', 50, 1)
+	add_fingerprint(user)
+
 /obj/item/disk
 	name = "disk"
 	icon = 'icons/obj/items.dmi'
@@ -286,32 +346,21 @@
 /obj/item/gift
 	name = "gift"
 	desc = "A wrapped item."
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "gift3"
 	var/size = 3.0
 	var/obj/item/gift = null
 	item_state = "gift"
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 
 /obj/item/gift/random_pixel/Initialize()
+	. = ..()
 	pixel_x = rand(-16,16)
 	pixel_y = rand(-16,16)
 
-/obj/item/legcuffs
-	name = "legcuffs"
-	desc = "Use this to keep prisoners in line."
-	gender = PLURAL
-	icon = 'icons/obj/items.dmi'
-	icon_state = "handcuff"
-	flags = CONDUCT
-	throwforce = 0
-	w_class = 3.0
-	origin_tech = list(TECH_MATERIAL = 1)
-	var/breakouttime = 300	//Deciseconds = 30s = 0.5 minute
-
 /obj/item/SWF_uplink
 	name = "station-bounced radio"
-	desc = "used to comunicate it appears."
+	desc = "Used to communicate, it appears."
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "radio"
 	var/temp = null
@@ -319,26 +368,26 @@
 	var/selfdestruct = 0.0
 	var/traitor_frequency = 0.0
 	var/obj/item/device/radio/origradio = null
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	item_state = "radio"
 	throwforce = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_PLASTIC = 75)
 	origin_tech = list(TECH_MAGNET = 1)
 
 /obj/item/staff
 	name = "wizards staff"
-	desc = "Apparently a staff used by the wizard."
+	desc = "A staff which only has the power to make you look like a nerd."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	attack_verb = list("bludgeoned", "whacked", "disciplined")
 
 /obj/item/staff/broom
@@ -360,18 +409,19 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "qstaff0"
 	item_state = "stick"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 
 /obj/item/module
 	icon = 'icons/obj/module.dmi'
 	icon_state = "std_mod"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	usesound = 'sound/items/Deconstruct.ogg'
 	var/mtype = 1						// 1=electronic 2=hardware
 
 /obj/item/module/card_reader
@@ -385,12 +435,13 @@
 	desc = "Heavy-duty switching circuits for power control."
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-/obj/item/module/power_control/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
+/obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
 		user.put_in_hands(new_circuit)
+		return TRUE
 
 /obj/item/module/id_auth
 	name = "\improper ID authentication module"
@@ -407,19 +458,18 @@
 	icon_state = "power_mod"
 	desc = "Charging circuits for power cells."
 
-
 /obj/item/device/camera_bug
 	name = "camera bug"
 	icon = 'icons/obj/device.dmi'
 	icon_state = "flash"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 	item_state = "electronic"
 	throw_speed = 4
 	throw_range = 20
 
 /obj/item/camera_bug/attack_self(mob/usr as mob)
 	var/list/cameras = new/list()
-	for (var/obj/machinery/camera/C in cameranet.cameras)
+	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
@@ -431,7 +481,7 @@
 	for (var/obj/machinery/camera/C in cameras)
 		friendly_cameras.Add(C.c_tag)
 
-	var/target = input("Select the camera to observe", null) as null|anything in friendly_cameras
+	var/target = tgui_input_list(usr, "Select the camera to observe", "Camera Bug", friendly_cameras)
 	if (!target)
 		return
 	for (var/obj/machinery/camera/C in cameras)
@@ -441,19 +491,6 @@
 	if (usr.stat == 2) return
 
 	usr.client.eye = target
-
-/*
-/obj/item/cigarpacket
-	name = "Pete's Cuban Cigars"
-	desc = "The most robust cigars on the planet."
-	icon = 'icons/obj/cigarettes.dmi'
-	icon_state = "cigarpacket"
-	item_state = "cigarpacket"
-	w_class = 1
-	throwforce = 2
-	var/cigarcount = 6
-	flags = ONBELT
-	*/
 
 /obj/item/pai_cable
 	desc = "A flexible coated cable with a universal jack on one end."
@@ -469,24 +506,22 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 
-/obj/item/neuralbroke/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, W.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)
+		return TRUE
 
 /obj/item/storage/part_replacer
 	name = "rapid part exchange device"
 	desc = "Special mechanical module made to store, sort, and apply standard machine parts."
 	icon_state = "RPED"
 	item_state = "RPED"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_device.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_device.dmi'
-		)
-	w_class = 5
+	icon = 'icons/obj/storage/misc.dmi'
+	w_class = ITEMSIZE_HUGE
 	can_hold = list(/obj/item/stock_parts,/obj/item/reagent_containers/glass/beaker)
 	storage_slots = 50
 	use_to_pickup = 1
@@ -494,7 +529,7 @@
 	allow_quick_empty = 1
 	collection_mode = 1
 	display_contents_with_number = 1
-	max_w_class = 3
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 100
 
 /obj/item/ectoplasm

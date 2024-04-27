@@ -36,7 +36,7 @@
 					<li>Floodlights (if it's dark)</li>
 					<li>Wooden trestle tables (for holding tools and finds)</li>
 					<li>Suspension field generator</li>
-					<li>Load bearing servitors (such as a mulebot, or hover-tray)</li>
+					<li>Load bearing servitors (such as a hover-tray)</li>
 					<li>Spare energy packs</li>
 				</ul><br>
 				<a href="#Contents">Contents</a>

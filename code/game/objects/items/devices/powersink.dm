@@ -5,8 +5,8 @@
 	desc = "A nulling power sink which drains energy from electrical systems."
 	icon_state = "powersink0"
 	item_state = "powersink0"
-	w_class = 4.0
-	flags = CONDUCT
+	w_class = ITEMSIZE_LARGE
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 5
 	throw_speed = 1
 	throw_range = 2
@@ -26,32 +26,30 @@
 	var/obj/structure/cable/attached		// the attached cable
 
 /obj/item/device/powersink/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
-	processing_power_items -= src
+	STOP_PROCESSING_POWER_OBJECT(src)
+	GLOB.processing_power_items -= src
 
 	return ..()
 
-/obj/item/device/powersink/attackby(var/obj/item/I, var/mob/user)
-	if(I.isscrewdriver())
+/obj/item/device/powersink/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(mode == 0)
 			var/turf/T = loc
 			if(isturf(T) && !!T.is_plating())
 				attached = locate() in T
 				if(!attached)
 					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
-					return
 				else
 					anchored = 1
 					mode = 1
 					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
-					return
 			else
 				to_chat(user, "<span class='warning'>\The [src] must be placed over an exposed cable to attach to it.</span>")
-				return
+			return TRUE
 		else
 			if (mode == 2)
-				STOP_PROCESSING(SSprocessing, src)
-				processing_power_items.Remove(src)
+				STOP_PROCESSING_POWER_OBJECT(src)
+				GLOB.processing_power_items.Remove(src)
 			anchored = 0
 			mode = 0
 			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
@@ -59,9 +57,9 @@
 			icon_state = "powersink0"
 			item_state = "powersink0"
 
-			return
+			return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/device/powersink/attack_ai()
 	return
@@ -75,16 +73,16 @@
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
-			START_PROCESSING(SSprocessing, src)
-			processing_power_items += src
+			START_PROCESSING_POWER_OBJECT(src)
+			GLOB.processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
 			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"
 			item_state = "powersink0"
-			STOP_PROCESSING(SSprocessing, src)
-			processing_power_items -= src
+			STOP_PROCESSING_POWER_OBJECT(src)
+			GLOB.processing_power_items -= src
 
 /obj/item/device/powersink/pwr_drain()
 	if(!attached)
@@ -173,10 +171,10 @@
 				else
 					AP.flicker_all()
 			else if (T.master)
-				T.master.emp_act(dist)
+				T.master.emp_act(EMP_LIGHT)
 
 		var/atom/aa = A
-		aa.emp_act(dist)
+		aa.emp_act(EMP_LIGHT)
 
 		if (prob(15 * dist))
 			explosion(aa.loc, 0, 0, 3, 4)

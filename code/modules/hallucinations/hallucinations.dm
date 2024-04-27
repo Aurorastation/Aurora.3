@@ -1,12 +1,3 @@
-#define NO_THOUGHT 1	//Hallucinated thoughts will not occur on this hallucination's end()
-#define NO_EMOTE 2		//User will not emote to others when this hallucination ends
-#define HEARING_DEPENDENT 4	//deaf characters will not experience this hallucination
-
-//Power Defines
-#define HAL_POWER_LOW 30
-#define HAL_POWER_MED 50
-#define HAL_POWER_HIGH 70
-
 /datum/hallucination
 	var/mob/living/carbon/holder	//Who is hallucinating?
 	var/allow_duplicates = TRUE		//This is set to false for hallucinations with long durations or ones we do not want repeated for a time
@@ -48,10 +39,10 @@
 		return
 	holder.hallucinations += src
 	start()
-	addtimer(CALLBACK(src, .proc/end), duration)
+	addtimer(CALLBACK(src, PROC_REF(end)), duration)
 
 //You emoting to others involuntarily. This happens mostly in end()
-/datum/hallucination/proc/hallucination_emote()	
+/datum/hallucination/proc/hallucination_emote()
 	if(prob(min(holder.hallucination - 5, 80)) && !holder.stat)
 		var/chosen_emote = pick(SShallucinations.hal_emote)
 		if(prob(10))										//You are aware of it in this instance
@@ -59,3 +50,7 @@
 		else
 			for(var/mob/M in oviewers(world.view, holder))	//Only shows to others, not you; you're not aware of what you're doing. Could prompt others to ask if you're okay, and lead to confusion.
 				to_chat(M, "<B>[holder]</B> [chosen_emote]")
+
+//For adding accent tags when you imagine people talking to you. This will be a forced accent. If there is no accent (simplemobs), give them a random one from a list
+/datum/hallucination/proc/get_hallucinated_accent(var/mob/living/talker)
+	return talker.accent ? talker.accent : pick(ACCENTS_ALL_IPC)

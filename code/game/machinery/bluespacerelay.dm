@@ -6,7 +6,6 @@
 
 	anchored = 1
 	density = 1
-	use_power = 1
 	var/on = 1
 
 	idle_power_usage = 15000
@@ -20,7 +19,7 @@
 		/obj/item/stack/cable_coil
 	)
 
-/obj/machinery/bluespacerelay/machinery_process()
+/obj/machinery/bluespacerelay/process()
 
 	update_power()
 
@@ -39,12 +38,12 @@
 	else
 		on = 1
 
-/obj/machinery/bluespacerelay/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(default_deconstruction_screwdriver(user, O))
-		return
-	if(default_deconstruction_crowbar(user, O))
-		return
-	if(default_part_replacement(user, O))
-		return
+/obj/machinery/bluespacerelay/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	if(default_part_replacement(user, attacking_item))
+		return TRUE
 
-	..()
+	return ..()

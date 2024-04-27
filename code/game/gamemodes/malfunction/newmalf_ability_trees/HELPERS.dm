@@ -44,7 +44,7 @@
 
 
 	if(!note)
-		error("Hardware without description: [C]")
+		log_world("ERROR: Hardware without description: [C]")
 		return
 
 	var/confirmation = alert("[note] - Is this what you want?", "Hardware selection", "Yes", "No")
@@ -100,6 +100,9 @@
 /proc/ability_prechecks(var/mob/living/silicon/ai/user = null, var/check_price = 0, var/override = 0)
 	if(!user)
 		return 0
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return FALSE
 	if(!istype(user))
 		to_chat(user, "GAME ERROR: You tried to use ability that is only available for malfunctioning AIs, but you are not AI! Please report this.")
 		return 0
@@ -170,7 +173,7 @@
 // Description: Returns a list of all unhacked APCs
 /proc/get_unhacked_apcs(var/mob/living/silicon/ai/user)
 	var/list/H = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing)
 		if(A.hacker && A.hacker == user)
 			continue
 		H.Add(A)
@@ -181,7 +184,7 @@
 // Description: Returns a list of all hacked APCs
 /proc/get_hacked_apcs()
 	var/list/H = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing)
 		if(!A.hacker)
 			continue
 		H.Add(A)
@@ -192,13 +195,13 @@
 // Description: Returns a list of all APCs
 /proc/get_apcs()
 	var/list/H = list()
-	for(var/obj/machinery/power/apc/A in SSmachinery.processing_machines)
+	for(var/obj/machinery/power/apc/A in SSmachinery.processing)
 		H.Add(A)
 	return H
 
 /proc/get_unhacked_holopads()
 	var/list/H = list()
-	for(var/obj/machinery/hologram/holopad/HP in SSmachinery.processing_machines)
+	for(var/obj/machinery/hologram/holopad/HP in SSmachinery.processing)
 		if(!HP.hacked)
 			H.Add(HP)
 	return H
@@ -209,7 +212,7 @@
 		return
 
 	var/list/L = list()
-	for(var/mob/living/silicon/robot/RB in mob_list)
+	for(var/mob/living/silicon/robot/RB in GLOB.mob_list)
 		if(istype(RB, /mob/living/silicon/robot/drone))
 			continue
 		if(RB.connected_ai == A)
@@ -227,7 +230,7 @@
 		return
 
 	var/list/L = list()
-	for(var/mob/living/silicon/ai/AT in mob_list)
+	for(var/mob/living/silicon/ai/AT in GLOB.mob_list)
 		if(AT == A)
 			continue
 		L.Add(AT)

@@ -1,8 +1,10 @@
 /obj/machinery/computer/arcade/
 	name = "random arcade"
 	desc = "random arcade machine"
-	icon_state = "arcade"
-	icon_screen = "invaders"
+	icon = 'icons/obj/computer.dmi'
+	icon_state = "arcade2"
+	icon_screen = "battler"
+	icon_broken = "broken-arcade"
 	var/prize = /obj/random/arcade
 
 /obj/machinery/computer/arcade/Initialize()
@@ -24,22 +26,25 @@
 		chosen_prize.forceMove(src.loc)
 
 /obj/machinery/computer/arcade/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return src.attack_hand(user)
 
 /obj/machinery/computer/arcade/emp_act(severity)
+	. = ..()
+
 	if(stat & (NOPOWER|BROKEN))
-		..(severity)
 		return
+
 	var/num_of_prizes = 0
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			num_of_prizes = rand(1,4)
-		if(2)
+		if(EMP_LIGHT)
 			num_of_prizes = rand(0,2)
 	for(num_of_prizes; num_of_prizes > 0; num_of_prizes--)
 		new prize(src.loc)
 
-	..(severity)
 
 ///////////////////
 //  BATTLE HERE  //
@@ -48,7 +53,8 @@
 /obj/machinery/computer/arcade/battle
 	name = "arcade machine"
 	desc = "Does not support Pinball."
-	icon_state = "arcade"
+	icon_state = "arcade2"
+	icon_screen = "battler"
 	circuit = /obj/item/circuitboard/arcade/battle
 	var/enemy_name = "Space Villian"
 	var/temp = "Winners don't use space drugs" //Temporary message, for attack messages, etc
@@ -79,10 +85,9 @@
 	if(..())
 		return
 	user.set_machine(src)
-	var/dat = "<a href='byond://?src=\ref[src];close=1'>Close</a>"
-	dat += "<center><h4>[src.enemy_name]</h4></center>"
-
-	dat += "<br><center><h3>[src.temp]</h3></center>"
+	var/dat = ""
+	dat += "<center><h3>[src.enemy_name]</h3></center>"
+	dat += "<br><center><h2>[src.temp]</h2></center>"
 	dat += "<br><center>Health: [src.player_hp] | Magic: [src.player_mp] | Enemy Health: [src.enemy_hp]</center>"
 
 	dat += "<center><b>"
@@ -95,9 +100,10 @@
 
 	dat += "</b></center>"
 
-	user << browse(dat, "window=arcade")
-	onclose(user, "arcade")
-	return
+
+	var/datum/browser/arcade_win = new(user, "arcade", capitalize_first_letters(name))
+	arcade_win.set_content(dat)
+	arcade_win.open()
 
 /obj/machinery/computer/arcade/battle/Topic(href, href_list)
 	if(..())
@@ -108,7 +114,7 @@
 			src.blocked = 1
 			var/attackamt = rand(2,6)
 			src.temp = "You attack for [attackamt] damage!"
-			playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			src.updateUsrDialog()
 			if(turtle > 0)
 				turtle--
@@ -122,7 +128,7 @@
 			var/pointamt = rand(1,3)
 			var/healamt = rand(6,8)
 			src.temp = "You use [pointamt] magic to heal for [healamt] damage!"
-			playsound(loc, 'sound/arcade/heal.ogg', 2, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/heal.ogg', 2, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			src.updateUsrDialog()
 			turtle++
 
@@ -137,7 +143,7 @@
 			src.blocked = 1
 			var/chargeamt = rand(4,7)
 			src.temp = "You regain [chargeamt] points."
-			playsound(loc, 'sound/arcade/mana.ogg', 1, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/mana.ogg', 1, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			src.player_mp += chargeamt
 			if(turtle > 0)
 				turtle--
@@ -172,7 +178,7 @@
 		if(!gameover)
 			src.gameover = 1
 			src.temp = "[src.enemy_name] has fallen! Rejoice!"
-			playsound(loc, 'sound/arcade/win.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/win.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 
 			if(emagged)
 				feedback_inc("arcade_win_emagged")
@@ -189,13 +195,13 @@
 	else if (emagged && (turtle >= 4))
 		var/boomamt = rand(5,10)
 		src.temp = "[src.enemy_name] throws a bomb, exploding you for [boomamt] damage!"
-		playsound(loc, 'sound/arcade/boom.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/boom.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.player_hp -= boomamt
 
 	else if ((src.enemy_mp <= 5) && (prob(70)))
 		var/stealamt = rand(2,3)
 		src.temp = "[src.enemy_name] steals [stealamt] of your power!"
-		playsound(loc, 'sound/arcade/steal.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/steal.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.player_mp -= stealamt
 		src.updateUsrDialog()
 
@@ -211,20 +217,20 @@
 
 	else if ((src.enemy_hp <= 10) && (src.enemy_mp > 4))
 		src.temp = "[src.enemy_name] heals for 4 health!"
-		playsound(loc, 'sound/arcade/heal.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/heal.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.enemy_hp += 4
 		src.enemy_mp -= 4
 
 	else
 		var/attackamt = rand(3,6)
 		src.temp = "[src.enemy_name] attacks for [attackamt] damage!"
-		playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.player_hp -= attackamt
 
 	if ((src.player_mp <= 0) || (src.player_hp <= 0))
 		src.gameover = 1
 		src.temp = "You have been crushed! GAME OVER"
-		playsound(loc, 'sound/arcade/lose.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/lose.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		if(emagged)
 			feedback_inc("arcade_loss_hp_emagged")
 			usr.gib()

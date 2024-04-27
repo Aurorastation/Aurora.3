@@ -32,23 +32,42 @@
 /obj/item/mecha_equipment/sleeper/attack()
 	return
 
-/obj/item/mecha_equipment/sleeper/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		sleeper.attackby(I, user)
-	else return ..()
+/obj/item/mecha_equipment/sleeper/attackby(obj/item/attacking_item, mob/user)
+	return sleeper.attackby(attacking_item, user)
 
 /obj/item/mecha_equipment/sleeper/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
-	if(.)
-		if(ishuman(target) && !sleeper.occupant)
-			visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
-			sleeper.go_in(target, user)
-		else
-			to_chat(user, "<span class='warning'>You cannot load that in!</span>")
+	if(!.)
+		return
+
+	//Check it's a person and typecast if so
+	if(!ishuman(target))
+		return
+	var/mob/living/carbon/human/person_to_load = target
+
+	//Check that the person is not buckled
+	if(person_to_load.buckled_to)
+		to_chat(SPAN_WARNING("You must unbuckle [person_to_load] before loading!"))
+		return
+
+	//Check that the sleeper isn't already occupied
+	if(sleeper.occupant)
+		to_chat(user, SPAN_WARNING("The sleeper is already occupied!"))
+		return
+
+	//All good, load the person
+	visible_message("<span class='notice'>\The [src] begins loading \the [target] into \the [src].</span>")
+	sleeper.go_in(person_to_load, user)
 
 /obj/item/mecha_equipment/sleeper/get_hardpoint_maptext()
 	if(sleeper && sleeper.occupant)
 		return "[sleeper.occupant]"
+
+/obj/item/mecha_equipment/sleeper/CtrlClick(mob/user)
+	if(owner)
+		sleeper.go_out()
+	else
+		..()
 
 /obj/machinery/sleeper/mounted
 	name = "\improper mounted sleeper"
@@ -59,7 +78,7 @@
 	interact_offline = TRUE
 	display_loading_message = FALSE
 
-/obj/machinery/sleeper/mounted/ui_interact(var/mob/user, var/ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = mech_state)
+/obj/machinery/sleeper/mounted/ui_interact(mob/user, var/datum/ui_state/state = mech_state)
 	. = ..()
 
 /obj/machinery/sleeper/mounted/ui_host()
@@ -68,26 +87,17 @@
 		return S.owner
 	return null
 
-/obj/machinery/sleeper/mounted/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		if(!user.unEquip(I, src))
-			return
+/obj/machinery/sleeper/mounted/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(!user.unEquip(attacking_item, src))
+			return TRUE
 
 		if(beaker)
 			beaker.forceMove(get_turf(src))
 			user.visible_message("<span class='notice'>\The [user] removes \the [beaker] from \the [src].</span>", "<span class='notice'>You remove \the [beaker] from \the [src].</span>")
-		beaker = I
-		user.visible_message("<span class='notice'>\The [user] adds \a [I] to \the [src].</span>", "<span class='notice'>You add \a [I] to \the [src].</span>")
-
-/obj/machinery/sleeper/mounted/go_out()
-
-	if(!occupant)
-		return
-
-	occupant.forceMove(get_turf(src))
-	occupant = null
-
-	return
+		beaker = attacking_item
+		user.visible_message("<span class='notice'>\The [user] adds \a [attacking_item] to \the [src].</span>", "<span class='notice'>You add \a [attacking_item] to \the [src].</span>")
+		return TRUE
 
 /obj/item/mecha_equipment/crisis_drone
 	name = "crisis dronebay"
@@ -120,9 +130,6 @@
 
 	var/mob/living/carbon/Target = null
 	var/datum/beam/MyBeam = null
-
-/obj/item/mecha_equipment/crisis_drone/Initialize()
-	..()
 
 /obj/item/mecha_equipment/crisis_drone/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
@@ -237,6 +244,7 @@
 		L.adjustOxyLoss(oxy_heal * -1)
 		L.adjustCloneLoss(clone_heal * -1)
 		L.adjustHalLoss(hal_heal * -1)
+		L.add_chemical_effect(CE_PAINKILLER, 50) //Pain is bad :(
 
 		if(ishuman(L) && bone_heal)
 			var/mob/living/carbon/human/H = L
@@ -246,24 +254,23 @@
 					if(prob(bone_heal))
 						E.status &= ~ORGAN_BROKEN
 
-/obj/item/mecha_equipment/crisis_drone/proc/toggle_drone()
-	for(var/mob/pilot in owner.pilots)
-		if(owner)
-			enabled = !enabled
-			update_icon()
-			if(enabled)
-				to_chat(pilot,"<span class='notice'>Medical drone activated.</span>")
-				icon_state = "med_droid_a"
-				START_PROCESSING(SSprocessing, src)
-			else
-				to_chat(pilot,"<span class='notice'>Medical drone deactivated.</span>")
-				icon_state = "med_droid"
-				STOP_PROCESSING(SSprocessing, src)
-			owner.update_icon()
+/obj/item/mecha_equipment/crisis_drone/proc/toggle_drone(var/mob/user)
+	enabled = !enabled
+	if(enabled)
+		to_chat(user, SPAN_NOTICE("Medical drone activated."))
+		icon_state = "med_droid_a"
+		START_PROCESSING(SSprocessing, src)
+	else
+		to_chat(user, SPAN_NOTICE("Medical drone deactivated."))
+		icon_state = "med_droid"
+		STOP_PROCESSING(SSprocessing, src)
+	update_icon()
+	owner.update_icon()
 
 /obj/item/mecha_equipment/crisis_drone/attack_self(var/mob/user)
-	toggle_drone()
-
+	. = ..()
+	if(.)
+		toggle_drone(user)
 
 /obj/item/mecha_equipment/mounted_system/medanalyzer
 	name = "mounted health analyzer"
@@ -272,7 +279,76 @@
 	restricted_hardpoints = list(HARDPOINT_LEFT_HAND, HARDPOINT_RIGHT_HAND)
 	restricted_software = list(MECH_SOFTWARE_MEDICAL)
 
+/obj/item/device/healthanalyzer/mech //Used to set up the full body scan feature
+	var/obj/machinery/body_scanconsole/internal_bodyscanner = null
+	var/fullScan = FALSE //Toggle whether to do full or basic scan
+
+/obj/item/device/healthanalyzer/mech/Initialize()
+	. = ..()
+	internal_bodyscanner = new /obj/machinery/body_scanconsole(src)
+	internal_bodyscanner.use_power = FALSE
+
+/obj/item/device/healthanalyzer/mech/Destroy()
+	QDEL_NULL(internal_bodyscanner)
+	. = ..()
+
+/obj/item/mecha_equipment/mounted_system/medanalyzer/CtrlClick(mob/user)
+	var/obj/item/device/healthanalyzer/mech/HA = holding
+	if(istype(HA))
+		HA.fullScan = !HA.fullScan
+		to_chat(user, SPAN_NOTICE("You switch to \the [src]'s [HA.fullScan ? "full body" : "basic"] scan mode."))
+
 /obj/item/device/healthanalyzer/mech/attack(mob/living/M, var/mob/living/heavy_vehicle/user)
-	for(var/mob/pilot in user.pilots)
-		health_scan_mob(M, pilot, FALSE)
+	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
+	user.do_attack_animation(src)
+	if(!fullScan)
+		for(var/mob/pilot in user.pilots)
+			health_scan_mob(M, pilot, TRUE, TRUE, sound_scan = TRUE)
+	else
+		user.visible_message("<b>[user]</b> starts scanning \the [M] with \the [src].", SPAN_NOTICE("You start scanning \the [M] with \the [src]."))
+		if(do_after(user, 7 SECONDS))
+			print_scan(M, user)
+			add_fingerprint(user)
+
+/obj/item/device/healthanalyzer/mech/proc/print_scan(var/mob/M, var/mob/living/user)
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(user.loc, internal_bodyscanner.format_occupant_data(get_medical_data(M)), "Scan ([M.name])", M)
+	if(ishuman(user) && !(user.l_hand && user.r_hand))
+		user.put_in_hands(R)
+	user.visible_message(SPAN_NOTICE("\The [src] spits out a piece of paper."))
+
+/obj/item/device/healthanalyzer/mech/proc/get_medical_data(var/mob/living/carbon/human/H)
+	if (!ishuman(H))
 		return
+
+	var/list/medical_data = list(
+		"stationtime" = worldtime2text(),
+		"brain_activity" = H.get_brain_status(),
+		"blood_volume" = H.get_blood_volume(),
+		"blood_oxygenation" = H.get_blood_oxygenation(),
+		"blood_pressure" = H.get_blood_pressure(),
+
+		"bruteloss" = get_severity(H.getBruteLoss(), TRUE),
+		"fireloss" = get_severity(H.getFireLoss(), TRUE),
+		"oxyloss" = get_severity(H.getOxyLoss(), TRUE),
+		"toxloss" = get_severity(H.getToxLoss(), TRUE),
+		"cloneloss" = get_severity(H.getCloneLoss(), TRUE),
+
+		"rads" = H.total_radiation,
+		"paralysis" = H.paralysis,
+		"bodytemp" = H.bodytemperature,
+		"borer_present" = H.has_brain_worms(),
+		"inaprovaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/inaprovaline),
+		"dexalin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dexalin),
+		"stoxin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/soporific),
+		"bicaridine_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/bicaridine),
+		"dermaline_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/dermaline),
+		"thetamycin_amount" = REAGENT_VOLUME(H.reagents, /singleton/reagent/thetamycin),
+		"blood_amount" = REAGENT_VOLUME(H.vessel, /singleton/reagent/blood),
+		"disabilities" = H.sdisabilities,
+		"lung_ruptured" = H.is_lung_ruptured(),
+		"lung_rescued" = H.is_lung_rescued(),
+		"external_organs" = H.organs.Copy(),
+		"internal_organs" = H.internal_organs.Copy(),
+		"species_organs" = H.species.has_organ
+		)
+	return medical_data

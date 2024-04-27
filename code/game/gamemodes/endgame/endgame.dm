@@ -2,27 +2,27 @@
  * ENDGAME STUFF
  **********************/
 
- // Universal State
- // Handles stuff like space icon_state, constants, etc.
- // Essentially a policy manager.  Once shit hits the fan, this changes its policies.
- // Called by master controller.
+// Universal State
+// Handles stuff like space icon_state, constants, etc.
+// Essentially a policy manager.  Once shit hits the fan, this changes its policies.
+// Called by master controller.
 
- // Default shit.
+// Default shit.
 /datum/universal_state
 	// Just for reference, for now.
 	// Might eventually add an observatory job.
- 	var/name = "Normal"
- 	var/desc = "Nothing seems awry."
+	var/name = "Normal"
+	var/desc = "Nothing seems awry."
 
- 	// Sets world.turf, replaces all turfs of type /turf/space.
- 	var/space_type         = /turf/space
+	// Sets world.turf, replaces all turfs of type /turf/space.
+	var/space_type         = /turf/space
 
- 	// Replaces all turfs of type /turf/space/transit
- 	var/transit_space_type = /turf/space/transit
+	// Replaces all turfs of type /turf/space/transit/bluespace
+	var/transit_space_type = /turf/space/transit/bluespace
 
- 	// Chance of a floor or wall getting damaged [0-100]
- 	// Simulates stuff getting broken due to molecular bonds decaying.
- 	var/decay_rate = 0
+	// Chance of a floor or wall getting damaged [0-100]
+	// Simulates stuff getting broken due to molecular bonds decaying.
+	var/decay_rate = 0
 
 // Actually decay the turf.
 /datum/universal_state/proc/DecayTurf(var/turf/T)
@@ -50,24 +50,31 @@
 
 // Apply changes when exiting state
 /datum/universal_state/proc/OnExit()
- 	// Does nothing by default
+	return // Does nothing by default
 
 // Apply changes when entering state
 /datum/universal_state/proc/OnEnter()
- 	// Does nothing by default
+	return // Does nothing by default
 
 // Apply changes to a new turf.
 /datum/universal_state/proc/OnTurfChange(var/turf/NT)
- 	return
+	return
 
 /datum/universal_state/proc/OverlayAndAmbientSet()
 	return
 
-/proc/SetUniversalState(var/newstate,var/on_exit=1, var/on_enter=1)
-	if(on_exit)
-		universe.OnExit()
-	universe = new newstate
-	if(on_enter)
-		universe.OnEnter()
+/datum/universal_state/proc/OnPlayerLatejoin(var/mob/living/M)
+	return
 
-/datum/universal_state/proc/convert_parallax(parallax_spacemaster)
+/datum/universal_state/proc/OnTouchMapEdge(var/atom/A)
+	return TRUE //return FALSE to cancel map edge handling
+
+/proc/SetUniversalState(var/newstate,var/on_exit=1, var/on_enter=1, list/arguments=null)
+	if(on_exit)
+		GLOB.universe.OnExit()
+	if(arguments)
+		GLOB.universe = new newstate(arglist(arguments))
+	else
+		GLOB.universe = new newstate
+	if(on_enter)
+		GLOB.universe.OnEnter()

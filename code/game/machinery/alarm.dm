@@ -24,6 +24,72 @@
 #define MAX_TEMPERATURE 90
 #define MIN_TEMPERATURE -40
 
+/**
+ * Get the danger level of a zone
+ *
+ * * RETURN_VALUE - The variable to store the return value
+ * * current_value - The current value to check the danger-ness against
+ * * danger_levels - A list with the danger levels
+ */
+#define ALARM_GET_DANGER_LEVEL(RETURN_VALUE, current_value, danger_levels)\
+	if((current_value > danger_levels[4] && danger_levels[4] > 0) || current_value < danger_levels[1]){\
+		RETURN_VALUE = 2;\
+	}\
+	else if((current_value > danger_levels[3] && danger_levels[3] > 0) || current_value < danger_levels[2]){\
+		RETURN_VALUE = 1;\
+	}\
+	else{\
+		RETURN_VALUE = 0;\
+	}
+
+/**
+ * Get the overall danger level of the environment
+ *
+ * * RETURN_VALUE - The variable to store the return value
+ * * environment - A `/datum/gas_mixture` to perform the danger level calculation against
+ */
+#define ALARM_GET_OVERALL_DANGER_LEVEL(RETURN_VALUE, environment)\
+	do {\
+		var/partial_pressure = R_IDEAL_GAS_EQUATION*environment.temperature/environment.volume;\
+		var/other_moles = 0;\
+		for(var/g in trace_gas){\
+			other_moles += environment.gas[g];\
+		}\
+		ALARM_GET_DANGER_LEVEL(pressure_dangerlevel, environment.return_pressure(), TLV["pressure"]);\
+		ALARM_GET_DANGER_LEVEL(oxygen_dangerlevel, environment.gas[GAS_OXYGEN]*partial_pressure, TLV[GAS_OXYGEN]);\
+		ALARM_GET_DANGER_LEVEL(co2_dangerlevel, environment.gas[GAS_CO2]*partial_pressure, TLV[GAS_CO2]);\
+		ALARM_GET_DANGER_LEVEL(phoron_dangerlevel, environment.gas[GAS_PHORON]*partial_pressure, TLV[GAS_PHORON]);\
+		ALARM_GET_DANGER_LEVEL(hydrogen_dangerlevel, environment.gas[GAS_HYDROGEN]*partial_pressure, TLV[GAS_HYDROGEN]);\
+		ALARM_GET_DANGER_LEVEL(temperature_dangerlevel, environment.temperature, TLV["temperature"]);\
+		ALARM_GET_DANGER_LEVEL(other_dangerlevel, other_moles*partial_pressure, TLV["other"]);\
+		\
+		RETURN_VALUE = max(\
+		pressure_dangerlevel,\
+		oxygen_dangerlevel,\
+		co2_dangerlevel,\
+		phoron_dangerlevel,\
+		hydrogen_dangerlevel,\
+		other_dangerlevel,\
+		temperature_dangerlevel\
+		);\
+	} while (FALSE)
+
+#define PRESET_NORTH \
+dir = NORTH; \
+pixel_y = 21;
+
+#define PRESET_SOUTH \
+dir = SOUTH; \
+pixel_y = -3;
+
+#define PRESET_WEST \
+dir = WEST; \
+pixel_x = -10;
+
+#define PRESET_EAST \
+dir = EAST; \
+pixel_x = 10;
+
 //all air alarms in area are connected via magic
 /area
 	var/list/air_vent_names = list()
@@ -35,16 +101,17 @@
 	name = "alarm"
 	desc = "A device that controls the local air regulation machinery and informs you when you're breathing vacuum."
 	icon = 'icons/obj/monitors.dmi'
-	icon_state = "alarm0"
+	icon_state = "alarmp"
 	anchored = 1
-	use_power = 1
 	idle_power_usage = 90
 	active_power_usage = 1500 //For heating/cooling rooms. 1000 joules equates to about 1 degree every 2 seconds for a single tile of air.
 	power_channel = ENVIRON
-	req_one_access = list(access_atmospherics, access_engine_equip)
-	clicksound = "button"
+	req_one_access = list(ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
-	
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
+
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
 	var/frequency = 1439
@@ -73,46 +140,146 @@
 	var/datum/radio_frequency/radio_connection
 
 	var/list/TLV = list()
-	var/list/trace_gas = list("sleeping_agent") //list of other gases that this air alarm is able to detect
+	var/list/trace_gas = list(GAS_N2O) //list of other gases that this air alarm is able to detect
 
 	var/danger_level = 0
 	var/pressure_dangerlevel = 0
 	var/oxygen_dangerlevel = 0
 	var/co2_dangerlevel = 0
 	var/phoron_dangerlevel = 0
+	var/hydrogen_dangerlevel = 0
 	var/temperature_dangerlevel = 0
 	var/other_dangerlevel = 0
 
 	var/report_danger_level = 1
 
+	var/global/image/alarm_overlay
+
+	//Used to cache the previous gas mixture result, and evaluate if we can skip processing or not
+	var/previous_environment_group_multiplier = null
+	var/previous_environment_temperature = null
+	var/previous_environment_total_moles = null
+	var/previous_environment_volume = null
+	var/list/previous_environment_gas = list()
+
+/obj/machinery/alarm/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/east
+	PRESET_EAST
+
+/obj/machinery/alarm/west
+	PRESET_WEST
+
+/obj/machinery/alarm/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/nobreach
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
+
+/obj/machinery/alarm/nobreach/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/nobreach/east
+	PRESET_EAST
+
+/obj/machinery/alarm/nobreach/west
+	PRESET_WEST
+
+/obj/machinery/alarm/nobreach/south
+	PRESET_SOUTH
 
 /obj/machinery/alarm/monitor
 	report_danger_level = 0
 	breach_detection = 0
 	desc = "A device that controls the local air regulation machinery."
 
+/obj/machinery/alarm/monitor/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/monitor/east
+	PRESET_EAST
+
+/obj/machinery/alarm/monitor/west
+	PRESET_WEST
+
+/obj/machinery/alarm/monitor/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/server
-	req_one_access = list(access_rd, access_atmospherics, access_engine_equip)
-	target_temperature = 90
-	desc = "A device that controls the local air regulation machinery. This one is designed for use in server rooms."
+	req_one_access = list(ACCESS_RD, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
+	target_temperature = 80
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in small server rooms."
 	highpower = 1
 
+/obj/machinery/alarm/server/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/server/east
+	PRESET_EAST
+
+/obj/machinery/alarm/server/west
+	PRESET_WEST
+
+/obj/machinery/alarm/server/south
+	PRESET_SOUTH
+
+/obj/machinery/alarm/tcom
+	desc = "A device that controls the local air regulation machinery. This one is designed for use in server halls."
+	req_access = list(ACCESS_TCOMSAT)
+	highpower = 1
+
+/obj/machinery/alarm/tcom/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/tcom/east
+	PRESET_EAST
+
+/obj/machinery/alarm/tcom/west
+	PRESET_WEST
+
+/obj/machinery/alarm/tcom/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/freezer
-	req_one_access = list(access_kitchen, access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_KITCHEN, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	highpower = 1
 	target_temperature = T0C - 20
+
+/obj/machinery/alarm/freezer/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/freezer/east
+	PRESET_EAST
+
+/obj/machinery/alarm/freezer/west
+	PRESET_WEST
+
+/obj/machinery/alarm/freezer/south
+	PRESET_SOUTH
 
 /obj/machinery/alarm/cold
 	target_temperature = T0C + 5
 
+/obj/machinery/alarm/cold/north
+	PRESET_NORTH
+
+/obj/machinery/alarm/cold/east
+	PRESET_EAST
+
+/obj/machinery/alarm/cold/west
+	PRESET_WEST
+
+/obj/machinery/alarm/cold/south
+	PRESET_SOUTH
+
 /obj/machinery/alarm/server/Initialize()
 	. = ..()
-	TLV["oxygen"] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
-	TLV["carbon dioxide"] = list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
-	TLV["phoron"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
+	TLV[GAS_OXYGEN] =			list(-1.0, -1.0,-1.0,-1.0) // Partial pressure, kpa
+	TLV[GAS_CO2] = 				list(-1.0, -1.0,   5,  10) // Partial pressure, kpa
+	TLV[GAS_PHORON] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
+	TLV[GAS_HYDROGEN] = 		list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.5, 1.0) // Partial pressure, kpa
 	TLV["pressure"] =		list(0,ONE_ATMOSPHERE*0.10,ONE_ATMOSPHERE*1.40,ONE_ATMOSPHERE*1.60) /* kpa */
 	TLV["temperature"] =	list(20, 40, 140, 160) // K
@@ -123,7 +290,7 @@
 //Kitchen freezer
 /obj/machinery/alarm/freezer/Initialize()
 	. = ..()
-	TLV["oxygen"] = list(16, 17, 135, 140) // Partial pressure, kpa
+	TLV[GAS_OXYGEN] = list(16, 17, 135, 140) // Partial pressure, kpa
 	TLV["pressure"] = list(ONE_ATMOSPHERE*0.50,ONE_ATMOSPHERE*0.70,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20)
 	TLV["temperature"] = list(0, 0, 273, T0C+40) // No lower limits. Alarm above 0c. Major alarm at harmful heat
 
@@ -148,11 +315,9 @@
 	if(building)
 		if(dir)
 			src.set_dir(dir)
-
 		buildstage = 0
 		wiresexposed = 1
-		pixel_x = (dir & 3)? 0 : (dir == 4 ? -24 : 24)
-		pixel_y = (dir & 3)? (dir ==1 ? -24 : 24) : 0
+
 		update_icon()
 		return
 
@@ -160,7 +325,16 @@
 
 	set_frequency(frequency)
 
+	if(!mapload)
+		set_pixel_offsets()
+
+	update_icon()
+
 	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/alarm/set_pixel_offsets()
+	pixel_x = ((src.dir & (NORTH|SOUTH)) ? 0 : (src.dir == EAST ? 10 : -10))
+	pixel_y = ((src.dir & (NORTH|SOUTH)) ? (src.dir == NORTH ? 21 : -6) : 0)
 
 /obj/machinery/alarm/proc/first_run()
 	alarm_area = get_area(src)
@@ -175,18 +349,19 @@
 		wires = new(src)
 
 	if (highpower)
-		active_power_usage *= 6
-		idle_power_usage *= 3
+		change_power_consumption(active_power_usage * 6, POWER_USE_ACTIVE)
+		change_power_consumption(idle_power_usage * 3, POWER_USE_IDLE)
 
 	// breathable air according to human/Life()
-	TLV["oxygen"] =			list(16, 19, 135, 140) // Partial pressure, kpa
-	TLV["carbon dioxide"] = list(-1.0, -1.0, 5, 10) // Partial pressure, kpa
-	TLV["phoron"] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
+	TLV[GAS_OXYGEN] =			list(16, 19, 135, 140) // Partial pressure, kpa
+	TLV[GAS_CO2] = 				list(-1.0, -1.0, 5, 10) // Partial pressure, kpa
+	TLV[GAS_PHORON] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
+	TLV[GAS_HYDROGEN] =			list(-1.0, -1.0, 0.2, 0.5) // Partial pressure, kpa
 	TLV["other"] =			list(-1.0, -1.0, 0.5, 1.0) // Partial pressure, kpa
 	TLV["pressure"] =		list(ONE_ATMOSPHERE*0.80,ONE_ATMOSPHERE*0.90,ONE_ATMOSPHERE*1.10,ONE_ATMOSPHERE*1.20) /* kpa */
 	TLV["temperature"] =	list(T0C-26, T0C, T0C+40, T0C+66) // K
 
-/obj/machinery/alarm/machinery_process()
+/obj/machinery/alarm/process(seconds_per_tick)
 	if((stat & (NOPOWER|BROKEN)) || shorted || buildstage != 2)
 		return
 
@@ -195,12 +370,33 @@
 
 	var/datum/gas_mixture/environment = location.return_air()
 
+	var/is_same_environment = TRUE
+	for(var/k in environment.gas)
+		if(environment.gas[k] != previous_environment_gas[k])
+			is_same_environment = FALSE
+			previous_environment_gas = environment.gas.Copy()
+			break
+	if(is_same_environment)
+		if(	(environment.temperature != previous_environment_temperature) ||\
+			(environment.group_multiplier != previous_environment_group_multiplier) ||\
+			(environment.total_moles != previous_environment_total_moles) ||\
+			(environment.volume != previous_environment_volume)
+		)
+			is_same_environment = FALSE
+			previous_environment_group_multiplier = environment.group_multiplier
+			previous_environment_temperature = environment.temperature
+			previous_environment_total_moles = environment.total_moles
+			previous_environment_volume = environment.volume
+
+	if(is_same_environment)
+		return
+
 	//Handle temperature adjustment here.
-	handle_heating_cooling(environment)
+	handle_heating_cooling(environment, seconds_per_tick)
 
 	var/old_level = danger_level
 	var/old_pressurelevel = pressure_dangerlevel
-	danger_level = overall_danger_level(environment)
+	ALARM_GET_OVERALL_DANGER_LEVEL(danger_level, environment)
 
 	if (old_level != danger_level)
 		apply_danger_level(danger_level)
@@ -228,43 +424,48 @@
 
 	return
 
-/obj/machinery/alarm/proc/handle_heating_cooling(var/datum/gas_mixture/environment)
+/obj/machinery/alarm/proc/handle_heating_cooling(datum/gas_mixture/environment, seconds_per_tick)
+	var/danger_level = null
+	ALARM_GET_DANGER_LEVEL(danger_level, target_temperature, TLV["temperature"])
+
 	if (!regulating_temperature)
 		//check for when we should start adjusting temperature
-		if(!get_danger_level(target_temperature, TLV["temperature"]) && abs(environment.temperature - target_temperature) > 2.0)
-			update_use_power(2)
+		if(!danger_level && abs(environment.temperature - target_temperature) > 2.0)
+			update_use_power(POWER_USE_ACTIVE)
 			regulating_temperature = 1
 			visible_message("\The [src] clicks as it starts [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click and a faint electronic hum.")
+			update_icon()
 	else
 		//check for when we should stop adjusting temperature
-		if (get_danger_level(target_temperature, TLV["temperature"]) || abs(environment.temperature - target_temperature) <= 0.5)
-			update_use_power(1)
+		if (danger_level || abs(environment.temperature - target_temperature) <= 0.5)
+			update_use_power(POWER_USE_IDLE)
 			regulating_temperature = 0
 			visible_message("\The [src] clicks quietly as it stops [environment.temperature > target_temperature ? "cooling" : "heating"] the room.",\
 			"You hear a click as a faint electronic humming stops.")
+			update_icon()
 
 	if (regulating_temperature)
 		//Unnecessary checks removed, duplication of effort
 
 		var/datum/gas_mixture/gas
-		gas = environment.remove(0.25*environment.total_moles)
+		gas = environment.remove(seconds_per_tick * 0.25*environment.total_moles)
 		if(gas)
 
 			if (gas.temperature <= target_temperature)	//gas heating
-				var/energy_used = min( gas.get_thermal_energy_change(target_temperature) , active_power_usage)
+				var/energy_used = min( gas.get_thermal_energy_change(target_temperature) , active_power_usage * seconds_per_tick)
 
 				gas.add_thermal_energy(energy_used)
 				//use_power(energy_used, ENVIRON) //handle by update_use_power instead
 			else	//gas cooling
-				var/heat_transfer = min(abs(gas.get_thermal_energy_change(target_temperature)), active_power_usage)
+				var/heat_transfer = min(abs(gas.get_thermal_energy_change(target_temperature)), active_power_usage * seconds_per_tick)
 
 				//Assume the heat is being pumped into the hull which is fixed at 20 C
 				//none of this is really proper thermodynamics but whatever
 
 				var/cop = gas.temperature/T20C	//coefficient of performance -> power used = heat_transfer/cop
 
-				heat_transfer = min(heat_transfer, cop * active_power_usage)	//this ensures that we don't use more than active_power_usage amount of power
+				heat_transfer = min(heat_transfer, cop * active_power_usage * seconds_per_tick)	//this ensures that we don't use more than active_power_usage amount of power
 
 				heat_transfer = -gas.add_thermal_energy(-heat_transfer)	//get the actual heat transfer
 
@@ -272,29 +473,6 @@
 
 			environment.merge(gas)
 
-/obj/machinery/alarm/proc/overall_danger_level(var/datum/gas_mixture/environment)
-	var/partial_pressure = R_IDEAL_GAS_EQUATION*environment.temperature/environment.volume
-	var/environment_pressure = environment.return_pressure()
-
-	var/other_moles = 0
-	for(var/g in trace_gas)
-		other_moles += environment.gas[g] //this is only going to be used in a partial pressure calc, so we don't need to worry about group_multiplier here.
-
-	pressure_dangerlevel = get_danger_level(environment_pressure, TLV["pressure"])
-	oxygen_dangerlevel = get_danger_level(environment.gas["oxygen"]*partial_pressure, TLV["oxygen"])
-	co2_dangerlevel = get_danger_level(environment.gas["carbon_dioxide"]*partial_pressure, TLV["carbon dioxide"])
-	phoron_dangerlevel = get_danger_level(environment.gas["phoron"]*partial_pressure, TLV["phoron"])
-	temperature_dangerlevel = get_danger_level(environment.temperature, TLV["temperature"])
-	other_dangerlevel = get_danger_level(other_moles*partial_pressure, TLV["other"])
-
-	return max(
-		pressure_dangerlevel,
-		oxygen_dangerlevel,
-		co2_dangerlevel,
-		phoron_dangerlevel,
-		other_dangerlevel,
-		temperature_dangerlevel
-		)
 
 // Returns whether this air alarm thinks there is a breach, given the sensors that are available to it.
 /obj/machinery/alarm/proc/breach_detected()
@@ -316,40 +494,40 @@
 
 	return 0
 
-/obj/machinery/alarm/proc/get_danger_level(var/current_value, var/list/danger_levels)
-	if((current_value > danger_levels[4] && danger_levels[4] > 0) || current_value < danger_levels[1])
-		return 2
-	if((current_value > danger_levels[3] && danger_levels[3] > 0) || current_value < danger_levels[2])
-		return 1
-	return 0
-
 /obj/machinery/alarm/update_icon()
+	cut_overlays()
+	icon_state = "alarmp"
+
 	if(wiresexposed)
 		icon_state = "alarmx"
-		set_light(0)
-		return
+
 	if((stat & (NOPOWER|BROKEN)) || shorted)
-		icon_state = "alarmp"
+		add_overlay("alarm_fan_off")
 		set_light(0)
 		return
 
 	var/icon_level = danger_level
-	if (alarm_area.atmosalm)
+	if(alarm_area?.atmosalm)
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
+
+	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
+	add_overlay(alarm_overlay)
 
 	var/new_color = null
 	switch(icon_level)
 		if (0)
-			icon_state = "alarm0"
-			new_color = "#03A728"
+			new_color = COLOR_LIME
 		if (1)
-			icon_state = "alarm2" //yes, alarm2 is yellow alarm
 			new_color = COLOR_SUN
 		if (2)
-			icon_state = "alarm1"
-			new_color = "#DA0205"
+			new_color = COLOR_RED_LIGHT
 
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
+
+	if(regulating_temperature)
+		add_overlay("alarm_fan_on")
+	else
+		add_overlay("alarm_fan_off")
 
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)
@@ -373,7 +551,7 @@
 		return 0
 
 	var/datum/signal/signal = new
-	signal.transmission_method = 1 //radio signal
+	signal.transmission_method = TRANSMISSION_RADIO
 	signal.source = src
 
 	signal.data = command
@@ -434,7 +612,7 @@
 
 	var/datum/signal/alert_signal = new
 	alert_signal.source = src
-	alert_signal.transmission_method = 1
+	alert_signal.transmission_method = TRANSMISSION_RADIO
 	alert_signal.data["zone"] = alarm_area.name
 	alert_signal.data["type"] = "Atmospheric"
 
@@ -448,6 +626,8 @@
 	frequency.post_signal(src, alert_signal)
 
 /obj/machinery/alarm/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	ui_interact(user)
 
 /obj/machinery/alarm/attack_hand(mob/user)
@@ -458,10 +638,10 @@
 
 /obj/machinery/alarm/interact(mob/user)
 	ui_interact(user)
-	wires.Interact(user)
+	wires.interact(user)
 
-/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/topic_state/state = default_state)
-	var/data[0]
+/obj/machinery/alarm/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1, var/master_ui = null, var/datum/ui_state/state = GLOB.default_state)
+	var/data = list()
 	var/remote_connection = 0
 	var/remote_access = 0
 	if(state)
@@ -489,6 +669,7 @@
 
 /obj/machinery/alarm/proc/populate_status(var/data)
 	var/turf/location = get_turf(src)
+	if(!istype(location)) return
 	var/datum/gas_mixture/environment = location.return_air()
 	var/total = environment.total_moles
 
@@ -497,9 +678,10 @@
 	if(total)
 		var/pressure = environment.return_pressure()
 		environment_data[++environment_data.len] = list("name" = "Pressure", "value" = pressure, "unit" = "kPa", "danger_level" = pressure_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas["oxygen"] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Carbon dioxide", "value" = environment.gas["carbon_dioxide"] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
-		environment_data[++environment_data.len] = list("name" = "Phoron", "value" = environment.gas["phoron"] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Oxygen", "value" = environment.gas[GAS_OXYGEN] / total * 100, "unit" = "%", "danger_level" = oxygen_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Carbon Dioxide", "value" = environment.gas[GAS_CO2] / total * 100, "unit" = "%", "danger_level" = co2_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Phoron", "value" = environment.gas[GAS_PHORON] / total * 100, "unit" = "%", "danger_level" = phoron_dangerlevel)
+		environment_data[++environment_data.len] = list("name" = "Hydrogen", "value" = environment.gas[GAS_HYDROGEN] / total * 100, "unit" = "%", "danger_level" = hydrogen_dangerlevel)
 		environment_data[++environment_data.len] = list("name" = "Temperature", "value" = environment.temperature, "unit" = "K ([round(environment.temperature - T0C, 0.1)]C)", "danger_level" = temperature_dangerlevel)
 	data["total_danger"] = danger_level
 	data["environment"] = environment_data
@@ -545,7 +727,8 @@
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Oxygen",			"command" = "o2_scrub",	"val" = info["filter_o2"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrogen",		"command" = "n2_scrub",	"val" = info["filter_n2"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Carbon Dioxide", "command" = "co2_scrub","val" = info["filter_co2"]))
-				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Phoron"	, 		"command" = "tox_scrub","val" = info["filter_phoron"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Phoron", 		"command" = "tox_scrub","val" = info["filter_phoron"]))
+				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Hydrogen",		"command" = "h2_scrub","val" = info["filter_h2"]))
 				scrubbers[scrubbers.len]["filters"] += list(list("name" = "Nitrous Oxide",	"command" = "n2o_scrub","val" = info["filter_n2o"]))
 			data["scrubbers"] = scrubbers
 		if(AALARM_SCREEN_MODE)
@@ -563,10 +746,11 @@
 			var/thresholds[0]
 
 			var/list/gas_names = list(
-				"oxygen"         = "O<sub>2</sub>",
-				"carbon dioxide" = "CO<sub>2</sub>",
-				"phoron"         = "Phoron",
-				"other"          = "Other")
+				GAS_OXYGEN    = "O<sub>2</sub>",
+				GAS_CO2       = "CO<sub>2</sub>",
+				GAS_PHORON    = "Phoron",
+				GAS_HYDROGEN  = "Hydrogen",
+				"other"       = "Other")
 			for (var/g in gas_names)
 				thresholds[++thresholds.len] = list("name" = gas_names[g], "settings" = list())
 				selected = TLV[g]
@@ -586,7 +770,7 @@
 
 			data["thresholds"] = thresholds
 
-/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/topic_state/state, var/href_list = list())
+/obj/machinery/alarm/CanUseTopic(var/mob/user, var/datum/ui_state/state, var/href_list = list())
 	if(buildstage != 2)
 		return STATUS_CLOSE
 
@@ -597,14 +781,14 @@
 	. = shorted ? STATUS_DISABLED : STATUS_INTERACTIVE
 
 	if(. == STATUS_INTERACTIVE)
-		var/extra_href = QDELETED(state) ? list() : state.href_list(usr)
+		var/extra_href = QDELETED(state) ? list() : state.href_list(user ? user : usr)
 		// Prevent remote users from altering RCON settings unless they already have access
 		if(href_list["rcon"] && extra_href["remote_connection"] && !extra_href["remote_access"])
 			. = STATUS_UPDATE
 
 	return min(..(), .)
 
-/obj/machinery/alarm/Topic(href, href_list, var/datum/topic_state/state)
+/obj/machinery/alarm/Topic(href, href_list, var/datum/ui_state/state)
 	if(..(href, href_list, state))
 		return 1
 
@@ -625,11 +809,11 @@
 		var/list/selected = TLV["temperature"]
 		var/max_temperature = min(selected[3] - T0C, MAX_TEMPERATURE)
 		var/min_temperature = max(selected[2] - T0C, MIN_TEMPERATURE)
-		var/input_temperature = input("What temperature would you like the system to mantain? (Capped between [min_temperature] and [max_temperature]C)", "Thermostat Controls", target_temperature - T0C) as num|null
+		var/input_temperature = tgui_input_number(usr, "What temperature would you like the system to mantain?", "Thermostat Controls", target_temperature - T0C, max_temperature, min_temperature)
 		if(isnum(input_temperature))
-			var/temp = Clamp(input_temperature, min_temperature,  max_temperature)
+			var/temp = Clamp(input_temperature, min_temperature, max_temperature)
 			if(input_temperature > max_temperature || input_temperature < min_temperature)
-				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C")
+				to_chat(usr, "Temperature must be between [min_temperature]C and [max_temperature]C. Target temperature clamped to [temp]C.")
 			target_temperature = Clamp(input_temperature + T0C, selected[2],  selected[3])
 		else
 			to_chat(usr, "Error, input not recognised. Temperature unchanged.")
@@ -643,7 +827,7 @@
 			var/device_id = href_list["id_tag"]
 			switch(href_list["command"])
 				if("set_external_pressure")
-					var/input_pressure = input("What pressure you like the system to mantain?", "Pressure Controls") as num|null
+					var/input_pressure = tgui_input_number(usr, "What pressure you like the system to mantain?", "Pressure Controls")
 					if(isnum(input_pressure))
 						send_signal(device_id, list(href_list["command"] = input_pressure))
 					return 1
@@ -659,6 +843,7 @@
 					"n2_scrub",
 					"co2_scrub",
 					"tox_scrub",
+					"h2_scrub",
 					"n2o_scrub",
 					"panic_siphon",
 					"scrubbing")
@@ -671,7 +856,7 @@
 					var/threshold = text2num(href_list["var"])
 					var/list/selected = TLV[env]
 					var/list/thresholds = list("lower bound", "low warning", "high warning", "upper bound")
-					var/newval = input("Enter [thresholds[threshold]] for [env]", "Alarm triggers", selected[threshold]) as null|num
+					var/newval = tgui_input_number(usr, "Enter [thresholds[threshold]] for [env].", "Alarm Triggers", selected[threshold])
 					if (isnull(newval))
 						return 1
 					if (newval<0)
@@ -748,75 +933,75 @@
 			apply_mode()
 			return 1
 
-/obj/machinery/alarm/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W, /obj/item/forensics))
+/obj/machinery/alarm/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
 	switch(buildstage)
 		if(2)
-			if(W.isscrewdriver())  // Opening that Air Alarm up.
+			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
 				to_chat(user, "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>")
 				update_icon()
-				return
+				return TRUE
 
-			if (wiresexposed && W.iswirecutter())
+			if (wiresexposed && attacking_item.iswirecutter())
 				user.visible_message("<span class='warning'>[user] has cut the wires inside \the [src]!</span>", "You cut the wires inside \the [src].")
 				playsound(src.loc, 'sound/items/Wirecutter.ogg', 50, 1)
 				new/obj/item/stack/cable_coil(get_turf(src), 5)
 				buildstage = 1
 				update_icon()
-				return
+				return TRUE
 
-			if (istype(W, /obj/item/card/id) || istype(W, /obj/item/device/pda))// trying to unlock the interface with an ID card
+			if (attacking_item.GetID())// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
 					to_chat(user, "<span class='notice'>Nothing happens.</span>")
-					return
+					return TRUE
 				else
-					if(allowed(usr) && !wires.IsIndexCut(AALARM_WIRE_IDSCAN))
+					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 						locked = !locked
 						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
 					else
 						to_chat(user, "<span class='warning'>Access denied.</span>")
-			return
+				return TRUE
 
 		if(1)
-			if(W.iscoil())
-				var/obj/item/stack/cable_coil/C = W
+			if(attacking_item.iscoil())
+				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.use(5))
 					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 					buildstage = 2
 					update_icon()
 					first_run()
 					set_frequency(frequency)
-					return
 				else
 					to_chat(user, "<span class='warning'>You need 5 pieces of cable to do wire \the [src].</span>")
-					return
+				return TRUE
 
-			else if(W.iscrowbar())
+			else if(attacking_item.iscrowbar())
 				to_chat(user, "You start prying out the circuit.")
-				playsound(src.loc, 'sound/items/Crowbar.ogg', 50, 1)
-				if(do_after(user,20/W.toolspeed))
+				if(attacking_item.use_tool(src, user, 20, volume = 50))
 					to_chat(user, "You pry out the circuit!")
 					var/obj/item/airalarm_electronics/circuit = new /obj/item/airalarm_electronics()
 					circuit.forceMove(user.loc)
 					buildstage = 0
 					update_icon()
-				return
+				return TRUE
+
 		if(0)
-			if(istype(W, /obj/item/airalarm_electronics))
+			if(istype(attacking_item, /obj/item/airalarm_electronics))
 				to_chat(user, "You insert the circuit!")
-				qdel(W)
+				qdel(attacking_item)
 				buildstage = 1
 				update_icon()
-				return
+				return TRUE
 
-			else if(W.iswrench())
+			else if(attacking_item.iswrench())
 				to_chat(user, "You remove the air alarm assembly from the wall!")
 				new /obj/item/frame/air_alarm(get_turf(user))
-				playsound(src.loc, W.usesound, 50, 1)
+				attacking_item.play_tool_sound(src.loc, 50)
 				qdel(src)
+				return TRUE
 
 	return ..()
 
@@ -824,22 +1009,44 @@
 	..()
 	queue_icon_update()
 
-/obj/machinery/alarm/examine(mob/user)
-	..(user)
+/obj/machinery/alarm/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (buildstage < 2)
-		to_chat(user, "It is not wired.")
+		. +=  SPAN_WARNING("It is not wired.")
 	if (buildstage < 1)
-		to_chat(user, "The circuit is missing.")
+		. += SPAN_WARNING("The circuit is missing.")
 /*
 AIR ALARM CIRCUIT
 Just a object used in constructing air alarms
 */
 /obj/item/airalarm_electronics
 	name = "air alarm electronics"
-	icon = 'icons/obj/doors/door_assembly.dmi'
+	icon = 'icons/obj/device.dmi'
 	icon_state = "door_electronics"
 	desc = "Looks like a circuit. Probably is."
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
 // Fire Alarms moved to firealarm.dm
+
+#undef AALARM_MODE_SCRUBBING
+#undef AALARM_MODE_REPLACEMENT
+#undef AALARM_MODE_PANIC
+#undef AALARM_MODE_CYCLE
+#undef AALARM_MODE_FILL
+#undef AALARM_MODE_OFF
+#undef AALARM_SCREEN_MAIN
+#undef AALARM_SCREEN_VENT
+#undef AALARM_SCREEN_SCRUB
+#undef AALARM_SCREEN_MODE
+#undef AALARM_SCREEN_SENSORS
+#undef AALARM_REPORT_TIMEOUT
+#undef MAX_TEMPERATURE
+#undef MIN_TEMPERATURE
+
+#undef ALARM_GET_DANGER_LEVEL
+#undef ALARM_GET_OVERALL_DANGER_LEVEL
+#undef PRESET_NORTH
+#undef PRESET_SOUTH
+#undef PRESET_WEST
+#undef PRESET_EAST

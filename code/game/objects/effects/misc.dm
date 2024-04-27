@@ -2,7 +2,7 @@
 /obj/effect/spresent
 	name = "strange present"
 	desc = "It's a ... present?"
-	icon = 'icons/obj/items.dmi'
+	icon = 'icons/holidays/christmas/presents.dmi'
 	icon_state = "strangepresent"
 	density = 1
 	anchored = 0
@@ -18,7 +18,7 @@
 	..(loc)
 	appearance = target
 	// Reset some vars.
-	mouse_opacity = 0
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	alpha /= 4
 	dir = target.dir
 	if (!color)
@@ -41,7 +41,7 @@
 /obj/effect/constructing_effect
 	icon = 'icons/effects/effects_rfd.dmi'
 	icon_state = ""
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = BASE_ABOVE_OBJ_LAYER
 	anchored = TRUE
 	var/delay = 0
 	var/status = 0
@@ -51,7 +51,7 @@
 	delay = build_delay // so the variables transfer over between procs.
 	status = mode
 	if(status == 3)
-		addtimer(CALLBACK(src, /atom/.proc/update_icon), 11)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, update_icon)), 11)
 		delay -= 11
 		icon_state = "rfd_end_reverse"
 	else
@@ -73,7 +73,16 @@
 		end()
 	else
 		icon_state = "rfd_end"
-		addtimer(CALLBACK(src, .proc/end), 15)
+		addtimer(CALLBACK(src, PROC_REF(end)), 15)
 
 /obj/effect/constructing_effect/proc/end()
 	qdel(src)
+
+/// Example of a warp filter
+/obj/effect/effect/warp
+	plane = WARP_EFFECT_PLANE
+	appearance_flags = PIXEL_SCALE
+	icon = 'icons/effects/352x352.dmi'
+	icon_state = "singularity_s11"
+	pixel_x = -176
+	pixel_y = -176

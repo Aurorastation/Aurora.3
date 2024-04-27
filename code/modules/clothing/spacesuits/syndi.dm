@@ -1,24 +1,71 @@
 //Regular syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate
 	name = "red space helmet"
+	icon = 'icons/obj/clothing/hats.dmi'
 	icon_state = "syndicate"
 	item_state = "syndicate"
 	desc = "A crimson helmet sporting clean lines and durable plating. Engineered to look menacing."
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL,
+		rad = ARMOR_RAD_MINOR
+	)
 	siemens_coefficient = 0.5
 	brightness_on = 6
+	contained_sprite = FALSE
 
 /obj/item/clothing/suit/space/syndicate
 	name = "red space suit"
+	icon = 'icons/obj/clothing/suits.dmi'
 	icon_state = "syndicate"
 	item_state = "space_suit_syndicate"
 	desc = "A crimson spacesuit sporting clean lines and durable plating. Robust, reliable, and slightly suspicious."
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	allowed = list(/obj/item/gun,/obj/item/ammo_magazine,/obj/item/ammo_casing,/obj/item/melee/baton,/obj/item/melee/energy/sword,/obj/item/handcuffs,/obj/item/tank/emergency_oxygen)
 	slowdown = 1
-	armor = list(melee = 60, bullet = 50, laser = 30,energy = 15, bomb = 30, bio = 30, rad = 30)
+	armor = list(
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MEDIUM,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_PADDED,
+		bio = ARMOR_BIO_SMALL,
+		rad = ARMOR_RAD_MINOR
+	)
 	siemens_coefficient = 0.5
+	contained_sprite = FALSE
 
+/obj/item/clothing/head/helmet/space/syndicate/covert
+	name = "softsuit helmet"
+	desc = "A special helmet designed for work in a hazardous, low-pressure environment."
+	desc_antag = "This helmet is specially armored for additional protection, compared to a standard softsuit helmet."
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
+	icon_state = "softsuit_helmet"
+	item_state = "softsuit_helmet"
+	contained_sprite = TRUE
+
+/obj/item/clothing/head/helmet/space/syndicate/covert/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += SPAN_NOTICE("This helmet has extra armor compared to a normal softsuit helmet.")
+
+/obj/item/clothing/suit/space/syndicate/covert
+	name = "softsuit"
+	desc = "A suit that protects against low pressure environments."
+	desc_antag = "This suit is specially armored for additional protection, compared to a standard softsuit."
+	icon = 'icons/obj/item/clothing/softsuits/softsuit.dmi'
+	icon_state = "softsuit"
+	item_state = "softsuit"
+	contained_sprite = TRUE
+
+/obj/item/clothing/suit/space/syndicate/covert/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += SPAN_NOTICE("This suit has extra armor compared to a normal softsuit.")
 
 //Green syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/green

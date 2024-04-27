@@ -35,6 +35,7 @@
 
 
 /mob/living/carbon/brain/handle_environment(datum/gas_mixture/environment)
+	..()
 	if(!environment)
 		return
 	var/environment_heat_capacity = environment.heat_capacity()
@@ -101,7 +102,7 @@
 		blinded = 1
 		silent = 0
 	else				//ALIVE. LIGHTS ARE ON
-		if( !container && (health < config.health_threshold_dead || ((world.time - timeofhostdeath) > config.revival_brain_life)) )
+		if(!container && (health < GLOB.config.health_threshold_dead || ((GLOB.config.revival_brain_life != -1) && world.time - timeofhostdeath > GLOB.config.revival_brain_life)))
 			death()
 			blinded = 1
 			silent = 0
@@ -165,18 +166,12 @@
 	return 1
 
 /mob/living/carbon/brain/handle_regular_hud_updates()
-	if (stat == 2 || (XRAY in src.mutations))
-		sight |= SEE_TURFS
-		sight |= SEE_MOBS
-		sight |= SEE_OBJS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-	else if (stat != 2)
-		sight &= ~SEE_TURFS
-		sight &= ~SEE_MOBS
-		sight &= ~SEE_OBJS
-		see_in_dark = 2
-		see_invisible = SEE_INVISIBLE_LIVING
+	if(stat == DEAD || (mutations & XRAY))
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+	else if(stat != DEAD)
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 	if (healths)
 		if (stat != 2)
@@ -198,43 +193,29 @@
 		else
 			healths.icon_state = "health7"
 
-		if (stat == 2 || (XRAY in src.mutations))
-			sight |= SEE_TURFS
-			sight |= SEE_MOBS
-			sight |= SEE_OBJS
-			see_in_dark = 8
-			see_invisible = SEE_INVISIBLE_LEVEL_TWO
-		else if (stat != 2)
-			sight &= ~SEE_TURFS
-			sight &= ~SEE_MOBS
-			sight &= ~SEE_OBJS
-			see_in_dark = 2
-			see_invisible = SEE_INVISIBLE_LIVING
+		if(stat == DEAD || (mutations & XRAY))
+			set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+			set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+		else if(stat != DEAD)
+			set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+			set_see_invisible(SEE_INVISIBLE_LIVING)
+
 	if (client)
 		client.screen.Remove(global_hud.blurry,global_hud.druggy,global_hud.vimpaired)
 
-	if ((blind && stat != 2))
-		if ((blinded))
-			blind.invisibility = 0
+	if(stat != DEAD)
+		if(blinded)
+			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
 		else
-			blind.invisibility = 101
-
-			if (disabilities & NEARSIGHTED)
-				client.screen += global_hud.vimpaired
-
-			if (eye_blurry)
-				client.screen += global_hud.blurry
-
-			if(druggy)
-				client.screen += global_hud.druggy
+			clear_fullscreen("blind")
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
 			if(druggy > 5)
 				add_client_color(/datum/client_color/oversaturated)
 			else
 				remove_client_color(/datum/client_color/oversaturated)
-
-	if (stat != 2)
-		if (machine)
-			if (machine.check_eye(src) < 1)
+		if(machine)
+			if(machine.check_eye(src) < 1)
 				reset_view(null)
 		else
 			if(!client?.adminobs)

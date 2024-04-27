@@ -48,11 +48,12 @@
 	icon_state = "dartgun-empty"
 	icon_state = "dartgun-empty"
 	caliber = "dart"
-	fire_sound = 'sound/weapons/empty.ogg'
+	fire_sound = 'sound/weapons/click.ogg'
 	fire_sound_text = "a metallic click"
 	accuracy = 1
 	recoil = 0
-	silenced = 1
+	suppressed = TRUE
+	can_unsuppress = FALSE
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/chemdart
 	auto_eject = 0
@@ -96,24 +97,24 @@
 	if(istype(dart))
 		fill_dart(dart)
 
-/obj/item/gun/projectile/dartgun/examine(mob/user)
-	..()
+/obj/item/gun/projectile/dartgun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (beakers.len)
-		to_chat(user, "<span class='notice'>[src] contains:</span>")
+		. += "<span class='notice'>[src] contains:</span>"
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
-			if(B.reagents && B.reagents.reagent_list.len)
-				for(var/datum/reagent/R in B.reagents.reagent_list)
-					to_chat(user, "<span class='notice'>[R.volume] units of [R.name]</span>")
+			for(var/_R in B.reagents.reagent_volumes)
+				var/singleton/reagent/R = GET_SINGLETON(_R)
+				. += "<span class='notice'>[B.reagents.reagent_volumes[_R]] units of [R.name]</span>"
 
-/obj/item/gun/projectile/dartgun/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/reagent_containers/glass))
-		if(!istype(I, container_type))
-			to_chat(user, "<span class='notice'>[I] doesn't seem to fit into [src].</span>")
+/obj/item/gun/projectile/dartgun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
+		if(!istype(attacking_item, container_type))
+			to_chat(user, "<span class='notice'>[attacking_item] doesn't seem to fit into [src].</span>")
 			return
 		if(beakers.len >= max_beakers)
 			to_chat(user, "<span class='notice'>[src] already has [max_beakers] beakers in it - another one isn't going to fit!</span>")
 			return
-		var/obj/item/reagent_containers/glass/beaker/B = I
+		var/obj/item/reagent_containers/glass/beaker/B = attacking_item
 		user.drop_from_inventory(B,src)
 		beakers += B
 		to_chat(user, "<span class='notice'>You slot [B] into [src].</span>")
@@ -128,7 +129,7 @@
 		for(var/obj/item/reagent_containers/glass/beaker/B in mixing)
 			B.reagents.trans_to_obj(dart, mix_amount)
 
-/obj/item/gun/projectile/dartgun/attack_self(mob/user)
+/obj/item/gun/projectile/dartgun/unique_action(mob/user)
 	user.set_machine(src)
 	var/dat = "<b>[src] mixing control:</b><br><br>"
 
@@ -136,13 +137,14 @@
 		var/i = 1
 		for(var/obj/item/reagent_containers/glass/beaker/B in beakers)
 			dat += "Beaker [i] contains: "
-			if(B.reagents && B.reagents.reagent_list.len)
-				for(var/datum/reagent/R in B.reagents.reagent_list)
-					dat += "<br>    [R.volume] units of [R.name], "
+			if(LAZYLEN(B.reagents.reagent_volumes))
+				for(var/_R in B.reagents.reagent_volumes)
+					var/singleton/reagent/R = GET_SINGLETON(_R)
+					dat += "<br>    [B.reagents.reagent_volumes[_R]] units of [R.name], "
 				if (check_beaker_mixing(B))
 					dat += text("<A href='?src=\ref[src];stop_mix=[i]'><font color='green'>Mixing</font></A> ")
 				else
-					dat += text("<A href='?src=\ref[src];mix=[i]'><font color='red'>Not mixing</font></A> ")
+					dat += text("<A href='?src=\ref[src];mix=[i]'><span class='warning'>Not mixing</span></A> ")
 			else
 				dat += "nothing."
 			dat += " \[<A href='?src=\ref[src];eject=[i]'>Eject</A>\]<br>"
@@ -154,7 +156,7 @@
 		if(ammo_magazine.stored_ammo && ammo_magazine.stored_ammo.len)
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
-			dat += "<font color='red'>The dart cartridge is empty!</font>"
+			dat += "<span class='warning'>The dart cartridge is empty!</span>"
 		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]"
 
 	user << browse(dat, "window=dartgun")
@@ -195,13 +197,3 @@
 		unload_ammo(usr)
 	src.updateUsrDialog()
 	return
-
-/obj/item/gun/projectile/dartgun/vox
-	name = "alien dart gun"
-	desc = "A small gas-powered dartgun, fitted for nonhuman hands."
-
-/obj/item/gun/projectile/dartgun/vox/medical
-	starting_chems = list("kelotane","bicaridine","dylovene")
-
-/obj/item/gun/projectile/dartgun/vox/raider
-	starting_chems = list("space_drugs","stoxin","impedrezene")

@@ -85,7 +85,7 @@
 /area/rnd/xenobiology/cells
 	name = "Research - Xenobiology Cell"
 	no_light_control = TRUE
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 
 /area/rnd/xenobiology/cells/alpha
 	name = "Research - Xenobiology Alpha"
@@ -123,6 +123,10 @@
 	name = "Research - Toxins Storage"
 	icon_state = "toxstorage"
 
+/area/rnd/strongroom
+	name = "Research - Research Storage"
+	icon_state = "toxlab"
+
 /area/rnd/test_area
 	name = "Research - Toxins Test Area"
 	icon_state = "toxtest"
@@ -140,11 +144,11 @@
 	icon_state = "blue"
 
 /area/rnd/xenoarch_atrium
-	name = "Research - Xenoarcheology Atrium"
+	name = "Research - Xenoarchaeology Atrium"
 	icon_state = "research"
 
 /area/rnd/xenoarch_storage
-	name = "Research - Xenoarcheology Storage"
+	name = "Research - Xenoarchaeology Storage"
 	icon_state = "purple"
 
 /area/rnd/isolation_a
@@ -161,7 +165,7 @@
 
 /area/rnd/test_range
 	name = "Research - Weapons Testing Range"
-	flags = FIRING_RANGE
+	area_flags = AREA_FLAG_FIRING_RANGE
 
 /area/toxins
 	station_area = 1

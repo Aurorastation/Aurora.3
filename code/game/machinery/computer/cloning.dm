@@ -1,10 +1,10 @@
 /obj/machinery/computer/cloning
 	name = "cloning control console"
-
 	icon_screen = "dna"
-	light_color = "#315ab4"
+	icon_keyboard = "teal_key"
+	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/cloning
-	req_access = list(access_genetics)
+	req_access = list(ACCESS_GENETICS)
 	var/obj/machinery/dna_scannernew/scanner = null //Linked scanner. For scanning.
 	var/list/pods = list() //Linked cloning pods.
 	var/temp = ""
@@ -87,19 +87,20 @@
 			P.connected = src
 			P.name = "[initial(P.name)] #[num++]"
 
-/obj/machinery/computer/cloning/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/disk/data)) //INSERT SOME DISKETTES
+/obj/machinery/computer/cloning/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/disk/data)) //INSERT SOME DISKETTES
 		if (!src.diskette)
-			user.drop_from_inventory(W,src)
-			src.diskette = W
-			to_chat(user, "You insert [W].")
+			user.drop_from_inventory(attacking_item,src)
+			src.diskette = attacking_item
+			to_chat(user, "You insert [attacking_item].")
 			src.updateUsrDialog()
-			return
+			return TRUE
 	else
-		..()
-	return
+		return ..()
 
 /obj/machinery/computer/cloning/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/computer/cloning/attack_hand(mob/user as mob)
@@ -185,7 +186,7 @@
 					H=locate(src.active_record.implant)
 
 				if ((H) && (istype(H)))
-					dat += "<b>Health:</b> [H.sensehealth()] | OXY-BURN-TOX-BRUTE<br>"
+					dat += "<b>Health:</b> [H.sensehealth()] | OXY-BURN-TOXIN-BRUTE<br>"
 				else
 					dat += "<font color=red>Unable to locate implant.</font><br>"
 
@@ -266,8 +267,8 @@
 			src.menu = 4
 
 		else if (src.menu == 4)
-			var/obj/item/card/id/C = usr.get_active_hand()
-			if (istype(C)||istype(C, /obj/item/device/pda))
+			var/obj/item/card/id/C = usr.GetIdCard()
+			if (istype(C))
 				if(src.check_access(C))
 					src.records.Remove(src.active_record)
 					qdel(src.active_record)
@@ -336,7 +337,7 @@
 					temp = "Error: Not enough biomass."
 				else if(pod.mess)
 					temp = "Error: Clonepod malfunction."
-				else if(!config.revival_cloning)
+				else if(!GLOB.config.revival_cloning)
 					temp = "Error: Unable to initiate cloning cycle."
 
 				else if(pod.growclone(C))
@@ -383,7 +384,7 @@
 	if ((!subject.ckey) || (!subject.client))
 		scantemp = "Error: Mental interface failure."
 		return
-	if (NOCLONE in subject.mutations)
+	if ((subject.mutations & NOCLONE))
 		scantemp = "Error: Mental interface failure."
 		return
 	if (subject.species && subject.species.flags & NO_SCAN)

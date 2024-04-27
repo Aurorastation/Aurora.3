@@ -1,92 +1,192 @@
-/datum/admins/proc/check_antagonists()
-	if (SSticker.current_state >= GAME_STATE_PLAYING)
-		var/dat = "<html><head><title>Round Status</title></head><body><h1><B>Round Status</B></h1>"
-		dat += "Current Game Mode: <B>[SSticker.mode.name]</B><BR>"
-		dat += "Round Duration: [get_round_duration_formatted()]"
-		dat += "<B>Emergency shuttle</B><BR>"
-		if (!emergency_shuttle.online())
-			dat += "<a href='?src=\ref[src];call_shuttle=1'>Call Shuttle</a><br>"
-		else
-			if (emergency_shuttle.wait_for_launch)
-				var/timeleft = emergency_shuttle.estimate_launch_time()
-				dat += "ETL: <a href='?src=\ref[src];edit_shuttle_time=1'>[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]</a><BR>"
-
-			else if (emergency_shuttle.shuttle.has_arrive_time())
-				var/timeleft = emergency_shuttle.estimate_arrival_time()
-				dat += "ETA: <a href='?src=\ref[src];edit_shuttle_time=1'>[(timeleft / 60) % 60]:[add_zero(num2text(timeleft % 60), 2)]</a><BR>"
-				dat += "<a href='?src=\ref[src];call_shuttle=2'>Send Back</a><br>"
-
-			if (emergency_shuttle.shuttle.moving_status == SHUTTLE_WARMUP)
-				dat += "Launching now..."
-
-		dat += "<a href='?src=\ref[src];delay_round_end=1'>[SSticker.delay_end ? "End Round Normally" : "Delay Round End"]</a><br>"
-		dat += "<hr>"
-		for(var/antag_type in all_antag_types)
-			var/datum/antagonist/A = all_antag_types[antag_type]
-			dat += A.get_check_antag_output(src)
-		dat += "</body></html>"
-		usr << browse(dat, "window=roundstatus;size=400x500")
-	else
-		alert("The game hasn't started yet!")
-
-var/datum/vueui_module/player_panel/global_player_panel
-/datum/vueui_module/player_panel
-	var/something = TRUE
-
-/datum/vueui_module/player_panel/ui_interact(var/mob/user)
-	if (!usr.client.holder)
+/datum/tgui_module/moderator/shared/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
-	var/datum/vueui/ui = SSvueui.get_open_ui(user, src)
+
+	var/client/C = usr.client
+	if(!C || !C.holder)
+		return
+
+	switch(action)
+		if("private_message")
+			var/client/messagee = locate(params["private_message"])
+			var/datum/ticket/ticket = locate(params["ticket"])
+
+			if (!isnull(ticket) && !istype(ticket))
+				return
+
+			if(ismob(messagee)) 		//Old stuff can feed-in mobs instead of clients
+				var/mob/M = messagee
+				messagee = M.client
+
+			C.cmd_admin_pm(messagee, null, ticket)
+			. = TRUE
+
+		if("traitor_panel")
+			if(!check_rights(R_ADMIN|R_MOD))
+				return
+
+			if(!ROUND_IS_STARTED)
+				alert("The game hasn't started yet!")
+				return
+
+			var/mob/M = locate(params["traitor_panel"])
+			if(!ismob(M))
+				to_chat(usr, SPAN_WARNING("This can only be used on mobs."))
+				return
+			C.holder.show_traitor_panel(M)
+			. = TRUE
+
+		if("jump_to")
+			if(!check_rights(R_MOD|R_ADMIN))
+				return
+
+			var/mob/M = locate(params["jump_to"])
+
+			if(!isobserver(usr))
+				C.admin_ghost()
+			sleep(2)
+			C.jumptomob(M)
+			. = TRUE
+
+		if("show_player_panel")
+			var/mob/M = locate(params["show_player_panel"])
+			C.holder.show_player_panel(M)
+			. = TRUE
+
+/datum/tgui_module/moderator/shared/check_antagonists
+
+/datum/tgui_module/moderator/shared/check_antagonists/ui_interact(mob/user, datum/tgui/ui)
+	if (!SSticker || SSticker.current_state < GAME_STATE_PLAYING)
+		alert(user, "The game hasn't started yet!")
+		return
+
+	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "admin-player-panel", 800, 600, "Modern player panel", state = interactive_state)
-		ui.header = "minimal"
-		ui.auto_update_content = TRUE
+		ui = new(user, src, "RoundStatus", "Round Status", 400, 500)
+		ui.open()
 
-	ui.open()
+/datum/tgui_module/moderator/shared/check_antagonists/ui_data(mob/user)
+	var/list/data = list()
+	data["gamemode"] = SSticker.mode.name
+	data["round_duration"] = get_round_duration_formatted()
+	data["evacuation_is_idle"] = evacuation_controller.is_idle()
+	data["time_left"] = evacuation_controller.get_eta()
+	data["waiting_to_leave"] = evacuation_controller.waiting_to_leave()
+	data["round_delayed"] = SSticker.delay_end
+	data["antagonists"] = list()
+	data["antagonist_types"] = list()
+	for(var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
+		for(var/datum/mind/mind in A.current_antagonists)
+			var/mob/M = mind.current
+			data["antagonists"] += list(list(
+				"role" = A.role_text_plural,
+				"name" = M ? M.real_name : null,
+				"stat" = M ? M.stat : null,
+				"ref" = ref(M)
+			))
+			data["antagonist_types"] |= A.role_text_plural
+		if(A.flags & ANTAG_HAS_NUKE)
+			data["nuke_disks"] = list()
+			for(var/obj/item/disk/nuclear/N in nuke_disks)
+				var/turf/T = get_turf(N)
+				var/location_name
+				if(ismob(N.loc))
+					var/mob/L = N.loc
+					location_name = L.real_name
+				else
+					location_name = N.loc ? N.loc.name : null
+				data["nuke_disks"] += list(list(
+					"location_name" = location_name,
+					"x" = T.x,
+					"y" = T.y,
+					"z" = T.z,
+				))
+	return data
 
-/datum/vueui_module/player_panel/vueui_data_change(var/list/data, var/mob/user, var/datum/vueui/ui)
-	if(!data)
-		. = data = list()
-	if(!user.client.holder)
+/datum/tgui_module/moderator/shared/check_antagonists/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
 		return
-	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
-	VUEUI_SET_CHECK(data["holder_ref"], "\ref[user.client.holder]", ., data)
-	VUEUI_SET_CHECK(data["ismod"], isMod, ., data)
 
+	var/client/C = usr.client
+	if(!C || !C.holder)
+		return
+
+	switch(action)
+		if("call_shuttle")
+			if(!check_rights(R_ADMIN))
+				return
+			switch(params["call_shuttle"])
+				if("1")
+					if (evacuation_controller.call_evacuation(usr, TRUE))
+						log_admin("[key_name(usr)] called an evacuation.")
+						message_admins("[key_name_admin(usr)] called an evacuation.", 1)
+						. = TRUE
+
+				if("2")
+					if (evacuation_controller.call_evacuation(usr, TRUE))
+						log_admin("[key_name(usr)] called an evacuation.")
+						message_admins("[key_name_admin(usr)] called an evacuation.", 1)
+					else if (evacuation_controller.cancel_evacuation())
+						log_admin("[key_name(usr)] cancelled an evacuation.")
+						message_admins("[key_name_admin(usr)] cancelled an evacuation.", 1)
+						. = TRUE
+
+/datum/tgui_module/moderator/shared/player_panel
+
+/datum/tgui_module/moderator/shared/player_panel/ui_interact(mob/user, var/datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "PlayerPanel", "Player Panel", 800, 600)
+		ui.open()
+
+/datum/tgui_module/moderator/shared/player_panel/ui_data(mob/user)
+	var/list/data = list()
+	var/isMod = check_rights(R_MOD|R_ADMIN, 0, user)
+	data["holder_ref"] = "\ref[user.client.holder]"
+	data["is_mod"] = isMod
 
 	var/list/mobs = sortmobs()
-	
-	LAZYINITLIST(data["players"])
-	if(LAZYLEN(data["players"]) != mobs.len)
-		data["players"] = list()
+
+	data["players"] = list()
+
 	for(var/mob/M in mobs)
 		var/ref = "\ref[M]"
-		LAZYINITLIST(data["players"][ref])
+		var/list/player = list()
+		player["ckey"] = TRUE
 		if(!M.ckey)
-			data["players"][ref] = FALSE
+			player["ckey"] = FALSE
 			continue
-		LAZYINITLIST(data["players"][ref])
-		VUEUI_SET_CHECK(data["players"][ref]["ref"], ref, ., data)
-		VUEUI_SET_CHECK(data["players"][ref]["name"], M.name, ., data)
+
+		player["ref"] = ref
+		player["name"] = M.name
 		var/real_name = GetMobRealName(M)
-		VUEUI_SET_CHECK(data["players"][ref]["real_name"], real_name, ., data)
-		if(istype(M,/mob/living/carbon/human))
+		player["real_name"] = real_name
+
+		if(ishuman(M))
 			var/mob/living/carbon/human/H = M
 			if(H.mind?.assigned_role)
-				VUEUI_SET_CHECK(data["players"][ref]["assigment"], H.mind.assigned_role, ., data)
+				player["assigment"] = H.mind.assigned_role
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["assigment"], "NA", ., data)
-		VUEUI_SET_CHECK(data["players"][ref]["key"], M.key, ., data)
+			player["assigment"] = "NA"
+
+		player["key"] = M.key
+
 		if(isMod)
-			VUEUI_SET_CHECK(data["players"][ref]["ip"], M.lastKnownIP, ., data)
+			player["ip"] = M.lastKnownIP
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["ip"], FALSE, ., data)
-		VUEUI_SET_CHECK(data["players"][ref]["connected"], !!M.client, ., data)
+			player["ip"] = FALSE
+
+		player["connected"] = !!M.client
+
 		if(isMod)
 			var/special_char = is_special_character(M)
-			VUEUI_SET_CHECK(data["players"][ref]["antag"], special_char, ., data)
+			player["antag"] = special_char
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["antag"], -1, ., data)
+			player["antag"] = -1
+
 		if(isMod && (M.client?.player_age || M.player_age))
 			var/age = "Requires database"
 			if(M.client?.player_age)
@@ -97,11 +197,55 @@ var/datum/vueui_module/player_panel/global_player_panel
 				age = "NA"
 			if(age == "Requires database")
 				age = "NA"
-			VUEUI_SET_CHECK(data["players"][ref]["age"], age, ., data)
+			player["age"] = age
 		else
-			VUEUI_SET_CHECK(data["players"][ref]["age"], FALSE, ., data)
+			player["age"] = FALSE
 
-/datum/vueui_module/player_panel/proc/GetMobRealName(var/mob/M)
+		data["players"] += list(player)
+	return data
+
+/datum/tgui_module/moderator/shared/player_panel/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	var/client/C = usr.client
+	if(!C || !C.holder)
+		return
+
+	switch(action)
+		if("subtle_message")
+			if(!check_rights(R_MOD,0) && !check_rights(R_ADMIN))
+				return
+
+			var/mob/M = locate(params["subtle_message"])
+			C.cmd_admin_subtle_message(M)
+			. = TRUE
+
+		if("view_variables")
+			C.debug_variables(locate(params["view_variables"]))
+			. = TRUE
+
+		if("notes")
+			var/ckey = params["ckey"]
+			if(!ckey)
+				var/mob/M = locate(params["mob"])
+				if(ismob(M))
+					ckey = M.ckey
+
+			C.holder.show_player_info(ckey)
+			. = TRUE
+
+		if("wind")
+			var/mob/M = locate(params["wind"])
+			if(!ismob(M))
+				to_chat(usr, SPAN_WARNING("This can only be used on mobs."))
+				return
+
+			C.holder.paralyze_mob(M)
+			. = TRUE
+
+/datum/tgui_module/moderator/shared/player_panel/proc/GetMobRealName(var/mob/M)
 	if(isAI(M))
 		return "AI"
 	if(isrobot(M))

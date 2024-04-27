@@ -8,16 +8,17 @@
 	var/carrying_capacity = 5
 	var/list/obj/carrying = list()
 	origin_tech = list(TECH_MATERIAL = 2, TECH_ENGINEERING = 2)
+	var/list/afterattack_types = list(/obj/structure/closet, /obj/machinery/door/airlock)
 
 /obj/item/mecha_equipment/clamp/resolve_attackby(atom/A, mob/user, click_params)
-	if(istype(A, /obj/structure/closet) && owner)
+	if(is_type_in_list(A, afterattack_types) && owner)
 		return FALSE
 	return ..()
 
 /obj/item/mecha_equipment/clamp/attack_hand(mob/user)
 	if(owner && LAZYISIN(owner.pilots, user))
 		if(!owner.hatch_closed && length(carrying))
-			var/obj/chosen_obj = input(user, "Choose an object to grab.", "Clamp Claw") as null|anything in carrying
+			var/obj/chosen_obj = tgui_input_list(user, "Choose an object to grab.", "Clamp Claw", carrying)
 			if(!chosen_obj)
 				return
 			if(user.put_in_active_hand(chosen_obj))
@@ -27,14 +28,67 @@
 
 /obj/item/mecha_equipment/clamp/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
-
 	if(.)
+		if(istype(target, /obj/machinery/door/firedoor))
+			var/obj/machinery/door/firedoor/FD = target
+			if(FD.blocked)
+				FD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [FD]!"))
+				if(do_after(user, 10 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && FD.blocked)
+					playsound(FD, 'sound/effects/meteorimpact.ogg', 100, 1)
+					playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+					FD.blocked = FALSE
+					INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, open))
+					FD.visible_message(SPAN_WARNING("\The [owner] tears \the [FD] open!"))
+			else
+				FD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [FD]!"))
+				if(do_after(user, 4 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), FD, FD.loc)) && !FD.blocked)
+					if(FD.density)
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] open!"))
+						playsound(FD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, open))
+					else
+						FD.visible_message(SPAN_WARNING("\The [owner] forces \the [FD] closed!"))
+						playsound(FD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+						INVOKE_ASYNC(FD, TYPE_PROC_REF(/obj/machinery/door/firedoor, close))
+			return
+		else if(istype(target, /obj/machinery/door/airlock))
+			if(istype(target, /obj/machinery/door/airlock/centcom))
+				to_chat(user, SPAN_WARNING("You can't force these airlocks!"))
+				return
+			var/obj/machinery/door/airlock/AD = target
+			if(!AD.operating)
+				if(AD.welded || AD.locked)
+					AD.visible_message(SPAN_WARNING("\The [owner] begins prying on \the [AD]!"))
+					var/time_to_open = 15 SECONDS
+					if(AD.welded && AD.locked)
+						time_to_open = 30 SECONDS
+					if(do_after(user, time_to_open, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)))
+						AD.welded = FALSE
+						AD.locked = FALSE
+						AD.update_icon()
+						playsound(AD, 'sound/effects/meteorimpact.ogg', 100, 1)
+						playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+						AD.visible_message(SPAN_WARNING("\The [owner] tears \the [AD] open!"))
+						INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
+				else
+					AD.visible_message(SPAN_WARNING("\The [owner] begins forcing \the [AD]!"))
+					if(do_after(user, 5 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), AD, AD.loc)) && !(AD.operating || AD.welded || AD.locked))
+						if(AD.density)
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, open))
+							playsound(AD, 'sound/machines/airlock_open_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] open!"))
+						else
+							INVOKE_ASYNC(AD, TYPE_PROC_REF(/obj/machinery/door/airlock, close))
+							playsound(AD, 'sound/machines/airlock_close_force.ogg', 100, 1)
+							AD.visible_message(SPAN_DANGER("\The [owner] forces \the [AD] closed!"))
+			return
+
 		if(length(carrying) >= carrying_capacity)
 			to_chat(user, SPAN_WARNING("\The [src] is fully loaded!"))
 			return
 		if(istype(target, /obj))
 			var/obj/O = target
-			if(O.buckled_mob)
+			if(O.buckled)
 				return
 			if(locate(/mob/living) in O)
 				to_chat(user, SPAN_WARNING("You can't load living things into the cargo compartment."))
@@ -45,8 +99,8 @@
 				return
 
 
-			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."))
-			if(do_after(owner, 20, O, 0, 1))
+			owner.visible_message(SPAN_NOTICE("\The [owner] begins loading \the [O]."), intent_message = MACHINE_SOUND)
+			if(do_after(user, 2 SECONDS, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), O, O.loc)))
 				O.forceMove(src)
 				carrying += O
 				owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [O] into its cargo compartment."))
@@ -57,10 +111,10 @@
 			if(user.a_intent == I_HURT)
 				admin_attack_log(user, M, "attempted to clamp [M] with [src] ", "Was subject to a clamping attempt.", ", using \a [src], attempted to clamp")
 				owner.setClickCooldown(owner.arms ? owner.arms.action_delay * 3 : 30) //This is an inefficient use of your powers
-				if(prob(33))
+				if(prob(15))
 					owner.visible_message(SPAN_DANGER("[owner] swings its [src] in a wide arc at [target] but misses completely!"))
 					return
-				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage * 1.5 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
+				M.attack_generic(owner, (owner.arms ? owner.arms.melee_damage / 2 : 0), "slammed") //Honestly you should not be able to do this without hands, but still
 				M.throw_at(get_edge_target_turf(owner ,owner.dir),5, 2)
 				to_chat(user, SPAN_WARNING("You slam [target] with [src.name]."))
 				owner.visible_message(SPAN_DANGER("[owner] slams [target] with the hydraulic clamp."))
@@ -86,7 +140,7 @@
 		return
 	var/obj/chosen_obj = carrying[1]
 	if(choose_object)
-		chosen_obj = input(user, "Choose an object to set down.", "Clamp Claw") as null|anything in carrying
+		chosen_obj = tgui_input_list(user, "Choose an object to set down.", "Clamp Claw", carrying)
 	if(!chosen_obj)
 		return
 	owner.visible_message(SPAN_NOTICE("\The [owner] unloads \the [chosen_obj]."))
@@ -135,9 +189,8 @@
 	name = "floodlight"
 	desc = "An exosuit-mounted light."
 	icon_state = "mech_floodlight"
-	item_state = "mech_floodlight"
 	restricted_hardpoints = list(HARDPOINT_HEAD)
-	mech_layer = MECH_INTERMEDIATE_LAYER
+	mech_layer = MECH_GEAR_LAYER
 
 	var/on = 0
 	var/brightness_on = 12		//can't remember what the maxed out value is
@@ -148,10 +201,20 @@
 /obj/item/mecha_equipment/light/attack_self(var/mob/user)
 	. = ..()
 	if(.)
-		on = !on
+		toggle()
 		to_chat(user, "You switch \the [src] [on ? "on" : "off"].")
-		update_icon()
-		owner.update_icon()
+
+/obj/item/mecha_equipment/light/proc/toggle()
+	on = !on
+	update_icon()
+	owner.update_icon()
+	active = on
+	passive_power_use = on ? 0.1 KILO WATTS : 0
+
+/obj/item/mecha_equipment/light/deactivate()
+	if(on)
+		toggle()
+	..()
 
 /obj/item/mecha_equipment/light/update_icon()
 	if(on)
@@ -165,6 +228,7 @@
 	on = FALSE
 	update_icon()
 	. = ..()
+
 #define CATAPULT_SINGLE 1
 #define CATAPULT_AREA   2
 
@@ -180,6 +244,57 @@
 	origin_tech = list(TECH_MATERIAL = 4, TECH_ENGINEERING = 4, TECH_MAGNET = 4)
 	require_adjacent = FALSE
 
+	///For when targetting a single object, will create a warp beam
+	var/datum/beam = null
+	var/max_dist = 6
+	var/obj/effect/effect/warp/small/warpeffect = null
+
+/obj/effect/ebeam/warp
+	plane = WARP_EFFECT_PLANE
+	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND | NO_CLIENT_COLOR
+	z_flags = ZMM_IGNORE
+
+/obj/effect/effect/warp/small
+	plane = WARP_EFFECT_PLANE
+	appearance_flags = PIXEL_SCALE | NO_CLIENT_COLOR
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "singularity_s3"
+	pixel_x = -32
+	pixel_y = -32
+	z_flags = ZMM_IGNORE
+
+/obj/item/mecha_equipment/catapult/proc/beamdestroyed()
+	if(beam)
+		GLOB.destroyed_event.unregister(beam, src, .proc/beamdestroyed)
+		beam = null
+	if(locked)
+		if(owner)
+			for(var/pilot in owner.pilots)
+				to_chat(pilot, SPAN_NOTICE("Lock on \the [locked] disengaged."))
+		endanimation()
+		locked = null
+	//It's possible beam self destroyed, match active
+	if(active)
+		deactivate()
+
+/obj/item/mecha_equipment/catapult/proc/endanimation()
+	if(locked)
+		animate(locked,pixel_y= initial(locked.pixel_y), time = 0)
+
+/obj/item/mecha_equipment/catapult/get_hardpoint_maptext()
+	var/string
+	if(locked)
+		string = locked.name + " - "
+	if(mode == 1)
+		string += "Pull"
+	else string += "Push"
+	return string
+
+/obj/item/mecha_equipment/catapult/deactivate()
+	. = ..()
+	if(beam)
+		QDEL_NULL(beam)
+
 /obj/item/mecha_equipment/catapult/attack_self(var/mob/user)
 	. = ..()
 	if(.)
@@ -190,31 +305,49 @@
 /obj/item/mecha_equipment/catapult/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
 	. = ..()
 	if(.)
-
+		equipment_delay = initial(equipment_delay)
 		switch(mode)
 			if(CATAPULT_SINGLE)
 				if(!locked)
+					equipment_delay = 5
 					var/atom/movable/AM = target
 					if(!istype(AM) || AM.anchored || !AM.simulated)
-						to_chat(user, "<span class='notice'>Unable to lock on [target].</span>")
+						to_chat(user, SPAN_NOTICE("Unable to lock on [target]."))
 						return
 					locked = AM
-					to_chat(user, "<span class='notice'>Locked on [AM].</span>")
+					beam = owner.Beam(BeamTarget = target, icon_state = "r_beam", maxdistance = max_dist, beam_type = /obj/effect/ebeam/warp)
+					GLOB.destroyed_event.register(beam, src, .proc/beamdestroyed)
+
+					animate(target,pixel_y= initial(target.pixel_y) - 2,time=1 SECOND, easing = SINE_EASING, flags = ANIMATION_PARALLEL, loop = -1)
+					animate(pixel_y= initial(target.pixel_y) + 2,time=1 SECOND)
+
+					active=TRUE
+					to_chat(user, SPAN_NOTICE("Locked onto \the [AM]."))
 					return
 				else if(target != locked)
 					if(locked in view(owner))
-						locked.throw_at(target, 14, 1.5, owner)
+						INVOKE_ASYNC(locked, TYPE_PROC_REF(/atom/movable, throw_at), target, 14, 1.5, owner)
 						log_and_message_admins("used [src] to throw [locked] at [target].", user, owner.loc)
+						endanimation()
 						locked = null
-
-						var/obj/item/cell/C = owner.get_cell()
-						if(istype(C))
-							C.use(active_power_use * CELLRATE)
-
+						deactivate()
+						owner.use_cell_power(active_power_use * CELLRATE)
 					else
 						locked = null
-						to_chat(user, "<span class='notice'>Lock on [locked] disengaged.</span>")
+						to_chat(user, SPAN_NOTICE("Lock on \the [locked] disengaged."))
+						deactivate()
 			if(CATAPULT_AREA)
+				if(!warpeffect)
+					warpeffect = new
+				warpeffect.forceMove(get_turf(target))
+				var/matrix/start = matrix()
+				start.Scale(0)
+				var/matrix/end= matrix()
+				end.Scale(1)
+				warpeffect.alpha = 255
+				warpeffect.transform = start
+				animate(warpeffect,transform = end, alpha = 0, time= 1.25 SECONDS)
+				addtimer(CALLBACK(warpeffect, /atom/movable/proc/forceMove, null), 1.25 SECONDS)
 
 				var/list/atoms = list()
 				if(isturf(target))
@@ -222,15 +355,14 @@
 				else
 					atoms = orange(target,3)
 				for(var/atom/movable/A in atoms)
-					if(A.anchored || !A.simulated) continue
-					var/dist = 5-get_dist(A,target)
-					A.throw_at(get_edge_target_turf(A,get_dir(target, A)),dist,0.7)
-
+					if(A.anchored || !A.simulated)
+						continue
+					var/dist = 5 - get_dist(A, target)
+					INVOKE_ASYNC(A, TYPE_PROC_REF(/atom/movable, throw_at), get_edge_target_turf(A,get_dir(target, A)), dist, 0.7, owner)
 
 				log_and_message_admins("used [src]'s area throw on [target].", user, owner.loc)
-				var/obj/item/cell/C = owner.get_cell()
-				if(istype(C))
-					C.use(active_power_use * CELLRATE * 2) //bit more expensive to throw all
+
+				owner.use_cell_power(active_power_use * CELLRATE * 2) //bit more expensive to throw all
 
 /obj/item/material/drill_head
 	var/durability = 0
@@ -238,14 +370,14 @@
 	desc = "A replaceable drill head usually used in exosuit drills."
 	icon_state = "drill_head"
 
-/obj/item/material/drill_head/New(var/newloc)
+/obj/item/material/drill_head/Initialize(newloc, material_key)
 	. = ..()
 	durability = 2 * material.integrity
 
 /obj/item/material/drill_head/proc/get_durability_percentage()
 	return (durability * 100) / (2 * material.integrity)
 
-/obj/item/material/drill_head/examine(mob/user, distance)
+/obj/item/material/drill_head/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/percentage = get_durability_percentage()
 	var/descriptor = "looks close to breaking"
@@ -258,7 +390,7 @@
 	if(percentage > 95)
 		descriptor = "shows no wear"
 
-	to_chat(user, span("notice", "It [descriptor]."))
+	. += SPAN_NOTICE("It [descriptor].")
 
 /obj/item/mecha_equipment/drill
 	name = "drill"
@@ -309,9 +441,7 @@
 			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
 			return
 
-		var/obj/item/cell/C = owner.get_cell()
-		if(istype(C))
-			C.use(active_power_use * CELLRATE)
+		owner.use_cell_power(active_power_use * CELLRATE)
 		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
 
 		var/T = target.loc
@@ -319,7 +449,7 @@
 		//Better materials = faster drill!
 		var/delay = max(5, 20 - drill_head.material.protectiveness)
 		owner.setClickCooldown(delay) //Don't spamclick!
-		if(do_after(owner, delay, target) && drill_head)
+		if(do_after(user, delay, owner, (DO_DEFAULT & ~DO_USER_CAN_TURN) | DO_USER_UNIQUE_ACT, extra_checks = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(atom_maintain_position), target, target.loc)) && drill_head)
 			if(src == owner.selected_system)
 				if(drill_head.durability <= 0)
 					drill_head.shatter()
@@ -406,7 +536,7 @@
 	if(proj < 1) return null
 	var/obj/item/device/flashlight/flare/mech/g = new (src)
 	proj--
-	addtimer(CALLBACK(src, .proc/regen_proj), proj_gen_time, TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(regen_proj)), proj_gen_time, TIMER_UNIQUE)
 	return g
 
 /obj/item/device/flashlight/flare/mech/Initialize()
@@ -416,7 +546,7 @@
 	src.damtype = "fire"
 	update_icon()
 	START_PROCESSING(SSprocessing, src)
-	..()
+	. = ..()
 
 // Kinda hacky, but hey, avoids some severe shitcode later on - geeves
 /obj/item/mecha_equipment/sleeper/passenger_compartment
@@ -437,9 +567,9 @@
 
 /obj/item/mecha_equipment/sleeper/passenger_compartment/attack_self(var/mob/user)
 	if(!sleeper.occupant)
-		to_chat(user, span("warning", "There's no one to eject!"))
+		to_chat(user, SPAN_WARNING("There's no one to eject!"))
 	else
-		visible_message(span("notice", "\The [src] ejects [sleeper.occupant.name]."))
+		visible_message(SPAN_NOTICE("\The [src] ejects [sleeper.occupant.name]."))
 		sleeper.go_out()
 		icon_state = "mecha_passenger_open"
 		update_icon()
@@ -464,8 +594,8 @@
 	var/obj/machinery/autolathe/mounted/lathe
 
 /obj/item/mecha_equipment/autolathe/get_hardpoint_maptext()
-	if(lathe?.build_item)
-		return lathe.build_item.name
+	if(lathe?.currently_printing)
+		return lathe.currently_printing.recipe.name
 	. = ..()
 
 /obj/item/mecha_equipment/autolathe/Initialize()
@@ -495,11 +625,12 @@
 		owner.visible_message(SPAN_NOTICE("\The [owner] loads \the [target] into \the [src]."))
 		lathe.attackby(target, owner)
 
-/obj/item/mecha_equipment/autolathe/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() || W.ismultitool() || W.iswirecutter() || istype(W, /obj/item/storage/part_replacer))
-		lathe.attackby(W, user)
+/obj/item/mecha_equipment/autolathe/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() || attacking_item.ismultitool() || attacking_item.iswirecutter() || istype(attacking_item, /obj/item/storage/part_replacer))
+		lathe.attackby(attacking_item, user)
 		update_icon()
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/mecha_equipment/autolathe/update_icon()
 	if(lathe.panel_open)
@@ -591,3 +722,76 @@
 
 /obj/item/mecha_equipment/quick_enter/attack_self()
 	return
+
+/obj/item/mecha_equipment/phazon
+	name = "phazon bluespace transmission system"
+	desc = "A large back-mounted device that grants the exosuit it's mounted to the ability to semi-shift into bluespace, allowing it to pass through dense objects."
+	desc_info = "It needs an anomaly core to function. You can install some simply by using a core on it."
+	icon_state = "mecha_phazon"
+	restricted_hardpoints = list(HARDPOINT_BACK)
+	w_class = ITEMSIZE_HUGE
+	origin_tech = list(TECH_MATERIAL = 6, TECH_ENGINEERING = 6, TECH_BLUESPACE = 6)
+	active_power_use = 88 KILO WATTS
+
+	var/obj/item/anomaly_core/AC
+	var/image/anomaly_overlay
+
+/obj/item/mecha_equipment/phazon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/anomaly_core))
+		if(AC)
+			to_chat(user, SPAN_WARNING("\The [src] already has an anomaly core installed!"))
+			return TRUE
+		user.drop_from_inventory(attacking_item, src)
+		AC = attacking_item
+		to_chat(user, SPAN_NOTICE("You insert \the [AC] into \the [src]."))
+		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
+		anomaly_overlay = image(AC.icon, null, AC.icon_state)
+		anomaly_overlay.pixel_y = 3
+		add_overlay(anomaly_overlay)
+		return TRUE
+	if(attacking_item.iswrench())
+		if(!AC)
+			to_chat(user, SPAN_WARNING("\The [src] doesn't have an anomaly core installed!"))
+			return TRUE
+		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		user.put_in_hands(AC)
+		cut_overlay(anomaly_overlay)
+		qdel(anomaly_overlay)
+		AC = null
+		if(owner)
+			deactivate()
+		return TRUE
+	return ..()
+
+/obj/item/mecha_equipment/phazon/attack_self(mob/user)
+	. = ..()
+	if(!.)
+		return
+
+	if(!AC)
+		to_chat(user, SPAN_WARNING("\The [src] needs an anomaly core to function!"))
+		return
+
+	if(!owner.incorporeal_move)
+		to_chat(user, SPAN_NOTICE("You fire up \the [src], semi-shifting into another plane of existence!"))
+		owner.set_mech_incorporeal(INCORPOREAL_MECH)
+	else
+		to_chat(user, SPAN_NOTICE("You disable \the [src], shifting back into your normal reality."))
+		owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+
+/obj/item/mecha_equipment/phazon/deactivate()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
+
+/obj/item/mecha_equipment/phazon/uninstalled()
+	owner.set_mech_incorporeal(INCORPOREAL_DISABLE)
+	..()
+
+/obj/item/mecha_equipment/mounted_system/grenadecleaner
+	name = "cleaner grenade launcher"
+	desc = "The SGL-6CL grenade launcher is designed to launch primed cleaner grenades."
+	icon_state = "mech_gl"
+	holding_type = /obj/item/gun/launcher/mech/mountedgl/cl
+	restricted_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
+	restricted_software = list(MECH_SOFTWARE_UTILITY)

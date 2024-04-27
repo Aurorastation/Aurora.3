@@ -8,7 +8,8 @@
 
 	//~CARN: for renaming mobs (updates their name, real_name, mind.name, their ID/PDA and datacore records).
 	else if(href_list["rename"])
-		if(!check_rights(R_VAREDIT|R_DEV))	return
+		if(!check_rights(R_VAREDIT|R_DEV|R_MOD))
+			return
 
 		var/mob/M = locate(href_list["rename"])
 		if(!istype(M))
@@ -24,7 +25,7 @@
 		if (issilicon(M) && alert(usr, "Synth detected. Would you like to run rename silicon verb automatically?",, "Yes", "No") == "Yes")
 			var/mob/living/silicon/S = M
 			S.SetName(new_name)
-			to_chat(usr, span("notice", "Silicon properly renamed."))
+			to_chat(usr, SPAN_NOTICE("Silicon properly renamed."))
 
 		href_list["datumrefresh"] = href_list["rename"]
 
@@ -57,6 +58,16 @@
 			return
 
 		cmd_mass_modify_object_variables(A, href_list["varnamemass"])
+
+	else if(href_list["varnameview"] && href_list["datumview"])
+		if(!check_rights(R_VAREDIT|R_DEV))	return
+
+		var/list/L = locate(href_list["datumview"])
+		if(!istype(L))
+			to_chat(usr, "This can only be used on instances of type /list")
+			return
+
+		view_extended_list(L, href_list["varnameview"])
 
 	else if(href_list["mob_player_panel"])
 		if(!check_rights(0))	return
@@ -101,16 +112,16 @@
 
 		src.cmd_admin_gib(M)
 
-	else if(href_list["build_mode"])
-		if(!check_rights(R_BUILDMODE|R_DEV))	return
+	else if(href_list["dust"])
+		if(!check_rights(R_ADMIN|R_FUN))
+			return
 
-		var/mob/M = locate(href_list["build_mode"])
+		var/mob/M = locate(href_list["dust"])
 		if(!istype(M))
 			to_chat(usr, "This can only be used on instances of type /mob")
 			return
 
-		togglebuildmode(M)
-		href_list["datumrefresh"] = href_list["build_mode"]
+		src.cmd_admin_dust(M)
 
 	else if(href_list["drop_everything"])
 		if(!check_rights(R_DEBUG|R_ADMIN))	return
@@ -307,7 +318,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
 			return
 
-		var/new_species = input("Please choose a new species.","Species",null) as null|anything in all_species
+		var/new_species = input("Please choose a new species.","Species",null) as null|anything in GLOB.all_species
 
 		if(!H)
 			to_chat(usr, "Mob doesn't exist anymore")
@@ -326,7 +337,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob")
 			return
 
-		var/new_language = input("Please choose a language to add.","Language",null) as null|anything in all_languages
+		var/new_language = input("Please choose a language to add.","Language",null) as null|anything in GLOB.all_languages
 
 		if(!new_language)
 			return
@@ -384,7 +395,7 @@
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/robot/proc,/mob/living/silicon/robot/verb)
 			if(/mob/living/silicon/ai)
 				possibleverbs += typesof(/mob/living/silicon/proc,/mob/living/silicon/ai/proc,/mob/living/silicon/ai/verb)
-		possibleverbs -= H.verbs
+		remove_verb(H, H.verbs)
 		possibleverbs += "Cancel" 								// ...And one for the bottom
 
 		var/verb = input("Select a verb!", "Verbs",null) as anything in possibleverbs
@@ -394,7 +405,7 @@
 		if(!verb || verb == "Cancel")
 			return
 		else
-			H.verbs += verb
+			add_verb(H, verb)
 
 	else if(href_list["remverb"])
 		if(!check_rights(R_DEBUG|R_DEV))      return
@@ -411,7 +422,7 @@
 		if(!verb)
 			return
 		else
-			H.verbs -= verb
+			remove_verb(H, verb)
 
 	else if(href_list["addorgan"])
 		if(!check_rights(R_SPAWN))	return
@@ -457,23 +468,6 @@
 		rem_organ.removed()
 		qdel(rem_organ)
 
-	else if(href_list["fix_nano"])
-		if(!check_rights(R_DEBUG)) return
-
-		var/mob/H = locate(href_list["fix_nano"])
-
-		if(!istype(H) || !H.client)
-			to_chat(usr, "This can only be done on mobs with clients")
-			return
-
-		to_chat(usr, span("alert", "This command is temporarily disabled."))
-		//SSnanoui.send_resources(H.client)
-
-		//to_chat(usr, "Resource files sent")
-		//to_chat(H, "Your NanoUI Resource files have been refreshed")
-
-		//log_admin("[key_name(usr)] resent the NanoUI resource files to [key_name(H)] ", admin_key=key_name(usr), ckey=key_name(H))
-
 	else if(href_list["regenerateicons"])
 		if(!check_rights(0))	return
 
@@ -501,7 +495,7 @@
 			if("brute")	L.adjustBruteLoss(amount)
 			if("fire")	L.adjustFireLoss(amount)
 			if("toxin")	L.adjustToxLoss(amount)
-			if("oxygen")L.adjustOxyLoss(amount)
+			if("oxygen")   L.adjustOxyLoss(amount)
 			if(BP_BRAIN)	L.adjustBrainLoss(amount)
 			if("clone")	L.adjustCloneLoss(amount)
 			else
@@ -521,6 +515,6 @@
 	if(href_list["datumrefresh"])
 		var/datum/DAT = locate(href_list["datumrefresh"])
 		if(istype(DAT, /datum) || istype(DAT, /client))
-			debug_variables(DAT)
+			debug_variables_open(DAT, href_list["search"])
 
 	return

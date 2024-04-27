@@ -1,5 +1,6 @@
 //base type for controllers of two-door systems
 /obj/machinery/embedded_controller/radio/airlock
+	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	// Setup parameters only
 	radio_filter = RADIO_AIRLOCK
 	var/tag_exterior_door
@@ -10,11 +11,29 @@
 	var/tag_interior_sensor
 	var/tag_airlock_mech_sensor
 	var/tag_shuttle_mech_sensor
-	var/tag_secure = 0
+	var/tag_secure = FALSE
+	var/tag_air_alarm
+	var/cycle_to_external_air = FALSE
 
-/obj/machinery/embedded_controller/radio/airlock/Initialize()
+/obj/machinery/embedded_controller/radio/airlock/Initialize(mapload, given_id_tag, given_frequency, given_tag_exterior_door, given_tag_interior_door, given_tag_airpump, given_tag_chamber_sensor)
 	. = ..()
-	program = new/datum/computer/file/embedded_program/airlock(src)
+	if(given_id_tag)
+		id_tag = given_id_tag
+	if(given_frequency)
+		set_frequency(given_frequency)
+	if(given_tag_exterior_door)
+		tag_exterior_door = given_tag_exterior_door
+	if(given_tag_interior_door)
+		tag_interior_door = given_tag_interior_door
+	if(given_tag_airpump)
+		tag_airpump = given_tag_airpump
+	if(given_tag_chamber_sensor)
+		tag_chamber_sensor = given_tag_chamber_sensor
+	program = new /datum/computer/file/embedded_program/airlock(src)
+
+/obj/machinery/embedded_controller/radio/airlock/Destroy()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 //Advanced airlock controller for when you want a more versatile airlock controller - useful for turning simple access control rooms into airlocks
 /obj/machinery/embedded_controller/radio/airlock/advanced_airlock_controller
@@ -76,7 +95,7 @@
 //Airlock controller for airlock control - most airlocks on the station use this
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller
 	name = "Airlock Controller"
-	tag_secure = 1
+	tag_secure = TRUE
 
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	var/data[0]

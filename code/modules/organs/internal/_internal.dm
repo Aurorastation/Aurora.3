@@ -4,9 +4,11 @@
 /obj/item/organ/internal
 	var/dead_icon // Icon to use when the organ has died.
 	var/damage_reduction = 0.5     //modifier for internal organ injury
+	var/unknown_pain_location = TRUE // if TRUE, pain messages will point to the parent organ, otherwise it will print the organ name
 	var/toxin_type = "undefined"
 	var/relative_size = 25 //Used for size calcs
 	var/on_mob_icon
+	var/list/possible_modifications = list("Normal","Assisted","Mechanical") //this is used in the character setup
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 
@@ -46,7 +48,7 @@
 	if(damage > min_broken_damage)
 		var/scarring = damage / max_damage
 		scarring = 1 - 0.5 * scarring ** 2 // Between ~15 and 50 percent loss.
-		var/new_max_dam = Floor(scarring * max_damage)
+		var/new_max_dam = FLOOR(scarring * max_damage, 1)
 		if(new_max_dam < max_damage)
 			to_chat(user, SPAN_WARNING("Not every part of [src] could be saved; some dead tissue had to be removed, making it more susceptible to future damage."))
 			set_max_damage(new_max_dam)
@@ -61,15 +63,33 @@
 		. += "[get_wound_severity(get_scarring_level())] scarring"
 
 /obj/item/organ/internal/is_usable()
-	return ..() && !is_broken()
+	if(robotize_type)
+		var/datum/robolimb/R = GLOB.all_robolimbs[robotize_type]
+		if(!R.malfunctioning_check(owner))
+			return TRUE
+	else
+		return ..() && !is_broken()
 
 /obj/item/organ/internal/proc/is_damaged()
-	return damage > 0
+	return damage > 0 || special_condition()
 
-/obj/item/organ/internal/robotize()
+/obj/item/organ/internal/proc/special_condition() // For unique conditions
+	return
+
+/obj/item/organ/internal/robotize(var/company = PROSTHETIC_UNBRANDED)
 	..()
 	min_bruised_damage += 5
 	min_broken_damage += 10
+
+	if(company)
+		model = company
+		var/datum/robolimb/R = GLOB.all_robolimbs[company]
+
+		if(R)
+			if(robotic_sprite)
+				icon_state = "[initial(icon_state)]-[R.internal_organ_suffix]"
+
+			robotize_type = company
 
 /obj/item/organ/internal/proc/getToxLoss()
 	if(BP_IS_ROBOTIC(src))
@@ -77,9 +97,9 @@
 	return damage
 
 /obj/item/organ/internal/proc/set_max_damage(var/ndamage)
-	max_damage = Floor(ndamage)
-	min_broken_damage = Floor(0.75 * max_damage)
-	min_bruised_damage = Floor(0.25 * max_damage)
+	max_damage = FLOOR(ndamage, 1)
+	min_broken_damage = FLOOR(0.75 * max_damage, 1)
+	min_bruised_damage = FLOOR(0.25 * max_damage, 1)
 
 /obj/item/organ/internal/proc/take_internal_damage(amount, var/silent=0)
 	if(BP_IS_ROBOTIC(src))
@@ -88,7 +108,7 @@
 		damage = between(0, src.damage + amount, max_damage)
 
 		//only show this if the organ is not robotic
-		if(owner && can_feel_pain() && parent_organ && (amount > 5 || prob(10)))
+		if(owner && ORGAN_CAN_FEEL_PAIN(src) && parent_organ && (amount > 5 || prob(10)))
 			var/obj/item/organ/external/parent = owner.get_organ(parent_organ)
 			if(parent && !silent)
 				var/degree = ""
@@ -109,9 +129,9 @@
 		. = "damaged "
 	if(status & ORGAN_DEAD)
 		if(can_recover())
-			. = "decaying [.]"
+			. = "necrotic and debridable [.]"
 		else
-			. = "necrotic [.]"
+			. = "necrotic and dead [.]"
 	. = "[.][name]"
 
 /obj/item/organ/internal/process()
@@ -119,9 +139,15 @@
 	if(istype(owner) && (toxin_type in owner.chem_effects))
 		take_damage(owner.chem_effects[toxin_type] * 0.1 * PROCESS_ACCURACY, prob(1))
 	handle_regeneration()
+	tick_surge_damage() //Yes, this is intentional.
 
 /obj/item/organ/internal/proc/handle_regeneration()
-	if(!damage || BP_IS_ROBOTIC(src) || !owner || owner.chem_effects[CE_TOXIN] || owner.is_asystole())
-		return
-	if(damage < 0.1*max_damage)
-		heal_damage(0.1)
+	SHOULD_CALL_PARENT(TRUE)
+	if(damage && !BP_IS_ROBOTIC(src) && istype(owner))
+		if(!owner.is_asystole())
+			if(!(owner.chem_effects[CE_TOXIN] || (toxin_type in owner.chem_effects)))
+				var/repair_modifier = owner.chem_effects[CE_ORGANREPAIR] || 0.1
+				if(damage < repair_modifier*max_damage)
+					heal_damage(repair_modifier)
+				return TRUE // regeneration is allowed
+	return FALSE // regeneration is prevented

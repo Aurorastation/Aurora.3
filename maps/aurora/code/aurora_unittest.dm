@@ -4,22 +4,17 @@
 	// ¯\_(ツ)_/¯
 
 	ut_environ_exempt_areas = list(/area/space
-		,/area/syndicate_station
-		,/area/skipjack_station
 		,/area/solar
 		,/area/shuttle
 		,/area/holodeck
 		,/area/supply/station
-		,/area/wizard_station
 		,/area/tdome
 		,/area/centcom
-		,/area/syndicate_mothership
-		,/area/beach
+		,/area/antag
 		,/area/prison
 		,/area/supply/dock
 		,/area/turbolift
 		,/area/mine
-		,/area/merchant_ship
 	)
 	ut_apc_exempt_areas = list(/area/construction
 		,/area/medical/genetics
@@ -38,4 +33,33 @@
 		,/area/bridge/selfdestruct
 		,/area/medical/cryo
 		,/area/medical/patient_c
+		,/area/security/penal_colony
 	)
+	ut_fire_exempt_areas = list(
+		/area/maintenance,
+		/area/rnd/isolation_a,
+		/area/rnd/isolation_b,
+		/area/rnd/isolation_c,
+		/area/rnd/test_area,
+		/area/rnd/xenobiology/cells,
+		/area/security/penal_colony,
+		/area/turret_protected/tcomsat
+	)
+
+/datum/unit_test/zas_area_test/aurora
+	map_path = "aurora"
+/datum/unit_test/zas_area_test/aurora/arrival_maint
+	name = "ZAS: Arrival Maintenance"
+	area_path = /area/maintenance/arrivals
+
+/datum/unit_test/zas_area_test/aurora/emergency_shuttle
+	name = "ZAS: Emergency Shuttle"
+	area_path = /area/shuttle/escape
+
+/datum/unit_test/zas_area_test/aurora/zas_area_test
+	name = "ZAS: Cargo Bay"
+	area_path = /area/quartermaster/storage
+
+/datum/unit_test/zas_area_test/aurora/cargo_maint
+	name = "ZAS: Cargo Maintenance"
+	area_path = /area/maintenance/cargo

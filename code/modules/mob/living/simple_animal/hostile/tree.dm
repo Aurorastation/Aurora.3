@@ -8,10 +8,12 @@
 	icon_gib = "pine_1"
 	speak_chance = 0
 	turns_per_move = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/carpmeat
+	meat_type = /obj/item/reagent_containers/food/snacks/fish/carpmeat
+	organ_names = list("trunk", "branches", "roots")
 	response_help = "brushes"
 	response_disarm = "pushes"
 	response_harm = "hits"
+	blood_overlay_icon = null
 	speed = -1
 	maxHealth = 250
 	health = 250
@@ -36,6 +38,8 @@
 	minbodytemp = 0
 
 	faction = "carp"
+
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/hostile/tree/FindTarget()
 	. = ..()

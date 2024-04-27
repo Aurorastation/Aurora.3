@@ -2,8 +2,9 @@
 
 /area/mine
 	icon_state = "mining"
-	ambience = list('sound/ambience/ambimine.ogg', 'sound/ambience/song_game.ogg')
-	sound_env = ASTEROID
+	music = list('sound/music/ambimine.ogg', 'sound/music/song_game.ogg')
+	sound_environment = SOUND_AREA_ASTEROID
+	area_flags = AREA_FLAG_IS_BACKGROUND
 
 /area/mine/explored
 	name = "Mine"
@@ -12,11 +13,12 @@
 /area/mine/unexplored
 	name = "Mine"
 	icon_state = "unexplored"
-	flags = HIDE_FROM_HOLOMAP
-
-//S
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 // Smalls
+/area/outpost
+	ambience = AMBIENCE_EXPOUTPOST
+
 /area/outpost/mining_north
 	name = "North Mining"
 	icon_state = "outpost_mine_north"
@@ -33,7 +35,7 @@
 /area/outpost/mining_main
 	icon_state = "outpost_mine_main"
 	station_area = 1
-	holomap_color = HOLOMAP_AREACOLOR_CARGO
+	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
 /area/outpost/mining_main/dorms
 	name = "Mining Dormitory"
@@ -55,8 +57,6 @@
 
 /area/outpost/mining_main/refinery
 	name = "Mining Refinery"
-
-
 
 // Engineering
 /area/outpost/engineering
@@ -82,8 +82,6 @@
 /area/outpost/engineering/meeting
 	name = "Engineering - Break Room"
 
-
-
 // Research
 /area/outpost/research
 	icon_state = "outpost_research"
@@ -97,7 +95,7 @@
 	name = "Research Shuttle Dock"
 
 /area/outpost/research/eva
-	name = "Research - Xenoarcheology"
+	name = "Research - Xenoarchaeology"
 
 /area/outpost/research/analysis
 	name = "Research - Sample Analysis"

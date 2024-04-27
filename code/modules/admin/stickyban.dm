@@ -32,8 +32,8 @@
 					return
 				ban["message"] = "[reason]"
 
-			if(establish_db_connection(dbcon))
-				var/DBQuery/query_create_stickyban = dbcon.NewQuery("INSERT INTO ss13_stickyban (ckey, reason, banning_admin) VALUES ('[sanitizeSQL(ckey)]', '[sanitizeSQL(ban["message"])]', '[sanitizeSQL(usr.ckey)]')")
+			if(establish_db_connection(GLOB.dbcon))
+				var/DBQuery/query_create_stickyban = GLOB.dbcon.NewQuery("INSERT INTO ss13_stickyban (ckey, reason, banning_admin) VALUES ('[sanitizeSQL(ckey)]', '[sanitizeSQL(ban["message"])]', '[sanitizeSQL(usr.ckey)]')")
 				if (query_create_stickyban.Execute())
 					ban["fromdb"] = TRUE
 
@@ -64,17 +64,17 @@
 			world.SetConfig("ban",ckey, null)
 			SSstickyban.cache -= ckey
 
-			if (establish_db_connection(dbcon))
-				var/DBQuery/query = dbcon.NewQuery("DELETE FROM ss13_stickyban WHERE ckey = '[sanitizeSQL(ckey)]'")
+			if (establish_db_connection(GLOB.dbcon))
+				var/DBQuery/query = GLOB.dbcon.NewQuery("DELETE FROM ss13_stickyban WHERE ckey = '[sanitizeSQL(ckey)]'")
 				query.Execute()
 
-				query = dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_ckey WHERE stickyban = '[sanitizeSQL(ckey)]'")
+				query = GLOB.dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_ckey WHERE stickyban = '[sanitizeSQL(ckey)]'")
 				query.Execute()
 
-				query = dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_cid WHERE stickyban = '[sanitizeSQL(ckey)]'")
+				query = GLOB.dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_cid WHERE stickyban = '[sanitizeSQL(ckey)]'")
 				query.Execute()
 
-				query = dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_ip WHERE stickyban = '[sanitizeSQL(ckey)]'")
+				query = GLOB.dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_ip WHERE stickyban = '[sanitizeSQL(ckey)]'")
 				query.Execute()
 
 
@@ -117,8 +117,8 @@
 
 			SSstickyban.cache[ckey] = ban
 
-			if (establish_db_connection(dbcon))
-				var/DBQuery/query_remove_stickyban_alt = dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_ckey WHERE stickyban = '[sanitizeSQL(ckey)]' AND matched_ckey = '[sanitizeSQL(alt)]'")
+			if (establish_db_connection(GLOB.dbcon))
+				var/DBQuery/query_remove_stickyban_alt = GLOB.dbcon.NewQuery("DELETE FROM ss13_stickyban_matched_ckey WHERE stickyban = '[sanitizeSQL(ckey)]' AND matched_ckey = '[sanitizeSQL(alt)]'")
 				query_remove_stickyban_alt.Execute()
 
 			log_and_message_admins("has disassociated [alt] from [ckey]'s sticky ban")
@@ -146,8 +146,8 @@
 
 			SSstickyban.cache[ckey] = ban
 
-			if (establish_db_connection(dbcon))
-				var/DBQuery/query_edit_stickyban = dbcon.NewQuery("UPDATE ss13_stickyban SET reason = '[sanitizeSQL(reason)]' WHERE ckey = '[sanitizeSQL(ckey)]'")
+			if (establish_db_connection(GLOB.dbcon))
+				var/DBQuery/query_edit_stickyban = GLOB.dbcon.NewQuery("UPDATE ss13_stickyban SET reason = '[sanitizeSQL(reason)]' WHERE ckey = '[sanitizeSQL(ckey)]'")
 				query_edit_stickyban.Execute()
 
 			log_and_message_admins("has edited [ckey]'s sticky ban reason from [oldreason] to [reason]")
@@ -191,8 +191,8 @@
 
 			SSstickyban.cache[ckey] = ban
 
-			if (establish_db_connection(dbcon))
-				var/DBQuery/query_exempt_stickyban_alt = dbcon.NewQuery("UPDATE ss13_stickyban_matched_ckey SET exempt = 1 WHERE stickyban = '[sanitizeSQL(ckey)]' AND matched_ckey = '[sanitizeSQL(alt)]'")
+			if (establish_db_connection(GLOB.dbcon))
+				var/DBQuery/query_exempt_stickyban_alt = GLOB.dbcon.NewQuery("UPDATE ss13_stickyban_matched_ckey SET exempt = 1 WHERE stickyban = '[sanitizeSQL(ckey)]' AND matched_ckey = '[sanitizeSQL(alt)]'")
 				query_exempt_stickyban_alt.Execute()
 
 			log_and_message_admins("has exempted [alt] from [ckey]'s sticky ban")
@@ -236,8 +236,8 @@
 
 			SSstickyban.cache[ckey] = ban
 
-			if (establish_db_connection(dbcon))
-				var/DBQuery/query_unexempt_stickyban_alt = dbcon.NewQuery("UPDATE ss13_stickyban_matched_ckey SET exempt = 0 WHERE stickyban = '[sanitizeSQL(ckey)]' AND matched_ckey = '[sanitizeSQL(alt)]'")
+			if (establish_db_connection(GLOB.dbcon))
+				var/DBQuery/query_unexempt_stickyban_alt = GLOB.dbcon.NewQuery("UPDATE ss13_stickyban_matched_ckey SET exempt = 0 WHERE stickyban = '[sanitizeSQL(ckey)]' AND matched_ckey = '[sanitizeSQL(alt)]'")
 				query_unexempt_stickyban_alt.Execute()
 
 			log_and_message_admins("has unexempted [alt] from [ckey]'s sticky ban")
@@ -245,7 +245,7 @@
 		if ("timeout")
 			if (!data["ckey"])
 				return
-			if (!establish_db_connection(dbcon))
+			if (!establish_db_connection(GLOB.dbcon))
 				to_chat(usr, "<span class='adminnotice'>No database connection!</span>")
 				return
 
@@ -271,7 +271,7 @@
 		if ("untimeout")
 			if (!data["ckey"])
 				return
-			if (!establish_db_connection(dbcon))
+			if (!establish_db_connection(GLOB.dbcon))
 				to_chat(usr, "<span class='adminnotice'>No database connection!</span>")
 				return
 			var/ckey = data["ckey"]
@@ -322,7 +322,7 @@
 	if (!ban)
 		return
 	var/timeout
-	if (establish_db_connection(dbcon))
+	if (establish_db_connection(GLOB.dbcon))
 		timeout = "<a href='?_src_=holder;stickyban=[(ban["timeout"] ? "untimeout" : "timeout")]&ckey=[ckey]'>\[[(ban["timeout"] ? "untimeout" : "timeout" )]\]</a>"
 	else
 		timeout = "<a href='?_src_=holder;stickyban=revert&ckey=[ckey]'>\[revert\]</a>"
@@ -372,7 +372,7 @@
 	usr << browse(html,"window=stickybans;size=700x400")
 
 /proc/sticky_banned_ckeys()
-	if (establish_db_connection(dbcon) || length(SSstickyban.dbcache))
+	if (establish_db_connection(GLOB.dbcon) || length(SSstickyban.dbcache))
 		if (SSstickyban.dbcacheexpire < world.time)
 			SSstickyban.Populatedbcache()
 		if (SSstickyban.dbcacheexpire)
@@ -385,7 +385,7 @@
 	. = list()
 	if (!ckey)
 		return null
-	if (establish_db_connection(dbcon) || length(SSstickyban.dbcache))
+	if (establish_db_connection(GLOB.dbcon) || length(SSstickyban.dbcache))
 		if (SSstickyban.dbcacheexpire < world.time)
 			SSstickyban.Populatedbcache()
 		if (SSstickyban.dbcacheexpire)

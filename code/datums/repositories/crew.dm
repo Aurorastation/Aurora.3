@@ -54,13 +54,13 @@ var/global/datum/repository/crew/crew_repository = new()
 						if(H.should_have_organ(BP_HEART))
 							var/obj/item/organ/internal/heart/O = H.internal_organs_by_name[BP_HEART]
 							if (!O || !BP_IS_ROBOTIC(O)) // Don't make medical freak out over prosthetic hearts
-								crewmemberData["tpulse"] = H.pulse()
+								crewmemberData["tpulse"] = H.status_flags & FAKEDEATH ? 0 : H.pulse()
 								crewmemberData["pulse"] = H.get_pulse(GETPULSE_TOOL)
 					else
 						if(isipc(H) && H.internal_organs_by_name[BP_IPCTAG]) // Don't make untagged IPCs obvious
 							var/obj/item/organ/internal/cell/cell = H.internal_organs_by_name[BP_CELL]
 							if(cell)
-								crewmemberData["cellCharge"] = Floor(100*H.nutrition / H.max_nutrition)
+								crewmemberData["cellCharge"] = cell.percent()
 
 				if(C.sensor_mode >= SUIT_SENSOR_VITAL)
 					crewmemberData["pressure"] = "N/A"
@@ -82,7 +82,7 @@ var/global/datum/repository/crew/crew_repository = new()
 							if(-(INFINITY) to BLOOD_VOLUME_BAD)
 								crewmemberData["oxyg"] = OXYGENATION_STATE_NONE
 
-					crewmemberData["bodytemp"] = H.bodytemperature - T0C
+					crewmemberData["bodytemp"] = H.bodytemperature - T0C + (rand(-5, 5) / 10)
 
 				if(C.sensor_mode >= SUIT_SENSOR_TRACKING)
 					var/area/A = get_area(H)
@@ -91,7 +91,7 @@ var/global/datum/repository/crew/crew_repository = new()
 					crewmemberData["y"] = pos.y
 					crewmemberData["z"] = pos.z
 
-				crewmembers[++crewmembers.len] = crewmemberData
+				crewmembers += list(crewmemberData)
 
 	crewmembers = sortByKey(crewmembers, "name")
 	cache_entry.timestamp = world.time + 5 SECONDS
@@ -101,7 +101,7 @@ var/global/datum/repository/crew/crew_repository = new()
 
 /datum/repository/crew/proc/scan()
 	var/list/tracked = list()
-	for(var/mob/living/carbon/human/H in mob_list)
+	for(var/mob/living/carbon/human/H in GLOB.mob_list)
 		if(istype(H.w_uniform, /obj/item/clothing/under))
 			var/obj/item/clothing/under/C = H.w_uniform
 			if (C.has_sensor)

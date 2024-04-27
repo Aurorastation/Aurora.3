@@ -5,33 +5,35 @@
 	icon = 'icons/obj/assemblies.dmi'
 	icon_state = "plastic-explosive0"
 	item_state = "plasticx"
-	flags = NOBLUDGEON
-	w_class = 2.0
+	item_flags = ITEM_FLAG_NO_BLUDGEON
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_ILLEGAL = 2)
 	var/datum/wires/explosive/c4/wires = null
+	var/detonate_time = 0
 	var/timer = 10
 	var/atom/target = null
 	var/open_panel = 0
-	var/image_overlay = null
+	var/obj/effect/plastic_explosive/effect_overlay
 
 /obj/item/plastique/Initialize()
 	. = ..()
 	wires = new(src)
-	image_overlay = image('icons/obj/assemblies.dmi', "plastic-explosive2")
 
 /obj/item/plastique/Destroy()
 	qdel(wires)
 	wires = null
 	return ..()
 
-/obj/item/plastique/attackby(var/obj/item/I, var/mob/user)
-	if(I.isscrewdriver())
+/obj/item/plastique/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		open_panel = !open_panel
 		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
-	else if(I.iswirecutter() || I.ismultitool() || istype(I, /obj/item/device/assembly/signaler ))
-		wires.Interact(user)
+		return TRUE
+	else if(attacking_item.iswirecutter() || attacking_item.ismultitool() || istype(attacking_item, /obj/item/device/assembly/signaler ))
+		wires.interact(user)
+		return TRUE
 	else
-		..()
+		return ..()
 
 /obj/item/plastique/attack_self(mob/user as mob)
 	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num
@@ -48,35 +50,32 @@
 	if(deploy_check(user))
 		return
 	to_chat(user, SPAN_NOTICE("Planting explosives..."))
-	user.do_attack_animation(target)
 
-	if(do_after(user, 50, TRUE, target))
+	if(do_after(user, 5 SECONDS, target, DO_UNIQUE))
+		user.do_attack_animation(target)
 		deploy_c4(target, user)
 
 /obj/item/plastique/proc/deploy_check(var/mob/user)
 	return FALSE
 
-/obj/item/plastique/proc/deploy_c4(var/atom/movable/target, mob/user)
-	user.drop_item() //TODO: Look into this
-	src.target = target
-	loc = null
+/obj/item/plastique/proc/deploy_c4(var/atom/movable/explode_target, mob/user)
+	user.drop_from_inventory(src, get_turf(user))
+	src.target = explode_target
 
-	if(ismob(target))
-		add_logs(user, target, "planted [name] on")
-		user.visible_message("<span class='danger'>[user.name] finished planting an explosive on [target.name]!</span>")
 	log_and_message_admins("planted [src.name] on [target.name] with [src.timer] second fuse", user, get_turf(target))
 
-	target.add_overlay(image_overlay, TRUE)
+	new /obj/effect/plastic_explosive(get_turf(user), target, src)
 	to_chat(user, "Bomb has been planted. Timer counting down from [timer].")
 
-	addtimer(CALLBACK(src, .proc/explode, get_turf(target)), timer * 10)
+	detonate_time = world.time + (timer * 10)
+	addtimer(CALLBACK(src, PROC_REF(explode), get_turf(target)), timer * 10)
 
 /obj/item/plastique/proc/explode(turf/location)
 	if(!target)
 		target = get_atom_on_turf(src)
 	if(!target)
 		target = src
-	target.cut_overlay(image_overlay, TRUE)
+	QDEL_NULL(effect_overlay)
 	if(location)
 		explosion(location, -1, -1, 2, 3, spreading = 0)
 
@@ -120,15 +119,15 @@
 	var/obj/item/plastique/C4 = new /obj/item/plastique(target)
 	C4.timer = src.timer
 	C4.target = target
-	C4.loc = null
 
 	log_and_message_admins("planted [C4.name] on [target.name] with [C4.timer] second fuse", user, get_turf(target))
 
-	C4.target.add_overlay(image_overlay, TRUE)
+	new /obj/effect/plastic_explosive(get_turf(user), target, C4)
 	to_chat(user, SPAN_NOTICE("Bomb has been planted. Timer counting down from [C4.timer]."))
 
-	addtimer(CALLBACK(C4, .proc/explode, get_turf(target)), timer * 10)
-	addtimer(CALLBACK(src, .proc/recharge), recharge_time)
+	C4.detonate_time = world.time + (timer * 10)
+	addtimer(CALLBACK(C4, PROC_REF(explode), get_turf(target)), timer * 10)
+	addtimer(CALLBACK(src, PROC_REF(recharge)), recharge_time)
 	can_deploy = FALSE
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 6px;\">Charge</span>"
 
@@ -139,3 +138,21 @@
 			R.cell.use(1000)
 	can_deploy = TRUE
 	maptext = "<span style=\"font-family: 'Small Fonts'; -dm-text-outline: 1 black; font-size: 7px;\">Ready</span>"
+
+/obj/item/plastique/dirty
+	name = "dirty bomb"
+	desc = "A small explosive laced with radium. The explosion is small, but the radioactive material will remain for a fair while."
+	timer = 300
+
+/obj/item/plastique/dirty/attack_self(mob/user as mob)
+	var/newtime = input(usr, "Please set the timer.", "Timer", 10) as num
+	if(user.get_active_hand() == src)
+		newtime = Clamp(newtime, 300, 60000)
+		timer = newtime
+		to_chat(user, SPAN_NOTICE("Timer set for [timer] seconds."))
+
+/obj/item/plastique/dirty/explode(turf/location)
+	if(location)
+		SSradiation.radiate(src, 250)
+		new /obj/effect/decal/cleanable/greenglow(get_turf(src))
+	..()

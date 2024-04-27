@@ -15,24 +15,24 @@
 	var/list/forbidden = list(/obj/item/reagent_containers/inhaler, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/glass, /obj/item/extinguisher)
 	// duplicate from blender code, since it's not really worth a define. also, it has fewer things.
 	var/list/sheet_reagents = list( //have a number of reagents which is a factor of REAGENTS_PER_SHEET (default 20) unless you like decimals
-		/obj/item/stack/material/iron = list("iron"),
-		/obj/item/stack/material/uranium = list("uranium"),
-		/obj/item/stack/material/phoron = list("phoron"),
-		/obj/item/stack/material/gold = list("gold"),
-		/obj/item/stack/material/silver = list("silver"),
-		/obj/item/stack/material/steel = list("iron", "carbon"),
-		/obj/item/stack/material/sandstone = list("silicon", "acetone"),
-		/obj/item/stack/material/glass = list("silicate"),
+		/obj/item/stack/material/iron = list(/singleton/reagent/iron),
+		/obj/item/stack/material/uranium = list(/singleton/reagent/uranium),
+		/obj/item/stack/material/phoron = list(/singleton/reagent/toxin/phoron),
+		/obj/item/stack/material/gold = list(/singleton/reagent/gold),
+		/obj/item/stack/material/silver = list(/singleton/reagent/silver),
+		/obj/item/stack/material/steel = list(/singleton/reagent/iron, /singleton/reagent/carbon),
+		/obj/item/stack/material/sandstone = list(/singleton/reagent/silicon, /singleton/reagent/acetone),
+		/obj/item/stack/material/glass = list(/singleton/reagent/silicate),
 		) // removed borosilicate glass, platinum, and plasteel, too tough. just steal a grinder if you need it
 
 /obj/structure/chemkit/Initialize()
 	. = ..()
 	create_reagents(180)
 
-/obj/structure/chemkit/examine(mob/user)
+/obj/structure/chemkit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(analyzer)
-		to_chat(user, span("notice", "The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C."))
+		. += SPAN_NOTICE("The analyzer displays that the temperature is [round(reagents.get_temperature() - T0C,0.1)]C.")
 
 /obj/structure/chemkit/verb/phase_filter()
 	set name = "Set Phase Filter"
@@ -42,7 +42,7 @@
 		return 0
 	phase_filter = input("Which phase do you want to filter?", "Phase Filter", null) as null|anything in list("solid", "liquid", "gas", "none")
 	if(phase_filter)
-		to_chat(usr, span("notice", "You switch to a [phase_filter] filter."))
+		to_chat(usr, SPAN_NOTICE("You switch to a [phase_filter] filter."))
 	if(phase_filter == "none")
 		phase_filter = FALSE
 
@@ -59,7 +59,7 @@
 
 /obj/structure/chemkit/attack_hand(mob/user)
 	transfer_out = !transfer_out
-	to_chat(user, span("notice", "You are now [transfer_out ? "removing from" : "adding to"] \the [src]."))
+	to_chat(user, SPAN_NOTICE("You are now [transfer_out ? "removing from" : "adding to"] \the [src]."))
 
 /obj/structure/chemkit/proc/heat_item(obj/item/W, mob/user)
 	var/joules = 0
@@ -72,7 +72,7 @@
 	else
 		joules = 500 // we're assuming it's some kind of novelty toy like lunea's gloves, etc; not exactly a match but it still works
 	reagents.add_thermal_energy(joules)
-	user.visible_message(span("warning", "[user] holds \the [W] up to \the [src]!"), span("notice", "You use \the [W] to heat \the [src]'s contents."), span("notice", "You hear something sizzle."))
+	user.visible_message(SPAN_WARNING("[user] holds \the [W] up to \the [src]!"), SPAN_NOTICE("You use \the [W] to heat \the [src]'s contents."), SPAN_NOTICE("You hear something sizzle."))
 	user.setClickCooldown(joules/5000) // two seconds for welder, 1/5 second for matches but they run out
 
 /obj/structure/chemkit/proc/trans_item(obj/item/I, mob/user)
@@ -80,24 +80,24 @@
 		var/amt = 0
 		switch(phase_filter)
 			if("solid")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(SOLID), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(SOLID), REAGENTS_FREE_SPACE(reagents))
 			if("liquid")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(LIQUID), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(LIQUID), REAGENTS_FREE_SPACE(reagents))
 			if("gas")
-				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(GAS), reagents.get_free_space())
+				amt = reagents.trans_ids_to(I.reagents, reagents.get_ids_by_phase(GAS), REAGENTS_FREE_SPACE(reagents))
 			else
-				amt = reagents.trans_to_holder(I.reagents, reagents.get_free_space())
+				amt = reagents.trans_to_holder(I.reagents, REAGENTS_FREE_SPACE(reagents))
 		if(amt)
-			to_chat(user, span("notice", "You fill \the [I] with [amt] units from \the [src]."))
+			to_chat(user, SPAN_NOTICE("You fill \the [I] with [amt] units from \the [src]."))
 	else if(I.reagents && I.reagents.total_volume)
 		var/amt = I.reagents.trans_to_holder(reagents, I.reagents.total_volume) // just pour it if you can
-		to_chat(user, span("notice", "You pour [amt] units from \the [I] into \the [src]."))
+		to_chat(user, SPAN_NOTICE("You pour [amt] units from \the [I] into \the [src]."))
 
 /obj/structure/chemkit/proc/smash_sheet(obj/item/stack/stack, mob/user)
 	if(!istype(stack))
 		return
 	var/list/sheet_components = sheet_reagents[stack.type]
-	var/amount_to_take = max(0,min(stack.amount,round(reagents.get_free_space()/REAGENTS_PER_SHEET)))
+	var/amount_to_take = max(0,min(stack.amount,round(REAGENTS_FREE_SPACE(reagents)/REAGENTS_PER_SHEET)))
 	if(!amount_to_take)
 		return
 	stack.use(amount_to_take)
@@ -107,50 +107,50 @@
 			reagents.add_reagent(n, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10)
 	else
 		reagents.add_reagent(sheet_components, (amount_to_take*REAGENTS_PER_SHEET)*rand(6,8)/10) // 60% to 80% efficiency when crushing sheets
-	to_chat(user, span("notice", "You [pick("crush","smash","grind")] [stack] into a fine powder."))
+	to_chat(user, SPAN_NOTICE("You [pick("crush","smash","grind")] [stack] into a fine powder."))
 	return
 
 /obj/structure/chemkit/proc/smash(obj/item/I, mob/user)
 	if(sheet_reagents[I.type])
 		smash_sheet(I, user)
 		return
-	to_chat(user, span("notice", "You [pick("crush","smash","grind")] [I] into a fine [pick("paste","powder","pulp")]."))
+	to_chat(user, SPAN_NOTICE("You [pick("crush","smash","grind")] [I] into a fine [pick("paste","powder","pulp")]."))
 	I.reagents.trans_to_holder(reagents, I.reagents.total_volume, rand(7, 10)/10) // 70% to 100% from smashing, since it's pretty thorough
 	qdel(I)
 
 /obj/structure/chemkit/proc/chop(obj/item/I, mob/user)
-	to_chat(user, span("notice", "You [pick("chop","cut","slice")] [I] into [pick("small","tiny")] [pick("pieces","chunks","bits","slices")]."))
+	to_chat(user, SPAN_NOTICE("You [pick("chop","cut","slice")] [I] into [pick("small","tiny")] [pick("pieces","chunks","bits","slices")]."))
 	I.reagents.trans_to_holder(reagents, I.reagents.total_volume, rand(4, 8)/10) // 40% to 80% from chopping, since it's not very efficient
 	qdel(I)
 
-/obj/structure/chemkit/proc/dismantle()
+/obj/structure/chemkit/dismantle()
 	new /obj/structure/table(loc)
-	new /obj/item/reagent_containers/glass/beaker/bowl(loc)
+	new /obj/item/reagent_containers/cooking_container/board/bowl(loc)
 	if(analyzer)
 		analyzer.forceMove(loc)
 		analyzer = null
 	qdel(src)
 
-/obj/structure/chemkit/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/chemkit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		dismantle()
 		return
-	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
-		trans_item(W, user)
+	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
+		trans_item(attacking_item, user)
 		return
-	if(isflamesource(W))
-		heat_item(W, user)
+	if(attacking_item.isFlameSource())
+		heat_item(attacking_item, user)
 		return
-	if(istype(W) && W.force >= 5 && !has_edge(W) && LAZYLEN(contents - analyzer))
+	if(istype(attacking_item) && attacking_item.force >= 5 && !has_edge(attacking_item) && LAZYLEN(contents - analyzer))
 		var/obj/item/smashed = pick(contents - analyzer)
 		if(!smashed.reagents && !sheet_reagents[smashed.type])
 			return // should never happen anyway, but still
-		to_chat(user, span("notice", "You begin to [pick("crush","smash","grind")] [smashed]."))
+		to_chat(user, SPAN_NOTICE("You begin to [pick("crush","smash","grind")] [smashed]."))
 		if(!do_after(user, 15 SECONDS))
 			return
 		smash(smashed, user)
 		return
-	if(has_edge(W) && LAZYLEN(contents - analyzer))
+	if(has_edge(attacking_item) && LAZYLEN(contents - analyzer))
 		var/obj/item/chopped = pick(contents - analyzer)
 		if(!chopped.reagents)
 			return
@@ -158,14 +158,14 @@
 			return
 		chop(chopped, user)
 		return
-	if(!analyzer && istype(W, /obj/item/device/analyzer))
-		user.drop_from_inventory(W)
-		analyzer = W
-		W.forceMove(src)
+	if(!analyzer && istype(attacking_item, /obj/item/device/analyzer))
+		user.drop_from_inventory(attacking_item)
+		analyzer = attacking_item
+		attacking_item.forceMove(src)
 		return
-	if(!is_type_in_list(W, forbidden) && (W.w_class <= 3.0) && (W.reagents || sheet_reagents[W.type]))
-		user.drop_from_inventory(W)
-		W.forceMove(src)
+	if(!is_type_in_list(attacking_item, forbidden) && (attacking_item.w_class <= 3.0) && (attacking_item.reagents || sheet_reagents[attacking_item.type]))
+		user.drop_from_inventory(attacking_item)
+		attacking_item.forceMove(src)
 		return
 	. = ..()
 
@@ -184,68 +184,71 @@
 	var/transfer_out = FALSE
 	var/obj/item/weldingtool/welder
 
-/obj/structure/distillery/proc/dismantle()
-	var/obj/structure/reagent_dispensers/keg/keg = new (loc)
-	if (src.reagents && src.reagents.total_volume)
-		src.reagents.trans_to_holder(keg.reagents, src.reagents.total_volume)
-	new /obj/item/stack/rods(get_turf(src), 3)
+/obj/structure/distillery/dismantle()
+	var/turf/T = get_turf(src)
+	var/obj/structure/reagent_dispensers/keg/keg = new (T)
+	if (reagents?.total_volume)
+		reagents.trans_to_holder(keg.reagents, reagents.total_volume)
+	new /obj/item/stack/rods(T, 3)
 	if(welder)
-		welder.forceMove(loc)
+		welder.forceMove(T)
 		welder = null
 	qdel(src)
 
 /obj/structure/distillery/proc/trans_item(obj/item/W, mob/user)
 	if(transfer_out)
 		if(!reagents.total_volume)
-			to_chat(user, span("notice", "\The [src] is empty."))
+			to_chat(user, SPAN_NOTICE("[src] is empty."))
 			return
 		var/amt = reagents.trans_to_holder(W.reagents, reagents.total_volume)
-		to_chat(user, span("notice", "You fill \the [W] with [amt] units from \the [src]."))
+		to_chat(user, SPAN_NOTICE("You fill [W] with [amt] units from [src]."))
 		return
 	else
-		if(!W.reagents || !W.reagents.total_volume)
-			to_chat(user, span("notice", "\The [W] is empty."))
+		if(!W.reagents?.total_volume)
+			to_chat(user, SPAN_NOTICE("[W] is empty."))
 			return
-		var/amt = min(10, W.reagents.total_volume)
-		W.reagents.trans_to_holder(src.reagents, amt) // just pour it if you can
-		to_chat(user, span("notice", "You pour [amt] units from \the [W] into \the [src]."))
+		var/amt = 5
+		if(istype(W, /obj/item/reagent_containers))
+			var/obj/item/reagent_containers/reagent_container = W
+			amt = reagent_container.amount_per_transfer_from_this
+		W.reagents.trans_to_holder(reagents, amt) // just pour it if you can
+		to_chat(user, SPAN_NOTICE("You pour [amt] units from [W] into [src]."))
 		return
 
 /obj/structure/distillery/proc/distill()
-	if(!reagents || !reagents.total_volume) // can't distill nothing
+	if(!reagents?.total_volume) // can't distill nothing
 		return
-	for(var/datum/reagent/R in src.reagents.reagent_list)
-		if(!istype(R, /datum/reagent/alcohol))
-			return
-		var/datum/reagent/alcohol/AR = R
-		reagents.add_reagent("water", (1-(AR.strength/100))*AR.volume)
-		if(istype(AR, /datum/reagent/alcohol/ethanol))
-			reagents.add_reagent("ethanol", (AR.strength/100)*AR.volume)
-		if(istype(AR, /datum/reagent/alcohol/butanol))
-			reagents.add_reagent("butanol", (AR.strength/100)*AR.volume)
-		reagents.remove_reagent(AR.id, AR.volume)
-	src.icon_state = "distillery-off"
+	for(var/_R in reagents.reagent_volumes)
+		if(!ispath(_R, /singleton/reagent/alcohol/ethanol))
+			continue
+		var/singleton/reagent/alcohol/ethanol/AR = GET_SINGLETON(_R)
+		var/ARvol = REAGENT_VOLUME(reagents, _R)
+		var/alcohol_fraction = AR.strength/100
+		reagents.add_reagent(/singleton/reagent/water, (1-alcohol_fraction)*ARvol)
+		reagents.add_reagent(ispath(_R, /singleton/reagent/alcohol/butanol) ? /singleton/reagent/alcohol/butanol : /singleton/reagent/alcohol/ethanol, alcohol_fraction*ARvol)
+		reagents.remove_reagent(_R, ARvol)
+	icon_state = "distillery-off"
 
-/obj/structure/distillery/attackby(obj/item/W, mob/user)
-	if(W.iscrowbar())
+/obj/structure/distillery/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		dismantle()
 		return
-	if(!welder && istype(W, /obj/item/weldingtool))
-		user.drop_from_inventory(W)
-		src.welder = W
-		W.forceMove(src)
+	if(!welder && istype(attacking_item, /obj/item/weldingtool))
+		user.drop_from_inventory(attacking_item)
+		src.welder = attacking_item
+		attacking_item.forceMove(src)
 		icon_state = "distillery-off"
 		return
-	if(!istype(W, /obj/item/reagent_containers/food/snacks) && W.is_open_container())
-		trans_item(W, user)
+	if(!istype(attacking_item, /obj/item/reagent_containers/food/snacks) && attacking_item.is_open_container())
+		trans_item(attacking_item, user)
 		return
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		transfer_out = !transfer_out
-		to_chat(user, span("notice", "You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
+		to_chat(user, SPAN_NOTICE("You [transfer_out ? "open" : "close"] the spigot on the keg, ready to [transfer_out ? "remove" : "add"] reagents."))
 		return
-	if(isflamesource(W) && istype(welder))
-		to_chat(user, span("notice", "You light \the [src] and begin the distillation process."))
-		addtimer(CALLBACK(src, .proc/distill), 60 SECONDS)
+	if(attacking_item.isFlameSource() && istype(welder))
+		to_chat(user, SPAN_NOTICE("You light \the [src] and begin the distillation process."))
+		addtimer(CALLBACK(src, PROC_REF(distill)), 60 SECONDS)
 		src.icon_state = "distillery-active"
 		return
 	. = ..()

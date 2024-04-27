@@ -16,7 +16,7 @@
 	fire_sound_text = "a metallic thunk"
 	recoil = 1
 
-	desc_fluff = "Adapted from fishing tools, Frozen Sea Harpoon Guns were found to be useful weapons in the hands of the Royal Navy and Army. Their ammunition can be equipped \
+	desc_extended = "Adapted from fishing tools, Frozen Sea Harpoon Guns were found to be useful weapons in the hands of the Royal Navy and Army. Their ammunition can be equipped \
 	with all shorts of implements, such as explosives and even grappling hooks. Large guns are usually mounted on warships, serving as a complement to their traditional cannons. \
 	While smaller version are carried by sailors and fishermen."
 
@@ -32,11 +32,8 @@
 
 /obj/item/gun/launcher/harpoon/update_icon()
 	icon_state = "[initial(icon_state)]-[harpoons.len]"
-	if(wielded)
-		item_state = "[initial(item_state)]-[harpoons.len]-w"
-	else
-		item_state = "[initial(icon_state)]-[harpoons.len]"
-	update_held_icon()
+	item_state = "[initial(item_state)]-[harpoons.len]"
+	..()
 
 /obj/item/gun/launcher/harpoon/special_check(mob/user)
 	if(!wielded)
@@ -44,12 +41,12 @@
 		return FALSE
 	return ..()
 
-/obj/item/gun/launcher/harpoon/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/material/harpoon))
+/obj/item/gun/launcher/harpoon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/harpoon))
 		if(harpoons.len < max_harpoons)
-			user.drop_from_inventory(I,src)
-			harpoons += I
-			to_chat(user, "<span class='notice'>You load \the [I] in \the [src].</span>")
+			user.drop_from_inventory(attacking_item, src)
+			harpoons += attacking_item
+			to_chat(user, "<span class='notice'>You load \the [attacking_item] in \the [src].</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='warning'>\The [src] is already loaded.</span>")

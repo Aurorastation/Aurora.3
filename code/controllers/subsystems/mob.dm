@@ -1,15 +1,19 @@
-/var/datum/controller/subsystem/mobs/SSmob
-
-/datum/controller/subsystem/mobs
+SUBSYSTEM_DEF(mobs)
 	name = "Mobs - Life"
-	init_order = SS_INIT_MISC	// doesn't really matter when we init
+	init_order = INIT_ORDER_MISC	// doesn't really matter when we init
 	priority = SS_PRIORITY_MOB
+	runlevels = RUNLEVELS_PLAYING
 
 	var/list/slept = list()
 
 	var/list/currentrun = list()
+	var/list/processing = list()
+
 	var/list/all_rats = list()	// Contains all *living* rats.
-	var/list/mannequins = list()	//Contains all mannequins used by character preview
+
+	///Contains all mannequins used by character preview
+	var/list/mob/living/carbon/human/dummy/mannequin/mannequins = list()
+
 	var/list/greatworms = list()
 	var/list/greatasses = list()
 
@@ -40,13 +44,15 @@
 		/mob/living/simple_animal/penguin/holodeck
 	)
 
-/datum/controller/subsystem/mobs/New()
-	NEW_SS_GLOBAL(SSmob)
+	/**
+	 * An associative list containing timer IDs associated with a mannequin that they're supposed to delete
+	 */
+	var/list/mannequins_del_timers = list()
 
 /datum/controller/subsystem/mobs/Initialize()
 	// Some setup work for the eat-types lists.
 	mtl_synthetic = typecacheof(mtl_synthetic) + list(
-		/mob/living/simple_animal/hostile/retaliate/malf_drone = TRUE,
+		/mob/living/simple_animal/hostile/icarus_drone = TRUE,
 		/mob/living/simple_animal/hostile/viscerator = TRUE,
 		/mob/living/simple_animal/spiderbot = TRUE
 	)
@@ -59,25 +65,44 @@
 
 	mtl_incorporeal = typecacheof(mtl_incorporeal)
 
-/datum/controller/subsystem/mobs/stat_entry()
-	..("P:[mob_list.len]")
+	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/mobs/stat_entry(msg)
+	msg = "P:[GLOB.mob_list.len]"
+	return ..()
 
 /datum/controller/subsystem/mobs/fire(resumed = 0)
 	if (!resumed)
-		src.currentrun = mob_list.Copy()
+		src.currentrun = GLOB.mob_list.Copy()
+		src.currentrun += processing.Copy()
 
-	var/list/currentrun = src.currentrun
+	//Mobs might have been removed between the previous and a resumed fire, yet we want to maintain the priority to process
+	//the mobs that we didn't in the previous run, hence we have to pay the price of a list subtraction
+	//with &= we say to remove any item in the first list that is not in the second one
+	//of course, if we haven't resumed, this comparison would be useless, hence we skip it
+	var/list/currentrun = resumed ? (src.currentrun &= GLOB.mob_list) : src.currentrun
 
 	while (currentrun.len)
-		var/mob/M = currentrun[currentrun.len]
+		var/datum/thing = currentrun[currentrun.len]
 		currentrun.len--
+		if(!ismob(thing))
+			if(!QDELETED(thing))
+				if(thing.process(wait, times_fired) == PROCESS_KILL)
+					stop_processing(thing)
+			else
+				processing -= thing
+			if (MC_TICK_CHECK)
+				return
+			continue
+
+		var/mob/M = thing
 
 		if (QDELETED(M))
-			log_debug("SSmob: QDELETED mob [DEBUG_REF(M)] left in processing list!")
+			LOG_DEBUG("SSmobs: QDELETED mob [DEBUG_REF(M)] left in processing list!")
 			// We can just go ahead and remove them from all the mob lists.
-			mob_list -= M
-			dead_mob_list -= M
-			living_mob_list -= M
+			GLOB.mob_list -= M
+			GLOB.dead_mob_list -= M
+			GLOB.living_mob_list -= M
 
 			if (MC_TICK_CHECK)
 				return
@@ -91,7 +116,7 @@
 		if (time != world.time && !slept[M.type])
 			slept[M.type] = TRUE
 			var/diff = world.time - time
-			log_debug("SSmob: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
+			LOG_DEBUG("SSmobs: Type '[M.type]' slept for [diff] ds in Life()! Suppressing further warnings.")
 
 		if (MC_TICK_CHECK)
 			return
@@ -102,9 +127,38 @@
 		. = new /mob/living/carbon/human/dummy/mannequin
 		mannequins[ckey] = .
 
-	addtimer(CALLBACK(src, .proc/del_mannequin, ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE)
+	mannequins_del_timers[ckey] = addtimer(CALLBACK(src, PROC_REF(del_mannequin), ckey), 5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /datum/controller/subsystem/mobs/proc/del_mannequin(ckey)
 	var/mannequin = mannequins[ckey]
-	qdel(mannequin)
+	mannequins[ckey] = null
 	mannequins -= ckey
+
+	//Remove the deletion timer, if it exists
+	if(mannequins_del_timers[ckey])
+		deltimer(mannequins_del_timers[ckey])
+	mannequins_del_timers[ckey] = null
+	mannequins_del_timers -= ckey
+
+	qdel(mannequin)
+
+/**
+ * Used to dereference a mannequin, does not delete it per-se
+ *
+ * * the_mannequin - A `/mob/living/carbon/human/dummy/mannequin` to search for, and dereference if found
+ */
+/datum/controller/subsystem/mobs/proc/free_mannequin(mob/living/carbon/human/dummy/mannequin/the_mannequin)
+	for(var/ckey in mannequins)
+		if(mannequins[ckey] == the_mannequin)
+			mannequins[ckey] = null
+			mannequins -= ckey
+
+			//Remove the deletion timer, if it exists
+			if(mannequins_del_timers[ckey])
+				deltimer(mannequins_del_timers[ckey])
+			mannequins_del_timers[ckey] = null
+			mannequins_del_timers -= ckey
+
+// Helper so PROCESS_KILL works.
+/datum/controller/subsystem/mobs/proc/stop_processing(datum/D)
+	STOP_PROCESSING(src, D)

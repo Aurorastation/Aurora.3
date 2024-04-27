@@ -13,7 +13,7 @@
 
 /obj/item/supply_beacon/attack_self(var/mob/user)
 	user.visible_message("<span class='notice'>\The [user] begins setting up \the [src].</span>")
-	if(!do_after(user, deploy_time))
+	if(!do_after(user, deploy_time, src, DO_REPAIR_CONSTRUCT))
 		return
 	var/obj/S = new deploy_path(get_turf(user))
 	user.visible_message("<span class='notice'>\The [user] deploys \the [S].</span>")
@@ -28,7 +28,6 @@
 
 	anchored = 0
 	density = 1
-	layer = MOB_LAYER - 0.1
 	stat = 0
 
 	var/target_drop_time
@@ -44,21 +43,21 @@
 	name = "supermatter supply beacon"
 	drop_type = "supermatter"
 
-/obj/machinery/power/supply_beacon/attackby(var/obj/item/W, var/mob/user)
-	if(!use_power && W.iswrench())
+/obj/machinery/power/supply_beacon/attackby(obj/item/attacking_item, mob/user)
+	if(!use_power && attacking_item.iswrench())
 		if(!anchored && !connect_to_network())
 			to_chat(user, "<span class='warning'>This device must be placed over an exposed cable.</span>")
-			return
+			return TRUE
 		anchored = !anchored
 		user.visible_message("<span class='notice'>\The [user] [anchored ? "secures" : "unsecures"] \the [src].</span>")
-		playsound(src.loc, W.usesound, 50, 1)
-		return
+		attacking_item.play_tool_sound(get_turf(src), 50)
+		return TRUE
 	return ..()
 
 /obj/machinery/power/supply_beacon/attack_hand(var/mob/user)
 
 	if(expended)
-		use_power = 0
+		update_use_power(POWER_USE_OFF)
 		to_chat(user, "<span class='warning'>\The [src] has used up its charge.</span>")
 		return
 
@@ -80,7 +79,6 @@
 		return
 	set_light(3, 3, "#00CCAA")
 	icon_state = "beacon_active"
-	use_power = 1
 	if(user) to_chat(user, "<span class='notice'>You activate the beacon. The supply drop will be dispatched soon.</span>")
 
 /obj/machinery/power/supply_beacon/proc/deactivate(var/mob/user, var/permanent)
@@ -90,7 +88,7 @@
 	else
 		icon_state = "beacon"
 	set_light(0)
-	use_power = 0
+	update_use_power(POWER_USE_OFF)
 	target_drop_time = null
 	if(user) to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
 
@@ -99,7 +97,7 @@
 		deactivate()
 	return ..()
 
-/obj/machinery/power/supply_beacon/machinery_process()
+/obj/machinery/power/supply_beacon/process()
 	if(expended)
 		return PROCESS_KILL
 	if(!use_power)

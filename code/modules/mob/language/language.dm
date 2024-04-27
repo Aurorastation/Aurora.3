@@ -6,13 +6,18 @@
 
 /datum/language
 	var/name = "an unknown language"  // Fluff name of language if any.
+	var/short                         // a shortened name, for use when languages need to be identified
 	var/desc = "A language."          // Short description for 'Check Languages'.
-	var/speech_verb = "says"          // 'says', 'hisses', 'farts'.
-	var/ask_verb = "asks"             // Used when sentence ends in a ?
-	var/exclaim_verb = "exclaims"     // Used when sentence ends in a !
-	var/whisper_verb                  // Optional. When not specified speech_verb + quietly/softly is used instead.
-	var/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
+	var/list/speech_verb = list("says")          // 'says', 'hisses', 'farts'.)
+	var/list/ask_verb = list("asks")  // Used when sentence ends in a ?
+	var/list/exclaim_verb = list("exclaims") // Used when sentence ends in a !
+	var/list/shout_verb = list("shouts", "yells", "screams") //Used when a sentence ends in !!
+	var/list/whisper_verb = null  // Optional. When not specified speech_verb + quietly/softly is used instead.
+	var/list/signlang_verb = list("signs") // list of emotes that might be displayed if this language has NONVERBAL or SIGNLANG flags
+	var/list/sing_verb = list("sings")
+	var/list/sign_adv_length = list(" briefly", " a short message", " a message", " a lengthy message", " a very lengthy message") // 5 messages changing depending on the length of the signed language. A space should be added before the sentence as shown
 	var/colour = "body"               // CSS style to use for strings in this language.
+	var/written_style                 // CSS style used when writing language down, can't be written if null
 	var/key = "x"                     // Character used to speak in language eg. :o for Unathi.
 	var/flags = 0                     // Various language flags.
 	var/native                        // If set, non-native speakers will have trouble speaking.
@@ -20,6 +25,9 @@
 	var/list/space_chance = 55        // Likelihood of getting a space in the random scramble string
 	var/list/partial_understanding				  // List of languages that can /somehwat/ understand it, format is: name = chance of understanding a word
 	var/machine_understands = TRUE	// Whether machines can parse and understand this language
+	var/allow_accents = FALSE
+	var/always_parse_language = FALSE // forces the language to parse for language keys even when a default is set
+	var/list/scramble_cache = list()  // A map of unscrambled words -> scrambled words, for scrambling.
 
 /datum/language/proc/get_random_name(var/gender, name_count=2, syllable_count=4, syllable_divisor=2)
 	if(!syllables || !syllables.len)
@@ -33,14 +41,11 @@
 
 	for(var/i = 0;i<name_count;i++)
 		new_name = ""
-		for(var/x = rand(Floor(syllable_count/syllable_divisor),syllable_count);x>0;x--)
+		for(var/x = rand(FLOOR(syllable_count/syllable_divisor, 1),syllable_count);x>0;x--)
 			new_name += pick(syllables)
 		full_name += " [capitalize(lowertext(new_name))]"
 
 	return "[trim(full_name)]"
-
-/datum/language
-	var/list/scramble_cache = list()
 
 /datum/language/proc/scramble(var/input, var/list/known_languages)
 
@@ -49,6 +54,8 @@
 		if(LAZYACCESS(partial_understanding, L.name))
 			understand_chance += partial_understanding[L.name]
 
+	var/static/list/music_notes = list("\u2669", "\u266A", "\u266B")
+
 	var/list/words = splittext(input, " ")
 	var/list/scrambled_text = list()
 	var/new_sentence = 0
@@ -56,7 +63,7 @@
 		var/nword = "[w] "
 		var/input_ending = copytext(w, length(w))
 		var/ends_sentence = findtext(".?!",input_ending)
-		if(!prob(understand_chance))
+		if(!prob(understand_chance) && !(w in music_notes))
 			nword = scramble_word(w)
 			if(new_sentence)
 				nword = capitalize(nword)
@@ -122,13 +129,14 @@
 	// if you yell, you'll be heard from two tiles over instead of one
 	return (copytext(message, length(message)) == "!") ? 2 : 1
 
-/datum/language/proc/broadcast(var/mob/living/speaker,var/message,var/speaker_mask)
+/datum/language/proc/broadcast(var/mob/living/speaker, var/message, var/speaker_mask)
 	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
 
-	if(!speaker_mask) speaker_mask = speaker.name
+	if(!speaker_mask)
+		speaker_mask = speaker.name
 	message = format_message(message, get_spoken_verb(message))
 
-	for(var/mob/player in player_list)
+	for(var/mob/player in GLOB.player_list)
 		player.hear_broadcast(src, speaker, speaker_mask, message)
 
 /mob/proc/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
@@ -148,54 +156,140 @@
 /datum/language/proc/check_special_condition(var/mob/other)
 	return 1
 
-/datum/language/proc/get_spoken_verb(var/msg_end)
+/datum/language/proc/get_spoken_verb(var/msg_end, var/pre_end, var/singing = FALSE, var/whisper = FALSE)
+	var/chosen_verb = speech_verb
+	if(singing)
+		return pick(sing_verb)
+	if(whisper)
+		return pick(whisper_verb)
 	switch(msg_end)
 		if("!")
-			return exclaim_verb
+			if(pre_end == "!" || pre_end == "?")
+				chosen_verb = shout_verb
+			else
+				chosen_verb = exclaim_verb
 		if("?")
-			return ask_verb
-	return speech_verb
+			if(pre_end == "!")
+				chosen_verb = shout_verb
+			else
+				chosen_verb = ask_verb
+		else
+			chosen_verb = speech_verb
+	return pick(chosen_verb)
 
-// Language handling.
-/mob/proc/add_language(var/language)
+/datum/language/proc/handle_message_mode(var/message_mode)
+	return list(src, message_mode)
 
-	var/datum/language/new_language = all_languages[language]
+/**
+ * Checks if a language with special physical requirements can be spoken by a mob
+ * Returns `TRUE` if allowed to, `FALSE` otherwise
+ *
+ * * speaker - A `mob` to check for the ability to speak the language
+ */
+/datum/language/proc/check_speech_restrict(mob/speaker)
+	SHOULD_NOT_SLEEP(TRUE)
+	return TRUE
 
-	if (!istype(new_language) || !new_language)
-		CRASH("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
+/**
+ * Adds a language to the known ones for the mob, returns `TRUE` if added successfully, `FALSE` otherwise
+ *
+ * Does NOT make it the default language
+ *
+ * * language - The language to add, can either be a `/datum/language` or a string, see the LANGUAGE_* defines in `code\__DEFINES\species_languages.dm` for the strings
+ */
+/mob/proc/add_language(language)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/datum/language/new_language
+	if(istype(language, /datum/language))
+		new_language = language
+	else
+		new_language = GLOB.all_languages[language]
+
+	if(!istype(new_language) || !new_language)
+		crash_with("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
 
 	if(new_language in languages)
-		return 0
+		return FALSE
 
 	languages.Add(new_language)
-	return 1
+	return TRUE
+
+/**
+ * Set default language for a `/mob/living`, return `TRUE` if set successfully, `FALSE` otherwise
+ *
+ * * language - The language to set as default, can either be a `/datum/language`, a string as per `LANGUAGE_*` defines in `code\__DEFINES\species_languages.dm`,
+ * or `null` to remove the default language
+ */
+/mob/living/proc/set_default_language(language)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/datum/language/new_default_language
+	if(istype(language, /datum/language))
+		new_default_language = language
+	else
+		new_default_language = GLOB.all_languages[language]
+
+	if(!isnull(new_default_language) && !istype(new_default_language))
+		stack_trace("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
+		return FALSE
+
+	if(!isnull(new_default_language) && !(new_default_language in languages))
+		stack_trace("Trying to set a default language that is not known by the mob! The language must first be added for it to be set as default!")
+		return FALSE
+
+	default_language = new_default_language
+	return TRUE
+
+//Silicons can only speak languages listed in the `speech_synthesizer_langs`, even if they can understand more
+/mob/living/silicon/set_default_language(language)
+
+	//Return FALSE if they can't speak this language
+	if(!(language in speech_synthesizer_langs))
+		return FALSE
+
+	. = ..()
 
 /mob/proc/remove_language(var/rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = GLOB.all_languages[rem_language]
 	. = (L in languages)
 	languages.Remove(L)
 
 /mob/living/remove_language(rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = GLOB.all_languages[rem_language]
 	if(default_language == L)
 		default_language = null
 	return ..()
 
-// Can we speak this language, as opposed to just understanding it?
+/**
+ * Check if the language can be spoken by the mob,
+ * not the same thing as understood (you can understand a language without speaking it)
+ *
+ * * speaking - The `/datum/language` to check against, if the mob can speak it
+ *
+ * Returns `TRUE` if the mob speaks the language, `FALSE` otherwise
+ */
 /mob/proc/can_speak(datum/language/speaking)
-	return (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages))
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(!istype(speaking))
+		stack_trace("No language supplied to check if it can be spoken!")
+		return FALSE
+
+	return (speaking.check_speech_restrict(src) && (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages)))
 
 /mob/proc/get_language_prefix()
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)
 		return client.prefs.language_prefixes[1]
 
-	return config.language_prefixes[1]
+	return GLOB.config.language_prefixes[1]
 
 /mob/proc/is_language_prefix(var/prefix)
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)
 		return prefix in client.prefs.language_prefixes
 
-	return prefix in config.language_prefixes
+	return prefix in GLOB.config.language_prefixes
 
 //TBD
 /mob/verb/check_languages()
@@ -208,6 +302,8 @@
 	for(var/datum/language/L in languages)
 		if(!(L.flags & NONGLOBAL))
 			dat += "<b>[L.name] ([get_language_prefix()][L.key])</b><br/>[L.desc]<br/><br/>"
+			if(L.written_style)
+				dat += "You can write in this language on papers by writing \[lang=[L.key]\]YourTextHere\[/lang\].<br/><br/>"
 
 	src << browse(dat, "window=checklanguage")
 	return
@@ -222,8 +318,12 @@
 		if(!(L.flags & NONGLOBAL))
 			if(L == default_language)
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - default - <a href='byond://?src=\ref[src];default_lang=reset'>reset</a><br/>[L.desc]<br/><br/>"
-			else
+			else if(can_speak(L))
 				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - <a href='byond://?src=\ref[src];default_lang=\ref[L]'>set default</a><br/>[L.desc]<br/><br/>"
+			else
+				dat += "<b>[L.name] ([get_language_prefix()][L.key])</b> - cannot speak!<br/>[L.desc]<br/><br/>"
+			if(L.written_style)
+				dat += "You can write in this language on papers by writing \[lang=[L.key]\]YourTextHere\[/lang\].<br/><br/>"
 
 	src << browse(dat, "window=checklanguage")
 

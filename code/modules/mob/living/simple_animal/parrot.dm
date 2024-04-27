@@ -32,7 +32,7 @@
 	icon_state = "parrot_fly"
 	icon_living = "parrot_fly"
 	icon_dead = "parrot_dead"
-	pass_flags = PASSTABLE
+	pass_flags = PASSTABLE | PASSRAILING
 	mob_size = MOB_TINY
 
 	speak = list("Hi","Hello!","Cracker?","BAWWWWK george mellons griffing me")
@@ -41,9 +41,11 @@
 	emote_see = list("flutters its wings")
 
 	speak_chance = 1//1% (1 in 100) chance every tick; So about once per 150 seconds, assuming an average tick is 1.5s
+	universal_speak = FALSE
 	turns_per_move = 5
 	meat_type = /obj/item/reagent_containers/food/snacks/cracker/
 
+	organ_names = list("torso", "left wing", "right wing", "head")
 	response_help  = "pets"
 	response_disarm = "gently moves aside"
 	response_harm   = "swats"
@@ -64,7 +66,6 @@
 	var/list/speech_buffer = list()
 	var/list/available_channels = list()
 
-	//Headset for Poly to yell at engineers :)
 	var/obj/item/device/radio/headset/ears = null
 
 	//The thing the parrot is currently interested in. This gets used for items the parrot wants to pick up, mobs it wants to steal from,
@@ -99,10 +100,12 @@
 
 	parrot_sleep_dur = parrot_sleep_max //In case someone decides to change the max without changing the duration var
 
-	verbs.Add(/mob/living/simple_animal/parrot/proc/steal_from_ground, \
-			  /mob/living/simple_animal/parrot/proc/steal_from_mob, \
-			  /mob/living/simple_animal/parrot/verb/drop_held_item_player, \
-			  /mob/living/simple_animal/parrot/proc/perch_player)
+	verbs.Add(
+				/mob/living/simple_animal/parrot/proc/steal_from_ground, \
+				/mob/living/simple_animal/parrot/proc/steal_from_mob, \
+				/mob/living/simple_animal/parrot/verb/drop_held_item_player, \
+				/mob/living/simple_animal/parrot/proc/perch_player
+			)
 
 /mob/living/simple_animal/parrot/Destroy()
 	QDEL_NULL(ears)
@@ -114,15 +117,12 @@
 	if(held_item)
 		held_item.forceMove(src.loc)
 		held_item = null
-	walk(src,0)
+	SSmove_manager.stop_looping(src)
 	..()
 
-/mob/living/simple_animal/parrot/Stat()
-	..()
-	stat("Held Item", held_item)
-
-/mob/living/simple_animal/parrot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+/mob/living/simple_animal/parrot/get_status_tab_items()
+	. = ..()
+	. += "Held Item: [held_item]"
 
 /*
  * Inventory
@@ -210,7 +210,7 @@
 									available_channels.Add(":m")
 								if("Mining")
 									available_channels.Add(":d")
-								if("Cargo")
+								if("Operations")
 									available_channels.Add(":q")
 		else
 			..()
@@ -241,10 +241,10 @@
 	return
 
 //Mobs with objects
-/mob/living/simple_animal/parrot/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/parrot/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(!stat && !client && !istype(O, /obj/item/stack/medical))
-		if(O.force)
+	if(!stat && !client && !istype(attacking_item, /obj/item/stack/medical))
+		if(attacking_item.force)
 			if(parrot_state == PARROT_PERCH)
 				parrot_sleep_dur = parrot_sleep_max //Reset it's sleep timer if it was perched
 
@@ -284,15 +284,15 @@
 	if(client || stat)
 		return //Lets not force players or dead/incap parrots to move
 
-	if(!isturf(src.loc) || !canmove || buckled)
-		return //If it can't move, dont let it move. (The buckled check probably isn't necessary thanks to canmove)
+	if(!isturf(src.loc) || !canmove || buckled_to)
+		return //If it can't move, dont let it move. (The buckled_to check probably isn't necessary thanks to canmove)
 
 
 //-----SPEECH
 	/* Parrot speech mimickry!
-	   Phrases that the parrot hears in mob/living/say() get added to speach_buffer.
-	   Every once in a while, the parrot picks one of the lines from the buffer and replaces an element of the 'speech' list.
-	   Then it clears the buffer to make sure they dont magically remember something from hours ago. */
+		Phrases that the parrot hears in mob/living/say() get added to speach_buffer.
+		Every once in a while, the parrot picks one of the lines from the buffer and replaces an element of the 'speech' list.
+		Then it clears the buffer to make sure they dont magically remember something from hours ago. */
 	if(speech_buffer.len && prob(10))
 		if(speak.len)
 			speak.Remove(pick(speak))
@@ -357,13 +357,13 @@
 //-----WANDERING - This is basically a 'I dont know what to do yet' state
 	else if(parrot_state == PARROT_WANDER)
 		//Stop movement, we'll set it later
-		walk(src, 0)
+		SSmove_manager.stop_looping(src)
 		parrot_interest = null
 
 		//Wander around aimlessly. This will help keep the loops from searches down
 		//and possibly move the mob into a new are in view of something they can use
 		if(prob(90))
-			step(src, pick(cardinal))
+			step(src, pick(GLOB.cardinal))
 			return
 
 		if(!held_item && !parrot_perch) //If we've got nothing to do.. look for something to do.
@@ -395,7 +395,7 @@
 				return
 //-----STEALING
 	else if(parrot_state == (PARROT_SWOOP | PARROT_STEAL))
-		walk(src,0)
+		SSmove_manager.stop_looping(src)
 		if(!parrot_interest || held_item)
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
 			return
@@ -419,12 +419,12 @@
 			parrot_state = PARROT_SWOOP | PARROT_RETURN
 			return
 
-		walk_to(src, parrot_interest, 1, parrot_speed)
+		SSmove_manager.move_to(src, parrot_interest, 1, parrot_speed)
 		return
 
 //-----RETURNING TO PERCH
 	else if(parrot_state == (PARROT_SWOOP | PARROT_RETURN))
-		walk(src, 0)
+		SSmove_manager.stop_looping(src)
 		if(!parrot_perch || !isturf(parrot_perch.loc)) //Make sure the perch exists and somehow isnt inside of something else.
 			parrot_perch = null
 			parrot_state = PARROT_WANDER
@@ -437,16 +437,16 @@
 			icon_state = "parrot_sit"
 			return
 
-		walk_to(src, parrot_perch, 1, parrot_speed)
+		SSmove_manager.move_to(src, parrot_perch, 1, parrot_speed)
 		return
 
 //-----FLEEING
 	else if(parrot_state == (PARROT_SWOOP | PARROT_FLEE))
-		walk(src,0)
+		SSmove_manager.stop_looping(src)
 		if(!parrot_interest || !isliving(parrot_interest)) //Sanity
 			parrot_state = PARROT_WANDER
 
-		walk_away(src, parrot_interest, 1, parrot_speed-parrot_been_shot)
+		SSmove_manager.move_away(src, parrot_interest, 1, (parrot_speed-parrot_been_shot))
 		parrot_been_shot--
 		return
 
@@ -484,7 +484,7 @@
 				var/mob/living/carbon/human/H = parrot_interest
 				var/obj/item/organ/external/affecting = H.get_organ(ran_zone(pick(parrot_dam_zone)))
 
-				H.apply_damage(damage, BRUTE, affecting, H.run_armor_check(affecting, "melee"), damage_flags = DAM_SHARP)
+				H.apply_damage(damage, DAMAGE_BRUTE, affecting, damage_flags = DAMAGE_FLAG_SHARP)
 				visible_emote(pick("pecks [H]'s [affecting].", "cuts [H]'s [affecting] with its talons."))
 
 			else
@@ -494,11 +494,11 @@
 
 		//Otherwise, fly towards the mob!
 		else
-			walk_to(src, parrot_interest, 1, parrot_speed)
+			SSmove_manager.move_to(src, parrot_interest, 1, parrot_speed)
 		return
 //-----STATE MISHAP
 	else //This should not happen. If it does lets reset everything and try again
-		walk(src,0)
+		SSmove_manager.stop_looping(src)
 		parrot_interest = null
 		parrot_perch = null
 		drop_held_item()
@@ -680,25 +680,11 @@
 	to_chat(src, "<span class='warning'>There is no perch nearby to sit on.</span>")
 	return
 
-/*
- * Sub-types
- */
-/mob/living/simple_animal/parrot/Poly
-	name = "Poly"
-	desc = "Poly the Parrot. An expert on quantum cracker theory."
-	speak = list("Poly wanna cracker!", ":e Check the singlo, you chucklefucks!",":e Wire the solars, you lazy bums!",":e WHO TOOK THE DAMN VOIDSUITS?",":e OH GOD ITS FREE CALL THE SHUTTLE")
-
-/mob/living/simple_animal/parrot/Poly/Initialize()
-	ears = new /obj/item/device/radio/headset/headset_eng(src)
-	available_channels = list(":e")
-	. = ..()
-
-/mob/living/simple_animal/parrot/say(var/message)
+/mob/living/simple_animal/parrot/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 
 	if(stat)
 		return
 
-	var/verb = "says"
 	if(speak_emote.len)
 		verb = pick(speak_emote)
 
@@ -734,7 +720,7 @@
 
 
 
-/mob/living/simple_animal/parrot/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/mob/speaker = null, var/hard_to_hear = 0)
+/mob/living/simple_animal/parrot/hear_radio(var/message, var/verb="says", var/datum/language/language=null, var/part_a, var/part_b, var/part_c, var/mob/speaker = null, var/hard_to_hear = 0)
 	if(prob(50))
 		parrot_hear("[pick(available_channels)] [message]")
 	..(message,verb,language,part_a,part_b,speaker,hard_to_hear)

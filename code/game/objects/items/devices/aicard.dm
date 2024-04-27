@@ -1,27 +1,26 @@
 /obj/item/aicard
-	name = "inteliCard"
+	name = "intelliCard"
 	icon = 'icons/obj/pai.dmi'
 	icon_state = "aicard" // aicard-full
 	item_state = "electronic"
-	w_class = 2.0
+	w_class = ITEMSIZE_SMALL
 	slot_flags = SLOT_BELT
-	var/flush = null
 	origin_tech = list(TECH_DATA = 4, TECH_MATERIAL = 4)
-
+	var/flush = 0
 	var/mob/living/silicon/ai/carded_ai
 
-/obj/item/aicard/examine(mob/user)
-	..()
+/obj/item/aicard/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	var/message = "Status of [carded_ai] is: "
 	if(!carded_ai)
 		message = "There is no AI loaded to the card."
 	else if(carded_ai.stat == DEAD)
-		message += span("danger", "terminated.")
+		message += SPAN_DANGER("terminated.")
 	else if(!carded_ai.client)
-		message += span("notice", "active.")
+		message += SPAN_NOTICE("active.")
 	else
-		message += span("warning", "inactive.")
-	to_chat(user, message)
+		message += SPAN_WARNING("inactive.")
+	. += message
 
 /obj/item/aicard/attack(mob/living/silicon/decoy/M as mob, mob/user as mob, var/target_zone)
 	if (!istype (M, /mob/living/silicon/decoy))
@@ -31,63 +30,78 @@
 		to_chat(user, "<b>ERROR ERROR ERROR</b>")
 
 /obj/item/aicard/attack_self(mob/user)
-
 	ui_interact(user)
 
-/obj/item/aicard/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = inventory_state)
-	var/data[0]
+/obj/item/aicard/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "AICard", "intelliCard", 600, 450)
+		ui.open()
+
+/obj/item/aicard/ui_data(mob/user)
+	var/list/data = list(
+		"has_ai" = FALSE,
+		"name" = null,
+		"hardware_integrity" = null,
+		"backup_capacitor" = null,
+		"radio" = null,
+		"wireless" = null,
+		"operational" = null,
+		"flushing" = FALSE,
+		"laws" = null,
+		"has_laws" = null
+	)
+
 	data["has_ai"] = carded_ai != null
-	if(carded_ai)
+	if (carded_ai)
 		data["name"] = carded_ai.name
 		data["hardware_integrity"] = carded_ai.hardware_integrity()
 		data["backup_capacitor"] = carded_ai.backup_capacitor()
-		data["radio"] = !carded_ai.ai_radio.disabledAi
+		data["radio"] = !carded_ai.ai_radio?.disabledAi
 		data["wireless"] = !carded_ai.control_disabled
 		data["operational"] = carded_ai.stat != DEAD
 		data["flushing"] = flush
 
-		var/laws[0]
+		var/list/laws = list()
 		for(var/datum/ai_law/AL in carded_ai.laws.all_laws())
 			laws[++laws.len] = list("index" = AL.get_index(), "law" = sanitize(AL.law))
 		data["laws"] = laws
-		data["has_laws"] = laws.len
+		data["has_laws"] = !!laws.len
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "aicard.tmpl", "[name]", 600, 400, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/item/aicard/Topic(href, href_list, state)
-	if(..())
-		return 1
+/obj/item/aicard/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return TRUE
 
-	if(!carded_ai)
-		return 1
+	if (!carded_ai)
+		return TRUE
 
-	var/user = usr
-	if (href_list["wipe"])
-		var/confirm = alert("Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", "Yes", "No")
-		if(confirm == "Yes" && (CanUseTopic(user, state) == STATUS_INTERACTIVE))
-			admin_attack_log(user, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
-			flush = 1
-			to_chat(carded_ai, "Your core files are being wiped!")
-			while (carded_ai && carded_ai.stat != DEAD)
-				carded_ai.adjustOxyLoss(2)
-				carded_ai.updatehealth()
-				sleep(10)
-			flush = 0
-	if (href_list["radio"])
-		carded_ai.ai_radio.disabledAi = text2num(href_list["radio"])
-		to_chat(carded_ai, "<span class='warning'>Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!</span>")
-		to_chat(user, "<span class='notice'>You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver.</span>")
-	if (href_list["wireless"])
-		carded_ai.control_disabled = text2num(href_list["wireless"])
-		to_chat(carded_ai, "<span class='warning'>Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!</span>")
-		to_chat(user, "<span class='notice'>You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface.</span>")
-		update_icon()
-	return 1
+	switch(action)
+		if("wipe")
+			var/confirm = alert("Are you sure you want to wipe this card's memory? This cannot be undone once started.", "Confirm Wipe", "Yes", "No")
+			if(confirm == "Yes" && (CanUseTopic(usr, state) == STATUS_INTERACTIVE))
+				admin_attack_log(usr, carded_ai, "Wiped using \the [src.name]", "Was wiped with \the [src.name]", "used \the [src.name] to wipe")
+				flush = 1
+				to_chat(carded_ai, "Your core files are being wiped!")
+				while (carded_ai && carded_ai.stat != DEAD)
+					carded_ai.adjustOxyLoss(2)
+					carded_ai.updatehealth()
+					sleep(10)
+				flush = 0
+				. = TRUE
+		if ("radio")
+			carded_ai.ai_radio.disabledAi = text2num(params["radio"])
+			to_chat(carded_ai, "<span class='warning'>Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!</span>")
+			to_chat(usr, "<span class='notice'>You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver.</span>")
+			. = TRUE
+		if ("wireless")
+			carded_ai.control_disabled = text2num(params["wireless"])
+			to_chat(carded_ai, "<span class='warning'>Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!</span>")
+			to_chat(usr, "<span class='notice'>You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface.</span>")
+			update_icon()
+			. = TRUE
 
 /obj/item/aicard/update_icon()
 	cut_overlays()
@@ -121,6 +135,10 @@
 	admin_attack_log(user, ai, "Carded with [src.name]", "Was carded with [src.name]", "used the [src.name] to card")
 	src.name = "[initial(name)] - [ai.name]"
 
+	if(ai.vr_mob) //Kick the AI out of its shell before we stuff it in a card.
+		var/mob/living/silicon/shell = ai.vr_mob
+		if(istype(shell))
+			shell.body_return()
 	ai.forceMove(src)
 	ai.destroy_eyeobj(src)
 	ai.cancel_camera()
@@ -147,13 +165,13 @@
 
 /obj/item/aicard/see_emote(mob/living/M, text)
 	if(carded_ai && carded_ai.client)
-		var/rendered = "<span class='message'>[text]</span>"
+		var/rendered = span("message", "[text]")
 		carded_ai.show_message(rendered, 2)
 	..()
 
 /obj/item/aicard/show_message(msg, type, alt, alt_type)
 	if(carded_ai && carded_ai.client)
-		var/rendered = "<span class='message'>[msg]</span>"
+		var/rendered = span("message", "[msg]")
 		carded_ai.show_message(rendered, type)
 	..()
 

@@ -16,35 +16,35 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	density = 1
 	anchored = 1
 
-	Collide(atom/clong)
-		. = ..()
-		if (istype(clong, /turf) && !istype(clong, /turf/unsimulated))
-			if(clong.density)
-				clong.ex_act(2)
-				for (var/mob/O in hearers(src, null))
-					O.show_message("CLANG", 2)
+/obj/effect/immovablerod/Collide(atom/clong)
+	. = ..()
+	if (istype(clong, /turf) && !istype(clong, /turf/unsimulated))
+		if(clong.density)
+			clong.ex_act(2)
+			for (var/mob/O in hearers(src, null))
+				O.show_message("CLANG", 2)
 
-		else if (istype(clong, /obj))
-			if(clong.density)
-				clong.ex_act(2)
-				for (var/mob/O in hearers(src, null))
-					O.show_message("CLANG", 2)
+	else if (istype(clong, /obj))
+		if(clong.density)
+			clong.ex_act(2)
+			for (var/mob/O in hearers(src, null))
+				O.show_message("CLANG", 2)
 
-		else if (istype(clong, /mob))
-			if(clong.density || prob(10))
-				clong.ex_act(2)
-		else
-			qdel(src)
+	else if (istype(clong, /mob))
+		if(clong.density || prob(10))
+			clong.ex_act(2)
+	else
+		qdel(src)
 
-		if(clong && prob(25))
-			src.forceMove(clong.loc)
+	if(clong && prob(25))
+		src.forceMove(clong.loc)
 
 /proc/immovablerod()
 	var/startx = 0
 	var/starty = 0
 	var/endy = 0
 	var/endx = 0
-	var/startside = pick(cardinal)
+	var/startside = pick(GLOB.cardinal)
 
 	switch(startside)
 		if(NORTH)
@@ -76,7 +76,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	sleep(1)
 	while (immrod)
 		if (isNotStationLevel(immrod.z))
-			immrod.z = pick(current_map.station_levels)
+			immrod.z = pick(SSatlas.current_map.station_levels)
 		if(immrod.loc == end)
 			qdel(immrod)
 		sleep(10)

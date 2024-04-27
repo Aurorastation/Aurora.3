@@ -12,7 +12,8 @@
 	var/list/possible_trading_items                             //List of all possible trading items. Structure is (type = mode)
 	var/list/trading_items = list()                             //What items they are currently trading away.
 	var/list/blacklisted_trade_items = list(/mob/living/carbon/human)
-	                                                            //Things they will automatically refuse
+	var/list/allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL,
+										SECTOR_GAKAL, SECTOR_UUEOAESA)	//which sector this merchant can show up                                                            //Things they will automatically refuse
 
 	var/list/speech = list()                                    //The list of all their replies and messages. Structure is (id = talk)
 	/*SPEECH IDS:
@@ -45,7 +46,7 @@
 		if(name_language == TRADER_DEFAULT_NAME)
 			name = capitalize(pick(first_names_female + first_names_male)) + " " + capitalize(pick(last_names))
 		else
-			var/datum/language/L = all_languages[name_language]
+			var/datum/language/L = GLOB.all_languages[name_language]
 			if(L)
 				name = L.get_random_name(pick(MALE,FEMALE))
 	if(possible_origins && possible_origins.len)
@@ -57,7 +58,7 @@
 
 //If this hits 0 then they decide to up and leave.
 /datum/trader/proc/tick()
-	addtimer(CALLBACK(src, .proc/do_after_tick), 1)
+	addtimer(CALLBACK(src, PROC_REF(do_after_tick)), 1)
 	return 1
 
 /datum/trader/proc/do_after_tick()
@@ -116,7 +117,7 @@
 	num = Clamp(num,1,trading_items.len)
 	if(trading_items[num])
 		var/atom/movable/M = trading_items[num]
-		return "<b>[initial(M.name)]</b>"
+		return "[initial(M.name)]"
 
 /datum/trader/proc/get_item_value(var/trading_num)
 	if(!trading_items[trading_items[trading_num]])
@@ -259,3 +260,9 @@
 
 /datum/trader/proc/bribe_to_stay_longer(var/amt)
 	return get_response("bribe_refusal", "How about... no?")
+
+/datum/trader/proc/system_allowed()
+	if(SSatlas.current_sector.name in allowed_space_sectors)
+		return TRUE
+	else
+		return FALSE

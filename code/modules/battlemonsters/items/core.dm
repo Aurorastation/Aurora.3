@@ -4,7 +4,7 @@
 	var/facedown = TRUE
 	var/rotated = FALSE
 
-/obj/item/battle_monsters/dropped(mob/user as mob)
+/obj/item/battle_monsters/dropped(mob/user)
 	set_dir(user.dir)
 	if(rotated)
 		set_dir(turn(dir,90))
@@ -26,9 +26,9 @@
 
 	. = ..()
 
-/obj/item/battle_monsters/MouseDrop_T(var/atom/movable/C, mob/user) //Dropping C onto the card
-	if(istype(C,/obj/item/battle_monsters))
-		src.attackby(C,user)
+/obj/item/battle_monsters/MouseDrop_T(atom/dropping, mob/user) //Dropping C onto the card
+	if(istype(dropping, /obj/item/battle_monsters))
+		src.attackby(dropping,user)
 		return
 
 	. = ..()
@@ -45,23 +45,23 @@
 
 	if(rotated)
 		if(src.loc == user)
-			to_chat(user,span("notice", "You prepare \the [name] to be played horizontally."))
+			to_chat(user, SPAN_NOTICE("You prepare \the [name] to be played horizontally."))
 			set_dir(turn(NORTH,90))
 		else
 			set_dir(turn(user.dir,90))
 			user.visible_message(\
-				span("notice","\The [user] adjusts the orientation of \the [src] horizontally."),\
-				span("notice","You adjust the orientation of \the [src] horizontally.")\
+				SPAN_NOTICE("\The [user] adjusts the orientation of \the [src] horizontally."),\
+				SPAN_NOTICE("You adjust the orientation of \the [src] horizontally.")\
 			)
 	else
 		if(src.loc == user)
-			to_chat(user,span("notice", "You prepare \the [name] to be played vertically."))
+			to_chat(user, SPAN_NOTICE("You prepare \the [name] to be played vertically."))
 			set_dir(NORTH)
 		else
 			set_dir(user.dir)
 			user.visible_message(\
-				span("notice","\The [user] adjusts the orientation of \the [src] vertically."),\
-				span("notice","You adjust the orientation of \the [src] vertically.")\
+				SPAN_NOTICE("\The [user] adjusts the orientation of \the [src] vertically."),\
+				SPAN_NOTICE("You adjust the orientation of \the [src] vertically.")\
 			)
 
 	update_icon()

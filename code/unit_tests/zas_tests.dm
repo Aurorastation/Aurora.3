@@ -18,21 +18,23 @@
 // Generic check for an area.
 //
 
-datum/unit_test/zas_area_test
+/datum/unit_test/zas_area_test
 	name = "ZAS: Area Test Template"
+	groups = list("map")
+
 	var/area_path = null                    // Put the area you are testing here.
 	var/expectation = UT_NORMAL             // See defines above.
 
-datum/unit_test/zas_area_test/start_test()
+/datum/unit_test/zas_area_test/start_test()
 	var/list/test = test_air_in_area(area_path, expectation)
 
 	if(isnull(test))
-		fail("Check Runtimed")
+		TEST_FAIL("Check Runtimed")
 
 	if(test["result"] == SUCCESS)
-		pass(test["msg"])
+		TEST_PASS(test["msg"])
 	else
-		fail(test["msg"])
+		TEST_FAIL(test["msg"])
 	return 1
 
 // ==================================================================================================
@@ -40,7 +42,7 @@ datum/unit_test/zas_area_test/start_test()
 //
 //	The primary helper proc.
 //
-proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
+/proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 	var/test_result = list("result" = FAILURE, "msg"    = "")
 
 	var/area/A = locate(test_area)
@@ -64,33 +66,32 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 		var/pressure = GM.return_pressure()
 		var/temp = GM.temperature
 
-		switch(expectation)
 
-			if(UT_VACUUM)
-				if(pressure > 10)
-					test_result["msg"] = "Pressure out of bounds: [pressure] | [t_msg]"
+		if(expectation == UT_VACUUM)
+			if(pressure > 10)
+				test_result["msg"] = "Pressure out of bounds: [pressure]Pa at [temp]K | [t_msg] | expectation: VACUUM"
+				return test_result
+
+
+		if(expectation == UT_NORMAL || expectation == UT_NORMAL_COLD || expectation == UT_NORMAL_COOL)
+			if(abs(pressure - ONE_ATMOSPHERE) > 10)
+				test_result["msg"] = "Pressure out of bounds: [pressure]Pa | [t_msg]"
+				return test_result
+
+			if(expectation == UT_NORMAL)
+				if(abs(temp - T20C) > 10)
+					test_result["msg"] = "Temperature out of bounds: [temp]K at [pressure]Pa | [t_msg] | expectation: NORMAL"
 					return test_result
 
-
-			if(UT_NORMAL || UT_NORMAL_COLD || UT_NORMAL_COOL)
-				if(abs(pressure - ONE_ATMOSPHERE) > 10)
-					test_result["msg"] = "Pressure out of bounds: [pressure] | [t_msg]"
+			if(expectation == UT_NORMAL_COLD)
+				if(temp > 120)
+					test_result["msg"] = "Temperature out of bounds: [temp]K at [pressure]Pa | [t_msg] | expectation: NORMAL_COLD"
 					return test_result
 
-				if(expectation == UT_NORMAL)
-					if(abs(temp - T20C) > 10)
-						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
-						return test_result
-
-				if(expectation == UT_NORMAL_COLD)
-					if(temp > 120)
-						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
-						return test_result
-
-				if(expectation == UT_NORMAL_COOL)
-					if(temp > 283)
-						test_result["msg"] = "Temperature out of bounds: [temp] | [t_msg]"
-						return test_result
+			if(expectation == UT_NORMAL_COOL)
+				if(temp > 283)
+					test_result["msg"] = "Temperature out of bounds: [temp]K at [pressure]Pa | [t_msg] | expectation: NORMAL_COOL"
+					return test_result
 
 		GM_checked.Add(GM)
 
@@ -105,43 +106,27 @@ proc/test_air_in_area(var/test_area, var/expectation = UT_NORMAL)
 
 // ==================================================================================================
 
-datum/unit_test/zas_area_test/supply_centcomm
+/datum/unit_test/zas_area_test/supply_centcomm
 	name = "ZAS: Supply Shuttle (CentComm)"
 	area_path = /area/supply/dock
 
-datum/unit_test/zas_area_test/emergency_shuttle
-	name = "ZAS: Emergency Shuttle"
-	area_path = /area/shuttle/escape/centcom
-
-datum/unit_test/zas_area_test/ai_chamber
+/datum/unit_test/zas_area_test/ai_chamber
 	name = "ZAS: AI Chamber"
 	area_path = /area/turret_protected/ai
 	expectation = UT_NORMAL_COOL
 
-datum/unit_test/zas_area_test/arrival_maint
-	name = "ZAS: Arrival Maintenance"
-	area_path = /area/maintenance/arrivals
-
-datum/unit_test/zas_area_test/
-	name = "ZAS: Cargo Maintenance"
-	area_path = /area/maintenance/cargo
-
-datum/unit_test/zas_area_test/xenobio
+/datum/unit_test/zas_area_test/xenobio
 	name = "ZAS: Xenobiology"
 	area_path = /area/rnd/xenobiology
 
 /*
-datum/unit_test/zas_area_test/mining_area
+/datum/unit_test/zas_area_test/mining_area
 	name = "ZAS: Mining Area (Vacuum)"
 	area_path = /area/mine/explored
 	expectation = UT_VACUUM
 	disabled = 1
 	why_disabled = "Asteroid Generation disabled"
  */
-datum/unit_test/zas_area_test/
-	name = "ZAS: Cargo Bay"
-	area_path = /area/quartermaster/storage
-
 
 // ==================================================================================================
 
@@ -150,6 +135,8 @@ datum/unit_test/zas_area_test/
 
 /datum/unit_test/zas_supply_shuttle_moved
 	name = "ZAS: Supply Shuttle (When Moved)"
+	groups = list("map")
+
 	async = TRUE				// We're moving the shuttle using built in procs.
 
 	var/datum/shuttle/autodock/ferry/supply/shuttle = null
@@ -158,14 +145,14 @@ datum/unit_test/zas_area_test/
 
 /datum/unit_test/zas_supply_shuttle_moved/start_test()
 	if(!SSshuttle)
-		fail("The shuttle controller is not setup at time of test.")
+		TEST_FAIL("The shuttle controller is not setup at time of test.")
 		return 1
 	if(!SSshuttle.shuttles.len)
-		if(length(current_map.map_shuttles))
-			fail("This map should have shuttles, but it doesn't!")
+		if(length(SSatlas.current_map.map_shuttles))
+			TEST_FAIL("This map should have shuttles, but it doesn't!")
 			return 1
 		else
-			pass("This map is not supposed to have any shuttles.")
+			TEST_PASS("This map is not supposed to have any shuttles.")
 			return 1
 
 	shuttle = SScargo.shuttle
@@ -180,10 +167,10 @@ datum/unit_test/zas_area_test/
 
 /datum/unit_test/zas_supply_shuttle_moved/check_result()
 	if(!shuttle)
-		pass("This map has no supply shuttle.")
+		TEST_PASS("This map has no supply shuttle.")
 		return 1
 	if(shuttle.moving_status == SHUTTLE_IDLE && !shuttle.at_station())
-		fail("Shuttle Did not Move")
+		TEST_FAIL("Shuttle Did not Move")
 		return 1
 
 	if(!shuttle.at_station())
@@ -199,13 +186,82 @@ datum/unit_test/zas_area_test/
 	for(var/area/A in shuttle.shuttle_area)
 		var/list/test = test_air_in_area(A.type)
 		if(isnull(test))
-			fail("Check Runtimed")
+			TEST_FAIL("Check Runtimed")
 			return 1
 
 		switch(test["result"])
-			if(SUCCESS) pass(test["msg"])
-			else        fail(test["msg"])
+			if(SUCCESS) TEST_PASS(test["msg"])
+			else        TEST_FAIL(test["msg"])
 	return 1
+
+/datum/unit_test/zas_active_edges
+	name = "ZAS: Roundstart Active Edges"
+	groups = list("map")
+
+/datum/unit_test/zas_active_edges/start_test()
+
+	// Nothing went wrong (this time...)
+	if(!(SSair.active_edges.len))
+		TEST_PASS("No active ZAS edges at round-start.")
+		return UNIT_TEST_PASSED
+
+
+	/*
+		Something went wrong
+		compose a message and fail the test, let the poor soul try to figure out where the issue is, assuming it's not intermittent
+	 */
+	var/fail_message = "\n\n\n\n\n[SSair.active_edges.len] edges active at round-start!\n"
+	for(var/connection_edge/E in SSair.active_edges)
+		var/connection_edge/unsimulated/U = E
+		if(istype(U))
+			var/turf/T = U.B
+			if(istype(T))
+				fail_message += "--> [U.A.name] and [T.name] ([T.x], [T.y], [T.z]) have mismatched gas mixtures! <--\n"
+			else
+				fail_message += "--> [U.A.name] and [U.B] have mismatched gas mixtures! <--\n"
+
+			var/zone/A = U.A
+			var/offending_turfs_text = "Problem turfs: \n"
+			fail_message += "Mismatching edge gasses: [(U.A.air) ? json_encode(U.A.air.gas) : "vacuum"] <-----> [(U.B.air) ? json_encode(U.B.air.gas) : "vacuum"]\n\n"
+			for(var/turf/simulated/S in A.contents)
+				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
+					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+
+			fail_message += "[offending_turfs_text]"
+
+		else
+			var/connection_edge/zone/Z = E
+
+			//A list of turfs that are related to the found issue
+			var/list/turf/problem_turfs = list()
+
+			if(!istype(Z))
+				return
+
+			fail_message += "--> [Z.A.name] and [Z.B.name] have mismatched gas mixtures! <--\n"
+
+			if(Z.A.air.gas.len && Z.B.air.gas.len)
+				fail_message += "--> Both zones have gas mixtures defined; either one is a normally vacuum zone exposed to a breach, or two differing gases are mixing at round-start. <--\n"
+				problem_turfs = Z.A.contents + Z.B.contents
+			else if(Z.A.air.gas.len)
+				problem_turfs = Z.A.contents
+			else if(Z.B.air.gas.len)
+				problem_turfs = Z.B.contents
+
+			if(!length(problem_turfs))
+				continue
+
+			fail_message += "Mismatching edge gasses: [(Z.A.air) ? json_encode(Z.A.air.gas) : "vacuum"] <-----> [(Z.B.air) ? json_encode(Z.B.air.gas) : "vacuum"]\n\n"
+
+			var/offending_turfs_text = "Problem turfs: "
+			for(var/turf/simulated/S in problem_turfs)
+				if(("oxygen" in S.initial_gas) || ("nitrogen" in S.initial_gas))
+					offending_turfs_text += "[S] \[[S.type]\] ([S.x], [S.y], [S.z])\t"
+
+			fail_message += "[offending_turfs_text]"
+
+	TEST_FAIL("[fail_message]")
+	return UNIT_TEST_FAILED
 
 #undef UT_NORMAL
 #undef UT_VACUUM

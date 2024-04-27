@@ -1,4 +1,4 @@
-STOCK_ITEM_LARGE(russian, 1)
+STOCK_ITEM_LARGE(russian, 0.5)
 	new /obj/structure/closet/gimmick/russian(L)
 
 STOCK_ITEM_LARGE(emergency, 2)
@@ -19,21 +19,19 @@ STOCK_ITEM_LARGE(EOD, 1.5)
 	else
 		new /obj/structure/closet/bombcloset(L)
 
-STOCK_ITEM_LARGE(biosuit, 3)
-	var/list/allsuits = typesof(/obj/structure/closet/l3closet)
-	var/type = pick(allsuits)
-	new type(L)
+STOCK_ITEM_LARGE(hazmat_gear_locker, 3)
+	new /obj/structure/closet/hazmat/general(L)
 
 STOCK_ITEM_LARGE(hydrotray, 3)
 	new /obj/machinery/portable_atmospherics/hydroponics(L)
 
-STOCK_ITEM_LARGE(oxycanister, 6)//Cargo should almost always have an oxycanister
+STOCK_ITEM_LARGE(oxycanister, 3)
 	new /obj/machinery/portable_atmospherics/canister/oxygen(L)
 
 STOCK_ITEM_LARGE(oxydispenser, 5)
 	new /obj/structure/dispenser/oxygen(L)
 
-STOCK_ITEM_LARGE(bubbleshield, 2)
+STOCK_ITEM_LARGE(bubbleshield, 0.5)
 	var/obj/O = new /obj/machinery/shield_gen(L)
 	var/turf/T = get_turf(O)
 	for (var/turf/U in range(O,1))
@@ -48,6 +46,9 @@ STOCK_ITEM_LARGE(watertank, 2)
 STOCK_ITEM_LARGE(fueltank, 2)
 	new /obj/structure/reagent_dispensers/fueltank(L)
 
+STOCK_ITEM_LARGE(lubetank, 2)
+	new /obj/structure/reagent_dispensers/lube(L)
+
 STOCK_ITEM_LARGE(airpump, 1)
 	var/obj/machinery/portable_atmospherics/powered/M = new /obj/machinery/portable_atmospherics/powered/pump/filled(L)
 	if (prob(60) && M.cell)
@@ -60,9 +61,9 @@ STOCK_ITEM_LARGE(airscrubber, 1)
 
 STOCK_ITEM_LARGE(generator, 5)
 	var/list/generators = list(
-		/obj/machinery/power/port_gen/pacman = 1,
-		/obj/machinery/power/port_gen/pacman/super = 0.7,
-		/obj/machinery/power/port_gen/pacman/mrs = 0.5
+		/obj/machinery/power/portgen/basic = 1,
+		/obj/machinery/power/portgen/basic/advanced = 0.7,
+		/obj/machinery/power/portgen/basic/super = 0.5
 	)
 	var/type = pickweight(generators)
 	new type(L)
@@ -74,7 +75,10 @@ STOCK_ITEM_LARGE(vendor, 6)
 	new /obj/random/vendor(L, 1)
 
 STOCK_ITEM_LARGE(piano, 2)
-	new /obj/structure/device/piano(L)
+	new /obj/structure/synthesized_instrument/synthesizer/piano(L)
+
+STOCK_ITEM_LARGE(synthesizer, 2)
+	new /obj/structure/synthesized_instrument/synthesizer(L)
 
 //Xenoarch suspension field generator, they need a spare
 STOCK_ITEM_LARGE(suspension, 2)
@@ -104,6 +108,7 @@ STOCK_ITEM_LARGE(dispenser, 2.5)
 	var/type = pickweight(dispensers)
 	var/obj/machinery/chemical_dispenser/CD = new type(L)
 	CD.anchored = FALSE
+	CD.update_use_power(POWER_USE_OFF)
 	for (var/cart in CD.cartridges)
 		if (prob(90))
 			CD.cartridges -= cart
@@ -133,9 +138,14 @@ STOCK_ITEM_LARGE(dog, 0.2)
 	var/dog = pick( \
 		/obj/structure/largecrate/animal/dog, \
 		/obj/structure/largecrate/animal/dog/amaskan, \
-		/obj/structure/largecrate/animal/dog/pug \
+		/obj/structure/largecrate/animal/dog/pug, \
+		/obj/structure/largecrate/animal/dog/bullterrier \
 	)
 	new dog(L)
 
-STOCK_ITEM_LARGE(nothing, 0)
-	// no-op
+STOCK_ITEM_LARGE(exosuit, 1.2) //A randomly generated exosuit in a very variable condition.
+	new /obj/machinery/mech_recharger(get_turf(L)) // exosuit would die without it otherwise
+	new /mob/living/heavy_vehicle/premade/random/extra(L)
+
+STOCK_ITEM_LARGE(unusualcrate, 0.1) //Like from the unknown object random event
+	new /obj/structure/closet/crate/loot(L)

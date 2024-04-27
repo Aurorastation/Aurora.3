@@ -11,39 +11,27 @@
 //mob verbs are faster than object verbs. See above.
 var/mob/living/next_point_time = 0
 /mob/living/pointed(atom/A as mob|obj|turf in view())
-	if(!isturf(src.loc) || !(A in range(world.view, get_turf(src))))
-		return FALSE
-	if(src.stat || !src.canmove || src.restrained())
+	if(src.stat || src.restrained())
 		return FALSE
 	if(src.status_flags & FAKEDEATH)
 		return FALSE
-	if(next_point_time >= world.time)
-		return FALSE
 
-	next_point_time = world.time + 25
-	face_atom(A)
-	if(isturf(A))
-		if(pointing_effect)
-			clear_point()
-		pointing_effect = new /obj/effect/decal/point(A)
-		pointing_effect.invisibility = invisibility
-		addtimer(CALLBACK(src, .proc/clear_point), 20)
-	else
-		var/pointglow = filter(type = "drop_shadow", x = 0, y = -1, offset = 1, size = 1, color = "#F00")
-		LAZYADD(A.filters, pointglow)
-		addtimer(CALLBACK(src, .proc/remove_filter, A, pointglow), 20)
-	visible_message("<b>\The [src]</b> points to \the [A].")
-	return TRUE
+	. = ..()
 
-/mob/living/proc/remove_filter(var/atom/A, var/filter_to_remove)
-	LAZYREMOVE(A.filters, filter_to_remove)
+	if(.)
+		visible_message("<b>\The [src]</b> points to \the [A].")
+
+/mob/living/drop_from_inventory(var/obj/item/W, var/atom/target)
+	. = ..(W, target)
+	if(W && W.GetID())
+		BITSET(hud_updateflag, ID_HUD) //If we drop our ID, update ID HUD
 
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
- - non-passive mob passes the passive version
- - passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
- - if si, the proc returns
+	- non-passive mob passes the passive version
+	- passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
+	- if si, the proc returns
 */
 /mob/living/proc/can_move_mob(var/mob/living/swapped, swapping = 0, passive = 0)
 	if(!swapped)
@@ -98,11 +86,29 @@ default behaviour is:
 				return
 
 			if(can_swap_with(tmob)) // mutual brohugs all around!
-				var/turf/oldloc = loc
-				forceMove(tmob.loc)
-				tmob.forceMove(oldloc)
+				var/turf/tmob_oldloc = get_turf(tmob)
+				var/turf/src_oldloc = get_turf(src)
+				if(pulling?.density)
+					tmob.forceMove(pulling.loc)
+					forceMove(tmob_oldloc)
+					pulling.forceMove(src_oldloc)
+				else if(tmob.pulling?.density)
+					forceMove(tmob.pulling.loc)
+					tmob.forceMove(src_oldloc)
+					tmob.pulling.forceMove(tmob_oldloc)
+				else
+					forceMove(tmob_oldloc)
+					if(pulling)
+						pulling.forceMove(src_oldloc)
+					tmob.forceMove(src_oldloc)
+					if(tmob.pulling)
+						tmob.pulling.forceMove(tmob_oldloc)
+				for(var/obj/item/grab/G in list(l_hand, r_hand))
+					G.affecting.forceMove(loc)
+				for(var/obj/item/grab/G in list(tmob.l_hand, tmob.r_hand))
+					G.affecting.forceMove(tmob.loc)
 				now_pushing = FALSE
-				for(var/mob/living/carbon/slime/slime in view(1,tmob))
+				for(var/mob/living/carbon/slime/slime in view(2, tmob))
 					if(slime.victim == tmob)
 						slime.UpdateFeed()
 				return
@@ -115,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && (FAT in tmob.mutations))
-				if(prob(40) && !(FAT in src.mutations))
+			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+				if(prob(40) && !(mutations & FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -166,18 +172,36 @@ default behaviour is:
 
 				now_pushing = FALSE
 
+/**
+ * Checks if two mobs can swap with each other based on the density
+ *
+ * Returns `TRUE` if the density allows them to swap, `FALSE` otherwise
+ *
+ * swapper - A `/mob`, the one trying to perform the swap
+ * swapee - A `/mob`, the one the `swapper` is trying to swap with
+ */
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	var/turf/T = get_turf(swapper)
+
+	if(!T)
+		return FALSE
+
 	if(T.density)
-		return 1
+		return TRUE
+
 	for(var/atom/movable/A in T)
+
 		if(A == swapper)
 			continue
+
 		if(!A.CanPass(swapee, T, 1))
-			return 1
+			return TRUE
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
-	if(tmob.buckled || buckled)
+	if(tmob.buckled_to || buckled_to)
 		return 0
 	//BubbleWrap: people in handcuffs are always switched around as if they were on 'help' intent to prevent a person being pulled from being seperated from their puller
 	if(!(tmob.mob_always_swap || (tmob.a_intent == I_HELP || tmob.restrained()) && (a_intent == I_HELP || src.restrained())))
@@ -190,6 +214,9 @@ default behaviour is:
 
 	if(swap_density_check(tmob, src))
 		return 0
+
+	if(pulling?.density && tmob.pulling?.density) // if both are pulling, don't shuffle
+		return FALSE
 
 	return can_move_mob(tmob, 1, 0)
 
@@ -204,13 +231,10 @@ default behaviour is:
 
 /mob/living/proc/updatehealth()
 	if(status_flags & GODMODE)
-		health = 100
-		stat = CONSCIOUS
+		health = maxHealth
+		set_stat(CONSCIOUS)
 	else
-		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss() - getHalLoss()
-		//Removed Halloss from here. Halloss isn't supposed to count towards death
-
-
+		health = maxHealth - getOxyLoss() - getToxLoss() - getFireLoss() - getBruteLoss() - getCloneLoss()
 
 //This proc is used for mobs which are affected by pressure to calculate the amount of pressure that actually
 //affects them once clothing is factored in. ~Errorage
@@ -218,24 +242,18 @@ default behaviour is:
 	return
 
 
-//sort of a legacy burn method for /electrocute, /shock, and the e_chair
+//sort of a legacy burn method for /electrocute, /shock
 /mob/living/proc/burn_skin(burn_amount)
-	if(istype(src, /mob/living/carbon/human))
-		if(mShock in src.mutations) //shockproof
-			return 0
-		if (COLD_RESISTANCE in src.mutations) //fireproof
-			return 0
-		var/mob/living/carbon/human/H = src	//make this damage method divide the damage to be done among all the body parts, then burn each body part for that much damage. will have better effect then just randomly picking a body part
-		var/divided_damage = (burn_amount)/(H.organs.len)
-		var/extradam = 0	//added to when organ is at max dam
-		for(var/obj/item/organ/external/affecting in H.organs)
-			if(!affecting)	continue
-			if(affecting.take_damage(0, divided_damage+extradam))	//TODO: fix the extradam stuff. Or, ebtter yet...rewrite this entire proc ~Carn
-				H.UpdateDamageIcon()
-		H.updatehealth()
-		return 1
-	else if(istype(src, /mob/living/silicon/ai))
-		return 0
+	take_overall_damage(0, burn_amount)
+	return TRUE
+
+/mob/living/carbon/human/burn_skin(burn_amount)
+	if((mutations & mShock)) //shockproof
+		return FALSE
+	if((mutations & COLD_RESISTANCE)) //fireproof
+		return FALSE
+	. = ..()
+	updatehealth()
 
 /mob/living/proc/adjustBodyTemp(actual, desired, incrementboost)
 	var/temperature = actual
@@ -297,6 +315,9 @@ default behaviour is:
 
 /mob/living/proc/getHalLoss()
 	return 0
+
+/mob/living/proc/get_shock()
+	return getHalLoss()
 
 /mob/living/proc/getCloneLoss()
 	return 0
@@ -380,7 +401,7 @@ default behaviour is:
 			return 1
 	return 0
 
-
+// Returns injection time modifier, if 0 then injection fails
 /mob/living/proc/can_inject()
 	return 1
 
@@ -436,8 +457,8 @@ default behaviour is:
 //		suiciding = 0
 
 	rejuvenate()
-	if(buckled)
-		buckled.unbuckle_mob()
+	if(buckled_to)
+		buckled_to.unbuckle()
 	if(iscarbon(src))
 		var/mob/living/carbon/C = src
 
@@ -467,12 +488,20 @@ default behaviour is:
 	SetWeakened(0)
 
 	// shut down ongoing problems
+	stamina = max_stamina
 	total_radiation = 0
 	nutrition = 400
 	hydration = 400
 	bodytemperature = T20C
 	sdisabilities = 0
 	disabilities = 0
+	hallucination = 0
+	silent = 0
+	dizziness = 0
+	drowsiness = 0
+	stuttering = 0
+	confused = 0
+	jitteriness = 0
 
 	// fix blindness and deafness
 	blinded = 0
@@ -487,13 +516,13 @@ default behaviour is:
 
 	// remove the character from the list of the dead
 	if(stat == DEAD)
-		dead_mob_list -= src
-		living_mob_list += src
+		GLOB.dead_mob_list -= src
+		GLOB.living_mob_list += src
 		tod = null
 		timeofdeath = 0
 
 	// restore us to conciousness
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 
 	// make the icons look correct
 	regenerate_icons()
@@ -516,7 +545,7 @@ default behaviour is:
 		switch_from_dead_to_living_mob_list()
 		timeofdeath = 0
 
-	stat = CONSCIOUS
+	set_stat(CONSCIOUS)
 	regenerate_icons()
 
 	BITSET(hud_updateflag, HEALTH_HUD)
@@ -540,24 +569,8 @@ default behaviour is:
 /mob/living/proc/UpdateDamageIcon()
 	return
 
-
-/mob/living/proc/Examine_OOC()
-	set name = "Examine Meta-Info (OOC)"
-	set category = "OOC"
-	set src in view()
-
-	if(config.allow_Metadata)
-		if(client)
-			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
-		else
-			to_chat(usr, "[src] does not have any stored infomation!")
-	else
-		to_chat(usr, "OOC Metadata is not supported by this server!")
-
-	return
-
-/mob/living/Move(a, b, flag)
-	if (buckled)
+/mob/living/Move(atom/newloc, direct)
+	if (buckled_to)
 		return
 
 	if (restrained())
@@ -585,8 +598,7 @@ default behaviour is:
 
 		if (!restrained())
 			var/diag = get_dir(src, pulling)
-			if ((diag - 1) & diag)
-			else
+			if (!((diag - 1) & diag))
 				diag = null
 			if ((get_dist(src, pulling) > 1 || diag))
 				if (isliving(pulling))
@@ -629,9 +641,9 @@ default behaviour is:
 											location.add_blood(M)
 											if(ishuman(M))
 												var/mob/living/carbon/human/H = M
-												var/total_blood = round(H.vessel.get_reagent_amount("blood"))
+												var/total_blood = round(REAGENT_VOLUME(H.vessel, /singleton/reagent/blood))
 												if(total_blood > 0)
-													H.vessel.remove_reagent("blood", 1)
+													H.vessel.remove_reagent(/singleton/reagent/blood, 1)
 
 
 						step(pulling, get_dir(pulling.loc, T))
@@ -650,7 +662,7 @@ default behaviour is:
 		stop_pulling()
 		. = ..()
 
-	if (s_active && !( s_active in contents ) && get_turf(s_active) != get_turf(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
+	if (s_active && !s_active.Adjacent(src))	//check !( s_active in contents ) first so we hopefully don't have to call get_turf() so much.
 		s_active.close(src)
 
 	if(update_slimes)
@@ -673,7 +685,7 @@ default behaviour is:
 		return
 
 	//unbuckling yourself
-	if(buckled)
+	if(buckled_to)
 		spawn() escape_buckle()
 
 	//Breaking out of a locker?
@@ -682,7 +694,11 @@ default behaviour is:
 		spawn() C.mob_breakout(src)
 
 /mob/living/proc/escape_inventory(obj/item/holder/H)
-	if(H != src.loc) return
+	if(H != src.loc)
+		return
+	if(health < maxHealth * 0.6)
+		to_chat(src, SPAN_WARNING("You're too injured to escape..."))
+		return
 
 	var/mob/M = H.loc //Get our mob holder (if any).
 
@@ -708,8 +724,8 @@ default behaviour is:
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
-	if(buckled)
-		buckled.user_unbuckle_mob(src)
+	if(buckled_to)
+		buckled_to.user_unbuckle(src)
 
 /mob/living/var/last_resist
 
@@ -736,35 +752,45 @@ default behaviour is:
 					resist_chance = 30 * resist_power
 				else
 					resist_chance = 70 * resist_power //only a bit difficult to break out of a passive grab
-				resist_msg = span("warning", "[src] pulls away from [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] pulls away from [G.assailant]'s grip!")
 			if(GRAB_AGGRESSIVE)
 				if(incapacitated(INCAPACITATION_DISABLED) || src.lying)
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 50 * resist_power
-				resist_msg = span("warning", "[src] has broken free of [G.assailant]'s grip!")
+				resist_msg = SPAN_WARNING("[src] has broken free of [G.assailant]'s grip!")
 			if(GRAB_NECK)
 				//If the you move when grabbing someone then it's easier for them to break free. Same if the affected mob is immune to stun.
 				if(world.time - G.assailant.l_move_time < 30 || !stunned || !src.lying || incapacitated(INCAPACITATION_DISABLED))
 					resist_chance = 15 * resist_power
 				else
 					resist_chance = 3 * resist_power
-				resist_msg = span("danger", "[src] has broken free of [G.assailant]'s headlock!")
+				resist_msg = SPAN_DANGER("[src] has broken free of [G.assailant]'s headlock!")
 
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
+			break
 
 	if(resisting)
-		visible_message(span("warning", "[src] resists!"))
-		setClickCooldown(25)
+		visible_message(SPAN_WARNING("[src] resists!"))
+		setClickCooldown(2.5 SECONDS)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
 	set category = "IC"
 
+	if(last_special + 1 SECOND > world.time)
+		to_chat(src, SPAN_WARNING("You're too tired to do this now!"))
+		return
+	if(in_neck_grab())
+		to_chat(src, SPAN_WARNING("You are being restrained!"))
+		return
+	last_special = world.time
 	resting = !resting
-	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"]</span>")
+	to_chat(src, "<span class='notice'>You are now [resting ? "resting" : "getting up"].</span>")
+	update_canmove()
+	update_icon()
 
 /mob/living/proc/cannot_use_vents()
 	return "You can't fit into that vent."
@@ -774,6 +800,11 @@ default behaviour is:
 
 /mob/living/proc/has_eyes()
 	return 1
+
+/mob/living/proc/eyes_protected(var/obj/stab_item, var/stabbed = FALSE) // if stabbed is set to true if we're being stabbed and not just checking
+	if(!has_eyes())
+		return TRUE
+	return FALSE
 
 /mob/living/proc/slip(var/slipped_on,stun_duration=8)
 	return 0
@@ -810,11 +841,24 @@ default behaviour is:
 	..()
 
 //damage/heal the mob ears and adjust the deaf amount
-/mob/living/adjustEarDamage(var/damage, var/deaf)
+/mob/living/adjustEarDamage(var/damage, var/deaf, var/ringing = FALSE)
+	var/alreadydeaf = FALSE
+	if (ear_deaf)
+		alreadydeaf = TRUE
+
 	ear_damage = max(0, ear_damage + damage)
 	ear_deaf = max(0, ear_deaf + deaf)
 
+	if (ringing && !alreadydeaf)
+		if (ear_damage >= 5)
+			if (ear_damage >= 15)
+				to_chat(src, SPAN_DANGER("Your ears start to ring badly!"))
+			else
+				to_chat(src, SPAN_DANGER("Your ears start to ring!"))
+
+
 //pass a negative argument to skip one of the variable
+
 /mob/living/setEarDamage(var/damage, var/deaf)
 	if(damage >= 0)
 		ear_damage = damage
@@ -864,14 +908,39 @@ default behaviour is:
 	to_chat(src, "<span class='notice'>Remember to stay in character for a mob of this type!</span>")
 	return 1
 
+/mob/living/Initialize()
+	. = ..()
+	add_to_target_grid()
+	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
+
 /mob/living/Destroy()
+
+	//Aiming overlay
+	QDEL_NULL(aiming)
+	QDEL_LIST(aimed_at_by)
+
+	//Psi complexus
+	QDEL_NULL(psi)
+
+	if(vr_mob)
+		vr_mob = null
+	if(old_mob)
+		old_mob = null
+
+	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
 			M.dropInto(loc)
 	else
 		for(var/mob/M in contents)
 			qdel(M)
+
 	QDEL_NULL(reagents)
+	clear_from_target_grid()
+
+	if(auras)
+		for(var/a in auras)
+			remove_aura(a)
 
 	return ..()
 
@@ -897,9 +966,9 @@ default behaviour is:
 	if (!composition_reagent)//if no reagent has been set, then we'll set one
 		var/type = find_type(src)
 		if (type & TYPE_SYNTHETIC)
-			src.composition_reagent = "iron"
+			src.composition_reagent = /singleton/reagent/iron
 		else
-			src.composition_reagent = "protein"
+			src.composition_reagent = /singleton/reagent/nutriment/protein
 
 	//if the mob is a simple animal with a defined meat quantity
 	if (istype(src, /mob/living/simple_animal))
@@ -917,14 +986,17 @@ default behaviour is:
 /mob/living/proc/get_resist_power()
 	return 1
 
-/mob/living/proc/seizure()
+/mob/living/proc/seizure(var/severity_multiplier = 1)
 	if(!paralysis && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(8,16))
-		make_jittery(rand(150,200))
-		adjustHalLoss(rand(50,60))
+		visible_message(SPAN_HIGHDANGER("\The [src] starts having a seizure!"))
+		Paralyse(24*severity_multiplier)
+		make_jittery(200*severity_multiplier)
+		adjustHalLoss(60*severity_multiplier)
 
-/mob/living/update_icons()
+/mob/living/proc/InStasis()
+	return FALSE
+
+/mob/living/update_icon()
 	for(var/aura in auras)
 		var/obj/aura/A = aura
 		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
@@ -932,16 +1004,61 @@ default behaviour is:
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
 /mob/living/proc/remove_aura(var/obj/aura/aura)
 	LAZYREMOVE(auras, aura)
-	update_icons()
+	update_icon()
 	return TRUE
 
-/mob/living/Destroy()
-	if(auras)
-		for(var/a in auras)
-			remove_aura(a)
-	return ..()
+/mob/living/proc/needs_wheelchair()
+	return FALSE
+
+/mob/living/verb/toggle_run_intent()
+	set hidden = 1
+	set name = "mov_intent"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click()
+
+/mob/living/verb/toggle_intentionally_lying()
+	set hidden = 1
+	set name = "lie_down"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click(params="button=middle")
+
+/**
+ * Used by a macro in skin.dmf to toggle the throw
+ */
+/mob/living/verb/throw_intent_keyDown()
+	set hidden = 1
+	set name = "throw_intent"
+	if(!(src.in_throw_mode))
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_keyUp()
+	set hidden = 1
+	set name = "throw_intent_up"
+	if(src.in_throw_mode)
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_toggle()
+	set hidden = 1
+	set name = "throw_intent_toggle"
+	toggle_throw_mode()
+
+/mob/living/proc/add_hallucinate(var/amount)
+	hallucination += amount
+	hallucination += amount
+
+/mob/living/set_respawn_time()
+	set_death_time(CREW, world.time)
+//Used by simple animals and monkey species for renaming. M is the one doing the renaming
+/mob/living/proc/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/proc/is_anti_materiel_vulnerable()
+	return FALSE
+
+/mob/living/get_speech_bubble_state_modifier()
+	return isSynthetic() ? "robot" : ..()

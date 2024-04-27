@@ -23,6 +23,7 @@ var/list/ai_status_emotions = list(
 	"Dorfy" 					= new /datum/ai_emotion("ai_urist"),
 	"Facepalm" 					= new /datum/ai_emotion("ai_facepalm"),
 	"Friend Computer" 			= new /datum/ai_emotion("ai_friend"),
+	"Diagnostics"				= new /datum/ai_emotion("ai_diagnostics"),
 	"Tribunal" 					= new /datum/ai_emotion("ai_tribunal", "serithi"),
 	"Tribunal Malfunctioning"	= new /datum/ai_emotion("ai_tribunal_malf", "serithi")
 	)
@@ -76,12 +77,14 @@ var/list/ai_status_emotions = list(
 	return ..()
 
 /obj/machinery/ai_status_display/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	var/emote = get_ai_emotion(user)
 	src.emotion = emote
 	src.update()
 
 /proc/get_ai_emotion(mob/user as mob)
-	return input(user, "Please, select a status!", "AI Status", null, null) in get_ai_emotions(user.ckey)
+	return input(user, "Please, select a status!", "AI Status", null) in get_ai_emotions(user.ckey)
 
 /obj/machinery/ai_status_display/proc/update()
 	switch (mode)

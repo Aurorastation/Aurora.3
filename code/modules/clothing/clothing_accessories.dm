@@ -8,14 +8,20 @@
 			if (AC.slot == A.slot)
 				return 0
 
-/obj/item/clothing/attackby(var/obj/item/I, var/mob/user)
-	if(istype(I, /obj/item/clothing/accessory))
+/obj/item/clothing/attackby(obj/item/attacking_item, mob/user)
+	if(IC && (istype(attacking_item, /obj/item/integrated_circuit) || attacking_item.iswrench() || attacking_item.iscrowbar() || \
+				istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || \
+				attacking_item.ismultitool() || attacking_item.isscrewdriver() || istype(attacking_item, /obj/item/cell/device)))
+
+		IC.attackby(attacking_item, user)
+
+	else if(istype(attacking_item, /obj/item/clothing/accessory))
 
 		if(!valid_accessory_slots || !valid_accessory_slots.len)
 			to_chat(usr, "<span class='warning'>You cannot attach accessories of any kind to \the [src].</span>")
 			return
 
-		var/obj/item/clothing/accessory/A = I
+		var/obj/item/clothing/accessory/A = attacking_item
 		if(can_attach_accessory(A))
 			user.drop_item()
 			attach_accessory(user, A)
@@ -26,7 +32,7 @@
 
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			A.attackby(I, user)
+			A.attackby(attacking_item, user)
 		return
 
 	..()
@@ -63,14 +69,14 @@
 		usr.unEquip(C)
 
 		switch(over_object.name)
-			if(BP_R_HAND)
+			if("right hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(usr)
-				usr.put_in_r_hand(C)
-			if(BP_L_HAND)
+				usr.equip_to_slot_if_possible(C, slot_r_hand)
+			if("left hand")
 				if(istype(src, /obj/item/clothing/ears))
 					C = check_two_ears(usr)
-				usr.put_in_l_hand(C)
+				usr.equip_to_slot_if_possible(C, slot_l_hand)
 		src.add_fingerprint(usr)
 
 /obj/item/clothing/proc/check_two_ears(var/mob/user)
@@ -91,17 +97,24 @@
 	return main_ear
 
 
-/obj/item/clothing/examine(var/mob/user)
-	..(user)
+/obj/item/clothing/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
-			to_chat(user, "\A [A] is attached to it.")
+			. += SPAN_NOTICE("<a HREF=?src=\ref[user];lookitem=\ref[A]>\A [A]</a> [A.gender == PLURAL ? "are" : "is"] attached to it.")
+
+/obj/item/clothing/proc/update_accessory_slowdown()
+	slowdown_accessory = 0
+	for(var/obj/item/clothing/accessory/bling in accessories)
+		slowdown_accessory += bling.slowdown
 
 /obj/item/clothing/proc/attach_accessory(mob/user, obj/item/clothing/accessory/A)
 	LAZYADD(accessories, A)
 	A.on_attached(src, user)
 	src.verbs |= /obj/item/clothing/proc/removetie_verb
 	update_clothing_icon()
+	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/remove_accessory(mob/user, obj/item/clothing/accessory/A)
 	if(!(A in accessories))
@@ -110,25 +123,48 @@
 	A.on_removed(user)
 	LAZYREMOVE(accessories, A)
 	update_clothing_icon()
+	update_accessory_slowdown()
+	recalculate_body_temperature_change()
 
 /obj/item/clothing/proc/removetie_verb()
 	set name = "Remove Accessory"
 	set category = "Object"
 	set src in usr
-	if(!istype(usr, /mob/living)) return
-	if(usr.stat) return
-	if(!LAZYLEN(accessories)) return
+	if(!isliving(usr))
+		return
+
+	var/mob/living/M = usr
+
+	if(use_check_and_message(M))
+		return
+
+	if(!LAZYLEN(accessories))
+		return
+
 	var/obj/item/clothing/accessory/A
 	if(LAZYLEN(accessories) > 1)
-		A = input("Select an accessory to remove from [src]") as null|anything in accessories
+		var/list/options = list()
+		for (var/obj/item/clothing/accessory/i in accessories)
+			var/image/radial_button = image(icon = i.icon, icon_state = i.icon_state)
+			if(i.color)
+				radial_button.color = i.color
+			if(i.build_from_parts && i.worn_overlay)
+				radial_button.cut_overlays()
+				radial_button.add_overlay(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
+			options[i] = radial_button
+		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
 	else
 		A = accessories[1]
-	src.remove_accessory(usr,A)
+	remove_accessory(usr,A)
 	if(!LAZYLEN(accessories))
-		src.verbs -= /obj/item/clothing/proc/removetie_verb
+		verbs -= /obj/item/clothing/proc/removetie_verb
 
 /obj/item/clothing/emp_act(severity)
+	. = ..()
+
+	if(IC)
+		IC.emp_act(severity)
+
 	if(LAZYLEN(accessories))
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.emp_act(severity)
-	..()

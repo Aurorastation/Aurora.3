@@ -6,7 +6,6 @@
 	invocation_type = SpI_EMOTE
 	invocation = "conjures a sphere of fire around themselves."
 	school = "conjuration"
-	spell_flags = NEEDSCLOTHES
 	charge_max = 300
 	cooldown_min = 200
 	level_max = list(Sp_TOTAL = 2, Sp_SPEED = 2, Sp_POWER = 0)

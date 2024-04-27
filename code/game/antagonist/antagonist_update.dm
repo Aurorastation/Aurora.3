@@ -9,12 +9,18 @@
 		var/mob/holder = player.current
 		player.current = new mob_path(get_turf(player.current))
 		player.transfer_to(player.current)
-		if(holder) qdel(holder)
+		if(holder)
+			qdel(holder)
 	player.original = player.current
 	if(!preserve_appearance && (flags & ANTAG_SET_APPEARANCE))
 		spawn(3)
 			var/mob/living/carbon/human/H = player.current
-			if(istype(H)) H.change_appearance(APPEARANCE_ALL, H.loc, H, valid_species, state = z_state)
+			if(istype(H))
+				H.change_appearance(APPEARANCE_ALL, H, valid_species, update_id = TRUE)
+				H.rejuvenate() //So that things like disabilities and stuff get cleared.
+	if((flags & ANTAG_NO_FLAVORTEXT) && ishuman(player.current))
+		var/mob/living/carbon/human/H = player.current
+		H.scrub_flavor_text()
 	return player.current
 
 /datum/antagonist/proc/update_access(var/mob/living/player)
@@ -32,7 +38,7 @@
 	if(!antag_indicator || !other.current || !recipient.current)
 		return
 	var/indicator = (faction_indicator && (other in faction_members)) ? faction_indicator : antag_indicator
-	return image('icons/mob/mob.dmi', loc = other.current, icon_state = indicator, layer = LIGHTING_LAYER+0.1)
+	return image('icons/mob/mob.dmi', loc = other.current, icon_state = indicator, layer = ABOVE_HUMAN_LAYER)
 
 /datum/antagonist/proc/update_all_icons()
 	if(!antag_indicator)
@@ -46,7 +52,7 @@
 				antag.current.client.images |= get_indicator(antag, other_antag)
 
 /datum/antagonist/proc/update_icons_added(var/datum/mind/player)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 	if(!antag_indicator || !player.current)
 		return
 
@@ -62,7 +68,7 @@
 			player.current.client.images |= get_indicator(player, antag)
 
 /datum/antagonist/proc/update_icons_removed(var/datum/mind/player)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!antag_indicator || !player.current)
 		return
@@ -88,11 +94,11 @@
 		if (SSticker.current_state < GAME_STATE_PLAYING)
 			// If we're in the pre-game state, we count readied new players as players.
 			// Yes, not all get spawned, but it's a close enough guestimation.
-			for (var/mob/abstract/new_player/L in player_list)
+			for (var/mob/abstract/new_player/L in GLOB.player_list)
 				if (L.client && L.ready)
 					count++
 		else
-			for (var/mob/living/M in player_list)
+			for (var/mob/living/M in GLOB.player_list)
 				if (M.client)
 					count++
 
@@ -114,11 +120,11 @@
 	if (SSticker.current_state < GAME_STATE_PLAYING)
 		// If we're in the pre-game state, we count readied new players as players.
 		// Yes, not all get spawned, but it's a close enough guestimation.
-		for (var/mob/abstract/new_player/L in player_list)
+		for (var/mob/abstract/new_player/L in GLOB.player_list)
 			if (L.client && L.ready)
 				count++
 	else
-		for (var/mob/living/M in player_list)
+		for (var/mob/living/M in GLOB.player_list)
 			if (M.client)
 				count++
 

@@ -1,3 +1,7 @@
+/client/verb/ooc_verb()
+	set name = ".OOC"
+	set hidden = TRUE
+	winset(src, null, "command=[src.tgui_say_create_open_command(OOC_CHANNEL)]")
 
 /client/verb/ooc(msg as text)
 	set name = "OOC"
@@ -7,23 +11,24 @@
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
 
-	if(!mob)	return
+	if(!mob)
+		return
+
 	if(IsGuestKey(key))
 		to_chat(src, "Guests may not use OOC.")
 		return
-
-	msg = sanitize(msg)
-	if(!msg)	return
 
 	if(!(prefs.toggles & CHAT_OOC))
 		to_chat(src, "<span class='warning'>You have OOC muted.</span>")
 		return
 
+	msg = sanitize(msg)
+
 	if(!holder)
-		if(!config.ooc_allowed)
+		if(!GLOB.config.ooc_allowed)
 			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")
 			return
-		if(!config.dooc_allowed && (mob.stat == DEAD))
+		if(!GLOB.config.dooc_allowed && (mob.stat == DEAD))
 			to_chat(usr, "<span class='danger'>OOC for dead mobs has been turned off.</span>")
 			return
 		if(handle_spam_prevention(msg,MUTE_OOC))
@@ -48,8 +53,8 @@
 
 	msg = process_chat_markup(msg, list("*"))
 
-	for(var/client/target in clients)
-		if(target.prefs.toggles & CHAT_OOC)
+	for(var/client/target in GLOB.clients)
+		if(target.prefs?.toggles & CHAT_OOC)
 			var/display_name = src.key
 			if(holder)
 				if(holder.fakekey)
@@ -57,10 +62,10 @@
 						display_name = "[holder.fakekey]/([src.key])"
 					else
 						display_name = holder.fakekey
-			if(holder && !holder.fakekey && (holder.rights & R_ADMIN) && config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
-				to_chat(target, "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></font>")
+			if(holder && !holder.fakekey && (holder.rights & R_ADMIN) && GLOB.config.allow_admin_ooccolor && (src.prefs.ooccolor != initial(src.prefs.ooccolor))) // keeping this for the badmins
+				to_chat(target, "<font color='[src.prefs.ooccolor]'><span class='ooc'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></font>")
 			else
-				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("ooc", "OOC:", target) + " <EM>[display_name]:</EM> <span class='message'>[msg]</span></span></span>")
+				to_chat(target, "<span class='ooc'><span class='[ooc_style]'>" + create_text_tag("OOC", target) + " <EM>[display_name]:</EM> <span class='message linkify'>[msg]</span></span></span>")
 
 /client/verb/looc(msg as text)
 	set name = "LOOC"
@@ -86,12 +91,15 @@
 	if(!(prefs.toggles & CHAT_LOOC))
 		to_chat(src, "<span class='danger'>You have LOOC muted.</span>")
 		return
+	if(mob.stat == DEAD && !(prefs.toggles & CHAT_GHOSTLOOC))
+		to_chat(src, "<span class='danger'>You have observer LOOC muted.</span>")
+		return
 
 	if(!holder)
-		if(!config.looc_allowed)
+		if(!GLOB.config.looc_allowed)
 			to_chat(src, "<span class='danger'>LOOC is globally muted.</span>")
 			return
-		if(!config.dead_looc_allowed && (mob.stat == DEAD))
+		if(!GLOB.config.dead_looc_allowed && (mob.stat == DEAD))
 			to_chat(usr, "<span class='danger'>LOOC for dead mobs has been turned off.</span>")
 			return
 		if(handle_spam_prevention(msg, MUTE_OOC))
@@ -115,7 +123,7 @@
 		for(var/turf in range(world.view, get_turf(AI.eyeobj)))
 			messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if(isAI(M))
@@ -136,8 +144,10 @@
 
 	var/prefix
 	var/admin_stuff
-	for(var/client/target in clients)
+	for(var/client/target in GLOB.clients)
 		if(target.prefs.toggles & CHAT_LOOC)
+			if(mob.stat == DEAD && !(target.prefs.toggles & CHAT_GHOSTLOOC))
+				continue
 			admin_stuff = ""
 			var/display_remote = 0
 			if (target.holder && ((R_MOD|R_ADMIN) & target.holder.rights))
@@ -150,7 +160,7 @@
 			if(target.mob in messagemobs)
 				prefix = ""
 			if((target.mob in messagemobs) || display_remote)
-				to_chat(target, "<span class='ooc'><span class='looc'>" + create_text_tag("looc", "LOOC:", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message'>[msg]</span></span></span>")
+				to_chat(target, "<span class='ooc'><span class='looc'>" + create_text_tag("LOOC", target) + " <span class='prefix'>[prefix]</span><EM>[display_name][admin_stuff]:</EM> <span class='message linkify'>[msg]</span></span></span>")
 
 /client/verb/stop_all_sounds()
 	set name = "Stop all sounds"
@@ -217,3 +227,17 @@
 
 		pct += delta
 		winset(src, "mainwindow.mainvsplit", "splitter=[pct]")
+
+/client/verb/refresh_tgui()
+	set name = "Refresh TGUI"
+	set category = "OOC"
+
+	for(var/window_id in tgui_windows)
+		var/datum/tgui_window/window = tgui_windows[window_id]
+		window.reinitialize()
+
+/client/verb/fix_stat_panel()
+	set name = "Fix-Stat-Panel"
+	set hidden = TRUE
+
+	init_verbs()

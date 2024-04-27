@@ -4,9 +4,9 @@
 
 /datum/category_item/player_setup_item/general/flavor/load_character(var/savefile/S)
 	S["flavor_texts_general"] >> pref.flavor_texts["general"]
-	S["flavor_texts_head"]    >> pref.flavor_texts[BP_HEAD]
+	S["flavor_texts_head"]    >> pref.flavor_texts["head"]
 	S["flavor_texts_face"]    >> pref.flavor_texts["face"]
-	S["flavor_texts_eyes"]    >> pref.flavor_texts[BP_EYES]
+	S["flavor_texts_eyes"]    >> pref.flavor_texts["eyes"]
 	S["flavor_texts_torso"]   >> pref.flavor_texts["torso"]
 	S["flavor_texts_arms"]    >> pref.flavor_texts["arms"]
 	S["flavor_texts_hands"]   >> pref.flavor_texts["hands"]
@@ -15,7 +15,7 @@
 
 	//Flavour text for robots.
 	S["flavour_texts_robot_Default"] >> pref.flavour_texts_robot["Default"]
-	for(var/module in robot_module_types)
+	for(var/module in GLOB.robot_module_types)
 		S["flavour_texts_robot_[module]"] >> pref.flavour_texts_robot[module]
 
 	S["signature"] >> pref.signature
@@ -23,9 +23,9 @@
 
 /datum/category_item/player_setup_item/general/flavor/save_character(var/savefile/S)
 	S["flavor_texts_general"] << pref.flavor_texts["general"]
-	S["flavor_texts_head"]    << pref.flavor_texts[BP_HEAD]
+	S["flavor_texts_head"]    << pref.flavor_texts["head"]
 	S["flavor_texts_face"]    << pref.flavor_texts["face"]
-	S["flavor_texts_eyes"]    << pref.flavor_texts[BP_EYES]
+	S["flavor_texts_eyes"]    << pref.flavor_texts["eyes"]
 	S["flavor_texts_torso"]   << pref.flavor_texts["torso"]
 	S["flavor_texts_arms"]    << pref.flavor_texts["arms"]
 	S["flavor_texts_hands"]   << pref.flavor_texts["hands"]
@@ -33,7 +33,7 @@
 	S["flavor_texts_feet"]    << pref.flavor_texts["feet"]
 
 	S["flavour_texts_robot_Default"] << pref.flavour_texts_robot["Default"]
-	for(var/module in robot_module_types)
+	for(var/module in GLOB.robot_module_types)
 		S["flavour_texts_robot_[module]"] << pref.flavour_texts_robot[module]
 
 	S["signature"] << pref.signature
@@ -55,7 +55,7 @@
 		"signature_font" = "signfont"
 	)
 
-	for (var/module in robot_module_types)
+	for (var/module in GLOB.robot_module_types)
 		var_list["robot_[lowertext(module)]"] = "flavour_texts_robot/[module]"
 
 	return list(
@@ -85,7 +85,7 @@
 		"char_id" = 1
 	)
 
-	for (var/module in robot_module_types)
+	for (var/module in GLOB.robot_module_types)
 		var_list += "robot_[lowertext(module)]"
 
 	return list("ss13_characters_flavour" = var_list)
@@ -94,9 +94,9 @@
 	var/list/var_list = list(
 		"char_id" = pref.current_character,
 		"flavour_general" = pref.flavor_texts["general"],
-		"flavour_head" = pref.flavor_texts[BP_HEAD],
+		"flavour_head" = pref.flavor_texts["head"],
 		"flavour_face" = pref.flavor_texts["face"],
-		"flavour_eyes" = pref.flavor_texts[BP_EYES],
+		"flavour_eyes" = pref.flavor_texts["eyes"],
 		"flavour_torso" = pref.flavor_texts["torso"],
 		"flavour_arms" = pref.flavor_texts["arms"],
 		"flavour_hands" = pref.flavor_texts["hands"],
@@ -107,7 +107,7 @@
 		"signature_font" = pref.signfont
 	)
 
-	for (var/module in robot_module_types)
+	for (var/module in GLOB.robot_module_types)
 		var_list["robot_[lowertext(module)]"] += pref.flavour_texts_robot[module]
 
 	return var_list
@@ -124,7 +124,7 @@
 		"<a href='?src=\ref[src];flavor_text=open'>Set Flavor Text</a><br/>",
 		"<a href='?src=\ref[src];flavour_text_robot=open'>Set Robot Flavor Text</a><br/>",
 		"<br>",
-		"Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[pref.signature]</font><br/>",
+		"Signature: <font face='[pref.signfont ? pref.signfont : "Verdana"]'>[html_decode(pref.signature)]</font><br/>",
 		"<a href='?src=\ref[src];edit_signature=text'>Edit Text</a> | ",
 		"<a href='?src=\ref[src];edit_signature=font'>Edit Font</a> | ",
 		"<a href='?src=\ref[src];edit_signature=help'>Help</a> | ",
@@ -134,39 +134,39 @@
 
 /datum/category_item/player_setup_item/general/flavor/OnTopic(var/href,var/list/href_list, var/mob/user)
 	if(href_list["flavor_text"])
-		switch(href_list["flavor_text"])
-			if("open")
-			if("general")
-				var/msg = sanitize(input(usr,"Give a general description of your character. This will be shown regardless of clothing, and may include OOC notes and preferences.","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavor_texts[href_list["flavor_text"]] = msg
-			else
-				var/msg = sanitize(input(usr,"Set the flavor text for your [href_list["flavor_text"]].","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavor_texts[href_list["flavor_text"]] = msg
+		if(href_list["flavor_text"] != "open")
+			switch(href_list["flavor_text"])
+				if("general")
+					var/msg = sanitize(input(usr,"Give a general description of your character. This will be shown regardless of clothing.","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavor_texts[href_list["flavor_text"]] = msg
+				else
+					var/msg = sanitize(input(usr,"Set the flavor text for your [href_list["flavor_text"]].","Flavor Text",html_decode(pref.flavor_texts[href_list["flavor_text"]])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavor_texts[href_list["flavor_text"]] = msg
 		SetFlavorText(user)
 		return TOPIC_HANDLED
 
 	else if(href_list["flavour_text_robot"])
-		switch(href_list["flavour_text_robot"])
-			if("open")
-			if("Default")
-				var/msg = sanitize(input(usr,"Set the default flavour text for your robot. It will be used for any module without individual setting.","Flavour Text",html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
-			else
-				var/msg = sanitize(input(usr,"Set the flavour text for your robot with [href_list["flavour_text_robot"]] module. If you leave this empty, default flavour text will be used for this module.","Flavour Text",html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
-				if(CanUseTopic(user))
-					pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
+		if(href_list["flavour_text_robot"] != "open")
+			switch(href_list["flavour_text_robot"])
+				if("Default")
+					var/msg = sanitize(input(usr,"Set the default flavour text for your robot. It will be used for any module without individual setting.","Flavour Text",html_decode(pref.flavour_texts_robot["Default"])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
+				else
+					var/msg = sanitize(input(usr,"Set the flavour text for your robot with [href_list["flavour_text_robot"]] module. If you leave this empty, default flavour text will be used for this module.","Flavour Text",html_decode(pref.flavour_texts_robot[href_list["flavour_text_robot"]])) as message, extra = 0)
+					if(CanUseTopic(user))
+						pref.flavour_texts_robot[href_list["flavour_text_robot"]] = msg
 		SetFlavourTextRobot(user)
 		return TOPIC_HANDLED
 
 	else if (href_list["edit_signature"])
 		switch (href_list["edit_signature"])
 			if ("text")
-				var/new_sign = input(usr, "Please input the new character signature.", "New signature", html2pencode(pref.signature)) as null|text
+				var/new_sign = tgui_input_text(usr, "Please input the new character signature.", "New Signature", html2pencode(html_decode(pref.signature)), encode = FALSE)
 				if (!new_sign)
-					to_chat(usr, span("notice", "Cancelled."))
+					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signature)
 						return TOPIC_NOACTION
 					else
@@ -178,9 +178,9 @@
 
 				return TOPIC_REFRESH
 			if ("font")
-				var/new_font = input(usr, "Please select the font to use.", "New font") as null|anything in list("Verdana", "Times New Roman", "Courier New")
+				var/new_font = tgui_input_list(usr, "Please select the font to use.", "New Font", list("Verdana", "Times New Roman", "Courier New"))
 				if (!new_font)
-					to_chat(usr, span("notice", "Cancelled."))
+					to_chat(usr, SPAN_NOTICE("Cancelled."))
 					if (pref.signfont)
 						return TOPIC_NOACTION
 					else
@@ -203,7 +203,7 @@
 				show_browser(usr, html, "window=signaturehelp;size=350x300")
 				return TOPIC_HANDLED
 			if ("reset")
-				to_chat(usr, span("notice", "Signature reset."))
+				to_chat(usr, SPAN_NOTICE("Signature reset."))
 				pref.signfont = "Verdana"
 				pref.signature = "<i>[pref.real_name]</i>"
 				return TOPIC_REFRESH
@@ -219,13 +219,13 @@
 	HTML += TextPreview(pref.flavor_texts["general"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=head'>Head:</a> "
-	HTML += TextPreview(pref.flavor_texts[BP_HEAD])
+	HTML += TextPreview(pref.flavor_texts["head"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=face'>Face:</a> "
 	HTML += TextPreview(pref.flavor_texts["face"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=eyes'>Eyes:</a> "
-	HTML += TextPreview(pref.flavor_texts[BP_EYES])
+	HTML += TextPreview(pref.flavor_texts["eyes"])
 	HTML += "<br>"
 	HTML += "<a href='?src=\ref[src];flavor_text=torso'>Body:</a> "
 	HTML += TextPreview(pref.flavor_texts["torso"])
@@ -255,7 +255,7 @@
 	HTML += "<a href='?src=\ref[src];flavour_text_robot=Default'>Default:</a> "
 	HTML += TextPreview(pref.flavour_texts_robot["Default"])
 	HTML += "<hr />"
-	for(var/module in robot_module_types)
+	for(var/module in GLOB.robot_module_types)
 		HTML += "<a href='?src=\ref[src];flavour_text_robot=[module]'>[module]:</a> "
 		HTML += TextPreview(pref.flavour_texts_robot[module])
 		HTML += "<br>"

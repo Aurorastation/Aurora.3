@@ -35,7 +35,6 @@
 "i" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/computerframe{
-	layer = 3.1
 	},
 /obj/item/device/gps,
 /obj/item/material/shard,
@@ -49,7 +48,6 @@
 "k" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/blood/oil,
-/obj/item/circuitboard/telecomms/relay,
 /turf/simulated/floor/airless,
 /area/dungeon/crashed_satellite)
 "l" = (
@@ -166,7 +164,6 @@
 "H" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/effect/decal/cleanable/blood/oil,
-/obj/item/circuitboard/telecomms/relay,
 /obj/item/bluespace_crystal,
 /turf/simulated/floor/airless,
 /area/dungeon/crashed_satellite)

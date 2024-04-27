@@ -15,7 +15,7 @@
 				return
 			if(src.client)
 				if(client.prefs.muted & MUTE_IC)
-					to_chat(src, span("warning", "You cannot send IC messages (muted)."))
+					to_chat(src, SPAN_WARNING("You cannot send IC messages (muted)."))
 					return
 				if(stat || !message)
 					return
@@ -83,7 +83,7 @@
 			to_chat(src, "Help for slime emotes. You can use these emotes with say \"*emote\":\n\nbounce, custom, jiggle, light, moan, shiver, sway, twitch, vibrate. You can also set your face with: \n\nnomood, pout, sad, angry, frown, smile")
 
 		else
-			to_chat(src, span("notice", "Unusable emote '[act]'. Say *help for a list."))
+			to_chat(src, SPAN_NOTICE("Unusable emote '[act]'. Say *help for a list."))
 
 	if(message && !stat)
 		send_emote(message, m_type)

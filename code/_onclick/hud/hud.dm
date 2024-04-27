@@ -20,7 +20,6 @@ var/list/global_huds
 	var/obj/screen/thermal
 	var/obj/screen/meson
 	var/obj/screen/science
-	var/obj/screen/holomap
 
 /datum/global_hud/proc/setup_overlay(var/icon_state, var/color)
 	var/obj/screen/screen = new /obj/screen()
@@ -28,8 +27,7 @@ var/list/global_huds
 	screen.screen_loc = "SOUTHWEST to NORTHEAST" // Will tile up to the whole screen, scaling beyond 15x15 if needed.
 	screen.icon = 'icons/obj/hud_tiled.dmi'
 	screen.icon_state = icon_state
-	screen.layer = SCREEN_LAYER
-	screen.mouse_opacity = 0
+	screen.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	screen.color = color
 
 	return screen
@@ -39,8 +37,8 @@ var/list/global_huds
 	druggy = new /obj/screen()
 	druggy.screen_loc = ui_entire_screen
 	druggy.icon_state = "druggy"
-	druggy.layer = 17
-	druggy.mouse_opacity = 0
+	druggy.layer = IMPAIRED_LAYER
+	druggy.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	druggy.alpha = 127
 	druggy.blend_mode = BLEND_MULTIPLY
 
@@ -48,32 +46,21 @@ var/list/global_huds
 	blurry = new /obj/screen()
 	blurry.screen_loc = ui_entire_screen
 	blurry.icon_state = "blurry"
-	blurry.layer = 17
-	blurry.mouse_opacity = 0
+	blurry.layer = IMPAIRED_LAYER
+	blurry.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	blurry.alpha = 100
 
 	vr_control = new /obj/screen()
 	vr_control.icon = 'icons/mob/screen/full.dmi'
 	vr_control.icon_state = "vr_control"
 	vr_control.screen_loc = "1,1"
-	vr_control.mouse_opacity = 0
+	vr_control.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	vr_control.alpha = 120
 
 	nvg = setup_overlay("scanline", "#06ff00")
 	thermal = setup_overlay("scanline", "#ff0000")
 	meson = setup_overlay("scanline", "#9fd800")
 	science = setup_overlay("scanline", "#d600d6")
-
-	// The holomap screen object is actually totally invisible.
-	// Station maps work by setting it as an images location before sending to client, not
-	// actually changing the icon or icon state of the screen object itself!
-	// Why do they work this way? I don't know really, that is how /vg/ designed them, but since they DO
-	// work this way, we can take advantage of their immutability by making them part of
-	// the global_hud (something we have and /vg/ doesn't) instead of an instance per mob.
-	holomap = new /obj/screen()
-	holomap.name = "holomap"
-	holomap.icon = null
-	holomap.screen_loc = ui_holomap
-	holomap.mouse_opacity = 0
 
 	var/obj/screen/O
 	var/i
@@ -110,19 +97,19 @@ var/list/global_huds
 	for(i = 1, i <= 4, i++)
 		O = vimpaired[i]
 		O.icon_state = "dither50"
-		O.layer = 17
-		O.mouse_opacity = 0
+		O.layer = IMPAIRED_LAYER
+		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 		O = darkMask[i]
 		O.icon_state = "dither50"
-		O.layer = 17
-		O.mouse_opacity = 0
+		O.layer = IMPAIRED_LAYER
+		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 	for(i = 5, i <= 8, i++)
 		O = darkMask[i]
 		O.icon_state = "black"
-		O.layer = 17
-		O.mouse_opacity = 0
+		O.layer = IMPAIRED_LAYER
+		O.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
 /*
 	The hud datum
@@ -131,14 +118,24 @@ var/list/global_huds
 */
 
 /datum/hud
+	///The mob that possesses the HUD
 	var/mob/mymob
 
-	var/hud_shown = 1			//Used for the HUD toggle (F12)
-	var/inventory_shown = 1		//the inventory
-	var/show_intent_icons = 0
-	var/hotkey_ui_hidden = 0	//This is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
+	///Boolean, if the HUD is shown, used for the HUD toggle (F12)
+	var/hud_shown = TRUE
 
-	var/obj/screen/lingchemdisplay
+	///Boolean, if the inventory is shows
+	var/inventory_shown = TRUE
+
+	///Boolean, if the intent icons are shown
+	var/show_intent_icons = FALSE
+
+	///Boolean, this is to hide the buttons that can be used via hotkeys. (hotkeybuttons list of buttons)
+	var/hotkey_ui_hidden = FALSE
+
+	///Boolean, if the action buttons are hidden
+	var/action_buttons_hidden = FALSE
+
 	var/obj/screen/blobpwrdisplay
 	var/obj/screen/blobhealthdisplay
 	var/obj/screen/r_hand_hud_object
@@ -151,20 +148,17 @@ var/list/global_huds
 	var/list/obj/screen/hotkeybuttons
 
 	var/obj/screen/movable/action_button/hide_toggle/hide_actions_toggle
-	var/action_buttons_hidden = 0
 
-datum/hud/New(mob/owner)
+/datum/hud/New(mob/owner)
 	mymob = owner
 	instantiate()
 	..()
 
 /datum/hud/Destroy()
-	. = ..()
 	grab_intent = null
 	hurt_intent = null
 	disarm_intent = null
 	help_intent = null
-	lingchemdisplay = null
 	blobpwrdisplay = null
 	blobhealthdisplay = null
 	r_hand_hud_object = null
@@ -177,8 +171,12 @@ datum/hud/New(mob/owner)
 //	item_action_list = null // ?
 	mymob = null
 
+	. = ..()
+
 /datum/hud/proc/hidden_inventory_update()
-	if(!mymob) return
+	if(!mymob)
+		return
+
 	if(ishuman(mymob))
 		var/mob/living/carbon/human/H = mymob
 		for(var/gear_slot in H.species.hud.gear)
@@ -186,44 +184,67 @@ datum/hud/New(mob/owner)
 			if(inventory_shown && hud_shown)
 				switch(hud_data["slot"])
 					if(slot_head)
-						if(H.head)      H.head.screen_loc =      hud_data["loc"]
+						if(H.head)
+							H.head.screen_loc =	hud_data["loc"]
 					if(slot_shoes)
-						if(H.shoes)     H.shoes.screen_loc =     hud_data["loc"]
+						if(H.shoes)
+							H.shoes.screen_loc = hud_data["loc"]
 					if(slot_l_ear)
-						if(H.l_ear)     H.l_ear.screen_loc =     hud_data["loc"]
+						if(H.l_ear)
+							H.l_ear.screen_loc = hud_data["loc"]
 					if(slot_r_ear)
-						if(H.r_ear)     H.r_ear.screen_loc =     hud_data["loc"]
+						if(H.r_ear)
+							H.r_ear.screen_loc = hud_data["loc"]
 					if(slot_gloves)
-						if(H.gloves)    H.gloves.screen_loc =    hud_data["loc"]
+						if(H.gloves)
+							H.gloves.screen_loc = hud_data["loc"]
 					if(slot_glasses)
-						if(H.glasses)   H.glasses.screen_loc =   hud_data["loc"]
+						if(H.glasses)
+							H.glasses.screen_loc = hud_data["loc"]
 					if(slot_w_uniform)
-						if(H.w_uniform) H.w_uniform.screen_loc = hud_data["loc"]
+						if(H.w_uniform)
+							H.w_uniform.screen_loc = hud_data["loc"]
 					if(slot_wear_suit)
-						if(H.wear_suit) H.wear_suit.screen_loc = hud_data["loc"]
+						if(H.wear_suit)
+							H.wear_suit.screen_loc =hud_data["loc"]
 					if(slot_wear_mask)
-						if(H.wear_mask) H.wear_mask.screen_loc = hud_data["loc"]
+						if(H.wear_mask)
+							H.wear_mask.screen_loc =hud_data["loc"]
+					if(slot_wrists)
+						if(H.wrists)
+							H.wrists.screen_loc =	hud_data["loc"]
 			else
 				switch(hud_data["slot"])
 					if(slot_head)
-						if(H.head)      H.head.screen_loc =      null
+						if(H.head)
+							H.head.screen_loc =	null
 					if(slot_shoes)
-						if(H.shoes)     H.shoes.screen_loc =     null
+						if(H.shoes)
+							H.shoes.screen_loc = null
 					if(slot_l_ear)
-						if(H.l_ear)     H.l_ear.screen_loc =     null
+						if(H.l_ear)
+							H.l_ear.screen_loc = null
 					if(slot_r_ear)
-						if(H.r_ear)     H.r_ear.screen_loc =     null
+						if(H.r_ear)
+							H.r_ear.screen_loc = null
 					if(slot_gloves)
-						if(H.gloves)    H.gloves.screen_loc =    null
+						if(H.gloves)
+							H.gloves.screen_loc = null
 					if(slot_glasses)
-						if(H.glasses)   H.glasses.screen_loc =   null
+						if(H.glasses)
+							H.glasses.screen_loc = null
 					if(slot_w_uniform)
-						if(H.w_uniform) H.w_uniform.screen_loc = null
+						if(H.w_uniform)
+							H.w_uniform.screen_loc =null
 					if(slot_wear_suit)
-						if(H.wear_suit) H.wear_suit.screen_loc = null
+						if(H.wear_suit)
+							H.wear_suit.screen_loc = null
 					if(slot_wear_mask)
-						if(H.wear_mask) H.wear_mask.screen_loc = null
-
+						if(H.wear_mask)
+							H.wear_mask.screen_loc =null
+					if(slot_wrists)
+						if(H.wrists)
+							H.wrists.screen_loc =	null
 
 /datum/hud/proc/persistant_inventory_update()
 	if(!mymob)
@@ -236,45 +257,69 @@ datum/hud/New(mob/owner)
 			if(hud_shown)
 				switch(hud_data["slot"])
 					if(slot_s_store)
-						if(H.s_store) H.s_store.screen_loc = hud_data["loc"]
+						if(H.s_store)
+							H.s_store.screen_loc = hud_data["loc"]
 					if(slot_wear_id)
-						if(H.wear_id) H.wear_id.screen_loc = hud_data["loc"]
+						if(H.wear_id)
+							H.wear_id.screen_loc = hud_data["loc"]
 					if(slot_belt)
-						if(H.belt)    H.belt.screen_loc =    hud_data["loc"]
+						if(H.belt)
+							H.belt.screen_loc = hud_data["loc"]
 					if(slot_back)
-						if(H.back)    H.back.screen_loc =    hud_data["loc"]
+						if(H.back)
+							H.back.screen_loc = hud_data["loc"]
 					if(slot_l_store)
-						if(H.l_store) H.l_store.screen_loc = hud_data["loc"]
+						if(H.l_store)
+							H.l_store.screen_loc = hud_data["loc"]
 					if(slot_r_store)
-						if(H.r_store) H.r_store.screen_loc = hud_data["loc"]
+						if(H.r_store)
+							H.r_store.screen_loc = hud_data["loc"]
 			else
 				switch(hud_data["slot"])
 					if(slot_s_store)
-						if(H.s_store) H.s_store.screen_loc = null
+						if(H.s_store)
+							H.s_store.screen_loc = null
 					if(slot_wear_id)
-						if(H.wear_id) H.wear_id.screen_loc = null
+						if(H.wear_id)
+							H.wear_id.screen_loc = null
 					if(slot_belt)
-						if(H.belt)    H.belt.screen_loc =    null
+						if(H.belt)
+							H.belt.screen_loc =    null
 					if(slot_back)
-						if(H.back)    H.back.screen_loc =    null
+						if(H.back)
+							H.back.screen_loc =    null
 					if(slot_l_store)
-						if(H.l_store) H.l_store.screen_loc = null
+						if(H.l_store)
+							H.l_store.screen_loc = null
 					if(slot_r_store)
-						if(H.r_store) H.r_store.screen_loc = null
+						if(H.r_store)
+							H.r_store.screen_loc = null
 
 
+/**
+ * Instantiate an HUD to the current mob that own is
+ */
 /datum/hud/proc/instantiate()
-	if(!ismob(mymob)) return 0
-	if(!mymob.client) return 0
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
+
+	if(!ismob(mymob))
+		stack_trace("HUD instantiation called on an HUD without a mob!")
+		return FALSE
+
+	if(!(mymob.client))
+		return FALSE
+
 	var/ui_style = ui_style2icon(mymob.client.prefs.UI_style)
 	var/ui_color = mymob.client.prefs.UI_style_color
 	var/ui_alpha = mymob.client.prefs.UI_style_alpha
 
 	mymob.instantiate_hud(src, ui_style, ui_color, ui_alpha)
 
-	update_parallax_existence()
+/mob/proc/instantiate_hud(datum/hud/HUD, ui_style, ui_color, ui_alpha)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_CALL_PARENT(FALSE)
 
-/mob/proc/instantiate_hud(var/datum/hud/HUD, var/ui_style, var/ui_color, var/ui_alpha)
 	return
 
 //Triggered when F12 is pressed (Unless someone changed something in the DMF)
@@ -283,16 +328,19 @@ datum/hud/New(mob/owner)
 	set hidden = 1
 
 	if(!hud_used)
-		to_chat(usr, "<span class='warning'>This mob type does not use a HUD.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type does not use a HUD."))
 		return
 
 	if(!ishuman(src))
-		to_chat(usr, "<span class='warning'>Inventory hiding is currently only supported for human mobs, sorry.</span>")
+		to_chat(usr, SPAN_WARNING("Inventory hiding is currently only supported for human mobs."))
 		return
 
-	if(!client) return
+	if(!client)
+		return
+
 	if(client.view != world.view)
 		return
+
 	if(hud_used.hud_shown)
 		hud_used.hud_shown = 0
 		if(src.hud_used.adding)
@@ -375,3 +423,9 @@ datum/hud/New(mob/owner)
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
 	update_action_buttons()
+
+/mob/proc/add_click_catcher()
+	client.screen |= click_catchers
+
+/mob/abstract/new_player/add_click_catcher()
+	return

@@ -143,7 +143,7 @@
 
 	deletepicture(src)
 
-obj/item/device/camera/siliconcam/proc/getsource()
+/obj/item/device/camera/siliconcam/proc/getsource()
 	if(istype(src.loc, /mob/living/silicon/ai))
 		return src
 

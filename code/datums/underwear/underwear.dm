@@ -44,7 +44,7 @@
 * Category entries *
 *******************/
 /datum/category_item/underwear
-	var/always_last = FALSE          // Should this entry be sorte last?
+	var/always_last = FALSE          // Should this entry be sorted last?
 	var/is_default = FALSE           // Should this entry be considered the default for its type?
 	var/icon = 'icons/mob/underwear.dmi' // Which icon to get the underwear from
 	var/icon_state                   // And the particular item state
@@ -70,4 +70,5 @@
 	var/image/I = image(icon = 'icons/mob/underwear.dmi', icon_state = icon_state)
 	for(var/datum/gear_tweak/gt in tweaks)
 		gt.tweak_item(I, metadata && metadata["[gt]"] ? metadata["[gt]"] : gt.get_default())
+	I.appearance_flags = RESET_ALPHA
 	return I

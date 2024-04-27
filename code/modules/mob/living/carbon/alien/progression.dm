@@ -8,7 +8,7 @@
 		return
 
 	if(!adult_form)
-		verbs -= /mob/living/carbon/alien/verb/evolve
+		remove_verb(src, /mob/living/carbon/alien/verb/evolve)
 		return
 
 	if(handcuffed || legcuffed)

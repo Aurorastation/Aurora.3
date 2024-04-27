@@ -1,9 +1,8 @@
-var/datum/controller/subsystem/fail2topic/SSfail2topic
-
-/datum/controller/subsystem/fail2topic
+SUBSYSTEM_DEF(fail2topic)
 	name = "Fail2Topic"
-	init_order = SS_INIT_MISC_FIRST
-	flags = SS_FIRE_IN_LOBBY | SS_BACKGROUND
+	init_order = INIT_ORDER_MISC_FIRST
+	flags = SS_BACKGROUND
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
 
 	var/list/rate_limiting = list()
 	var/list/fail_counts = list()
@@ -11,30 +10,25 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 	var/rate_limit
 	var/max_fails
-	var/rule_name
 	var/enabled = FALSE
 
-/datum/controller/subsystem/fail2topic/New()
-	NEW_SS_GLOBAL(SSfail2topic)
-
 /datum/controller/subsystem/fail2topic/Initialize(timeofday)
-	rate_limit = config.fail2topic_rate_limit
-	max_fails = config.fail2topic_max_fails
-	rule_name = config.fail2topic_rule_name
-	enabled = config.fail2topic_enabled
+	rate_limit = GLOB.config.fail2topic_rate_limit
+	max_fails = GLOB.config.fail2topic_max_fails
+	enabled = GLOB.config.fail2topic_enabled
 
 	DropFirewallRule() // Clear the old bans if any still remain
 
 
 	if (world.system_type == UNIX && enabled)
 		enabled = FALSE
-		log_ss("fail2topic", "Subsystem disabled due to it not supporting UNIX.", log_world = FALSE, severity = SEVERITY_NOTICE)
+		log_subsystem_fail2topic("Subsystem disabled due to it not supporting UNIX.")
 
 	if (!enabled)
-		suspended = TRUE
+		can_fire = FALSE
 		flags |= SS_NO_FIRE
 
-	. = ..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/fail2topic/fire()
 	while (rate_limiting.len)
@@ -54,7 +48,7 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic/proc/IsRateLimited(ip)
 	var/last_attempt = rate_limiting[ip]
 
-	if (config?.api_rate_limit_whitelist[ip])
+	if (GLOB.config?.api_rate_limit_whitelist[ip])
 		return FALSE
 
 	if (active_bans[ip])
@@ -84,19 +78,25 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 /datum/controller/subsystem/fail2topic/proc/BanFromFirewall(ip)
 	if (!enabled)
 		return
+	var/static/regex/R = regex(@"^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$") // Anything that interacts with a shell should be parsed. Prevents subnet banning and possible injection vulnerabilities
+	R.Find(ip)
+	ip = R.match
+	if(length(ip) > 15 || length(ip) < 8)
+		WARNING("BanFromFirewall was called with an invalid or unsafe IP")
+		return FALSE
 
 	active_bans[ip] = world.time
 	fail_counts -= ip
 	rate_limiting -= ip
 
-	. = shell("netsh advfirewall firewall add rule name=\"[rule_name]\" dir=in interface=any action=block remoteip=[ip]")
+	. = shell("netsh advfirewall firewall add rule name=\"[GLOB.config.fail2topic_rule_name]\" dir=in interface=any action=block remoteip=[ip]")
 
 	if (.)
-		log_ss("fail2topic", "Failed to ban [ip]. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to ban [ip]. Exit code: [.].")
 	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to invoke ban script.")
 	else
-		log_ss("fail2topic", "Banned [ip].", log_world = FALSE, severity = SEVERITY_NOTICE)
+		log_subsystem_fail2topic("Banned [ip].")
 
 /datum/controller/subsystem/fail2topic/proc/DropFirewallRule()
 	if (!enabled)
@@ -104,11 +104,11 @@ var/datum/controller/subsystem/fail2topic/SSfail2topic
 
 	active_bans = list()
 
-	. = shell("netsh advfirewall firewall delete rule name=\"[rule_name]\"")
+	. = shell("netsh advfirewall firewall delete rule name=\"[GLOB.config.fail2topic_rule_name]\"")
 
 	if (.)
-		log_ss("fail2topic", "Failed to drop firewall rule. Exit code: [.].", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to drop firewall rule. Exit code: [.].")
 	else if (isnull(.))
-		log_ss("fail2topic", "Failed to invoke ban script.", log_world = FALSE, severity = SEVERITY_ERROR)
+		log_subsystem_fail2topic("Failed to invoke ban script.")
 	else
-		log_ss("fail2topic", "Firewall rule dropped.", log_world = FALSE, severity = SEVERITY_INFO)
+		log_subsystem_fail2topic("Firewall rule dropped.")

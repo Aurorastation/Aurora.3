@@ -1,0 +1,385 @@
+2019-07-02:
+  Ferner:
+  - bugfix: Fixed the access of a couple of airlocks, added a few missing utilities.
+  - rscadd: Added the ability to lay out towels flat on the ground, no longer do you
+      have to relax on a folded towel at the beach.
+  Wowzewow:
+  - tweak: Tweaked the suit storage unit to use overlays instead. Added a new sprite
+      for the panel opening.
+2019-07-03:
+  Alberyk:
+  - bugfix: Fixed the suit cicler having no sprite.
+  - bugfix: Fixed the flower water having the incorrect sprite
+  - bugfix: Fixed the meat hook having no sprite.
+  - bugfix: Fixed mop in hand sprite missing when the mop was wet.
+  Ferner:
+  - bugfix: Fixes the quarantine crematorium igniter being inaccessible to medical
+      personnel.
+  - tweak: Increased the amount of cutlery, trays and drinking glasses available in
+      the kitchen vendor.
+  Geeves:
+  - tweak: Removed the flash effect from manhack grenades.
+  - tweak: Made manhacks / viscerators easier to hit, and made them do less damage
+      on average.
+2019-07-04:
+  Alberyk:
+  - tweak: Water should no longer remove the color from objects, but should still
+      remove paint from mobs.
+  - rscadd: Updated the list of infractions in the security processing console to
+      match corporate regulations.
+  Alberyk, Kyres1:
+  - rscadd: Added a couple of lore related gear crates to the mercenary uplink.
+  Geeves:
+  - tweak: Changed Handheld Health Scanners. They no longer display numerical values.
+      Additonal useless fluff has also been pruned.
+  - tweak: Suit sensors are now less accurate than Handheld Scanners, and no longer
+      display numerical values.
+  - rscadd: Allows monkeys to be placed into Advanced Body Scanners, so that science
+      personnel can still check the 'effectiveness' of their weaponry.
+  - rscadd: Added Advanced Handheld Health Scanners, they display what the old normal
+      ones did. Fluff still pruned.
+  - bugfix: Fixed Health Analyzers not getting a time of death on dead people. Should
+      be harder to meta lings now.
+  Lady Fowl:
+  - balance: Medical borg's are now able to handle organs and monkey cubes.
+  - tweak: Renames Hunter Killers to Military Frames.
+  VTCobaltblood:
+  - tweak: Off-worlder humans have learned to embrace themselves as the beautiful
+      beings that they are, and are no longer ashamed of the fact that they're off-worlders,
+      and indeed state so when examining them.
+2019-07-05:
+  ParadoxSpace:
+  - rscadd: Mice are now rats, featuring a slight visual retool.
+  - rscadd: Adds two more varieties of rat, hooded coat pattern and American Irish
+      coat pattern.
+  - rscadd: Rats are now slightly more durable, capable of taking a single hit, give
+      slightly more meat now (no longer containing rat toxin).
+  - tweak: Adds slightly more rats to the infestation event.
+  - rscadd: Adds some new antennae for Vaurca.
+  - rscadd: Vaurca now have a shiny new invisible filter port mask in the loadout.
+  - tweak: Expression masks now go on the head instead.
+  PoZe:
+  - bugfix: SMES now properly counts its coils when constructed, no longer being at
+      0 capacity.
+  - bugfix: Modular guns can now be used for turret construction.
+  - bugfix: Magnetic locks now properly drop from user inventory when activated.
+  Scheveningen:
+  - rscadd: Adds the mesmetron pocketwatch, a trauma plushie and the psych manual
+      to the chaplain's locker. Primarily intended for chaplains/counsellors/etc trying
+      to counsel. Power creep ahoy.
+2019-07-06:
+  Alberyk:
+  - rscdel: Removed xenomicrobes and nanites from the warehouse random chemical spawn.
+  - tweak: Changelings can now only absorb the same dna once.
+  Arrow768:
+  - tweak: No longer displays a message that the round has ended if the mercs/raiders
+      move their shuttle back to the base.
+  - bugfix: The merc/raider shuttle cant be used again if it is used to return to
+      the base.
+  Ferner:
+  - bugfix: Replaced no longer existing mice skeletons with rat ones.
+  ParadoxSpace:
+  - bugfix: The American Irish rat now has a proper outline when napping. Sorry about
+      that.
+2019-07-07:
+  Arrow768:
+  - bugfix: Re-Enabled ERT on Rev because the previous PR created a announcement a
+      few minutes into the Round that ERT is disabled, making it easy to metagame.
+  - bugfix: Aciding walls no longer removes the floor below the wall aswell.
+  Kaedwuff:
+  - balance: Changelings now require a full minute to finish digesting a sample of
+      DNA taken from the Absorb DNA ability.
+  ParadoxSpace:
+  - rscadd: ERT is now disabled on the revolution gamemode. Admins can still send
+      it if it's really needed.
+2019-07-08:
+  Alberyk:
+  - bugfix: Fixed the zweihander having unlimited range when attacking after being
+      unwielded.
+  Arrow768:
+  - tweak: The emergency shuttle will now force its launch if it is delayed for too
+      long.
+  - tweak: The crew transfer shuttle can not be delayed anymore.
+  Furrycactus:
+  - imageadd: Ported new sprites for gas canisters from Baystation. Full credit goes
+      to original artist, Montykore.
+  - maptweak: Tidied up some pipes and wires around the station, added disposals to
+      some more places lacking them.
+  - maptweak: Added a backup SMES to the engineering sublevel, can be charged over
+      the shift like a backup battery.
+  - maptweak: Engineering sublevel now has a proper hallway, instead of a weird maintenance
+      section just outside the elevator.
+  Geeves:
+  - bugfix: Made tablets keep their colour after being made. Rejoice.
+  PoZe:
+  - soundadd: 'Added sounds for: cat, dog, corgi, bats, cow, goat, chicken, chick,
+      spider, parrot, bees.'
+2019-07-09:
+  Alberyk:
+  - bugfix: Fixed explosions not affecting the z-level below.
+  Lady Fowl:
+  - imagedel: Removed diapers from monkeys.
+  PoZe:
+  - bugfix: Fixes animals not making sounds because of runtime.
+  - tweak: Turrets now use best accuracy value between projectile or gun but is 25%
+      more accurate than person would use the gun.
+  - soundadd: Turrets now have deploy, retract and rotate sound effects.
+2019-07-10:
+  Ferner:
+  - bugfix: Fixed a spot in research maintenance that had the wrongly designated area,
+      which lead to a hole in the ceiling being created on occasion.
+  Geeves:
+  - rscadd: Suit sensors now get jammed by radio jammers.
+2019-07-11:
+  Ferner:
+  - soundadd: Added an appropriate drop sound for basketballs.
+  - tweak: Changed the drop sound of beach balls to fit better.
+2019-07-12:
+  Arrow768:
+  - tweak: Ghost are no longer able to freely move around on the derelict. They can
+      follow human mobs on the drelict tough.
+  Ben10083:
+  - maptweak: After some unforseen delays in delivery and manufacturing, a replacement
+      Ian has been stationed on the Aurora.
+  - rscdel: Removed corgi meat from list of Cargo bounties.
+  PoZe:
+  - bugfix: Fixed hostile mobs trajectory check. Allowing them to shoot mechs, shields,
+      mobs, etc.
+  - tweak: Mechs no longer display message about armour delfecting trajectory test
+      projectiles which have no damage.
+2019-07-13:
+  Arrow768:
+  - tweak: Removes borg ckeys aswell.
+  Furrycactus:
+  - bugfix: Added the missing lights on the engineering sublevel, and changed some
+      of the ones that always spawn broken.
+  - bugfix: Fixed the missing riot shields from the Armoury.
+  MoondancerPony:
+  - rscadd: Adds a method of randomly spawning lore-related notes.
+  - rscadd: Text files on computers can now have paper formatting.
+  - rscadd: There is limited support for images in some papers, specifically randomly-spawned
+      notes.
+  ParadoxSpace:
+  - rscadd: pAIs now have rat and cat sound emotes available.
+  - rscadd: The pAI mouse is now a pAI rat.
+  - bugfix: pAI monkeys can now actually rest.
+  PoZe:
+  - rscadd: Diona Gestalt can now detach limbs into a nymph and use it for scouting
+      or whaterver they want. Detaching makes gestalt loose that specific limb. Both
+      Gestalt and nymph get special ability to switch between bodies while detached.
+      Nymph can merge back into gestalt and replace lost limb right away or if limb
+      already regenerated by itself, it will replenish energy and nutrition spent
+      on detaching nymph.
+  Skull132:
+  - tweak: Walls now block sound properly!
+2019-07-14:
+  Arrow768:
+  - bugfix: You can no longery defy the laws of physics by climbing up through solid
+      floors with the use of a ladder
+  - bugfix: You will no longer spawn with a backpack if you have "nothing" selected
+      in your loadout.
+  - bugfix: You no longer have to reload your char slot if you spawn in with species
+      restricted gear.
+2019-07-15:
+  Alberyk:
+  - bugfix: Fixed the Aut'akh drill having no icon sprite.
+  - bugfix: Fixed telescience portals causing limb damage.
+  - bugfix: Fixed adminhealing turning people's eyes black.
+  Kaedwuff:
+  - balance: Constructable weapons such as spears and halberds have had their damage
+      multiplier values severely nerfed. Their damage values are now more in line
+      with the rest of the weapons in the game.
+  - tweak: Gold and uranium is now much softer than they used to be, making it worthless
+      for stabbing, but much heavier and thus strong as the material for a thrown
+      weapon.
+  PoZe:
+  - bugfix: Diona no longer keeps growing nymphs inside past the defined limit.
+  - tweak: Diona now regenerates full limb like arm + hand, leg + foot. Since they
+      are of one nymph.
+  Skull132:
+  - rscdel: Deleted the old faction system. As a result, all player factions choices
+      are reset.
+  - rscadd: Added a new faction system, accessible under the Occupation dialog. Factions
+      now affect what jobs you can choose, and what uniforms you spawn with.
+2019-07-16:
+  Arrow768:
+  - bugfix: Fixes the blob no longer expanding onto asteroid turfs.
+  - tweak: The blob can now expand through rock.
+2019-07-17:
+  Alberyk:
+  - rscdel: Removed the standard cyborg module.
+  Arrow768:
+  - backend: Changes the CCIA recorder to persist logs to the database.
+  ParadoxSpace:
+  - bugfix: Rats now properly splat if killed by a cat/snare.
+2019-07-18:
+  PoZe:
+  - bugfix: Shake camera now works.
+  - bugfix: Diona Gestalt no longer has stump left after it has regenerated lost limb.
+  - bugfix: Diona nymph can now be attacked by any weapons.
+  - bugfix: Detached limb nymph now gets all verbs of regular nymph, and no longer
+      ignores damage.
+  - tweak: Detached nymph that merges back together now moves inside of Gestalt, thus
+      preventing Gestalt from regenerating another nymph and wasting energy.
+2019-07-21:
+  Alberyk:
+  - tweak: Disabled ert during revolution rounds.
+  MattAtlas:
+  - tweak: All wieldable weapons are now wielded via the Wield Firearm verb, or wield-firearm
+      if you have a macro instead of wield-rifle and wield-shotgun. Update your macros!
+  ParadoxSpace:
+  - rscadd: Adds a handful of clothing to the Vaurca.
+  - tweak: The Shaper helmet now has proper body parts covered.
+  Skull132:
+  - bugfix: Removed the ability to join as any job despite faction restrictions when
+      using the mid-round join menu.
+2019-07-23:
+  Geeves:
+  - tweak: Raised the chance that a ling's shield will block an attack.
+  PoZe:
+  - rscadd: 'Added new paper logos for: [logo_nt] - Regular NT logo, [logo_nt_small]
+      - Small size NT logo, [log_zh] - Zeng-Hu, [logo_idris] - Idris, [logo_eridani]
+      - Eridani, [logo_necro] - Necropolis, [logo_hp] - Hephaestus Industries, [logo_be]
+      - Beisel.'
+2019-07-24:
+  Alberyk:
+  - rscdel: Removed playable xenomorphs.
+  - rscadd: Replaced the IAA job with the Representative job.
+  Alberyk, Kyres1, AmoryBlaine:
+  - imageadd: Replaces a couple of gun sprites that were references to real life guns,
+      with more futuristic versions.
+  - rscadd: Being hit by a bolter projectile will now produce an animation.
+  Arrow768:
+  - rscadd: Small mobs can now bite into powerwires.
+  - tweak: Pumps and other atmos machines that contain pumps now interact with small
+      mobs.
+  - tweak: Airlocks now close on small mobs.
+  PoZe:
+  - tweak: Price of mining RIG is increased to 1000 points and amount of supply is
+      reduced to 2 for mining vending machine.
+  - tweak: Diona limb regeneration is now progress based instead of a 10 minute timer.
+      Light contributes low amount to progress, biomass(nutrition) contributes medium
+      amount. Radiation contributes big amount. In comparison Diona will regenerate
+      within 10 minutes with just light and having no biomass stored beforehand. Diona
+      who has decent amount of biomass stored will regenerate within 5 minutes. Consuming
+      food like cow while regenerating will take 2 minutes to regenerate limb. Diona
+      who is in light, has biomass stored and has radiation emitting at it will take
+      1-1.5 minutes to regenerate limb.
+  - tweak: Status panel now shows stats for Diona like how much biomass, and energy
+      are stored out of maximum. And regeneration process of a limb.
+  Scheveningen:
+  - bugfix: Fixes an issue with Fade variant hairstyles not appearing correctly in
+      character set-up to be chosen. Thank ya, thank ya very much.
+  Skull132:
+  - rscadd: All factions now have a unique ID card.
+  - rscadd: Added the independent faction. At the moment, NT still retains access
+      to the Freelance Journalist job, because the job's system is literal ass and
+      I need to wait for another PR before redoing it.
+  - tweak: Tweaked the faction selection menu. It now links to the wiki and all.
+  - rscdel: Removed faction specific gear, since it's already present in the job system.
+2019-07-25:
+  Arrow768:
+  - bugfix: Fixes miners being unable to spawn with aviator-mesons.
+  - bugfix: Fixes Heph-miners spawning with the wrong id card and jumpsuit.
+  Skull132:
+  - tweak: Modified the way the cell charge anomaly works. It no longer uses absurd
+      ranges to charge stuff.
+  - tweak: ZAS might be a tick slower at kicking objects around for large zones. On
+      the flip side, it shouldn't lag the server as consistently anymore.
+  - tweak: VV might take a bit to generate the VV screen for large entries.
+2019-07-26:
+  MoondancerPony:
+  - rscadd: Makes it so that you can create a makeshift chemistry workstation allowing
+      for crushing, chopping, and heating reagents. You can add an analyser to it
+      to view the temperature of the reagents.
+  - rscadd: Adds a distillery to turn booze into pure(r) ethanol/butanol and a little
+      bit of water.
+  - rscadd: Adds lean, made from cough syrup, sugar, and space-up. Adds krok juice,
+      made from iron and orange juice. Adds several other drugs coded by BurgerBB
+      in a previous closed PR.
+  - rscadd: Adds cough syrup which prevents coughing from viruses (and spreading viruses
+      via coughing) when in your system.
+  - rscadd: Adds recipes for aforementioned drugs, some using cough syrup.
+  - rscadd: Adds the ability to stop wounds from bleeding using rags.
+  - rscadd: Rags can now be cut from cloth sheets using any sharp object.
+  - rscadd: Rags soaked in reagents will transfer 75% of their reagents as touching
+      and 25% in blood.
+  - rscadd: Alcohol gives pain messages if it's in your blood. This only happens if
+      injected or if it goes through wounds.
+  - rscadd: Certain reagents, like any kind of alcohol, space cleaner, sterilizine,
+      honey, and to a very, VERY small extent water, will disinfect wounds when used
+      on rags.
+  - rscadd: Deflated lungs can be treated, in an emergency, by clicking someone with
+      a syringe with the chest targeted and grab intent enabled. Doing so again will
+      damage the lungs and reverse the treatment.
+  - maptweak: An empty keg has been added to maintenance.
+  - rscadd: Mixing bowls can be printed from the autolathe.
+  - refactor: Spaceacillin has been refactored into several new chemicals. Cough syrup,
+      allergy medicine, antivirals, antibiotics, and paracetamol can do the exact
+      same spaceacillin once could.
+  - rscadd: Antibiotics (thetamycin) are now available for bacterial infections. They
+      have a small chance of causing side effects such as nausea and vomiting.
+  - rscadd: Antivirals (deltamivir) have replaced spaceacillin and do mostly the same
+      thing, save for bacterial wound infections. They have a small chance of causing
+      side effects such as fever, muscle pain, and fatigue.
+  - rscadd: Cough syrup, allergy medication, paracetamol, and medicine cups are now
+      available in NanoMed vendors.
+  - tweak: Some drinks now heal damage as they did before, though at reduced levels.
+  - tweak: Paracetamol now reduces fevers.
+  - maptweak: Medical's supplies have been reduced to a less-excessive level, making
+      chemists less redundant.
+  - tweak: Syringes now begin capped. After use, syringes get dirty and can also transfer
+      viruses between successive uses (on humans); it's recommended to throw them
+      away in the new sharps bins. If they are only used to transfer reagents, they
+      can be used indefinitely. Ported from Virgo.
+  - maptweak: Medical, Virology, and Xenobiology all have sharps bins for disposal
+      of biohazardous glassware.
+  - tweak: There are now three hyposprays in the Medical sublevel, which are equivalent
+      to syringes prior to this update. They take the same amount of time to inject,
+      and have a capacity of 15 units, but are reusable.
+  - backend: Accidentally refactored (almost) all storage items to use the starts_with
+      var instead of overriding fill(). This should make it a lot less complicated
+      to add new storage boxes.
+  - imageadd: Modifies sprites for syringes, done by Geeves.
+  - rscadd: Adds medicine cups to take medicine by mouth in a dignified manner.
+  - tweak: Changes the glycerol recipe. One unit of triglycerides (can be obtained
+      from meat) and two units of any pure alcohol will produce three units of glycerol
+      and two units of acetone. Sulfuric acid is required as a catalyst.
+  - rscadd: Adds a recipe for glucose. Nutriment can be catalysed into glucose by
+      adding sulfuric acid.
+  - tweak: Rats and other simplemobs can now only chew empty boxes or boxes with food
+      in them.
+  PoZe:
+  - bugfix: Detached nymph now get all the verbs as regular nymphs.
+  - rscadd: Added new verb to Diona Gestalt that allows to pause any regeneration.
+2019-07-27:
+  Geeves:
+  - rscadd: Added a deployable hoist kit and deployable ladder to the mining vendor.
+      200 points each.
+  - rscdel: Removed cash and lottery tickets from the mining vendor.
+  Karolis2011:
+  - experiment: Refactored record code in to record subsystem.
+  - rscadd: Added new record consoles for new record code.
+  ParadoxSpace:
+  - bugfix: Fixes the cooldown on the Skrell psychic pinging ability. Sorry about
+      that.
+  ParadoxSpace & MoondancerPony:
+  - rscadd: Skrell and Armalis can now ping for living organisms near their location.
+  - tweak: Vaurca can no longer be affected by telepathy.
+2019-07-28:
+  Geeves:
+  - rscadd: Added a class E Kinetic Accelerator to the mining secure lockers.
+2019-07-29:
+  PoZe:
+  - tweak: 'Fall damaged was nerfed: from base 60 to base 40. You no longer take remaining
+      damage to the chest if you took limb damage. Priority of limbs damage was also
+      changed, now it is Legs > arms > head.'
+  - rscadd: Added new Malf ability to malfunction gravity generator. Ability makes
+      station loose gravity for 3 seconds and push everyone to the groun as if they
+      fell on Z level.
+2019-07-30:
+  Lady Fowl:
+  - tweak: Added a prompt to welder bombing, to prevent accidental bombs.
+2019-07-31:
+  ParadoxSpace:
+  - rscadd: Allows IPCs to be Eridani PMCs. IPCs in question must be owned, not free.

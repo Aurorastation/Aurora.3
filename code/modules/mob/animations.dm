@@ -46,82 +46,71 @@ note dizziness decrements automatically in the mob's Life() proc.
 /mob/var/is_jittery = 0
 /mob/var/jitteriness = 0//Carbon
 /mob/proc/make_jittery(var/amount)
-	if(!istype(src, /mob/living/carbon/human)) // for the moment, only humans get dizzy
-		return
+	return
 
+/mob/living/carbon/human/make_jittery(amount)
 	jitteriness = min(1000, jitteriness + amount)	// store what will be new value
 													// clamped to max 1000
-	if(jitteriness > 100 && !is_jittery)
+	if(jitteriness > 100 && !is_jittery && stat != DEAD && !(status_flags & FAKEDEATH))
 		spawn(0)
 			jittery_process()
 
-
-// Typo from the oriignal coder here, below lies the jitteriness process. So make of his code what you will, the previous comment here was just a copypaste of the above.
 /mob/proc/jittery_process()
-	//var/old_x = pixel_x
-	//var/old_y = pixel_y
-	is_jittery = 1
+	is_jittery = TRUE
 	while(jitteriness > 100)
-//		var/amplitude = jitteriness*(sin(jitteriness * 0.044 * world.time) + 1) / 70
-//		pixel_x = amplitude * sin(0.008 * jitteriness * world.time)
-//		pixel_y = amplitude * cos(0.008 * jitteriness * world.time)
-
 		var/amplitude = min(4, jitteriness / 100)
 		pixel_x = old_x + rand(-amplitude, amplitude)
 		pixel_y = old_y + rand(-amplitude/3, amplitude/3)
-
+		if(stat == DEAD || (status_flags & FAKEDEATH))
+			break
 		sleep(1)
 	//endwhile - reset the pixel offsets to zero
-	is_jittery = 0
+	is_jittery = FALSE
 	pixel_x = old_x
 	pixel_y = old_y
 
 
 //handles up-down floaty effect in space and zero-gravity
-/mob/var/is_floating = 0
-/mob/var/floatiness = 0
+/mob/var/is_floating = FALSE
 
-/mob/proc/update_floating(var/dense_object=0)
-
-	if(anchored||buckled)
-		make_floating(0)
+/mob/proc/update_floating()
+	if(anchored || buckled_to)
+		set_floating(FALSE)
 		return
 
 	var/turf/turf = get_turf(src)
-	if(!istype(turf,/turf/space))
+	if(!turf?.is_hole)
 		var/area/A = turf.loc
 		if(istype(A) && A.has_gravity())
-			make_floating(0)
-			return
-		else if (Check_Shoegrip())
-			make_floating(0)
+			set_floating(FALSE)
 			return
 		else
-			make_floating(1)
+			var/shoegrip = Check_Shoegrip()
+			if(shoegrip)
+				set_floating(FALSE)
+				return
+	else
+		if(CanAvoidGravity())
+			set_floating(TRUE)
+			return
+		else
+			set_floating(FALSE)
 			return
 
-	if(dense_object && Check_Shoegrip())
-		make_floating(0)
+	set_floating(TRUE)
+
+/mob/proc/set_floating(var/floating_state)
+	if(buckled_to && is_floating)
+		stop_floating()
 		return
 
-	make_floating(1)
-	return
-
-/mob/proc/make_floating(var/n)
-	if(buckled)
-		if(is_floating)
-			stop_floating()
-		return
-	floatiness = n
-
-	if(floatiness && !is_floating)
+	if(floating_state && !is_floating)
 		start_floating()
-	else if(!floatiness && is_floating)
+	else if(!floating_state && is_floating)
 		stop_floating()
 
 /mob/proc/start_floating()
-
-	is_floating = 1
+	is_floating = TRUE
 
 	var/amplitude = 2 //maximum displacement from original position
 	var/period = 36 //time taken for the mob to go up >> down >> original position, in deciseconds. Should be multiple of 4
@@ -136,20 +125,16 @@ note dizziness decrements automatically in the mob's Life() proc.
 	animate(pixel_y = old_y, time = quarter_period, easing = SINE_EASING | EASE_IN, loop = -1)			//back
 
 /mob/proc/stop_floating()
-	animate(src, pixel_y = 0, time = 5, easing = SINE_EASING | EASE_IN) //halt animation
-	//reset the pixel offsets to zero
-	is_floating = 0
+	animate(src, pixel_y = get_standard_pixel_y(), time = 5, easing = SINE_EASING | EASE_IN) //halt animation
+	//reset the pixel offsets to defaults
+	is_floating = FALSE
 
-/atom/movable/proc/do_attack_animation(atom/A)
-
+/atom/movable/proc/do_attack_animation(atom/A, atom/movable/weapon, var/image/attack_image, var/initial_pixel_x = 0, var/initial_pixel_y = 0)
 	var/pixel_x_diff = 0
 	var/pixel_y_diff = 0
-	var/direction
-	if (loc == A.loc)
-		if (A.flags & ON_BORDER)
-			direction = A.dir
-	else
-		direction = get_dir(src, A)
+	var/turn_dir = 1
+
+	var/direction = get_dir(src, A)
 	switch(direction)
 		if(NORTH)
 			pixel_y_diff = 8
@@ -171,23 +156,56 @@ note dizziness decrements automatically in the mob's Life() proc.
 		if(SOUTHWEST)
 			pixel_x_diff = -8
 			pixel_y_diff = -8
-		else
-			return 0//No valid direction
+	if(direction & NORTH)
+		pixel_y_diff = 8
+		turn_dir = rand(50) ? -1 : 1
+	else if(direction & SOUTH)
+		pixel_y_diff = -8
+		turn_dir = rand(50) ? -1 : 1
+
+	if(direction & EAST)
+		pixel_x_diff = 8
+	else if(direction & WEST)
+		pixel_x_diff = -8
+		turn_dir = -1
+
+	if(!initial_pixel_x)
+		initial_pixel_x = initial(pixel_x)
+	if(!initial_pixel_y)
+		initial_pixel_y = initial(pixel_y)
+
 	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, time = 2)
-	animate(pixel_x = pixel_x - pixel_x_diff, pixel_y = pixel_y - pixel_y_diff, time = 2)
+	animate(pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, time = 2)
+	var/matrix/initial_transform = matrix(transform)
+	var/matrix/rotated_transform = transform.Turn(15 * turn_dir)
 
-/mob/do_attack_animation(atom/A)
-	..()
-	is_floating = 0 // If we were without gravity, the bouncing animation got stopped, so we make sure we restart the bouncing after the next movement.
+	animate(src, pixel_x = pixel_x + pixel_x_diff, pixel_y = pixel_y + pixel_y_diff, transform = rotated_transform, time = 2, easing = BACK_EASING | EASE_IN)
+	animate(pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, transform = initial_transform, time = 2, easing = SINE_EASING)
 
+// either attack_item OR attack_image should be used. if both are used, attack_image will be the one chosen
+/mob/do_attack_animation(atom/A, var/atom/attack_item, var/image/attack_image)
+	var/initial_pixel_x = get_standard_pixel_x()
+	var/initial_pixel_y = get_standard_pixel_y()
+	..(A, attack_item, attack_image, initial_pixel_x, initial_pixel_y)
+
+	if(is_floating)
+		addtimer(CALLBACK(src, PROC_REF(start_floating)), 4)
+
+	if(attack_item == FIST_ATTACK_ANIMATION) // only play the physical movement
+		return
 	// What icon do we use for the attack?
 	var/image/I
-	if(hand && l_hand) // Attacked with item in left hand.
-		I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
-	else if (!hand && r_hand) // Attacked with item in right hand.
-		I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
-	else // Attacked with a fist?
-		return
+	if(attack_image)
+		I = attack_image
+	else if(attack_item)
+		I = image(attack_item.icon, A, attack_item.icon_state, A.layer + 1)
+	else
+		if(hand && l_hand) // Attacked with item in left hand.
+			I = image(l_hand.icon, A, l_hand.icon_state, A.layer + 1)
+		else if (!hand && r_hand) // Attacked with item in right hand.
+			I = image(r_hand.icon, A, r_hand.icon_state, A.layer + 1)
+		else // Attacked with a fist?
+			return
 
 	// Who can see the attack?
 	var/list/viewing = list()
@@ -216,7 +234,7 @@ note dizziness decrements automatically in the mob's Life() proc.
 	var/matrix/M = new
 	M.Turn(pick(-20, 20))
 	// And animate the attack!
-	animate(I, alpha = 175, pixel_x = 0, pixel_y = 0, pixel_z = 0, time = 2, easing = CUBIC_EASING)
+	animate(I, alpha = 175, pixel_x = initial_pixel_x, pixel_y = initial_pixel_y, pixel_z = 0, time = 2, easing = CUBIC_EASING)
 	sleep(2)
 	animate(I, transform = M, time = 1) // apply the fancy matrix
 	sleep(1)
@@ -241,3 +259,43 @@ note dizziness decrements automatically in the mob's Life() proc.
 			set_dir(D)
 			spintime -= speed
 	return
+
+// Mob Throwing Animation
+/mob/proc/animate_throw()
+	var/ipx = pixel_x
+	var/ipy = pixel_y
+	var/mpx = 0
+	var/mpy = 0
+
+	if(dir & NORTH)
+		mpy += 3
+	else if(dir & SOUTH)
+		mpy -= 3
+	if(dir & EAST)
+		mpx += 3
+	else if(dir & WEST)
+		mpx -= 3
+
+	var/new_x = mpx + ipx
+	var/new_y = mpy + ipy
+
+	animate(src, pixel_x = new_x, pixel_y = new_y, time = 0.6, easing = EASE_OUT)
+
+	var/matrix/M = matrix(transform)
+	animate(transform = turn(transform, (mpx - mpy) * 4), time = 0.6, easing = EASE_OUT)
+	animate(pixel_x = ipx, pixel_y = ipy, time = 0.6, easing = EASE_IN)
+	animate(transform = M, time = 0.6, easing = EASE_IN)
+
+	if(is_floating)
+		addtimer(CALLBACK(src, PROC_REF(start_floating)), 2.4)
+
+/atom/proc/quick_jitter(var/jitter_time = 5)
+	set waitfor = 0
+
+	jitter_time--
+
+	pixel_x = jitter_time ? get_standard_pixel_x() + rand(-3, 3) : get_standard_pixel_x()
+	pixel_y = jitter_time ? get_standard_pixel_y() + rand(-1, 1) : get_standard_pixel_y()
+
+	if(jitter_time)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, quick_jitter), jitter_time), 1)

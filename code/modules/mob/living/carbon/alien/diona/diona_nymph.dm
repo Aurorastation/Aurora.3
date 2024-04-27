@@ -9,10 +9,12 @@
 	density = 0
 	mouth_size = 2 //how large of a creature it can swallow at once, and how big of a bite it can take out of larger things
 	eat_types = 0 //This is a bitfield which must be initialised in New(). The valid values for it are in devour.dm
-	composition_reagent = "nutriment" //Dionae are plants, so eating them doesn't give animal protein
+	composition_reagent = /singleton/reagent/nutriment //Dionae are plants, so eating them doesn't give animal protein
 	name = "diona nymph"
+	desc = "A diona nymph."
 	voice_name = "diona nymph"
-	adult_form = /mob/living/carbon/human
+	accent = ACCENT_ROOTSONG
+	adult_form = /mob/living/carbon/human/diona/coeus
 	speak_emote = list("chirrups")
 	icon = 'icons/mob/diona.dmi'
 	icon_state = "nymph"
@@ -22,16 +24,14 @@
 	holder_type = /obj/item/holder/diona
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/dionanymph
 	meat_amount = 2
-	maxHealth = 33.3
-	health = 33.3
+	maxHealth = 50
+	health = 50
 	pass_flags = PASSTABLE
 
 	// Decorative head flower.
 	var/flower_color
 	var/image/flower_image
 
-	var/list/sampled_DNA
-	var/list/language_progress
 	var/obj/item/clothing/head/hat
 	var/datum/reagents/vessel
 	var/energy_duration = 144                 // The time in seconds that this diona can exist in total darkness before its energy runs out
@@ -47,6 +47,39 @@
 	var/detached = FALSE
 
 	var/datum/reagents/metabolism/ingested
+
+	var/can_attach = TRUE // Whether they can attach to a host
+
+/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
+	if(prob(flower_chance))
+		flower_color = get_random_colour(1)
+	. = ..(mapload)
+	//species = GLOB.all_species[]
+	ingested = new /datum/reagents/metabolism(500, src, CHEM_INGEST)
+	reagents = ingested
+	set_species(SPECIES_DIONA)
+	setup_dionastats()
+	eat_types |= TYPE_ORGANIC
+	nutrition = 0 //We dont start with biomass
+	update_verbs()
+
+/mob/living/carbon/alien/diona/Destroy()
+	cleanupTransfer()
+	QDEL_NULL(ingested)
+	QDEL_NULL(vessel)
+
+	QDEL_NULL(DS)
+	gestalt = null
+	master_nymph = null
+
+	hat = null
+
+	flower_color = null
+	flower_image = null
+	cut_overlays()
+
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /mob/living/carbon/alien/diona/get_ingested_reagents()
 	return ingested
@@ -77,10 +110,10 @@
 /mob/living/carbon/alien/diona/movement_delay()
 	. = ..()
 	switch(m_intent)
-		if("walk")
+		if(M_WALK)
 			. += 3
-		if("run")
-			species.handle_sprint_cost(src,.+config.walk_speed)
+		if(M_RUN)
+			species.handle_sprint_cost(src, . + GLOB.config.walk_speed)
 
 /mob/living/carbon/alien/diona/ex_act(severity)
 	if(life_tick < 4)
@@ -90,20 +123,6 @@
 	else
 		..()
 
-/mob/living/carbon/alien/diona/Initialize(var/mapload, var/flower_chance = 5)
-	if(prob(flower_chance))
-		flower_color = get_random_colour(1)
-	. = ..(mapload)
-	//species = all_species[]
-	set_species("Diona")
-	setup_dionastats()
-	eat_types |= TYPE_ORGANIC
-	nutrition = 0 //We dont start with biomass
-	update_verbs()
-	sampled_DNA = list()
-	language_progress = list()
-
-
 /mob/living/carbon/alien/diona/verb/check_light()
 	set category = "Abilities"
 	set name = "Check light level"
@@ -111,27 +130,27 @@
 	var/light = get_lightlevel_diona(DS)
 
 	if (light <= -0.75)
-		to_chat(usr, span("danger", "It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
+		to_chat(usr, SPAN_DANGER("It is pitch black here! This is extremely dangerous, we must find light, or death will soon follow!"))
 	else if (light <= 0)
-		to_chat(usr, span("danger", "This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
+		to_chat(usr, SPAN_DANGER("This area is too dim to sustain us for long, we should move closer to the light, or we will shortly be in danger!"))
 	else if (light > 0 && light < 1.5)
-		to_chat(usr, span("warning", "The light here can sustain us, barely. It feels cold and distant."))
+		to_chat(usr, SPAN_WARNING("The light here can sustain us, barely. It feels cold and distant."))
 	else if (light <= 3)
-		to_chat(usr, span("notice", "This light is comfortable and warm, Quite adequate for our needs."))
+		to_chat(usr, SPAN_NOTICE("This light is comfortable and warm, Quite adequate for our needs."))
 	else
-		to_chat(usr, span("notice", "This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
+		to_chat(usr, SPAN_NOTICE("This warm radiance is bliss. Here we are safe and energised! Stay a while..."))
 
 /mob/living/carbon/alien/diona/start_pulling(var/atom/movable/AM)
 	//TODO: Collapse these checks into one proc (see pai and drone)
 	if(istype(AM,/obj/item))
 		var/obj/item/O = AM
 		if(O.w_class > 2)
-			to_chat(src, span("warning", "You are too small to pull that."))
+			to_chat(src, SPAN_WARNING("You are too small to pull that."))
 			return
 		else
 			..()
 	else
-		to_chat(src, span("warning", "You are too small to pull that."))
+		to_chat(src, SPAN_WARNING("You are too small to pull that."))
 		return
 
 /mob/living/carbon/alien/diona/put_in_hands(var/obj/item/W) // No hands.
@@ -142,7 +161,7 @@
 /mob/living/carbon/alien/diona/proc/set_species(var/new_species)
 	if(!dna)
 		if(!new_species)
-			new_species = "Human"
+			new_species = SPECIES_HUMAN
 	else
 		if(!new_species)
 			new_species = dna.species
@@ -150,8 +169,8 @@
 			dna.species = new_species
 
 	// No more invisible screaming wheelchairs because of set_species() typos.
-	if(!all_species[new_species])
-		new_species = "Human"
+	if(!GLOB.all_species[new_species])
+		new_species = SPECIES_HUMAN
 
 	if(species)
 		if(species.name == new_species)
@@ -164,7 +183,7 @@
 		species.remove_inherent_verbs(src)
 		holder_type = null
 
-	species = all_species[new_species]
+	species = GLOB.all_species[new_species]
 	if(species.language)
 		add_language(species.language)
 
@@ -194,22 +213,14 @@
 	vessel = new/datum/reagents(600)
 	vessel.my_atom = src
 
-	vessel.add_reagent("blood", 560)
+	vessel.add_reagent(/singleton/reagent/blood, 560, temperature = species.body_temperature)
 	fixblood()
 
 /mob/living/carbon/alien/diona/proc/fixblood()
-	for(var/datum/reagent/blood/B in vessel.reagent_list)
-		if(B.id == "blood")
-			B.data = list(
-				"donor" = WEAKREF(src),
-				"species" = species.name,
-				"blood_DNA" = name,
-				"blood_colour" = species.blood_color,
-				"blood_type" = null,
-				"resistances" = null,
-				"trace_chem" = null
-			)
-			B.color = B.data["blood_colour"]
+	if(!REAGENT_DATA(vessel, /singleton/reagent/blood))
+		return
+	var/list/new_blood_data = get_blood_data()
+	vessel.reagent_data[/singleton/reagent/blood] = vessel.reagent_data[/singleton/reagent/blood] ^ new_blood_data | new_blood_data
 
 /mob/living/carbon/alien/diona/proc/setup_dionastats()
 	var/MLS = (1.5 / 2.1) //Maximum energy lost per second, in total darkness
@@ -238,31 +249,36 @@
 //This function makes sure the nymph has the correct split/merge verbs, depending on whether or not its part of a gestalt
 /mob/living/carbon/alien/diona/proc/update_verbs()
 	if(gestalt && !detached)
-		verbs -= /mob/living/proc/ventcrawl
-		verbs -= /mob/living/proc/hide
-		verbs -= /mob/living/carbon/alien/diona/proc/grow
-		verbs -= /mob/living/carbon/alien/diona/proc/merge
-		verbs -= /mob/living/carbon/proc/absorb_nymph
-		verbs -= /mob/living/carbon/alien/diona/proc/sample
-		verbs |= /mob/living/carbon/alien/diona/proc/split
+		add_verb(src, /mob/living/carbon/alien/diona/proc/split)
+		remove_verb(src, /mob/living/proc/ventcrawl)
+		remove_verb(src, /mob/living/proc/hide)
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/grow)
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/merge)
+		remove_verb(src, /mob/living/carbon/proc/absorb_nymph)
+		remove_verb(src, /mob/living/carbon/proc/sample)
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/remove_hat)
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/attach_nymph_limb)
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/detach_nymph_limb)
 	else
-		verbs |= /mob/living/carbon/alien/diona/proc/merge
-		verbs |= /mob/living/carbon/proc/absorb_nymph
-		verbs |= /mob/living/carbon/alien/diona/proc/grow
-		verbs |= /mob/living/proc/ventcrawl
-		verbs |= /mob/living/proc/hide
-		verbs |= /mob/living/carbon/alien/diona/proc/sample
-		verbs -= /mob/living/carbon/alien/diona/proc/split // we want to remove this one
+		add_verb(src, /mob/living/carbon/alien/diona/proc/merge)
+		add_verb(src, /mob/living/carbon/proc/absorb_nymph)
+		add_verb(src, /mob/living/carbon/alien/diona/proc/grow)
+		add_verb(src, /mob/living/proc/ventcrawl)
+		add_verb(src, /mob/living/proc/hide)
+		add_verb(src, /mob/living/carbon/proc/sample)
+		add_verb(src, /mob/living/carbon/alien/diona/proc/remove_hat)
+		add_verb(src, /mob/living/carbon/alien/diona/proc/attach_nymph_limb)
+		add_verb(src, /mob/living/carbon/alien/diona/proc/detach_nymph_limb)
+		remove_verb(src, /mob/living/carbon/alien/diona/proc/split) // we want to remove this one
 
-	verbs -= /mob/living/carbon/alien/verb/evolve //We don't want the old alien evolve verb
+	remove_verb(src, /mob/living/carbon/alien/verb/evolve) //We don't want the old alien evolve verb
 
 
-/mob/living/carbon/alien/diona/Stat()
-	..()
-	if(statpanel("Status"))
-		stat(null, text("Biomass: [nutrition]/[evolve_nutrition]"))
-		if(nutrition > evolve_nutrition)
-			stat(null, text("You have enough biomass to grow!"))
+/mob/living/carbon/alien/diona/get_status_tab_items()
+	. = ..()
+	. += "Biomass: [nutrition]/[evolve_nutrition]"
+	if(nutrition > evolve_nutrition)
+		. += "You have enough biomass to grow!"
 
 //Overriding this function from /mob/living/carbon/alien/life.dm
 /mob/living/carbon/alien/diona/handle_regular_status_updates()
@@ -289,18 +305,16 @@
 		if(paralysis && paralysis > 0)
 			handle_paralysed()
 			blinded = TRUE
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 
 		if(sleeping)
 			if(mind)
 				if(mind.active && client)
 					sleeping = max(sleeping-1, 0)
 			blinded = TRUE
-			stat = UNCONSCIOUS
-		else if(resting)
-			// insert dial up tone
-		else
-			stat = CONSCIOUS
+			set_stat(UNCONSCIOUS)
+		else if(!resting)
+			set_stat(CONSCIOUS)
 
 		// Eyes and blindness.
 		if(!has_eyes())
@@ -320,21 +334,16 @@
 			ear_deaf = max(ear_deaf-1, 0)
 			ear_damage = max(ear_damage-0.05, 0)
 
-		update_icons()
+		update_icon()
 
 	return TRUE
-
-/mob/living/carbon/alien/diona/Destroy()
-	walk_to(src, 0)
-	cleanupTransfer()
-	. = ..()
 
 /mob/living/carbon/alien/diona/proc/wear_hat(var/obj/item/new_hat)
 	if(hat)
 		return
 	hat = new_hat
 	new_hat.forceMove(src)
-	update_icons()
+	update_icon()
 
 /mob/living/carbon/alien/diona/MiddleClickOn(var/atom/A)
 	if(istype(A, /mob/living/carbon/alien/diona))
@@ -355,11 +364,11 @@
 			if(meat.name == "meat")
 				meat.name = "[src.name] [meat.name]"
 		if(issmall(src))
-			user.visible_message(span("warning", "[user] chops up \the [src]!"))
+			user.visible_message(SPAN_WARNING("[user] chops up \the [src]!"))
 			new/obj/effect/decal/cleanable/blood/splatter(get_turf(src))
 			qdel(src)
 		else
-			user.visible_message(span("warning", "[user] butchers \the [src] messily!"))
+			user.visible_message(SPAN_WARNING("[user] butchers \the [src] messily!"))
 			gib()
 
 

@@ -1,17 +1,19 @@
 #define DOCK_ATTEMPT_TIMEOUT 200	//how long in ticks we wait before assuming the docking controller is broken or blown up.
 
 /datum/shuttle/autodock
-	var/in_use = null	//tells the controller whether this shuttle needs processing, also attempts to prevent double-use
+	var/in_use = null  //tells the controller whether this shuttle needs processing, also attempts to prevent double-use
 	var/last_dock_attempt_time = 0
 	var/current_dock_target
-	//ID of the controller on the shuttle
+
+	/// `id_tag`/`master_tag` of the docking controller of this shuttle.
 	var/dock_target = null
 
 	var/obj/effect/shuttle_landmark/next_location
 	var/datum/computer/file/embedded_program/docking/active_docking_controller
 
 	var/obj/effect/shuttle_landmark/landmark_transition
-	var/move_time = 240		//the time spent in the transition area
+	var/move_time = 240  //the time spent in the transition area
+	var/minimum_move_time = 15  //the time spent in the transition area when both of the locations are located on station z-levels
 
 	category = /datum/shuttle/autodock
 	flags = SHUTTLE_FLAGS_PROCESS | SHUTTLE_FLAGS_ZERO_G
@@ -89,9 +91,9 @@
 				//*** ready to go
 				if(next_location.is_valid(src))
 					process_launch()
-					process_state = WAIT_ARRIVE
+					set_process_state(WAIT_ARRIVE)
 				else
-					process_state = IDLE_STATE
+					set_process_state(IDLE_STATE)
 					in_use = null
 
 		if (FORCE_LAUNCH)
@@ -101,12 +103,12 @@
 			if (moving_status == SHUTTLE_IDLE)
 				//*** we made it to the destination, update stuff
 				process_arrived()
-				process_state = WAIT_FINISH
+				set_process_state(WAIT_FINISH)
 
 		if (WAIT_FINISH)
 			if (world.time > last_dock_attempt_time + DOCK_ATTEMPT_TIMEOUT || check_docked())
 				//*** all done here
-				process_state = IDLE_STATE
+				set_process_state(IDLE_STATE)
 				arrived()
 
 //not to be confused with the arrived() proc
@@ -120,18 +122,21 @@
 	in_use = null	//release lock
 
 /datum/shuttle/autodock/proc/get_travel_time()
-	return move_time
+	if(isStationLevel(current_location.loc.z) && isStationLevel(next_location.loc.z) && move_time > minimum_move_time)
+		return minimum_move_time
+	else
+		return move_time
 
 /datum/shuttle/autodock/proc/process_launch()
 	if(!next_location.is_valid(src) || current_location.cannot_depart(src))
-		process_state = IDLE_STATE
+		set_process_state(IDLE_STATE)
 		in_use = null
 		return
 	if (get_travel_time() && landmark_transition)
-		. = long_jump(next_location, landmark_transition, get_travel_time())
+		long_jump(next_location, landmark_transition, get_travel_time())
 	else
-		. = short_jump(next_location)
-	process_state = WAIT_ARRIVE
+		short_jump(next_location)
+	set_process_state(WAIT_ARRIVE)
 
 /*
 	Guards
@@ -154,7 +159,7 @@
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
-	process_state = WAIT_LAUNCH
+	set_process_state(WAIT_LAUNCH)
 	undock()
 
 /datum/shuttle/autodock/proc/force_launch(var/user)
@@ -163,13 +168,13 @@
 
 	in_use = user	//obtain an exclusive lock on the shuttle
 
-	process_state = FORCE_LAUNCH
+	set_process_state(FORCE_LAUNCH)
 
 /datum/shuttle/autodock/proc/cancel_launch(var/user)
 	if (!can_cancel()) return
 
 	moving_status = SHUTTLE_IDLE
-	process_state = WAIT_FINISH
+	set_process_state(WAIT_FINISH)
 	in_use = null
 
 	//whatever we were doing with docking: stop it, then redock
@@ -186,3 +191,5 @@
 //Note that this is called when the shuttle leaves the WAIT_FINISHED state, the proc name is a little misleading
 /datum/shuttle/autodock/proc/arrived()
 	return	//do nothing for now
+
+#undef DOCK_ATTEMPT_TIMEOUT

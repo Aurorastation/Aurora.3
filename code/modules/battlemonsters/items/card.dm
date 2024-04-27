@@ -19,16 +19,16 @@
 	. = ..()
 	Generate_Card(prefix, root, title, trap, spell)
 
-/obj/item/battle_monsters/card/attackby(var/obj/item/attacking, var/mob/user)
-	if(istype(attacking,/obj/item/battle_monsters/card) && attacking != src)
-		var/obj/item/battle_monsters/card/adding_card = attacking
+/obj/item/battle_monsters/card/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/battle_monsters/card) && attacking_item != src)
+		var/obj/item/battle_monsters/card/adding_card = attacking_item
 		make_deck(user,adding_card)
 
 /obj/item/battle_monsters/card/resolve_attackby(atom/A, mob/user, var/click_parameters)
 	if(istype(A,/obj/structure/table) || istype(A,/obj/structure/dueling_table))
 		user.visible_message(\
-			span("notice","\The [user] plays \the [src]!"),\
-			span("notice","You play \the [src]!")\
+			SPAN_NOTICE("\The [user] plays \the [src]!"),\
+			SPAN_NOTICE("You play \the [src]!")\
 		)
 	..(A, user, click_parameters)
 
@@ -44,15 +44,15 @@
 		user.drop_from_inventory(src)
 		new_deck.icon_state = "hand"
 		user.put_in_inactive_hand(new_deck)
-		to_chat(user,span("notice","You combine \the [src] and the [adding_card] to form a hand."))
+		to_chat(user, SPAN_NOTICE("You combine \the [src] and the [adding_card] to form a hand."))
 	else
 		new_deck.set_dir(dir)
 		new_deck.pixel_x = pixel_x
 		new_deck.pixel_y = pixel_y
 		new_deck.layer = max(layer,new_deck.layer)
 		user.visible_message(\
-			span("notice","\The [user] combines \the [src] and the [adding_card] to form a deck."),\
-			span("notice","You combine \the [src] and the [adding_card] to form a deck.")\
+			SPAN_NOTICE("\The [user] combines \the [src] and the [adding_card] to form a deck."),\
+			SPAN_NOTICE("You combine \the [src] and the [adding_card] to form a deck.")\
 		)
 
 	new_deck.add_card(user,src)
@@ -63,19 +63,19 @@
 
 	if(src.loc == user)
 		if(!facedown)
-			to_chat(user,span("notice","You reveal \the [name] to yourself, preparing to play it face up."))
+			to_chat(user, SPAN_NOTICE("You reveal \the [name] to yourself, preparing to play it face up."))
 		else
-			to_chat(user,span("notice", "You prepare \the [name] to be played face down."))
+			to_chat(user, SPAN_NOTICE("You prepare \the [name] to be played face down."))
 	else
 		if(!facedown)
 			user.visible_message(\
-				span("notice","\The [user] flip the card face up and reveals \the [name]."),\
-				span("notice","You flip the card face up and reveal \the [name].")\
+				SPAN_NOTICE("\The [user] flip the card face up and reveals \the [name]."),\
+				SPAN_NOTICE("You flip the card face up and reveal \the [name].")\
 			)
 		else
 			user.visible_message(\
-				span("notice","\The [user] flips \the [name] face down."),\
-				span("notice","You flip \the [name] face down.")\
+				SPAN_NOTICE("\The [user] flips \the [name] face down."),\
+				SPAN_NOTICE("You flip \the [name] face down.")\
 			)
 
 	update_icon()
@@ -83,33 +83,33 @@
 /obj/item/battle_monsters/card/proc/Generate_Card(var/prefix,var/root,var/title,var/trap,var/spell)
 
 	if(trap)
-		trap_datum = SSbattlemonsters.FindMatchingTrap(trap,TRUE)
+		trap_datum = SSbattle_monsters.FindMatchingTrap(trap,TRUE)
 		update_icon()
 		return
 
 	if(spell)
-		spell_datum = SSbattlemonsters.FindMatchingSpell(spell,TRUE)
+		spell_datum = SSbattle_monsters.FindMatchingSpell(spell,TRUE)
 		update_icon()
 		return
 
 	if(prefix)
-		prefix_datum = SSbattlemonsters.FindMatchingPrefix(prefix,TRUE)
+		prefix_datum = SSbattle_monsters.FindMatchingPrefix(prefix,TRUE)
 	else
-		prefix_datum = SSbattlemonsters.GetRandomPrefix()
+		prefix_datum = SSbattle_monsters.GetRandomPrefix()
 
 	if(root)
-		root_datum = SSbattlemonsters.FindMatchingRoot(root,TRUE)
+		root_datum = SSbattle_monsters.FindMatchingRoot(root,TRUE)
 	else
-		root_datum = SSbattlemonsters.GetRandomRoot()
+		root_datum = SSbattle_monsters.GetRandomRoot()
 
 	var/rarity_score = prefix_datum.rarity_score + root_datum.rarity_score
 
 	if(title)
-		suffix_datum = SSbattlemonsters.FindMatchingSuffix(title,TRUE)
+		suffix_datum = SSbattle_monsters.FindMatchingSuffix(title,TRUE)
 	else if(rarity_score >= 3)
-		suffix_datum = SSbattlemonsters.GetRandomSuffix()
+		suffix_datum = SSbattle_monsters.GetRandomSuffix()
 	else
-		suffix_datum = SSbattlemonsters.FindMatchingSuffix("no_title",TRUE)
+		suffix_datum = SSbattle_monsters.FindMatchingSuffix("no_title",TRUE)
 
 /obj/item/battle_monsters/card/update_icon()
 
@@ -164,20 +164,19 @@
 
 	transform = M
 
-/obj/item/battle_monsters/card/examine(mob/user)
-
-	..()
+/obj/item/battle_monsters/card/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 
 	if(facedown && src.loc != user)
-		to_chat(user,span("notice","You can't examine \the [src] while it's face down!"))
+		. += SPAN_NOTICE("You can't examine \the [src] while it's face down!")
 		return
 
 	if(trap_datum)
-		SSbattlemonsters.ExamineTrapCard(user,trap_datum)
+		SSbattle_monsters.ExamineTrapCard(user,trap_datum)
 	else if(spell_datum)
-		SSbattlemonsters.ExamineSpellCard(user,spell_datum)
+		SSbattle_monsters.ExamineSpellCard(user,spell_datum)
 	else
-		SSbattlemonsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
+		SSbattle_monsters.ExamineMonsterCard(user,prefix_datum,root_datum,suffix_datum)
 
 /obj/item/battle_monsters/card/MouseEntered(location, control, params)
 	. = ..()
@@ -186,13 +185,13 @@
 		var/card_content = desc
 		if(trap_datum)
 			card_title = trap_datum.name
-			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetTrapFormatting(FALSE), trap_datum, FALSE)
+			card_content = SSbattle_monsters.FormatSpellText(SSbattle_monsters.GetTrapFormatting(FALSE), trap_datum, FALSE)
 		else if(spell_datum)
 			card_title = spell_datum.name
-			card_content = SSbattlemonsters.FormatSpellText(SSbattlemonsters.GetSpellFormatting(FALSE), spell_datum, FALSE)
+			card_content = SSbattle_monsters.FormatSpellText(SSbattle_monsters.GetSpellFormatting(FALSE), spell_datum, FALSE)
 		else
 			card_title = root_datum.name
-			card_content = SSbattlemonsters.FormatMonsterText(SSbattlemonsters.GetMonsterFormatting(FALSE), prefix_datum, root_datum, suffix_datum, FALSE)
+			card_content = SSbattle_monsters.FormatMonsterText(SSbattle_monsters.GetMonsterFormatting(FALSE), prefix_datum, root_datum, suffix_datum, FALSE)
 		openToolTip(usr, src, params, card_title, card_content)
 
 /obj/item/battle_monsters/card/MouseExited(location, control, params)

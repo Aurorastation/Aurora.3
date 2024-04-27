@@ -2,6 +2,9 @@
 	name = "agent card"
 	assignment = "Agent"
 	origin_tech = list(TECH_ILLEGAL = 3)
+	iff_faction = IFF_SYNDICATE
+	can_copy_access = TRUE
+	access_copy_msg = "The microscanner activates as you pass it over the ID, copying its access."
 	var/charge = 10000
 	var/electronic_warfare = FALSE
 	var/image/obfuscation_image
@@ -9,7 +12,7 @@
 
 /obj/item/card/id/syndicate/New(mob/user as mob)
 	..()
-	access = syndicate_access.Copy()
+	access = GLOB.syndicate_access.Copy()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/card/id/syndicate/Destroy()
@@ -17,11 +20,11 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/examine(mob/user)
-	..()
-	if(Adjacent(user))
+/obj/item/card/id/syndicate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
 		if(user == registered_user)
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
+			. += FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge."))
 
 /obj/item/card/id/syndicate/process()
 	if(electronic_warfare)
@@ -36,14 +39,6 @@
 
 /obj/item/card/id/syndicate/prevent_tracking()
 	return electronic_warfare
-
-/obj/item/card/id/syndicate/afterattack(var/obj/item/O as obj, mob/user as mob, proximity)
-	if(!proximity) return
-	if(istype(O, /obj/item/card/id))
-		var/obj/item/card/id/I = O
-		src.access |= I.access
-		if(player_is_antag(user.mind))
-			to_chat(user, "<span class='notice'>The microscanner activates as you pass it over the ID, copying its access.</span>")
 
 /obj/item/card/id/syndicate/attack_self(mob/user as mob)
 	// We use the fact that registered_name is not unset should the owner be vaporized, to ensure the id doesn't magically become unlocked.
@@ -70,6 +65,8 @@
 	entries[++entries.len] = list("name" = "Name", 				"value" = registered_name)
 	entries[++entries.len] = list("name" = "Photo", 			"value" = "Update")
 	entries[++entries.len] = list("name" = "Sex", 				"value" = sex)
+	entries[++entries.len] = list("name" = "Citizenship",		"value" = citizenship)
+	entries[++entries.len] = list("name" = "Faction",			"value" = employer_faction)
 	entries[++entries.len] = list("name" = "Factory Reset",		"value" = "Use With Care")
 	data["electronic_warfare"] = electronic_warfare
 	data["entries"] = entries
@@ -86,13 +83,13 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	destroyed_event.register(user, src, /obj/item/card/id/syndicate/proc/unset_registered_user)
+	GLOB.destroyed_event.register(user, src, PROC_REF(unset_registered_user))
 	return TRUE
 
 /obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
 	if(!registered_user || (user && user != registered_user))
 		return
-	destroyed_event.unregister(registered_user, src)
+	GLOB.destroyed_event.unregister(registered_user, src)
 	registered_user = null
 
 /obj/item/card/id/syndicate/CanUseTopic(mob/user)
@@ -136,7 +133,7 @@
 		QDEL_NULL(obfuscation_image)
 	update_icon()
 
-/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/topic_state/state)
+/obj/item/card/id/syndicate/Topic(href, href_list, var/datum/ui_state/state)
 	if(..())
 		return 1
 
@@ -148,7 +145,7 @@
 	else if(href_list["set"])
 		switch(href_list["set"])
 			if("Age")
-				var/new_age = input(user,"What age would you like to put on this card?","Agent Card Age", age) as null|num
+				var/new_age = tgui_input_number(user, "What age would you like to put on this card?", "Agent Card Age", age, 1000, 0)
 				if(!isnull(new_age) && CanUseTopic(user, state))
 					if(new_age < 0)
 						age = initial(age)
@@ -157,14 +154,14 @@
 					to_chat(user, "<span class='notice'>Age has been set to '[age]'.</span>")
 					. = 1
 			if("Appearance")
-				var/datum/card_state/choice = input(user, "Select the appearance for this card.", "Agent Card Appearance") as null|anything in id_card_states()
+				var/datum/card_state/choice = tgui_input_list(user, "Select the appearance for this card.", "Agent Card Appearance", id_card_states(), icon_state)
 				if(choice && CanUseTopic(user, state))
 					src.icon_state = choice.icon_state
 					src.item_state = choice.item_state
 					to_chat(usr, "<span class='notice'>Appearance changed to [choice].</span>")
 					. = 1
 			if("Assignment")
-				var/new_job = sanitize(input(user,"What assignment would you like to put on this card?\nChanging assignment will not grant or remove any access levels.","Agent Card Assignment", assignment) as null|text)
+				var/new_job = tgui_input_text(user, "What assignment would you like to put on this card? Changing assignment will not grant or remove any access levels.", "Agent Card Assignment", assignment)
 				if(!isnull(new_job) && CanUseTopic(user, state))
 					src.assignment = new_job
 					to_chat(user, "<span class='notice'>Occupation changed to '[new_job]'.</span>")
@@ -220,12 +217,25 @@
 					src.sex = new_sex
 					to_chat(user, "<span class='notice'>Sex changed to '[new_sex]'.</span>")
 					. = 1
+			if("Citizenship")
+				var/new_citizenship = sanitize(input(user,"Which citizenship would you like to put on this card?","Agent Card Citizenship", citizenship) as null|text)
+				if(!isnull(new_citizenship) && CanUseTopic(user,state))
+					src.citizenship = new_citizenship
+					to_chat(user, SPAN_NOTICE("Citizenship changed to '[new_citizenship]'."))
+					. = 1
+			if("Faction")
+				var/new_faction = sanitize(input(user,"Which faction would you like to put on this card?","Agent Card Faction", employer_faction) as null|text)
+				if(!isnull(new_faction) && CanUseTopic(user,state))
+					src.employer_faction = new_faction
+					to_chat(user, SPAN_NOTICE("Faction changed to '[new_faction]'."))
+					. = 1
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
 					age = initial(age)
-					access = syndicate_access.Copy()
+					access = GLOB.syndicate_access.Copy()
 					assignment = initial(assignment)
 					blood_type = initial(blood_type)
+					citizenship = initial(citizenship)
 					dna_hash = initial(dna_hash)
 					electronic_warfare = initial(electronic_warfare)
 					fingerprint_hash = initial(fingerprint_hash)
@@ -234,6 +244,7 @@
 					registered_name = initial(registered_name)
 					unset_registered_user()
 					sex = initial(sex)
+					employer_faction = initial(employer_faction)
 					to_chat(user, "<span class='notice'>All information has been deleted from \the [src].</span>")
 					. = 1
 
@@ -251,7 +262,7 @@
 			CS.item_state = initial(ID.item_state)
 			CS.name = initial(ID.name) + " - " + initial(ID.icon_state)
 			id_card_states += CS
-		sortTim(id_card_states, /proc/cmp_cardstate, FALSE)
+		sortTim(id_card_states, GLOBAL_PROC_REF(cmp_cardstate), FALSE)
 
 	return id_card_states
 

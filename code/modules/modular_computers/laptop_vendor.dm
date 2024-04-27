@@ -10,7 +10,7 @@
 
 	// The actual laptop/tablet
 	var/obj/item/modular_computer/laptop/fabricated_laptop
-	var/obj/item/modular_computer/tablet/fabricated_tablet
+	var/obj/item/modular_computer/handheld/fabricated_tablet
 
 	// Utility vars
 	var/state = 0							// 0: Select device type, 1: Select loadout, 2: Payment, 3: Thankyou screen
@@ -232,7 +232,7 @@
 	if(anchored)
 		ui_interact(user)
 	else
-		to_chat(user, span("notice","[src] needs to be anchored to the floor to function!"))
+		to_chat(user, SPAN_NOTICE("[src] needs to be anchored to the floor to function!"))
 
 /obj/machinery/lapvend/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
 	if(stat & (BROKEN | NOPOWER | MAINT))
@@ -262,30 +262,29 @@
 		ui.open()
 		ui.set_auto_update(1)
 
-/obj/machinery/lapvend/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/lapvend/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		playsound(src.loc, W.usesound, 100, 1)
 		if(anchored)
 			user.visible_message("<b>[user]</b> begins unsecuring \the [src] from the floor.", \
 								SPAN_NOTICE("You start unsecuring \the [src] from the floor."))
 		else
 			user.visible_message("<b>[user]</b> begins securing \the [src] to the floor.", \
 								SPAN_NOTICE("You start securing \the [src] to the floor."))
-		if(do_after(user, 20/W.toolspeed))
+		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src)
 				return
-			to_chat(user, span("notice", "You [anchored ? "un" : ""]secured \the [src]!"))
+			to_chat(user, SPAN_NOTICE("You [anchored ? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 		return
 	else if(state == 2) // awaiting payment state
-		if(istype(W, /obj/item/card/id))
-			var/obj/item/card/id/I = W.GetID()
-			if(process_payment(I, W))
+		if(istype(attacking_item, /obj/item/card/id))
+			var/obj/item/card/id/I = attacking_item.GetID()
+			if(process_payment(I, attacking_item))
 				create_device()
 				return TRUE
-		else if(istype(W, /obj/item/card/tech_support))
-			create_device("Have a Nanotrasen day!")
+		else if(istype(attacking_item, /obj/item/card/tech_support))
+			create_device("Have a NanoTrasen day!")
 			return TRUE
 	return ..()
 
@@ -305,6 +304,7 @@
 		fabricated_tablet.forceMove(src.loc)
 		fabricated_tablet = null
 	ping(message)
+	intent_message(MACHINE_SOUND)
 	state = 3
 
 // Simplified payment processing, returns 1 on success.

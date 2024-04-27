@@ -1,64 +1,36 @@
-/var/datum/controller/subsystem/assets/SSassets
-
-/datum/controller/subsystem/assets
+SUBSYSTEM_DEF(assets)
 	name = "Assets"
-	init_order = SS_INIT_MISC_FIRST
-	flags = SS_BACKGROUND | SS_FIRE_IN_LOBBY
-	wait = 1
-	var/list/cache = list()
-	var/list/target_clients = list()
-	var/list/currentrun
+	init_order = INIT_ORDER_ASSETS
+	flags = SS_NO_FIRE
+	var/list/datum/asset_cache_item/cache = list()
+	var/list/preload = list()
+	var/datum/asset_transport/transport = new()
 
-/datum/controller/subsystem/assets/New()
-	NEW_SS_GLOBAL(SSassets)
+/datum/controller/subsystem/assets/OnConfigLoad()
+	var/newtransporttype = /datum/asset_transport
+	switch (GLOB.config.asset_transport)
+		if ("webroot")
+			newtransporttype = /datum/asset_transport/webroot
 
-/datum/controller/subsystem/assets/stat_entry()
-	..("C:[target_clients.len]")
+	if (newtransporttype == transport.type)
+		return
 
-/datum/controller/subsystem/assets/Initialize(timeofday)
-	for(var/type in typesof(/datum/asset) - list(/datum/asset, /datum/asset/simple))
-		var/datum/asset/A = new type()
-		A.register()
-		CHECK_TICK
+	var/datum/asset_transport/newtransport = new newtransporttype ()
+	if (newtransport.validate_config())
+		transport = newtransport
+	transport.Load()
 
-	for (var/client/C in global.clients)
-		handle_connect(C)
-	..()
 
-/datum/controller/subsystem/assets/proc/handle_disconnect(client/C)
-	target_clients -= C
-	if (currentrun)
-		currentrun -= C
+/datum/controller/subsystem/assets/Initialize()
+	for(var/type in typesof(/datum/asset))
+		var/datum/asset/A = type
+		if (type != initial(A._abstract))
+			load_asset_datum(type)
 
-/datum/controller/subsystem/assets/proc/handle_connect(client/C)
-	if (!C)
-		CRASH("Client is missing.")
+	transport.Initialize(cache)
 
-	target_clients[C] = cache.Copy()
-	if (suspended)
-		wake()
+	return SS_INIT_SUCCESS
 
-/datum/controller/subsystem/assets/fire(resumed = 0)
-	if (!resumed)
-		currentrun = target_clients.Copy()
-
-	if (!target_clients.len)
-		suspend()
-
-	while (currentrun.len)
-		var/client/C = currentrun[currentrun.len]
-		currentrun.len--
-
-		if (!C)
-			continue
-
-		var/list/c_files = target_clients[C]
-
-		if (!c_files.len)
-			target_clients -= C
-		else
-			send_asset(C, c_files[1], FALSE)
-			c_files.Cut(1, 2)
-
-		if (MC_TICK_CHECK)
-			return
+/datum/controller/subsystem/assets/Recover()
+	cache = SSassets.cache
+	preload = SSassets.preload

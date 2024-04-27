@@ -1,16 +1,15 @@
 /obj/structure/closet/secure_closet/guncabinet
 	name = "gun cabinet"
-	req_access = list(access_armory)
+	req_access = list(ACCESS_ARMORY)
 	icon = 'icons/obj/guncabinet.dmi'
 	icon_state = "base"
-	icon_off ="base"
-	icon_broken ="base"
-	icon_locked ="base"
-	icon_closed ="base"
-	icon_opened = "base"
-	anchored = 1
-	canbemoved = 1
+	anchored = TRUE
+	canbemoved = TRUE
 
+	door_underlay = TRUE
+	door_anim_squish = 0.12
+	door_anim_angle = 119
+	door_hinge = -9.5
 
 /obj/structure/closet/secure_closet/guncabinet/Initialize()
 	..()
@@ -26,32 +25,32 @@
 
 /obj/structure/closet/secure_closet/guncabinet/update_icon()
 	cut_overlays()
-	if(opened)
-		add_overlay("door_open")
-	else
-		var/lazors = 0
-		var/shottas = 0
-		for (var/obj/item/gun/G in contents)
-			if (istype(G, /obj/item/gun/energy))
-				lazors++
-			if (istype(G, /obj/item/gun/projectile/))
-				shottas++
-		if (lazors || shottas)
-			for (var/i = 0 to 2)
-				if (lazors > 0 && (shottas <= 0 || prob(50)))
-					lazors--
-					add_overlay("laser[i]")
-				else if (shottas > 0)
-					shottas--
-					add_overlay("projectile[i]")
+	var/lazors = 0
+	var/shottas = 0
+	for (var/obj/item/gun/G in contents)
+		if (istype(G, /obj/item/gun/energy))
+			lazors++
+		if (istype(G, /obj/item/gun/projectile/))
+			shottas++
+	if (lazors || shottas)
+		for (var/i = 0 to 2)
+			if (lazors > 0 && (shottas <= 0 || prob(50)))
+				lazors--
+				add_overlay("laser[i]")
+			else if (shottas > 0)
+				shottas--
+				add_overlay("projectile[i]")
+	. = ..()
 
-		add_overlay("door")
-		if(welded)
-			add_overlay(welded_overlay_state)
+/obj/structure/closet/secure_closet/guncabinet/sci
+	name = "science gun cabinet"
+	req_access = list(ACCESS_TOX_STORAGE)
+	icon_state = "sci"
 
-		if(broken)
-			add_overlay("broken")
-		else if (locked)
-			add_overlay("locked")
-		else
-			add_overlay("open")
+/obj/structure/closet/secure_closet/guncabinet/peac
+	name = "anti-materiel weapons platform cabinet"
+
+/obj/structure/closet/secure_closet/guncabinet/peac/fill()
+	new /obj/item/gun/projectile/peac(src)
+	for(var/i = 1 to 3)
+		new /obj/item/ammo_casing/peac(src)

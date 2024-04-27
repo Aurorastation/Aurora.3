@@ -48,7 +48,7 @@
 	var/largest_click_time = 0
 	var/mob/largest_move_mob = null
 	var/mob/largest_click_mob = null
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if(!M.client)
 			continue
 		if(M.next_move >= largest_move_time)
@@ -102,21 +102,15 @@
 	set name = "Reload Admins"
 	set category = "Debug"
 
-	if(!check_rights(R_SERVER|R_DEV))	return
+	if(!check_rights(R_SERVER|R_DEV))
+		return
 
-	message_admins("[usr] manually reloaded admins")
+	if (GLOB.config.use_forumuser_api)
+		update_admins_from_api(FALSE)
+
+	log_and_message_admins("manually reloaded admins.")
 	load_admins()
 	feedback_add_details("admin_verb","RLDA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
-
-/client/proc/reload_mentors()
-	set name = "Reload Mentors"
-	set category = "Debug"
-
-	if(!check_rights(R_SERVER)) return
-
-	message_admins("[usr] manually reloaded Mentors")
-	world.load_mods()
-
 
 //todo:
 /client/proc/jump_to_dead_group()

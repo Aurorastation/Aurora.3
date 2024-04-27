@@ -3,7 +3,7 @@
 	desc = "A small disk used for carrying data on plant genetics."
 	icon = 'icons/obj/hydroponics_machines.dmi'
 	icon_state = "disk"
-	w_class = 1.0
+	w_class = ITEMSIZE_TINY
 
 	var/list/genes = list()
 	var/genesource = "unknown"
@@ -37,7 +37,6 @@
 	icon_state = "hydrotray3"
 	density = 1
 	anchored = 1
-	use_power = 1
 
 	var/obj/item/seeds/seed // Currently loaded seed packet.
 	var/obj/item/disk/botany/loaded_disk //Currently loaded data disk.
@@ -50,7 +49,7 @@
 	var/failed_task = 0
 	var/disk_needs_genes = 0
 
-/obj/machinery/botany/machinery_process()
+/obj/machinery/botany/process()
 
 	..()
 	if(!active) return
@@ -59,6 +58,8 @@
 		finished_task()
 
 /obj/machinery/botany/attack_ai(mob/user as mob)
+	if(!ai_can_interact(user))
+		return
 	return attack_hand(user)
 
 /obj/machinery/botany/attack_hand(mob/user as mob)
@@ -68,47 +69,47 @@
 	active = 0
 	if(failed_task)
 		failed_task = 0
-		visible_message("\icon[src] [src] pings unhappily, flashing a red warning light.")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings unhappily, flashing a red warning light.")
 	else
-		visible_message("\icon[src] [src] pings happily.")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] pings happily.")
 
 	if(eject_disk)
 		eject_disk = 0
 		if(loaded_disk)
 			loaded_disk.forceMove(get_turf(src))
-			visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
+			visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
 			loaded_disk = null
 
-/obj/machinery/botany/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/seeds))
+/obj/machinery/botany/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/seeds))
 		if(seed)
 			to_chat(user, "There is already a seed loaded.")
 			return
-		var/obj/item/seeds/S =W
+		var/obj/item/seeds/S = attacking_item
 		if(S.seed && S.seed.get_trait(TRAIT_IMMUTABLE) > 0)
 			to_chat(user, "That seed is not compatible with our genetics technology.")
 		else
-			user.drop_from_inventory(W,src)
-			seed = W
-			to_chat(user, "You load [W] into [src].")
+			user.drop_from_inventory(attacking_item,src)
+			seed = attacking_item
+			to_chat(user, "You load [attacking_item] into [src].")
 		return
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		open = !open
 		to_chat(user, "<span class='notice'>You [open ? "open" : "close"] the maintenance panel.</span>")
 		return
 
 	if(open)
-		if(W.iscrowbar())
+		if(attacking_item.iscrowbar())
 			dismantle()
 			return
 
-	if(istype(W,/obj/item/disk/botany))
+	if(istype(attacking_item,/obj/item/disk/botany))
 		if(loaded_disk)
 			to_chat(user, "There is already a data disk loaded.")
 			return
 		else
-			var/obj/item/disk/botany/B = W
+			var/obj/item/disk/botany/B = attacking_item
 
 			if(B.genes && B.genes.len)
 				if(!disk_needs_genes)
@@ -119,9 +120,9 @@
 					to_chat(user, "That disk does not have any gene data loaded.")
 					return
 
-			user.drop_from_inventory(W,src)
-			loaded_disk = W
-			to_chat(user, "You load [W] into [src].")
+			user.drop_from_inventory(attacking_item,src)
+			loaded_disk = attacking_item
+			to_chat(user, "You load [attacking_item] into [src].")
 
 		return
 	..()
@@ -129,7 +130,7 @@
 // Allows for a trait to be extracted from a seed packet, destroying that seed.
 /obj/machinery/botany/extractor
 	name = "lysis-isolation centrifuge"
-	icon_state = "traitcopier"
+	icon_state = "centrifuge"
 
 	var/datum/seed/genetics // Currently scanned seed genetic structure.
 	var/degradation = 0     // Increments with each scan, stops allowing gene mods after a certain point.
@@ -141,9 +142,7 @@
 
 	var/list/data = list()
 
-	var/list/geneMasks[0]
-	for(var/gene_tag in SSplants.gene_tag_masks)
-		geneMasks.Add(list(list("tag" = gene_tag, "mask" = SSplants.gene_tag_masks[gene_tag])))
+	var/list/geneMasks = SSplants.gene_masked_list
 	data["geneMasks"] = geneMasks
 
 	data["activity"] = active
@@ -190,14 +189,14 @@
 			SSplants.seeds[seed.seed.name] = seed.seed
 
 		seed.update_seed()
-		visible_message("\icon[src] [src] beeps and spits out [seed].")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [seed].")
 
 		seed = null
 
 	if(href_list["eject_disk"])
 		if(!loaded_disk) return
 		loaded_disk.forceMove(get_turf(src))
-		visible_message("\icon[src] [src] beeps and spits out [loaded_disk].")
+		visible_message("[icon2html(src, viewers(get_turf(src)))] [src] beeps and spits out [loaded_disk].")
 		loaded_disk = null
 
 	usr.set_machine(src)

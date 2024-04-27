@@ -16,6 +16,26 @@
 	icon_state = "filingcabinet"
 	density = 1
 	anchored = 1
+	var/static/list/accepted_items = list(
+		/obj/item/paper,
+		/obj/item/folder,
+		/obj/item/photo,
+		/obj/item/paper_bundle,
+		/obj/item/sample,
+		/obj/item/book,
+		/obj/item/card,
+		/obj/item/forensics/slide,
+		/obj/item/forensics/swab,
+		/obj/item/storage/photo_album,
+		/obj/item/clipboard,
+		/obj/item/disk,
+		/obj/item/pen,
+		/obj/item/clothing/accessory/badge,
+		/obj/item/pack,
+		/obj/item/hand,
+		/obj/item/key,
+		/obj/item/paper_scanner
+)
 
 
 /obj/structure/filingcabinet/chestdrawer
@@ -30,25 +50,25 @@
 /obj/structure/filingcabinet/Initialize()
 	. = ..()
 	for(var/obj/item/I in loc)
-		if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
+		if(is_type_in_list(I, accepted_items))
 			I.forceMove(src)
 
 
-/obj/structure/filingcabinet/attackby(obj/item/P as obj, mob/user as mob)
-	if(istype(P, /obj/item/paper) || istype(P, /obj/item/folder) || istype(P, /obj/item/photo) || istype(P, /obj/item/paper_bundle))
-		to_chat(user, "<span class='notice'>You put [P] in [src].</span>")
-		user.drop_from_inventory(P,src)
-		flick("[initial(icon_state)]-open",src)
+/obj/structure/filingcabinet/attackby(obj/item/attacking_item, mob/user)
+	if(is_type_in_list(attacking_item, accepted_items))
+		to_chat(user, "<span class='notice'>You put [attacking_item] in [src].</span>")
+		user.drop_from_inventory(attacking_item, src)
+		flick("[initial(icon_state)]-open", src)
 		playsound(loc, 'sound/bureaucracy/filingcabinet.ogg', 50, 1)
 		sleep(40)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
-	else if(P.iswrench())
-		playsound(loc, P.usesound, 50, 1)
+	else if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		to_chat(user, "<span class='notice'>You [anchored ? "wrench" : "unwrench"] \the [src].</span>")
 	else
-		to_chat(user, "<span class='notice'>You can't put [P] in [src]!</span>")
+		to_chat(user, "<span class='notice'>You can't put [attacking_item] in [src]!</span>")
 
 
 /obj/structure/filingcabinet/attack_hand(mob/user as mob)

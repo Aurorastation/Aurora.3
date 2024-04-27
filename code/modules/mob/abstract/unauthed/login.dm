@@ -6,7 +6,7 @@
 	var/timeout_timer
 
 /mob/abstract/unauthed/New()
-	verbs -= typesof(/mob/verb)
+	remove_verb(src, typesof(/mob/verb))
 
 /mob/abstract/unauthed/LateLogin()
 	SHOULD_CALL_PARENT(FALSE)
@@ -15,20 +15,20 @@
 	to_chat(src, "<span class='danger'><b>You need to authenticate before you can continue.</b></span>")
 	token = md5("[client.ckey][client.computer_id][world.time][rand()]")
 	unauthed[token] = src
-	client.verbs -= typesof(/client/verb)
+	remove_verb(client, typesof(/client/verb))
 	var/uihtml = "<html><head><style>body * {display: block;text-align:center;margin: 14px 0;font-size:24px;text-decoration:none;font-family:Segoe UI,Frutiger,Frutiger Linotype,Dejavu Sans,Helvetica Neue,Arial,sans-serif;}</style></head><body><p>Please select:</p>"
-	if(config.guests_allowed)
+	if(GLOB.config.guests_allowed)
 		uihtml += "<a href='?src=\ref[src];authaction=guest'>Login as guest</a>"
-	if(config.webint_url && config.external_auth)
+	if(GLOB.config.webint_url && GLOB.config.external_auth)
 		uihtml += "<a href='?src=\ref[src];authaction=forums'>Login via forums</a>"
-	if(!config.guests_allowed && config.webint_url && config.external_auth)
+	if(!GLOB.config.guests_allowed && GLOB.config.webint_url && GLOB.config.external_auth)
 		src.OpenForumAuthWindow()
-	show_browser(src, uihtml, "window=auth;size=300x300;border=0;can_close=0;can_resize=0;can_minimize=0;titlebar=1")
-	timeout_timer = addtimer(CALLBACK(src, .proc/timeout), 900, TIMER_STOPPABLE)
+	show_browser(src, uihtml, "window=externalauth;size=300x300;border=0;can_close=1;can_resize=0;can_minimize=0;titlebar=1")
+	timeout_timer = addtimer(CALLBACK(src, PROC_REF(timeout)), 900, TIMER_STOPPABLE)
 
 /mob/abstract/unauthed/proc/timeout()
 	if (client)
-		to_chat(client, "Your login time has expired. Please relog and try again.")
+		to_chat_immediate(client, "Your login time has expired. Please relog and try again.")
 	qdel(client)
 	qdel(src)
 
@@ -38,26 +38,26 @@
 	deltimer(timeout_timer)
 	var/client/c = client // so we don't lose the client in the current mob.
 
-	show_browser(src, null, "window=auth;")
-	c.verbs += typesof(/client/verb) // Let's return regular client verbs
+	show_browser(src, null, "window=externalauth")
+	add_verb(c,  typesof(/client/verb)) // Let's return regular client verbs
 	c.authed = TRUE // We declare client as authed now
 	c.prefs = null //Null them so we can load them from the db again for the correct ckey
 	// Check for bans
-	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, TRUE)
+	var/list/ban_data = world.IsBanned(ckey(newkey), c.address, c.computer_id, 1, real_bans_only = TRUE, log_connection = TRUE)
 	if(ban_data)
-		to_chat(c, "You are banned for this server.")
-		to_chat(c, "Reason: [ban_data["reason"]]")
-		to_chat(c, "Description: [ban_data["desc"]]")
+		to_chat_immediate(c, "You are banned for this server.")
+		to_chat_immediate(c, "Reason: [ban_data["reason"]]")
+		to_chat_immediate(c, "Description: [ban_data["desc"]]")
 		del(c)
 		return
 
-	directory -= c.ckey
+	GLOB.directory -= c.ckey
 	if(newkey)
 		c.key = newkey // Try seeting ckey
 		// ^^^^ THIS INVOKES mob/Login()!
 		// and also modifies the c.mob to the actual mob they disconnected out of.
 
-	directory[c.ckey] = c
+	GLOB.directory[c.ckey] = c
 	// Init the client and give it a new_player mob.
 	// Note that modifying the key variable does not invoke client/New() or client/Login() again.
 	c.InitClient()
@@ -75,16 +75,16 @@
 		return
 	switch(href_list["authaction"])
 		if("guest")
-			if(config.guests_allowed)
+			if(GLOB.config.guests_allowed)
 				src.ClientLogin(null)
 			else
 				qdel(src)
 		if("forums")
-			if(config.external_auth)
+			if(GLOB.config.external_auth)
 				src.OpenForumAuthWindow()
 			else
 				qdel(src)
 
 /mob/abstract/unauthed/proc/OpenForumAuthWindow()
-	src << link("[config.webint_url]server/auth?token=[token]")
+	src << link("[GLOB.config.webint_url]server/auth?token=[token]")
 

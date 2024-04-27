@@ -7,8 +7,8 @@
 	desc = "Extracts information on wounds."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "autopsy"
-	flags = CONDUCT
-	w_class = 2.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	var/list/datum/autopsy_data_scanner/wdata = list()
 	var/list/datum/autopsy_data_scanner/chemtraces = list()
@@ -17,8 +17,7 @@
 
 /datum/autopsy_data_scanner
 	var/weapon = null // this is the DEFINITE weapon type that was used
-	var/list/organs_scanned = list() // this maps a number of scanned organs to
-									 // the wounds to those organs with this data's weapon type
+	var/list/organs_scanned = list() // this maps a number of scanned organs to the wounds to those organs with this data's weapon type
 	var/organ_names = ""
 
 /datum/autopsy_data
@@ -28,14 +27,14 @@
 	var/hits = 0
 	var/time_inflicted = 0
 
-	proc/copy()
-		var/datum/autopsy_data/W = new()
-		W.weapon = weapon
-		W.pretend_weapon = pretend_weapon
-		W.damage = damage
-		W.hits = hits
-		W.time_inflicted = time_inflicted
-		return W
+/datum/autopsy_data/proc/copy()
+	var/datum/autopsy_data/W = new()
+	W.weapon = weapon
+	W.pretend_weapon = pretend_weapon
+	W.damage = damage
+	W.hits = hits
+	W.time_inflicted = time_inflicted
+	return W
 
 /obj/item/autopsy_scanner/proc/add_data(var/obj/item/organ/external/O)
 	if(!O.autopsy_data.len && !O.trace_chemicals.len) return
@@ -66,9 +65,9 @@
 			chemtraces += V
 
 /obj/item/autopsy_scanner/verb/print_data()
-	set category = "Object"
-	set src in view(usr, 1)
 	set name = "Print Data"
+	set category = "Object"
+	set src in usr
 
 	if(use_check_and_message(usr))
 		return
@@ -109,13 +108,13 @@
 			if(0)
 				damage_desc = "Unknown"
 			if(1 to 5)
-				damage_desc = "<font color='green'>negligible</font>"
+				damage_desc = "<span class='good'>negligible</span>"
 			if(5 to 15)
-				damage_desc = "<font color='green'>light</font>"
+				damage_desc = "<span class='good'>light</span>"
 			if(15 to 30)
 				damage_desc = "<font color='orange'>moderate</font>"
 			if(30 to 1000)
-				damage_desc = "<font color='red'>severe</font>"
+				damage_desc = "<span class='warning'>severe</span>"
 
 		if(!total_score) total_score = D.organs_scanned.len
 
@@ -140,8 +139,8 @@
 			scan_data += "<br>"
 
 	for(var/mob/O in viewers(usr))
-		O.show_message(span("notice", "\The [src] rattles and prints out a sheet of paper."), 1)
-		playsound(loc, "sound/bureaucracy/print_short.ogg", 50, 1)
+		O.show_message(SPAN_NOTICE("\The [src] rattles and prints out a sheet of paper."), 1)
+		playsound(loc, 'sound/bureaucracy/print_short.ogg', 50, 1)
 
 	sleep(10)
 
@@ -164,19 +163,19 @@
 		src.wdata = list()
 		src.chemtraces = list()
 		src.timeofdeath = null
-		to_chat(user, span("notice", "A new patient has been registered. Purging data for previous patient."))
+		to_chat(user, SPAN_NOTICE("A new patient has been registered. Purging data for previous patient."))
 
 	src.timeofdeath = M.timeofdeath
 
 	var/obj/item/organ/external/S = M.get_organ(user.zone_sel.selecting)
 	if(!S)
-		to_chat(usr, span("warning", "You can't scan this body part."))
+		to_chat(usr, SPAN_WARNING("You can't scan this body part."))
 		return
 	if(!S.open)
-		to_chat(usr, span("warning", "You have to cut the limb open first!"))
+		to_chat(usr, SPAN_WARNING("You have to cut the limb open first!"))
 		return
 	for(var/mob/O in viewers(M))
-		O.show_message(span("notice", "\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
+		O.show_message(SPAN_NOTICE("\The [user] scans the wounds on [M.name]'s [S.name] with \the [src]"), 1)
 
 	src.add_data(S)
 

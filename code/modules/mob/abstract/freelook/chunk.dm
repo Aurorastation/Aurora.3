@@ -24,6 +24,7 @@
 	if(!obfuscation)
 		obfuscation = image(icon, T, icon_state)
 		obfuscation.layer = OBFUSCATION_LAYER
+		obfuscation.plane = DEFAULT_PLANE
 		if(!obfuscation_underlay)
 			// Creating a new icon of a fairly common icon state, adding some random color to prevent address searching, and hoping being static kills memory locality
 			var/turf/floor = /turf/simulated/floor/tiled
@@ -133,7 +134,7 @@
 
 	if(seenby.len)
 		updating = TRUE
-		addtimer(CALLBACK(src, .proc/update), UPDATE_BUFFER)
+		addtimer(CALLBACK(src, PROC_REF(update)), UPDATE_BUFFER)
 	else
 		dirty = TRUE
 
@@ -175,7 +176,7 @@
 				var/mob/abstract/eye/m = eye
 				if (m && m.owner && m.owner.client)
 					m.owner.client.images += obfuscation_image
-	
+
 	dirty = FALSE
 	updating = FALSE
 
@@ -183,10 +184,10 @@
 	return
 
 /proc/seen_turfs_in_range(var/source, var/range)
+	. = list()
 	var/turf/pos = get_turf(source)
 	if(pos)
-		. = hear(range, pos)
-	else
-		. = list()
+		for(var/turf/T in get_hear(range, pos))
+			. += T
 
 #undef UPDATE_BUFFER

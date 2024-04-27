@@ -1,0 +1,25 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+	"configurations": [
+		{ // Builds with CBT and launches DreamSeeker.
+			"type": "byond",
+			"request": "launch",
+			"name": "Launch DreamSeeker",
+			"preLaunchTask": "Build All",
+			"postDebugTask": "dreamchecker",
+			"dmb": "${workspaceFolder}/${command:CurrentDMB}"
+		},
+		{ // Builds with CBT and starts the server with DreamDaemon.
+			"type": "byond",
+			"request": "launch",
+			"name": "Launch DreamDaemon",
+			"preLaunchTask": "Build All",
+			"postDebugTask": "dreamchecker",
+			"dmb": "${workspaceFolder}/${command:CurrentDMB}",
+			"dreamDaemon": true
+		}
+	]
+}

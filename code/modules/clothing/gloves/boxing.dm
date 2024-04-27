@@ -3,10 +3,10 @@
 	desc = "Because you really needed another excuse to punch your crewmates."
 	icon_state = "boxing"
 	item_state = "boxing"
-	species_restricted = list("exclude","Vaurca Breeder","Vaurca Warform")
+	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_VAURCA_BULWARK)
 
-/obj/item/clothing/gloves/boxing/attackby(obj/item/W, mob/user)
-	if(W.iswirecutter() || istype(W, /obj/item/surgery/scalpel))
+/obj/item/clothing/gloves/boxing/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 		to_chat(user, "<span class='notice'>That won't work.</span>")	//Nope)
 		return
 	..()

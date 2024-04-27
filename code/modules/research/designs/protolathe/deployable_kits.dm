@@ -1,8 +1,5 @@
 /datum/design/item/deployable_kit
-	design_order = 11
-
-/datum/design/item/deployable_kit/AssembleDesignName()
-	name = "Deployable Kit Design ([name])"
+	p_category = "Deployable Kit Designs"
 
 /datum/design/item/deployable_kit/mech_chair
 	name = "Remote Mech Centre"

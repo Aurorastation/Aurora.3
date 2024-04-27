@@ -1,13 +1,12 @@
 /obj/item/export_scanner
 	name = "export scanner"
-	desc = "A device used to check objects against Nanotrasen exports and bounty database."
+	desc = "A device used to check objects against NanoTrasen exports and bounty database."
 	icon = 'icons/obj/device.dmi'
 	icon_state = "price_scanner"
 	slot_flags = SLOT_BELT
-	item_flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	w_class = ITEMSIZE_SMALL
 	siemens_coefficient = 1
-	var/obj/machinery/computer/cargo/cargo_console = null
 
 /obj/item/export_scanner/afterattack(obj/O, mob/user, proximity)
 	. = ..()

@@ -50,7 +50,7 @@
 /obj/item/computer_hardware/hard_drive/micro
 	name = "micro hard drive"
 	desc = "A small micro hard drive for portable devices."
-	power_usage = 2
+	power_usage = 5
 	origin_tech = list(TECH_DATA = 1, TECH_ENGINEERING = 1)
 	max_capacity = 32
 	icon_state = "hdd_micro"
@@ -73,8 +73,9 @@
 	if(!stored_files)
 		return FALSE
 	// This file is already stored. Don't store it again.
-	if(F in stored_files)
-		return FALSE
+	for(var/datum/computer_file/program/P in stored_files)
+		if(F.type == P.type)
+			return FALSE
 
 	F.hard_drive = src
 	stored_files.Add(F)
@@ -83,9 +84,10 @@
 
 // Use this proc to add file to the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/install_default_programs()
-	store_file(new /datum/computer_file/program/computerconfig(src))		// Computer configuration utility, allows hardware control and displays more info than status bar
-	store_file(new /datum/computer_file/program/clientmanager(src))			// Client Manager to Enroll the Device
-	store_file(new /datum/computer_file/program/pai_access_lock(src))		// pAI access control, to stop pesky pAI from messing with computers
+	if(parent_computer)
+		store_file(new /datum/computer_file/program/computerconfig(parent_computer))		// Computer configuration utility, allows hardware control and displays more info than status bar
+		store_file(new /datum/computer_file/program/clientmanager(parent_computer))			// Client Manager to Enroll the Device
+		store_file(new /datum/computer_file/program/pai_access_lock(parent_computer))		// pAI access control, to stop pesky pAI from messing with computers
 
 // Use this proc to remove file from the drive. Returns 1 on success and 0 on failure. Contains necessary sanity checks.
 /obj/item/computer_hardware/hard_drive/proc/remove_file(var/datum/computer_file/F)
@@ -140,35 +142,41 @@
 		return null
 	if(!stored_files)
 		return null
+
 	for(var/datum/computer_file/F in stored_files)
+
+		if(QDELETED(F))
+			continue
+
 		if(F.filename == filename)
 			return F
+
 	return null
 
 /obj/item/computer_hardware/hard_drive/Destroy()
 	if(parent_computer?.hard_drive == src)
 		parent_computer.hard_drive = null
-	stored_files = null
+	QDEL_LIST(stored_files)
 	return ..()
 
 /obj/item/computer_hardware/hard_drive/Initialize(mapload)
+	. = ..()
 	install_default_programs()
 	if(mapload && prob(5))
 		var/datum/docs_document/file = SSdocs.pick_document_by_tag(SSDOCS_MEDIUM_FILE)
 		if(!istype(file))
-			log_ss("docs", "pick_document_by_tag returned null file!")
+			log_subsystem_documents("pick_document_by_tag returned null file!")
 		else
 			var/datum/computer_file/data/F = SSdocs.create_file(file)
 			store_file(F)
-	. = ..()
 
 /obj/item/computer_hardware/hard_drive/proc/reset_drive()
 	for(var/datum/computer_file/F in stored_files)
 		remove_file(F)
 	install_default_programs()
 
-/obj/item/computer_hardware/hard_drive/attackby(obj/item/W, mob/living/user)
-	if(istype(W, /obj/item/card/tech_support))
+/obj/item/computer_hardware/hard_drive/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/tech_support))
 		reset_drive()
 		to_chat(user, SPAN_NOTICE("Drive successfully reset."))
 	else

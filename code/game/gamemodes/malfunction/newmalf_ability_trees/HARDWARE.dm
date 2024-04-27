@@ -10,8 +10,8 @@
 	set category = "Hardware"
 	set name = "Destroy Core"
 	set desc = "Activates or deactivates self destruct sequence of your physical mainframe."
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, 0, 1))
 		return
 
@@ -49,8 +49,8 @@
 	set category = "Hardware"
 	set name = "Toggle APU Generator"
 	set desc = "Activates or deactivates your APU generator, allowing you to operate even without power."
-	var/mob/living/silicon/ai/user = usr
 
+	var/mob/living/silicon/ai/user = usr
 	if(!ability_prechecks(user, 0, 1))
 		return
 
@@ -67,7 +67,12 @@
 	set category = "Hardware"
 	set name = "Destroy Station"
 	set desc = "Activates or deactivates self destruct sequence of this station. Sequence takes two minutes, and if you are shut down before timer reaches zero it will be cancelled."
+
 	var/mob/living/silicon/ai/user = usr
+	if(user.stat == DEAD)
+		to_chat(user, SPAN_WARNING("You are dead!"))
+		return
+
 	var/obj/item/device/radio/radio = new/obj/item/device/radio()
 	var/datum/weakref/nuke
 	//Time control for the self destruct
@@ -75,7 +80,7 @@
 	// - First the primary firewall is breached.
 	//		If the crew does not manage to prevent the self destruct before that,
 	//		but after the timer fell below nuke_time_stage1, then the next self-destruct attempt will only take nuke_time_stage1
-	// - Simmilar for the backup firewall.
+	// - Similar for the backup firewall.
 	//		If they only manage to stop it after the backup firewall went down further attempts will take only nuke_time_stage2
 	var/timer = user.bombing_time
 	var/stage1 = 900
@@ -100,7 +105,7 @@
 		return
 
 	//Lets find the first self destruct terminal
-	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.all_machines)
+	for(var/obj/machinery/nuclearbomb/station/N in SSmachinery.machinery)
 		nuke = WEAKREF(N)
 		continue
 

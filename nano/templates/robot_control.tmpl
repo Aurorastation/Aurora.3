@@ -70,14 +70,39 @@
 			<b> N/A %</b>
 		{{/if}}
 		<h3>Actions</h3>
-			{{if value.status == "Operational"}}
-				{{:helper.link('Lockdown', 'locked', {'lockdown' : value.name})}}
-			{{else}}
-				{{:helper.link('Unlock', 'unlocked', {'lockdown' : value.name})}}
-			{{/if}}
+			<span class="itemLabel">
+				Access: 
+			</span>
+			<span class="itemContent">
+				{{if value.access == 0}}
+					{{:helper.link('Role Specific Access', 'locked', {'access' : value.name})}}
+				{{else}}
+					{{:helper.link('All Access', 'unlocked', {'access' : value.name})}}
+				{{/if}}
+			</span>
+			<span class="itemLabel">
+				Lockdown Status: 
+			</span>
+			<span class="itemContent">
+				{{if value.status == "Operational"}}
+					{{:helper.link('Lockdown', 'locked', {'lockdown' : value.name})}}
+				{{else}}
+					{{:helper.link('Unlock', 'unlocked', {'lockdown' : value.name})}}
+				{{/if}}
+			</span>
+			<span class="itemLabel">
+				Self Destruct: 
+			</span>
+			<span class="itemContent">
 				{{:helper.link('Self-Destruct', 'radiation', {'detonate' : value.name}, null, 'redButton')}}
+			</span>
 			{{if value.hackable}}
-				{{:helper.link('Hack', 'calculator', {'hack' : value.name}, null, 'redButton')}}
+				<span class="itemLabel">
+					Hacking Action: 
+				</span>
+				<span class="itemContent">
+					{{:helper.link('Hack', 'calculator', {'hack' : value.name}, null, 'redButton')}}
+				</span>
 			{{/if}}
 	</div>
 {{/for}}

@@ -11,25 +11,28 @@
 	max_hardware_size = 3
 	max_damage = 50
 	w_class = ITEMSIZE_NORMAL
-	enrolled = 2
-	var/mob/living/silicon/computer_host		// Thing that contains this computer. Used for silicon computers
+	enrolled = DEVICE_PRIVATE
+	/// Thing that contains this computer. Used for silicon computers
+	var/mob/living/silicon/computer_host
+	looping_sound = FALSE
 
 /obj/item/modular_computer/silicon/ui_host()
 	. = computer_host
 
 /obj/item/modular_computer/silicon/Initialize(mapload)
-	. = ..()
 	if(istype(loc, /mob/living/silicon))
 		computer_host = loc
 	else
-		return
-	// Let's remove integrated verbs for ejecting things.
-	verbs -= /obj/item/modular_computer/verb/eject_ai
-	verbs -= /obj/item/modular_computer/verb/eject_id
-	verbs -= /obj/item/modular_computer/verb/eject_usb
+		return INITIALIZE_HINT_QDEL
+	. = ..()
+
+/obj/item/modular_computer/silicon/Destroy()
+	computer_host = null
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/item/modular_computer/silicon/computer_use_power(power_usage)
-	// If we have host like AI, borg or pAI we handle there power
+	// If we have host like AI, borg or pAI we handle their power
 	if(computer_host)
 		// If host is borg, we use power from it's cell, like anyone other module
 		if(istype(computer_host, /mob/living/silicon/robot))
@@ -41,13 +44,9 @@
 		// If we don't have host, then we let regular computer code handle power - like batteries and tesla coils.
 		return ..()
 
-/obj/item/modular_computer/silicon/Destroy()
-	computer_host = null
-	return ..()
-
 /obj/item/modular_computer/silicon/Click(location, control, params)
 	return attack_self(usr)
-	
+
 /obj/item/modular_computer/silicon/install_default_hardware()
 	. = ..()
 	processor_unit = new /obj/item/computer_hardware/processor_unit(src)
@@ -55,6 +54,23 @@
 	network_card = new /obj/item/computer_hardware/network_card/advanced(src)
 
 /obj/item/modular_computer/silicon/install_default_programs()
-	hard_drive.store_file(new /datum/computer_file/program/filemanager())
-	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload())
+	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
+	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
+	hard_drive.store_file(new /datum/computer_file/program/chat_client(src))
+	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
+	hard_drive.store_file(new /datum/computer_file/program/atmos_control(src))
+	hard_drive.store_file(new /datum/computer_file/program/rcon_console(src))
+	hard_drive.store_file(new /datum/computer_file/program/law_manager(src, computer_host))
+	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))
+	addtimer(CALLBACK(src, PROC_REF(register_chat)), 1 SECOND)
+
+/obj/item/modular_computer/silicon/proc/register_chat()
+	set_autorun("ntnrc_client")
+	enable_computer(null, TRUE) // passing null because we don't want the UI to open
+	minimize_program()
+
+/obj/item/modular_computer/silicon/robot/drone/install_default_programs()
+	hard_drive.store_file(new /datum/computer_file/program/filemanager(src))
+	hard_drive.store_file(new /datum/computer_file/program/ntnetdownload(src))
+	hard_drive.store_file(new /datum/computer_file/program/alarm_monitor/all(src))
 	hard_drive.remove_file(hard_drive.find_file_by_name("clientmanager"))

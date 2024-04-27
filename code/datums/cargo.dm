@@ -29,13 +29,13 @@
 	data["supplier"] = supplier
 	data["supplier_data"] = supplier_datum.get_list()
 
-	//Adjust the price based on the supplier adjusetment and the categories
+	//Adjust the price based on the supplier adjustment and the categories
 	data["price_adjusted"] = get_adjusted_price()
 	return data
 
 /datum/cargo_item/proc/get_adjusted_price()
 	. = price
-	. *= supplier_datum.price_modifier
+	. *= supplier_datum.get_total_price_coefficient()
 	for(var/category in categories)
 		var/datum/cargo_category/cc = SScargo.get_category_by_name(category)
 		if(cc)
@@ -69,7 +69,13 @@
 	data["price_modifier"] = price_modifier
 	return data
 
+/datum/cargo_supplier/proc/get_total_price_coefficient()
+	var/final_coef = price_modifier
+	if(SSatlas.current_sector)
+		if(short_name in SSatlas.current_sector.cargo_price_coef)
+			final_coef = SSatlas.current_sector.cargo_price_coef[short_name] * price_modifier
 
+	return final_coef
 /*
 	A category displayed in the cargo order app
 */
@@ -107,15 +113,19 @@
 	var/order_id = 0 //ID of the order
 	var/price = 0 //Total price of the order
 	var/item_id = 1 //Current id of the item in the order
-	var/item_num = 0 //Numer of items in the container - Used to limit the items in the crate
+	var/item_num = 0 //Number of items in the container - Used to limit the items in the crate
 	var/status = "basket" //Status of the order: basket - Adding items, submitted - Submitted to cargo, approved - Order sent to suppliers, rejected - Order has been denied, shipped - Has been shipped to the station, delivered - Order has been delivered
 	var/container_type = "" //Type of the container for the order - cate, box
 	var/list/required_access = list() //Access required to unlock the crate
-	var/can_add_items = 1 //If new items can be added to the order 
+	var/can_add_items = 1 //If new items can be added to the order
 	var/ordered_by = null //Person that ordered the items
+	var/ordered_by_id = null //Character ID of the person that ordered the items
 	var/authorized_by = null //Person that authorized the order
+	var/authorized_by_id = null //Character ID of the person that authorized the items
 	var/received_by = null //Person the order has been delivered to by cargo
+	var/received_by_id = null //Character ID of the person that received the items
 	var/paid_by = null //Person that has paid for the order
+	var/paid_by_id = null //Character ID of the Person that paid for the items
 	var/time_submitted = null //Time the order has been sent to cargo
 	var/time_approved = null //Time the order has been approved by cargo
 	var/time_shipped = null //Time the order has been shipped to the station
@@ -130,14 +140,14 @@
 		tracking_code = rand(1000,9999)
 	return tracking_code
 
-// Returns a list of the items in the order - Formated as list to be json_encoded
+// Returns a list of the items in the order - Formatted as list to be json_encoded
 /datum/cargo_order/proc/get_item_list()
 	var/list/item_list = list()
 	for (var/datum/cargo_order_item/coi in items)
 		item_list.Add(list(coi.get_list()))
 	return item_list
 
-// Returns a list of all the objects in the order - Formated as a list to be json_encoded
+// Returns a list of all the objects in the order - Formatted as a list to be json_encoded
 /datum/cargo_order/proc/get_object_list()
 	var/list/object_list = list()
 	for (var/datum/cargo_order_item/coi in items)
@@ -145,7 +155,7 @@
 			object_list.Add(object)
 	return object_list
 
-// Gets a list of the order data - Formated as list to be json_encoded
+// Gets a list of the order data - Formatted as list to be json_encoded
 /datum/cargo_order/proc/get_list()
 	var/list/data = list()
 	data["order_id"] = order_id
@@ -181,7 +191,7 @@
 		container_type = coi.ci.container_type
 	else if (container_type != coi.ci.container_type)
 		return "Unable to add item - Different container required" //You can only add items with the same container type to the order
-	
+
 	//Check if more items can be added to the order
 	if(!can_add_items)
 		return "Unable to add item - Order can not contain more items"
@@ -227,7 +237,7 @@
 	return "Unable to remove item - Internal Error 608"
 
 // Returns the value of the order
-/datum/cargo_order/proc/get_value(var/type=0) 
+/datum/cargo_order/proc/get_value(var/type=0)
 	//Type specifies if the price cargo has to pay or the price the customer has to be should be returned
 	// 0 - Price the customer has to pay
 	// 1 - Price cargo has to pay
@@ -265,11 +275,13 @@
 				return /obj/structure/largecrate
 		if(CARGO_CONTAINER_FREEZER)
 			return /obj/structure/closet/crate/freezer
+		if(CARGO_CONTAINER_BODYBAG)
+			return /obj/structure/closet/body_bag
 		else
-			log_debug("Cargo: Tried to get container type for invalid container [container_type]")
+			LOG_DEBUG("Cargo: Tried to get container type for invalid container [container_type]")
 			return /obj/structure/largecrate
 
-// Returns the numer of items that can be stored in the container
+// Returns the number of items that can be stored in the container
 /datum/cargo_order/proc/get_container_storage()
 	switch(container_type)
 		if(CARGO_CONTAINER_CRATE)
@@ -279,7 +291,7 @@
 		if(CARGO_CONTAINER_BOX)
 			return 5 //You can fit 5 larger items into a box
 		else
-			log_debug("Cargo: Tried to get storage size for invalid container [container_type]")
+			LOG_DEBUG("Cargo: Tried to get storage size for invalid container [container_type]")
 			return 0 //Something went wrong
 
 // Gets the list of the suppliers involved in the order
@@ -338,7 +350,7 @@
 		invoice_type = "Final"
 	order_data += "<h4>[invoice_type] Invoice #[order_id]</h4>"
 	order_data += "<hr>"
-	//List the personell involved in the order
+	//List the personnel involved in the order
 	order_data += "<u>Ordered by:</u> [ordered_by]<br>"
 	order_data += "<u>Submitted at:</u> [time_submitted]<br>"
 	if(authorized_by)
@@ -387,11 +399,17 @@
 	for(var/object in get_object_list())
 		order_data += "<li>[object]</li>"
 	order_data += "</ul>"
-	
+
 	return order_data.Join("")
 
 //Marks a order as submitted
-/datum/cargo_order/proc/set_submitted(var/oid)
+/datum/cargo_order/proc/set_submitted(var/user_name, var/user_id, var/order_reason)
+	if(user_id <= 0)
+		user_id = null
+
+	ordered_by = user_name
+	ordered_by_id = user_id
+	reason = order_reason
 	status = "submitted"
 	time_submitted = worldtime2text()
 	order_id = SScargo.get_next_order_id()
@@ -399,11 +417,14 @@
 	return 1
 
 //Marks a order as approved - Returns a status message
-/datum/cargo_order/proc/set_approved(var/approved_by)
+/datum/cargo_order/proc/set_approved(var/user_name, var/user_id)
+	if(user_id <= 0)
+		user_id = null
 	if(status == "submitted")
 		status = "approved"
 		time_approved = worldtime2text()
-		authorized_by = approved_by
+		authorized_by = user_name
+		authorized_by_id = user_id
 		return "The order has been approved"
 	else
 		return "The order could not be approved - Invalid Status"
@@ -423,21 +444,27 @@
 	time_shipped = worldtime2text()
 
 //Marks a order as delivered - Returns a status message
-/datum/cargo_order/proc/set_delivered(var/customer_name, var/paid=0)
+/datum/cargo_order/proc/set_delivered(var/user_name, var/user_id, var/paid=0)
+	if(user_id <= 0)
+		user_id = null
 	if(status == "shipped")
 		status = "delivered"
 		time_delivered = worldtime2text()
-		received_by = customer_name
+		received_by = user_name
+		received_by_id = user_id
 		if(paid)
-			set_paid(customer_name)
+			set_paid(user_name, user_id)
 		return "The order has been delivered"
 	else
 		return "The order could not be delivered - Invalid Status"
 
 //Mark a order as paid
-/datum/cargo_order/proc/set_paid(var/customer_name)
+/datum/cargo_order/proc/set_paid(var/user_name, var/user_id)
+	if(user_id <= 0)
+		user_id = null
 	time_paid = worldtime2text()
-	paid_by = customer_name
+	paid_by = user_name
+	paid_by_id = user_id
 	return "The order has been paid for"
 
 /*

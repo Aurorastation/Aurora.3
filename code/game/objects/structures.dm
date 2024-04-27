@@ -1,25 +1,46 @@
 /obj/structure
 	icon = 'icons/obj/structures.dmi'
-	w_class = 10
-	layer = OBJ_LAYER - 0.01
+	w_class = ITEMSIZE_IMMENSE
+	layer = STRUCTURE_LAYER
 
+	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
 	var/breakable
 	var/parts
 	var/list/climbers
 	var/list/footstep_sound	//footstep sounds when stepped on
+
 	var/material/material
+	var/build_amt = 2 // used by some structures to determine into how many pieces they should disassemble into or be made with
+
+	var/slowdown = 0 //amount that pulling mobs have their movement delayed by
+
+/obj/structure/Initialize(mapload)
+	. = ..()
+	if(!isnull(material) && !istype(material))
+		material = SSmaterials.get_material_by_name(material)
+	if (!mapload)
+		updateVisibility(src)	// No point checking this before visualnet initializes.
+	if(climbable)
+		verbs += /obj/structure/proc/climb_on
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
 
 /obj/structure/Destroy()
 	if(parts)
 		new parts(loc)
-	if (smooth)
-		queue_smooth_neighbors(src)
+	if (smoothing_flags)
+		SSicon_smooth.remove_from_queues(src)
+		SSicon_smooth.add_to_queue_neighbors(src)
+
+	climbers = null
+
 	return ..()
 
-/obj/structure/attack_hand(mob/user)
+/obj/structure/attack_hand(mob/living/user)
 	if(breakable)
-		if(HULK in user.mutations)
+		if((user.mutations & HULK) && !(user.isSynthetic()) && !(isvaurca(user)))
 			user.say(pick(";RAAAAAAAARGH!", ";HNNNNNNNNNGGGGGGH!", ";GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", ";AAAAAAARRRGH!" ))
 			attack_generic(user,1,"smashes")
 		else if(istype(user,/mob/living/carbon/human))
@@ -46,15 +67,19 @@
 		if(3.0)
 			return
 
-/obj/structure/Initialize(mapload)
+/obj/structure/proc/dismantle()
+	var/material/dismantle_material
+	if(!get_material())
+		dismantle_material = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL) //if there is no defined material, it will use steel
+	else
+		dismantle_material = get_material()
+	for(var/i = 1 to build_amt)
+		dismantle_material.place_sheet(loc)
+	qdel(src)
+
+/obj/structure/bullet_act(obj/item/projectile/P, def_zone)
 	. = ..()
-	if (!mapload)
-		updateVisibility(src)	// No point checking this before visualnet initializes.
-	if(climbable)
-		verbs += /obj/structure/proc/climb_on
-	if (smooth)
-		queue_smooth(src)
-		queue_smooth_neighbors(src)
+	bullet_ping(P)
 
 /obj/structure/proc/climb_on()
 
@@ -63,7 +88,14 @@
 	set category = "Object"
 	set src in oview(1)
 
-	do_climb(usr)
+	if(can_climb(usr))
+		do_climb(usr)
+
+/obj/structure/handle_middle_mouse_click(mob/user)
+	if(can_climb(user))
+		do_climb(usr)
+		return TRUE
+	return FALSE
 
 /obj/structure/MouseDrop_T(mob/target, mob/user)
 
@@ -75,17 +107,17 @@
 
 /obj/structure/proc/can_climb(var/mob/living/user, post_climb_check=0)
 	if (!climbable || !can_touch(user) || (!post_climb_check && (user in climbers)))
-		return 0
+		return FALSE
 
 	if (!user.Adjacent(src))
-		to_chat(user, "<span class='danger'>You can't climb there, the way is blocked.</span>")
-		return 0
+		to_chat(user, SPAN_WARNING("You must be next to \the [src] to climb it."))
+		return FALSE
 
 	var/obj/occupied = turf_is_crowded()
 	if(occupied)
-		to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
-		return 0
-	return 1
+		to_chat(user, SPAN_WARNING("There's \a [occupied] in the way."))
+		return FALSE
+	return TRUE
 
 /obj/structure/proc/turf_is_crowded(var/exclude_self = FALSE)
 	var/turf/T = get_turf(src)
@@ -96,7 +128,7 @@
 			var/obj/structure/S = O
 			if(S.climbable)
 				continue
-		if(O && O.density && !(O.flags & ON_BORDER)) //ON_BORDER structures are handled by the Adjacent() check.
+		if(O && O.density && !(O.atom_flags & ATOM_FLAG_CHECKS_BORDER)) //ATOM_FLAG_CHECKS_BORDER structures are handled by the Adjacent() check.
 			if(exclude_self && O == src)
 				continue
 			return O
@@ -106,10 +138,10 @@
 	if (!can_climb(user))
 		return
 
-	usr.visible_message("<span class='warning'>[user] starts climbing onto \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] starts [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaping over" : "climbing onto"] \the [src]!"))
 	LAZYADD(climbers, user)
 
-	if(!do_after(user,50))
+	if(!do_after(user, 5 SECONDS, src, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		LAZYREMOVE(climbers, user)
 		return
 
@@ -117,10 +149,14 @@
 		LAZYREMOVE(climbers, user)
 		return
 
-	usr.forceMove(get_turf(src))
+	var/turf/TT = get_turf(src)
+	if(atom_flags & ATOM_FLAG_CHECKS_BORDER)
+		TT = get_step(get_turf(src), dir)
+		if(user.loc == TT)
+			TT = get_turf(src)
 
-	if (get_turf(user) == get_turf(src))
-		usr.visible_message("<span class='warning'>[user] climbs onto \the [src]!</span>")
+	user.visible_message("<span class='warning'>[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
+	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/proc/structure_shaken()
@@ -176,7 +212,7 @@
 		return 0
 	if(!Adjacent(user))
 		return 0
-	if (user.restrained() || user.buckled)
+	if (user.restrained() || user.buckled_to)
 		to_chat(user, "<span class='notice'>You need your hands and legs free for this.</span>")
 		return 0
 	if (user.stat || user.paralysis || user.sleeping || user.lying || user.weakened)

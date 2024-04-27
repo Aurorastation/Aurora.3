@@ -6,8 +6,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 /obj/machinery/r_n_d/circuit_imprinter
 	name = "circuit imprinter"
+	desc = "An advanced device that can only be operated via a nearby RnD console, it can print any circuitboard the user requests, provided it has the correct materials to do so."
 	icon_state = "circuit_imprinter"
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	var/list/materials = list(DEFAULT_WALL_MATERIAL = 0, MATERIAL_GLASS = 0, MATERIAL_GOLD = 0, MATERIAL_SILVER = 0, MATERIAL_PHORON = 0, MATERIAL_URANIUM = 0, MATERIAL_DIAMOND = 0)
 	var/list/datum/design/queue = list()
@@ -18,7 +19,6 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	var/speed = 1
 	var/product_offset = FALSE //Set to make the printer spawn its product in a neighboring turf dictated by dir.
 
-	use_power = 1
 	idle_power_usage = 30
 	active_power_usage = 2500
 
@@ -29,7 +29,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		/obj/item/reagent_containers/glass/beaker = 2
 	)
 
-/obj/machinery/r_n_d/circuit_imprinter/machinery_process()
+/obj/machinery/r_n_d/circuit_imprinter/process()
 	..()
 	if(stat)
 		update_icon()
@@ -51,7 +51,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		update_icon()
 	else
 		if(busy)
-			visible_message("<span class='notice'>\icon [src] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
+			visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
 			busy = 0
 			update_icon()
 
@@ -104,18 +104,18 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 				S.amount = round(materials[f] / SHEET_MATERIAL_AMOUNT)
 	..()
 
-/obj/machinery/r_n_d/circuit_imprinter/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/r_n_d/circuit_imprinter/attackby(obj/item/attacking_item, mob/user)
 	if(busy)
 		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
 		return 1
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		if(linked_console)
 			linked_console.linked_imprinter = null
 			linked_console = null
 		return
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return
 	if(panel_open)
 		to_chat(user, "<span class='notice'>You can't load \the [src] while it's opened.</span>")
@@ -123,9 +123,9 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(!linked_console)
 		to_chat(user, "\The [src] must be linked to an R&D console first.")
 		return 1
-	if(O.is_open_container())
+	if(attacking_item.is_open_container())
 		return 0
-	if(!istype(O, /obj/item/stack/material))
+	if(!istype(attacking_item, /obj/item/stack/material))
 		to_chat(user, "<span class='notice'>You cannot insert this item into \the [src]!</span>")
 		return 1
 	if(stat)
@@ -135,9 +135,12 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		to_chat(user, "<span class='notice'>\The [src]'s material bin is full. Please remove material before adding more.</span>")
 		return 1
 
-	var/obj/item/stack/material/stack = O
+	var/obj/item/stack/material/stack = attacking_item
+	if(!stack.default_type)
+		to_chat(user, SPAN_WARNING("This stack cannot be used!"))
+		return
 	var/amount = round(input("How many sheets do you want to add?") as num)
-	if(!O)
+	if(!attacking_item)
 		return
 	if(!Adjacent(user))
 		to_chat(user, "<span class='notice'>\The [src] is too far away for you to insert this.</span>")
@@ -150,14 +153,11 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		amount = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
 
 	busy = 1
-	use_power(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
-	var/stacktype = stack.type
-	var/t = getMaterialName(stacktype)
-	if(t)
-		if(do_after(usr, 16))
-			if(stack.use(amount))
-				to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
-				materials[t] += amount * SHEET_MATERIAL_AMOUNT
+	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
+	if(do_after(user, 16))
+		if(stack.use(amount))
+			to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
+			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()
 
@@ -187,9 +187,10 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 			ret += "[D.materials[M] - materials[M]] [M]"
 	for(var/C in D.chemicals)
 		if(!reagents.has_reagent(C, D.chemicals[C]))
+			var/singleton/reagent/R = GET_SINGLETON(C)
 			if(ret != "")
 				ret += ", "
-			ret += C
+			ret += "[R.name]"
 	return ret
 
 /obj/machinery/r_n_d/circuit_imprinter/proc/build(var/datum/design/D)
@@ -197,7 +198,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	for(var/M in D.materials)
 		power += round(D.materials[M] / 5)
 	power = max(active_power_usage, power)
-	use_power(power)
+	use_power_oneoff(power)
 	for(var/M in D.materials)
 		materials[M] = max(0, materials[M] - D.materials[M] * mat_efficiency)
 	for(var/C in D.chemicals)

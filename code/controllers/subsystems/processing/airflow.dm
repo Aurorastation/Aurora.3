@@ -1,5 +1,3 @@
-/var/datum/controller/subsystem/processing/airflow/SSairflow
-
 #define CLEAR_OBJECT(TARGET)                \
 	processing -= TARGET;                   \
 	TARGET.airflow_dest = null;             \
@@ -10,16 +8,14 @@
 		TARGET.density = 0;                 \
 	}
 
-/datum/controller/subsystem/processing/airflow
+PROCESSING_SUBSYSTEM_DEF(airflow)
 	name = "Airflow"
 	wait = 1
 	flags = SS_NO_INIT
 	priority = SS_PRIORITY_AIRFLOW
 
-/datum/controller/subsystem/processing/airflow/New()
-	NEW_SS_GLOBAL(SSairflow)
-
 /datum/controller/subsystem/processing/airflow/fire(resumed = FALSE)
+	CAN_BE_REDEFINED(TRUE)
 	if (!resumed)
 		currentrun = processing.Copy()	// Defined in parent.
 
@@ -115,7 +111,7 @@
 		return FALSE
 
 	if (ismob(src))
-		to_chat(src, span("danger", "You are pushed away by airflow!"))
+		to_chat(src, SPAN_DANGER("You are pushed away by airflow!"))
 
 	last_airflow = world.time
 	var/airflow_falloff = 9 - sqrt((x - airflow_dest.x) ** 2 + (y - airflow_dest.y) ** 2)

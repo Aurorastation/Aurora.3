@@ -5,7 +5,7 @@
 	icon_state = "holstered"
 	item_state = "holstered"
 	contained_sprite = 1
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
 	action_button_name = "Deploy the Gatling Machine Gun"
@@ -104,8 +104,8 @@
 		ammo_magazine = null
 	return ..()
 
-/obj/item/minigunpack/attackby(obj/item/W, mob/user, params)
-	if(W == gun)
+/obj/item/minigunpack/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item == gun)
 		remove_gun()
 		return 1
 	else
@@ -127,9 +127,9 @@
 	origin_tech = null
 
 	firemodes = list(
-		list(mode_name="short bursts",	can_autofire=0, burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2),          dispersion = list(3, 6, 9)),
+		list(mode_name="short bursts",	can_autofire=0, burst=6, move_delay=8, burst_accuracy = list(0,-1,-1,-2,-2), dispersion = list(3, 6, 9)),
 		list(mode_name="long bursts",	can_autofire=0, burst=12, move_delay=9, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(8)),
-		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=1, one_hand_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(1.0, 1.0, 1.0, 1.0, 1.2))
+		list(mode_name="full auto",		can_autofire=1, burst=1, fire_delay=5, fire_delay_wielded=3, one_hand_fa_penalty=12, burst_accuracy = list(0,-1,-1,-2,-2,-2,-3,-3), dispersion = list(5, 10, 15, 20, 25))
 		)
 
 
@@ -138,11 +138,11 @@
 /obj/item/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
 	if(!wielded)
 		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
-		return 0
+		return FALSE
 
 	if (user.back!= source)
 		to_chat(user, "<span class='warning'>\The [source] must be worn to fire \the [src]!</span>")
-		return 0
+		return FALSE
 
 	return ..()
 
@@ -156,11 +156,11 @@
 	..()
 	if(source)
 		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
-		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/minigunpack, remove_gun))
 		source.update_icon()
 		user.update_inv_back()
 
 /obj/item/gun/projectile/automatic/rifle/minigun/Move()
 	..()
 	if(loc != source.loc)
-		INVOKE_ASYNC(source, /obj/item/minigunpack/.proc/remove_gun)
+		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/minigunpack, remove_gun))

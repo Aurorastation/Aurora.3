@@ -4,7 +4,53 @@
 	Under Overlords land on planets are divided between Lords, with the rest of the feudal hierarchy being beneath them. The Clan system is deeply entrenched in Unathi society, \
 	with everything else revolving around it. It forms a major part of their code of honor, which stresses the importance of martial abilities and loyalty to the Clan. Despite an \
 	apocalyptic world war that nearly plunged the species into ruin, the Izweski Hegemony has rebounded and is currently working on making the Hegemony a galactic power."
-	consular_outfit = /datum/outfit/job/representative/consular/izweski
+	consular_outfit = /obj/outfit/job/representative/consular/izweski
+	assistant_outfit = /obj/outfit/job/consular_assistant/izweski
+
+	job_species_blacklist = list(
+		"Consular Officer" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_IPC,
+			SPECIES_IPC_BISHOP,
+			SPECIES_IPC_G1,
+			SPECIES_IPC_G2,
+			SPECIES_IPC_SHELL,
+			SPECIES_IPC_UNBRANDED,
+			SPECIES_IPC_XION,
+			SPECIES_IPC_ZENGHU,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_VAURCA_BREEDER
+		)
+	)
 
 /datum/citizenship/izweski/get_objectives(mission_level, var/mob/living/carbon/human/H)
 	var/rep_objectives
@@ -12,33 +58,55 @@
 	switch(mission_level)
 		if(REPRESENTATIVE_MISSION_HIGH)
 			if(isvaurca(H))
-				rep_objectives = pick("Assist K'laxan Nanotrasen personnel with their avowal process",
-								"Obtain [rand(2,3)] sheets of solid phoron below market value, buying directly from the source")
+				rep_objectives = pick("Obtain [rand(2,3)] sheets of solid phoron below market value, buying directly from the source.",
+								"Compile and report information on Hegemony citizens who could potentially harbor anti-Izweski sentiment.",
+								"Promote the advantages of K'lax engineering to the [SSatlas.current_map.boss_name] in order to invite future investment in the Hegemony.")
 			else
 				rep_objectives = pick("Encourage [rand(1,2)] Unathi to become Zo'saa by signing up with the local Order",
-								"Gather [rand(2,3)] evidences of any marginalization of Unathi beliefs")
+								"Gather [rand(2,3)] evidences of any marginalization of Unathi beliefs",
+								"Compile and report information on Hegemony citizens who could potentially harbor anti-Izweski sentiment.")
 
 		if(REPRESENTATIVE_MISSION_MEDIUM)
 			if(isvaurca(H))
-				rep_objectives = pick("Collect evidence of Nanotrasen being unfair or bigoted to Vaurca or Unathi Employees, to be used as leverage in future labor negotiations",
-								"Upsell K'laxan Vaurca to different command staff. Have one complete a Bound Vaurca requisition form")
+				rep_objectives = pick("Collect evidence of the [SSatlas.current_map.boss_name] being unfair or bigoted to Vaurca or Unathi Employees, to be used as leverage in future labor negotiations",
+								"Upsell K'laxan Vaurca to different command staff. Have one complete a Bound Vaurca requisition form.",
+								"Promote K'lax and Unathi culture to the crew of the [SSatlas.current_map.station_name]. Encourage tourism to Izweski space.")
 			else
-				rep_objectives = pick("Speak out against any violation of the Honor Code to or by Unathi on station",
-								"Proselytize the Sk'akh or Tha'kh religions to the crew",
-								"Encourage [rand(2,4)] Unathi to visit the Akhandi Order temples in Tau Ceti")
+				rep_objectives = pick("Speak out against any violation of the Honor Code to or by Unathi on the [SSatlas.current_map.station_short]",
+								"Proselytize the Sk'akh or Tha'kh religions to the crew.",
+								"Discourage the Unathi crew of the [SSatlas.current_map.station_name] from the Aut'akh or Si'akh heresies.")
 		else
 			if(isvaurca(H))
-				rep_objectives = pick("Promote Cultural Exchange between Vaurca, Unathi and other species")
+				rep_objectives = pick("Promote Cultural Exchange between Vaurca, Unathi and other species.",
+								"Question employees about their K'laxan and Unathi coworkers to discern areas of potential improvement.")
 			else
-				rep_objectives = pick("Ensure all Unathi on station are being respected in their beliefs and customs and traditions",
-								"Discourage people from associating with Guwans, but convince [rand(2,3)] Guwan to redeem themselves by becoming Zo'saa or Ahkandi")
+				rep_objectives = pick("Ensure all Unathi on the  are being respected in their beliefs and customs and traditions",
+								"Discourage people from associating with Guwans, but convince Guwan to seek atonement and redemption for their crimes.")
 
 	return rep_objectives
 
-/datum/outfit/job/representative/consular/izweski
+/obj/outfit/job/representative/consular/izweski
 	name = "Izweski Hegemony Consular Officer"
 
 	uniform = /obj/item/clothing/under/unathi
-	suit = /obj/item/clothing/suit/unathi/mantle
 	backpack_contents = list(/obj/item/device/camera = 1)
 	belt = /obj/item/gun/energy/pistol/hegemony
+
+/obj/outfit/job/representative/consular/izweski/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	if(H)
+		if(isvaurca(H))
+			H.equip_to_slot_or_del(new /obj/item/clothing/under/gearharness(H), slot_w_uniform)
+			H.equip_to_slot_or_del(new /obj/item/clothing/head/vaurca_breeder/hegemony(H), slot_head)
+			H.equip_to_slot_or_del(new /obj/item/clothing/shoes/vaurca/breeder/klax(H), slot_shoes)
+			H.equip_to_slot_or_del(new /obj/item/clothing/mask/gas/vaurca/filter(H), slot_wear_mask)
+			H.equip_to_slot_or_del(new /obj/item/clothing/suit/vaurca/breeder/klax(H), slot_wear_suit)
+			H.equip_to_slot_or_del(new /obj/item/storage/backpack/typec/klax(H), slot_back)
+		else
+			H.equip_to_slot_or_del(new /obj/item/clothing/accessory/poncho/unathimantle(H), slot_wear_suit)
+		if(!visualsOnly)
+			addtimer(CALLBACK(src, .proc/send_representative_mission, H), 5 MINUTES)
+	return TRUE
+
+/obj/outfit/job/consular_assistant/izweski
+	uniform = /obj/item/clothing/under/unathi
+	suit = /obj/item/clothing/accessory/poncho/unathimantle

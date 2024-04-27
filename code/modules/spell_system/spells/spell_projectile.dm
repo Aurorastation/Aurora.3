@@ -31,7 +31,7 @@
 		trail.icon = proj_trail_icon
 		trail.icon_state = proj_trail_icon_state
 		trail.density = 0
-		addtimer(CALLBACK(src, .proc/post_trail, trail), proj_trail_lifespan)
+		addtimer(CALLBACK(src, PROC_REF(post_trail), trail), proj_trail_lifespan)
 
 /obj/item/projectile/spell_projectile/proc/post_trail(obj/effect/overlay/trail)
 	trails -= trail

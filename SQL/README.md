@@ -1,3 +1,25 @@
+### Compacted Migrations
+
+To decrease the runtime of the migration unit test, the database migrations will be compacted into a single migration on a regular base.
+In order to do so, a new "migrate-VERSION" subfolder is created.
+The initial migration in these subfolders is always a migration with the current db-schema as of the current PR.
+
+In addition the flayway.conf file in the root of the project is updated to use the new migration folder and create a new schema history table (that tracks the applied migrations).
+
+#### How does this impact you?
+
+If you set up a new database:
+
+Make sure to use the latest migration folder, it will contain everything needed to create a "fresh" database.
+
+If you have a existing database:
+Update to the latest migration in the migration folder that you have used so far.
+Then switch to the next migration folder (and a new schema version table)
+You should use flyway with `-baselineVersion="1" baseline` instead of the usual migrate for the initial migration
+
+As usual, always make sure that you have a backup and test it first on a non-production copy
+
+
 ### Prerequisites
 
 The server connects to a mysql-compatible server (mysql, mariadb, percona), so you'll need one of those with a database and user/password pair ready.

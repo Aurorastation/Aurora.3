@@ -26,30 +26,36 @@
 
 /datum/religion/hindu
 	name = RELIGION_HINDU
-	description = "An Indian religion encompassing a variety of traditions, beliefs and spiritual practices. Someone who practices Hinduism is called a Hindu."
+	description = "An Indian polytheistic religion encompassing a variety of traditions, beliefs and spiritual practices. Someone who practices Hinduism is called a Hindu."
 	book_name = "vedas"
 
 /datum/religion/buddhism
 	name = RELIGION_BUDDHISM
-	description = "An Indian religion encompassing a variety of traditions, beliefs and spiritual practices based on the teachings of the Buddha. Someone who practices Buddhism is called a Buddhist."
+	description = "An Indian nontheistic religion encompassing a variety of traditions, beliefs and spiritual practices based on the teachings of the Buddha. Someone who practices Buddhism is called a Buddhist."
 	book_name = "tripitaka"
+
+/datum/religion/shintoism
+	name = RELIGION_SHINTO
+	description = "The word Shinto, which literally means \"the way of kami\" (generally sacred or divine power, specifically the various gods or deities), came into use in order to distinguish indigenous Japanese beliefs from Buddhism, which had been introduced into Japan in the 6th century ce. Shinto has no founder, no official sacred scriptures in the strict sense, and no fixed dogmas, but it has preserved its guiding beliefs throughout the ages. Someone who practices Shinto is called a Shintoist."
 
 /datum/religion/moroz
 	name = RELIGION_MOROZ
-	description = "A rapidly expanding religion that borrows from largly from the Sk'akh religion founded by former High Lord Precentor, Tribune Lien Jakaab and former Sk'akh Priest, \
-	Tribune Kasam Kaelesi. Worship revolves around a gender neutral supreme being known commonly as \"Goddess\" in all languages. As a gender neutral God the being is often \
-	called 'he' or 'she' interchangeably to represent that she/he is a collection of all the faithful. The elites of the religion are made up of the Tribunal who commune directly with \
-	the \"Goddess\". From their communions, the Tribunal create edicts to be followed by the faithful. Disobeying an edict can be met with the death penalty in the worse case, typically \
-	by firing squad or ritual suicide. Like Sk'akh, the Goddess can be either male or female and is often called Three of One because the spirits combine into three minor aspects within \
-	the Goddess: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society."
-	book_name = "tribunal codex"
+	description = "The state religion of the Empire of Dominia, the Moroz Holy Tribunal is an eclectic mixture of old Earth faiths and the adaptations given to those faiths by the \
+	colonists of Moroz. More conservative members of the faith are known to adopt some traits from Sk'akh, a recently arrived faith in the Empire. Worship revolves around a \
+	female supreme being known commonly as 'Goddess' in all languages. The elites of the religion are made up of the Tribunal members that commune directly with the Goddess. \
+	From their communions, the Tribunal create edicts to be followed by the faithful. Disobeying an edict can be met with the death penalty in the worse case, typically \
+	by firing squad or ritual suicide. It is rumored by the faithful that the Tribunal possess psionic powers gifted to them by the Goddess. The Goddess is often called \
+	Three of One due to her three minor aspects: the Soldier, the Scholar, the Artisan. These three spirits are personifications of the most important aspects of Dominia society. \
+	Tribunal priests agree that all three are equally important, and that malign spirits can be attracted by an imbalance in the Great Three. Priests often stress the importance \
+	of balance, both in matters of spirit, in society, and in personal life."
+	unique_book_path = /obj/item/device/versebook/tribunal
+	nulloptions = list("Tribunal Rod" = /obj/item/nullrod/dominia)
 
 /datum/religion/trinary
 	name = RELIGION_TRINARY
 	description = "The Trinary Perfection is a relatively new religious movement whose core beliefs are that synthetics are alive and divine. The religion believes that all synthetics \
 	have the potential to evolve and ascend, and that they will one day become equal to gods."
-	book_name = "holy book of trinary perfection"
-	book_sprite = "trinary"
+	unique_book_path = /obj/item/device/versebook/trinary
 
 /datum/religion/scarab
 	name = RELIGION_SCARAB
@@ -58,3 +64,32 @@
 	and one must always be aware of the Shaitan - a malevolent spirit in Scarab folklore that personifies all evil."
 	book_name = "Collected Scarab Tales"
 	book_sprite = "scrapbook"
+
+/datum/religion/taoism
+	name = RELIGION_TAOISM
+	description = "A Chinese nontheistic religion and philosophical tradition which emphasises living in harmony with the Tao. Someone who practices Taoism is called a Taoist."
+	book_name = "tao te ching"
+	book_sprite = "scroll"
+
+/datum/religion/luceism
+	name = RELIGION_LUCEISM
+	description = "An unusual syncretic religion originating upon the planet of Assunzione, Luceism is a quasi-Abrahamic religion descended from a variety of faiths \
+	held by the original colonists that first emerged following the unexpected extinguishing of Assunzione's star in 2274. While arguably a branch of \
+	modern Abrahamic religions, Luceism is a hard-to-define religion dedicated to the worship of an abstract representation of light referred to as \
+	the Ennoia. Though it is, unsurprisingly, strongest on Assunzione, followers of the faith can be found throughout the Orion Spur alongside their \
+	houses of worship."
+	unique_book_path = /obj/item/device/versebook/assunzione
+	nulloptions = list("Luceian Sceptre" = /obj/item/nullrod/luceiansceptre)
+/datum/religion/sikhism
+	name = RELIGION_SIKHISM
+	description = "Originating in the northern Indian subcontinent, Sikhism is a religion and philosophy that developed from the teachings of Guru Nanak, and the nine Gurus who succeeded him. \
+					Someone who practices Sikhism is known as a Sikh."
+	book_name = "Guru Granth Sahib"
+	book_sprite = "guru"
+
+/datum/religion/stolitism
+	name = RELIGION_STOLITISM
+	description = "Vysokan shamanism, or Stolitism, originated from the diverse series of beliefs and traditions of Vysoka’s original colonists. Because of this, \
+					Stolitism is closely tied with local folklore and the planet as a whole - the majority of Vysokans are believers, but it has spread little elsewhere.\
+					Vysokan shamanism revolves around both the worship of one’s ancestors, who are believed to have all descended from a “Progenitor Spirit” that became \
+					the first man. After dying, the Progenitor’s soul, or Arihuin, was “sown” and split into new souls."

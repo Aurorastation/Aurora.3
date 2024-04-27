@@ -24,23 +24,21 @@
 	possible_wanted_items = list(
 		/obj/item/toy/figure     = TRADER_THIS_TYPE,
 		/obj/item/toy/figure/ert = TRADER_THIS_TYPE,
-		/obj/item/toy/prize/honk = TRADER_THIS_TYPE
+		/obj/item/toy/mech/honk = TRADER_THIS_TYPE
 	)
 
 	possible_trading_items = list(
-		/obj/item/toy/prize                   = TRADER_SUBTYPES_ONLY,
-		/obj/item/toy/prize/honk              = TRADER_BLACKLIST,
+		/obj/item/toy/mech                   = TRADER_SUBTYPES_ONLY,
+		/obj/item/toy/mech/honk              = TRADER_BLACKLIST,
 		/obj/item/toy/figure                  = TRADER_SUBTYPES_ONLY,
 		/obj/item/toy/figure/ert              = TRADER_BLACKLIST,
 		/obj/item/toy/plushie                 = TRADER_SUBTYPES_ONLY,
 		/obj/item/toy/katana                  = TRADER_THIS_TYPE,
 		/obj/item/toy/sword                   = TRADER_THIS_TYPE,
 		/obj/item/toy/bosunwhistle            = TRADER_THIS_TYPE,
-		/obj/item/board                = TRADER_THIS_TYPE,
 		/obj/item/deck                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/deck/tarot/fluff     = TRADER_BLACKLIST_ALL,
 		/obj/item/pack                 = TRADER_SUBTYPES_ONLY,
-		/obj/item/dice                 = TRADER_ALL,
+		/obj/item/stack/dice                 = TRADER_ALL,
 		/obj/item/eightball                   = TRADER_ALL,
 		/obj/item/gun/energy/wand/toy  = TRADER_THIS_TYPE,
 		/obj/item/spirit_board         = TRADER_ALL
@@ -83,7 +81,7 @@
 		/obj/item/circuitboard/telecomms                  = TRADER_BLACKLIST,
 		/obj/item/circuitboard/unary_atmos                = TRADER_BLACKLIST,
 		/obj/item/circuitboard/arcade                     = TRADER_BLACKLIST,
-		/obj/item/circuitboard/broken                     = TRADER_BLACKLIST,
+		/obj/item/trash/broken_electronics                     = TRADER_BLACKLIST,
 		/obj/item/storage/box/lights/colored              = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil                               = TRADER_SUBTYPES_ONLY,
 		/obj/item/stack/cable_coil/cyborg                        = TRADER_BLACKLIST,
@@ -108,7 +106,6 @@
 	possible_origins = list("Space Eagle", "Banana Democracy", "Forever 22", "Textiles Factory Warehouse Outlet", "Blocks Brothers")
 	speech = list(
 		"hail_generic"      = "Hello, sir! Welcome to ORIGIN!",
-		"hail_Vox"          = "Well hello sir! I don't believe we have any clothes that fit you... but you can still look!",
 		"hail_deny"         = "We do not trade with rude customers. Consider yourself blacklisted.",
 		"trade_complete"    = "Thank you for shopping at ORIGIN. Remember: We cannot accept returns without the original tags!",
 		"trade_blacklist"   = "Hm, how about no?",
@@ -134,19 +131,17 @@
 		/obj/item/clothing/under/lawyer                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/pj                              = TRADER_BLACKLIST,
 		/obj/item/clothing/under/rank                            = TRADER_BLACKLIST,
-		/obj/item/clothing/under/shorts                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/swimsuit                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/syndicate                       = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/tactical                        = TRADER_BLACKLIST,
 		/obj/item/clothing/under/punpun                          = TRADER_BLACKLIST,
 		/obj/item/clothing/under/fluff                           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/under/dress/fluff                     = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/under/rank/centcom_officer/bst        = TRADER_BLACKLIST,
 		/obj/item/clothing/suit/storage/hooded                   = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/suit/storage/hooded/wintercoat/fluff  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/suit/storage/toggle/labcoat           = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/labcoat/fluff     = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/suit/storage/toggle/varsity                          = TRADER_ALL,
+		/obj/item/clothing/suit/storage/toggle/varsity           = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/track             = TRADER_ALL,
 		/obj/item/clothing/suit/jacket/puffer                    = TRADER_ALL,
 		/obj/item/clothing/suit/storage/toggle/flannel           = TRADER_ALL
@@ -158,14 +153,13 @@
 		/obj/item/clothing/shoes                        = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/shoes/chameleon              = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/combat                 = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/clown_shoes            = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cult                   = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/cyborg                 = TRADER_BLACKLIST,
 		/obj/item/clothing/shoes/lightrig               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/shoes/magboots               = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/shoes/swat                   = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/syndigaloshes          = TRADER_BLACKLIST,
-		/obj/item/clothing/shoes/black/bst              = TRADER_BLACKLIST
+		/obj/item/clothing/shoes/combat                   = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/galoshes/syndie          = TRADER_BLACKLIST,
+		/obj/item/clothing/shoes/sneakers/black/bst              = TRADER_BLACKLIST
 	)
 
 /datum/trader/clothingshop/hatglovesaccessories
@@ -184,11 +178,16 @@
 		/obj/item/clothing/gloves/chameleon             = TRADER_BLACKLIST,
 		/obj/item/clothing/gloves/force                 = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/swat/bst              = TRADER_BLACKLIST,
-		/obj/item/clothing/gloves/watch/fluff           = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/wrists/watch/fluff           = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/gloves/fluff                 = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/powerfist             = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/claws                 = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/brassknuckles         = TRADER_BLACKLIST,
+		/obj/item/clothing/gloves/ballistic             = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/gloves/tesla                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head                         = TRADER_SUBTYPES_ONLY,
 		/obj/item/clothing/head/beret/centcom           = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/bio_hood                = TRADER_BLACKLIST_ALL,
+		/obj/item/clothing/head/hazmat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/bomb_hood               = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/caphat                  = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/centhat                 = TRADER_BLACKLIST,
@@ -202,8 +201,7 @@
 		/obj/item/clothing/head/welding                 = TRADER_BLACKLIST,
 		/obj/item/clothing/head/fluff                   = TRADER_BLACKLIST_ALL,
 		/obj/item/clothing/head/det/fluff               = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL,
-		/obj/item/clothing/head/beret/engineering/fluff = TRADER_BLACKLIST_ALL
+		/obj/item/clothing/head/winterhood              = TRADER_BLACKLIST_ALL
 	)
 
 /*
@@ -215,42 +213,44 @@ Sells devices, odds and ends, and medical stuff
 	origin = "Wally's SmartMart"
 	possible_origins = list("Buy 'n Save", "Drug Carnival", "C&B", "Fentles", "Dr. Goods", "Beevees")
 	possible_trading_items = list(
-		/obj/item/device/flashlight                = TRADER_ALL,
-		/obj/item/aicard                    = TRADER_THIS_TYPE,
-		/obj/item/device/binoculars                = TRADER_THIS_TYPE,
-		/obj/item/device/flash                     = TRADER_THIS_TYPE,
-		/obj/item/device/floor_painter             = TRADER_THIS_TYPE,
-		/obj/item/device/multitool                 = TRADER_THIS_TYPE,
-		/obj/item/device/lightreplacer             = TRADER_THIS_TYPE,
-		/obj/item/device/megaphone                 = TRADER_THIS_TYPE,
-		/obj/item/device/paicard                   = TRADER_THIS_TYPE,
-		/obj/item/device/pipe_painter              = TRADER_THIS_TYPE,
-		/obj/item/device/healthanalyzer            = TRADER_THIS_TYPE,
-		/obj/item/device/breath_analyzer           = TRADER_THIS_TYPE,
-		/obj/item/device/analyzer                  = TRADER_ALL,
-		/obj/item/device/mass_spectrometer         = TRADER_ALL,
-		/obj/item/device/reagent_scanner           = TRADER_ALL,
-		/obj/item/device/slime_scanner             = TRADER_THIS_TYPE,
-		/obj/item/device/suit_cooling_unit         = TRADER_THIS_TYPE,
-		/obj/item/device/t_scanner                 = TRADER_THIS_TYPE,
-		/obj/item/device/taperecorder              = TRADER_THIS_TYPE,
-		/obj/item/device/batterer                  = TRADER_THIS_TYPE,
-		/obj/item/device/violin                    = TRADER_THIS_TYPE,
-		/obj/item/device/hailer                    = TRADER_THIS_TYPE,
-		/obj/item/device/uv_light                  = TRADER_THIS_TYPE,
-		/obj/item/device/mmi                       = TRADER_ALL,
-		/obj/item/device/robotanalyzer             = TRADER_THIS_TYPE,
-		/obj/item/device/toner                     = TRADER_THIS_TYPE,
-		/obj/item/device/camera_film               = TRADER_THIS_TYPE,
-		/obj/item/device/camera                    = TRADER_THIS_TYPE,
-		/obj/item/device/destTagger                = TRADER_THIS_TYPE,
-		/obj/item/device/gps                       = TRADER_THIS_TYPE,
-		/obj/item/device/measuring_tape            = TRADER_THIS_TYPE,
-		/obj/item/device/ano_scanner               = TRADER_THIS_TYPE,
-		/obj/item/device/core_sampler              = TRADER_THIS_TYPE,
-		/obj/item/device/depth_scanner             = TRADER_THIS_TYPE,
-		/obj/item/device/beacon_locator            = TRADER_THIS_TYPE,
-		/obj/item/stack/medical/advanced           = TRADER_BLACKLIST
+		/obj/item/device/flashlight                						= TRADER_ALL,
+		/obj/item/aicard                    							= TRADER_THIS_TYPE,
+		/obj/item/device/binoculars                						= TRADER_THIS_TYPE,
+		/obj/item/device/flash                     						= TRADER_THIS_TYPE,
+		/obj/item/device/paint_sprayer             						= TRADER_THIS_TYPE,
+		/obj/item/device/multitool                 						= TRADER_THIS_TYPE,
+		/obj/item/device/lightreplacer             						= TRADER_THIS_TYPE,
+		/obj/item/device/megaphone                						= TRADER_THIS_TYPE,
+		/obj/item/device/paicard                   						= TRADER_THIS_TYPE,
+		/obj/item/device/pipe_painter              						= TRADER_THIS_TYPE,
+		/obj/item/device/healthanalyzer            						= TRADER_THIS_TYPE,
+		/obj/item/device/breath_analyzer          						= TRADER_THIS_TYPE,
+		/obj/item/device/analyzer                  						= TRADER_ALL,
+		/obj/item/device/mass_spectrometer         						= TRADER_ALL,
+		/obj/item/device/reagent_scanner           						= TRADER_ALL,
+		/obj/item/device/slime_scanner             						= TRADER_THIS_TYPE,
+		/obj/item/device/suit_cooling_unit         						= TRADER_THIS_TYPE,
+		/obj/item/device/t_scanner                 						= TRADER_THIS_TYPE,
+		/obj/item/device/taperecorder              						= TRADER_THIS_TYPE,
+		/obj/item/device/batterer                  						= TRADER_THIS_TYPE,
+		/obj/item/device/synthesized_instrument/violin                  = TRADER_THIS_TYPE,
+		/obj/item/device/synthesized_instrument/guitar                  = TRADER_THIS_TYPE,
+		/obj/item/device/synthesized_instrument/trumpet                 = TRADER_THIS_TYPE,
+		/obj/item/device/hailer                    						= TRADER_THIS_TYPE,
+		/obj/item/device/uv_light                  						= TRADER_THIS_TYPE,
+		/obj/item/device/mmi                       						= TRADER_ALL,
+		/obj/item/device/robotanalyzer             						= TRADER_THIS_TYPE,
+		/obj/item/device/toner                     						= TRADER_THIS_TYPE,
+		/obj/item/device/camera_film               						= TRADER_THIS_TYPE,
+		/obj/item/device/camera                    						= TRADER_THIS_TYPE,
+		/obj/item/device/destTagger                						= TRADER_THIS_TYPE,
+		/obj/item/device/gps                       						= TRADER_THIS_TYPE,
+		/obj/item/device/measuring_tape            						= TRADER_THIS_TYPE,
+		/obj/item/device/ano_scanner               						= TRADER_THIS_TYPE,
+		/obj/item/device/core_sampler              						= TRADER_THIS_TYPE,
+		/obj/item/device/depth_scanner             						= TRADER_THIS_TYPE,
+		/obj/item/device/beacon_locator            						= TRADER_THIS_TYPE,
+		/obj/item/stack/medical/advanced           						= TRADER_BLACKLIST
 	)
 
 	speech = list(
@@ -273,11 +273,10 @@ Sells devices, odds and ends, and medical stuff
 	name = "Robot Seller"
 	name_language = TRADER_DEFAULT_NAME
 	origin = "Robot Store"
-	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects")
+	possible_origins = list("AI for the Straight Guy", "Mechanical Buddies", "Bot Chop Shop", "Omni Consumer Projects", "Hephaestus Industries Robotic Shop")
 
 	possible_wanted_items = list(
 		/obj/item/bucket_sensor         = TRADER_THIS_TYPE,
-		/obj/item/toolbox_tiles_sensor  = TRADER_THIS_TYPE,
 		/obj/item/firstaid_arm_assembly = TRADER_THIS_TYPE,
 		/obj/item/stack/material/steel         = TRADER_THIS_TYPE
 
@@ -355,6 +354,8 @@ Sells devices, odds and ends, and medical stuff
 		/obj/item/gun/energy/plasmacutter         = TRADER_THIS_TYPE,
 		/obj/item/clothing/head/helmet/space/void/mining = TRADER_THIS_TYPE,
 		/obj/item/clothing/suit/space/void/mining        = TRADER_THIS_TYPE,
+		/obj/item/clothing/head/helmet/space/void/mining/fluff = TRADER_BLACKLIST, //No custom items
+		/obj/item/clothing/suit/space/void/mining/fluff        = TRADER_BLACKLIST, //No custom items
 		/obj/machinery/mining/drill                      = TRADER_THIS_TYPE,
 		/obj/machinery/mining/brace                      = TRADER_THIS_TYPE,
 		/mob/living/heavy_vehicle/premade/ripley                      = TRADER_THIS_TYPE,

@@ -7,10 +7,10 @@
 	contained_sprite = TRUE
 	has_icon_ratio = FALSE
 	has_item_ratio = FALSE
-	fire_sound = 'sound/weapons/Laser.ogg'
+	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 3
-	force = 10
+	w_class = ITEMSIZE_NORMAL
+	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	can_turret = TRUE
@@ -30,39 +30,33 @@
 	var/named = 0
 	var/described = 0
 
-/obj/item/gun/energy/laser/prototype/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/obj/item/gun/energy/laser/prototype/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance > 1)
 		return
 	if(gun_mods.len)
 		for(var/obj/item/laser_components/modifier/modifier in gun_mods)
-			to_chat(user, "You can see \the [modifier] attached.")
+			. += "You can see \a [modifier] attached."
 	if(capacitor)
-		to_chat(user, "You can see \the [capacitor] attached.")
+		. += "You can see \a [capacitor] attached."
 	if(focusing_lens)
-		to_chat(user, "You can see \the [focusing_lens] attached.")
+		. += "You can see \a [focusing_lens] attached."
 	if(modulator)
-		to_chat(user, "You can see \the [modulator] attached.")
+		. += "You can see \a [modulator] attached."
 
-/obj/item/gun/energy/laser/prototype/attackby(var/obj/item/D, var/mob/user)
-	if(!D.isscrewdriver())
+/obj/item/gun/energy/laser/prototype/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.isscrewdriver())
 		return ..()
 	to_chat(user, "You disassemble \the [src].")
 	disassemble(user)
 
 /obj/item/gun/energy/laser/prototype/update_icon()
 	..()
-	if(origin_chassis == CHASSIS_LARGE)
-		if(wielded)
-			item_state = "large_3_wielded"
-		else
-			item_state = "large_3"
 	underlays.Cut()
 	if(length(gun_mods))
 		for(var/obj/item/laser_components/mod in gun_mods)
 			if(mod.gun_overlay)
 				underlays += mod.gun_overlay
-	update_held_icon()
 	underlays.Cut()
 	for(var/v in gun_mods)
 		var/obj/item/laser_components/modifier/mod = v
@@ -145,13 +139,12 @@
 			slot_flags = SLOT_BACK
 			item_state = "large_3"
 			is_wieldable = TRUE
-	update_wield_verb()
 
 /obj/item/gun/energy/laser/prototype/proc/handle_mod()
 	for(var/obj/item/laser_components/modifier/modifier in gun_mods)
 		switch(modifier.mod_type)
 			if(MOD_SILENCE)
-				silenced = 1
+				suppressed = TRUE
 			if(MOD_NUCLEAR_CHARGE)
 				self_recharge = 1
 				criticality *= 2
@@ -177,7 +170,7 @@
 	if(!capacitor)
 		return null
 	if (self_recharge)
-		addtimer(CALLBACK(src, .proc/try_recharge), recharge_time * 2 SECONDS, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(try_recharge)), recharge_time * 2 SECONDS, TIMER_UNIQUE)
 	var/obj/item/projectile/beam/A = new projectile_type(src)
 	A.damage = capacitor.damage
 	var/damage_coeff = 1
@@ -262,7 +255,7 @@
 /obj/item/gun/energy/laser/prototype/verb/scope()
 	set category = "Object"
 	set name = "Use Scope"
-	set popup_menu = 1
+	set src in usr
 
 	if(zoomdevicename)
 		if(wielded)
@@ -302,6 +295,7 @@
 	set name = "Name Prototype"
 	set category = "Object"
 	set desc = "Name your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)
@@ -319,6 +313,7 @@
 	set name = "Describe Prototype"
 	set category = "Object"
 	set desc = "Describe your invention so that its glory might be eternal"
+	set src in usr
 
 	var/mob/M = usr
 	if(!M.mind)
@@ -331,3 +326,19 @@
 		to_chat(M, "You describe the gun as [input]. Say hello to your new friend.")
 		described = 1
 		return 1
+
+/obj/item/gun/energy/laser/prototype/get_print_info()
+	. = ..(FALSE)
+
+	for(var/i in list(capacitor, focusing_lens, modulator) + gun_mods)
+		var/obj/item/laser_components/l_component = i
+
+		. += "<br>Component Name: [initial(l_component.name)]</br><br>"
+		var/l_repair_name = initial(l_component.repair_item.name) ? initial(l_component.repair_item.name) : "nothing"
+		. += "Reliability: [initial(l_component.reliability)]<br>"
+		. += "Damage Modifier: [initial(l_component.damage)]<br>"
+		. += "Fire Delay Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Shots Modifier: [initial(l_component.fire_delay)]<br>"
+		. += "Burst Modifier: [initial(l_component.burst)]<br>"
+		. += "Accuracy Modifier: [initial(l_component.accuracy)]<br>"
+		. += "Repair Tool: [l_repair_name]<br>"

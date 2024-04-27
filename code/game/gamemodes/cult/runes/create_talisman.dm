@@ -1,7 +1,7 @@
 /datum/rune/talisman
 	name = "talisman creation rune"
 	desc = "This rune creates a talisman out of a rune around it."
-	rune_flags = NO_TALISMAN
+	rune_flags = NO_TALISMAN | CAN_MEMORIZE
 
 /datum/rune/talisman/do_rune_action(mob/living/user, atom/movable/A)
 	var/obj/item/paper/new_talisman
@@ -20,13 +20,18 @@
 
 	var/obj/effect/rune/imbued_from
 	for(var/obj/effect/rune/R in orange(1, A))
-		if(R.rune?.type == src.type)
+		if(!R.rune)
 			continue
-		if(!R.rune?.can_be_talisman())
+		if(R.rune.type == src.type)
+			continue
+		if(!R.rune.can_be_talisman())
 			continue
 		var/obj/item/paper/talisman/T = new /obj/item/paper/talisman(get_turf(A))
 		imbued_from = R
-		T.rune = R.rune
+		T.rune = new R.rune.type
+		if(istype(R.rune, /datum/rune/teleport))
+			var/datum/rune/teleport/teleport_rune = R.rune
+			T.network = teleport_rune.network
 		break
 	if(imbued_from)
 		A.visible_message(SPAN_CULT("The blood from \the [imbued_from] floods into a talisman!"))

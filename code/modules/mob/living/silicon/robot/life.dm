@@ -1,6 +1,4 @@
 /mob/living/silicon/robot/Life()
-	set background = BACKGROUND_ENABLED
-
 	if(transforming)
 		return
 
@@ -14,6 +12,13 @@
 	if(client)
 		handle_regular_hud_updates()
 		update_items()
+	if(stat)
+		cut_overlay(eye_overlay)
+		has_cut_eye_overlay = TRUE
+	else if(has_cut_eye_overlay)
+		eye_overlay = cached_eye_overlays[a_intent]
+		add_overlay(eye_overlay)
+		has_cut_eye_overlay = null
 	if(stat != DEAD) //still using power
 		use_power()
 		process_killswitch()
@@ -60,7 +65,7 @@
 
 /mob/living/silicon/robot/handle_regular_status_updates()
 	if(camera && !scrambled_codes)
-		if(stat == DEAD || wires.IsIndexCut(BORG_WIRE_CAMERA))
+		if(stat == DEAD || wires.is_cut(WIRE_CAMERA))
 			camera.set_status(0)
 		else
 			camera.set_status(1)
@@ -74,12 +79,12 @@
 	if(resting)
 		Weaken(5)
 
-	if(health < config.health_threshold_dead && stat != DEAD) //die only once
+	if(health < GLOB.config.health_threshold_dead && stat != DEAD) //die only once
 		death()
 
 	if(stat != DEAD)
 		if(paralysis || stunned || weakened || !has_power) //Stunned etc.
-			stat = UNCONSCIOUS
+			set_stat(UNCONSCIOUS)
 			if(stunned > 0)
 				AdjustStunned(-1)
 			if(weakened > 0)
@@ -91,11 +96,11 @@
 				blinded = FALSE
 
 		else //Not stunned.
-			stat = CONSCIOUS
+			set_stat(CONSCIOUS)
 
 	else //Dead.
 		blinded = TRUE
-		stat = DEAD
+		set_stat(DEAD)
 
 	if(stuttering)
 		stuttering--
@@ -128,10 +133,8 @@
 		uneq_all()
 
 	if(common_radio)
-		if(!is_component_functioning("radio"))
-			common_radio.on = FALSE
-		else
-			common_radio.on = TRUE
+		if(common_radio.is_on() != is_component_functioning("radio"))
+			common_radio.set_on(!common_radio.is_on())
 
 	if(is_component_functioning("camera"))
 		blinded = FALSE
@@ -142,41 +145,29 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
-	if(stat == DEAD || (XRAY in mutations) || (sight_mode & BORGXRAY))
-		sight |= (SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+	if(stat == DEAD || (mutations & XRAY) || (sight_mode & BORGXRAY))
+		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
-		sight |= (SEE_TURFS | SEE_MOBS)
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+		set_sight(sight|SEE_TURFS|SEE_MOBS)
+		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	else if(sight_mode & BORGMESON)
-		sight |= SEE_TURFS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+		set_sight(sight|SEE_TURFS)
+		set_see_invisible(SEE_INVISIBLE_NOLIGHTING)
 	else if(sight_mode & BORGMATERIAL)
-		sight |= SEE_OBJS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_MINIMUM
+		set_sight(sight|SEE_OBJS)
 	else if(sight_mode & BORGTHERM)
-		sight |= SEE_MOBS
-		see_in_dark = 8
-		see_invisible = SEE_INVISIBLE_LEVEL_TWO
-	else if(stat != 2)
-		sight &= ~(SEE_TURFS | SEE_MOBS | SEE_OBJS)
-		see_in_dark = 8 			 // see_in_dark means you can FAINTLY see in the dark, humans have a range of 3 or so, tajaran have it at 8
-		see_invisible = SEE_INVISIBLE_LIVING // This is normal vision (25), setting it lower for normal vision means you don't "see" things like darkness since darkness
-							 // has a "invisible" value of 15
+		set_sight(sight|SEE_MOBS)
+		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
+	else if(stat != DEAD)
+		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
+		set_see_invisible(SEE_INVISIBLE_LIVING)
 
-	var/obj/item/borg/sight/hud/hud = (locate(/obj/item/borg/sight/hud) in src)
-	if(hud?.hud)
-		hud.hud.process_hud(src)
-	else
-		switch(sensor_mode)
-			if(SEC_HUD)
-				process_sec_hud(src, FALSE)
-			if(MED_HUD)
-				process_med_hud(src, FALSE)
+	switch(sensor_mode)
+		if(SEC_HUD)
+			process_sec_hud(src, FALSE)
+		if(MED_HUD)
+			process_med_hud(src, FALSE)
 
 	if(healths)
 		if(stat != DEAD)
@@ -197,21 +188,20 @@
 					else
 						healths.icon_state = "health6"
 			else
-				switch(health)
-					if(200 to INFINITY)
-						healths.icon_state = "health0"
-					if(150 to 200)
-						healths.icon_state = "health1"
-					if(100 to 150)
-						healths.icon_state = "health2"
-					if(50 to 100)
-						healths.icon_state = "health3"
-					if(0 to 50)
-						healths.icon_state = "health4"
-					if(config.health_threshold_dead to 0)
-						healths.icon_state = "health5"
-					else
-						healths.icon_state = "health6"
+				if(health >= 200)
+					healths.icon_state = "health0"
+				else if(health >= 150)
+					healths.icon_state = "health1"
+				else if(health >= 100)
+					healths.icon_state = "health2"
+				else if(health >= 50)
+					healths.icon_state = "health3"
+				else if(health >= 0)
+					healths.icon_state = "health4"
+				else if(health >= GLOB.config.health_threshold_dead)
+					healths.icon_state = "health5"
+				else
+					healths.icon_state = "health6"
 		else
 			healths.icon_state = "health7"
 
@@ -258,23 +248,16 @@
 			else
 				bodytemp.icon_state = "temp-2"
 
-	client.screen.Remove(global_hud.blurry, global_hud.druggy, global_hud.vimpaired)
-
-	if((blind && stat != DEAD))
-		if(blinded)
-			blind.invisibility = 0
-		else
-			blind.invisibility = 101
-			if(disabilities & NEARSIGHTED)
-				client.screen += global_hud.vimpaired
-			if(eye_blurry)
-				client.screen += global_hud.blurry
-			if(druggy)
-				client.screen += global_hud.druggy
-
 	if(stat != DEAD)
-		if(machine)
-			if(machine.check_eye(src) < 0)
+		if(blinded)
+			overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
+		else
+			clear_fullscreen("blind")
+			set_fullscreen(disabilities & NEARSIGHTED, "impaired", /obj/screen/fullscreen/impaired, 1)
+			set_fullscreen(eye_blurry, "blurry", /obj/screen/fullscreen/blurry)
+
+		if (machine)
+			if (machine.check_eye(src) < 0)
 				reset_view(null)
 		else
 			if(client && !client.adminobs)
@@ -294,7 +277,7 @@
 		module_state_2:screen_loc = ui_inv2
 	if(module_state_3)
 		module_state_3:screen_loc = ui_inv3
-	updateicon()
+	update_icon()
 
 /mob/living/silicon/robot/proc/process_killswitch()
 	if(killswitch)
@@ -317,7 +300,7 @@
 			weapon_lock_time = 120
 
 /mob/living/silicon/robot/update_canmove()
-	if(paralysis || stunned || weakened || buckled || lock_charge || !is_component_functioning("actuator"))
+	if(paralysis || stunned || weakened || buckled_to || lock_charge || !is_component_functioning("actuator"))
 		canmove = FALSE
 	else
 		canmove = TRUE
@@ -325,22 +308,27 @@
 
 /mob/living/silicon/robot/proc/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged)
-		return
+	if(lock_charge || scrambled_codes || emagged || SSatlas.current_map.allow_borgs_to_leave)
+		return FALSE
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)
 	if(!T || isStationLevel(T.z))
-		return
+		return FALSE
 	//If they are on centcom -> abort
 	if(istype(get_area(src), /area/centcom) || istype(get_area(src), /area/shuttle/escape) || istype(get_area(src), /area/shuttle/arrival))
-		return
-	self_destruct(TRUE)
+		return FALSE
+	if(!self_destructing)
+		start_self_destruct(TRUE)
+	return TRUE
 
 /mob/living/silicon/robot/update_fire()
-	cut_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+
 	if(on_fire)
-		add_overlay(image("icon"='icons/mob/OnFire.dmi', "icon_state"="Standing"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
 /mob/living/silicon/robot/fire_act()
-	if(!on_fire) //Silicons don't gain stacks from hotspots, but hotspots can ignite them
+	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.
 		IgniteMob()

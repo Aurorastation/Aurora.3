@@ -22,19 +22,20 @@
 		)
 	matter = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_GLASS = 1000)
 	var/up = 0
-	armor = list(melee = 10, bullet = 0, laser = 0,energy = 0, bomb = 0, bio = 0, rad = 0)
+	armor = list(
+			melee = ARMOR_MELEE_SMALL
+		)
 	flags_inv = (HIDEMASK|HIDEEARS|HIDEEYES|HIDEFACE)
 	body_parts_covered = HEAD|FACE|EYES
 	action_button_name = "Flip Welding Mask"
 	siemens_coefficient = 0.75 // what? it's steel.
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	var/base_state
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	sprite_sheets = list(
-		"Vox" = 'icons/mob/species/vox/head.dmi',
-		"Tajara" = 'icons/mob/species/tajaran/helmet.dmi',
-		"Unathi" = 'icons/mob/species/unathi/helmet.dmi'
+		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',
+		BODYTYPE_UNATHI = 'icons/mob/species/unathi/helmet.dmi'
 		)
 	drop_sound = 'sound/items/drop/helm.ogg'
 	pickup_sound = 'sound/items/pickup/helm.ogg'
@@ -75,6 +76,7 @@
 		to_chat(usr, "You push the [src] up out of your face.")
 	update_clothing_icon()	//so our mob-overlays
 	usr.update_action_buttons()
+	usr.handle_vision()
 
 
 /*
@@ -116,33 +118,6 @@
 		src.icon_state = "cake0"
 		src.item_state = "cake0"
 	return
-
-
-/*
- * Ushanka
- */
-/obj/item/clothing/head/ushanka
-	name = "ushanka"
-	desc = "A warm fur hat with ear flaps that can be raised and tied to be out of the way."
-	icon_state = "ushanka"
-	flags_inv = HIDEEARS
-	var/earsup = 0
-
-/obj/item/clothing/head/ushanka/grey
-	name = "grey ushanka"
-	desc = "Perfect for winter in Siberia, da?"
-	icon_state = "greyushanka"
-
-/obj/item/clothing/head/ushanka/attack_self(mob/user as mob)
-	src.earsup = !src.earsup
-	if(src.earsup)
-		icon_state = "[icon_state]_up"
-		to_chat(user, "You raise the ear flaps on the ushanka.")
-	else
-		src.icon_state = initial(icon_state)
-		to_chat(user, "You lower the ear flaps on the ushanka.")
-	update_clothing_icon()
-
 /*
  * Pumpkin head
  */
@@ -155,20 +130,20 @@
 	body_parts_covered = HEAD|FACE|EYES
 	drop_sound = 'sound/items/drop/herb.ogg'
 	pickup_sound = 'sound/items/pickup/herb.ogg'
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	throwforce = 1
 	throw_speed = 0.5
 
-/obj/item/clothing/head/pumpkin/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/flame/candle))
-		var/obj/item/flame/candle/c = O
+/obj/item/clothing/head/pumpkin/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/flame/candle))
+		var/obj/item/flame/candle/c = attacking_item
 		var/candle_wax = c.wax
 		if(c.lit)
-			to_chat(user, span("notice", "You should extinguish \the [O] first!"))
+			to_chat(user, SPAN_NOTICE("You should extinguish \the [attacking_item] first!"))
 			return
-		to_chat(user, "You add \the [O] to \the [src].")
+		to_chat(user, "You add \the [attacking_item] to \the [src].")
 		playsound(src.loc, 'sound/items/drop/gloves.ogg', 50, 1)
-		qdel(O)
+		qdel(attacking_item)
 		var/obj/item/clothing/head/pumpkin/lantern/L = new /obj/item/clothing/head/pumpkin/lantern(user.loc)
 		L.wax = candle_wax
 		user.put_in_hands(L)
@@ -190,21 +165,21 @@
 		M.update_inv_l_hand(0)
 		M.update_inv_r_hand(1)
 
-/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/clothing/head/pumpkin/lantern/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn()) //Badasses dont get blinded by lighting their candle with a welding tool
 			light()
-			to_chat(user, span("notice", "\The [user] casually lights \the [name] with [W]."))
-	else if(isflamesource(W))
+			to_chat(user, SPAN_NOTICE("\The [user] casually lights \the [name] with [attacking_item]."))
+	else if(attacking_item.isFlameSource())
 		light()
-		to_chat(user, span("notice", "\The [user] lights \the [name]."))
-	else if(istype(W, /obj/item/flame/candle))
-		var/obj/item/flame/candle/C = W
+		to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
+	else if(istype(attacking_item, /obj/item/flame/candle))
+		var/obj/item/flame/candle/C = attacking_item
 		if(C.lit)
 			light()
-			to_chat(user, span("notice", "\The [user] lights \the [name]."))
+			to_chat(user, SPAN_NOTICE("\The [user] lights \the [name]."))
 
 /obj/item/clothing/head/pumpkin/lantern/proc/light()
 	if(!src.lit)
@@ -223,8 +198,8 @@
 		new /obj/item/clothing/head/pumpkin(src.loc)
 		new /obj/item/trash/candle(src.loc)
 		if(istype(src.loc, /mob))
-			src.dropped()
-		to_chat(user, span("notice", "The candle burns out."))
+			src.dropped(user)
+		to_chat(user, SPAN_NOTICE("The candle burns out."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		STOP_PROCESSING(SSprocessing, src)
 		qdel(src)
@@ -236,7 +211,7 @@
 /obj/item/clothing/head/pumpkin/lantern/attack_self(mob/user as mob)
 	if(lit)
 		lit = 0
-		to_chat(user, span("notice", "You snuff out the flame."))
+		to_chat(user, SPAN_NOTICE("You snuff out the flame."))
 		playsound(src.loc, 'sound/items/cigs_lighters/cig_snuff.ogg', 50, 1)
 		update_icon()
 		set_light(0)
@@ -268,7 +243,7 @@
 	throwforce = 3
 	throw_speed = 2
 	throw_range = 5
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	body_parts_covered = HEAD
 	attack_verb = list("warned", "cautioned", "smashed")
-	armor = list("melee" = 5, "bullet" = 0, "laser" = 0,"energy" = 0, "bomb" = 0, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 0)
+	armor = list(melee = 5, bullet = 0, laser = 0, energy = 0, bomb = 0, bio = 0, rad = 0)

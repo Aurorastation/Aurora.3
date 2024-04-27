@@ -1,0 +1,6525 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/machinery/atmospherics/binary/pump,
+/obj/machinery/door/window/southleft,
+/obj/effect/floor_decal/industrial/hatch,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"aj" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"aL" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"aQ" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"aU" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/tiled_broken4,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"ba" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"bu" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/modular_computer/laptop/preset/research{
+	pixel_y = 10
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"bv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"bN" = (
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"bO" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"bQ" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"bS" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/structure/table/wood{
+	flipped = 1;
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"bV" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"cg" = (
+/obj/structure/anomaly_container,
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"cp" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1;
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"cq" = (
+/obj/item/reagent_containers/weldpack{
+	pixel_y = 4;
+	pixel_x = -10
+	},
+/obj/random/dirt_75,
+/obj/item/clothing/head/hardhat/orange{
+	pixel_x = 8
+	},
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled,
+/area/hivebot_burrows_2)
+"cv" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/item/archaeological_find,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"cF" = (
+/obj/machinery/mech_recharger/hephaestus,
+/obj/structure/mech_wreckage/powerloader,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/hivebot_burrows_2)
+"cH" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	dir = 2
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"cJ" = (
+/obj/random/dirt_75,
+/obj/item/stack/material/steel{
+	pixel_y = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"cR" = (
+/obj/random/dirt_75,
+/obj/structure/pit,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"cW" = (
+/obj/machinery/artifact_harvester{
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/bluegrid,
+/area/hivebot_burrows_2)
+"de" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"df" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"dg" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/closet/crate/miningcart,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/loot,
+/obj/random/highvalue/no_weapon,
+/obj/random/highvalue/no_weapon,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"dt" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/structure/television,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"dx" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1;
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"dC" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"dI" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1;
+	dir = 8
+	},
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"dO" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"dU" = (
+/obj/random/dirt_75,
+/obj/item/fossil/shell,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"dV" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"dX" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"dZ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"ea" = (
+/obj/random/dirt_75,
+/obj/machinery/door/airlock/hatch/broken,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"ec" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"eh" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"el" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk,
+/area/space)
+"er" = (
+/obj/machinery/appliance/cooker/oven,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"et" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"ew" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"eB" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/cooking_container/board,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"eF" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/detail,
+/area/space)
+"eH" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"eO" = (
+/turf/simulated/floor/exoplanet/sidewalk,
+/area/space)
+"eY" = (
+/obj/machinery/chemical_dispenser/full,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"fb" = (
+/obj/random/dirt_75,
+/obj/item/shovel{
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"fc" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"fg" = (
+/turf/simulated/floor/exoplanet/water/konyang,
+/area/space)
+"fu" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"fx" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"fA" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"fH" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"fI" = (
+/obj/structure/flora/bush/mushroom,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"fK" = (
+/obj/structure/flora/tree/konyang/spring,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"fM" = (
+/obj/machinery/vending/coffee,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"fN" = (
+/obj/machinery/door/airlock/external{
+	dir = 4;
+	name = "Vacuum Chamber";
+	icon_state = "door_locked";
+	locked = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"fQ" = (
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"fT" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	layer = 2.1;
+	name = "inlaid tatami spread";
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/landmark/corpse/scientist/hivebot_burrows,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"fZ" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"gi" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"gC" = (
+/obj/random/dirt_75,
+/obj/item/device/measuring_tape{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"gH" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"gL" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/item/stack/rods{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"gM" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"gQ" = (
+/obj/structure/cable/green{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/effect/decal/fake_object{
+	icon = 'icons/obj/machinery/power/apc.dmi';
+	icon_state = "apc-b";
+	dir = 1;
+	pixel_y = 22;
+	name = "broken area power controller"
+	},
+/obj/random/dirt_75,
+/obj/item/stack/material/graphite{
+	amount = 16;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"gX" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	layer = 2.1;
+	name = "inlaid tatami spread";
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"gY" = (
+/obj/item/material/shard{
+	pixel_x = 6;
+	pixel_y = -10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"hg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"hi" = (
+/obj/random/dirt_75,
+/obj/machinery/artifact,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"hl" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"hA" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/sidewalk,
+/area/space)
+"hH" = (
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"if" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"ih" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/miningcart/ore,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"im" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/structure/bed/stool/chair/padded/beige{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"iq" = (
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"iw" = (
+/obj/item/stack/material/wood{
+	pixel_x = -7;
+	pixel_y = -11
+	},
+/obj/structure/girder,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"iH" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"iL" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 5
+	},
+/obj/item/archaeological_find,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"iT" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"iY" = (
+/obj/structure/table/wood{
+	flipped = 1
+	},
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"iZ" = (
+/obj/structure/reagent_dispensers/water_cooler{
+	pixel_x = -9
+	},
+/obj/structure/closet/crate/bin{
+	name = "trashbin";
+	pixel_x = 8
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"jn" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"jE" = (
+/obj/item/stack/material/steel{
+	pixel_y = 6
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"jZ" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/obj/item/reagent_containers/glass/beaker/teapot{
+	pixel_y = -5;
+	pixel_x = 11
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"ko" = (
+/obj/structure/girder,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"kp" = (
+/obj/random/dirt_75,
+/obj/item/storage/box/excavation{
+	pixel_x = 12;
+	pixel_y = -6
+	},
+/obj/random/dirt_75,
+/obj/item/pickaxe/hand{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"kr" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"kz" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/evidencebag/sample{
+	pixel_x = -6;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"kD" = (
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_1"
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"kH" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/door/airlock/hatch/broken,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"kI" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"kM" = (
+/obj/effect/decal/road_marking/no_pass,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"kT" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/toothbrush{
+	pixel_x = 3
+	},
+/obj/item/reagent_containers/toothpaste{
+	pixel_y = 14;
+	pixel_x = -17
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"kW" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"kX" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"lq" = (
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/obj/random/dirt_75,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled,
+/area/hivebot_burrows_2)
+"lr" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil/streak,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"lu" = (
+/obj/machinery/suspension_gen,
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/effect/floor_decal/industrial/warning,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"lz" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"lB" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/item/stack/tile/floor_white{
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"lE" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"lH" = (
+/obj/random/tech_supply,
+/obj/random/dirt_75,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled,
+/area/hivebot_burrows_2)
+"lK" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"lL" = (
+/obj/machinery/shower{
+	dir = 4;
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"lP" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"mo" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/item/stack/material/steel{
+	pixel_x = -6;
+	pixel_y = 14
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"mr" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"mx" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/item/fossil/base{
+	pixel_x = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"my" = (
+/obj/structure/pit,
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot/range,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"mA" = (
+/obj/item/stack/material/steel{
+	pixel_y = 9;
+	pixel_x = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"mJ" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/suit/space/anomaly,
+/obj/item/clothing/head/helmet/space/anomaly,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"mY" = (
+/obj/random/dirt_75,
+/obj/item/archaeological_find,
+/obj/item/device/core_sampler{
+	pixel_y = 12;
+	pixel_x = -8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"nk" = (
+/obj/item/reagent_containers/glass/bucket{
+	pixel_y = 8;
+	pixel_x = 6
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"nn" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/item/stack/material/steel{
+	pixel_x = 9
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"nq" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"nr" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"ny" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"nJ" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"nL" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"nM" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	layer = 2.1;
+	name = "inlaid tatami spread";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/obj/item/gamehelm/weathered{
+	pixel_y = -2;
+	pixel_x = -13
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"ob" = (
+/obj/structure/pit,
+/mob/living/simple_animal/hostile/hivebot,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"od" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe{
+	pixel_y = 8;
+	pixel_x = -6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"oo" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"oq" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"oB" = (
+/obj/effect/decal/road_marking/no_pass,
+/obj/effect/decal/road_marking/no_pass{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"oD" = (
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_y = 14
+	},
+/obj/item/storage/toolbox/electrical{
+	pixel_x = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/broken4,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled,
+/area/hivebot_burrows_2)
+"oH" = (
+/obj/item/stack/tile/floor_dark{
+	pixel_y = 2;
+	pixel_x = 3
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"oI" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/obj/structure/flora/pottedplant/woodyshrubdying,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"oJ" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/structure/girder,
+/obj/item/arrow/rod{
+	pixel_y = 4;
+	pixel_x = -8
+	},
+/obj/item/stack/material/steel{
+	pixel_y = 2;
+	pixel_x = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"oW" = (
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"pl" = (
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"pt" = (
+/obj/structure/chainlink_fence{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/structure/trash_pile,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"py" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 24
+	},
+/obj/effect/decal/cleanable/floor_damage/tiled_broken4,
+/obj/random/dirt_75,
+/obj/item/razor{
+	pixel_y = 5;
+	pixel_x = -11
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"pE" = (
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/space)
+"pR" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/item/stack/rods{
+	pixel_y = -11
+	},
+/obj/item/stack/tile/floor_white,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"pS" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"pU" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe/drill{
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"pV" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/stack/material/steel{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"pY" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"qu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/arrow/rod{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"qD" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/broken5,
+/obj/item/stack/rods{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"qE" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/effect/landmark/corpse/scientist/hivebot_burrows,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"qJ" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/item/stack/material/steel{
+	pixel_y = 10;
+	pixel_x = 8
+	},
+/obj/random/dirt_75,
+/obj/item/storage/box/gloves{
+	pixel_x = -12
+	},
+/obj/item/stack/tile/floor_white{
+	pixel_y = -14;
+	pixel_x = 6
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"qQ" = (
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot/bomber,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"qR" = (
+/obj/random/dirt_75,
+/obj/structure/ore_box,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"qY" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"ra" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/box/samplebags{
+	pixel_y = 6;
+	pixel_x = -2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"rg" = (
+/turf/template_noop,
+/area/space)
+"rJ" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"sa" = (
+/obj/random/dirt_75,
+/obj/item/shovel{
+	pixel_y = 8;
+	pixel_x = -8
+	},
+/obj/item/fossil/skull/horned{
+	pixel_y = 2;
+	pixel_x = 14
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"sw" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/shower{
+	dir = 8;
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"sA" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"sF" = (
+/obj/effect/decal/road_marking{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/center{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"sM" = (
+/obj/random/dirt_75,
+/obj/item/device/gps/science{
+	pixel_x = 9
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"sO" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"sQ" = (
+/obj/structure/flora/bush/konyang_reeds,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"sV" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/item/robot_parts/robot_component/camera{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"th" = (
+/obj/structure/girder,
+/obj/item/stack/material/steel{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"ti" = (
+/obj/effect/floor_decal/corner_wide/mauve/full{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"tj" = (
+/obj/machinery/computer/general_air_control{
+	stat = 1;
+	icon_state = "computer-broken"
+	},
+/obj/effect/decal/cleanable/floor_damage/tiled_broken3,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"tt" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/platform{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"tD" = (
+/obj/random/dirt_75,
+/obj/machinery/artifact,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"tN" = (
+/obj/item/stack/material/wood{
+	pixel_x = -7;
+	pixel_y = -11
+	},
+/obj/structure/lattice/catwalk/indoor/planks{
+	layer = 2.0;
+	name = "duckboard"
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"tP" = (
+/obj/random/dirt_75,
+/obj/item/shovel{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"ud" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"ug" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"uh" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 5
+	},
+/obj/item/archaeological_find,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"uk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"um" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/floodlight,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"ut" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"uw" = (
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/eastright,
+/obj/machinery/shower{
+	dir = 4;
+	pixel_y = -2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"uJ" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"uV" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"vf" = (
+/obj/machinery/atmospherics/pipe/tank/air,
+/obj/effect/floor_decal/industrial/outline,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"vg" = (
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"vr" = (
+/obj/structure/platform_stairs/full{
+	dir = 8
+	},
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"vv" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"vy" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"vC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"vU" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"vV" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"vW" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1;
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"wa" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/konyang_reeds,
+/obj/item/rig/hazmat/equipped{
+	pixel_x = -2;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"wc" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/turf/simulated/floor/reinforced,
+/area/hivebot_burrows_2)
+"wh" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_y = -11
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"wm" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/obj/random/junk,
+/obj/structure/closet/crate/trashcart,
+/obj/item/storage/box,
+/obj/item/trash/chips,
+/obj/item/trash/uselessplastic,
+/obj/item/trash/tastybread,
+/obj/item/trash/ramen,
+/obj/item/trash/coffee,
+/obj/item/trash/chipbasket,
+/obj/item/trash/cheesie,
+/obj/item/inflatable/torn,
+/obj/item/storage/firstaid/empty,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"wr" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/cell_charger,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"ww" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/item/broken_device{
+	pixel_x = -2;
+	pixel_y = -12
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"wR" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/depth_scanner{
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"wS" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/random/dirt_75,
+/obj/structure/table/reinforced/steel{
+	flipped = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"wX" = (
+/obj/structure/girder,
+/obj/item/stack/rods{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"xg" = (
+/obj/structure/flora/tree/konyang/spring,
+/obj/item/stack/rods{
+	pixel_y = -11
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"xo" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/random/dirt_75,
+/obj/item/reagent_containers/spray/cleaner{
+	pixel_x = -2;
+	pixel_y = -2
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"xp" = (
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"xz" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/hand_labeler{
+	pixel_y = 6;
+	pixel_x = -2
+	},
+/obj/item/device/camera{
+	pixel_y = -4;
+	pixel_x = 2
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"xA" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 5
+	},
+/obj/effect/decal/cleanable/floor_damage/tiled_broken3,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"xJ" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Xenoarchaeology Lab"
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"xL" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"xQ" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/recharger{
+	pixel_y = 4
+	},
+/obj/item/device/integrated_circuit_printer/upgraded{
+	pixel_x = -10
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"xZ" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"yc" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"yg" = (
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"yo" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"yt" = (
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/magboots,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/floor_decal/industrial/warning,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/suit/space/anomaly,
+/obj/item/clothing/head/helmet/space/anomaly,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"yu" = (
+/obj/structure/girder,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"yz" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"yF" = (
+/obj/machinery/cell_charger{
+	pixel_y = 8
+	},
+/obj/random/powercell,
+/obj/random/dirt_75,
+/obj/structure/table/reinforced/steel,
+/turf/simulated/floor/tiled,
+/area/hivebot_burrows_2)
+"yG" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"yS" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"yT" = (
+/obj/item/stack/rods{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/no_dry{
+	name = "dried blood";
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"za" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"zH" = (
+/obj/random/dirt_75,
+/obj/machinery/floodlight{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"zR" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"zS" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/ano_scanner{
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"zU" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Au" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black{
+	pixel_x = -4;
+	pixel_y = -14
+	},
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Ax" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"AA" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"AM" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1;
+	dir = 1
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"AQ" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/obj/item/material/kitchen/rollingpin{
+	pixel_x = -2;
+	pixel_y = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"AU" = (
+/obj/random/dirt_75,
+/obj/item/archaeological_find,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"AZ" = (
+/obj/machinery/power/portgen/basic{
+	anchored = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/broken4,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/hivebot_burrows_2)
+"Ba" = (
+/obj/machinery/power/terminal{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "0-4"
+	},
+/obj/item/smes_coil{
+	pixel_x = 12;
+	pixel_y = -5
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_y = 8;
+	pixel_x = -14
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Bd" = (
+/turf/simulated/wall/r_wall,
+/area/hivebot_burrows_2)
+"Bf" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/obj/machinery/artifact_analyser,
+/turf/simulated/floor/bluegrid,
+/area/hivebot_burrows_2)
+"Bj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/shower{
+	dir = 4;
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"BM" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/table/steel,
+/obj/item/device/flashlight/lamp{
+	on = 0
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber{
+	dir = 4
+	},
+/turf/simulated/floor/reinforced,
+/area/hivebot_burrows_2)
+"BO" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"BP" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/regular{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"BQ" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/random/dirt_75,
+/obj/random/tech_supply,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"BU" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/ano_scanner{
+	pixel_x = -4;
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Cc" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Cd" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/tiled_broken4,
+/obj/random/dirt_75,
+/obj/item/material/hatchet/butch{
+	pixel_y = -4;
+	pixel_x = 5
+	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Cr" = (
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"CF" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/item/pickaxe/drill{
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"CI" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"CU" = (
+/obj/structure/girder,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Dd" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"Ds" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/door/airlock/hatch/broken,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"Dt" = (
+/obj/item/stack/rods{
+	pixel_y = 8;
+	pixel_x = -3
+	},
+/obj/effect/decal/cleanable/floor_damage/broken0,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"DA" = (
+/obj/structure/pit,
+/mob/living/simple_animal/hostile/hivebot,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"DB" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot,
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"DI" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"DJ" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/item/paper_scanner{
+	pixel_x = -8;
+	pixel_y = -12
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"DM" = (
+/obj/structure/bookcase/manuals/xenoarchaeology,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Ea" = (
+/obj/item/stack/tile/floor_dark/full,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Er" = (
+/obj/random/dirt_75,
+/obj/item/device/camera{
+	pixel_x = 5;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Et" = (
+/obj/random/dirt_75,
+/obj/item/archaeological_find,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"Ev" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/item/stack/material/steel{
+	pixel_x = -6;
+	pixel_y = 14
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ey" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"Ez" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"EF" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"EG" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1
+	},
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"EI" = (
+/obj/machinery/appliance/cooker/stove,
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"ES" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	layer = 2.1;
+	name = "inlaid tatami spread";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/obj/item/toy/plushie/ipc{
+	pixel_y = 18
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"Ff" = (
+/obj/structure/table/standard,
+/obj/item/material/kitchen/utensil/fork/chopsticks,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Fo" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/obj/structure/flora/rock/konyang/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Fp" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Fs" = (
+/obj/random/dirt_75,
+/obj/structure/pit,
+/mob/living/simple_animal/hostile/hivebot/range,
+/obj/item/pickaxe/hand{
+	pixel_x = 12;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Ft" = (
+/obj/structure/platform/cutout{
+	dir = 4
+	},
+/obj/structure/platform_stairs/full/east_west_cap,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"FK" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/loading/yellow,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"FN" = (
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	anchored = 1;
+	req_access = null
+	},
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/random/dirt_75,
+/obj/machinery/light,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"FZ" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/anodevice{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/obj/item/anobattery{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/anobattery,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"Gg" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/item/clothing/head/konyang{
+	pixel_y = -9
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Gl" = (
+/obj/structure/flora/rock/konyang/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"Gn" = (
+/obj/structure/flora/ausbushes/reedbush,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Gq" = (
+/obj/item/stack/rods{
+	pixel_x = -2;
+	pixel_y = -4
+	},
+/obj/random/dirt_75,
+/obj/structure/table/standard{
+	flipped = 1;
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"GK" = (
+/obj/structure/toilet,
+/obj/effect/decal/cleanable/floor_damage/tiled_broken3,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"GO" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"GS" = (
+/obj/machinery/door/airlock/hatch/broken,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"GU" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 1;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"Hh" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/black,
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Hl" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/item/device/radio{
+	pixel_x = -10;
+	pixel_y = 2
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"Hr" = (
+/obj/structure/dispenser/oxygen,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"HA" = (
+/obj/structure/bed/stool/chair/office/dark,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"HL" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"HR" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"HT" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"Il" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Ix" = (
+/obj/random/dirt_75,
+/obj/item/arrow/rod{
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"IB" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/material/steel{
+	pixel_x = 8
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"IE" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 9
+	},
+/obj/item/archaeological_find,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"IL" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ji" = (
+/obj/structure/table/steel{
+	flipped = 1;
+	dir = 8
+	},
+/obj/random/tech_supply{
+	pixel_x = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"Jq" = (
+/obj/random/dirt_75,
+/obj/item/pickaxe/hand{
+	pixel_x = 6;
+	pixel_y = -10
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Jr" = (
+/obj/structure/chainlink_fence{
+	dir = 8
+	},
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Jx" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/structure/flora/pottedplant/dead,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"JA" = (
+/obj/machinery/artifact_scanpad,
+/obj/effect/floor_decal/spline/plain{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/bluegrid,
+/area/hivebot_burrows_2)
+"JB" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/pickaxe/brush{
+	pixel_x = 10;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"JG" = (
+/turf/simulated/wall/wood,
+/area/hivebot_burrows_2)
+"JI" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"JK" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Kj" = (
+/obj/effect/floor_decal/spline/plain{
+	dir = 6
+	},
+/obj/machinery/artifact_scanpad,
+/obj/machinery/artifact,
+/turf/simulated/floor/bluegrid,
+/area/hivebot_burrows_2)
+"Km" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"KF" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"KW" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/no_pass{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"KZ" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"Le" = (
+/obj/structure/closet/secure_closet/refrigerator/standard,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/storage/box/fancy/egg_box,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/obj/item/reagent_containers/food/condiment/enzyme,
+/obj/effect/decal/cleanable/floor_damage/tiled_broken3,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Lr" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/core_sampler{
+	pixel_y = 12;
+	pixel_x = -4
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Lz" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"LE" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"LM" = (
+/obj/random/dirt_75,
+/obj/item/storage/box/excavation{
+	pixel_x = -4;
+	pixel_y = -6
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"LP" = (
+/obj/structure/chainlink_fence,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"LV" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"LZ" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 5
+	},
+/obj/item/stack/rods{
+	pixel_y = -11
+	},
+/obj/random/dirt_75,
+/obj/item/broken_device{
+	pixel_y = 5;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"Mo" = (
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/concrete,
+/area/hivebot_burrows_2)
+"Mq" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/platform_deco,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 6
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/storage/bag/fossils{
+	pixel_x = -10;
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Mr" = (
+/obj/item/storage/bag/circuits/basic{
+	pixel_x = -9;
+	pixel_y = -10
+	},
+/obj/effect/decal/cleanable/blood/oil/streak,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"Mz" = (
+/obj/random/dirt_75,
+/obj/item/stack/rods{
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"MN" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"MP" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"MY" = (
+/obj/random/dirt_75,
+/obj/item/stack/material/steel{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"Np" = (
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Nq" = (
+/obj/random/dirt_75,
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Nx" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"NF" = (
+/obj/item/arrow/rod{
+	pixel_y = 7;
+	pixel_x = -4
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"NJ" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 1
+	},
+/obj/effect/decal/road_marking/no_pass{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"NK" = (
+/obj/structure/cable{
+	icon_state = "1-8"
+	},
+/obj/item/trash/broken_electronics{
+	pixel_y = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_x = 13;
+	pixel_y = -11
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"NM" = (
+/obj/structure/table/standard{
+	flipped = 1;
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"NR" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"NX" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/sidewalk/detail,
+/area/space)
+"NY" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Of" = (
+/obj/structure/flora/ausbushes/reedbush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Oh" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Oq" = (
+/obj/structure/flora/tree/konyang/fall,
+/obj/effect/decal/cleanable/generic/beet_tree_petals,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"OD" = (
+/obj/machinery/radiocarbon_spectrometer,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"OK" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/device/flashlight/lamp{
+	pixel_x = -3;
+	pixel_y = 8;
+	on = 0
+	},
+/obj/item/folder/purple{
+	pixel_x = 6;
+	pixel_y = -6
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"OZ" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/item/reagent_containers/food/drinks/dry_ramen{
+	pixel_y = -6;
+	pixel_x = -4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Pf" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Pi" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"Pk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/tool{
+	pixel_x = -10;
+	pixel_y = -10
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"Pn" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Pt" = (
+/obj/random/dirt_75,
+/obj/machinery/floodlight,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Pu" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"PE" = (
+/obj/random/dirt_75,
+/obj/structure/flora/bush/mushroom,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"PL" = (
+/obj/structure/pit,
+/mob/living/simple_animal/hostile/hivebot,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"PR" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 10
+	},
+/obj/machinery/air_sensor,
+/turf/simulated/floor/reinforced,
+/area/hivebot_burrows_2)
+"PS" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/item/material/shard{
+	pixel_x = 6;
+	pixel_y = -10
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/anodevice{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"Qb" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/item/material/shard{
+	pixel_x = 8;
+	pixel_y = -8
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/item/broken_device{
+	pixel_y = -14;
+	pixel_x = -12
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Qg" = (
+/obj/random/dirt_75,
+/obj/machinery/door/airlock/hatch/broken,
+/obj/random/dirt_75,
+/obj/structure/barricade/wooden{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Qo" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Qz" = (
+/obj/item/stack/material/steel{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"QC" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"QE" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/hand_labeler{
+	pixel_x = 6;
+	pixel_y = 14
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"QN" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/platform_deco{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"QO" = (
+/obj/machinery/door/airlock/hatch{
+	p_open = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"QS" = (
+/turf/simulated/wall,
+/area/hivebot_burrows_2)
+"QT" = (
+/obj/item/stack/material/wood{
+	pixel_y = 3
+	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"QZ" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/item/stack/material/steel{
+	pixel_y = 10;
+	pixel_x = -12
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Re" = (
+/obj/item/toy/comic/inspector{
+	pixel_y = 2;
+	pixel_x = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Rl" = (
+/obj/machinery/shower{
+	dir = 8;
+	pixel_x = 1;
+	pixel_y = 1
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/floor_damage/tiled_broken4,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"Rp" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"Rv" = (
+/obj/item/flame/lighter/random{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = 7;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/dropper,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/random/dirt_75,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"RA" = (
+/obj/structure/flora/tree/konyang/spring,
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"RC" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"RE" = (
+/obj/structure/cable/green{
+	icon_state = "0-4"
+	},
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_1"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/hivebot_burrows_2)
+"RL" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"RT" = (
+/obj/structure/girder,
+/obj/item/stack/rods{
+	pixel_y = 8;
+	pixel_x = -3
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Sd" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Se" = (
+/obj/structure/flora/ausbushes/sparsegrass,
+/obj/structure/flora/tree/konyang/spring,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Sf" = (
+/obj/machinery/papershredder{
+	pixel_x = -6
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = 10;
+	pixel_y = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Sg" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/item/arrow/rod{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Si" = (
+/obj/random/dirt_75,
+/obj/structure/flora/ausbushes/sparsegrass,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Sr" = (
+/obj/structure/grille/broken,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Su" = (
+/obj/effect/floor_decal/corner_wide/mauve/diagonal,
+/obj/item/archaeological_find,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"Sv" = (
+/obj/random/dirt_75,
+/obj/structure/flora/bush/mushroom,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Sz" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"SK" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/item/stack/material/steel{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"SO" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/stack/material/wood{
+	pixel_y = 10;
+	pixel_x = -11
+	},
+/obj/item/stack/material/wood{
+	pixel_x = 4;
+	pixel_y = -8
+	},
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"SX" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"Tb" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/pen{
+	pixel_y = 4
+	},
+/obj/item/paper_bin{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/spline/plain/black,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Tm" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Ts" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Ty" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"TA" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 9
+	},
+/obj/item/arrow/rod{
+	pixel_x = 4;
+	pixel_y = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"Uc" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/sidewalk/blocks,
+/area/space)
+"Ue" = (
+/obj/machinery/door/airlock/glass{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"Ug" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 1;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/remains/robot,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/tiled/full,
+/area/hivebot_burrows_2)
+"Uj" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"Us" = (
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/random/junk,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Ut" = (
+/obj/structure/reagent_dispensers/coolanttank,
+/obj/item/reagent_containers/glass/bucket{
+	pixel_x = 6;
+	pixel_y = -3
+	},
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"Uv" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/obj/item/stack/material/steel{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Ux" = (
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 4;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/teacup{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"UA" = (
+/obj/effect/decal/road_marking/no_pass{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"UL" = (
+/obj/effect/decal/road_marking{
+	dir = 4
+	},
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/center{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"UR" = (
+/obj/machinery/chem_master,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"US" = (
+/obj/machinery/door/airlock/hatch/broken{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"UZ" = (
+/obj/structure/bed/stool/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 8
+	},
+/obj/effect/decal/cleanable/floor_damage/tiled_broken4,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Vc" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Vg" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/item/stack/medical/bruise_pack{
+	pixel_x = -9;
+	amount = 1
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Vk" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"Vm" = (
+/obj/random/dirt_75,
+/obj/structure/flora/rock/konyang/small,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Vu" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Vw" = (
+/obj/structure/flora/rock/konyang/water,
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"VC" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/machinery/atmospherics/unary/vent_pump{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/reinforced,
+/area/hivebot_burrows_2)
+"VR" = (
+/obj/random/dirt_75,
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"Wf" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Wg" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Wk" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/device/measuring_tape{
+	pixel_x = 6;
+	pixel_y = 12
+	},
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"Wq" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/item/broken_device{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/mob/living/simple_animal/hostile/hivebot/guardian,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Wz" = (
+/obj/item/stack/tile/floor_dark{
+	pixel_y = 6;
+	pixel_x = 3
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"WD" = (
+/obj/effect/floor_decal/corner_wide/mauve{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/obj/item/pickaxe/hand{
+	pixel_x = -12;
+	pixel_y = 12
+	},
+/obj/effect/decal/cleanable/blood/splatter{
+	basecolor = "#400000";
+	dries = 0;
+	name = "dried blood"
+	},
+/turf/simulated/floor/exoplanet/tiled/dark,
+/area/hivebot_burrows_2)
+"WK" = (
+/obj/random/dirt_75,
+/obj/item/archaeological_find,
+/turf/simulated/floor/exoplanet/basalt/cave,
+/area/hivebot_burrows_2)
+"WR" = (
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"WT" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/anobattery{
+	pixel_x = 6;
+	pixel_y = 16
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"Xi" = (
+/obj/structure/flora/rock/konyang{
+	density = 0
+	},
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"XH" = (
+/obj/random/dirt_75,
+/obj/item/robot_parts/robot_component/camera{
+	pixel_x = 4;
+	pixel_y = 6
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"XI" = (
+/turf/simulated/floor/sidewalk/detail,
+/area/space)
+"XM" = (
+/obj/structure/flora/bush/konyang_reeds,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"XP" = (
+/obj/effect/decal/cleanable/floor_damage/tiled_broken4,
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"XQ" = (
+/turf/unsimulated/mineral/asteroid,
+/area/hivebot_burrows_2)
+"XW" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Yh" = (
+/obj/effect/decal/road_marking/center{
+	dir = 8
+	},
+/obj/effect/decal/road_marking/center{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/exoplanet/asphalt,
+/area/hivebot_burrows_2)
+"Yj" = (
+/obj/item/stack/tile/floor_dark{
+	pixel_y = -3;
+	pixel_x = 2
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Yl" = (
+/obj/item/stack/rods{
+	pixel_x = -6;
+	pixel_y = -4
+	},
+/obj/item/material/minihoe{
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"Ys" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Yu" = (
+/obj/machinery/door/urban{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"Yw" = (
+/obj/random/dirt_75,
+/obj/item/clothing/mask/gas/alt{
+	pixel_x = 4;
+	pixel_y = -4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Yx" = (
+/obj/random/dirt_75,
+/obj/item/device/flashlight/flare{
+	pixel_y = 6;
+	pixel_x = 5
+	},
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"YC" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/item/clothing/head/konyang{
+	pixel_y = -10;
+	pixel_x = -14
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"YD" = (
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/machinery/door/blast/shutters/open,
+/obj/item/stack/material/steel{
+	pixel_x = -4;
+	pixel_y = -4
+	},
+/obj/effect/decal/cleanable/blood/drip/oil,
+/obj/effect/decal/cleanable/blood/drip/oil,
+/turf/simulated/floor/exoplanet/tiled/dark/full,
+/area/hivebot_burrows_2)
+"YL" = (
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/structure/platform_deco{
+	dir = 8;
+	layer = 2.7
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"YM" = (
+/obj/structure/flora/bush/konyang_reeds/water,
+/turf/simulated/floor/exoplanet/water/shallow/konyang,
+/area/space)
+"YP" = (
+/obj/structure/flora/rock/konyang/small,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/barren/cave,
+/area/hivebot_burrows_2)
+"YS" = (
+/obj/effect/floor_decal/konyang_flowers,
+/obj/effect/decal/cleanable/blood/drip{
+	name = "dried drips of blood";
+	dries = 0;
+	basecolor = "#400000"
+	},
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"YU" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"YZ" = (
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff";
+	light_power = 50
+	},
+/turf/simulated/floor/exoplanet/concrete,
+/area/space)
+"Za" = (
+/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/hivebot_burrows_2)
+"Ze" = (
+/obj/random/dirt_75,
+/obj/item/arrow/rod,
+/turf/simulated/floor/exoplanet/dirt_konyang/cave,
+/area/hivebot_burrows_2)
+"Zj" = (
+/obj/item/reagent_containers/glass/beaker/large{
+	pixel_y = 10;
+	pixel_x = 6
+	},
+/obj/item/storage/box/fancy/vials{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/random/dirt_75,
+/obj/structure/table/reinforced,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/hivebot_burrows_2)
+"Zq" = (
+/obj/structure/chainlink_fence{
+	dir = 1
+	},
+/obj/random/junk,
+/obj/random/junk,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/closet/crate/bin/urban/dumpster,
+/obj/item/trash/tray,
+/obj/item/trash/ricetub,
+/obj/item/trash/can,
+/obj/item/trash/seaweed,
+/obj/item/broken_device,
+/obj/item/paper/crumpled,
+/obj/item/broken_bottle,
+/obj/item/trash/broken_electronics,
+/obj/item/material/shard,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/space)
+"Zs" = (
+/obj/effect/floor_decal/spline/plain/black{
+	dir = 1
+	},
+/obj/item/material/knife{
+	pixel_x = 8;
+	pixel_y = 6
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/hivebot_burrows_2)
+"ZA" = (
+/obj/structure/closet/secure_closet/xenoarchaeologist{
+	anchored = 1;
+	req_access = null
+	},
+/obj/structure/lattice/catwalk/indoor/tatami{
+	dir = 8;
+	layer = 2.1;
+	name = "inlaid tatami spread"
+	},
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"ZB" = (
+/obj/structure/flora/rock/konyang/moss{
+	density = 0
+	},
+/obj/effect/floor_decal/konyang_flowers,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+"ZE" = (
+/obj/structure/rod_railing{
+	name = "imposing rod railing";
+	layer = 9.1;
+	dir = 4
+	},
+/obj/structure/flora/rock/konyang/small,
+/obj/structure/flora/ausbushes/fullgrass,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/konyang,
+/area/hivebot_burrows_2)
+"ZF" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/obj/item/clothing/shoes/workboots/dark{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/wood,
+/area/hivebot_burrows_2)
+"ZG" = (
+/obj/random/dirt_75,
+/obj/effect/decal/fake_object/light_source/invisible{
+	light_color = "#ffffff"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/hivebot_burrows_2)
+"ZJ" = (
+/obj/structure/flora/ausbushes/stalkybush,
+/turf/simulated/floor/exoplanet/konyang,
+/area/space)
+
+(1,1,1) = {"
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+ZJ
+XM
+XM
+vg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+iH
+vg
+iH
+ZB
+XM
+iH
+vg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+"}
+(2,1,1) = {"
+rg
+rg
+rg
+rg
+rg
+iH
+iH
+vg
+XM
+Se
+XM
+IL
+iH
+iH
+iH
+ZJ
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+ZJ
+XM
+IL
+XM
+XM
+XM
+hH
+yg
+iH
+yo
+iH
+Of
+YM
+YM
+YM
+XM
+sQ
+XM
+XM
+iH
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+"}
+(3,1,1) = {"
+rg
+rg
+rg
+rg
+hH
+iH
+yg
+iH
+QC
+iH
+Of
+XM
+XM
+XM
+yg
+iH
+iH
+vg
+XM
+rg
+rg
+vg
+XM
+XM
+XM
+iH
+hH
+Oq
+XM
+XM
+IL
+XM
+vg
+hH
+YM
+YM
+Gl
+fQ
+YM
+Fo
+de
+XM
+XM
+XM
+hH
+rg
+rg
+rg
+rg
+rg
+"}
+(4,1,1) = {"
+rg
+rg
+rg
+vg
+XM
+XM
+rJ
+iH
+YM
+YM
+YM
+YM
+vg
+hH
+iH
+yo
+hH
+XM
+XM
+Of
+iH
+XM
+IL
+Oh
+NY
+vg
+iH
+iH
+QC
+vg
+iH
+Of
+XM
+hH
+rJ
+YM
+YM
+fQ
+fQ
+YM
+YM
+YM
+YM
+iH
+iH
+yo
+vg
+rg
+rg
+rg
+"}
+(5,1,1) = {"
+rg
+rg
+rg
+iH
+IL
+Of
+vg
+YM
+YM
+fg
+fg
+YM
+YM
+Of
+vg
+XM
+XM
+XM
+yg
+Xi
+kI
+Oh
+NY
+NY
+BO
+kI
+gi
+NY
+vg
+hH
+NY
+NY
+gi
+Oh
+hH
+XM
+XM
+YM
+YM
+fQ
+fQ
+fQ
+YM
+YM
+vg
+iH
+rJ
+Of
+rg
+rg
+"}
+(6,1,1) = {"
+rg
+rg
+iH
+XM
+ZJ
+YM
+YM
+Vw
+fg
+fg
+fg
+fg
+YM
+iH
+XM
+XM
+vg
+iH
+iH
+Oh
+NY
+Vm
+XQ
+XQ
+XQ
+XQ
+XQ
+Oh
+NY
+NY
+Si
+XQ
+XQ
+NY
+NY
+XM
+yg
+XM
+YM
+YM
+YM
+fQ
+Fo
+YM
+ZJ
+XM
+XM
+iH
+hH
+rg
+"}
+(7,1,1) = {"
+rg
+rg
+Xi
+XM
+vg
+YM
+fQ
+YM
+fQ
+fg
+Vw
+YM
+YM
+iH
+XM
+kW
+iH
+iH
+vg
+Oh
+NY
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+Oh
+xp
+XQ
+XQ
+XQ
+BO
+Si
+NY
+iH
+XM
+XM
+vg
+YM
+YM
+vg
+sQ
+XM
+XM
+yg
+XM
+vg
+rg
+"}
+(8,1,1) = {"
+rg
+rg
+yg
+XM
+YM
+YM
+fg
+fQ
+YM
+YM
+YM
+Of
+rJ
+iH
+XM
+iH
+iH
+QC
+kI
+Vm
+Qo
+AA
+xL
+HR
+hg
+Cc
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+Oh
+Vm
+Oh
+yo
+iH
+XM
+iH
+de
+fu
+XM
+iH
+Oh
+vg
+XM
+hH
+rg
+"}
+(9,1,1) = {"
+rg
+iH
+XM
+vg
+Fo
+fg
+fg
+fg
+YM
+de
+iH
+iH
+ZJ
+vg
+XQ
+XQ
+XQ
+Oh
+Oh
+NY
+Oh
+XQ
+XQ
+XQ
+XQ
+xL
+AA
+XQ
+XQ
+XQ
+XQ
+iT
+XQ
+XQ
+XQ
+fI
+NY
+Vm
+kI
+iH
+rJ
+XM
+XM
+iH
+NY
+Vm
+Oh
+ZJ
+iH
+iH
+"}
+(10,1,1) = {"
+rg
+vg
+XM
+iH
+YM
+fg
+fg
+fg
+YM
+iH
+Oq
+vg
+Oh
+XQ
+XQ
+XQ
+XQ
+XQ
+Oh
+uV
+NY
+fI
+XQ
+XQ
+XQ
+XQ
+xL
+ba
+Lz
+dC
+Lz
+Lz
+yc
+XQ
+XQ
+XQ
+Oh
+NY
+NY
+Oh
+vg
+hH
+XM
+yg
+Oh
+Si
+NY
+hH
+IL
+hH
+"}
+(11,1,1) = {"
+rg
+iH
+iH
+Of
+YM
+fQ
+fg
+fg
+Fo
+iH
+XM
+iH
+BO
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+Oh
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+vC
+XQ
+XQ
+WK
+Lz
+Ix
+XQ
+XQ
+Bd
+Bd
+Bd
+Bd
+Bd
+iH
+XM
+vg
+iH
+Oh
+kr
+Oh
+XM
+XM
+"}
+(12,1,1) = {"
+rg
+iH
+IL
+iH
+YM
+YM
+fg
+YM
+YM
+XM
+XM
+hH
+NY
+XQ
+XQ
+XQ
+my
+if
+XQ
+XQ
+XQ
+XQ
+XQ
+oo
+tD
+XQ
+XQ
+XQ
+DA
+XQ
+XQ
+XQ
+XQ
+Uv
+SK
+XQ
+Bd
+Bf
+VC
+BM
+Bd
+rJ
+XM
+XM
+hH
+NY
+Oh
+NY
+vg
+XM
+"}
+(13,1,1) = {"
+rg
+iH
+XM
+XM
+vg
+YM
+YM
+YM
+Of
+XM
+iH
+kI
+NY
+xp
+XQ
+XQ
+ud
+wR
+Lz
+XQ
+XQ
+XQ
+ih
+kp
+ud
+zS
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+QS
+yu
+Nq
+QS
+Bd
+Kj
+PR
+wc
+Bd
+iH
+vg
+XM
+XM
+hH
+kI
+hH
+XM
+Of
+"}
+(14,1,1) = {"
+rg
+hH
+yg
+XM
+ZJ
+Vw
+YM
+YM
+iH
+IL
+vg
+NY
+NY
+fI
+XQ
+XQ
+XQ
+hi
+Lr
+Wk
+Pf
+Vc
+Pu
+HL
+ud
+lE
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+QS
+Qz
+Dt
+Ea
+Bd
+zR
+zR
+fN
+Bd
+QS
+QS
+ZJ
+Of
+vg
+iH
+Oq
+XM
+XM
+"}
+(15,1,1) = {"
+rg
+hH
+iH
+XM
+XM
+iH
+nk
+Xi
+XM
+iH
+Oh
+Vm
+NY
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+tP
+ud
+ud
+qQ
+WK
+ud
+ud
+Er
+Lz
+Lz
+XQ
+XQ
+XQ
+QS
+Hr
+ew
+ti
+TA
+Yj
+IE
+lP
+QS
+Bj
+QS
+el
+SX
+el
+hH
+iH
+XM
+vg
+"}
+(16,1,1) = {"
+rg
+iH
+iH
+ZJ
+XM
+iH
+YC
+XM
+XM
+iH
+BO
+NY
+XQ
+XQ
+XQ
+PL
+XQ
+XQ
+XQ
+Lz
+Wf
+ug
+oq
+AA
+XQ
+XQ
+dC
+XQ
+if
+ud
+XQ
+XQ
+yu
+mJ
+yt
+DB
+Mq
+tt
+YL
+QE
+Ds
+fA
+xJ
+dZ
+vV
+eO
+eO
+Pn
+XM
+hH
+"}
+(17,1,1) = {"
+iH
+XM
+vg
+Oh
+hH
+QC
+iH
+XM
+ZJ
+NY
+lz
+XQ
+XQ
+XQ
+XQ
+Lz
+XQ
+XQ
+Lz
+WK
+AA
+AA
+nJ
+XQ
+XQ
+XQ
+DA
+XQ
+XQ
+Yx
+XQ
+XQ
+QS
+pR
+pV
+uh
+WR
+tj
+Ft
+vr
+QS
+sw
+QS
+hA
+vV
+Dd
+oW
+vg
+QC
+iH
+"}
+(18,1,1) = {"
+rJ
+XM
+Oh
+Si
+Oh
+vg
+iH
+NF
+hH
+xp
+XQ
+XQ
+XQ
+Pt
+Pf
+bO
+ud
+Lz
+Lz
+XQ
+XQ
+nJ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+Yw
+XQ
+XQ
+QS
+cg
+lu
+oH
+WR
+JA
+lB
+QN
+QS
+QS
+QS
+el
+eO
+Dd
+oW
+iH
+XM
+hH
+"}
+(19,1,1) = {"
+iH
+XM
+Oh
+pY
+NY
+NY
+iH
+Yl
+Jr
+ny
+XQ
+XQ
+CF
+mx
+WK
+Lz
+if
+XQ
+XQ
+XQ
+XQ
+Pi
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+nL
+Ze
+XQ
+QS
+yu
+QS
+Uj
+sA
+cW
+Cr
+Ut
+BP
+XM
+XM
+vg
+oW
+Dd
+oW
+Xi
+XM
+vg
+"}
+(20,1,1) = {"
+XM
+XM
+Oq
+Oh
+Vm
+Oh
+ZJ
+LP
+uJ
+uJ
+XQ
+XQ
+Fp
+Jq
+lE
+Lz
+XQ
+XQ
+XQ
+XQ
+XQ
+Nx
+XQ
+cF
+Ji
+wa
+XQ
+XQ
+XQ
+XQ
+Wq
+XQ
+pl
+vf
+ab
+za
+vU
+FZ
+aU
+OD
+BP
+rJ
+kI
+XM
+oW
+Dd
+oW
+XM
+yg
+iH
+"}
+(21,1,1) = {"
+XM
+iH
+iH
+NY
+NY
+kI
+hH
+LP
+uJ
+XQ
+XQ
+XQ
+XQ
+qR
+Lz
+XQ
+XQ
+XQ
+XQ
+XQ
+PE
+dx
+JI
+Pk
+Mr
+ZE
+mr
+XQ
+XQ
+XQ
+IB
+Mz
+QS
+QS
+QS
+QS
+US
+QS
+QS
+th
+QS
+XW
+Oh
+iH
+oW
+YZ
+oW
+XM
+vg
+iH
+"}
+(22,1,1) = {"
+ZJ
+XM
+iH
+hH
+Oh
+vg
+XM
+JG
+JG
+JG
+JG
+JG
+XQ
+XQ
+gC
+XQ
+XQ
+XQ
+XQ
+dg
+hl
+oB
+fH
+KW
+fH
+NJ
+vW
+QS
+QS
+QS
+RT
+MY
+mo
+QS
+fM
+lL
+dX
+QS
+XM
+Sg
+Ev
+kI
+NY
+gi
+eO
+iq
+eO
+XM
+iH
+iH
+"}
+(23,1,1) = {"
+XM
+XM
+yo
+XM
+XM
+XM
+iH
+JG
+NM
+XP
+uw
+ko
+XQ
+XQ
+Pf
+oq
+VR
+fb
+AA
+JI
+ZG
+kM
+dO
+sF
+aj
+Km
+JI
+ea
+FK
+QO
+um
+qu
+YU
+yS
+LZ
+bQ
+Wz
+BP
+iH
+xg
+NY
+pY
+NY
+Oh
+XI
+Dd
+XI
+XM
+Of
+vg
+"}
+(24,1,1) = {"
+Gn
+Se
+XM
+vg
+iH
+rJ
+JK
+iw
+GK
+kT
+py
+JG
+XQ
+XQ
+XQ
+XQ
+AA
+XQ
+XQ
+XQ
+bN
+gH
+xZ
+Yh
+xZ
+kX
+JI
+QO
+EF
+kH
+Vu
+wh
+bv
+YD
+iL
+aL
+qE
+BP
+XM
+XM
+Oh
+NY
+xp
+kI
+eO
+Dd
+eO
+ZJ
+rJ
+hH
+"}
+(25,1,1) = {"
+vg
+iH
+ZJ
+el
+SX
+SX
+el
+JG
+JG
+Yu
+JG
+JG
+XQ
+XQ
+XQ
+XQ
+Lz
+XQ
+XQ
+XQ
+Vk
+gH
+yz
+UL
+yz
+kX
+bN
+QS
+QS
+wX
+QZ
+XH
+oJ
+QS
+iZ
+Rl
+WD
+QS
+iH
+XM
+df
+Oh
+NY
+iH
+oW
+Dd
+oW
+vg
+XM
+rg
+"}
+(26,1,1) = {"
+iH
+XM
+eO
+NX
+Dd
+vV
+dZ
+Wg
+ZF
+gY
+SO
+tN
+Il
+XQ
+XQ
+iT
+Lz
+XQ
+XQ
+XQ
+EG
+bV
+UA
+UA
+Sz
+nr
+AM
+XQ
+XQ
+XQ
+XQ
+nn
+XQ
+QS
+yu
+QS
+Ue
+QS
+cH
+QS
+XM
+XM
+XM
+iH
+oW
+Dd
+oW
+iH
+XM
+rg
+"}
+(27,1,1) = {"
+rJ
+XM
+oW
+iq
+Dd
+el
+el
+JG
+iY
+jZ
+oI
+CU
+QT
+Cc
+GO
+RC
+od
+Wf
+XQ
+XQ
+mr
+dI
+bN
+ZG
+JI
+cp
+dV
+XQ
+XQ
+Lz
+iT
+Lz
+XQ
+QS
+OK
+Tb
+xo
+wr
+WT
+QS
+QS
+vg
+iH
+eO
+eO
+Rp
+oW
+XM
+XM
+rg
+"}
+(28,1,1) = {"
+XM
+XM
+oW
+Dd
+eF
+el
+iH
+KF
+ZA
+Ux
+FN
+JG
+XQ
+eh
+XQ
+AU
+Pf
+cR
+XQ
+XQ
+XQ
+XQ
+Mo
+Vk
+Ey
+yG
+XQ
+XQ
+XQ
+DI
+XQ
+XQ
+XQ
+DM
+MP
+DJ
+nq
+xA
+xQ
+kD
+QS
+el
+SX
+eO
+Dd
+iq
+oW
+XM
+RA
+rg
+"}
+(29,1,1) = {"
+XM
+XM
+oW
+Dd
+oW
+iH
+Ty
+KF
+Au
+Gg
+Hh
+JG
+XQ
+my
+XQ
+XQ
+ww
+ud
+XQ
+XQ
+XQ
+XQ
+XQ
+AA
+XQ
+XQ
+XQ
+XQ
+BU
+Ez
+XQ
+XQ
+XQ
+yu
+kz
+Su
+KZ
+gL
+PS
+wS
+GS
+dZ
+vV
+Dd
+Dd
+eO
+eO
+XM
+rg
+rg
+"}
+(30,1,1) = {"
+XM
+fK
+oW
+Dd
+oW
+iH
+XM
+JG
+JG
+JG
+ko
+JG
+XQ
+XQ
+XQ
+XQ
+XQ
+jE
+mA
+lr
+yT
+XQ
+XQ
+oq
+Et
+XQ
+XQ
+if
+Lz
+Fs
+XQ
+XQ
+XQ
+Gq
+qJ
+UZ
+bu
+Rv
+HA
+eY
+QS
+el
+SX
+el
+Dd
+oW
+rJ
+XM
+rg
+rg
+"}
+(31,1,1) = {"
+XM
+vg
+eO
+iq
+eO
+XM
+Xi
+Oh
+Zq
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+QS
+QS
+qD
+ko
+QS
+sV
+sO
+NR
+Hl
+LV
+RL
+Ts
+lK
+pU
+dU
+XQ
+XQ
+cJ
+Sr
+Sf
+xz
+ra
+UR
+Zj
+QS
+QS
+iH
+vg
+el
+iq
+oW
+iH
+yo
+rg
+rg
+"}
+(32,1,1) = {"
+iH
+iH
+eO
+Rp
+eO
+XM
+rJ
+Oh
+fc
+pt
+XQ
+XQ
+XQ
+XQ
+XQ
+ko
+RE
+Ba
+lq
+QS
+XQ
+XQ
+Wf
+cR
+zH
+XQ
+XQ
+Vg
+mY
+XQ
+XQ
+XQ
+YP
+XQ
+QS
+QS
+yu
+QS
+cH
+QS
+iH
+QC
+eO
+eO
+Dd
+oW
+vg
+XM
+rg
+rg
+"}
+(33,1,1) = {"
+XM
+rJ
+eO
+Dd
+eO
+XM
+iH
+vg
+gi
+wm
+XQ
+XQ
+XQ
+XQ
+XQ
+QS
+AZ
+NK
+lH
+ko
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+Tm
+LE
+XQ
+XQ
+Sd
+sa
+XQ
+XQ
+XQ
+XQ
+XQ
+NY
+gi
+iH
+XM
+oW
+Rp
+iq
+oW
+XM
+XM
+rg
+rg
+"}
+(34,1,1) = {"
+vg
+XM
+oW
+Dd
+oW
+hH
+Se
+XM
+Of
+Np
+XQ
+XQ
+XQ
+XQ
+XQ
+QS
+gQ
+Za
+QS
+QS
+QS
+ko
+JG
+JG
+JG
+JG
+XQ
+XQ
+zU
+XQ
+XQ
+LM
+JB
+iT
+XQ
+XQ
+XQ
+Sv
+kI
+vg
+XM
+hH
+oW
+iq
+eO
+eO
+XM
+iH
+rg
+rg
+"}
+(35,1,1) = {"
+fK
+XM
+oW
+Dd
+oW
+iH
+iH
+IL
+XM
+NY
+Vm
+XQ
+XQ
+XQ
+XQ
+ko
+yF
+BQ
+Qg
+Ug
+AQ
+GU
+et
+EI
+Ff
+ko
+XQ
+XQ
+RL
+lK
+RL
+vy
+ud
+Lz
+ob
+XQ
+XQ
+NY
+BO
+XM
+XM
+eO
+eO
+iq
+oW
+hH
+XM
+yg
+vg
+rg
+"}
+(36,1,1) = {"
+Of
+XM
+oW
+Dd
+SX
+ZJ
+vg
+iH
+vg
+XM
+NY
+Si
+pY
+XQ
+XQ
+QS
+cq
+oD
+QS
+Qb
+im
+bS
+nM
+Cd
+eB
+JG
+XQ
+XQ
+XQ
+XQ
+XQ
+RL
+cv
+jn
+nJ
+XQ
+XQ
+Vm
+Oh
+XM
+iH
+oW
+iq
+Dd
+oW
+XM
+XM
+iH
+iH
+rg
+"}
+(37,1,1) = {"
+rJ
+XM
+oW
+iq
+eO
+eO
+hH
+XM
+iH
+QC
+iH
+Oh
+NY
+NY
+kI
+QS
+QS
+QS
+QS
+dt
+Re
+OZ
+fT
+Zs
+er
+JG
+XQ
+XQ
+XQ
+XQ
+XQ
+XQ
+HT
+ut
+XQ
+XQ
+XQ
+NY
+rJ
+vg
+eO
+XI
+Dd
+eO
+eO
+hH
+vg
+rJ
+ZJ
+hH
+"}
+(38,1,1) = {"
+iH
+iH
+oW
+Dd
+Rp
+oW
+iH
+XM
+XM
+XM
+vg
+iH
+Pn
+XM
+XM
+XM
+XM
+vg
+JG
+Jx
+Ax
+CI
+ES
+Us
+Le
+JG
+fI
+Si
+gi
+XQ
+XQ
+XQ
+qY
+XQ
+XQ
+XQ
+Vm
+kI
+XM
+iH
+SX
+Rp
+Dd
+oW
+hH
+fu
+iH
+iH
+hH
+iH
+"}
+(39,1,1) = {"
+vg
+yo
+eO
+eO
+Dd
+XI
+eO
+iH
+rJ
+XM
+XM
+XM
+Oq
+xp
+Si
+Oh
+NY
+XM
+JG
+JG
+JG
+JG
+gX
+JG
+JG
+JG
+pY
+sM
+Ys
+NY
+XQ
+gM
+HT
+XQ
+XQ
+BO
+Oh
+vg
+XM
+eO
+eO
+Dd
+XI
+eO
+XM
+hH
+Of
+Oh
+iH
+hH
+"}
+(40,1,1) = {"
+rg
+XM
+iH
+oW
+Dd
+Dd
+eO
+oW
+eO
+Of
+iH
+iH
+Oh
+Oh
+NY
+pY
+Si
+Oh
+iH
+vg
+yo
+el
+uk
+el
+gi
+fZ
+Ys
+iH
+iH
+aQ
+YS
+pE
+XQ
+XQ
+XQ
+Oh
+iH
+XM
+iH
+oW
+iq
+iq
+oW
+hH
+XM
+Oq
+uV
+Si
+vg
+rg
+"}
+(41,1,1) = {"
+rg
+XM
+XM
+eO
+eF
+Dd
+iq
+Dd
+eO
+eO
+iH
+vg
+XM
+XM
+XM
+Oh
+xp
+NY
+Oh
+XM
+XM
+oW
+vV
+MN
+fx
+eH
+hH
+yg
+XM
+XM
+rJ
+QC
+XQ
+XQ
+vg
+Of
+XM
+iH
+eO
+el
+Dd
+eO
+eO
+XM
+XM
+Oh
+Vm
+NY
+XM
+rg
+"}
+(42,1,1) = {"
+rg
+iH
+IL
+vg
+eO
+oW
+eO
+iq
+Rp
+el
+SX
+oW
+oW
+eO
+iH
+vg
+iH
+XM
+XM
+IL
+iH
+SX
+Dd
+Uc
+pS
+rJ
+XM
+XM
+vg
+hH
+XM
+XM
+ZJ
+iH
+iH
+rJ
+ZJ
+eO
+eO
+Dd
+iq
+oW
+ZJ
+XM
+vg
+Oh
+kI
+XM
+XM
+rg
+"}
+(43,1,1) = {"
+rg
+iH
+ec
+XM
+iH
+hH
+eO
+eO
+Dd
+iq
+Dd
+Dd
+iq
+eO
+oW
+oW
+eO
+eF
+el
+SX
+oW
+eO
+iq
+eO
+eO
+Of
+iH
+yo
+ZJ
+XM
+XM
+hH
+iH
+eO
+oW
+oW
+oW
+el
+Rp
+iq
+eO
+eO
+hH
+XM
+iH
+iH
+XM
+XM
+rg
+rg
+"}
+(44,1,1) = {"
+rg
+iH
+iH
+Of
+QC
+iH
+iH
+eO
+oW
+oW
+oW
+el
+Dd
+Rp
+Dd
+iq
+iq
+Dd
+Dd
+YZ
+Dd
+iq
+iq
+iq
+el
+SX
+oW
+oW
+eO
+XI
+eO
+oW
+oW
+eO
+Dd
+iq
+iq
+Dd
+iq
+eO
+eO
+hH
+vg
+iH
+iH
+IL
+XM
+vg
+rg
+rg
+"}
+(45,1,1) = {"
+rg
+rg
+rg
+hH
+ZJ
+vg
+XM
+XM
+XM
+ZJ
+iH
+eO
+eO
+el
+SX
+SX
+el
+XI
+eO
+oW
+oW
+el
+el
+iq
+iq
+Rp
+Dd
+Dd
+iq
+iq
+iq
+Rp
+Dd
+Dd
+Dd
+eO
+oW
+oW
+oW
+eO
+hH
+Of
+Oh
+Oh
+hH
+yg
+iH
+Of
+rg
+rg
+"}
+(46,1,1) = {"
+rg
+rg
+rg
+rg
+rg
+hH
+rJ
+iH
+RA
+XM
+XM
+rJ
+iH
+hH
+XM
+XM
+XM
+XM
+vg
+rJ
+iH
+vg
+eO
+oW
+oW
+oW
+oW
+SX
+el
+XI
+eO
+oW
+oW
+oW
+oW
+eO
+ZJ
+vg
+XM
+XM
+iH
+Oh
+Si
+kr
+Oh
+iH
+iH
+rg
+rg
+rg
+"}
+(47,1,1) = {"
+rg
+rg
+rg
+rg
+rg
+rg
+hH
+hH
+iH
+yo
+XM
+XM
+vg
+XM
+XM
+yg
+vg
+QC
+iH
+Oh
+Oh
+XM
+XM
+iH
+rJ
+vg
+ZJ
+rJ
+iH
+XM
+vv
+XM
+XM
+XM
+XM
+yg
+iH
+IL
+XM
+ZJ
+QC
+xp
+Oh
+Oh
+iH
+iH
+rg
+rg
+rg
+rg
+"}
+(48,1,1) = {"
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+vg
+hH
+Of
+XM
+XM
+hH
+ZJ
+Oh
+NY
+kI
+NY
+Vm
+Oh
+XM
+XM
+iH
+iH
+XM
+XM
+XM
+XM
+Oq
+iH
+rJ
+iH
+XM
+XM
+iH
+XM
+hH
+yg
+iH
+vg
+XM
+ZJ
+rJ
+rg
+rg
+rg
+rg
+rg
+"}
+(49,1,1) = {"
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+hH
+IL
+XM
+iH
+Oh
+xp
+NY
+pY
+Oh
+kI
+yg
+XM
+XM
+yo
+XM
+hH
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+vg
+Of
+iH
+hH
+XM
+XM
+XM
+XM
+hH
+rg
+rg
+rg
+rg
+rg
+rg
+"}
+(50,1,1) = {"
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+hH
+vg
+hH
+rJ
+iH
+Oh
+Oh
+NY
+iH
+iH
+vg
+Of
+iH
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+vg
+IL
+XM
+hH
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+rg
+"}

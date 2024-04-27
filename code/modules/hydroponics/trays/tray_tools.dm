@@ -4,6 +4,7 @@
 	name = "plant clippers"
 	desc = "A tool used to take samples from plants."
 	icon_state = "plantclippers"
+	item_state = "plantclippers"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
@@ -19,23 +20,12 @@
 		tf.Translate(-1,0) //Could do this with pixel_x but let's just update the appearance once.
 	transform = tf
 
-/obj/item/wirecutters/pickup(mob/user)
-	..()
-	update_icon()
-
-/obj/item/wirecutters/dropped(mob/user)
-	..()
-	update_icon()
-
-/obj/item/wirecutters/attack_hand()
-	..()
-	update_icon()
-
 /obj/item/device/analyzer/plant_analyzer
 	name = "plant analyzer"
-	icon = 'icons/obj/device.dmi'
+	icon = 'icons/obj/item/tools/plant_analyzer.dmi'
 	icon_state = "hydro"
-	item_state = "analyzer"
+	item_state = "hydro"
+	contained_sprite = TRUE
 	var/form_title
 	var/last_data
 	matter = list(DEFAULT_WALL_MATERIAL = 80, MATERIAL_GLASS = 20)
@@ -119,12 +109,13 @@
 	dat += "<tr><td><b>Potency</b></td><td>[grown_seed.get_trait(TRAIT_POTENCY)]</td></tr>"
 	dat += "</table>"
 
-	if(grown_reagents && grown_reagents.reagent_list && grown_reagents.reagent_list.len)
+	if(LAZYLEN(grown_reagents?.reagent_volumes))
 		dat += "<h2>Reagent Data</h2>"
 
 		dat += "<br>This sample contains: "
-		for(var/datum/reagent/R in grown_reagents.reagent_list)
-			dat += "<br>- [R.id], [grown_reagents.get_reagent_amount(R.id)] unit(s)"
+		for(var/_R in grown_reagents.reagent_volumes)
+			var/singleton/reagent/R = GET_SINGLETON(_R)
+			dat += "<br>- [R.name], [REAGENT_VOLUME(grown_reagents, _R)] unit(s)"
 
 	dat += "<h2>Other Data</h2>"
 
@@ -167,7 +158,7 @@
 	else if(grown_seed.get_trait(TRAIT_HEAT_TOLERANCE) < 10)
 		dat += "<br>It is very sensitive to temperature shifts."
 
-	dat += "<br>It thrives in a light level of [grown_seed.get_trait(TRAIT_IDEAL_LIGHT)] lumen[grown_seed.get_trait(TRAIT_IDEAL_LIGHT) == 1 ? "" : "s"]."
+	dat += "<br>It thrives in a light level of [grown_seed.get_trait(TRAIT_IDEAL_LIGHT)] lumen\s."
 
 	if(grown_seed.get_trait(TRAIT_LIGHT_TOLERANCE) > 10)
 		dat += "<br>It is well adapted to a range of light levels."

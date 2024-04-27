@@ -34,31 +34,17 @@
 		cells_amount++
 	capacity = C * 40   //Basic cells are such crap. Hyper cells needed to get on normal SMES levels.
 
-
-/obj/machinery/power/smes/batteryrack/update_icon()
-	cut_overlays()
-	if(stat & BROKEN)	return
-
-	if (output_attempt)
-		add_overlay("gsmes_outputting")
-	if(inputting)
-		add_overlay("gsmes_charging")
-
-	var/clevel = chargedisplay()
-	if(clevel>0)
-		add_overlay("gsmes_og[clevel]")
-
 /obj/machinery/power/smes/batteryrack/chargedisplay()
 	return round(4 * charge/(capacity ? capacity : 5e6))
 
 
-/obj/machinery/power/smes/batteryrack/attackby(var/obj/item/W as obj, var/mob/user as mob) //these can only be moved by being reconstructed, solves having to remake the powernet.
+/obj/machinery/power/smes/batteryrack/attackby(obj/item/attacking_item, mob/user) //these can only be moved by being reconstructed, solves having to remake the powernet.
 	..() //SMES attackby for now handles screwdriver, cable coils and wirecutters, no need to repeat that here
 	if(open_hatch)
-		if(W.iscrowbar())
+		if(attacking_item.iscrowbar())
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
-					playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					var/obj/machinery/constructable_frame/machine_frame/M = new /obj/machinery/constructable_frame/machine_frame(src.loc)
 					M.state = 2
 					M.icon_state = "box_1"
@@ -70,13 +56,13 @@
 					to_chat(user, "<span class='warning'>Turn off the [src] before dismantling it.</span>")
 			else
 				to_chat(user, "<span class='warning'>Better let [src] discharge before dismantling it.</span>")
-		else if ((istype(W, /obj/item/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(W, /obj/item/cell) && (cells_amount < 5)))
+		else if ((istype(attacking_item, /obj/item/stock_parts/capacitor) && (capacitors_amount < 5)) || (istype(attacking_item, /obj/item/cell) && (cells_amount < 5)))
 			if (charge < (capacity / 100))
 				if (!output_attempt && !input_attempt)
-					user.drop_from_inventory(W,src)
-					component_parts += W
+					user.drop_from_inventory(attacking_item,src)
+					component_parts += attacking_item
 					RefreshParts()
-					to_chat(user, "<span class='notice'>You upgrade the [src] with [W.name].</span>")
+					to_chat(user, "<span class='notice'>You upgrade the [src] with [attacking_item.name].</span>")
 				else
 					to_chat(user, "<span class='warning'>Turn off the [src] before dismantling it.</span>")
 			else
@@ -100,19 +86,10 @@
 	)
 
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
-	cut_overlays()
-	if(stat & BROKEN)	return
-
-	if (output_attempt)
-		add_overlay("gsmes_outputting")
-	if(inputting)
-		add_overlay("gsmes_charging")
-	if (overcharge_percent > 100)
-		add_overlay("gsmes_overcharge")
-	else
-		var/clevel = chargedisplay()
-		if(clevel>0)
-			add_overlay("gsmes_og[clevel]")
+	.=..()
+	if(overcharge_percent > 100)
+		cut_overlays()
+		add_overlay("smes-crit")
 
 //This mess of if-elses and magic numbers handles what happens if the engies don't pay attention and let it eat too much charge
 //What happens depends on how much capacity has the ghetto smes and how much it is overcharged.
@@ -164,7 +141,7 @@
 
 
 #define SMESRATE 0.05			// rate of internal charge to external power
-/obj/machinery/power/smes/batteryrack/makeshift/machinery_process()
+/obj/machinery/power/smes/batteryrack/makeshift/process()
 	if(stat & BROKEN)	return
 
 	//store machine state to see if we need to update the icon overlays

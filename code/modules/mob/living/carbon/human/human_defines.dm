@@ -1,9 +1,18 @@
 /mob/living/carbon/human
+	// Tail Style
+	var/tail_style = null
+
 	//Hair colour and style
 	var/r_hair = 0
 	var/g_hair = 0
 	var/b_hair = 0
 	var/h_style = "Bald"
+
+	//Hair gradient color and style
+	var/r_grad = 0
+	var/g_grad = 0
+	var/b_grad = 0
+	var/g_style = "None"
 
 	//Facial hair colour and style
 	var/r_facial = 0
@@ -27,7 +36,7 @@
 	var/damage_multiplier = 1 //multiplies melee combat damage
 	var/icon_update = 1 //whether icon updating shall take place
 
-	var/lip_style = null	//no lipstick by default- arguably misleading, as it could be used for general makeup
+	var/lipstick_color = null	//no lipstick by default
 
 	var/age = 30		//Player's age (pure fluff)
 	var/b_type = "A+"	//Player's bloodtype
@@ -35,8 +44,12 @@
 	var/list/all_underwear = list()
 	var/list/all_underwear_metadata = list()
 	var/list/hide_underwear = list()
-	var/backbag = 2		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
-	var/backbag_style = 1
+	var/backbag = OUTFIT_BACKPACK		//Which backpack type the player has chosen. Nothing, Satchel or Backpack.
+	var/backbag_style = OUTFIT_JOBSPECIFIC
+	var/backbag_color = OUTFIT_NOTHING
+	var/backbag_strap = TRUE
+	var/pda_choice = OUTFIT_TAB_PDA
+	var/headset_choice = OUTFIT_HEADSET
 
 	var/last_chew = 0 // Used for hand chewing
 
@@ -59,17 +72,12 @@
 	var/obj/item/r_store = null
 	var/obj/item/l_store = null
 	var/obj/item/s_store = null
-
-	var/used_skillpoints = 0
-	var/skill_specialization = null
-	var/list/skills = list()
+	var/obj/item/wrists = null
 
 	var/icon/stand_icon = null
 	var/icon/lying_icon = null
 
 	var/voice = ""	//Instead of new say code calling GetVoice() over and over and over, we're just going to ask this variable, which gets updated in Life()
-
-	var/speech_problem_flag = 0
 
 	var/miming = null //Toggle for the mime's abilities.
 	var/special_voice = "" // For changing our voice. Used by a symptom.
@@ -86,7 +94,7 @@
 	var/hand_blood_color
 
 	var/list/flavor_texts = list()
-	var/gunshot_residue
+	var/list/gunshot_residue
 	var/pulling_punches // Are you trying not to hurt your opponent?
 
 	mob_bump_flag = HUMAN
@@ -102,7 +110,8 @@
 	var/list/equipment_overlays = list()	// Extra overlays from equipped items
 
 	var/is_noisy = FALSE		// if TRUE, movement should make sound.
-	var/bodyfall_sound = "bodyfall"
+	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound
+	var/footsound = /singleton/sound_category/blank_footsteps
 
 	var/last_x = 0
 	var/last_y = 0
@@ -113,4 +122,9 @@
 
 	var/datum/unarmed_attack/default_attack	//default unarmed attack
 
-	var/datum/martial_art/martial_art = null
+	var/datum/martial_art/primary_martial_art = null
+	var/list/datum/martial_art/known_martial_arts = null
+
+	var/triage_tag = TRIAGE_NONE
+
+	var/lobotomized = FALSE //additional check for isAdvancedToolUser that can be set manually by things

@@ -7,14 +7,14 @@
 	response = "General tickets overview."
 
 	var/list/ticket_data = list(
-		"total" = tickets.len,
+		"total" = GLOB.tickets.len,
 		"assigned" = 0,
 		"unassigned" = 0,
 		"closed" = 0
 	)
 
-	for (var/id = tickets.len, id >= 1, id--)
-		var/datum/ticket/ticket = tickets[id]
+	for (var/id = GLOB.tickets.len, id >= 1, id--)
+		var/datum/ticket/ticket = GLOB.tickets[id]
 		switch (ticket.status)
 			if (TICKET_OPEN)
 				ticket_data["unassigned"]++
@@ -42,7 +42,7 @@
 
 	var/list/ticket_data = list()
 
-	for (var/datum/ticket/ticket in tickets)
+	for (var/datum/ticket/ticket in GLOB.tickets)
 		if (only_open && ticket.status == TICKET_CLOSED)
 			continue
 

@@ -2,11 +2,11 @@
 /obj/machinery/ntnet_relay
 	name = "NTNet Quantum Relay"
 	desc = "A very complex router and transmitter capable of connecting electronic devices together. Looks fragile."
-	use_power = 2
+	use_power = POWER_USE_ACTIVE
 	active_power_usage = 20000 //20kW, appropriate for machine that keeps massive cross-Zlevel wireless network operational.
 	idle_power_usage = 100
 	icon_state = "ntnet"
-	icon = 'icons/obj/machines/telecomms.dmi'
+	icon = 'icons/obj/machinery/telecomms.dmi'
 	anchored = TRUE
 	density = TRUE
 	var/datum/ntnet/NTNet			// This is mostly for backwards reference and to allow varedit modifications from ingame.
@@ -48,11 +48,11 @@
 	else
 		add_overlay("ntnet_o_ok")
 
-/obj/machinery/ntnet_relay/machinery_process()
+/obj/machinery/ntnet_relay/process()
 	if(operable())
-		use_power = 2
+		update_use_power(POWER_USE_ACTIVE)
 	else
-		use_power = 1
+		update_use_power(POWER_USE_IDLE)
 
 	if(dos_overload)
 		dos_overload = max(0, dos_overload - dos_dissipate)
@@ -61,43 +61,47 @@
 	if((dos_overload > dos_capacity) && !dos_failure)
 		dos_failure = TRUE
 		update_icon()
-		ntnet_global.add_log("Quantum relay switched from normal operation mode to overload recovery mode.")
+		GLOB.ntnet_global.add_log("Quantum relay switched from normal operation mode to overload recovery mode.")
 	// If the DoS buffer reaches 0 again, restart.
 	if((dos_overload == 0) && dos_failure)
 		dos_failure = FALSE
 		update_icon()
-		ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
+		GLOB.ntnet_global.add_log("Quantum relay switched from overload recovery mode to normal operation mode.")
 	..()
 
-/obj/machinery/ntnet_relay/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1, var/datum/topic_state/state = default_state)
+/obj/machinery/ntnet_relay/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "NTNetRelay")
+		ui.open()
+
+/obj/machinery/ntnet_relay/ui_data(mob/user)
 	var/list/data = list()
 	data["enabled"] = enabled
 	data["dos_capacity"] = dos_capacity
 	data["dos_overload"] = dos_overload
 	data["dos_crashed"] = dos_failure
 
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "ntnet_relay.tmpl", "NTNet Quantum Relay", 500, 300, state = state)
-		ui.set_initial_data(data)
-		ui.open()
-		ui.set_auto_update(1)
+	return data
 
-/obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
-	ui_interact(user)
-
-/obj/machinery/ntnet_relay/Topic(href, href_list)
-	if(..())
-		return TRUE
-	if(href_list["restart"])
+/obj/machinery/ntnet_relay/ui_act(action, params)
+	. = ..()
+	if(.)
+		return
+	if(action=="restart")
 		dos_overload = FALSE
 		dos_failure = FALSE
 		update_icon()
-		ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
-	else if(href_list["toggle"])
+		GLOB.ntnet_global.add_log("Quantum relay manually restarted from overload recovery mode to normal operation mode.")
+		. = TRUE
+	if(action=="toggle")
 		enabled = !enabled
-		ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
+		GLOB.ntnet_global.add_log("Quantum relay manually [enabled ? "enabled" : "disabled"].")
 		update_icon()
+		. = TRUE
+
+/obj/machinery/ntnet_relay/attack_hand(var/mob/living/user)
+	ui_interact(user)
 
 /obj/machinery/ntnet_relay/Initialize()
 	. = ..()
@@ -106,32 +110,28 @@
 
 	update_icon()
 
-	if(ntnet_global)
-		ntnet_global.relays.Add(src)
-		NTNet = ntnet_global
-		ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
+	if(GLOB.ntnet_global)
+		GLOB.ntnet_global.relays.Add(src)
+		NTNet = GLOB.ntnet_global
+		GLOB.ntnet_global.add_log("New quantum relay activated. Current amount of linked relays: [NTNet.relays.len]")
 
 /obj/machinery/ntnet_relay/Destroy()
-	if(ntnet_global)
-		ntnet_global.relays.Remove(src)
-		ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
-		NTNet = null
-	for(var/datum/computer_file/program/ntnet_dos/D in dos_sources)
-		D.target = null
-		D.error = "Connection to quantum relay severed"
+	if(GLOB.ntnet_global)
+		GLOB.ntnet_global.relays.Remove(src)
+		GLOB.ntnet_global.add_log("Quantum relay connection severed. Current amount of linked relays: [NTNet.relays.len]")
 	return ..()
 
-/obj/machinery/ntnet_relay/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
-		playsound(get_turf(src), W.usesound, 50, TRUE)
+/obj/machinery/ntnet_relay/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		panel_open = !panel_open
 		to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch."))
 		return
-	if(W.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(!panel_open)
 			to_chat(user, SPAN_WARNING("Open the maintenance panel first."))
 			return
-		playsound(get_turf(src), 'sound/items/Crowbar.ogg', 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, SPAN_NOTICE("You disassemble \the [src]!"))
 
 		for(var/atom/movable/A in component_parts)

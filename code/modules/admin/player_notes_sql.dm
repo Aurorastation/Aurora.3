@@ -5,20 +5,19 @@
 	if(!player_ckey || !note)
 		return
 
-	var/list/query_details = list("ckey" = player_ckey, "address" = player_address ? player_address : null, "computer_id" = player_computerid ? player_computerid : null, "a_ckey" = null, "note" = note)
+	var/list/query_details = list("game_id" = GLOB.round_id, "ckey" = player_ckey, "address" = player_address ? player_address : null, "computer_id" = player_computerid ? player_computerid : null, "a_ckey" = null, "note" = note)
 
 	if (!user)
 		query_details["a_ckey"] = "Adminbot"
 	else
 		query_details["a_ckey"] = user.ckey
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(GLOB.dbcon))
 		alert("SQL connection failed while trying to add a note!")
 		return
 
 	if (!player_address || !player_computerid)
-		var/DBQuery/init_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
+		var/DBQuery/init_query = GLOB.dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
 		init_query.Execute(list("ckey" = player_ckey))
 		if (init_query.NextRow())
 			if (!query_details["address"])
@@ -26,7 +25,7 @@
 			if (!query_details["computer_id"])
 				query_details["computer_id"] = init_query.item[2]
 
-	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :ckey:, :address:, :computer_id:, :a_ckey:, :note:)")
+	var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_notes (id, adddate, game_id, ckey, ip, computerid, a_ckey, content) VALUES (null, Now(), :game_id:, :ckey:, :address:, :computer_id:, :a_ckey:, :note:)")
 	insert_query.Execute(query_details)
 
 	message_admins("<span class='notice'>[key_name_admin(user)] has edited [player_ckey]'s notes.</span>")
@@ -36,16 +35,15 @@
 	if (!note_id || !note_edit)
 		return
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
-		error("SQL connection failed while attempting to delete a note!")
+	if (!establish_db_connection(GLOB.dbcon))
+		log_world("ERROR: SQL connection failed while attempting to delete a note!")
 		return
 
 	var/count = 0 //failsafe from unban procs
 	var/ckey
 	var/note
 
-	var/DBQuery/init_query = dbcon.NewQuery("SELECT ckey, content FROM ss13_notes WHERE id = :note_id:")
+	var/DBQuery/init_query = GLOB.dbcon.NewQuery("SELECT ckey, content FROM ss13_notes WHERE id = :note_id:")
 	init_query.Execute(list("note_id" = note_id))
 	while (init_query.NextRow())
 		ckey = init_query.item[1]
@@ -54,18 +52,18 @@
 
 	if (count == 0)
 		to_chat(usr, "<span class='warning'>Database update failed due to a note id not being present in the database.</span>")
-		error("Database update failed due to a note id not being present in the database.")
+		log_world("ERROR: Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
 		to_chat(usr, "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>")
-		error("Database update failed due to multiple notes having the same ID. Contact the database admin.")
+		log_world("ERROR: Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 
 	switch (note_edit)
 		if ("delete")
 			if(alert("Delete this note?", "Delete?", "Yes", "No") == "Yes")
-				var/DBQuery/deletequery = dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id:")
+				var/DBQuery/deletequery = GLOB.dbcon.NewQuery("UPDATE ss13_notes SET visible = 0 WHERE id = :note_id:")
 				deletequery.Execute(list("note_id" = note_id))
 
 				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s notes.</span>")
@@ -78,7 +76,7 @@
 			if (!new_content)
 				to_chat(usr, "Cancelled")
 				return
-			var/DBQuery/editquery = dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content:, lasteditor = :a_ckey:, lasteditdate = Now(), edited = 1 WHERE id = :note_id:")
+			var/DBQuery/editquery = GLOB.dbcon.NewQuery("UPDATE ss13_notes SET content = :new_content:, lasteditor = :a_ckey:, lasteditdate = Now(), edited = 1 WHERE id = :note_id:")
 			editquery.Execute(list("new_content" = new_content, "a_ckey" = usr.client.ckey, "note_id" = note_id))
 
 /datum/admins/proc/show_notes_sql(var/player_ckey = null, var/admin_ckey = null)
@@ -93,9 +91,8 @@
 	player_ckey = ckey(player_ckey)
 	admin_ckey = ckey(admin_ckey)
 
-	establish_db_connection(dbcon)
-	if (!dbcon.IsConnected())
-		error("SQL connection failed while attempting to view a player's notes!")
+	if (!establish_db_connection(GLOB.dbcon))
+		log_world("ERROR: SQL connection failed while attempting to view a player's notes!")
 		return
 
 	var/dat = "<div align='center'><h3>Notes Look-up Panel</h3><br>"
@@ -122,7 +119,7 @@
 
 		dat += "<tr><td align='center' colspan='4' bgcolor='white'><b><a href='?src=\ref[src];add_player_info=[player_ckey]'>Add Note</a></b></td></tr>"
 
-		var/DBQuery/init_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :player_ckey:")
+		var/DBQuery/init_query = GLOB.dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :player_ckey:")
 		init_query.Execute(query_details)
 		if (init_query.NextRow())
 			query_details["player_address"] = init_query.item[1]
@@ -136,7 +133,7 @@
 			query_content += " OR computerid = :player_computerid: AND visible = '1'"
 
 		query_content += " ORDER BY adddate ASC"
-		var/DBQuery/query = dbcon.NewQuery(query_content)
+		var/DBQuery/query = GLOB.dbcon.NewQuery(query_content)
 		query.Execute(query_details)
 
 		while (query.NextRow())
@@ -160,7 +157,7 @@
 
 	else if (admin_ckey && !player_ckey)
 		var/aquery_content = "SELECT id, adddate, ckey, content, edited, lasteditor, lasteditdate FROM ss13_notes WHERE a_ckey = :a_ckey: AND visible = '1' ORDER BY adddate ASC"
-		var/DBQuery/admin_query = dbcon.NewQuery(aquery_content)
+		var/DBQuery/admin_query = GLOB.dbcon.NewQuery(aquery_content)
 		admin_query.Execute(list("a_ckey" = admin_ckey))
 
 		while (admin_query.NextRow())
@@ -179,18 +176,16 @@
 			dat += "<tr><td colspan='4' bgcolor='white'>&nbsp</td></tr>"
 
 	dat += "</table>"
-	usr << browse(dat,"window=lookupnotes;size=900x500")
+	show_browser(usr, dat, "window=lookupnotes;size=900x500")
 
 /proc/show_player_info_discord(var/ckey)
 	if (!ckey)
 		return "No ckey given!"
 
-	establish_db_connection(dbcon)
-
-	if (!dbcon.IsConnected())
+	if (!establish_db_connection(GLOB.dbcon))
 		return "Unable to establish database connection! Aborting!"
 
-	var/DBQuery/info_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
+	var/DBQuery/info_query = GLOB.dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
 	info_query.Execute(list("ckey" = ckey))
 
 	var/address = null
@@ -206,7 +201,7 @@
 	if (computer_id)
 		query_content += " OR computerid = :computerid:"
 
-	var/DBQuery/query = dbcon.NewQuery(query_content)
+	var/DBQuery/query = GLOB.dbcon.NewQuery(query_content)
 	query.Execute(query_details)
 
 	var/notes
@@ -221,81 +216,3 @@
 		content += notes
 		content += "```"
 		return content
-
-/*/proc/notes_transfer()
-	msg_scopes("Locating master list.")
-	var/savefile/note_list = new("data/player_notes.sav")
-	var/list/note_keys
-	note_list >> note_keys
-
-	msg_scopes("Establishing DB connection!")
-	establish_db_connection(dbcon)
-	if(!dbcon.IsConnected())
-		msg_scopes("No DB connection!")
-		return
-
-	for(var/t in note_keys)
-		var/IP = null
-		var/CID = null
-		var/DBQuery/query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = '[t]'")
-		query.Execute()
-		if(query.NextRow())
-			IP = query.item[1]
-			CID = query.item[2]
-
-		var/savefile/info = new("data/player_saves/[copytext(t, 1, 2)]/[t]/info.sav")
-		var/list/infos
-		info >> infos
-
-		for(var/datum/player_info/I in infos)
-			var/a_ckey = sanitizeSQL(I.author)
-			var/timeY = copytext(I.timestamp, findtext(I.timestamp, "of") + 3)
-			var/timeM
-			var/timeD = copytext(I.timestamp, findtext(I.timestamp, " ", 6) + 1, findtext(I.timestamp, " ", 6) + 3)
-			if(findtext(timeD, "s") || findtext(timeD, "n") || findtext(timeD, "r") || findtext(timeD, "t"))
-				timeD = "0[copytext(timeD, 1, 2)]"
-
-//			msg_scopes("Timestamp: [I.timestamp].")
-			var/temp = copytext(I.timestamp, 6, findtext(I.timestamp, " ", 6))
-//			msg_scopes("The day? [timeD].")
-//			msg_scopes("The month? [temp].")
-//			msg_scopes("The year? [timeY].")
-			switch(temp)
-				if("January")
-					timeM = "01"
-				if("February")
-					timeM = "02"
-				if("March")
-					timeM = "03"
-				if("April")
-					timeM = "04"
-				if("May")
-					timeM = "05"
-				if("June")
-					timeM = "06"
-				if("July")
-					timeM = "07"
-				if("August")
-					timeM = "08"
-				if("September")
-					timeM = "09"
-				if("October")
-					timeM = "10"
-				if("November")
-					timeM = "11"
-				if("December")
-					timeM = "12"
-
-			var/DTG = "[timeY]-[timeM]-[timeD] 00:00:00"
-//			msg_scopes("Full DTG: [DTG]")
-			var/insertionstuff
-			if(IP && CID)
-				insertionstuff = "INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, '[DTG]', '[t]', '[IP]', '[CID]', '[a_ckey]', '[I.content]')"
-			else
-				insertionstuff = "INSERT INTO ss13_notes (id, adddate, ckey, ip, computerid, a_ckey, content) VALUES (null, '[DTG]', '[t]', null, null, '[a_ckey]', '[I.content]')"
-			var/DBQuery/insertquery = dbcon.NewQuery(insertionstuff)
-			insertquery.Execute()
-			if(insertquery.ErrorMsg())
-				msg_scopes(insertquery.ErrorMsg())
-			else
-				msg_scopes("Transfer successful.")*/

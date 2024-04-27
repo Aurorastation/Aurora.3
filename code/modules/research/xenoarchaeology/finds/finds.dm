@@ -16,7 +16,7 @@
 /datum/find/New(var/digsite, var/exc_req)
 	excavation_required = exc_req
 	find_type = get_random_find_type(digsite)
-	clearance_range = rand(2,6)
+	clearance_range = min(rand(2,6), exc_req - 1)
 	dissonance_spread = rand(1500,2500) / 100
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +24,7 @@
 
 //have all strange rocks be cleared away using welders for now
 /obj/item/ore/strangerock
-	name = "Strange rock"
+	name = "strange rock"
 	desc = "Seems to have some unusal strata evident throughout it."
 	icon = 'icons/obj/xenoarchaeology.dmi'
 	icon_state = "strange"
@@ -32,12 +32,12 @@
 	var/method = 0// 0 = fire, 1 = brush, 2 = pick
 	origin_tech = list(TECH_MATERIAL = 5)
 
-/obj/item/ore/strangerock/New(loc, var/inside_item_type = 0)
-	..(loc)
+/obj/item/ore/strangerock/Initialize(mapload, inside_item_type)
+	. = ..()
 
 	//method = rand(0,2)
 	if(inside_item_type)
-		inside = new/obj/item/archaeological_find(src, new_item_type = inside_item_type)
+		inside = new/obj/item/archaeological_find(src, inside_item_type)
 		if(!inside)
 			inside = locate() in contents
 
@@ -45,9 +45,9 @@
 	if(severity && prob(30))
 		src.visible_message("The [src] crumbles away, leaving some dust and gravel behind.")*/
 
-/obj/item/ore/strangerock/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/weldingtool/))
-		var/obj/item/weldingtool/w = W
+/obj/item/ore/strangerock/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/weldingtool/))
+		var/obj/item/weldingtool/w = attacking_item
 		if(w.isOn())
 			if(w.get_fuel() >= 4 && !src.method)
 				if(inside)
@@ -58,15 +58,15 @@
 					for(var/mob/M in viewers(world.view, user))
 						M.show_message("<span class='info'>[src] burns away into nothing.</span>",1)
 				qdel(src)
-				w.remove_fuel(4)
+				w.use(4)
 			else
 				for(var/mob/M in viewers(world.view, user))
 					M.show_message("<span class='info'>A few sparks fly off [src], but nothing else happens.</span>",1)
-				w.remove_fuel(1)
+				w.use(1)
 			return
 
-	else if(istype(W,/obj/item/device/core_sampler/))
-		var/obj/item/device/core_sampler/S = W
+	else if(istype(attacking_item, /obj/item/device/core_sampler/))
+		var/obj/item/device/core_sampler/S = attacking_item
 		S.sample_item(src, user)
 		return
 
@@ -84,7 +84,9 @@
 	icon_state = "ano01"
 	var/find_type = 0
 
-/obj/item/archaeological_find/New(loc, var/new_item_type)
+/obj/item/archaeological_find/Initialize(mapload, new_item_type)
+	. = ..()
+
 	if(new_item_type)
 		find_type = new_item_type
 	else
@@ -355,12 +357,12 @@
 				new_gun.desc = "This is an antique energy weapon, you're not sure if it will fire or not."
 
 				//5% chance to explode when first fired
-				//10% chance to have an unchargeable cell
+				//5% chance to have an unchargeable cell
 				//15% chance to gain a random amount of starting energy, otherwise start with an empty cell
 				if(new_gun.power_supply)
 					if(prob(5))
 						new_gun.power_supply.rigged = 1
-					if(prob(10))
+					if(prob(5))
 						new_gun.power_supply.maxcharge = 0
 					if(prob(15))
 						new_gun.power_supply.charge = rand(0, new_gun.power_supply.maxcharge)
@@ -409,7 +411,7 @@
 				apply_image_decorations = 0
 		if(29)
 			//fossil bone/skull
-			//new_item = new /obj/item/fossil/base(src.loc)
+			new_item = new /obj/item/fossil/base(src.loc)
 
 			//the replacement item propogation isn't working, and it's messy code anyway so just do it here
 			var/list/candidates = list("/obj/item/fossil/bone"=9,"/obj/item/fossil/skull"=3,
@@ -553,7 +555,7 @@
 		if(talkative)
 			new_item.talking_atom = new(new_item)
 
-		qdel(src)
+		return INITIALIZE_HINT_QDEL
 
 	else if(talkative)
 		src.talking_atom = new(src)

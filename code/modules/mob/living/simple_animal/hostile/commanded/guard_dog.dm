@@ -16,7 +16,6 @@
 
 	speak_chance = 1
 	turns_per_move = 7
-	see_in_dark = 6
 
 	speak = list("Woof!", "Bark!", "AUUUUUU!","AwooOOOoo!")
 	speak_emote = list("barks", "woofs")
@@ -29,9 +28,11 @@
 	harm_intent_damage = 5
 	melee_damage_lower = 15
 	melee_damage_upper = 15
+	resist_mod = 2
 
 	mob_size = 5
 
+	organ_names = list("head", "chest", "right fore leg", "left fore leg", "right rear leg", "left rear leg")
 	response_help = "pets"
 	response_harm = "hits"
 	response_disarm = "pushes"
@@ -41,8 +42,6 @@
 	canbrush = TRUE
 
 	known_commands = list("stay", "stop", "attack", "follow")
-
-	var/name_changed = 0
 
 	destroy_surroundings = FALSE
 	attack_emote = "growls at"
@@ -69,31 +68,6 @@
 
 	return
 
-/mob/living/simple_animal/hostile/commanded/dog/verb/change_name()
-	set name = "Name Dog"
-	set category = "IC"
-	set src in view(1)
-
-	var/mob/M = usr
-	if(!M.mind)	return 0
-
-	if(!name_changed)
-
-		var/input = sanitizeSafe(input("What do you want to name the dog?", ,""), MAX_NAME_LEN)
-		var/short_input = sanitizeSafe(input("What nickname do you want to give the dog ?", , ""), MAX_NAME_LEN)
-
-		if(src && input && !M.stat && in_range(M,src))
-			name = input
-			real_name = input
-			if(short_input != "")
-				short_name = short_input
-			name_changed = 1
-			return 1
-
-	else
-		to_chat(usr, "<span class='notice'>[src] already has a name!</span>")
-		return
-
 /mob/living/simple_animal/hostile/commanded/dog/amaskan
 	desc = "A dog trained to listen and obey its owner commands, this one is a Tamaskan."
 
@@ -105,11 +79,11 @@
 	name = "Lt. Columbo"
 	short_name = "Columbo"
 	desc = "A dog trained to listen and obey its owner commands. This one looks about three days from retirement."
+	named = TRUE
+	gender = MALE
 
 	melee_damage_lower = 5
 	melee_damage_upper = 10
-
-	name_changed = 1
 
 	icon_state = "columbo"
 	icon_living = "columbo"
@@ -136,3 +110,51 @@
 	melee_damage_upper = 5
 
 	butchering_products = list(/obj/item/stack/material/animalhide = 2)
+
+/mob/living/simple_animal/hostile/commanded/dog/bullterrier
+	name = "bull terrier"
+	desc = "An odd looking dog with a head in the shape of an egg."
+
+	icon_state = "bullterrier"
+	icon_living = "bullterrier"
+	icon_dead = "bullterrier_dead"
+
+/mob/living/simple_animal/hostile/commanded/dog/harron
+	name = "domesticated ha'rron"
+	short_name = "ha'rron"
+
+	desc = "A carnivorous adhomian animal. Some domesticated breeds make excellent hunting companions."
+
+	icon = 'icons/mob/npc/adhomai.dmi'
+	icon_state = "harron"
+	icon_living = "harron"
+	icon_dead = "harron_dead"
+
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	meat_amount = 5
+
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic
+	name = "cybernetic ha'rron"
+	desc = "A heavily augmented ha'rron. It is commonly used by the People's Strategic Intelligence Service."
+
+	icon_state = "cyber_harron"
+	icon_living = "cyber_harron"
+	icon_dead = "cyber_harron_dead"
+
+	melee_damage_lower = 20
+	melee_damage_upper = 20
+	resist_mod = 4
+
+	health = 100
+	maxHealth = 100
+
+	meat_amount = 3
+
+/mob/living/simple_animal/hostile/commanded/dog/harron/cybernetic/emp_act(severity)
+	. = ..()
+
+	switch(severity)
+		if(EMP_HEAVY)
+			adjustFireLoss(rand(10, 15))
+		if(EMP_LIGHT)
+			adjustFireLoss(rand(5, 10))

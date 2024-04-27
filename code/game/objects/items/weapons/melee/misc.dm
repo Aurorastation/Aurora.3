@@ -1,21 +1,23 @@
 /obj/item/melee
 	icon = 'icons/obj/weapons.dmi'
-	hitsound = "swing_hit"
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_melee.dmi',
 		slot_r_hand_str = 'icons/mob/items/weapons/righthand_melee.dmi'
 		)
+
+/obj/item/melee/should_equip()
+	return TRUE
 
 /obj/item/melee/chainofcommand
 	name = "chain of command"
 	desc = "A tool used by great men to placate the frothing masses."
 	icon_state = "chain"
 	item_state = "chain"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 10
+	force = 15
 	throwforce = 7
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/chainhit.ogg'
@@ -25,16 +27,17 @@
 	desc = "A deadly chainsaw in the shape of a sword."
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "chainswordoff"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throwforce = 7
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	origin_tech = list(TECH_COMBAT = 5)
 	attack_verb = list("chopped", "sliced", "shredded", "slashed", "cut", "ripped")
 	hitsound = 'sound/weapons/bladeslice.ogg'
+	surgerysound = 'sound/weapons/saw/chainsword.ogg'
 	var/active = 0
 	can_embed = 0//A chainsword can slice through flesh and bone, and the direction can be reversed if it ever did get stuck
 
@@ -42,13 +45,13 @@
 	active= !active
 	if(active)
 		playsound(user, 'sound/weapons/saw/chainsawstart.ogg', 50, 1)
-		to_chat(user, span("notice", "\The [src] rumbles to life."))
-		force = 35
+		to_chat(user, SPAN_NOTICE("\The [src] rumbles to life."))
+		force = 38
 		hitsound = 'sound/weapons/saw/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
 	else
-		to_chat(user, span("notice", "\The [src] slowly powers down."))
+		to_chat(user, SPAN_NOTICE("\The [src] slowly powers down."))
 		force = initial(force)
 		hitsound = initial(hitsound)
 		icon_state = initial(icon_state)
@@ -69,15 +72,23 @@
 	item_state = "kneehammer"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
-	force = 25
+	force = 31
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 7
 	attack_verb = list("smashed", "beaten", "slammed", "smacked", "struck", "battered", "bonked")
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ILLEGAL = 2)
-	hitsound = 'sound/weapons/genhit3.ogg'
 
+/obj/item/melee/hammer/iscrowbar()
+	if(ismob(loc))
+		var/mob/M = loc
+		if(M.a_intent && M.a_intent == I_HURT)
+			return FALSE
+	return TRUE
+
+/obj/item/melee/hammer/ishammer()
+	return TRUE
 
 /obj/item/melee/hammer/powered
 	name = "powered hammer"
@@ -107,7 +118,7 @@
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
 		var/T = get_turf(user)
-		spark(T, 3, alldirs)
+		spark(T, 3, GLOB.alldirs)
 		step_away(target,user,15)
 		sleep(1)
 		step_away(target,user,15)
@@ -121,7 +132,7 @@
 			H.apply_effect(2, WEAKEN)
 		on = FALSE
 		update_icon()
-		addtimer(CALLBACK(src, .proc/rearm), reset_time SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(rearm)), reset_time SECONDS)
 		if(isrobot(user))
 			var/mob/living/silicon/robot/R = user
 			if(R.cell)
@@ -146,8 +157,8 @@
 	icon_state = "whip"
 	item_state = "chain"
 	slot_flags = SLOT_BELT
-	force = 10
-	w_class = 3
+	force = 15
+	w_class = ITEMSIZE_NORMAL
 	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
 	hitsound = 'sound/weapons/whip.ogg'
@@ -168,17 +179,17 @@
 /obj/item/melee/ceremonial_sword
 	name = "sol officer ceremonial sword"
 	desc = "A ceremonial sword issued to Sol navy officers as part of their dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
+	icon = 'icons/clothing/under/uniforms/sol_uniform.dmi'
 	icon_state = "officersword"
 	item_state = "officersword"
 	contained_sprite = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throwforce = 5
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	can_embed = 0
 	origin_tech = list(TECH_COMBAT = 4)
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
@@ -187,7 +198,5 @@
 /obj/item/melee/ceremonial_sword/marine
 	name = "sol marine ceremonial sword"
 	desc = "A ceremonial sword issued to Sol marine officers as part of their dress uniform."
-	icon = 'icons/obj/sol_uniform.dmi'
 	icon_state = "marineofficersword"
 	item_state = "marineofficersword"
-	contained_sprite = 1

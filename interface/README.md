@@ -1,2 +1,0 @@
-## Modifying skin files
-All changes must be made on both `skin.dmf` and `dark.dmf` files. Then using [DMFTool](https://github.com/Karolis2011/DMFTool) you will need to make bidirectional difference ad save produced output to `skin.txt` for parts that are needed to switch to light skin and `dark.txt` for parts that ar needed to switch to dark skin.

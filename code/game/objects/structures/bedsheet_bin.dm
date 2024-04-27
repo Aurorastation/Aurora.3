@@ -16,11 +16,11 @@ LINEN BINS
 		slot_r_hand_str = 'icons/mob/items/righthand_bedsheet.dmi',
 		)
 	slot_flags = SLOT_BACK
-	layer = 4.0
+	layer = BASE_ABOVE_OBJ_LAYER
 	throwforce = 1
 	throw_speed = 1
 	throw_range = 2
-	w_class = 4.0
+	w_class = ITEMSIZE_LARGE
 	drop_sound = 'sound/items/drop/cloth.ogg'
 	pickup_sound = 'sound/items/pickup/cloth.ogg'
 	randpixel = 0
@@ -37,35 +37,35 @@ LINEN BINS
 		add_fingerprint(user)
 		return
 
-/obj/item/bedsheet/attack_hand(mob/user as mob)
+/obj/item/bedsheet/attack_hand(mob/user)
 	if(fold || inside_storage_item)
 		if(inside_storage_item)
 			inside_storage_item = FALSE
-		if(!istype(loc,/mob))
+		if(!ismob(loc))
 			user.put_in_hands(src)
-	if(!istype(loc,/mob))
+	if(!ismob(loc))
 		toggle_roll(user)
 	else
 		..()
 	add_fingerprint(user)
 
-/obj/item/bedsheet/on_enter_storage(obj/item/storage/S as obj)
+/obj/item/bedsheet/on_enter_storage(obj/item/storage/S)
 	inside_storage_item = TRUE
 	return
 
-/obj/item/bedsheet/on_exit_storage(obj/item/storage/S as obj)
+/obj/item/bedsheet/on_exit_storage(obj/item/storage/S)
 	inside_storage_item = FALSE
 	return
 
-/obj/item/bedsheet/AltClick(mob/user as mob)
+/obj/item/bedsheet/AltClick(mob/user)
 	if(!istype(loc,/mob))
 		toggle_fold(user)
 	else
-		user.show_message("<span class='warning'>Drop \the [src] first.</span>")
+		user.show_message(SPAN_WARNING("Drop \the [src] first."))
 		..()
 	add_fingerprint(user)
 
-/obj/item/bedsheet/MouseDrop(mob/user as mob)
+/obj/item/bedsheet/MouseDrop(mob/user)
 	if((user && (!use_check(user))) && (user.contents.Find(src) || in_range(src, user)))
 		if(!istype(user, /mob/living/carbon/slime) && !istype(user, /mob/living/simple_animal))
 			if( !user.get_active_hand() )		//if active hand is empty
@@ -74,10 +74,10 @@ LINEN BINS
 				if (H.hand)
 					temp = H.organs_by_name["l_hand"]
 				if(temp && !temp.is_usable())
-					to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+					to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 					return
 
-				to_chat(user, "<span class='notice'>You pick up the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You pick up \the [src]."))
 				user.put_in_hands(src)
 	return
 
@@ -95,15 +95,15 @@ LINEN BINS
 		if(M.loc == src.loc)
 			return
 	else
-		layer = initial(layer)
+		reset_plane_and_layer()
 
-/obj/item/bedsheet/verb/fold_verb(var/mob/living/user)
+/obj/item/bedsheet/verb/fold_verb()
 	set name = "Fold Bedsheet"
 	set category = "Object"
 	set src in view(1)
 
-	if(ishuman(user))
-		toggle_fold(user)
+	if(ishuman(usr))
+		toggle_fold(usr)
 
 /obj/item/bedsheet/proc/toggle_fold(var/mob/living/user) // Fold sheets to make them more portable through secret janitor-fu.
 	if(!user)
@@ -111,65 +111,63 @@ LINEN BINS
 	if(inuse)
 		return FALSE
 	if(roll)
-		user.show_message("<span class='warning'>Unroll \the [src] first.</span>")
+		user.show_message(SPAN_WARNING("Unroll \the [src] first."))
 		return FALSE
 	inuse = TRUE
 	if (do_after(user, 25, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
-		playsound(get_turf(loc), "rustle", 15, 1, -5)
+		playsound(get_turf(loc), /singleton/sound_category/rustle_sound, 15, 1, -5)
 		var/folds = fold
-		user.visible_message("<span class='notice'>\The [user] [folds ? "unfolds" : "folds"] \the [src].", "You [fold ? "unfold" : "fold"] \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] [folds ? "unfolds" : "folds"] \the [src]."),
+				SPAN_NOTICE("You [fold ? "unfold" : "fold"] \the [src]."))
 		if(!fold)
 			fold = TRUE
 			slot_flags = null
-			w_class = 2.0
-			layer = initial(layer)
+			w_class = ITEMSIZE_SMALL
+			layer = reset_plane_and_layer()
 		else
 			fold = FALSE
 			slot_flags = SLOT_BACK
-			w_class = 4.0
+			w_class = ITEMSIZE_LARGE
 		update_icon()
 		inuse = FALSE
 		return TRUE
 	inuse = FALSE
 	return FALSE
 
-/obj/item/bedsheet/verb/roll_verb(var/mob/living/user)
+/obj/item/bedsheet/verb/roll_verb()
 	set name = "Roll Bedsheet"
 	set category = "Object"
 	set src in view(1)
 
-	if(ishuman(user))
-		toggle_roll(user)
+	if(ishuman(usr))
+		toggle_roll(usr)
 
 /obj/item/bedsheet/proc/toggle_roll(var/mob/living/user) // Tuck yourself in just by clicking. Also automatically rests you (if you're under it)
-	if(!user)
-		return FALSE
-	if(inuse)
-		return FALSE
-	if(fold)
+	if(!user || inuse || fold)
 		return FALSE
 	inuse = TRUE
 	if (do_after(user, 6, src))
 		if(user.loc != loc)
 			user.do_attack_animation(src)
-		playsound(get_turf(loc), "rustle", 15, 1, -5)
+		playsound(get_turf(loc), /singleton/sound_category/rustle_sound, 15, 1, -5)
 		var/rolls = roll
-		user.visible_message("<span class='notice'>\The [user] [rolls ? "unrolls" : "rolls"] \the [src].", "You [roll ? "unroll" : "roll"] \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] [rolls ? "unrolls" : "rolls"] \the [src]."),
+							SPAN_NOTICE("You [roll ? "unroll" : "roll"] \the [src]."))
 		if(!roll)
 			roll = TRUE
 			slot_flags = null
-			w_class = 3.0
-			layer = initial(layer)
+			w_class = ITEMSIZE_NORMAL
+			layer = reset_plane_and_layer()
 			if(user.resting && get_turf(src) == get_turf(user)) // Make them rest
 				user.lay_down()
 		else
 			roll = FALSE
 			slot_flags = SLOT_BACK
-			w_class = 4.0
+			w_class = ITEMSIZE_LARGE
 			if(layer == initial(layer))
-				layer = ABOVE_MOB_LAYER
+				layer = ABOVE_HUMAN_LAYER
 			if(!user.resting && get_turf(src) == get_turf(user)) // Make them get up
 				user.lay_down()
 		update_icon()
@@ -178,23 +176,24 @@ LINEN BINS
 	inuse = FALSE
 	return FALSE
 
-/obj/item/bedsheet/attackby(obj/item/I, mob/user)
-	if(I.isscrewdriver())
-		user.visible_message("<span class='notice'>\The [user] begins poking eyeholes in \the [src] with \the [I].</span>", "<span class='notice'>You begin poking eyeholes in \the [src] with \the [I].</span>")
-		if(do_after(user, 50/I.toolspeed))
-			to_chat(user, "<span class='notice'>You poke eyeholes in \the [src]!</span>")
+/obj/item/bedsheet/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		user.visible_message(SPAN_NOTICE("\The [user] begins poking eyeholes in \the [src] with \the [attacking_item]."),
+							SPAN_NOTICE("You begin poking eyeholes in \the [src] with \the [attacking_item]."))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
+			to_chat(user, SPAN_NOTICE("You poke eyeholes in \the [src]!"))
 			new /obj/item/bedsheet/costume(get_turf(src))
 			qdel(src)
-		return
-	else if(is_sharp(I))
-		user.visible_message("<span class='notice'>\The [user] begins cutting up [src] with [I].</span>", "<span class='notice'>You begin cutting up [src] with [I].</span>")
-		if(do_after(user, 50/I.toolspeed))
-			to_chat(user, "<span class='notice'>You cut [src] into pieces!</span>")
-			for(var/i in 1 to rand(2,5))
-				new /obj/item/reagent_containers/glass/rag(get_turf(src))
+		return TRUE
+	else if(is_sharp(attacking_item))
+		user.visible_message(SPAN_NOTICE("\The [user] begins cutting up \the [src] with \the [attacking_item]."),
+							SPAN_NOTICE("You begin cutting up \the [src] with \the [attacking_item]."))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
+			to_chat(user, SPAN_NOTICE("You cut \the [src] into pieces!"))
+			new /obj/item/stack/material/cloth(get_turf(src), rand(2, 5))
 			qdel(src)
-		return
-	..()
+		return TRUE
+	return ..()
 
 /obj/item/bedsheet/grey
 	icon_state = "sheetgrey"
@@ -252,7 +251,7 @@ LINEN BINS
 
 /obj/item/bedsheet/captain
 	name = "captain's bedsheet"
-	desc = "It has a Nanotrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
+	desc = "It has a NanoTrasen symbol on it, and was woven with a revolutionary new kind of thread guaranteed to have 0.01% permeability for most non-chemical substances, popular among most modern captains."
 	icon_state = "sheetcaptain"
 	item_state = "sheetcaptain"
 
@@ -272,14 +271,14 @@ LINEN BINS
 	icon_state = "sheetcmo"
 	item_state = "sheetcmo"
 
-/obj/item/bedsheet/qm
-	name = "quartermaster's bedsheet"
+/obj/item/bedsheet/operation_manager
+	name = "operation manager's bedsheet"
 	desc = "It is decorated with a crate emblem in silver lining.  It's rather tough, and just the thing to lie on after a hard day of pushing paper."
 	icon_state = "sheetqm"
 	item_state = "sheetqm"
 
-/obj/item/bedsheet/hop
-	name = "head of personnel's bedsheet"
+/obj/item/bedsheet/xo
+	name = "executive officer's bedsheet"
 	desc = "It is decorated with a key emblem. For those rare moments when you can rest and cuddle with Ian without someone screaming for you over the radio."
 	icon_state = "sheethop"
 	item_state = "sheethop"
@@ -310,7 +309,7 @@ LINEN BINS
 
 /obj/item/bedsheet/nanotrasen
 	name = "nanotrasen bedsheet"
-	desc = "It has the Nanotrasen logo on it and has an aura of duty."
+	desc = "It has the NanoTrasen logo on it and has an aura of duty."
 	icon_state = "sheetNT"
 	item_state = "sheetNT"
 
@@ -379,35 +378,36 @@ LINEN BINS
 	var/obj/item/hidden = null
 
 
-/obj/structure/bedsheetbin/examine(mob/user)
-	..(user)
-
+/obj/structure/bedsheetbin/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(amount < 1)
-		to_chat(user, "There are no bed sheets in the bin.")
+		. += "There are no bed sheets in the bin."
 		return
 	if(amount == 1)
-		to_chat(user, "There is one bed sheet in the bin.")
+		. += "There is one bed sheet in the bin."
 		return
-	to_chat(user, "There are [amount] bed sheets in the bin.")
+	. += "There are [amount] bed sheets in the bin."
 
 
 /obj/structure/bedsheetbin/update_icon()
-	switch(amount)
-		if(0)				icon_state = "linenbin-empty"
-		if(1 to amount / 2)	icon_state = "linenbin-half"
-		else				icon_state = "linenbin-full"
+	var/max_sheets = initial(amount)
+	if(amount > (max_sheets/2))
+		icon_state = "linenbin-full"
+	else if(amount > 0)
+		icon_state = "linenbin-half"
+	else
+		icon_state = "linenbin-empty"
 
-
-/obj/structure/bedsheetbin/attackby(obj/item/I as obj, mob/user as mob)
-	if(istype(I, /obj/item/bedsheet))
-		user.drop_from_inventory(I,src)
-		sheets.Add(I)
+/obj/structure/bedsheetbin/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/bedsheet))
+		user.drop_from_inventory(attacking_item,src)
+		sheets.Add(attacking_item)
 		amount++
-		to_chat(user, "<span class='notice'>You put [I] in [src].</span>")
-	else if(amount && !hidden && I.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
-		user.drop_from_inventory(I,src)
-		hidden = I
-		to_chat(user, "<span class='notice'>You hide [I] among the sheets.</span>")
+		to_chat(user, "<span class='notice'>You put [attacking_item] in [src].</span>")
+	else if(amount && !hidden && attacking_item.w_class < 4)	//make sure there's sheets to hide it among, make sure nothing else is hidden in there.
+		user.drop_from_inventory(attacking_item,src)
+		hidden = attacking_item
+		to_chat(user, "<span class='notice'>You hide [attacking_item] among the sheets.</span>")
 
 /obj/structure/bedsheetbin/attack_hand(mob/user as mob)
 	if(amount >= 1)

@@ -4,7 +4,7 @@
 	desc = "A rustic doll with a vague humanoid shape."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "poppet"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	var/datum/weakref/target = null
 	var/countenance = null //what species does it looks like?
 	var/cooldown_time = 120
@@ -15,10 +15,10 @@
 		to_chat(target, "<span class='notice'>The strange presence vanishes away...</span>")
 	return ..()
 
-/obj/item/poppet/examine(mob/user)
-	..(user)
+/obj/item/poppet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(countenance)
-		to_chat(user, "<span class='notice'>It is modeled after a [countenance].</span>")
+		. += "<span class='notice'>It is modeled after a [countenance].</span>"
 
 /obj/item/poppet/afterattack(var/atom/A, var/mob/user, var/proximity)
 
@@ -28,7 +28,7 @@
 	if(A.blood_DNA)
 		var/marked = pick(A.blood_DNA)
 
-		for(var/mob/living/carbon/human/H in mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.mob_list)
 			if(H.dna.unique_enzymes == marked)
 				target = WEAKREF(H)
 				countenance = H.dna.species
@@ -54,7 +54,7 @@
 		if(target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 			to_chat(user, "<span class='notice'>You move \the [src]'s legs around.</span>")
 			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
-				step(H, pick(cardinal))
+				step(H, pick(GLOB.cardinal))
 
 		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
 			to_chat(user, "<span class='notice'>You twist \the [src]'s left arm.</span>")
@@ -69,57 +69,62 @@
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
-			playsound(get_turf(H), "punch", 50, 1, -1)
+			playsound(get_turf(H), /singleton/sound_category/punch_sound, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
 
-/obj/item/poppet/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/poppet/attackby(obj/item/attacking_item, mob/user)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H && cooldown < world.time)
+		cooldown = world.time + cooldown_time
 		var/target_zone = user.zone_sel.selecting
 
-		if(isflamesource(W))
+		if(attacking_item.isFlameSource())
 			fire_act()
+			return TRUE
 
-		if(istype(W, /obj/item/melee/baton))
-			H.electrocute_act(W.force * 2, W, def_zone = target_zone)
+		if(istype(attacking_item, /obj/item/melee/baton))
+			H.electrocute_act(attacking_item.force * 2, attacking_item, def_zone = target_zone)
 			playsound(get_turf(H), 'sound/weapons/Egloves.ogg', 50, 1, -1)
+			return TRUE
 
-		if(istype(W, /obj/item/device/flashlight))
-			to_chat(H, "<span class='warning'>You direct \the [W] towards \the [src]'s eyes!</span>")
+		if(istype(attacking_item, /obj/item/device/flashlight))
+			to_chat(H, "<span class='warning'>You direct \the [attacking_item] towards \the [src]'s eyes!</span>")
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
-			flick("flash", H.flash)
-			H.eye_blurry = 5
+			H.flash_act()
+			return TRUE
 
-		if(W.iscoil())
-			to_chat(H, "<span class='warning'>You strangle \the [src] with \the [W]!</span>")
+		if(attacking_item.iscoil())
+			to_chat(H, "<span class='warning'>You strangle \the [src] with \the [attacking_item]!</span>")
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)
 			if(!(H.species.flags & NO_BREATHE))
-				H.emote("me", 1, "gasps for air!")
+				H.visible_message("<b>[H]</b> gasps for air!")
 				H.losebreath += 5
+			return TRUE
 
-		if(istype(W, /obj/item/bikehorn))
+		if(istype(attacking_item, /obj/item/bikehorn))
 			playsound(get_turf(H), 'sound/items/bikehorn.ogg', 50, 1, -1)
+			return TRUE
 
-		if(W.edge)
-			to_chat(H, "<span class='warning'>You stab \the [src] with \the [W]!</span>")
-			H.apply_damage(2, BRUTE, target_zone, damage_flags = DAM_EDGE)
+		if(attacking_item.edge)
+			to_chat(H, "<span class='warning'>You stab \the [src] with \the [attacking_item]!</span>")
+			H.apply_damage(2, DAMAGE_BRUTE, target_zone, damage_flags = DAMAGE_FLAG_EDGE)
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)
 				to_chat(H, "<span class='danger'>You feel a stabbing pain in your [organ.name]!</span>")
-
-
-		cooldown = world.time + cooldown_time
+			return TRUE
 
 /obj/item/poppet/throw_impact(atom/hit_atom)
 	..()
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.throw_at(get_edge_target_turf(H,pick(alldirs)), 5, 1)
+		H.throw_at(get_edge_target_turf(H,pick(GLOB.alldirs)), 5, 1)
 
 /obj/item/poppet/emp_act(severity)
+	. = ..()
+
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
 		H.emp_act(severity)
@@ -138,7 +143,7 @@
 /obj/item/poppet/bullet_act(var/obj/item/projectile/Proj)
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		H.apply_damage(Proj.damage, PAIN)
+		H.apply_damage(Proj.damage, DAMAGE_PAIN)
 
 /obj/item/poppet/fire_act()
 	var/mob/living/carbon/human/H = target.resolve()

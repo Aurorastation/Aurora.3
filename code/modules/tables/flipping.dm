@@ -1,7 +1,9 @@
 
 /obj/structure/table/proc/straight_table_check(var/direction)
-	if(health > 100)
-		return 0
+	if(material?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
+		return FALSE
+	if(reinforced?.weight > DEFAULT_TABLE_FLIP_WEIGHT)
+		return FALSE
 	var/obj/structure/table/T
 	for(var/angle in list(-90,90))
 		T = locate() in get_step(src.loc,turn(direction,angle))
@@ -25,7 +27,7 @@
 		to_chat(usr, "<span class='notice'>It won't budge.</span>")
 		return
 
-	usr.visible_message("<span class='warning'>[usr] flips \the [src]!</span>")
+	usr.visible_message(SPAN_WARNING("[usr] flips \the [src]!"), intent_message = THUNK_SOUND)
 
 	if(climbable)
 		structure_shaken()
@@ -85,9 +87,9 @@
 	set_dir(direction)
 	if(dir != NORTH)
 		layer = 5
-	climbable = 0 //flipping tables allows them to be used as makeshift barriers
+	climbable = FALSE //flipping tables allows them to be used as makeshift barriers
 	flipped = 1
-	flags |= ON_BORDER
+	atom_flags |= ATOM_FLAG_CHECKS_BORDER
 	for(var/D in list(turn(direction, 90), turn(direction, -90)))
 		var/obj/structure/table/T = locate() in get_step(src,D)
 		if(T && T.flipped == 0 && material && T.material && T.material.name == material.name)
@@ -105,7 +107,7 @@
 	layer = initial(layer)
 	flipped = 0
 	climbable = initial(climbable)
-	flags &= ~ON_BORDER
+	atom_flags &= ~ATOM_FLAG_CHECKS_BORDER
 	for(var/D in list(turn(dir, 90), turn(dir, -90)))
 		var/obj/structure/table/T = locate() in get_step(src.loc,D)
 		if(T && T.flipped == 1 && T.dir == src.dir && material && T.material&& T.material.name == material.name)

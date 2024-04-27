@@ -10,10 +10,10 @@
 	log_admin("ADMIN: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if(check_rights(R_ADMIN,0))
-		for(var/s in staff)
+		for(var/s in GLOB.staff)
 			var/client/C = s
 			if(R_ADMIN & C.holder.rights)
-				to_chat(C, "<span class='admin_channel'>" + create_text_tag("admin", "ADMIN:", C) + " <span class='name'>[key_name(usr, 1)]</span>([admin_jump_link(mob, src)]): <span class='message'>[msg]</span></span>")
+				to_chat(C, "<span class='admin_channel'>" + create_text_tag("ADMIN", C) + " <span class='name'>[key_name(usr, 1)]</span>([admin_jump_link(mob, src)]): <span class='message linkify'>[msg]</span></span>")
 
 	feedback_add_details("admin_verb","M") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -33,10 +33,10 @@
 	var/sender_name = key_name(usr, 1)
 	if(check_rights(R_ADMIN, 0))
 		sender_name = "<span class='admin'>[sender_name]</span>"
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if ((R_ADMIN|R_MOD) & C.holder.rights)
-			to_chat(C, "<span class='mod_channel'>" + create_text_tag("mod", "MOD:", C) + " <span class='name'>[sender_name]</span>(<A HREF='?src=\ref[C.holder];adminplayerobservejump=\ref[mob]'>JMP</A>): <span class='message'>[msg]</span></span>")
+			to_chat(C, "<span class='mod_channel'>" + create_text_tag("MOD", C) + " <span class='name'>[sender_name]</span>(<A HREF='?src=\ref[C.holder];adminplayerobservejump=\ref[mob]'>JMP</A>): <span class='message linkify'>[msg]</span></span>")
 
 	feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -53,8 +53,8 @@
 	log_admin("DEV: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if(check_rights(R_DEV,0))
-		msg = "<span class='devsay'><span class='prefix'>DEV:</span> <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message'>[msg]</span></span>"
-		for(var/s in staff)
+		msg = "<span class='devsay'>[create_text_tag("DEV")] <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
+		for(var/s in GLOB.staff)
 			var/client/C = s
 			if(C.holder.rights & (R_ADMIN|R_DEV))
 				to_chat(C, msg)
@@ -72,8 +72,8 @@
 	log_admin("CCIASAY: [key_name(src)] : [msg]",admin_key=key_name(src))
 
 	if(check_rights((R_CCIAA|R_ADMIN),0))
-		msg = "<span class='cciaasay'><span class='prefix'>CCIAAgent:</span> <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message'>[msg]</span></span>"
-		for(var/s in staff)
+		msg = "<span class='cciaasay'>[create_text_tag("CCIA")] <EM>[key_name(usr, 0, 1, 0)]</EM>: <span class='message linkify'>[msg]</span></span>"
+		for(var/s in GLOB.staff)
 			var/client/C = s
 			if(C.holder.rights & (R_ADMIN|R_CCIAA))
 				to_chat(C, msg)

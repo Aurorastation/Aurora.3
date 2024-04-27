@@ -1,10 +1,11 @@
 /obj/machinery/computer/sentencing
 	name = "criminal sentencing console"
-	desc = "Used to generate a criminal sentence."
+	desc = "A console that allows registered security personnel to create incident reports for various on-station crimes. It produces an encrypted report that can be used to automatically set a brig timer."
+	icon = 'icons/obj/computer.dmi'
 	icon_state = "computerw"
 	icon_screen = "securityw"
 	light_color = LIGHT_COLOR_ORANGE
-	req_one_access = list( access_brig, access_heads )
+	req_one_access = list( ACCESS_BRIG, ACCESS_HEADS )
 	circuit = "/obj/item/circuitboard/sentencing"
 	density = 0
 
@@ -27,21 +28,22 @@
 		return
 	ui_interact(user)
 
-/obj/machinery/computer/sentencing/attackby(obj/item/O as obj, user as mob)
-	if( istype( O, /obj/item/paper/incident ) && menu_screen == "import_incident" )
-		usr.drop_from_inventory(O,src)
+/obj/machinery/computer/sentencing/attackby(obj/item/attacking_item, mob/user)
+	if( istype( attacking_item, /obj/item/paper/incident ) && menu_screen == "import_incident" )
+		usr.drop_from_inventory(attacking_item,src)
 
-		if( import( O ))
+		if( import( attacking_item ))
 			ping( "\The [src] pings, \"Successfully imported incident report!\"" )
 			menu_screen = "incident_report"
 		else
 			to_chat(user, "<span class='alert'>Could not import incident report.</span>")
 
-		qdel( O )
-	else if( istype( O, /obj/item/paper ) && menu_screen == "import_incident" )
+		qdel( attacking_item )
+		return TRUE
+	else if( istype( attacking_item, /obj/item/paper ) && menu_screen == "import_incident" )
 		to_chat(user, "<span class='alert'>This console only accepts authentic incident reports. Copies are invalid.</span>")
-
-	..()
+		return TRUE
+	return ..()
 
 /obj/machinery/computer/sentencing/proc/import( var/obj/item/paper/incident/I )
 	incident = null
@@ -456,7 +458,7 @@
 /obj/machinery/computer/sentencing/proc/print_incident_overview(var/text)
 	var/obj/item/paper/P = new /obj/item/paper
 	P.set_content_unsafe("Incident Summary",text)
-	print(P)
+	print(P, user = usr)
 
 /obj/machinery/computer/sentencing/proc/print_incident_report( var/sentence = 1 )
 	var/error = incident.missingSentenceReq()
@@ -471,7 +473,7 @@
 	I.incident = incident
 	I.sentence = sentence
 	I.name = "Encoded Incident Report"
-	print( I )
+	print(I, user = usr)
 
 	return 0
 
@@ -479,10 +481,6 @@
 	if(..())
 		return
 
-	if(stat & (NOPOWER|BROKEN))
-		return 0 // don't update UIs attached to this object
-
-	usr.set_machine(src)
 
 	switch(href_list["button"])
 		if( "import_incident" )
@@ -496,8 +494,9 @@
 		if( "change_criminal" )
 			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
-				if( incident && C.mob )
-					incident.criminal = C.mob
+				var/mob/living/carbon/human/M = C.mob_id.resolve()
+				if( incident && M )
+					incident.criminal = WEAKREF(M)
 					incident.card = WEAKREF(C)
 					ping( "\The [src] pings, \"Convict [C] verified.\"" )
 			else if( incident.criminal )
@@ -507,7 +506,7 @@
 		if( "change_brig" )
 			if( !incident )
 				return
-			var/number = input( usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes", "Brig Sentence", 0) as num
+			var/number = tgui_input_number(usr, "Enter a number between [incident.getMinBrigSentence()] and [incident.getMaxBrigSentence()] minutes.", "Brig Sentence", 0, incident.getMaxBrigSentence(), incident.getMinBrigSentence())
 			if( number < incident.getMinBrigSentence() )
 				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxBrigSentence() )
@@ -518,7 +517,7 @@
 		if( "change_fine" )
 			if( !incident )
 				return
-			var/number = input( usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits", "Fine", 0) as num
+			var/number = tgui_input_number(usr, "Enter a number between [incident.getMinFine()] and [incident.getMaxFine()] credits.", "Fine", 0, incident.getMaxFine(), incident.getMinFine())
 			if( number < incident.getMinFine() )
 				to_chat(usr, "<span class='alert'>The entered sentence was less than the minimum sentence!</span>")
 			else if( number > incident.getMaxFine() )
@@ -539,10 +538,11 @@
 			var/title = href_list["title"]
 			var/obj/item/card/id/C = usr.get_active_hand()
 			if( istype( C ))
-				if( incident && C.mob )
+				var/mob/living/carbon/human/M = C.mob_id.resolve()
+				if( incident && M )
 					var/error = incident.addArbiter( C, title )
 					if( !error )
-						ping( "\The [src] pings, \"[title] [C.mob] verified.\"" )
+						ping( "\The [src] pings, \"[title] [M] verified.\"" )
 					else
 						to_chat(usr, "<span class='alert'>\The [src] buzzes, \"[error]\"</span>")
 			else

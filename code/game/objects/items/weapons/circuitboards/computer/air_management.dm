@@ -21,7 +21,7 @@
 	var/list/output_info = list()
 
 	var/input_flow_setting = 200
-	var/pressure_setting = ONE_ATMOSPHERE * 45
+	var/pressure_setting = PRESSURE_ONE_THOUSAND * 2
 
 /obj/item/circuitboard/air_management/supermatter_core
 	name = T_BOARD("core control")

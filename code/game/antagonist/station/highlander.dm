@@ -5,7 +5,7 @@ var/datum/antagonist/highlander/highlanders
 	role_text_plural = "Highlanders"
 	welcome_text = "There can be only one."
 	id = MODE_HIGHLANDER
-	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE
+	flags = ANTAG_SUSPICIOUS | ANTAG_IMPLANT_IMMUNE | ANTAG_NO_ROUNDSTART_SPAWN
 
 	hard_cap = 5
 	hard_cap_round = 7
@@ -41,8 +41,8 @@ var/datum/antagonist/highlander/highlanders
 		if(I.loc != player)
 			qdel(I)
 
-	player.preEquipOutfit(/datum/outfit/admin/highlander, FALSE)
-	player.equipOutfit(/datum/outfit/admin/highlander, FALSE)
+	player.preEquipOutfit(/obj/outfit/admin/highlander, FALSE)
+	player.equipOutfit(/obj/outfit/admin/highlander, FALSE)
 	player.force_update_limbs()
 	player.update_eyes()
 	player.regenerate_icons()
@@ -53,7 +53,7 @@ var/datum/antagonist/highlander/highlanders
 		alert("The game hasn't started yet!")
 		return
 
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		if(H.stat == 2 || !(H.client)) continue
 		if(is_special_character(H)) continue
 		highlanders.add_antagonist(H.mind)

@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/effects/SSeffects
-
-/datum/controller/subsystem/effects
+SUBSYSTEM_DEF(effects)
 	name = "Effects Master"
 	wait = 1		// Deciseconds.
 	flags = SS_NO_INIT
@@ -11,9 +9,6 @@ var/datum/controller/subsystem/effects/SSeffects
 
 	var/tmp/list/processing_effects = list()
 	var/tmp/list/processing_visuals = list()
-
-/datum/controller/subsystem/effects/New()
-	NEW_SS_GLOBAL(SSeffects)
 
 /datum/controller/subsystem/effects/fire(resumed = FALSE)
 	if (!resumed)
@@ -29,7 +24,7 @@ var/datum/controller/subsystem/effects/SSeffects
 		var/datum/effect_system/E = current_effects[current_effects.len]
 		current_effects.len--
 
-		if (QDELETED(E) || !E.isprocessing)
+		if (QDELETED(E) || !(E.datum_flags & DF_ISPROCESSING))
 			if (MC_TICK_CHECK)
 				return
 			continue
@@ -52,7 +47,7 @@ var/datum/controller/subsystem/effects/SSeffects
 		var/obj/effect/visual/V = current_visuals[current_visuals.len]
 		current_visuals.len--
 
-		if (QDELETED(V) || !V.isprocessing)
+		if (QDELETED(V) || !(V.datum_flags & DF_ISPROCESSING))
 			visuals -= V
 			if (MC_TICK_CHECK)
 				return
@@ -65,12 +60,13 @@ var/datum/controller/subsystem/effects/SSeffects
 			if (EFFECT_DESTROY)
 				STOP_VISUAL(V)
 				qdel(V)
-		
+
 		if (MC_TICK_CHECK)
 			return
 
-/datum/controller/subsystem/effects/stat_entry()
-	..("E:[effect_systems.len] V:[visuals.len]")
+/datum/controller/subsystem/effects/stat_entry(msg)
+	msg = "E:[effect_systems.len] V:[visuals.len]"
+	return ..()
 
 /datum/controller/subsystem/effects/Recover()
 	if (istype(SSeffects))

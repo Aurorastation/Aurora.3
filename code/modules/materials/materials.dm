@@ -7,7 +7,7 @@
 	PATHS THAT USE DATUMS
 		turf/simulated/wall
 		obj/item/material
-		obj/structure/barricade
+		obj/structure/blocker
 		obj/item/stack/material
 		obj/structure/table
 
@@ -38,6 +38,7 @@
 /material
 	var/name	                          // Unique name for use in indexing the list.
 	var/display_name                      // Prettier name for display.
+	var/adjective_name					  // To override the name for subtypes and stuff.
 	var/use_name
 	var/flags = 0                         // Various status modifiers.
 	var/sheet_singular_name = "sheet"
@@ -51,13 +52,16 @@
 	var/destruction_desc = "breaks apart" // Fancy string for barricades/tables/objects exploding.
 
 	// Icons
+	var/colour_blend = TRUE
 	var/icon_colour                                      // Colour applied to products of this material.
-	var/icon_base = "metal"                              // Wall and table base icon tag. See header.
+	var/wall_colour                                      // Colour applied to walls specifically.
+	var/icon_base = "solid"                              // Wall and table base icon tag. See header.
 	var/door_icon_base = "metal"                         // Door base icon tag. See header.
-	var/icon_reinf = "reinf_metal"                       // Overlay used
+	var/reinf_icon = "reinf_over"                        // Handles type of overlay used for tables and walls. Don't change without checking every use case.
+	var/icon/multipart_reinf_icon
 	var/list/stack_origin_tech = list(TECH_MATERIAL = 1) // Research level for stacks.
 	var/icon/wall_icon
-	var/icon/multipart_reinf_icon
+	var/icon/table_icon
 
 	// Attributes
 	var/cut_delay = 0            // Delay in ticks when cutting through this wall.
@@ -81,14 +85,14 @@
 
 	// Damage values.
 	var/hardness = 60            // Prob of wall destruction by hulk, used for edge damage in weapons. Also used for bullet protection in armor.
-	var/weight = 20              // Determines blunt damage/throwforce for weapons.
+	var/weight = 20              // Determines blunt damage/throwforce for weapons, and whether it can be flipped. Check DEFAULT_TABLE_FLIP_WEIGHT if you want your materai to be tableflippable.
 
 	// Noise when someone is faceplanted onto a table made of this material.
 	var/tableslam_noise = 'sound/weapons/tablehit1.ogg'
 	// Noise made when a simple door made of this material opens or closes.
 	var/dooropen_noise = 'sound/effects/stonedoor_openclose.ogg'
 	// Noise made when you hit structure made of this material.
-	var/hitsound = 'sound/weapons/genhit.ogg'
+	var/hitsound = 'sound/weapons/Genhit.ogg'
 	// Path to resulting stacktype. Todo remove need for this.
 	var/stack_type
 	// Wallrot crumble message.
@@ -96,6 +100,22 @@
 
 	//What golem species is created with this material
 	var/golem = null
+
+	//automatic-ness for giving drop n' pickup sounds on init.
+	var/drop_sound = 'sound/items/drop/axe.ogg'
+	var/pickup_sound = 'sound/items/pickup/axe.ogg'
+
+	//for use in material weapons. because tiles and stacks sound different. since cardboard baseball bats sound different from wooden ones and et cetera.
+	var/weapon_drop_sound = 'sound/items/drop/metalweapon.ogg'
+	var/weapon_pickup_sound = 'sound/items/pickup/metalweapon.ogg'
+	var/weapon_hitsound = /singleton/sound_category/swing_hit_sound
+
+	var/shatter_sound = /singleton/sound_category/glass_break_sound //sound it makes when it breaks.
+
+	/// Whether this material is fusion fuel or not.
+	var/is_fusion_fuel
+	/// Material light. Used for fuel rods.
+	var/luminescence
 
 /material/proc/build_rod_product(var/mob/user, var/obj/item/stack/used_stack, var/obj/item/stack/target_stack)
 	if(!rod_product)
@@ -133,18 +153,24 @@
 		display_name = name
 	if(!use_name)
 		use_name = display_name
+	if(!adjective_name)
+		adjective_name = display_name
 	if(!shard_icon)
 		shard_icon = shard_type
-
+	if(!icon_base)
+		world.log <<  "materials: [src] has unknown icon_base [icon_base]."
+/*
 	var/skip_blend = FALSE
 	switch (icon_base)
 		if ("solid")
-			wall_icon = 'icons/turf/smooth/composite_solid.dmi'
+			wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 		if ("stone")
 			wall_icon = 'icons/turf/smooth/composite_stone.dmi'
 			multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 		if ("metal")
 			wall_icon = 'icons/turf/smooth/composite_metal.dmi'
+		if ("wood")
+			wall_icon = 'icons/turf/smooth/composite_wood.dmi'
 		if ("cult")
 			wall_icon = 'icons/turf/smooth/cult_wall.dmi'
 			skip_blend = TRUE
@@ -161,15 +187,18 @@
 			skip_blend = TRUE
 		if ("skrell")
 			skip_blend = TRUE
+		if("concrete")
+			wall_icon = 'icons/turf/smooth/concrete_wall.dmi'
+			skip_blend = TRUE
 		else
-			world.log <<  "materials: [src] has unknown icon_base [icon_base]."
-
-	if (wall_icon && icon_colour && !skip_blend)
+			world.log <<  "materials: [src] has unknown icon_base [icon_base]."*/
+	var/blend_colour = wall_colour ? wall_colour : icon_colour
+	if (wall_icon && blend_colour && colour_blend)
 		wall_icon = new(wall_icon)
-		wall_icon.Blend(icon_colour, ICON_MULTIPLY)
+		wall_icon.Blend(blend_colour, ICON_MULTIPLY)
 		if (multipart_reinf_icon)
 			multipart_reinf_icon = new(multipart_reinf_icon)
-			multipart_reinf_icon.Blend(icon_colour, ICON_MULTIPLY)
+			multipart_reinf_icon.Blend(blend_colour, ICON_MULTIPLY)
 
 // This is a placeholder for proper integration of windows/windoors into the system.
 /material/proc/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
@@ -221,6 +250,11 @@
 // Debris product. Used ALL THE TIME.
 /material/proc/place_sheet(var/turf/target)
 	if(stack_type)
+		for(var/obj/item/stack/S in target)
+			if(S.type == stack_type && S.amount < S.max_amount)
+				S.amount++
+				S.update_icon()
+				return S
 		return new stack_type(target)
 
 // As above.
@@ -241,13 +275,13 @@
 	stack_type = /obj/item/stack/material/uranium
 	radioactivity = 12
 	icon_base = "stone"
-	icon_reinf = "reinf_stone"
+	reinf_icon = "reinf_stone"
 	icon_colour = "#007A00"
 	weight = 25
 	hardness = 20
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	door_icon_base = "stone"
-	golem = "Uranium Golem"
+	golem = SPECIES_GOLEM_URANIUM
 
 /material/diamond
 	name = MATERIAL_DIAMOND
@@ -263,7 +297,9 @@
 	hitsound = 'sound/effects/glass_hit.ogg'
 	hardness = 100
 	stack_origin_tech = list(TECH_MATERIAL = 6)
-	golem = "Diamond Golem"
+	golem = SPECIES_GOLEM_DIAMOND
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /material/gold
 	name = MATERIAL_GOLD
@@ -275,7 +311,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 4)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
-	golem = "Gold Golem"
+	golem = SPECIES_GOLEM_GOLD
 
 /material/bronze
 	name = MATERIAL_BRONZE
@@ -285,7 +321,7 @@
 	conductivity = 11
 	icon_colour = "#EDD12F"
 	stack_origin_tech = list(TECH_MATERIAL = 2)
-	golem = "Bronze Golem"
+	golem = SPECIES_GOLEM_BRONZE
 
 /material/osmium
 	name = MATERIAL_OSMIUM
@@ -306,7 +342,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 3)
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
-	golem = "Bronze Golem"
+	golem = SPECIES_GOLEM_SILVER
 
 /material/phoron
 	name = MATERIAL_PHORON
@@ -320,14 +356,33 @@
 	door_icon_base = "stone"
 	sheet_singular_name = "crystal"
 	sheet_plural_name = "crystals"
-	golem = "Phoron Golem"
+	golem = SPECIES_GOLEM_PHORON
+	is_fusion_fuel = TRUE
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+
+/material/phoron/supermatter
+	name = MATERIAL_SUPERMATTER
+	icon_colour = "#ffff00"
+	radioactivity = 20
+	conductivity = 100
+	integrity = 10
+	luminescence = 3
+	hardness = 10
+	weight = 1000
+	sheet_singular_name = "cluster"
+	sheet_plural_name = "clusters"
+	stack_origin_tech = list(TECH_BLUESPACE = 2, TECH_MATERIAL = 6, TECH_PHORON = 4)
+	stack_type = null
 
 /material/stone
 	name = MATERIAL_SANDSTONE
 	stack_type = /obj/item/stack/material/sandstone
 	icon_base = "stone"
-	icon_reinf = "reinf_stone"
-	icon_colour = "#D9C179"
+	reinf_icon = "reinf_stone"
+	icon_colour = "#d9c179"
+	wall_icon = 'icons/turf/smooth/composite_stone.dmi'
+	multipart_reinf_icon = 'icons/turf/smooth/composite_stone_reinf.dmi'
 	shard_type = SHARD_STONE_PIECE
 	weight = 22
 	hardness = 55
@@ -336,16 +391,28 @@
 	door_icon_base = "stone"
 	sheet_singular_name = "brick"
 	sheet_plural_name = "bricks"
-	golem = "Sand Golem"
+	golem = SPECIES_GOLEM_SAND
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
 
 /material/stone/marble
 	name = MATERIAL_MARBLE
-	icon_colour = "#AAAAAA"
+	icon_colour = "#b4b1a6"
 	weight = 26
 	hardness = 70
-	integrity = 201 //hack to stop kitchen benches being flippable, todo: refactor into weight system
 	stack_type = /obj/item/stack/material/marble
-	golem = "Marble Golem"
+	golem = SPECIES_GOLEM_MARBLE
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/concrete
+	name = MATERIAL_CONCRETE
+	icon_colour = COLOR_CONCRETE
+	wall_colour = COLOR_CONCRETE
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
+	stack_type = null
+	golem = null
 
 /material/steel
 	name = DEFAULT_WALL_MATERIAL
@@ -353,29 +420,36 @@
 	integrity = 150
 	conductivity = 11
 	protectiveness = 10 // 33%
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
-	icon_colour = "#666666"
-	golem = "Steel Golem"
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	table_icon = 'icons/obj/structure/tables/steel_table.dmi'
+	icon_colour = COLOR_GRAY40
+	wall_colour = COLOR_GRAY20
+	golem = SPECIES_GOLEM_STEEL
 	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
 
 /material/diona
 	name = MATERIAL_DIONA
 	icon_colour = null
 	stack_type = null
+	wall_icon = 'icons/turf/smooth/diona_wall.dmi'
+	table_icon = 'icons/obj/structure/tables/diona_table.dmi'
 	icon_base = "biomass"
+	colour_blend = FALSE
 	integrity = 100
+	weight = 23
 	// below is same as wood
 	melting_point = T0C + 300
 	ignition_point = T0C + 288
-	golem = "Wood Golem"
+	golem = SPECIES_GOLEM_WOOD
 	hitsound = 'sound/effects/woodhit.ogg'
 
 /material/diona/place_dismantled_product()
 	return
 
 /material/diona/place_dismantled_girder(var/turf/target)
-	spawn_diona_nymph(target)
+	new /obj/structure/diona/vines(target)
 
 /material/steel/holographic
 	name = "holo" + DEFAULT_WALL_MATERIAL
@@ -388,9 +462,9 @@
 	stack_type = /obj/item/stack/material/plasteel
 	integrity = 400
 	melting_point = 6000
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
-	icon_colour = "#777777"
+	wall_icon = 'icons/turf/smooth/composite_reinf.dmi'
+	icon_colour = "#545c68"
+	wall_colour = COLOR_GRAY20
 	explosion_resistance = 25
 	hardness = 80
 	weight = 23
@@ -398,8 +472,9 @@
 	conductivity = 10
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	composite_material = list(DEFAULT_WALL_MATERIAL = 3750, "platinum" = 3750) //todo
-	golem = "Plasteel Golem"
+	golem = SPECIES_GOLEM_PLASTEEL
 	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 
 /material/plasteel/titanium
 	name = MATERIAL_TITANIUM
@@ -412,12 +487,12 @@
 	icon_base = "metal"
 	door_icon_base = "metal"
 	icon_colour = "#D1E6E3"
-	icon_reinf = "reinf_metal"
-	golem = "Titanium Golem"
+	golem = SPECIES_GOLEM_TITANIUM
 
 /material/glass
 	name = MATERIAL_GLASS
 	stack_type = /obj/item/stack/material/glass
+	table_icon = 'icons/obj/structure/tables/glass_table.dmi'
 	flags = MATERIAL_BRITTLE
 	icon_colour = "#00E1FF"
 	opacity = 0.3
@@ -428,13 +503,16 @@
 	weight = 15
 	protectiveness = 0 // 0%
 	conductivity = 1 // Glass shards don't conduct.
+	icon_base = "glass"
 	door_icon_base = "stone"
 	destruction_desc = "shatters"
 	window_options = list("One Direction" = 1, "Full Window" = 4)
 	created_window = /obj/structure/window/basic
 	wire_product = /obj/item/stack/material/glass/wired
 	rod_product = /obj/item/stack/material/glass/reinforced
-	golem = "Glass Golem"
+	golem = SPECIES_GOLEM_GLASS
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
 
 /material/glass/build_windows(var/mob/living/user, var/obj/item/stack/used_stack)
 
@@ -451,13 +529,13 @@
 		return 1
 
 	var/title = "Sheet-[used_stack.name] ([used_stack.get_amount()] sheet\s left)"
-	var/choice = input(title, "What would you like to construct?") as null|anything in window_options
+	var/choice = tgui_input_list(user, "What would you like to construct?", title, window_options)
 
 	if(!choice || !used_stack || !user || used_stack.loc != user || user.stat || user.loc != T)
 		return 1
 
 	// Get data for building windows here.
-	var/list/possible_directions = cardinal.Copy()
+	var/list/possible_directions = GLOB.cardinal.Copy()
 	var/window_count = 0
 	for (var/obj/structure/window/check_window in user.loc)
 		window_count++
@@ -483,7 +561,7 @@
 					to_chat(user, "<span class='warning'>This material is not reinforced enough to use for a door.</span>")
 					return
 				for(var/obj/obstacle in T)
-					if((obstacle.flags & ON_BORDER) && obstacle.dir == user.dir)
+					if((obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && obstacle.dir == user.dir)
 						failed_to_build = 1
 	if(failed_to_build)
 		to_chat(user, "<span class='warning'>There is no room in this location.</span>")
@@ -554,10 +632,10 @@
 	integrity = 100
 	icon_colour = "#FC2BC5"
 	stack_origin_tech = list(TECH_MATERIAL = 4)
-	created_window = /obj/structure/window/phoronbasic
+	created_window = /obj/structure/window/borosilicate
 	wire_product = null
 	rod_product = /obj/item/stack/material/glass/phoronrglass
-	golem = "Phoron Golem"
+	golem = SPECIES_GOLEM_PHORON
 
 /material/glass/phoron/reinforced
 	name = MATERIAL_GLASS_REINFORCED_PHORON
@@ -565,7 +643,7 @@
 	stack_type = /obj/item/stack/material/glass/phoronrglass
 	stack_origin_tech = list(TECH_MATERIAL = 5)
 	composite_material = list() //todo
-	created_window = /obj/structure/window/phoronreinforced
+	created_window = /obj/structure/window/borosilicate/reinforced
 	hardness = 40
 	weight = 30
 	stack_origin_tech = list(TECH_MATERIAL = 2)
@@ -576,15 +654,15 @@
 	name = MATERIAL_PLASTIC
 	stack_type = /obj/item/stack/material/plastic
 	flags = MATERIAL_BRITTLE
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
 	icon_colour = "#CCCCCC"
 	hardness = 10
 	weight = 12
 	protectiveness = 5 // 20%
 	melting_point = T0C+371 //assuming heat resistant plastic
 	stack_origin_tech = list(TECH_MATERIAL = 3)
-	golem = "Plastic Golem"
+	golem = SPECIES_GOLEM_PLASTIC
+	drop_sound = 'sound/items/drop/card.ogg'
+	pickup_sound = 'sound/items/pickup/card.ogg'
 
 /material/plastic/holographic
 	name = MATERIAL_PLASTIC_HOLO
@@ -600,14 +678,6 @@
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
 
-/material/tritium
-	name = MATERIAL_TRITIUM
-	stack_type = /obj/item/stack/material/tritium
-	icon_colour = "#777777"
-	stack_origin_tech = list(TECH_MATERIAL = 5)
-	sheet_singular_name = "ingot"
-	sheet_plural_name = "ingots"
-
 /material/mhydrogen
 	name = MATERIAL_HYDROGEN_METALLIC
 	display_name = "metallic hydrogen"
@@ -615,7 +685,8 @@
 	icon_colour = "#E6C5DE"
 	stack_origin_tech = list(TECH_MATERIAL = 6, TECH_POWER = 6, TECH_MAGNET = 5)
 	conductivity = 100
-	golem = "Metallic Hydrogen Golem"
+	golem = SPECIES_GOLEM_HYDROGEN
+	is_fusion_fuel = TRUE
 
 /material/platinum
 	name =  MATERIAL_PLATINUM
@@ -635,8 +706,29 @@
 	conductivity = 10
 	sheet_singular_name = "ingot"
 	sheet_plural_name = "ingots"
-	golem = "Iron Golem"
+	golem = SPECIES_GOLEM_IRON
 	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
+/material/aluminium
+	name = MATERIAL_ALUMINIUM
+	stack_type = /obj/item/stack/material/aluminium
+	icon_colour = "#cccdcc"
+	weight = 18
+	conductivity = 29.48
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
+
+/material/lead
+	name = MATERIAL_LEAD
+	stack_type = /obj/item/stack/material/lead
+	icon_colour = "#5f5960"
+	weight = 32
+	conductivity = 4.39
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	hitsound = 'sound/weapons/smash.ogg'
+	weapon_hitsound = 'sound/weapons/metalhit.ogg'
 
 // Adminspawn only, do not let anyone get this.
 /material/elevatorium
@@ -644,6 +736,7 @@
 	display_name = "elevator panelling"
 	stack_type = null
 	icon_colour = "#666666"
+	wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
 	integrity = 1200
 	melting_point = 6000
 	explosion_resistance = 200
@@ -654,9 +747,10 @@
 /material/wood
 	name = MATERIAL_WOOD
 	stack_type = /obj/item/stack/material/wood // why wouldn't it have a stacktype seriously guys why
-	icon_colour = "#824B28"
+	icon_colour = WOOD_COLOR_GENERIC
 	integrity = 50
-	icon_base = "metal"
+	icon_base = "wood"
+	wall_icon = 'icons/turf/smooth/composite_wood.dmi'
 	explosion_resistance = 2
 	shard_type = SHARD_SPLINTER
 	shard_can_repair = 0 // you can't weld splinters back into planks
@@ -670,17 +764,58 @@
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "wood"
 	destruction_desc = "splinters"
+	shatter_sound = /singleton/sound_category/wood_break_sound
 	sheet_singular_name = "plank"
 	sheet_plural_name = "planks"
-	golem = "Wood Golem"
+	golem = SPECIES_GOLEM_WOOD
 	hitsound = 'sound/effects/woodhit.ogg'
+	drop_sound = 'sound/items/drop/wooden.ogg'
+	pickup_sound = 'sound/items/pickup/wooden.ogg'
+	weapon_drop_sound = 'sound/items/drop/woodweapon.ogg'
+	weapon_pickup_sound = 'sound/items/pickup/woodweapon.ogg'
+	weapon_hitsound = 'sound/weapons/woodenhit.ogg'
+	reinf_icon = "reinf_wood"
+
+/material/wood/birch
+	name = MATERIAL_BIRCH
+	stack_type = /obj/item/stack/material/wood/coloured/birch
+	icon_colour = WOOD_COLOR_BIRCH
+
+/material/wood/mahogany
+	name = MATERIAL_MAHOGANY
+	stack_type = /obj/item/stack/material/wood/coloured/mahogany
+	icon_colour = WOOD_COLOR_RICH
+
+/material/wood/maple
+	name = MATERIAL_MAPLE
+	stack_type = /obj/item/stack/material/wood/coloured/maple
+	icon_colour = WOOD_COLOR_PALE
+
+/material/wood/bamboo
+	name = MATERIAL_BAMBOO
+	stack_type = /obj/item/stack/material/wood/coloured/bamboo
+	icon_colour = WOOD_COLOR_PALE2
+
+/material/wood/ebony
+	name = MATERIAL_EBONY
+	stack_type = /obj/item/stack/material/wood/coloured/ebony
+	icon_colour = WOOD_COLOR_BLACK
+
+/material/wood/walnut
+	name = MATERIAL_WALNUT
+	stack_type = /obj/item/stack/material/wood/coloured/walnut
+	icon_colour = WOOD_COLOR_CHOCOLATE
+
+/material/wood/yew
+	name = MATERIAL_YEW
+	stack_type = /obj/item/stack/material/wood/coloured/yew
+	icon_colour = WOOD_COLOR_YELLOW
 
 /material/wood/log //This is gonna replace wood planks in a  way for NBT, leaving it here for now
 	name = MATERIAL_WOOD_LOG
-	stack_type = /obj/item/stack/material/woodlog
+	stack_type = /obj/item/stack/material/wood/log
 	icon_colour = "#824B28"
 	integrity = 50
-	icon_base = "solid"
 	explosion_resistance = 4
 	hardness = 30
 	weight = 30 //Logs are heavier then normal pieces of wood
@@ -688,22 +823,21 @@
 	melting_point = T0C+380
 	ignition_point = T0C+328
 	destruction_desc = "splinters"
-	sheet_singular_name = "log"
-	sheet_plural_name = "logs"
+	sheet_singular_name = "pice"
+	sheet_plural_name = "piles"
 
 /material/wood/branch
 	name = MATERIAL_WOOD_BRANCH
-	stack_type = /obj/item/stack/material/woodbranch
+	stack_type = /obj/item/stack/material/wood/branch
 	icon_colour = "#824B28"
-	integrity = 50
-	icon_base = "solid"
+	integrity = 10
 	explosion_resistance = 0
 	hardness = 0.1
 	weight = 7
 	melting_point = T0C+220
 	ignition_point = T0C+218
-	sheet_singular_name = "branch"
-	sheet_plural_name = "branch"
+	sheet_singular_name = "bundle"
+	sheet_plural_name = "bundle"
 
 /material/rust
 	name = MATERIAL_RUST
@@ -711,7 +845,7 @@
 	stack_type = null
 	icon_colour = "#B7410E"
 	icon_base = "arust"
-	icon_reinf = "reinf_over"
+	wall_icon = 'icons/turf/smooth/rusty_wall.dmi'
 	integrity = 250
 	explosion_resistance = 8
 	hardness = 15
@@ -728,8 +862,6 @@
 	stack_type = /obj/item/stack/material/cardboard
 	flags = MATERIAL_BRITTLE
 	integrity = 10
-	icon_base = "solid"
-	icon_reinf = "reinf_over"
 	icon_colour = "#AAAAAA"
 	hardness = 1
 	weight = 1
@@ -739,25 +871,20 @@
 	stack_origin_tech = list(TECH_MATERIAL = 1)
 	door_icon_base = "wood"
 	destruction_desc = "crumples"
-	golem = "Cardboard Golem"
-
-/material/cloth
-	name = MATERIAL_CLOTH
-	stack_origin_tech = list(TECH_MATERIAL = 2)
-	door_icon_base = "wood"
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	flags = MATERIAL_PADDING
-	hardness = 1
-	golem = "Cloth Golem"
+	shatter_sound = /singleton/sound_category/cardboard_break_sound
+	golem = SPECIES_GOLEM_CARDBOARD
+	drop_sound = 'sound/items/drop/cardboardbox.ogg'
+	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
+	weapon_hitsound = 'sound/weapons/cardboardhit.ogg'
 
 /material/cult
 	name = MATERIAL_CULT
 	display_name = "daemon stone"
 	icon_base = "cult"
+	wall_icon = 'icons/turf/smooth/cult_wall.dmi'
+	colour_blend = FALSE
 	icon_colour = COLOR_CULT
-	icon_reinf = "reinf_cult"
+	reinf_icon = "reinf_cult"
 	dooropen_noise = 'sound/effects/doorcreaky.ogg'
 	door_icon_base = "resin"
 	shard_type = SHARD_STONE_PIECE
@@ -790,25 +917,24 @@
 /material/leather
 	name = MATERIAL_LEATHER
 	icon_colour = "#5C4831"
+	stack_type = /obj/item/stack/material/leather
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
+	hardness = 1
+	weight = 1
 	ignition_point = T0C+300
 	melting_point = T0C+300
 	protectiveness = 3 // 13%
-	golem = "Homunculus"
+	golem = SPECIES_GOLEM_MEAT
+	drop_sound = 'sound/items/drop/leather.ogg'
+	pickup_sound = 'sound/items/pickup/leather.ogg'
 
-/material/carpet
-	name = MATERIAL_CARPET
-	display_name = "comfy"
-	use_name = "red upholstery"
-	icon_colour = "#DA020A"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	sheet_singular_name = "tile"
-	sheet_plural_name = "tiles"
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
+/material/leather/fine
+	name = MATERIAL_LEATHER_FINE
+	icon_colour = "#4B3A27"
+	stack_type = /obj/item/stack/material/leather/fine
+	ignition_point = T0C+320
+	melting_point = T0C+320
 
 /material/cotton
 	name = MATERIAL_COTTON
@@ -818,84 +944,96 @@
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
+	hardness = 1
+	weight = 1
+	golem = SPECIES_GOLEM_CLOTH
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
-/material/cloth_teal
-	name = MATERIAL_CLOTH_TEAL
-	display_name ="teal"
-	use_name = "teal cloth"
-	icon_colour = "#00EAFA"
+/material/carpet
+	name = MATERIAL_CARPET
+	display_name = "comfy"
+	use_name = "red upholstery"
+	stack_type = /obj/item/stack/tile/carpet
+	hardness = 1
+	weight = 1
+	icon_colour = COLOR_RED
 	flags = MATERIAL_PADDING
 	ignition_point = T0C+232
 	melting_point = T0C+300
+	sheet_singular_name = "tile"
+	sheet_plural_name = "tiles"
 	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
+	table_icon = 'icons/obj/structure/tables/fancy_table.dmi'
+	golem = SPECIES_GOLEM_CLOTH
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
-/material/cloth_black
-	name = MATERIAL_CLOTH_BLACK
-	display_name = "black"
-	use_name = "black cloth"
-	icon_colour = "#505050"
-	flags = MATERIAL_PADDING
+/material/carpet/black
+	name = MATERIAL_CARPET_BLACK
+	use_name = "black upholstery"
+	stack_type = /obj/item/stack/tile/carpet/black
+	icon_colour = COLOR_BLACK
+	table_icon = 'icons/obj/structure/tables/fancy_table_black.dmi'
+
+/material/carpet/blue
+	name = MATERIAL_CARPET_BLUE
+	use_name = "blue upholstery"
+	stack_type = /obj/item/stack/tile/carpet/lightblue
+	icon_colour = COLOR_BLUE
+	table_icon = 'icons/obj/structure/tables/fancy_table_blue.dmi'
+
+/material/carpet/cyan
+	name = MATERIAL_CARPET_CYAN
+	use_name = "cyan upholstery"
+	stack_type = /obj/item/stack/tile/carpet/cyan
+	icon_colour = COLOR_CYAN
+	table_icon = 'icons/obj/structure/tables/fancy_table_cyan.dmi'
+
+/material/carpet/green
+	name = MATERIAL_CARPET_GREEN
+	use_name = "green upholstery"
+	stack_type = /obj/item/stack/tile/carpet/green
+	icon_colour = COLOR_GREEN
+	table_icon = 'icons/obj/structure/tables/fancy_table_green.dmi'
+
+/material/carpet/orange
+	name = MATERIAL_CARPET_ORANGE
+	use_name = "orange upholstery"
+	stack_type = /obj/item/stack/tile/carpet/orange
+	icon_colour = COLOR_ORANGE
+	table_icon = 'icons/obj/structure/tables/fancy_table_green.dmi'
+
+/material/carpet/purple
+	name = MATERIAL_CARPET_PURPLE
+	use_name = "purple upholstery"
+	stack_type = /obj/item/stack/tile/carpet/purple
+	icon_colour = COLOR_PURPLE
+	table_icon = 'icons/obj/structure/tables/fancy_table_purple.dmi'
+
+/material/carpet/red
+	name = MATERIAL_CARPET_RED
+	stack_type = /obj/item/stack/tile/carpet/red
+	icon_colour = COLOR_RED
+	table_icon = 'icons/obj/structure/tables/fancy_table_red.dmi'
+
+/material/cloth
+	name = MATERIAL_CLOTH
+	stack_type = /obj/item/stack/material/cloth
+	stack_origin_tech = list(TECH_MATERIAL = 2)
+	door_icon_base = "wood"
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
-
-/material/cloth_green
-	name = MATERIAL_CLOTH_GREEN
-	display_name = "green"
-	use_name = "green cloth"
-	icon_colour = "#01C608"
 	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
-
-/material/cloth_purple
-	name = MATERIAL_CLOTH_PURPLE
-	display_name = "purple"
-	use_name = "purple cloth"
-	icon_colour = "#9C56C4"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
-
-/material/cloth_blue
-	name = MATERIAL_CLOTH_BLUE
-	display_name = "blue"
-	use_name = "blue cloth"
-	icon_colour = "#6B6FE3"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
-
-/material/cloth_beige
-	name = MATERIAL_CLOTH_BEIGE
-	display_name = "beige"
-	use_name = "beige cloth"
-	icon_colour = "#E8E7C8"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
-
-/material/cloth_lime
-	name = MATERIAL_CLOTH_LIME
-	display_name = "lime"
-	use_name = "lime cloth"
-	icon_colour = "#62E36C"
-	flags = MATERIAL_PADDING
-	ignition_point = T0C+232
-	melting_point = T0C+300
-	protectiveness = 1 // 4%
-	golem = "Cloth Golem"
+	hardness = 1
+	weight = 1
+	golem = SPECIES_GOLEM_CLOTH
+	drop_sound = 'sound/items/drop/cloth.ogg'
+	pickup_sound = 'sound/items/pickup/cloth.ogg'
+	weapon_hitsound = 'sound/weapons/towelwhip.ogg'
 
 /material/hide //TODO make different hides somewhat different among them
 	name = MATERIAL_HIDE
@@ -909,7 +1047,9 @@
 	hardness = 1
 	weight = 1
 	protectiveness = 3 // 13%
-	golem = "Homunculus"
+	golem = SPECIES_GOLEM_MEAT
+	drop_sound = 'sound/items/drop/leather.ogg'
+	pickup_sound = 'sound/items/pickup/leather.ogg'
 
 /material/hide/corgi
 	name = MATERIAL_HIDE_CORGI
@@ -931,22 +1071,24 @@
 	stack_type = /obj/item/stack/material/animalhide/lizard
 	icon_colour = "#34AF10"
 
-/material/hide/xeno
-	name = MATERIAL_HIDE_ALIEN
-	stack_type = /obj/item/stack/material/animalhide/xeno
-	icon_colour = "#525288"
-	protectiveness = 10 // 33%
-
 /material/hide/human
 	name = MATERIAL_HIDE_HUMAN
 	stack_type = /obj/item/stack/material/animalhide/human
 	icon_colour = "#833C00"
 
+/material/hide/barehide
+	name = "bare hide"
+	stack_type = /obj/item/stack/material/animalhide/barehide
+
+/material/hide/wetleather
+	name = "wet leather"
+	stack_type = /obj/item/stack/material/animalhide/wetleather
+
 /material/bone
 	name = MATERIAL_BONE
 	icon_colour = "#e3dac9"
 	icon_base = "stone"
-	icon_reinf = "reinf_stone"
+	reinf_icon = "reinf_stone"
 	sheet_singular_name = "bone"
 	sheet_plural_name = "bones"
 	weight = 10
@@ -955,7 +1097,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	door_icon_base = "stone"
 	protectiveness = 10 // 33%
-	golem = "Homunculus"
+	golem = SPECIES_GOLEM_MEAT
 
 /material/bone/necromancer
 	name = MATERIAL_BONE_CURSED
@@ -970,6 +1112,8 @@
 	stack_type = null
 	icon_colour = "#1C7400"
 	icon_base = "vaurca"
+	wall_icon = 'icons/turf/smooth/vaurca_wall.dmi'
+	colour_blend = FALSE
 	integrity = 400
 	melting_point = 6000
 	explosion_resistance = 25
@@ -980,19 +1124,58 @@
 
 /material/shuttle
 	name = MATERIAL_SHUTTLE
-	display_name = "spaceship alloy"
+	display_name = "plastitanium alloy"
 	stack_type = null
-	icon_colour = "#6C7364"
+	reinf_icon = "no_sprite"//placeholder
 	icon_base = "shuttle"
+	//wall_icon = 'icons/turf/smooth/composite_solid_color.dmi'
+	colour_blend = FALSE
 	integrity = 1200
 	melting_point = 6000       // Hull plating.
 	explosion_resistance = 200 // Hull plating.
 	hardness = 500
 	weight = 500
 	protectiveness = 80 // 80%
+	cut_delay = 20 SECONDS
 
 /material/shuttle/skrell
 	name = MATERIAL_SHUTTLE_SKRELL
+	table_icon = 'icons/obj/structure/tables/skrell_table.dmi'
 	display_name = "superadvanced alloy"
+	weight = 23
+	colour_blend = FALSE
 	icon_colour = null
 	icon_base = "skrell"
+
+/material/graphite
+	name = MATERIAL_GRAPHITE
+	stack_type = /obj/item/stack/material/graphite
+	icon_colour = "#666666"
+	shard_type = SHARD_STONE_PIECE
+	weight = 20
+	hardness = 20
+	protectiveness = 5 // 20%
+	conductivity = 5
+	sheet_singular_name = "bar"
+	sheet_plural_name = "bars"
+	drop_sound = 'sound/items/drop/boots.ogg'
+	pickup_sound = 'sound/items/pickup/boots.ogg'
+
+/material/tritium
+	name = MATERIAL_TRITIUM
+	stack_type = /obj/item/stack/material/tritium
+	icon_colour = "#777777"
+	stack_origin_tech = list(TECH_MATERIAL = 5)
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	is_fusion_fuel = TRUE
+	value = 300
+
+/material/deuterium
+	name = MATERIAL_DEUTERIUM
+	stack_type = /obj/item/stack/material/deuterium
+	icon_colour = "#999999"
+	stack_origin_tech = list(TECH_MATERIAL = 3)
+	sheet_singular_name = "ingot"
+	sheet_plural_name = "ingots"
+	is_fusion_fuel = TRUE

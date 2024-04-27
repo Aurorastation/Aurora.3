@@ -1,7 +1,7 @@
 /obj/item/storage/box/bloodpacks
-	name = "blood packs bags"
-	desc = "This box contains blood packs."
-	icon_state = "sterile"
+	name = "\improper IV bags"
+	desc = "This box contains IV bags."
+	illustration = "blood"
 
 /obj/item/storage/box/bloodpacks/fill()
 	..()
@@ -14,11 +14,19 @@
 	new /obj/item/reagent_containers/blood/empty(src)
 
 /obj/item/reagent_containers/blood
-	name = "blood pack"
-	desc = "Contains blood used for transfusion."
+	name = "\improper IV bag"
+	desc = "Contains fluids used for transfusions."
 	icon = 'icons/obj/bloodpack.dmi'
-	icon_state = "empty"
+	icon_state = "bloodpack"
+	filling_states = "-10;10;25;50;75;80;100"
+	w_class = ITEMSIZE_SMALL
 	volume = 200
+
+	amount_per_transfer_from_this = 0.2
+	possible_transfer_amounts = list(0.2, 1, 2, 3, 4)
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+
+	var/datum/weakref/attached_mob
 
 	var/blood_type = null
 	var/vampire_marks = null
@@ -29,87 +37,172 @@
 /obj/item/reagent_containers/blood/Initialize()
 	. = ..()
 	if(blood_type != null)
-		name = "blood pack [blood_type]"
-		reagents.add_reagent("blood", 200, list("donor"=null,"viruses"=null,"blood_DNA"=null,"blood_type"=blood_type,"resistances"=null,"trace_chem"=null))
+		name = "\improper IV bag - [blood_type] blood"
+		reagents.add_reagent(/singleton/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
+		w_class = ITEMSIZE_NORMAL
 		update_icon()
+
+/obj/item/reagent_containers/blood/Destroy()
+	STOP_PROCESSING(SSprocessing, src)
+	attached_mob = null
+	return ..()
 
 /obj/item/reagent_containers/blood/on_reagent_change()
 	update_icon()
+	if(reagents.total_volume > volume / 2)
+		w_class = ITEMSIZE_NORMAL
+	else
+		w_class = ITEMSIZE_SMALL
 
 /obj/item/reagent_containers/blood/update_icon()
-	var/percent = round((reagents.total_volume / volume) * 100)
-	switch(percent)
-		if(0 to 9)			icon_state = "empty"
-		if(10 to 50) 		icon_state = "half"
-		if(51 to INFINITY)	icon_state = "full"
+	cut_overlays()
+
+	if(blood_type)
+		add_overlay(image('icons/obj/bloodpack.dmi', "[blood_type]"))
+
+	if(attached_mob)
+		add_overlay(image('icons/obj/bloodpack.dmi', "dongle"))
+
+	if(reagents && reagents.total_volume)
+		add_overlay(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
 
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
-	if (user == M && (user.mind.vampire))
+	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))
+		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if (being_feed)
-			to_chat(user, "<span class='notice'>You are already feeding on \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You are already feeding on \the [src]."))
 			return
-		if (reagents.get_reagent_amount("blood"))
-			user.visible_message("<span class='warning'>[user] raises \the [src] up to their mouth and bites into it.</span>", "<span class='notice'>You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still.</span>")
+		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
+			user.visible_message(SPAN_WARNING("[user] raises \the [src] up to their mouth and bites into it."), SPAN_NOTICE("You raise \the [src] up to your mouth and bite into it, starting to drain its contents.<br>You need to stand still."))
 			being_feed = TRUE
 			vampire_marks = TRUE
 			if (!LAZYLEN(src.other_DNA))
 				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
-			while (do_after(user, 25, 5, 1))
+			while (do_after(user, 25, 5))
 				var/blood_taken = 0
-				blood_taken = min(5, reagents.get_reagent_amount("blood")/4)
+				blood_taken = min(5, REAGENT_VOLUME(reagents, /singleton/reagent/blood)/4)
 
-				reagents.remove_reagent("blood", blood_taken*4)
-				user.mind.vampire.blood_usable += blood_taken
+				reagents.remove_reagent(/singleton/reagent/blood, blood_taken*4)
+				vampire.blood_usable += blood_taken
 
 				if (blood_taken)
-					to_chat(user, "<span class='notice'>You have accumulated [user.mind.vampire.blood_usable] [user.mind.vampire.blood_usable > 1 ? "units" : "unit"] of usable blood. It tastes quite stale.</span>")
+					to_chat(user, SPAN_NOTICE("You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale."))
 
-				if (reagents.get_reagent_amount("blood") < 1)
+				if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) < 1)
 					break
-			user.visible_message("<span class='warning'>[user] licks \his fangs dry, lowering \the [src].</span>", "<span class='notice'>You lick your fangs clean of the tasteless blood.</span>")
+			user.visible_message(SPAN_WARNING("[user] licks [user.get_pronoun("his")] fangs dry, lowering \the [src]."), SPAN_NOTICE("You lick your fangs clean of the tasteless blood."))
 			being_feed = FALSE
 	else
 		..()
 
-/obj/item/reagent_containers/blood/examine(mob/user, distance = 2)
-	if (..() && vampire_marks)
-		to_chat(user, "<span class='warning'>There are teeth marks on it.</span>")
-	return
+/obj/item/reagent_containers/blood/MouseDrop(over_object, src_location, over_location)
+	if(!ismob(loc))
+		return
+	var/turf/our_turf = get_turf(src)
+	var/turf/target_turf = get_turf(over_object)
+	if(!our_turf.Adjacent(target_turf))
+		return
+	if(attached_mob)
+		remove_iv_mob()
+	else if(ishuman(over_object))
+		visible_message(SPAN_WARNING("\The [usr] starts hooking \the [over_object] up to \the [src]."))
+		if(do_after(usr, 30))
+			to_chat(usr, SPAN_NOTICE("You hook \the [over_object] up to \the [src]."))
+			attached_mob = WEAKREF(over_object)
+			START_PROCESSING(SSprocessing, src)
+	update_icon()
 
-/obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
-	..()
-	if (P.ispen())
-		if (reagents.get_reagent_amount("blood") && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
-			to_chat(usr, "<span class='notice'>You can't relabel [name] until it is empty!</span>")
-			return
-		var/blood_name = input(usr, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Cancel")
-		if (blood_name == "Cancel") return
-		var/obj/item/i = usr.get_active_hand()
-		if (!i.ispen() || !in_range(user, src)) return //Checks to see if pen is still held or bloodback is in range
-		name = "blood pack [blood_name]"
-		desc = "Contains blood used for transfusion."
-		to_chat(usr, "<span class='notice'>You label the blood pack as [blood_name].</span>")
+/obj/item/reagent_containers/blood/process()
+	var/mob/living/carbon/human/attached
+	if(attached_mob)
+		attached = attached_mob.resolve()
+		if(!attached)
+			attached_mob = null
+			return PROCESS_KILL
+		var/is_adjacent = loc.Adjacent(attached)
+		if(!is_adjacent || !ismob(loc))
+			remove_iv_mob(is_adjacent)
+			update_icon()
+			return PROCESS_KILL
+	else
+		remove_iv_mob()
 		return
 
-	if (istype(P, /obj/item/) && P.sharp == 1)
+	var/mob/M = loc
+	if(M.l_hand != src && M.r_hand != src)
+		remove_iv_mob()
+		return
+
+	if(!reagents.total_volume)
+		remove_iv_mob()
+		return
+
+	reagents.trans_to_mob(attached, amount_per_transfer_from_this, CHEM_BLOOD)
+	update_icon()
+
+/obj/item/reagent_containers/blood/proc/remove_iv_mob(var/safe = TRUE)
+	if(attached_mob)
+		var/mob/living/carbon/human/attached = attached_mob.resolve()
+		if(attached)
+			if(safe)
+				visible_message(SPAN_NOTICE("\The [attached] is taken off \the [src]."))
+			else
+				var/obj/item/organ/external/affecting = attached.get_organ(pick(BP_R_ARM, BP_L_ARM))
+				attached.visible_message(SPAN_WARNING("The needle is ripped out of [attached]'s [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."), SPAN_DANGER("The needle <b>painfully</b> rips out of your [affecting.limb_name == BP_R_ARM ? "right arm" : "left arm"]."))
+				affecting.take_damage(brute = 5, damage_flags = DAMAGE_FLAG_SHARP)
+		attached_mob = null
+	STOP_PROCESSING(SSprocessing, src)
+
+/obj/item/reagent_containers/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if (distance <= 2 && vampire_marks)
+		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
+
+/obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
+	..()
+	if (attacking_item.ispen())
+		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty IV bag") //Stops people mucking with bloodpacks that are filled
+			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
+			return
+		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel"))
+		if(blood_name == "Cancel")
+			return
+		var/obj/item/i = user.get_active_hand()
+		if(!i.ispen() || !in_range(user, src)) //Checks to see if pen is still held or bloodpack is in range
+			return
+		if(blood_name == "Clear")
+			blood_type = null
+			name = initial(name)
+			desc = initial(desc)
+			to_chat(user, SPAN_NOTICE("You clear the IV bag label."))
+			update_icon()
+			return
+		blood_type = blood_name
+		name = "\improper IV bag - [blood_type]"
+		desc = "Contains fluids used for transfusions."
+		to_chat(user, SPAN_NOTICE("You label the IV bag as [blood_type]."))
+		update_icon()
+		return
+
+	if (istype(attacking_item, /obj/item/) && attacking_item.sharp == 1)
 		var/mob/living/carbon/human/H = usr
-		if(LAZYLEN(P.attack_verb))
-			user.visible_message("<span class='danger'>[src] has been [pick(P.attack_verb)] with \the [P] by [user]!</span>")
+		if(LAZYLEN(attacking_item.attack_verb))
+			user.visible_message(SPAN_DANGER("[src] has been [pick(attacking_item.attack_verb)] with \the [attacking_item] by [user]!"))
 		var/atkmsg_filled = null
-		if (reagents.get_reagent_amount("blood"))
+		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
 			atkmsg_filled = " and the contents spray everywhere"
 			if (src.loc != usr)
 				var/strength
-				var/percent = round((reagents.get_reagent_amount("blood") / volume) * 100) //the amount of blood changes the strength of spray
+				var/percent = round((REAGENT_VOLUME(reagents, /singleton/reagent/blood) / volume) * 100) //the amount of blood changes the strength of spray
 				switch(percent)
 					if(1 to 9)	strength = 2
 					if(10 to 50)	strength = 3
 					if(51 to INFINITY)	strength = 4
 				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
 					spray_loop:
-						var/direction = pick(alldirs)
+						var/direction = pick(GLOB.alldirs)
 						var/target
 						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
 							switch (direction)
@@ -149,9 +242,9 @@
 					H.bloody_body()
 		// Line below will do a check where the target bloodbag is located and create a new one accordingly
 		var/obj/item/reagent_containers/I = src.loc != usr ? new/obj/item/reagent_containers/blood/ripped(src.loc) : new/obj/item/reagent_containers/blood/ripped(usr.loc)
-		if (reagents.get_reagent_amount("blood"))
+		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
 			I.add_blood()
-		var/atkmsg = "<span class='warning'>\The [src] rips apart[atkmsg_filled]!</span>"
+		var/atkmsg = SPAN_WARNING("\The [src] rips apart[atkmsg_filled]!")
 		user.visible_message(atkmsg)
 		qdel(src)
 		return
@@ -176,17 +269,17 @@
 	blood_type = "O-"
 
 /obj/item/reagent_containers/blood/empty
-	name = "empty blood pack"
+	name = "empty IV bag"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
-	icon_state = "empty"
+	icon_state = "bloodpack"
 
 /obj/item/reagent_containers/blood/ripped
-	name = "ripped blood pack"
+	name = "ripped IV bag"
 	desc = "It's torn up and useless."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"
 	volume = 0
 
-/obj/item/reagent_containers/blood/ripped/attackby(obj/item/P as obj, mob/user as mob)
-	to_chat(user, "<span class='warning'>You can't do anything further with this.</span>")
+/obj/item/reagent_containers/blood/ripped/attackby(obj/item/attacking_item, mob/user)
+	to_chat(user, SPAN_WARNING("You can't do anything further with this."))
 	return

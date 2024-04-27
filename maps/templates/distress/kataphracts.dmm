@@ -2,16 +2,10 @@
 "a" = (
 /obj/machinery/power/emitter,
 /obj/effect/decal/warning_stripes,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "b" = (
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "c" = (
 /obj/structure/table/rack,
@@ -45,10 +39,7 @@
 	},
 /obj/item/clothing/gloves/yellow/specialu,
 /obj/item/clothing/gloves/yellow/specialu,
-/turf/unsimulated/floor{
-	icon_state = "vault";
-	dir = 5
-	},
+/turf/unsimulated/floor,
 /area/centcom/distress_prep)
 "d" = (
 /obj/structure/closet/crate/freezer{
@@ -74,16 +65,16 @@
 /obj/item/reagent_containers/food/snacks/skrellsnacks,
 /obj/item/reagent_containers/food/snacks/nathisnack,
 /obj/item/reagent_containers/food/snacks/nathisnack,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
-/obj/item/reagent_containers/food/drinks/cans/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},
@@ -104,6 +95,7 @@
 	pixel_x = 4;
 	pixel_y = -6
 	},
+/obj/item/material/twohanded/pike/flag/hegemony,
 /turf/unsimulated/floor{
 	icon_state = "platebot"
 	},

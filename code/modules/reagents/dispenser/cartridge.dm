@@ -1,9 +1,11 @@
 /obj/item/reagent_containers/chem_disp_cartridge
 	name = "chemical dispenser cartridge"
 	desc = "This goes in a chemical dispenser."
+	icon = 'icons/obj/item/reagent_containers/cartridge.dmi'
 	icon_state = "cartridge"
-
-	w_class = 3
+	contained_sprite = TRUE
+	filling_states = "20;40;60;80;100"
+	w_class = ITEMSIZE_NORMAL
 
 	volume = CARTRIDGE_VOLUME_LARGE
 	amount_per_transfer_from_this = 50
@@ -23,21 +25,34 @@
 		src.temperature_override = temperature_override
 	if(spawn_reagent)
 		reagents.add_reagent(spawn_reagent, volume, temperature = src.temperature_override)
-		var/datum/reagent/R = SSchemistry.chemical_reagents[spawn_reagent]
+		var/singleton/reagent/R = GET_SINGLETON(spawn_reagent)
 		if(label)
 			setLabel(label)
 		else
 			setLabel(R.name)
 
-/obj/item/reagent_containers/chem_disp_cartridge/examine(mob/user)
-	..()
-	to_chat(user, "It has a capacity of [volume] units.")
-	if(reagents.total_volume <= 0)
-		to_chat(user, "It is empty.")
-	else
-		to_chat(user, "It contains [reagents.total_volume] units of liquid.")
+/obj/item/reagent_containers/chem_disp_cartridge/update_icon()
+	cut_overlays()
+
+	if(reagents?.total_volume)
+		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
+		filling.color = reagents.get_color()
+		add_overlay(filling)
+
 	if(!is_open_container())
-		to_chat(user, "The cap is sealed.")
+		var/lid_icon = "lid_[icon_state]"
+		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
+		add_overlay(lid)
+
+/obj/item/reagent_containers/chem_disp_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "It has a capacity of [volume] units."
+	if(reagents.total_volume <= 0)
+		. += "It is empty."
+	else
+		. += "It contains [reagents.total_volume] units of liquid."
+	if(!is_open_container())
+		. += "The cap is sealed."
 
 /obj/item/reagent_containers/chem_disp_cartridge/verb/verb_set_label(L as text)
 	set name = "Set Cartridge Label"
@@ -65,15 +80,21 @@
 			to_chat(user, "<span class='notice'>You clear the label on \the [src].</span>")
 		label = ""
 		name = initial(name)
+	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/attack_self()
 	..()
 	if (is_open_container())
 		to_chat(usr, "<span class = 'notice'>You put the cap on \the [src].</span>")
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	else
 		to_chat(usr, "<span class = 'notice'>You take the cap off \the [src].</span>")
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+	update_icon()
+
+/obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/attacking_item, mob/user)
+	..()
+	update_icon()
 
 /obj/item/reagent_containers/chem_disp_cartridge/afterattack(obj/target, mob/user , flag)
 	if (!is_open_container() || !flag)
@@ -108,3 +129,4 @@
 
 	else
 		return ..()
+	update_icon()

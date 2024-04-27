@@ -1,26 +1,31 @@
 /obj/item/psychic_power/psiblade
-	name = "psychokinetic slash"
-	force = 10
+	name = "psionic blade"
+	force = 15
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	maintain_cost = 1
 	icon_state = "psiblade_short"
 	hitsound = 'sound/weapons/psisword.ogg'
 
-/obj/item/psychic_power/psiblade/dropped(var/mob/living/user)
+/obj/item/psychic_power/psiblade/Initialize()
+	. = ..()
+	switch(owner.psi.get_rank())
+		if(PSI_RANK_SENSITIVE)
+			force = 25
+			armor_penetration = 10
+		if(PSI_RANK_HARMONIOUS)
+			force = 31
+			armor_penetration = 20
+		if(PSI_RANK_APEX)
+			force = 33
+			armor_penetration = 30
+			icon_state = "psiblade_long"
+		if(PSI_RANK_LIMITLESS)
+			force = 40
+			armor_penetration = 40
+			icon_state = "psiblade_long"
+
+/obj/item/psychic_power/psiblade/dropped(mob/user)
+	. = ..()
 	playsound(loc, 'sound/effects/psi/power_fail.ogg', 30, 1)
 	QDEL_IN(src, 1)
-
-/obj/item/psychic_power/psiblade/master
-	force = 20
-	maintain_cost = 2
-	
-/obj/item/psychic_power/psiblade/master/grand
-	force = 30
-	maintain_cost = 3
-	icon_state = "psiblade_long"
-
-/obj/item/psychic_power/psiblade/master/grand/paramount // Silly typechecks because rewriting old interaction code is outside of scope.
-	force = 50
-	maintain_cost = 4
-	icon_state = "psiblade_long"

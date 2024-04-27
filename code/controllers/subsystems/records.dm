@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/records/SSrecords
-
-/datum/controller/subsystem/records
+SUBSYSTEM_DEF(records)
 	name = "Records"
 	flags = SS_NO_FIRE
 
@@ -9,6 +7,7 @@
 
 	var/list/warrants
 	var/list/viruses
+	var/list/shuttle_manifests
 
 	var/list/excluded_fields
 	var/list/localized_fields
@@ -18,24 +17,27 @@
 
 	var/list/citizenships = list()
 	var/list/religions = list()
+	var/list/accents = list()
 
 /datum/controller/subsystem/records/Initialize()
-	..()
 	for(var/type in localized_fields)
 		localized_fields[type] = compute_localized_field(type)
 
 	InitializeCitizenships()
 	InitializeReligions()
+	InitializeAccents()
 
-/datum/controller/subsystem/records/New()
+	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/records/PreInit()
 	records = list()
 	records_locked = list()
 	warrants = list()
 	viruses = list()
+	shuttle_manifests = list()
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
-	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
 		excluded_fields[v] = v
@@ -104,6 +106,9 @@
 			warrants += record
 		if(/datum/record/virus)
 			viruses += record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests += record
+	onCreate(record)
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -116,6 +121,8 @@
 			warrants |= record
 		if(/datum/record/virus)
 			viruses |= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests |= record
 	onModify(record)
 
 /datum/controller/subsystem/records/proc/remove_record(var/datum/record/record)
@@ -129,6 +136,8 @@
 			warrants -= record
 		if(/datum/record/virus)
 			viruses *= record
+		if(/datum/record/shuttle_manifest)
+			shuttle_manifests -= record
 	onDelete(record)
 	qdel(record)
 
@@ -171,99 +180,87 @@
 				return r
 
 /datum/controller/subsystem/records/proc/build_records()
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		generate_record(H)
 
 /datum/controller/subsystem/records/proc/reset_manifest()
 	manifest.Cut()
+	update_static_data_for_all_viewers()
 
-/datum/controller/subsystem/records/proc/get_manifest(var/monochrome = 0, var/OOC = 0)
-	if(!manifest.len)
-		get_manifest_json()
-	var/dat = {"
-	<head><style>
-		.manifest {border-collapse:collapse;}
-		.manifest td, th {border:1px solid [monochrome?"black":"#DEF; background-color:white; color:black"]; padding:.25em}
-		.manifest th {height: 2em; [monochrome?"border-top-width: 3px":"background-color: #48C; color:white"]}
-		.manifest tr.head th { [monochrome?"border-top-width: 1px":"background-color: #488;"] }
-		.manifest td:first-child {text-align:right}
-		.manifest tr.alt td {[monochrome?"border-top-width: 2px":"background-color: #DEF"]}
-	</style></head>
-	<table class="manifest" width='350px'>
-	<tr class='head'><th>Name</th><th>Rank</th><th>Activity</th></tr>
-	"}
-	var/even = 0
-	var/list/isactive = new()
-	for(var/mob/M in player_list)
-		if (OOC)
-			if(M.client && M.client.inactivity <= 10 * 60 * 10)
-				isactive[M.real_name] = "Active"
-			else
-				isactive[M.real_name] = "Inactive"
-		else
-			isactive[M.real_name] = 0
+/datum/controller/subsystem/records/ui_state(mob/user)
+	return GLOB.always_state
 
-	var/nameMap = list("heads" = "Heads", "sec" = "Security", "eng" = "Engineering", "med" = "Medical", "sci" = "Science", "car" = "Cargo", "civ" = "Civilian", "misc" = "Miscellaneous", "bot" = "Equipment")
+/datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
+	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
+
+/datum/controller/subsystem/records/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	. = ..()
+	if(.)
+		return
+
+	if(action == "follow")
+		var/mob/abstract/observer/O = usr
+		if(istype(O))
+			for(var/mob/living/M in GLOB.human_mob_list)
+				if(istype(M) && M.real_name == params["name"])
+					O.ManualFollow(M)
+					break
+	. = ..()
+
+/datum/controller/subsystem/records/ui_static_data(mob/user)
+	var/list/data = list()
+	data["manifest"] = SSrecords.get_manifest_list()
+	data["allow_follow"] = isobserver(user)
+	return data
+
+/datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "CrewManifest", "Crew Manifest")
+		ui.open()
+
+/datum/controller/subsystem/records/proc/get_manifest_text()
+	var/dat = "<h2>Crew Manifest</h2><em>as of [worlddate2text()] [worldtime2text()]</em>"
+	var/manifest = get_manifest_list()
 	for(var/dep in manifest)
 		var/list/depI = manifest[dep]
 		if(depI.len > 0)
-			dat += "<tr><th colspan=3>[nameMap[dep]]</th></tr>"
+			var/depDat
 			for(var/list/item in depI)
-				dat += "<tr[even ? " class='alt'" : ""]><td>[item["name"]]</td><td>[item["rank"]]</td><td>[isactive[item["name"]] ? isactive[item["name"]] : item["active"]]</td></tr>"
-				even = !even
-	dat += "</table>"
-	dat = replacetext(dat, "\n", "") // so it can be placed on paper correctly
-	dat = replacetext(dat, "\t", "")
+				depDat += "<li><strong>[item["name"]]</strong> - [item["rank"]] ([item["active"]])</li>"
+			dat += "<h3>[dep]</h3><ul>[depDat]</ul>"
 	return dat
 
 /datum/controller/subsystem/records/proc/get_manifest_list()
 	if(manifest.len)
 		return manifest
-	manifest = list(
-		"heads" = list(),
-		"sec" = list(),
-		"eng" = list(),
-		"med" = list(),
-		"sci" = list(),
-		"car" = list(),
-		"civ" = list(),
-		"bot" = list(),
-		"misc" = list()
-	)
-	var/positions = list(
-		"heads" = command_positions,
-		"sec" = security_positions,
-		"eng" = engineering_positions,
-		"med" = medical_positions,
-		"sci" = science_positions,
-		"car" = cargo_positions,
-		"civ" = civilian_positions,
-		"bot" = nonhuman_positions
-	)
+	if(!SSjobs)
+		log_world("ERROR: SSjobs not available, cannot build manifest")
+		return
+	manifest = DEPARTMENTS_LIST_INIT
 	for(var/datum/record/general/t in records)
-		var/name = sanitize(t.name)
-		var/rank = sanitize(t.rank)
+		var/name = sanitize(t.name, encode = FALSE)
+		var/rank = sanitize(t.rank, encode = FALSE)
 		var/real_rank = make_list_rank(t.real_rank)
 
+		var/datum/job/job = SSjobs.GetJob(real_rank)
 		var/isactive = t.physical_status
-		var/department = 0
-		var/depthead = 0            // Department Heads will be placed at the top of their lists.
 
-		for(var/positionType in positions)
-			var/typesPositions = positions[positionType]
-			if(real_rank in typesPositions)
-				manifest[positionType][++manifest[positionType].len] = list("name" = name, "rank" = rank, "active" = isactive)
-				department = 1
-				if ((depthead || rank == "Captain") && manifest[positionType].len != 1)
-					manifest[positionType].Swap(1, manifest[positionType].len)
-					manifest[positionType][1]["head"] = TRUE
-				if(positionType == "head")
-					depthead = 1
+		var/list/departments
+		if(istype(job) && job.departments.len > 0 && all_in_list(job.departments, manifest))
+			departments = job.departments
+		else // no department set or there's something weird
+			departments = list(DEPARTMENT_MISCELLANEOUS = JOBROLE_DEFAULT)
 
-		if(!department && !(name in manifest["heads"]))
-			manifest["misc"][++manifest["misc"].len] = list("name" = name, "rank" = rank, "active" = isactive)
+		for(var/department in departments) // add them to their departments
+			var/supervisor = departments[department] & JOBROLE_SUPERVISOR
+			manifest[department][++manifest[department].len] = list("name" = name, "rank" = rank, "active" = isactive, "head" = supervisor)
+			if(supervisor) // they are a supervisor/head, put them on top
+				manifest[department].Swap(1, manifest[department].len)
 
-	for(var/mob/living/silicon/S in player_list)
+	// silicons are not in records, we need to add them manually
+	var/dept = DEPARTMENT_EQUIPMENT
+	for(var/mob/living/silicon/S in GLOB.player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
 			if(R.scrambled_codes)
@@ -271,12 +268,15 @@
 			var/selected_module = "Default Module"
 			if(R.module)
 				selected_module = capitalize_first_letters(R.module.name)
-			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online")
-		if(istype(S, /mob/living/silicon/ai))
+			manifest[dept][++manifest[dept].len] = list("name" = sanitize(R.name), "rank" = selected_module, "active" = "Online", "head" = FALSE)
+		else if(istype(S, /mob/living/silicon/ai))
 			var/mob/living/silicon/ai/A = S
-			manifest["bot"][++manifest["bot"].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online")
-			if(manifest["bot"].len != 1)
-				manifest["bot"].Swap(1, manifest["bot"].len)
+			manifest[dept][++manifest[dept].len] = list("name" = sanitize(A.name), "rank" = "Station Intelligence", "active" = "Online", "head" = TRUE)
+			manifest[dept].Swap(1, manifest[dept].len)
+
+	for(var/department in manifest)
+		if(!length(manifest[department]))
+			manifest -= department
 
 	manifest_json = json_encode(manifest)
 	return manifest
@@ -284,40 +284,43 @@
 /datum/controller/subsystem/records/proc/get_manifest_json()
 	if(manifest.len)
 		return manifest_json
-	
+
 	get_manifest_list()
 	return manifest_json
 
-/datum/controller/subsystem/records/proc/onDelete(var/datum/record/r)
-	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_delete(r)
+/datum/controller/subsystem/records/proc/onCreate(var/datum/record/record)
+	SEND_SIGNAL(src, COMSIG_RECORD_CREATED, record)
 
-/datum/controller/subsystem/records/proc/onModify(var/datum/record/r)
-	if(r in records)
-		reset_manifest()
+/datum/controller/subsystem/records/proc/onDelete(var/datum/record/record)
 	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_modify(r)
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_delete(record)
+
+/datum/controller/subsystem/records/proc/onModify(var/datum/record/record)
+	if(record in records)
+		reset_manifest()
+	SEND_SIGNAL(record, COMSIG_RECORD_MODIFIED)
+	for (var/listener in GET_LISTENERS("SSrecords"))
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_modify(record)
 
 /*
  * Helping functions for everyone
  */
-/proc/GetAssignment(var/mob/living/carbon/human/H)
+/proc/GetAssignment(var/mob/living/carbon/human/H, var/include_faction_prefix)
+	var/return_value = "Unassigned"
 	if(H.mind?.role_alt_title)
-		return H.mind.role_alt_title
+		return_value = H.mind.role_alt_title
 	else if(H.mind?.assigned_role)
-		return H.mind.assigned_role
+		return_value = H.mind.assigned_role
 	else if(H.job)
-		return H.job
-	else
-		return "Unassigned"
+		return_value = H.job
+	return "[return_value][include_faction_prefix ? " ([H.mind.selected_faction.title_suffix])" : ""]"
 
 /proc/generate_record_id()
-	return add_zero(num2hex(rand(1, 65535)), 4)
-
+	return num2hex(rand(1, 65535), 4)
 
 /datum/controller/subsystem/records/proc/InitializeCitizenships()
 	for (var/type in subtypesof(/datum/citizenship))
@@ -335,7 +338,17 @@
 		religions[religion.name] = religion
 
 	if (!religions.len)
-		crash_with("No citizenships located in SSrecords.")
+		crash_with("No religions located in SSrecords.")
+
+/datum/controller/subsystem/records/proc/InitializeAccents()
+	for (var/type in subtypesof(/datum/accent))
+		var/datum/accent/accent = new type()
+
+		accents[accent.name] = accent
+
+	if (!accents.len)
+		crash_with("No accents located in SSrecords.")
+
 
 /datum/controller/subsystem/records/proc/get_religion_record_name(var/target_religion)
 	var/datum/religion/religion = SSrecords.religions[target_religion]

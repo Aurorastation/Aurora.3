@@ -12,7 +12,7 @@
  *		Cash Bag
  *		Book Bag (New thing)
  *		Slime Bag (New thing) ~Chaoko99
-  *
+ *
  *	-Sayu
  */
 
@@ -24,6 +24,8 @@
 	use_to_pickup = 1
 	slot_flags = SLOT_BELT
 	var/use_deferred = TRUE
+	icon = 'icons/obj/storage/bags.dmi'
+	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
 
@@ -33,16 +35,11 @@
 /obj/item/storage/bag/trash
 	name = "trash bag"
 	desc = "It's the heavy-duty black polymer kind. Time to take out the trash!"
-	icon = 'icons/obj/janitor.dmi'
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_janitor.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_janitor.dmi',
-		)
 	icon_state = "trashbag0"
 	item_state = "trashbag"
 
-	w_class = 4
-	max_w_class = 2
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_SMALL
 	max_storage_space = 56
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
@@ -58,10 +55,10 @@
 		icon_state = "trashbag2"
 	else icon_state = "trashbag3"
 
-/obj/item/storage/bag/trash/attackby(var/obj/item/I, var/mob/user)
-	if (istype (I, /obj/item/device/lightreplacer))
+/obj/item/storage/bag/trash/attackby(obj/item/attacking_item, mob/user)
+	if (istype (attacking_item, /obj/item/device/lightreplacer))
 		var/count = 0
-		var/obj/item/device/lightreplacer/R = I
+		var/obj/item/device/lightreplacer/R = attacking_item
 		var/bagfull = 0
 		if (R.store_broken)
 			for(var/obj/item/light/L in R.contents)
@@ -78,9 +75,9 @@
 				handle_storage_deferred(user)
 
 			if (count)
-				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the trashbag.</span>")
+				to_chat(user, SPAN_NOTICE("You empty [count] broken bulbs into the trashbag."))
 			else if (!bagfull)
-				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
+				to_chat(user, SPAN_NOTICE("There are no broken bulbs to empty out."))
 			return 1
 	..()
 
@@ -107,12 +104,10 @@
 /obj/item/storage/bag/plasticbag
 	name = "plastic bag"
 	desc = "It's a very flimsy, very noisy alternative to a bag."
-	icon = 'icons/obj/trash.dmi'
 	icon_state = "plasticbag"
 	item_state = "plasticbag"
-
-	w_class = 4
-	max_w_class = 2
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_SMALL
 	can_hold = null // any
 	cant_hold = list(/obj/item/disk/nuclear)
 	drop_sound = 'sound/items/drop/wrapper.ogg'
@@ -124,30 +119,13 @@
 
 /obj/item/storage/bag/plants
 	name = "plant bag"
-	icon = 'icons/obj/hydroponics_machines.dmi'
+	desc = "For storing your stems, seeds, buds, and any other illicit substances."
 	icon_state = "plantbag"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/lefthand_hydro.dmi',
-		slot_r_hand_str = 'icons/mob/items/righthand_hydro.dmi',
-		)
+	item_state = "plantbag"
 	max_storage_space = 100
-	max_w_class = 3
-	w_class = 2
+	max_w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_SMALL
 	can_hold = list(/obj/item/reagent_containers/food/snacks/grown,/obj/item/seeds,/obj/item/grown)
-
-// -----------------------------
-//        Slime core bag
-// -----------------------------
-
-/obj/item/storage/bag/slimes
-	name = "slime core bag"
-	icon = 'icons/mob/npc/slimes.dmi'
-	icon_state = "slimebag"
-	desc = "A pressurized and thermoregulated bag for the storage and transport of slime cores."
-	max_storage_space = 100
-	max_w_class = 3
-	w_class = 2
-	can_hold = list(/obj/item/slime_extract)
 
 // -----------------------------
 //        Sheet Snatcher
@@ -157,12 +135,11 @@
 
 /obj/item/storage/bag/sheetsnatcher
 	name = "sheet snatcher"
-	icon = 'icons/obj/mining.dmi'
 	icon_state = "sheetsnatcher"
 	desc = "A patented storage system designed for any kind of mineral sheet."
 
 	var/capacity = 300; //the number of sheets it can carry.
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	storage_slots = 7
 
 	allow_quick_empty = 1 // this function is superceded
@@ -178,7 +155,7 @@
 		current += S.amount
 	if(capacity == current)//If it's full, you're done
 		if(!stop_messages)
-			to_chat(usr, "<span class='warning'>The snatcher is full.</span>")
+			to_chat(usr, SPAN_WARNING("The snatcher is full."))
 		return 0
 	return 1
 
@@ -207,7 +184,7 @@
 
 	if(!inserted || !S.amount)
 		usr.remove_from_mob(S)
-		usr.update_icons()	//update our overlays
+		usr.update_icon()	//update our overlays
 		if (usr.client && usr.s_active != src)
 			usr.client.screen -= S
 		S.dropped(usr)
@@ -294,16 +271,19 @@
 // -----------------------------
 
 /obj/item/storage/bag/money
-	icon = 'icons/obj/storage.dmi'
 	name = "money bag"
 	desc = "A bag for carrying lots of money. It's got a big dollar sign printed on the front."
 	icon_state = "moneybag"
-	flags = CONDUCT
+	item_state = "moneybag"
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	max_storage_space = 100
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	can_hold = list(/obj/item/coin,/obj/item/spacecash)
 
-/obj/item/storage/bag/money/vault
+/obj/item/storage/bag/money/Initialize(mapload)
+	. = ..()
+	if(prob(20))
+		icon_state = "moneybagalt"
 
 /obj/item/storage/bag/money/vault/New()
 	..()
@@ -322,11 +302,22 @@
 /obj/item/storage/bag/books
 	name = "book bag"
 	desc = "A bag for books."
-	icon = 'icons/obj/library.dmi'
 	icon_state = "bookbag"
 	storage_slots = 7
 	max_storage_space = 200
-	max_w_class = 3
-	w_class = 3
-	can_hold = list(/obj/item/book, /obj/item/spellbook)
+	max_w_class = ITEMSIZE_NORMAL
+	w_class = ITEMSIZE_NORMAL
+	can_hold = list(/obj/item/book)
 
+	// -----------------------------
+	//           Chemistry Bag
+	// -----------------------------
+/obj/item/storage/bag/chemistry
+	name = "chemistry bag"
+	icon_state = "chembag"
+	item_state = "chembag"
+	desc = "A bag for storing pills and bottles of medicine."
+	max_storage_space = 200
+	w_class = ITEMSIZE_LARGE
+	slowdown = 1
+	can_hold = list(/obj/item/reagent_containers/pill,/obj/item/reagent_containers/glass/beaker,/obj/item/reagent_containers/glass/bottle)

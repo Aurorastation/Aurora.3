@@ -1,17 +1,6 @@
 /////////////////////////////
 // Helpers for DNA2
 /////////////////////////////
-
-// Pads 0s to t until length == u
-/proc/add_zero2(t, u)
-	var/temp1
-	while (length(t) < u)
-		t = "0[t]"
-	temp1 = t
-	if (length(t) > u)
-		temp1 = copytext(t,2,u+1)
-	return temp1
-
 // DNA Gene activation boundaries, see dna2.dm.
 // Returns a list object with 4 numbers.
 /proc/GetDNABounds(var/block)
@@ -28,7 +17,7 @@
 		if(H.species && H.species.flags & NO_SCAN)
 			return
 	M.dna.check_integrity()
-	var/block = pick(GLASSESBLOCK,COUGHBLOCK,FAKEBLOCK,STUTTERBLOCK,CLUMSYBLOCK,TWITCHBLOCK,HEADACHEBLOCK,BLINDBLOCK,DEAFBLOCK,HALLUCINATIONBLOCK)
+	var/block = pick(GLASSESBLOCK,COUGHBLOCK,FAKEBLOCK,STUTTERBLOCK,CLUMSYBLOCK,TWITCHBLOCK,HEADACHEBLOCK,BLINDBLOCK,DEAFBLOCK)
 	M.dna.SetSEState(block, 1)
 
 // Give Random Good Mutation to M
@@ -156,7 +145,7 @@
 		H.b_eyes   = dna.GetUIValueRange(DNA_UI_EYES_B,    255)
 		H.update_eyes()
 
-		H.s_tone   = 35 - dna.GetUIValueRange(DNA_UI_SKIN_TONE, 220) // Value can be negative.
+		H.s_tone   = dna.GetUIValueRange(DNA_UI_SKIN_TONE, 220)
 
 		if (dna.GetUIState(DNA_UI_GENDER))
 			H.gender = FEMALE
@@ -172,14 +161,14 @@
 				E.invalidate_marking_cache()
 
 		//Hair
-		var/hair = dna.GetUIValueRange(DNA_UI_HAIR_STYLE,hair_styles_list.len)
-		if((0 < hair) && (hair <= hair_styles_list.len))
-			H.h_style = hair_styles_list[hair]
+		var/hair = dna.GetUIValueRange(DNA_UI_HAIR_STYLE, GLOB.hair_styles_list.len)
+		if((0 < hair) && (hair <= GLOB.hair_styles_list.len))
+			H.h_style = GLOB.hair_styles_list[hair]
 
 		//Facial Hair
-		var/beard = dna.GetUIValueRange(DNA_UI_BEARD_STYLE,facial_hair_styles_list.len)
-		if((0 < beard) && (beard <= facial_hair_styles_list.len))
-			H.f_style = facial_hair_styles_list[beard]
+		var/beard = dna.GetUIValueRange(DNA_UI_BEARD_STYLE, GLOB.facial_hair_styles_list.len)
+		if((0 < beard) && (beard <= GLOB.facial_hair_styles_list.len))
+			H.f_style = GLOB.facial_hair_styles_list[beard]
 
 		H.force_update_limbs()
 		H.update_eyes()

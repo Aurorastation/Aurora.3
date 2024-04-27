@@ -10,7 +10,7 @@
 		log_say("Hallucination level changed [orig_message] by [speaker] to [message] for [key_name(src)].", ckey=key_name(src))
 	return ..()
 
-/mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
+/mob/living/carbon/hear_radio(var/message, var/verb="says", var/datum/language/language, var/part_a, var/part_b, var/part_c, var/mob/speaker, var/hard_to_hear = 0, var/vname ="")
 	if(hallucination >= 60 && prob(1))
 		var/orig_message = message
 		message = pick(SShallucinations.hallucinated_phrases)
@@ -33,8 +33,8 @@
 	if(!client || stat || world.time < next_hallucination)
 		return
 
-	var/hall_delay = rand(180,250)	//Time between hallucinations, modified below.
-	
+	var/hall_delay = rand(30, 40) SECONDS	//Time between hallucinations, modified below.
+
 	//Modifying time between effects based on strength and chemicals
 	switch(hallucination)	//26-149 are intentionally left off, as they do not modify the delay. This is a pretty common range for hallucinations.
 		if(1 to 25)		//Winding down, less frequent.
@@ -49,12 +49,12 @@
 		else
 			hall_delay *= min(1.25, abs(chem_effects[CE_HALLUCINATE])) //if CE_HALLUCINATE is -1, 25% more time between
 	if(chem_effects[CE_HALLUCINATE] > 0)
-		hall_delay /= max(1.25, chem_effects[CE_HALLUCINATE]) //if CE_HALLUCINATE is 1, 25% less time between
+		hall_delay /= max(1.15, chem_effects[CE_HALLUCINATE]) //if CE_HALLUCINATE is 1, 15% less time between
 
 	next_hallucination = world.time + hall_delay
 	var/datum/hallucination/H = SShallucinations.get_hallucination(src)
 	if(isnull(H))
-		log_debug("Returned null hallucination for [src]")
+		LOG_DEBUG("Returned null hallucination for [src]")
 		return
 	H.holder = src
 	H.activate()
@@ -62,7 +62,7 @@
 //This is called on every end() so usually occurs a few times. Grants a thought to the user from thoughts list.
 /mob/living/carbon/proc/hallucination_thought()
 	if(prob(min(hallucination/2, 50)))
-		addtimer(CALLBACK(src, .proc/hal_thought_give), rand(30,90))
+		addtimer(CALLBACK(src, PROC_REF(hal_thought_give)), rand(30,90))
 
 /mob/living/carbon/proc/hal_thought_give()
 	to_chat(src, "<I>[pick(SShallucinations.hallucinated_thoughts)]</I>")

@@ -1,6 +1,16 @@
-//Contains the rapid construction device.
+//
+// Rapid Fabrication Devices
+//
+
+// Defines
+#define MATERIALIZATION_FAIL_MESSAGE "You can't materialize two constructions of the same type."
+
+//
+// Rapid Fabrication Device
+//
+
 /obj/item/rfd
-	name = "\improper Rapid-Fabrication-Device"
+	name = "\improper Rapid Fabrication Device"
 	desc = "A device used for rapid fabrication. The matter decompression matrix is untuned, rendering it useless."
 	icon = 'icons/obj/rfd.dmi'
 	icon_state = "rfd"
@@ -9,30 +19,37 @@
 		slot_l_hand_str = 'icons/mob/items/lefthand_tools.dmi',
 		slot_r_hand_str = 'icons/mob/items/righthand_tools.dmi'
 		)
-	opacity = 0
-	density = 0
-	anchored = 0.0
-	flags = CONDUCT
-	force = 10.0
-	throwforce = 10.0
+	opacity = FALSE
+	density = FALSE
+	anchored = FALSE
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 11
+	throwforce = 10
 	throw_speed = 1
 	throw_range = 5
-	w_class = 3.0
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 50000)
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
-	var/stored_matter = 30 // Starts off full.
+	var/stored_matter = 30 // Starts of full.
 	var/working = FALSE
-	var/mode = 1
+	var/mode = RFD_FLOORS_AND_WALL
 	var/number_of_modes = 1
 	var/list/modes
 	var/crafting = FALSE
 
+	// A list of atoms that will be sent to the alter_atom proc if we click on them, rather than their turf.
+	var/list/valid_atoms = list(
+		/obj/machinery/door/airlock,
+		/obj/structure/window_frame,
+		/obj/structure/window/full
+	)
 	var/build_cost = 0
 	var/build_type
-	var/build_turf
+	var/build_atom
 	var/build_delay
+	var/last_fail = 0
 
 /obj/item/rfd/Initialize()
 	. = ..()
@@ -44,58 +61,68 @@
 /obj/item/rfd/proc/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && user.get_active_hand() == src && !user.stat && !user.restrained())
 
-/obj/item/rfd/examine(var/mob/user)
-	..()
+/obj/item/rfd/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(loc == user)
-		to_chat(usr, "It currently holds [stored_matter]/30 matter-units.")
+		. += "It currently holds [stored_matter]/30 matter units."
 
 /obj/item/rfd/attack_self(mob/user)
 	//Change the mode
 	if(++mode > number_of_modes)
-		mode = 1
+		mode = RFD_FLOORS_AND_WALL
 	to_chat(user, SPAN_NOTICE("The mode selection dial is now at [modes[mode]]."))
-	playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-	if(prob(20))
-		spark(get_turf(loc), 3, alldirs)
+	playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 
-/obj/item/rfd/attackby(obj/item/W, mob/user)
-
-	if(istype(W, /obj/item/rfd_ammo))
+/obj/item/rfd/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/rfd_ammo))
 		if((stored_matter + 10) > 30)
-			to_chat(user, "<span class='notice'>The RFD can't hold any more matter-units.</span>")
+			to_chat(user, SPAN_NOTICE("The RFD can't hold any more matter units."))
 			return
-		user.drop_from_inventory(W,src)
-		qdel(W)
+		user.drop_from_inventory(attacking_item, src)
+		qdel(attacking_item)
 		stored_matter += 10
-		playsound(src.loc, 'sound/machines/click.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>The RFD now holds [stored_matter]/30 matter-units.</span>")
+		playsound(src.loc, 'sound/weapons/laser_reload1.ogg', 50, FALSE)
+		to_chat(user, SPAN_NOTICE("The RFD now holds [stored_matter]/30 matter units."))
 		update_icon()
-		return
+		return TRUE
 
-	if(W.isscrewdriver())  // Turning it into a crossbow
+	if(attacking_item.isscrewdriver())  // Turning it into a crossbow
 		crafting = !crafting
 		if(!crafting)
-			to_chat(user, "<span class='notice'>You reassemble the RFD</span>")
+			to_chat(user, SPAN_NOTICE("You reassemble the RFD."))
 		else
-			to_chat(user, "<span class='notice'>The RFD can now be modified.</span>")
+			to_chat(user, SPAN_NOTICE("The RFD can now be modified."))
 		src.add_fingerprint(user)
-		return
+		return TRUE
 
-	if((crafting) && (istype(W,/obj/item/crossbowframe)))
-		var/obj/item/crossbowframe/F = W
-		if(F.buildstate == 5)
-			if(!user.unEquip(src))
-				return
-			qdel(F)
-			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // can be found in crossbow.dm
+	if(crafting)
+		var/obj/item/crossbow // the thing we're gonna add, check what it is below
+		if(istype(attacking_item, /obj/item/crossbowframe))
+			var/obj/item/crossbowframe/F = attacking_item
+			if(F.buildstate != 5)
+				to_chat(user, SPAN_WARNING("You need to fully assemble the crossbow frame first!"))
+				return TRUE
+			crossbow = F
+		else if(istype(attacking_item, /obj/item/gun/launcher/crossbow) && !istype(attacking_item, /obj/item/gun/launcher/crossbow/RFD))
+			var/obj/item/gun/launcher/crossbow/C = attacking_item
+			if(C.bolt)
+				to_chat(user, SPAN_WARNING("You need to remove \the [C.bolt] from \the [C] before you can attach it to \the [src]."))
+				return TRUE
+			if(C.cell)
+				to_chat(user, SPAN_WARNING("You need to remove \the [C.cell] from \the [C] before you can attach it to \the [src]."))
+				return TRUE
+			crossbow = C
+
+		if(crossbow)
+			qdel(crossbow)
+			var/obj/item/gun/launcher/crossbow/RFD/CB = new(get_turf(user)) // Can be found in "crossbow.dm".
 			forceMove(CB)
 			CB.stored_matter = src.stored_matter
-			add_fingerprint(user)
-			return
-		else
-			to_chat(user, "<span class='notice'>You need to fully assemble the crossbow frame first!</span>")
-			return
-	..()
+			user.drop_from_inventory(src)
+			qdel(src)
+			user.put_in_hands(CB)
+			return TRUE
+	return ..()
 
 
 /obj/item/rfd/proc/useResource(var/amount, var/mob/user)
@@ -105,7 +132,7 @@
 	update_icon()
 	return TRUE
 
-/obj/item/rfd/update_icon()	//For the fancy "ammo" counter
+/obj/item/rfd/update_icon()	// For the fancy "ammo" counter.
 	overlays.Cut()
 
 	var/ratio = 0
@@ -120,108 +147,159 @@
 	icon = 'icons/obj/ammo.dmi'
 	icon_state = "rfd"
 	item_state = "rfdammo"
-	w_class = 2
+	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MATERIAL = 2)
-	matter = list(DEFAULT_WALL_MATERIAL = 30000, MATERIAL_GLASS = 15000)
+	matter = list(DEFAULT_WALL_MATERIAL = 2000, MATERIAL_GLASS = 2000)
+	recyclable = TRUE
 
-/*
-RFD Construction-Class
-*/
+//
+// RFD - Construction Class
+//
 
 /obj/item/rfd/construction
-	name = "\improper Rapid-Fabrication-Device C-Class"
+	name = "\improper Rapid Fabrication Device C-Class"
 	desc = "A RFD, modified to construct walls and floors."
 	var/list/radial_modes = list()
-	var/canRwall = 0
-	var/disabled = 0
+	var/can_rwall = FALSE
+	var/disabled = FALSE
 
 /obj/item/rfd/construction/Initialize()
 	. = ..()
 	radial_modes = list(
-		"Floors and Walls" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "wallfloor"),
+		"Floor and Wall" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "wallfloor"),
+		"Window and Window Frame" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "windowframe"),
 		"Airlock" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "airlock"),
 		"Deconstruct" = image(icon = 'icons/mob/screen/radial.dmi', icon_state = "delete")
 	)
 
 /obj/item/rfd/construction/attack_self(mob/user)
-	var/current_mode = show_radial_menu(user, src, radial_modes, radius = 42, require_near = TRUE, tooltips = TRUE)
+	var/current_mode = RADIAL_INPUT(user, radial_modes)
 	switch(current_mode)
-		if("Floors and Walls")
-			mode = 1
-		if("Airlock")
-			mode = 2
+		if("Floor and Wall")
+			mode = RFD_FLOORS_AND_WALL
+		if("Window and Window Frame")
+			mode = RFD_WINDOW_AND_FRAME
 		if("Deconstruct")
-			mode = 3
+			mode = RFD_DECONSTRUCT
+		if("Airlock")
+			mode = RFD_AIRLOCK
 		else
-			mode = 1
+			mode = RFD_DECONSTRUCT
 	if(current_mode)
 		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
-		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
-		if(prob(20))
-			spark(get_turf(src), 3, alldirs)
+		if(mode == 3)
+			playsound(get_turf(src), 'sound/weapons/laser_safetyoff.ogg', 50, FALSE)
+		else
+			playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 
 /obj/item/rfd/construction/afterattack(atom/A, mob/user, proximity)
 	if(!proximity)
 		return
+	if((!isturf(A) && !isturf(A.loc)) || istype(A, /obj/structure/table))
+		return
 	if(disabled && !isrobot(user))
 		return FALSE
-	if(istype(get_area(A),/area/shuttle)||istype(get_area(A),/turf/space/transit))
+	var/area/Area = get_area(A)
+	if(Area.centcomm_area || istype(Area, /area/shuttle) || istype(Area, /turf/space/transit))
+		to_chat(user, SPAN_NOTICE("\The [src] can't be used here."))
 		return FALSE
-	var/turf/t = get_turf(A)
-	if (isNotStationLevel(t.z))
-		return FALSE
-	return alter_turf(A, user, (mode == 3))
+	if(is_type_in_list(A, valid_atoms))
+		return alter_atom(A, user, (mode == RFD_DECONSTRUCT))
+	return alter_atom(get_turf(A), user, (mode == RFD_DECONSTRUCT))
 
-/obj/item/rfd/construction/proc/alter_turf(var/turf/T,var/mob/user,var/deconstruct)
-
+/obj/item/rfd/construction/proc/alter_atom(var/atom/A, var/mob/user, var/deconstruct)
 	if(working)
 		return FALSE
 
-	if(mode == 3 && istype(T,/obj/machinery/door/airlock))
-		build_cost =  10
-		build_delay = 50
-		build_type = "airlock"
-	else if(mode == 2 && !deconstruct && istype(T,/turf/simulated/floor))
-		build_cost =  3
-		build_delay = 20
-		build_type = "airlock"
-		build_turf = /obj/machinery/door/airlock
-	else if(!deconstruct && (istype(T,/turf/space) || istype(T,T.baseturf)))
-		build_cost =  1
-		build_type =  "floor"
-		build_turf =  /turf/simulated/floor/airless
-	else if(deconstruct && istype(T,/turf/simulated/wall))
-		var/turf/simulated/wall/W = T
-		build_delay = deconstruct ? 50 : 40
-		build_cost =  5
-		build_type =  (!canRwall && W.reinf_material) ? null : "wall"
-		build_turf =  /turf/simulated/floor
-	else if(istype(T,/turf/simulated/floor))
-		build_delay = deconstruct ? 50 : 20
-		build_cost =  deconstruct ? 10 : 3
-		build_type =  deconstruct ? "floor" : "wall"
-		build_turf =  deconstruct ? T.baseturf : /turf/simulated/wall
-	else
-		return FALSE
+	var/turf/T = isturf(A) ? A : null // the lower istypes will return false if T is null, which means we don't have to check whether it's an atom or a turf
+	if(mode == RFD_FLOORS_AND_WALL)
+		if(istype(T, /turf/space) || istype(T, T.baseturf))
+			build_cost = 1
+			build_type = "floor"
+			build_atom = /turf/simulated/floor/airless
+		else if(istype(T, /turf/simulated/open))
+			build_cost = 1
+			build_type = "floor"
+			build_atom = /turf/simulated/floor/airless
+		else if(istype(T, /turf/simulated/floor))
+			build_delay = 20
+			build_cost = 3
+			build_type = "wall"
+			build_atom = /turf/simulated/wall
+	else if(mode == RFD_WINDOW_AND_FRAME)
+		if(istype(T, /turf/simulated/floor))
+			if(locate(/obj/structure/window_frame) in get_turf(A))
+				to_chat(user, SPAN_NOTICE(MATERIALIZATION_FAIL_MESSAGE))
+				return
+			build_cost = 3
+			build_delay = 20
+			build_type = "window frame"
+			build_atom = /obj/structure/window_frame
+		else if(istype(A, /obj/structure/window_frame))
+			if(locate(/obj/structure/window/full/reinforced) in get_turf(A))
+				to_chat(user, SPAN_NOTICE(MATERIALIZATION_FAIL_MESSAGE))
+				return
+			build_cost = 3
+			build_delay = 20
+			build_type = "window"
+			build_atom = /obj/structure/window/full/reinforced
+	else if(mode == RFD_AIRLOCK)
+		if(istype(T, /turf/simulated/floor))
+			build_cost = 3
+			build_delay = 20
+			build_type = "airlock"
+			build_atom = /obj/machinery/door/airlock
+	else if(mode == RFD_DECONSTRUCT)
+		// Airlocks
+		if(istype(A, /obj/machinery/door/airlock))
+			build_cost = 10
+			build_delay = 50
+			build_type = "airlock"
+		// Walls
+		else if(istype(T, /turf/simulated/wall))
+			var/turf/simulated/wall/W = T
+			build_cost = 5
+			build_delay = 50
+			build_type = (!can_rwall && W.reinf_material) ? null : "wall"
+			build_atom = W.under_turf
+		// Floors
+		else if(istype(T, /turf/simulated/floor))
+			build_cost = 10
+			build_delay = 50
+			build_type = "floor"
+			build_atom = T.baseturf
+		// Window Frames
+		if(istype(A, /obj/structure/window_frame))
+			if(locate(/obj/structure/window/full) in get_turf(A))
+				to_chat(user, SPAN_NOTICE("You can't deconstruct \the [A] if it has glass installed."))
+				return
+			build_cost = 3
+			build_delay = 20
+			build_type = "window frame"
+		// Full Windows
+		else if(istype(A, /obj/structure/window/full))
+			build_cost = 5
+			build_delay = 50
+			build_type = "window"
 
 	if(!build_type)
 		working = FALSE
 		return FALSE
 
-	if(mode == 3 && !T.density && !istype(T,/turf/simulated/floor))
-		to_chat(user, "<span class='warning'>\The [build_type] must be closed before you can deconstruct it.</span>")
+	if(mode == RFD_DECONSTRUCT && istype(A, /obj/machinery/door) && !A.density)
+		to_chat(user, SPAN_WARNING("\The [build_type] must be closed before you can deconstruct it."))
 		return FALSE
 
 	if(stored_matter < build_cost)
-		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
+		to_chat(user, SPAN_NOTICE("The \"Matter Units Low\" light on the device blinks yellow."))
 		flick("[icon_state]-empty", src)
 		return FALSE
 
-	playsound(get_turf(src), 'sound/machines/hydraulic_short.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
-	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(T), src.build_delay, src.mode)
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [A]."), SPAN_NOTICE("You start [deconstruct ? "deconstructing" : "constructing"] \a [build_type]..."))
+	var/obj/effect/constructing_effect/rfd_effect = new(get_turf(A), src.build_delay, src.mode)
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
 		working = FALSE
@@ -229,30 +307,36 @@ RFD Construction-Class
 		return FALSE
 
 	working = FALSE
-	if(build_delay && !can_use(user,T))
+	if(build_delay && !can_use(user, A))
 		return FALSE
 
-	if(build_turf)
-		T.ChangeTurf(build_turf)
+	if(ispath(build_atom, /turf))
+		var/original_type = T.type
+		T.ChangeTurf(build_atom)
+		if(istype(T, /turf/simulated/wall))
+			var/turf/simulated/wall/W = T
+			W.under_turf = original_type
+	else if(ispath(build_atom, /obj))
+		new build_atom(get_turf(A))
 	else
-		qdel(T)
+		qdel(A)
 
 	rfd_effect.end_animation()
-	playsound(get_turf(src), 'sound/effects/magnetclamp.ogg', 50, 1)
+	playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	build_cost = null
 	build_delay = null
 	build_type = null
-	build_turf = null // So it resets and any fuckery is avoided
+	build_atom = null // So that it resets and any unintended functionality is avoided.
 	return TRUE
 
 /obj/item/rfd/construction/borg
-	canRwall = 1
+	can_rwall = TRUE
 
 /obj/item/rfd/construction/borg/useResource(var/amount, var/mob/user)
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
-			var/cost = amount*30
+			var/cost = (amount * 30)
 			if(R.cell.charge >= cost)
 				R.cell.use(cost)
 				return TRUE
@@ -268,8 +352,8 @@ RFD Construction-Class
 	return (user.Adjacent(T) && !user.stat)
 
 /obj/item/rfd/construction/mounted/useResource(var/amount, var/mob/user)
-	var/cost = amount*130 //so that a rig with default powercell can build ~2.5x the stuff a fully-loaded RFD-C can.
-	if(istype(loc,/obj/item/rig_module))
+	var/cost = (amount * 130) // So that a rig with default powercell can build ~2.5x the stuff a fully-loaded RFD-C can.
+	if(istype(loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = loc
 		if(module.holder && module.holder.cell)
 			if(module.holder.cell.charge >= cost)
@@ -288,17 +372,44 @@ RFD Construction-Class
 /obj/item/rfd/construction/mounted/can_use(var/mob/user,var/turf/T)
 	return (user.Adjacent(T) && !user.stat && !user.restrained())
 
-/*
-RFD Service-Class
-*/
+
+//
+// RFD - Service Class
+//
 
 /obj/item/rfd/service
-	name = "\improper Rapid-Fabrication-Device S-Class"
+	name = "\improper Rapid Fabrication Device S-Class"
 	desc = "A RFD, modified to deploy service items."
 	icon_state = "rfd-s"
 	item_state = "rfd-s"
-	modes = list("Cigarette", "Drinking Glass","Paper","Pen","Dice Pack")
-	number_of_modes = 5
+	var/list/radial_modes = list()
+
+/obj/item/rfd/service/Initialize()
+	. = ..()
+	radial_modes = list(
+		"Cigarette" = image(icon = 'icons/obj/clothing/masks.dmi', icon_state = "cigoff"),
+		"Drinking Glass" = image(icon = 'icons/obj/drinks.dmi', icon_state = "glass_empty"),
+		"Paper" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "paper"),
+		"Pen" = image(icon = 'icons/obj/bureaucracy.dmi', icon_state = "pen"),
+		"Dice Pack" = image(icon = 'icons/obj/dice.dmi', icon_state = "dicebag"),
+	)
+
+/obj/item/rfd/service/attack_self(mob/user)
+	var/current_mode = RADIAL_INPUT(user, radial_modes)
+	switch(current_mode)
+		if("Cigarette")
+			mode = 1
+		if("Drinking Glass")
+			mode = 2
+		if("Paper")
+			mode = 3
+		if("Pen")
+			mode = 4
+		if("Dice Pack")
+			mode = 5
+	if(current_mode)
+		to_chat(user, SPAN_NOTICE("You switch the selection dial to <i>\"[current_mode]\"</i>."))
+		playsound(src.loc, 'sound/effects/pop.ogg', 50, 0)
 
 /obj/item/rfd/service/resolve_attackby(atom/A, mob/user as mob, var/click_parameters)
 	if(istype(user,/mob/living/silicon/robot))
@@ -307,14 +418,18 @@ RFD Service-Class
 			return
 	else
 		if(stored_matter <= 0)
-			user << "The \'Low Ammo\' light on the device blinks yellow."
-			flick("[icon_state]-empty", src)
+			if(last_fail <= world.time - 20) // Spam limiter.
+				last_fail = world.time
+				to_chat(user, SPAN_NOTICE("The \"Matter Units Low\" light on the device blinks yellow."))
+				playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+				flick("[icon_state]-empty", src)
 			return
 
 	if(!istype(A, /obj/structure/table) && !istype(A, /turf/simulated/floor))
 		return
 
-	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
+	playsound(src.loc, 'sound/items/rfd_dispense.ogg', 20, FALSE)
+	sleep(2)
 	var/used_energy = 0
 	var/obj/product
 
@@ -337,6 +452,7 @@ RFD Service-Class
 
 	to_chat(user, "Dispensing [product ? product : "product"]...")
 	product.forceMove(get_turf(A))
+	playsound(src.loc, 'sound/machines/click.ogg' , 10, 1)
 	if(istype(A, /obj/structure/table))
 		var/obj/structure/table/T = A
 		T.auto_align(product, click_parameters)
@@ -350,60 +466,71 @@ RFD Service-Class
 		stored_matter--
 		to_chat(user, "The RSF now holds [stored_matter]/30 fabrication-units.")
 
-/*
-RFD Mining-Class
-*/
+//
+// RFD - Mining Class
+//
 
 /obj/item/rfd/mining
-	name = "\improper Rapid-Fabrication-Device M-Class"
+	name = "\improper Rapid Fabrication Device M-Class"
 	desc = "A RFD, modified to deploy mine tracks."
 	icon_state = "rfd-m"
 	item_state = "rfd-m"
 
-/obj/item/rfd/mining/afterattack(atom/A, mob/user as mob, proximity)
+/obj/item/rfd/mining/attack_self(mob/user)
+	return
 
-	if(!proximity) return
+/obj/item/rfd/mining/afterattack(atom/A, mob/user, proximity, click_parameters, var/report_duplicate = TRUE)
+	if(!proximity)
+		return
 
-	if(istype(user,/mob/living/silicon/robot))
+	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
-		if(R.stat || !R.cell || R.cell.charge <= 0)
+		if(R.stat || !R.cell || R.cell.charge <= 200)
+			if(last_fail <= world.time - 20) //Spam limiter.
+				last_fail = world.time
+				to_chat(user, SPAN_WARNING("You are unable to produce enough charge to use \the [src]!"))
+				playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+				flick("[icon_state]-empty", src)
 			return
 	else
 		if(stored_matter <= 0)
-			user << "The \'Low Ammo\' light on the device blinks yellow."
-			flick("[icon_state]-empty", src)
+			if(last_fail <= world.time - 20) //Spam limiter.
+				last_fail = world.time
+				to_chat(user, SPAN_NOTICE("The \"Matter Units Low\" light on the device blinks yellow."))
+				playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+				flick("[icon_state]-empty", src)
 			return
 
 	if(!istype(A, /turf/simulated/floor) && !istype(A, /turf/unsimulated/floor))
 		return
 
 	if(locate(/obj/structure/track) in A)
+		if(report_duplicate)
+			to_chat(user, SPAN_WARNING("There is already a track on \the [A]!"))
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
-	var/used_energy = 0
-
-	used_energy = 10
 
 	new /obj/structure/track(get_turf(A))
 
-	to_chat(user, "Dispensing track...")
+	to_chat(user, SPAN_NOTICE("You deploy a mine track on \the [A]."))
 	update_icon()
 
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
-			R.cell.use(used_energy)
-
+			R.cell.use(200)
 	else
 		stored_matter--
-		to_chat(user, "The RFD now holds [stored_matter]/30 fabrication-units.")
+		to_chat(user, SPAN_NOTICE("The RFD now holds <b>[stored_matter]/30</b> fabrication-units."))
+
+	return TRUE
 
 
-// Malf AI RFD Transformer.
+// Malf AI RFD Transformer
 
 /obj/item/rfd/transformer
-	name = "\improper Rapid-Fabrication-Device T-Class"
+	name = "\improper Rapid Fabrication Device T-Class"
 	desc = "A device used for rapid fabrication, modified to deploy a transformer. It can only be used once and there can not be more than one made."
 	stored_matter = 30
 	var/malftransformermade = 0
@@ -411,13 +538,13 @@ RFD Mining-Class
 /obj/item/rfd/transformer/attack_self(mob/user)
 	return
 
-/obj/item/rfd/transformer/examine(var/mob/user)
-	..()
+/obj/item/rfd/transformer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(loc == user)
 		if(malftransformermade)
-			to_chat(user, "There is already a transformer machine made!")
+			. += "There is already a transformer machine made!"
 		else
-			to_chat(user, "It is ready to deploy a transformer machine.")
+			. += "It is ready to deploy a transformer machine."
 
 /obj/item/rfd/transformer/afterattack(atom/A, mob/user as mob, proximity)
 
@@ -432,37 +559,45 @@ RFD Mining-Class
 		return
 
 	if(malftransformermade)
-		to_chat(user, "There is already a transformer machine made!")
-		flick("[icon_state]-empty", src)
+		if(last_fail <= world.time - 20) //Spam limiter.
+			last_fail = world.time
+			to_chat(user, "There is already a transformer machine made!")
+			playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
+			flick("[icon_state]-empty", src)
 		return
 
 	playsound(src.loc, 'sound/machines/click.ogg', 10, 1)
 	var/used_energy = 100
 	to_chat(user, "Fabricating machine...")
-	if(do_after(user, 30 SECONDS, act_target = src))
+	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
+	if(do_after(user, 30 SECONDS, src, DO_UNIQUE))
 		var/obj/product = new /obj/machinery/transformer
 		malftransformermade = 1
 		product.forceMove(get_turf(A))
 		stored_matter = 0
 		update_icon()
-
+		playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	if(isrobot(user))
 		var/mob/living/silicon/robot/R = user
 		if(R.cell)
 			R.cell.use(used_energy)
 
+	return TRUE
 
-/*
-RFD Piping-Class
-*/
+
+//
+// RFD - Piping Class
+//
 
 #define STANDARD_PIPE "Standard Pipes"
 #define SUPPLY_PIPE "Supply Pipes"
 #define SCRUBBER_PIPE "Scrubber Pipes"
+#define FUEL_PIPE "Fuel Pipes"
+#define AUX_PIPE "Auxiliary Pipes"
 #define DEVICES "Devices"
 
 /obj/item/rfd/piping
-	name = "\improper Rapid-Fabrication-Device P-Class"
+	name = "\improper Rapid Fabrication Device P-Class"
 	desc = "A heavily modified RFD, modified to construct pipes and piping accessories."
 	icon_state = "rfd-p"
 	item_state = "rfd-p"
@@ -475,54 +610,82 @@ RFD Piping-Class
 
 	// The numbers below refer to the numberized designator for each pipe, which is used in obj/item/pipe's new
 	// Take a look at code\game\machinery\pipe\construction.dm line 69 for more information. - Geeves
-	var/list/standard_pipes = list("Pipe" = 0,
-								"Bent Pipe" = 1,
-								"Manifold" = 5,
-								"Manual Valve" = 8,
-								"4-Way Manifold" = 19,
-								"Manual T-Valve" = 18,
-								"Upward Pipe" = 21,
-								"Downward Pipe" = 22)
+	var/list/standard_pipes = list(
+		"Pipe" = PIPE_SIMPLE_STRAIGHT,
+		"Bent Pipe" = PIPE_SIMPLE_BENT,
+		"Manifold" = PIPE_MANIFOLD,
+		"Manual Valve" = PIPE_MVALVE,
+		"4-Way Manifold" = PIPE_MANIFOLD4W,
+		"Manual T-Valve" = PIPE_MTVALVE,
+		"Upward Pipe" = PIPE_UP,
+		"Downward Pipe" = PIPE_DOWN
+	)
 
-	var/list/supply_pipes = list("Pipe" = 29,
-								"Bent Pipe" = 30,
-								"Manifold" = 33,
-								"4-Way Manifold" = 35,
-								"Upward Pipe" = 37,
-								"Downward Pipe" = 39)
+	var/list/supply_pipes = list(
+		"Pipe" = PIPE_SUPPLY_STRAIGHT,
+		"Bent Pipe" = PIPE_SUPPLY_BENT,
+		"Manifold" = PIPE_SUPPLY_MANIFOLD,
+		"4-Way Manifold" = PIPE_SUPPLY_MANIFOLD4W,
+		"Upward Pipe" = PIPE_SUPPLY_UP,
+		"Downward Pipe" = PIPE_SUPPLY_DOWN
+	)
 
-	var/list/scrubber_pipes = list("Pipe" = 31,
-								"Bent Pipe" = 32,
-								"Manifold" = 34,
-								"4-Way Manifold" = 36,
-								"Upward Pipe" = 38,
-								"Downward Pipe" = 40)
+	var/list/scrubber_pipes = list(
+		"Pipe" = PIPE_SCRUBBERS_STRAIGHT,
+		"Bent Pipe" = PIPE_SCRUBBERS_BENT,
+		"Manifold" = PIPE_SCRUBBERS_MANIFOLD,
+		"4-Way Manifold" = PIPE_SCRUBBERS_MANIFOLD4W,
+		"Upward Pipe" = PIPE_SCRUBBERS_UP,
+		"Downward Pipe" = PIPE_SCRUBBERS_DOWN
+	)
 
-	var/list/devices = list("Universal Pipe Adapter" = 28,
-							"Connector" = 4,
-							"Unary Vent" = 7,
-							"Scrubber" = 10,
-							"Gas Pump" = 9,
-							"Pressure Regulator" = 15,
-							"High Power Gas Pump" = 16,
-							"Gas Filter" = 13,
-							"Omni Gas Filter" = 27)
+	var/list/fuel_pipes = list(
+		"Pipe" = PIPE_FUEL_STRAIGHT,
+		"Bent Pipe" = PIPE_FUEL_BENT,
+		"Manifold" = PIPE_FUEL_MANIFOLD,
+		"4-Way Manifold" = PIPE_FUEL_MANIFOLD4W,
+		"Upward Pipe" = PIPE_FUEL_UP,
+		"Downward Pipe" = PIPE_FUEL_DOWN
+	)
 
-/obj/item/rfd/piping/examine(mob/user)
+	var/list/aux_pipes = list(
+		"Pipe" = PIPE_AUX_STRAIGHT,
+		"Bent Pipe" = PIPE_AUX_BENT,
+		"Manifold" = PIPE_AUX_MANIFOLD,
+		"4-Way Manifold" = PIPE_AUX_MANIFOLD4W,
+		"Upward Pipe" = PIPE_AUX_UP,
+		"Downward Pipe" = PIPE_AUX_DOWN
+	)
+
+	var/list/devices = list(
+		"Universal Pipe Adapter" = PIPE_UNIVERSAL,
+		"Connector" = PIPE_CONNECTOR,
+		"Unary Vent" = PIPE_UVENT,
+		"Auxiliary Unary Vent" = PIPE_AUX_UVENT,
+		"Scrubber" = PIPE_SCRUBBER,
+		"Gas Pump" = PIPE_PUMP,
+		"Fuel Gas Pump" = PIPE_PUMP_FUEL,
+		"Pressure Regulator" = PIPE_PASSIVE_GATE,
+		"High Power Gas Pump" = PIPE_VOLUME_PUMP,
+		"Gas Filter" = PIPE_GAS_FILTER_M,
+		"Omni Gas Filter" = PIPE_OMNI_FILTER
+	)
+
+/obj/item/rfd/piping/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, FONT_SMALL(SPAN_NOTICE("Change pipe category by Alt clicking, change pipe selection by using in-hand.")))
-	to_chat(user, SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>"))
-	to_chat(user, SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>"))
+	. += FONT_SMALL(SPAN_NOTICE("Change pipe category by ALT-clicking, change pipe selection by using in-hand."))
+	. += SPAN_NOTICE("Selected pipe category: <b>[selected_mode]</b>.")
+	. += SPAN_NOTICE("Selected pipe: <b>[pipe_examine]</b>.")
 
 /obj/item/rfd/piping/afterattack(atom/A, mob/user, proximity)
 	if(!proximity || !isturf(A))
 		return
 	if(istype(get_area(A), /area/shuttle) || istype(get_area(A), /turf/space))
-		to_chat(user, SPAN_WARNING("You can't lay pipe here!"))
+		to_chat(user, SPAN_WARNING("You can't materialize a pipe here!"))
 		return FALSE
 	var/turf/T = get_turf(A)
 	if(isNotStationLevel(T.z))
-		to_chat(user, SPAN_WARNING("You can't lay your pipe on this level!"))
+		to_chat(user, SPAN_WARNING("You can't materialize a pipe on this level!"))
 		return FALSE
 	return do_pipe(T, user)
 
@@ -531,16 +694,18 @@ RFD Piping-Class
 		return FALSE
 
 	if(stored_matter < build_cost)
-		to_chat(user, SPAN_WARNING("The \'Low Ammo\' light on the device blinks yellow."))
+		to_chat(user, SPAN_NOTICE("The \"Matter Units Low\" light on the device blinks yellow."))
+		playsound(get_turf(src), 'sound/items/rfd_empty.ogg', 50, FALSE)
 		flick("[icon_state]-empty", src)
 		return FALSE
 
-	playsound(get_turf(src), 'sound/machines/click.ogg', 50, TRUE)
+	playsound(get_turf(src), 'sound/items/rfd_start.ogg', 50, FALSE)
 
 	working = TRUE
-	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start laying down your pipe..."))
+	user.visible_message(SPAN_NOTICE("[user] holds \the [src] towards \the [T]."), SPAN_NOTICE("You start laying down a pipe..."))
 
 	if((build_delay && !do_after(user, build_delay)) || (!useResource(build_cost, user)))
+		playsound(get_turf(src), 'sound/items/rfd_interrupt.ogg', 50, FALSE)
 		working = FALSE
 		return FALSE
 
@@ -549,16 +714,16 @@ RFD Piping-Class
 
 	// Special case handling for bent pipes. They require a non-cardinal direction
 	var/pipe_dir = NORTH
-	if(selected_pipe in list(1, 30, 32))
+	if(selected_pipe in list(PIPE_SIMPLE_BENT, PIPE_SUPPLY_BENT, PIPE_SCRUBBERS_BENT, PIPE_FUEL_BENT, PIPE_AUX_BENT))
 		pipe_dir = NORTHEAST
 	new /obj/item/pipe(T, selected_pipe, pipe_dir)
 
+	playsound(get_turf(src), 'sound/items/rfd_end.ogg', 50, FALSE)
 	working = FALSE
-	playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, TRUE)
 	return TRUE
 
 /obj/item/rfd/piping/attack_self(mob/user)
-	playsound(get_turf(src), 'sound/effects/pop.ogg', 50, FALSE)
+	playsound(get_turf(src), 'sound/weapons/laser_safetyon.ogg', 50, FALSE)
 	var/list/pipe_selection = list()
 	switch(selected_mode)
 		if(STANDARD_PIPE)
@@ -567,26 +732,36 @@ RFD Piping-Class
 			pipe_selection = supply_pipes
 		if(SCRUBBER_PIPE)
 			pipe_selection = scrubber_pipes
+		if(FUEL_PIPE)
+			pipe_selection = fuel_pipes
+		if(AUX_PIPE)
+			pipe_selection = aux_pipes
 		if(DEVICES)
 			pipe_selection = devices
-	pipe_examine = input(user, "Choose the pipe you want to deploy.", "Pipe Selection") in pipe_selection
+	pipe_examine = tgui_input_list(user, "Choose the pipe you want to deploy.", "Pipe Selection", pipe_selection, selected_pipe)
 	selected_pipe = pipe_selection[pipe_examine]
 
 /obj/item/rfd/piping/AltClick(mob/user)
-	selected_mode = input(user, "Choose the category you want to change to.", "Pipe Categories") in modes
+	selected_mode = tgui_input_list(user, "Choose the category you want to change to.", "Pipe Categories", modes, selected_mode)
 	switch(selected_mode)
 		if(STANDARD_PIPE)
 			pipe_examine = "Pipe"
-			selected_pipe = 0
+			selected_pipe = PIPE_SIMPLE_STRAIGHT
 		if(SUPPLY_PIPE)
 			pipe_examine = "Pipe"
-			selected_pipe = 29
+			selected_pipe = PIPE_SUPPLY_STRAIGHT
 		if(SCRUBBER_PIPE)
 			pipe_examine = "Pipe"
-			selected_pipe = 31
+			selected_pipe = PIPE_SCRUBBERS_STRAIGHT
+		if(FUEL_PIPE)
+			pipe_examine = "Pipe"
+			selected_pipe = PIPE_FUEL_STRAIGHT
+		if(AUX_PIPE)
+			pipe_examine = "Pipe"
+			selected_pipe = PIPE_AUX_STRAIGHT
 		if(DEVICES)
 			pipe_examine = "Universal Pipe Adapter"
-			selected_pipe = 28
+			selected_pipe = PIPE_UNIVERSAL
 
 /obj/item/rfd/piping/borg/useResource(var/amount, var/mob/user)
 	if(isrobot(user))
@@ -604,4 +779,7 @@ RFD Piping-Class
 #undef STANDARD_PIPE
 #undef SUPPLY_PIPE
 #undef SCRUBBER_PIPE
+#undef FUEL_PIPE
+#undef AUX_PIPE
 #undef DEVICES
+#undef MATERIALIZATION_FAIL_MESSAGE

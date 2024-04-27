@@ -1,12 +1,12 @@
 /datum/preferences
 	//The mob should have a gender you want before running this proc. Will run fine without H
 
-/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H,var/random_gender=TRUE)
+/datum/preferences/proc/randomize_appearance_for(var/mob/living/carbon/human/H, var/random_gender=TRUE, var/list/culture_restriction = list(), var/list/origin_restriction = list())
 	if(random_gender)
 		gender = pick(MALE, FEMALE)
 	else
 		gender = H.gender
-	var/datum/species/current_species = all_species[species]
+	var/datum/species/current_species = GLOB.all_species[species]
 
 	if(current_species)
 		if(current_species.appearance_flags & HAS_SKIN_TONE)
@@ -16,16 +16,26 @@
 		if(current_species.appearance_flags & HAS_SKIN_COLOR)
 			randomize_skin_color(current_species)
 
+	tail_style = length(current_species.selectable_tails) ? pick(current_species.selectable_tails) : null
 	h_style = random_hair_style(gender, species)
 	f_style = random_facial_hair_style(gender, species)
 	randomize_hair_color("hair")
 	randomize_hair_color("facial")
 
 	backbag = 2
+	pda_choice = 2
 	age = rand(getMinAge(),getMaxAge())
+	if(length(culture_restriction))
+		H.set_culture(GET_SINGLETON(pick(culture_restriction)))
+	if(length(origin_restriction))
+		for(var/O in origin_restriction)
+			if(O in culture_restriction)
+				H.set_origin(GET_SINGLETON(O))
+				break
+		if(!H.origin)
+			crash_with("Invalid origin restrictions [english_list(origin_restriction)] for culture restrictions [english_list(culture_restriction)]!")
 	if(H)
 		copy_to(H,1)
-
 
 /datum/preferences/proc/randomize_hair_color(var/target = "hair")
 	if(prob (75) && target == "facial") // Chance to inherit hair color
@@ -193,26 +203,13 @@
 
 /datum/preferences/proc/dress_preview_mob(var/mob/living/carbon/human/mannequin)
 	copy_to(mannequin)
-	if(!dress_mob)
+
+	if(!equip_preview_mob)
 		return
 
 	// Determine what job is marked as 'High' priority, and dress them up as such.
 	var/datum/job/previewJob
-	if(job_civilian_low & ASSISTANT)
-		previewJob = SSjobs.GetJob("Assistant")
-	else
-		for(var/datum/job/job in SSjobs.occupations)
-			var/job_flag
-			switch(job.department_flag)
-				if(CIVILIAN)
-					job_flag = job_civilian_high
-				if(MEDSCI)
-					job_flag = job_medsci_high
-				if(ENGSEC)
-					job_flag = job_engsec_high
-			if(job.flag == job_flag)
-				previewJob = job
-				break
+	previewJob = return_chosen_high_job()
 
 	if(previewJob)
 		mannequin.job = previewJob.title
@@ -220,43 +217,60 @@
 		var/list/leftovers = list()
 		var/list/used_slots = list()
 
-		SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
+		if((equip_preview_mob & EQUIP_PREVIEW_LOADOUT) && !(previewJob && (equip_preview_mob & EQUIP_PREVIEW_JOB) && (previewJob.type == /datum/job/ai || previewJob.type == /datum/job/cyborg)))
+			SSjobs.EquipCustom(mannequin, previewJob, src, leftovers, null, used_slots)
 
-		previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title])
+		if((equip_preview_mob & EQUIP_PREVIEW_JOB) && previewJob)
+			previewJob.equip_preview(mannequin, player_alt_titles[previewJob.title], faction)
 
-		SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
+		if(equip_preview_mob & EQUIP_PREVIEW_LOADOUT && leftovers.len)
+			SSjobs.EquipCustomDeferred(mannequin, src, leftovers, used_slots)
 
 		if (!SSATOMS_IS_PROBABLY_DONE)
-			SSatoms.ForceInitializeContents(mannequin)
+			SSatoms.CreateAtoms(list(mannequin))
 			mannequin.regenerate_icons()
 		else
-			mannequin.update_icons()
+			mannequin.update_icon()
 
-/datum/preferences/proc/update_preview_icon()
-	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmob.get_mannequin(client.ckey)
+/datum/preferences/proc/return_chosen_high_job(var/title = FALSE)
+	var/datum/job/chosenJob
+	if(!SSjobs.initialized)
+		return
+
+	if(job_civilian_low & ASSISTANT)
+		// Assistant is weird, has to be checked first because it overrides
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_low]"]
+	else if(job_civilian_high)
+		chosenJob = SSjobs.bitflag_to_job["[SERVICE]"]["[job_civilian_high]"]
+	else if(job_medsci_high)
+		chosenJob = SSjobs.bitflag_to_job["[MEDSCI]"]["[job_medsci_high]"]
+	else if(job_engsec_high)
+		chosenJob = SSjobs.bitflag_to_job["[ENGSEC]"]["[job_engsec_high]"]
+	else if(job_event_high)
+		chosenJob = SSjobs.bitflag_to_job["[EVENTDEPT]"]["[job_event_high]"]
+
+	if(istype(chosenJob) && title)
+		return chosenJob.title
+	return chosenJob
+
+/datum/preferences/proc/update_mannequin()
+	var/mob/living/carbon/human/dummy/mannequin/mannequin = SSmobs.get_mannequin(client.ckey)
 	mannequin.delete_inventory(TRUE)
 	mannequin.species.create_organs(mannequin)
 	if(gender)
 		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
+	return mannequin
 
-	preview_icon = icon('icons/effects/effects.dmi', "nothing")
-	preview_icon.Scale(48+32, 16+32)
-
-	mannequin.dir = NORTH
-	mannequin.update_tail_showing(1)
-	var/icon/stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 25, 17)
-
-	mannequin.dir = WEST
-	mannequin.update_tail_showing(1)
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 1, 9)
-
-
-	mannequin.dir = SOUTH
-	mannequin.update_tail_showing(1)
-	stamp = getFlatIcon(mannequin)
-	preview_icon.Blend(stamp, ICON_OVERLAY, 49, 1)
-
-	preview_icon.Scale(preview_icon.Width() * 2, preview_icon.Height() * 2) // Scaling here to prevent blurring in the browser.
+/datum/preferences/proc/update_preview_icon()
+	var/mob/living/carbon/human/dummy/mannequin/mannequin = update_mannequin()
+	var/mutable_appearance/MA = new /mutable_appearance(mannequin)
+	MA.appearance_flags = PIXEL_SCALE
+	if(mannequin.species?.icon_x_offset)
+		MA.pixel_x = mannequin.species.icon_x_offset
+	if(mannequin.species?.icon_y_offset)
+		MA.pixel_y = mannequin.species.icon_y_offset
+	var/matrix/M = matrix()
+	M.Scale(scale_x, scale_y)
+	MA.transform = M
+	update_character_previews(MA, (MA.pixel_x != 0 || MA.pixel_y != 0))

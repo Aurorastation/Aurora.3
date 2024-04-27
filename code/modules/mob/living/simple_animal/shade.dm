@@ -11,6 +11,7 @@
 	universal_speak = 1
 	speak_emote = list("hisses")
 	emote_hear = list("wails","screeches")
+	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "puts their hand through"
 	response_disarm = "flails at"
 	response_harm   = "punches"
@@ -28,8 +29,10 @@
 	faction = "cult"
 	status_flags = CANPUSH
 	hunger_enabled = 0
-	appearance_flags = NO_CLIENT_COLOR
+	appearance_flags = NO_CLIENT_COLOR|KEEP_TOGETHER
 	var/obj/item/residue = /obj/item/ectoplasm
+
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/shade/cultify()
 	return
@@ -40,14 +43,20 @@
 	new residue(loc)
 	qdel(src)
 
-/mob/living/simple_animal/shade/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
+/mob/living/simple_animal/shade/ghostize()
+	. = ..()
+	if(!QDELETED(src) && stat != DEAD)
+		SSghostroles.add_spawn_atom("shade", src)
 
-/mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
-	if(istype(O, /obj/item/device/soulstone))
-		var/obj/item/device/soulstone/S = O;
+/mob/living/simple_animal/shade/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/shade/attackby(obj/item/attacking_item, mob/user)  //Marker -Agouri
+	if(istype(attacking_item, /obj/item/device/soulstone))
+		var/obj/item/device/soulstone/S = attacking_item
 		S.transfer_soul("SHADE", src, user)
 		return
+	return ..()
 
 /mob/living/simple_animal/shade/can_fall()
 	return FALSE
@@ -82,7 +91,7 @@
 	heat_damage_per_tick = 0
 	cold_damage_per_tick = 0
 	unsuitable_atoms_damage = 0
-	incorporeal_move = 3
+	incorporeal_move = INCORPOREAL_SHADE
 	mob_size = 0
 	density = 0
 	speed = 1
@@ -95,7 +104,7 @@
 	var/datum/weakref/original_body
 	var/datum/weakref/possessed_body
 
-/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage_flags, var/def_zone, var/used_weapon)
+/mob/living/simple_animal/shade/bluespace/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/adjustBruteLoss()
@@ -126,11 +135,9 @@
 	. = ..()
 	set_light(3, 1, l_color = LIGHT_COLOR_CYAN)
 
-/mob/living/simple_animal/shade/bluespace/Stat()
-	..()
-
-	if(statpanel("Status"))
-		stat(null, "Strength of Echoes: [message_countdown]")
+/mob/living/simple_animal/shade/bluespace/get_status_tab_items()
+	. = ..()
+	. +=  "Strength of Echoes: [message_countdown]"
 
 /mob/living/simple_animal/shade/bluespace/updatehealth()
 	if(!possessive)
@@ -198,13 +205,10 @@
 			heard_dying_message = 0
 			to_chat(src, "<span class='notice'>The soothing echoes of life reinvigorate you.</span>")
 
-/mob/living/simple_animal/shade/bluespace/say(var/message)
+/mob/living/simple_animal/shade/bluespace/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(!possessive)
-		var/new_last_message_heard = sanitizeName(last_message_heard)
-		var/new_message = sanitizeName(message)
-
-		var/list/words_in_memory = dd_text2List(new_last_message_heard, " ")
-		var/list/words_in_message = dd_text2List(new_message, " ")
+		var/list/words_in_memory = dd_text2List(last_message_heard, " ")
+		var/list/words_in_message = dd_text2List(message, " ")
 		for(var/word1 in words_in_message)
 			var/valid = 0
 			for(var/word2 in words_in_memory)
@@ -355,8 +359,4 @@
 	gender = PLURAL
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "blectoplasm"
-
-/obj/item/ectoplasm/bs/Initialize()
-	. = ..()
-	create_reagents(8)
-	reagents.add_reagent("bluespace_dust", 8)
+	reagents_to_add = list(/singleton/reagent/bluespace_dust = 8)

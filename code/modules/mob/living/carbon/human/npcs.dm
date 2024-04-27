@@ -3,7 +3,7 @@
 	desc = "It looks like it was tailored for a monkey."
 	icon_state = "punpun"
 	worn_state = "punpun"
-	species_restricted = list("Monkey")
+	species_restricted = list(BODYTYPE_MONKEY)
 
 /mob/living/carbon/human/monkey/punpun/Initialize()
 	..()
@@ -12,14 +12,20 @@
 /mob/living/carbon/human/monkey/punpun/LateInitialize()
 	name = "Pun Pun"
 	real_name = name
-	w_uniform = new /obj/item/clothing/under/punpun(src)
+	named = TRUE
+	gender = MALE
+
+	INVOKE_ASYNC(src, PROC_REF(EquipPunpunUniform))
+
+/mob/living/carbon/human/monkey/punpun/proc/EquipPunpunUniform()
+	equip_to_slot(new /obj/item/clothing/under/punpun(src), slot_w_uniform)
 
 /obj/item/clothing/under/nupnup
 	name = "christmas uniform"
 	desc = "The uniform of Nup Nup, the Christmas monkey."
 	icon_state = "punpun"
 	worn_state = "nupnup"
-	species_restricted = list("Monkey")
+	species_restricted = list(BODYTYPE_MONKEY)
 
 /mob/living/carbon/human/monkey/nupnup/Initialize()
 	..()
@@ -28,4 +34,5 @@
 /mob/living/carbon/human/monkey/nupnup/LateInitialize()
 	name = "Winston, the Christmas Monkey"
 	real_name = name
+	gender = MALE
 	w_uniform = new /obj/item/clothing/under/nupnup(src)

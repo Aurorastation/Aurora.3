@@ -7,7 +7,7 @@
 	var/uid                        // Unique identifier.
 	var/name                       // Index for global list.
 	var/seed_name                  // Plant name for seed packet.
-	var/seed_noun = "seeds"        // Descriptor for packet.
+	var/seed_noun = SEED_NOUN_SEEDS        // Descriptor for packet.
 	var/display_name               // Prettier name.
 	var/roundstart                 // If set, seed will not display variety number.
 	var/mysterious                 // Only used for the random seed packets.
@@ -21,8 +21,9 @@
 	var/kitchen_tag                // Used by the reagent grinder.
 	var/trash_type                 // Garbage item produced when eaten.
 	var/splat_type = /obj/effect/decal/cleanable/fruit_smudge // Graffiti decal.
-	var/has_mob_product
+	var/product_type = /obj/item/reagent_containers/food/snacks/grown
 	var/force_layer
+	var/hydrotray_only
 
 /datum/seed/proc/setup_traits()
 
@@ -64,6 +65,7 @@
 	set_trait(TRAIT_IDEAL_HEAT,           293)          // Preferred temperature in Kelvin.
 	set_trait(TRAIT_NUTRIENT_CONSUMPTION, 0.25)         // Plant eats this much per tick.
 	set_trait(TRAIT_PLANT_COLOUR,         "#46B543")    // Colour of the plant icon.
+	set_trait(TRAIT_LARGE,				  0)			//0 = normal plant, 1 = big tree
 
 	setup_traits()
 
@@ -181,6 +183,7 @@
 				if(get_trait(TRAIT_BIOLUM_COLOUR))
 					clr = get_trait(TRAIT_BIOLUM_COLOUR)
 				splat.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+				addtimer(CALLBACK(splat, TYPE_PROC_REF(/atom, set_light), 0), rand(3 MINUTES, 5 MINUTES))
 			var/flesh_colour = get_trait(TRAIT_FLESH_COLOUR)
 			if(!flesh_colour) flesh_colour = get_trait(TRAIT_PRODUCT_COLOUR)
 			if(flesh_colour) splat.color = get_trait(TRAIT_PRODUCT_COLOUR)
@@ -216,7 +219,7 @@
 			closed_turfs |= T
 			valid_turfs |= T
 
-			for(var/dir in alldirs)
+			for(var/dir in GLOB.alldirs)
 				var/turf/neighbor = get_step(T,dir)
 				if(!neighbor || (neighbor in closed_turfs) || (neighbor in open_turfs))
 					continue
@@ -285,7 +288,7 @@
 		var/missing_gas = 0
 		for(var/gas in consume_gasses)
 			if(environment && environment.gas && environment.gas[gas] && \
-			 environment.gas[gas] >= consume_gasses[gas])
+				environment.gas[gas] >= consume_gasses[gas])
 				if(!check_only)
 					environment.adjust_gas(gas,-consume_gasses[gas],1)
 			else
@@ -328,14 +331,50 @@
 
 	return impact
 
-//Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
-/datum/seed/proc/randomize()
+/datum/seed/proc/generate_name()
+	var/prefix = ""
+	var/name = ""
+	if(prob(50)) //start with a prefix.
+		//These are various plant/mushroom genuses.
+		//I realize these might not be entirely accurate, but it could facilitate RP.
+		var/list/possible_prefixes
+		if(seed_noun == SEED_NOUN_CUTTINGS || seed_noun == SEED_NOUN_SEEDS || (seed_noun == SEED_NOUN_NODES && prob(50)))
+			possible_prefixes = list("amelanchier", "saskatoon",
+										"magnolia", "angiosperma", "osmunda", "scabiosa", "spigelia", "psydrax", "chastetree",
+										"strychnos", "treebine", "caper", "justica", "ragwortus", "everlasting", "combretum",
+										"loganiaceae", "gelsemium", "logania", "sabadilla", "neuburgia", "canthium", "rytigynia",
+										"chaste", "vitex", "cissus", "capparis", "senecio", "curry", "cycad", "liverwort", "charophyta",
+										"glaucophyte", "pinidae", "vascular", "embryophyte", "lillopsida")
+		else
+			possible_prefixes = list("bisporus", "bitorquis", "campestris", "crocodilinus", "agaricus",
+									"armillaria", "matsutake", "mellea", "ponderosa", "auricularia", "auricala",
+									"polytricha", "boletus", "badius", "edulis", "mirabilis", "zelleri",
+									"calvatia", "gigantea", "clitopilis", "prumulus", "entoloma", "abortivum",
+									"suillus", "tuber", "aestivum", "volvacea", "delica", "russula", "rozites")
+		possible_prefixes |= list("butter", "shad", "sugar", "june", "wild", "rigus", "curry", "hard", "soft", "dark", "brick", "stone", "red", "brown",
+								"black", "white", "paper", "slippery", "honey", "bitter")
+		prefix = pick(possible_prefixes)
+	var/num = rand(2,5)
+	var/list/possible_name = list("rhon", "cus", "quam", "met", "eget", "was", "reg", "zor", "fra", "rat", "sho", "ghen", "pa",
+								"eir", "lip", "sum", "lor", "em", "tem", "por", "invi", "dunt", "ut", "la", "bore", "mag", "na",
+								"al", "i", "qu", "yam", "er", "at", "sed", "di", "am", "vol", "up", "tua", "at", "ve", "ro", "eos",
+								"et", "ac", "cus")
+	for(var/i in 1 to num)
+		var/syl = pick(possible_name)
+		possible_name -= syl
+		name += syl
+	if(prefix)
+		name = "[prefix] [name]"
+	seed_name = name
+	display_name = name
+	display_name = "[name] plant"
 
-	roundstart = 0
-	seed_name = "strange plant"     // TODO: name generator.
-	display_name = "strange plants" // TODO: name generator.
-	mysterious = 1
-	seed_noun = pick("spores","nodes","cuttings","seeds")
+//Creates a random seed. MAKE SURE THE LINE HAS DIVERGED BEFORE THIS IS CALLED.
+/datum/seed/proc/randomize(var/list/native_gases = list(GAS_OXYGEN, GAS_NITROGEN, GAS_CO2, GAS_PHORON, GAS_HYDROGEN))
+	roundstart = FALSE
+	mysterious = TRUE
+
+	seed_noun = pick(SEED_NOUN_SEEDS, SEED_NOUN_PITS, SEED_NOUN_NODES, SEED_NOUN_CUTTINGS)
 
 	set_trait(TRAIT_POTENCY,rand(5,30),200,0)
 	set_trait(TRAIT_PRODUCT_ICON,pick(SSplants.plant_product_sprites))
@@ -366,59 +405,60 @@
 
 	if(prob(5))
 		consume_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick_n_take(native_gases)
 		consume_gasses[gas] = rand(3,9)
 
 	if(prob(5))
 		exude_gasses = list()
-		var/gas = pick("oxygen","nitrogen","phoron","carbon_dioxide")
+		var/gas = pick_n_take(native_gases)
 		exude_gasses[gas] = rand(3,9)
 
 	chems = list()
 	if(prob(80))
-		chems["nutriment"] = list(rand(1,10),rand(10,20))
+		chems[/singleton/reagent/nutriment] = list(rand(1,10),rand(10,20))
 
 	var/additional_chems = rand(0,5)
 
 	if(additional_chems)
 		var/list/possible_chems = list(
-			"woodpulp",
-			"bicaridine",
-			"hyperzine",
-			"cryoxadone",
-			"blood",
-			"water",
-			"potassium",
-			"plasticide",
-			"mutationtoxin",
-			"amutationtoxin",
-			"norepinephrine",
-			"space_drugs",
-			"paroxetine",
-			"mercury",
-			"sugar",
-			"radium",
-			"ryetalyn",
-			"alkysine",
-			"thermite",
-			"tramadol",
-			"cryptobiolin",
-			"dermaline",
-			"dexalin",
-			"phoron",
-			"synaptizine",
-			"impedrezene",
-			"hyronalin",
-			"peridaxon",
-			"toxin",
-			"rezadone",
-			"ethylredoxrazine",
-			"slimejelly",
-			"cyanide",
-			"mindbreaker",
-			"stoxin",
-			"acetone",
-			"hydrazine"
+			/singleton/reagent/acetone,
+			/singleton/reagent/alkysine,
+			/singleton/reagent/bicaridine,
+			/singleton/reagent/butazoline,
+			/singleton/reagent/blood,
+			/singleton/reagent/cryoxadone,
+			/singleton/reagent/drugs/cryptobiolin,
+			/singleton/reagent/toxin/cyanide,
+			/singleton/reagent/dermaline,
+			/singleton/reagent/dexalin,
+			/singleton/reagent/ethylredoxrazine,
+			/singleton/reagent/hydrazine,
+			/singleton/reagent/hyperzine,
+			/singleton/reagent/hyronalin,
+			/singleton/reagent/drugs/impedrezene,
+			/singleton/reagent/mercury,
+			/singleton/reagent/drugs/mindbreaker,
+			/singleton/reagent/inaprovaline,
+			/singleton/reagent/peridaxon,
+			/singleton/reagent/toxin/phoron,
+			/singleton/reagent/toxin/plasticide,
+			/singleton/reagent/potassium,
+			/singleton/reagent/radium,
+			/singleton/reagent/rezadone,
+			/singleton/reagent/ryetalyn,
+			/singleton/reagent/slimejelly,
+			/singleton/reagent/drugs/mms,
+			/singleton/reagent/soporific,
+			/singleton/reagent/sugar,
+			/singleton/reagent/synaptizine,
+			/singleton/reagent/thermite,
+			/singleton/reagent/toxin,
+			/singleton/reagent/mortaphenyl,
+			/singleton/reagent/water,
+			/singleton/reagent/woodpulp,
+			/singleton/reagent/drugs/ambrosia_extract,
+			/singleton/reagent/drugs/skrell_nootropic,
+			/singleton/reagent/toxin/berserk
 			)
 
 		for(var/x=1;x<=additional_chems;x++)
@@ -486,6 +526,8 @@
 	set_trait(TRAIT_YIELD,rand(3,15))
 	set_trait(TRAIT_MATURATION,rand(5,15))
 	set_trait(TRAIT_PRODUCTION,get_trait(TRAIT_MATURATION)+rand(2,5))
+
+	generate_name()
 
 //Returns a key corresponding to an entry in the global seed list.
 /datum/seed/proc/get_mutant_variant()
@@ -610,8 +652,8 @@
 			consume_gasses |= new_gasses
 			gene.values["[TRAIT_CONSUME_GASSES]"] = null
 		if(GENE_METABOLISM)
-			has_mob_product = gene.values["mob_product"]
-			gene.values["mob_product"] = null
+			product_type = gene.values["product_type"]
+			gene.values["product_type"] = null
 
 	for(var/trait in gene.values)
 		set_trait(trait,gene.values["[trait]"])
@@ -640,7 +682,7 @@
 		if(GENE_HARDINESS)
 			traits_to_copy = list(TRAIT_TOXINS_TOLERANCE,TRAIT_PEST_TOLERANCE,TRAIT_WEED_TOLERANCE,TRAIT_ENDURANCE)
 		if(GENE_METABOLISM)
-			P.values["mob_product"] = has_mob_product
+			P.values["product_type"] = product_type
 			traits_to_copy = list(TRAIT_REQUIRES_NUTRIENTS,TRAIT_REQUIRES_WATER,TRAIT_ALTER_TEMP)
 		if(GENE_VIGOUR)
 			traits_to_copy = list(TRAIT_PRODUCTION,TRAIT_MATURATION,TRAIT_YIELD,TRAIT_SPREAD)
@@ -650,9 +692,9 @@
 		if(GENE_ENVIRONMENT)
 			traits_to_copy = list(TRAIT_IDEAL_HEAT,TRAIT_IDEAL_LIGHT,TRAIT_LIGHT_TOLERANCE)
 		if(GENE_PIGMENT)
-			traits_to_copy = list(TRAIT_PLANT_COLOUR,TRAIT_PRODUCT_COLOUR,TRAIT_BIOLUM_COLOUR)
+			traits_to_copy = list(TRAIT_PLANT_COLOUR,TRAIT_PRODUCT_COLOUR,TRAIT_BIOLUM_COLOUR,TRAIT_LEAVES_COLOUR)
 		if(GENE_STRUCTURE)
-			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON,TRAIT_HARVEST_REPEAT, TRAIT_SPOROUS)
+			traits_to_copy = list(TRAIT_PLANT_ICON,TRAIT_PRODUCT_ICON,TRAIT_HARVEST_REPEAT, TRAIT_SPOROUS, TRAIT_LARGE)
 		if(GENE_FRUIT)
 			traits_to_copy = list(TRAIT_STINGS,TRAIT_EXPLOSIVE,TRAIT_FLESH_COLOUR,TRAIT_JUICY)
 		if(GENE_SPECIAL)
@@ -701,17 +743,12 @@
 			spawn_seed(get_turf(user))
 
 /datum/seed/proc/spawn_seed(var/turf/spawning_loc)
-	var/obj/item/product
-	if(has_mob_product)
-		product = new has_mob_product(spawning_loc,name)
-	else
-		product = new /obj/item/reagent_containers/food/snacks/grown(spawning_loc,name)
+	var/obj/item/product = new product_type(spawning_loc, name)
 	if(get_trait(TRAIT_PRODUCT_COLOUR))
-		if(!istype(product, /mob))
-			product.color = get_trait(TRAIT_PRODUCT_COLOUR)
-			if(istype(product,/obj/item/reagent_containers/food))
-				var/obj/item/reagent_containers/food/food = product
-				food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
+		if(istype(product, /obj/item/reagent_containers/food))
+			var/obj/item/reagent_containers/food/food = product
+			food.color = get_trait(TRAIT_PRODUCT_COLOUR)
+			food.filling_color = get_trait(TRAIT_PRODUCT_COLOUR)
 
 	if(mysterious)
 		product.name += "?"
@@ -727,6 +764,7 @@
 		if(get_trait(TRAIT_BIOLUM_COLOUR))
 			clr = get_trait(TRAIT_BIOLUM_COLOUR)
 		product.set_light(get_trait(TRAIT_POTENCY)/10, pwr, clr)
+		addtimer(CALLBACK(product, TYPE_PROC_REF(/atom, set_light), 0), rand(5 MINUTES, 7 MINUTES))
 
 	//Handle spawning in living, mobile products (like dionaea).
 	if(istype(product,/mob/living))
@@ -751,7 +789,7 @@
 	new_seed.can_self_harvest = can_self_harvest
 	new_seed.kitchen_tag =      kitchen_tag
 	new_seed.trash_type =       trash_type
-	new_seed.has_mob_product =  has_mob_product
+	new_seed.product_type =     product_type
 	//Copy over everything else.
 	if(mutants)        new_seed.mutants = mutants.Copy()
 	if(chems)          new_seed.chems = chems.Copy()
@@ -770,3 +808,112 @@
 		growth_stages = SSplants.plant_sprites[get_trait(TRAIT_PLANT_ICON)]
 	else
 		growth_stages = 0
+
+/datum/seed/proc/get_growth_type()
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(get_trait(TRAIT_SPREAD) == 2)
+		switch(seed_noun)
+			if(SEED_NOUN_CUTTINGS)
+				return GROWTH_WORMS
+			if(SEED_NOUN_NODES)
+				return GROWTH_BIOMASS
+			if(SEED_NOUN_SPORES)
+				return GROWTH_MOLD
+			else
+				return GROWTH_VINES
+	return 0
+
+/**
+ * A list of seed icons, to avoid regenerating images like there's no tomorrow
+ *
+ * Only access this by using the `SEED_ICON_CACHE_KEY` macro
+ *
+ * The structure is an associative list with the result of `SEED_ICON_CACHE_KEY` as the key
+ * and an `/image` as the value
+ */
+GLOBAL_LIST_INIT(seed_icon_cache, list())
+
+///Generates a text hash that works as the key for the `seed_icon_cache` GLOB list
+#define SEED_ICON_CACHE_KEY(file, state, color, leaves_overlay) "[file]|||[state]|||[color]|||[leaves_overlay]"
+
+/datum/seed/proc/get_icon(growth_stage)
+	SHOULD_NOT_SLEEP(TRUE)
+	RETURN_TYPE(/image)
+
+	if(isnull(growth_stage))
+		crash_with("No growth stage was supplied when getting the icon!")
+
+	/* Setup a bunch of shit that should have been done in a very different way but alas */
+
+	//The icon of the plant
+	var/icon_trait = get_trait(TRAIT_PLANT_ICON)
+	//The type of growth
+	var/growth_type = get_growth_type()
+	//If it's a vine
+	var/is_vine = (get_trait(TRAIT_SPREAD) == 2)
+	//If the icon is a large one
+	var/is_large_icon = get_trait(TRAIT_LARGE)
+	//The color of the leaves, if any
+	var/leaves_color = get_trait(TRAIT_LEAVES_COLOUR)
+
+	/* The part where we select what to request */
+
+	//Pick what file we want
+	var/icon_file_to_request
+	if(is_vine)
+		icon_file_to_request = 'icons/obj/hydroponics_vines.dmi'
+	else if(is_large_icon)
+		icon_file_to_request = 'icons/obj/hydroponics_large.dmi'
+	else
+		icon_file_to_request = 'icons/obj/hydroponics_growing.dmi'
+
+	//Pick what icon state to request
+	var/icon_state_to_request = (is_vine) ? "[growth_type]-[growth_stage]" : "[icon_trait]-[growth_stage]"
+
+	//Pick the color to assign to the image
+	var/color_to_request = get_trait(TRAIT_PLANT_COLOUR)
+
+	//The leaves color overlay to request
+	var/leaves_overlay_to_request = (leaves_color) ? "[icon_trait]-[growth_stage]-leaves" : null
+
+	/* Find or generate the image and return it */
+
+	//See if we have this in our cache
+	if(SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request) in GLOB.seed_icon_cache)
+		return GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)]
+
+	//No luck, it's not in the cache, time to generate it
+	else
+
+		//Check that there's a valid icon state we can use, abort otherwise
+		var/valid_icon_states = icon_states(icon_file_to_request, 2)
+		if(!(icon_state_to_request in valid_icon_states))
+			crash_with("A seed icon was requested with an invalid icon state! Icon file: [icon_file_to_request] ---- Icon state: [icon_state_to_request]")
+
+		var/image/generated_image = image(icon_file_to_request, icon_state_to_request)
+
+		//Assign the requested
+		generated_image.color = color_to_request
+
+		//If it's a large icon, offset it
+		if(is_large_icon)
+			generated_image.pixel_x = -8
+			generated_image.pixel_y = -16
+
+		//If leaves are requested, add them as overlays
+		if(leaves_overlay_to_request)
+			var/image/leaves_image = image(icon_file_to_request, leaves_overlay_to_request)
+			leaves_image.color = leaves_color
+			leaves_image.appearance_flags = RESET_COLOR
+			//Add ourself as overlays to the generated image
+			generated_image.add_overlay(leaves_image)
+
+		//Store the image in the cache, so we won't have to keep generating it
+		GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)] = generated_image
+
+		//Return the image
+		return generated_image
+
+#undef SEED_ICON_CACHE_KEY

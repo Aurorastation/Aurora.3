@@ -5,7 +5,7 @@
 	max_co2 = 0
 	minbodytemp = 0
 	maxbodytemp = 500
-	mob_size = MOB_SMALL
+	mob_size = MOB_TINY
 
 	var/radio_type = /obj/item/device/radio/borg
 	var/obj/item/device/radio/borg/radio = null
@@ -14,7 +14,7 @@
 	var/obj/machinery/camera/camera = null
 	var/obj/item/device/mmi/mmi = null
 	var/obj/item/card/id/internal_id = null
-	var/list/req_access = list(access_robotics) //Access needed to pop out the brain.
+	var/list/req_access = list(ACCESS_ROBOTICS) //Access needed to pop out the brain.
 	var/positronic
 
 	name = "spider-bot"
@@ -23,6 +23,8 @@
 	icon_state = "spiderbot-chassis"
 	icon_living = "spiderbot-chassis"
 	icon_dead = "spiderbot-smashed"
+	blood_color = COLOR_OIL
+	blood_type = COLOR_OIL
 
 	wander = 0
 	density = 0
@@ -34,6 +36,7 @@
 	melee_damage_lower = 1
 	melee_damage_upper = 3
 
+	organ_names = list("head")
 	response_help  = "pets"
 	response_disarm = "shoos"
 	response_harm   = "stomps on"
@@ -42,22 +45,42 @@
 	var/obj/item/held_item = null //Storage for single item they can hold.
 	speed = -1                    //Spiderbots gotta go fast.
 	pass_flags = PASSTABLE | PASSDOORHATCH
-	speak_emote = list("beeps","clicks","chirps")
 	universal_understand = TRUE
+	speak_emote = list("beeps","clicks","chirps")
+	can_pull_size = 3
+	can_pull_mobs = MOB_PULL_SMALLER
+
+	psi_pingable = FALSE
 
 /mob/living/simple_animal/spiderbot/Initialize()
 	. = ..()
 	add_language(LANGUAGE_TCB)
-	default_language = all_languages[LANGUAGE_TCB]
+	default_language = GLOB.all_languages[LANGUAGE_TCB]
 	internal_id = new /obj/item/card/id(src)
-	verbs |= /mob/living/proc/ventcrawl
-	verbs |= /mob/living/proc/hide
-	verbs |= /mob/living/simple_animal/spiderbot/proc/control_integrated_radio
+	add_verb(src, /mob/living/proc/ventcrawl)
+	add_verb(src, /mob/living/proc/hide)
+	add_verb(src, /mob/living/simple_animal/spiderbot/proc/control_integrated_radio)
+	voice_name = name
 
-/mob/living/simple_animal/spiderbot/attackby(var/obj/item/O as obj, var/mob/user as mob)
+	radio = new radio_type(src)
+	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+	camera.c_tag = "spiderbot-[real_name]"
+	camera.replace_networks(list("SS13"))
 
-	if(istype(O, /obj/item/device/mmi))
-		var/obj/item/device/mmi/B = O
+/mob/living/simple_animal/spiderbot/Destroy()
+	eject_brain()
+	return ..()
+
+/mob/living/simple_animal/spiderbot/can_name(var/mob/living/M)
+	return FALSE
+
+/mob/living/simple_animal/spiderbot/isSynthetic()
+	return TRUE
+
+/mob/living/simple_animal/spiderbot/attackby(obj/item/attacking_item, mob/user)
+
+	if(istype(attacking_item, /obj/item/device/mmi))
+		var/obj/item/device/mmi/B = attacking_item
 		if(src.mmi)
 			to_chat(user, "<span class='warning'>There's already a brain in [src]!</span>")
 			return
@@ -67,38 +90,38 @@
 		if(!B.brainmob.key)
 			var/ghost_can_reenter = 0
 			if(B.brainmob.mind)
-				for(var/mob/abstract/observer/G in player_list)
+				for(var/mob/abstract/observer/G in GLOB.player_list)
 					if(G.can_reenter_corpse && G.mind == B.brainmob.mind)
 						ghost_can_reenter = 1
 						break
 			if(!ghost_can_reenter)
-				to_chat(user, "<span class='notice'>[O] is completely unresponsive; there's no point.</span>")
+				to_chat(user, "<span class='notice'>[attacking_item] is completely unresponsive; there's no point.</span>")
 				return
 
 		if(B.brainmob.stat == DEAD)
-			to_chat(user, "<span class='warning'>[O] is dead. Sticking it into the frame would sort of defeat the purpose.</span>")
+			to_chat(user, "<span class='warning'>[attacking_item] is dead. Sticking it into the frame would sort of defeat the purpose.</span>")
 			return
 
 		if(jobban_isbanned(B.brainmob, "Cyborg"))
-			to_chat(user, "<span class='warning'>\The [O] does not seem to fit.</span>")
+			to_chat(user, "<span class='warning'>\The [attacking_item] does not seem to fit.</span>")
 			return
 
-		to_chat(user, "<span class='notice'>You install \the [O] in \the [src]!</span>")
+		to_chat(user, "<span class='notice'>You install \the [attacking_item] in \the [src]!</span>")
 
-		if(istype(O, /obj/item/device/mmi/digital))
+		if(istype(attacking_item, /obj/item/device/mmi/digital))
 			positronic = 1
 			add_language("Robot Talk")
 
-		src.mmi = O
-		src.transfer_personality(O)
+		src.mmi = attacking_item
+		src.transfer_personality(attacking_item)
 
-		user.drop_from_inventory(O,src)
+		user.drop_from_inventory(attacking_item,src)
 		src.update_icon()
 		return 1
 
-	if (O.iswelder())
-		var/obj/item/weldingtool/WT = O
-		if (WT.remove_fuel(0))
+	if (attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
+		if (WT.use(0))
 			if(health < maxHealth)
 				health += pick(1,1,1,2,2,3)
 				if(health > maxHealth)
@@ -110,32 +133,45 @@
 		else
 			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
 			return
-	else if(istype(O, /obj/item/card/id)||istype(O, /obj/item/device/pda))
+	else if(attacking_item.GetID())
 		if (!mmi)
-			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain to remove.</span>")
+			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain.</span>")
 			return 0
 
-		var/obj/item/card/id/id_card
+		var/obj/item/card/id/id_card = attacking_item.GetID()
 
-		if(istype(O, /obj/item/card/id))
-			id_card = O
-		else
-			var/obj/item/device/pda/pda = O
-			id_card = pda.id
-
-		if(access_robotics in id_card.access)
-			to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
-			eject_brain()
-			if(held_item)
-				held_item.forceMove(src.loc)
-				held_item = null
-			return 1
-		else
-			to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+		if(!istype(id_card))
 			return 0
 
+		var/choice = input(user, "Would you like to eject the brain or sync access?", "Swipe Mode") as null|anything in list("Eject", "Sync")
+		if(!choice)
+			return
+
+		switch(choice)
+			if("Eject")
+				if(use_check_and_message(user))
+					return 0
+				if(ACCESS_ROBOTICS in id_card.access)
+					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
+					eject_brain()
+					if(held_item)
+						held_item.forceMove(src.loc)
+						held_item = null
+					return 1
+				else
+					to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+					return 0
+			if("Sync")
+				if(use_check_and_message(user))
+					return 0
+
+				internal_id.access.Cut()
+				internal_id.access = id_card.access.Copy()
+				to_chat(user, SPAN_NOTICE("Access synced with [src]."))
+				to_chat(src, SPAN_NOTICE("Access codes updated."))
+				return 1
 	else
-		O.attack(src, user, user.zone_sel.selecting)
+		attacking_item.attack(src, user, user.zone_sel.selecting)
 
 /mob/living/simple_animal/spiderbot/emag_act(var/remaining_charges, var/mob/user)
 	if (emagged)
@@ -148,11 +184,11 @@
 		spawn(300)	src.explode()
 
 /mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
-
-		src.mind = M.brainmob.mind
-		src.mind.key = M.brainmob.key
-		src.ckey = M.brainmob.ckey
-		src.name = "spider-bot ([M.brainmob.name])"
+	src.mind = M.brainmob.mind
+	src.mind.key = M.brainmob.key
+	src.ckey = M.brainmob.ckey
+	src.name = "spider-bot ([M.brainmob.name])"
+	src.voice_name = src.name
 
 /mob/living/simple_animal/spiderbot/proc/explode() //When emagged.
 	src.visible_message("<span class='danger'>\The [src] makes an odd warbling noise, fizzles, and explodes!</span>")
@@ -181,27 +217,18 @@
 		mmi = null
 		real_name = initial(real_name)
 		name = real_name
+		voice_name = name
 		update_icon()
 	remove_language("Robot Talk")
 	positronic = null
 
-/mob/living/simple_animal/spiderbot/Destroy()
-	eject_brain()
-	return ..()
-
-/mob/living/simple_animal/spiderbot/Initialize()
-	. = ..()
-
-	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src)
-	camera.c_tag = "spiderbot-[real_name]"
-	camera.replace_networks(list("SS13"))
-
+/mob/living/simple_animal/spiderbot/get_radio()
+	return radio
 
 /mob/living/simple_animal/spiderbot/death()
 
-	living_mob_list -= src
-	dead_mob_list += src
+	GLOB.living_mob_list -= src
+	GLOB.dead_mob_list += src
 
 	if(camera)
 		camera.status = 0
@@ -280,10 +307,10 @@
 	to_chat(src, "<span class='warning'>There is nothing of interest to take.</span>")
 	return 0
 
-/mob/living/simple_animal/spiderbot/examine(mob/user)
-	..(user)
+/mob/living/simple_animal/spiderbot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(src.held_item)
-		to_chat(user, "It is carrying \icon[src.held_item] \a [src.held_item].")
+		to_chat(user, "It is carrying [icon2html(src.held_item, user)] \a [src.held_item].")
 
 /mob/living/simple_animal/spiderbot/cannot_use_vents()
 	return
@@ -308,8 +335,12 @@
 /mob/living/simple_animal/spiderbot/get_bullet_impact_effect_type(var/def_zone)
 	return BULLET_IMPACT_METAL
 
-/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name)
+/mob/living/simple_animal/spiderbot/handle_message_mode(message_mode, message, verb, speaking, used_radios, alt_name, whisper)
 	switch(message_mode)
+		if("whisper")
+			if(!whisper)
+				whisper(message, speaking)
+				return TRUE
 		if("headset")
 			radio.talk_into(src, message, null, verb, speaking)
 			used_radios += radio
@@ -321,9 +352,6 @@
 	if(message_mode)
 		radio.talk_into(src, message, message_mode, verb, speaking)
 		used_radios += radio
-
-/mob/living/simple_animal/spiderbot/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
 
 /mob/living/simple_animal/spiderbot/proc/control_integrated_radio()
 	set name = "Radio Settings"

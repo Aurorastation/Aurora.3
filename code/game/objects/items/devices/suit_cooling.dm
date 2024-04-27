@@ -1,16 +1,17 @@
 /obj/item/device/suit_cooling_unit
 	name = "portable suit cooling unit"
 	desc = "A portable heat sink and liquid cooled radiator that can be hooked up to a space suit's existing temperature controls to provide industrial levels of cooling."
-	w_class = 4
-	icon = 'icons/obj/suitcooler.dmi'
+	w_class = ITEMSIZE_LARGE
+	icon = 'icons/obj/item/tools/suitcooler.dmi'
 	icon_state = "suitcooler0"
 	item_state = "coolingpack"
+	action_button_name = "Toggle Cooling Unit"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BACK	//you can carry it on your back if you want, but it won't do anything unless attached to suit storage
 
 	//copied from tank.dm
-	flags = CONDUCT
-	force = 5.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 11
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
@@ -19,24 +20,23 @@
 
 	var/celltype = /obj/item/cell/high
 
-	matter = list(DEFAULT_WALL_MATERIAL = 25000, MATERIAL_GLASS = 3500)
+	matter = list(MATERIAL_ALUMINIUM = 25000, MATERIAL_GLASS = 3500)
 	var/on = 0				//is it turned on?
 	var/cover_open = 0		//is the cover open?
 	var/obj/item/cell/cell
 	var/max_cooling = 12				//in degrees per second - probably don't need to mess with heat capacity here
-	var/charge_consumption = 16.6		//charge per second at max_cooling
+	var/charge_consumption = 8.3		//charge per second at max_cooling
 	var/thermostat = T20C
 
 	//TODO: make it heat up the surroundings when not in space
 
 /obj/item/device/suit_cooling_unit/Initialize()
 	. = ..()
-	START_PROCESSING(SSprocessing, src)
 	if(celltype)
 		cell = new celltype(src)
 
 /obj/item/device/suit_cooling_unit/Destroy()
-	STOP_PROCESSING(SSprocessing, src)
+	STOP_PROCESSING(SSmobs, src)
 	QDEL_NULL(cell)
 	return ..()
 
@@ -84,7 +84,7 @@
 			return C.air_contents.temperature
 
 	var/turf/T = get_turf(src)
-	if(istype(T, /turf/space))
+	if(istype(T, /turf/space) || !isturf(T))
 		return FALSE	//space has no temperature, this just makes sure the cooling unit works in space
 
 	var/datum/gas_mixture/environment = T.return_air()
@@ -111,13 +111,15 @@
 		return
 
 	on = TRUE
+	START_PROCESSING(SSmobs, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/proc/turn_off()
 	if(ismob(src.loc))
 		var/mob/M = src.loc
-		to_chat(M, span("warning", "\The [src] clicks and whines as it powers down."))
+		to_chat(M, SPAN_WARNING("\The [src] clicks and whines as it powers down."))
 	on = FALSE
+	STOP_PROCESSING(SSmobs, src)
 	update_icon()
 
 /obj/item/device/suit_cooling_unit/attack_self(mob/user)
@@ -130,38 +132,43 @@
 		cell.add_fingerprint(user)
 		cell.update_icon()
 
-		to_chat(user, span("notice", "You remove the [src.cell]."))
+		to_chat(user, SPAN_NOTICE("You remove the [src.cell]."))
 		src.cell = null
 		update_icon()
 		return
+	toggle_power(user)
 
-	//TODO use a UI like the air tanks
+/obj/item/device/suit_cooling_unit/AltClick(mob/user)
+	if(Adjacent(user))
+		toggle_power(user)
+
+/obj/item/device/suit_cooling_unit/proc/toggle_power(var/mob/user)
 	if(on)
 		turn_off()
 	else
 		turn_on()
 		if(on)
-			to_chat(user, span("notice", "You switch on the [src]."))
+			to_chat(user, SPAN_NOTICE("You switch on \the [src]."))
 
-/obj/item/device/suit_cooling_unit/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/suit_cooling_unit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(cover_open)
 			cover_open = FALSE
-			to_chat(user, span("notice", "You screw the panel into place."))
+			to_chat(user, SPAN_NOTICE("You screw the panel into place."))
 		else
 			cover_open = TRUE
-			to_chat(user, span("notice", "You unscrew the panel."))
+			to_chat(user, SPAN_NOTICE("You unscrew the panel."))
 		update_icon()
 		return
 
-	if(istype(W, /obj/item/cell))
+	if(istype(attacking_item, /obj/item/cell))
 		if(cover_open)
 			if(cell)
-				to_chat(user, span("warning", "There is a [cell] already installed here."))
+				to_chat(user, SPAN_WARNING("There is \a [cell] already installed here."))
 			else
-				user.drop_from_inventory(W,src)
-				cell = W
-				to_chat(user, span("notice", "You insert the [cell]."))
+				user.drop_from_inventory(attacking_item,src)
+				cell = attacking_item
+				to_chat(user, SPAN_NOTICE("You insert \the [cell]."))
 		update_icon()
 		return
 
@@ -177,50 +184,60 @@
 		return
 
 	icon_state = "suitcooler0"
+	item_state = "coolingpack"
 
-	if(!cell || !on)
-		return
+	if(cell && on)
+		var/battery_level = 0
+		switch(round(cell.percent()))
+			if(86 to INFINITY)
+				battery_level = 0
+			if(69 to 85)
+				battery_level = 1
+			if(52 to 68)
+				battery_level = 2
+			if(35 to 51)
+				battery_level = 3
+			if(18 to 34)
+				battery_level = 4
+			if(-INFINITY to 17)
+				battery_level = 5
 
-	switch(round(cell.percent()))
-		if(86 to INFINITY)
-			add_overlay("battery-0")
-		if(69 to 85)
-			add_overlay("battery-1")
-		if(52 to 68)
-			add_overlay("battery-2")
-		if(35 to 51)
-			add_overlay("battery-3")
-		if(18 to 34)
-			add_overlay("battery-4")
-		if(-INFINITY to 17)
-			add_overlay("battery-5")
+		add_overlay("battery-[battery_level]")
+		item_state = "coolingpack[battery_level]"
 
-/obj/item/device/suit_cooling_unit/examine(mob/user)
-	if(!..(user, 1))
+	if(ismob(loc))
+		var/mob/M = loc
+		M.update_inv_back()
+		M.update_inv_s_store()
+
+/obj/item/device/suit_cooling_unit/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+
+	if(!distance <= 1)
 		return
 
 	if(on)
 		if(attached_to_suit(src.loc))
-			to_chat(user, span("notice", "It's switched on and running."))
+			. += SPAN_NOTICE("It's switched on and running.")
 		else if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			if(H.species.flags & ACCEPTS_COOLER)
-				to_chat(user, span("notice", "It's switched on and running, connected to the cooling systems of [H]."))
+				. += SPAN_NOTICE("It's switched on and running, connected to the cooling systems of [H].")
 		else
-			to_chat(user, span("notice", "It's switched on, but not attached to anything."))
+			. += SPAN_NOTICE("It's switched on, but not attached to anything.")
 	else
-		to_chat(user, span("notice", "It is switched off."))
+		. += SPAN_NOTICE("It is switched off.")
 
 	if(cover_open)
 		if(cell)
-			to_chat(user, span("notice", "The panel is open, exposing the [cell]."))
+			. += SPAN_NOTICE("The panel is open, exposing \the [cell].")
 		else
-			to_chat(user, span("notice", "The panel is open."))
+			. += SPAN_NOTICE("The panel is open.")
 
 	if(cell)
-		to_chat(user, span("notice", "The charge meter reads [round(cell.percent())]%."))
+		. += SPAN_NOTICE("The charge meter reads [round(cell.percent())]%.")
 	else
-		to_chat(user, span("notice", "It doesn't have a power cell installed."))
+		. += SPAN_NOTICE("It doesn't have a power cell installed.")
 
 /obj/item/device/suit_cooling_unit/no_cell
 	celltype = null

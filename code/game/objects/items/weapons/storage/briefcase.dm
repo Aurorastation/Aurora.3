@@ -1,22 +1,23 @@
 /obj/item/storage/briefcase
 	name = "briefcase"
 	desc = "It's made of AUTHENTIC faux-leather and has a price-tag still attached. Its owner must be a real professional."
+	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "briefcase"
 	item_state = "briefcase"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items/storage/lefthand_briefcase.dmi',
-		slot_r_hand_str = 'icons/mob/items/storage/righthand_briefcase.dmi'
-		)
-	flags = CONDUCT
-	force = 8.0
+	contained_sprite = TRUE
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 18
 	throw_speed = 1
 	throw_range = 4
-	w_class = 4
-	max_w_class = 3
+	w_class = ITEMSIZE_LARGE
+	max_w_class = ITEMSIZE_NORMAL
 	max_storage_space = 16
 	use_sound = 'sound/items/storage/briefcase.ogg'
 	drop_sound = 'sound/items/drop/backpack.ogg'
 	pickup_sound = 'sound/items/pickup/backpack.ogg'
+
+/obj/item/storage/briefcase/real
+	desc = "A leather briefcase, made of real leather. Looks fancy, owner must be real proud."
 
 /obj/item/storage/briefcase/black
 	name = "black briefcase"

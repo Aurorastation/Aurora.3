@@ -1,27 +1,26 @@
 var/datum/antagonist/cultist/cult
 
 /proc/iscultist(var/mob/player)
-	if(!cult || !player.mind)
-		return 0
-	if(player.mind in cult.current_antagonists)
-		return 1
-
-/proc/iscult(var/mob/test)
-	if (test.faction == "cult")
-		return 1
-
-	else return iscultist(test)
+	if(player.faction == "cult")
+		return TRUE
+	if(player.mind)
+		if(player.mind.antag_datums[MODE_CULTIST])
+			return TRUE
+		if(cult && (player.mind in cult.current_antagonists))
+			return TRUE
+	return FALSE
 
 /datum/antagonist/cultist
 	id = MODE_CULTIST
 	role_text = "Cultist"
 	role_text_plural = "Cultists"
 	bantype = "cultist"
-	restricted_jobs = list("Chaplain","AI", "Cyborg", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Head of Personnel")
-	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Detective", "Forensic Technician")
+	restricted_jobs = list("Chaplain", "AI", "Cyborg", "Head of Security", "Captain", "Chief Engineer", "Research Director", "Chief Medical Officer", "Executive Officer", "Operations Manager", "Merchant")
+	protected_jobs = list("Security Officer", "Security Cadet", "Warden", "Investigator")
 	feedback_tag = "cult_objective"
 	antag_indicator = "cult"
 	welcome_text = "You have a talisman in your possession; one that will help you start the cult on this station. Use it well and remember - there are others."
+	antag_sound = 'sound/effects/antag_notice/cult_alert.ogg'
 	victory_text = "The cult wins! It has succeeded in serving its dark masters!"
 	loss_text = "The staff managed to stop the cult!"
 	victory_feedback_tag = "win - cult win"
@@ -62,25 +61,12 @@ var/datum/antagonist/cultist/cult
 	global_objectives |= sacrifice
 
 /datum/antagonist/cultist/equip(var/mob/living/carbon/human/player)
-
 	if(!..())
-		return 0
+		return FALSE
 
 	var/obj/item/book/tome/T = new(get_turf(player))
-	var/list/slots = list (
-		"backpack" = slot_in_backpack,
-		"left pocket" = slot_l_store,
-		"right pocket" = slot_r_store,
-		"left hand" = slot_l_hand,
-		"right hand" = slot_r_hand
-	)
-	for(var/slot in slots)
-		player.equip_to_slot(T, slot)
-		if(T.loc == player)
-			break
-	var/obj/item/storage/S = locate() in player.contents
-	if(S && istype(S))
-		T.forceMove(S)
+	var/list/slots = list(slot_in_backpack, slot_l_store, slot_r_store, slot_belt, slot_l_hand, slot_r_hand)
+	player.equip_in_one_of_slots(T, slots, disable_warning = TRUE)
 
 /datum/antagonist/cultist/remove_antagonist(var/datum/mind/player, var/show_message, var/implanted)
 	if(!..())
@@ -91,6 +77,12 @@ var/datum/antagonist/cultist/cult
 		player.current.visible_message("<FONT size = 3>[player.current] looks like they just reverted to their old faith!</FONT>")
 	if(. && player.current && !istype(player.current, /mob/living/simple_animal/construct))
 		player.current.remove_language(LANGUAGE_CULT)
+		player.current.remove_language(LANGUAGE_OCCULT)
+
+	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
+	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
+	remove_verb(player.current, /datum/cultist/proc/forget_rune)
+	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
 
 /datum/antagonist/cultist/add_antagonist(var/datum/mind/player)
 	. = ..()
@@ -98,6 +90,12 @@ var/datum/antagonist/cultist/cult
 		to_chat(player, "You catch a glimpse of the Realm of Nar-Sie, the Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of That Which Waits. Assist your new compatriots in their dark dealings. Their goals are yours, and yours are theirs. You serve the Dark One above all else. Bring It back.")
 		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))
 			player.current.add_language(LANGUAGE_CULT)
+			player.current.add_language(LANGUAGE_OCCULT)
+			add_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
+			add_verb(player.current, /datum/cultist/proc/memorize_rune)
+			add_verb(player.current, /datum/cultist/proc/forget_rune)
+			add_verb(player.current, /datum/cultist/proc/scribe_rune)
+			player.antag_datums[MODE_CULTIST] = new /datum/cultist()
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
@@ -106,3 +104,29 @@ var/datum/antagonist/cultist/cult
 		if(L?.imp_in == player.current)
 			return FALSE
 	return TRUE
+
+/datum/antagonist/cultist/proc/appraise_offering()
+	set name = "Appraise Offering"
+	set desc = "Find out if someone close-by can be converted to join the cult, or not."
+	set category = "Cultist"
+
+	var/list/targets = list()
+	for(var/mob/living/carbon/target in view(5, usr))
+		targets |= target
+	targets -= usr
+
+	var/mob/living/carbon/target = tgui_input_list(usr,"Who do you believe may be a worthy offering?", "Cult", targets)
+	if(!istype(target))
+		return
+
+	if(!cult.can_become_antag(target.mind) || jobban_isbanned(target, "cultist") || player_is_antag(target.mind))
+		to_chat(usr, SPAN_CULT("You get the sense that [target] would be an unworthy offering."))
+	else
+		to_chat(usr, SPAN_CULT("You get the sense that your master would be pleased to welcome [target] into the cult."))
+
+/datum/antagonist/cultist/is_obvious_antag(datum/mind/player)
+	if(istype(player.current, /mob/living/simple_animal/construct))
+		return TRUE
+	else if(istype(player.current, /mob/living/simple_animal/shade))
+		return TRUE
+	return FALSE

@@ -1,40 +1,42 @@
 /obj/item/material/sword
 	name = "claymore"
 	desc = "What are you standing around staring at this for? Get to killing!"
-	description_cult = "This can be reforged to become a cult blade."
+	desc_antag = "As a Cultist, this item can be reforged to become a cult blade."
 	icon = 'icons/obj/sword.dmi'
 	icon_state = "claymore"
 	item_state = "claymore"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT|SLOT_BACK
-	w_class = 4
+	w_class = ITEMSIZE_LARGE
 	force_divisor = 0.7 // 42 when wielded with hardnes 60 (steel)
 	thrown_force_divisor = 0.5 // 10 when thrown with weight 20 (steel)
 	sharp = 1
-	edge = 1
+	edge = TRUE
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	can_embed = 0
 	var/parry_chance = 40
 	drop_sound = 'sound/items/drop/sword.ogg'
-	pickup_sound = 'sound/items/pickup/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	equip_sound = /singleton/sound_category/sword_equip_sound
 
-/obj/item/material/sword/handle_shield(mob/user, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
+/obj/item/material/sword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	var/parry_bonus = 1
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(H.martial_art && H.martial_art.weapon_affinity && istype(src, H.martial_art.weapon_affinity))
-			parry_bonus = H.martial_art.parry_multiplier
+		var/has_parry_bonus = H.check_weapon_affinity(src, TRUE)
+		if(has_parry_bonus)
+			parry_bonus = has_parry_bonus // proc returns the parry multiplier
 
 	if(default_parry_check(user, attacker, damage_source) && prob(parry_chance * parry_bonus))
 		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
 		playsound(user.loc, 'sound/weapons/bladeparry.ogg', 50, 1)
-		return 1
-	return 0
+		return PROJECTILE_STOPPED
+	return FALSE
 
 /obj/item/material/sword/perform_technique(var/mob/living/carbon/human/target, var/mob/living/carbon/human/user, var/target_zone)
-	var/armor_reduction = target.run_armor_check(target_zone,"melee")
+	var/armor_reduction = target.get_blocked_ratio(target_zone, DAMAGE_BRUTE, DAMAGE_FLAG_EDGE|DAMAGE_FLAG_SHARP, damage = force)*100
 	var/obj/item/organ/external/affecting = target.get_organ(target_zone)
 	if(!affecting)
 		return
@@ -55,7 +57,7 @@
 				target.drop_l_hand()
 			return TRUE
 
-	if(target_zone == "r_feet" || target_zone == "l_feet" || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
+	if(target_zone == BP_R_FOOT || target_zone == BP_R_FOOT || target_zone == BP_R_LEG || target_zone == BP_L_LEG)
 		if(prob(60 - armor_reduction))
 			target.Weaken(5)
 			return TRUE
@@ -97,6 +99,9 @@
 	item_state = "sabre"
 	slot_flags = SLOT_BELT
 
+/obj/item/material/sword/sabre/silver/Initialize(newloc, material_key)
+	. = ..(newloc, MATERIAL_SILVER)
+
 /obj/item/material/sword/axe
 	name = "battle axe"
 	desc = "A one handed battle axe, still a deadly weapon."
@@ -113,6 +118,9 @@
 	if(istype(target))
 		cleave(user, target)
 	..()
+
+/obj/item/material/sword/axe/can_woodcut()
+	return TRUE
 
 /obj/item/material/sword/khopesh
 	name = "khopesh"
@@ -141,6 +149,10 @@
 	icon_state = "amohdan_sword"
 	item_state = "amohdan_sword"
 	slot_flags = SLOT_BELT
+	use_material_name = FALSE
+	applies_material_colour = FALSE
+	unbreakable = TRUE //amohdan steel is the finest in the spur
+
 
 // improvised sword
 /obj/item/material/sword/improvised_sword
@@ -177,9 +189,9 @@
 	force_divisor = 0.05
 	thrown_force_divisor = 0.2
 
-/obj/item/material/sword_hilt/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/material/sword_blade))
-		var/obj/item/material/sword_blade/blade = O
+/obj/item/material/sword_hilt/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/sword_blade))
+		var/obj/item/material/sword_blade/blade = attacking_item
 		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, blade.material.name)
 		new_sword.hilt = src
 		user.drop_from_inventory(src,new_sword)
@@ -200,9 +212,9 @@
 	force_divisor = 0.20
 	thrown_force_divisor = 0.3
 
-/obj/item/material/sword_blade/attackby(var/obj/O, mob/user)
-	if(istype(O, /obj/item/material/sword_hilt))
-		var/obj/item/material/sword_hilt/hilt = O
+/obj/item/material/sword_blade/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/sword_hilt))
+		var/obj/item/material/sword_hilt/hilt = attacking_item
 		var/obj/item/material/sword/improvised_sword/new_sword = new(src.loc, src.material.name)
 		new_sword.hilt = hilt.material
 		new_sword.assignDescription()

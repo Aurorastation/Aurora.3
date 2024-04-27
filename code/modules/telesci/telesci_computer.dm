@@ -2,6 +2,7 @@
 	name = "\improper Telepad Control Console"
 	desc = "Used to create bluespace portals using the telescience telepad."
 	icon_screen = "teleport"
+	icon_keyboard = "lightblue_key"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/telesci_console
 	var/sending = 1
@@ -37,9 +38,9 @@
 		inserted_gps = null
 	return ..()
 
-/obj/machinery/computer/telescience/examine(mob/user)
-	..()
-	to_chat(user, "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots.")
+/obj/machinery/computer/telescience/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "There are [crystals.len ? crystals.len : "no"] bluespace crystal\s in the crystal slots."
 
 /obj/machinery/computer/telescience/Initialize()
 	. = ..()
@@ -47,32 +48,34 @@
 	for(var/i = 1; i <= starting_crystals; i++)
 		crystals += new /obj/item/bluespace_crystal/artificial(null) // starting crystals
 
-/obj/machinery/computer/telescience/attackby(obj/item/W, mob/user, params)
-	if(istype(W, /obj/item/bluespace_crystal))
+/obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
+	if(istype(attacking_item, /obj/item/bluespace_crystal))
 		if(crystals.len >= max_crystals)
 			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
 			return
 		user.drop_item(src)
-		crystals += W
-		W.forceMove(null)
-		user.visible_message("[user] inserts [W] into \the [src]'s crystal slot.", "<span class='notice'>You insert [W] into \the [src]'s crystal slot.</span>")
+		crystals += attacking_item
+		attacking_item.forceMove(null)
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", "<span class='notice'>You insert [attacking_item] into \the [src]'s crystal slot.</span>")
 		updateDialog()
-	else if(istype(W, /obj/item/device/gps))
+	else if(istype(attacking_item, /obj/item/device/gps))
 		if(!inserted_gps)
-			inserted_gps = W
-			user.unEquip(W)
-			W.forceMove(src)
-			user.visible_message("[user] inserts [W] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [W] into \the [src]'s GPS device slot.</span>")
-	else if(W.ismultitool())
-		var/obj/item/device/multitool/M = W
+			inserted_gps = attacking_item
+			user.unEquip(attacking_item)
+			attacking_item.forceMove(src)
+			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [attacking_item] into \the [src]'s GPS device slot.</span>")
+	else if(attacking_item.ismultitool())
+		var/obj/item/device/multitool/M = attacking_item
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))
 			telepad = M.buffer
 			M.buffer = null
-			to_chat(user, "<span class='caution'>You upload the data from the [W.name]'s buffer.</span>")
+			to_chat(user, "<span class='caution'>You upload the data from the [attacking_item.name]'s buffer.</span>")
 	else
 		..()
 
 /obj/machinery/computer/telescience/attack_ai(mob/user)
+	if(!ai_can_interact(user))
+		return
 	src.attack_hand(user)
 
 /obj/machinery/computer/telescience/attack_hand(mob/user)
@@ -133,7 +136,7 @@
 
 /obj/machinery/computer/telescience/proc/sparks()
 	if(telepad)
-		spark(telepad, 5, alldirs)
+		spark(telepad, 5, GLOB.alldirs)
 	else
 		return
 
@@ -187,9 +190,9 @@
 			teles_left -= 1
 
 			// use a lot of power
-			use_power(power * 10)
+			use_power_oneoff(power * 10)
 
-			spark(telepad, 5, alldirs)
+			spark(telepad, 5, GLOB.alldirs)
 
 			temp_msg = "Bluespace portal creation successful.<BR>"
 			if(teles_left < 10)
@@ -197,7 +200,7 @@
 			else
 				temp_msg += "Data printed below."
 
-			spark(telepad, 5, alldirs)
+			spark(telepad, 5, GLOB.alldirs)
 
 			var/turf/source = target
 			var/turf/dest = get_turf(telepad)
@@ -209,19 +212,19 @@
 				dest = target
 
 			flick("pad-beam", telepad)
-			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff = 5)
+			playsound(telepad.loc, 'sound/weapons/emitter2.ogg', 25, 1, extrarange = 3, falloff_distance = 5)
 
 			var/total_lifespawn = 25 * crystals.len
-			var/total_failchance = crystals.len
 
 			var/obj/effect/portal/origin = new /obj/effect/portal(dest, null, null, total_lifespawn, 0)
 			var/obj/effect/portal/destination = new /obj/effect/portal(source,  null, null, total_lifespawn, 0)
 
+
 			origin.target = destination
 			destination.target = origin
+			origin.has_failed = FALSE
+			destination.has_failed = FALSE
 
-			origin.failchance = total_failchance
-			destination.failchance = total_failchance
 
 			if (dd_hassuffix(log_msg, ", "))
 				log_msg = dd_limittext(log_msg, length(log_msg) - 2)
@@ -249,7 +252,7 @@
 		return
 	if(isNotStationLevel(z_co))
 		telefail()
-		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(current_map.station_levels)]."
+		temp_msg = "ERROR! Sector is invalid! Valid sectors are [english_list(SSatlas.current_map.station_levels)]."
 		return
 	if(teles_left > 0)
 		doteleport(user)

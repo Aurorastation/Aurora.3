@@ -185,9 +185,11 @@
 	icon_state = "stockings_yellow"
 
 /datum/category_item/underwear/socks/fishnet
-	name = "Fishnets"
-	icon_state = "fishnet"
+	name = "Fishnet Tights"
+	icon_state = "fishnets"
+	has_color = TRUE
 
 /datum/category_item/underwear/socks/fishnet_nosock
-	name = "Fishnets, Short"
+	name = "Fishnet Tights, Short"
 	icon_state = "fishnet_nosock"
+	has_color = TRUE

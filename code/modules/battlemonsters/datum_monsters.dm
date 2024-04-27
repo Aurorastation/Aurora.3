@@ -81,7 +81,7 @@
 	rarity = BATTLE_MONSTERS_RARITY_RARE
 	rarity_score = 1
 
-datum/battle_monsters/monster/human/warrior
+/datum/battle_monsters/monster/human/warrior
 	name = "Barbarian"
 	id = "warrior"
 	icon_state = "human"

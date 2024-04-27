@@ -1,13 +1,14 @@
 /obj/item/modular_computer/console
 	name = "console"
 	desc = "A stationary computer."
-	icon = 'icons/obj/modular_console.dmi'
-	icon_state = "console"
-	icon_state_unpowered = "console"
-	icon_state_screensaver = "standby-light"
-	icon_state_menu = "menu-light"
-	icon_state_broken = "console-broken"
-	menu_light_color = LIGHT_COLOR_BLUE
+	icon = 'icons/obj/machinery/modular_console.dmi'
+	icon_state = "computer"
+	icon_state_unpowered = "computer"
+	icon_state_screensaver = "standby"
+	icon_state_screensaver_key = "black_key"
+	icon_state_menu = "menu"
+	icon_state_broken = "computer-broken"
+	menu_light_color = LIGHT_COLOR_WHITE
 	hardware_flag = PROGRAM_CONSOLE
 	anchored = TRUE
 	density = TRUE
@@ -16,7 +17,7 @@
 	base_active_power_usage = 500
 	max_hardware_size = 3
 	steel_sheet_cost = 20
-	light_strength = 2
+	light_range = 2
 	screensaver_light_range = 1.4
-	screensaver_light_color = "#0099ff"
+	screensaver_light_color = LIGHT_COLOR_WHITE
 	is_holographic = TRUE

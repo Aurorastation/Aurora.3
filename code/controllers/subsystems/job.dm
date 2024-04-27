@@ -1,22 +1,18 @@
-/var/datum/controller/subsystem/jobs/SSjobs
+#define Debug(text) if (GLOB.Debug2) {job_debug += text}
 
-#define BE_ASSISTANT 0
-#define RETURN_TO_LOBBY 1
-
-#define Debug(text) if (Debug2) {job_debug += text}
-
-/datum/controller/subsystem/jobs
+SUBSYSTEM_DEF(jobs)
 	// Subsystem stuff.
 	name = "Jobs"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_JOBS
+	init_order = INIT_ORDER_JOBS
 
 	// Vars.
-	var/list/occupations = list()
-	var/list/name_occupations = list()	//Dict of all jobs, keys are titles
-	var/list/type_occupations = list()	//Dict of all jobs, keys are types
-	var/list/unassigned = list()
+	var/list/datum/job/occupations = list()
+	var/list/datum/job/name_occupations = list()	//Dict of all jobs, keys are titles
+	var/list/datum/job/type_occupations = list()	//Dict of all jobs, keys are types
+	var/list/mob/abstract/new_player/unassigned = list()
 	var/list/job_debug = list()
+	var/list/bitflag_to_job = list()
 
 	var/list/factions = list()
 	var/list/name_factions = list()
@@ -25,17 +21,17 @@
 	var/safe_to_sanitize = FALSE
 	var/list/deferred_preference_sanitizations = list()
 
-/datum/controller/subsystem/jobs/New()
-	NEW_SS_GLOBAL(SSjobs)
-
 /datum/controller/subsystem/jobs/Initialize()
-	..()
 
 	SetupOccupations()
 	LoadJobs("config/jobs.txt")
 	InitializeFactions()
 
 	ProcessSanitizationQueue()
+
+	SSticker.setup_player_ready_list()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/jobs/Recover()
 	occupations = SSjobs.occupations
@@ -47,7 +43,7 @@
 
 /datum/controller/subsystem/jobs/proc/SetupOccupations(faction = "Station")
 	occupations = list()
-	var/list/all_jobs = current_map.allowed_jobs
+	var/list/all_jobs = SSatlas.current_map.allowed_jobs
 	if(!all_jobs.len)
 		to_world("<span class='warning'>Error setting up jobs, no job datums found!</span>")
 		return FALSE
@@ -59,7 +55,10 @@
 		occupations += job
 		name_occupations[job.title] = job
 		type_occupations[J] = job
-		if (config && config.use_age_restriction_for_jobs)
+		if(!length(bitflag_to_job["[job.department_flag]"]))
+			bitflag_to_job["[job.department_flag]"] = list()
+		bitflag_to_job["[job.department_flag]"]["[job.flag]"] = job
+		if (GLOB.config && GLOB.config.use_age_restriction_for_jobs)
 			job.fetch_age_restriction()
 
 	return TRUE
@@ -99,32 +98,32 @@
 			return FALSE
 		if(jobban_isbanned(player, rank))
 			return FALSE
+		if(!player.IsJobAvailable(rank))
+			return FALSE
 
 		if(!(player.client.prefs.GetPlayerAltTitle(job) in player.client.prefs.GetValidTitles(job)))
 			to_chat(player, "<span class='warning'>Your character is too young!</span>")
 			return FALSE
 
-		var/position_limit = job.total_positions
+		var/position_limit = job.get_total_positions()
 		if(!latejoin)
-			position_limit = job.spawn_positions
+			position_limit = job.get_spawn_positions()
 		if((job.current_positions < position_limit) || position_limit == -1)
 			Debug("Player: [player] is now Rank: [rank], JCP:[job.current_positions], JPL:[position_limit]")
 			player.mind.assigned_role = rank
 			player.mind.role_alt_title = GetPlayerAltTitle(player, rank)
 			unassigned -= player
 			job.current_positions++
+			job.pre_spawn(player)
 			return TRUE
 	Debug("AR has failed, Player: [player], Rank: [rank]")
 	return FALSE
 
-/datum/controller/subsystem/jobs/proc/FreeRole(rank)
+/datum/controller/subsystem/jobs/proc/FreeRole(var/rank)
 	var/datum/job/job = GetJob(rank)
-
-	if (job && job.current_positions >= job.total_positions && job.total_positions != -1)
-		job.total_positions++
-		return TRUE
-
-	return FALSE
+	if(!istype(job))
+		return
+	job.current_positions--
 
 /datum/controller/subsystem/jobs/proc/FindOccupationCandidates(datum/job/job, level, flag)
 	Debug("Running FOC, Job: [job], Level: [level], Flag: [flag]")
@@ -141,7 +140,7 @@
 			. += player
 
 /datum/controller/subsystem/jobs/proc/ResetOccupations()
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if((player) && (player.mind))
 			player.mind.assigned_role = null
 			player.mind.special_role = null
@@ -160,31 +159,7 @@
 			if(!candidates.len)
 				continue
 
-			// Build a weighted list, weight by age.
-			var/list/weightedCandidates = list()
-			for(var/mob/V in candidates)
-				// Log-out during round-start? What a bad boy, no head position for you!
-				if(!V.client)
-					continue
-
-				var/age = V.client.prefs.age
-
-				switch(age)
-					if(job.minimum_character_age to (job.minimum_character_age+10))
-						weightedCandidates[V] = 3 // Still a bit young.
-					if((job.minimum_character_age+10) to (job.ideal_character_age-10))
-						weightedCandidates[V] = 6 // Better.
-					if((job.ideal_character_age-10) to (job.ideal_character_age+10))
-						weightedCandidates[V] = 10 // Great.
-					if((job.ideal_character_age+10) to (job.ideal_character_age+20))
-						weightedCandidates[V] = 6 // Still good.
-					if((job.ideal_character_age+20) to INFINITY)
-						weightedCandidates[V] = 3 // Geezer.
-					else
-						// If there's ABSOLUTELY NOBODY ELSE
-						if(candidates.len == 1) weightedCandidates[V] = 1
-
-			var/mob/abstract/new_player/candidate = pickweight(weightedCandidates)
+			var/mob/abstract/new_player/candidate = pick(candidates)
 			if(AssignRole(candidate, command_position))
 				return TRUE
 	return FALSE
@@ -218,7 +193,7 @@
 				break
 
 	//Get the players who are ready
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player.ready && player.mind && !player.mind.assigned_role)
 			unassigned += player
 
@@ -278,7 +253,7 @@
 				if(player.client.prefs.GetJobDepartment(job, level) & job.flag)
 
 					// If the job isn't filled
-					if((job.current_positions < job.spawn_positions) || job.spawn_positions == -1)
+					if((job.current_positions < job.get_spawn_positions()) || job.get_spawn_positions() == -1)
 						Debug("DO pass, Player: [player], Level:[level], Job:[job.title]")
 						AssignRole(player, job.title)
 						unassigned -= player
@@ -298,15 +273,21 @@
 	for(var/mob/abstract/new_player/player in unassigned)
 		if(player.client.prefs.alternate_option == RETURN_TO_LOBBY)
 			player.ready = 0
-			player.new_player_panel_proc()
 			unassigned -= player
 	return TRUE
 
-/datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = FALSE, megavend = FALSE)
+/datum/controller/subsystem/jobs/proc/EquipRank(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
 	if(!H)
 		return null
 
-	Debug("ER/([H]): Entry, joined_late=[joined_late],megavend=[megavend].")
+	Debug("ER/([H]): Entry, joined_late=[joined_late].")
+
+	if(SSatlas.current_sector.description)
+		to_chat(H, SSatlas.current_sector.get_chat_description())
+
+	if("Arrivals Shuttle" in SSatlas.current_map.allowed_spawns && spawning_at == "Arrivals Shuttle")
+		H.centcomm_despawn_timer = addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living, centcomm_timeout)), 10 MINUTES, TIMER_STOPPABLE)
+		to_chat(H,SPAN_NOTICE("You have ten minutes to reach the station before you will be forced there."))
 
 	var/datum/job/job = GetJob(rank)
 	var/list/spawn_in_storage = list()
@@ -320,17 +301,16 @@
 		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
 		var/list/custom_equip_leftovers = list()
 		//Equip job items.
-		if(!megavend)	//Equip custom gear loadout.
-			Debug("ER/([H]): Equipping custom loadout.")
-			job.pre_equip(H)
-			job.setup_account(H)
-
-			EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
+		Debug("ER/([H]): Equipping custom loadout.")
+		job.pre_equip(H)
+		job.setup_account(H)
+		job.after_spawn(H)
+		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
 
 		job.equip(H)
+		UniformReturn(H, H.client.prefs, job)
 
-		if (!megavend)
-			spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
+		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
 	else
 		to_chat(H,"Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
 
@@ -344,20 +324,20 @@
 			LateSpawn(H, rank)
 
 		// Moving wheelchair if they have one
-		if(H.buckled && istype(H.buckled, /obj/structure/bed/chair/wheelchair))
-			H.buckled.forceMove(H.loc)
-			H.buckled.set_dir(H.dir)
+		if(H.buckled_to && istype(H.buckled_to, /obj/structure/bed/stool/chair/office/wheelchair))
+			H.buckled_to.forceMove(H.loc)
+			H.buckled_to.set_dir(H.dir)
 
-	// If they're head, give them the account info for their department
-	if(H.mind && job.head_position)
+	if(H.mind)
+		// If they're a department supervisor/head give them the account info for that department
 		var/remembered_info = ""
-		var/datum/money_account/department_account = SSeconomy.get_department_account(job.department)
-
-		if(department_account)
-			remembered_info += "<b>Your department's account number is:</b> #[department_account.account_number]<br>"
-			remembered_info += "<b>Your department's account pin is:</b> [department_account.remote_access_pin]<br>"
-			remembered_info += "<b>Your department's account funds are:</b> $[department_account.money]<br>"
-
+		for(var/department in job.departments)
+			if(job.departments[department] & JOBROLE_SUPERVISOR)
+				var/datum/money_account/department_account = SSeconomy.get_department_account(department)
+				if(department_account)
+					remembered_info += "<b>[department] department's account number is:</b> #[department_account.account_number]<br>"
+					remembered_info += "<b>[department] department's account pin is:</b> [department_account.remote_access_pin]<br>"
+					remembered_info += "<b>[department] department's account funds are:</b> $[department_account.money]<br>"
 		H.mind.store_memory(remembered_info)
 
 	var/alt_title = null
@@ -374,41 +354,58 @@
 				return H
 
 		//Deferred item spawning.
-		if(!megavend && LAZYLEN(spawn_in_storage))
+		if(LAZYLEN(spawn_in_storage))
 			EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
 
-	if(istype(H) && !megavend) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
-		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
-		if(!l_foot || !r_foot)
-			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
-			H.buckled = W
-			H.update_canmove()
-			W.set_dir(H.dir)
-			W.buckled_mob = H
-			W.add_fingerprint(H)
+	to_chat(H, "<B>You are [job.get_total_positions() == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
 
-	to_chat(H, "<B>You are [job.total_positions == 1 ? "the" : "a"] [alt_title ? alt_title : rank].</B>")
+	if(istype(H)) //give humans wheelchairs, if they need them.
+		if(H.needs_wheelchair())
+			H.equip_wheelchair()
 
 	if(job.supervisors)
 		to_chat(H, "<b>As [job.intro_prefix] [alt_title ? alt_title : rank] you answer directly to [job.supervisors]. Special circumstances may change this.</b>")
 
 	//Gives glasses to the vision impaired
-	if(H.disabilities & NEARSIGHTED && !megavend)
+	if(H.disabilities & NEARSIGHTED)
 		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
 		if(equipped != 1)
 			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = TRUE
+			G.prescription = 7
 
-	if(H.species)
+	if(H.species && !H.species_items_equipped)
 		H.species.equip_later_gear(H)
+		H.species_items_equipped = TRUE
+
+	// So shoes aren't silent if people never change 'em.
+	H.update_noise_level()
 
 	BITSET(H.hud_updateflag, ID_HUD)
 	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
 	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
 
-	Debug("ER/([H]): Completed.")
+	var/obj/item/clothing/under/uniform = H.w_uniform
+	if(istype(uniform) && uniform.has_sensor)
+		uniform.sensor_mode = SUIT_SENSOR_MODES[H.client.prefs.sensor_setting]
 
+	INVOKE_ASYNC(GLOBAL_PROC, GLOBAL_PROC_REF(show_location_blurb), H.client, 10 SECONDS)
+
+	if(spawning_at == "Arrivals Shuttle")
+		to_chat(H, "<b>[SSatlas.current_map.command_spawn_message]</b>")
+
+	if(joined_late)
+		var/antag_count = 0
+		for(var/antag_type in SSticker.mode.antag_tags)
+			var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
+			antag_count += A.get_active_antag_count()
+		for(var/antag_type in SSticker.mode.antag_tags)
+			var/datum/antagonist/A = GLOB.all_antag_types[antag_type]
+			A.update_current_antag_max()
+			if((A.role_type in H.client.prefs.be_special_role) && !(A.flags & ANTAG_OVERRIDE_JOB) && antag_count < A.cur_max)
+				A.add_antagonist(H.mind)
+				break
+
+	Debug("ER/([H]): Completed.")
 	return H
 
 /mob/living/carbon/human
@@ -432,13 +429,11 @@
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in cryo the whole time!</span>")
+		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in cryo the whole time!</span>")
 		src.forceMove(pick(spawnpos.turfs))
-		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
-		if(!src.megavend)
-			var/rank= src.mind.assigned_role
-			SSjobs.EquipRank(src, rank, 1, megavend = TRUE)
-			src.megavend = TRUE
+		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
+		var/rank= src.mind.assigned_role
+		SSjobs.EquipRank(src, rank, 1)
 	else
 		SSjobs.centcomm_despawn_mob(src) //somehow they can't spawn at cryo, so this is the only recourse of action.
 
@@ -452,9 +447,9 @@
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the Aurora at all! You were in robotic storage the whole time!</span>")
+		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in robotic storage the whole time!</span>")
 		src.forceMove(pick(spawnpos.turfs))
-		global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
+		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
 		SSjobs.centcomm_despawn_mob(src)
 
@@ -463,101 +458,17 @@
 // Convenience wrapper.
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[current_map.dock_name] Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
+		GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[SSatlas.current_map.dock_name] Cryogenic Oversight")
+		H.visible_message("<span class='notice'>[H.name] makes their way to the [SSatlas.current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
 		DespawnMob(H)
 	else
-		global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[current_map.dock_name] Robotic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
+		if(!isDrone(H))
+			GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[SSatlas.current_map.dock_name] Robotic Oversight")
+			H.visible_message("<span class='notice'>[H.name] makes their way to the [SSatlas.current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
 		DespawnMob(H)
-
-/datum/controller/subsystem/jobs/proc/EquipPersonal(mob/living/carbon/human/H, rank, joined_late = FALSE, spawning_at)
-	Debug("EP/([H]): Entry.")
-	if(!H)
-		Debug("EP/([H]): Abort, H is null.")
-		return null
-
-	switch(rank)
-		if("Cyborg")
-			Debug("EP/([H]): Abort, H is borg..")
-			return EquipRank(H, rank, 1)
-		if("AI")
-			Debug("EP/([H]): Abort, H is AI.")
-			return EquipRank(H, rank, 1)
-
-	if(!current_map.command_spawn_enabled || spawning_at != "Arrivals Shuttle")
-		return EquipRank(H, rank, 1)
-
-	H.centcomm_despawn_timer = addtimer(CALLBACK(H, /mob/living/.proc/centcomm_timeout), 10 MINUTES, TIMER_STOPPABLE)
-
-	var/datum/job/job = GetJob(rank)
-
-	H.job = rank
-
-	if(spawning_at != "Arrivals Shuttle" || job.latejoin_at_spawnpoints)
-		return EquipRank(H, rank, 1)
-
-	var/list/spawn_in_storage = list()
-	to_chat(H,"<span class='notice'>You have ten minutes to reach the station before you will be forced there.</span>")
-
-	if(job)
-		//Equip custom gear loadout.
-		var/list/custom_equip_slots = list() //If more than one item takes the same slot, all after the first one spawn in storage.
-		var/list/custom_equip_leftovers = list()
-
-		EquipCustom(H, job, H.client.prefs, custom_equip_leftovers, spawn_in_storage, custom_equip_slots)
-
-		Debug("EP/([H]): EC Complated, running pre_equip and late_equip.")
-
-		//Equip job items.
-		job.pre_equip(H) // Spawn in the backpack
-		job.late_equip(H)
-		job.setup_account(H)
-
-		spawn_in_storage += EquipCustomDeferred(H, H.client.prefs, custom_equip_leftovers, custom_equip_slots)
-	else
-		to_chat(H,"Your job is [rank] and the game just can't handle it! Please report this bug to an administrator.")
-
-	if(LAZYLEN(spawn_in_storage))
-		EquipItemsStorage(H, H.client.prefs, spawn_in_storage)
-
-	if(istype(H)) //give humans wheelchairs, if they need them.
-		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
-		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
-		if(!l_foot || !r_foot)
-			var/obj/structure/bed/chair/wheelchair/W = new /obj/structure/bed/chair/wheelchair(H.loc)
-			H.buckled = W
-			H.update_canmove()
-			W.set_dir(H.dir)
-			W.buckled_mob = H
-			W.add_fingerprint(H)
-
-	//Gives glasses to the vision impaired
-	if(H.disabilities & NEARSIGHTED)
-		var/equipped = H.equip_to_slot_or_del(new /obj/item/clothing/glasses/regular(H), slot_glasses)
-		if(equipped != 1)
-			var/obj/item/clothing/glasses/G = H.glasses
-			G.prescription = TRUE
-			G.autodrobe_no_remove = TRUE
-
-	if(H.species)
-		H.species.equip_later_gear(H)
-
-	// So shoes aren't silent if people never change 'em.
-	H.update_noise_level()
-
-	BITSET(H.hud_updateflag, ID_HUD)
-	BITSET(H.hud_updateflag, IMPLOYAL_HUD)
-	BITSET(H.hud_updateflag, SPECIALROLE_HUD)
-
-	to_chat(H, "<b>[current_map.command_spawn_message]</b>")
-
-	Debug("EP/([H]): Completed.")
-
-	return H
 
 /datum/controller/subsystem/jobs/proc/LoadJobs(jobsfile)
-	if (!config.load_jobs_from_txt)
+	if (!GLOB.config.load_jobs_from_txt)
 		return FALSE
 
 	var/list/jobEntries = file2list(jobsfile)
@@ -582,11 +493,10 @@
 
 		if(name && value)
 			var/datum/job/J = GetJob(name)
-			if(!J)	continue
+			if(!istype(J))
+				continue
 			J.total_positions = text2num(value)
 			J.spawn_positions = text2num(value)
-			if(name == "AI" || name == "Cyborg")//I dont like this here but it will do for now    // 6 years later and it's still not changed. Hue.
-				J.total_positions = 0
 
 	return TRUE
 
@@ -620,7 +530,7 @@
 		var/level3 = 0 //low
 		var/level4 = 0 //never
 		var/level5 = 0 //banned
-		for(var/mob/abstract/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in GLOB.player_list)
 			if(!(player.ready && player.mind && !player.mind.assigned_role))
 				continue //This player is not ready
 			if(jobban_isbanned(player, job.title))
@@ -645,36 +555,58 @@
 
 	H.job = rank
 
-	if(job.latejoin_at_spawnpoints)
-		for (var/thing in landmarks_list)
-			var/obj/effect/landmark/L = thing
-			if(istype(L))
-				if(L.name == "LateJoin[rank]")
-					H.forceMove(L.loc)
-					return
-
-	var/datum/spawnpoint/spawnpos
-
-	if(H.client.prefs.spawnpoint)
-		spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
-
-	if(spawnpos && istype(spawnpos))
-		if(spawnpos.check_job_spawning(rank))
-			H.forceMove(pick(spawnpos.turfs))
-			. = spawnpos.msg
+	if(SSatlas.current_map.force_spawnpoint && LAZYLEN(GLOB.force_spawnpoints))
+		if(GLOB.force_spawnpoints[rank])
+			H.forceMove(pick(GLOB.force_spawnpoints[rank]))
 		else
-			to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
-			H.forceMove(pick(latejoin))
-			. = "is inbound from the [current_map.dock_name]"
+			H.forceMove(pick(GLOB.force_spawnpoints["Anyone"]))
 	else
-		H.forceMove(pick(latejoin))
-		. = "is inbound from the [current_map.dock_name]"
+		if(job.latejoin_at_spawnpoints)
+			for (var/thing in GLOB.landmarks_list)
+				var/obj/effect/landmark/L = thing
+				if(istype(L))
+					if(L.name == "LateJoin[rank]")
+						H.forceMove(L.loc)
+						return
+
+		var/datum/spawnpoint/spawnpos
+
+		if(H.client.prefs.spawnpoint in SSatlas.spawn_locations)
+			spawnpos = SSatlas.spawn_locations[H.client.prefs.spawnpoint]
+
+		if(rank == "Cyborg")
+			spawnpos = new/datum/spawnpoint/cyborg
+
+		if(!spawnpos)
+			spawnpos = SSatlas.spawn_locations[SSatlas.current_map.default_spawn]
+
+		if(spawnpos && istype(spawnpos))
+			if(spawnpos.check_job_spawning(rank))
+				if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
+					var/datum/spawnpoint/cryo/C = spawnpos
+					if(length(C.command_turfs))
+						H.forceMove(pick(C.command_turfs))
+					else
+						H.forceMove(pick(spawnpos.turfs))
+				else
+					H.forceMove(pick(spawnpos.turfs))
+				. = spawnpos.msg
+				spawnpos.after_join(H)
+			else
+				to_chat(H, "Your chosen spawnpoint ([spawnpos.display_name]) is unavailable for your chosen job. Spawning you at the Arrivals shuttle instead.")
+				H.forceMove(pick(GLOB.latejoin))
+				. = "is inbound from the [SSatlas.current_map.dock_name]"
+		else
+			H.forceMove(pick(GLOB.latejoin))
+			. = "is inbound from the [SSatlas.current_map.dock_name]"
+
+	H.mind.selected_faction = SSjobs.GetFaction(H)
 
 	Debug("LS/([H]): Completed, spawning at area [H.loc.loc].")
 
 /datum/controller/subsystem/jobs/proc/DespawnMob(mob/living/carbon/human/H)
 	//Update any existing objectives involving this mob.
-	for(var/datum/objective/O in all_objectives)
+	for(var/datum/objective/O in GLOB.all_objectives)
 		// We don't want revs to get objectives that aren't for heads of staff. Letting
 		// them win or lose based on cryo is silly so we remove the objective.
 		if(O.target == H.mind)
@@ -684,16 +616,19 @@
 
 	//Handle job slot/tater cleanup.
 	if (H.mind)
-		var/job = H.mind.assigned_role
-
-		FreeRole(job)
-
+		var/role = H.mind.assigned_role
+		var/datum/job/job = GetJob(H.mind.assigned_role)
+		job.on_despawn(H)
+		FreeRole(role)
 		if(H.mind.objectives.len)
 			qdel(H.mind.objectives)
 			H.mind.special_role = null
 
 	// Delete them from datacore.
-
+	if(ishuman(H))
+		SSrecords.remove_record_by_field("fingerprint", H.get_full_print())
+		if(H.species)
+			H.species.handle_despawn(H)
 	SSrecords.remove_record_by_field("name", H.real_name)
 	SSrecords.reset_manifest()
 
@@ -703,8 +638,6 @@
 	H.ckey = null
 
 	// Delete the mob.
-	if(H.species)
-		H.species.handle_despawn(H)
 	qdel(H)
 
 // Equips a human-type with their custom loadout crap.
@@ -712,69 +645,57 @@
 // H, job, and prefs MUST be supplied and not null.
 // leftovers, storage, custom_equip_slots can be passed if their return values are required (proc mutates passed list), or ignored if not required.
 /datum/controller/subsystem/jobs/proc/EquipCustom(mob/living/carbon/human/H, datum/job/job, datum/preferences/prefs, list/leftovers = null, list/storage = null, list/custom_equip_slots = list())
-	Debug("EC/([H]): Entry.")
+	log_loadout("EC/([H]): Entry.")
 	if (!istype(H) || !job)
-		Debug("EC/([H]): Abort: invalid arguments.")
+		log_loadout("EC/([H]): Abort: invalid arguments.")
 		return FALSE
 
 	switch (job.title)
 		if ("AI", "Cyborg")
-			Debug("EC/([H]): Abort: synthetic.")
+			log_loadout("EC/([H]): Abort: synthetic.")
 			return FALSE
 
 	for(var/thing in prefs.gear)
 		var/datum/gear/G = gear_datums[thing]
 		if(G)
-
 			if(G.augment) //augments are handled somewhere else
 				continue
 
-			var/permitted
-			if(G.allowed_roles)
-				for(var/job_name in G.allowed_roles)
-					if(job.title == job_name)
-						permitted = TRUE
-						break
+			var/metadata
+			var/list/gear_test = prefs.gear[G.display_name]
+			if(gear_test?.len)
+				metadata = gear_test
 			else
-				permitted = TRUE
+				metadata = list()
 
-			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
-				permitted = FALSE
+			var/cant_spawn_reason = G.cant_spawn_item_reason(null, metadata, H, job, prefs)
+			if(cant_spawn_reason)
+				to_chat(H, SPAN_WARNING(cant_spawn_reason))
+				continue
 
-			if(G.faction && G.faction != H.employer_faction)
-				permitted = FALSE
-
-			if(!permitted)
-				to_chat(H, "<span class='warning'>Your current job or whitelist status does not permit you to spawn with [thing]!</span>")
+			// we want to handle spawning accessories after all the other clothing items have been spawned in
+			var/list/spawn_data = G.get_spawn_item_data(H, metadata, H)
+			if(ispath(spawn_data[1], /obj/item/clothing/accessory))
+				leftovers += thing
 				continue
 
 			if(G.slot && !(G.slot in custom_equip_slots))
 				// This is a miserable way to fix the loadout overwrite bug, but the alternative requires
 				// adding an arg to a bunch of different procs. Will look into it after this merge. ~ Z
-				var/metadata
-				var/list/gear_test = prefs.gear[G.display_name]
-				if(gear_test?.len)
-					metadata = gear_test
-				else
-					metadata = list()
-				var/obj/item/CI = G.spawn_item(null,metadata)
-				if (G.slot == slot_wear_mask || G.slot == slot_wear_suit || G.slot == slot_head)
-					if (leftovers)
-						leftovers += thing
-					Debug("EC/([H]): [thing] failed mask/suit/head check; leftovers=[!!leftovers]")
-				else if (H.equip_to_slot_or_del(CI, G.slot))
-					CI.autodrobe_no_remove = TRUE
-					to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
-					custom_equip_slots += G.slot
-					Debug("EC/([H]): Equipped [CI] successfully.")
+				var/obj/item/CI = G.spawn_item(null,metadata, H)
+				if (H.equip_to_slot_or_del(CI, G.slot))
+					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
+					if(G.slot != slot_tie)
+						custom_equip_slots += G.slot
+					log_loadout("EC/([H]): Equipped [CI] successfully.")
 				else if (leftovers)
 					leftovers += thing
-					Debug("EC/([H]): Unable to equip [thing]; sending to overflow.")
+					log_loadout("EC/([H]): Unable to equip [thing]; sending to overflow.")
 			else if (storage)
 				storage += thing
-				Debug("EC/([H]): Unable to equip [thing]; sending to storage.")
+				log_loadout("EC/([H]): Unable to equip [thing]; sending to storage.")
 
-	Debug("EC/([H]): Complete.")
+	log_loadout("EC/([H]): Complete.")
 	return TRUE
 
 // Attempts to equip custom items that failed to equip in EquipCustom.
@@ -782,7 +703,7 @@
 // H and prefs must not be null.
 /datum/controller/subsystem/jobs/proc/EquipCustomDeferred(mob/living/carbon/human/H, datum/preferences/prefs, list/items, list/used_slots)
 	. = list()
-	Debug("ECD/([H]): Entry.")
+	log_loadout("ECD/([H]): Entry.")
 	for (var/thing in items)
 		var/datum/gear/G = gear_datums[thing]
 
@@ -795,26 +716,51 @@
 				metadata = gear_test
 			else
 				metadata = list()
-			var/obj/item/CI = G.spawn_item(H, metadata)
-			if (H.equip_to_slot_or_del(CI, G.slot))
-				to_chat(H, "<span class='notice'>Equipping you with [thing]!</span>")
-				used_slots += G.slot
-				CI.autodrobe_no_remove = TRUE
-				Debug("ECD/([H]): Equipped [thing] successfully.")
 
-			else
-				. += thing
-				Debug("ECD/([H]): Unable to equip [thing]; dumping into overflow.")
+			var/obj/item/CI = G.spawn_item(H, metadata, H)
+			var/equip_slot = G.slot
+			var/handled_accessory = FALSE
 
-	Debug("ECD/([H]): Complete.")
+			if(isaccessory(CI))
+				var/datum/gear_tweak/accessory_slot/accessory_slot = locate(/datum/gear_tweak/accessory_slot) in G.gear_tweaks
+				if(accessory_slot && metadata["[accessory_slot]"])
+					var/selected_slot = metadata["[accessory_slot]"]
+					switch(selected_slot)
+						if(GEAR_TWEAK_ACCESSORY_SLOT_UNDER)
+							if(isclothing(H.w_uniform))
+								var/obj/item/clothing/worn_uniform = H.w_uniform
+								if(worn_uniform.can_attach_accessory(CI))
+									to_chat(H, SPAN_NOTICE("Attaching \the [CI] to your uniform!"))
+									worn_uniform.attach_accessory(H, CI)
+									handled_accessory = TRUE
+						if(GEAR_TWEAK_ACCESSORY_SLOT_SUIT)
+							if(isclothing(H.wear_suit))
+								var/obj/item/clothing/worn_suit = H.wear_suit
+								if(worn_suit.can_attach_accessory(CI))
+									to_chat(H, SPAN_NOTICE("Attaching \the [CI] to your suit!"))
+									worn_suit.attach_accessory(H, CI)
+									handled_accessory = TRUE
+						if(GEAR_TWEAK_ACCESSORY_SLOT_SUIT_STANDALONE)
+							equip_slot = slot_wear_suit
+
+			if(!handled_accessory)
+				if (H.equip_to_slot_or_del(CI, equip_slot))
+					to_chat(H, SPAN_NOTICE("Equipping you with [thing]!"))
+					used_slots += equip_slot
+					log_loadout("ECD/([H]): Equipped [thing] successfully.")
+				else
+					. += thing
+					log_loadout("ECD/([H]): Unable to equip [thing]; dumping into overflow.")
+
+	log_loadout("ECD/([H]): Complete.")
 
 // Attempts to place everything in items into a storage object located on H, deleting them if they're unable to be inserted.
 // H and prefs must not be null.
 // Returns nothing.
 /datum/controller/subsystem/jobs/proc/EquipItemsStorage(mob/living/carbon/human/H, datum/preferences/prefs, list/items)
-	Debug("EIS/([H]): Entry.")
+	log_loadout("EIS/([H]): Entry.")
 	if (LAZYLEN(items))
-		Debug("EIS/([H]): [items.len] items.")
+		log_loadout("EIS/([H]): [items.len] items.")
 		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
@@ -826,18 +772,18 @@
 					metadata = gear_test
 				else
 					metadata = list()
-				G.spawn_item(B, metadata)
-				Debug("EIS/([H]): placed [thing] in [B].")
+				G.spawn_item(B, metadata, H)
+				log_loadout("EIS/([H]): placed [thing] in [B].")
 
 		else
 			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
-			Debug("EIS/([H]): unable to equip; no storage.")
+			log_loadout("EIS/([H]): unable to equip; no storage.")
 
-	Debug("EIS/([H]): Complete.")
+	log_loadout("EIS/([H]): Complete.")
 
 /datum/controller/subsystem/jobs/proc/get_roundstart_spawnpoint(var/rank)
 	var/list/loc_list = list()
-	for(var/obj/effect/landmark/start/sloc in landmarks_list)
+	for(var/obj/effect/landmark/start/sloc in GLOB.landmarks_list)
 		if(sloc.name != rank)	continue
 		if(locate(/mob/living) in sloc.loc)	continue
 		loc_list += sloc
@@ -864,16 +810,16 @@
 
 
 /datum/controller/subsystem/jobs/proc/EquipAugments(mob/living/carbon/human/H, datum/preferences/prefs)
-	Debug("EA/([H]): Entry.")
+	log_loadout("EA/([H]): Entry.")
 	if(!istype(H))
-		Debug("EA/([H]): Abort: invalid arguments.")
+		log_loadout("EA/([H]): Abort: invalid arguments.")
 		return FALSE
 
 	var/datum/job/rank = GetJob(H.mind.assigned_role)
 
 	switch (rank.title)
 		if ("AI", "Cyborg")
-			Debug("EA/([H]): Abort: synthetic.")
+			log_loadout("EA/([H]): Abort: synthetic.")
 			return FALSE
 
 	for(var/thing in prefs.gear)
@@ -882,37 +828,72 @@
 			if(!G.augment)
 				continue
 
-			var/permitted = FALSE
-			if(G.allowed_roles)
-				for(var/job_name in G.allowed_roles)
-					if(rank.title == job_name)
-						permitted = TRUE
-						break
-			else
-				permitted = TRUE
-
-			if(G.whitelisted && (!(H.species.name in G.whitelisted)))
-				permitted = FALSE
-
-			if(G.faction && G.faction != H.employer_faction)
-				permitted = FALSE
-
-			if(!permitted)
-				to_chat(H, SPAN_WARNING("Your current job or whitelist status does not permit you to spawn with [thing]!"))
-				continue
-
 			var/metadata
 			var/list/gear_test = prefs.gear[G.display_name]
 			if(gear_test?.len)
 				metadata = gear_test
 			else
 				metadata = list()
-			var/obj/item/organ/A = G.spawn_item(H, metadata)
-			var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-			A.replaced(H, affected)
+
+			var/cant_spawn_reason = G.cant_spawn_item_reason(null, metadata, H, rank, prefs)
+			if(cant_spawn_reason)
+				to_chat(H, SPAN_WARNING(cant_spawn_reason))
+				continue
+
+			var/obj/item/organ/A = G.spawn_item(H, metadata, H)
+			if(!istype(A, /obj/item/organ/external))
+				var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
+				A.replaced(H, affected)
 			H.update_body()
 
-	Debug("EA/([H]): Complete.")
+	log_loadout("EA/([H]): Complete.")
 	return TRUE
 
+/proc/show_location_blurb(client/C, duration)
+	set waitfor = 0
+
+	var/style = "font-family: 'Fixedsys'; -dm-text-outline: 1 black; font-size: 11px;"
+	var/text = "[worlddate2text()], [worldtime2text()]\n[station_name()], [SSatlas.current_sector.name]"
+	text = uppertext(text)
+
+	var/obj/effect/overlay/T = new()
+	T.icon_state = "nothing"
+	T.maptext_height = 64
+	T.maptext_width = 512
+	T.layer = HUD_ABOVE_ITEM_LAYER
+	T.plane = FLOAT_PLANE
+	T.screen_loc = "LEFT+1,BOTTOM+2"
+
+	C.screen += T
+	animate(T, alpha = 255, time = 10)
+	for(var/i = 1 to length(text)+1)
+		T.maptext = "<span style=\"[style]\">[copytext(text,1,i)] </span>"
+		sleep(1)
+
+	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(fade_location_blurb), C, T), duration)
+
+/proc/fade_location_blurb(client/C, obj/T)
+	animate(T, alpha = 0, time = 5)
+	sleep(5)
+	if(C)
+		C.screen -= T
+	qdel(T)
+
+/datum/controller/subsystem/jobs/proc/UniformReturn(mob/living/carbon/human/H, datum/preferences/prefs, datum/job/job)
+	var/uniform = job.get_outfit(H)
+	if(!uniform) // silicons don't have uniforms or gear
+		return
+	var/obj/outfit/U = new uniform
+	var/spawned_uniform = FALSE
+	var/spawned_suit = FALSE
+	for(var/item in prefs.gear)
+		var/datum/gear/L = gear_datums[item]
+		if(L.slot == slot_w_uniform)
+			if(U.uniform && !spawned_uniform && !istype(H.w_uniform, U.uniform))
+				H.equip_or_collect(new U.uniform(H), H.back)
+				spawned_uniform = TRUE
+		if(L.slot == slot_wear_suit)
+			if(U.suit && !spawned_suit && !istype(H.wear_suit, U.suit))
+				H.equip_or_collect(new U.suit(H), H.back)
+				spawned_suit = TRUE
 #undef Debug

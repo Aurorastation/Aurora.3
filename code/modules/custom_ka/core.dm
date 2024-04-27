@@ -7,10 +7,10 @@
 	icon_state = ""
 	item_state = "kineticgun"
 	contained_sprite = 1
-	flags =  CONDUCT
+	obj_flags =  OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
-	w_class = 3
+	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 2,TECH_ENGINEERING = 2)
 
 	burst = 1
@@ -20,7 +20,7 @@
 	fire_sound = 'sound/weapons/kinetic_accel.ogg'
 	fire_sound_text = "blast"
 	recoil = 0
-	silenced = 0
+	suppressed = FALSE
 	muzzle_flash = 3
 	accuracy = 0   //accuracy is measured in tiles. +1 accuracy means that everything is effectively one tile closer for the purpose of miss chance, -1 means the opposite. launchers are not supported, at the moment.
 	scoped_accuracy = null
@@ -73,40 +73,32 @@
 /obj/item/gun/custom_ka/can_wield()
 	return 1
 
-/obj/item/gun/custom_ka/toggle_wield()
-	..()
-	if(wielded)
-		item_state = "[initial(item_state)]_w"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
-
 /obj/item/gun/custom_ka/pickup(mob/user)
 	..()
 	if(can_wield())
 		item_state = initial(item_state)
 	update_held_icon()
 
-/obj/item/gun/custom_ka/examine(var/mob/user)
+/obj/item/gun/custom_ka/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(installed_upgrade_chip)
-		to_chat(user,"It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip].")
+		. += "It is equipped with \the [installed_barrel], \the [installed_cell], and \the [installed_upgrade_chip]."
 	else if(installed_barrel)
-		to_chat(user,"It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip.")
+		. += "It is equipped with \the [installed_barrel] and \the [installed_cell]. It has space for an upgrade chip."
 	else if(installed_cell)
-		to_chat(user,"It is equipped with \the [installed_cell]. The assembly lacks a barrel installation.")
+		. += "It is equipped with \the [installed_cell]. The assembly lacks a barrel installation."
 
 	if(installed_barrel)
 		if(custom_name)
-			to_chat(user,"[custom_name] is written crudely in pen across the side, covering up the offical designation.")
+			. += "[custom_name] is written crudely in pen across the side, covering up the offical designation."
 		else
-			to_chat(user,"The offical designation \"[official_name]\" is etched neatly on the side.")
+			. += "The official designation \"[official_name]\" is etched neatly on the side."
 
 	if(installed_cell)
-		to_chat(user,"It has [get_ammo()] shots remaining.")
+		. += "It has <b>[get_ammo()]</b> shots remaining."
 
 /obj/item/gun/custom_ka/get_ammo()
-	if(!installed_cell)
+	if(!installed_cell || !installed_cell.stored_charge)
 		return 0
 	return round(installed_cell.stored_charge / cost_increase)
 
@@ -116,8 +108,10 @@
 	return 1
 
 /obj/item/gun/custom_ka/emp_act(severity)
-	is_emped = 1
-	return 1
+	. = ..()
+
+	is_emped = TRUE
+	return TRUE
 
 /obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
@@ -146,7 +140,7 @@
 		)
 		if(is_emped)
 			warning_message = pick(warning_messages)
-			spark(src.loc, 3, alldirs)
+			spark(src.loc, 3, GLOB.alldirs)
 	else if(!installed_cell || !installed_barrel)
 		if(!is_emagged || (is_emped && prob(5)) )
 			warning_message = "ERROR CODE: 0"
@@ -188,7 +182,7 @@
 		switch(disaster)
 			if("spark")
 				to_chat(user,"<span class='danger'>\The [src] sparks!</span>")
-				spark(src.loc, 3, alldirs)
+				spark(src.loc, 3, GLOB.alldirs)
 			if("overheat")
 				to_chat(user,"<span class='danger'>\The [src] turns red hot!</span>")
 				user.IgniteMob()
@@ -243,18 +237,29 @@
 	if(installed_barrel)
 		installed_barrel.on_fire(src)
 
-	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
-		var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
-		shot_projectile.damage = damage_increase
-		shot_projectile.range = range_increase
-		shot_projectile.aoe = aoe_increase
-		shot_projectile.base_damage = damage_increase
-		return shot_projectile
-	if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
-		var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
-		shot_projectile.damage = damage_increase
-		shot_projectile.range = range_increase
-		return shot_projectile
+	var/turf/T = get_turf(src)
+
+	if(T)
+		var/datum/gas_mixture/environment = T.return_air()
+		var/pressure = (environment)? environment.return_pressure() : 0
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/kinetic))
+			var/obj/item/projectile/kinetic/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+			shot_projectile.damage = damage_increase
+			shot_projectile.range = range_increase
+			shot_projectile.aoe = max(1, aoe_increase)
+			//If pressure is greater than about 40 kPA, reduce damage
+			if(pressure > ONE_ATMOSPHERE*0.4)
+				shot_projectile.base_damage = 5
+				return shot_projectile
+			else
+				shot_projectile.base_damage = damage_increase
+				return shot_projectile
+
+		if(ispath(installed_barrel.projectile_type, /obj/item/projectile/beam))
+			var/obj/item/projectile/beam/shot_projectile = new installed_barrel.projectile_type(get_turf(src))
+			shot_projectile.damage = damage_increase
+			shot_projectile.range = range_increase
+			return shot_projectile
 
 /obj/item/gun/custom_ka/Initialize()
 	. = ..()
@@ -312,12 +317,6 @@
 	else
 		name = initial(name)
 
-	if(wielded)
-		item_state = "[initial(item_state)]_w"
-	else
-		item_state = initial(item_state)
-	update_held_icon()
-
 /obj/item/gun/custom_ka/proc/update_stats()
 	//pls don't bully me for this code
 	damage_increase = initial(damage_increase)
@@ -374,7 +373,7 @@
 	firedelay_increase = max(firedelay_increase,0.125 SECONDS)
 
 	aoe_increase += round(damage_increase/30)
-	aoe_increase = max(0,aoe_increase)
+	aoe_increase = max(1, aoe_increase)
 
 	//Gun stats
 	recoil = recoil_increase*0.25
@@ -386,7 +385,7 @@
 	accuracy = round(recoil_increase*0.25)
 	accuracy_wielded = accuracy * 0.5
 
-/obj/item/gun/custom_ka/attack_self(mob/user as mob)
+/obj/item/gun/custom_ka/unique_action(mob/user)
 	. = ..()
 
 	if(!wielded)
@@ -400,17 +399,18 @@
 	if(installed_upgrade_chip)
 		installed_upgrade_chip.attack_self(user)
 
-/obj/item/gun/custom_ka/attackby(var/obj/item/I as obj, var/mob/user as mob)
+/obj/item/gun/custom_ka/attackby(obj/item/attacking_item, mob/user)
 
 	. = ..()
 
-	if(istype(I,/obj/item/pen))
-		custom_name = sanitize(input("Enter a custom name for your [name]", "Set Name") as text|null)
+	if(istype(attacking_item, /obj/item/pen))
+		custom_name = sanitize( tgui_input_text(user, "Enter a custom name for your [name]", "Set Name") )
 		to_chat(user,"You label \the [name] as \"[custom_name]\"")
 		update_icon()
-	else if(I.iswrench())
+		return TRUE
+	else if(attacking_item.iswrench())
 		if(installed_upgrade_chip)
-			playsound(src,I.usesound, 50, 0)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_upgrade_chip].")
 			installed_upgrade_chip.forceMove(user.loc)
 			installed_upgrade_chip.update_icon()
@@ -418,7 +418,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_barrel && can_disassemble_barrel)
-			playsound(src,I.usesound, 50, 0)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_barrel].")
 			installed_barrel.forceMove(user.loc)
 			installed_barrel.update_icon()
@@ -426,7 +426,7 @@
 			update_stats()
 			update_icon()
 		else if(installed_cell && can_disassemble_cell)
-			playsound(src,I.usesound, 50, 0)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user,"You remove \the [installed_cell].")
 			installed_cell.forceMove(user.loc)
 			installed_cell.update_icon()
@@ -435,54 +435,61 @@
 			update_icon()
 		else
 			to_chat(user,"There is nothing to remove from \the [src].")
-	else if(istype(I,/obj/item/custom_ka_upgrade/cells))
+		return TRUE
+	else if(istype(attacking_item,/obj/item/custom_ka_upgrade/cells))
 		if(installed_cell)
 			to_chat(user,"There is already \an [installed_cell] installed.")
 		else
-			var/obj/item/custom_ka_upgrade/cells/tempvar = I
+			var/obj/item/custom_ka_upgrade/cells/tempvar = attacking_item
 			installed_cell = tempvar
 			user.remove_from_mob(installed_cell)
 			installed_cell.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
-	else if(istype(I,/obj/item/custom_ka_upgrade/barrels))
+		return TRUE
+	else if(istype(attacking_item,/obj/item/custom_ka_upgrade/barrels))
 		if(!installed_cell)
-			to_chat(user,"You must install a power cell before installing \the [I].")
+			to_chat(user,"You must install a power cell before installing \the [attacking_item].")
 		else if(installed_barrel)
 			to_chat(user,"There is already \an [installed_barrel] installed.")
 		else
-			var/obj/item/custom_ka_upgrade/barrels/tempvar = I
+			var/obj/item/custom_ka_upgrade/barrels/tempvar = attacking_item
 			installed_barrel = tempvar
 			user.remove_from_mob(installed_barrel)
 			installed_barrel.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
-	else if(istype(I,/obj/item/custom_ka_upgrade/upgrade_chips))
+		return TRUE
+	else if(istype(attacking_item,/obj/item/custom_ka_upgrade/upgrade_chips))
 		if(!installed_cell || !installed_barrel)
-			to_chat(user,"A barrel and a cell need to be installed before you install \the [I].")
+			to_chat(user,"A barrel and a cell need to be installed before you install \the [attacking_item].")
 		else if(installed_upgrade_chip)
 			to_chat(user,"There is already \an [installed_upgrade_chip] installed.")
 		else if(installed_cell.disallow_chip == TRUE)
-			to_chat(user,"\The [installed_cell] prevents you from installing \the [I]!")
+			to_chat(user,"\The [installed_cell] prevents you from installing \the [attacking_item]!")
 		else if(installed_barrel.disallow_chip == TRUE)
-			to_chat(user,"\The [installed_barrel] prevents you from installing \the [I]!")
+			to_chat(user,"\The [installed_barrel] prevents you from installing \the [attacking_item]!")
 		else
-			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = I
+			var/obj/item/custom_ka_upgrade/upgrade_chips/tempvar = attacking_item
 			installed_upgrade_chip = tempvar
 			user.remove_from_mob(installed_upgrade_chip)
 			installed_upgrade_chip.forceMove(src)
 			update_stats()
 			update_icon()
 			playsound(src,'sound/items/Wirecutter.ogg', 50, 0)
+		return TRUE
 
 	if(installed_cell)
-		installed_cell.attackby(I,user)
+		installed_cell.attackby(attacking_item,user)
+		return TRUE
 	if(installed_barrel)
-		installed_barrel.attackby(I,user)
+		installed_barrel.attackby(attacking_item,user)
+		return TRUE
 	if(installed_upgrade_chip)
-		installed_upgrade_chip.attackby(I,user)
+		installed_upgrade_chip.attackby(attacking_item,user)
+		return TRUE
 
 /obj/item/custom_ka_upgrade //base item
 	name = null //abstract
