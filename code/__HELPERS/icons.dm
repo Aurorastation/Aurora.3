@@ -988,14 +988,14 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 /// so if the given object is associated with an icon that was in the rsc when the game was compiled, this returns a path. otherwise it returns ""
 /proc/get_icon_dmi_path(icon/icon)
 	/// the dmi file path we attempt to return if the given object argument is associated with a stringifiable icon
-	/// if successful, this looks like "icons/path/to/dmi_file.dmi"
+	/// if successful, this looks like 'icons/path/to/dmi_file.dmi'
 	var/icon_path = ""
 
 	if(isatom(icon) || istype(icon, /image) || istype(icon, /mutable_appearance))
 		var/atom/atom_icon = icon
 		icon = atom_icon.icon
 		//atom icons compiled in from 'icons/path/to/dmi_file.dmi' are weird and not really icon objects that you generate with icon().
-		//if theyre unchanged dmi's then they're stringifiable to "icons/path/to/dmi_file.dmi"
+		//if theyre unchanged dmi's then they're stringifiable to 'icons/path/to/dmi_file.dmi'
 
 	if(isicon(icon) && isfile(icon))
 		//icons compiled in from 'icons/path/to/dmi_file.dmi' at compile time are weird and arent really /icon objects,
@@ -1008,7 +1008,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	else if(isicon(icon) && "[icon]" == "/icon")
 		// icon objects generated from icon() at runtime are icons, but they ARENT files themselves, they represent icon files.
 		// if the files they represent are compile time dmi files in the rsc, then
-		// the rsc reference returned by fcopy_rsc() will be stringifiable to "icons/path/to/dmi_file.dmi"
+		// the rsc reference returned by fcopy_rsc() will be stringifiable to 'icons/path/to/dmi_file.dmi'
 		var/rsc_ref = fcopy_rsc(icon)
 
 		var/icon_ref = text_ref(rsc_ref)
