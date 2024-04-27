@@ -1198,7 +1198,7 @@
 	check_records = 0
 	check_access = 1
 	ailock = 1
-	req_one_access = list(ACCESS_LEGION)
+	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

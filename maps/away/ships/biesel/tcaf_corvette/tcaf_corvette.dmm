@@ -26,6 +26,9 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "1-4"
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "aF" = (
@@ -46,6 +49,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "aR" = (
@@ -229,12 +235,12 @@
 /area/tcaf_corvette/francisca)
 "cB" = (
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
 	layer = 2.8
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -398,11 +404,19 @@
 	},
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/jackboots,
-/obj/item/material/twohanded/pike/flag,
 /obj/item/clothing/accessory/legion,
 /obj/item/device/megaphone/command,
 /obj/item/clothing/under/legion/tcaf,
 /obj/item/clothing/head/beret/legion/tcaf/tcaf_field,
+/obj/item/flag/biesel,
+/obj/item/flag/biesel,
+/obj/item/flag/biesel/l,
+/obj/item/flag/biesel/l,
+/obj/item/rig/retro/equipped{
+	req_access = list(204);
+	req_one_access = null
+	},
+/obj/item/material/twohanded/pike/flag,
 /turf/simulated/floor/carpet/lightblue,
 /area/tcaf_corvette/captain)
 "dp" = (
@@ -1504,6 +1518,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
+/obj/item/storage/belt/security/full,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/armory)
 "lB" = (
@@ -5030,6 +5047,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "Ru" = (
@@ -5606,6 +5626,9 @@
 	name = "Hangar";
 	req_access = list(204);
 	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
