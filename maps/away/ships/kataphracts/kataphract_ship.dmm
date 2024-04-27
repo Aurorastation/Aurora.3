@@ -3931,6 +3931,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"ny" = (
+/obj/structure/lattice/catwalk,
+/obj/item/hullbeacon/red,
+/turf/space,
+/area/kataphract_chapter/hull)
 "nz" = (
 /obj/effect/floor_decal/corner/yellow/full{
 	dir = 4
@@ -5057,6 +5062,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/brig)
+"Am" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/iff_beacon/name_change,
+/turf/space,
+/area/kataphract_chapter/hull)
 "Ap" = (
 /obj/machinery/photocopier,
 /obj/effect/floor_decal/corner_wide/dark_blue/full{
@@ -5195,6 +5205,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"Bp" = (
+/obj/structure/lattice/catwalk,
+/obj/machinery/shipsensors/weak,
+/turf/space,
+/area/kataphract_chapter/hull)
 "Bv" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
@@ -35527,7 +35542,7 @@ GW
 GW
 GW
 GW
-iB
+ny
 iB
 iB
 iB
@@ -35779,7 +35794,7 @@ gj
 NV
 Ws
 gg
-iB
+Bp
 iB
 iB
 iB
@@ -36031,7 +36046,7 @@ aC
 lA
 zL
 nr
-iB
+tS
 iB
 iB
 iB
@@ -36283,7 +36298,7 @@ bQ
 aC
 gY
 nr
-iB
+tS
 iB
 iB
 iB
@@ -36535,7 +36550,7 @@ cy
 VU
 XQ
 Ac
-iB
+tS
 iB
 iB
 iB
@@ -36787,7 +36802,7 @@ JQ
 aC
 cI
 nr
-iB
+tS
 iB
 iB
 iB
@@ -37039,7 +37054,7 @@ kv
 la
 bg
 nr
-iB
+tS
 iB
 iB
 iB
@@ -37291,7 +37306,7 @@ JX
 jB
 lM
 nr
-iB
+Am
 iB
 iB
 iB
@@ -37543,7 +37558,7 @@ GW
 GW
 GW
 GW
-iB
+ny
 iB
 iB
 iB
