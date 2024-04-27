@@ -309,13 +309,19 @@
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
 
 /obj/structure/bed/stair_act()
-	if(buckled_mob)
-		var/mob/M = buckled_mob
-		M.lying = TRUE
-		M.Paralyse(3)
-		M.visible_message("<b>\The [M]</b> goes flying out of \the [src] as it bounces on the stairs!", SPAN_WARNING("You go flying out of \the [src] as it bounces on the stairs!"))
-		unbuckle_mob()
-		M.throw_at_random(FALSE, 1, 2)
+	if(!buckled)
+		return
+
+	var/atom/movable/unbuckled_atom = unbuckle()
+	if(!unbuckled_atom)
+		return
+
+	unbuckled_atom.visible_message("<b>\The [unbuckled_atom]</b> goes flying out of \the [src] as it bounces on the stairs!", SPAN_WARNING("You go flying out of \the [src] as it bounces on the stairs!"))
+	unbuckled_atom.throw_at_random(FALSE, 1, 2)
+
+	if(ismob(unbuckled_atom))
+		var/mob/unbuckled_mob = unbuckled_atom
+		unbuckled_mob.Paralyse(5)
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
