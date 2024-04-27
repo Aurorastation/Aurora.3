@@ -916,7 +916,7 @@
 
 /material/leather
 	name = MATERIAL_LEATHER
-	icon_colour = "#5C4831"
+	icon_colour = COLOR_LEATHER
 	stack_type = /obj/item/stack/material/leather
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	flags = MATERIAL_PADDING
@@ -1040,7 +1040,7 @@
 	stack_origin_tech = list(TECH_MATERIAL = 2)
 	stack_type = /obj/item/stack/material/animalhide
 	door_icon_base = "wood"
-	icon_colour = "#5C4831"
+	icon_colour = COLOR_LEATHER
 	ignition_point = T0C+232
 	melting_point = T0C+300
 	flags = MATERIAL_PADDING
