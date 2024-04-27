@@ -59,3 +59,4 @@ changes:
   - bugfix: "Legion deployable turret now useable by TCAF Ghostroles."
   - bugfix: "Wiring fixes to TCAF Corvette."
   - spellcheck: "Legion ballistic shield renamed to TCAF Ballistic Shield, description changed as well."
+  - spellcheck: "Retro hardsuit rig now referrences TCAF instead of TCFL, and added TCAF ship access (was meant to be added in the past)."
