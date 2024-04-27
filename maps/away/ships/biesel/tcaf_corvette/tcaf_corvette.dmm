@@ -828,7 +828,8 @@
 	name = "Security";
 	req_access = list(204)
 	},
-/obj/machinery/door/firedoor{
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 8;
 	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1282,6 +1283,10 @@
 	dir = 4;
 	name = "Reactor";
 	req_access = list(204)
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/engineering)
@@ -2488,6 +2493,10 @@
 /area/tcaf_corvette/hangar)
 "ug" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/reinforced,
 /area/tcaf_corvette/engineering)
 "ul" = (
@@ -2775,6 +2784,10 @@
 /area/tcaf_corvette/captain)
 "wx" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced,
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "wy" = (
@@ -3601,6 +3614,9 @@
 "El" = (
 /obj/structure/table/rack,
 /obj/machinery/light,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -24
+	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "Eo" = (
@@ -3877,22 +3893,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/engineering)
-"Gq" = (
-/obj/structure/window/shuttle/legion,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	icon_state = "pdoor0";
-	id = "tcaf_bridge";
-	name = "Bridge Blast Doors";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	req_one_access = list(204,111)
-	},
-/turf/simulated/floor/plating,
-/area/tcaf_corvette/bridge)
 "Gs" = (
 /obj/machinery/airlock_sensor{
 	dir = 4;
@@ -4161,7 +4161,8 @@
 	name = "Commanding Officer";
 	req_access = list(204)
 	},
-/obj/machinery/door/firedoor{
+/obj/machinery/door/firedoor/multi_tile{
+	dir = 8;
 	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/shuttle/tan,
@@ -4273,6 +4274,21 @@
 	},
 /turf/simulated/floor/lino,
 /area/tcaf_corvette/messhall)
+"Kj" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	icon_state = "pdoor0";
+	id = "tcaf_bridge";
+	name = "Bridge Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	req_one_access = list(204,111)
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/bridge)
 "Kk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -4367,6 +4383,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/thruststarb)
+"KS" = (
+/obj/structure/window/shuttle/legion,
+/obj/structure/grille,
+/obj/machinery/door/blast/regular{
+	density = 0;
+	dir = 4;
+	icon_state = "pdoor0";
+	id = "tcaf_captain";
+	name = "Blast Doors";
+	opacity = 0
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
+/turf/simulated/floor/plating,
+/area/tcaf_corvette/captain)
 "KV" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -5352,6 +5385,7 @@
 	opacity = 0
 	},
 /obj/machinery/door/firedoor{
+	dir = 4;
 	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/plating,
@@ -6022,6 +6056,10 @@
 /obj/machinery/atmospherics/pipe/simple/visible/yellow{
 	dir = 4
 	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
+	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/engineering)
 "Yk" = (
@@ -6030,6 +6068,10 @@
 	name = "Telecomms";
 	req_access = list(204);
 	dir = 4
+	},
+/obj/machinery/door/firedoor{
+	dir = 4;
+	req_one_access = list(204,111)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/thruststarb)
@@ -6166,23 +6208,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tcaf_corvette/francisca)
-"YU" = (
-/obj/structure/window/shuttle/legion,
-/obj/structure/grille,
-/obj/machinery/door/blast/regular{
-	density = 0;
-	dir = 4;
-	icon_state = "pdoor0";
-	id = "tcaf_captain";
-	name = "Blast Doors";
-	opacity = 0
-	},
-/obj/machinery/door/firedoor{
-	dir = 4;
-	req_one_access = list(204,111)
-	},
-/turf/simulated/floor/plating,
-/area/tcaf_corvette/captain)
 "YX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -31326,7 +31351,7 @@ Jp
 gr
 dn
 Jp
-YU
+KS
 ai
 UI
 UI
@@ -32097,7 +32122,7 @@ Jp
 Jp
 Jp
 Jp
-YU
+KS
 ai
 UI
 UI
@@ -34666,8 +34691,8 @@ SI
 uu
 NZ
 On
-Gq
 SC
+Kj
 UI
 UI
 UI
@@ -34924,7 +34949,7 @@ ti
 Qm
 PQ
 Ng
-SC
+Kj
 xc
 UI
 UI
@@ -36466,7 +36491,7 @@ sN
 Qm
 uq
 WL
-SC
+Kj
 xc
 UI
 UI
@@ -36722,8 +36747,8 @@ uw
 Nb
 rQ
 Vr
-Gq
 SC
+Kj
 UI
 UI
 UI
