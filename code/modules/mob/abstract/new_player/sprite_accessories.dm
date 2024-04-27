@@ -1963,6 +1963,18 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Horizontal Split"
 	icon_state = "hsplit"
 
+/datum/sprite_accessory/hair_gradients/short_highlights
+	name = "Short Highlights"
+	icon_state = "short_highlights"
+
+/datum/sprite_accessory/hair_gradients/short_highlights/upshift
+	name = "Short Highlights (+1 Upshift)"
+	icon_state = "short_highlights+1"
+
+/datum/sprite_accessory/hair_gradients/short_highlights/downshift
+	name = "Short Highlights (-1 Downshift)"
+	icon_state = "short_highlights-1"
+
 /datum/sprite_accessory/hair_gradients/taj_inner_ear_fur
 	name = "Inner Ear Fur"
 	icon_state = "taj_innerearfur"
