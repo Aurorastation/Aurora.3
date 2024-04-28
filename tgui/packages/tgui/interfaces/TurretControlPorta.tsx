@@ -12,21 +12,13 @@ export type TurretData = {
   can_switch: BooleanLike;
 };
 
-type Turret = {
-  name: string;
-  ref: string;
-  enabled: BooleanLike;
-  lethal: BooleanLike;
-  settings: Setting[];
-};
-
 type Setting = {
   category: string;
   variable_name: string;
   value: BooleanLike;
 };
 
-export const TurretControl = (props, context) => {
+export const TurretControlPorta = (props, context) => {
   const { act, data } = useBackend<TurretData>(context);
 
   return (
@@ -38,14 +30,14 @@ export const TurretControl = (props, context) => {
               ? 'Behaviour controls are locked.'
               : 'Behaviour controls are unlocked.'}
           </NoticeBox>
-          <ControlWindow />
+          <ControlSection />
         </Section>
       </Window.Content>
     </Window>
   );
 };
 
-export const ControlWindow = (props, context) => {
+export const ControlSection = (props, context) => {
   const { act, data } = useBackend<TurretData>(context);
 
   return (
@@ -57,7 +49,6 @@ export const ControlWindow = (props, context) => {
           disabled={data.locked}
           onClick={() =>
             act('command', {
-              turret_ref: 'this',
               value: !data.enabled,
               command: 'enable',
             })
@@ -71,7 +62,6 @@ export const ControlWindow = (props, context) => {
           disabled={data.locked}
           onClick={() =>
             act('command', {
-              turret_ref: 'this',
               value: !data.lethal,
               command: 'lethal',
             })
@@ -86,7 +76,6 @@ export const ControlWindow = (props, context) => {
             disabled={data.locked}
             onClick={() =>
               act('command', {
-                turret_ref: 'this',
                 value: !setting.value,
                 command: setting.variable_name,
               })
