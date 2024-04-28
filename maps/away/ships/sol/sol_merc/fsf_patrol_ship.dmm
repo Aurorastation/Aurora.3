@@ -465,19 +465,21 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/fsf_shuttle)
 "aHw" = (
-/obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/door/airlock/security{
-	name = "Infirmary";
-	dir = 4
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, airlock"
 	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
+/obj/effect/shuttle_landmark/fsf_dock/fore{
+	dir = 1
 	},
-/turf/simulated/floor/tiled/white,
-/area/ship/fsf_patrol_ship/medical)
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "aIu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -538,6 +540,24 @@
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/mess)
+"aPe" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "aSi" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 2
@@ -689,6 +709,20 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/starboardhallway)
+"bbK" = (
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = -8
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "bcf" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
@@ -759,6 +793,9 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/bridge)
+"bmP" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "bok" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port, medbay"
@@ -1107,6 +1144,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/hangar)
+"dkH" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "dqj" = (
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/dock)
@@ -1430,6 +1473,24 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/fsf_shuttle)
+"eNK" = (
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/starboardhallway)
 "eOK" = (
 /obj/structure/sign/nosmoking_1{
 	pixel_x = -32
@@ -1540,6 +1601,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/mess)
+"flz" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "fnE" = (
 /obj/structure/filingcabinet{
 	desc = "A large cabinet with drawers. Those are some fancy cabinets, High-Speed.";
@@ -1555,9 +1622,18 @@
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/armory)
 "fnS" = (
-/obj/machinery/papershredder,
-/turf/simulated/floor/wood,
-/area/ship/fsf_patrol_ship/officer)
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "fnY" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Cell";
@@ -1972,12 +2048,13 @@
 /area/ship/fsf_patrol_ship/briefing)
 "gAS" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
-/obj/machinery/door/airlock/security{
-	name = "Infirmary";
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
+	},
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Infirmary";
+	req_access = list(203);
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/medical)
@@ -2048,9 +2125,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
 	},
 /obj/machinery/alarm/north{
 	req_one_access = list(24,11, 203)
@@ -2538,6 +2612,25 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/ship/fsf_patrol_ship/portpropulsion)
+"iDM" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 8
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/machinery/door/window/northleft{
+	dir = 8;
+	req_access = list(203)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "iGK" = (
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 6
@@ -2586,6 +2679,23 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
+"iKj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/door/airlock/security{
+	name = "Briefing Room";
+	req_access = list(203);
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/briefing)
 "iNm" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency{
@@ -2680,10 +2790,10 @@
 /area/ship/fsf_patrol_ship/mess)
 "iWa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/door/airlock/security{
-	name = "Messhall";
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Mess Hall";
 	req_access = list(203);
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/mess)
@@ -2704,6 +2814,12 @@
 	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/hangar)
+"jjy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "jmf" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship/mess)
@@ -2866,6 +2982,12 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/fsf_patrol_ship/engineering)
+"jOz" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "kaR" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/east{
@@ -2942,6 +3064,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/storage)
+"kpk" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "krz" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/computer/ship/sensors{
@@ -2991,23 +3119,24 @@
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 4
 	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/eastleft,
+/obj/structure/window/reinforced,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "kBp" = (
-/obj/machinery/light/small/emergency{
-	dir = 1
+/obj/machinery/alarm/west{
+	req_one_access = list(24,11,203)
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/tiled/dark,
-/area/ship/fsf_patrol_ship/starboardhallway)
+/area/ship/fsf_patrol_ship/dock/fore)
 "kEU" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -3657,6 +3786,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/fsf_shuttle)
+"myh" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "mzf" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3787,6 +3924,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/fsf_patrol_ship/cic)
 "mVr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
@@ -3959,7 +4102,7 @@
 /turf/template_noop,
 /area/space)
 "nFO" = (
-/obj/effect/shuttle_landmark/fsf_dock{
+/obj/effect/map_effect/map_helper/ruler_tiles_3{
 	dir = 4
 	},
 /turf/template_noop,
@@ -4012,6 +4155,10 @@
 	},
 /turf/simulated/floor/reinforced/airless,
 /area/shuttle/fsf_shuttle)
+"nZQ" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "oaP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
@@ -4216,6 +4363,9 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/fsf_dock{
+	dir = 8
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/dock)
 "oBj" = (
@@ -4424,6 +4574,33 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/starboardhallway)
+"pSG" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/starboardhallway)
+"pUj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "pUp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/cable/green,
@@ -4735,23 +4912,8 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/bathroom)
 "rgr" = (
-/obj/effect/floor_decal/corner/paleblue/diagonal,
-/obj/machinery/door/airlock/security{
-	name = "Messhall";
-	req_access = list(203);
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/ship/fsf_patrol_ship/mess)
+/turf/simulated/wall/shuttle/raider,
+/area/ship/fsf_patrol_ship/dock/fore)
 "riZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4857,13 +5019,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/requisitions)
 "rEH" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
-	dir = 2
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
@@ -4927,6 +5089,24 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fsf_patrol_ship/briefing)
+"rXv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/machinery/access_button{
+	pixel_x = -24;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "rYg" = (
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 4
@@ -5148,22 +5328,17 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/mess)
 "sVY" = (
-/obj/machinery/door/airlock/security{
-	name = "Lieutenant's Quarters";
-	req_access = list(203);
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/ship/fsf_patrol_ship/briefing)
+/area/ship/fsf_patrol_ship/dock/fore)
 "taa" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/sign/flag/sol/large/north{
@@ -5392,6 +5567,16 @@
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship/portpropulsion)
+"tNo" = (
+/obj/structure/cable/green,
+/obj/machinery/power/apc/high/west{
+	req_access = list(203)
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "tPE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5889,21 +6074,23 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/ammo)
 "vQR" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8
-	},
-/turf/simulated/floor/wood,
-/area/ship/fsf_patrol_ship/officer)
-"vRL" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/west{
 	req_access = list(203)
 	},
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
 /turf/simulated/floor/wood,
 /area/ship/fsf_patrol_ship/officer)
+"vRL" = (
+/obj/structure/closet/emcloset,
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "vTv" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1;
@@ -5966,6 +6153,16 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/engineering)
+"wmk" = (
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
+"wom" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "woR" = (
 /obj/item/clothing/suit/storage/hazardvest,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6123,16 +6320,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/engineering)
 "wUQ" = (
+/obj/machinery/door/airlock/security{
+	name = "Lieutenant's Quarters";
+	req_access = list(203);
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 10
+	dir = 4
 	},
 /obj/structure/cable/green{
-	icon_state = "2-8"
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/wood,
+/turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/officer)
 "wVB" = (
 /obj/structure/cable/green{
@@ -6246,10 +6448,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/requisitions)
-"xfb" = (
-/obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/template_noop,
-/area/space)
 "xgf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -6292,6 +6490,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/brig)
+"xqE" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "xto" = (
 /obj/effect/floor_decal/carpet/blue{
 	dir = 1
@@ -6302,6 +6511,7 @@
 /obj/effect/floor_decal/carpet/blue{
 	dir = 9
 	},
+/obj/machinery/papershredder,
 /turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship/officer)
 "xuN" = (
@@ -6362,6 +6572,20 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
+"xEr" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_fore";
+	master_tag = "airlock_fsf_dock_fore";
+	name = "airlock_fsf_dock_fore"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/dock/fore)
 "xJS" = (
 /obj/machinery/light{
 	dir = 1;
@@ -6432,6 +6656,26 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/atmos)
+"ycY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
+"yge" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Docking Arm";
+	req_access = list(203)
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
+"ygQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/dock/fore)
 "yhC" = (
 /obj/machinery/door/airlock/security{
 	name = "Briefing Room";
@@ -33875,6 +34119,11 @@ xRX
 xRX
 xRX
 xRX
+qfj
+qfj
+qfj
+qfj
+ktN
 xRX
 xRX
 xRX
@@ -33886,12 +34135,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+nZQ
 xRX
 xRX
 xRX
@@ -34014,520 +34258,6 @@ xRX
 xRX
 "}
 (108,1,1) = {"
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-"}
-(109,1,1) = {"
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-qfj
-qfj
-qfj
-qfj
-ktN
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
-"}
-(110,1,1) = {"
 xRX
 xRX
 xRX
@@ -34784,6 +34514,520 @@ xRX
 xRX
 xRX
 "}
+(109,1,1) = {"
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+cRx
+cRx
+ijH
+inj
+inj
+inj
+inj
+erT
+inj
+qZK
+qZK
+qZK
+qZK
+qZK
+wMs
+wMs
+wMs
+wMs
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+"}
+(110,1,1) = {"
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+cRx
+cRx
+vgt
+sLj
+inj
+lTS
+gCN
+mdc
+bGz
+nty
+qZK
+far
+lFg
+rUb
+tiZ
+eYk
+avB
+krz
+wMs
+nZQ
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+xRX
+"}
 (111,1,1) = {"
 xRX
 xRX
@@ -34902,23 +35146,23 @@ cPv
 obG
 cPv
 cPv
-cRx
-ijH
-inj
-inj
-inj
-inj
-erT
-inj
+rNp
+nSb
+yhC
+gkM
+gAg
+rWV
+lIx
+swZ
 qZK
-qZK
-qZK
-qZK
-qZK
-wMs
-wMs
-wMs
-wMs
+idW
+ttC
+ftq
+aab
+qbP
+ikz
+oJN
+huE
 xRX
 xRX
 xRX
@@ -35159,22 +35403,22 @@ bfg
 sGb
 taq
 cPv
-vgt
-sLj
+ufZ
+xOE
 inj
-lTS
-gCN
-mdc
-bGz
-nty
-qZK
-far
-lFg
-rUb
-tiZ
+qzb
+eMT
+eMT
+ryY
+bsb
+lfP
+orj
+xPF
+oBj
+ooR
 eYk
 avB
-krz
+wMs
 wMs
 xRX
 xRX
@@ -35416,24 +35660,24 @@ bfg
 sGb
 xoc
 cPv
-rNp
-nSb
-yhC
-gkM
-gAg
-rWV
-lIx
-swZ
+wfy
+xOE
+inj
+wQe
+eMT
+eMT
+mvO
+atj
 qZK
-idW
-ttC
-ftq
-aab
-qbP
-ikz
-oJN
-huE
+blv
+kaR
+icj
+que
+pkg
+avB
+wMs
 xRX
+nZQ
 xRX
 xRX
 xRX
@@ -35648,7 +35892,7 @@ xRX
 xRX
 xRX
 xRX
-xfb
+nZQ
 xRX
 xRX
 xRX
@@ -35673,23 +35917,23 @@ bfg
 tPE
 aej
 cPv
-kBp
-aaz
+kPT
+sLj
 inj
-qzb
-eMT
-eMT
-ryY
-bsb
-lfP
-orj
-xPF
-oBj
-ooR
-eYk
-avB
-wMs
-wMs
+inj
+inj
+inj
+iKj
+inj
+qZK
+oqN
+qZK
+qZK
+qZK
+rgr
+rgr
+rgr
+rgr
 xRX
 xRX
 xRX
@@ -35931,22 +36175,22 @@ bci
 uYP
 fPt
 rEH
-kSD
-inj
-wQe
-eMT
-eMT
-mvO
-atj
-qZK
-blv
-kaR
-icj
-que
-pkg
-wMs
-wMs
-xRX
+aaz
+yge
+bmP
+bmP
+kBp
+pUj
+tNo
+jjy
+jOz
+wmk
+bmP
+bmP
+rXv
+xqE
+myh
+bbK
 xRX
 xRX
 xRX
@@ -36187,23 +36431,23 @@ mXV
 mXV
 mXV
 mXV
-kPT
-sLj
-inj
-inj
-inj
-inj
+pSG
+kSD
+bmP
+kpk
+bmP
+wmk
 sVY
-inj
-qZK
-oqN
-qZK
-qZK
-qZK
-wMs
-wMs
-xRX
-xRX
+wom
+ycY
+dkH
+wmk
+flz
+ygQ
+fnS
+xEr
+aPe
+aHw
 xRX
 xRX
 xRX
@@ -36419,7 +36663,7 @@ xRX
 xRX
 xRX
 xRX
-xfb
+nZQ
 vJj
 trv
 kBo
@@ -36445,22 +36689,22 @@ iwP
 xPD
 mXV
 gXx
-qdY
-pUp
-oaP
+xOE
+cRx
+cRx
 ePG
-fUw
+ePG
 wUQ
-vRL
-qyG
-cTN
 ePG
-xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+ePG
+ePG
+ePG
+iDM
+vRL
+rgr
+rgr
+rgr
+rgr
 xRX
 xRX
 xRX
@@ -36701,24 +36945,24 @@ quc
 xAX
 ttw
 mXV
-ufZ
-xOE
-hjW
-wha
+eNK
+qdY
+pUp
+oaP
 ePG
-fnS
+fUw
 mVr
 vQR
 qyG
-qyG
+cTN
 ePG
+rgr
+rgr
+rgr
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
+nZQ
 xRX
 xRX
 xRX
@@ -37190,7 +37434,7 @@ xRX
 xRX
 xRX
 xRX
-xfb
+nZQ
 vJj
 qhP
 rAo
@@ -37461,7 +37705,7 @@ seo
 jmf
 jmf
 jmf
-rgr
+oKE
 iWa
 jmf
 jmf
@@ -37489,7 +37733,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+nZQ
 xRX
 xRX
 xRX
@@ -38260,7 +38504,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+nZQ
 xRX
 xRX
 xRX
@@ -38475,7 +38719,7 @@ xRX
 xRX
 xRX
 xRX
-xfb
+nZQ
 xRX
 uRy
 kzm
@@ -39246,7 +39490,7 @@ xRX
 xRX
 xRX
 xRX
-xfb
+nZQ
 xRX
 hWc
 pfE
@@ -40017,7 +40261,7 @@ xRX
 xRX
 xRX
 xRX
-xfb
+nZQ
 xRX
 hWc
 hWc
@@ -40545,7 +40789,7 @@ iSd
 lWj
 lWj
 xdn
-aHw
+bCf
 gAS
 lWj
 alI
@@ -44147,13 +44391,10 @@ xRX
 xRX
 xRX
 xRX
+nFO
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-xRX
+nFO
 xRX
 xRX
 nFO
@@ -44161,10 +44402,13 @@ xRX
 xRX
 xRX
 xRX
+nFO
 xRX
 xRX
+nFO
 xRX
 xRX
+nFO
 xRX
 xRX
 xRX

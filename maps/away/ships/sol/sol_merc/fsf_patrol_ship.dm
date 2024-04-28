@@ -48,7 +48,8 @@
 		"nav_fsf_patrol_ship_port",
 		"nav_fsf_patrol_ship_starboard",
 		"nav_fsf_dock",
-		"nav_fsf_dock_aft"
+		"nav_fsf_dock_aft",
+		"nav_fsf_dock_fore"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -98,8 +99,11 @@
 	name = "Aft Docking Bay"
 	landmark_tag = "nav_fsf_dock_aft"
 	docking_controller = "airlock_fsf_dock_aft"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
+
+/obj/effect/shuttle_landmark/fsf_dock/fore
+	name = "Fore Docking Bay"
+	landmark_tag = "nav_fsf_dock_fore"
+	docking_controller = "airlock_fsf_dock_fore"
 
 //shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/fsf_shuttle

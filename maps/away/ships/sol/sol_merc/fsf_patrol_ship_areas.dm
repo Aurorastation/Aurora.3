@@ -88,7 +88,11 @@
 	icon_state = "thunder"
 
 /area/ship/fsf_patrol_ship/dock
-	name = "FSF Corvette - Docking Port"
+	name = "FSF Corvette - Docking Bay"
+	icon_state = "exit"
+
+/area/ship/fsf_patrol_ship/dock/fore
+	name = "FSF Corvette - Fore Docking Bay"
 	icon_state = "exit"
 
 /area/shuttle/fsf_shuttle
