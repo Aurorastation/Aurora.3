@@ -43,7 +43,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 							alert("Invalid port. Please enter a valid port number, either 8086 or bigger than 4096.")
 							return
 
-						world.SetConfig("env", "UTRACY_BIND_PORT", port)
+						world.SetConfig("env", "UTRACY_BIND_PORT", "[port]")
 						prof_init(CONNECTION_VERSION) // This start's mafemergency's original version of Tracy. Requiring a direct connection, not writing to the disk.
 
 					if("Disk Based")
