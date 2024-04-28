@@ -1749,14 +1749,6 @@
 	temperature = 303.15
 	},
 /area/ihss_reclamation/fuel)
-"iq" = (
-/obj/machinery/power/apc/high/north{
-	req_access = list(113)
-	},
-/turf/simulated/floor/tiled/dark{
-	temperature = 303.15
-	},
-/area/ihss_reclamation/southhall)
 "iv" = (
 /obj/structure/sign/flag/hegemony/large/north{
 	pixel_y = 32
@@ -44439,7 +44431,7 @@ gn
 gn
 gn
 Sz
-iq
+Tu
 dK
 LF
 Ur
