@@ -326,6 +326,9 @@
 	if(!H)
 		return
 
+	if(islist(accessory))
+		accessory = pick(accessory)
+
 	var/obj/item/clothing/under/U = H.get_equipped_item(slot_w_uniform)
 	if(U)
 		var/obj/item/clothing/accessory/A = new accessory
