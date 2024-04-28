@@ -27,6 +27,16 @@
 	icon_connect_type = "-aux"
 	connect_types = CONNECT_TYPE_AUX
 
+/obj/machinery/atmospherics/portables_connector/supply
+	icon_state = "map_connector-supply"
+	icon_connect_type = "-supply"
+	connect_types = CONNECT_TYPE_SUPPLY
+
+/obj/machinery/atmospherics/portables_connector/scrubber
+	icon_state = "map_connector-scrubber"
+	icon_connect_type = "-scrubber"
+	connect_types = CONNECT_TYPE_SCRUBBER
+
 
 /obj/machinery/atmospherics/portables_connector/Initialize()
 	initialize_directions = dir
@@ -142,8 +152,8 @@
 	return null
 
 
-/obj/machinery/atmospherics/portables_connector/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
+/obj/machinery/atmospherics/portables_connector/attackby(obj/item/attacking_item, mob/user)
+	if (!attacking_item.iswrench())
 		return ..()
 	if (connected_device)
 		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], dettach \the [connected_device] first.</span>")
@@ -158,7 +168,7 @@
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \
 			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
 			"<span class='notice'>You have unfastened \the [src].</span>", \

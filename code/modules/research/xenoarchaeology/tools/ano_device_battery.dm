@@ -37,12 +37,12 @@
 	..()
 	START_PROCESSING(SSprocessing, src)
 
-/obj/item/anodevice/attackby(var/obj/I as obj, var/mob/user as mob)
-	if(istype(I, /obj/item/anobattery))
+/obj/item/anodevice/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/anobattery))
 		if(!inserted_battery)
 			to_chat(user, "<span class='notice'>You insert the battery.</span>")
-			user.drop_from_inventory(I,src)
-			inserted_battery = I
+			user.drop_from_inventory(attacking_item, src)
+			inserted_battery = attacking_item
 			UpdateSprite()
 	else
 		return ..()

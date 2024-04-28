@@ -18,17 +18,17 @@
 	var/temperature = T20C
 	var/starts_with = list()
 
-/obj/machinery/appliance/cooker/examine(mob/user, distance, is_adjacent)
+/obj/machinery/appliance/cooker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (is_adjacent)
 		if (!stat)
 			if (temperature < min_temp)
-				to_chat(user, SPAN_WARNING("[src] is still heating up and is too cold to cook anything yet."))
+				. += SPAN_WARNING("[src] is still heating up and is too cold to cook anything yet.")
 			else
-				to_chat(user, SPAN_NOTICE("It is running at [round(get_efficiency(), 0.1)]% efficiency!"))
-			to_chat(user, "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C")
+				. += SPAN_NOTICE("It is running at [round(get_efficiency(), 0.1)]% efficiency!")
+			. += "Temperature: [round(temperature - T0C, 0.1)]C / [round(optimal_temp - T0C, 0.1)]C"
 		else
-			to_chat(user, SPAN_WARNING("It is switched off."))
+			. += SPAN_WARNING("It is switched off.")
 
 /obj/machinery/appliance/cooker/MouseEntered(location, control, params)
 	. = ..()

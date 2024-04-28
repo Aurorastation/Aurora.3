@@ -102,9 +102,9 @@
 	popup.set_content(dat)
 	popup.open()
 
-/obj/machinery/icecream_vat/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(istype(O, /obj/item/reagent_containers/food/snacks/icecream))
-		var/obj/item/reagent_containers/food/snacks/icecream/I = O
+/obj/machinery/icecream_vat/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/icecream))
+		var/obj/item/reagent_containers/food/snacks/icecream/I = attacking_item
 		if(!I.ice_creamed)
 			if(product_types[dispense_flavour] > 0)
 				visible_message("\icon[src] <b>[user]</b> scoops [flavour_name] icecream into [I].")
@@ -118,9 +118,9 @@
 			else
 				to_chat(user, SPAN_WARNING("There is not enough icecream left!"))
 		else
-			to_chat(user, SPAN_NOTICE("[O] already has icecream in it."))
+			to_chat(user, SPAN_NOTICE("[attacking_item] already has icecream in it."))
 		return TRUE
-	else if(O.is_open_container())
+	else if(attacking_item.is_open_container())
 		return
 	..()
 

@@ -46,6 +46,7 @@
 		bio = ARMOR_BIO_MINOR
 	)
 	siemens_coefficient = 0.75
+	protects_against_weather = TRUE
 
 /obj/item/clothing/head/winterhood
 	name = "winter hood"
@@ -59,6 +60,7 @@
 	flags_inv = HIDEEARS | BLOCKHAIR | HIDEEARS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	canremove = 0
+	protects_against_weather = TRUE
 	var/hooded = FALSE
 
 /obj/item/clothing/head/winterhood/Initialize(mapload, material_key)
@@ -320,6 +322,10 @@
 /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
 	icon_state = "hoodie_sleeveless"
 	item_state = "hoodie_sleeveless"
+
+/obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless_crop
+	icon_state = "hoodie_sleeveless_crop"
+	item_state = "hoodie_sleeveless_crop"
 
 /obj/item/clothing/suit/storage/hooded/wintercoat/konyang
 	name = "konyang village coat"

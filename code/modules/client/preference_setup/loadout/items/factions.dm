@@ -30,7 +30,7 @@
 	path = /obj/item/clothing/under/rank/security/idris/idrissec
 	slot = slot_w_uniform
 	faction = "Idris Incorporated"
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
+	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
 
 /datum/gear/faction/idris_sec_uniforms/New()
 	..()
@@ -65,7 +65,7 @@
 	description = "A selection of Idris security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/idris
 	slot = slot_glasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
 	faction = "Idris Incorporated"
 
 /datum/gear/faction/idris_sunglasses/New()
@@ -118,7 +118,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/idrissec
 	faction = "Idris Incorporated"
 	slot = slot_tie
-	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 //Zavodskoi
 /datum/gear/faction/zavodskoi_headwear
@@ -147,7 +147,7 @@
 	path = /obj/item/clothing/under/rank/security/zavod/zavodsec
 	slot = slot_w_uniform
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Warden", "Investigator", "Security Officer", "Security Cadet")
+	allowed_roles = list("Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/faction/zavod_sec_uniforms/New()
 	..()
@@ -184,7 +184,7 @@
 	path = /obj/item/clothing/suit/storage/security/officer/zav
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/faction/zavod_sec_coat/New()
 	..()
@@ -199,7 +199,7 @@
 	path = /obj/item/clothing/suit/storage/toggle/warden/zavod
 	slot = slot_wear_suit
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Head of Security", "Warden")
+	allowed_roles = list("Head of Security", "Warden", "Security Personnel")
 
 /datum/gear/faction/zavod_warden_coat/New()
 	..()
@@ -214,7 +214,7 @@
 	path = /obj/item/clothing/glasses/sunglasses/sechud/zavod
 	slot = slot_glasses
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/faction/zavod_sunglasses/New()
 	..()
@@ -236,7 +236,7 @@
 	path = /obj/item/clothing/accessory/sleevepatch/zavodskoisec
 	slot = slot_tie
 	faction = "Zavodskoi Interstellar"
-	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet")
+	allowed_roles = list("Head of Security", "Warden", "Investigator", "Security Officer", "Security Cadet", "Security Personnel")
 
 /datum/gear/faction/zavodskoicape
 	display_name = "zavodskoi dominian great house cape selection"
@@ -262,7 +262,7 @@
 	description = "A selection of PMCG security HUDs."
 	path = /obj/item/clothing/glasses/sunglasses/sechud/pmc
 	slot = slot_glasses
-	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator")
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_sunglasses/New()
@@ -283,7 +283,7 @@
 	description = "A selection of PMCG medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/pmc
 	slot = slot_glasses
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "Private Military Contracting Group"
 
 /datum/gear/faction/pmc_medglasses/New()
@@ -362,7 +362,7 @@
 	path = /obj/item/clothing/under/rank/security/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden")
+	allowed_roles = list("Security Cadet", "Security Officer", "Investigator", "Warden", "Security Personnel")
 
 /datum/gear/faction/pmcg_sec_uniforms/New()
 	..()
@@ -401,35 +401,35 @@
 	path = /obj/item/clothing/under/rank/medical/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Physician")
+	allowed_roles = list("Physician", "Medical Personnel")
 
 /datum/gear/faction/epmc_uniform_pharm_med
 	display_name = "PMCG pharmacist uniform"
 	path = /obj/item/clothing/under/rank/medical/pharmacist/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Pharmacist")
+	allowed_roles = list("Pharmacist", "Medical Personnel")
 
 /datum/gear/faction/epmc_uniform_psych_med
 	display_name = "PMCG psychiatrist uniform"
 	path = /obj/item/clothing/under/rank/medical/psych/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Psychiatrist")
+	allowed_roles = list("Psychiatrist", "Medical Personnel")
 
 /datum/gear/faction/epmc_uniform_intern_med
 	display_name = "PMCG medical intern uniform"
 	path = /obj/item/clothing/under/rank/medical/intern/pmc/alt
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("Medical Intern")
+	allowed_roles = list("Medical Intern", "Medical Personnel")
 
 /datum/gear/faction/epmc_uniform_fr_med
 	display_name = "PMCG/EPMC first responder uniform"
 	path = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
-	allowed_roles = list("First Responder")
+	allowed_roles = list("First Responder", "Medical Personnel")
 
 /datum/gear/faction/epmc_uniform_fr_med/New()
 	..()
@@ -456,6 +456,22 @@
 	wildlands_flag_patches["flagpatch, solarian provisional government"] = /obj/item/clothing/accessory/flagpatch/spg
 	wildlands_flag_patches["flagpatch, southern solarian military district"] = /obj/item/clothing/accessory/flagpatch/ssmd
 	gear_tweaks += new /datum/gear_tweak/path(wildlands_flag_patches)
+
+/datum/gear/faction/vekatak_rep
+	display_name = "ve'katak phalanx representative uniform"
+	path = /obj/item/clothing/under/rank/pmc/vekatak_phalanx
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Corporate Liaison")
+	faction = "Private Military Contracting Group"
+	slot = slot_w_uniform
+
+/datum/gear/faction/vekatak_res
+	display_name = "ve'katak phalanx reserve uniform"
+	path = /obj/item/clothing/under/rank/pmc/vekatak_phalanx/reserve
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Assistant", "Off-Duty Crew Member")
+	faction = "Private Military Contracting Group"
+	slot = slot_w_uniform
 
 //Zeng-Hu
 /datum/gear/faction/zenghu_beret
@@ -522,7 +538,7 @@
 	description = "A selection of Zeng-Hu medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/zeng
 	slot = slot_glasses
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "Zeng-Hu Pharmaceuticals"
 
 /datum/gear/faction/zeng_medglasses/New()
@@ -618,7 +634,7 @@
 	description = "A selection of NanoTrasen medical HUDs."
 	path = /obj/item/clothing/glasses/hud/health/aviator/nt
 	slot = slot_glasses
-	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern")
+	allowed_roles = list("Physician", "Surgeon", "Chief Medical Officer", "Pharmacist", "First Responder", "Psychiatrist", "Medical Intern", "Medical Personnel")
 	faction = "NanoTrasen"
 
 /datum/gear/faction/nt_medglasses/New()

@@ -1,6 +1,4 @@
 /mob/living/silicon/robot/Life()
-	set background = BACKGROUND_ENABLED
-
 	if(transforming)
 		return
 
@@ -147,7 +145,7 @@
 
 /mob/living/silicon/robot/handle_regular_hud_updates()
 	..()
-	if(stat == DEAD || HAS_FLAG(mutations, XRAY) || (sight_mode & BORGXRAY))
+	if(stat == DEAD || (mutations & XRAY) || (sight_mode & BORGXRAY))
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
 		set_see_invisible(SEE_INVISIBLE_LEVEL_TWO)
 	else if((sight_mode & BORGMESON) && (sight_mode & BORGTHERM))
@@ -310,7 +308,7 @@
 
 /mob/living/silicon/robot/proc/process_level_restrictions()
 	//Abort if they should not get blown
-	if(lock_charge || scrambled_codes || emagged || current_map.allow_borgs_to_leave)
+	if(lock_charge || scrambled_codes || emagged || SSatlas.current_map.allow_borgs_to_leave)
 		return FALSE
 	//Check if they are on a player level -> abort
 	var/turf/T = get_turf(src)

@@ -205,8 +205,8 @@
 	else if(!enabled && screen_on)
 		turn_on(user)
 
-/obj/item/modular_computer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/card/tech_support))
+/obj/item/modular_computer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/tech_support))
 		if(!can_reset)
 			to_chat(user, SPAN_WARNING("You cannot reset this type of device."))
 			return TRUE
@@ -220,8 +220,8 @@
 		hard_drive.reset_drive()
 		audible_message("[icon2html(src, viewers(get_turf(src)))] <b>[src]</b> pings, <span class='notice'>\"Enrollment status reset! Have a NanoTrasen day.\"</span>")
 		return TRUE
-	if(istype(W, /obj/item/card/id)) // ID Card, try to insert it.
-		var/obj/item/card/id/I = W
+	if(istype(attacking_item, /obj/item/card/id)) // ID Card, try to insert it.
+		var/obj/item/card/id/I = attacking_item
 		if(!card_slot)
 			to_chat(user, SPAN_WARNING("You try to insert \the [I] into \the [src], but it does not have an ID card slot installed."))
 			return TRUE
@@ -234,54 +234,54 @@
 		update_uis()
 		to_chat(user, SPAN_NOTICE("You insert \the [I] into \the [src]."))
 		return TRUE
-	if(is_type_in_list(W, card_slot?.allowed_items))
+	if(is_type_in_list(attacking_item, card_slot?.allowed_items))
 		if(!card_slot)
-			to_chat(user, SPAN_WARNING("You try to insert \the [W] into \the [src], but it does not have an ID card slot installed."))
+			to_chat(user, SPAN_WARNING("You try to insert \the [attacking_item] into \the [src], but it does not have an ID card slot installed."))
 			return TRUE
 		if(card_slot.stored_item)
-			to_chat(user, SPAN_WARNING("You try to insert \the [W] into \the [src], but its storage slot is occupied."))
+			to_chat(user, SPAN_WARNING("You try to insert \the [attacking_item] into \the [src], but its storage slot is occupied."))
 			return TRUE
 
-		user.drop_from_inventory(W, src)
-		card_slot.stored_item = W
+		user.drop_from_inventory(attacking_item, src)
+		card_slot.stored_item = attacking_item
 		update_uis()
 		verbs += /obj/item/modular_computer/proc/eject_item
-		to_chat(user, SPAN_NOTICE("You insert \the [W] into \the [src]."))
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		return TRUE
-	if(istype(W, /obj/item/paper))
+	if(istype(attacking_item, /obj/item/paper))
 		if(!nano_printer)
 			return TRUE
-		nano_printer.attackby(W, user)
+		nano_printer.attackby(attacking_item, user)
 		return TRUE
-	if(istype(W, /obj/item/aicard))
+	if(istype(attacking_item, /obj/item/aicard))
 		if(ai_slot)
-			ai_slot.attackby(W, user)
+			ai_slot.attackby(attacking_item, user)
 		return TRUE
-	if(istype(W, /obj/item/computer_hardware))
-		var/obj/item/computer_hardware/C = W
+	if(istype(attacking_item, /obj/item/computer_hardware))
+		var/obj/item/computer_hardware/C = attacking_item
 		if(C.hardware_size <= max_hardware_size)
 			try_install_component(user, C)
 		else
 			to_chat(user, SPAN_WARNING("This component is too large for \the [src]."))
 		return TRUE
-	if(istype(W, /obj/item/device/paicard))
-		try_install_component(user, W)
+	if(istype(attacking_item, /obj/item/device/paicard))
+		try_install_component(user, attacking_item)
 		return TRUE
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		var/list/components = get_all_components()
 		if(components.len)
 			to_chat(user, SPAN_WARNING("You have to remove all the components from \the [src] before disassembling it."))
 			return TRUE
 		to_chat(user, SPAN_NOTICE("You begin to disassemble \the [src]."))
-		if(W.use_tool(src, user, 20, volume = 50))
+		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			new /obj/item/stack/material/steel(get_turf(src), steel_sheet_cost)
 			user.visible_message(SPAN_NOTICE("\The [user] disassembles \the [src]."), SPAN_NOTICE("You disassemble \the [src]."), SPAN_NOTICE("You hear a ratcheting noise."))
 			qdel(src)
 		return TRUE
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.isOn())
-			to_chat(user, SPAN_WARNING("\The [W] is off."))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] is off."))
 			return TRUE
 
 		if(!damage)
@@ -296,7 +296,7 @@
 		update_icon()
 		return TRUE
 
-	if(W.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		var/list/all_components = get_all_components()
 		if(!all_components.len)
 			to_chat(user, SPAN_WARNING("This device doesn't have any components installed."))

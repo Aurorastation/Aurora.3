@@ -141,49 +141,49 @@
 
 	return 1
 
-/obj/item/reagent_containers/food/snacks/examine(mob/user, distance)
+/obj/item/reagent_containers/food/snacks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	if (coating)
 		var/singleton/reagent/coating_reagent = GET_SINGLETON(coating)
-		to_chat(user, SPAN_NOTICE("It's coated in [coating_reagent.name]!"))
-	if (bitecount==0)
+		. += SPAN_NOTICE("It's coated in [coating_reagent.name]!")
+	if (!bitecount)
 		return
 	else if (bitecount==1)
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten by someone!"))
+		. += SPAN_NOTICE("\The [src] was bitten by someone!")
 	else if (bitecount<=3)
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten [bitecount] time\s!"))
+		. += SPAN_NOTICE("\The [src] was bitten [bitecount] time\s!")
 	else
-		to_chat(user, SPAN_NOTICE("\The [src] was bitten multiple times!"))
+		. += SPAN_NOTICE("\The [src] was bitten multiple times!")
 
-/obj/item/reagent_containers/food/snacks/attackby(obj/item/W, mob/living/user)
+/obj/item/reagent_containers/food/snacks/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(W,/obj/item/pen))
+	if(istype(attacking_item, /obj/item/pen))
 
-		var/selection = alert(user,"Which attribute do you wish to edit?","Food Editor","Name","Description","Cancel")
+		var/selection = tgui_input_list(user, "Which attribute do you wish to edit?", "Food Editor", list("Name","Description","Cancel"), "Cancel")
 		if(selection == "Name")
-			var/input_clean_name = sanitize(input(user,"What is the name of this food?", "Set Food Name") as text|null, MAX_LNAME_LEN)
+			var/input_clean_name = sanitize( tgui_input_text(user, "What is the name of this food?", "Set Food Name", max_length = MAX_LNAME_LEN), MAX_LNAME_LEN )
 			if(input_clean_name)
 				name = input_clean_name
 			else
 				name = initial(name)
 		else if(selection == "Description")
-			var/input_clean_desc = sanitize(input(user,"What is the description of this food?", "Set Food Description") as text|null, MAX_MESSAGE_LEN)
+			var/input_clean_desc = sanitize( tgui_input_text(user, "What is the description of this food?", "Set Food Description", max_length = MAX_MESSAGE_LEN), MAX_MESSAGE_LEN )
 			if(input_clean_desc)
 				desc = input_clean_desc
 			else
 				desc = initial(desc)
 		return
 
-	if(istype(W,/obj/item/storage))
+	if(istype(attacking_item, /obj/item/storage))
 		..() // -> item/attackby()
 		return
 
 	// Eating with forks
-	if(istype(W,/obj/item/material/kitchen/utensil))
-		var/obj/item/material/kitchen/utensil/U = W
-		if(istype(W,/obj/item/material/kitchen/utensil/fork)&&(is_liquid))
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil))
+		var/obj/item/material/kitchen/utensil/U = attacking_item
+		if(istype(attacking_item, /obj/item/material/kitchen/utensil/fork) && (is_liquid))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]."))
 			playsound(user.loc, /singleton/sound_category/generic_pour_sound, 10, 1)
 			return
@@ -214,27 +214,27 @@
 	if(is_sliceable())
 		//these are used to allow hiding edge items in food that is not on a table/tray
 		var/can_slice_here = isturf(src.loc) && ((locate(/obj/structure/table) in src.loc) || (locate(/obj/machinery/optable) in src.loc) || (locate(/obj/item/tray) in src.loc))
-		var/hide_item = !has_edge(W) || !can_slice_here
+		var/hide_item = !has_edge(attacking_item) || !can_slice_here
 
 		if(hide_item && user.a_intent == I_HURT)
-			if (W.w_class >= src.w_class || is_robot_module(W))
+			if (attacking_item.w_class >= src.w_class || is_robot_module(attacking_item))
 				return
 
-			to_chat(user, SPAN_WARNING("You slip \the [W] inside \the [src]."))
-			user.remove_from_mob(W)
-			W.dropped(user)
+			to_chat(user, SPAN_WARNING("You slip \the [attacking_item] inside \the [src]."))
+			user.remove_from_mob(attacking_item)
+			attacking_item.dropped(user)
 			add_fingerprint(user)
-			contents += W
+			contents += attacking_item
 			return
 
-		if(has_edge(W))
+		if(has_edge(attacking_item))
 			if (!can_slice_here)
 				to_chat(user, SPAN_WARNING("You cannot slice \the [src] here! You need a table or at least a tray to do it."))
 				return
 
 			var/slices_lost = 0
-			if(W.w_class > 3)
-				user.visible_message(SPAN_NOTICE("\The [user] crudely slices \the [src] with [W]!"), SPAN_NOTICE("You crudely slice \the [src] with your [W]!"))
+			if(attacking_item.w_class > 3)
+				user.visible_message(SPAN_NOTICE("\The [user] crudely slices \the [src] with [attacking_item]!"), SPAN_NOTICE("You crudely slice \the [src] with your [attacking_item]!"))
 				slices_lost = rand(1,min(1,round(slices_num/2)))
 			else
 				user.visible_message(SPAN_NOTICE("\The [user] slices \the [src]!"), SPAN_NOTICE("You slice \the [src]!"))

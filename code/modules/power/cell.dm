@@ -81,20 +81,22 @@
 	return amount_used
 
 
-/obj/item/cell/examine(mob/user, distance, is_adjacent)
+/obj/item/cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-
 	if(distance > 1)
 		return
 
 	if(maxcharge <= 2500)
-		to_chat(user, "[desc]\nThe manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it.\nThe charge meter reads [round(src.percent() )]%.")
+		. += "[desc]"
+		. += "The manufacturer's label states this cell has a power rating of [maxcharge]J, and that you should not swallow it."
+		. += "The charge meter reads [round(src.percent() )]%."
 	else
-		to_chat(user, "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!\nThe charge meter reads [round(src.percent() )]%.")
+		. += "This power cell has an exciting chrome finish, as it is an uber-capacity cell type! It has a power rating of [maxcharge]J!"
+		. += "The charge meter reads [round(src.percent() )]%."
 
-/obj/item/cell/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/syringe))
-		var/obj/item/reagent_containers/syringe/S = W
+/obj/item/cell/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/syringe))
+		var/obj/item/reagent_containers/syringe/S = attacking_item
 
 		to_chat(user, "You inject the solution into the power cell.")
 
@@ -107,8 +109,8 @@
 
 		S.reagents.clear_reagents()
 		return
-	else if(istype(W, /obj/item/device/assembly_holder))
-		var/obj/item/device/assembly_holder/assembly = W
+	else if(istype(attacking_item, /obj/item/device/assembly_holder))
+		var/obj/item/device/assembly_holder/assembly = attacking_item
 		if (istype(assembly.a_left, /obj/item/device/assembly/signaler) && istype(assembly.a_right, /obj/item/device/assembly/signaler))
 			//TODO: Look into this bad code
 			user.drop_item()
@@ -118,7 +120,7 @@
 		else
 			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
 		return
-	else if(W.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
+	else if(attacking_item.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
 		if(charge < 10)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have enough charge to produce sufficient current!"))
 			return
@@ -127,10 +129,10 @@
 		if(H.gloves)
 			siemens_coeff = H.gloves.siemens_coefficient
 		if(siemens_coeff >= 0.75 && prob(10 * siemens_coeff))
-			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [W] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
+			to_chat(H, SPAN_WARNING("You probe \the [src] with \the [attacking_item] and feel a jolt of electricity shoot through you! It reads out that [100 * siemens_coeff]% of the current was let through."))
 			H.electrocute_act(5, src, siemens_coeff, H.hand ? BP_R_HAND : BP_L_HAND) // hand holding the battery gets shocked
 		else
-			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [W]. It reads out that [100 * siemens_coeff]% of the current was let through."))
+			to_chat(H, SPAN_NOTICE("You probe \the [src] with \the [attacking_item]. It reads out that [100 * siemens_coeff]% of the current was let through."))
 		return
 	return ..()
 

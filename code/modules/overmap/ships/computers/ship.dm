@@ -126,8 +126,9 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 	. = ..()
 
 /obj/machinery/computer/ship/sensors/Destroy()
-	sensors = null
+	sensor_ref = null
 	identification = null
+	QDEL_NULL(sound_token)
 	if(LAZYLEN(viewers))
 		for(var/datum/weakref/W in viewers)
 			var/M = W.resolve()
@@ -151,7 +152,7 @@ somewhere on that shuttle. Subtypes of these can be then used to perform ship ov
 
 /obj/machinery/computer/ship/Initialize()
 	. = ..()
-	if(current_map.use_overmap && !linked)
+	if(SSatlas.current_map.use_overmap && !linked)
 		var/my_sector = GLOB.map_sectors["[z]"]
 		if(istype(my_sector, linked_type))
 			attempt_hook_up(my_sector)

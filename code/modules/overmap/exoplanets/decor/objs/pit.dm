@@ -8,10 +8,10 @@
 	anchored = TRUE
 	var/open = 1
 
-/obj/structure/pit/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/shovel))
+/obj/structure/pit/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/shovel))
 		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
-		if(W.use_tool(src, user, 50, volume = 50))
+		if(attacking_item.use_tool(src, user, 50, volume = 50))
 			visible_message("<span class='notice'>\The [user] [open ? "fills" : "digs open"] \the [src]!</span>")
 			if(open)
 				close(user)
@@ -20,14 +20,14 @@
 		else
 			to_chat(user, "<span class='notice'>You stop shoveling.</span>")
 		return
-	if (!open && istype(W,/obj/item/stack/material/wood))
+	if (!open && istype(attacking_item, /obj/item/stack/material/wood))
 		if(locate(/obj/structure/gravemarker) in src.loc)
 			to_chat(user, "<span class='notice'>There's already a grave marker here.</span>")
 		else
 			visible_message("<span class='notice'>\The [user] starts making a grave marker on top of \the [src]</span>")
 			if( do_after(user, 50) )
 				visible_message("<span class='notice'>\The [user] finishes the grave marker</span>")
-				var/obj/item/stack/material/wood/plank = W
+				var/obj/item/stack/material/wood/plank = attacking_item
 				plank.use(1)
 				new/obj/structure/gravemarker(src.loc)
 			else
@@ -145,7 +145,7 @@
 /obj/structure/pit/closed/grave/Initialize()
 	var/obj/structure/closet/crate/coffin/C = new(src.loc)
 	var/obj/effect/decal/remains/human/bones = new(C)
-	bones.layer = BELOW_MOB_LAYER
+	bones.layer = LYING_MOB_LAYER
 	var/obj/structure/gravemarker/random/R = new(src.loc)
 	R.generate()
 	. = ..()
@@ -163,9 +163,9 @@
 /obj/structure/gravemarker/cross
 	icon_state = "cross"
 
-/obj/structure/gravemarker/examine(mob/user)
+/obj/structure/gravemarker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It says: '[message]'")
+	. += "It says: '[message]'."
 
 /obj/structure/gravemarker/random/Initialize()
 	generate()
@@ -178,14 +178,14 @@
 	var/nam = random_name(MALE, SPECIES_HUMAN)
 	message = "Here lies [nam]."
 
-/obj/structure/gravemarker/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/material/hatchet))
-		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [W].</span>")
+/obj/structure/gravemarker/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/hatchet))
+		visible_message("<span class = 'warning'>\The [user] starts hacking away at \the [src] with \the [attacking_item].</span>")
 		if(!do_after(user, 30))
 			visible_message("<span class = 'warning'>\The [user] hacks \the [src] apart.</span>")
 			new /obj/item/stack/material/wood(src)
 			qdel(src)
-	if(istype(W,/obj/item/pen))
+	if(istype(attacking_item, /obj/item/pen))
 		var/msg = sanitize(input(user, "What should it say?", "Grave marker", message) as text|null)
 		if(msg)
 			message = msg

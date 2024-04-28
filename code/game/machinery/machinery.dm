@@ -84,7 +84,7 @@ Class Procs:
 	name = "machinery"
 	icon = 'icons/obj/stationobjs.dmi'
 	w_class = ITEMSIZE_IMMENSE
-	layer = OBJ_LAYER - 0.1
+	layer = STRUCTURE_LAYER
 	init_flags = INIT_MACHINERY_PROCESS_SELF
 
 	var/stat = 0
@@ -115,7 +115,10 @@ Class Procs:
 	var/interact_offline = 0 // Can the machine be interacted with while de-powered.
 	var/printing = 0 // Is this machine currently printing anything?
 	var/list/processing_parts // Component parts queued for processing by the machine. Expected type: `/obj/item/stock_parts` Unused currently
-	var/processing_flags // Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
+
+	/// Bitflag. What is being processed. One of `MACHINERY_PROCESS_*`.
+	var/processing_flags
+
 	var/clicksound //played sound on usage
 	var/clickvol = 40 //volume
 	var/obj/item/device/assembly/signaler/signaler // signaller attached to the machine
@@ -126,6 +129,9 @@ Class Procs:
 	var/manufacturer = null
 
 /obj/machinery/Initialize(mapload, d = 0, populate_components = TRUE, is_internal = FALSE)
+	//Stupid macro used in power usage
+	CAN_BE_REDEFINED(TRUE)
+
 	. = ..()
 	if(d)
 		set_dir(d)
@@ -153,6 +159,9 @@ Class Procs:
 			RefreshParts()
 
 /obj/machinery/Destroy()
+	//Stupid macro used in power usage
+	CAN_BE_REDEFINED(TRUE)
+
 	STOP_PROCESSING_MACHINE(src, MACHINERY_PROCESS_ALL)
 	SSmachinery.machinery -= src
 
@@ -167,10 +176,10 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/examine(mob/user, distance, is_adjacent)
+/obj/machinery/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(signaler && is_adjacent)
-		to_chat(user, SPAN_WARNING("\The [src] has a hidden signaler attached to it."))
+		. += SPAN_WARNING("\The [src] has a hidden signaler attached to it.")
 
 // /obj/machinery/proc/process_all()
 // 	/* Uncomment this if/when you need component processing
@@ -294,20 +303,20 @@ Class Procs:
 
 	return ..()
 
-/obj/machinery/attackby(obj/item/W, mob/user)
+/obj/machinery/attackby(obj/item/attacking_item, mob/user)
 	if(obj_flags & OBJ_FLAG_SIGNALER)
-		if(issignaler(W))
+		if(issignaler(attacking_item))
 			if(signaler)
 				to_chat(user, SPAN_WARNING("\The [src] already has a signaler attached."))
 				return TRUE
-			var/obj/item/device/assembly/signaler/S = W
-			user.drop_from_inventory(W, src)
+			var/obj/item/device/assembly/signaler/S = attacking_item
+			user.drop_from_inventory(attacking_item, src)
 			signaler = S
 			S.machine = src
 			user.visible_message("<b>[user]</b> attaches \the [S] to \the [src].", SPAN_NOTICE("You attach \the [S] to \the [src]."), range = 3)
 			log_and_message_admins("has attached a signaler to \the [src].", user, get_turf(src))
 			return TRUE
-		else if(W.iswirecutter() && signaler)
+		else if(attacking_item.iswirecutter() && signaler)
 			user.visible_message("<b>[user]</b> removes \the [signaler] from \the [src].", SPAN_NOTICE("You remove \the [signaler] from \the [src]."), range = 3)
 			user.put_in_hands(detach_signaler())
 			return TRUE
@@ -390,7 +399,7 @@ Class Procs:
 /obj/machinery/proc/default_deconstruction_screwdriver(var/mob/user, var/obj/item/S)
 	if(!istype(S) || !S.isscrewdriver())
 		return FALSE
-	playsound(src.loc, S.usesound, 50, 1)
+	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
 	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
 	update_icon()

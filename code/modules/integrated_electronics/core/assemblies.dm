@@ -70,7 +70,7 @@
 	return implant
 
 /obj/item/device/electronic_assembly/proc/check_interactivity(mob/user)
-	if(!CanInteract(user, physical_state))
+	if(!CanInteract(user, GLOB.physical_state))
 		return 0
 	return 1
 
@@ -182,11 +182,11 @@
 	for(var/obj/item/integrated_circuit/part in contents)
 		. |= part.GetAccess()
 
-/obj/item/device/electronic_assembly/examine(mob/user, distance, is_adjacent)
+/obj/item/device/electronic_assembly/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		for(var/obj/item/integrated_circuit/IC in contents)
-			IC.external_examine(user)
+			. += IC.external_examine(user)
 		if(opened)
 			interact(user)
 
@@ -236,19 +236,19 @@
 	for(var/obj/item/integrated_circuit/input/sensor/S in contents)
 		S.sense(target, user)
 
-/obj/item/device/electronic_assembly/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/integrated_circuit))
-		if(!user.unEquip(I))
+/obj/item/device/electronic_assembly/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/integrated_circuit))
+		if(!user.unEquip(attacking_item))
 			return FALSE
 
-		if(add_circuit(I, user))
-			to_chat(user, "<span class='notice'>You slide \the [I] inside \the [src].</span>")
+		if(add_circuit(attacking_item, user))
+			to_chat(user, "<span class='notice'>You slide \the [attacking_item] inside \the [src].</span>")
 			playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 			interact(user)
 			return TRUE
 
-	else if(I.iswrench() && can_anchor)
-		playsound(src.loc, I.usesound, 50, 1)
+	else if(attacking_item.iswrench() && can_anchor)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		anchored = !anchored
 		if(anchored)
 			on_anchored()
@@ -257,14 +257,14 @@
 		user.visible_message("[user] has wrenched [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You wrench [src]'s anchoring bolts [anchored ? "into" : "out of"] place.", "You hear the sound of a ratcheting wrench turning.")
 		return TRUE
 
-	else if(I.iscrowbar())
-		playsound(get_turf(src), I.usesound, 50, 1)
+	else if(attacking_item.iscrowbar())
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		opened = !opened
 		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
 		update_icon()
 		return TRUE
 
-	else if(istype(I, /obj/item/device/integrated_electronics/wirer) || istype(I, /obj/item/device/integrated_electronics/debugger) || I.ismultitool() || I.isscrewdriver())
+	else if(istype(attacking_item, /obj/item/device/integrated_electronics/wirer) || istype(attacking_item, /obj/item/device/integrated_electronics/debugger) || attacking_item.ismultitool() || attacking_item.isscrewdriver())
 		if(opened)
 			interact(user)
 		else
@@ -272,38 +272,38 @@
 			Try using a crowbar.</span>")
 		return TRUE
 
-	else if(istype(I, /obj/item/cell/device))
+	else if(istype(attacking_item, /obj/item/cell/device))
 		if(!opened)
 			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't put anything inside.  Try using a crowbar.</span>")
 			for(var/obj/item/integrated_circuit/input/S in contents)
-				S.attackby_react(I,user,user.a_intent)
+				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE
 
 		if(battery)
 			to_chat(user, "<span class='warning'>\The [src] already has \a [battery] inside.  Remove it first if you want to replace it.</span>")
 			for(var/obj/item/integrated_circuit/input/S in contents)
-				S.attackby_react(I,user,user.a_intent)
+				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE
 
-		var/obj/item/cell/device/cell = I
+		var/obj/item/cell/device/cell = attacking_item
 		user.drop_from_inventory(cell,src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
 		interact(user)
 		return TRUE
-	else if(istype(I, /obj/item/device/integrated_electronics/detailer))
-		var/obj/item/device/integrated_electronics/detailer/D = I
+	else if(istype(attacking_item, /obj/item/device/integrated_electronics/detailer))
+		var/obj/item/device/integrated_electronics/detailer/D = attacking_item
 		detail_color = D.detail_color
 		update_icon()
 		return TRUE
 
 	else
 		for(var/obj/item/integrated_circuit/insert_slot/S in contents)  //Attempt to insert the item into any contained insert_slots
-			if(S.insert(I, user))
+			if(S.insert(attacking_item, user))
 				return TRUE
 		for(var/obj/item/integrated_circuit/input/S in contents) // Attempt to swipe on scanners
-			if(S.attackby_react(I,user,user.a_intent))
+			if(S.attackby_react(attacking_item,user,user.a_intent))
 				return TRUE
 		return ..()
 

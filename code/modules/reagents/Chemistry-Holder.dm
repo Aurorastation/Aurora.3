@@ -55,7 +55,7 @@
 			if(!primary_reagent || reagent_volumes[primary_reagent] < vol)
 				primary_reagent = R
 	if(total_volume > maximum_volume)
-		remove_any(maximum_volume - total_volume)
+		remove_any(total_volume - maximum_volume)
 	return max(total_volume,0)
 
 /datum/reagents/proc/update_holder(var/reactions = TRUE)

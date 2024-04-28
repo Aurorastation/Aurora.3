@@ -155,6 +155,8 @@
 			phasing suggested?"
 		if(/obj/structure/crystal)
 			return "Crystal formation - Pseudo organic crystalline matrix, unlikely to have formed naturally. No known technology exists to synthesize this exact composition."
+		if(/obj/structure/hivebot_head)
+			return "Transmission drone core - composed of unidentified alien alloy consistent with hivebot construction patterns. Internal systems appear to be designed for obfuscation and amplification of a master control system. Severe damage consistent with repeated gunfire logged. Signal obfuscation appears to be inactive - the primary source can now be located."
 		if(/obj/machinery/artifact)
 			//the fun one
 			var/obj/machinery/artifact/A = scanned_obj

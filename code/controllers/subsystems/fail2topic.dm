@@ -1,6 +1,6 @@
 SUBSYSTEM_DEF(fail2topic)
 	name = "Fail2Topic"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_BACKGROUND
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY | RUNLEVEL_INIT
 

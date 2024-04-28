@@ -1498,6 +1498,17 @@
 /obj/item/melee/energy/sword/knife/elyra{
 	pixel_x = 6
 	},
+/obj/item/melee/energy/sword/knife/elyra{
+	pixel_x = -6
+	},
+/obj/item/melee/energy/sword/knife/elyra,
+/obj/item/melee/energy/sword/knife/elyra{
+	pixel_x = 6
+	},
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 4;
+	pixel_y = 24
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "hv" = (
@@ -2070,7 +2081,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
 "kZ" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null;
 	anchored = 1
 	},
@@ -2129,13 +2140,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardthrust)
-"ll" = (
-/obj/structure/railing/mapped{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/space)
 "ln" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/cable{
@@ -4145,13 +4149,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/cic)
 "xn" = (
-/obj/item/hullbeacon/red,
-/obj/structure/railing/mapped{
-	dir = 4
+/obj/effect/floor_decal/corner/beige{
+	dir = 10
 	},
-/obj/structure/lattice/catwalk,
-/turf/simulated/floor/airless,
-/area/space)
+/obj/machinery/suit_cycler/offship/elyra,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
+/area/ship/elyran_corvette/briefing)
 "xr" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -5129,19 +5133,8 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/starboardwep)
 "Dn" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/elyra,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/valkyrie,
-/obj/item/clothing/head/helmet/space/void/valkyrie,
-/obj/item/device/gps,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = 4;
-	pixel_y = 24
-	},
+/obj/machinery/suit_cycler/offship/elyra,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "Do" = (
@@ -6260,6 +6253,9 @@
 /obj/structure/closet/crate,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/engineering)
 "JF" = (
@@ -7255,15 +7251,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/engineering)
 "OV" = (
+/obj/structure/table/rack,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/item/tank/jetpack/carbondioxide,
+/obj/item/clothing/accessory/flagpatch/elyra,
+/obj/item/tank/emergency_oxygen/double,
+/obj/item/device/gps,
 /obj/machinery/light/colored/decayed,
-/obj/structure/table/steel,
-/obj/item/melee/energy/sword/knife/elyra{
-	pixel_x = -6
-	},
-/obj/item/melee/energy/sword/knife/elyra,
-/obj/item/melee/energy/sword/knife/elyra{
-	pixel_x = 6
-	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "OY" = (
@@ -7860,15 +7854,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardwep)
 "RI" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/elyra,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/valkyrie,
-/obj/item/clothing/head/helmet/space/void/valkyrie,
-/obj/item/device/gps,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "RM" = (
@@ -8233,19 +8218,12 @@
 /turf/simulated/floor/reinforced,
 /area/ship/elyran_corvette/portwep)
 "TJ" = (
-/obj/structure/table/rack,
 /obj/effect/floor_decal/corner/beige{
-	dir = 10
+	dir = 5
 	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/elyra,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/valkyrie,
-/obj/item/clothing/head/helmet/space/void/valkyrie,
-/obj/item/device/gps,
-/turf/simulated/floor/tiled/dark,
+/obj/machinery/suit_cycler/offship/elyra,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/briefing)
 "TL" = (
 /obj/effect/floor_decal/corner/green{
@@ -8364,18 +8342,8 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/porthallway)
 "Uw" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/corner/beige{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/item/tank/jetpack/carbondioxide,
-/obj/item/clothing/accessory/flagpatch/elyra,
-/obj/item/tank/emergency_oxygen/double,
-/obj/item/clothing/shoes/magboots,
-/obj/item/clothing/suit/space/void/valkyrie,
-/obj/item/clothing/head/helmet/space/void/valkyrie,
-/obj/item/device/gps,
+/obj/machinery/suit_cycler/offship/elyra,
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/briefing)
 "Uy" = (
@@ -46909,7 +46877,7 @@ Dn
 GZ
 pu
 UP
-RI
+Dn
 ve
 Lu
 fr
@@ -47163,9 +47131,9 @@ KK
 KK
 ve
 RI
-TJ
-ft
-Uw
+GZ
+pu
+UP
 RI
 ve
 Iz
@@ -47417,13 +47385,13 @@ HK
 HK
 HK
 HK
-HK
+KK
 ve
-ve
-ve
-ZY
-ve
-ve
+Uw
+xn
+ft
+TJ
+Dn
 ve
 mf
 QB
@@ -47675,12 +47643,12 @@ HK
 HK
 HK
 HK
-HK
-HK
-rO
-ll
-ll
-xn
+ve
+ve
+ve
+ZY
+ve
+ve
 ve
 Nx
 En

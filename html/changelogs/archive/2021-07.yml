@@ -1,0 +1,378 @@
+2021-07-02:
+  TheGreyWolf:
+  - bugfix: Mechs are no longer immortal.
+2021-07-03:
+  Alberyk:
+  - tweak: Grabs can not longer be used to force the person being grabbed to attack
+      themselves.
+  Alberyk, Kyres1, Geeves:
+  - rscadd: Added new menu buttons icons.
+  - rscadd: Added a new lobby screen.
+  Doxxmedearly:
+  - tweak: Updated the phoron canister bounty to require less moles, and it will now
+      tell you the exact minimum moles needed. Like the sheets bounty, this was a
+      bit too heavy-handed, even for the scarcity arc.
+  Geeves:
+  - rscadd: Throwing something at a tile adjacent to you will instead put it down
+      gently, provided you are on help intent.
+  - rscadd: Clicking on someone with an item in your hand while you have throw mode
+      active and on help intent will offer it to them like you used the Give verb.
+      If they&#x27;re also on throw intent and on help intent, you put it into their
+      hand directly.
+  - rscadd: The standard ghost follow menu has been replaced with an upgraded VueUI
+      version.
+  - rscadd: Wired rods and makeshift stun batons now use the color of cable coil you
+      used to make them.
+  - rscadd: You can now create a tripwire trap by combining two wired rods with eachother.
+      The color of the wire will be of the wired rod you click on to make it.
+  TheGreyWolf:
+  - rscadd: The head of personnel now get spare encryption keys for cargo &amp; service.
+  - tweak: Engineering &amp; security lockers have been tweaked to ensure their contents
+      remain consistent instead of random. Bags remains random between satchel &amp;
+      backpack however.
+  - rscadd: Investigator&#x27;s locker now gets drop pouches and a bag to fit with
+      the rest of security. Warden &amp; HoP are now issued holsters with their weapons.
+  - rscadd: Icecream now has different flavors, enjoy!
+  - tweak: The banshee voidsuit is renamed to be an infiltration instead of combat
+      suit. Also clarified the description in the uplink a little.
+  - bugfix: Fixes some bugs related to loadout wristbound selection.
+  - bugfix: The loadout tablet once again works.
+2021-07-05:
+  Doxxmedearly:
+  - bugfix: Nymphs split from gestalts now retain the correct accent.
+  - bugfix: Forbid hivenet and some other special case languages from being learned
+      by dionae.
+  - bugfix: Nymphs can no long feed hydroponics trays from any distance.
+  - bugfix: Detached nymphs can no longer merge back with their gestalt from long
+      distances; you now have to be adjacent to your gestalt, as intended.
+  - bugfix: Nymphs now properly metabolize nutriment. This also allows them to actually
+      finish eating food.
+  - bugfix: Fixed some &#x27;unusable emote&#x27; errors for nymphs when processing
+      reagents that forced emotes. This also allows them to use the rapid blink emote.
+  TheGreyWolf:
+  - rscadd: When selecting the wristbound PDA type in character setup, it now spawns
+      in the wrist slot.
+  WickedCybs:
+  - spellcheck: Tweaked the antag flavour text on the sleepy ring to improve its readability.
+2021-07-07:
+  Geeves:
+  - rscadd: Added Tech Processors, circuits available in the Machinery section of
+      the circuit imprinter. When linked to an RnD server with a multitool, it will
+      passively increase any techs above level zero.
+  - rscadd: A single tech processor circuitboard and two basic scanning modules have
+      been added to Tech Storage.
+  - rscadd: The entrance to the server room now has a button next to it that&#x27;ll
+      toggle ID Scan, it will also state that it has been used on the science radio
+      channel.
+  - rscdel: Removed the robotics server from the server room, the core server will
+      now serve and be served by both consoles.
+  - bugfix: Tech now properly adds the progress to the total progress when you increase
+      a tech level.
+  TheGreyWolf:
+  - rscadd: Removing accessories is now a radial menu, and it is now also possible
+      to pick which accessory to remove from another person.
+  - rscadd: Ported coffee cups. They can be found in the &#x27;general&#x27; section
+      in the loadout, in the kitchen dinnerware machine and the diner utensil machine.
+  - rscadd: Ported several new drinking glasses. They can be made in the autolathe,
+      found in the booze-o-mat and a pitcher &amp; carafe can be found ain the kitchen
+      dinnerware machine &amp; diner utensil machine.
+  - maptweak: Mapped coffee pitchers into command, security, engineering sublevel
+      &amp; medical breakroom and into the surface meeting room alongside with the
+      diplomatic reception.
+  - tweak: Grabbing someone aggressively, neck grabs and forcing someone to the ground
+      now uses the same text type as attacking someone.
+  - rscadd: Lit torches can now be used to ignite stuff, be extinguished by using
+      it in hand and reused.
+  - rscadd: Traitor clerical kits now starts with a folder full of paper.
+  WickedCybs:
+  - rscadd: Blazers are now contained in their own selection and you can choose from
+      the usual blazer you know and love, and a new extended long blazer variant.
+      This does mean you will have to reselect it if you were using a blazer already,
+      sorry about that.
+  - tweak: Icarus drones now illuminate their surroundings to a small extent.
+  - tweak: The purple comb in the cosmetics section wasn&#x27;t purple, it was gray.
+      It&#x27;s been renamed to &#x27;comb&#x27; and can now be recoloured too.
+2021-07-08:
+  Geeves:
+  - rscadd: Radiation suits have been given new sprites.
+  - rscadd: Radiation closets now spawn with two anti-rad autoinjectors.
+  - rscadd: Radiation suits can now hold a similar array of items to an EVA hardsuit
+      in is storage slot now, as well as the hood and the anti-rad autoinjector.
+  - bugfix: Machines that need a stack of materials to be made now spawns the right
+      amount if mapped in.
+  TheGreyWolf:
+  - bugfix: Tajara &amp; Vaurca nightvision can now be used even while restrained
+      or laying down.
+2021-07-09:
+  Geeves:
+  - rscadd: Burglars can now inspect their pens to see how far their pen has charged
+      via a loading bar.
+  TheGreyWolf:
+  - bugfix: Fixes loadout coffee cup being the basic one when spawning.
+  - bugfix: Fixes coffee cup placement on tables.
+  - tweak: Ashtrays now fills less in bags.
+2021-07-11:
+  Skull132:
+  - bugfix: You can now close the external auth window, if it doesn&#x27;t close by
+      itself.
+2021-07-12:
+  Geeves:
+  - bugfix: Material objects will now initialize properly, which means ashtrays will
+      now spawn again.
+2021-07-14:
+  Geeves:
+  - tweak: You can now Ctrl and Alt click on mech equipment without having to select
+      them first.
+  WickedCybs, Schwann:
+  - tweak: The Cytherean and Jintarian accent descriptions have been reflavoured to
+      represent the recent expansion to Venus. They are quite a bit different now,
+      so be sure to read them if you use them.
+  kyres1:
+  - tweak: Resprites all laser effects, muzzle effects, and blaster hit effects.
+2021-07-15:
+  Geeves:
+  - rscadd: Added the phazon bluespace transmission system to the mechfab. When built
+      and supplied with an anomaly core, it&#x27;ll allow exosuit to pass through
+      solid objects, at a massive energy cost.
+  - bugfix: Fixed invisible beartrap sprites.
+  Sparky_hotdog:
+  - bugfix: Fixed the Idris trenchcoat having no on mob sprite when open.
+2021-07-16:
+  Alberyk:
+  - rscadd: Cargo suppliers can now have their prices influenced by the current space
+      sector.
+  Geeves:
+  - bugfix: Overmap Helm consoles now update when the burn is ready to go again.
+  - refactor: The way humanoids generate the mob sprite for the clothing they wear
+      and the items they hold has been refactored.
+  - rscadd: Monkeys can now wear hats and helmets, and items they hold will now appear
+      in their hands.
+  - bugfix: Fixed monkey hands being detached from their bodies.
+  - rscadd: Vaurca breeders now pixel shift items they hold to appear in their hands
+      properly.
+  - rscadd: You can now recycle stock parts in an autolathe.
+  - rscadd: Throw mode no longer blocks clicks and will only block your click and
+      toggle off throw mode if it succesfully does an item throwing action.
+  - rscadd: You can now use the tag [station] in papercode to have it replaced with
+      the map&#x27;s current station name.
+  - bugfix: Accessories on recolorable clothes now properly have their own color.
+  TheGreyWolf:
+  - rscadd: Investigators can now get the security bags in char setup.
+  - rscadd: Ecigs now exist to ruin your lungs further. Find them at your closest
+      cigarette machine or in the loadout.
+  - tweak: The cigarette machine&#x27;s vending delay has been made slightly faster.
+  - bugfix: The tajaran sun sister veil now properly covers the nose.
+  TheGreyWolf & Azlan:
+  - rscadd: The supermatter engine has a new sprite. Shiny...
+  WickedCybs:
+  - tweak: Kneepads can now be recoloured.
+2021-07-17:
+  Doxxmedearly:
+  - bugfix: Borgs can once again put flashes in robot heads.
+  - bugfix: Borgs can once again change access on airlock electronics.
+  - bugfix: Borg service and medical grippers can now grasp chemical dispenser cartridges.
+  TheGreyWolf & Geeves:
+  - rscadd: The knitting set can now make a variety of new sweaters, gloves and scarves.
+2021-07-18:
+  TheGreyWolf:
+  - maptweak: Engineering no longer got a hotline to the security interrogation room
+      from within their department.
+  - tweak: Loadout passports no longer cost any points in the loadout.
+  - bugfix: The Sun Sister veil can now be used to hide ones face, no longer covers
+      the eyes and is flexible so it is possible to eat/drink with it on.
+2021-07-21:
+  Geeves:
+  - rscadd: It is now possible to fireman carry someone, provided you have an aggressive
+      grab or higher on them. Simply drag the grab in your active hand onto your sprite
+      and wait for a bit. To release, drop the grab.
+  - rscadd: Pulling or grabbing someone and dragging them into a portal will now teleport
+      it/them with you.
+  - rscadd: Added additional configuration options to buddy tags. You can also set
+      their configs in the loadout menu now, where it will persist.
+  - rscadd: Contractors now spawn with their faction next to their job title on the
+      manifest and in their records.
+  - tweak: Updating someone&#x27;s ID will now instantly update the crew manifest.
+  - bugfix: Contractors that have their ID assignment changed will no longer be shifted
+      to the Misc category.
+  - tweak: 'The Ghost Menu now sorts its output in this order: Antags, Alive, Dead,
+      Observer, NPCs, Dead NPCs.'
+  - rscadd: You can now make an easel out of 5 wood, and a canvas of various sizes
+      out of cloth. To draw on the canvas, use a crayon on it, to clean, use soap
+      or a rag. Using the canvas in-hand will completely clean it.
+  - tweak: Bookcases now drop all the materials used to make them when dismantled.
+  - rscadd: Pilot helmets are now compatible with overmap ships, providing a HUD display
+      of all the essentials.
+  - rscadd: RnD can now produce inductive chargers, capable of wirelessly charging
+      anything with a cell.
+  - rscadd: Technomancers can now summon technomancer golems from their assistance
+      tab.
+  - rscadd: Revamped the Check Attacks menu. All attacks now have descriptions that
+      roughly give you an idea how they work.
+  - rscadd: Added a palm strike option to everyone, for when you&#x27;re a martial
+      arts character or when you have claws and don&#x27;t want to instantly murder
+      someone.
+  - rscadd: Added sparring info to the check attacks menu, this will show you which
+      type of attack you will do when you put on Pulled Punches.
+  - rscadd: Unathi and Industrial IPCs have the option to use Heavy sparring attacks
+      to show their martial dominance in the field. These are their defaults, but
+      they can use the palm strike attack sparring method to dial it back.
+  - rscadd: Added balloon alerts, messages that appear on the screen to convey information
+      quickly without using the chat.
+  - rscadd: Added balloon alerts to gun jamming and unjamming so you don&#x27;t need
+      to look at the chat.
+  - rscadd: You can now choose which slot is your primary radio slot between your
+      left and right ears. If both ears have a headset on them, the primary radio
+      will be used.
+  - bugfix: Fixed latejoining breaking some manifest entries.
+  - rscadd: Added a suffix to the independent faction.
+  Sparky_hotdog:
+  - maptweak: Moved the light switch in the forensics lab next to the door for less
+      stumbling in the dark.
+  TheGreyWolf:
+  - bugfix: Fixes ecig pricing.
+  - rscadd: It is now possible to pick how much food to scoop up with utensils.
+2021-07-22:
+  Geeves:
+  - rscadd: All reagents processed in the body now get added to the bloodstream&#x27;s
+      trace chemicals. Trace chemicals decay at a rate ten times slower than normal
+      blood metabolism.
+  - bugfix: Mass spectrometers now properly access the blood&#x27;s trace chemicals.
+  - tweak: Mass spectrometers no longer delete the sample after being analyzed.
+  - rscadd: Mass spectrometers will now show the correct color for the blood inside
+      it.
+  - tweak: Mass spectrometers now tell you when no trace chemicals are found.
+  - rscadd: Zombie Powder and Dextrotoxin no longer show up on normal mass spectrometers,
+      only the advanced version will detect them.
+  MattAtlas:
+  - bugfix: IPCs no longer have nutrition, which means they will no longer randomly
+      slow down towards the end of a round.
+  listerla:
+  - imageadd: Replaced bread, burger, and sausage sprites with sprites from tgstation.
+2021-07-23:
+  Alberyk:
+  - rscadd: Turrets now emit light when powered.
+  TheGreyWolf:
+  - rscadd: Vaurca mantles now has color selection in the loadout and are considered
+      accesories that can go both on accessory slots and on suit slots.
+  listerla:
+  - rscadd: Added various Skrellian accents and religions.
+  - rscdel: Removed Skrell access to Konyanger accent, Islam, Christianity, and Tribunalist
+      religions, and Dominian citizenship.
+2021-07-24:
+  Geeves:
+  - tweak: Mech ballistic and laser armor has been buffed, allowing them to function
+      for longer in firefights. Combat armor melee armor has also been buffed.
+  - bugfix: Fixed analyzing mechs not giving the correct integrity values.
+  - rscadd: Hand-teles now operate differently. Ctrl-click it to set which station
+      it links to, alt-click or use in-hand to deploy a portal.
+  - tweak: The descriptions of hardsuit assemblies and their constructions have been
+      overhauled.
+  - rscadd: Examining a hardsuit assembly will now provide a description and tell
+      you at which step its at, what to do to go forward, and what to do to go back.
+  - rscadd: Holding shift and hovering over a hardsuit assembly when you are near
+      it will provide a tooltip providing the step its at and how to continue.
+  MattAtlas:
+  - bugfix: Fixed IPC subspecies having nutrition still.
+  - rscadd: Added a Goonchat preference to the Global tab. If this preference is off,
+      Goonchat will not load. If you were using darkmode Goonchat, note that your
+      accent icons will most likely not work until you restart the game.
+2021-07-26:
+  Alberyk:
+  - tweak: Bringing the remote controlled synthetics out of the brig&#x27;s mining
+      section should be way harder now.
+  TheGreyWolf:
+  - bugfix: The vaurca mantle now actually shows up in the accessory slot.
+2021-07-27:
+  TheGreyWolf:
+  - bugfix: Radiation storm lights will now end once the radiation is over.
+  - bugfix: Certain tajara markings will no longer show ears through headwear.
+  - bugfix: The emotional manipulator augment now properly gives the messages it should.
+2021-07-28:
+  listerla & Desven:
+  - rscadd: Added a Sedantis coffee cup to loadout.
+  - rscadd: Added recipes for k&#x27;ois burgers, muffins, donuts, and steaks.
+  - rscadd: Added Caprician Coffee, made with 2 parts coffee and 1 toothpaste.
+2021-07-29:
+  CodePanter:
+  - tweak: Added crayons and canvases to the paperwork gripper.
+  - tweak: Added inhalers and injectors to the medical grippers.
+2021-07-30:
+  Desven:
+  - bugfix: Fixes Caprician coffee not showing its sprite and the filtered k&#x27;ois
+      glass not showing its name.
+  MattAtlas:
+  - tweak: The pain threshold has been reverted back to 200 damage.
+  - tweak: Pain recovery is now slower when unconscious.
+  - tweak: Nerfed arterial bleeding amount if the wound is open.
+  - tweak: The liver now does significantly less toxin damage.
+  - tweak: Having coffee in your system with damaged kidneys no longer does excessive
+      amounts of toxin damage.
+  - tweak: Painkillers have been nerfed across the board. Oxycomorphine has been left
+      unchanged.
+  - tweak: Arterial bleeding severity now depends on the organ hit. Arterial bleeding
+      in legs and arms are less effective by 1/4. Arterial bleeding in hands and feet
+      are less effective by half.
+  - tweak: Humans now have a grace period of 2 minutes before taking oxygen damage
+      if they cannot breathe if the lungs are undamaged.
+  - tweak: Dexalin and dexalin plus now metabolize slower by 1/4.
+2021-07-31:
+  Geeves:
+  - rscadd: Improved the sprites for impaired vision, most commonly from wearing welding
+      gear or unactivated hardsuits.
+  - rscadd: Putting on or removing vision impairing equipment will now update it immediately,
+      flipping welding mask/goggles will do the same. This also updates flash and
+      welding protection.
+  - rscadd: You can now transfer lights between light replacers by clicking on one
+      with another. The one in your active hand will receive the lights.
+  - rscadd: Advanced light replacers are now sized small, meaning they can fit in
+      webbing and drop pouches.
+  - rscadd: Chemical dispensers like the soft drink dispenser and the alcohol dispenser
+      can now be rotated with alt-click.
+  - bugfix: Basic living mobs now know who&#x27;s speaking on the radio if they know
+      the language.
+  - bugfix: Hardsuit AIs adjusting a weapon&#x27;s firing mode will now properly alert
+      the hardsuit wearer to the change.
+  - bugfix: Hardsuit AIs can now properly engage and toggle hardsuit modules.
+  - bugfix: You can no longer move while paralysed but when supported by a hardsuit
+      AI. Hardsuit AIs can now move you when you&#x27;re in paralysis crit.
+  - bugfix: Posibrain hardsuit AIs can now fire guns.
+  - bugfix: Posibrains now display the right icon state when searching or not.
+  - bugfix: Hardsuit AIs now only get notified that they can move their hardsuit host
+      if AI control is enabled.
+  - rscadd: Spawning in as a posibrain now allows you to set your name.
+  - bugfix: Hardsuit AIs now display the floating text over their host when speaking.
+  - rscadd: Added long range holopads, compatible with overmap. Long range holopads
+      can only communicate with other long range holopads. They need to be on different
+      vessels to work.
+  - rscadd: Mapped long range holopads into the surface interview room, the bridge,
+      the command conference room, the away shuttle, and the centre of the Centcomm
+      intelligence area.
+  - tweak: Holopads now have a Vueui menu that allows you to search through the list
+      of available holopads.
+  - tweak: Command authorization on holopads are now a holopad toggle, remember to
+      toggle it off after making a forced call if you&#x27;re command, lest there
+      be shenanigans.
+  - rscadd: You can no longer phase through the backsides of comfy chairs/sofa, you
+      need to leap over them by click dragging yourself onto the comfy chair/sofa.
+  - rscadd: Constructing multi-tile airlocks now properly sets the collision bounds.
+  - rscadd: You can now rotate airlock assemblies by alt-clicking on them.
+  - rscadd: Failed portals and teleportation attempts will now transmit you to a random
+      level, instead of level 3 each time.
+  TheGreyWolf:
+  - rscadd: Corrective lenses have been added to the loadout under augments.
+  - rscadd: A new series of fluff based augments have been added to the loadout. They
+      have no mechanical effect but allows their name and description to be set. Currently
+      they exist for the head, upper body, left hand and right hand limbs.
+  - tweak: Augments deploying something now only deploys it to the slot it is attached
+      to. They can also retract it by hitting the action button again.
+  - maptweak: The sublevel crusher camera was moved up one to allow full view of the
+      crusher contents.
+  - maptweak: Put the bar booth, brig shower and the lower hallway outside the diner&#x27;s
+      cameras on the proper networks.
+  - maptweak: Brig control room lights near the windoor was moved one to the right,
+      and another added opposite from it.
+  - bugfix: Fixes being unable to hear comms through the wrist radio.
+  TheGreyWolf & Dronz:
+  - rscadd: Added wrist radios and headphone radios. The headphone radios gives the
+      same muffled effect as earmuffs and wrist radios broadcasts everything heard
+      to those next to the one carrying it as well.

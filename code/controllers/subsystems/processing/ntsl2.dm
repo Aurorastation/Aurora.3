@@ -4,7 +4,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 PROCESSING_SUBSYSTEM_DEF(ntsl2)
 	name = "NTSL2"
 	flags = 0
-	init_order = SS_INIT_MISC
+	init_order = INIT_ORDER_MISC
 	// priority = SS_PRIORITY_PROCESSING
 	var/connected = FALSE
 	var/list/programs = list()
@@ -140,6 +140,7 @@ PROCESSING_SUBSYSTEM_DEF(ntsl2)
 
 
 /datum/controller/subsystem/processing/ntsl2/fire(resumed)
+	CAN_BE_REDEFINED(TRUE)
 	for(var/task_id in tasks)
 		var/task = tasks[task_id]
 		var/datum/http_request/req = task["request"]

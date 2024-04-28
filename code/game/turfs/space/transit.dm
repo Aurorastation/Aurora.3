@@ -5,7 +5,7 @@
 	var/pushdirection
 
 //Overwrite because we dont want people building rods in space.
-/turf/space/transit/attackby(obj/O, mob/user)
+/turf/space/transit/attackby(obj/item/attacking_item, mob/user)
 	return FALSE
 
 //generates a list used to randomize transit animations so they aren't in lockstep
@@ -59,8 +59,8 @@
 	use_space_appearance = FALSE
 	use_starlight = FALSE
 
-/turf/space/transit/bluespace/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0, var/allow = 0, var/keep_air = FALSE)
-	return ..(N, tell_universe, 1, allow, keep_air)
+/turf/space/transit/bluespace/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
+	return ..(N, tell_universe, 1, ignore_override, mapload)
 
 /turf/space/transit/bluespace/east
 	icon_state = "bluespace-e"

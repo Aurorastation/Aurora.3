@@ -33,7 +33,7 @@
 /obj/item/device/mmi/digital/robot/set_cradle_state(var/new_state)
 	return
 
-/obj/item/device/mmi/digital/robot/attackby(obj/item/I, mob/user)
+/obj/item/device/mmi/digital/robot/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/device/mmi/digital/robot/attack_self(mob/user)

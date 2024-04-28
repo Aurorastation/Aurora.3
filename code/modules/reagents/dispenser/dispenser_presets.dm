@@ -57,8 +57,8 @@
 			/obj/item/reagent_containers/chem_disp_cartridge/clonexadone
 		)
 
-/obj/machinery/chemical_dispenser/ert/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/chemical_dispenser/ert/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		to_chat(user, SPAN_NOTICE("This dispenser is riveted to the floor and cannot be unanchored."))
 		return
 	else

@@ -8,7 +8,7 @@
 	contained_sprite = TRUE
 	worn_x_dimension = 64
 	worn_y_dimension = 64
-	force = 25
+	force = 31
 	armor_penetration = 50 // Narsie's blessing is strong. Also needed so the cult isn't obliterated by the average voidsuit with melee resistance.
 	w_class = ITEMSIZE_LARGE
 	throwforce = 10
@@ -57,9 +57,9 @@
 		to_chat(user, SPAN_CULT("An overwhelming feeling of dread comes over you as you pick up \the [src]. It would be wise to be rid of this blade quickly."))
 		user.make_dizzy(120)
 
-/obj/item/melee/cultblade/attackby(obj/item/I, mob/user)
+/obj/item/melee/cultblade/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(istype(I, /obj/item/nullrod))
+	if(istype(attacking_item, /obj/item/nullrod))
 		to_chat(user, SPAN_NOTICE("You cleanse \the [src] of taint, restoring the blade to its original state."))
 		var/obj/item/material/sword/blade = new(get_turf(src))
 		blade.force = 15

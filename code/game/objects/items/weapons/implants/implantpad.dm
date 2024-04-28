@@ -14,7 +14,7 @@
 /obj/item/implantpad/update_icon()
 	cut_overlays()
 	icon_state = "implantpad-[case ? "1" : "0"]"
-	if(case.imp)
+	if(case?.imp)
 		var/obj/item/implant/caseimplant = case.imp
 		var/implant_overlay_icon_state = "implantstorage_[caseimplant.implant_icon]"
 		var/mutable_appearance/implant_case_implant_overlay = mutable_appearance(icon, implant_overlay_icon_state)
@@ -33,18 +33,18 @@
 		return
 	return ..()
 
-/obj/item/implantpad/attackby(obj/item/C, mob/user)
-	if(istype(C, /obj/item/implantcase))
+/obj/item/implantpad/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/implantcase))
 		if(!case)
-			user.drop_from_inventory(C,src)
-			case = C
+			user.drop_from_inventory(attacking_item, src)
+			case = attacking_item
 			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] already has an implant case attached to it!"))
 	..()
 
 /obj/item/implantpad/attack_self(mob/user)
-	if(case.imp)
+	if(case?.imp)
 		case.imp.interact(user)
 	else
 		to_chat(user, SPAN_WARNING("There's no implant loaded in \the [src]!"))

@@ -111,7 +111,7 @@ var/list/global/random_stock_large = list()
 
 /datum/cargospawner/New()
 	//First lets get the reference to our warehouse
-	for(var/areapath in typesof(current_map.warehouse_basearea))
+	for(var/areapath in typesof(SSatlas.current_map.warehouse_basearea))
 		warehouse = locate(areapath)
 		if (warehouse)
 			for (var/turf/simulated/floor/T in warehouse)
@@ -124,7 +124,7 @@ var/list/global/random_stock_large = list()
 				tables |= B
 
 /datum/cargospawner/proc/start()
-	if (!current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
+	if (!SSatlas.current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
 		return
@@ -132,7 +132,7 @@ var/list/global/random_stock_large = list()
 	//First, we spawn the larger items
 	//Large objects are spawned on preset locations around cargo
 	//These locations are designated by large stock marker objects, which are manually mapped in
-	for (var/obj/effect/large_stock_marker/LSM in world)
+	for (var/obj/effect/large_stock_marker/LSM in GLOB.large_stock_markers)
 		if (prob(STOCK_LARGE_PROB))
 			var/type = pickweight(random_stock_large)
 			if (type)
@@ -235,9 +235,17 @@ var/list/global/random_stock_large = list()
 		var/turf/T = get_turf(a)
 		T.contents = shuffle(T.contents)
 
-
+GLOBAL_LIST_EMPTY_TYPED(large_stock_markers, /obj/effect/large_stock_marker)
 /obj/effect/large_stock_marker
 	name = "Large Stock Marker"
 	desc = "This marks a place where a large object could spawn in cargo"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x3"
+
+/obj/effect/large_stock_marker/Initialize(mapload, ...)
+	. = ..()
+	GLOB.large_stock_markers += src
+
+/obj/effect/large_stock_marker/Destroy()
+	GLOB.large_stock_markers -= src
+	. = ..()

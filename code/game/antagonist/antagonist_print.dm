@@ -74,7 +74,7 @@
 			// they are either imprisoned, or handcuffed in an area that can't be considered a hideout
 			text += "apprehended"
 		else if(isNotStationLevel(M.z))
-			text += "fled the station"
+			text += "fled the [SSatlas.current_map.station_type]"
 		else
 			text += "survived"
 		if(M.stat == UNCONSCIOUS)

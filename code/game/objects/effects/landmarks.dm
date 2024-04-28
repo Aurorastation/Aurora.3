@@ -7,6 +7,7 @@
 	simulated = 0
 	invisibility = 101
 	var/delete_me = 0
+	layer = ABOVE_HUMAN_LAYER
 
 /obj/effect/landmark/New()
 	..()
@@ -107,6 +108,26 @@
 	tag = "start*[name]"
 
 	return 1
+
+/obj/effect/landmark/lobby_mobs_location
+	name = "lobby_mobs_location"
+	anchored = TRUE
+	invisibility = 101
+
+INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
+
+/obj/effect/landmark/lobby_mobs_location/Initialize()
+	..()
+
+	if(GLOB.lobby_mobs_location)
+		crash_with("There must be one, and only one, /obj/effect/landmark/lobby_mobs_location effect in any single server session!")
+
+	else
+		GLOB.lobby_mobs_location = get_turf(src)
+		ASSERT(istype(GLOB.lobby_mobs_location, /turf))
+
+	return INITIALIZE_HINT_QDEL
+
 
 //Costume spawner landmarks
 /obj/effect/landmark/costume/New() //costume spawner, selects a random subclass and disappears
@@ -262,7 +283,7 @@ var/list/ruin_landmarks = list()
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/effect/landmark/entry_point/LateInitialize()
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		SSshuttle.entry_points_to_initialize += src
 	name += " [x], [y]"
 

@@ -1,5 +1,5 @@
 /atom/movable
-	layer = 3
+	layer = OBJ_LAYER
 	glide_size = 6
 	animate_movement = SLIDE_STEPS
 
@@ -37,7 +37,9 @@
 
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
+
+	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
+	var/datum/movement_packet/move_packet
 
 	/**
 	 * an associative lazylist of relevant nested contents by "channel", the list is of the form: list(channel = list(important nested contents of that type))
@@ -51,18 +53,32 @@
 	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
 	var/spatial_grid_key
 
-/atom/movable/Destroy()
+/atom/movable/Destroy(force)
+	if (orbiting)
+		stop_orbit()
+
 	GLOB.moved_event.unregister_all_movement(loc, src)
 
-	. = ..()
+	//Recalculate opacity
+	var/turf/T = loc
+	if(opacity && istype(T))
+		T.recalc_atom_opacity()
+		T.reconsider_lights()
+
+	if(move_packet)
+		if(!QDELETED(move_packet))
+			qdel(move_packet)
+		move_packet = null
 
 	if(spatial_grid_key)
 		SSspatial_grid.force_remove_from_grid(src)
 
+	QDEL_LAZYLIST(contained_mobs)
+
+	. = ..()
+
 	for(var/movable_content in contents)
 		qdel(movable_content)
-
-	QDEL_LAZYLIST(contained_mobs)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
@@ -72,6 +88,13 @@
 	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
 	//If we clear this before the nullspace move, a ref to this object will be hung in any of its movable containers
 	LAZYNULL(important_recursive_contents)
+
+
+	vis_locs = null //clears this atom out of all viscontents
+
+	// Checking length(vis_contents) before cutting has significant speed benefits
+	if (length(vis_contents))
+		vis_contents.Cut()
 
 	screen_loc = null
 	if(ismob(pulledby))
@@ -178,7 +201,7 @@
 	src.thrower = thrower
 	src.throw_source = get_turf(src)	//store the origin turf
 
-	if(usr && HAS_FLAG(usr.mutations, HULK))
+	if(usr && (usr.mutations & HULK))
 		src.throwing = 2 // really strong throw!
 
 	var/dist_travelled = 0
@@ -273,6 +296,10 @@
 	verbs.Cut()
 	..()
 
+/atom/movable/overlay/Destroy(force)
+	master = null
+	. = ..()
+
 /atom/movable/overlay/attackby(a, b)
 	if (src.master)
 		return src.master.attackby(a, b)
@@ -284,7 +311,7 @@
 	return
 
 /atom/movable/proc/touch_map_edge()
-	if(z in current_map.sealed_levels)
+	if(z in SSatlas.current_map.sealed_levels)
 		return
 
 	if(anchored)
@@ -293,7 +320,7 @@
 	if(!GLOB.universe.OnTouchMapEdge(src))
 		return
 
-	if(current_map.use_overmap)
+	if(SSatlas.current_map.use_overmap)
 		overmap_spacetravel(get_turf(src), src)
 		return
 
@@ -330,7 +357,7 @@
 
 //by default, transition randomly to another zlevel
 /atom/movable/proc/get_transit_zlevel()
-	return current_map.get_transit_zlevel()
+	return SSatlas.current_map.get_transit_zlevel()
 
 // Returns the current scaling of the sprite.
 // Note this DOES NOT measure the height or width of the icon, but returns what number is being multiplied with to scale the icons, if any.
@@ -370,32 +397,28 @@
 	loc = destination
 	loc.Entered(src, old_loc)
 	Moved(old_loc, TRUE)
-	return TRUE
 
-/atom/movable/Move()
-	var/old_loc = loc
-	. = ..()
-	if (.)
-		// Events.
-		if (GLOB.moved_event.global_listeners[src])
-			GLOB.moved_event.raise_event(src, old_loc, loc)
-
-		// Lighting.
-		if (light_sources)
-			var/datum/light_source/L
-			var/thing
-			for (thing in light_sources)
-				L = thing
-				L.source_atom.update_light()
-
-		// Openturf.
-		if (bound_overlay)
-			// The overlay will handle cleaning itself up on non-openspace turfs.
+	//Zmimic
+	if(bound_overlay)
+		// The overlay will handle cleaning itself up on non-openspace turfs.
+		if (isturf(destination))
 			bound_overlay.forceMove(get_step(src, UP))
-			if (bound_overlay.dir != dir)
+			if (dir != bound_overlay.dir)
 				bound_overlay.set_dir(dir)
+		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
+			qdel(bound_overlay)
 
-		Moved(old_loc, FALSE)
+	if(opacity)
+		updateVisibility(src)
+
+	//Lighting recalculation
+	var/datum/light_source/L
+	var/thing
+	for (thing in light_sources)
+		L = thing
+		L.source_atom.update_light()
+
+	return TRUE
 
 /atom/movable/proc/Moved(atom/old_loc, forced)
 	SHOULD_CALL_PARENT(TRUE)
@@ -426,46 +449,55 @@
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
 
-	if(!LAZYLEN(gone.important_recursive_contents))
-		return
-	var/list/nested_locs = get_nested_locs(src) + src
-	for(var/channel in gone.important_recursive_contents)
-		for(var/atom/movable/location as anything in nested_locs)
-			LAZYINITLIST(location.important_recursive_contents)
-			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
-			LAZYINITLIST(recursive_contents[channel])
-			recursive_contents[channel] -= gone.important_recursive_contents[channel]
-			switch(channel)
-				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-					if(!length(recursive_contents[channel]))
-						// This relies on a nice property of the linked recursive and gridmap types
-						// They're defined in relation to each other, so they have the same value
-						SSspatial_grid.remove_grid_awareness(location, channel)
-			ASSOC_UNSETEMPTY(recursive_contents, channel)
-			UNSETEMPTY(location.important_recursive_contents)
+	if(LAZYLEN(gone.important_recursive_contents))
+		var/list/nested_locs = get_nested_locs(src) + src
+		for(var/channel in gone.important_recursive_contents)
+			for(var/atom/movable/location as anything in nested_locs)
+				LAZYINITLIST(location.important_recursive_contents)
+				var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+				LAZYINITLIST(recursive_contents[channel])
+				recursive_contents[channel] -= gone.important_recursive_contents[channel]
+				switch(channel)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+						if(!length(recursive_contents[channel]))
+							// This relies on a nice property of the linked recursive and gridmap types
+							// They're defined in relation to each other, so they have the same value
+							SSspatial_grid.remove_grid_awareness(location, channel)
+				ASSOC_UNSETEMPTY(recursive_contents, channel)
+				UNSETEMPTY(location.important_recursive_contents)
 
 	if(LAZYLEN(gone.stored_chat_text))
 		return_floating_text(gone)
 
+	if(GLOB.moved_event.is_listening(src, gone, TYPE_PROC_REF(/atom/movable, recursive_move)))
+		GLOB.moved_event.unregister(src, gone)
+
+	GLOB.dir_set_event.unregister(src, gone, TYPE_PROC_REF(/atom, recursive_dir_set))
+
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
-	if(!LAZYLEN(arrived.important_recursive_contents))
-		return
-	var/list/nested_locs = get_nested_locs(src) + src
-	for(var/channel in arrived.important_recursive_contents)
-		for(var/atom/movable/location as anything in nested_locs)
-			LAZYINITLIST(location.important_recursive_contents)
-			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
-			LAZYINITLIST(recursive_contents[channel])
-			switch(channel)
-				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-					if(!length(recursive_contents[channel]))
-						SSspatial_grid.add_grid_awareness(location, channel)
-			recursive_contents[channel] |= arrived.important_recursive_contents[channel]
+	if(LAZYLEN(arrived.important_recursive_contents))
+		var/list/nested_locs = get_nested_locs(src) + src
+		for(var/channel in arrived.important_recursive_contents)
+			for(var/atom/movable/location as anything in nested_locs)
+				LAZYINITLIST(location.important_recursive_contents)
+				var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+				LAZYINITLIST(recursive_contents[channel])
+				switch(channel)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+						if(!length(recursive_contents[channel]))
+							SSspatial_grid.add_grid_awareness(location, channel)
+				recursive_contents[channel] |= arrived.important_recursive_contents[channel]
 
 	if (LAZYLEN(arrived.stored_chat_text))
 		give_floating_text(arrived)
+
+	if(GLOB.moved_event.has_listeners(arrived) && !GLOB.moved_event.is_listening(src, arrived))
+		GLOB.moved_event.register(src, arrived, TYPE_PROC_REF(/atom/movable, recursive_move))
+
+	if(GLOB.dir_set_event.has_listeners(arrived))
+		GLOB.dir_set_event.register(src, arrived, TYPE_PROC_REF(/atom, recursive_dir_set))
 
 ///allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)
@@ -585,15 +617,17 @@
 /atom/movable/proc/get_bullet_impact_effect_type()
 	return BULLET_IMPACT_NONE
 
-/atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
-	if(!isturf(loc))
-		return
-	pickup_animation.color = color
+// /atom/movable/proc/do_pickup_animation(atom/target, var/image/pickup_animation = image(icon, loc, icon_state, ABOVE_ALL_MOB_LAYER, dir, pixel_x, pixel_y))
+/obj/item/proc/do_pickup_animation(atom/target, turf/source)
+	if(!source)
+		if(!istype(loc, /turf))
+			return
+		source = loc
+	var/image/pickup_animation = image(icon = src)
 	pickup_animation.transform.Scale(0.75)
 	pickup_animation.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA
 
-	var/turf/T = get_turf(src)
-	var/direction = get_dir(T, target)
+	var/direction = get_dir(source, target)
 	var/to_x = target.pixel_x
 	var/to_y = target.pixel_y
 
@@ -609,13 +643,13 @@
 		to_y += 10
 		pickup_animation.pixel_x += 6 * (prob(50) ? 1 : -1) //6 to the right or left, helps break up the straight upward move
 
-	flick_overlay_view(pickup_animation, target, 4)
-	var/matrix/animation_matrix = new(pickup_animation.transform)
+	var/atom/movable/flick_visual/pickup = source.flick_overlay_view(pickup_animation, 0.4 SECONDS)
+	var/matrix/animation_matrix = new(pickup.transform)
 	animation_matrix.Turn(pick(-30, 30))
 	animation_matrix.Scale(0.65)
 
-	animate(pickup_animation, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 3, transform = animation_matrix, easing = CUBIC_EASING)
-	animate(alpha = 0, transform = matrix().Scale(0.7), time = 1)
+	animate(pickup, alpha = 175, pixel_x = to_x, pixel_y = to_y, time = 0.3 SECONDS, transform = animation_matrix, easing = CUBIC_EASING)
+	animate(alpha = 0, transform = matrix().Scale(0.7), time = 0.1 SECONDS)
 
 /atom/movable/proc/do_drop_animation(atom/moving_from)
 	if(!isturf(loc))

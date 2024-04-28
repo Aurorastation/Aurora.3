@@ -604,6 +604,9 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/item/stack/material/plastic/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/lead/full,
 /turf/simulated/floor/tiled,
 /area/golden_deep/engineering)
 "gr" = (
@@ -3640,6 +3643,14 @@
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/gold,
 /area/shuttle/golden_deep)
+"JJ" = (
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 7
+	},
+/turf/simulated/floor/gold,
+/area/golden_deep/bridge)
 "JQ" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/light,
@@ -17574,7 +17585,7 @@ cS
 Vg
 dz
 FW
-dz
+JJ
 uw
 Ll
 pu

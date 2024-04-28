@@ -94,10 +94,10 @@
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
 
-/obj/item/storage/backpack/holding/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/storage/backpack/holding))
+/obj/item/storage/backpack/holding/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/storage/backpack/holding))
 		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
-		qdel(W)
+		qdel(attacking_item)
 		return
 	..()
 
@@ -946,7 +946,7 @@
 
 /obj/item/storage/backpack/cloak/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
-	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", BELOW_MOB_LAYER)
+	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", MOB_SHADOW_LAYER)
 	I.add_overlay(cape_backing)
 	return I
 

@@ -65,14 +65,15 @@
 	else
 		return ..()
 
-/obj/item/gun/launcher/pneumatic/attackby(obj/item/W as obj, mob/user as mob)
-	if(!tank && istype(W,/obj/item/tank))
-		user.drop_from_inventory(W, src)
-		tank = W
-		user.visible_message("[user] jams [W] into [src]'s valve and twists it closed.","You jam [W] into [src]'s valve and twist it closed.")
+/obj/item/gun/launcher/pneumatic/attackby(obj/item/attacking_item, mob/user)
+	if(!tank && istype(attacking_item,/obj/item/tank))
+		user.drop_from_inventory(attacking_item, src)
+		tank = attacking_item
+		user.visible_message("[user] jams [attacking_item] into [src]'s valve and twists it closed.",
+								"You jam [attacking_item] into [src]'s valve and twist it closed.")
 		update_icon()
-	else if(istype(W) && item_storage.can_be_inserted(W))
-		item_storage.handle_item_insertion(W)
+	else if(istype(attacking_item) && item_storage.can_be_inserted(attacking_item))
+		item_storage.handle_item_insertion(attacking_item)
 
 /obj/item/gun/launcher/pneumatic/unique_action(mob/user)
 	eject_tank(user)
@@ -100,15 +101,15 @@
 	item_storage.remove_from_storage(launched, src)
 	return launched
 
-/obj/item/gun/launcher/pneumatic/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/launcher/pneumatic/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
-	to_chat(user, "The valve is dialed to [pressure_setting]%.")
+	. += "The valve is dialed to [pressure_setting]%."
 	if(tank)
-		to_chat(user, "The tank dial reads [tank.air_contents.return_pressure()] kPa.")
+		. += "The tank dial reads [tank.air_contents.return_pressure()] kPa."
 	else
-		to_chat(user, "Nothing is attached to the tank valve!")
+		. += "Nothing is attached to the tank valve!"
 
 /obj/item/gun/launcher/pneumatic/update_release_force(obj/item/projectile)
 	if(tank)
@@ -152,26 +153,31 @@
 /obj/item/cannonframe/update_icon()
 	icon_state = "pneumatic[buildstate]"
 
-/obj/item/cannonframe/examine(mob/user)
+/obj/item/cannonframe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(buildstate)
-		if(1) to_chat(user, "It has a pipe segment installed.")
-		if(2) to_chat(user, "It has a pipe segment welded in place.")
-		if(3) to_chat(user, "It has an outer chassis installed.")
-		if(4) to_chat(user, "It has an outer chassis welded in place.")
-		if(5) to_chat(user, "It has a transfer valve installed.")
+		if(1)
+			. += "It has a pipe segment installed."
+		if(2)
+			. += "It has a pipe segment welded in place."
+		if(3)
+			. += "It has an outer chassis installed."
+		if(4)
+			. += "It has an outer chassis welded in place."
+		if(5)
+			. += "It has a transfer valve installed."
 
-/obj/item/cannonframe/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/pipe))
+/obj/item/cannonframe/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pipe))
 		if(buildstate == 0)
-			qdel(W)
+			qdel(attacking_item)
 			to_chat(user, "<span class='notice'>You secure the piping inside the frame.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(istype(W,/obj/item/stack/material) && W.get_material_name() == DEFAULT_WALL_MATERIAL)
+	else if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == DEFAULT_WALL_MATERIAL)
 		if(buildstate == 2)
-			var/obj/item/stack/material/M = W
+			var/obj/item/stack/material/M = attacking_item
 			if(M.use(5))
 				to_chat(user, "<span class='notice'>You assemble a chassis around the cannon frame.</span>")
 				buildstate++
@@ -179,16 +185,16 @@
 			else
 				to_chat(user, "<span class='notice'>You need at least five metal sheets to complete this task.</span>")
 			return
-	else if(istype(W,/obj/item/device/transfer_valve))
+	else if(istype(attacking_item,/obj/item/device/transfer_valve))
 		if(buildstate == 4)
-			qdel(W)
+			qdel(attacking_item)
 			to_chat(user, "<span class='notice'>You install the transfer valve and connect it to the piping.</span>")
 			buildstate++
 			update_icon()
 			return
-	else if(W.iswelder())
+	else if(attacking_item.iswelder())
 		if(buildstate == 1)
-			var/obj/item/weldingtool/T = W
+			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
@@ -196,7 +202,7 @@
 				buildstate++
 				update_icon()
 		if(buildstate == 3)
-			var/obj/item/weldingtool/T = W
+			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
@@ -204,7 +210,7 @@
 				buildstate++
 				update_icon()
 		if(buildstate == 5)
-			var/obj/item/weldingtool/T = W
+			var/obj/item/weldingtool/T = attacking_item
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)

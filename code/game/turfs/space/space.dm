@@ -7,7 +7,7 @@
 	footstep_sound = null //Override to make sure because yeah
 	tracks_footprint = FALSE
 
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 
 	temperature = T20C
 	thermal_conductivity = OPEN_HEAT_TRANSFER_COEFFICIENT
@@ -79,34 +79,34 @@
 	else
 		set_light(0)
 
-/turf/space/attackby(obj/item/C as obj, mob/user as mob)
+/turf/space/attackby(obj/item/attacking_item, mob/user)
 
-	if (istype(C, /obj/item/stack/rods))
+	if (istype(attacking_item, /obj/item/stack/rods))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
 			return
-		var/obj/item/stack/rods/R = C
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
 			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
 
-	if (istype(C, /obj/item/stack/tile/floor))
+	if (istype(attacking_item, /obj/item/stack/tile/floor))
 		var/obj/structure/lattice/L = locate(/obj/structure/lattice, src)
 		if(L)
-			var/obj/item/stack/tile/floor/S = C
+			var/obj/item/stack/tile/floor/S = attacking_item
 			if (S.get_amount() < 1)
 				return
 			qdel(L)
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			S.use(1)
-			ChangeTurf(/turf/simulated/floor/airless, keep_air = TRUE)
+			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
 			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
 
-	..(C, user)
+	..()
 
 // Ported from unstable r355
 
@@ -211,7 +211,7 @@
 					A.loc.Entered(A)
 	return
 
-/turf/space/ChangeTurf(turf/N, tell_universe=TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE, keep_air = FALSE)
+/turf/space/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	return ..()
 
 /turf/space/is_open()

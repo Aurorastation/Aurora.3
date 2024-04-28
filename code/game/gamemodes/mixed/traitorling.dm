@@ -8,5 +8,5 @@
 	antag_tags = list(MODE_CHANGELING, MODE_TRAITOR)
 
 /datum/game_mode/traitorling/pre_setup()
-	round_description = "There are traitors and alien changelings on the [current_map.station_type]. Do not let the changelings succeed!"
+	round_description = "There are traitors and alien changelings on the [SSatlas.current_map.station_type]. Do not let the changelings succeed!"
 	. = ..()

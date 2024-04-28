@@ -10,7 +10,7 @@
 	spawnpoints = list("house_volvalaad_voidsman")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/house_volvalaad_voidsman
+	outfit = /obj/outfit/admin/house_volvalaad_voidsman
 	possible_species = list(SPECIES_HUMAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -19,7 +19,7 @@
 	respawn_flag = null
 
 
-/datum/outfit/admin/house_volvalaad_voidsman
+/obj/outfit/admin/house_volvalaad_voidsman
 	name = "House Volvalaad Voidsman"
 
 	uniform = /obj/item/clothing/under/dominia/fleet
@@ -33,7 +33,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/house_volvalaad_voidsman/get_id_access()
+/obj/outfit/admin/house_volvalaad_voidsman/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/house_volvalaad_officer
@@ -46,14 +46,14 @@
 	spawnpoints = list("house_volvalaad_officer")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/house_volvalaad_officer
+	outfit = /obj/outfit/admin/house_volvalaad_officer
 
 	assigned_role = "House Volvalaad Captain"
 	special_role = "House Volvalaad Captain"
 	respawn_flag = null
 
 
-/datum/outfit/admin/house_volvalaad_officer
+/obj/outfit/admin/house_volvalaad_officer
 	name = "House Volvalaad Captain"
 	uniform = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
 	shoes = /obj/item/clothing/shoes/laceup
@@ -64,7 +64,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/house_volvalaad_officer/get_id_access()
+/obj/outfit/admin/house_volvalaad_officer/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 
@@ -79,13 +79,13 @@
 	spawnpoints = list("house_volvalaad_armsman")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/house_volvalaad_armsman
+	outfit = /obj/outfit/admin/house_volvalaad_armsman
 
 	assigned_role = "House Volvalaad Armsman"
 	special_role = "House Volvalaad Armsman"
 	respawn_flag = null
 
-/datum/outfit/admin/house_volvalaad_armsman
+/obj/outfit/admin/house_volvalaad_armsman
 	name = "House Volvalaad Armsman"
 	head = /obj/item/clothing/head/dominia/fleet/armsman
 	uniform = /obj/item/clothing/under/dominia/fleet/armsman
@@ -98,7 +98,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/house_volvalaad_armsman/get_id_access()
+/obj/outfit/admin/house_volvalaad_armsman/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/house_volvalaad_scientist
@@ -112,13 +112,13 @@
 	spawnpoints = list("house_volvalaad_scientist")
 	max_count = 2
 
-	outfit = /datum/outfit/admin/house_volvalaad_scientist
+	outfit = /obj/outfit/admin/house_volvalaad_scientist
 
 	assigned_role = "House Volvalaad Scientist"
 	special_role = "House Volvalaad Scientist"
 	respawn_flag = null
 
-/datum/outfit/admin/house_volvalaad_scientist
+/obj/outfit/admin/house_volvalaad_scientist
 	name = "House Volvalaad Scientist"
 	uniform = /obj/item/clothing/under/dominia/imperial_suit/volvalaad
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
@@ -130,7 +130,7 @@
 
 	backpack_contents = list(/obj/item/storage/box/survival = 1)
 
-/datum/outfit/admin/house_volvalaad_scientist/get_id_access()
+/obj/outfit/admin/house_volvalaad_scientist/get_id_access()
 	return list(ACCESS_HOUSE_VOLVALAAD_SHIP, ACCESS_EXTERNAL_AIRLOCKS)
 
 //items

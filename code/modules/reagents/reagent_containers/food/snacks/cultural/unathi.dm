@@ -101,7 +101,7 @@
 /obj/item/reagent_containers/food/snacks/bacon_stick
 	name = "eggpop"
 	desc = "A bacon wrapped boiled egg, conviently skewered on a wooden stick."
-	icon = 'icons/obj/item/reagent_containers/food/egg.dmi'
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "bacon_stick"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment/protein/egg = 1)
 	filling_color = "#FFFEE8"
@@ -190,3 +190,29 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/blackpepper = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "mealy paste" = 3))
 	bitesize = 5
+
+/obj/item/reagent_containers/food/snacks/sliceable/eyebowl
+	name = "eyebowl"
+	desc = "A zesty stew of ground meat, Moghesian tomato pulp, and ground agghrash nut mixed together and topped with two egg yolks staring back at you like eyes. It can be made with different kinds of meat, and seasoned with either hot sauce or blood. This is a large serving, typically reserved for hungry Unathi, miners, or other folks who have to get by on one big meal to last them a whole day."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
+	icon_state = "eyebowl"
+	trash = /obj/item/trash/custard_bowl
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 12, /singleton/reagent/blackpepper = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "zesty tomatoes" = 5))
+	bitesize = 5
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+	slice_path = /obj/item/reagent_containers/food/snacks/hatchbowl
+	slices_num = 2
+	filling_color = "#771504"
+
+/obj/item/reagent_containers/food/snacks/hatchbowl
+	name = "hatchbowl"
+	desc = "Short for 'hatchling eyebowl', this zesty stew of ground meat, Moghesian tomato pulp, and ground agghrash nut topped with an egg yolk is a smaller serving of the eyebowl. It is usually eaten by smaller Unathi, non-Unathi species, or by grown Unathi who just aren't all that hungry. The dish spread throughout the spur and is often enjoyed by other species as well. It can be made with different kinds of meat, and seasoned with either hot sauce or blood."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
+	icon_state = "eyebowl_small"
+	trash = /obj/item/trash/custard_bowl
+	bitesize = 3
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+

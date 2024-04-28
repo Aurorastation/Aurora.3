@@ -73,14 +73,14 @@
 		update_icon()
 	. = ..()
 
-/obj/item/storage/box/fancy/examine(mob/user)
+/obj/item/storage/box/fancy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!icon_type || !storage_type)
 		return
 	if(contents.len <= 0)
-		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
+		. += "There are no [src.icon_type]s left in the [src.storage_type]."
 	else
-		to_chat(user, "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type].")
+		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
 
 /*
  * Donut Box
@@ -226,8 +226,9 @@
 	for(var/obj/item/pen/crayon/crayon in contents)
 		add_overlay("[crayon.colourName]")
 
-/obj/item/storage/box/fancy/crayons/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/pen/crayon))
+/obj/item/storage/box/fancy/crayons/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pen/crayon))
+		var/obj/item/pen/crayon/W = attacking_item
 		switch(W:colourName)
 			if("mime")
 				to_chat(usr, "This crayon is too sad to be contained in this box.")
@@ -256,7 +257,8 @@
 	starts_with = list(/obj/item/flame/match = 10)
 	icon_overlays = FALSE
 
-/obj/item/storage/box/fancy/matches/attackby(obj/item/flame/match/W, mob/user)
+/obj/item/storage/box/fancy/matches/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/flame/match/W = attacking_item
 	if(istype(W) && !W.lit)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
@@ -473,7 +475,7 @@
 	else
 		add_overlay("ledb")
 
-/obj/item/storage/lockbox/vials/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/lockbox/vials/attackby(attacking_item, mob/user)
 	..()
 	update_icon()
 
@@ -611,18 +613,18 @@
 
 	update_icon()
 
-/obj/item/pizzabox/attackby( obj/item/I as obj, mob/user as mob )
-	if( istype(I, /obj/item/pizzabox/) )
-		var/obj/item/pizzabox/box = I
+/obj/item/pizzabox/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pizzabox/) )
+		var/obj/item/pizzabox/box = attacking_item
 
-		if( !box.open && !src.open )
+		if(!box.open && !src.open )
 			// Make a list of all boxes to be added
 			var/list/boxestoadd = list()
 			boxestoadd += box
 			for(var/obj/item/pizzabox/i in box.boxes)
 				boxestoadd += i
 
-			if( (boxes.len+1) + boxestoadd.len <= 5 )
+			if((boxes.len+1) + boxestoadd.len <= 5)
 				user.drop_from_inventory(box,src)
 				box.boxes = list() // Clear the box boxes so we don't have boxes inside boxes. - Xzibit
 				src.boxes.Add( boxestoadd )
@@ -638,28 +640,28 @@
 
 		return
 
-	if( istype(I, /obj/item/reagent_containers/food/snacks/sliceable/pizza/) ) // Long ass fucking object name
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sliceable/pizza/)) // Long ass fucking object name
 
-		if( src.open )
-			user.drop_from_inventory(I,src)
-			src.pizza = I
+		if(src.open)
+			user.drop_from_inventory(attacking_item, src)
+			src.pizza = attacking_item
 
 			update_icon()
 
-			to_chat(user, SPAN_WARNING("You put \the [I] in \the [src]!"))
+			to_chat(user, SPAN_WARNING("You put \the [attacking_item] in \the [src]!"))
 		else
-			to_chat(user, SPAN_WARNING("You try to push \the [I] through the lid but it doesn't work!"))
+			to_chat(user, SPAN_WARNING("You try to push \the [attacking_item] through the lid but it doesn't work!"))
 		return
 
-	if( I.ispen() )
+	if(attacking_item.ispen())
 
-		if( src.open )
+		if(src.open)
 			return
 
-		var/t = sanitize(input("Enter what you want to add to the tag:", "Write", null, null) as text, 30)
+		var/t = sanitize( tgui_input_text(user, "Enter what you want to add to the tag:", "Write", max_length = 30), 30 )
 
 		var/obj/item/pizzabox/boxtotagto = src
-		if( boxes.len > 0 )
+		if(boxes.len > 0)
 			boxtotagto = boxes[boxes.len]
 
 		boxtotagto.boxtag = copytext("[boxtotagto.boxtag][t]", 1, 30)

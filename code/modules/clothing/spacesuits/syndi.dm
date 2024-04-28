@@ -48,10 +48,10 @@
 	item_state = "softsuit_helmet"
 	contained_sprite = TRUE
 
-/obj/item/clothing/head/helmet/space/syndicate/covert/examine(mob/user, distance)
+/obj/item/clothing/head/helmet/space/syndicate/covert/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
-		to_chat(user, SPAN_NOTICE("This helmet has extra armor compared to a normal softsuit helmet."))
+		. += SPAN_NOTICE("This helmet has extra armor compared to a normal softsuit helmet.")
 
 /obj/item/clothing/suit/space/syndicate/covert
 	name = "softsuit"
@@ -62,10 +62,10 @@
 	item_state = "softsuit"
 	contained_sprite = TRUE
 
-/obj/item/clothing/suit/space/syndicate/covert/examine(mob/user, distance)
-	..()
+/obj/item/clothing/suit/space/syndicate/covert/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(distance <= 1)
-		to_chat(user, SPAN_NOTICE("This suit has extra armor compared to a normal softsuit."))
+		. += SPAN_NOTICE("This suit has extra armor compared to a normal softsuit.")
 
 //Green syndicate space suit
 /obj/item/clothing/head/helmet/space/syndicate/green

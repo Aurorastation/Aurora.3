@@ -45,10 +45,10 @@
 	var/volume_rate = 500              //Needed for borg jetpack transfer
 	action_button_name = "Toggle Jetpack"
 
-/obj/item/tank/jetpack/examine(mob/user)
+/obj/item/tank/jetpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(air_contents.total_moles < 5)
-		to_chat(user, "<span class='danger'>The meter on \the [src] indicates you are almost out of gas!</span>")
+		. += SPAN_NOTICE("The meter on \the [src] indicates you are almost out of gas!")
 
 /obj/item/tank/jetpack/verb/toggle_rockets()
 	set name = "Toggle Jetpack Stabilization"
@@ -186,10 +186,6 @@
 /obj/item/tank/jetpack/rig/Destroy()
 	holder = null
 	. = ..()
-
-/obj/item/tank/jetpack/rig/examine()
-	to_chat(usr, "It's a jetpack. If you can see this, report it on the bug tracker.")
-	return TRUE
 
 /obj/item/tank/jetpack/rig/allow_thrust(num, mob/living/user as mob)
 

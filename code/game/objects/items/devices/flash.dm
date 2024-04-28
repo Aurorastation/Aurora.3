@@ -17,13 +17,13 @@
 
 	var/last_use = 0
 
-/obj/item/device/flash/examine(mob/user, distance)
+/obj/item/device/flash/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!broken)
 		var/num_charges = max(0, max_charges - times_used)
-		to_chat(user, SPAN_NOTICE("The charge indicator shows [num_charges] charge[num_charges == 1 ? "" : "s"] remain[num_charges == 1 ? "s" : ""]."))
+		. += SPAN_NOTICE("The charge indicator shows [num_charges] charge[num_charges == 1 ? "" : "s"] remain[num_charges == 1 ? "s" : ""].")
 	else
-		to_chat(user, SPAN_WARNING("\The [src]'s bulb is burnt out!"))
+		. += SPAN_WARNING("\The [src]'s bulb is burnt out!")
 
 /obj/item/device/flash/proc/clumsy_check(mob/user)
 	if(user && (user.is_clumsy()) && prob(50))

@@ -98,13 +98,13 @@
 	has_loot = FALSE
 	qdel(src)
 
-/mob/living/simple_animal/hostile/icarus_drone/examine(mob/user)
+/mob/living/simple_animal/hostile/icarus_drone/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(malfunctioning)
 		if(hostile_drone)
-			to_chat(user, SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed."))
+			. += SPAN_WARNING("It's completely lit up, and its targetting vanes are deployed.")
 		else
-			to_chat(user, SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted."))
+			. += SPAN_WARNING("Most of its lights are off, and its targetting vanes are retracted.")
 
 /mob/living/simple_animal/hostile/icarus_drone/Allow_Spacemove(var/check_drift = 0)
 	return TRUE
@@ -207,7 +207,7 @@
 			else
 				visible_message(SPAN_NOTICE("\The [src] suddenly lies still and quiet."))
 			disabled = rand(150, 600)
-			walk(src, 0)
+			SSmove_manager.stop_looping(src)
 
 	if(exploding && prob(20))
 		if(prob(50))
@@ -220,7 +220,7 @@
 		exploding = TRUE
 		set_stat(UNCONSCIOUS)
 		wander = 1
-		walk(src, 0)
+		SSmove_manager.stop_looping(src)
 		spawn(rand(50, 150))
 			if(!disabled && exploding)
 				explosion(get_turf(src), 0, 1, 4, 7)
@@ -233,7 +233,7 @@
 	health -= rand(3, 15) * (severity + 1)
 	disabled = rand(150, 600)
 	hostile_drone = FALSE
-	walk(src, 0)
+	SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/icarus_drone/death()
 	..(null, "suddenly breaks apart.")

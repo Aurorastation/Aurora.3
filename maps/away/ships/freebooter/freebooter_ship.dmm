@@ -4448,7 +4448,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod2)
 "kzm" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
 	},
 /obj/item/reagent_containers/food/snacks/meat,
@@ -5953,6 +5953,9 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
 /obj/item/gun/energy/plasmacutter,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/engineering)
 "nLr" = (

@@ -73,7 +73,7 @@
 		power_cycle = 0
 
 /obj/machinery/power/am_control_unit/proc/produce_power()
-	playsound(get_turf(src), 'sound/effects/air_seal.ogg', 25, TRUE, environment = SEWER_PIPE)
+	playsound(get_turf(src), 'sound/effects/air_seal.ogg', 25, TRUE)
 	for(var/thing in linked_cores)
 		flick("core2", thing)
 	if(reported_core_efficiency <= 0)
@@ -132,10 +132,10 @@
 	else
 		icon_state = "control"
 
-/obj/machinery/power/am_control_unit/attackby(obj/item/W, mob/user)
-	if(W.iswrench())
+/obj/machinery/power/am_control_unit/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		if(!anchored)
-			playsound(get_turf(src), W.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("<b>[user.name]</b> secures \the [src] to the floor.", \
 				SPAN_NOTICE("You secure the anchor bolts to the floor."), \
 				SPAN_NOTICE("You hear a ratcheting noise."))
@@ -144,7 +144,7 @@
 			check_shield_icons()
 			connect_to_network()
 		else if(!LAZYLEN(linked_shielding))
-			playsound(get_turf(src), W.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("<b>[user]</b> unsecures \the [src].", \
 				SPAN_NOTICE("You remove the anchor bolts."), \
 				SPAN_NOTICE("You hear a ratcheting noise."))
@@ -154,21 +154,21 @@
 			to_chat(user, SPAN_WARNING("Once bolted and linked to a shielding unit it \the [src] is unable to be moved!"))
 		return
 
-	if(istype(W, /obj/item/am_containment))
+	if(istype(attacking_item, /obj/item/am_containment))
 		if(fueljar)
 			to_chat(user, SPAN_WARNING("There is already \a [fueljar] loaded!"))
 			return
-		fueljar = W
-		user.drop_from_inventory(W, src)
+		fueljar = attacking_item
+		user.drop_from_inventory(attacking_item, src)
 		message_admins("AME loaded with fuel by [user.real_name] ([user.key]) at ([x],[y],[z] - <A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)",0,1)
-		user.visible_message("<b>[user]</b> loads \the [W] into \the [src].", \
-				SPAN_NOTICE("You load \the [W] into \the [src]."), \
-				SPAN_NOTICE("You hear a thunk."))
+		user.visible_message("<b>[user]</b> loads \the [attacking_item] into \the [src].",
+							SPAN_NOTICE("You load \the [attacking_item] into \the [src]."),
+							SPAN_NOTICE("You hear a thunk."))
 		return
 
-	if(W.force >= 20)
-		user.do_attack_animation(src, W)
-		stability -= W.force / 2
+	if(attacking_item.force >= 20)
+		user.do_attack_animation(src, attacking_item)
+		stability -= attacking_item.force / 2
 		check_stability()
 		return ..()
 

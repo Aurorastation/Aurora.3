@@ -141,10 +141,10 @@
 		to_chat(user, "<span class='danger'>You crack the holobadge security checks.</span>")
 		return 1
 
-/obj/item/clothing/accessory/badge/holo/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(O.GetID())
+/obj/item/clothing/accessory/badge/holo/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.GetID())
 
-		var/obj/item/card/id/id_card = O.GetID()
+		var/obj/item/card/id/id_card = attacking_item.GetID()
 
 		if(!istype(id_card))
 			return
@@ -589,9 +589,9 @@
 	var/credit_score = 5
 	var/species_tag = ""
 
-/obj/item/clothing/accessory/badge/passport/nralakk/examine(mob/user)
+/obj/item/clothing/accessory/badge/passport/nralakk/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score]."))
+	. +=  SPAN_NOTICE("The passport displays the owner's social credit score as: [credit_score].")
 
 /obj/item/clothing/accessory/badge/passport/nralakk/update_icon()
 	icon_state = "[initial(icon_state)][open ? "_o[species_tag]" : ""]"

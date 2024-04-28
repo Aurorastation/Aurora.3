@@ -93,6 +93,13 @@
 	icon_state = "orion_liaison"
 	item_state = "orion_liaison"
 
+/obj/item/clothing/under/rank/liaison/einstein
+	name = "einstein corporate liaison uniform"
+	desc_extended = "If you're seeing this outfit in an SCC facility, something somewhere has gone terribly, terribly wrong."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_liaison"
+	item_state = "ee_liaison"
+
 // Janitor
 /obj/item/clothing/under/rank/janitor
 	name = "janitor's jumpsuit"
@@ -275,6 +282,14 @@
 	icon_state = "orion_machinist"
 	item_state = "orion_machinist"
 
+/obj/item/clothing/under/rank/machinist/einstein
+	name = "einstein machinist's jumpsuit"
+	desc_extended = "Usually, but not necessarily worn by Einstein's Terranaeus Diagnostics subsidiary. Subsidiary or not, \
+	whoever wears this uniform probably knows a lot about putting guns and cameras on robots."
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_machinist"
+	item_state = "ee_machinist"
+
 /obj/item/clothing/under/rank/captain/hephaestus
 	name = "hephaestus captain's jumpsuit"
 	desc = "It's a green-and-orange jumpsuit with some gold markings denoting the rank of \"Captain\" used by Hephaestus Industries."
@@ -283,4 +298,13 @@
 	icon_state = "heph_captain"
 	item_state = "heph_captain"
 	worn_state = "heph_captain"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/rank/captain/einstein
+	name = "einstein captain's jumpsuit"
+	desc = "It's a grey-green jumpsuit with some gold markings denoting the rank of \"Captain\" used by Einstein Engines."
+	desc_extended = "Any similarities to the captain's jumpsuits worn in the SCC are purely coincidental. Honest!"
+	icon = 'icons/clothing/under/uniforms/einstein.dmi'
+	icon_state = "ee_captain"
+	item_state = "ee_captain"
 	contained_sprite = TRUE

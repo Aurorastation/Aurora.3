@@ -1,0 +1,12 @@
+2013-09-18:
+  Kilakk:
+  - rscadd: Fax machines! The Captain and IA agents can use the fax machine to send
+      properly formatted messages to Central Command.
+  - imageadd: Gave the fax machine a fancy animated sprite. Thanks Cajoes!
+2013-09-24:
+  Snapshot:
+  - rscdel: Removed hidden vote counts.
+  - rscdel: Removed hiding of vote results.
+  - rscdel: Removed OOC muting during votes.
+  - rscadd: Crew transfers are no longer callable during Red and Delta alert.
+  - wip: Started work on Auto transfer framework.

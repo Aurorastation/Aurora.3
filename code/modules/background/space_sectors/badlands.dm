@@ -5,7 +5,15 @@
 	but natives aren't known to treat settlements kindly."
 	skybox_icon = "badlands"
 	sector_welcome_message = 'sound/AI/welcome_badlands.ogg'
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid,
+		/obj/effect/overmap/visitable/sector/exoplanet/grass/grove,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren,
+		/obj/effect/overmap/visitable/sector/exoplanet/lava,
+		/obj/effect/overmap/visitable/sector/exoplanet/desert,
+		/obj/effect/overmap/visitable/sector/exoplanet/snow,
+		/obj/effect/overmap/visitable/sector/exoplanet/crystal
+	)
 	starlight_color = "#b13636"
 	starlight_power = 2
 	starlight_range = 4
@@ -16,7 +24,15 @@
 	amount of old, dying stars and impassable nebulae. Due to close proximity to patrols on either end of this space, it isn't frequented much by criminal elements and is one of the \
 	safer parts of the known Frontier. After 2462, the Republic of Elyra has occupied the majority of Valley Hale, now bordering the Republic of Biesel."
 	skybox_icon = "valley_hale"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid, /obj/effect/overmap/visitable/sector/exoplanet/grass/grove, /obj/effect/overmap/visitable/sector/exoplanet/barren, /obj/effect/overmap/visitable/sector/exoplanet/lava, /obj/effect/overmap/visitable/sector/exoplanet/desert, /obj/effect/overmap/visitable/sector/exoplanet/snow)
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid,
+		/obj/effect/overmap/visitable/sector/exoplanet/grass/grove,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren,
+		/obj/effect/overmap/visitable/sector/exoplanet/lava,
+		/obj/effect/overmap/visitable/sector/exoplanet/desert,
+		/obj/effect/overmap/visitable/sector/exoplanet/snow,
+		/obj/effect/overmap/visitable/sector/exoplanet/crystal
+	)
 	starlight_color = "#e68831"
 	starlight_power = 2
 	starlight_range = 4
@@ -50,7 +66,15 @@
 	almost perpetual snowfall and extremely low temperatures. It is currently divided between three factions involved in a cold war: the People's Republic of Adhomai, the Democratic People's \
 	Republic of Adhomai, and the New Kingdom of Adhomai."
 	skybox_icon = "srandmarr"
-	possible_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir, /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara, /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar, /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul, /obj/effect/overmap/visitable/sector/exoplanet/adhomai)
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/raskara,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/azmar,
+		/obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
+	)
+	guaranteed_exoplanets = list(/obj/effect/overmap/visitable/sector/exoplanet/adhomai)
+	scheduled_port_visits = list("Thursday", "Sunday")
+	ports_of_call = list("the city of Nal'tor", "the city of Kaltir", "the city of Crevus")
 	cargo_price_coef = list("nt" = 1.2, "hpi" = 1.2, "zhu" = 1.2, "een" = 1.2, "get" = 1.2, "arz" = 1.2, "blm" = 1.2, "iac" = 1.2, "zsc" = 0.5, "vfc" = 1.2, "bis" = 1.2, "xmg" = 1.2, "npi" = 1.2)
 	starlight_color = "#50b7bb"
 	starlight_power = 2
@@ -61,12 +85,6 @@
 	sector_hud_menu = 'icons/misc/hudmenu/tajara_hud.dmi'
 	sector_hud_menu_sound = 'sound/effects/menu_click_heavy.ogg'
 	sector_hud_arrow = "menu_arrow"
-
-/datum/space_sector/srandmarr/get_port_travel_time()
-	return "[rand(6, 12)] hours"
-
-/datum/space_sector/srandmarr/generate_system_name()
-	return "S'rand'marr, and nearby points of interest"
 
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
@@ -91,7 +109,29 @@
 	name = SECTOR_UUEOAESA
 	description = "The home of the Unathi race, Uueoa-Esa is a solar system with 4 rocky planets and 1 gas giant. Moghes is the homeworld of the Unathi species and third from its mother star. \
 	It is similar in density and composition to Earth and held host to varied and complex environments and local fauna and flora. It's surface area of salt water is much lower than most other habitable planets. \
-	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430's."
-	starlight_color = COLOR_WHITE
-	starlight_power = 5
-	starlight_range = 1
+	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430s."
+	skybox_icon = "uueoaesa"
+	starlight_color = "#f8711e"
+	starlight_power = 2
+	starlight_range = 4
+	cargo_price_coef = list("nt" = 1.5, "hpi" = 0.5, "zhu" = 1.5, "een" = 1.5, "get" = 1.2, "arz" = 0.5, "blm" = 1.2, "iac" = 1.0, "zsc" = 0.9, "vfc" = 1.2, "bis" = 1.5, "xmg" = 0.6, "npi" = 1.5)
+	sector_welcome_message = 'sound/AI/welcome_hegemony.ogg'
+	scheduled_port_visits = list("Thursday", "Sunday")
+	ports_of_call = list("the city of Skalamar")
+
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/omzoli,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/pid,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/chanterel,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ytizi,
+		/obj/effect/overmap/visitable/sector/exoplanet/ouerea,
+		/obj/effect/overmap/visitable/sector/exoplanet/moghes
+
+	)
+
+	lore_radio_stations = list(
+		"72.4 Radio Free Ouerea" = "config/lore_radio/uueoaesa/72.4_Radio_Free_Ouerea.txt",
+		"83.3 Canyon City Radio" = "config/lore_radio/uueoaesa/83.3_Canyon_City_Radio.txt",
+		"132.6 SkaldFM" = "config/lore_radio/uueoaesa/132.6_Skald_FM.txt",
+		"166.8 Discontinued Emergency Broadcast" = "config/lore_radio/uueoaesa/166.8_Azarak_Emergency_Broadcast.txt"
+	)

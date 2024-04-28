@@ -172,11 +172,27 @@
 	if(seed) seed.thrown_at(src,hit_atom)
 	..()
 
-/obj/item/reagent_containers/food/snacks/grown/attackby(var/obj/item/W, var/mob/user)
+/obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/attacking_item, mob/user)
+
+	if(istype(attacking_item, /obj/item/paper))
+		if(!dry)
+			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
+			return
+		if(user.unEquip(attacking_item))
+			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
+			R.chem_volume = reagents.total_volume
+			reagents.trans_to_holder(R.reagents, R.chem_volume)
+			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [attacking_item] and [src]."),
+								SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."))
+			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
+			user.put_in_active_hand(R)
+			qdel(attacking_item)
+			qdel(src)
+			return
 
 	if(seed)
-		if(seed.get_trait(TRAIT_PRODUCES_POWER) && W.iscoil())
-			var/obj/item/stack/cable_coil/C = W
+		if(seed.get_trait(TRAIT_PRODUCES_POWER) && attacking_item.iscoil())
+			var/obj/item/stack/cable_coil/C = attacking_item
 			if(C.use(5))
 				//TODO: generalize this.
 				to_chat(user, "<span class='notice'>You add some cable to the [src.name] and slide it inside the battery casing.</span>")
@@ -187,14 +203,14 @@
 				pocell.charge = pocell.maxcharge
 				qdel(src)
 				return
-		else if(W.sharp && !W.noslice)
+		else if(attacking_item.sharp && !attacking_item.noslice)
 			if(seed.kitchen_tag == "pumpkin") // Ugggh these checks are awful.
 				user.show_message("<span class='notice'>You carve a face into [src]!</span>", 1)
 				user.put_in_hands(new /obj/item/clothing/head/pumpkin)
 				qdel(src)
 				return
 			else if(seed.chems)
-				if(istype(W,/obj/item/material/hatchet) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
+				if(istype(attacking_item,/obj/item/material/hatchet) && !isnull(seed.chems[/singleton/reagent/woodpulp]))
 					user.show_message("<span class='notice'>You make planks out of \the [src]!</span>", 1)
 					playsound(loc, 'sound/effects/woodcutting.ogg', 50, 1)
 					var/flesh_colour = seed.get_trait(TRAIT_FLESH_COLOUR)

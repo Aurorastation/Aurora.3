@@ -192,16 +192,16 @@
 			SPAN_DANGER("You reach out and touch \the [src]. It is scorching hot, and you feel it twitch and vibrate slightly."),
 			)
 
-/obj/structure/crystal_madness/attackby(obj/item/W, mob/living/user)
+/obj/structure/crystal_madness/attackby(obj/item/attacking_item, mob/user)
 	if(stage < 6)
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You touch \the [W] to \the [src]."),
+			SPAN_DANGER("You touch \the [attacking_item] to \the [src]."),
 			)
 	else
 		user.visible_message(
 			SPAN_WARNING("\The [user] reaches out and touches \the [src]."),
-			SPAN_DANGER("You touch \the [W] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
+			SPAN_DANGER("You touch \the [attacking_item] to \the [src]. You can feel it vibrating slightly even through \the [src]."),
 			)
 
 

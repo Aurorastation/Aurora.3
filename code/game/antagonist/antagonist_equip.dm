@@ -1,4 +1,6 @@
 /datum/antagonist/proc/equip(var/mob/living/carbon/human/player)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	if(!istype(player))
 		return FALSE
 
@@ -11,7 +13,7 @@
 
 	player.species.before_equip(player)
 
-	if(HAS_FLAG(flags, ANTAG_CLEAR_EQUIPMENT) && has_idris_account)
+	if((flags & ANTAG_CLEAR_EQUIPMENT) && has_idris_account)
 		var/datum/money_account/money_account = SSeconomy.create_account("John Doe", rand(idris_account_min, idris_account_max), null, FALSE)
 		if(player.mind)
 			var/remembered_info = ""

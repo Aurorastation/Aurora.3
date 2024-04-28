@@ -13,7 +13,7 @@ AI MODULES
 	item_state = "electronic"
 	desc = "An AI Module for transmitting encrypted instructions to the AI."
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 5.0
+	force = 11
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
 	throw_speed = 3
@@ -35,7 +35,7 @@ AI MODULES
 			return
 
 		if(SSticker.mode && SSticker.mode.name == "blob")
-			to_chat(usr, "Law uploads have been disabled by [current_map.company_name]!")
+			to_chat(usr, "Law uploads have been disabled by [SSatlas.current_map.company_name]!")
 			return
 
 		if (comp.current.stat == 2 || comp.current.control_disabled == 1)

@@ -104,6 +104,8 @@
 #define LAZYISIN(L, I) (L ? (I in L) : FALSE)
 #define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
 #define LAZYREPLACEKEY(L, K, NK) if(L) { if(L[K]) { L[NK] = L[K] } else {L += NK} L -= K; }
+///Inserts an item into the list at position X, if the list is null it will initialize it
+#define LAZYINSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
 
 // Shims for some list procs in lists.dm.
 #define isemptylist(L) (!LAZYLEN(L))
@@ -113,13 +115,9 @@
  * Returns TRUE if the list had nulls, FALSE otherwise
 **/
 /proc/list_clear_nulls(list/list_to_clear)
-//Sorry, OpenDream doesn't have this proc yet for lists
-#if !defined(OPENDREAM)
 	return (list_to_clear.RemoveAll(null) > 0)
-#else
-	return FALSE
-#endif
 
+#define reverseList(L) reverse_range(L.Copy())
 
 /// Passed into BINARY_INSERT to compare keys
 #define COMPARE_KEY __BIN_LIST[__BIN_MID]
@@ -234,6 +232,32 @@
 		};\
 	} while(FALSE)
 
+/**
+ * Picks a random element from a list based on a weighting system.
+ * For example, given the following list:
+ * A = 6, B = 3, C = 1, D = 0
+ * A would have a 60% chance of being picked,
+ * B would have a 30% chance of being picked,
+ * C would have a 10% chance of being picked,
+ * and D would have a 0% chance of being picked.
+ * You should only pass integers in.
+ */
+/proc/pick_weight(list/list_to_pick)
+	var/total = 0
+	var/item
+	for(item in list_to_pick)
+		if(!list_to_pick[item])
+			list_to_pick[item] = 0
+		total += list_to_pick[item]
+
+	total = rand(1, total)
+	for(item in list_to_pick)
+		total -= list_to_pick[item]
+		if(total <= 0 && list_to_pick[item])
+			return item
+
+	return null
+
 ///replaces reverseList ~Carnie
 /proc/reverse_range(list/inserted_list, start = 1, end = 0)
 	if(inserted_list.len)
@@ -249,3 +273,48 @@
 			inserted_list.Swap(start++, end--)
 
 	return inserted_list
+
+///Converts a bitfield to a list of numbers (or words if a wordlist is provided)
+/proc/bitfield_to_list(bitfield = 0, list/wordlist)
+	var/list/return_list = list()
+	if(islist(wordlist))
+		var/max = min(wordlist.len, 24)
+		var/bit = 1
+		for(var/i in 1 to max)
+			if(bitfield & bit)
+				return_list += wordlist[i]
+			bit = bit << 1
+	else
+		for(var/bit_number = 0 to 23)
+			var/bit = 1 << bit_number
+			if(bitfield & bit)
+				return_list += bit
+
+	return return_list
+
+///Copies a list, and all lists inside it recusively
+///Does not copy any other reference type
+/proc/deep_copy_list(list/inserted_list)
+	if(!islist(inserted_list))
+		return inserted_list
+	. = inserted_list.Copy()
+	for(var/i in 1 to inserted_list.len)
+		var/key = .[i]
+		if(isnum(key))
+			// numbers cannot ever be associative keys
+			continue
+		var/value = .[key]
+		if(islist(value))
+			value = deep_copy_list(value)
+			.[key] = value
+		if(islist(key))
+			key = deep_copy_list(key)
+			.[i] = key
+			.[key] = value
+
+/// Turns an associative list into a flat list of keys
+/proc/assoc_to_keys(list/input)
+	var/list/keys = list()
+	for(var/key in input)
+		UNTYPED_LIST_ADD(keys, key)
+	return keys

@@ -7,6 +7,7 @@
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = /singleton/sound_category/keyboard_sound
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
@@ -69,13 +70,13 @@
 /obj/machinery/computer/update_icon()
 	switch(dir)
 		if(NORTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(SOUTH)
-			layer = initial(layer)
+			reset_plane_and_layer()
 		if(EAST)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(WEST)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 	cut_overlays()
 	if(stat & NOPOWER)
 		set_light(0)
@@ -139,10 +140,10 @@
 	text = replacetext(text, "\n", "<BR>")
 	return text
 
-/obj/machinery/computer/attackby(var/obj/item/W as obj, user as mob)
-	if(W.isscrewdriver())
+/obj/machinery/computer/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(circuit)
-			if(W.use_tool(src, user, 20, volume = 50))
+			if(attacking_item.use_tool(src, user, 20, volume = 50))
 				var/obj/structure/computerframe/A = new /obj/structure/computerframe( src.loc )
 				var/obj/item/circuitboard/M = new circuit(A)
 				A.circuit = M
@@ -162,7 +163,7 @@
 				qdel(src)
 		else if(stat & BROKEN)
 			to_chat(user, SPAN_NOTICE("You start fixing \the [src]..."))
-			if(W.use_tool(src, user, 5 SECONDS, volume = 50))
+			if(attacking_item.use_tool(src, user, 5 SECONDS, volume = 50))
 				to_chat(user, SPAN_NOTICE("You fix the console's screen and tie up a few loose cables."))
 				stat &= ~BROKEN
 				update_icon()

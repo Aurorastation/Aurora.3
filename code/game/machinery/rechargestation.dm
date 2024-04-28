@@ -110,9 +110,9 @@
 			D.upgrade_cooldown = world.time + 1 MINUTE
 			D.master_matrix.apply_upgrades(D)
 
-/obj/machinery/recharge_station/examine(mob/user)
+/obj/machinery/recharge_station/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "The charge meter reads: [round(chargepercentage())]%.")
+	. += "The charge meter reads: [round(chargepercentage())]%."
 
 /obj/machinery/recharge_station/proc/chargepercentage()
 	if(!cell)
@@ -133,17 +133,17 @@
 	if(cell)
 		cell.emp_act(severity)
 
-/obj/machinery/recharge_station/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/obj/machinery/recharge_station/attackby(obj/item/attacking_item, mob/user)
 	if(!occupant)
-		if(default_deconstruction_screwdriver(user, O))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return TRUE
-		else if(default_deconstruction_crowbar(user, O))
+		else if(default_deconstruction_crowbar(user, attacking_item))
 			return TRUE
-		else if(default_part_replacement(user, O))
+		else if(default_part_replacement(user, attacking_item))
 			return TRUE
 
-	if(istype(O, /obj/item/grab))
-		var/obj/item/grab/grab = O
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/grab = attacking_item
 		var/mob/living/L = grab.affecting
 		if(!L.isSynthetic())
 			return TRUE
@@ -153,7 +153,7 @@
 			return TRUE
 
 		move_ipc(grab.affecting)
-		qdel(O)
+		qdel(attacking_item)
 	return ..()
 
 /obj/machinery/recharge_station/RefreshParts()
@@ -178,9 +178,9 @@
 	desc = initial(desc)
 	desc += " Uses a dedicated internal power cell to deliver [charging_power]W when in use."
 	if(weld_rate)
-		desc += "<br>It is capable of repairing structural damage."
+		desc += "<br>It is capable of repairing stationbounds' structural damage."
 	if(wire_rate)
-		desc += "<br>It is capable of repairing burn damage."
+		desc += "<br>It is capable of repairing stationbounds' burn damage."
 
 /obj/machinery/recharge_station/proc/build_overlays()
 	cut_overlays()
@@ -290,28 +290,30 @@
 		return
 	go_in(usr)
 
-/obj/machinery/recharge_station/MouseDrop_T(var/atom/movable/C, mob/user)
-	if (istype(C, /mob/living/silicon/robot))
-		var/mob/living/silicon/robot/R = C
+/obj/machinery/recharge_station/MouseDrop_T(atom/dropping, mob/user)
+	if (istype(dropping, /mob/living/silicon/robot))
+		var/mob/living/silicon/robot/R = dropping
 		if (!user.Adjacent(R) || !Adjacent(user))
-			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
+			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [dropping] into that charger!"))
 			return
 		user.face_atom(src)
-		user.visible_message(SPAN_DANGER("[user] starts hauling [C] into the recharging unit!"), SPAN_DANGER("You start hauling and pushing [C] into the recharger. This might take a while..."), "You hear heaving and straining")
+		user.visible_message(SPAN_DANGER("[user] starts hauling [dropping] into the recharging unit!"),
+							SPAN_DANGER("You start hauling and pushing [dropping] into the recharger. This might take a while..."), "You hear heaving and straining")
+
 		if (do_mob(user, R, R.mob_size*10, needhand = 1))
 			if (go_in(R))
-				user.visible_message(SPAN_NOTICE("After a great effort, [user] manages to get [C] into the recharging unit!"))
+				user.visible_message(SPAN_NOTICE("After a great effort, [user] manages to get [dropping] into the recharging unit!"))
 				return 1
 			else
-				to_chat(user, SPAN_DANGER("Failed loading [C] into the charger. Please ensure that [C] has a power cell and is not buckled down, and that the charger is functioning."))
+				to_chat(user, SPAN_DANGER("Failed loading [dropping] into the charger. Please ensure that [dropping] has a power cell and is not buckled down, and that the charger is functioning."))
 		else
-			to_chat(user, SPAN_DANGER("Cancelled loading [C] into the charger. You and [C] must stay still!"))
+			to_chat(user, SPAN_DANGER("Cancelled loading [dropping] into the charger. You and [dropping] must stay still!"))
 		return
 
-	else if(isipc(C)) // IPCs don't take as long
-		var/mob/living/carbon/human/machine/R = C
+	else if(isipc(dropping)) // IPCs don't take as long
+		var/mob/living/carbon/human/machine/R = dropping
 		if(!user.Adjacent(R) || !Adjacent(user))
-			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [C] into that charger!"))
+			to_chat(user, SPAN_DANGER("You need to get closer if you want to put [dropping] into that charger!"))
 			return
 
 		var/bucklestatus = R.bucklecheck(user)

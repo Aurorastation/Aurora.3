@@ -93,6 +93,28 @@
 	. = ..()
 	default_language = GLOB.all_languages[LANGUAGE_LOCAL_DRONE]
 
+	add_verb(src, /mob/living/proc/hide)
+	remove_language(LANGUAGE_ROBOT)
+	add_language(LANGUAGE_ROBOT, FALSE)
+	add_language(LANGUAGE_DRONE, TRUE)
+
+	//They are unable to be upgraded, so let's give them a bit of a better battery.
+	cell.maxcharge = 10000
+	cell.charge = 10000
+
+	// NO BRAIN. // me irl - geeves
+	mmi = null
+
+	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
+	for(var/V in components)
+		if(V == "power cell")
+			continue
+		var/datum/robot_component/C = components[V]
+		C.max_damage = 10
+
+	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
+	density = FALSE
+
 /mob/living/silicon/robot/drone/Destroy()
 	if(master_matrix)
 		master_matrix.remove_drone(WEAKREF(src))
@@ -100,8 +122,14 @@
 	return ..()
 
 /mob/living/silicon/robot/drone/death(gibbed)
+	if(hat)
+		hat.forceMove(get_turf(src))
+		hat = null
+		QDEL_NULL(hat_overlay)
+
 	if(master_matrix)
 		master_matrix.handle_death(src)
+
 	return ..()
 
 /mob/living/silicon/robot/drone/can_be_possessed_by(var/mob/abstract/observer/possessor)
@@ -134,15 +162,6 @@
 
 /mob/living/silicon/robot/drone/do_late_fire()
 	request_player()
-
-/mob/living/silicon/robot/drone/Destroy()
-	if(hat)
-		hat.forceMove(get_turf(src))
-		hat = null
-		QDEL_NULL(hat_overlay)
-	master_matrix = null
-	master_fabricator = null
-	return ..()
 
 /mob/living/silicon/robot/drone/get_default_language()
 	if(default_language)
@@ -198,7 +217,7 @@
 		return FALSE
 
 	if(!self_destructing)
-		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [SSatlas.current_map.company_name] property detected. Anti-Theft mode activated."))
 		start_self_destruct(TRUE)
 	return TRUE
 
@@ -216,7 +235,7 @@
 /mob/living/silicon/robot/drone/construction/matriarch/Initialize()
 	. = ..()
 	check_add_to_late_firers()
-	matrix_tag = current_map.station_short
+	matrix_tag = SSatlas.current_map.station_short
 
 /mob/living/silicon/robot/drone/construction/matriarch/shut_down()
 	return
@@ -251,31 +270,6 @@
 /mob/living/silicon/robot/drone/construction/matriarch/request_player()
 	SSghostroles.add_spawn_atom("matriarchmaintdrone", src)
 
-/mob/living/silicon/robot/drone/Initialize()
-	. = ..()
-
-	add_verb(src, /mob/living/proc/hide)
-	remove_language(LANGUAGE_ROBOT)
-	add_language(LANGUAGE_ROBOT, FALSE)
-	add_language(LANGUAGE_DRONE, TRUE)
-
-	//They are unable to be upgraded, so let's give them a bit of a better battery.
-	cell.maxcharge = 10000
-	cell.charge = 10000
-
-	// NO BRAIN. // me irl - geeves
-	mmi = null
-
-	//We need to screw with their HP a bit. They have around one fifth as much HP as a full borg.
-	for(var/V in components)
-		if(V == "power cell")
-			continue
-		var/datum/robot_component/C = components[V]
-		C.max_damage = 10
-
-	remove_verb(src, /mob/living/silicon/robot/verb/Namepick)
-	density = FALSE
-
 /mob/living/silicon/robot/drone/init()
 	ai_camera = new /obj/item/device/camera/siliconcam/drone_camera(src)
 	additional_law_channels["Drone"] = ":d"
@@ -285,7 +279,7 @@
 		module = new module_type(src, src)
 		recalculate_synth_capacities()
 
-	flavor_text = replacetext(desc_flavor, "%MAPNAME%", current_map.company_name)
+	flavor_text = replacetext(desc_flavor, "%MAPNAME%", SSatlas.current_map.company_name)
 	playsound(get_turf(src), 'sound/machines/twobeep.ogg', 50, 0)
 
 //Redefining some robot procs...
@@ -342,22 +336,22 @@
 	add_overlay(hat_overlay)
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
-/mob/living/silicon/robot/drone/attackby(var/obj/item/W, var/mob/user)
-	if(user.a_intent == "help" && istype(W, /obj/item/clothing/head))
+/mob/living/silicon/robot/drone/attackby(obj/item/attacking_item, mob/user)
+	if(user.a_intent == "help" && istype(attacking_item, /obj/item/clothing/head))
 		if(hat)
 			to_chat(user, SPAN_WARNING("\The [src] is already wearing \the [hat]."))
 			return
-		user.unEquip(W)
-		wear_hat(W)
-		user.visible_message(SPAN_NOTICE("\The [user] puts \the [W] on \the [src]."))
+		user.unEquip(attacking_item)
+		wear_hat(attacking_item)
+		user.visible_message(SPAN_NOTICE("\The [user] puts \the [attacking_item] on \the [src]."))
 		return
-	else if(istype(W, /obj/item/borg/upgrade/))
-		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
+	else if(istype(attacking_item, /obj/item/borg/upgrade/))
+		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
-	else if(W.iscrowbar())
+	else if(attacking_item.iscrowbar())
 		to_chat(user, SPAN_WARNING("\The [src] is hermetically sealed. You can't open the case."))
 		return
-	else if(W.GetID() || istype(W, /obj/item/card/robot))
+	else if(attacking_item.GetID() || istype(attacking_item, /obj/item/card/robot))
 		if(!can_swipe)
 			to_chat(user, SPAN_WARNING("\The [src] doesn't have an ID swipe interface."))
 			return
@@ -371,14 +365,16 @@
 			if(rebooting)
 				to_chat(user, SPAN_WARNING("\The [src] is already rebooting!"))
 				return
-			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
+			user.visible_message(SPAN_NOTICE("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."),
+								SPAN_NOTICE("You swipe your ID card through \the [src], attempting to reboot it."))
 			request_player()
 			return
 		else
 			if(emagged)
 				return
 			if(allowed(user))
-				user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."), SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
+				user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."),
+									SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
 				shut_down()
 			else
 				to_chat(user, SPAN_WARNING("Access denied."))
@@ -451,7 +447,7 @@
 	var/area/A = get_area(T)
 	if((!T || !(A in GLOB.the_station_areas)) && src.stat != DEAD)
 		if(!self_destructing)
-			to_chat(src, SPAN_WARNING("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+			to_chat(src, SPAN_WARNING("WARNING: Removal from [SSatlas.current_map.company_name] property detected. Anti-Theft mode activated."))
 			start_self_destruct(TRUE)
 		return TRUE
 
@@ -575,9 +571,6 @@
 
 /mob/living/silicon/robot/drone/self_destruct()
 	gib()
-
-/mob/living/silicon/robot/drone/examine(mob/user)
-	. = ..()
 
 /mob/living/silicon/robot/drone/self_diagnosis()
 	if(!is_component_functioning("diagnosis unit"))

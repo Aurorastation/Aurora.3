@@ -3,7 +3,7 @@
 	if(!network)
 		return FALSE
 
-	. = current_map.get_network_access(network)
+	. = SSatlas.current_map.get_network_access(network)
 	if (.)
 		return
 
@@ -50,7 +50,7 @@
 	data["current_network"] = current_network
 
 	var/list/all_networks = list()
-	for(var/network in current_map.station_networks)
+	for(var/network in SSatlas.current_map.station_networks)
 		all_networks += list(
 			list(
 				"tag" = network,
@@ -92,7 +92,7 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_network_access(user, ACCESS_SECURITY) && security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
+	return (check_network_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_network_access(user, network_access)
 
 /datum/computer_file/program/camera_monitor/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
@@ -228,7 +228,7 @@
 	filename = "idcammon"
 	filedesc = "Journalism Camera Monitoring"
 	extended_desc = "This program allows remote access to station's camera system. Some camera networks may have additional access requirements. This version has has a connection to news networks."
-	size = 6
+	size = 2
 	nanomodule_path = /datum/nano_module/camera_monitor/news
 	required_access_download = null
 	usage_flags = PROGRAM_ALL

@@ -14,7 +14,7 @@
 
 SUBSYSTEM_DEF(unit_tests_config)
 	name = "Unit Test Config"
-	init_order = SS_INIT_PERSISTENT_CONFIG
+	init_order = INIT_ORDER_PERSISTENT_CONFIGURATION
 	flags = SS_NO_FIRE
 
 	var/datum/unit_test/UT // Logging/output, use this to log things from outside where a specific unit_test is defined
@@ -126,10 +126,10 @@ SUBSYSTEM_DEF(unit_tests)
 	//Start the Round.
 	//
 
-	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(current_map.excluded_test_types))
+	for(var/thing in subtypesof(/datum/unit_test) - typecacheof(SSatlas.current_map.excluded_test_types))
 		var/datum/unit_test/D = new thing
 
-		if(findtext(D.name, "template"))
+		if(findtext(D.name, "template") || is_abstract(D))
 			qdel(D)
 			continue
 
@@ -163,7 +163,7 @@ SUBSYSTEM_DEF(unit_tests)
 		var/datum/unit_test/test = curr[curr.len]
 		curr.len--
 
-		if (test.map_path && current_map && current_map.path != test.map_path)
+		if (test.map_path && SSatlas.current_map && SSatlas.current_map.path != test.map_path)
 			test.pass("[ascii_red]Check Disabled: This test is not allowed to run on this map.", __FILE__, __LINE__)
 			if (MC_TICK_CHECK)
 				return
@@ -256,7 +256,7 @@ SUBSYSTEM_DEF(unit_tests)
 
 //This is only valid during unit tests
 /world/Error(var/exception/e)
-
+	CAN_BE_REDEFINED(TRUE)
 	var/datum/unit_test/UT
 
 	//Try to use the SSunit_tests_config.UT, but if for some god forsaken reason it doesn't exist, make a new one

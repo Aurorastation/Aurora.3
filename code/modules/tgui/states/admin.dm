@@ -9,11 +9,11 @@
  * Checks that the user has the correlating rights.
  */
 
-/var/global/datum/ui_state/admin_state/admin_state = new(R_ADMIN)
-/var/global/datum/ui_state/admin_state/moderator_state = new(R_MOD)
-/var/global/datum/ui_state/admin_state/debug_state = new(R_DEBUG)
-/var/global/datum/ui_state/admin_state/fun_state = new(R_FUN)
-/var/global/datum/ui_state/admin_state/staff_state = new()
+GLOBAL_DATUM_INIT(admin_state, /datum/ui_state/admin_state, new(R_ADMIN))
+GLOBAL_DATUM_INIT(moderator_state, /datum/ui_state/admin_state, new(R_MOD))
+GLOBAL_DATUM_INIT(debug_state, /datum/ui_state/admin_state, new(R_DEBUG))
+GLOBAL_DATUM_INIT(fun_state, /datum/ui_state/admin_state, new(R_FUN))
+GLOBAL_DATUM_INIT(staff_state, /datum/ui_state/admin_state, new)
 
 /datum/ui_state/admin_state
 	var/rights_to_check = null

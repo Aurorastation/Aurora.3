@@ -22,7 +22,7 @@
 			"message" = message
 			)
 
-	if(current_map.use_overmap && istype(source))
+	if(SSatlas.current_map.use_overmap && istype(source))
 		sector = GLOB.map_sectors["[source.z]"]
 
 /datum/signal/subspace/proc/copy()
@@ -48,7 +48,7 @@
 	if(!source.loc)
 		// It's an announcer message, just send it to the horizon's receiver
 		for(var/obj/machinery/telecomms/receiver/R in SSmachinery.all_receivers)
-			if(R.z in current_map.station_levels)
+			if(R.z in SSatlas.current_map.station_levels)
 				R.receive_signal(src)
 				return TRUE
 
@@ -108,10 +108,10 @@
 	if(isturf(T))
 		origin_level = T.z
 		levels = list(T.z)
-		if(current_map.use_overmap)
+		if(SSatlas.current_map.use_overmap)
 			sector = GLOB.map_sectors["[T.z]"]
 	else // if the source is in nullspace, it's probably an autosay
-		levels = current_map.station_levels
+		levels = SSatlas.current_map.station_levels
 		origin_level = levels[1]
 		sector = GLOB.map_sectors["[levels[1]]"]
 

@@ -76,13 +76,13 @@
 	if(master)
 		master.update_icon()
 
-/obj/item/device/assembly_holder/examine(mob/user, distance, is_adjacent)
+/obj/item/device/assembly_holder/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 || src.loc == user)
 		if (src.secured)
-			to_chat(user, SPAN_NOTICE("\The [src] is ready!"))
+			. += SPAN_NOTICE("\The [src] is ready!")
 		else
-			to_chat(user, SPAN_NOTICE("\The [src] can be attached!"))
+			. += SPAN_NOTICE("\The [src] can be attached!")
 
 /obj/item/device/assembly_holder/HasProximity(atom/movable/AM as mob|obj)
 	if(a_left)
@@ -123,8 +123,8 @@
 		a_right.holder_movement()
 	return ..()
 
-/obj/item/device/assembly_holder/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/assembly_holder/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!a_left || !a_right)
 			to_chat(user, SPAN_DANGER("BUG: Assembly part missing, please report this!"))
 			return
@@ -137,8 +137,8 @@
 			to_chat(user, SPAN_NOTICE("\The [src] can now be taken apart!"))
 		update_icon()
 		return
-	else if(W.IsSpecialAssembly())
-		attach_special(W, user)
+	else if(attacking_item.IsSpecialAssembly())
+		attach_special(attacking_item, user)
 	else
 		return ..()
 
@@ -164,13 +164,18 @@
 		var/turf/T = get_turf(src)
 		if(!T)
 			return FALSE
+
 		if(a_left)
 			a_left.holder = null
 			a_left.forceMove(T)
+			a_left = null
+
 		if(a_right)
 			a_right.holder = null
 			a_right.forceMove(T)
-		QDEL_IN(src, 1)
+			a_right = null
+
+		qdel(src)
 
 
 /obj/item/device/assembly_holder/proc/process_activation(var/obj/D, var/normal = 1, var/special = 1)

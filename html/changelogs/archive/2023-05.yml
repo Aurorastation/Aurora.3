@@ -1,0 +1,325 @@
+2023-05-01:
+  FlamingLily:
+  - rscadd: Added a mechanical height system that adds additional flavour to a character&#x27;s
+      examine text. Remember to update your character sheets!
+  Geeves:
+  - rscadd: Added colorable glasses to the loadout.
+  Wowzewow (Wezzy), NiennaB:
+  - imageadd: New flag sprites, by NiennaB.
+  - rscadd: Ripping up flags gives you cloth now.
+  - rscadd: Adds more flags, namely, PMCG, New Gibson, Himeo flags to the loadout.
+  - rscadd: Banners (one tile flags) can be deployed on turfs as well now.
+2023-05-04:
+  RustingWithYou:
+  - rscadd: Adds new origins and accents for the Tza Prairie, Southlands, Broken Coalition,
+      Ha&#x27;zana, Spacers and Mictlan Unathi
+  - rscadd: Adds guild mantles for major Unathi guilds.
+2023-05-05:
+  Wowzewow (Wezzy):
+  - bugfix: Fixes flags on windows.
+2023-05-07:
+  Alberyk:
+  - bugfix: Fixed the adhomian circus roles being whitelisted when they should not.
+  - bugfix: ' Moved the circus shuttle landing spot, so it does not crush stuffs.'
+  - maptweak: Made the circus shuttle smaller.
+  DreamySkrell:
+  - maptweak: Removes secret bar from maint tunnels near sec.
+  - maptweak: Adds secret bar to maint tunnels near ops.
+  FlamingLily:
+  - bugfix: Fixed a few inadvertent misgenderings.
+  RustingWithYou:
+  - rscadd: Adds the Hegemony Corvette, an Izweski military vessel found in the Badlands.
+  - rscadd: Adds Izweski Hegemony voidsuits and military weapons - an energy rifle
+      and a variant energy glaive.
+  - bugfix: Fixes the accessory icons for the new guild mantles.
+  WickedCybs:
+  - bugfix: The filing cabinet in the southern holodeck shouldn&#x27;t have the records
+      of the entire crew anymore.
+  niennab:
+  - tweak: Tweaked the black double breasted konyang jacket and Provenance custom
+      item to be darker. Item was more grey.
+2023-05-08:
+  DreamySkrell:
+  - rscadd: Name and description of ghost role is written to chat on spawn.
+  - maptweak: Srom tweaks.
+  RustingWithYou:
+  - rscadd: Adds a Tarwa Conglomerate ship, with ghostroles
+  TheDanseMacabre:
+  - balance: Ballistic firerates have been changed across the board. Most guns will
+      shoot more quickly, making combat much more fast-paced and hazardous.
+  kyres1:
+  - bugfix: Fixed the scan readout for asteroids having the wrong readout for its
+      mass, volume and gravity.
+2023-05-11:
+  RustingWithYou:
+  - bugfix: Various fixes to access requirements on the Hegemony Corvette, as well
+      as fixing several other miscellaneous bugs I noticed.
+  - maptweak: Adds missing airlock and engine console to the Hegemony Shuttle, as
+      well as fixing power issues with the SMES
+  Sniblet:
+  - tweak: 'Adjusted values for height comparison threshholds, and added more of them:
+      slightly/significantly taller/shorter.'
+  kyres1:
+  - tweak: Resprited all IFF beacons and sensor machinery icons.
+  - tweak: Remapped the Horizon&#x27;s Venator-class sensors to be much more prominent,
+      located outside the bridge conference room on the hull.
+2023-05-12:
+  Geeves:
+  - rscadd: Mapped in two always-active lower maneuvering thrusters for the Horizon,
+      which allows it to move around slowly.
+  - rscadd: Added layering to the overmap, which sectors being on the bottom, ships
+      in the middle, and shuttles on top.
+  - rscadd: Added landing indicators to shuttles.
+  Pirouette:
+  - spellcheck: Fixed a typo in the description of the Gadpathurian flag.
+  Ramke:
+  - tweak: Reduced tech level requirement for the ISS hardsuit module.
+  Sparky_hotdog:
+  - bugfix: Fixes assisted organs being turned into mechanical variants.
+2023-05-13:
+  RustingWithYou:
+  - rscadd: Adds several of the new Unathi plants, as well as meals based on them.
+  TheDanseMacabre:
+  - tweak: The Adhomian circus clown role now requires a Tajara whitelist.
+2023-05-14:
+  Fluffyghost:
+  - bugfix: Fixes unit tests not running successfully because libgcc-s1 was not being
+      installed.
+  Geeves:
+  - bugfix: Tweaked how disarm costs are calculated, IPCs should no longer gain charge
+      from disarming.
+  - rscadd: Farseer eyes no longer mention the user peering down them.
+  RyverStyx:
+  - tweak: Fixes the Assunzione Amulet so that the side sprite does not clip into
+      the chest. It now rests on the front pixel of the sprite.
+  Sparky_hotdog:
+  - rscadd: Adds Zeng-Hu softcaps to the loadout selection.
+  TheDanseMacabre:
+  - rscadd: The Visegrad banner is now available in the loadout.
+  kermit:
+  - tweak: Makes the heavy armour used by antagonists black instead of brown.
+2023-05-16:
+  DreamySkrell:
+  - maptweak: Third deck starboard hallway remap, adding a bit of verticality between
+      it and the ops lobby hallway.
+  RustingWithYou:
+  - rscadd: Adds an Unathi Miners&#x27; Guild station with a shuttle and four ghostroles.
+  - tweak: Allows Unathi to correctly select the Mictlan accent, and removes Sol citizenship
+      as an option from the species.
+  kermit:
+  - rscadd: Added a Chemical, Biological &amp; Radiological Weapons tab on the Traitor
+      Uplink
+  - rscadd: 'Adds a 2 different parasitic worm kits: Nerve Flukes (3TC) which are
+      non-lethal, incapacitating; Heart Flukes (5TC) which are lethal if left untreated.'
+  - rscadd: Adds Helmizole (1u Dylovene, 1u Fluvectionem, 1u Leporazine) which is
+      used to treat parasitic infections (does not treat k&#x27;ois mycosis parasites).
+      2x syringes spawn in the Medications Cabinet. ODing will make the parasite drug
+      resistant, forcing surgical extraction.
+  - rscadd: Garlic(juice/sauce) also has weak antiparasitic properties. Only enough
+      to slow progression.
+  - rscadd: Adds Greimorian Eggs (4TC) which are planted on the ground on-purchase.
+  - rscadd: Adds a Dirty Bomb (4TC). It functions like a plastic explosive but irradiates
+      the room it detonates in for ~10 minutes. It has a minimum timer of 5 minutes.
+      This is alongside a Radiation Suit Kit (1TC)
+  - rscadd: Adds a Syringe Gun Kit (3TC) to the CBR tab with the components for 3
+      darts.
+  - tweak: The Random Toxin Kit is under the new CBR tab.
+  - tweak: Pill bottle naming consistency.
+  - tweak: Asinodryl now works properly. In addition to actually preventing vomiting,
+      it now prevents dizziness (screen wobbling) and confusion (random step direction).
+  - tweak: Updated the warehouse/strange crate spawns to include more recently added
+      medical items/drugs (coagzolug, helmizole, pill bottles of x, stabiliser harnesses).
+2023-05-17:
+  RustingWithYou:
+  - maptweak: Adds some more weapons to the Izharshan ship, to bring it more in line
+      with the other Unathi pirate ship power-wise.
+  lavillastrangiato, Geeves:
+  - rscadd: Added chana masala, hummus, bagel, and fairy bread recipes. Added sprinkles
+      as a condiment.
+2023-05-18:
+  Fluffyghost:
+  - backend: Wrote and added a PR atomizer tool, available under tools/pratomizer,
+      to automate the movement of files from one big branch to a small, atomic and
+      dedicated one.
+  MattAtlas:
+  - tweak: Ejecting a beaker from a chemistry grinder now puts it in your hand instead
+      of on the table.
+  - rscadd: Blobs now only spawn with a minimum of 10 players active and 2 engineers.
+  RustingWithYou:
+  - rscadd: Adds an Unathi Merchants&#x27; Guild freighter, complete with ghostroles.
+  Sniblet:
+  - spellcheck: Fixed a missing &#x27;as&#x27; and redundant &#x27;about&#x27; in
+      the same-height flavor string.
+  - tweak: Height strings no longer display the race of races that are not supposed
+      to show race on examine (humans, shells, zombies).
+  Wowzewow(Wezzy):
+  - imageadd: Adds proper inhands for backpacks.
+  Yonnimer:
+  - bugfix: Properly adds the eum origins.
+2023-05-19:
+  MattAtlas:
+  - rscadd: You can now see the descriptions of food on plates.
+  - tweak: The smartheater is no longer opaque.
+  - maptweak: Replaced the dinnerware wall with a window.
+  Pirouette:
+  - tweak: Made curry available in lunchboxes.
+  Sniblet:
+  - spellcheck: Fixed a missing &#x27;as&#x27; and redundant &#x27;about&#x27; in
+      the same-height flavor string.
+  - tweak: Height strings now work, and no longer display the race of races that are
+      not supposed to show race on examine (humans, shells, zombies).
+  Wowzewow(Wezzy):
+  - rscadd: Fixes custom item flag items.
+2023-05-20:
+  BLUNTFORCE420:
+  - balance: Afros no longer get caught in grinders.
+  Geeves:
+  - rscadd: Added the greimorian bombardier, a greimorian that shoots pepperspray.
+  - rscadd: You can now use pointing to command commandable animals. Pointing them
+      with any intent will make them either follow you or stop following you, provided
+      you&#x27;re their master or one of their friends (being set to follow adds you
+      to their friend list). While the animal is following you, pointing at someone
+      with grab intent will make it follow them. Pointing at them on harm intent will
+      make it attack them.
+  - bugfix: Hostile/commandable animals will no longer attack you when you heal them.
+      Petting a service dog will still get you bit.
+  - bugfix: Nearsighted characters now have working vision on sensors / helm as long
+      as they have their prescription glasses on.
+  Llywelwyn:
+  - bugfix: Beakers are no longer destroyed when ejected from a grinder by a cyborg.
+  N8-Toe:
+  - bugfix: changed from station to ship in ion storm announcement.
+  - rscadd: Added XO&#x27;s hat to their locker, to cover their bald shame
+  Pirouette:
+  - tweak: Changed some drink descriptions to match earlier changes.
+  RustingWithYou:
+  - tweak: Turfs now have an initial_gas list instead of vars for individual gases.
+  kyres1:
+  - rscadd: Added new Vysokan caps in four color varieties. These include new versions
+      of the old fur cap, and new fancy caps!
+  - rscadd: Added a summer and winter version of the chokha, one lighter and one covered
+      in cozy fur. Also in four color varieties!
+  - rscadd: Added Vysokan dainshu feathers to the loadout as hairpins.
+  - rscadd: Added Vysokan gurmori hide boots to the loadout as shoes.
+  - rscadd: Added native Vysokan uniform apparel that can be rolled up or down, called
+      temperwear.
+2023-05-21:
+  DreamySkrell:
+  - maptweak: Replaces the dance floor with a big table. Also some service wing minor
+      visual readjustments.
+  Llywelwyn:
+  - rscdel: Removed the integrated circuitry smoke generator.
+  MattAtlas:
+  - rscadd: Movement should feel smoother.
+  - bugfix: Fixes the height strings on humans.
+  - bugfix: Fixes vendors being under windows.
+2023-05-22:
+  MattAtlas:
+  - rscdel: Removed the brainburger and braincake.
+  - bugfix: People no longer get shoved into the overmap zlevel when falling out of
+      space.
+2023-05-23:
+  FlamingLily:
+  - bugfix: Stopped Vaurca Warforms appearing to be 6 feet high.
+  MattAtlas:
+  - backend: Fixed a hard deletion.
+2023-05-25:
+  Geeves:
+  - tweak: The investigator security HUD icon has been changed to be a magnifying
+      glass.
+  - tweak: Added a guaranteed 25 telecrystals in the vault safe. Reduced the chance
+      for thermal goggles to spawn, and made only high power melee weapons spawn in
+      it.
+  - rscadd: Added a chance for the spaceproof infiltrator suit to spawn in the vaults
+      safe.
+  - bugfix: Fixed thermal drill offsets on the safe, as well as the soundloop not
+      stopping correctly.
+  JohnWildkins:
+  - bugfix: Fix massive amounts of ZAS updates caused by exoplanets not building their
+      atmos zones when generated.
+  Llywelwyn:
+  - rscadd: Relative mob sizes are now taken into account when determining how far
+      you can throw someone, defaulting to 5 tiles for same-sized mobs.
+  - tweak: When throwing items to manoeuvre in EVA, itemsize compared to the mob&#x27;s
+      size now determines if it&#x27;ll move you or not.
+2023-05-26:
+  Ramke:
+  - rscadd: Implemented a new Tajara accent - New Ya&#x27;ssa. Selectable through
+      the Old Kaltir &amp; Peninsula of Harr&#x27;nrr origins.
+  TheDanseMacabre:
+  - rscadd: Changed the crew armory armor from generic grey gear to SCC blue.
+  kyres1:
+  - rscadd: Added new roundstart sound effects for regions, like the Badlands and
+      the Weeping Stars. Atmospheric!
+  - rscadd: Added the Weeping Stars region, functioning with a skybox and stargazer
+      sprite.
+  - rscadd: Added the placeholder regions of Coalition space, Light&#x27;s Edge, Arusha.
+  - rscadd: Added a Coalition menu button sprite set.
+  - tweak: Resprited the Stargazer entirely.
+2023-05-27:
+  Geeves:
+  - rscadd: Hostile mobs (and hulks) can now break unreinforced tables and full window
+      frames.
+  RustingWithYou:
+  - maptweak: Fixes piping errors and access restrictions on the Tarwa Conglomerate
+      ship.
+  - bugfix: The Tarwa Conglomerate Shuttle Hangar navpoint now works correctly.
+  RyverStyx:
+  - rscadd: Adds a tallit to the loadout.
+  SimpleMaroon:
+  - rscadd: 'Added six new banners and flags to the loadout: Port Antillia, San Colette,
+      Mictlan, Zo&#x27;ra, K&#x27;lax, and C&#x27;thur.'
+  kyres1:
+  - bugfix: Fixed tactical turtlenecks not being an option anymore in the loadout.
+2023-05-28:
+  Fluffyghost:
+  - rscadd: Ported oxygen regenerator from Bay.
+  - bugfix: Resolved an issue where binary atmos items could not be rotated with alt-click
+      despite the description saying so.
+  Geeves:
+  - rscadd: Added a summoning stone to the Technomancer assistance category. You can
+      give this to anyone to grant them a core and an initiate&#x27;s catalogue, effectively
+      making them a mini-technomancer.
+  - rscadd: Added a Bracelet Core, a wrist mounted variant of the technomancer manipulation
+      core.
+  - rscadd: Added a raise wall spell to the technomancer defensive spell list.
+  MattAtlas:
+  - bugfix: Fixes the Subtle Message bolding and italics not working.
+  - bugfix: Fixes the missing disposals pipe in the service hallway.
+  Pirouette:
+  - maptweak: Added a copy of the Constitution of Biesel to the Mendell holodeck.
+  RustingWithYou:
+  - rscadd: Adds versebooks for the four main Unathi religions. These are selectable
+      in the loadout menu.
+  - tweak: Volcanic planets can now have atmospheres, which will be appropriately
+      hot.
+  - tweak: The large mining drill will now work properly on exoplanets.
+  - rscadd: Adds a fishing league mantle.
+  kyres1:
+  - rscadd: Added a new shuttle, the Canary. It&#x27;s a scout shuttle devoted to
+      very small compliments that allows bridge crew, and a couple friends at most,
+      to explore the sector with little risk.
+  - rscadd: Added a variety of new SCC-centric shuttle pieces to be used for SCC shuttles,
+      both on the Horizon and off.
+  - tweak: Moved the Intrepid&#x27;s Francisca rotary gun to the new Canary shuttle.
+  - rscdel: Removed the ammo loader mech from the Intrepid cockpit.
+2023-05-29:
+  SimpleMaroon:
+  - rscdel: Removed references to the now-nonexistent Dominian Dionae.
+2023-05-30:
+  Alberyk:
+  - bugfix: Grass planets and derivatives no longer have a chlorine atmosphere.
+  Llywelwyn:
+  - bugfix: Liquid-Bags in the uplink now give the correct number (25), instead of
+      just one.
+  MattAtlas:
+  - bugfix: Fixed some more bugs with fakedeath sometimes not working properly.
+  - bugfix: Guns with single-fire firing delays are now properly used when appropriate,
+      instead of only the burst delay being used.
+  - bugfix: New firing delays are now appropriately assigned when switching firemode.
+  io-util:
+  - bugfix: Cyborgs are no longer invisible when they get created by Players.
+2023-05-31:
+  DreamySkrell:
+  - bugfix: Nested lists in ruin definition &#x27;sectors&#x27; variable can now be
+      used.

@@ -88,12 +88,12 @@
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
 			return "It looks to be in tip top shape and not damaged at all."
 
-/obj/machinery/ship_weapon/examine(mob/user)
+/obj/machinery/ship_weapon/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, get_damage_description())
+	. += get_damage_description()
 
-/obj/machinery/ship_weapon/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/device/multitool))
+/obj/machinery/ship_weapon/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/multitool))
 		to_chat(user, SPAN_NOTICE("You hook up the tester to \the [src]'s wires: its identification tag is <b>[weapon_id]></b>."))
 		var/new_id = input(user, "Change the identification tag?", "Identification Tag", weapon_id) as text|null
 		if(length(new_id) && !use_check_and_message(user))
@@ -106,8 +106,8 @@
 				weapon_id = new_id
 				to_chat(user, SPAN_NOTICE("With some finicking, you change the identification tag to <b>[new_id]</b>."))
 				return TRUE
-	if(istype(W, /obj/item/weldingtool) && damage)
-		var/obj/item/weldingtool/WT = W
+	if(istype(attacking_item, /obj/item/weldingtool) && damage)
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.get_fuel() >= 20)
 			user.visible_message(SPAN_NOTICE("[user] starts slowly welding kinks and holes in \the [src] back to working shape..."),
 								SPAN_NOTICE("You start welding kinks and holes back to working shape. This'll take a long while..."))
@@ -284,9 +284,9 @@
 	if(connected)
 		connected.attack_hand(user)
 
-/obj/structure/ship_weapon_dummy/attackby(obj/item/W, mob/user)
+/obj/structure/ship_weapon_dummy/attackby(obj/item/attacking_item, mob/user)
 	if(connected)
-		connected.attackby(W, user)
+		connected.attackby(attacking_item, user)
 
 /obj/structure/ship_weapon_dummy/hitby(atom/movable/AM, var/speed = THROWFORCE_SPEED_DIVISOR)
 	if(connected)

@@ -71,7 +71,7 @@
 	hitsound = /singleton/sound_category/drillhit_sound
 	matter = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 10000)
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 15
+	force = 22
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 1)
 	attack_verb = list("drilled")
@@ -88,7 +88,7 @@
 	item_state = "scalpel"
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	sharp = 1
 	edge = TRUE
 	w_class = ITEMSIZE_TINY
@@ -105,35 +105,23 @@
 /*
  * Researchable Scalpels
  */
-/obj/item/surgery/scalpel/laser1
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks basic and could be improved."
-	icon_state = "scalpel_laser1"
-	surgerysound = 'sound/items/surgery/cautery.ogg'
-	damtype = "fire"
 
-/obj/item/surgery/scalpel/laser2
+/obj/item/surgery/scalpel/laser
 	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks somewhat advanced."
-	icon_state = "scalpel_laser2"
+	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field."
+	icon_state = "scalpel_laser"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
+	matter = list(DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500)
 	damtype = "fire"
-	force = 12
-
-/obj/item/surgery/scalpel/laser3
-	name = "laser scalpel"
-	desc = "A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks to be the pinnacle of precision energy cutlery!"
-	icon_state = "scalpel_laser3"
-	surgerysound = 'sound/items/surgery/cautery.ogg'
-	damtype = "fire"
-	force = 15
+	force = 18
 
 /obj/item/surgery/scalpel/manager
 	name = "incision management system"
 	desc = "A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps."
 	icon_state = "scalpel_manager"
 	surgerysound = 'sound/items/surgery/cautery.ogg'
-	force = 7.5
+	matter = list (DEFAULT_WALL_MATERIAL = 12500, MATERIAL_GLASS = 7500, MATERIAL_SILVER = 1500, MATERIAL_GOLD = 1500, MATERIAL_DIAMOND = 750)
+	force = 8
 
 /*
  * Circular Saw
@@ -146,7 +134,7 @@
 	surgerysound = 'sound/items/surgery/circularsaw.ogg'
 	hitsound = 'sound/weapons/saw/circsawhit.ogg'
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 15
+	force = 22
 	w_class = ITEMSIZE_NORMAL
 	throwforce = 9
 	throw_speed = 3
@@ -190,7 +178,7 @@
 	icon_state = "bonesetter"
 	item_state = "bonesetter"
 	surgerysound = 'sound/items/surgery/bonesetter.ogg'
-	force = 8
+	force = 18
 	throwforce = 9
 	throw_speed = 3
 	throw_range = 5
@@ -247,9 +235,7 @@
 		/obj/item/surgery/hemostat = "tray_hemostat",
 		/obj/item/surgery/retractor = "tray_retractor",
 		/obj/item/surgery/scalpel = "tray_scalpel",
-		/obj/item/surgery/scalpel/laser1 = "tray_scalpel_laser1",
-		/obj/item/surgery/scalpel/laser2 = "tray_scalpel_laser2",
-		/obj/item/surgery/scalpel/laser3 = "tray_scalpel_laser3",
+		/obj/item/surgery/scalpel/laser = "tray_scalpel_laser",
 		/obj/item/surgery/scalpel/manager = "tray_scalpel_manager",
 		/obj/item/surgery/surgicaldrill = "tray_drill",
 		/obj/item/surgery/bone_gel = "tray_bone-gel",
@@ -269,7 +255,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/storage/box/fancy/tray/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/box/fancy/tray/attackby(obj/item/attacking_item, mob/user)
 	..()
 	update_icon()
 

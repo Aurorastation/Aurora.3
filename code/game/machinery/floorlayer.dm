@@ -33,21 +33,21 @@
 	on = !on
 	user.visible_message("<b>[user]</b> has [!on ? "de" : ""]activated \the [src].", SPAN_NOTICE("You [!on ? "de" : ""]activate \the [src]."))
 
-/obj/machinery/floorlayer/attackby(obj/item/I, mob/user)
-	if(I.iswrench())
+/obj/machinery/floorlayer/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
 		var/m = tgui_input_list(user, "Choose work mode", "Mode", mode)
 		mode[m] = !mode[m]
 		var/O = mode[m]
 		user.visible_message("<b>[user]</b> has set \the [src] [m] mode [!O ? "off" : "on"].", SPAN_NOTICE("You set \the [src] [m] mode [!O ? "off":"on"]."))
 		return TRUE
 
-	if(istype(I, /obj/item/stack/tile))
-		to_chat(user, SPAN_NOTICE("You successfully load \the [I] into \the [src]."))
-		user.drop_from_inventory(I, src)
-		take_tile(I)
+	if(istype(attacking_item, /obj/item/stack/tile))
+		to_chat(user, SPAN_NOTICE("You successfully load \the [attacking_item] into \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		take_tile(attacking_item)
 		return TRUE
 
-	if(I.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(!length(contents))
 			to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		else
@@ -58,11 +58,11 @@
 				T = null
 		return TRUE
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		T = tgui_input_list(user, "Choose which set of tiles you want \the [src] to lay.", "Tiles", contents)
 		return TRUE
 
-/obj/machinery/floorlayer/examine(mob/user)
+/obj/machinery/floorlayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/dismantle = mode["dismantle"]
 	var/laying = mode["laying"]
@@ -70,7 +70,7 @@
 	var/number = 0
 	if (T)
 		number = T.get_amount()
-	to_chat(user, SPAN_NOTICE("\The [src] has [number] tile\s, dismantle is [dismantle ? "on" : "off"], laying is [laying ? "on" : "off"], collect is [collect ? "on" : "off"]."))
+	. += SPAN_NOTICE("\The [src] has [number] tile\s, dismantle is [dismantle ? "on" : "off"], laying is [laying ? "on" : "off"], collect is [collect ? "on" : "off"].")
 
 /obj/machinery/floorlayer/proc/reset()
 	on = FALSE

@@ -6,12 +6,15 @@
 	set name = "Merge with gestalt"
 	set desc = "Merge yourself into a larger gestalt, you will no longer retain control."
 
-	if(use_check_and_message(usr))
+	if(use_check_and_message(usr, USE_ALLOW_NON_ADV_TOOL_USR))
 		return FALSE
 
 	var/list/choices = list()
 	for(var/mob/living/carbon/human/H in view(1, src))
 		if(!Adjacent(H) || !H.client)
+			continue
+		if(!H.client)
+			to_chat(src, SPAN_WARNING("The gestalt [H] seems to not have a mind, we can't merge with them..."))
 			continue
 		if(is_diona(H) == DIONA_WORKER)
 			choices += H
@@ -284,7 +287,7 @@
 		LOG_DEBUG("Non-Diona [name] had Create Structure ability.")
 		return
 
-	if(use_check_and_message(src))
+	if(use_check_and_message(src, USE_ALLOW_NON_ADV_TOOL_USR))
 		return
 
 	var/can_use_biomass

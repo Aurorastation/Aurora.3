@@ -153,15 +153,15 @@
 
 	return
 
-/obj/machinery/telecomms/message_server/attackby(obj/item/O as obj, mob/living/user as mob)
+/obj/machinery/telecomms/message_server/attackby(obj/item/attacking_item, mob/user)
 	if (use_power && !inoperable(EMPED) && (spamfilter_limit < MESSAGE_SERVER_DEFAULT_SPAM_LIMIT*2) && \
-		istype(O,/obj/item/circuitboard/message_monitor))
+		istype(attacking_item, /obj/item/circuitboard/message_monitor) && istype(user))
 		spamfilter_limit += round(MESSAGE_SERVER_DEFAULT_SPAM_LIMIT / 2)
-		user.drop_from_inventory(O,get_turf(src))
-		qdel(O)
+		user.drop_from_inventory(attacking_item, get_turf(src))
+		qdel(attacking_item)
 		to_chat(user, "You install additional memory and processors into message server. Its filtering capabilities been enhanced.")
 	else
-		..(O, user)
+		..()
 
 /obj/machinery/telecomms/message_server/update_icon()
 	if(inoperable(EMPED))

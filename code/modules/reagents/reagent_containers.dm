@@ -87,24 +87,24 @@
 	reagents.apply_force(speed)
 
 /obj/item/reagent_containers/proc/shatter(var/obj/item/W, var/mob/user)
-	if(reagents.total_volume)
+	if(reagents?.total_volume)
 		reagents.splash(src.loc, reagents.total_volume) // splashes the mob holding it or the turf it's on
 	audible_message(SPAN_WARNING("\The [src] shatters with a resounding crash!"), SPAN_WARNING("\The [src] breaks."))
 	playsound(src, shatter_sound, 70, 1)
 	shatter_material.place_shard(loc)
 	qdel(src)
 
-/obj/item/reagent_containers/attackby(var/obj/item/W, var/mob/user)
-	if(istype(W, /obj/item/reagent_containers/food/snacks))
-		var/obj/item/reagent_containers/food/snacks/dipped = W
+/obj/item/reagent_containers/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/reagent_containers/food/snacks/dipped = attacking_item
 		dipped.attempt_apply_coating(src, user)
 		return
-	if(!(W.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (W.force > fragile))
+	if(!(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) && (user.a_intent == I_HURT) && fragile && (attacking_item.force > fragile))
 		if(do_after(user, 1 SECOND, src))
 			if(!QDELETED(src))
-				visible_message(SPAN_WARNING("[user] smashes [src] with \a [W]!"))
+				visible_message(SPAN_WARNING("[user] smashes [src] with \a [attacking_item]!"))
 				user.do_attack_animation(src)
-				shatter(W, user)
+				shatter(attacking_item, user)
 				return TRUE
 	return ..()
 

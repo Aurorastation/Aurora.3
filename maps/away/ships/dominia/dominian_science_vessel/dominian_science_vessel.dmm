@@ -159,11 +159,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/dominian_science_shuttle)
 "atQ" = (
-/obj/structure/table/steel,
-/obj/item/crowbar/rescue_axe,
-/obj/item/crowbar/rescue_axe,
-/obj/item/crowbar,
-/obj/item/crowbar,
+/obj/structure/survey_probe/dominia,
+/obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "axE" = (
@@ -4380,10 +4377,10 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/chemical_dispenser,
 /obj/effect/floor_decal/corner/purple{
 	dir = 6
 	},
+/obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "oAQ" = (
@@ -5084,11 +5081,8 @@
 /turf/simulated/floor/plating,
 /area/ship/dominian_science_vessel/aft_dock)
 "qYW" = (
-/obj/structure/table/steel,
-/obj/item/storage/firstaid/regular{
-	pixel_y = 6;
-	pixel_x = 3
-	},
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/structure/survey_probe/dominia,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "rex" = (
@@ -5808,10 +5802,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/dominian_science_vessel/bridge)
 "tEo" = (
-/obj/structure/filingcabinet,
+/obj/structure/filingcabinet{
+	pixel_x = 14
+	},
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
+/obj/structure/closet/excavation,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "tEV" = (
@@ -6205,7 +6202,6 @@
 /turf/simulated/wall/shuttle,
 /area/ship/dominian_science_vessel/port_propulsion)
 "vjQ" = (
-/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
 	},
@@ -6214,6 +6210,7 @@
 	inserted_light = /obj/item/light/tube/colored/blue;
 	icon_state = "tube_empty"
 	},
+/obj/structure/closet/excavation,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
 "vjT" = (
@@ -6275,9 +6272,34 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/port_hall)
 "vuF" = (
-/obj/structure/closet/emcloset,
 /obj/effect/floor_decal/corner/purple{
 	dir = 5
+	},
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/suit/hazmat/anomaly,
+/obj/item/clothing/head/hazmat/anomaly,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/gloves/latex,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/mask/breath,
+/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/science,
+/obj/structure/table/rack{
+	dir = 8;
+	layer = 2.9
+	},
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window/southleft{
+	name = "Anomaly Suits"
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_science_vessel/research)
@@ -6519,6 +6541,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/item/crowbar,
+/obj/item/crowbar/rescue_axe,
+/obj/item/crowbar,
+/obj/item/crowbar/rescue_axe,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/eva)
 "wzs" = (
@@ -7054,13 +7080,13 @@
 /area/ship/dominian_science_vessel/center_hall)
 "xGk" = (
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/coffee,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/dom,
+/obj/machinery/chemical_dispenser/coffee/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/dominian_science_vessel/mess)
 "xHl" = (
@@ -7161,6 +7187,11 @@
 	},
 /turf/simulated/floor/marble/dark,
 /area/ship/dominian_science_vessel/chapel)
+"xRu" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/suspension_gen,
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/dominian_science_shuttle)
 "xRX" = (
 /turf/template_noop,
 /area/space)
@@ -39962,11 +39993,11 @@ lri
 qdL
 jZe
 tjB
-tyS
+qYW
 qYW
 wvN
 atQ
-tyS
+atQ
 tjB
 str
 bpc
@@ -40464,7 +40495,7 @@ aaJ
 uJi
 tSP
 wny
-inf
+xRu
 cYy
 iJz
 cQs

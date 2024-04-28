@@ -95,6 +95,11 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/soup/krakensoup
 
+/singleton/recipe/peasoup
+	appliance = SAUCEPAN | POT
+	fruit = list("whitebeet" = 1, "peas" = 1, "carrot" = 1)
+	reagents = list(/singleton/reagent/water = 10)
+	result = /obj/item/reagent_containers/food/snacks/soup/pea
 
 // Stews
 /singleton/recipe/stew
@@ -111,6 +116,20 @@
 	items = list(/obj/item/reagent_containers/food/snacks/bearmeat)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/stew/bear
+
+/singleton/recipe/black_eyed_gumbo
+	appliance = SAUCEPAN | POT
+	fruit = list("onion" = 1, "chili" = 1, "bellpepper" = 1)
+	reagents = list(/singleton/reagent/nutriment/rice = 5, /singleton/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/meat)
+	result = /obj/item/reagent_containers/food/snacks/black_eyed_gumbo
+
+/singleton/recipe/black_eyed_gumbo_alt
+	appliance = SAUCEPAN | POT
+	fruit = list("onion" = 1, "chili" = 1, "bellpepper" = 1)
+	reagents = list(/singleton/reagent/nutriment/rice = 5, /singleton/reagent/water = 10)
+	items = list(/obj/item/reagent_containers/food/snacks/fish)
+	result = /obj/item/reagent_containers/food/snacks/black_eyed_gumbo
 
 // Chili
 /singleton/recipe/bearchili
@@ -131,3 +150,11 @@
 	fruit = list("icechili" = 1, "tomato" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/meat)
 	result = /obj/item/reagent_containers/food/snacks/coldchili
+
+//oatmeal and porridges
+/singleton/recipe/oatmeal
+	appliance = SAUCEPAN | POT
+	fruit = list("wheat" = 2)
+	reagents = list(/singleton/reagent/water = 10, /singleton/reagent/drink/milk = 10)
+	result = /obj/item/reagent_containers/food/snacks/oatmeal
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product

@@ -39,7 +39,7 @@
 		set_light(FALSE)
 		return
 
-	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", EFFECTS_ABOVE_LIGHTING_LAYER)
+	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "kitchenterminal-active", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 	add_overlay(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
@@ -79,11 +79,11 @@
 	R.add_overlay(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Idris Ordering Terminal.</i>"
 
-/obj/machinery/orderterminal/attackby(obj/O, mob/user)
-	var/obj/item/card/id/I = O.GetID()
+/obj/machinery/orderterminal/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/card/id/I = attacking_item.GetID()
 	if (!I)
 		return
-	if (!istype(O))
+	if (!istype(attacking_item))
 		return
 
 	else if (confirmorder)

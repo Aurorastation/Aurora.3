@@ -124,19 +124,19 @@
 	default_type = "wired glass"
 	construction_options = list()
 
-/obj/item/stack/material/glass/wired/attackby(var/obj/O, mob/user as mob)
-	if(istype(O, /obj/item/stack/material/steel))
-		var/obj/item/stack/material/steel/M = O
+/obj/item/stack/material/glass/wired/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material/steel))
+		var/obj/item/stack/material/steel/M = attacking_item
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light
-			user.drop_from_inventory(L,get_turf(src))
+			user.drop_from_inventory(L, get_turf(src))
 			to_chat(user, "<span class='notice'>You make a light tile.</span>")
 			use(1)
 		else
 			to_chat(user, "<span class='warning'>You need one metal sheet to finish the light tile!</span>")
 
-	else if(O.iswirecutter())
-		user.drop_from_inventory(O,get_turf(src))
+	else if(attacking_item.iswirecutter())
+		user.drop_from_inventory(attacking_item, get_turf(src))
 		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		new /obj/item/stack/cable_coil(user.loc, 5)

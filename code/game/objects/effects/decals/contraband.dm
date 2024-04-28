@@ -126,8 +126,8 @@
 	desc = "[initial(desc)] [design.desc]"
 	icon_state = design.icon_state // poster[serial_number]
 
-/obj/structure/sign/poster/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswirecutter())
+/obj/structure/sign/poster/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswirecutter())
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
 			to_chat(user, "<span class='notice'>You remove the remnants of the poster.</span>")

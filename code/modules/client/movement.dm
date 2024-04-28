@@ -1,8 +1,4 @@
 
-/client/New()
-	..()
-	dir = NORTH
-
 // These break the lighting system, comment out for now until
 // someone can be arsed to fix it.
 /*

@@ -145,15 +145,15 @@
 
 /obj/item/reagent_containers/glass/bottle/pyrosilicate
 	name = "pyrosilicate bottle"
-	desc = "A small bottle. Contains pyrosilicate - used to heat up reagents."
+	desc = "A small bottle. Contains pyrosilicate which is used to heat up reagents."
 	icon_state = "bottle-4"
 	reagents_to_add = list(/singleton/reagent/pyrosilicate = 60)
 
-/obj/item/reagent_containers/glass/bottle/cryosurfactant
-	name = "cryosurfactant bottle"
-	desc = "A small bottle. Contains cryosurfactant - used to cool down reagents."
+/obj/item/reagent_containers/glass/bottle/cryosilicate
+	name = "cryosilicate bottle"
+	desc = "A small bottle. Contains cryosilicate which is used to cool down reagents."
 	icon_state = "bottle-4"
-	reagents_to_add = list(/singleton/reagent/cryosurfactant = 60)
+	reagents_to_add = list(/singleton/reagent/cryosilicate = 60)
 
 /obj/item/reagent_containers/glass/bottle/epinephrine
 	name = "epinephrine bottle"
@@ -228,11 +228,16 @@
 	reagents_to_add = list(/singleton/reagent/hyronalin = 60)
 
 /obj/item/reagent_containers/glass/bottle/trioxin
-	name = "trioxin bottle"
-	desc = "A small bottle. Contains a swirling, green liquid."
-	icon_state = "bottle-1"
-	reagents_to_add = list(/singleton/reagent/toxin/trioxin = 60)
+	name = "hylemnomil-zeta vial"
+	desc = "A small, unmarked vial with an ominous label. <span class='cult'>It contains a swirling, purple liquid.</span>"
+	icon_state = "bouteille"
+	reagents_to_add = list(/singleton/reagent/toxin/hylemnomil = 60)
 
+/obj/item/reagent_containers/glass/bottle/phoron
+	name = "phoron bottle"
+	desc = "A small bottle. Contains highly rare and flammable phoron."
+	icon_state = "bottle-1"
+	reagents_to_add = list(/singleton/reagent/toxin/phoron = 60)
 //syrups
 
 /obj/item/reagent_containers/glass/bottle/syrup
@@ -245,19 +250,19 @@
 
 /obj/item/reagent_containers/glass/bottle/syrup/chocolate
 	name = "chocolate syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_chocolate = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_chocolate = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/pumpkin
 	name = "pumpkin spice syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_pumpkin = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_pumpkin = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/vanilla
 	name = "vanilla syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_vanilla = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_vanilla = 50)
 
 /obj/item/reagent_containers/glass/bottle/syrup/caramel
 	name = "caramel syrup dispenser"
-	reagents_to_add = list(/singleton/reagent/drink/syrup_caramel = 50)
+	reagents_to_add = list(/singleton/reagent/condiment/syrup_caramel = 50)
 
 /obj/item/reagent_containers/glass/bottle/triglyceride
 	name = "triglyceride bottle"

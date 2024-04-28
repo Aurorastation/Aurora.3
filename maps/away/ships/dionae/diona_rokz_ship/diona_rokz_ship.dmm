@@ -1041,6 +1041,9 @@
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
 "OU" = (
@@ -1360,6 +1363,14 @@
 /obj/structure/diona/bulb,
 /turf/unsimulated/floor/asteroid/ash,
 /area/ship/diona_rokz_ship/warehouse)
+"ZT" = (
+/obj/machinery/button/distress{
+	dir = 4;
+	pixel_x = -21;
+	pixel_y = 7
+	},
+/turf/simulated/floor/diona/airless,
+/area/ship/diona_rokz_ship/bridge)
 
 (1,1,1) = {"
 kB
@@ -29710,7 +29721,7 @@ kB
 kB
 up
 TF
-eO
+ZT
 xF
 ca
 Ow
