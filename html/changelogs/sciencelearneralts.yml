@@ -6,4 +6,4 @@ changes:
   - rscadd: "Added a new job, Research Understudy, to replace Lab Assistant as the learner job for research. It has a minumim age of 28, up from 18."
   - rscadd: "Added alt-titles for Research Understudy: Xenoarchaeology Understudy, Xenobiology Understudy and Xenobotany Understudy."
   - rscadd: "Added alt-titles for Lab Assistant: Field Assistant, Xenobiology Assistant and Xenobotany Assistant."
-  - tweak: "The Lab Assistant job is now intended as purely an aide to the research department."
+  - rscadd: "The Lab Assistant job is now intended as purely an aide to the research department."
