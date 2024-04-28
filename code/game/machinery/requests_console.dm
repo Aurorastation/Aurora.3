@@ -63,6 +63,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		)
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	z_flags = ZMM_MANGLE_PLANES
 
 	///The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/department = "Unknown"

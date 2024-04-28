@@ -2678,12 +2678,9 @@
 	glass_desc = "Dentists recommend drinking zero glasses a day, and instead brushing normally."
 	glass_center_of_mass = list("x"=7, "y"=8)
 
-
 /singleton/reagent/drink/toothpaste/affect_ingest(var/mob/living/carbon/human/M, var/alien, var/removed, var/datum/reagents/holder)
-
 	if(!istype(M))
 		return
-
 	if(alien == IS_VAURCA)
 		M.intoxication += (strength / 100) * removed * 3.5
 
@@ -2700,8 +2697,8 @@
 
 /singleton/reagent/drink/toothpaste/waterfresh
 	name = "Waterfresh"
-	description = "A concoction of toothpaste and mouthwash, for when you need to show your pearly whites."
-	strength = 40
+	description = "A concoction of toothpaste and water, for when you need to show your pearly whites."
+	strength = 30
 	taste_description = "bubble bath"
 
 	glass_icon_state = "waterfresh"
@@ -2712,7 +2709,7 @@
 /singleton/reagent/drink/toothpaste/sedantian_firestorm
 	name = "Sedantian Firestorm"
 	description = "Florinated phoron, is the drink suppose to be on fire?"
-	strength = 80
+	strength = 70
 	taste_description = "melting asphalt"
 	adj_temp = 25
 	default_temperature = T0C + 60
@@ -2725,7 +2722,7 @@
 /singleton/reagent/drink/toothpaste/kois_odyne
 	name = "K'ois Odyne"
 	description = "A favourite among the younger vaurca, born from an accident involving nanopaste and the repair of internal augments."
-	strength = 60
+	strength = 40
 	taste_description = "chalk"
 
 	glass_icon_state = "kois_odyne"
@@ -2744,7 +2741,6 @@
 	glass_name = "cup of teathpaste"
 	glass_desc = "Recommended by 1 out of 5 dentists."
 
-
 	var/last_taste_time = -100
 
 /singleton/reagent/drink/toothpaste/teathpaste/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
@@ -2754,6 +2750,56 @@
 			last_taste_time = world.time
 		metabolism = REM * 0.33
 		M.adjustToxLoss(1.5 * removed)
+
+/singleton/reagent/drink/toothpaste/mouthwash
+	name = "Mouthwash"
+	description = "A fluid commonly used in oral hygiene."
+	reagent_state = LIQUID
+	color = "#9df8ff"
+	taste_description = "mouthwash"
+	overdose = REAGENTS_OVERDOSE
+	strength = 75
+
+	glass_icon_state = "mouthwash"
+	glass_name = "glass of mouthwash"
+	glass_desc = "A minty sip and you're buzzing."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/mouthwash/mouthgarita
+	name = "Mouthgarita"
+	description = "Very simple cocktail of mouthwash and lime juice."
+	taste_description = "sour and minty"
+	color = "#9dffd1"
+	strength = 60
+
+	glass_icon_state = "mouthgarita"
+	glass_name = "glass of Mouthgarita"
+	glass_desc = "Very simple cocktail of mouthwash and lime juice."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/mouthwash/caprician_sunrise
+	name = "Caprician Sunrise"
+	description = "Vaurcesian take on the classic screwdriver."
+	taste_description = "spicy orange"
+	color = "#9dffd6"
+	strength = 60
+
+	glass_icon_state = "caprician_sunrise"
+	glass_name = "glass of Caprician Sunrise"
+	glass_desc = "Vaurcesian take on the classic screwdriver."
+	glass_center_of_mass = list("x"=7, "y"=8)
+
+/singleton/reagent/drink/toothpaste/mouthwash/flagsdale_mule
+	name = "Flagsdale Mule"
+	description = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
+	strength = 80
+	taste_description = "refreshing, spicy lime, and bulwark's kick"
+	color = "#9dfff2"
+
+	glass_icon_state = "flagsdale_mule"
+	glass_name = "glass of Flagsdale Mule"
+	glass_desc = "A hard-kicking cocktail, said to be invented in the better parts of Flagsdale."
+	glass_center_of_mass = list("x"=7, "y"=8)
 
 /* Alcohol */
 
@@ -5815,16 +5861,31 @@
 	taste_description = "fruity grape"
 
 /singleton/reagent/drink/zorasoda/klax
-	name = "K'laxan Energy Crush"
+	name = "K'lax Energy Crush"
 	description = "An orange zest cream soda with a delicious smooth taste."
 	color = "#E78108"
 	taste_description = "fizzy and creamy orange zest"
+
+/singleton/reagent/drink/zorasoda/xuizi
+	name = "K'lax Xuizi Xplosion"
+	description = "A fizzy soda, made with genuine xuizi juice."
+	color = "#91de47"
+	taste_description = "sparkling cactus water"
+	species_taste_description = list(
+		SPECIES_UNATHI = "an electric kick of strawberry and watermelon"
+	)
 
 /singleton/reagent/drink/zorasoda/cthur
 	name = "C'thur Rockin' Raspberry"
 	description = "A raspberry concoction you're pretty sure is already on recall."
 	color = "#0000CD"
 	taste_description = "sweet flowery raspberry"
+
+/singleton/reagent/drink/zorasoda/dyn
+	name = "C'thur Dyn-A-Mite"
+	description = "Tastes like dyn, if it punched you in the mouth."
+	color = "#00e0e0"
+	taste_description = "an explosion of menthol"
 
 /singleton/reagent/drink/zorasoda/venomgrass
 	name = "Zo'ra Sour Venom Grass"
@@ -5850,6 +5911,24 @@
 	description = "Tastes exactly like how a kitchen smells after boiling brussel sprouts."
 	color = "#DCD9CD"
 	taste_description = "sugary cabbage"
+
+/singleton/reagent/drink/zorasoda/mixedberry
+	name = "Zo'ra Caprician Craze"
+	description = "A mixed berry soda. Which berries are those? You can't tell!"
+	color = "#F9190F"
+	taste_description = "energizing berries"
+
+/singleton/reagent/drink/zorasoda/lemonlime
+	name = "Zo'ra Seismic Slammer"
+	description = "A potently effervescent lemon-lime energy drink."
+	color = "#E3E3E3"
+	taste_description = "electric zestiness"
+
+/singleton/reagent/drink/zorasoda/buzz
+	name = "Buzzin' Cola"
+	description = "A remarkably bubbly cola flavoured energy drink."
+	color = "#3C090B"
+	taste_description = "a fizzing swarm of cola"
 
 /singleton/reagent/drink/zorasoda/drone
 	name = "Vaurca Drone Fuel"

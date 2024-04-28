@@ -12,6 +12,7 @@
 	var/area/area = null
 	var/otherarea = null
 	power_channel = LIGHT
+	z_flags = ZMM_MANGLE_PLANES
 	//	luminosity = 1
 
 /obj/machinery/light_switch/Initialize()

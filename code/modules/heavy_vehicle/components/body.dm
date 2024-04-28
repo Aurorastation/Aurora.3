@@ -44,6 +44,11 @@
 			)
 		)
 
+	cockpit = new
+	if(loc)
+		cockpit.copy_from(loc.return_air())
+	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
+
 /obj/item/mech_component/chassis/update_components()
 	diagnostics = locate() in src
 	cell =        locate() in src
@@ -87,13 +92,6 @@
 		to_chat(user, SPAN_NOTICE("  - Armor Integrity: <b>[round(((mech_armor.max_dam - mech_armor.total_dam) / mech_armor.max_dam) * 100, 0.1)]%</b>"))
 	else
 		to_chat(user, SPAN_WARNING("  - Armor Missing or Non-functional."))
-
-/obj/item/mech_component/chassis/Initialize()
-	. = ..()
-	cockpit = new
-	if(loc)
-		cockpit.copy_from(loc.return_air())
-	air_supply = new /obj/machinery/portable_atmospherics/canister/air(src)
 
 /obj/item/mech_component/chassis/proc/update_air(var/take_from_supply)
 

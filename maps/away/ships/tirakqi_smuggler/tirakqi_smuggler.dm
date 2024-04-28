@@ -201,7 +201,7 @@
 	name = "\proper holospace"
 	icon_state = "void"
 	footstep_sound = null
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/tirakqi_cosmocage/update_dirt()
@@ -257,7 +257,7 @@
 	color = "#c8bbfc"
 
 // paper
-/obj/item/paper/tirakqi_smuggler
+/obj/item/paper/fluff/tirakqi_smuggler
 	name = "IMPORTANT!"
 	desc = "A handwritten note."
 	info = "\
@@ -275,10 +275,4 @@
 		<br>\
 		VERY IMPORTANT - If we do get boarded, burn this paper immediately, and stash all the important stuff in these caches. Better hope you remember all this. <br>\
 		"
-
-/obj/item/paper/tirakqi_smuggler/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=k\]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
+	language = LANGUAGE_SKRELLIAN

@@ -23,13 +23,6 @@ var/global/list/can_enter_vent_with = list(
 /mob/living/proc/can_ventcrawl()
 	return 0
 
-/mob/living/LateLogin()
-	..()
-	//login during ventcrawl
-	if(is_ventcrawling && istype(loc, /obj/machinery/atmospherics)) //attach us back into the pipes
-		remove_ventcrawl()
-		add_ventcrawl(loc)
-
 /mob/living/carbon/slime/can_ventcrawl()
 	if(victim)
 		to_chat(src, SPAN_WARNING("You cannot ventcrawl while feeding."))
@@ -89,9 +82,6 @@ var/global/list/can_enter_vent_with = list(
 		pipe = input("Crawl Through Vent", "Pick a pipe") as null|anything in pipes
 	if(canmove && pipe)
 		return pipe
-
-/mob/living/carbon/slime/can_ventcrawl()
-	return 1
 
 /mob/living/simple_animal/borer/can_ventcrawl()
 	return 1
@@ -228,12 +218,14 @@ var/global/list/can_enter_vent_with = list(
 	for(var/datum/pipeline/pipeline in network.line_members)
 		for(var/obj/machinery/atmospherics/A in (pipeline.members || pipeline.edges)) // Adds pipe and manifold images
 			if(!A.pipe_image)
-				A.pipe_image = image(A, A.loc, layer = ABOVE_LIGHTING_LAYER, dir = A.dir)
+				A.pipe_image = image(A, A.loc, dir = A.dir)
+				A.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 			pipes_shown += A.pipe_image
 			client.images += A.pipe_image
 	for (var/obj/machinery/atmospherics/V in network.normal_members) // Adds vent and scrubber images
 		if (!V.pipe_image || istype(V, /obj/machinery/atmospherics/unary/vent_pump/))
-			V.pipe_image = image(V, V.loc, layer = ABOVE_LIGHTING_LAYER, dir = V.dir)
+			V.pipe_image = image(V, V.loc, dir = V.dir)
+			V.pipe_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		pipes_shown += V.pipe_image
 		client.images += V.pipe_image
 

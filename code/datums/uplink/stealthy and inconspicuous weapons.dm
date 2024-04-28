@@ -62,6 +62,13 @@
 	telecrystal_cost = 5
 	path = /obj/item/storage/box/landmines/standstill
 
+/datum/uplink_item/item/stealthy_weapons/door_rigging_landmines
+	name = "Door Rigging Landmines"
+	desc = "A box with 5 door rigging landmines, which will explode when the door they are attached to opens. \
+			You need to weld the door closed to use this, so do not forget to have a welder and probably some welding goggles with you."
+	telecrystal_cost = 5
+	path = /obj/item/storage/box/landmines/door_rigging
+
 /datum/uplink_item/item/stealthy_weapons/claymore_mines
 	name = "Claymore Mines"
 	desc = "A box with 5 claymore miners, relative detonators (signalers), and a spare one for you to trigger them all."

@@ -118,7 +118,7 @@
 		return FALSE
 	var/mob/living/L = target
 	if(damage_type == DAMAGE_BRUTE && damage > 5) //weak hits shouldn't make you gush blood
-		var/splatter_color = "#A10808"
+		var/splatter_color = COLOR_HUMAN_BLOOD
 		var/mob/living/carbon/human/H = target
 		if (istype(H) && H.species && H.species.blood_color)
 			splatter_color = H.species.blood_color
@@ -380,7 +380,7 @@
 		return process_hitscan()
 	else
 		generate_muzzle_flash()
-		if(!isprocessing)
+		if(!(datum_flags & DF_ISPROCESSING))
 			START_PROCESSING(SSprojectiles, src)
 		pixel_move(1)	//move it now!
 

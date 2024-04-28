@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("pra_mining_camp.dmm")
 
+	unit_test_groups = list(2)
+
 /area/pra_mining_camp
 	name = "People's Republic Mining Camp"
 	icon_state = "bluenew"

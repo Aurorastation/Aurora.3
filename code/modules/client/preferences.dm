@@ -298,6 +298,7 @@ var/list/preferences_datums = list()
 			client.screen |= O
 		O.appearance = MA
 		O.dir = D
+		O.plane = HUD_PLANE
 		var/list/screen_locs = preview_screen_locs["[D]"]
 		var/screen_x = screen_locs[1]
 		var/screen_x_minor = screen_locs[2]

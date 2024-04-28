@@ -213,6 +213,9 @@ var/global/maint_all_access = 0
 	security_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.","Attention!")
 
 /obj/machinery/door/airlock/allowed(mob/M)
+	if(locked)
+		return 0
+
 	var/obj/item/I = M.GetIdCard()
 	if(!I)
 		return ..(M)

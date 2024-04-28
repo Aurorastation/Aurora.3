@@ -67,6 +67,7 @@
 	icon_state = "default"
 	screen_loc = "CENTER-7,CENTER-7"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	plane = FULLSCREEN_PLANE
 	layer = FULLSCREEN_LAYER
 	var/severity = 0
 	var/allstate = 0 //shows if it should show up for dead people too
@@ -150,3 +151,9 @@
 
 /obj/screen/fullscreen/teleport
 	icon_state = "teleport"
+
+/obj/screen/fullscreen/blueprints
+	icon = 'icons/effects/blueprints.dmi'
+	icon_state = "base"
+	screen_loc = ui_entire_screen
+	alpha = 100

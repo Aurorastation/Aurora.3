@@ -694,11 +694,13 @@
 #define ACCESS_COALITION 221
 /datum/access/coalition
 	id = ACCESS_COALITION
+	desc = "Coalition of Colonies"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_COALITION_NAVY 222
 /datum/access/coalition_navy
 	id = ACCESS_COALITION_NAVY
+	desc = "Coalition Navy"
 	access_type = ACCESS_TYPE_CENTCOM
 
 #define ACCESS_GADPATHUR_NAVY 223

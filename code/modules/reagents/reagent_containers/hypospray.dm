@@ -321,7 +321,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
 	name = "sanasomnum autoinjector"
-	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. The only downside is that Sanasomnum use guarantees extreme cancerous growth months or years down the line, which is invariably fatal in the long-term. However, in the short-term, it will save your life."
+	desc = "An autoinjector loaded with sanasomnum, an experimental and outlawed combination medicine known to cause paralysis and cancerous growths in the few human studies it was trialled during. As a result, little further research has been done on it... nothing that's available to the public, at least." //antag chemical. this is the non-antag facing description so no one reads the autoinjector desc and considers it fairgame to then use it.
 	volume = 20
 	amount_per_transfer_from_this = 20
 

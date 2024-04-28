@@ -21276,22 +21276,6 @@
 /obj/item/reagent_containers/toothpaste{
 	pixel_x = -2
 	},
-/obj/item/reagent_containers/toothbrush{
-	name = "disposable toothbrush";
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/toothbrush{
-	name = "disposable toothbrush";
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/toothbrush/red{
-	name = "disposable toothbrush";
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/toothbrush/red{
-	name = "disposable toothbrush";
-	pixel_y = 8
-	},
 /obj/effect/floor_decal/corner/green/full{
 	dir = 8
 	},
@@ -21299,6 +21283,25 @@
 /obj/machinery/power/apc/low/north,
 /obj/structure/cable/green{
 	icon_state = "0-2"
+	},
+/obj/item/reagent_containers/toothbrush/red{
+	name = "disposable toothbrush";
+	pixel_y = 12;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/toothbrush{
+	name = "disposable toothbrush";
+	pixel_y = 12;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/toothbrush/red{
+	name = "disposable toothbrush";
+	pixel_y = 12;
+	pixel_x = -4
+	},
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash{
+	pixel_x = 7;
+	pixel_y = 16
 	},
 /turf/simulated/floor/tiled/white,
 /area/horizon/crew_quarters/fitness/showers)

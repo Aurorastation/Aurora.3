@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("pra_base.dmm")
 
+	unit_test_groups = list(1)
+
 /area/pra_base
 	name = "PRA Military Outpost"
 	icon_state = "bluenew"

@@ -91,8 +91,8 @@
 
 // Dummy object for lightning flash animation.
 /obj/abstract/lightning_overlay
-	plane             = DEFAULT_PLANE + 1 //Future EMISSIVE_PLANE
-	layer             = ABOVE_LIGHTING_LAYER
+	plane             = EFFECTS_ABOVE_LIGHTING_PLANE //Future EMISSIVE_PLANE
+	layer             = LIGHTNING_LAYER
 	icon              = 'icons/effects/weather.dmi'
 	icon_state        = "full"
 	alpha             = 0
