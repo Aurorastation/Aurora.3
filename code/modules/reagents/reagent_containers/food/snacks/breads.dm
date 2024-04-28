@@ -640,3 +640,10 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 5, /singleton/reagent/nutriment/protein = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("pita bread" = 5), /singleton/reagent/nutriment/protein = list("omelette" = 5))
 	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/pita/schnitzel
+	name = "schnitzel pita"
+	desc = "Elyran style schnitzels in a pita bread pocket, served with some Hummus or Tahini. Optionally with some fries, salad, or sauces."
+	icon_state = "schnitzelpita"
+	filling_color = "#cf7105"
+	bitesize = 2

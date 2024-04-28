@@ -224,3 +224,20 @@
 	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
 	icon_state = "[variant]"
 	update_icon()
+
+/obj/item/reagent_containers/food/snacks/stuffed_pepper_rice
+	name = "stuffed pepper with rice"
+	desc = "Half a bell pepper stuffed with rice, beans and corn. Who even needs bowls when you're THIS vegan?"
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "pepper_rice1"
+	reagents_to_add = list(/singleton/reagent/nutriment = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("bell pepper" = 5, "beans" = 3, "corn" = 3))
+	filling_color = "#c5ddb6"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/stuffed_pepper_rice/Initialize()
+	. = ..()
+	var/variant = pick("pepper_rice1", "pepper_rice2")
+	icon = 'icons/obj/item/reagent_containers/food/baked.dmi'
+	icon_state = "[variant]"
+	update_icon()

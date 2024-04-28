@@ -110,3 +110,4 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	result = /obj/item/reagent_containers/food/snacks/konaqu
+	result_quantity = 2

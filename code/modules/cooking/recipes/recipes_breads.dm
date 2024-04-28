@@ -462,3 +462,10 @@
 	)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/pita/omelette
+
+/singleton/recipe/schnitzel_pita
+	items = list(
+	/obj/item/reagent_containers/food/snacks/pita,
+	/obj/item/reagent_containers/food/snacks/schnitzel
+	)
+	result = /obj/item/reagent_containers/food/snacks/pita/schnitzel

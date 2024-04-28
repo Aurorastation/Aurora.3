@@ -117,11 +117,11 @@
 	result = /obj/item/reagent_containers/food/snacks/stuffed_pepper_meat
 	result_quantity = 2
 
-///singleton/recipe/stuffed_peppers_rice
-//	appliance = OVEN
-//	fruit = list("bellpepper" = 1, "corn" = 1)
-//	items = list(
-//		/obj/item/reagent_containers/food/snacks/boiledrice
-//	)
-//	result = /obj/item/reagent_containers/food/snacks/stuffed_peppers_rice
-//	result_quantity = 2
+/singleton/recipe/stuffed_peppers_rice
+	appliance = OVEN
+	fruit = list("bellpepper" = 1, "corn" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/boiledrice
+	)
+	result = /obj/item/reagent_containers/food/snacks/stuffed_pepper_rice
+	result_quantity = 2
