@@ -3,6 +3,9 @@
 // and https://github.com/ParadiseSS13/byond-tracy
 // Tracy Client https://github.com/wolfpld/tracy
 
+#define DISK_VERSION "disk"
+#define CONNECTION_VERSION "connection"
+
 var/byond_tracy_running = 0			// Whether byond-tracy is currently running or not, no matter what version.
 var/byond_tracy_running_v = null	// Which version of byond-tracy is currently running, so we call the right binary on destruction.
 
@@ -27,9 +30,9 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 			if("Yes")
 				switch(alert("Which version of Tracy would you like to run?", "Tracy Version", "Cancel", "Connection Based", "Disk Based"))
 					if("Connection Based")
-						prof_init("tracy") // This start's mafemergency's original version of Tracy. Requiring a direct connection, not writing to the disk.
+						prof_init(CONNECTION_VERSION) // This start's mafemergency's original version of Tracy. Requiring a direct connection, not writing to the disk.
 					if("Disk Based")
-						prof_init("tracy_disk") // This start's Affectedarc07's version of Tracy. Writing a .utracy file to the disk.
+						prof_init(DISK_VERSION) // This start's Affectedarc07's version of Tracy. Writing a .utracy file to the disk.
 
 /**
  * Starts Tracy.
@@ -38,13 +41,26 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 	var/lib
 
 	switch(version)
-		if("tracy") lib = "tracy.dll"
-		if("tracy_disk") lib = "tracy-disk.dll"
+		if(CONNECTION_VERSION)
+			if(world.system_type == MS_WINDOWS)
+				lib = "tracy.dll"
+			else if(world.system_type == UNIX)
+				lib = "libprof.so"
+			else
+				CRASH("unsupported platform")
+
+		if(DISK_VERSION)
+			if(world.system_type == MS_WINDOWS)
+				lib = "tracy-disk.dll"
+			else if(world.system_type == UNIX)
+				lib = "libprof-disk.so" //this doesn't currently exist btw
+			else
+				CRASH("unsupported platform")
 
 	var/init = call_ext(lib, "init")()
 	if("0" != init) CRASH("[lib] init error: [init]")
 
-	byond_tracy_running = 1
+	byond_tracy_running = TRUE
 	byond_tracy_running_v = version
 
 /**
@@ -55,10 +71,26 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 	var/lib
 
 	switch(byond_tracy_running_v)
-		if("tracy") lib = "tracy.dll"
-		if("tracy_disk") lib = "tracy-disk.dll"
+		if(CONNECTION_VERSION)
+			if(world.system_type == MS_WINDOWS)
+				lib = "tracy.dll"
+			else if(world.system_type == UNIX)
+				lib = "libprof.so"
+			else
+				CRASH("unsupported platform")
+
+		if(DISK_VERSION)
+			if(world.system_type == MS_WINDOWS)
+				lib = "tracy-disk.dll"
+			else if(world.system_type == UNIX)
+				lib = "libprof-disk.so" //this doesn't currently exist btw
+			else
+				CRASH("unsupported platform")
 
 	call_ext(lib, "destroy")()
 
-	byond_tracy_running = 0
+	byond_tracy_running = FALSE
 	byond_tracy_running_v = null
+
+#undef DISK_VERSION
+#undef CONNECTION_VERSION
