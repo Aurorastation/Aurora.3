@@ -246,7 +246,7 @@
 /obj/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "TurretControl", "Defense Systems Control Panel", 375, 725)
+		ui = new(user, src, "TurretControlPorta", "Defense Systems Control Panel", 375, 725)
 		ui.open()
 
 /obj/machinery/porta_turret/proc/HasController()
