@@ -6817,16 +6817,15 @@
 /turf/simulated/floor/plating,
 /area/rnd/xenoarch_atrium)
 "eKo" = (
-/obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/spline/plain{
-	dir = 6
-	},
 /obj/machinery/camera/network/first_deck{
 	c_tag = "First Deck - Hangar 1";
 	dir = 8
 	},
-/obj/machinery/cryopod/robot,
-/turf/simulated/floor/carpet/rubber,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/mech_recharger,
+/turf/simulated/floor/plating,
 /area/assembly/chargebay)
 "eKr" = (
 /obj/structure/cable{
@@ -9617,10 +9616,8 @@
 /area/engineering/atmos)
 "gye" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
-/obj/effect/floor_decal/spline/plain{
-	dir = 10
-	},
 /obj/machinery/recharge_station,
+/obj/effect/floor_decal/spline/plain/cee,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "gyg" = (
@@ -21136,7 +21133,9 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "oyX" = (
@@ -23289,16 +23288,13 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/loading/yellow{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 5
-	},
 /obj/effect/landmark{
 	name = "JoinLateCyborg"
 	},
-/turf/simulated/floor/carpet/rubber,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "pYa" = (
 /obj/structure/sign/flag/scc,
@@ -24508,11 +24504,11 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 1
 	},
-/obj/effect/floor_decal/spline/plain{
-	dir = 9
-	},
 /obj/effect/landmark/start{
 	name = "Cyborg"
+	},
+/obj/effect/floor_decal/spline/plain/cee{
+	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
