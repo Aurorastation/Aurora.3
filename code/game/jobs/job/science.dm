@@ -233,7 +233,7 @@
 		SPECIES_SKRELL_AXIORI = 58
 	)
 
-/datum/outfit/job/intern_sci
+/obj/outfit/job/intern_sci
 	name = "Research Understudy"
 	jobtype = /datum/job/intern_sci
 
