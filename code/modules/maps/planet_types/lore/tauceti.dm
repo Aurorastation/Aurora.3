@@ -76,8 +76,13 @@
 	desc = "An ice world just outside the outer edge of the habitable zone."
 	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
 	icon_state = "globe1"
+	features_budget = 1
+	possible_themes = list(/datum/exoplanet_theme/snow/tundra)
+	rock_colors = list(COLOR_GUNMETAL)
 	generated_name = FALSE
 	ring_chance = 0
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list(/datum/map_template/ruin/exoplanet/gibson_mining, /datum/map_template/ruin/exoplanet/gibson_resupply)
 
 /obj/effect/overmap/visitable/sector/exoplanet/snow/new_gibson/update_icon()
 	return
@@ -133,3 +138,64 @@
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/dumas/generate_ground_survey_result()
 	ground_survey_result = "<br>No notable deposits underground"
+
+// --------------------------------- Biesel
+/obj/effect/overmap/visitable/sector/exoplanet/biesel
+	name = "Biesel"
+	desc = "The third closest planet to Tau Ceti's star, Biesel is an Earth-like planet that benefits from a temperate climate and breathable atmosphere. It is the capital planet of the Republic of Biesel."
+	icon_state = "globe2"
+	color = "#5B8958"
+	planetary_area = /area/exoplanet/grass
+	scanimage = "biesel.png"
+	massvolume = "0.95~/1.1"
+	surfacegravity = "0.99"
+	charted = "Charted 2147CE, Sol Alliance Department of Colonization."
+	geology = "Low-energy tectonic heat signature, minimal surface disruption"
+	weather = "Global full-atmosphere hydrological weather system."
+	surfacewater = "Majority potable, 75% surface water. Significant tidal forces from natural satellite"
+	rock_colors = list(COLOR_BROWN)
+	flora_diversity = 0
+	possible_themes = list(/datum/exoplanet_theme/grass/biesel)
+	features_budget = 8
+	surface_color = null//pre colored
+	water_color = null//pre colored
+	plant_colors = null//pre colored
+	generated_name = FALSE
+	ruin_planet_type = PLANET_LORE
+	ruin_type_whitelist = list(
+		/datum/map_template/ruin/exoplanet/abandoned_warehouse_1,
+		/datum/map_template/ruin/exoplanet/abandoned_warehouse_2,
+		/datum/map_template/ruin/exoplanet/biesel_camp_site,
+		/datum/map_template/ruin/exoplanet/cargo_ruins_1,
+		/datum/map_template/ruin/exoplanet/cargo_ruins_2,
+		/datum/map_template/ruin/exoplanet/cargo_ruins_3,
+		/datum/map_template/ruin/exoplanet/pra_camp_site)
+	place_near_main = list(2, 2)
+
+/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_habitability()
+	return HABITABILITY_IDEAL
+
+/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_map()
+	if(prob(75))
+		lightlevel = rand(5,10)/10
+	..()
+
+/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_planet_image()
+	skybox_image = image('icons/skybox/lore_planets.dmi', "biesel")
+	skybox_image.pixel_x = rand(0,64)
+	skybox_image.pixel_y = rand(128,256)
+
+/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_atmosphere()
+	..()
+	if(atmosphere)
+		atmosphere.remove_ratio(1)
+		atmosphere.adjust_gas(GAS_OXYGEN, MOLES_O2STANDARD, 1)
+		atmosphere.adjust_gas(GAS_NITROGEN, MOLES_N2STANDARD, 1)
+		atmosphere.temperature = T20C
+		atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/biesel/update_icon()
+	return
+
+/obj/effect/overmap/visitable/sector/exoplanet/biesel/generate_ground_survey_result()
+	ground_survey_result = "Notable mineral deposits located underground"

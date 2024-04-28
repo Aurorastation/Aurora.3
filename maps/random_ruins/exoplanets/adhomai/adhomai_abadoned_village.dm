@@ -8,3 +8,5 @@
 
 	prefix = "adhomai/"
 	suffixes = list("abandoned_village.dmm")
+
+	unit_test_groups = list(1)

@@ -115,6 +115,7 @@
 		/datum/shuttle/autodock/multi/antag/merc_ship,
 		/datum/shuttle/autodock/multi/legion,
 		/datum/shuttle/autodock/multi/distress,
+		/datum/shuttle/autodock/multi/crescent,
 		/datum/shuttle/autodock/overmap/intrepid,
 		/datum/shuttle/autodock/overmap/mining,
 		/datum/shuttle/autodock/overmap/canary,

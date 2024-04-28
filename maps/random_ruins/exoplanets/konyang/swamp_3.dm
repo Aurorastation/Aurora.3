@@ -8,3 +8,5 @@
 
 	prefix = "konyang/"
 	suffixes = list("swamp_3.dmm")
+
+	unit_test_groups = list(2)

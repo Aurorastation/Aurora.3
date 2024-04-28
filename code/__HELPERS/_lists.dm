@@ -104,6 +104,8 @@
 #define LAZYISIN(L, I) (L ? (I in L) : FALSE)
 #define LAZYDISTINCTADD(L, I) if(!L) { L = list(); } L |= I;
 #define LAZYREPLACEKEY(L, K, NK) if(L) { if(L[K]) { L[NK] = L[K] } else {L += NK} L -= K; }
+///Inserts an item into the list at position X, if the list is null it will initialize it
+#define LAZYINSERT(L, I, X) if(!L) { L = list(); } L.Insert(X, I);
 
 // Shims for some list procs in lists.dm.
 #define isemptylist(L) (!LAZYLEN(L))

@@ -8,6 +8,7 @@
 	spawn_weight = 1
 	ship_cost = 1
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	id = "miners_guild_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/miners_guild)
 

@@ -39,6 +39,8 @@
 	possible_accents = list(ACCENT_TZA_PEASANT)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH)
+	origin_traits = list(TRAIT_ORIGIN_STAMINA_BONUS)
+	origin_traits_descriptions = list("have slightly more stamina")
 
 /singleton/origin_item/origin/tza_upper
 	name = "Tza Prairie Upper Castes"
@@ -49,6 +51,8 @@
 	possible_accents = list(ACCENT_TZA_NOBLE)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_THAKH)
+	origin_traits = list(TRAIT_ORIGIN_STAMINA_BONUS)
+	origin_traits_descriptions = list("have slightly more stamina")
 
 /singleton/origin_item/origin/southlands_lower
 	name = "Southlands Lower Castes"
@@ -82,6 +86,8 @@
 	possible_accents = list(ACCENT_ZAZ_LOW)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI, CITIZENSHIP_BIESEL, CITIZENSHIP_COALITION)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_AUTAKH, RELIGION_SIAKH, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_PAIN_RESISTANCE)
+	origin_traits_descriptions = list("are slightly more resistant to pain")
 
 /singleton/origin_item/origin/zazalai_upper
 	name = "Zazalai Mountains Upper Castes"
@@ -94,3 +100,5 @@
 	possible_accents = list(ACCENT_ZAZ_HIGH)
 	possible_citizenships = list(CITIZENSHIP_IZWESKI)
 	possible_religions = list(RELIGION_THAKH, RELIGION_SKAKH, RELIGION_SIAKH, RELIGION_NONE)
+	origin_traits = list(TRAIT_ORIGIN_PAIN_RESISTANCE)
+	origin_traits_descriptions = list("are slightly more resistant to pain")

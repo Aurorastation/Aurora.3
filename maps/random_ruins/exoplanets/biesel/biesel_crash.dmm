@@ -1,0 +1,3228 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aI" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"aP" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"bA" = (
+/obj/effect/decal/cleanable/floor_damage/broken3,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"bL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"bX" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"co" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 10;
+	pixel_y = 0
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"cr" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"cw" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"cW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/wall/shuttle{
+	color = "81bd59"
+	},
+/area/template_noop)
+"dn" = (
+/obj/random/dirt_75,
+/obj/random/tool,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"dt" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"du" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/mre/main,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"dy" = (
+/obj/random/powercell,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"dH" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"ej" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"eo" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"eN" = (
+/obj/structure/cable,
+/obj/structure/cable{
+	icon_state = "1-4"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"fe" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"ff" = (
+/obj/effect/decal/cleanable/blood/gibs/body,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"fB" = (
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide{
+	destroyed = 1;
+	health = -20;
+	icon_state = "black-1"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"gf" = (
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"gg" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/empty/air{
+	destroyed = 1;
+	health = -20;
+	icon_state = "grey-1"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"gO" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/portable_atmospherics/canister/empty/air{
+	destroyed = 1;
+	health = -20;
+	icon_state = "grey-1"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"he" = (
+/obj/structure/closet/radiation,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"hq" = (
+/obj/machinery/atmospherics/binary/pump/high_power,
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"hv" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"hx" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"hI" = (
+/obj/machinery/atmospherics/pipe/tank/air{
+	layer = 3.5;
+	start_pressure = 5066.26;
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"iw" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"iG" = (
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"iH" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"iL" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9;
+	icon_state = "intact"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"iP" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"jh" = (
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"ji" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"js" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"jz" = (
+/obj/machinery/atmospherics/binary/passive_gate/supply{
+	target_pressure = 250;
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/random/toolbox,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"jB" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"jD" = (
+/obj/random/dirt_75,
+/obj/structure/lattice,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"jM" = (
+/obj/structure/barricade/wooden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"jP" = (
+/obj/random/dirt_75,
+/obj/structure/door_assembly/door_assembly_generic{
+	anchored = 1;
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"kc" = (
+/obj/machinery/portable_atmospherics/canister/empty/air{
+	destroyed = 1;
+	health = -20;
+	icon_state = "grey-1"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"kt" = (
+/obj/machinery/portable_atmospherics/canister/empty/air{
+	destroyed = 1;
+	health = -20;
+	icon_state = "grey-1"
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"kw" = (
+/obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"kE" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"kG" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"lu" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"ly" = (
+/obj/item/material/shard/shrapnel,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"lJ" = (
+/obj/effect/decal/cleanable/floor_damage/broken1,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"lK" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/melee,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"lL" = (
+/obj/random/dirt_75,
+/obj/random/tool,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"lP" = (
+/obj/random/smokable,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"lT" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"me" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"mm" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"mW" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"nf" = (
+/obj/structure/closet,
+/obj/item/clothing/head/padded{
+	color = "#BCA77E"
+	},
+/obj/item/clothing/head/beanie{
+	color = "#5b5b5b"
+	},
+/obj/item/clothing/head/softcap{
+	color = "#c2d6ba"
+	},
+/obj/item/clothing/head/cowboy{
+	color = "#573830"
+	},
+/obj/item/clothing/head/flatcap,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military,
+/obj/item/clothing/suit/storage/toggle/overlay/submariner{
+	color = "5A3535"
+	},
+/obj/item/clothing/suit/storage/toggle/leather_jacket,
+/obj/item/clothing/suit/storage/toggle/leather_jacket/military/old/alt,
+/obj/item/clothing/suit/storage/toggle/bomber,
+/obj/item/clothing/suit/storage/toggle/highvis,
+/obj/item/clothing/under/pants/track,
+/obj/item/clothing/under/pants/tacticool,
+/obj/item/clothing/under/pants/jeansblack,
+/obj/item/clothing/under/pants/classic,
+/obj/item/clothing/accessory/silversun,
+/obj/item/clothing/under/syndicate/tracksuit,
+/obj/item/clothing/under/syndicate,
+/obj/item/clothing/accessory/storage/pouches/brown,
+/obj/item/clothing/accessory/storage/pouches/black,
+/obj/item/clothing/gloves/brown,
+/obj/item/clothing/gloves/fingerless,
+/obj/item/clothing/shoes/workboots/brown,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"nl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"nt" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"nJ" = (
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"nU" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"oE" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"oH" = (
+/turf/simulated/wall,
+/area/template_noop)
+"oY" = (
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"pi" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"pR" = (
+/obj/effect/decal/cleanable/floor_damage/broken5,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"pU" = (
+/obj/structure/barricade/metal,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"ql" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/universal{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"qq" = (
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"qs" = (
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/frame/apc,
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"qy" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"qU" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/metal,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"qZ" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"sm" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/obj/random/powercell,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"su" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"sD" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/broken2,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"sX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"sZ" = (
+/obj/structure/table/standard,
+/obj/item/modular_computer/laptop,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"tb" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/broken5,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"tf" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"tg" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/obj/structure/barricade/metal,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"ts" = (
+/obj/effect/decal/cleanable/floor_damage/broken7,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"tB" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"tQ" = (
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/obj/effect/landmark/clear,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"tS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"ui" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"um" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"uL" = (
+/obj/structure/lattice,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"uW" = (
+/obj/effect/decal/cleanable/floor_damage/tiled_broken1,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"vd" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"vj" = (
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"vu" = (
+/obj/item/clothing/head/helmet/space/void/atmos,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"xu" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"yg" = (
+/obj/item/bedsheet/black{
+	layer = 4.2;
+	pixel_y = 13
+	},
+/obj/structure/railing/mapped{
+	dir = 8;
+	pixel_x = -7
+	},
+/obj/structure/bed/padded{
+	name = "bottom bunk"
+	},
+/obj/structure/bed/padded/bunk{
+	pixel_y = 13;
+	name = "top bunk"
+	},
+/obj/item/bedsheet/brown,
+/obj/random/plushie{
+	pixel_x = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/template_noop)
+"yk" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"yl" = (
+/obj/item/clothing/shoes/magboots,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"yu" = (
+/obj/structure/bed/stool/chair{
+	dir = 1
+	},
+/obj/random/medical,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"yG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/structure/door_assembly/door_assembly_generic,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"zt" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"zA" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"zG" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"zW" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Aj" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"Ak" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"AJ" = (
+/obj/effect/decal/cleanable/floor_damage/burned3,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"AN" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"AW" = (
+/obj/effect/decal/cleanable/floor_damage/broken6,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Be" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 1
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Bp" = (
+/obj/random/dirt_75,
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Ce" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/obj/random/mre/main,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"CC" = (
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"CI" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	icon_state = "2-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"CO" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"CT" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"DC" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"DF" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/empty/air{
+	destroyed = 1;
+	health = -20;
+	icon_state = "grey-1"
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"DN" = (
+/obj/random/dirt_75,
+/obj/random/powercell,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"DR" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/burned3,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"DS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"DZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Ef" = (
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"EI" = (
+/turf/template_noop,
+/area/template_noop)
+"EM" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"EV" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Fa" = (
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/random/dirt_75,
+/obj/random/mre/dessert/vegan,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"FW" = (
+/obj/random/dirt_75,
+/obj/random/tool,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Gh" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Gp" = (
+/obj/random/dirt_75,
+/obj/random/tool,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Gw" = (
+/obj/effect/landmark/clear,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Hp" = (
+/obj/structure/sign/radiation{
+	pixel_y = -29;
+	pixel_x = -32
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Hw" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	id_tag = "ipc_refugee_ship_aft_pump";
+	frequency = 1380
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"HF" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"HG" = (
+/obj/random/dirt_75,
+/obj/random/smokable,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"HI" = (
+/obj/structure/cable/yellow{
+	d2 = 4;
+	icon_state = "0-4"
+	},
+/obj/item/frame/apc,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"HP" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"HT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Ig" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Ih" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Ii" = (
+/obj/machinery/vending/engivend{
+	req_access = null
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Io" = (
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Iy" = (
+/obj/random/dirt_75,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/random/mre/dessert,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"IU" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on,
+/obj/random/toolbox,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Jb" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Jd" = (
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"JI" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Kf" = (
+/obj/random/tool,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Ks" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"KQ" = (
+/obj/effect/landmark/clear,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"KS" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Lf" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_broken,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Lg" = (
+/obj/structure/door_assembly/door_assembly_generic{
+	anchored = 1;
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"Ll" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"Lw" = (
+/obj/structure/cable{
+	icon_state = "0-2"
+	},
+/obj/effect/decal/cleanable/greenglow,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"LG" = (
+/obj/random/tool,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"LN" = (
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"My" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Ng" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Nq" = (
+/obj/structure/door_assembly/door_assembly_generic{
+	anchored = 1;
+	dir = 4
+	},
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Nt" = (
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Nz" = (
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"NC" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"NX" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Ou" = (
+/obj/structure/cable/yellow{
+	icon_state = "0-4"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/frame/apc,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Oy" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"OQ" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Pq" = (
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Pt" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1;
+	frequency = 1379;
+	id_tag = "civilian_eva_pump"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"PD" = (
+/turf/simulated/wall/shuttle{
+	color = "81bd59"
+	},
+/area/template_noop)
+"PH" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/generic,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"PO" = (
+/obj/effect/decal/cleanable/generic,
+/obj/effect/decal/cleanable/floor_damage/burned3,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"PS" = (
+/obj/item/material/shard/wood,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Qi" = (
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Qo" = (
+/obj/machinery/constructable_frame/temp_deco{
+	icon_state = "box_1"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"Qw" = (
+/obj/random/dirt_75,
+/turf/simulated/wall/shuttle{
+	color = "81bd59"
+	},
+/area/template_noop)
+"QJ" = (
+/obj/random/dirt_75,
+/obj/random/survival_weapon,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"QL" = (
+/obj/machinery/blackbox_recorder,
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"QP" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"QQ" = (
+/obj/random/dirt_75,
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"QT" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/liquid_fuel,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"QW" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/item/frame/apc,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Ra" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5;
+	pixel_y = 0
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Rn" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"RH" = (
+/obj/structure/cable/yellow{
+	d2 = 2;
+	icon_state = "0-2"
+	},
+/obj/item/frame/apc,
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Sl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Tp" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Tw" = (
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Tz" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 6
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"TN" = (
+/obj/machinery/door/airlock/command{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"TO" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/burned0,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"TP" = (
+/obj/random/dirt_75,
+/obj/item/clothing/suit/space/void/atmos,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"TQ" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Uc" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"Ug" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Uq" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"UA" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"UJ" = (
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"UP" = (
+/obj/random/mre/dessert,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"UU" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden{
+	dir = 1
+	},
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"UZ" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"VC" = (
+/obj/effect/decal/cleanable/floor_damage/broken2,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"VK" = (
+/obj/random/dirt_75,
+/obj/structure/barricade/metal{
+	dir = 4
+	},
+/obj/structure/barricade/metal{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"VP" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/structure/cable/yellow,
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/item/frame/apc,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Wf" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"WC" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"WE" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8";
+	dir = 8
+	},
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"WJ" = (
+/obj/item/material/shard/shrapnel,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"WL" = (
+/obj/structure/table/rack,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"WQ" = (
+/obj/random/dirt_75,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"WZ" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Xa" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/obj/machinery/portable_atmospherics/canister/empty/carbon_dioxide{
+	destroyed = 1;
+	health = -20;
+	icon_state = "black-1"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"Xv" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood/gibs,
+/turf/simulated/floor/exoplanet/tiled,
+/area/template_noop)
+"Xy" = (
+/obj/structure/lattice,
+/turf/simulated/floor/exoplanet/dirt_konyang,
+/area/template_noop)
+"Xz" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/door_assembly/door_assembly_generic{
+	anchored = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"XF" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4;
+	frequency = 1379;
+	id_tag = "scimaint_airlock_pump"
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"XM" = (
+/turf/simulated/floor/exoplanet/carpet/rubber,
+/area/template_noop)
+"XP" = (
+/obj/effect/decal/cleanable/floor_damage/random_burned,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Yg" = (
+/obj/effect/decal/cleanable/generic,
+/obj/effect/landmark/clear,
+/turf/template_noop,
+/area/template_noop)
+"Ys" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 9
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 9;
+	pixel_y = 0
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Yt" = (
+/obj/structure/cable/yellow{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/structure/barricade/plasteel{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"YW" = (
+/obj/effect/decal/cleanable/floor_damage/broken7,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+"Zv" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/door_assembly/door_assembly_generic,
+/obj/random/tech_supply{
+	pixel_y = -2;
+	pixel_x = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/full,
+/area/template_noop)
+"ZE" = (
+/obj/structure/cable/yellow{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/obj/structure/lattice/catwalk/indoor/grate/old,
+/obj/random/mre/main,
+/turf/simulated/floor/exoplanet/plating,
+/area/template_noop)
+
+(1,1,1) = {"
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+"}
+(2,1,1) = {"
+EI
+EI
+EI
+EI
+EI
+EI
+PD
+UZ
+UZ
+PD
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+iG
+iG
+iG
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+"}
+(3,1,1) = {"
+EI
+EI
+EI
+EI
+EI
+EI
+PD
+DZ
+DZ
+PD
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+PS
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+iG
+iG
+iG
+"}
+(4,1,1) = {"
+EI
+EI
+EI
+PD
+nU
+nU
+PD
+UU
+Sl
+PD
+EI
+EI
+EI
+EI
+PS
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+iG
+iG
+oY
+oY
+iG
+iG
+iG
+oY
+oY
+oY
+oY
+gf
+EI
+EI
+EI
+EI
+EI
+EI
+PD
+PD
+PD
+PD
+PD
+PD
+iG
+iG
+iG
+iG
+"}
+(5,1,1) = {"
+EI
+EI
+EI
+PD
+qs
+lK
+du
+ZE
+zG
+PD
+iG
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+iG
+iG
+iG
+oY
+oY
+oY
+oY
+oY
+oY
+iG
+oY
+oY
+oY
+oY
+oY
+iG
+oY
+PD
+UZ
+PD
+EI
+PD
+PD
+Aj
+hq
+VP
+cW
+kG
+iG
+iG
+iG
+oY
+"}
+(6,1,1) = {"
+EI
+EI
+PD
+PD
+DF
+HP
+Iy
+QJ
+sm
+PD
+iG
+iG
+iG
+iG
+iG
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+iG
+iG
+iG
+oY
+PD
+PD
+ui
+PD
+PD
+iG
+iG
+iG
+PD
+iG
+iG
+oY
+oY
+PD
+XF
+PD
+PD
+PD
+EM
+Tz
+bX
+Uc
+cW
+kG
+oY
+iG
+iG
+iG
+"}
+(7,1,1) = {"
+EI
+EI
+PD
+nf
+UP
+UJ
+kw
+Fa
+Ra
+PD
+PD
+iG
+iG
+iG
+iG
+iG
+iG
+iG
+EI
+EI
+EI
+EI
+EI
+oY
+oY
+oY
+oY
+oY
+oY
+PD
+Hw
+mm
+Pt
+PD
+iG
+iG
+iG
+iG
+iG
+iG
+PD
+PD
+PD
+HT
+PD
+hI
+oH
+oH
+Ak
+oH
+Xa
+cW
+kG
+iG
+iG
+iG
+oY
+"}
+(8,1,1) = {"
+EI
+EI
+PD
+yg
+lP
+sZ
+yu
+IU
+Ce
+oH
+PD
+PD
+PD
+PD
+iG
+iG
+Gw
+Gw
+Gw
+oY
+lJ
+oY
+oY
+oY
+HF
+Gh
+Gh
+gf
+iG
+PD
+Hw
+aP
+Pt
+PD
+iG
+iG
+iG
+iG
+gf
+iG
+PD
+QL
+XM
+nl
+oH
+ql
+mW
+gO
+Ys
+PD
+PD
+PD
+PD
+oY
+oY
+oY
+EI
+"}
+(9,1,1) = {"
+EI
+iG
+PD
+oH
+oH
+oH
+oH
+oH
+iw
+oH
+Jd
+CO
+PD
+PD
+PD
+PD
+PD
+PD
+iG
+hx
+iG
+WQ
+Gh
+iG
+Gh
+Gh
+WC
+iG
+Gh
+PD
+oH
+su
+oH
+PD
+PD
+iG
+iG
+iG
+iG
+iG
+PD
+Qo
+XM
+tS
+yG
+jz
+iL
+Be
+zW
+PD
+iG
+iG
+iG
+iG
+Pq
+oY
+EI
+"}
+(10,1,1) = {"
+EI
+iG
+PD
+Xv
+ff
+Rn
+oH
+jP
+Tp
+oH
+TN
+oH
+oH
+PD
+HI
+cw
+cw
+gg
+iG
+Xy
+iG
+Gh
+Wf
+iG
+Gh
+Gh
+HF
+gf
+gf
+sX
+sX
+hv
+he
+oH
+yk
+bA
+iG
+PD
+PD
+PD
+PD
+oH
+oH
+oH
+oH
+Ou
+fB
+Tp
+fB
+PD
+iG
+iG
+Gh
+iG
+Gh
+oY
+oY
+"}
+(11,1,1) = {"
+EI
+iG
+AW
+vj
+Rn
+js
+oH
+RH
+oE
+DN
+zt
+qU
+NC
+oH
+nt
+cw
+TQ
+gf
+iG
+Gh
+iG
+Gh
+Gh
+bA
+iG
+iG
+gf
+dt
+Io
+Ng
+Ng
+Ng
+Hp
+Zv
+ej
+aI
+iG
+Jd
+Jd
+Ii
+cw
+Jd
+Jd
+nJ
+Jd
+UA
+Ih
+WZ
+PH
+PD
+NX
+DR
+Gh
+iG
+iG
+iG
+oY
+"}
+(12,1,1) = {"
+EI
+iG
+iG
+jh
+dt
+co
+Ll
+Ng
+cr
+me
+me
+tg
+fe
+Xz
+iH
+Ng
+jB
+Ug
+WE
+Gh
+iG
+gf
+iG
+Ig
+iG
+iG
+iG
+iG
+iG
+iG
+iG
+YW
+iG
+iG
+iG
+iG
+AN
+me
+me
+Ng
+Ng
+Ng
+Ng
+DC
+Ug
+KS
+Oy
+My
+dt
+PD
+NX
+NX
+Gh
+gf
+iG
+PD
+oY
+"}
+(13,1,1) = {"
+EI
+Gh
+Gh
+ts
+iG
+QW
+oH
+dy
+Uq
+Jd
+Jd
+pU
+bL
+oH
+pR
+cw
+EV
+HF
+iG
+WC
+iG
+Gh
+Gh
+iG
+Gh
+Gh
+Gh
+iG
+Gh
+HF
+HF
+HF
+iG
+TP
+qq
+gf
+iG
+JI
+cw
+Jd
+Jd
+QP
+Jd
+pR
+HF
+ji
+QT
+pi
+PO
+gf
+Ks
+Qw
+Gh
+iG
+Nt
+iG
+oY
+"}
+(14,1,1) = {"
+EI
+Gh
+Gh
+iG
+iG
+gf
+VK
+um
+Yt
+oH
+Lg
+oH
+oH
+PD
+uW
+kc
+Jd
+tB
+iG
+Gh
+pR
+Gh
+HF
+Jb
+Gh
+Gh
+Gh
+iG
+Gh
+HF
+Lf
+HF
+Gh
+WC
+WL
+YW
+iG
+PD
+PD
+PD
+PD
+oH
+oH
+Nt
+dn
+iP
+tb
+CI
+Nt
+hx
+VC
+gf
+iG
+gf
+gf
+oY
+oY
+"}
+(15,1,1) = {"
+EI
+WQ
+QQ
+iG
+gf
+Jb
+xu
+HF
+Ak
+jM
+jM
+jM
+iG
+uL
+PD
+PD
+PD
+PD
+iG
+iG
+iG
+Gh
+iG
+Gh
+oY
+gf
+uL
+gf
+hx
+Gh
+Gh
+Gh
+vu
+QQ
+iG
+yl
+iG
+iG
+iG
+iG
+PD
+Tw
+Tw
+gf
+iG
+lu
+Gh
+lT
+FW
+iG
+PH
+Bp
+iG
+NX
+lL
+WQ
+WQ
+"}
+(16,1,1) = {"
+EI
+gf
+iG
+iG
+AJ
+HF
+TO
+gf
+eo
+iG
+iG
+gf
+gf
+oY
+iG
+iG
+iG
+iG
+WJ
+iG
+Pq
+iG
+iG
+Gh
+oY
+oY
+oY
+sX
+sX
+qy
+Jd
+oH
+bL
+Pq
+iG
+dt
+Ig
+iG
+gf
+Nt
+PD
+Lw
+eN
+dt
+Nz
+iG
+gf
+QT
+VC
+iG
+HF
+sD
+iG
+iG
+iG
+oY
+PD
+"}
+(17,1,1) = {"
+EI
+oY
+iG
+iG
+uL
+iG
+uL
+iG
+uL
+iG
+oY
+oY
+iG
+Gh
+Wf
+Gh
+Gh
+Gh
+HF
+Gh
+iG
+iG
+iG
+HG
+iG
+oY
+oY
+PD
+oH
+su
+oH
+PD
+PD
+Nt
+Gh
+Gh
+Gh
+Gh
+iG
+iG
+PD
+PD
+PD
+gf
+Nt
+Nz
+VC
+Qi
+Lf
+gf
+iG
+Gh
+vd
+HF
+oY
+oY
+EI
+"}
+(18,1,1) = {"
+EI
+oY
+oY
+oY
+iG
+WJ
+iG
+iG
+QQ
+Gh
+qq
+gf
+iG
+Gh
+Gh
+Gh
+Gh
+Gh
+WQ
+Gh
+iG
+iG
+Gh
+Gh
+QQ
+iG
+iG
+PD
+Hw
+aP
+Pt
+PD
+iG
+iG
+Gh
+vd
+Gh
+Lf
+iG
+iG
+iG
+iG
+iG
+iG
+iG
+iG
+iG
+Nt
+HF
+jD
+Pq
+Gp
+Gh
+WQ
+qq
+LN
+EI
+"}
+(19,1,1) = {"
+EI
+gf
+EI
+oY
+oY
+oY
+WJ
+iG
+Gh
+Gh
+gf
+XP
+oY
+Ef
+Gh
+iG
+Gh
+Gh
+WQ
+Gh
+iG
+iG
+oY
+iG
+iG
+iG
+iG
+PD
+Hw
+CT
+Pt
+PD
+iG
+oY
+OQ
+Gh
+Gh
+HF
+iG
+oY
+iG
+Gh
+HF
+WJ
+qq
+gf
+tf
+iG
+dH
+Gh
+DS
+HF
+vd
+WQ
+qq
+EI
+EI
+"}
+(20,1,1) = {"
+EI
+EI
+EI
+EI
+EI
+oY
+oY
+qZ
+HF
+Gh
+iG
+iG
+iG
+iG
+oY
+XP
+WQ
+WQ
+WQ
+Gh
+oY
+oY
+oY
+qq
+oY
+oY
+oY
+PD
+oH
+ui
+oH
+PD
+iG
+iG
+oY
+uL
+iG
+iG
+iG
+zA
+iG
+Gh
+dH
+iG
+gf
+gf
+HF
+CC
+Gh
+Gh
+qZ
+qq
+oY
+oY
+Yg
+iG
+EI
+"}
+(21,1,1) = {"
+EI
+EI
+EI
+EI
+oY
+EI
+oY
+oY
+oY
+oY
+iG
+oY
+kt
+oY
+iG
+ly
+HF
+HF
+WQ
+Gh
+oY
+gf
+oY
+oY
+oY
+oY
+oY
+oY
+oY
+oY
+oY
+oY
+oY
+oY
+WJ
+Gh
+WQ
+iG
+ly
+Nt
+iG
+Gh
+Gh
+PD
+uL
+oY
+LG
+uL
+Gh
+Gh
+oY
+oY
+WJ
+oY
+PD
+EI
+EI
+"}
+(22,1,1) = {"
+EI
+EI
+EI
+oY
+KQ
+oY
+EI
+Nq
+oY
+iG
+oY
+gf
+gf
+iG
+iG
+iG
+iG
+gf
+iG
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+oY
+oY
+Gh
+Gh
+iG
+iG
+Gh
+Gh
+dH
+qq
+oY
+iG
+oY
+oY
+iG
+Nt
+iG
+iG
+PD
+Yg
+EI
+EI
+EI
+kE
+"}
+(23,1,1) = {"
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+PS
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+PS
+oY
+oY
+oY
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+oY
+oY
+WQ
+Lf
+Gh
+Wf
+Gh
+Kf
+iG
+oY
+oY
+oY
+qq
+PD
+oY
+oY
+LN
+oY
+EI
+Kf
+EI
+iG
+"}
+(24,1,1) = {"
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+oY
+tQ
+oY
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+oY
+oY
+oY
+oY
+oY
+oY
+iG
+LN
+oY
+EI
+iG
+oY
+EI
+iG
+EI
+Yg
+EI
+EI
+LN
+"}
+(25,1,1) = {"
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+EI
+"}

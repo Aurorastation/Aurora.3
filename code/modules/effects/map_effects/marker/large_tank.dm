@@ -6,7 +6,6 @@
 	desc = "See comments/documentation in code."
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_large_tank"
-	layer = LIGHTING_LAYER
 
 	/// Radio frequency of this large tank.
 	var/frequency = 2199

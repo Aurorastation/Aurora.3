@@ -43,6 +43,9 @@
 	if(languages.len == 1 && default_language != languages[1])
 		default_language = languages[1]
 
+	//Technonancer instability
+	handle_instability()
+
 	return 1
 
 /mob/living/proc/handle_breathing()
@@ -143,6 +146,7 @@
 		else if(viewflags)
 			set_sight(viewflags)
 	else if(eyeobj)
+		eyeobj.apply_visual(src)
 		if(eyeobj.owner != src)
 			reset_view(null)
 	else if(!client.adminobs)
@@ -157,7 +161,7 @@
 
 /mob/living/proc/update_sight()
 	set_sight(0)
-	if(stat == DEAD || eyeobj)
+	if(stat == DEAD || (eyeobj && !eyeobj.living_eye))
 		update_dead_sight()
 	else
 		update_living_sight()

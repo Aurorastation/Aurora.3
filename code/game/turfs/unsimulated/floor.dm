@@ -28,7 +28,7 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockvault"
 
-/turf/unsimulated/mask/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
+/turf/unsimulated/mask/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	if (!N)
 		return
 

@@ -48,10 +48,6 @@
 	if(eyes)
 		eyes.update_colour()
 
-/obj/item/organ/external/head/removed()
-	get_icon()
-	..()
-
 /obj/item/organ/external/head/get_icon()
 	..()
 	cut_overlays()
