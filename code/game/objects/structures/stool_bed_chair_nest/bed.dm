@@ -645,7 +645,7 @@
 	var/initial_beds = 4
 
 /obj/structure/roller_rack/Initialize()
-	..()
+	. = ..()
 	LAZYINITLIST(held)
 	var/i
 	for(i=1, i<=initial_beds, i++)
