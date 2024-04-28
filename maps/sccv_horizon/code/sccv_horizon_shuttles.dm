@@ -197,3 +197,22 @@
 	docking_controller = "cargo_shuttle_dock"
 	base_turf = /turf/simulated/floor/plating
 	base_area = /area/hangar/operations
+
+//-// Admin Corvette //-//
+/datum/shuttle/autodock/multi/crescent
+	name = "ICV Crescent"
+	current_location = "nav_crescent_start"
+	warmup_time = 10
+	shuttle_area = /area/shuttle/hapt
+	dock_target = "crescent_shuttle"
+	destination_tags = list(
+		"nav_crescent_start",
+		"nav_horizon_dock_deck_3_starboard_2"
+		)
+
+/obj/effect/shuttle_landmark/crescent/start
+	name = "Corvette Hangar"
+	landmark_tag = "nav_crescent_start"
+	docking_controller = "crescent_shuttle_bay"
+	base_turf = /turf/unsimulated/floor/plating
+	base_area = /area/centcom

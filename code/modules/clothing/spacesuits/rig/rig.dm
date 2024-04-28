@@ -817,6 +817,10 @@
 /obj/item/rig/emp_act(severity)
 	. = ..()
 
+	var/obj/item/rig_module/storage/storage = locate() in installed_modules
+	if(storage)
+		storage.pockets.emp_act(severity)
+
 	//set malfunctioning
 	if(emp_protection < 30) //for ninjas, really.
 		malfunctioning += 10

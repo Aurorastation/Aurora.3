@@ -35,15 +35,3 @@
 		set_stat(CONSCIOUS)
 	else
 		health = maxHealth - getBruteLoss() - getFireLoss()
-
-/mob/living/silicon/pai/get_status_tab_items()
-	. = ..()
-
-	if(istype(card.loc, /mob/living/bot))
-		var/mob/living/bot/B = card.loc
-		. += "Piloting: [B.name]"
-		. += "Bot Status: [B.on ? "Active" : "Inactive"]"
-		. += "Maintenance Hatch: [B.open ? "Open" : "Closed"]"
-		. += "Maintenance Lock: [B.locked ? "Locked" : "Unlocked"]"
-		if(B.emagged)
-			. += "Bot M#$FUN90: MALFUNC--"

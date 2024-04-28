@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_nuclear_waste.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_nuclear_waste.dmm")
+
+	unit_test_groups = list(3)
 
 /area/adhomai_nuclear_waste
 	name = "Radioactive Waste Disposal Site"

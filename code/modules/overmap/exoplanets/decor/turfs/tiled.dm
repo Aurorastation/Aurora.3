@@ -8,6 +8,7 @@
 	tile_outline_alpha = 125
 	broken_overlay = "tiled"
 	burned_overlay = "tiled"
+	has_resources = FALSE
 
 /turf/simulated/floor/exoplanet/tiled/dark
 	name = "plasteel tiles"
@@ -41,3 +42,17 @@
 	initial_flooring = /singleton/flooring/tiling/white
 	broken_overlay = null
 	burned_overlay = null
+
+/turf/simulated/floor/exoplanet/silver
+	name = "silver floor"
+	icon = 'icons/turf/flooring/material.dmi'
+	icon_state = "silver"
+	initial_flooring = /singleton/flooring/silver
+	has_resources = FALSE
+
+/turf/simulated/floor/exoplanet/gold
+	name = "golden floor"
+	icon = 'icons/turf/flooring/material.dmi'
+	icon_state = "gold"
+	initial_flooring = /singleton/flooring/gold
+	has_resources = FALSE

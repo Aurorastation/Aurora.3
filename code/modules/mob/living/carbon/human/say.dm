@@ -39,17 +39,17 @@
 		return TRUE
 
 	//These only pertain to common. Languages are handled by mob/say_understands()
-	if (!speaking)
-		if (istype(other, /mob/living/carbon/alien/diona))
+	if(!speaking)
+		if(istype(other, /mob/living/carbon/alien/diona))
 			if(other.languages.len >= 2) //They've sucked down some blood and can speak common now.
 				return TRUE
-		if (istype(other, /mob/living/silicon))
+		if(istype(other, /mob/living/silicon))
 			return TRUE
-		if (istype(other, /mob/living/announcer))
+		if(istype(other, /mob/living/announcer))
 			return TRUE
-		if (istype(other, /mob/living/carbon/brain))
+		if(istype(other, /mob/living/carbon/brain))
 			return TRUE
-		if (istype(other, /mob/living/carbon/slime))
+		if(istype(other, /mob/living/carbon/slime))
 			return TRUE
 
 	//This is already covered by mob/say_understands()
@@ -57,6 +57,11 @@
 	//	if((other.universal_speak && !speaking) || src.universal_speak || src.universal_understand)
 	//		return 1
 	//	return 0
+
+	// Try to translate with augment if it is installed and not broken.
+	var/obj/item/organ/internal/augment/translator/translator = internal_organs_by_name[BP_AUG_TRANSLATOR]
+	if(!translator?.is_broken() && (speaking.name in translator?.languages))
+		return TRUE
 
 	return ..()
 

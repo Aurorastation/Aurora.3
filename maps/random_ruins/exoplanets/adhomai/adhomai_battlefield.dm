@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_battlefield.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_battlefield.dmm")
+
+	unit_test_groups = list(3)
 
 /obj/effect/landmark/corpse/pra_soldier
 	name = "PRA Soldier"

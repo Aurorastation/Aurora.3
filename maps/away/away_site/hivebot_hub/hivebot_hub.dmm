@@ -625,6 +625,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/bridge)
+"dz" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, east compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/starboarddocks)
 "dE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -657,6 +663,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/atmos)
+"dY" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, secure storage"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/secure)
 "dZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -1136,7 +1148,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
@@ -1317,6 +1328,7 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/blood/oil/streak,
+/obj/machinery/light,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "ij" = (
@@ -1504,6 +1516,14 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/airless,
 /area/hivebothub/centralhall)
+"jO" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/power/portgen/basic{
+	anchored = 1
+	},
+/turf/simulated/floor/tiled/dark/full/airless,
+/area/hivebothub/portdocks)
 "jQ" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
@@ -1708,6 +1728,12 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/dark/airless,
+/area/hivebothub/portdocks)
+"ln" = (
+/obj/effect/landmark/entry_point/south{
+	name = "south, west compartment"
+	},
+/turf/simulated/wall/r_wall,
 /area/hivebothub/portdocks)
 "lz" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1974,6 +2000,9 @@
 	pixel_x = 2
 	},
 /obj/item/stack/rods,
+/obj/effect/landmark/entry_point/south{
+	name = "south, control room"
+	},
 /turf/simulated/floor/airless,
 /area/hivebothub/bridge)
 "nh" = (
@@ -2349,6 +2378,7 @@
 	dir = 8
 	},
 /obj/item/material/twohanded/fireaxe,
+/obj/item/wrench,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "qA" = (
@@ -2381,9 +2411,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/hivebothub/kitchen)
 "qG" = (
-/obj/structure/girder,
-/turf/simulated/floor/airless,
-/area/hivebothub/kitchen)
+/obj/effect/landmark/entry_point/north{
+	name = "north, west compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/portdocks)
 "qI" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/decal/cleanable/dirt,
@@ -2485,8 +2517,16 @@
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
 "rn" = (
-/turf/template_noop,
-/area/hivebothub/kitchen)
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/floor_decal/corner/grey{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/blood/gibs/robot,
+/obj/effect/decal/cleanable/blood/splatter,
+/obj/machinery/light,
+/turf/simulated/floor/tiled/dark/airless,
+/area/hivebothub/centralhall)
 "ro" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -2782,6 +2822,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/hivebothub/starboarddocks)
+"tn" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, power generation"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/engi)
 "tp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
@@ -3401,6 +3447,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
+"xk" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, secure storage"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/secure)
 "xo" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
@@ -3781,6 +3833,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
+"Ag" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, east compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/starboarddocks)
 "Ak" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -4681,6 +4739,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"Ft" = (
+/obj/effect/landmark/entry_point/south{
+	name = "south, east compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/starboarddocks)
 "FI" = (
 /obj/structure/table/reinforced/steel,
 /obj/effect/decal/fake_object{
@@ -4801,7 +4865,6 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
-/obj/machinery/light,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
@@ -4818,6 +4881,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/secure)
+"GV" = (
+/obj/effect/landmark/entry_point/west{
+	name = "west, crew facilities"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/washroom)
 "GW" = (
 /obj/structure/filingcabinet/chestdrawer{
 	pixel_y = 17;
@@ -4872,6 +4941,9 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/floor_damage/broken1,
+/obj/random/tech_supply{
+	pixel_x = -4
+	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/centralhall)
 "Ht" = (
@@ -4923,6 +4995,12 @@
 /obj/effect/decal/cleanable/floor_damage/broken1,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/engi)
+"HO" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, crew quarters"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/dorm1)
 "HT" = (
 /obj/structure/bed/stool/chair{
 	dir = 8
@@ -5404,6 +5482,12 @@
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"Ls" = (
+/obj/effect/landmark/entry_point/north{
+	name = "north, secure storage"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/secure)
 "Lu" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -6079,9 +6163,6 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/random/tech_supply{
-	pixel_x = -4
-	},
 /obj/structure/closet/walllocker/emerglocker/west{
 	pixel_x = 0;
 	pixel_y = 25
@@ -6699,6 +6780,12 @@
 /obj/item/trash/can,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/portdocks)
+"Uq" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, atmospherics"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/atmos)
 "Ur" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/decal/cleanable/dirt,
@@ -6797,9 +6884,6 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable/yellow,
-/obj/machinery/power/portgen/basic{
-	anchored = 1
-	},
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
 "UY" = (
@@ -7113,6 +7197,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/airless,
 /area/hivebothub/starboarddocks)
+"Xk" = (
+/obj/effect/landmark/entry_point/east{
+	name = "east, west compartment"
+	},
+/turf/simulated/wall/r_wall,
+/area/hivebothub/portdocks)
 "Xo" = (
 /turf/simulated/floor/airless,
 /area/hivebothub/portdocks)
@@ -7371,6 +7461,9 @@
 	pixel_x = -4
 	},
 /obj/item/stack/rods,
+/obj/effect/landmark/entry_point/east{
+	name = "east, control room"
+	},
 /turf/simulated/floor/airless,
 /area/hivebothub/bridge)
 "Ze" = (
@@ -7401,10 +7494,12 @@
 /turf/space/dynamic,
 /area/hivebothub/exterior)
 "Zj" = (
-/obj/structure/lattice/catwalk,
-/obj/item/wrench,
-/turf/space/dynamic,
-/area/hivebothub/exterior)
+/obj/effect/map_effect/window_spawner/full/reinforced/grille,
+/obj/effect/landmark/entry_point/west{
+	name = "west, control room"
+	},
+/turf/simulated/floor/airless,
+/area/hivebothub/bridge)
 "Zk" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -32305,7 +32400,7 @@ fH
 Qy
 mk
 fH
-fH
+Xk
 fH
 fH
 jR
@@ -33079,7 +33174,7 @@ ck
 ck
 eT
 mS
-ke
+jO
 fH
 xs
 Lj
@@ -35125,7 +35220,7 @@ yU
 yU
 jR
 jR
-fH
+ln
 hD
 iy
 bP
@@ -35135,7 +35230,7 @@ TY
 jT
 oY
 CE
-fH
+qG
 jR
 jR
 yU
@@ -37950,7 +38045,7 @@ Lj
 Lj
 qS
 jR
-Sh
+HO
 Sh
 mr
 IJ
@@ -37964,7 +38059,7 @@ ax
 DX
 yf
 aK
-aK
+Uq
 jR
 Oi
 Lj
@@ -38235,7 +38330,7 @@ ya
 rq
 jR
 UL
-UL
+dY
 UL
 UL
 jR
@@ -40043,7 +40138,7 @@ vz
 vz
 vz
 Hw
-UL
+Ls
 xs
 Lj
 Lj
@@ -40523,8 +40618,8 @@ Uw
 Uw
 cE
 Uw
-qG
-qG
+Uw
+Uw
 Uw
 vG
 FU
@@ -41027,7 +41122,7 @@ nw
 yU
 jR
 YA
-cF
+Zj
 cF
 YA
 KX
@@ -41039,7 +41134,7 @@ XJ
 FR
 wg
 Ej
-qG
+Uw
 eg
 jK
 Gx
@@ -41291,7 +41386,7 @@ yU
 jR
 Uw
 Uw
-rn
+Uw
 Uw
 Uw
 Uw
@@ -41299,7 +41394,7 @@ Uw
 Uw
 Hr
 tb
-xr
+rn
 ec
 qO
 aa
@@ -41557,7 +41652,7 @@ bI
 ml
 cI
 zs
-tW
+ec
 nA
 nA
 dZ
@@ -41819,8 +41914,8 @@ VP
 jW
 ap
 qi
-tW
-tW
+ec
+ec
 jR
 yU
 yU
@@ -41833,7 +41928,7 @@ yU
 yU
 nG
 UL
-UL
+xk
 UL
 UL
 jR
@@ -42062,7 +42157,7 @@ Lj
 Lj
 nw
 jR
-bN
+GV
 bN
 Oy
 EN
@@ -42076,8 +42171,8 @@ yG
 za
 PZ
 ec
-ec
-Zj
+tn
+jR
 eG
 Lj
 Lj
@@ -44891,7 +44986,7 @@ ya
 ya
 jR
 jR
-CR
+Ft
 kZ
 nJ
 Wz
@@ -44901,7 +44996,7 @@ fd
 lK
 Gc
 NT
-CR
+Ag
 jR
 jR
 ya
@@ -47725,7 +47820,7 @@ CR
 UP
 Ly
 CR
-CR
+dz
 CR
 CR
 jR

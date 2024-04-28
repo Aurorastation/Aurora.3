@@ -174,6 +174,9 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		addtimer(CALLBACK(src, PROC_REF(remove_from_ignore), gib), 600)
 
 /mob/living/bot/cleanbot/think()
+	if(pAI) // no AI if we have a pAI installed
+		return
+
 	..()
 
 	if(!on)
@@ -310,12 +313,6 @@ GLOBAL_LIST_INIT_TYPED(cleanbot_types, /obj/effect/decal/cleanable, typesof(/obj
 		icon_state = "cleanbot-c"
 	else
 		icon_state = "cleanbot[on]"
-
-/mob/living/bot/cleanbot/turn_off()
-	..()
-	cleaning_target = null
-	path = list()
-	patrol_path = list()
 
 /mob/living/bot/cleanbot/attack_hand(mob/user)
 	ui_interact(user)

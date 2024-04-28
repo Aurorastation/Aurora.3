@@ -90,10 +90,12 @@ There are several things that need to be remembered:
 #define GET_TAIL_LAYER (dir == NORTH ? TAIL_NORTH_LAYER : TAIL_SOUTH_LAYER)
 #define GET_TAIL_ACC_LAYER (dir == NORTH ? TAIL_NORTH_ACC_LAYER : TAIL_SOUTH_ACC_LAYER)
 
-/proc/overlay_image(icon, icon_state,color, flags, layer)
+/proc/overlay_image(icon, icon_state,color, flags, plane, layer)
 	var/image/ret = image(icon,icon_state)
 	ret.color = color
 	ret.appearance_flags = PIXEL_SCALE | flags
+	if(plane)
+		ret.plane = plane
 	if(layer)
 		ret.layer = layer
 	return ret
@@ -1250,7 +1252,10 @@ There are several things that need to be remembered:
 	if (QDELETED(src))
 		return
 
-	overlays_raw[WRISTS_LAYER] = null
+	overlays_raw[WRISTS_LAYER_UNDER] = null
+	overlays_raw[WRISTS_LAYER_UNIFORM] = null
+	overlays_raw[WRISTS_LAYER_OVER] = null
+
 	if(check_draw_wrists())
 		var/mob_icon
 		var/mob_state = wrists.item_state || wrists.icon_state
@@ -1278,20 +1283,12 @@ There are several things that need to be remembered:
 
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
-		var/normal_layer = TRUE
+		var/wrist_layer = WRISTS_LAYER_OVER
 		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
-			normal_layer = W.normal_layer
+			wrist_layer = W.mob_wear_layer
 
-		if(normal_layer)
-			overlays_raw[WRISTS_LAYER] = wrists_overlay
-			overlays_raw[WRISTS_LAYER_ALT] = null
-		else
-			overlays_raw[WRISTS_LAYER] = null
-			overlays_raw[WRISTS_LAYER_ALT] = wrists_overlay
-	else
-		overlays_raw[WRISTS_LAYER] = null
-		overlays_raw[WRISTS_LAYER_ALT] = null
+		overlays_raw[wrist_layer] = wrists_overlay
 
 	if(update_icons)
 		update_icon()
@@ -1573,7 +1570,7 @@ There are several things that need to be remembered:
 		return FALSE
 	else if (wrists.flags_inv & ALWAYSDRAW)
 		return TRUE
-	else if (wrists && (wrists.flags_inv & HIDEWRISTS))
+	else if (wear_suit?.flags_inv & HIDEWRISTS)
 		return FALSE
 	else
 		return TRUE

@@ -7,8 +7,8 @@
 	anchored = 0
 	density = 1
 
-	idle_power_usage = 1 KILOWATTS
-	active_power_usage = 10 KILOWATTS
+	idle_power_usage = 1 KILO WATTS
+	active_power_usage = 10 KILO WATTS
 
 	var/active = FALSE
 	var/static/list/whispers = list(

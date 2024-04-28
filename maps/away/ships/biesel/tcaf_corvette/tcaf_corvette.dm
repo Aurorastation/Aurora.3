@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/tcaf_corvette
 	name = "Republican Fleet Corvette"
 	description = "A patrol vessel of Biesel's Republican Fleet."
-	suffixes = list("ships/biesel/tcaf_corvette/tcaf_corvette.dmm")
+
+	prefix = "ships/biesel/tcaf_corvette/"
+	suffixes = list("tcaf_corvette.dmm")
+
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_BADLANDS, SECTOR_VALLEY_HALE)
 	spawn_weight = 1
 	ship_cost = 1
