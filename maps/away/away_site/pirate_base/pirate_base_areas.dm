@@ -5,55 +5,55 @@
 	requires_power = TRUE
 
 /area/piratebase/equipment
-	name = ""
+	name = "Equipment Storage"
 	icon_state = "eva"
 
 /area/piratebase/living
-	name = ""
+	name = "Lounge"
 	icon_state = "crew_area"
 
 /area/piratebase/kitchen
-	name = ""
+	name = "Kitchen"
 	icon_state = "kitchen"
 
 /area/piratebase/quarters
-	name = ""
+	name = "Living Quarters"
 	icon_state = "crew_quarters"
 
 /area/piratebase/atmos
-	name = ""
+	name = "Atmospherics"
 	icon_state = "atmos"
 
 /area/piratebase/power
-	name = ""
+	name = "Engineering"
 	icon_state = "engine"
 
 /area/piratebase/hallway_north
-	name = ""
+	name = "North Hallway"
 	icon_state = "hallC1"
 
 /area/piratebase/hallway_south
-	name = ""
+	name = "South Hallway"
 	icon_state = "hallC1"
 
 /area/piratebase/maint_north
-	name = ""
+	name = "North Maintenance"
 	icon_state = "maintenance"
 
 /area/piratebase/maint_south
-	name = ""
+	name = "South Maintenance"
 	icon_state = "maintenance"
 
 /area/piratebase/medbay
-	name = ""
+	name = "Medical Bay"
 	icon_state = "medbay"
 
 /area/piratebase/eva
-	name = ""
+	name = "EVA Storage"
 	icon_state = "eva"
 
 /area/piratebase/maint_airlock
-	name = ""
+	name = "Maintenance Airlock"
 	icon_state = "maintenance"
 
 // Shuttle

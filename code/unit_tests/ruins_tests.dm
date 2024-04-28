@@ -2,7 +2,8 @@
  *  Ruins tests
  *  Basically loads the ruins to then check them
  */
-
+//Since we rely on SSunit_tests_config.config that isn't defined without this
+#if defined(UNIT_TEST)
 /datum/unit_test/ruins_test
 	name = "Ruins Test"
 	groups = list("ruins")
@@ -15,6 +16,8 @@
 	name = "Exoplanet Ruins"
 
 /datum/unit_test/ruins_test/exoplanet_ruins/start_test()
+
+	var/list/ruin_report_map = list()
 
 	//Generate a planet WITH VACUUM ATMOS to use as a baseline
 	var/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/test_exoplanet = new()
@@ -32,22 +35,58 @@
 
 	for(var/ruin in subtypesof(/datum/map_template/ruin/exoplanet))
 		var/datum/map_template/ruin/exoplanet/tested_ruin = new ruin()
-		var/turf/center_ruin = tested_ruin.load_new_z(FALSE)
+
+		//We don't care about abstract types
+		if(is_abstract(tested_ruin))
+			continue
+
+		//Every ruin must have at least one test group
+		if(!length(tested_ruin.unit_test_groups))
+			TEST_FAIL("Ruin [tested_ruin.name] - [tested_ruin.type] has no unit test groups!")
+			return UNIT_TEST_FAILED
+
+		//See if the ruin is in the unit test groups we're supposed to run
+		var/is_in_unit_test_groups = FALSE
+		for(var/unit_test_group in tested_ruin.unit_test_groups)
+			if(unit_test_group in SSunit_tests_config.config["ruins_unit_test_groups"] || SSunit_tests_config.config["ruins_unit_test_groups"][1] == "*")
+				is_in_unit_test_groups = TRUE
+				break
+
+		//If it's not in the unit test groups, skip it
+		if(!is_in_unit_test_groups)
+			TEST_DEBUG("Ruin [tested_ruin.name] - [tested_ruin.type] is not part of this pod configuration, skipping")
+			continue
+
+		TEST_NOTICE("Testing ruin [tested_ruin.name] - [tested_ruin.type] -- Size: [tested_ruin.width]x[tested_ruin.height]")
+
+		var/list/ruin_bounds = tested_ruin.load_new_z(FALSE)
 
 		if(!tested_ruin)
 			TEST_FAIL("Failed to load ruin [ruin]!")
 			return UNIT_TEST_FAILED
 
-		var/loaded_zlevel = null
-		if(center_ruin)
-			loaded_zlevel = center_ruin.z
+		if(!ruin_bounds)
+			TEST_FAIL("Failed to load ruin [ruin], no bounds were received!")
 		else
-			TEST_WARN("Ruin [tested_ruin.name] didn't load in a Z level, or it could not be located, or it was not returned by the loader")
-			loaded_zlevel = "Unknown, read above!"
+			TEST_NOTICE("Loaded ruin [tested_ruin.name] - [tested_ruin.type] with the following bounds:")
+			TEST_NOTICE("Lower X: [ruin_bounds[MAP_MINX]] - Upper X: [ruin_bounds[MAP_MAXX]]")
+			TEST_NOTICE("Lower Y: [ruin_bounds[MAP_MINY]] - Upper Y: [ruin_bounds[MAP_MAXY]]")
 
-		TEST_DEBUG("Loaded ruin [tested_ruin.name] in Z [loaded_zlevel]")
+			//Only print the z level bounds if they're not the same
+			if(ruin_bounds[MAP_MINZ] != ruin_bounds[MAP_MAXZ])
+				TEST_NOTICE("Lower Z: [ruin_bounds[MAP_MINZ]] - Upper Z: [ruin_bounds[MAP_MAXZ]]")
+
+			for(var/zlevel in ruin_bounds[MAP_MINZ] to ruin_bounds[MAP_MAXZ])
+				ruin_report_map["[zlevel]"] = "[tested_ruin.name] ([tested_ruin.type]) -- X: [ruin_bounds[MAP_MINX]] → [ruin_bounds[MAP_MAXX]] Y: [ruin_bounds[MAP_MINY]] → [ruin_bounds[MAP_MAXY]]"
 
 	TEST_PASS("All the ruins in [src.name] loaded successfully!")
+
+	//Print a report in an expandable group
+	world.log << "::group::{Report of ruin placements}"
+	for(var/zlevel in ruin_report_map)
+		TEST_NOTICE("Z: [zlevel] --> [ruin_report_map["[zlevel]"]]")
+	world.log << "::endgroup::"
+
 	return UNIT_TEST_PASSED
 
 /datum/unit_test/ruins_test/all_files_valid
@@ -96,3 +135,5 @@
 	else
 		TEST_FAIL("Some ruins have invalid paths, read above!")
 		return UNIT_TEST_FAILED
+
+#endif //UNIT_TEST
