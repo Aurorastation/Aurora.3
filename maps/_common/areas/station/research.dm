@@ -72,6 +72,10 @@
 	name = "Research - Xenobiology Lab"
 	icon_state = "xeno_lab"
 
+/area/rnd/xenobiology/xenological
+	name = "Research - Xenological Studies"
+	icon_state = "xeno_log"
+
 /area/rnd/xenobiology/hazardous
 	name = "Research - Xenobiology Hazardous Containment"
 	icon_state = "xeno_lab"

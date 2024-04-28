@@ -152,6 +152,24 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
+"abZ" = (
+/obj/machinery/door/airlock/glass_research{
+	dir = 4;
+	name = "Hazardous Containment";
+	req_access = list(47);
+	id_tag = "hazardous_access"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology/hazardous)
 "acw" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -810,6 +828,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
+"ath" = (
+/obj/structure/morgue{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology)
 "ati" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -7258,7 +7282,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology/xenological)
+/area/space)
 "dpG" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -9610,13 +9634,6 @@
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/server)
-"exB" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/light{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenobiology)
 "exC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10133,6 +10150,9 @@
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
+"eKe" = (
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/dissection)
 "eKj" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
@@ -10257,13 +10277,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"eOT" = (
-/obj/structure/disposalpipe/segment{
-	dir = 1;
-	icon_state = "pipe-c"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "ePb" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/security/holding_cell_b)
@@ -12210,12 +12223,10 @@
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
 "fFx" = (
-/obj/machinery/door/airlock/maintenance{
-	name = "Xenobiology Maintenance";
-	req_access = list(55)
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology)
+/obj/structure/table/rack,
+/obj/random/loot,
+/turf/simulated/floor/plating,
+/area/maintenance/wing/port/far)
 "fGi" = (
 /obj/structure/table/standard,
 /obj/effect/floor_decal/corner/mauve{
@@ -17339,23 +17350,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zat)
 "hRY" = (
-/obj/machinery/door/airlock/glass_research{
-	dir = 4;
-	name = "Hazardous Containment";
-	req_access = list(47);
-	id_tag = "hazardous_access"
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/xenobiology/hazardous)
+/turf/simulated/floor/reinforced,
+/area/rnd/xenobiology)
 "hSp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/honey_extractor{
@@ -22133,10 +22133,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/horizon/zat)
 "kbF" = (
-/obj/structure/morgue{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "kbL" = (
 /obj/structure/cable{
@@ -22610,12 +22608,12 @@
 /turf/simulated/floor/plating,
 /area/horizon/zat)
 "kpR" = (
-/obj/effect/floor_decal/industrial/warning,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
+/obj/structure/disposalpipe/segment{
+	dir = 1;
+	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/reinforced,
-/area/rnd/xenobiology)
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "kqi" = (
 /obj/structure/table/standard,
 /obj/item/paper_bin,
@@ -23478,14 +23476,11 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/telesci)
 "kNr" = (
-/obj/structure/sink{
-	pixel_y = 1;
-	dir = 8;
-	pixel_x = -15
+/obj/machinery/door/airlock/maintenance{
+	name = "Xenobiology Maintenance";
+	req_access = list(55)
 	},
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
+/turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "kNH" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -24244,6 +24239,13 @@
 /obj/item/hullbeacon/red,
 /turf/simulated/floor/reinforced/airless,
 /area/horizon/exterior)
+"lhd" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology/xenoflora)
 "lhH" = (
 /obj/random/junk,
 /obj/structure/disposalpipe/segment,
@@ -32608,6 +32610,13 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/medical/ors)
+"paV" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology)
 "pbK" = (
 /obj/machinery/power/emitter/gyrotron/anchored{
 	dir = 1;
@@ -35100,11 +35109,6 @@
 	},
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
-"qox" = (
-/obj/structure/table/rack,
-/obj/random/loot,
-/turf/simulated/floor/plating,
-/area/maintenance/wing/port/far)
 "qoy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -36635,9 +36639,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/engine_room/rust)
-"qVT" = (
-/turf/simulated/floor/tiled/white,
-/area/rnd/chemistry)
 "qVW" = (
 /obj/structure/closet,
 /obj/random/contraband,
@@ -41968,16 +41969,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
-"tEu" = (
-/obj/machinery/shower{
-	dir = 4;
-	pixel_x = -1;
-	pixel_y = 1
-	},
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/tiled,
-/area/rnd/xenobiology)
 "tEE" = (
 /obj/machinery/status_display/supply_display{
 	pixel_y = 32
@@ -42291,6 +42282,16 @@
 /obj/effect/floor_decal/spline/plain,
 /turf/simulated/floor/tiled,
 /area/engineering/atmos/storage)
+"tJW" = (
+/obj/structure/sink{
+	pixel_y = 1;
+	dir = 8;
+	pixel_x = -15
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/tiled,
+/area/rnd/xenobiology)
 "tKs" = (
 /obj/machinery/firealarm/north,
 /obj/effect/floor_decal/spline/plain/yellow{
@@ -42334,7 +42335,7 @@
 "tKM" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 10
+	dir = 6
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
@@ -43218,8 +43219,8 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "ugY" = (
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/dissection)
+/turf/simulated/floor/tiled/white,
+/area/rnd/chemistry)
 "ugZ" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -45734,7 +45735,13 @@
 /turf/simulated/open,
 /area/maintenance/wing/starboard)
 "vqk" = (
+/obj/machinery/shower{
+	dir = 4;
+	pixel_x = -1;
+	pixel_y = 1
+	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "vqm" = (
@@ -51121,13 +51128,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/chapel/office)
-"xJN" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/machinery/light{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/xenobiology/xenoflora)
 "xJQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -76464,7 +76464,7 @@ dJh
 iGU
 tHv
 eWv
-qVT
+ugY
 eRp
 eGs
 rSx
@@ -79700,7 +79700,7 @@ xPV
 aCP
 jHb
 bWT
-ugY
+eKe
 vtB
 kGX
 xNJ
@@ -81313,7 +81313,7 @@ bno
 qUz
 dGj
 qVx
-hRY
+abZ
 qVx
 qVx
 qVx
@@ -83131,7 +83131,7 @@ scH
 rFn
 aWg
 kEf
-tKM
+hRY
 hap
 qsw
 his
@@ -83528,7 +83528,7 @@ ksk
 uIa
 rFn
 jCe
-eOT
+kpR
 wUn
 wUn
 thL
@@ -83939,7 +83939,7 @@ hnH
 rFn
 aWg
 kEf
-kpR
+tKM
 uFo
 mYL
 nnt
@@ -84543,10 +84543,10 @@ rFn
 rFn
 rFn
 rFn
-tEu
-kNr
 vqk
-fFx
+tJW
+kbF
+kNr
 qXl
 gwm
 vIz
@@ -84738,18 +84738,18 @@ qgN
 qgN
 iox
 oXn
-xJN
+lhd
 xIN
 pkV
 lBd
 lBd
 lBd
-fFx
-vqk
-exB
-vqk
-iwo
+kNr
 kbF
+paV
+kbF
+iwo
+ath
 rqp
 lUA
 iwo
@@ -85145,7 +85145,7 @@ vnz
 mue
 rFn
 rFn
-qox
+fFx
 pVs
 lBd
 lBd
