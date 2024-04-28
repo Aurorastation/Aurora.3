@@ -8,3 +8,5 @@
 
 	prefix = "raskara/"
 	suffixes = list("pra_exploration_drone.dmm")
+
+	unit_test_groups = list(3)

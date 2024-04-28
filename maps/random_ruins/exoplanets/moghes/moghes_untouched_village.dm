@@ -10,6 +10,8 @@
 	suffixes = list("moghes_untouched_village.dmm")
 	ban_ruins = list("ouerea_village") //literally 90% the same
 
+	unit_test_groups = list(1)
+
 
 /area/moghes_village
 	name = "Moghes Village"
