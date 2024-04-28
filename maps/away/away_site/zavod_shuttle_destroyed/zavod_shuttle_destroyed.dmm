@@ -462,11 +462,17 @@
 /turf/simulated/floor/tiled/light,
 /area/space)
 "va" = (
-/mob/living/simple_animal/hostile/icarus_drone/malf,
-/turf/simulated/floor/tiled/slate,
+/mob/living/simple_animal/hostile/icarus_drone/malf{
+	desc = "An automated combat drone armed with state of the art weaponry and shielding. This one has an odd ID number at it's side.";
+	desc_extended = "An automated combat drone of unknown manufacturer, it holds state of the art weaponry and holds a personal shield over itself. A small ID tag can be seen marked into the side. It reads 'EAID Type 02'."
+	},
+/turf/simulated/floor/tiled/steel,
 /area/space)
 "vj" = (
-/mob/living/simple_animal/hostile/icarus_drone/malf,
+/mob/living/simple_animal/hostile/icarus_drone/malf{
+	desc = "An automated combat drone armed with state of the art weaponry and shielding. This one has an odd ID number at it's side.";
+	desc_extended = "An automated combat drone of unknown manufacturer, it holds state of the art weaponry and holds a personal shield over itself. A small ID tag can be seen marked into the side. It reads 'EAID Type 02'."
+	},
 /turf/simulated/floor/tiled/red,
 /area/space)
 "vl" = (
@@ -586,8 +592,9 @@
 /turf/simulated/floor/tiled/steel,
 /area/space)
 "BH" = (
-/mob/living/simple_animal/hostile/icarus_drone/malf,
-/turf/simulated/floor/tiled/steel,
+/obj/machinery/mech_recharger,
+/mob/living/heavy_vehicle/premade/firefighter,
+/turf/simulated/floor/tiled/light,
 /area/space)
 "BX" = (
 /obj/structure/inflatable/door,
@@ -632,7 +639,10 @@
 /turf/simulated/floor/tiled/steel/airless,
 /area/space)
 "DZ" = (
-/mob/living/simple_animal/hostile/icarus_drone/malf,
+/mob/living/simple_animal/hostile/icarus_drone/malf{
+	desc = "An automated combat drone armed with state of the art weaponry and shielding. This one has an odd ID number at it's side.";
+	desc_extended = "An automated combat drone of unknown manufacturer, it holds state of the art weaponry and holds a personal shield over itself. A small ID tag can be seen marked into the side. It reads 'EAID Type 02'."
+	},
 /turf/simulated/floor/tiled/techmaint,
 /area/space)
 "EL" = (
@@ -27742,7 +27752,7 @@ vQ
 Vn
 BA
 BA
-DZ
+XF
 XF
 XF
 AS
@@ -28763,7 +28773,7 @@ Ua
 nY
 Vn
 pT
-bb
+BH
 bb
 OP
 Ty
@@ -29788,7 +29798,7 @@ nJ
 tr
 Vn
 nY
-BH
+Cj
 Vn
 nJ
 jU
@@ -30045,7 +30055,7 @@ UJ
 hy
 Vn
 Cj
-Cj
+va
 Vn
 IP
 dp
@@ -36984,7 +36994,7 @@ bz
 Vn
 no
 qC
-va
+qC
 bc
 Vn
 bz
