@@ -12,6 +12,14 @@ export type TurretData = {
   can_switch: BooleanLike;
 };
 
+type Turret = {
+  name: string;
+  ref: string;
+  enabled: BooleanLike;
+  lethal: BooleanLike;
+  settings: Setting[];
+};
+
 type Setting = {
   category: string;
   variable_name: string;
