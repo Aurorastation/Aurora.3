@@ -191,11 +191,11 @@
 	else
 		..()
 
-/obj/item/folder/envelope/zta
+/obj/item/folder/envelope/zat
 	name = "leviathan zero-point artillery instructions"
 	desc = "A small envelope with \"SCC CONFIDENTIAL\" written in bold text on the front."
 
-/obj/item/folder/envelope/zta/Initialize()
+/obj/item/folder/envelope/zat/Initialize()
 	. = ..()
 	var/obj/item/paper/R = new(src)
 	R.set_content("leviathan zero-point artillery instructions", "<table><cell><hr><small><center><img src=scclogo.png><br><b>Stellar Corporate Conglomerate<br> \

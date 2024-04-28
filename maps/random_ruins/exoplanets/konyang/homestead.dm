@@ -9,6 +9,8 @@
 	prefix = "konyang/"
 	suffixes = list("homestead.dmm")
 
+	unit_test_groups = list(1)
+
 /area/konyang_homestead
 	name = "Konyang Homestead"
 	icon_state = "bluenew"

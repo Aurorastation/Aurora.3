@@ -1,0 +1,8263 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ak" = (
+/obj/structure/table/stone/marble,
+/obj/item/paper_bin{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"aA" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"aJ" = (
+/obj/random/pottedplant,
+/turf/simulated/floor/carpet/green,
+/area/space)
+"aU" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/optable,
+/obj/machinery/vending/wallmed2{
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"aZ" = (
+/obj/structure/filingcabinet/medical,
+/obj/structure/filingcabinet/medical{
+	pixel_x = -10
+	},
+/obj/structure/filingcabinet/medical{
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"bx" = (
+/obj/machinery/smartfridge/secure/medbay,
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"by" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/adv{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 3;
+	pixel_x = -4
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 3;
+	pixel_x = -4
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"bI" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"bN" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_y = -29
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"cd" = (
+/obj/machinery/door/airlock/medical,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"co" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"cv" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/reagent_containers/glass/beaker/large,
+/obj/item/storage/box/fancy/vials{
+	pixel_x = -10;
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/dropper/electronic_pipette{
+	pixel_x = -8
+	},
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"cI" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/obj/machinery/vending/wallmed2{
+	pixel_x = 28
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"cN" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/optable,
+/obj/machinery/vending/wallmed2{
+	pixel_y = 29
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"cP" = (
+/obj/effect/floor_decal/corner_wide/green/full,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps{
+	pixel_x = -5
+	},
+/obj/item/device/mass_spectrometer{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"cZ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"dm" = (
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/structure/closet/walllocker/medical{
+	name = "Oxygen Supplies";
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"dr" = (
+/obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_y = 6;
+	pixel_x = 9
+	},
+/obj/random/pottedplant_small{
+	pixel_y = 9;
+	pixel_x = -1
+	},
+/obj/random/pottedplant_small{
+	pixel_y = -1;
+	pixel_x = 5
+	},
+/obj/random/pottedplant_small{
+	pixel_y = 4;
+	pixel_x = -8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/carpet/green,
+/area/space)
+"ed" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"es" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ez" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/fire,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"eC" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 3
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 15
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"eL" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"eZ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/iv_drip,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 13
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fd" = (
+/obj/structure/filingcabinet/medical,
+/obj/structure/filingcabinet/medical{
+	pixel_x = -10
+	},
+/obj/structure/filingcabinet/medical{
+	pixel_x = 10
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fG" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"fN" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"gc" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "Sterile Sink";
+	pixel_x = 20
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"gv" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/iv_drip,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"gE" = (
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 1
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"gF" = (
+/obj/machinery/door/airlock/medical{
+	name = "Examination Room 1"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"gH" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"gO" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/body_scanconsole{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ha" = (
+/turf/simulated/floor/tiled/full,
+/area/space)
+"hE" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 12
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 15
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ij" = (
+/obj/effect/floor_decal/industrial/loading/security{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"iw" = (
+/obj/machinery/chemical_dispenser/ert,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"iN" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"iP" = (
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/green,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/filingcabinet/medical{
+	pixel_x = -8
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 7
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"je" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"jy" = (
+/obj/machinery/body_scanconsole,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"jB" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/hypospray{
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_y = 4
+	},
+/obj/item/clothing/accessory/stethoscope{
+	pixel_x = -4
+	},
+/obj/item/clothing/accessory/stethoscope{
+	pixel_x = -4
+	},
+/obj/item/clothing/glasses/hud/health,
+/obj/item/clothing/glasses/hud/health,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ki" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps{
+	pixel_x = -5
+	},
+/obj/item/device/mass_spectrometer{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"kC" = (
+/obj/machinery/photocopier,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"kI" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker";
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"kK" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"kL" = (
+/obj/effect/decal/fake_object/light_source/invisible,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"kO" = (
+/obj/structure/table/stone/marble,
+/obj/item/clipboard,
+/obj/item/device/flashlight/pen,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"kP" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"kQ" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"lE" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/syringes{
+	pixel_x = -5;
+	pixel_y = 15
+	},
+/obj/item/storage/box/bloodpacks{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lP" = (
+/obj/machinery/vending/wallmed2{
+	pixel_y = 29
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/light{
+	dir = 1;
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"mp" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ms" = (
+/obj/structure/bed/stool/chair/unmovable{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/green,
+/area/space)
+"mA" = (
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"nm" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/body_scanconsole,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"no" = (
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"nr" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"oP" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker";
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"pj" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"pt" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"px" = (
+/obj/machinery/chem_master,
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"pG" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"pK" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"pS" = (
+/obj/structure/filingcabinet/medical{
+	pixel_x = -8
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 7
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qc" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qd" = (
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"qf" = (
+/obj/machinery/optable,
+/obj/machinery/vending/wallmed2{
+	pixel_x = -28
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qh" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qk" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qn" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qp" = (
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qJ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qK" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qL" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"qS" = (
+/obj/structure/table/standard,
+/obj/item/vitals_monitor,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ri" = (
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 6
+	},
+/obj/machinery/smartfridge/secure/medbay,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"rn" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/bodyscanner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rs" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/machinery/iv_drip,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 13
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rB" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker";
+	pixel_x = -32
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rE" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/structure/curtain/open/medical,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rJ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/computer/operating,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rQ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/sleeper,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"sl" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"sm" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"sE" = (
+/obj/structure/table/standard,
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/defibrillator/loaded{
+	pixel_x = -8;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/pen{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/obj/item/device/flashlight/pen{
+	pixel_x = 6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"sR" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 13
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"tf" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/effect/floor_decal/industrial/outline/security,
+/obj/machinery/light{
+	name = "adjusted light fixture";
+	pixel_x = 16
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"tP" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"tW" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ug" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/structure/curtain/open/medical,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/effect/floor_decal/corner_wide/green/full,
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"uq" = (
+/obj/structure/table/standard,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/storage/belt/medical,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/under/rank/medical/surgeon,
+/obj/item/clothing/head/surgery,
+/obj/item/clothing/head/surgery,
+/obj/item/clothing/head/surgery,
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"us" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"uI" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"uK" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/bodyscanner,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"uL" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"uU" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/loading/security,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ve" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/filingcabinet/medical{
+	pixel_x = -8
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 7
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"vA" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/fire,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"vC" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"vE" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_x = 32
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"vX" = (
+/obj/machinery/door/airlock/medical{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"vZ" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/toxin,
+/obj/item/storage/firstaid/o2,
+/obj/item/storage/firstaid/fire,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"wg" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ws" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"wC" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"wI" = (
+/turf/simulated/wall/shuttle/scc_space_ship,
+/area/space)
+"wL" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/adv{
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/adv{
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"xg" = (
+/turf/simulated/wall{
+	color = "E2E2E2"
+	},
+/area/space)
+"xi" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/carpet/green,
+/area/space)
+"xl" = (
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/structure/closet/walllocker/medical{
+	name = "Oxygen Supplies";
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"xu" = (
+/obj/structure/table/standard,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/item/clothing/accessory/armband/med,
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"xw" = (
+/obj/effect/floor_decal/industrial/loading/security{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"xR" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular{
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 15
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_y = 3
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"xY" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yf" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yo" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yu" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yD" = (
+/obj/effect/landmark/entry_point{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
+"yH" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yI" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/carpet/green,
+/area/space)
+"yN" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yQ" = (
+/obj/structure/sink/kitchen{
+	dir = 4;
+	name = "Sterile Sink";
+	pixel_x = -20
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zg" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zj" = (
+/obj/structure/table/wood,
+/obj/random/pottedplant_small{
+	pixel_y = 6;
+	pixel_x = 9
+	},
+/obj/random/pottedplant_small{
+	pixel_y = 9;
+	pixel_x = -1
+	},
+/obj/random/pottedplant_small{
+	pixel_y = -1;
+	pixel_x = 5
+	},
+/obj/random/pottedplant_small{
+	pixel_y = 4;
+	pixel_x = -8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/carpet/green,
+/area/space)
+"zs" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_x = -32
+	},
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zy" = (
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zI" = (
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zK" = (
+/obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zN" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/bodyscanner{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ae" = (
+/obj/effect/floor_decal/industrial/loading/security,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ai" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Av" = (
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 1
+	},
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/structure/curtain/open/medical,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Az" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/item/reagent_containers/hypospray{
+	pixel_x = 14;
+	pixel_y = 6
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"AL" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"AZ" = (
+/obj/effect/landmark/entry_point{
+	dir = 1
+	},
+/turf/template_noop,
+/area/space)
+"Bo" = (
+/obj/machinery/chemical_dispenser/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Bx" = (
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"BD" = (
+/obj/structure/table/standard,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/reagentgrinder{
+	pixel_y = 7
+	},
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"BX" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Cb" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ce" = (
+/obj/machinery/body_scanconsole{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Cs" = (
+/obj/machinery/body_scanconsole,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"CM" = (
+/obj/structure/bed/stool/chair/unmovable,
+/turf/simulated/floor/carpet/green,
+/area/space)
+"CR" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"CS" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/structure/sink{
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"CX" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Du" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/machinery/vending/medical,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"DD" = (
+/obj/structure/bed/stool/chair/unmovable{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/green,
+/area/space)
+"DJ" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"DK" = (
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ey" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"EZ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Fa" = (
+/obj/structure/bed/stool/chair/unmovable{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/green,
+/area/space)
+"Fb" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 22;
+	pixel_x = -6
+	},
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 17;
+	pixel_x = -6
+	},
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 12;
+	pixel_x = -6
+	},
+/obj/item/storage/firstaid/large/combat{
+	pixel_x = -6
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"FH" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_x = 32
+	},
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"FL" = (
+/turf/template_noop,
+/area/space)
+"FT" = (
+/obj/machinery/door/airlock/multi_tile{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"FW" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/industrial/outline/service,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Gc" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Gd" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Gl" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/bodyscanner{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Gw" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/optable,
+/obj/machinery/vending/wallmed2{
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"GB" = (
+/obj/structure/table/standard,
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 10
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 8
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -13;
+	pixel_y = 2
+	},
+/obj/item/storage/box/inhalers{
+	pixel_x = 5;
+	pixel_y = 11
+	},
+/obj/item/storage/box/inhalers_auto{
+	pixel_x = 5
+	},
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"GC" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"GH" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/machinery/optable,
+/obj/machinery/vending/wallmed2{
+	pixel_y = -29
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"GI" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"He" = (
+/obj/structure/table/standard,
+/obj/item/device/advanced_healthanalyzer,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Hq" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_x = -32
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"HD" = (
+/obj/effect/floor_decal/industrial/loading/security{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"HN" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/standard,
+/obj/effect/floor_decal/corner_wide/green/full,
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"HY" = (
+/obj/machinery/door/airlock/medical{
+	name = "Bathroom"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Ic" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/machinery/vending/wallmed2{
+	pixel_y = -29
+	},
+/obj/machinery/optable,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"IA" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"IL" = (
+/obj/structure/table/stone/marble,
+/obj/random/pottedplant_small{
+	pixel_y = 6;
+	pixel_x = 9
+	},
+/obj/item/folder/white{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/folder/white{
+	pixel_x = -5
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Jj" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/machinery/vending/wallmed2{
+	pixel_x = 28
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Jm" = (
+/obj/structure/table/standard,
+/obj/item/vitals_monitor,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"JO" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps{
+	pixel_x = -5
+	},
+/obj/item/device/mass_spectrometer{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"JV" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet/medical,
+/obj/structure/curtain/open/medical,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Kc" = (
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -8
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 8
+	},
+/obj/random/lavalamp{
+	pixel_y = 13;
+	pixel_x = 7
+	},
+/obj/random/pottedplant_small{
+	pixel_y = 9;
+	pixel_x = -8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Kg" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 22
+	},
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 17
+	},
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 12
+	},
+/obj/item/storage/firstaid/large/adv{
+	pixel_y = 12
+	},
+/obj/item/storage/firstaid/large/combat,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Kh" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Km" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/machinery/body_scanconsole{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ku" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"KA" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	name = "Medical Storage and Prep"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"KR" = (
+/obj/structure/sink{
+	pixel_y = 26
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"KZ" = (
+/obj/machinery/chemical_dispenser/ert,
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Lf" = (
+/obj/machinery/chem_master,
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 9
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Lg" = (
+/obj/structure/table/standard,
+/obj/machinery/reagentgrinder{
+	pixel_y = 7
+	},
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/item/stack/material/phoron{
+	amount = 6
+	},
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 5
+	},
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Lh" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"LF" = (
+/obj/effect/floor_decal/spline/plain/orange,
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"LK" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/computer/operating,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"LX" = (
+/obj/structure/table/standard,
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/storage/belt/medical{
+	pixel_y = -4
+	},
+/obj/item/defibrillator/loaded{
+	pixel_x = 8;
+	pixel_y = 4
+	},
+/obj/item/device/flashlight/pen{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/device/flashlight/pen{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Me" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Mi" = (
+/obj/structure/filingcabinet/medical{
+	pixel_x = -8
+	},
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 7
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/effect/floor_decal/corner_wide/green/full,
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Mq" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"MC" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 29
+	},
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"MY" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/sharps{
+	pixel_x = -5
+	},
+/obj/item/device/mass_spectrometer{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Nk" = (
+/obj/structure/table/standard,
+/obj/machinery/vending/wallmed2{
+	pixel_x = -28
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = 2
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"NE" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"NG" = (
+/obj/machinery/photocopier,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Of" = (
+/obj/machinery/chemical_dispenser/ert,
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/effect/floor_decal/spline/plain/orange{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/space)
+"Ok" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Oz" = (
+/obj/machinery/photocopier,
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 10
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"OI" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/tray,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ON" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12;
+	pixel_y = 0
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Pi" = (
+/obj/machinery/sleeper{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Pk" = (
+/obj/structure/table/standard,
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 15
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Pq" = (
+/obj/structure/closet/secure_closet/medical3{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Pz" = (
+/turf/simulated/floor/carpet/green,
+/area/space)
+"Qa" = (
+/obj/structure/table/standard,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/item/storage/box/freezer/organcooler{
+	pixel_x = -1;
+	pixel_y = 15
+	},
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/obj/item/auto_cpr,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Qj" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/structure/table/standard,
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Qm" = (
+/obj/machinery/door/airlock/medical{
+	name = "Examination Room 3"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Qn" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/green,
+/obj/machinery/photocopier,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Qs" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/structure/sink{
+	pixel_y = 26;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Qy" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/bodyscanner{
+	dir = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QF" = (
+/obj/structure/table/standard,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 12
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 2;
+	pixel_y = 0
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QG" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QM" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/machinery/iv_drip,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QQ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ra" = (
+/obj/structure/table/standard,
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 8
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/o2{
+	pixel_x = -17;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/toxin{
+	pixel_x = -2;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 3
+	},
+/obj/item/storage/firstaid/fire{
+	pixel_x = 13;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"RJ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/sleeper{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"RK" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/vending/medical{
+	density = 0;
+	pixel_x = 31;
+	req_access = list(204)
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"RQ" = (
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"RR" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/effect/floor_decal/spline/plain/green,
+/obj/structure/closet/walllocker/medical{
+	pixel_y = -29
+	},
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Sk" = (
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"SN" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"SV" = (
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/structure/closet/walllocker/medical{
+	name = "Blood Locker";
+	pixel_x = 32
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/red,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ty" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/machinery/bodyscanner{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"TP" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/bodyscanner,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ue" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 2;
+	name = "Medical"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Ul" = (
+/obj/structure/table/standard,
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/item/roller{
+	pixel_y = 4
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ut" = (
+/obj/machinery/door/airlock/multi_tile,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"UB" = (
+/obj/machinery/optable,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/vending/wallmed2{
+	pixel_x = 28
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"UK" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/obj/machinery/sleeper,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"UL" = (
+/obj/machinery/iv_drip,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"UZ" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 9
+	},
+/obj/effect/floor_decal/corner_wide/green,
+/obj/structure/table/standard,
+/obj/machinery/vending/wallmed2{
+	pixel_x = -28
+	},
+/obj/item/storage/firstaid/regular{
+	pixel_x = -4;
+	pixel_y = 8
+	},
+/obj/item/storage/box/gloves{
+	pixel_x = 5;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Vr" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Vs" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"VA" = (
+/obj/machinery/door/airlock/medical{
+	name = "Examination Room 2"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"VY" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 6
+	},
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wa" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/structure/table/standard,
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/roller{
+	pixel_y = 2;
+	pixel_x = 5
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/obj/item/bodybag/cryobag{
+	pixel_x = -8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wh" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 5
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wm" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wt" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wy" = (
+/obj/machinery/body_scanconsole,
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"WD" = (
+/obj/structure/filingcabinet/medical,
+/obj/structure/filingcabinet/medical{
+	pixel_x = -10
+	},
+/obj/structure/filingcabinet/medical{
+	pixel_x = 10
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"WH" = (
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	layer = 3.01;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"WX" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"WZ" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 10
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Xa" = (
+/obj/machinery/computer/operating{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Xe" = (
+/obj/structure/table/standard,
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/device/radio{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/device/radio{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/device/radio{
+	pixel_x = 5;
+	pixel_y = 6
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5
+	},
+/obj/item/device/gps/medical{
+	pixel_x = -7
+	},
+/obj/item/device/gps/medical{
+	pixel_x = 5
+	},
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/first_responder,
+/obj/effect/floor_decal/spline/plain/green,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Xf" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/structure/closet/walllocker/medical{
+	pixel_y = 29
+	},
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/reagent_containers/blood/OMinus,
+/obj/item/tank/oxygen,
+/obj/item/clothing/mask/breath/medical,
+/obj/item/storage/firstaid/large/adv,
+/obj/item/storage/pill_bottle/mortaphenyl,
+/obj/item/storage/pill_bottle/dermaline,
+/obj/item/storage/pill_bottle/bicaridine,
+/obj/item/reagent_containers/glass/bottle/inaprovaline,
+/obj/item/reagent_containers/hypospray,
+/obj/item/storage/box/masks,
+/obj/item/storage/box/gloves,
+/obj/item/reagent_containers/glass/bottle/thetamycin,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"XV" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"XW" = (
+/obj/structure/table/standard,
+/obj/item/storage/box/syringes{
+	pixel_x = 5;
+	pixel_y = 15
+	},
+/obj/item/storage/box/bloodpacks{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Yi" = (
+/obj/structure/table/standard,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner_wide/green/full{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner_wide/green/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Yk" = (
+/obj/effect/floor_decal/spline/plain/corner/green{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Yr" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 4
+	},
+/obj/machinery/sleeper{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"YK" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/obj/machinery/body_scanconsole{
+	dir = 1;
+	layer = 3.01;
+	pixel_y = 6
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"YR" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/iv_drip,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Zb" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Zd" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Zn" = (
+/obj/effect/floor_decal/spline/plain/green,
+/obj/effect/floor_decal/industrial/outline/security,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Zp" = (
+/obj/effect/landmark/entry_point{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"Zr" = (
+/obj/effect/floor_decal/spline/plain/green{
+	dir = 9
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Zz" = (
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 6
+	},
+/obj/effect/floor_decal/corner_wide/green{
+	dir = 1
+	},
+/obj/structure/sink/kitchen{
+	dir = 8;
+	name = "Sterile Sink";
+	pixel_x = 20
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+
+(1,1,1) = {"
+FL
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+Zp
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+Zp
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(2,1,1) = {"
+FL
+wI
+WX
+qk
+Hq
+wI
+FL
+wI
+WX
+qk
+qK
+Zb
+uI
+wI
+FL
+wI
+WX
+qk
+qK
+Zb
+WZ
+cd
+AZ
+wI
+WX
+qk
+qK
+Zb
+uI
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(3,1,1) = {"
+FL
+wI
+cN
+zI
+mA
+cd
+FL
+wI
+cN
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+cN
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+cN
+zI
+zI
+zI
+RR
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(4,1,1) = {"
+FL
+wI
+eZ
+nm
+qh
+wI
+FL
+wI
+qc
+zI
+zI
+zI
+mA
+cd
+AZ
+wI
+qc
+zI
+zI
+zI
+Ku
+wI
+yD
+wI
+qc
+zI
+zI
+Cs
+Ty
+wI
+Zp
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(5,1,1) = {"
+FL
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+Qj
+ez
+zI
+zI
+RR
+wI
+FL
+wI
+Qj
+ez
+zI
+zI
+RR
+wI
+FL
+wI
+Qj
+ez
+zI
+zI
+mA
+wI
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+"}
+(6,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+fN
+eL
+RK
+nm
+CX
+wI
+FL
+wI
+fN
+eL
+eL
+nm
+CX
+wI
+FL
+wI
+fN
+eL
+eL
+eL
+je
+cd
+AZ
+xg
+aA
+dm
+rB
+oP
+xg
+Gd
+qf
+qn
+UL
+qf
+GI
+RQ
+NE
+xg
+FL
+"}
+(7,1,1) = {"
+FL
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+yD
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+yD
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+xg
+Pk
+zI
+zI
+mA
+KA
+Wt
+zI
+Mq
+zI
+zI
+Mq
+zI
+Zn
+xg
+FL
+"}
+(8,1,1) = {"
+FL
+wI
+TP
+YK
+gv
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+QF
+zI
+zI
+mA
+ha
+Wt
+zI
+zI
+zI
+zI
+zI
+xw
+tf
+xg
+FL
+"}
+(9,1,1) = {"
+FL
+cd
+Wt
+zI
+GH
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+xg
+Qa
+zI
+zI
+GB
+xg
+KR
+zI
+zI
+ij
+zI
+zI
+zI
+Zn
+xg
+FL
+"}
+(10,1,1) = {"
+FL
+wI
+vE
+bI
+rJ
+wI
+FL
+wI
+uK
+YK
+Zb
+Zb
+nr
+wI
+FL
+wI
+uK
+YK
+Zb
+Zb
+nr
+wI
+FL
+cd
+BX
+Zb
+Zb
+Zb
+nr
+wI
+FL
+xg
+Kg
+zI
+zI
+xu
+xg
+lP
+zI
+Mq
+zI
+kL
+zI
+HD
+Zn
+xg
+FL
+"}
+(11,1,1) = {"
+FL
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+MC
+zI
+zI
+vZ
+Kh
+wI
+FL
+wI
+MC
+zI
+zI
+vZ
+Kh
+wI
+FL
+wI
+Wt
+zI
+zI
+vZ
+Kh
+wI
+FL
+xg
+wL
+zI
+zI
+uq
+xg
+uL
+QG
+Xa
+DK
+zI
+zI
+zI
+Pi
+xg
+FL
+"}
+(12,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+cd
+Wt
+zI
+zI
+zI
+QM
+wI
+FL
+wI
+UK
+zI
+zI
+zI
+QM
+wI
+FL
+wI
+wC
+WH
+zI
+zI
+QM
+wI
+FL
+xg
+eC
+zI
+zI
+Xe
+xg
+BD
+Of
+bx
+Wt
+zI
+zI
+zI
+Pi
+xg
+FL
+"}
+(13,1,1) = {"
+FL
+wI
+wI
+vX
+wI
+wI
+FL
+wI
+Wt
+zI
+zI
+zI
+Ic
+wI
+FL
+wI
+Wt
+zI
+zI
+zI
+Ic
+wI
+FL
+wI
+MC
+zI
+zI
+zI
+Ic
+wI
+FL
+xg
+Az
+zI
+zI
+KZ
+xg
+cv
+co
+LF
+Wt
+zI
+zI
+zI
+mA
+xg
+FL
+"}
+(14,1,1) = {"
+FL
+wI
+Xf
+Zb
+rn
+wI
+FL
+wI
+rQ
+eL
+sR
+bI
+rJ
+wI
+FL
+cd
+sl
+eL
+sR
+bI
+rJ
+wI
+FL
+wI
+rQ
+eL
+sR
+bI
+rJ
+wI
+FL
+xg
+XW
+eL
+eL
+vC
+xg
+px
+qd
+kQ
+AL
+eL
+uU
+jy
+Bx
+xg
+FL
+"}
+(15,1,1) = {"
+FL
+wI
+OI
+zI
+Km
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+ha
+Ue
+xg
+xg
+xg
+xg
+FL
+"}
+(16,1,1) = {"
+FL
+wI
+QQ
+Gw
+rs
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(17,1,1) = {"
+FL
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+vX
+wI
+wI
+wI
+FL
+wI
+vX
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+vX
+wI
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+ha
+Ue
+xg
+xg
+xg
+xg
+FL
+"}
+(18,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+us
+Zb
+Zb
+zs
+Qy
+wI
+FL
+wI
+Zr
+Zb
+RJ
+zs
+Qy
+wI
+FL
+wI
+us
+zs
+Gl
+Zb
+pG
+wI
+FL
+xg
+lE
+Zb
+Zb
+fG
+xg
+Lf
+Bo
+kK
+aA
+Zb
+Ae
+Wy
+Sk
+xg
+FL
+"}
+(19,1,1) = {"
+FL
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+Wt
+zI
+zI
+zI
+Km
+wI
+FL
+wI
+Wt
+zI
+zI
+zI
+Km
+wI
+FL
+wI
+Wt
+zI
+no
+zI
+mA
+wI
+FL
+xg
+xR
+zI
+zI
+KZ
+xg
+cv
+co
+LF
+Wt
+zI
+zI
+zI
+mA
+xg
+FL
+"}
+(20,1,1) = {"
+FL
+wI
+YR
+qf
+Wm
+wI
+FL
+wI
+CS
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+CS
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+CS
+zI
+zI
+zI
+mA
+wI
+FL
+xg
+Ra
+zI
+zI
+Xe
+xg
+Lg
+iw
+ri
+Wt
+zI
+zI
+zI
+Pi
+xg
+FL
+"}
+(21,1,1) = {"
+FL
+wI
+gO
+zI
+pj
+wI
+FL
+wI
+OI
+zI
+zI
+vA
+mA
+wI
+FL
+wI
+OI
+zI
+zI
+vA
+mA
+wI
+FL
+wI
+OI
+zI
+zI
+vA
+mA
+wI
+FL
+xg
+by
+zI
+zI
+uq
+xg
+FW
+sm
+mp
+Yk
+zI
+zI
+zI
+Pi
+xg
+FL
+"}
+(22,1,1) = {"
+FL
+wI
+es
+eL
+bN
+wI
+FL
+wI
+QQ
+Gw
+EZ
+cZ
+Du
+wI
+FL
+wI
+QQ
+Gw
+EZ
+cZ
+Du
+wI
+FL
+wI
+QQ
+Gw
+EZ
+cZ
+Du
+wI
+FL
+xg
+Fb
+zI
+zI
+xu
+xg
+lP
+zI
+Mq
+zI
+kL
+zI
+ij
+Zn
+xg
+FL
+"}
+(23,1,1) = {"
+FL
+wI
+wI
+vX
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+xg
+Qa
+zI
+zI
+GB
+xg
+KR
+zI
+zI
+HD
+zI
+zI
+zI
+Zn
+xg
+FL
+"}
+(24,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+hE
+zI
+zI
+mA
+KA
+Wt
+zI
+zI
+zI
+zI
+zI
+xw
+tf
+xg
+FL
+"}
+(25,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+wI
+wI
+FL
+xg
+Ul
+zI
+zI
+mA
+ha
+Wt
+zI
+Mq
+zI
+zI
+Mq
+zI
+Zn
+xg
+FL
+"}
+(26,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+yf
+Wa
+Lh
+aU
+LK
+wI
+FL
+wI
+yf
+Wa
+Lh
+aU
+LK
+wI
+FL
+wI
+yf
+Wa
+Lh
+aU
+LK
+wI
+FL
+xg
+AL
+xl
+SV
+kI
+xg
+qJ
+UB
+ws
+SN
+UB
+ws
+yH
+Gc
+xg
+FL
+"}
+(27,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+Wt
+vZ
+zI
+zI
+pj
+wI
+FL
+wI
+Wt
+vZ
+zI
+zI
+pj
+wI
+FL
+wI
+Wt
+vZ
+zI
+zI
+pj
+wI
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+"}
+(28,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+Qs
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+Qs
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+Qs
+zI
+zI
+zI
+mA
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(29,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+gO
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+gO
+zI
+zI
+zI
+mA
+wI
+FL
+wI
+Wt
+zI
+Ce
+zI
+mA
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(30,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+pK
+FH
+eL
+eL
+VY
+wI
+FL
+wI
+pK
+FH
+Yr
+eL
+ed
+wI
+FL
+wI
+Vs
+eL
+zN
+FH
+VY
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(31,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+wI
+wI
+wI
+vX
+wI
+wI
+wI
+FL
+wI
+wI
+wI
+wI
+wI
+vX
+wI
+FL
+wI
+vX
+wI
+wI
+wI
+wI
+wI
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(32,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(33,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(34,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(35,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+Ut
+yI
+Pz
+Pz
+Pz
+yI
+Ut
+zI
+zI
+CR
+zI
+zI
+zI
+CR
+zI
+zI
+xg
+JO
+Nk
+Ai
+Mi
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(36,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+ha
+Pz
+Pz
+Pz
+Pz
+Pz
+ha
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+gF
+Wh
+qp
+qp
+Oz
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(37,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+aJ
+xg
+ha
+FT
+xg
+xg
+xg
+xg
+xg
+Zd
+kP
+xg
+Wh
+qp
+qp
+yo
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(38,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+ak
+zI
+zI
+fd
+xg
+XV
+iN
+xg
+zI
+zI
+xg
+tW
+gc
+tP
+rE
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(39,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+gH
+Cb
+zI
+aZ
+xg
+Ey
+Ey
+HY
+zI
+zI
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(40,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+kO
+zI
+zI
+aZ
+xg
+xg
+xg
+xg
+zI
+zI
+xg
+JO
+Nk
+Ai
+Mi
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(41,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+kO
+Cb
+zI
+Kc
+xg
+Ey
+Ey
+HY
+zI
+zI
+VA
+Wh
+qp
+qp
+Oz
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(42,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+dr
+DD
+DD
+DD
+xi
+IL
+zI
+zI
+NG
+xg
+GC
+pt
+xg
+Zd
+kP
+xg
+Wh
+qp
+qp
+yo
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(43,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+zI
+zI
+xg
+tW
+gc
+tP
+rE
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(44,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+He
+sE
+zI
+zI
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(45,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Jm
+zI
+zI
+zI
+xg
+JO
+Nk
+Ai
+Mi
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(46,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+jB
+zI
+zI
+zI
+Qm
+Wh
+qp
+qp
+Oz
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(47,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Zd
+zI
+zI
+kP
+xg
+Wh
+qp
+qp
+yo
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(48,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+zy
+zy
+Pq
+Pq
+xg
+tW
+gc
+tP
+rE
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(49,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(50,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(51,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(52,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+zy
+zy
+Pq
+Pq
+xg
+Yi
+yQ
+Ai
+ug
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(53,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Zd
+zI
+zI
+kP
+xg
+Wh
+qp
+qp
+yo
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(54,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+jB
+zI
+zI
+zI
+Qm
+Wh
+qp
+qp
+Oz
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(55,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Jm
+zI
+zI
+zI
+xg
+MY
+Jj
+tP
+pS
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(56,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+He
+LX
+zI
+zI
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(57,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+zI
+zI
+xg
+Yi
+yQ
+Ai
+ug
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(58,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+zj
+ms
+ms
+ms
+yI
+IL
+zI
+zI
+NG
+xg
+ON
+iN
+xg
+Zd
+kP
+xg
+Wh
+qp
+qp
+yo
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(59,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+kO
+Cb
+zI
+Kc
+xg
+Ey
+Ey
+HY
+zI
+zI
+VA
+Wh
+qp
+qp
+Oz
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(60,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+kO
+zI
+zI
+aZ
+xg
+xg
+xg
+xg
+zI
+zI
+xg
+MY
+Jj
+tP
+pS
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(61,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+gH
+Cb
+zI
+aZ
+xg
+Ey
+Ey
+HY
+zI
+zI
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(62,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+Pz
+ak
+zI
+zI
+fd
+xg
+xY
+pt
+xg
+zI
+zI
+xg
+Yi
+yQ
+Ai
+ug
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(63,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+CM
+Pz
+Pz
+Pz
+aJ
+xg
+ha
+FT
+xg
+xg
+xg
+xg
+xg
+Zd
+kP
+xg
+Wh
+qp
+qp
+yo
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(64,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+Ut
+Pz
+Pz
+Pz
+Pz
+Pz
+Ut
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+gF
+Wh
+qp
+qp
+Oz
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(65,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+ha
+xi
+Pz
+Pz
+Pz
+xi
+ha
+zI
+zI
+yu
+zI
+zI
+zI
+yu
+zI
+zI
+xg
+MY
+Jj
+tP
+pS
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(66,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(67,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(68,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(69,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+iP
+wg
+UZ
+cP
+xg
+zI
+zI
+CR
+zI
+zI
+zI
+CR
+zI
+zI
+Ut
+yI
+Pz
+Pz
+Pz
+yI
+Ut
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(70,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Qn
+qp
+qp
+Ok
+gF
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+ha
+Pz
+Pz
+Pz
+Pz
+Pz
+ha
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(71,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+yN
+qp
+qp
+Ok
+xg
+Zd
+zI
+xg
+xg
+xg
+xg
+xg
+ha
+FT
+xg
+aJ
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(72,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Av
+qL
+Zz
+gE
+xg
+zI
+zI
+xg
+iN
+IA
+xg
+WD
+zI
+zI
+ak
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(73,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+zI
+zI
+HY
+Ey
+Ey
+xg
+aZ
+zI
+zK
+gH
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(74,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+iP
+wg
+UZ
+cP
+xg
+zI
+zI
+xg
+xg
+xg
+xg
+aZ
+zI
+zI
+kO
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(75,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Qn
+qp
+qp
+Ok
+VA
+zI
+zI
+HY
+Ey
+Ey
+xg
+Kc
+zI
+zK
+kO
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(76,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+yN
+qp
+qp
+Ok
+xg
+Zd
+zI
+xg
+pt
+Vr
+xg
+kC
+zI
+zI
+IL
+xi
+DD
+DD
+DD
+dr
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(77,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Av
+qL
+Zz
+gE
+xg
+zI
+zI
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(78,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+zI
+zI
+sE
+He
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(79,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+iP
+wg
+UZ
+cP
+xg
+zI
+zI
+zI
+qS
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(80,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Qn
+qp
+qp
+Ok
+Qm
+zI
+zI
+zI
+jB
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(81,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+yN
+qp
+qp
+Ok
+xg
+Zd
+zI
+zI
+kP
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(82,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Av
+qL
+Zz
+gE
+xg
+Pq
+Pq
+zy
+zy
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(83,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(84,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(85,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(86,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+JV
+Ai
+yQ
+HN
+xg
+Pq
+Pq
+zy
+zy
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(87,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Wh
+qp
+qp
+yo
+xg
+Zd
+zI
+zI
+kP
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(88,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+zg
+qp
+qp
+yo
+Qm
+zI
+zI
+zI
+jB
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(89,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+ve
+tP
+cI
+ki
+xg
+zI
+zI
+zI
+qS
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(90,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+zI
+zI
+LX
+He
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(91,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+JV
+Ai
+yQ
+HN
+xg
+zI
+zI
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(92,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Wh
+qp
+qp
+yo
+xg
+Zd
+zI
+xg
+iN
+Me
+xg
+kC
+zI
+zI
+IL
+yI
+ms
+ms
+ms
+zj
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(93,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+zg
+qp
+qp
+yo
+VA
+zI
+zI
+HY
+Ey
+Ey
+xg
+Kc
+zI
+zK
+kO
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(94,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+ve
+tP
+cI
+ki
+xg
+zI
+zI
+xg
+xg
+xg
+xg
+aZ
+zI
+zK
+kO
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(95,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+zI
+zI
+HY
+Ey
+Ey
+xg
+aZ
+zI
+zI
+gH
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(96,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+JV
+Ai
+yQ
+HN
+xg
+zI
+zI
+xg
+pt
+DJ
+xg
+WD
+zI
+zI
+ak
+Pz
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(97,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+Wh
+qp
+qp
+yo
+xg
+Zd
+zI
+xg
+xg
+xg
+xg
+xg
+ha
+FT
+xg
+aJ
+Pz
+Pz
+Pz
+Fa
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(98,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+zg
+qp
+qp
+yo
+gF
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+zI
+Ut
+Pz
+Pz
+Pz
+Pz
+Pz
+Ut
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(99,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+ve
+tP
+cI
+ki
+xg
+zI
+zI
+yu
+zI
+zI
+zI
+yu
+zI
+zI
+ha
+xi
+Pz
+Pz
+Pz
+xi
+ha
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}
+(100,1,1) = {"
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+xg
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+FL
+"}

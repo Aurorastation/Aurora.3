@@ -1125,21 +1125,3 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			qdel(attacking_item)
 			return
 	..()
-
-/obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/attacking_item, mob/user)
-	if(istype(attacking_item, /obj/item/paper))
-		if(!dry)
-			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
-			return
-		if(user.unEquip(attacking_item))
-			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
-			R.chem_volume = reagents.total_volume
-			reagents.trans_to_holder(R.reagents, R.chem_volume)
-			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [attacking_item] and [src]."),
-								SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."))
-			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
-			user.put_in_active_hand(R)
-			qdel(attacking_item)
-			qdel(src)
-			return
-	..()
