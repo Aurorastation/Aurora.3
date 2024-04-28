@@ -9,6 +9,8 @@
 	prefix = "konyang/"
 	suffixes = list("fireoutpost.dmm")
 
+	unit_test_groups = list(3)
+
 /area/konyang_fireoutpost
 	name = "Konyang Firewatch Post"
 	icon_state = "bluenew"

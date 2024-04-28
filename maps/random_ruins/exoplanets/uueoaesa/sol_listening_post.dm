@@ -7,6 +7,8 @@
 	suffixes = list("sol_listening_post.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
+	unit_test_groups = list(1)
+
 /area/sol_listening_post
 	name = "Solarian Listening Post"
 	icon_state = "bluenew"
