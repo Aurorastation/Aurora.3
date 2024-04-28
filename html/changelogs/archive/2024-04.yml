@@ -502,3 +502,43 @@
   - code_imp: Improved ease of access to output info for the unit test.
   Yonnimer:
   - rscdel: Removes the ability for the dominian research vessel to spawn coc space.
+2024-04-27:
+  Alberyk:
+  - rscadd: The Sani'Orios away site is now home to a DPRA asteroid outpost.
+  Ben10083:
+  - balance: Napalm grenades now cost 8 telecrystals in uplink.
+  DreamySkrell:
+  - rscadd: Adds mouthwash, and mouthwash-based drinks.
+  Geeves:
+  - qol: Lying down intentionally is now instant.
+  - rscadd: Added a new macro that makes you lie down, the key is lie_down.
+  - rscadd: Added a sleeveless crop top hoodie.
+  - imageadd: Tweaked a single pixel on the hoodie south facing sprite to make both
+      sides symmetrical.
+  - rscadd: You can now set wristwear to layer under your uniform, over your uniform,
+      or over your suit.
+  GeneralCamo:
+  - rscadd: Atmospheric meters now change color based on their measured temperature.
+  RustingWithYou:
+  - qol: Gives the pirate base shuttle a proper docking airlock.
+  - qol: Replaces the syndicate spacesuits on the pirate base with an assortment of
+      random ones.
+  - qol: Changes the pirate base description to not tell everyone scanning it that
+      there are pirates there.
+  - bugfix: Replaces exoplanet floors on Ti'Rakqi ship.
+  - qol: Adds drying rack and condimaster to Ti'Rakqi ship.
+  meep109:
+  - qol: Hopefully fixes docking issues with the independent freighter shuttle.
+  nauticall:
+  - bugfix: Fixed the New Horizons drink not having a sprite.
+2024-04-28:
+  Alberyk:
+  - rscadd: Added lore radio stations to Tau Ceti.
+  DreamySkrell:
+  - rscadd: 'Disables ships that do not follow current standards: EE, TCFL, FSF.'
+  - rscadd: Cult Base cultists spawn without cult books, so they can only use the
+      runes mapped into the map, and can't make more.
+  - rscadd: Conversion rune added that does not give the new cultist the cult book.
+  - rscadd: Cult Base mapping and ghostspawner tweaks.
+  FluffyGhost:
+  - server: Updated tracy to our v27042024, now supports 515.1636.
