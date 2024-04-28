@@ -24788,6 +24788,12 @@
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
+"lxH" = (
+/obj/effect/floor_decal/corner/mauve/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/xenobiology)
 "lyv" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d2-1-f"
@@ -36616,6 +36622,9 @@
 	req_access = list(47);
 	pixel_y = 29
 	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "qVJ" = (
@@ -38189,7 +38198,6 @@
 "rKj" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8;
-	icon_state = "map_on";
 	name = "Distro to Trays";
 	use_power = 1
 	},
@@ -43219,8 +43227,12 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "ugY" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/white,
-/area/rnd/chemistry)
+/area/rnd/xenobiology)
 "ugZ" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -76464,7 +76476,7 @@ dJh
 iGU
 tHv
 eWv
-ugY
+xVt
 eRp
 eGs
 rSx
@@ -83133,7 +83145,7 @@ aWg
 kEf
 hRY
 hap
-qsw
+lxH
 his
 iEN
 gVq
@@ -83335,7 +83347,7 @@ ffP
 uzO
 tEk
 fTc
-qsw
+ugY
 kVU
 vQR
 vQR
@@ -83739,7 +83751,7 @@ oSM
 gYb
 gYb
 hEx
-qsw
+ugY
 jhi
 hNO
 hNO
