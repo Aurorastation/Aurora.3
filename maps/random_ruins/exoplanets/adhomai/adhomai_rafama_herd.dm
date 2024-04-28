@@ -8,3 +8,5 @@
 
 	prefix = "adhomai/"
 	suffixes = list("adhomai_rafama_herd.dmm")
+
+	unit_test_groups = list(3)

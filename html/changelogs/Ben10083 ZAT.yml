@@ -44,7 +44,7 @@
 #################################
 
 # Your name.
-author: RustingWithYou
+author: Ben10083
 
 # Optional: Remove this file after generating master changelog.  Useful for PR changelogs that won't get used again.
 delete-after: True
@@ -55,4 +55,4 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - qol: "Sensors, thrusters, and IFF beacons are now buildable and deconstructable."
+  - spellcheck: "The Conglomerate has discovered that the ZAT was incorrectly labeled as ZTA in various documents and markings. The issue has been resolved and those responsible have been let go."
