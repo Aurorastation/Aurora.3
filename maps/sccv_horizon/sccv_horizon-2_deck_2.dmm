@@ -7282,7 +7282,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/rnd/xenobiology/xenological)
 "dpG" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
