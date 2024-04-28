@@ -641,16 +641,23 @@
 	desc = "A rack for holding collapsed roller beds."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "holder"
-	var/list/held = list()
+	var/list/held
 	var/initial_beds = 4
 
-/obj/structure/roller_rack/New()
+/obj/structure/roller_rack/Initialize()
 	..()
+	LAZYINITLIST(held)
 	var/i
 	for(i=1, i<=initial_beds, i++)
 		var/obj/item/roller/RB = new /obj/item/roller(src)
 		LAZYADD(held, RB)
 	update_icon()
+
+/obj/structure/roller_rack/Destroy()
+	. = ..()
+	for(var/obj/O in held)
+		qdel(O)
+	LAZYCLEARLIST(held)
 
 /obj/structure/roller_rack/two
 	initial_beds = 2
