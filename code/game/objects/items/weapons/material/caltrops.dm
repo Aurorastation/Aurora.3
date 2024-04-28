@@ -24,7 +24,7 @@
 			return
 		if(H.resting)
 			return
-		if(H.shoes?.item_flags & LIGHTSTEP)
+		if(H.shoes?.item_flags & ITEM_FLAG_LIGHT_STEP)
 			return
 
 		to_chat(H, SPAN_DANGER("You step on \the [src]!"))

@@ -1,6 +1,7 @@
 // 513 does not allow white or no color as a filter color
 /datum/unit_test/overmap_effects_shall_have_non_white_color
 	name = "OVERMAP: Shall have non-white color"
+	groups = list("map", "overmap")
 
 /datum/unit_test/overmap_effects_shall_have_non_white_color/start_test()
 	var/list/invalid_overmap_types = list()
@@ -19,6 +20,7 @@
 
 /datum/unit_test/overmap_ships_shall_have_entrypoints
 	name = "OVERMAP: Ships shall have at least four valid entry points"
+	groups = list("map", "overmap")
 
 /datum/unit_test/overmap_ships_shall_have_entrypoints/start_test()
 	for(var/obj/effect/overmap/visitable/ship/S in SSshuttle.initialized_sectors)
@@ -30,6 +32,7 @@
 
 /datum/unit_test/overmap_ships_shall_have_class
 	name = "OVERMAP: Ships shall have class and designation"
+	groups = list("map", "overmap")
 
 /datum/unit_test/overmap_ships_shall_have_class/start_test()
 	var/failures = 0

@@ -77,6 +77,12 @@
 	icon_state = "idris_gardener_headband"
 	item_state = "idris_gardener_headband"
 
+/obj/item/clothing/head/bandana/hydro/orion
+	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
+	contained_sprite = TRUE
+	icon_state = "orion_gardener_headband"
+	item_state = "orion_gardener_headband"
+
 /obj/item/clothing/head/bandana/cargo
 	name = "operations bandana"
 	desc = "It's a operations bandana with some fine nanotech lining. Wicks away the sweat from crate-pushing all day."

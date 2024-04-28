@@ -121,8 +121,9 @@
 	desc = "Produces electricity from chemicals."
 	icon_state = "chemical_cell"
 	extended_desc = "This is effectively an internal beaker. It will consume and produce power from phoron, slime jelly, welding fuel, carbon,\
-	 ethanol, nutriments and blood, in order of decreasing efficiency. It will consume fuel only if the battery can take more energy."
-	flags = OPENCONTAINER
+						ethanol, nutriments and blood, in order of decreasing efficiency. It will consume fuel only if the battery can take more energy."
+
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	complexity = 4
 	inputs = list()
 	outputs = list("volume used" = IC_PINTYPE_NUMBER,"self reference" = IC_PINTYPE_REF)
@@ -130,7 +131,7 @@
 	spawn_flags = IC_SPAWN_DEFAULT|IC_SPAWN_RESEARCH
 	origin_tech = list(TECH_ENGINEERING = 2, TECH_DATA = 2, TECH_BIO = 2)
 	var/volume = 60
-	var/list/fuel = list(/singleton/reagent/toxin/phoron = 50000, /singleton/reagent/slimejelly = 25000, /singleton/reagent/fuel = 15000, /singleton/reagent/carbon = 10000, /singleton/reagent/alcohol = 10000, /singleton/reagent/nutriment = 8000, /singleton/reagent/blood = 5000)
+	var/list/fuel = list(/singleton/reagent/toxin/phoron = 50000, /singleton/reagent/slimejelly = 25000, /singleton/reagent/fuel = 15000, /singleton/reagent/carbon = 10000, /singleton/reagent/alcohol/ethanol = 10000, /singleton/reagent/nutriment = 8000, /singleton/reagent/blood = 5000)
 
 /obj/item/integrated_circuit/passive/power/chemical_cell/New()
 	..()
@@ -183,7 +184,7 @@
 	return ..()
 
 /obj/item/integrated_circuit/passive/power/powernet/Destroy()
-	qdel(IO)
+	QDEL_NULL(IO)
 	return ..()
 
 /obj/item/integrated_circuit/passive/power/powernet/on_anchored()

@@ -13,4 +13,4 @@
 		parent.filters = filter(type="blur", size = 5)
 	else
 		to_chat(user, SPAN_CULT("Your blood flows into the rune, and you feel as the rune releases its grasp on space."))
-		parent.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000") 
+		parent.filters = filter(type="drop_shadow", x = 1, y = 1, size = 4, color = "#FF0000")

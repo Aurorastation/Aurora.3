@@ -33,7 +33,7 @@
 		)
 	throwforce = 0
 	force = 0
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	var/mob/living/carbon/human/owner
 	var/obj/item/technomancer_core/core
 	var/cast_methods = null			// Controls how the spell is casted.
@@ -44,7 +44,7 @@
 	var/psi_cost = 0				// Psi complexus cost to use this spell.
 
 /obj/item/spell/examine(mob/user, distance) // Nothing on examine.
-	return
+	return TRUE
 
 // Proc: on_use_cast()
 // Parameters: 1 (user - the technomancer casting the spell)
@@ -188,14 +188,17 @@
 // Parameters: 0
 // Description: Nulls object references so it can qdel() cleanly.
 /obj/item/spell/Destroy()
-	owner.unref_spell(src)
+	if(owner)
+		owner.unref_spell(src)
 	owner = null
+
 	core = null
-	return ..()
+
+	. = ..()
 
 /// Check if we're still being held. Otherwise... time to qdel.
 /obj/item/spell/proc/check_owner()
-	if(!(loc == owner) && NOT_FLAG(cast_methods, CAST_THROW))
+	if(!QDELETED(src) && !(loc == owner) && !(cast_methods & CAST_THROW))
 		qdel_self()
 
 // Proc: unref_spells()
@@ -273,9 +276,9 @@
 // Proc: attackby()
 // Parameters: 2 (W - the item this spell object is hitting, user - the technomancer who clicked the other object)
 // Description: Tries to combine the spells, if W is a spell, and has CHROMATIC aspect.
-/obj/item/spell/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/spell))
-		var/obj/item/spell/spell = W
+/obj/item/spell/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/spell))
+		var/obj/item/spell/spell = attacking_item
 		if(run_checks() & (cast_methods & CAST_COMBINE))
 			spell.on_combine_cast(src, user)
 		return TRUE
@@ -367,7 +370,8 @@
 // Description: Deletes the spell object immediately.
 /obj/item/spell/dropped()
 	. = ..()
-	qdel_self()
+	if(!QDELETED(src))
+		qdel_self()
 
 
 // Proc: throw_impact()

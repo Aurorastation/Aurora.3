@@ -130,8 +130,8 @@
 /obj/random/civgun
 	name = "random civilian handgun"
 	desc = "This is a random civilian gun."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
-	icon_state = "random"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "pistol"
 	has_postspawn = TRUE
 	spawnlist = list(
 		/obj/item/gun/projectile/leyon,
@@ -150,6 +150,7 @@
 		/obj/item/gun/projectile/automatic/x9,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/gun/energy/retro,
+		/obj/item/gun/projectile/revolver/konyang/pirate
 	)
 
 /obj/random/civgun/post_spawn(var/obj/item/gun/projectile/spawned)
@@ -177,8 +178,8 @@
 /obj/random/civgun/rifle
 	name = "random civilian longarm"
 	desc = "This is a random civilian long gun."
-	icon = 'icons/obj/guns/xenoblaster.dmi'
-	icon_state = "random"
+	icon = 'icons/obj/random.dmi'
+	icon_state = "rifle"
 	has_postspawn = TRUE
 	spawnlist = list(
 		/obj/item/gun/projectile/automatic/mini_uzi,
@@ -188,7 +189,7 @@
 		/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
 		/obj/item/gun/projectile/automatic/tommygun,
 		/obj/item/gun/projectile/shotgun/pump/rifle,
-		/obj/item/gun/projectile/shotgun/pump/rifle/pipegun,
+		/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun,
 		/obj/item/gun/projectile/shotgun/pump/rifle/obrez,
 		/obj/item/gun/projectile/contender,
 		/obj/item/gun/projectile/shotgun/pump/rifle/vintage,
@@ -209,7 +210,9 @@
 		/obj/item/gun/projectile/automatic/lebman,
 		/obj/item/gun/projectile/pistol/super_heavy,
 		/obj/item/gun/projectile/deagle,
-		/obj/item/gun/custom_ka/frame01/illegal
+		/obj/item/gun/custom_ka/frame01/illegal,
+		/obj/item/gun/projectile/automatic/rifle/konyang/pirate_rifle,
+		/obj/item/gun/projectile/automatic/konyang_pirate
 	)
 
 /obj/random/vault_weapon

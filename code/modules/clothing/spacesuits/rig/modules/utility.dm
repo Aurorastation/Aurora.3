@@ -30,6 +30,13 @@
 	var/device_type
 	var/obj/item/device
 
+/obj/item/rig_module/device/Destroy()
+	if(!ispath(src.device))
+		QDEL_NULL(src.device)
+	src.device = null
+
+	. = ..()
+
 /obj/item/rig_module/device/healthscanner
 	name = "health scanner module"
 	desc = "A hardsuit-mounted health scanner."
@@ -383,10 +390,16 @@
 
 	category = MODULE_SPECIAL
 
-/obj/item/rig_module/voice/New()
-	..()
+/obj/item/rig_module/voice/Initialize(mapload, ...)
+	. = ..()
+
 	voice_holder = new(src)
 	voice_holder.active = 0
+
+/obj/item/rig_module/voice/Destroy()
+	QDEL_NULL(voice_holder)
+
+	. = ..()
 
 /obj/item/rig_module/voice/installed()
 	..()
@@ -396,7 +409,7 @@
 	if(!..())
 		return FALSE
 
-	var/choice= input("Would you like to toggle the synthesiser, set the name or set an accent?") as null|anything in list("Enable","Disable","Set Name", "Set Accent")
+	var/choice= tgui_input_list(user, "Would you like to toggle the synthesiser, set the name or set an accent?", "Synthesizer", list("Enable","Disable","Set Name", "Set Accent"))
 
 	if(!choice)
 		return FALSE
@@ -417,7 +430,7 @@
 			voice_holder.voice = raw_choice
 			message_user(user, SPAN_NOTICE("You set the synthesizer to mimic <b>[voice_holder.voice]</b>."), SPAN_NOTICE("\The [user] set the speech synthesizer to mimic <b>[voice_holder.voice]</b>."))
 		if("Set Accent")
-			var/raw_choice = input(user, "Please choose an accent to mimick.") as null|anything in SSrecords.accents
+			var/raw_choice = tgui_input_list(user, "Please choose an accent to mimick.", "Accent Mimicry", SSrecords.accents)
 			if(!raw_choice)
 				return FALSE
 			voice_holder.current_accent = raw_choice
@@ -552,11 +565,18 @@
 
 	category = MODULE_GENERAL
 
-/obj/item/rig_module/device/stamp/New()
-	..()
+/obj/item/rig_module/device/stamp/Initialize()
+	. = ..()
+
 	iastamp = new /obj/item/stamp/internalaffairs(src)
 	deniedstamp = new /obj/item/stamp/denied(src)
 	device = iastamp
+
+/obj/item/rig_module/device/stamp/Destroy()
+	QDEL_NULL(iastamp)
+	QDEL_NULL(deniedstamp)
+
+	. = ..()
 
 /obj/item/rig_module/device/stamp/engage(atom/target, mob/user)
 	if(!..() || !device)
@@ -670,7 +690,7 @@
 			if (combatType && ismob(aa))
 				continue
 
-			if (aa.density && NOT_FLAG(aa.flags, ON_BORDER))
+			if (aa.density && !(aa.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 				to_chat(user, SPAN_WARNING("You cannot leap at a location with solid objects on it!"))
 				return FALSE
 
@@ -725,7 +745,7 @@
 		// a ledge. Regular actuators make you have to climb the rest of the way.
 		if (!combatType)
 			H.visible_message(SPAN_NOTICE("\The [H] starts pulling [H.get_pronoun("himself")] up onto the [valid_climbable]."), SPAN_NOTICE("You start pulling yourself up onto \the [valid_climbable]."))
-			if (!do_after(H, 4 SECONDS, use_user_turf = TRUE))
+			if (!do_after(H, 4 SECONDS))
 				H.visible_message(SPAN_WARNING("\The [H] is interrupted and falls!"), SPAN_DANGER("You are interrupted and fall back down!"))
 
 				// Climbers will auto-fall if they exit the turf. This is for in case
@@ -802,7 +822,7 @@
 			T.ChangeTurf(/turf/space)
 	return TRUE
 
-var/global/list/lattice_users = list()
+GLOBAL_LIST_EMPTY(lattice_users)
 
 /obj/item/rig_module/lattice
 	name = "neural lattice"
@@ -824,7 +844,7 @@ var/global/list/lattice_users = list()
 
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice engaged. Pain receptors altered."))
-	lattice_users.Add(H)
+	GLOB.lattice_users.Add(H)
 
 /obj/item/rig_module/lattice/deactivate()
 	if (!..())
@@ -832,7 +852,7 @@ var/global/list/lattice_users = list()
 
 	var/mob/living/carbon/human/H = holder.wearer
 	to_chat(H, SPAN_NOTICE("Neural lattice disengaged. Pain receptors restored."))
-	lattice_users.Remove(H)
+	GLOB.lattice_users.Remove(H)
 
 /obj/item/rig_module/foam_sprayer
 	name = "mounted foam sprayer"
@@ -877,4 +897,42 @@ var/global/list/lattice_users = list()
 		counter--
 		previous_turf = T
 		sleep(1)
+	return TRUE
+
+/obj/item/rig_module/recharger
+	name = "weapon recharge module"
+	desc = "A specialised power cable designed to connect an energy weapon to a hardsuit's power supply."
+	toggleable = TRUE
+	icon_state = "powersink"
+	interface_name = "integrated weapon recharger"
+	interface_desc = "Can connect to an energy weapon, recharging it off the hardsuit's power supply. Drag the weapon onto the hardsuit control module to connect it."
+	category = MODULE_LIGHT_COMBAT
+	usable = FALSE
+	disruptive = FALSE
+	confined_use = TRUE
+	///The gun charging off our hardsuit
+	var/obj/item/gun/energy/connected
+
+/obj/item/rig_module/recharger/activate(mob/user)
+	if (!..())
+		return FALSE
+
+
+	if(!connected)
+		to_chat(user, SPAN_NOTICE("\The [src] does not have a connected energy weapon to charge!"))
+		return FALSE
+
+
+	to_chat(user, SPAN_NOTICE("\The [connected] is now connected to your hardsuit power supply. Deactivate this module to disconnect it."))
+	return TRUE
+
+/obj/item/rig_module/recharger/deactivate(mob/user)
+	if (!..())
+		return FALSE
+
+
+	if(connected)
+		connected.disconnect()
+
+
 	return TRUE

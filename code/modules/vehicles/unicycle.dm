@@ -29,9 +29,9 @@
 		return 0
 	return ..(M)
 
-/obj/vehicle/unicycle/MouseDrop_T(var/atom/movable/C, mob/user as mob)
-	if(!load(C))
-		to_chat(user, SPAN_WARNING("You were unable to load \the [C] onto \the [src]."))
+/obj/vehicle/unicycle/MouseDrop_T(atom/dropping, mob/user)
+	if(!load(dropping))
+		to_chat(user, SPAN_WARNING("You were unable to load \the [dropping] onto \the [src]."))
 		return
 
 /obj/vehicle/unicycle/attack_hand(var/mob/user as mob)
@@ -40,7 +40,7 @@
 		to_chat(user, "You climb on \the [src]")
 	else if(user != load && load)
 		user.visible_message ("[user] starts to remove [load] from \the [src]!")
-		if(do_after(user, 8 SECONDS, act_target = src))
+		if(do_after(user, 8 SECONDS, src))
 			unload(load)
 			to_chat(user, "You remove [load] from \the [src]")
 			to_chat(load, "You were removed from \the [src] by [user]")

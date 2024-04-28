@@ -34,7 +34,7 @@
 	var/q // recycled from tip of the day code. it just works!(TM)
 	q = pick(randomquip)
 
-	if(do_after(user, 25))
+	if(do_after(user, 2.5 SECONDS))
 		to_chat(user, "<span class='notice'>You notice a particular verse: [q]</span>")
 	reading = FALSE
 
@@ -140,4 +140,23 @@
 /obj/item/device/versebook/thakh/Initialize()
 	. = ..()
 	randomquip = file2list("ingame_manuals/thakh.txt")
+
+/obj/item/device/versebook/assunzione
+	name = "\improper Luceian Book of Scripture"
+	desc = "A collection of historically-backed texts mixed with fables and stories detailing the reasonings, history, and beliefs of the Luceism religion of Assunzione. Translated into Basic by the Luceian Monastery on Biesel."
+	desc_extended = "Luceism's founding was unusually well-documented for a religion, and as a result this book features several photographs of cataclysmic events that happened during Assunzione's crisis \
+	that birthed this religion, as well as pictures of the religion's first ministers and the cataclysm that founded the religion to begin with."
+	icon_state = "luce"
+	item_state = "luce"
+
+/obj/item/device/versebook/assunzione/Initialize()
+	. = ..()
+	randomquip = file2list("ingame_manuals/assunzione.txt")
+
+/obj/item/device/versebook/assunzione/pocket
+	name = "pocket Luceian Book of Scripture"
+	desc = "A miniaturized edition of the Luceian Book of Scripture, a collection of historically-backed texts mixed with fables and stories detailing the reasonings, history, and \
+	beliefs of the Luceism religion of Assunzione. Translated into Basic by the Luceian Monastery on Biesel. This one fits nicely in a pocket or in a bag."
+	icon_state = "luce_pocket"
+	w_class = ITEMSIZE_TINY
 

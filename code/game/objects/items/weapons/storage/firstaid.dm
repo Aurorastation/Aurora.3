@@ -11,6 +11,7 @@
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
 	pickup_sound = 'sound/items/pickup/cardboardbox.ogg'
 	use_sound = 'sound/items/storage/briefcase.ogg'
+	max_w_class = ITEMSIZE_SMALL
 
 /obj/item/storage/firstaid/empty
 	name = "empty first-aid kit"
@@ -59,7 +60,7 @@
 	starts_with = list(
 		/obj/item/stack/medical/advanced/ointment = 4,
 		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/dermaline = 4,
-			/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl = 4,
+		/obj/item/reagent_containers/hypospray/autoinjector/pouch_auto/mortaphenyl = 4,
 		/obj/item/device/healthanalyzer = 1
 	)
 
@@ -167,6 +168,13 @@
 	desc = "A sterile medical kit containing tools for surgery on-the-go. Even comes with a foam lining so your delicate instruments don't break in transit. How considerate."
 	icon_state = "purplefirstaid"
 	item_state = "purplefirstaid"
+	max_w_class = ITEMSIZE_NORMAL	/// Saws are medium sized.
+	can_hold = list(
+		/obj/item/surgery,
+		/obj/item/stack/medical,
+		/obj/item/reagent_containers/inhaler,
+		/obj/item/reagent_containers/syringe
+	)
 	starts_with = list(
 		/obj/item/surgery/bonesetter = 1,
 		/obj/item/surgery/cautery = 1,

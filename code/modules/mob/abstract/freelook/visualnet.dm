@@ -11,12 +11,12 @@
 
 /datum/visualnet/New()
 	..()
-	visual_nets += src
+	GLOB.visual_nets += src
 	if(!valid_source_types)
 		valid_source_types = list()
 
 /datum/visualnet/Destroy()
-	visual_nets -= src
+	GLOB.visual_nets -= src
 	for(var/source in sources)
 		remove_source(source, FALSE)
 	sources.Cut()
@@ -118,8 +118,8 @@
 	if(source in sources)
 		return FALSE
 	sources += source
-	moved_event.register(source, src, PROC_REF(source_moved))
-	destroyed_event.register(source, src, PROC_REF(remove_source))
+	GLOB.moved_event.register(source, src, PROC_REF(source_moved))
+	GLOB.destroyed_event.register(source, src, PROC_REF(remove_source))
 	for_all_chunks_in_range(source, TYPE_PROC_REF(/datum/chunk, add_source), list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
@@ -128,8 +128,8 @@
 /datum/visualnet/proc/remove_source(var/atom/source, var/update_visibility = TRUE, var/opacity_check = FALSE)
 	if(!sources.Remove(source))
 		return FALSE
-	moved_event.unregister(source, src)
-	destroyed_event.unregister(source, src)
+	GLOB.moved_event.unregister(source, src)
+	GLOB.destroyed_event.unregister(source, src)
 	for_all_chunks_in_range(source, /datum/chunk/proc/remove_source, list(source))
 	if(update_visibility)
 		update_visibility(source, opacity_check)
@@ -171,8 +171,8 @@
 	set category = "Debug"
 	set src in world
 
-	if(cameranet.is_chunk_generated(x, y, z))
-		var/datum/chunk/chunk = cameranet.get_chunk(x, y, z)
+	if(GLOB.cameranet.is_chunk_generated(x, y, z))
+		var/datum/chunk/chunk = GLOB.cameranet.get_chunk(x, y, z)
 		usr.client.debug_variables(chunk)
 
 /turf/proc/update_chunk()
@@ -180,6 +180,6 @@
 	set category = "Debug"
 	set src in world
 
-	if(cameranet.is_chunk_generated(x, y, z))
-		var/datum/chunk/chunk = cameranet.get_chunk(x, y, z)
+	if(GLOB.cameranet.is_chunk_generated(x, y, z))
+		var/datum/chunk/chunk = GLOB.cameranet.get_chunk(x, y, z)
 		chunk.visibility_changed(TRUE)

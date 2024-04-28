@@ -22,6 +22,13 @@
 	bluecrystal_cost = 1
 	path = /obj/item/card/id/syndicate
 
+/datum/uplink_item/item/stealth_items/cosmetic_surgery_kit
+	name = "Cosmetic Surgery Auto-Kit"
+	desc = "A small self-contained auto-surgery device that has the ability to conduct larynxial, facial and even melanin re-structuring surgery, in a (mostly) blood-less manner."
+	telecrystal_cost = 1
+	bluecrystal_cost = 1
+	path = /obj/item/device/cosmetic_surgery_kit
+
 /datum/uplink_item/item/stealth_items/chameleon_kit
 	name = "Chameleon Kit"
 	telecrystal_cost = 1

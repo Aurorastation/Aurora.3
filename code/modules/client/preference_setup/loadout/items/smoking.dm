@@ -58,6 +58,7 @@
 	cigarettes["Royal Choice cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/nka
 	cigarettes["Eriuyushi Sunset cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/federation
 	cigarettes["Xaqixal Dyn Fields cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/dyn
+	cigarettes["Natural Vysokan Soothsayer oracle cigarette packet"] = /obj/item/storage/box/fancy/cigarettes/oracle
 	gear_tweaks += new /datum/gear_tweak/path(cigarettes)
 
 /datum/gear/smoking/chew
@@ -79,8 +80,8 @@
 	gear_tweaks += new /datum/gear_tweak/path(chews)
 
 /datum/gear/smoking/leaves
-	display_name = "tobacco leaf selection"
-	description = "A selection of tobacco leaves."
+	display_name = "smokable leaf selection"
+	description = "A selection of smokable leaves."
 	path = /obj/item/storage/chewables/rollable
 	cost = 2
 	flags = GEAR_HAS_DESC_SELECTION
@@ -92,6 +93,8 @@
 	leaves["Agyre Lake tobacco leaves"] = /obj/item/storage/chewables/rollable
 	leaves["Excelsior Epsilon tobacco leaves"] = /obj/item/storage/chewables/rollable/fine
 	leaves["Golden Sol tobacco leaves"] = /obj/item/storage/chewables/rollable/nico
+	leaves["Vysokan Plains oracle leaves"] = /obj/item/storage/chewables/rollable/oracle
+	leaves["Velhalktai Marathon oracle leaves"] = /obj/item/storage/chewables/rollable/vedamor
 	gear_tweaks += new /datum/gear_tweak/path(leaves)
 
 /datum/gear/smoking/pipe

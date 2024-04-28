@@ -7,7 +7,7 @@
 	icon_state = "conveyor0"
 	name = "conveyor belt"
 	desc = "A conveyor belt."
-	layer = 2.4			// so they appear above pipes but under doors, objects etc
+	layer = BELOW_OBJ_LAYER
 	anchored = 1
 	var/operating = 0	// 1 if running forward, -1 if backwards, 0 if off
 	var/operable = 1	// true if can operate (no broken segments in this belt run)
@@ -122,8 +122,8 @@
 	return
 
 // attack with item, place item on conveyor
-/obj/machinery/conveyor/attackby(var/obj/item/I, mob/user)
-	if(I.iscrowbar())
+/obj/machinery/conveyor/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		if(!(stat & BROKEN))
 			var/obj/item/conveyor_construct/C = new/obj/item/conveyor_construct(src.loc)
 			C.id = id
@@ -131,11 +131,12 @@
 		to_chat(user, "<span class='notice'>You remove the conveyor belt.</span>")
 		qdel(src)
 		return
-	if(isrobot(user))	return //Carn: fix for borgs dropping their modules on conveyor belts
-	if(I.loc != user)	return // This should stop mounted modules ending up outside the module.
+	if(isrobot(user))
+		return //Carn: fix for borgs dropping their modules on conveyor belts
+	if(attacking_item.loc != user)
+		return // This should stop mounted modules ending up outside the module.
 
 	user.drop_item(get_turf(src))
-	return
 
 // attack with hand, move pulled object onto conveyor
 /obj/machinery/conveyor/attack_hand(mob/user as mob)
@@ -260,8 +261,8 @@
 				S.position = position
 				S.update()
 
-/obj/machinery/conveyor_switch/attackby(obj/item/I, mob/user, params)
-	if(I.iscrowbar())
+/obj/machinery/conveyor_switch/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item.iscrowbar())
 		var/obj/item/conveyor_switch_construct/C = new/obj/item/conveyor_switch_construct(src.loc)
 		C.id = id
 		transfer_fingerprints_to(C)
@@ -306,11 +307,11 @@
 	w_class = ITEMSIZE_LARGE
 	var/id = "" //inherited by the belt
 
-/obj/item/conveyor_construct/attackby(obj/item/I, mob/user, params)
+/obj/item/conveyor_construct/attackby(obj/item/attacking_item, mob/user, params)
 	. = ..()
-	if(istype(I, /obj/item/conveyor_switch_construct))
+	if(istype(attacking_item, /obj/item/conveyor_switch_construct))
 		to_chat(user, "<span class='notice'>You link the switch to the conveyor belt assembly.</span>")
-		var/obj/item/conveyor_switch_construct/C = I
+		var/obj/item/conveyor_switch_construct/C = attacking_item
 		id = C.id
 		return TRUE
 
@@ -318,7 +319,7 @@
 	if(!proximity || !istype(A, /turf/simulated/floor) || istype(A, /area/shuttle) || user.incapacitated())
 		return
 	var/cdir = get_dir(A, user)
-	if(!(cdir in cardinal) || A == user.loc)
+	if(!(cdir in GLOB.cardinal) || A == user.loc)
 		return
 	for(var/obj/machinery/conveyor/CB in A)
 		if(CB.dir == cdir || CB.dir == turn(cdir,180))

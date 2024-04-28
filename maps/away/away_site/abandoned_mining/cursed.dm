@@ -1,11 +1,17 @@
 /datum/map_template/ruin/away_site/cursed
 	name = "lone asteroid"
 	description = "A lone asteroid with a hangar. Latest data from this sector shows it as a Hephaestus mining station, two years ago."
-	suffixes = list("away_site/abandoned_mining/cursed.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+
+	prefix = "away_site/abandoned_mining/"
+	suffixes = list("cursed.dmm")
+
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA, SECTOR_TAU_CETI, SECTOR_UUEOAESA) //you're not gonna have a station left alone for 2 years in the middle of inhabited space
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "cursed"
+
+	unit_test_groups = list(1)
 
 /singleton/submap_archetype/cursed
 	map = "lone asteroid"
@@ -20,7 +26,7 @@
 	name="cursed station"
 	icon_state = "outpost_mine_main"
 	requires_power = TRUE
-	flags = HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/cursed/hangar
 	name="hangar"

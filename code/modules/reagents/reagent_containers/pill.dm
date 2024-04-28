@@ -80,12 +80,12 @@
 
 	. = ..()
 
-/obj/item/reagent_containers/pill/attackby(obj/item/W, mob/user)
-	if(is_sharp(W) || istype(W, /obj/item/card/id))
+/obj/item/reagent_containers/pill/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item) || istype(attacking_item, /obj/item/card/id))
 		var/obj/item/reagent_containers/powder/J = new /obj/item/reagent_containers/powder(loc)
 		user.visible_message(
-			SPAN_WARNING("\The [user] gently cuts up \the [src] with \a [W]!"),
-			SPAN_NOTICE("You gently cut up \the [src] with \the [W]."),
+			SPAN_WARNING("\The [user] gently cuts up \the [src] with \a [attacking_item]!"),
+			SPAN_NOTICE("You gently cut up \the [src] with \the [attacking_item]."),
 			SPAN_WARNING("You hear quiet grinding.")
 		)
 		playsound(loc, 'sound/effects/chop.ogg', 50, 1)
@@ -243,19 +243,49 @@
 	name = "Happy Pill"
 	desc = "Happy happy joy joy!"
 	icon_state = "pill_happy"
-	reagents_to_add = list(/singleton/reagent/space_drugs = 15, /singleton/reagent/sugar = 15)
+	reagents_to_add = list(/singleton/reagent/drugs/mms = 15, /singleton/reagent/sugar = 15)
 
 /obj/item/reagent_containers/pill/zoom
 	name = "Zoom Pill"
 	desc = "Zoooom!"
 	icon_state = "pill18"
-	reagents_to_add = list(/singleton/reagent/impedrezene = 5, /singleton/reagent/synaptizine = 5, /singleton/reagent/hyperzine = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene = 5, /singleton/reagent/synaptizine = 5, /singleton/reagent/hyperzine = 5)
 
 /obj/item/reagent_containers/pill/joy
 	name = "Joy Pill"
 	desc = "Peace, at last."
 	icon_state = "pill8"
-	reagents_to_add = list(/singleton/reagent/joy = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/joy = 5)
+
+/obj/item/reagent_containers/pill/heroin
+	name = "heroin pill"
+	desc = "The pain will pass..."
+	icon_state = "pill7"
+	reagents_to_add = list(/singleton/reagent/drugs/heroin = 5)
+
+/obj/item/reagent_containers/pill/cocaine
+	name = "cocaine tablet"
+	desc = "For those long nights out."
+	icon_state = "pill18"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine = 10)
+
+/obj/item/reagent_containers/pill/contemplus
+	name = "\improper Contemplus tablet"
+	desc = "For that essay that is due tomorrow."
+	icon_state = "pill19"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine/contemplus = 10)
+
+/obj/item/reagent_containers/pill/spotlight
+	name = "\improper Spotlight tablet"
+	desc = "For that acting audition today."
+	icon_state = "pill2"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine/spotlight = 10)
+
+/obj/item/reagent_containers/pill/sparkle
+	name = "\improper Sparkle tablet"
+	desc = "For those long nights out at the club."
+	icon_state = "pill20"
+	reagents_to_add = list(/singleton/reagent/drugs/cocaine/sparkle = 10)
 
 /obj/item/reagent_containers/pill/thetamycin
 	name = "15u Thetamycin Pill"
@@ -290,7 +320,7 @@
 	name = "5u Co'qnixq Wuxi Pill"
 	desc = "Used to treat dementia."
 	icon_state = "pill8"
-	reagents_to_add = list(/singleton/reagent/skrell_nootropic = 5)
+	reagents_to_add = list(/singleton/reagent/drugs/skrell_nootropic = 5)
 
 /obj/item/reagent_containers/pill/hyronalin
 	name = "7u Hyronalin"
@@ -333,3 +363,15 @@
 	desc = "A prophylactic antibiotic that kills infections before they start."
 	icon_state = "pill8"
 	reagents_to_add = list(/singleton/reagent/steramycin = 5)
+
+/obj/item/reagent_containers/pill/cleaner_tablet
+	name = "dissolvable cleaner tablet"
+	desc = "An advanced formula dissolvable tablet laden with the cutting edge of Idris chemical science. Smells like dried bleach. It's probably just bleach."
+	icon_state = "cleanertablet"
+	reagents_to_add = list(/singleton/reagent/spacecleaner = 15)
+
+/obj/item/reagent_containers/pill/ryetalyn
+	name = "10u Ryetalyn Pill"
+	desc = "A medicine used to treat genetic conditions, including benign and malignant tumours."
+	icon_state = "pill11"
+	reagents_to_add = list(/singleton/reagent/ryetalyn = 10)

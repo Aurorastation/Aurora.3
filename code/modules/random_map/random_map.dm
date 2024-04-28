@@ -1,6 +1,6 @@
 // Generates cave systems for the asteroid, and places ore tiles.
-var/global/list/random_maps = list()
-var/global/list/map_count = list()
+GLOBAL_LIST_EMPTY(random_maps)
+GLOBAL_LIST_EMPTY(map_count)
 
 /datum/random_map
 
@@ -38,12 +38,12 @@ var/global/list/map_count = list()
 /datum/random_map/New(var/seed, var/tx, var/ty, var/tz, var/tlx, var/tly, var/do_not_apply, var/do_not_announce, var/never_be_priority = 0, var/used_area)
 
 	// Store this for debugging.
-	if(!map_count[descriptor])
-		map_count[descriptor] = 1
+	if(!GLOB.map_count[descriptor])
+		GLOB.map_count[descriptor] = 1
 	else
-		map_count[descriptor]++
-	name = "[descriptor] #[map_count[descriptor]]"
-	if(preserve_map) random_maps[name] = src
+		GLOB.map_count[descriptor]++
+	name = "[descriptor] #[GLOB.map_count[descriptor]]"
+	if(preserve_map) GLOB.random_maps[name] = src
 
 	// Get origins for applying the map later.
 	set_origins(tx, ty, tz)

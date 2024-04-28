@@ -1,4 +1,4 @@
- #define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
+#define PPM 9	//Protein per meat, used for calculating the quantity of protein in an animal
 
 /**
  *  Attempt to devour victim
@@ -31,9 +31,6 @@
 	move_to_stomach(victim)
 
 	return TRUE
-
-/mob/living/carbon/human/proc/move_to_stomach(atom/movable/victim)
-	return
 
 // Snowflake procs for unathi. Because lore said so.
 

@@ -7,7 +7,9 @@
 	item_state = "jackboots"
 	force = 3
 	armor = list(
-		melee = ARMOR_MELEE_KNIVES
+		melee = ARMOR_MELEE_KNIVES,
+		energy = ARMOR_ENERGY_MINOR,
+		bomb = ARMOR_BOMB_MINOR
 	)
 	siemens_coefficient = 0.75
 	can_hold_knife = TRUE
@@ -86,6 +88,9 @@
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("taj")
 
+/obj/item/clothing/shoes/workboots/all_species
+	species_restricted = null
+
 /obj/item/clothing/shoes/workboots/brown
 	name = "brown workboots"
 	desc = "A pair of brown steel-toed work boots designed for use in industrial settings. Safety first."
@@ -128,7 +133,8 @@
 	icon = 'icons/obj/item/clothing/shoes/boots.dmi'
 	icon_state = "combat"
 	item_state = "combat"
-	force = 5
+	contained_sprite = TRUE
+	force = 11
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
 		bullet = ARMOR_BALLISTIC_RIFLE,
@@ -137,7 +143,7 @@
 		bomb = ARMOR_BOMB_RESISTANT,
 		bio = ARMOR_BIO_MINOR
 	)
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	siemens_coefficient = 0.35
 	can_hold_knife = TRUE
 	build_from_parts = TRUE

@@ -20,7 +20,7 @@
 	if(!isturf(user.loc))
 		to_chat(user, SPAN_WARNING("You do not have enough space to write a proper rune."))
 
-	var/rune = input(user, "Choose a rune to scribe", "Rune Scribing") as null|anything in SScult.runes_by_name//not cancellable.
+	var/rune = tgui_input_list(user, "Choose a rune to scribe.", "Rune Scribing", SScult.runes_by_name)
 	if(locate(/obj/effect/rune) in get_turf(user))
 		to_chat(user, SPAN_WARNING("There is already a rune in this location."))
 		return
@@ -30,7 +30,6 @@
 
 	var/RD = SScult.runes_by_name[rune]
 	var/obj/effect/rune/R = new(get_turf(user), RD)
-	R.color = "#A10808"
 
 	var/area/A = get_area(R)
 	log_and_message_admins("created \an [rune] rune at \the [A.name] - [user.loc.x]-[user.loc.y]-[user.loc.z].", user)

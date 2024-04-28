@@ -44,7 +44,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	var/starty = 0
 	var/endy = 0
 	var/endx = 0
-	var/startside = pick(cardinal)
+	var/startside = pick(GLOB.cardinal)
 
 	switch(startside)
 		if(NORTH)
@@ -76,7 +76,7 @@ In my current plan for it, 'solid' will be defined as anything with density == 1
 	sleep(1)
 	while (immrod)
 		if (isNotStationLevel(immrod.z))
-			immrod.z = pick(current_map.station_levels)
+			immrod.z = pick(SSatlas.current_map.station_levels)
 		if(immrod.loc == end)
 			qdel(immrod)
 		sleep(10)

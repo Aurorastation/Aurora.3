@@ -104,7 +104,7 @@
 				O.status = 0
 				switch(status)
 
-					if ("amputated")
+					if (ORGAN_PREF_AMPUTATED)
 						organs_by_name[O.limb_name] = null
 						organs -= O
 						if(O.children) // This might need to become recursive.
@@ -112,14 +112,14 @@
 								organs_by_name[child.limb_name] = null
 								organs -= child
 
-					if ("nymph")
+					if (ORGAN_PREF_NYMPH)
 						if (organ_data[name])
 							O.AddComponent(/datum/component/nymph_limb)
 							var/datum/component/nymph_limb/D = O.GetComponent(/datum/component/nymph_limb)
 							if(D)
 								D.nymphize(src, O.limb_name, TRUE)
 
-					if ("cyborg")
+					if (ORGAN_PREF_CYBORG)
 						if (rlimb_data[name])
 							O.force_skintone = FALSE
 							for(var/thing in O.children)
@@ -132,14 +132,14 @@
 				var/obj/item/organ/I = internal_organs_by_name[name]
 				if(I)
 					switch (status)
-						if ("assisted")
+						if (ORGAN_PREF_ASSISTED)
 							I.mechassist()
-						if ("mechanical")
+						if (ORGAN_PREF_MECHANICAL)
 							if (rlimb_data[name])
 								I.robotize(rlimb_data[name])
 							else
 								I.robotize()
-						if ("removed")
+						if (ORGAN_PREF_REMOVED)
 							qdel(I)
 
 	if (apply_markings)
@@ -152,7 +152,7 @@
 
 		var/list/body_markings = prefs.body_markings
 		for(var/M in body_markings)
-			var/datum/sprite_accessory/marking/mark_datum = body_marking_styles_list[M]
+			var/datum/sprite_accessory/marking/mark_datum = GLOB.body_marking_styles_list[M]
 
 			if(!istype(mark_datum))
 				to_chat(usr, SPAN_WARNING("Invalid body marking [M] selected! Please re-save your markings, as they may have changed."))
@@ -162,7 +162,7 @@
 			for(var/BP in mark_datum.body_parts)
 				var/obj/item/organ/external/O = organs_by_name[BP]
 				if(O)
-					if(mark_datum.robotize_type_required && O.robotize_type != mark_datum.robotize_type_required)
+					if(length(mark_datum.robotize_type_required) && !(O.robotize_type in mark_datum.robotize_type_required))
 						continue
 					var/list/attr = list("color" = mark_color, "datum" = mark_datum)
 					if (mark_datum.is_genetic)
@@ -175,7 +175,7 @@
 /mob/living/carbon/human/proc/sync_trait_prefs_to_mob(datum/preferences/prefs)
 	var/list/traits = prefs.disabilities
 	for(var/M in traits)
-		var/datum/character_disabilities/trait = chargen_disabilities_list[M]
+		var/datum/character_disabilities/trait = GLOB.chargen_disabilities_list[M]
 		trait.apply_self(src)
 
 // Helper proc that grabs whatever organ this humantype uses to see.
@@ -204,7 +204,6 @@
 	to_chat(src, SPAN_DANGER("An indescribable, brain-tearing sound hisses from [source], and you collapse in a seizure!"))
 	seizure()
 	custom_pain(SPAN_DANGER(FONT_LARGE("[pick(psi_operancy_messages)]")), 25)
-	set_psi_rank(PSI_RANK_HARMONIOUS)
 	sleep(30)
 	addtimer(CALLBACK(psi, TYPE_PROC_REF(/datum/psi_complexus, check_psionic_trigger), 100, source, TRUE), 4.5 SECONDS)
 
@@ -255,13 +254,18 @@
 		return 0
 	else if(bodytemperature > species.cold_level_2)
 		. = 5 * (1 - (bodytemperature - species.cold_level_2) / (species.cold_level_1 - species.cold_level_2))
-		. = max(2, .)
+		. = max(2, .) //stasis factor range: 2 to 5 after rounding
 	else if(bodytemperature > species.cold_level_3)
-		. = 20 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
-		. = max(5, .)
+		. = 11 * (1 - (bodytemperature - species.cold_level_3) / (species.cold_level_2 - species.cold_level_3))
+		. = max(5, .) //stasis factor range: 5 to 10 after rounding. we still want chemicals to metabolise at a bearable speed for those sick pharmacy beaker mixes.
 	else
 		. = 80 * (1 - bodytemperature / species.cold_level_3)
-		. = max(20, .)
+		. = max(20, .) //stasis factor range: 20 to 80 after rounding. irl cryonics ''achieves full stasis'' in bodies at 80K.
+	if(istype(loc, /obj/machinery/atmospherics/unary/cryo_cell))
+		var/obj/machinery/atmospherics/unary/cryo_cell/cryo = loc
+		if(cryo.current_stasis_mult)
+			var/gcf_stasis_mult = cryo.current_stasis_mult
+			. = . * gcf_stasis_mult
 	return round(.)
 
 // Martial Art Helpers
@@ -308,10 +312,10 @@
 /mob/living/carbon/human/get_hearing_protection()
 	. = EAR_PROTECTION_NONE
 
-	if ((l_ear?.item_flags & SOUNDPROTECTION) || (r_ear?.item_flags & SOUNDPROTECTION) || (head?.item_flags & SOUNDPROTECTION))
+	if ((l_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (r_ear?.item_flags & ITEM_FLAG_SOUND_PROTECTION) || (head?.item_flags & ITEM_FLAG_SOUND_PROTECTION))
 		return EAR_PROTECTION_MAJOR
 
-	if(istype(head, /obj/item/clothing/head/helmet) || HAS_FLAG(mutations, HULK))
+	if(istype(head, /obj/item/clothing/head/helmet) || (mutations & HULK))
 		. = EAR_PROTECTION_MODERATE
 
 	return max(EAR_PROTECTION_REDUCED, . - (get_hearing_sensitivity() / 2))
@@ -350,7 +354,7 @@
 	. = ..() - organs
 
 /mob/living/carbon/human/proc/pressure_resistant()
-	if(HAS_FLAG(mutations, COLD_RESISTANCE))
+	if((mutations & COLD_RESISTANCE))
 		return TRUE
 	if(HAS_TRAIT(src, TRAIT_PRESSURE_IMMUNITY))
 		return TRUE
@@ -380,7 +384,7 @@
 	return species.hearing_sensitivity
 
 /mob/living/carbon/human/proc/is_listening()
-	if(src in intent_listener)
+	if(src in GLOB.intent_listener)
 		return TRUE
 	return FALSE
 
@@ -408,6 +412,13 @@
 		return species.floating_chat_x_offset
 	return species.icon_x_offset
 
+/mob/living/carbon/human/get_floating_chat_y_offset()
+	if(!species)
+		return ..()
+	if(!isnull(species.floating_chat_y_offset))
+		return species.floating_chat_y_offset
+	return species.icon_y_offset
+
 /mob/living/carbon/human/get_stutter_verbs()
 	return species.stutter_verbs
 
@@ -428,3 +439,78 @@
 	if(length(G.tail_storage.contents))
 		return G.tail_storage.contents[1]
 	return null
+
+/mob/living/carbon/human/adjust_typing_indicator_offsets(var/atom/movable/typing_indicator/indicator)
+	indicator.pixel_x = species.typing_indicator_x_offset
+	indicator.pixel_y = species.typing_indicator_y_offset
+
+/mob/living/carbon/human/proc/wash()
+	if(r_hand)
+		r_hand.clean_blood()
+	if(l_hand)
+		l_hand.clean_blood()
+	if(back)
+		if(back.clean_blood())
+			update_inv_back(0)
+
+	if(touching)
+		var/remove_amount = touching.maximum_volume * reagent_permeability() //take off your suit first
+		touching.remove_any(remove_amount)
+
+	var/washgloves = TRUE
+	var/washshoes = TRUE
+	var/washmask = TRUE
+	var/washears = TRUE
+	var/washglasses = TRUE
+	var/washwrists = TRUE
+
+	if(wear_suit)
+		washgloves = !(wear_suit.flags_inv & HIDEGLOVES)
+		washshoes = !(wear_suit.flags_inv & HIDESHOES)
+		washwrists = !(wear_suit.flags_inv & HIDEWRISTS)
+
+	if(head)
+		washmask = !(head.flags_inv & HIDEMASK)
+		washglasses = !(head.flags_inv & HIDEEYES)
+		washears = !(head.flags_inv & HIDEEARS)
+
+	if(wear_mask)
+		if (washears)
+			washears = !(wear_mask.flags_inv & HIDEEARS)
+		if (washglasses)
+			washglasses = !(wear_mask.flags_inv & HIDEEYES)
+
+	if(head)
+		if(head.clean_blood())
+			update_inv_head(0)
+	if(wear_suit)
+		if(wear_suit.clean_blood())
+			update_inv_wear_suit(0)
+	else if(w_uniform)
+		if(w_uniform.clean_blood())
+			update_inv_w_uniform(0)
+	if(gloves && washgloves)
+		if(gloves.clean_blood())
+			update_inv_gloves(0)
+	if(shoes && washshoes)
+		if(shoes.clean_blood())
+			update_inv_shoes(0)
+	if(wear_mask && washmask)
+		if(wear_mask.clean_blood())
+			update_inv_wear_mask(0)
+	if(glasses && washglasses)
+		if(glasses.clean_blood())
+			update_inv_glasses(0)
+	if(l_ear && washears)
+		if(l_ear.clean_blood())
+			update_inv_l_ear(0)
+	if(r_ear && washears)
+		if(r_ear.clean_blood())
+			update_inv_r_ear(0)
+	if(belt)
+		if(belt.clean_blood())
+			update_inv_belt(0)
+	if(wrists && washwrists)
+		if(wrists.clean_blood())
+			update_inv_wrists(0)
+	clean_blood(washshoes)

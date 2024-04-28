@@ -64,8 +64,8 @@
 /obj/machinery/gravity_generator/part
 	var/obj/machinery/gravity_generator/main/main_part = null
 
-/obj/machinery/gravity_generator/part/attackby(obj/item/I as obj, mob/user as mob)
-	return main_part.attackby(I, user)
+/obj/machinery/gravity_generator/part/attackby(obj/item/attacking_item, mob/user)
+	return main_part.attackby(attacking_item, user)
 
 /obj/machinery/gravity_generator/part/get_status()
 	return main_part.get_status()
@@ -199,24 +199,24 @@
 // Interaction
 
 // Fixing the gravity generator.
-/obj/machinery/gravity_generator/main/attackby(obj/item/I as obj, mob/user as mob)
+/obj/machinery/gravity_generator/main/attackby(obj/item/attacking_item, mob/user)
 	var/old_broken_state = broken_state
 	switch(broken_state)
 		if(GRAV_NEEDS_SCREWDRIVER)
-			if(I.isscrewdriver())
+			if(attacking_item.isscrewdriver())
 				to_chat(user, "<span class='notice'>You secure the screws of the framework.</span>")
-				playsound(src.loc, I.usesound, 50, 1)
+				attacking_item.play_tool_sound(get_turf(src), 50)
 				broken_state++
 		if(GRAV_NEEDS_WELDING)
-			if(I.iswelder())
-				var/obj/item/weldingtool/WT = I
+			if(attacking_item.iswelder())
+				var/obj/item/weldingtool/WT = attacking_item
 				if(WT.use(1, user))
 					to_chat(user, "<span class='notice'>You mend the damaged framework.</span>")
 					playsound(src.loc, 'sound/items/welder_pry.ogg', 50, 1)
 					broken_state++
 		if(GRAV_NEEDS_PLASTEEL)
-			if(istype(I, /obj/item/stack/material/plasteel))
-				var/obj/item/stack/material/plasteel/PS = I
+			if(istype(attacking_item, /obj/item/stack/material/plasteel))
+				var/obj/item/stack/material/plasteel/PS = attacking_item
 				if(PS.amount >= 10)
 					PS.use(10)
 					to_chat(user, "<span class='notice'>You add the plating to the framework.</span>")
@@ -225,19 +225,19 @@
 				else
 					to_chat(user, "<span class='notice'>You need 10 sheets of plasteel.</span>")
 		if(GRAV_NEEDS_WRENCH)
-			if(I.iswrench())
+			if(attacking_item.iswrench())
 				to_chat(user, "<span class='notice'>You secure the plating to the framework.</span>")
-				playsound(src.loc, I.usesound, 75, 1)
+				attacking_item.play_tool_sound(get_turf(src), 75)
 				set_fix()
 		else
 			..()
-	if(I.iscrowbar())
+	if(attacking_item.iscrowbar())
 		if(backpanelopen)
-			playsound(src.loc, I.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='notice'>You replace the back panel.</span>")
 			backpanelopen = 0
 		else
-			playsound(src.loc, I.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			to_chat(user, "<span class='notice'>You open the back panel.</span>")
 			backpanelopen = 1
 
@@ -350,14 +350,14 @@
 	if(new_state) // If we turned on
 		if(!area.has_gravity())
 			alert = 1
-			gravity_is_on = 1
+			GLOB.gravity_is_on = 1
 			soundloop.start(src)
 			investigate_log("was brought online and is now producing gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought online. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
 	else
 		if(area.has_gravity())
 			alert = 1
-			gravity_is_on = 0
+			GLOB.gravity_is_on = 0
 			soundloop.stop(src)
 			investigate_log("was brought offline and there is now no gravity for this level.", "gravity")
 			message_admins("The gravity generator was brought offline with no backup generator. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>[area.name]</a>)")
@@ -423,14 +423,14 @@
 // Shake everyone on the z level to let them know that gravity was enagaged/disenagaged.
 /obj/machinery/gravity_generator/main/proc/shake_everyone()
 	var/turf/our_turf = get_turf(src)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		var/turf/their_turf = get_turf(M)
 		if(their_turf && (their_turf.z == our_turf.z))
 			M.update_gravity(M.mob_has_gravity())
 			if(M.client)
 				if(!M)	return
 				shake_camera(M, 5, 1)
-				M.playsound_simple(our_turf, 'sound/effects/alert.ogg', 100, use_random_freq = TRUE, falloff = 0.5)
+				M.playsound_local(our_turf, 'sound/effects/alert.ogg', 100, vary = TRUE, falloff_distance = 0.5)
 
 /obj/machinery/gravity_generator/main/proc/update_list(var/gravity_changed = FALSE)
 	var/turf/T = get_turf(src.loc)
@@ -454,20 +454,20 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/gravity_generator/main/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 	if(linked)
 		linked.gravity_generator = src
 
 /obj/machinery/gravity_generator/main/proc/updateareas()
-	for(var/area/A in all_areas)
+	for(var/area/A in GLOB.all_areas)
 		if(!(get_area_type(A) == AREA_STATION))
 			continue
 		localareas += A
 
-/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area())
+/obj/machinery/gravity_generator/main/proc/get_area_type(var/area/A = get_area(src))
 	if (A.name == "Space")
 		return AREA_SPACE
 	else if(A.alwaysgravity == 1 || A.nevergravity == 1)
@@ -484,7 +484,7 @@
 	set_state(FALSE)
 	sleep(30)
 	set_state(TRUE)
-	for(var/mob/living/M in mob_list)
+	for(var/mob/living/M in GLOB.mob_list)
 		var/turf/their_turf = get_turf(M)
 		if(their_turf?.loc ==  Area)
 			if(ishuman(M))

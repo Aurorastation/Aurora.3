@@ -19,11 +19,11 @@
 		/obj/item/stack/cable_coil{amount = 5}
 	)
 
-/obj/machinery/slime_extractor/examine(mob/user)
+/obj/machinery/slime_extractor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time.")))
+	. += FONT_SMALL(SPAN_NOTICE("It can hold <b>[slime_limit] slime\s</b> at a time."))
 	if(length(extract_slimes))
-		to_chat(user, FONT_SMALL(SPAN_WARNING("It is currently processing <b>[length(extract_slimes)] slime\s</b>.")))
+		. += FONT_SMALL(SPAN_WARNING("It is currently processing <b>[length(extract_slimes)] slime\s</b>."))
 
 /obj/machinery/slime_extractor/update_icon()
 	cut_overlays()
@@ -31,9 +31,9 @@
 		var/mutable_appearance/panel_overlay = mutable_appearance(icon, "[icon_state]-panel")
 		add_overlay(panel_overlay)
 	if(length(extract_slimes))
-		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", EFFECTS_ABOVE_LIGHTING_LAYER)
+		var/mutable_appearance/interior_overlay = mutable_appearance(icon, "[icon_state]-interior", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 		add_overlay(interior_overlay)
-		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", EFFECTS_ABOVE_LIGHTING_LAYER)
+		var/mutable_appearance/spinning_overlay = mutable_appearance(icon, "[icon_state]-running", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
 		add_overlay(spinning_overlay)
 		set_light(2.5, 1, COLOR_VIOLET)
 	else
@@ -50,16 +50,16 @@
 		else if(ismicrolaser(P))
 			extraction_speed = extraction_speed / P.rating
 
-/obj/machinery/slime_extractor/attackby(obj/item/O, mob/user)
+/obj/machinery/slime_extractor/attackby(obj/item/attacking_item, mob/user)
 	if(length(extract_slimes))
 		to_chat(user, SPAN_WARNING("You can't modify \the [src] while it's busy. Please wait for the completion of previous operation."))
 		return
 
-	if(default_deconstruction_screwdriver(user, O))
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return
 
 /obj/machinery/slime_extractor/MouseDrop_T(atom/dropping, mob/user)

@@ -2,6 +2,8 @@
 	new gibber_type(location,viruses,MobDNA,fleshcolor,bloodcolor)
 
 /obj/effect/gibspawner
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "gibspawner"
 	var/sparks = 0 //whether sparks spread on Gib()
 	var/virusProb = 20 //the chance for viruses to spread on the gibs
 	var/list/gibtypes = list()
@@ -25,7 +27,7 @@
 	var/obj/effect/decal/cleanable/blood/gibs/gib = null
 
 	if(sparks)
-		spark(location, 2, alldirs)
+		spark(location, 2, GLOB.alldirs)
 
 	for(var/i = 1, i<= gibtypes.len, i++)
 		if(gibamounts[i])

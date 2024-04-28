@@ -26,8 +26,8 @@
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/keycard_auth/LateInitialize()
-	if(current_map.use_overmap && !linked)
-		var/my_sector = map_sectors["[z]"]
+	if(SSatlas.current_map.use_overmap && !linked)
+		var/my_sector = GLOB.map_sectors["[z]"]
 		if (istype(my_sector, /obj/effect/overmap/visitable))
 			attempt_hook_up(my_sector)
 
@@ -35,13 +35,13 @@
 	to_chat(user, SPAN_NOTICE("The station AI is not to interact with these devices."))
 	return
 
-/obj/machinery/keycard_auth/attackby(obj/item/W, mob/user)
+/obj/machinery/keycard_auth/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (NOPOWER|BROKEN))
 		to_chat(user, "This device is not powered.")
 		return
-	if(istype(W,/obj/item/card/id))
-		var/obj/item/card/id/ID = W
-		if(access_keycard_auth in ID.access)
+	if(istype(attacking_item, /obj/item/card/id))
+		var/obj/item/card/id/ID = attacking_item
+		if(ACCESS_KEYCARD_AUTH in ID.access)
 			if(active == 1)
 				//This is not the device that made the initial request. It is the device confirming the request.
 				if(event_source)
@@ -76,7 +76,7 @@
 	if(screen == 1)
 		dat += "Select an event to trigger:<ul>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Red alert'>Red alert</A></li>"
-		if(!config.ert_admin_call_only)
+		if(!GLOB.config.ert_admin_call_only)
 			dat += "<li><A href='?src=\ref[src];triggerevent=Distress Beacon'>Broadcast Distress Beacon</A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Unlock Leviathan Safeties'><font color='red'>Unlock Leviathan Safeties</font></A></li>"
 		dat += "<li><A href='?src=\ref[src];triggerevent=Emergency Evacuation'>Emergency Evacuation</A></li>"
@@ -127,7 +127,7 @@
 /obj/machinery/keycard_auth/proc/broadcast_request(var/mob/user)
 	var/distress_message
 	if(event == "Distress Beacon" && user)
-		distress_message = input(user, "Enter a distress message that other vessels will receive.", "Distress Beacon")
+		distress_message = tgui_input_text(user, "Enter a distress message that other vessels will receive.", "Distress Beacon", "", MAX_MESSAGE_LEN)
 		if(distress_message)
 			become_hearing_sensitive()
 			user.say(distress_message)
@@ -189,12 +189,12 @@
 				if(!linked.levi_safeguard.opened)
 					linked.levi_safeguard.open()
 					command_announcement.Announce("Commencing connection of Leviathan warp field arrays. All personnel are reminded to seek out a fixed object they can \
-												   hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
+													hold on to in preparation for the firing sequence.", "Leviathan Artillery Control", 'sound/effects/ship_weapons/leviathan_safetyoff.ogg')
 		if("Emergency Evacuation")
 			call_shuttle_proc(user, TRANSFER_EMERGENCY)
 
 /obj/machinery/keycard_auth/proc/is_ert_blocked()
-	if(config.ert_admin_call_only)
+	if(GLOB.config.ert_admin_call_only)
 		return 1
 	if(SSticker.mode.ert_disabled)
 		SSticker.mode.announce_ert_disabled()
@@ -213,12 +213,27 @@ var/global/maint_all_access = 0
 	security_announcement.Announce("The maintenance access requirement has been readded on all maintenance airlocks.","Attention!")
 
 /obj/machinery/door/airlock/allowed(mob/M)
+	if(locked)
+		return 0
+
 	var/obj/item/I = M.GetIdCard()
 	if(!I)
 		return ..(M)
 	var/list/A = I.GetAccess()
-	var/maint_sec_access = ((security_level > SEC_LEVEL_GREEN) && has_access(access_security, accesses = A))
+	var/maint_sec_access = ((GLOB.security_level > SEC_LEVEL_GREEN) && has_access(ACCESS_SECURITY, accesses = A))
 	var/exceptional_circumstances = maint_all_access || maint_sec_access
-	if(exceptional_circumstances && src.check_access_list(list(access_maint_tunnels)))
+	if(exceptional_circumstances && src.check_access_list(list(ACCESS_MAINT_TUNNELS)))
 		return 1
+	if(access_by_level || req_one_access_by_level)
+		var/sec_level = get_security_level()
+		if(sec_level in (req_one_access_by_level ? req_one_access_by_level : access_by_level))
+			var/access_to_use = req_one_access_by_level ? req_one_access_by_level[sec_level] : access_by_level[sec_level]
+			if(!access_to_use)
+				return TRUE
+			if(req_one_access_by_level)
+				if(has_access(req_one_access = access_to_use, accesses = A))
+					return TRUE
+			else
+				if(has_access(access_to_use, accesses = A))
+					return TRUE
 	return ..(M)

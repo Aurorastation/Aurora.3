@@ -11,7 +11,7 @@
 	icon_state = "shuttle3"
 	requires_power = 0
 	station_area = 1
-	flags = SPAWN_ROOF | HIDE_FROM_HOLOMAP
+	area_flags = AREA_FLAG_SPAWN_ROOF | AREA_FLAG_HIDE_FROM_HOLOMAP
 
 /area/supply/dock
 	name = "Supply Shuttle"

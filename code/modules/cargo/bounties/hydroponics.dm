@@ -80,9 +80,9 @@
 	description = "%BOSSNAME is in need of a bundle of fresh fruit. Send your best!"
 	required_count = 12
 	random_count = 3
-	produce_picks = list(/datum/seed/tomato, 
-				/datum/seed/berry, 
-				/datum/seed/apple, 
+	produce_picks = list(/datum/seed/tomato,
+				/datum/seed/berry,
+				/datum/seed/apple,
 				/datum/seed/grapes,
 				/datum/seed/banana,
 				/datum/seed/watermelon,

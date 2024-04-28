@@ -3,7 +3,6 @@
 
 	name = "Embedded Controller"
 	anchored = 1
-	layer = OBJ_LAYER
 
 	idle_power_usage = 10
 	var/checks_for_access = FALSE
@@ -13,7 +12,8 @@
 /obj/machinery/embedded_controller/radio/Destroy()
 	if(SSradio)
 		SSradio.remove_object(src,frequency)
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
 /obj/machinery/embedded_controller/proc/post_signal(datum/signal/signal, comm_line)
 	return 0

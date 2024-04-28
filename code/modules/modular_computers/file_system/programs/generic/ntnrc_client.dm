@@ -27,6 +27,11 @@
 		ui.autoupdate = FALSE
 
 /datum/computer_file/program/chat_client/Destroy()
+	service_deactivate()
+	my_user = null
+	focused_conv = null
+	active = null
+
 	return ..()
 
 /datum/computer_file/program/chat_client/proc/can_receive_notification(var/datum/computer_file/program/chat_client/from)
@@ -98,8 +103,8 @@
 		return
 	if(!(src in my_user.clients))
 		my_user.clients.Add(src)
-	if(!(src in ntnet_global.chat_clients))
-		ntnet_global.chat_clients.Add(src)
+	if(!(src in GLOB.ntnet_global.chat_clients))
+		GLOB.ntnet_global.chat_clients.Add(src)
 	computer.update_static_data_for_all_viewers()
 
 /datum/computer_file/program/chat_client/proc/deactivate_chat_client()
@@ -107,9 +112,14 @@
 		return
 	if(src in my_user.clients)
 		my_user.clients.Remove(src)
-	if(src in ntnet_global.chat_clients)
-		ntnet_global.chat_clients.Remove(src)
+	if(src in GLOB.ntnet_global.chat_clients)
+		GLOB.ntnet_global.chat_clients.Remove(src)
 	computer.update_static_data_for_all_viewers()
+
+/datum/computer_file/program/chat_client/proc/handle_ntnet_user_deletion(var/datum/ntnet_user)
+	if(ntnet_user == src.my_user)
+		service_deactivate()
+		my_user = null
 
 /datum/computer_file/program/chat_client/ui_data(mob/user)
 	. = ..()
@@ -119,7 +129,7 @@
 	data["signal"] = get_signal(NTNET_COMMUNICATION)
 	data["ringtone"] = ringtone
 	data["netadmin_mode"] = netadmin_mode
-	data["can_netadmin_mode"] = can_run(user, FALSE, access_network)
+	data["can_netadmin_mode"] = can_run(user, FALSE, ACCESS_NETWORK)
 	data["message_mute"] = message_mute
 	if(active && active.can_interact(src))
 		var/ref = text_ref(active)
@@ -151,7 +161,7 @@
 	var/list/data = list()
 	if(istype(my_user) && get_signal(NTNET_COMMUNICATION) && (service_state > PROGRAM_STATE_KILLED))
 		data["channels"] = list()
-		for(var/c in ntnet_global.chat_channels)
+		for(var/c in GLOB.ntnet_global.chat_channels)
 			var/datum/ntnet_conversation/channel = c
 			if(istype(channel) && (channel.can_see(src)))
 				var/ref = text_ref(channel)
@@ -174,7 +184,7 @@
 				data["channels"] += list(our_channel)
 
 		data["users"] = list()
-		for(var/u in ntnet_global.chat_users)
+		for(var/u in GLOB.ntnet_global.chat_users)
 			var/datum/ntnet_user/ntnet_user = u
 			if(ntnet_user != my_user)
 				data["users"] += list(list("ref" = text_ref(ntnet_user), "username" = ntnet_user.username))
@@ -288,21 +298,21 @@
 		. = TRUE
 
 	if(action == "new_channel")
-		ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
+		GLOB.ntnet_global.begin_conversation(src, sanitize(params["new_channel"]))
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
 	if(action == "delete")
 		var/datum/ntnet_conversation/conv = locate(params["delete"])
 		if(istype(conv) && conv.can_manage(src))
-			ntnet_global.chat_channels.Remove(conv)
+			GLOB.ntnet_global.chat_channels.Remove(conv)
 			qdel(conv)
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
 	if(action == "direct")
 		var/datum/ntnet_user/tUser = locate(params["direct"])
-		ntnet_global.begin_direct(src, tUser)
+		GLOB.ntnet_global.begin_direct(src, tUser)
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
 
@@ -311,7 +321,7 @@
 			netadmin_mode = FALSE
 		else
 			var/mob/living/user = usr
-			if(can_run(user, TRUE, access_network))
+			if(can_run(user, TRUE, ACCESS_NETWORK))
 				netadmin_mode = TRUE
 		computer.update_static_data_for_all_viewers()
 		. = TRUE
@@ -323,9 +333,9 @@
 
 	if(href_list["Reply"])
 		var/mob/living/user = usr
+		if(ishuman(user))
+			user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 		var/datum/ntnet_conversation/conv = locate(href_list["Reply"])
-		var/message = input(user, "Enter message or leave blank to cancel: ")
+		var/message = tgui_input_text(user, "Enter a message or leave blank to cancel.", "Chat Client")
 		if(istype(conv) && message)
-			if(ishuman(user))
-				user.visible_message("[SPAN_BOLD("\The [user]")] taps on [user.get_pronoun("his")] [computer.lexical_name]'s screen.")
 			conv.cl_send(src, message, user)

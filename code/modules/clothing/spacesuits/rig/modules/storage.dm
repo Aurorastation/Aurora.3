@@ -19,12 +19,10 @@
 	pockets.max_w_class = storage_max_w_class
 	pockets.max_storage_space = storage_max_storage_space
 
+/obj/item/rig_module/storage/Destroy()
+	QDEL_NULL(pockets)
 
-/obj/item/rig/attack_hand(mob/user as mob)
-	var/obj/item/rig_module/storage/storage = locate() in installed_modules
-	if(storage && !storage.pockets.handle_attack_hand(user))
-		return
-	return ..()
+	. = ..()
 
 /obj/item/rig/MouseDrop(obj/over_object as obj)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules
@@ -38,12 +36,6 @@
 		storage.pockets.open(user)
 		return TRUE
 	return FALSE
-
-/obj/item/rig/emp_act(severity)
-	var/obj/item/rig_module/storage/storage = locate() in installed_modules
-	if(storage)
-		storage.pockets.emp_act(severity)
-	return ..()
 
 /obj/item/rig/hear_talk(mob/M, var/msg, verb, datum/language/speaking)
 	var/obj/item/rig_module/storage/storage = locate() in installed_modules

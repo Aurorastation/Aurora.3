@@ -1,4 +1,4 @@
-/datum/outfit/admin/ert/elyran_trooper
+/obj/outfit/admin/ert/elyran_trooper
 	name = "Elyran Navy Crewman"
 
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues
@@ -28,10 +28,10 @@
 	accessory = /obj/item/clothing/accessory/holster/hip/brown
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
 
-/datum/outfit/admin/ert/elyran_trooper/get_id_access()
+/obj/outfit/admin/ert/elyran_trooper/get_id_access()
 	return get_distress_access()
 
-/datum/outfit/admin/ert/elyran_trooper/leader
+/obj/outfit/admin/ert/elyran_trooper/leader
 	name = "Elyran Navy Officer"
 
 	uniform = /obj/item/clothing/under/rank/elyran_fatigues/commander
@@ -47,7 +47,7 @@
 	l_hand = /obj/item/gun/projectile/plasma
 
 
-/datum/outfit/admin/ert/elyran_trooper/engineer
+/obj/outfit/admin/ert/elyran_trooper/engineer
 	name = "Elyran Navy Engineer"
 
 	back = /obj/item/storage/backpack/duffel/eng
@@ -62,7 +62,7 @@
 
 	belt_contents = null
 
-/datum/outfit/admin/ert/elyran_trooper/medical
+/obj/outfit/admin/ert/elyran_trooper/medical
 	name = "Elyran Navy Corpsman"
 
 	belt = /obj/item/storage/belt/medical/first_responder/combat
@@ -92,7 +92,7 @@
 		/obj/item/reagent_containers/glass/bottle/perconol = 1
 	)
 
-/datum/outfit/admin/ert/elyran_trooper/heavy
+/obj/outfit/admin/ert/elyran_trooper/heavy
 	name = "Elyran Navy Heavy Specialist"
 
 	head = null

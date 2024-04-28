@@ -232,3 +232,4 @@
 	new /obj/item/clothing/shoes/sneakers/brown(src)
 	new /obj/item/clothing/head/bomb_hood/security(src)
 	new /obj/item/wirecutters/bomb(src)
+	new /obj/item/device/mine_detector(src)

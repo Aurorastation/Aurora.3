@@ -4,18 +4,13 @@
 	if (MC_TICK_CHECK) return;		\
 	continue;
 
-/var/datum/controller/subsystem/falling/SSfalling
-
-/datum/controller/subsystem/falling
+SUBSYSTEM_DEF(falling)
 	name = "Falling"
 	flags = SS_NO_INIT
 	wait = 1
 
 	var/list/falling = list()
 	var/list/currentrun
-
-/datum/controller/subsystem/falling/New()
-	NEW_SS_GLOBAL(SSfalling)
 
 /datum/controller/subsystem/falling/stat_entry(msg)
 	msg = "F:[falling.len]"
@@ -90,6 +85,9 @@
 				if (falling[victim] <= 1)	// Just moving down a flight, skip damage.
 					victim.multiz_falling = 0
 					falling -= victim
+					for(var/obj/item/grab/grab in victim)
+						if(grab.affecting)
+							grab.affecting.forceMove(victim.loc)
 				else
 					// Falling more than a level, fuck 'em up.
 					victim.fall_impact(falling[victim], FALSE)

@@ -9,11 +9,11 @@
 	var/last_gauge_pressure
 	var/gauge_cap = 6
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_NORMAL
 
-	force = 5.0
+	force = 11
 	throwforce = 10.0
 	throw_speed = 1
 	throw_range = 4
@@ -47,7 +47,7 @@
 
 	return ..()
 
-/obj/item/tank/examine(mob/user, distance, is_adjacent)
+/obj/item/tank/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 0)
 		var/celsius_temperature = air_contents.temperature - T0C
@@ -65,21 +65,21 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		to_chat(user, "<span class='notice'>\The [src] feels [descriptive].</span>")
+		. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
-/obj/item/tank/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/tank/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if ((istype(W, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		var/obj/item/device/analyzer/A = W
+	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 
-	if (istype(W, /obj/item/toy/balloon))
-		var/obj/item/toy/balloon/B = W
+	if (istype(attacking_item, /obj/item/toy/balloon))
+		var/obj/item/toy/balloon/B = attacking_item
 		B.blow(src)
 		src.add_fingerprint(user)
 
-	if(istype(W, /obj/item/device/assembly_holder))
-		bomb_assemble(W,user)
+	if(istype(attacking_item, /obj/item/device/assembly_holder))
+		bomb_assemble(attacking_item, user)
 
 /obj/item/tank/attack_self(mob/user as mob)
 	if (!(src.air_contents))
@@ -135,11 +135,11 @@
 				mask_check = 1
 
 		if(mask_check)
-			if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
+			if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 				data["maskConnected"] = 1
 			else if(istype(location, /mob/living/carbon/human))
 				var/mob/living/carbon/human/H = location
-				if(H.head && (H.head.item_flags & AIRTIGHT))
+				if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 					data["maskConnected"] = 1
 
 	return data
@@ -159,11 +159,11 @@
 					location.internals.icon_state = "internal0"
 			else
 				var/can_open_valve
-				if(location.wear_mask && (location.wear_mask.item_flags & AIRTIGHT))
+				if(location.wear_mask && (location.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					can_open_valve = 1
 				else if(istype(location,/mob/living/carbon/human))
 					var/mob/living/carbon/human/H = location
-					if(H.head && (H.head.item_flags & AIRTIGHT))
+					if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 						can_open_valve = 1
 
 				if(can_open_valve)
@@ -266,8 +266,8 @@
 		qdel(src)
 
 	else if(pressure > TANK_RUPTURE_PRESSURE)
-		#ifdef FIREDBG
-		LOG_DEBUG("<span class='warning'>[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is rupturing: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)
@@ -281,8 +281,8 @@
 			integrity--
 
 	else if(pressure > TANK_LEAK_PRESSURE)
-		#ifdef FIREDBG
-		LOG_DEBUG("<span class='warning'>[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]</span>")
+		#ifdef ZASDBG
+		log_subsystem_zas("[x],[y] tank is leaking: [pressure] kPa, integrity [integrity]")
 		#endif
 
 		if(integrity <= 0)

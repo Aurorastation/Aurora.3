@@ -21,6 +21,20 @@
 	can_sawoff = TRUE
 	sawnoff_workmsg = "shorten the barrel and stock"
 
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed
+	name = "strange rifle"
+	desc = DESC_PARENT
+	can_sawoff = FALSE
+	load_method = MAGAZINE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/handle_pump_loading()
+	if(ammo_magazine && length(ammo_magazine.stored_ammo))
+		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
+		if(AC)
+			AC.forceMove(src)
+			ammo_magazine.stored_ammo -= AC
+			chambered = AC
+
 /obj/item/gun/projectile/shotgun/pump/rifle/blank
 	desc = "A replica of a traditional Adhomian bolt action rifle. It has the seal of the Grand Romanovich Casino on its stock."
 	ammo_type = /obj/item/ammo_casing/a762/blank
@@ -70,7 +84,7 @@
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	can_bayonet = FALSE
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun
 	name = "pipegun"
 	desc = "An excellent weapon for flushing out tunnel rats and enemy assistants, but its rifling leaves much to be desired."
 	icon = 'icons/obj/guns/pipegun.dmi'
@@ -91,41 +105,56 @@
 
 	jam_chance = -10
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_pump_loading()
-	if(ammo_magazine && length(ammo_magazine.stored_ammo))
-		var/obj/item/ammo_casing/AC = ammo_magazine.stored_ammo[1] //load next casing.
-		if(AC)
-			AC.forceMove(src)
-			ammo_magazine.stored_ammo -= AC
-			chambered = AC
-
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/examine(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	switch(jam_chance)
 		if(10 to 20)
-			to_chat(user, SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag."))
+			. += SPAN_NOTICE("\The [src] is starting to accumulate fouling. Might want to grab a rag.")
 		if(20 to 40)
-			to_chat(user, SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] looks reasonably fouled up. Maybe you should clean it with a rag.")
 		if(40 to 80)
-			to_chat(user, SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag."))
+			. += SPAN_WARNING("\The [src] is starting to look quite gunked up. You should clean it with a rag.")
 		if(80 to INFINITY)
-			to_chat(user, SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag."))
+			. += SPAN_DANGER("\The [src] is completely fouled. You're going to be extremely lucky to get a shot off. Clean it with a rag.")
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/attackby(obj/item/A, mob/user)
-	if(istype(A, /obj/item/reagent_containers/glass/rag))
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass/rag))
 		if(!jam_chance || jam_chance == initial(jam_chance))
 			to_chat(user, SPAN_WARNING("There's no fouling present on \the [src]."))
 			return
-		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [A].", SPAN_NOTICE("You start cleaning \the [src] with \the [A]."))
+		user.visible_message("<b>[user]</b> starts cleaning \the [src] with \the [attacking_item].", SPAN_NOTICE("You start cleaning \the [src] with \the [attacking_item]."))
 		if(do_after(user, jam_chance * 5))
 			to_chat(user, SPAN_WARNING("You completely clean \the [src]."))
 			jam_chance = initial(jam_chance)
 		return
 	return ..()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/pipegun/handle_post_fire(mob/user)
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun/handle_post_fire(mob/user)
 	. = ..()
 	jam_chance = min(jam_chance + 5, 100)
+
+/obj/item/gun/projectile/shotgun/pump/rifle/dominia
+	name = "dominian sniper rifle"
+	desc = "A precision rifle used by snipers and sharpshooters of the Imperial Army. One of the few modern military-grade weapons to use a bolt for its action."
+	desc_extended = "The MPMR-08/2 is a precisely machined and meticulously designed rifle which prioritizes accuracy and precision over rate of fire. \
+	Outside of the Imperial Army, it is commonly seen in the hands of competition shooters."
+	icon = 'icons/obj/guns/dominia_bolt_action.dmi'
+	icon_state = "dom_bolt_action"
+	item_state = "dom_bolt_action"
+	caliber = "a762"
+	ammo_type = /obj/item/ammo_casing/a762
+	magazine_type = /obj/item/ammo_magazine/boltaction
+	load_method = SPEEDLOADER
+
+/obj/item/gun/projectile/shotgun/pump/rifle/dominia/verb/scope()
+	set category = "Object"
+	set name = "Use Scope"
+	set src in usr
+
+	if(wielded)
+		toggle_scope(2.0, usr)
+	else
+		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
 
 /obj/item/gun/projectile/contender
 	name = "pocket rifle"
@@ -213,9 +242,7 @@
 
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/unique_action(mob/living/user as mob)
 	if(wielded)
-		if(world.time >= recentpump + 10)
-			pump(user)
-			recentpump = world.time
+		pump(user)
 		return
 	else
 		if(open_bolt && has_clip)
@@ -265,14 +292,14 @@
 
 	update_icon()
 
-/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(var/obj/item/A as obj, mob/user as mob)
-	if(istype(A, /obj/item/ammo_magazine/boltaction/vintage))
+/obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
 			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
 			return
 		if(!has_clip)
-			user.drop_from_inventory(A,src)
-			has_clip = A
+			user.drop_from_inventory(attacking_item, src)
+			has_clip = attacking_item
 			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
 			if(!has_clip.stored_ammo.len)
 				add_overlay("springfield-clip-empty")
@@ -314,7 +341,7 @@
 	load_method = MAGAZINE
 	handle_casings = DELETE_CASINGS
 
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	can_bayonet = TRUE
 	knife_x_offset = 23
@@ -397,3 +424,17 @@
 	rack_verb = "work the lever on"
 	can_bayonet = FALSE
 	can_sawoff = FALSE
+
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle
+	name = "crack rifle"
+	desc = "A heavy bolt-action rifle of Moghesian manufacture."
+	desc_extended = "Manufactured by the Azarak Kingdom in 2350, the Azarak-96 'Crack Rifle' is a bolt-action rifle of Moghesian manufacture, easily recognizable by its long bayonet and large magazine wrapped around its trigger guard.\
+	This heavy but powerful weapon is mostly known for its use by the common warrior of the Traditionalist Coalition during the Contact War.\
+	Many of these rifles survived the ravages of the Contact War, a testament to their reliability."
+	icon = 'icons/obj/guns/unathi_ballistics.dmi'
+	icon_state = "crackrifle"
+	item_state = "crackrifle"
+	caliber = "5.8mm"
+	magazine_type = /obj/item/ammo_magazine/crackrifle
+	allowed_magazines = list(/obj/item/ammo_magazine/crackrifle)
+	load_method = MAGAZINE

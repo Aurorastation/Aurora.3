@@ -9,7 +9,7 @@ var/global/forum_api_key = null
 /datum/http_request/forum_api/proc/_get_url(suffix)
 	PRIVATE_PROC(TRUE)
 
-	. = "[config.forum_api_path]/[end_point]"
+	. = "[GLOB.config.forum_api_path]/[end_point]"
 
 	if (suffix)
 		. += "/[suffix]"

@@ -1,12 +1,17 @@
 /datum/map_template/ruin/away_site/diona_rokz_ship
 	name = "Rokz Clan Ship"
 	description = "A ship belonging to the Rokz voidtamer clan, a group of dionae who specialize in selling space fauna."
-	suffixes = list("ships/dionae/diona_rokz_ship/diona_rokz_ship.dmm")
+
+	prefix = "ships/dionae/diona_rokz_ship/"
+	suffixes = list("diona_rokz_ship.dmm")
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL, SECTOR_UUEOAESA)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "diona_rokz"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/diona_rokz_ship_shuttle)
+
+	unit_test_groups = list(1)
 
 /singleton/submap_archetype/diona_rokz_ship
 	map = "Rokz Clan Ship"
@@ -71,8 +76,8 @@
 	)
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/New()
-    designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
-    ..()
+	designation = "[pick("Boulder", "Stonecarp", "Gibber")]"
+	..()
 
 /obj/effect/overmap/visitable/ship/diona_rokz_ship/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/subcapital_ships.dmi', "diona")

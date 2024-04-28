@@ -12,7 +12,7 @@
 		return
 
 	if(!src.client.holder)
-		if(!config.dsay_allowed)
+		if(!GLOB.config.dsay_allowed)
 			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
 			return
 
@@ -38,7 +38,7 @@
 	for (var/turf in view(world.view, get_turf(src)))
 		messageturfs += turf
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if (!M.client || isnewplayer(M))
 			continue
 		if(get_turf(M) in messageturfs)

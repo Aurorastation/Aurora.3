@@ -51,7 +51,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(src, "<span class='notice'>The airwaves already has all of our DNA.</span>")
 		return
 
-	var/S = input("Select a DNA to channel: ", "Channel DNA", null) as null|anything in names
+	var/S = tgui_input_list(usr, "Select a DNA to channel.", "Channel DNA", names)
 	if(!S)
 		return
 
@@ -83,7 +83,7 @@ var/list/datum/absorbed_dna/hivemind_bank = list()
 		to_chat(src, "<span class='notice'>There's no new DNA to absorb from the air.</span>")
 		return
 
-	var/S = input("Select a DNA absorb from the air: ", "Absorb DNA", null) as null|anything in names
+	var/S = tgui_input_list(src, "Select a DNA string to absorb.", "Absorb DNA", names)
 	if(!S)
 		return
 

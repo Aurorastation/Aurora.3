@@ -23,6 +23,12 @@ $pink: #e03997 !default;
 $brown: #a5673f !default;
 $grey: #767676 !default;
 $light-grey: #aaa !default;
+$silver: #c0c0c0 !default;
+$crimson: #dc143c !default;
+$cyan: #00ffff !default;
+$gold: #ffd700 !default;
+$magenta: #ff00ff !default;
+$lime: #32cd32 !default;
 
 $primary: #4972a1 !default;
 $good: #5baa27 !default;
@@ -60,6 +66,12 @@ $_gen_map: (
   'brown': $brown,
   'grey': $grey,
   'light-grey': $light-grey,
+  'silver': $silver,
+  'crimson': $crimson,
+  'cyan': $cyan,
+  'gold': $gold,
+  'magenta': $magenta,
+  'lime': $lime,
   'good': $good,
   'average': $average,
   'bad': $bad,

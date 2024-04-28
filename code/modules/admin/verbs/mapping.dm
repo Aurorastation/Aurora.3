@@ -56,7 +56,7 @@ var/intercom_range_display_status = 0
 		qdel(C)
 
 	if(camera_range_display_status)
-		for(var/obj/machinery/camera/C in cameranet.cameras)
+		for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 			new/obj/effect/debugging/camera_range(C.loc)
 	feedback_add_details("admin_verb","mCRD") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -72,7 +72,7 @@ var/intercom_range_display_status = 0
 
 	var/list/obj/machinery/camera/CL = list()
 
-	for(var/obj/machinery/camera/C in cameranet.cameras)
+	for(var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (isturf(C.loc))
 			CL += C
 
@@ -136,7 +136,7 @@ var/list/debug_verbs = list (
 	,/client/proc/count_objects_all
 	,/client/proc/cmd_assume_direct_control
 	,/client/proc/jump_to_dead_group
-	,/client/proc/ticklag
+	,/client/proc/set_server_fps
 	,/client/proc/cmd_admin_grantfullaccess
 	,/client/proc/kaboom
 	,/client/proc/splash

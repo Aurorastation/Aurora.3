@@ -98,7 +98,7 @@
 	if(target == selected_hardpoint)
 		clear_selected_hardpoint()
 
-	destroyed_event.unregister(module_to_forget, src, PROC_REF(forget_module))
+	GLOB.destroyed_event.unregister(module_to_forget, src, PROC_REF(forget_module))
 
 	var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[target]
 	H.holding = null
@@ -142,7 +142,7 @@
 			if(!found)
 				return FALSE
 		ME.installed(src)
-		destroyed_event.register(system, src, PROC_REF(forget_module))
+		GLOB.destroyed_event.register(system, src, PROC_REF(forget_module))
 
 
 	system.forceMove(src)
@@ -152,7 +152,7 @@
 	H.holding = system
 
 	system.screen_loc = H.screen_loc
-	system.layer = H.layer+0.1
+	system.hud_layerise()
 
 	hud_elements |= system
 	refresh_hud()
@@ -160,7 +160,7 @@
 
 	return 1
 
-/mob/living/heavy_vehicle/proc/remove_system(var/system_hardpoint, var/mob/user, var/force)
+/mob/living/heavy_vehicle/proc/remove_system_interact(var/system_hardpoint, var/mob/user, var/force)
 	if((hardpoints_locked && !force) || !hardpoints[system_hardpoint])
 		return 0
 
@@ -172,6 +172,19 @@
 			if(!do_after(user, delay, src) || hardpoints[system_hardpoint] != system)
 				return FALSE
 
+	remove_system(system_hardpoint, force)
+
+	if(user)
+		system.forceMove(get_turf(user))
+		user.put_in_hands(system)
+		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
+		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
+
+/mob/living/heavy_vehicle/proc/remove_system(var/system_hardpoint, var/force)
+	if((hardpoints_locked && !force) || !hardpoints[system_hardpoint])
+		return 0
+
+	var/obj/item/system = hardpoints[system_hardpoint]
 	hardpoints[system_hardpoint] = null
 
 	if(system_hardpoint == selected_hardpoint)
@@ -183,7 +196,7 @@
 	system.forceMove(get_turf(src))
 	system.screen_loc = null
 	system.layer = initial(system.layer)
-	destroyed_event.unregister(system, src, PROC_REF(forget_module))
+	GLOB.destroyed_event.unregister(system, src, PROC_REF(forget_module))
 
 	var/obj/screen/mecha/hardpoint/H = hardpoint_hud_elements[system_hardpoint]
 	H.holding = null
@@ -196,11 +209,5 @@
 	hud_elements -= system
 	refresh_hud()
 	queue_icon_update()
-
-	if(user)
-		system.forceMove(get_turf(user))
-		user.put_in_hands(system)
-		to_chat(user, "<span class='notice'>You remove \the [system] in \the [src]'s [system_hardpoint].</span>")
-		playsound(user.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 
 	return system

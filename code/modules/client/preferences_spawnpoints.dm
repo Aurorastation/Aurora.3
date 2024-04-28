@@ -24,8 +24,8 @@
 
 /datum/spawnpoint/arrivals/New()
 	..()
-	msg = "is inbound from the [current_map.dock_name]"
-	turfs = latejoin
+	msg = "is inbound from the [SSatlas.current_map.dock_name]"
+	turfs = GLOB.latejoin
 
 /datum/spawnpoint/cryo
 	display_name = "Cryogenic Storage"
@@ -35,8 +35,8 @@
 
 /datum/spawnpoint/cryo/New()
 	..()
-	turfs = latejoin_cryo
-	command_turfs = latejoin_cryo_command
+	turfs = GLOB.latejoin_cryo
+	command_turfs = GLOB.latejoin_cryo_command
 
 /datum/spawnpoint/cryo/after_join(mob/victim)
 	if(!istype(victim))
@@ -46,7 +46,7 @@
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
 			victim.Sleeping(3)
-			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [current_map.full_name]. It might take a few seconds."))
+			to_chat(victim, SPAN_NOTICE("You are slowly waking up from the cryostasis aboard [SSatlas.current_map.full_name]. It might take a few seconds."))
 			return
 
 /datum/spawnpoint/cyborg
@@ -56,7 +56,7 @@
 
 /datum/spawnpoint/cyborg/New()
 	..()
-	turfs = latejoin_cyborg
+	turfs = GLOB.latejoin_cyborg
 
 /datum/spawnpoint/living_quarters_lift
 	display_name = "Living Quarters Lift"
@@ -65,7 +65,7 @@
 
 /datum/spawnpoint/living_quarters_lift/New()
 	..()
-	turfs = latejoin_living_quarters_lift
+	turfs = GLOB.latejoin_living_quarters_lift
 
 /datum/spawnpoint/living_quarters_lift/after_join(mob/victim)
 	if(!istype(victim))
@@ -74,5 +74,5 @@
 	for(var/obj/machinery/cryopod/living_quarters/C in A)
 		if(!C.occupant)
 			C.set_occupant(victim, 1)
-			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [current_map.full_name]."))
+			to_chat(victim, SPAN_NOTICE("You have arrived from the living quarters aboard the [SSatlas.current_map.full_name]."))
 			return

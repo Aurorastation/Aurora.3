@@ -6,7 +6,7 @@
 	icon = 'icons/obj/multiz_items.dmi'
 	contained_sprite = TRUE
 	throw_range = 3
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_LARGE
 	slot_flags = SLOT_BACK
 
@@ -56,8 +56,7 @@
 	place_ladder(A,user)
 
 /obj/item/ladder_mobile/proc/handle_action(atom/A, mob/user)
-	if(!do_after(user, 30, act_target = user))
-		to_chat(user, SPAN_WARNING("You were interrupted while placing the ladder!"))
+	if(!do_after(user, 30, user))
 		return FALSE
 	if(!A || QDELETED(src) || QDELETED(user))
 		// Shit was deleted during delay, call is no longer valid.
@@ -86,8 +85,7 @@
 	user.visible_message(SPAN_NOTICE("\The [user] starts folding up \the [src]."),
 		SPAN_NOTICE("You start folding up \the [src]."))
 
-	if(!do_after(user, 30, act_target = src))
-		to_chat(user, SPAN_WARNING("You are interrupted!"))
+	if(!do_after(user, 30, src))
 		return
 
 	if(QDELETED(src))

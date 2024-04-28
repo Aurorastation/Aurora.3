@@ -3,25 +3,32 @@
 #define FULLY_BUCKLED 2
 
 /mob/Destroy()//This makes sure that mobs with clients/keys are not just deleted from the game.
-	mob_list -= src
-	dead_mob_list -= src
-	living_mob_list -= src
+	MOB_STOP_THINKING(src)
+
+	GLOB.mob_list -= src
+	GLOB.dead_mob_list -= src
+	GLOB.living_mob_list -= src
 	unset_machine()
 	QDEL_NULL(hud_used)
 	lose_hearing_sensitivity()
+
+	QDEL_LIST(spell_masters)
+	remove_screen_obj_references()
+
 	if(client)
-		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
-			qdel(spell_master)
-		remove_screen_obj_references()
 		for(var/atom/movable/AM in client.screen)
 			qdel(AM)
 		client.screen = list()
+
 	if (mind)
 		mind.handle_mob_deletion(src)
+
 	for(var/infection in viruses)
 		qdel(infection)
+
 	for(var/cc in client_colors)
 		qdel(cc)
+
 	client_colors = null
 	viruses.Cut()
 	item_verbs = null
@@ -41,10 +48,18 @@
 		var/atom/movable/AM = src.loc
 		LAZYREMOVE(AM.contained_mobs, src)
 
-	MOB_STOP_THINKING(src)
+	QDEL_NULL(ability_master)
+
+	if(click_handlers)
+		click_handlers.QdelClear()
+		QDEL_NULL(click_handlers)
 
 	return ..()
 
+/mob/New()
+	// This needs to happen IMMEDIATELY. I'm sorry :(
+	GenerateTag()
+	return ..()
 
 /mob/proc/remove_screen_obj_references()
 	flash = null
@@ -76,65 +91,52 @@
 /mob/Initialize()
 	. = ..()
 	if(should_add_to_mob_list)
-		mob_list += src
+		GLOB.mob_list += src
 		if(stat == DEAD)
-			dead_mob_list += src
+			GLOB.dead_mob_list += src
 		else
-			living_mob_list += src
+			GLOB.living_mob_list += src
 
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
+	update_emotes()
+
 	become_hearing_sensitive()
+
+/**
+ * Generate the tag for this mob
+ *
+ * This is simply "mob_"+ a global incrementing counter that goes up for every mob
+ */
+/mob/GenerateTag()
+	. = ..()
+	tag = "mob_[next_mob_id++]"
 
 /mob/verb/say_wrapper()
 	set name = ".Say"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","say (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		say_verb(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(SAY_CHANNEL)]")
 
 /mob/verb/me_wrapper()
 	set name = ".Me"
 	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		me_verb(message)
-
-/mob/verb/whisper_wrapper()
-	set name = ".Whisper"
-	set hidden = TRUE
-	SStyping.set_indicator_state(client, TRUE)
-	var/message = input("","me (text)") as text|null
-	SStyping.set_indicator_state(client, FALSE)
-	if (message)
-		whisper(message)
+	winset(src, null, "command=[client.tgui_say_create_open_command(ME_CHANNEL)]")
 
 /client/verb/typing_indicator()
 	set name = "Show/Hide Typing Indicator"
 	set category = "Preferences"
 	set desc = "Toggles showing an indicator when you are typing emote or say message."
-	prefs.toggles ^= SHOW_TYPING
+	prefs.toggles ^= HIDE_TYPING_INDICATOR
 	prefs.save_preferences()
-	to_chat(src, "You will [(prefs.toggles & SHOW_TYPING) ? "no longer" : "now"] display a typing indicator.")
-
-	// Clear out any existing typing indicator.
-	if(prefs.toggles & SHOW_TYPING)
-		if(istype(mob))
-			SStyping.set_indicator_state(mob.client, FALSE)
-
+	to_chat(src, "You will [(prefs.toggles & HIDE_TYPING_INDICATOR) ? "no longer" : "now"] display a typing indicator.")
 	feedback_add_details("admin_verb","TID") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /mob/proc/set_stat(var/new_stat)
 	. = stat != new_stat
 	if(.)
 		stat = new_stat
-		if(SStyping)
-			SStyping.set_indicator_state(client, FALSE)
+		remove_all_indicators()
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -162,32 +164,26 @@
 		to_chat(src, msg)
 	return
 
-// Show a message to all mobs and objects in sight of this one
-// This would be for visible actions by the src mob
-// message is the message output to anyone who can see e.g. "[src] does something!"
-// self_message (optional) is what the src mob sees  e.g. "You do something!"
-// blind_message (optional) is what blind people will hear e.g. "You hear something!"
 
-/mob/visible_message(var/message, var/self_message, var/blind_message, var/range = world.view, var/show_observers = TRUE, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+/mob/visible_message(message, self_message, blind_message, range = world.view, show_observers = TRUE, intent_message = null, intent_range = 7)
 	var/list/messageturfs = list() //List of turfs we broadcast to.
 	var/list/messagemobs = list() //List of living mobs nearby who can hear it, and distant ghosts who've chosen to hear it
 	var/list/messageobjs = list() //list of objs nearby who can see it
 	for (var/turf in view(range, get_turf(src)))
 		messageturfs += turf
 
-	for(var/A in player_list)
+	for(var/A in GLOB.player_list)
 		var/mob/M = A
 		if (QDELETED(M))
 			warning("Null or QDELETED object [DEBUG_REF(M)] found in player list! Removing.")
-			player_list -= M
+			GLOB.player_list -= M
 			continue
 		if (!M.client || istype(M, /mob/abstract/new_player))
 			continue
 		if((get_turf(M) in messageturfs) || (show_observers && isobserver(M) && (M.client.prefs.toggles & CHAT_GHOSTSIGHT)))
 			messagemobs += M
 
-	for(var/o in listening_objects)
+	for(var/o in GLOB.listening_objects)
 		var/obj/O = o
 		var/turf/O_turf = get_turf(O)
 		if(O && (O_turf in messageturfs))
@@ -266,7 +262,7 @@
 		AM.show_message("[get_accent_icon(null, ismob(AM) ? AM : src)] [message]", 2, deaf_message, 1)
 
 /mob/proc/findname(msg)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (M.real_name == text("[]", msg))
 			return M
 	return 0
@@ -284,7 +280,9 @@
 			. += P.slowdown
 
 /mob/proc/Life()
-	return
+	if(LAZYLEN(spell_masters))
+		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+			spell_master.update_spells(0, src)
 
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
@@ -491,7 +489,7 @@
 		return//This shouldnt happen
 
 	var/failure = null
-	if (!( config.abandon_allowed ))
+	if (!( GLOB.config.abandon_allowed ))
 		failure = "Respawn is disabled."
 	else if (stat != DEAD)
 		failure = "You must be dead to use this!"
@@ -539,16 +537,14 @@
 /client/verb/changes()
 	set name = "Changelog"
 	set category = "OOC"
-	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
-	changelog.send(src)
+	if(!GLOB.changelog_tgui)
+		GLOB.changelog_tgui = new /datum/changelog()
 
-	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
-	changelog_win.set_content(file2text('html/changelog.html'))
-	changelog_win.open()
-	if(prefs.lastchangelog != changelog_hash)
-		prefs.lastchangelog = changelog_hash
+	GLOB.changelog_tgui.ui_interact(mob)
+	if(prefs.lastchangelog != GLOB.changelog_hash)
+		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
-		winset(src, "rpane.changelog", "background-color=none;font-style=;")
+		winset(src, "infowindow.changelog", "font-style=;")
 
 /mob/verb/observe()
 	set name = "Observe"
@@ -602,7 +598,7 @@
 			creatures[name] = O
 
 
-	for(var/mob/M in sortAtom(mob_list))
+	for(var/mob/M in sortAtom(GLOB.mob_list))
 		var/name = M.name
 		if (names.Find(name))
 			namecounts[name]++
@@ -646,9 +642,8 @@
 		src << browse(null, t1)
 
 	if(href_list["flavor_more"])
-		var/datum/browser/flavor_win = new(usr, name, capitalize_first_letters(name), 500, 250)
-		flavor_win.set_content(replacetext(flavor_text, "\n", "<BR>"))
-		flavor_win.open()
+		var/datum/tgui_module/flavor_text/FT = new /datum/tgui_module/flavor_text(usr, capitalize_first_letters(name), flavor_text)
+		FT.ui_interact(usr)
 
 	if(href_list["accent_tag"])
 		var/datum/accent/accent = SSrecords.accents[href_list["accent_tag"]]
@@ -757,6 +752,7 @@
 
 	src.pulling = AM
 	AM.pulledby = src
+	SSmove_manager.stop_looping(AM)
 
 	if(pullin)
 		pullin.icon_state = "pull1"
@@ -865,7 +861,7 @@
 		else
 			lying = MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKDOWN)
 			lying_is_intentional = FALSE
-			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT)
+			canmove = !MOB_IS_INCAPACITATED(INCAPACITATION_KNOCKOUT) && !weakened
 
 	if(lying)
 		density = 0
@@ -1225,6 +1221,8 @@
 		return ..(ndir)
 
 /mob/forceMove(atom/dest)
+	var/old_z = GET_Z(src)
+
 	var/atom/movable/AM
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
@@ -1238,6 +1236,9 @@
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
+
+	if(. && client)
+		client.update_skybox(old_z != GET_Z(src))
 
 /mob/verb/northfaceperm()
 	set hidden = 1
@@ -1344,7 +1345,7 @@
 
 
 /mob/proc/is_clumsy()
-	return HAS_FLAG(mutations, CLUMSY)
+	return (mutations & CLUMSY)
 
 //Helper proc for figuring out if the active hand (or given hand) is usable.
 /mob/proc/can_use_hand()
@@ -1364,29 +1365,29 @@
 	toggle_zone_sel(list(BP_R_ARM,BP_R_HAND))
 
 /client/verb/body_l_arm()
- 	set name = "body-l-arm"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
+	set name = "body-l-arm"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_ARM,BP_L_HAND))
 
 /client/verb/body_chest()
- 	set name = "body-chest"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_CHEST))
+	set name = "body-chest"
+	set hidden = 1
+	toggle_zone_sel(list(BP_CHEST))
 
 /client/verb/body_groin()
- 	set name = "body-groin"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_GROIN))
+	set name = "body-groin"
+	set hidden = 1
+	toggle_zone_sel(list(BP_GROIN))
 
 /client/verb/body_r_leg()
- 	set name = "body-r-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
+	set name = "body-r-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_R_LEG,BP_R_FOOT))
 
 /client/verb/body_l_leg()
- 	set name = "body-l-leg"
- 	set hidden = 1
- 	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
+	set name = "body-l-leg"
+	set hidden = 1
+	toggle_zone_sel(list(BP_L_LEG,BP_L_FOOT))
 
 /client/verb/cycle_target_zone()
 	set name = "cycle-zone"
@@ -1397,55 +1398,96 @@
 	if(!check_has_body_select())
 		return
 	var/obj/screen/zone_sel/selector = mob.zone_sel
-	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones))
-
-/mob/examine(mob/user, var/distance = -1, var/infix = "", var/suffix = "")
-	..()
-	if(assemble_height_string(user))
-		to_chat(user, SPAN_NOTICE(assemble_height_string(user)))
-
-//Height String for examine - Runs on the mob being examined.
-/mob/proc/assemble_height_string(mob/examiner)
-	var/height_string = null
-	var/height_descriptor
-	if(height == HEIGHT_NOT_USED)
-		return height_string
-
-	if(examiner.height == HEIGHT_NOT_USED)
-		return height_string
-
-	switch(height - examiner.height)
-		if(-999 to -100)
-			height_descriptor = "absolutely tiny compared to"
-		if(-99 to -50)
-			height_descriptor = "much smaller than"
-		if(-49 to -11)
-			height_descriptor = "shorter than"
-		if(-10 to 10)
-			height_descriptor = "about the same height as"
-		if(11 to 50)
-			height_descriptor = "taller than"
-		if(51 to 100)
-			height_descriptor = "much larger than"
-		else
-			height_descriptor = "to tower over"
-	if(height_string)
-		return height_string + " [get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
-	return "[get_pronoun("He")] seem[get_pronoun("end")] [height_descriptor] you."
+	selector.set_selected_zone(next_in_list(mob.zone_sel.selecting,zones), usr)
 
 /mob/proc/get_speech_bubble_state_modifier()
-	return "normal"
+	return "default"
 
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
 	. = list("") //we want to offset unique stuff from standard stuff
+
 	SEND_SIGNAL(src, COMSIG_MOB_GET_STATUS_TAB_ITEMS, .)
+
+	if(. && LAZYLEN(spell_list))
+		for(var/spell/S in spell_list)
+			if((!S.connected_button) || !statpanel(S.panel))
+				continue //Not showing the noclothes spell
+			switch(S.charge_type)
+				if(Sp_RECHARGE)
+					. += "[S.panel] [S.charge_counter/10.0]/[S.charge_max/10] [S.connected_button]"
+				if(Sp_CHARGES)
+					. +="[S.panel] [S.charge_counter]/[S.charge_max] [S.connected_button]"
+				if(Sp_HOLDVAR)
+					. += "[S.panel] [S.holder_var_type] [S.holder_var_amount] [S.connected_button]"
 
 /// This proc differs slightly from normal TG usage with actions due to how it is repurposed here for hardsuit modules.
 /// Take a look at /mob/living/carbon/human/get_actions_for_statpanel().
 /mob/proc/get_actions_for_statpanel()
 	var/list/data = list()
 	return data
+
+/mob/proc/get_weather_protection()
+	for(var/obj/item/brolly in get_active_hand())
+		if(brolly.gives_weather_protection())
+			LAZYADD(., brolly)
+	if(!LAZYLEN(.))
+		for(var/turf/T as anything in RANGE_TURFS(1, loc))
+			for(var/obj/structure/flora/tree in T)
+				if(tree.protects_against_weather)
+					LAZYADD(., tree)
+
+/mob/living/carbon/human/get_weather_protection()
+	. = ..()
+	if(!LAZYLEN(.))
+		var/obj/item/clothing/head/check_head = get_equipped_item(slot_head_str)
+		if(!istype(check_head) || !check_head.protects_against_weather)
+			return
+		var/obj/item/clothing/suit/check_body = get_equipped_item(slot_wear_suit_str)
+		if(!istype(check_body) || !check_body.protects_against_weather)
+			return
+		LAZYADD(., check_head)
+		LAZYADD(., check_body)
+
+/mob/proc/get_weather_exposure()
+
+	// We're inside something else.
+	if(!isturf(loc))
+		return WEATHER_IGNORE
+
+	var/turf/T = loc
+	// We're under a roof or otherwise shouldn't be being rained on.
+	if(!T.is_outside())
+
+		// For non-multiz we'll give everyone some nice ambience.
+		if(!HasAbove(T.z))
+			return WEATHER_ROOFED
+
+		// For multi-z, check the actual weather on the turf above.
+		// TODO: maybe make this a property of the z-level marker.
+		var/turf/above = GetAbove(T)
+		if(above.weather)
+			return WEATHER_ROOFED
+
+		// Being more than one level down should exempt us from ambience.
+		return WEATHER_IGNORE
+
+	// Nothing's protecting us from the rain here
+	var/list/weather_protection = get_weather_protection()
+	if(LAZYLEN(weather_protection))
+		return WEATHER_PROTECTED
+
+	return WEATHER_EXPOSED
+
+/mob/proc/check_emissive_equipment()
+	var/old_zflags = z_flags
+	z_flags &= ~ZMM_MANGLE_PLANES
+	for(var/atom/movable/AM in get_equipped_items(TRUE))
+		if(AM.z_flags & ZMM_MANGLE_PLANES)
+			z_flags |= ZMM_MANGLE_PLANES
+			break
+	if(old_zflags != z_flags)
+		UPDATE_OO_IF_PRESENT
 
 #undef UNBUCKLED
 #undef PARTIALLY_BUCKLED

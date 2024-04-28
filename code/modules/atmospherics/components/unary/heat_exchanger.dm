@@ -63,8 +63,8 @@
 
 	return TRUE
 
-/obj/machinery/atmospherics/unary/heat_exchanger/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if(!W.iswrench())
+/obj/machinery/atmospherics/unary/heat_exchanger/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.iswrench())
 		return ..()
 	var/turf/T = src.loc
 	if(level == 1 && isturf(T) && !T.is_plating())
@@ -78,7 +78,7 @@
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message(
 			SPAN_NOTICE("\The [user] unfastens \the [src]."),
 			SPAN_NOTICE("You have unfastened \the [src]."),

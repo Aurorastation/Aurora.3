@@ -5,6 +5,7 @@
 	mid_length = 10
 	end_sound = 'sound/machines/shower/shower_end.ogg'
 	volume = 20
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -12,8 +13,8 @@
 	mid_sounds = list('sound/machines/sm/loops/calm.ogg' = 1)
 	mid_length = 60
 	volume = 40
-	extra_range = 10
-	falloff = 4
+	ignore_walls = FALSE
+	falloff_distance = 4
 	vary = TRUE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,6 +33,7 @@
 	mid_sounds = list('sound/machines/grill/grillsizzle.ogg' = 1)
 	mid_length = 18
 	volume = 50
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -42,7 +44,8 @@
 	mid_length = 13
 	end_sound = 'sound/machines/oven/oven_loop_end.ogg'
 	volume = 100
-	falloff = 4
+	falloff_distance = 4
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -53,6 +56,7 @@
 	mid_length = 10
 	end_sound = 'sound/machines/microwave/microwave-end.ogg'
 	volume = 30
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -67,7 +71,8 @@
 		'sound/machines/tcomms/tcomms_mid7.ogg' = 1
 	)
 	mid_length = 1.8 SECONDS
-	extra_range = -4.5
+	extra_range = SHORT_RANGE_SOUND_EXTRARANGE
+	ignore_walls = FALSE
 	volume = 10
 
 //	mid_length = 1.8 SECONDS
@@ -87,7 +92,8 @@
 	end_sound = 'sound/machines/computer/computer_end.ogg'
 	end_volume = 10
 	volume = 1
-	extra_range = -5.5
+	extra_range = SILENCED_SOUND_EXTRARANGE
+	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -96,6 +102,7 @@
 	mid_length = 1.8 SECONDS
 	extra_range = 10
 	volume = 70
+	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -103,5 +110,6 @@
 	mid_sounds = list('sound/machines/firealarm/FireAlarm1.ogg' = 1,'sound/machines/firealarm/FireAlarm2.ogg' = 1,'sound/machines/firealarm/FireAlarm3.ogg' = 1,'sound/machines/firealarm/FireAlarm4.ogg' = 1)
 	mid_length = 2.4 SECONDS
 	volume = 75
+	ignore_walls = FALSE
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

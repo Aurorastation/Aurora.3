@@ -5,7 +5,7 @@
 	icon = 'icons/turf/smooth/lava.dmi'
 	icon_state = "smooth"
 	gender = PLURAL
-	smooth = SMOOTH_TRUE | SMOOTH_BORDER
+	smoothing_flags = SMOOTH_TRUE | SMOOTH_BORDER
 	light_color = LIGHT_COLOR_LAVA
 	light_range = 2
 	canSmoothWith = list(
@@ -61,11 +61,20 @@
 	base_icon = 'icons/turf/basalt.dmi'
 	base_icon_state = "basalt"
 	light_color = LIGHT_COLOR_LAVA
-	smooth = SMOOTH_FALSE
+	smoothing_flags = SMOOTH_FALSE
 	canSmoothWith = null
 	openspace_override_type = /turf/simulated/open/chasm/airless
 
 	footstep_sound = /singleton/sound_category/asteroid_footstep
+
+/turf/simulated/floor/exoplanet/basalt/cave
+	name = "dense basalt"
+
+/turf/simulated/floor/exoplanet/basalt/cave/Initialize() // to make these tiles dark even on daytime exoplanets
+	. = ..()
+	set_light(0, 1, null)
+	footprint_color = null
+	update_icon(1)
 
 // Special asteroid variant that goes with lava better.
 /turf/unsimulated/floor/asteroid/basalt
@@ -78,7 +87,7 @@
 	base_icon = 'icons/turf/basalt.dmi'
 	base_icon_state = "basalt"
 	light_color = LIGHT_COLOR_LAVA
-	smooth = SMOOTH_FALSE
+	smoothing_flags = SMOOTH_FALSE
 	canSmoothWith = null
 	openspace_override_type = /turf/simulated/open/chasm/airless
 
@@ -115,7 +124,7 @@
 	name = "ash"
 	icon_state = "ash"
 	desc = "A fine grey ash. Looks pretty tightly packed."
-	smooth = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
+	smoothing_flags = SMOOTH_MORE | SMOOTH_BORDER | SMOOTH_NO_CLEAR_ICON
 	base_icon = 'icons/turf/smooth/ash.dmi'
 	base_icon_state = "ash"
 	footstep_sound = /singleton/sound_category/sand_footstep

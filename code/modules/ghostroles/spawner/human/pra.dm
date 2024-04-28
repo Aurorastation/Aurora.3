@@ -10,7 +10,7 @@
 	max_count = 3
 	uses_species_whitelist = FALSE
 
-	outfit = /datum/outfit/admin/pra_cosmonaut
+	outfit = /obj/outfit/admin/pra_cosmonaut
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -30,10 +30,10 @@
 	assigned_role = "Party Commissar"
 	special_role = "Party Commissar"
 
-	outfit = /datum/outfit/admin/pra_cosmonaut/commissar
+	outfit = /obj/outfit/admin/pra_cosmonaut/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/datum/outfit/admin/pra_cosmonaut
+/obj/outfit/admin/pra_cosmonaut
 	name = "Kosmostrelki"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut
@@ -51,7 +51,7 @@
 						)
 	r_hand = /obj/item/storage/field_ration
 
-/datum/outfit/admin/pra_cosmonaut/commissar
+/obj/outfit/admin/pra_cosmonaut/commissar
 	name = "Party Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
@@ -63,6 +63,7 @@
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)

@@ -2,7 +2,7 @@
 /obj/effect/temp_visual
 	icon_state = "nothing"
 	anchored = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	var/duration = 10 //in deciseconds
 	var/randomdir = TRUE
@@ -13,7 +13,7 @@
 	if(new_dir)
 		set_dir(new_dir)
 	else if(randomdir)
-		set_dir(pick(global.cardinal))
+		set_dir(pick(GLOB.cardinal))
 
 	QDEL_IN(src, duration)
 

@@ -8,9 +8,9 @@
 	desc = "An old prison uniform, tattered with age. A Hephaestus logo has been haphazardly stitched to the shoulder, and a band of green circles around the middle."
 	icon_state = "narrows"
 	item_state = "narrows"
-	
-/obj/item/clothing/under/diona/dionatunic
-	name = "floral tunic"
-	desc = "A tunic made up of several colorful fabrics and adorned with seemingly still-living vines and flowers"
-	icon_state = "dionatunic"
-	item_state = "dionatunic"
+
+/obj/item/clothing/under/diona/hieroaetherian_tunic
+	name = "hieroaetherian tunic"
+	desc = "A traditional tunic worn on Hieroaetheria, made up of several colorful fabrics and adorned with a seemingly still-living, bioluminescent Starvine."
+	icon_state = "hieroaetherian_tunic"
+	item_state = "hieroaetherian_tunic"

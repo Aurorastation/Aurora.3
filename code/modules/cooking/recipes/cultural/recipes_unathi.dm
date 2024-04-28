@@ -177,3 +177,13 @@
 		/obj/item/reagent_containers/food/snacks/egg
 	)
 	result = /obj/item/reagent_containers/food/snacks/aghrasshcake
+
+/singleton/recipe/eyebowl
+	appliance = SAUCEPAN | POT
+	fruit = list("aghrassh nut" = 1, "tomato" = 1)
+	reagents = list(/singleton/reagent/blackpepper = 2, /singleton/reagent/nutriment/protein/egg = 6)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/meat
+	)
+	result = /obj/item/reagent_containers/food/snacks/sliceable/eyebowl
+	reagent_mix = RECIPE_REAGENT_REPLACE

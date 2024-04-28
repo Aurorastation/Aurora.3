@@ -7,8 +7,8 @@
 	size = 12
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = access_hop
-	required_access_run = access_cargo
+	required_access_download = ACCESS_HOP
+	required_access_run = ACCESS_CARGO
 	usage_flags = PROGRAM_CONSOLE | PROGRAM_TELESCREEN
 	tgui_id = "CargoControl"
 

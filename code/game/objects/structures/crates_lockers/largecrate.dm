@@ -8,15 +8,15 @@
 	to_chat(user, SPAN_NOTICE("You need a crowbar to pry this open!"))
 	return
 
-/obj/structure/largecrate/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iscrowbar())
+/obj/structure/largecrate/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscrowbar())
 		new /obj/item/stack/material/wood(src)
 		var/turf/T = get_turf(src)
 		for(var/atom/movable/AM in contents)
 			if(AM.simulated) AM.forceMove(T)
 		user.visible_message(SPAN_NOTICE("[user] pries \the [src] open."), \
-							 SPAN_NOTICE("You pry open \the [src]."), \
-							 SPAN_NOTICE("You hear splitting wood."))
+								SPAN_NOTICE("You pry open \the [src]."), \
+								SPAN_NOTICE("You hear splitting wood."))
 		for(var/obj/vehicle/V in T.contents)
 			if(V)
 				V.unload(user)
@@ -81,6 +81,10 @@
 /obj/structure/largecrate/animal/dog/pug
 	held_type = /mob/living/simple_animal/hostile/commanded/dog/pug
 
+/obj/structure/largecrate/animal/dog/bullterrier
+	name = "bull terrier carrier"
+	held_type = /mob/living/simple_animal/hostile/commanded/dog/bullterrier
+
 /obj/structure/largecrate/animal/adhomai
 	name = "adhomian animal crate"
 	held_type = /mob/living/simple_animal/ice_tunneler
@@ -100,3 +104,16 @@
 /obj/structure/largecrate/animal/hakhma
 	name = "hakhma crate"
 	held_type = /mob/living/simple_animal/hakhma
+
+/obj/structure/largecrate/animal/moghes
+	name = "moghresian animal crate"
+	held_type = /mob/living/simple_animal/threshbeast
+
+/obj/structure/largecrate/animal/moghes/warmount
+	held_type = /mob/living/simple_animal/hostile/retaliate/hegeranzi
+
+/obj/structure/largecrate/animal/moghes/miervesh
+	held_type = /mob/living/simple_animal/miervesh
+
+/obj/structure/largecrate/animal/moghes/otzek
+	held_type = /mob/living/simple_animal/otzek

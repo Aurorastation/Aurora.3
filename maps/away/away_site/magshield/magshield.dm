@@ -2,10 +2,15 @@
 	name = "Magshield"
 	id = "magshield"
 	description = "It's an orbital shield station."
-	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
-	suffixes = list("away_site/magshield/magshield.dmm")
+	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA, ALL_COALITION_SECTORS)
+
+	prefix = "away_site/magshield/"
+	suffixes = list("magshield.dmm")
+
 	spawn_weight = 1
 	spawn_cost = 1
+
+	unit_test_groups = list(1)
 
 /singleton/submap_archetype/magshield
 	map = "magshield"

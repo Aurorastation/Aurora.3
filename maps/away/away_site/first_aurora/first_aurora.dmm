@@ -588,7 +588,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /turf/simulated/floor/tiled/white,
 /area/derelict/hallway/northeast)
@@ -661,7 +660,6 @@
 /obj/machinery/door/blast/regular,
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northwest)
@@ -690,7 +688,6 @@
 	},
 /obj/item/tape/engineering{
 	icon_state = "engineering_door";
-	layer = 4
 	},
 /turf/simulated/floor/tiled/dark/airless,
 /area/derelict/hallway/northwest)
@@ -1346,11 +1343,11 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/northeast)
 "eF" = (
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/northeast)
 "eG" = (
 /obj/item/stack/rods,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/northeast)
 "eH" = (
 /obj/item/book/manual/nuclear,
@@ -1500,7 +1497,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 32;
 	pixel_y = 0
@@ -1520,7 +1516,6 @@
 "fc" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/northwest)
@@ -1704,7 +1699,6 @@
 "fE" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/mask/breath,
@@ -1716,7 +1710,6 @@
 "fF" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/clothing/shoes/magboots,
 /obj/item/clothing/suit/space/void/atmos,
@@ -1817,7 +1810,6 @@
 /area/derelict/hallway/northwest)
 "fT" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 0;
 	pixel_y = 32
 	},
@@ -2483,7 +2475,6 @@
 "ir" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/stack/rods{
 	amount = 50
@@ -2497,7 +2488,6 @@
 "it" = (
 /obj/structure/table/rack{
 	dir = 8;
-	layer = 2.9
 	},
 /obj/item/module/power_control,
 /obj/item/cell{
@@ -2826,7 +2816,7 @@
 /turf/simulated/floor/tiled/white/airless,
 /area/derelict/hallway/southeast)
 "jx" = (
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "jy" = (
 /obj/structure/morgue{
@@ -3912,7 +3902,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 0
 	},
@@ -3962,11 +3951,11 @@
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "mZ" = (
-/obj/structure/closet/secure_closet/freezer/fridge,
+/obj/structure/closet/secure_closet/refrigerator/standard,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
 "na" = (
-/obj/structure/closet/secure_closet/freezer/kitchen,
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/airless,
 /area/derelict/hallway/southwest)
@@ -4823,7 +4812,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 0
 	},
@@ -4832,7 +4820,6 @@
 "pD" = (
 /obj/machinery/status_display{
 	density = 0;
-	layer = 4;
 	pixel_x = 0;
 	pixel_y = -32
 	},
@@ -5077,14 +5064,14 @@
 "qn" = (
 /obj/structure/table/wood,
 /obj/random/loot,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qp" = (
 /obj/structure/bed/psych,
 /obj/structure/bed/psych{
 	icon_state = "psychbed_padding"
 	},
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qq" = (
 /obj/item/clothing/mask/gas,
@@ -5132,16 +5119,16 @@
 /obj/structure/filingcabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qz" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qA" = (
 /obj/structure/table/rack,
@@ -5166,18 +5153,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qE" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qF" = (
 /obj/structure/bookcase,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qG" = (
 /obj/item/clothing/glasses/sunglasses,
@@ -5220,7 +5207,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "qO" = (
 /obj/machinery/space_heater,
@@ -5499,9 +5486,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/structure/grille/broken,
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
@@ -5566,7 +5550,7 @@
 /area/derelict/hallway/southeast)
 "rP" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "rQ" = (
 /obj/machinery/power/solar_control{
@@ -5597,7 +5581,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 0;
 	pixel_y = -32
@@ -5783,7 +5766,7 @@
 /obj/structure/table/standard,
 /obj/item/gun/launcher/syringe/rapid,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "so" = (
 /obj/item/bedsheet/medical,
@@ -6031,7 +6014,7 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "tb" = (
 /obj/item/material/shard{
@@ -6100,7 +6083,7 @@
 /turf/simulated/floor/airless,
 /area/derelict/hallway/southeast)
 "tm" = (
-/turf/simulated/floor/carpet/blue,
+/turf/simulated/floor/carpet/cyan,
 /area/derelict/hallway/southeast)
 "tn" = (
 /obj/structure/window/reinforced{
@@ -6206,7 +6189,7 @@
 /area/template_noop)
 "tA" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "tB" = (
 /obj/structure/cable/yellow{
@@ -6574,7 +6557,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = -32;
 	pixel_y = 0
@@ -6664,7 +6646,6 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1379;
-	layer = 3.3;
 	master_tag = "robotics_solar_airlock";
 	name = "exterior access button";
 	pixel_x = 25;
@@ -6700,7 +6681,6 @@
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	frequency = 1379;
 	id_tag = "robotics_solar_airlock";
-	layer = 3.3;
 	pixel_x = 0;
 	pixel_y = -25;
 	req_access = list(13);
@@ -6712,7 +6692,6 @@
 /obj/machinery/airlock_sensor{
 	frequency = 1379;
 	id_tag = "robotics_solar_sensor";
-	layer = 3.3;
 	pixel_x = 12;
 	pixel_y = -25
 	},
@@ -6728,7 +6707,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	layer = 3.3;
 	master_tag = "robotics_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -7171,7 +7149,6 @@
 /area/derelict/hallway/southeast)
 "wb" = (
 /turf/template_noop,
-/turf/template_noop,
 /area/template_noop)
 "wd" = (
 /obj/effect/decal/cleanable/dirt,
@@ -7397,7 +7374,7 @@
 "wU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/carpet/blue/airless,
+/turf/simulated/floor/carpet/cyan/airless,
 /area/derelict/hallway/southeast)
 "wV" = (
 /obj/structure/table/rack,

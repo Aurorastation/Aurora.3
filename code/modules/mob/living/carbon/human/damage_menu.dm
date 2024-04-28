@@ -67,12 +67,12 @@
 				return
 			switch(params["action"])
 				if("brute")
-					var/damage_dealt = input(usr, "How much brute damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Brute Damage") as null|num
+					var/damage_dealt = tgui_input_number(usr, "How much brute damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Brute Damage")
 					if(damage_dealt)
 						L.take_damage(damage_dealt, 0)
 						log_and_message_admins("used the Damage Menu to deploy deal [damage_dealt] [params["action"]] to [H]'s [params["name"]]", usr, get_turf(H))
 				if("burn")
-					var/damage_dealt = input(usr, "How much burn damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Burn Damage") as null|num
+					var/damage_dealt = tgui_input_number(usr, "How much burn damage do you want to deal? (Current Brute: [L.brute_dam] | Current Burn; [L.burn_dam])", "Burn Damage")
 					if(damage_dealt)
 						L.take_damage(0, damage_dealt)
 						log_and_message_admins("used the Damage Menu to deploy deal [damage_dealt] [params["action"]] to [H]'s [params["name"]]", usr, get_turf(H))
@@ -85,8 +85,8 @@
 							L.decrease_germ_level()
 							log_and_message_admins("used the Damage Menu to decrease the infection level of [H]'s [params["name"]]", usr, get_turf(H))
 				if("shatter")
-					if(L.brute_dam < L.min_broken_damage * config.organ_health_multiplier)
-						L.take_damage(L.brute_dam + ((L.min_broken_damage * config.organ_health_multiplier) - L.brute_dam))
+					if(L.brute_dam < L.min_broken_damage * GLOB.config.organ_health_multiplier)
+						L.take_damage(L.brute_dam + ((L.min_broken_damage * GLOB.config.organ_health_multiplier) - L.brute_dam))
 					L.fracture()
 					log_and_message_admins("used the Damage Menu to shatter [H]'s [params["name"]]", usr, get_turf(H))
 				if("arterial")
@@ -116,7 +116,7 @@
 				return
 			switch(params["action"])
 				if("damage")
-					var/damage_dealt = input(usr, "How much damage do you want to deal? (Current Damage: [O.damage])", "Brute Damage") as null|num
+					var/damage_dealt = tgui_input_number(usr, "How much damage do you want to deal? (Current Damage: [O.damage])", "Brute Damage")
 					if(damage_dealt)
 						O.take_internal_damage(damage_dealt)
 						log_and_message_admins("used the Damage Menu to deal [damage_dealt] [params["action"]] to [H]'s [params["name"]]", usr, get_turf(H))

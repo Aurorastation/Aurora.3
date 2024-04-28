@@ -20,7 +20,7 @@
 	density = TRUE
 	anchored = TRUE
 	idle_power_usage = 300 // WATTS
-	active_power_usage = 1 KILOWATTS
+	active_power_usage = 1 KILO WATTS
 	circuitboard = "/obj/item/circuitboard/telecomms/server"
 	var/list/log_entries = list()
 	var/totaltraffic = 0 // gigabytes (if > 1024, divide by 1024 -> terrabytes)
@@ -54,7 +54,7 @@
 	log.parameters["name"] = signal.data["name"]
 	log.parameters["job"] = signal.data["job"]
 	log.parameters["message"] = signal.data["message"]
-	log.parameters["language"] = signal.language || all_languages[LANGUAGE_TCB]
+	log.parameters["language"] = signal.language || GLOB.all_languages[LANGUAGE_TCB]
 
 	var/race = "Unidentifiable"
 	if(ishuman(speaker) || isbrain(speaker))

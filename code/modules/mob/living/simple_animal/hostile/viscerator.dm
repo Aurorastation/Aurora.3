@@ -37,7 +37,7 @@
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/viscerator/CanPass(atom/movable/mover, turf/target, height, air_group)
@@ -50,10 +50,12 @@
 	change_stance(HOSTILE_STANCE_IDLE)
 
 /mob/living/simple_animal/hostile/viscerator/emp_act(severity)
+	. = ..()
+
 	LoseTarget()
 	change_stance(HOSTILE_STANCE_TIRED)
 	addtimer(CALLBACK(src, PROC_REF(wakeup)), 150)
-	if(severity == 1.0)
+	if(severity == EMP_HEAVY)
 		apply_damage(5)
 
 /mob/living/simple_animal/hostile/viscerator/lube

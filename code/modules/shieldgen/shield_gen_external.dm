@@ -7,7 +7,6 @@
 
 //Search for space turfs within range that are adjacent to a simulated turf.
 /obj/machinery/shield_gen/external/get_shielded_turfs()
-	set background = 1
 	var/list/out = list()
 
 	var/turf/gen_turf = get_turf(src)
@@ -20,7 +19,7 @@
 	for (var/tt in RANGE_TURFS(field_radius, gen_turf))
 		T = tt
 		// Ignore station areas.
-		if (the_station_areas[T.loc] || is_shuttle_area(T.loc))
+		if (GLOB.the_station_areas[T.loc] || is_shuttle_area(T.loc))
 			continue
 		else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 			for (var/uu in RANGE_TURFS(1, T))
@@ -28,7 +27,7 @@
 				if (T == U)
 					continue
 
-				if (the_station_areas[U.loc] || istype(U, /turf/simulated/mineral/surface))
+				if (GLOB.the_station_areas[U.loc] || istype(U, /turf/simulated/mineral/surface))
 					out += T
 					break
 
@@ -46,7 +45,7 @@
 			for (var/tt in RANGE_TURFS(field_radius, z))
 				T = tt
 				// Ignore station areas.
-				if (the_station_areas[T.loc] || istype(T.loc, /area/shuttle))
+				if (GLOB.the_station_areas[T.loc] || istype(T.loc, /area/shuttle))
 					continue
 				else if (istype(T, /turf/space) || istype(T, /turf/unsimulated/floor/asteroid) || isopenturf(T) || istype(T, /turf/simulated/floor/reinforced))
 					for (var/uu in RANGE_TURFS(1, T))
@@ -54,7 +53,7 @@
 						if (T == U)
 							continue
 
-						if (the_station_areas[U.loc])
+						if (GLOB.the_station_areas[U.loc])
 							out += T
 							break
 	return out

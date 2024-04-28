@@ -29,9 +29,9 @@ var/mob/living/next_point_time = 0
 /*one proc, four uses
 swapping: if it's 1, the mobs are trying to switch, if 0, non-passive is pushing passive
 default behaviour is:
- - non-passive mob passes the passive version
- - passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
- - if si, the proc returns
+	- non-passive mob passes the passive version
+	- passive mob checks to see if its mob_bump_flag is in the non-passive's mob_bump_flags
+	- if si, the proc returns
 */
 /mob/living/proc/can_move_mob(var/mob/living/swapped, swapping = 0, passive = 0)
 	if(!swapped)
@@ -121,8 +121,8 @@ default behaviour is:
 				now_pushing = FALSE
 				return
 
-			if(istype(tmob, /mob/living/carbon/human) && HAS_FLAG(tmob.mutations, FAT))
-				if(prob(40) && NOT_FLAG(mutations, FAT))
+			if(istype(tmob, /mob/living/carbon/human) && (tmob.mutations & FAT))
+				if(prob(40) && !(mutations & FAT))
 					to_chat(src, "<span class='danger'>You fail to push [tmob]'s fat ass out of the way.</span>")
 					now_pushing = FALSE
 					return
@@ -172,15 +172,33 @@ default behaviour is:
 
 				now_pushing = FALSE
 
+/**
+ * Checks if two mobs can swap with each other based on the density
+ *
+ * Returns `TRUE` if the density allows them to swap, `FALSE` otherwise
+ *
+ * swapper - A `/mob`, the one trying to perform the swap
+ * swapee - A `/mob`, the one the `swapper` is trying to swap with
+ */
 /proc/swap_density_check(var/mob/swapper, var/mob/swapee)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
 	var/turf/T = get_turf(swapper)
+
+	if(!T)
+		return FALSE
+
 	if(T.density)
-		return 1
+		return TRUE
+
 	for(var/atom/movable/A in T)
+
 		if(A == swapper)
 			continue
+
 		if(!A.CanPass(swapee, T, 1))
-			return 1
+			return TRUE
 
 /mob/living/proc/can_swap_with(var/mob/living/tmob)
 	if(tmob.buckled_to || buckled_to)
@@ -230,9 +248,9 @@ default behaviour is:
 	return TRUE
 
 /mob/living/carbon/human/burn_skin(burn_amount)
-	if(HAS_FLAG(mutations, mShock)) //shockproof
+	if((mutations & mShock)) //shockproof
 		return FALSE
-	if(HAS_FLAG(mutations, COLD_RESISTANCE)) //fireproof
+	if((mutations & COLD_RESISTANCE)) //fireproof
 		return FALSE
 	. = ..()
 	updatehealth()
@@ -498,8 +516,8 @@ default behaviour is:
 
 	// remove the character from the list of the dead
 	if(stat == DEAD)
-		dead_mob_list -= src
-		living_mob_list += src
+		GLOB.dead_mob_list -= src
+		GLOB.living_mob_list += src
 		tod = null
 		timeofdeath = 0
 
@@ -551,23 +569,7 @@ default behaviour is:
 /mob/living/proc/UpdateDamageIcon()
 	return
 
-
-/mob/living/proc/Examine_OOC()
-	set name = "Examine Meta-Info (OOC)"
-	set category = "OOC"
-	set src in view()
-
-	if(config.allow_Metadata)
-		if(client)
-			to_chat(usr, "[src]'s Metainfo:<br>[client.prefs.metadata]")
-		else
-			to_chat(usr, "[src] does not have any stored infomation!")
-	else
-		to_chat(usr, "OOC Metadata is not supported by this server!")
-
-	return
-
-/mob/living/Move(a, b, flag)
+/mob/living/Move(atom/newloc, direct)
 	if (buckled_to)
 		return
 
@@ -768,10 +770,11 @@ default behaviour is:
 		if(prob(resist_chance))
 			visible_message(resist_msg)
 			qdel(G)
+			break
 
 	if(resisting)
 		visible_message(SPAN_WARNING("[src] resists!"))
-		setClickCooldown(25)
+		setClickCooldown(2.5 SECONDS)
 
 /mob/living/verb/lay_down()
 	set name = "Rest"
@@ -908,22 +911,36 @@ default behaviour is:
 /mob/living/Initialize()
 	. = ..()
 	add_to_target_grid()
+	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
 
 /mob/living/Destroy()
+
+	//Aiming overlay
+	QDEL_NULL(aiming)
+	QDEL_LIST(aimed_at_by)
+
+	//Psi complexus
+	QDEL_NULL(psi)
+
+	if(vr_mob)
+		vr_mob = null
+	if(old_mob)
+		old_mob = null
+
+	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
 			M.dropInto(loc)
 	else
 		for(var/mob/M in contents)
 			qdel(M)
+
 	QDEL_NULL(reagents)
 	clear_from_target_grid()
 
 	if(auras)
 		for(var/a in auras)
 			remove_aura(a)
-
-	QDEL_NULL(ability_master)
 
 	return ..()
 
@@ -969,12 +986,12 @@ default behaviour is:
 /mob/living/proc/get_resist_power()
 	return 1
 
-/mob/living/proc/seizure()
+/mob/living/proc/seizure(var/severity_multiplier = 1)
 	if(!paralysis && stat == CONSCIOUS)
-		visible_message("<span class='danger'>\The [src] starts having a seizure!</span>")
-		Paralyse(rand(16,24))
-		make_jittery(rand(150,200))
-		adjustHalLoss(rand(50,60))
+		visible_message(SPAN_HIGHDANGER("\The [src] starts having a seizure!"))
+		Paralyse(24*severity_multiplier)
+		make_jittery(200*severity_multiplier)
+		adjustHalLoss(60*severity_multiplier)
 
 /mob/living/proc/InStasis()
 	return FALSE
@@ -1004,6 +1021,32 @@ default behaviour is:
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
 
+/mob/living/verb/toggle_intentionally_lying()
+	set hidden = 1
+	set name = "lie_down"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click(params="button=middle")
+
+/**
+ * Used by a macro in skin.dmf to toggle the throw
+ */
+/mob/living/verb/throw_intent_keyDown()
+	set hidden = 1
+	set name = "throw_intent"
+	if(!(src.in_throw_mode))
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_keyUp()
+	set hidden = 1
+	set name = "throw_intent_up"
+	if(src.in_throw_mode)
+		toggle_throw_mode()
+
+/mob/living/verb/throw_intent_toggle()
+	set hidden = 1
+	set name = "throw_intent_toggle"
+	toggle_throw_mode()
+
 /mob/living/proc/add_hallucinate(var/amount)
 	hallucination += amount
 	hallucination += amount
@@ -1018,4 +1061,4 @@ default behaviour is:
 	return FALSE
 
 /mob/living/get_speech_bubble_state_modifier()
-	return isSynthetic() ? "synth" : ..()
+	return isSynthetic() ? "robot" : ..()

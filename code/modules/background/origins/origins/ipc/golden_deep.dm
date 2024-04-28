@@ -11,4 +11,4 @@
 	important_information = "Golden Deep citizenship exists to denote an IPC as a member of the organisation, but it can still be noted in records that the IPC holds a normal citizenship (for instance, an IPC may be a citizen of Biesel and a member of Golden Deep.)"
 	possible_accents = ACCENTS_ALL_IPC
 	possible_citizenships = list(CITIZENSHIP_GOLDEN)
-	possible_religions = list(RELIGION_NONE)
+	possible_religions = RELIGIONS_ALL_IPC

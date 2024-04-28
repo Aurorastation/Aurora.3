@@ -24,7 +24,7 @@
 	item_state = "ringmastercoat"
 	contained_sprite = TRUE
 
-/obj/item/clothing/shoes/tajara/jackboots/ringmaster
+/obj/item/clothing/shoes/jackboots/tajara/ringmaster
 	name = "ringmaster boots"
 	desc = "Comfortable and fancy boots meant for a Tajara."
 	icon = 'maps/away/ships/tajara/circus/circus_sprites.dmi'
@@ -161,9 +161,9 @@
 	contained_sprite = TRUE
 	var/weight = "10"
 
-/obj/item/dumbbell/examine(mob/user)
-	..()
-	to_chat(user,"It weights [weight] kilograms.")
+/obj/item/dumbbell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "It weighs [weight] kilograms."
 
 /obj/item/dumbbell/twenty
 	weight = "20"

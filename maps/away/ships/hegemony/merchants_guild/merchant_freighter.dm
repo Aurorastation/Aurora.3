@@ -2,12 +2,17 @@
 	name = "Merchants' Guild Freighter"
 	id = "merchants_guild"
 	description = "A freighter flying under the banner of the Izweski Hegemony Merchants' Guild."
-	suffixes = list("ships/hegemony/merchants_guild/merchant_freighter.dmm")
+
+	prefix = "ships/hegemony/merchants_guild/"
+	suffixes = list("merchant_freighter.dmm")
+
 	ship_cost = 1
 	spawn_weight = 0 //the merchants guild has gone bankrupt, don't spawn this until we figure out how to rework it.
 
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/merchants_guild)
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE, SECTOR_TAU_CETI)
+
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/merchants_guild
 	map = "Merchants' Guild Freighter"
@@ -92,7 +97,7 @@
 /obj/machinery/computer/shuttle_control/explore/merchants_guild
 	name = "shuttle control console"
 	shuttle_tag = "Merchants' Guild Shuttle"
-	req_access = list(access_merchants_guild)
+	req_access = list(ACCESS_MERCHANTS_GUILD)
 
 /datum/shuttle/autodock/overmap/merchants_guild
 	name = "Merchants' Guild Shuttle"

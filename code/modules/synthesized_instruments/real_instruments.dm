@@ -31,7 +31,7 @@
 		if ("play")
 			src.player.song.playing = value
 			if (src.player.song.playing)
-				instrument_synchronizer.raise_event(player.actual_instrument)
+				GLOB.instrument_synchronizer.raise_event(player.actual_instrument)
 				src.player.song.play_song(usr)
 		if ("wait")
 			if(value)
@@ -45,12 +45,12 @@
 			var/t = ""
 			do
 				t = html_encode(input(usr, "Please paste the entire song, formatted:", text("[]", owner.name), t)  as message)
-				if(!CanInteractWith(usr, owner, physical_state))
+				if(!CanInteractWith(usr, owner, GLOB.physical_state))
 					return
 
 				if(length(t) >= 2*src.maximum_lines*src.maximum_line_length)
 					var/cont = input(usr, "Your message is too long! Would you like to continue editing it?", "", "yes") in list("yes", "no")
-					if(!CanInteractWith(usr, owner, physical_state))
+					if(!CanInteractWith(usr, owner, GLOB.physical_state))
 						return
 					if(cont == "no")
 						break
@@ -98,7 +98,7 @@
 			src.player.song.sustain_timer = max(min(player.song.sustain_timer+value, musical_config.longest_sustain_timer), 1)
 		if ("soft_coeff")
 			var/new_coeff = input(usr, "from [musical_config.gentlest_drop] to [musical_config.steepest_drop]") as num
-			if(!CanInteractWith(usr, owner, physical_state))
+			if(!CanInteractWith(usr, owner, GLOB.physical_state))
 				return
 			new_coeff = round(min(max(new_coeff, musical_config.gentlest_drop), musical_config.steepest_drop), 0.001)
 			src.player.song.soft_coeff = new_coeff
@@ -112,7 +112,7 @@
 				categories |= instrument.category
 
 			var/category = input(usr, "Choose a category") as null|anything in categories
-			if(!CanInteractWith(usr, owner, physical_state))
+			if(!CanInteractWith(usr, owner, GLOB.physical_state))
 				return
 			var/list/instruments_available = list()
 			for (var/key in as_list)
@@ -121,7 +121,7 @@
 					instruments_available += key
 
 			var/new_instrument = input(usr, "Choose an instrument") as null|anything in instruments_available
-			if(!CanInteractWith(usr, owner, physical_state))
+			if(!CanInteractWith(usr, owner, GLOB.physical_state))
 				return
 			if (new_instrument)
 				src.player.song.instrument_data = instruments[new_instrument]

@@ -16,7 +16,8 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	drop_sound = 'sound/items/drop/bottle.ogg'
 	pickup_sound = 'sound/items/pickup/bottle.ogg'
 	icon_state = null
-	flags = OPENCONTAINER
+	item_state = "glass_empty"
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	amount_per_transfer_from_this = 5
 	volume = 50
 	var/shaken = 0
@@ -26,6 +27,17 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	. = ..()
 	if(drink_flags & IS_GLASS)
 		unacidable = TRUE
+
+/obj/item/reagent_containers/food/drinks/update_icon()
+	..()
+	if(!reagents.total_volume)
+		if(("[initial(icon_state)]_empty") in icon_states(icon)) // if there's an empty icon state, use it
+			icon_state = "[initial(icon_state)]_empty"
+		else if (empty_icon_state)
+			icon_state = empty_icon_state
+	else
+		icon = initial(icon)	//Necessary for refilling empty drinks
+		icon_state = initial(icon_state)
 
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	update_icon()
@@ -51,17 +63,17 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 /obj/item/reagent_containers/food/drinks/proc/open(mob/user as mob)
 	playsound(loc,'sound/items/soda_open.ogg', rand(10,50), 1)
 	user.visible_message("<b>[user]</b> opens \the [src].", SPAN_NOTICE("You open \the [src] with an audible pop!"), "You can hear a pop.")
-	flags |= OPENCONTAINER
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
 	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
-	flags |= OPENCONTAINER
+	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	shaken = 0
 
 /obj/item/reagent_containers/food/drinks/attack(mob/M as mob, mob/user as mob, def_zone)
-	if(force && !(flags & NOBLUDGEON) && user.a_intent == I_HURT)
+	if(force && !(atom_flags & ITEM_FLAG_NO_BLUDGEON) && user.a_intent == I_HURT)
 		return ..()
 	return 0
 
@@ -83,20 +95,20 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		return 1
 	return ..()
 
-/obj/item/reagent_containers/food/drinks/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/food/drinks/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (distance > 1)
 		return
 	if(!reagents || reagents.total_volume == 0)
-		to_chat(user, "<span class='notice'>\The [src] is empty!</span>")
+		. += "<span class='notice'>\The [src] is empty!</span>"
 	else if (reagents.total_volume <= volume * 0.25)
-		to_chat(user, "<span class='notice'>\The [src] is almost empty!</span>")
+		. += "<span class='notice'>\The [src] is almost empty!</span>"
 	else if (reagents.total_volume <= volume * 0.66)
-		to_chat(user, "<span class='notice'>\The [src] is half full!</span>")
+		. += "<span class='notice'>\The [src] is half full!</span>"
 	else if (reagents.total_volume <= volume * 0.90)
-		to_chat(user, "<span class='notice'>\The [src] is almost full!</span>")
+		. += "<span class='notice'>\The [src] is almost full!</span>"
 	else
-		to_chat(user, "<span class='notice'>\The [src] is full!</span>")
+		. += "<span class='notice'>\The [src] is full!</span>"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -222,7 +234,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	and 'Martian Water' has become a prized collector's item."
 	icon = 'icons/obj/item/reagent_containers/food/drinks/soda.dmi' // it's no soda, but shows up in vending machines nonetheless
 	icon_state = "smallbottle"
-	flags = 0 //starts closed
+	atom_flags = 0 //starts closed
 	center_of_mass = list("x"=16, "y"=8)
 	drop_sound = 'sound/items/drop/disk.ogg'
 	pickup_sound = 'sound/items/pickup/disk.ogg'
@@ -349,7 +361,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		if(cap)
 			to_chat(user, SPAN_NOTICE("You remove \the [src]'s [cap]."))
 			user.put_in_hands(cap)
-			flags |= OPENCONTAINER
+			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 			cap = null
 			playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 			update_icon()
@@ -365,33 +377,33 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	src.add_fingerprint(user)
 	return
 
-/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/reagent_containers/food/drinks/shaker_cup))
+/obj/item/reagent_containers/food/drinks/shaker/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/food/drinks/shaker_cup))
 		if(cap)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [cap]."))
 			return TRUE
-		if(W.reagents.total_volume > 0)
-			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = W
+		if(attacking_item.reagents.total_volume > 0)
+			var/obj/item/reagent_containers/food/drinks/shaker_cup/C = attacking_item
 			C.standard_pour_into(user, src)
 			return TRUE
 		if(!top)
-			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [W] on."))
+			to_chat(user, SPAN_WARNING("\The [src] lacks a top to fit \the [attacking_item] on."))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You put \the [W] onto \the [src]."))
-		user.drop_from_inventory(W, src)
-		flags ^= OPENCONTAINER
-		cap = W
+		to_chat(user, SPAN_NOTICE("You put \the [attacking_item] onto \the [src]."))
+		user.drop_from_inventory(attacking_item, src)
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
+		cap = attacking_item
 		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
-	if(istype(W, /obj/item/shaker_top))
+	if(istype(attacking_item, /obj/item/shaker_top))
 		if(top)
 			to_chat(user, SPAN_WARNING("\The [src] already has \a [top]."))
 			return TRUE
-		to_chat(user, SPAN_NOTICE("You fit \the [W] onto \the [src]."))
+		to_chat(user, SPAN_NOTICE("You fit \the [attacking_item] onto \the [src]."))
 		amount_per_transfer_from_this = 10
-		user.drop_from_inventory(W, src)
-		top = W
+		user.drop_from_inventory(attacking_item, src)
+		top = attacking_item
 		playsound(src.loc, /singleton/sound_category/shaker_lid_off, 50, 1)
 		update_icon()
 		return TRUE
@@ -476,3 +488,13 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	icon_state = "britcup"
 	volume = 30
 	center_of_mass = list("x"=15, "y"=13)
+
+/obj/item/reagent_containers/food/drinks/boba
+	name = "boba pearls"
+	desc = "Tapioca balls, so you can eat your drinks! Yum yum!" // the yum yum is sarcastic these things feel like chewing on rubber.
+	icon_state = "boba"
+	drop_sound = 'sound/items/drop/papercup.ogg'
+	pickup_sound = 'sound/items/pickup/papercup.ogg'
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/boba = 60)
+	is_liquid = FALSE

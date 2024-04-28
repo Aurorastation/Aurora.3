@@ -12,7 +12,7 @@
 
 	if(!istype(computer, /obj/item/modular_computer/silicon))
 		return FALSE
-	
+
 	var/obj/item/modular_computer/silicon/true_computer = computer
 	if(!istype(true_computer.computer_host, /mob/living/silicon/pai))
 		return FALSE

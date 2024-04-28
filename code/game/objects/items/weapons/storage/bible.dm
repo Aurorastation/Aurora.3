@@ -37,7 +37,7 @@
 				A.reagents.del_reagent(/singleton/reagent/water)
 				A.reagents.add_reagent(/singleton/reagent/water/holywater, water2holy)
 
-/obj/item/storage/bible/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/bible/attackby(obj/item/attacking_item, mob/user)
 	if(src.use_sound)
 		playsound(src.loc, src.use_sound, 50, 1, -5)
 	return ..()
@@ -65,7 +65,7 @@
 	if(user.mind && (user.mind.assigned_role == "Chaplain"))
 		SSticker.Bible_name = book_name
 
-	var/new_book_style = input(user,"Which bible style would you like?") in list("Generic", "Bible", "White Bible", "Melted Bible", "Quran", "Torah", "Holy Light", "Tome", "Scroll", "Guru", "The King in Yellow", "Ithaqua", "Trinary", "Stars", "Scrapbook", "Atheist", "Necronomicon")
+	var/new_book_style = tgui_input_list(user, "Which holy book style would you like?", "Holy Book", list("Generic", "Bible", "White Bible", "Melted Bible", "Quran", "Torah", "Holy Light", "Tome", "Scroll", "Guru", "The King in Yellow", "Ithaqua", "Trinary", "Stars", "Scrapbook", "Atheist", "Necronomicon"))
 	switch(new_book_style)
 		if("Bible")
 			icon_state = "bible"
@@ -115,9 +115,6 @@
 		if("Necronomicon")
 			icon_state = "necronomicon"
 			item_state = "necronomicon"
-		if("Luceism")
-			icon_state = "luce2"
-			item_state = "luce2"
 		if("Skrell")
 			icon_state = "skrellbible"
 			item_state = "skrellbible"

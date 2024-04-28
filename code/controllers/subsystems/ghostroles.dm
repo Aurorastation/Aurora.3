@@ -1,9 +1,7 @@
-/var/datum/controller/subsystem/ghostroles/SSghostroles
-
-/datum/controller/subsystem/ghostroles
+SUBSYSTEM_DEF(ghostroles)
 	name = "Ghost Roles"
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_GHOSTROLES
+	init_order = INIT_ORDER_GHOSTROLES
 
 	var/list/spawnpoints = list() //List of the available spawnpoints by spawnpoint type
 		// -> type 1 -> spawnpoint 1
@@ -19,11 +17,7 @@
 	src.spawnpoints = SSghostroles.spawnpoints
 	src.spawners = SSghostroles.spawners
 
-/datum/controller/subsystem/ghostroles/New()
-	NEW_SS_GLOBAL(SSghostroles)
-
 /datum/controller/subsystem/ghostroles/Initialize(start_timeofday)
-	. = ..()
 	for(var/spawner in subtypesof(/datum/ghostspawner))
 		CHECK_TICK
 		var/datum/ghostspawner/G = new spawner
@@ -39,10 +33,13 @@
 
 	for (var/identifier in spawnpoints)
 		CHECK_TICK
+		spawnpoints[identifier] = shuffle(spawnpoints[identifier])
 		update_spawnpoint_status_by_identifier(identifier)
 
 	for(var/spawn_type in spawn_types)
 		spawn_atom[spawn_type] = list()
+
+	return SS_INIT_SUCCESS
 
 //Adds a spawnpoint to the spawnpoint list
 /datum/controller/subsystem/ghostroles/proc/add_spawnpoints(var/obj/effect/ghostspawpoint/P)
@@ -55,7 +52,8 @@
 		spawnpoints[P.identifier] = list()
 
 	spawnpoints[P.identifier] += P
-	//Only update the status if the round is started. During initialization that´s taken care of at the end of init.
+
+	// Only update the status if the round is started. During initialization that´s taken care of at the end of init.
 	if(ROUND_IS_STARTED)
 		update_spawnpoint_status(P)
 
@@ -104,10 +102,10 @@
 			return get_turf(P)
 
 /datum/controller/subsystem/ghostroles/ui_state(mob/user)
-    return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/ghostroles/ui_status(mob/user, datum/ui_state/state)
-    return UI_INTERACTIVE
+	return UI_INTERACTIVE
 
 /datum/controller/subsystem/ghostroles/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -123,11 +121,29 @@
 		var/datum/ghostspawner/G = spawners[s]
 		if(G.cant_see(user))
 			continue
+
 		var/cant_spawn = G.cant_spawn(user)
+
+		var/list/manifest = list()
+		if(LAZYLEN(G.spawned_mobs))
+			for(var/datum/weakref/mob_ref in G.spawned_mobs)
+				var/mob/spawned_mob = mob_ref.resolve()
+				if(spawned_mob)
+					manifest += spawned_mob.real_name
+
+		var/atom/spawn_overmap_location = null
+		if(SSatlas.current_map.use_overmap)
+			var/atom/spawner = G.select_spawnlocation(FALSE)
+			if(istype(spawner))
+				var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[spawner.z]"]
+				if(istype(sector))
+					spawn_overmap_location = sector.name
+
 		var/list/spawner = list(
 			"short_name" = G.short_name,
 			"name" = G.name,
 			"desc" = G.desc,
+			"desc_ooc" = G.desc_ooc,
 			"type" = G.type,
 			"cant_spawn" = cant_spawn,
 			"can_edit" = G.can_edit(user),
@@ -135,9 +151,11 @@
 			"enabled" = G.enabled,
 			"count" = G.count,
 			"spawn_atoms" = length(G.spawn_atoms),
+			"spawn_overmap_location" = spawn_overmap_location,
 			"max_count" = G.max_count,
 			"tags" = G.tags,
-			"spawnpoints" = G.spawnpoints
+			"spawnpoints" = G.spawnpoints,
+			"manifest" = manifest
 		)
 		data["categories"] |= G.tags
 		data["spawners"] += list(spawner)
@@ -171,12 +189,13 @@
 			if(!S.post_spawn(M))
 				to_chat(usr, "Unable to spawn: post_spawn failed. Report this on GitHub")
 				return
+			LAZYADD(S.spawned_mobs, WEAKREF(M))
 			log_and_message_admins("joined as GhostRole: [S.name]", M)
 			SStgui.update_uis(src)
 			. = TRUE
 
 		if("jump_to")
-			var/spawner_id = params["jump_to"]
+			var/spawner_id = params["spawner_id"]
 			var/datum/ghostspawner/human/spawner = spawners[spawner_id]
 			var/mob/abstract/observer/observer = usr
 			if(spawner && istype(observer) && spawner.can_jump_to(observer))
@@ -184,6 +203,19 @@
 				if(isturf(turf))
 					observer.on_mob_jump()
 					observer.forceMove(turf)
+
+		if("follow_manifest_entry")
+			var/spawner_id = params["spawner_id"]
+			var/spawned_mob_name = params["spawned_mob_name"]
+			var/datum/ghostspawner/human/spawner = spawners[spawner_id]
+			var/mob/abstract/observer/observer = usr
+			if(istype(observer) && spawner.can_jump_to(observer) && spawner && LAZYLEN(spawner.spawned_mobs))
+				for(var/datum/weakref/mob_ref in spawner.spawned_mobs)
+					var/mob/spawned_mob = mob_ref.resolve()
+					if(spawned_mob && spawned_mob.real_name == spawned_mob_name)
+						observer.ManualFollow(spawned_mob)
+						break
+
 		if("enable")
 			var/datum/ghostspawner/S = spawners[params["enable"]]
 			if(!S)

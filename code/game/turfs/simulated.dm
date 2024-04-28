@@ -16,44 +16,6 @@
 
 	baseturf = /turf/space
 
-/turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
-
-	//Wet type:
-	//WET_TYPE_WATER = water
-	//WET_TYPE_LUBE = lube
-	//WET_TYPE_ICE = ice
-
-	if(!wet_type)
-		wet_type = apply_type
-	else if(apply_type != wet_type)
-		if(apply_type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
-			wet_type = WET_TYPE_WATER
-		else if(apply_type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
-			wet_type = apply_type
-
-	if(wet_amount <= 0)
-		wet_amount = 0 //Just in case
-
-	if(!wet_overlay)
-		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
-		add_overlay(wet_overlay, TRUE)
-
-	wet_amount += amount
-
-	unwet_timer = addtimer(CALLBACK(src, PROC_REF(unwet_floor)), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
-
-/turf/simulated/proc/unwet_floor()
-	wet_amount = 0
-	wet_type = 0
-	if(wet_overlay)
-		cut_overlay(wet_overlay, TRUE)
-		wet_overlay = null
-
-/turf/simulated/clean_blood()
-	for(var/obj/effect/decal/cleanable/blood/B in contents)
-		B.clean_blood()
-	..()
-
 /turf/simulated/Initialize(mapload)
 	if (mapload)
 		if(istype(loc, /area/chapel))
@@ -98,9 +60,7 @@
 					slip_stun = 4
 
 			if(M.slip("the [floor_type] floor",slip_stun) && slip_dist)
-				for (var/i in 1 to slip_dist)
-					sleep(1)
-					step(M, M.dir)
+				INVOKE_ASYNC(src, PROC_REF(slip_mob), M, slip_dist)
 
 		if(M.lying)
 			return ..()
@@ -115,6 +75,19 @@
 		M.inertia_dir = 0
 
 	..(A, OL)
+
+/**
+ * Slips a mob, moving it for N tiles
+ *
+ * Should be called asyncronously, as this process sleep
+ *
+ * * mob_to_slip - The mob that should be slipped
+ * * slip_distance - How many tiles to slip the mob for
+ */
+/turf/simulated/proc/slip_mob(var/mob/mob_to_slip, var/slip_distance)
+	for (var/i in 1 to slip_distance)
+		sleep(1)
+		step(mob_to_slip, mob_to_slip.dir)
 
 //returns TRUE if made bloody, returns FALSE otherwise
 /turf/simulated/add_blood(mob/living/carbon/human/M as mob)
@@ -141,7 +114,7 @@
 		new /obj/effect/decal/cleanable/blood/oil(src)
 
 /turf/simulated/Destroy()
-	if (zone)
+	if (zone && !zone.invalid)
 		// Try to remove it gracefully first.
 		if (can_safely_remove_from_zone())
 			c_copy_air()
@@ -155,3 +128,49 @@
 		deltimer(unwet_timer)
 
 	return ..()
+
+/turf/simulated/proc/wet_floor(var/apply_type = WET_TYPE_WATER, var/amount = 1)
+
+	//Wet type:
+	//WET_TYPE_WATER = water
+	//WET_TYPE_LUBE = lube
+	//WET_TYPE_ICE = ice
+
+	if(!wet_type)
+		wet_type = apply_type
+	else if(apply_type != wet_type)
+		if(apply_type == WET_TYPE_WATER && wet_type == WET_TYPE_LUBE)
+			wet_type = WET_TYPE_WATER
+		else if(apply_type == WET_TYPE_ICE && (wet_type == WET_TYPE_WATER || wet_type == WET_TYPE_LUBE))
+			wet_type = apply_type
+
+	if(wet_amount <= 0)
+		wet_amount = 0 //Just in case
+
+	if(!wet_overlay)
+		wet_overlay = image('icons/effects/water.dmi',src,"wet_floor")
+		add_overlay(wet_overlay, TRUE)
+
+	wet_amount += amount
+
+	unwet_timer = addtimer(CALLBACK(src, PROC_REF(unwet_floor)), 120 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
+
+/turf/simulated/proc/unwet_floor()
+	wet_amount = 0
+	wet_type = 0
+	if(wet_overlay)
+		cut_overlay(wet_overlay, TRUE)
+		wet_overlay = null
+
+/turf/simulated/clean_blood()
+	for(var/obj/effect/decal/cleanable/blood/B in contents)
+		B.clean_blood()
+	..()
+
+/turf/simulated/clean(atom/source, mob/user)
+	. = ..()
+	dirt = 0
+	reset_color()
+
+/turf/simulated/proc/reset_color()
+	color = null

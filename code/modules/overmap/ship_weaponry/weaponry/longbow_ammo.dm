@@ -9,25 +9,25 @@
 	var/obj/item/primer/primer
 	var/obj/item/warhead/longbow/warhead
 
-/obj/item/ship_ammunition/longbow/attackby(obj/item/I, mob/user)
+/obj/item/ship_ammunition/longbow/attackby(obj/item/attacking_item, mob/user)
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
-		if(istype(I, /obj/item/primer) && !primer)
-			var/obj/item/primer/P = I
+		if(istype(attacking_item, /obj/item/primer) && !primer)
+			var/obj/item/primer/P = attacking_item
 			user.visible_message(SPAN_NOTICE("[H] starts connecting \the [P] to the casing..."), SPAN_NOTICE("You start connecting \the [P] to the casing..."))
 			if(do_after(H, 3 SECONDS))
 				visible_message(SPAN_NOTICE("You connect \the [P] to the casing!"), SPAN_NOTICE("[H] connects \the [P] to the casing!"))
 				H.drop_from_inventory(P)
 				add_primer(P)
-				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
-		if(istype(I, /obj/item/warhead) && !warhead)
-			var/obj/item/warhead/W = I
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
+		if(istype(attacking_item, /obj/item/warhead) && !warhead)
+			var/obj/item/warhead/W = attacking_item
 			user.visible_message( SPAN_NOTICE("[H] starts connecting \the [W] to the casing..."), SPAN_NOTICE("You start connecting \the [W] to the casing..."))
 			if(do_after(H, 5 SECONDS))
 				visible_message(SPAN_NOTICE("You connect \the [W] to the casing!"), SPAN_NOTICE("[H] connects \the [W] to the casing!"))
 				H.drop_from_inventory(W)
 				add_warhead(W)
-				playsound(src, 'sound/machines/rig/rig_deploy.ogg')
+				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 40)
 	update_status()
 
 /obj/item/ship_ammunition/longbow/can_be_loaded()
@@ -145,9 +145,11 @@
 	if(P.damage > 5)
 		cookoff(TRUE)
 
-/obj/item/warhead/longbow/attackby(obj/item/I, mob/user)
+/obj/item/warhead/longbow/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(I.force > 10)
+	if(istype(attacking_item, /obj/item/mecha_equipment/clamp)) //loading a warhead into a mech shouldn't explode it
+		return
+	if(attacking_item.force > 10 && user.a_intent == I_HURT) //presumably you need to hit it pretty hard to actually set the thing off
 		cookoff(FALSE)
 
 /obj/item/warhead/longbow/ex_act(severity)

@@ -8,5 +8,5 @@
 	require_all_templates = TRUE
 
 /datum/game_mode/acolytes/pre_setup()
-	round_description = "A cult and a borer infestation are on-[current_map.station_type]!"
+	round_description = "A cult and a borer infestation are on-[SSatlas.current_map.station_type]!"
 	. = ..()

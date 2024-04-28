@@ -6,7 +6,7 @@
 	density = 1
 	anchored = 1
 	climbable = TRUE
-	layer = LAYER_TABLE
+	layer = TABLE_LAYER
 	throwpass = 1
 	breakable = TRUE
 	var/flipped = 0
@@ -72,6 +72,13 @@
 
 
 /obj/structure/table/Initialize()
+	if(table_mat)
+		material = SSmaterials.get_material_by_name(table_mat)
+	if(table_reinf)
+		reinforced = SSmaterials.get_material_by_name(table_reinf)
+	if(reinforced)
+		breakable = FALSE
+
 	. = ..()
 
 	// One table per turf.
@@ -82,7 +89,8 @@
 			break_to_parts(full_return = 1)
 			return
 
-	// reset color/alpha, since they're set for nice map previews
+	// reset color/alpha and icon, since they're set for nice map previews
+	icon = 'icons/obj/structure/tables/table.dmi'
 	color = "#ffffff"
 	alpha = 255
 	update_connections(1)
@@ -98,93 +106,16 @@
 		T.queue_icon_update()
 	return ..()
 
-/obj/structure/table/examine(mob/user)
+/obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)
-				to_chat(user, "<span class='warning'>It looks severely damaged!</span>")
+				. += "<span class='warning'>It looks severely damaged!</span>"
 			if(0.25 to 0.5)
-				to_chat(user, "<span class='warning'>It looks damaged!</span>")
+				. += "<span class='warning'>It looks damaged!</span>"
 			if(0.5 to 1.0)
-				to_chat(user, "<span class='notice'>It has a few scrapes and dents.</span>")
-
-/obj/structure/table/attackby(obj/item/W, mob/user)
-	if(reinforced && W.isscrewdriver())
-		remove_reinforced(W, user)
-		if(!reinforced)
-			update_desc()
-			queue_icon_update()
-			update_material()
-		return 1
-
-	if(carpeted && W.iscrowbar())
-		user.visible_message("<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
-		                              "<span class='notice'>You remove the carpet from \the [src].</span>")
-		new /obj/item/stack/tile/carpet(loc)
-		carpeted = 0
-		queue_icon_update()
-		return 1
-
-	if(!carpeted && material && istype(W, /obj/item/stack/tile/carpet))
-		var/obj/item/stack/tile/carpet/C = W
-		if(C.use(1))
-			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
-			                              "<span class='notice'>You add \the [C] to \the [src].</span>")
-			carpeted = 1
-			queue_icon_update()
-			return 1
-		else
-			to_chat(user, "<span class='warning'>You don't have enough carpet!</span>")
-
-	if(!reinforced && !carpeted && material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter)))
-		remove_material(W, user)
-		if(!material)
-			update_connections(1)
-			queue_icon_update()
-			for(var/obj/structure/table/T in oview(src, 1))
-				T.queue_icon_update()
-			update_desc()
-			update_material()
-		return 1
-
-	if(!carpeted && !reinforced && !material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter)))
-		dismantle(W, user)
-		return 1
-
-	if(health < maxhealth && W.iswelder())
-		var/obj/item/weldingtool/F = W
-		if(F.welding)
-			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
-			if(!W.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
-				return
-			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
-			                              "<span class='notice'>You repair some damage to \the [src].</span>")
-			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
-			return 1
-
-	if(!material && can_plate && istype(W, /obj/item/stack/material))
-		material = common_material_add(W, user, "plat")
-		if(material)
-			update_connections(1)
-			queue_icon_update()
-			update_desc()
-			update_material()
-		return 1
-
-	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/board/bowl))
-		new /obj/structure/chemkit(loc)
-		qdel(W)
-		qdel(src)
-		return 1
-
-	return ..()
-
-/obj/structure/table/MouseDrop_T(obj/item/stack/material/what)
-	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
-		reinforce_table(what, usr)
-	else
-		return ..()
+				. += "<span class='notice'>It has a few scrapes and dents.</span>"
 
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)
@@ -233,7 +164,7 @@
 	if(manipulating) return M
 	manipulating = 1
 	to_chat(user, "<span class='notice'>You begin [verb]ing \the [src] with [M.display_name].</span>")
-	if(!do_after(user, 20) || !S.use(1))
+	if(!do_after(user, 2 SECONDS, src, DO_REPAIR_CONSTRUCT) || !S.use(1))
 		manipulating = 0
 		return null
 	user.visible_message("<span class='notice'>\The [user] [verb]es \the [src] with [M.display_name].</span>", "<span class='notice'>You finish [verb]ing \the [src].</span>")
@@ -249,14 +180,14 @@
 	if(manipulating) return M
 	manipulating = 1
 	user.visible_message("<span class='notice'>\The [user] begins removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.</span>",
-	                              "<span class='notice'>You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.</span>")
+							"<span class='notice'>You begin removing the [type_holding] holding \the [src]'s [M.display_name] [what] in place.</span>")
 	if(sound)
 		playsound(src.loc, sound, 50, 1)
-	if(!do_after(user, 40))
+	if(!do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		manipulating = 0
 		return M
 	user.visible_message("<span class='notice'>\The [user] removes the [M.display_name] [what] from \the [src].</span>",
-	                              "<span class='notice'>You remove the [M.display_name] [what] from \the [src].</span>")
+							"<span class='notice'>You remove the [M.display_name] [what] from \the [src].</span>")
 	new M.stack_type(src.loc)
 	manipulating = 0
 	return null
@@ -279,7 +210,8 @@
 		return
 	user.visible_message("\The [user] dismantles \the [src].",
 						SPAN_NOTICE("You dismantle \the [src]."))
-	..()
+	new /obj/item/stack/rods(src.loc, 2)
+	qdel(src)
 
 // Returns a list of /obj/item/material/shard objects that were created as a result of this table's breakage.
 // Used for !fun! things such as embedding shards in the faces of tableslammed people.
@@ -307,45 +239,53 @@
 	if(carpeted && (full_return || prob(50))) // Higher chance to get the carpet back intact, since there's no non-intact option
 		new /obj/item/stack/tile/carpet(src.loc)
 	if(full_return || prob(20))
-		new /obj/item/stack/material/steel(src.loc)
+		new /obj/item/stack/rods(src.loc, 2)
 	else
-		var/material/M = SSmaterials.get_material_by_name(DEFAULT_WALL_MATERIAL)
-		S = M.place_shard(loc)
-		if(S) shards += S
+		new /obj/item/stack/rods(src.loc)
 	qdel(src)
 	return shards
 
 /obj/structure/table/update_icon()
+	cut_overlays()
+	icon_state = "blank"
+	var/image/I
 	if(flipped != 1)
-		icon_state = "blank"
-		cut_overlays()
-
-		var/image/I
-
-		// Standard table image.
-		if(material)
+		if(material) // Standard table image.
 			for(var/i = 1 to 4)
-				I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
-				if(material_alteration & MATERIAL_ALTERATION_COLOR) I.color = material.icon_colour
+				if(material.table_icon)
+					if(reinforced && ("reinf_[material.name]_[connections[i]]" in icon_states(material.table_icon)))
+						I = image(material.table_icon, "reinf_[material.name]_[connections[i]]", dir = 1<<(i-1))
+					else
+						I = image(material.table_icon, "[material.name]_[connections[i]]", dir = 1<<(i-1))
+				else
+					if(reinforced && ("reinf_[material.icon_base]_[connections[i]]" in icon_states(icon)))
+						I = image(icon, "reinf_[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+					else
+						I = image(icon, "[material.icon_base]_[connections[i]]", dir = 1<<(i-1))
+					if(material.icon_colour)
+						I.color = material.icon_colour
 				add_overlay(I)
-		else
+		else // Table frame
 			for(var/i = 1 to 4)
-				I = image(icon, dir = 1<<(i-1), icon_state = connections[i])
+				I = image(icon, "[connections[i]]", dir = 1<<(i-1))
 				add_overlay(I)
 
-		// Reinforcements.
-		if(reinforced)
+		if(reinforced)	// Reinforcements.
 			for(var/i = 1 to 4)
-				I = image(icon, "[reinforced.icon_reinf]_[connections[i]]", dir = 1<<(i-1))
-				I.color = reinforced.icon_colour
+				if("reinf_[reinforced.name]_[connections[i]]" in icon_states('icons/obj/structure/tables/table_reinf.dmi')) // if it's got an existing purpose-made reinforced icon, and it isn't already a generic one, use it
+					I = image('icons/obj/structure/tables/table_reinf.dmi', "reinf_[reinforced.name]_[connections[i]]", dir = 1<<(i-1))
+				else
+					I = image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_[connections[i]]", dir = 1<<(i-1)) // else use the generic recolorable one
+				if(reinforced.icon_colour && ("reinf_[reinforced.name]" == "[reinforced.reinf_icon]"))
+					I.color = reinforced.icon_colour
 				add_overlay(I)
 
 		if(carpeted)
 			for(var/i = 1 to 4)
 				I = image(icon, "carpet_[connections[i]]", dir = 1<<(i-1))
 				add_overlay(I)
-	else
-		cut_overlays()
+
+	else	// Flipped table
 		var/type = 0
 		var/tabledirs = 0
 		for(var/direction in list(turn(dir,90), turn(dir,-90)) )
@@ -361,19 +301,37 @@
 			if (tabledirs & turn(dir,-90))
 				type += "+"
 
-		icon_state = "flip[type]"
 		if(material)
-			var/image/I = image(icon, "[material.icon_base]_flip[type]")
-			I.color = material.icon_colour
+			if(material.table_icon)
+				if(reinforced && ("reinf_[material.name]_flip[type]" in icon_states(material.table_icon)))
+					I = image(material.table_icon, "reinf_[material.name]_flip[type]")
+				else
+					I = image(material.table_icon, "[material.name]_flip[type]")
+			else
+				if(reinforced && ("reinf_[material.icon_base]_flip[type]" in icon_states(icon)))
+					I = image(icon, "reinf_[material.icon_base]_flip[type]")
+				else
+					I = image(icon, "[material.icon_base]_flip[type]")
+				if(material.icon_colour)
+					I.color = material.icon_colour
 			add_overlay(I)
-			if(material_alteration & MATERIAL_ALTERATION_NAME)
-				name = "[material.display_name] table"
+			if(material.display_name)
+				if(material.display_name == "comfy")
+					name = "fancy table"
+				else
+					name = "[material.display_name] table"
 		else
+			I = image(icon, "flip[type]")
 			name = "table frame"
+			add_overlay(I)
 
 		if(reinforced)
-			var/image/I = image(icon, "[reinforced.icon_reinf]_flip[type]")
-			I.color = reinforced.icon_colour
+			if("reinf_[reinforced.name]_flip[type]" in icon_states('icons/obj/structure/tables/table_reinf.dmi')) // if it's got an existing purpose-made reinforced icon, and it isn't already a generic one, use it
+				I = image('icons/obj/structure/tables/table_reinf.dmi', "reinf_[reinforced.name]_flip[type]")
+			else
+				I = image('icons/obj/structure/tables/table_reinf.dmi', "[reinforced.reinf_icon]_flip[type]") // else use the generic recolorable one
+			if(reinforced.icon_colour && ("reinf_[reinforced.name]" == "[reinforced.reinf_icon]"))
+				I.color = reinforced.icon_colour
 			add_overlay(I)
 
 		if(carpeted)
@@ -399,7 +357,7 @@
 	for(var/D in list(NORTH, SOUTH, EAST, WEST) - blocked_dirs)
 		var/turf/T = get_step(src, D)
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir == reverse_dir[D])
+			if(W.is_fulltile() || W.dir == GLOB.reverse_dir[D])
 				blocked_dirs |= D
 				break
 			else
@@ -410,7 +368,7 @@
 		var/turf/T = get_step(src, D)
 
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir & reverse_dir[D])
+			if(W.is_fulltile() || W.dir & GLOB.reverse_dir[D])
 				blocked_dirs |= D
 				break
 
@@ -439,10 +397,10 @@
 #define CORNER_CLOCKWISE 4
 
 /*
-  turn() is weird:
-    turn(icon, angle) turns icon by angle degrees clockwise
-    turn(matrix, angle) turns matrix by angle degrees clockwise
-    turn(dir, angle) turns dir by angle degrees counter-clockwise
+turn() is weird:
+	turn(icon, angle) turns icon by angle degrees clockwise
+	turn(matrix, angle) turns matrix by angle degrees clockwise
+	turn(dir, angle) turns dir by angle degrees counter-clockwise
 */
 
 /proc/dirs_to_corner_states(list/dirs)

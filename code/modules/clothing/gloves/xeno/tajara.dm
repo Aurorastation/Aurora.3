@@ -12,36 +12,36 @@
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/blue/tajara
- 	desc = "Blue gloves made for Tajaran use."
- 	species_restricted = list(BODYTYPE_TAJARA)
+	desc = "Blue gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/orange/tajara
- 	desc = "Orange gloves made for Tajaran use."
- 	species_restricted = list(BODYTYPE_TAJARA)
+	desc = "Orange gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/purple/tajara
- 	desc = "Purple gloves made for Tajaran use."
- 	species_restricted = list(BODYTYPE_TAJARA)
+	desc = "Purple gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/brown/tajara
- 	desc = "Brown gloves made for Tajaran use."
- 	species_restricted = list(BODYTYPE_TAJARA)
+	desc = "Brown gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/light_brown/tajara
 	desc = "Light brown gloves made for Tajaran use."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/green/tajara
- 	desc = "Green gloves made for Tajaran use."
- 	species_restricted = list(BODYTYPE_TAJARA)
+	desc = "Green gloves made for Tajaran use."
+	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/grey/tajara
 	desc = "Grey gloves made for Tajaran use."
 	species_restricted = list(BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/white/tajara
- 	desc = "White gloves made for Tajaran use."
- 	species_restricted = list (BODYTYPE_TAJARA)
+	desc = "White gloves made for Tajaran use."
+	species_restricted = list (BODYTYPE_TAJARA)
 
 /obj/item/clothing/gloves/rainbow/tajara
 	desc = "Rainbow gloves made for Tajaran use."

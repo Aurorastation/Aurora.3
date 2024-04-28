@@ -11,7 +11,7 @@
 	contained_sprite = TRUE
 	icon_state = "flippers"
 	item_state = "flippers"
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	slowdown = 1
 
 /obj/item/clothing/shoes/footwraps
@@ -53,9 +53,6 @@
 		M = user
 	return eyestab(M,user)
 
-/obj/item/clothing/shoes/heels/handle_movement(var/turf/walking, var/running)
-	trip_up(walking, running)
-
 /obj/item/clothing/shoes/galoshes
 	name = "galoshes"
 	desc = "A waterproof overshoe, made of rubber."
@@ -64,7 +61,7 @@
 	icon_state = "galoshes"
 	item_state = "galoshes"
 	permeability_coefficient = 0.05
-	item_flags = NOSLIP
+	item_flags = ITEM_FLAG_NO_SLIP
 	slowdown = 1
 	species_restricted = null
 	icon_auto_adapt = TRUE
@@ -83,10 +80,33 @@
 	icon_state = "brown"
 	item_state = "brown"
 	contained_sprite = TRUE
-	item_flags = NOSLIP|LIGHTSTEP
+	item_flags = ITEM_FLAG_NO_SLIP|ITEM_FLAG_LIGHT_STEP
 	slowdown = 0
 	origin_tech = list(TECH_ILLEGAL = 3)
 	icon_auto_adapt = FALSE
 	icon_supported_species_tags = null
 	var/list/clothing_choices = list()
 	siemens_coefficient = 0.75
+
+/obj/item/clothing/shoes/ancient_unathi
+	name = "ancient bronze greaves"
+	desc = "A set of bronze leg armor, corroded by age. It appears to be shaped for an Unathi."
+	icon = 'icons/obj/unathi_ruins.dmi'
+	icon_state = "ancient_boots"
+	item_state = "ancient_boots"
+	species_restricted = list(BODYTYPE_UNATHI)
+	contained_sprite = TRUE
+	armor = list( //not designed to hold up to bullets or lasers, but still better than nothing.
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MINOR,
+		laser = ARMOR_LASER_SMALL
+	)
+	drop_sound = 'sound/items/drop/sword.ogg'
+	pickup_sound = /singleton/sound_category/sword_pickup_sound
+	matter = list(MATERIAL_BRONZE = 1000)
+
+/obj/item/clothing/shoes/ancient_unathi/mador
+	name = "\improper Sinta'Mador bronze greaves"
+	desc = "A set of bronze leg armor, fitted for an Unathi and corroded by age. Those familiar with Moghresian archaeology may recognize these as being of Sinta'Mador design."
+	icon_state = "mador_boots"
+	item_state = "mador_boots"

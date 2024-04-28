@@ -253,7 +253,6 @@
 	M.gestalt = src
 	add_verb(M, /mob/living/carbon/alien/diona/proc/merge_back_to_gestalt)
 	add_verb(M, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
-	add_verb(M, /mob/living/carbon/human/proc/switch_to_nymph)
 	M.detached = TRUE
 	M.update_verbs(TRUE)
 	M.languages = languages.Copy()
@@ -279,6 +278,8 @@
 		return
 	else
 		nymph.key = key
+		remove_verb(nymph, /mob/living/carbon/human/proc/switch_to_nymph)
+		add_verb(nymph, /mob/living/carbon/alien/diona/proc/switch_to_gestalt)
 
 /mob/living/carbon/human/proc/diona_split_into_nymphs()
 	var/turf/T = get_turf(src)

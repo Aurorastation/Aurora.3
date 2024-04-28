@@ -31,19 +31,20 @@
 	return src.attack_hand(user)
 
 /obj/machinery/computer/arcade/emp_act(severity)
+	. = ..()
+
 	if(stat & (NOPOWER|BROKEN))
-		..(severity)
 		return
+
 	var/num_of_prizes = 0
 	switch(severity)
-		if(1)
+		if(EMP_HEAVY)
 			num_of_prizes = rand(1,4)
-		if(2)
+		if(EMP_LIGHT)
 			num_of_prizes = rand(0,2)
 	for(num_of_prizes; num_of_prizes > 0; num_of_prizes--)
 		new prize(src.loc)
 
-	..(severity)
 
 ///////////////////
 //  BATTLE HERE  //
@@ -113,7 +114,7 @@
 			src.blocked = 1
 			var/attackamt = rand(2,6)
 			src.temp = "You attack for [attackamt] damage!"
-			playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			src.updateUsrDialog()
 			if(turtle > 0)
 				turtle--
@@ -127,7 +128,7 @@
 			var/pointamt = rand(1,3)
 			var/healamt = rand(6,8)
 			src.temp = "You use [pointamt] magic to heal for [healamt] damage!"
-			playsound(loc, 'sound/arcade/heal.ogg', 2, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/heal.ogg', 2, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			src.updateUsrDialog()
 			turtle++
 
@@ -142,7 +143,7 @@
 			src.blocked = 1
 			var/chargeamt = rand(4,7)
 			src.temp = "You regain [chargeamt] points."
-			playsound(loc, 'sound/arcade/mana.ogg', 1, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/mana.ogg', 1, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 			src.player_mp += chargeamt
 			if(turtle > 0)
 				turtle--
@@ -177,7 +178,7 @@
 		if(!gameover)
 			src.gameover = 1
 			src.temp = "[src.enemy_name] has fallen! Rejoice!"
-			playsound(loc, 'sound/arcade/win.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+			playsound(loc, 'sound/arcade/win.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 
 			if(emagged)
 				feedback_inc("arcade_win_emagged")
@@ -194,13 +195,13 @@
 	else if (emagged && (turtle >= 4))
 		var/boomamt = rand(5,10)
 		src.temp = "[src.enemy_name] throws a bomb, exploding you for [boomamt] damage!"
-		playsound(loc, 'sound/arcade/boom.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/boom.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.player_hp -= boomamt
 
 	else if ((src.enemy_mp <= 5) && (prob(70)))
 		var/stealamt = rand(2,3)
 		src.temp = "[src.enemy_name] steals [stealamt] of your power!"
-		playsound(loc, 'sound/arcade/steal.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/steal.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.player_mp -= stealamt
 		src.updateUsrDialog()
 
@@ -216,20 +217,20 @@
 
 	else if ((src.enemy_hp <= 10) && (src.enemy_mp > 4))
 		src.temp = "[src.enemy_name] heals for 4 health!"
-		playsound(loc, 'sound/arcade/heal.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/heal.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.enemy_hp += 4
 		src.enemy_mp -= 4
 
 	else
 		var/attackamt = rand(3,6)
 		src.temp = "[src.enemy_name] attacks for [attackamt] damage!"
-		playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/hit.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		src.player_hp -= attackamt
 
 	if ((src.player_mp <= 0) || (src.player_hp <= 0))
 		src.gameover = 1
 		src.temp = "You have been crushed! GAME OVER"
-		playsound(loc, 'sound/arcade/lose.ogg', 5, 1, extrarange = -3, falloff = 10, required_asfx_toggles = ASFX_ARCADE)
+		playsound(loc, 'sound/arcade/lose.ogg', 5, 1, extrarange = -3, falloff_distance = 10, required_asfx_toggles = ASFX_ARCADE)
 		if(emagged)
 			feedback_inc("arcade_loss_hp_emagged")
 			usr.gib()

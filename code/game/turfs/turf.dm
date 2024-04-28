@@ -2,6 +2,8 @@
 	icon = 'icons/turf/floors.dmi'
 	level = 1
 
+	layer = TURF_LAYER
+
 	var/turf_flags
 	var/holy = 0
 
@@ -54,27 +56,53 @@
 
 	var/last_clean //for clean log spam.
 
+	///what /mob/oranges_ear instance is already assigned to us as there should only ever be one.
+	///used for guaranteeing there is only one oranges_ear per turf when assigned, speeds up view() iteration
+	var/mob/oranges_ear/assigned_oranges_ear
+
+	/// How pathing algorithm will check if this turf is passable by itself (not including content checks). By default it's just density check.
+	/// WARNING: Currently to use a density shortcircuiting this does not support dense turfs with special allow through function
+	var/pathing_pass_method = TURF_PATHING_PASS_DENSITY
+
+	// Some quick notes on the vars below: is_outside should be left set to OUTSIDE_AREA unless you
+	// EXPLICITLY NEED a turf to have a different outside state to its area (ie. you have used a
+	// roofing tile). By default, it will ask the area for the state to use, and will update on
+	// area change. When dealing with weather, it will check the entire z-column for interruptions
+	// that will prevent it from using its own state, so a floor above a level will generally
+	// override both area is_outside, and turf is_outside. The only time the base value will be used
+	// by itself is if you are dealing with a non-multiz level, or the top level of a multiz chunk.
+
+	// Weather relies on is_outside to determine if it should apply to a turf or not and will be
+	// automatically updated on ChangeTurf set_outside etc. Don't bother setting it manually, it will
+	// get overridden almost immediately.
+
+	// TL;DR: just leave these vars alone.
+	var/tmp/obj/abstract/weather_system/weather
+	var/tmp/is_outside = OUTSIDE_AREA
+	var/tmp/last_outside_check = OUTSIDE_UNCERTAIN
+
 // Parent code is duplicated in here instead of ..() for performance reasons.
 // There's ALSO a copy of this in mine_turfs.dm!
 /turf/Initialize(mapload, ...)
-	if (initialized)
-		crash_with("Warning: [src]([type]) initialized multiple times!")
+	SHOULD_CALL_PARENT(FALSE)
 
-	initialized = TRUE
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
 
 	for(var/atom/movable/AM as mob|obj in src)
 		Entered(AM, src)
 
 	if (isStationLevel(z))
-		station_turfs += src
+		GLOB.station_turfs += src
 
 	if(dynamic_lighting)
 		luminosity = 0
 	else
 		luminosity = 1
 
-	if (smooth)
-		queue_smooth(src)
+	if (smoothing_flags)
+		SSicon_smooth.add_to_queue(src)
 
 	if (light_range && light_power)
 		update_light()
@@ -89,9 +117,9 @@
 
 	if(!baseturf)
 		// Hard-coding this for performance reasons.
-		baseturf = A.base_turf || current_map.base_turf_by_z["[z]"] || /turf/space
+		baseturf = A.base_turf || SSatlas.current_map.base_turf_by_z["[z]"] || /turf/space
 
-	if (A.flags & SPAWN_ROOF)
+	if (A.area_flags & AREA_FLAG_SPAWN_ROOF)
 		spawn_roof()
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -106,13 +134,13 @@
 	changing_turf = FALSE
 
 	if (isStationLevel(z))
-		station_turfs -= src
+		GLOB.station_turfs -= src
 
 	remove_cleanables()
 	cleanup_roof()
 
 	if (ao_queued)
-		SSocclusion.queue -= src
+		SSao.queue -= src
 		ao_queued = 0
 
 	if (z_flags & ZM_MIMIC_BELOW)
@@ -187,21 +215,21 @@
 
 	//First, check objects to block exit that are not on the border
 	for(var/obj/obstacle in mover.loc)
-		if(!(obstacle.flags & ON_BORDER) && (mover != obstacle) && (forget != obstacle))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != obstacle) && (forget != obstacle))
 			if(!obstacle.CheckExit(mover, src))
 				mover.Collide(obstacle)
 				return 0
 
 	//Now, check objects to block exit that are on the border
 	for(var/obj/border_obstacle in mover.loc)
-		if((border_obstacle.flags & ON_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
+		if((border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER) && (mover != border_obstacle) && (forget != border_obstacle))
 			if(!border_obstacle.CheckExit(mover, src))
 				mover.Collide(border_obstacle)
 				return 0
 
 	//Next, check objects to block entry that are on the border
 	for(var/obj/border_obstacle in src)
-		if(border_obstacle.flags & ON_BORDER)
+		if(border_obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER)
 			if(!border_obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != border_obstacle))
 				mover.Collide(border_obstacle)
 				return 0
@@ -213,7 +241,7 @@
 
 	//Finally, check objects/mobs to block entry that are not on the border
 	for(var/atom/movable/obstacle in src)
-		if(!(obstacle.flags & ON_BORDER))
+		if(!(obstacle.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			if(!obstacle.CanPass(mover, mover.loc, 1, 0) && (forget != obstacle))
 				mover.Collide(obstacle)
 				return 0
@@ -221,15 +249,15 @@
 
 var/const/enterloopsanity = 100
 
-/turf/Entered(atom/movable/AM, atom/old_loc)
+/turf/Entered(atom/movable/arrived, atom/old_loc)
 	if(movement_disabled)
 		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
 		return
 
-	ASSERT(istype(AM))
+	ASSERT(istype(arrived))
 
-	if(ismob(AM))
-		var/mob/M = AM
+	if(ismob(arrived))
+		var/mob/M = arrived
 		if(!M.lastarea)
 			M.lastarea = get_area(M.loc)
 
@@ -247,8 +275,8 @@ var/const/enterloopsanity = 100
 		else if(M.is_floating && !is_hole && has_gravity)
 			M.update_floating()
 
-	if(does_footprint && footprint_color && ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(does_footprint && footprint_color && ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		var/obj/item/organ/external/l_foot = H.get_organ(BP_L_FOOT)
 		var/obj/item/organ/external/r_foot = H.get_organ(BP_R_FOOT)
 		var/has_feet = TRUE
@@ -274,33 +302,56 @@ var/const/enterloopsanity = 100
 
 		H.update_inv_shoes(TRUE)
 
-	if(tracks_footprint && ishuman(AM))
-		var/mob/living/carbon/human/H = AM
+	if(tracks_footprint && ishuman(arrived))
+		var/mob/living/carbon/human/H = arrived
 		H.species.deploy_trail(H, src)
 
-	..(AM, old_loc)
+	..()
 
 	var/objects = 0
-	if(AM && (AM.flags & PROXMOVE) && AM.simulated)
+	if(arrived && (arrived.movable_flags & MOVABLE_FLAG_PROXMOVE) && arrived.simulated)
 		for(var/atom/movable/oAM in range(1))
 			if(objects > enterloopsanity)
 				break
 			objects++
 
-			if (oAM.simulated && (oAM.flags & PROXMOVE))
-				AM.proximity_callback(oAM)
+			if (oAM.simulated && (oAM.movable_flags & MOVABLE_FLAG_PROXMOVE))
+				arrived.proximity_callback(oAM)
 
-/turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color="#A10808")
+	if (arrived && arrived.opacity && !has_opaque_atom)
+		has_opaque_atom = TRUE // Make sure to do this before reconsider_lights(), incase we're on instant updates. Guaranteed to be on in this case.
+		reconsider_lights()
+
+#ifdef AO_USE_LIGHTING_OPACITY
+		// Hook for AO.
+		regenerate_ao()
+#endif
+
+	if(!(arrived.bound_overlay || (arrived.z_flags & ZMM_IGNORE) || !TURF_IS_MIMICING(above)))
+		above.update_mimic()
+
+	//Items that are in phoron, but not on a mob, can still be contaminated.
+	var/obj/item/I = arrived
+	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
+		var/datum/gas_mixture/env = return_air(1)
+		if(!env)
+			return
+		for(var/g in env.gas)
+			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && env.gas[g] > gas_data.overlay_limit[g] + 1)
+				I.contaminate()
+				break
+
+/turf/proc/add_tracks(var/typepath, var/footprint_DNA, var/comingdir, var/goingdir, var/footprint_color=COLOR_HUMAN_BLOOD)
 	var/obj/effect/decal/cleanable/blood/tracks/tracks = locate(typepath) in src
 	if(!tracks)
 		tracks = new typepath(src)
 	tracks.add_tracks(footprint_DNA, comingdir, goingdir, footprint_color)
 
 /atom/movable/proc/proximity_callback(atom/movable/AM)
-	set waitfor = FALSE
-	sleep(0)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	HasProximity(AM, TRUE)
-	if (!QDELETED(AM) && !QDELETED(src) && (AM.flags & PROXMOVE))
+	if (!QDELETED(AM) && !QDELETED(src) && (AM.movable_flags & MOVABLE_FLAG_PROXMOVE))
 		AM.HasProximity(src, TRUE)
 
 /turf/proc/adjacent_fire_act(turf/simulated/floor/source, temperature, volume)
@@ -315,9 +366,12 @@ var/const/enterloopsanity = 100
 /turf/proc/can_lay_cable()
 	return can_have_cabling()
 
-/turf/attackby(obj/item/C, mob/user)
-	if (can_lay_cable() && C.iscoil())
-		var/obj/item/stack/cable_coil/coil = C
+/turf/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/grab))
+		var/obj/item/grab/grab = attacking_item
+		step(grab.affecting, get_dir(grab.affecting, src))
+	if (can_lay_cable() && attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/coil = attacking_item
 		coil.turf_place(src, user)
 	else
 		..()
@@ -382,7 +436,7 @@ var/const/enterloopsanity = 100
 	if(density)
 		return 1
 	for(var/atom/A in src)
-		if(A.density && !(A.flags & ON_BORDER))
+		if(A.density && !(A.atom_flags & ATOM_FLAG_CHECKS_BORDER))
 			return 1
 	return 0
 
@@ -390,27 +444,25 @@ var/const/enterloopsanity = 100
 /turf/proc/clean(atom/source, mob/user)
 	if(source.reagents.has_reagent(/singleton/reagent/water, 1) || source.reagents.has_reagent(/singleton/reagent/spacecleaner, 1))
 		clean_blood()
-		if(istype(src, /turf/simulated))
-			var/turf/simulated/T = src
-			T.dirt = 0
-			if(istype(src, /turf/simulated/floor))
-				var/turf/simulated/floor/F = src
-				if(F.flooring)
-					F.color = F.flooring.color
-				else
-					F.color = null
-			else
-				T.color = null
+
 		for(var/obj/effect/O in src)
-			if(istype(O,/obj/effect/decal/cleanable) || istype(O,/obj/effect/overlay))
+			if(istype(O, /obj/effect/decal/cleanable))
 				qdel(O)
-			if(istype(O,/obj/effect/rune))
+
+			if(istype(O, /obj/effect/overlay))
+				var/obj/effect/overlay/OV = O
+				if(OV.no_clean)
+					continue
+				else
+					qdel(OV)
+
+			if(istype(O, /obj/effect/rune))
 				var/obj/effect/rune/R = O
 				// Only show message for visible runes
 				if(!R.invisibility)
 					to_chat(user, SPAN_WARNING("No matter how well you wash, the bloody symbols remain!"))
 	else
-		if( !(last_clean && world.time < last_clean + 100) )
+		if(!(last_clean && world.time < last_clean + 100))
 			to_chat(user, SPAN_WARNING("\The [source] is too dry to wash that."))
 			last_clean = world.time
 	source.reagents.trans_to_turf(src, 1, 10)	//10 is the multiplier for the reaction effect. probably needed to wet the floor properly.
@@ -506,7 +558,91 @@ var/const/enterloopsanity = 100
 /turf/proc/is_floor()
 	return FALSE
 
+/turf/proc/is_outside()
+
+	// Can't rain inside or through solid walls.
+	// TODO: dense structures like full windows should probably also block weather.
+	if(density)
+		return OUTSIDE_NO
+
+	if(last_outside_check != OUTSIDE_UNCERTAIN)
+		return last_outside_check
+
+	// What is our local outside value?
+	// Some turfs can be roofed irrespective of the turf above them in multiz.
+	// I have the feeling this is redundat as a roofed turf below max z will
+	// have a floor above it, but ah well.
+	. = is_outside
+	if(. == OUTSIDE_AREA)
+		var/area/A = get_area(src)
+		. = A ? A.is_outside : OUTSIDE_NO
+
+	// If we are in a multiz volume and not already inside, we return
+	// the outside value of the highest unenclosed turf in the stack.
+	if(HasAbove(z))
+		. =  OUTSIDE_YES // assume for the moment we're unroofed until we learn otherwise.
+		var/turf/top_of_stack = src
+		while(HasAbove(top_of_stack.z))
+			var/turf/next_turf = GetAbove(top_of_stack)
+			if(!next_turf.is_open())
+				return OUTSIDE_NO
+			top_of_stack = next_turf
+		// If we hit the top of the stack without finding a roof, we ask the upmost turf if we're outside.
+		. = top_of_stack.is_outside()
+	last_outside_check = . // Cache this for later calls.
+
+/turf/proc/set_outside(var/new_outside, var/skip_weather_update = FALSE)
+	if(is_outside == new_outside)
+		return FALSE
+
+	is_outside = new_outside
+	if(!skip_weather_update)
+		update_weather()
+
+	last_outside_check = OUTSIDE_UNCERTAIN
+
+	if(!HasBelow(z))
+		return TRUE
+
+	// Invalidate the outside check cache for turfs below us.
+	var/turf/checking = src
+	while(HasBelow(checking.z))
+		checking = GetBelow(checking)
+		if(!isturf(checking))
+			break
+		checking.last_outside_check = OUTSIDE_UNCERTAIN
+		if(!checking.is_open())
+			break
+	return TRUE
+
+/turf/proc/update_weather(var/obj/abstract/weather_system/new_weather, var/force_update_below = FALSE)
+
+	if(isnull(new_weather))
+		new_weather = SSweather.weather_by_z["[z]"]
+
+	// We have a weather system and we are exposed to it; update our vis contents.
+	if(istype(new_weather) && is_outside())
+		if(weather != new_weather)
+			if(weather)
+				remove_vis_contents(weather.vis_contents_additions)
+			weather = new_weather
+			add_vis_contents(weather.vis_contents_additions)
+			. = TRUE
+
+	// We are indoors or there is no local weather system, clear our vis contents.
+	else if(weather)
+		remove_vis_contents(weather.vis_contents_additions)
+		weather = null
+		. = TRUE
+
+	// Propagate our weather downwards if we permit it.
+	if(force_update_below || (is_open() && .))
+		var/turf/below = GetBelow(src)
+		if(below)
+			below.update_weather(new_weather)
+
 /turf/proc/remove_cleanables()
 	for(var/obj/effect/O in src)
 		if(istype(O,/obj/effect/rune) || istype(O,/obj/effect/decal/cleanable))
 			qdel(O)
+	clean_blood()

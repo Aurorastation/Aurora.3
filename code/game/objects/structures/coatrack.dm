@@ -3,7 +3,7 @@
 	desc = "Rack that holds coats, or hats, if you're so inclined."
 	icon = 'icons/obj/coatrack.dmi'
 	icon_state = "coatrack"
-	layer = ABOVE_MOB_LAYER //Hide behind coat racks. Because funny.
+	layer = ABOVE_HUMAN_LAYER
 	var/obj/item/clothing/coat
 	var/obj/item/clothing/head/hat
 	var/list/custom_sprites = list(/obj/item/clothing/head/beret/security, /obj/item/clothing/accessory/poncho/tajarancloak) // Custom manual sprite override.
@@ -23,7 +23,7 @@
 	if(hat)
 		remove_hat(user)
 	add_fingerprint(user)
-	return	
+	return
 
 /obj/structure/coatrack/proc/remove_coat(mob/user as mob)
 	user.visible_message("[user] takes [coat] off \the [src].", SPAN_NOTICE("You take [coat] off the \the [src]."))
@@ -37,41 +37,25 @@
 	hat = null
 	update_icon()
 
-/obj/structure/coatrack/attackby(obj/item/W as obj, mob/user as mob)
+/obj/structure/coatrack/attackby(obj/item/attacking_item, mob/user)
 	if(use_check_and_message(user))
 		return
-	if(!coat && (istype(W, /obj/item/clothing/suit/storage/toggle) || istype(W, /obj/item/clothing/accessory/poncho)))
-		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
-		coat = W
+	if(!coat && (istype(attacking_item, /obj/item/clothing/suit/storage/toggle) || istype(attacking_item, /obj/item/clothing/accessory/poncho)))
+		user.visible_message("[user] hangs [attacking_item] on \the [src].", SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
+		coat = attacking_item
 		user.drop_from_inventory(coat, src)
-		playsound(src, W.drop_sound, DROP_SOUND_VOLUME)
+		playsound(src, attacking_item.drop_sound, DROP_SOUND_VOLUME)
 		update_icon()
-	else if(!hat && istype(W, /obj/item/clothing/head) && !istype(W, /obj/item/clothing/head/helmet))
-		user.visible_message("[user] hangs [W] on \the [src].", SPAN_NOTICE("You hang [W] on the \the [src]."))
-		hat = W
+	else if(!hat && istype(attacking_item, /obj/item/clothing/head) && !istype(attacking_item, /obj/item/clothing/head/helmet))
+		user.visible_message("[user] hangs [attacking_item] on \the [src].", SPAN_NOTICE("You hang [attacking_item] on the \the [src]."))
+		hat = attacking_item
 		user.drop_from_inventory(hat, src)
-		playsound(src, W.drop_sound, DROP_SOUND_VOLUME)
+		playsound(src, attacking_item.drop_sound, DROP_SOUND_VOLUME)
 		update_icon()
-	else if(istype(W, /obj/item/clothing))
+	else if(istype(attacking_item, /obj/item/clothing))
 		to_chat(user, SPAN_WARNING("You can't hang that up."))
 	else
 		return ..()
-
-/obj/structure/coatrack/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
-	if(!coat && (istype(mover, /obj/item/clothing/suit/storage/toggle) || istype(mover, /obj/item/clothing/accessory/poncho)))
-		src.visible_message("[mover] lands on \the [src].")
-		coat = mover
-		coat.forceMove(src)
-		update_icon()
-		return 0
-	else if(!hat && istype(mover, /obj/item/clothing/head))
-		src.visible_message("[mover] lands on \the [src].")
-		hat = mover
-		hat.forceMove(src)
-		update_icon()
-		return 0
-	else
-		return 1
 
 /obj/structure/coatrack/update_icon()
 	cut_overlays()
@@ -118,12 +102,12 @@
 		coat_icon_file = T.icon
 
 	var/icon/coat_icon = new(coat_icon_file, coat_icon_state)
-			
+
 	coat_icon.Blend(coat_outline, ICON_OVERLAY)
 	coat_icon.SwapColor(rgb(255, 0, 220, 255), rgb(0, 0, 0, 0)) //Slice the coat in half.
 	var/image/coat_image = image(coat_icon)
 	if(T.color)
-		coat_image.color = T.color	
+		coat_image.color = T.color
 
 	if(T.build_from_parts)
 		var/icon/overlay_icon = new(coat_icon_file, "[coat_icon_state]_[T.worn_overlay]")
@@ -135,4 +119,4 @@
 
 	M.Translate(-1, 5) // Stick it on the coat rack.
 	coat_image.transform = M
-	add_overlay(coat_image)		
+	add_overlay(coat_image)

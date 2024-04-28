@@ -8,10 +8,12 @@
 
 
 /datum/event/brand_intelligence/announce()
-	command_announcement.Announce("Rampant brand intelligence has been detected aboard the [location_name()]. The origin is believed to be \a \"[initial(originMachine.name)]\" type. Infection of other machines is likely.", "[station_name()] Machine Monitoring" , new_sound = 'sound/AI/brandintelligence.ogg')
+	command_announcement.Announce("Rampant brand intelligence has been detected aboard the [location_name()]. The origin is believed to be \a \"[initial(originMachine.name)]\" type. Infection of other machines is likely.", "[station_name()] Machine Monitoring" , new_sound = 'sound/AI/brandintelligence.ogg', zlevels = affecting_z)
 
 
 /datum/event/brand_intelligence/start()
+	..()
+
 	for(var/obj/machinery/vending/V in SSmachinery.processing)
 		if(isNotStationLevel(V.z))	continue
 		vendingMachines.Add(V)
@@ -41,15 +43,20 @@
 			infectedMachine.shoot_inventory = 1
 
 			if(IsMultiple(activeFor, 12))
-				originMachine.speak(pick("Try our aggressive new marketing strategies!", \
-										 "You should buy products to feed your lifestyle obsession!", \
-										 "Consume!", \
-										 "Your money can buy happiness!", \
-										 "Engage direct marketing!", \
-										 "Advertising is legalized lying! But don't let that put you off our great deals!", \
-										 "You don't want to buy anything? Yeah, well I didn't want to buy your mom either."))
+				originMachine.speak(pick(
+										"Try our aggressive new marketing strategies!", \
+										"You should buy products to feed your lifestyle obsession!", \
+										"Consume!", \
+										"Your money can buy happiness!", \
+										"Engage direct marketing!", \
+										"Advertising is legalized lying! But don't let that put you off our great deals!", \
+										"You don't want to buy anything? Yeah, well I didn't want to buy your mom either."\
+										)
+									)
 
 /datum/event/brand_intelligence/end(var/faked)
+	..()
+
 	for(var/obj/machinery/vending/infectedMachine in infectedVendingMachines)
 		infectedMachine.shut_up = 1
 		infectedMachine.shoot_inventory = 0

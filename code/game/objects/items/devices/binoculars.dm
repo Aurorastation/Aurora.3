@@ -4,8 +4,8 @@
 	desc = "A pair of binoculars."
 	icon_state = "binoculars"
 
-	flags = CONDUCT
-	force = 5.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 11
 	w_class = ITEMSIZE_SMALL
 	throwforce = 5.0
 	throw_range = 15

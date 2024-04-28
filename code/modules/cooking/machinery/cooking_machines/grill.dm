@@ -36,7 +36,7 @@
 
 /obj/machinery/appliance/cooker/grill/Initialize()
 	. = ..()
-	grill_loop = new(list(src), FALSE)
+	grill_loop = new(src, FALSE)
 
 /obj/machinery/appliance/cooker/grill/Destroy()
 	QDEL_NULL(grill_loop)
@@ -77,11 +77,29 @@
 		var/datum/cooking_item/CI = cooking_objs[1]
 		var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
 		if(G)
-			add_overlay(image('icons/obj/cooking_machines.dmi', "grill"))
+			add_overlay(image('icons/obj/machinery/cooking_machines.dmi', "grill"))
 			var/counter = 1
 			for(var/thing in G.contents)
 				if(istype(thing, /obj/item/reagent_containers/food/snacks/meat))
-					add_overlay(image('icons/obj/cooking_machines.dmi', "meat[counter]"))
+					var/image/food = overlay_image('icons/obj/machinery/cooking_machines.dmi', "meat")
+					switch(counter)
+						if(1)
+							food.pixel_x -= 5
+						if(3)
+							food.pixel_x += 5
+					var/matrix/M = matrix()
+					M.Scale(0.5)
+					food.transform = M
+					add_overlay(food)
 				else if(istype(thing, /obj/item/reagent_containers/food/snacks/xenomeat))
-					add_overlay(image('icons/obj/cooking_machines.dmi', "xenomeat[counter]"))
+					var/image/food = overlay_image('icons/obj/machinery/cooking_machines.dmi', "xenomeat")
+					switch(counter)
+						if(1)
+							food.pixel_x -= 5
+						if(3)
+							food.pixel_x += 5
+					var/matrix/M = matrix()
+					M.Scale(0.5)
+					food.transform = M
+					add_overlay(food)
 				counter++

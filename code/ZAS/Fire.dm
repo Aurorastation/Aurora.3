@@ -6,7 +6,6 @@ The more pressure, the more boom.
 If it gains pressure too slowly, it may leak or just rupture instead of exploding.
 */
 
-//#define FIREDBG
 #define FIRE_LIGHT_1	2 //These defines are the power of the light given off by fire at various stages
 #define FIRE_LIGHT_2	4
 #define FIRE_LIGHT_3	5
@@ -130,7 +129,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	icon = 'icons/effects/fire.dmi'
 	icon_state = "wavey_fire"
 	light_color = LIGHT_COLOR_FIRE
-	layer = ABOVE_MOB_LAYER
+	layer = FIRE_LAYER
 
 	var/firelevel = 1 //Calculated by gas_mixture.calculate_firelevel()
 
@@ -163,7 +162,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		A.fire_act(air_contents, air_contents.temperature, air_contents.volume)
 
 	//spread
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		var/turf/simulated/enemy_tile = get_step(my_tile, direction)
 
 		if(istype(enemy_tile))
@@ -203,7 +202,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		qdel(src)
 		return
 
-	set_dir(pick(cardinal))
+	set_dir(pick(GLOB.cardinal))
 
 	var/datum/gas_mixture/air_contents = loc.return_air()
 	color = fire_color(air_contents.temperature)
@@ -244,9 +243,9 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 	. = 0
 	if((temperature > PHORON_MINIMUM_BURN_TEMPERATURE || force_burn) && (no_check ||check_recombustability(zone? zone.fuel_objs : null)))
 
-		#ifdef FIREDBG
-		LOG_DEBUG("***************** FIREDBG *****************")
-		LOG_DEBUG("Burning [zone? zone.name : "zoneless gas_mixture"]!")
+		#ifdef ZASDBG
+		log_subsystem_zas_debug("***************** FIREDBG *****************")
+		log_subsystem_zas_debug("Burning [zone? zone.name : "zoneless gas_mixture"]!")
 		#endif
 
 		var/gas_fuel = 0
@@ -298,14 +297,14 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		var/used_fuel = min(total_reaction_progress, reaction_limit)
 		var/used_oxidizers = used_fuel*(FIRE_REACTION_OXIDIZER_AMOUNT/FIRE_REACTION_FUEL_AMOUNT)
 
-		#ifdef FIREDBG
-		LOG_DEBUG("gas_fuel = [gas_fuel], liquid_fuel = [liquid_fuel], total_oxidizers = [total_oxidizers]")
-		LOG_DEBUG("fuel_area = [fuel_area], total_fuel = [total_fuel], reaction_limit = [reaction_limit]")
-		LOG_DEBUG("firelevel -> [firelevel] (gas: [gas_firelevel], liquid: [liquid_firelevel])")
-		LOG_DEBUG("liquid_reaction_progress = [liquid_reaction_progress]")
-		LOG_DEBUG("gas_reaction_progress = [gas_reaction_progress]")
-		LOG_DEBUG("total_reaction_progress = [total_reaction_progress]")
-		LOG_DEBUG("used_fuel = [used_fuel], used_oxidizers = [used_oxidizers]; ")
+		#ifdef ZASDBG
+		log_subsystem_zas_debug("gas_fuel = [gas_fuel], liquid_fuel = [liquid_fuel], total_oxidizers = [total_oxidizers]")
+		log_subsystem_zas_debug("fuel_area = [fuel_area], total_fuel = [total_fuel], reaction_limit = [reaction_limit]")
+		log_subsystem_zas_debug("firelevel -> [firelevel] (gas: [gas_firelevel], liquid: [liquid_firelevel])")
+		log_subsystem_zas_debug("liquid_reaction_progress = [liquid_reaction_progress]")
+		log_subsystem_zas_debug("gas_reaction_progress = [gas_reaction_progress]")
+		log_subsystem_zas_debug("total_reaction_progress = [total_reaction_progress]")
+		log_subsystem_zas_debug("used_fuel = [used_fuel], used_oxidizers = [used_oxidizers]; ")
 		#endif
 
 		//if the reaction is progressing too slow then it isn't self-sustaining anymore and burns out
@@ -332,9 +331,9 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		temperature = (starting_energy + vsc.fire_fuel_energy_release * (used_gas_fuel + used_liquid_fuel)) / heat_capacity()
 		update_values()
 
-		#ifdef FIREDBG
-		LOG_DEBUG("used_gas_fuel = [used_gas_fuel]; used_liquid_fuel = [used_liquid_fuel]; total = [used_fuel]")
-		LOG_DEBUG("new temperature = [temperature]; new pressure = [return_pressure()]")
+		#ifdef ZASDBG
+		log_subsystem_zas_debug("used_gas_fuel = [used_gas_fuel]; used_liquid_fuel = [used_liquid_fuel]; total = [used_fuel]")
+		log_subsystem_zas_debug("new temperature = [temperature]; new pressure = [return_pressure()]")
 		#endif
 
 		return firelevel
@@ -404,7 +403,7 @@ If it gains pressure too slowly, it may leak or just rupture instead of explodin
 		//fires burn better when there is more oxidizer -- too much fuel will choke the fire out a bit, reducing firelevel.
 		var/mix_multiplier = 1 / (1 + (5 * ((total_fuel / total_combustables) ** 2)))
 
-		#ifdef FIREDBG
+		#ifdef ZASDBG
 		ASSERT(damping_multiplier <= 1)
 		ASSERT(mix_multiplier <= 1)
 		#endif

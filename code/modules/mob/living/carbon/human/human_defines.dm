@@ -126,3 +126,5 @@
 	var/list/datum/martial_art/known_martial_arts = null
 
 	var/triage_tag = TRIAGE_NONE
+
+	var/lobotomized = FALSE //additional check for isAdvancedToolUser that can be set manually by things

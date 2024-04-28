@@ -42,7 +42,7 @@
 		return
 
 	user.visible_message(SPAN_NOTICE("<i>[user] blinks, their eyes briefly developing an unnatural shine.</i>"))
-	var/text = input("What would you like to say?", "Speak to creature", null, null)
+	var/text = tgui_input_text(user, "What would you like to say?", "Commune", "", MAX_MESSAGE_LEN, TRUE)
 	text = sanitize(text)
 	if(!text)
 		return
@@ -56,7 +56,7 @@
 
 	to_chat(user, SPAN_CULT("You psionically say to [target]: [text]"))
 
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)

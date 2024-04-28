@@ -1,31 +1,27 @@
-var/datum/controller/subsystem/processing/ntsl2/SSntsl2
-
 /*
 NTSL2 deamon management subsystem, responsible for handling events from deamon and it's connection state.
 */
-/datum/controller/subsystem/processing/ntsl2
+PROCESSING_SUBSYSTEM_DEF(ntsl2)
 	name = "NTSL2"
 	flags = 0
-	init_order = SS_INIT_MISC
+	init_order = INIT_ORDER_MISC
 	// priority = SS_PRIORITY_PROCESSING
 	var/connected = FALSE
 	var/list/programs = list()
 	var/list/tasks = list()
 	var/current_task_id = 1
 
-/datum/controller/subsystem/processing/ntsl2/New()
-	NEW_SS_GLOBAL(SSntsl2)
-
 /datum/controller/subsystem/processing/ntsl2/Initialize(timeofday)
 	attempt_connect()
-	..()
+
+	return SS_INIT_SUCCESS
 
 /*
  * Builds request object meant to do certain action. Returns FALSE (0) when there was an issue.
  */
 /datum/controller/subsystem/processing/ntsl2/proc/build_request(var/command, var/list/arguments, var/method = RUSTG_HTTP_METHOD_GET)
-	if(config.ntsl_hostname && config.ntsl_port) // Requires config to be set.
-		var/url = "http://[config.ntsl_hostname]:[config.ntsl_port]/[command]"
+	if(GLOB.config.ntsl_hostname && GLOB.config.ntsl_port) // Requires config to be set.
+		var/url = "http://[GLOB.config.ntsl_hostname]:[GLOB.config.ntsl_port]/[command]"
 		var/body = ""
 		switch(method)
 			if(RUSTG_HTTP_METHOD_GET)
@@ -118,7 +114,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 
 
 /datum/controller/subsystem/processing/ntsl2/proc/attempt_connect()
-	if(config.ntsl_disabled)
+	if(GLOB.config.ntsl_disabled)
 		LOG_DEBUG("NTSL2++ Daemon disabled via config")
 		return FALSE
 	var/res = sync_send("clear")
@@ -144,6 +140,7 @@ NTSL2 deamon management subsystem, responsible for handling events from deamon a
 
 
 /datum/controller/subsystem/processing/ntsl2/fire(resumed)
+	CAN_BE_REDEFINED(TRUE)
 	for(var/task_id in tasks)
 		var/task = tasks[task_id]
 		var/datum/http_request/req = task["request"]

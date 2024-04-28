@@ -11,7 +11,6 @@
 	name = "Electromagnetic Generator"
 	desc = "A device that uses station power to create points of magnetic energy."
 	level = 1		// underfloor
-	layer = 2.5
 	anchored = 1
 	idle_power_usage = 50
 
@@ -169,7 +168,7 @@
 		center = locate(x+center_x, y+center_y, z)
 		if(center)
 			for(var/obj/M in orange(magnetic_field, center))
-				if(!M.anchored && (M.flags & CONDUCT))
+				if(!M.anchored && (M.obj_flags & OBJ_FLAG_CONDUCTABLE))
 					step_towards(M, center)
 
 			for(var/mob/living/silicon/S in orange(magnetic_field, center))

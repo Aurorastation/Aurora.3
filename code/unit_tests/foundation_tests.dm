@@ -3,6 +3,8 @@
 */
 /datum/unit_test/foundation
 	name = "FOUNDATION template"
+	groups = list("generic")
+
 	async = 0
 
 /datum/unit_test/foundation/step_shall_return_true_on_success

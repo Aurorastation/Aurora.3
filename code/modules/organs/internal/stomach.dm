@@ -54,7 +54,7 @@
 	return !isnull(get_devour_time(food))
 
 /obj/item/organ/internal/stomach/proc/is_full(var/atom/movable/food)
-	var/total = Floor(ingested.total_volume / 10)
+	var/total = FLOOR(ingested.total_volume / 10, 1)
 	if(species.gluttonous & GLUT_MESSY)
 		return FALSE //Don't need to check if the stomach is full if we're not using the contents.
 	for(var/a in contents + food)

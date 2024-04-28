@@ -8,7 +8,7 @@
 	icon_supported_species_tags = list("una", "taj")
 	contained_sprite = TRUE
 	adjustable = FALSE
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = HEAD|FACE|EYES
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
@@ -21,7 +21,7 @@
 	icon_state = "uniform"
 	item_state = "uniform"
 	contained_sprite = TRUE
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	armor = list(
 		melee = ARMOR_MELEE_SMALL,
 		bullet = ARMOR_BALLISTIC_SMALL,
@@ -41,7 +41,7 @@
 	permeability_coefficient = 0.05
 	germ_level = 0
 	fingerprint_chance = 0
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	min_pressure_protection = 0
 	species_restricted = null
@@ -54,7 +54,7 @@
 	item_state = "shoes"
 	contained_sprite = TRUE
 	silent = TRUE
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	min_pressure_protection = 0
 	species_restricted = null

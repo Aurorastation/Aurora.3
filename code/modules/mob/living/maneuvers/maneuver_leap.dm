@@ -19,6 +19,7 @@
 		end_leap(user, target, old_pass_flags)
 
 /singleton/maneuver/leap/proc/end_leap(var/mob/living/user, var/atom/target, var/pass_flag)
+	SHOULD_NOT_SLEEP(TRUE)
 	user.pass_flags = pass_flag
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -34,7 +35,7 @@
 						damage_mod += 1
 			if(isturf(T))
 				T.visible_message(SPAN_DANGER("[H] lands on \the [T] with a quake!"))
-				playsound(get_turf(T), 'sound/effects/bangtaper.ogg')
+				playsound(get_turf(T), 'sound/effects/bangtaper.ogg', 80)
 				for(var/mob/living/L in range(2, T))
 					shake_camera(L, 2, 4)
 				for(var/mob/living/rebecca in T)
@@ -115,3 +116,49 @@
 	cooldown = 20 SECONDS
 	delay = 4 SECONDS
 	stamina_cost = 30
+
+/singleton/maneuver/leap/areagrab
+	cooldown = 5 MINUTES
+	delay = 3 SECONDS
+	stamina_cost = 50
+
+/singleton/maneuver/leap/areagrab/show_initial_message(mob/living/user, atom/target)
+	. = ..()
+	user.balloon_alert_to_viewers("OUUGUGUUUUUUUUUUUGBHGH", "OUUGUGUUUUUUUUUUUGBHGH")
+
+	//Let them hear, let them fear
+	for(var/mob/living/carbon/human/person_in_range in get_hearers_in_LOS(world.view+5))
+		to_chat(person_in_range,
+			SPAN_HIGHDANGER("OUUGUGUUUUUUUUUUUGBHGH!!!")
+			)
+
+/singleton/maneuver/leap/areagrab/end_leap(var/mob/living/user, var/atom/target, pass_flag)
+	. = ..()
+
+	var/list/mob/living/affected_mobs = list()
+
+	for(var/mob/living/subject in range(1))
+		affected_mobs += subject
+
+	affected_mobs -= user //Exclude ourself from it
+
+	if(length(affected_mobs))
+		var/mob/living/very_unlucky_guy = pick(affected_mobs)
+
+		for(var/mob/living/subject as anything in (affected_mobs - very_unlucky_guy))
+			INVOKE_ASYNC(subject, TYPE_PROC_REF(/atom/movable, throw_at_random), FALSE, 3, THROWNOBJ_KNOCKBACK_SPEED)
+			INVOKE_ASYNC(subject, TYPE_PROC_REF(/mob/living, Weaken), 5)
+
+		if(ismob(very_unlucky_guy) && user.Adjacent(very_unlucky_guy))
+
+			var/obj/item/grab/G = new(user, user, very_unlucky_guy)
+
+			user.put_in_active_hand(G)
+
+			G.state = GRAB_NECK
+			G.icon_state = "grabbed+1"
+			G.synch()
+			G.update_icon()
+			G.hud.icon_state = "kill"
+			G.hud.name = "kill"
+

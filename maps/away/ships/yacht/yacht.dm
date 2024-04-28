@@ -2,10 +2,15 @@
 	name = "Yacht"
 	id = "awaysite_yacht"
 	description = "Tiny movable ship with spiders."
-	suffixes = list("ships/yacht/yacht.dmm")
+
+	prefix = "ships/yacht/"
+	suffixes = list("yacht.dmm")
+
 	spawn_cost = 0.5
 	spawn_weight = 0.5
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, ALL_COALITION_SECTORS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)
+
+	unit_test_groups = list(3)
 
 /obj/effect/overmap/visitable/ship/yacht
 	name = "private yacht"

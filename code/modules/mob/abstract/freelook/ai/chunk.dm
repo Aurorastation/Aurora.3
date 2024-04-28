@@ -9,7 +9,7 @@
 			var/obj/machinery/camera/c = source
 			if(!c.can_use())
 				continue
-			
+
 			for(var/turf/t in c.can_see())
 				visible[t] = t
 		else if(isAI(source))

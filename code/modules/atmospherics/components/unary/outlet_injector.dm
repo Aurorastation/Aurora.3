@@ -9,7 +9,6 @@
 	A green light on it means it is on."
 	icon = 'icons/atmos/injector.dmi'
 	icon_state = "map_injector"
-	layer = 3
 
 	use_power = POWER_USE_OFF
 	idle_power_usage = 150		//internal circuitry, friction losses and stuff
@@ -120,7 +119,7 @@
 		"power" = use_power,
 		"volume_rate" = volume_rate,
 		"sigtype" = "status"
-	 )
+	)
 
 	radio_connection.post_signal(src, signal)
 

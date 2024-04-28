@@ -367,7 +367,7 @@
 
 /datum/accent/medina
 	name = ACCENT_MEDINA
-	description = "Medinan Elyran is characterised by its breathy and almost stutter-step characteristics, both of which are thought to result from the elevated altitudes citizens experience living day-to-day in their \
+	description = "Madani Elyran is characterised by its breathy and almost stutter-step characteristics, both of which are thought to result from the elevated altitudes citizens experience living day-to-day in their \
 	sand-skimming cities. The variation has seen little spread outside Medina itself, owing to the planet's relatively minimal footprint on Elyran cinema and television."
 	tag_icon = "medina"
 	text_tag = "MED"
@@ -385,6 +385,13 @@
 	into its vocabulary and grammar. While purists might frown upon these deviations from the accepted linguistic standard, the melodic and almost singsong tones of the New Suezi variation feature increasingly often across many forms of Elyran media."
 	tag_icon = "newsuez"
 	text_tag = "NSZ"
+
+/datum/accent/bursa
+	name = ACCENT_BURSA
+	description = "The Bursan accent is characterized by its soft and slightly lisping intonations, compared to the throatier sounds of most other Elyran accents. \
+	Across the wider Republic of Elyra, the Bursan accent is usually stereotyped as belonging to a country bumpkin or a career soldier."
+	tag_icon = "bursa"
+	text_tag = "BUR"
 
 /datum/accent/damascus
 	name = ACCENT_DAMASCUS

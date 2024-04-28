@@ -113,10 +113,11 @@
 	return 0 //only carbon liveforms have this proc
 
 /mob/living/emp_act(severity)
+	. = ..()
+
 	var/list/L = src.get_contents()
 	for(var/obj/O in L)
 		O.emp_act(severity)
-	..()
 
 /mob/living/flash_act(intensity = FLASH_PROTECTION_MODERATE, override_blindness_check = FALSE, affect_silicon = FALSE, ignore_inherent = FALSE, type = /obj/screen/fullscreen/flash, length = 2.5 SECONDS)
 	if(is_blind() && !(override_blindness_check || affect_silicon))
@@ -156,7 +157,7 @@
 		return FALSE
 
 	//Hulk modifier
-	if(HAS_FLAG(user.mutations, HULK))
+	if((user.mutations & HULK))
 		effective_force *= 2
 
 	//Apply weapon damage
@@ -358,10 +359,18 @@
 	for(var/datum/action/A in actions)
 		if(A.CheckRemoval(src))
 			A.Remove(src)
+
 	for(var/obj/item/I in src)
 		if(I.action_button_name)
+
+			//If the item_action object does not exist, try to create it
 			if(!I.action)
-				I.action = new I.default_action_type
+				//Try to use the default action type, if there is none, skip this implant
+				if(I.default_action_type)
+					I.action = new I.default_action_type
+				else
+					continue
+
 			I.action.name = I.action_button_name
 			I.action.SetTarget(I)
 			I.action.Grant(src)

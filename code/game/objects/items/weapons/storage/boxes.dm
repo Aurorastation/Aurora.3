@@ -29,8 +29,13 @@
 	item_state = "box"
 	contained_sprite = TRUE
 	var/illustration = "writing"
-	var/foldable = /obj/item/stack/material/cardboard	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
-	var/trash = null // if set, can be crushed into a trash item when empty
+
+	// BubbleWrap - if set, can be folded (when empty) into a sheet of cardboard
+	var/foldable = /obj/item/stack/material/cardboard
+
+	///Boolean, if set, can be crushed into a trash item when empty
+	var/trash = null
+
 	var/maxHealth = 20	//health is already defined
 	use_sound = 'sound/items/storage/box.ogg'
 	drop_sound = 'sound/items/drop/cardboardbox.ogg'
@@ -85,13 +90,13 @@
 			damage(damage)
 	..()
 
-/obj/item/storage/box/examine(var/mob/user)
+/obj/item/storage/box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if (health < maxHealth)
 		if (health >= (maxHealth * 0.5))
-			to_chat(user, SPAN_WARNING("It is slightly torn."))
+			. += SPAN_WARNING("It is slightly torn.")
 		else
-			to_chat(user, SPAN_DANGER("It is full of tears and holes."))
+			. += SPAN_DANGER("It is full of tears and holes.")
 
 // BubbleWrap - A box can be folded up to make card
 /obj/item/storage/box/attack_self(mob/user as mob)
@@ -126,13 +131,13 @@
 			qdel(src)
 			user.put_in_hands(trash)
 
-/obj/item/storage/box/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/packageWrap))
-		var/total_storage_space = W.get_storage_cost()
+/obj/item/storage/box/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/packageWrap))
+		var/total_storage_space = attacking_item.get_storage_cost()
 		for(var/obj/item/I in contents)
 			total_storage_space += I.get_storage_cost()
 		if(total_storage_space <= max_storage_space)
-			var/question = alert(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", "Wrap", "Store")
+			var/question = tgui_input_list(user, "Will you want to wrap \the [src] or store the item inside?", "Wrap or Store", list("Wrap", "Store"))
 			if(question == "Wrap")
 				return
 			else if(question == "Store")
@@ -195,10 +200,10 @@
 	illustration = "latex"
 	max_storage_space = 14
 	starts_with = list(/obj/item/clothing/gloves/latex = 2,
-					   /obj/item/clothing/gloves/latex/nitrile = 2,
-					   /obj/item/clothing/gloves/latex/nitrile/unathi = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/tajara = 1,
-					   /obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
+						/obj/item/clothing/gloves/latex/nitrile = 2,
+						/obj/item/clothing/gloves/latex/nitrile/unathi = 1,
+						/obj/item/clothing/gloves/latex/nitrile/tajara = 1,
+						/obj/item/clothing/gloves/latex/nitrile/vaurca = 1)
 /obj/item/storage/box/masks
 	name = "box of surgical masks"
 	desc = "This box contains masks of surgicality."
@@ -344,6 +349,16 @@
 	pickup_sound = 'sound/items/pickup/ammobox.ogg'
 	starts_with = list(/obj/item/ammo_casing/shotgun/tracking = 4)
 
+/obj/item/storage/box/wallgunammo
+	name = "box of wall gun slugs"
+	desc = "It has a picture of a shotgun shell and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
+	icon_state = "shellbox"
+	item_state = "shellbox"
+	illustration = "lethalslug"
+	drop_sound = 'sound/items/drop/ammobox.ogg'
+	pickup_sound = 'sound/items/pickup/ammobox.ogg'
+	starts_with = list(/obj/item/ammo_casing/shotgun/moghes = 8)
+
 /obj/item/storage/box/sniperammo
 	name = "box of 14.5mm shells"
 	desc = "It has a picture of a gun and several warning symbols on the front.<br>WARNING: Live ammunition. Misuse may result in serious injury or death."
@@ -381,6 +396,14 @@
 	item_state = "secbox"
 	illustration = "flashbang"
 	starts_with = list(/obj/item/grenade/flashbang = 7)
+
+/obj/item/storage/box/stingers
+	name = "box of stinger grenades"
+	desc = "A box containing 7 antipersonnel stinger grenades. <br> WARNING: These devices are extremely dangerous and can cause injury."
+	icon_state = "secbox"
+	item_state = "secbox"
+	illustration = "stinger"
+	starts_with = list(/obj/item/grenade/stinger = 7)
 
 /obj/item/storage/box/firingpins
 	name = "box of firing pins"
@@ -476,6 +499,14 @@
 	illustration = "grenade"
 	starts_with = list(/obj/item/grenade/frag = 5)
 
+/obj/item/storage/box/grenades/napalm
+	name = "box of napalm grenades"
+	desc = "A box containing 3 napalm grenades."
+	icon_state = "secbox"
+	item_state = "secbox"
+	illustration = "grenade"
+	starts_with = list(/obj/item/grenade/napalm = 3)
+
 /obj/item/storage/box/cardox
 	name = "box of cardox grenades"
 	desc = "A box containing 5 experimental cardox grenades."
@@ -525,7 +556,7 @@
 	name = "death alarm kit"
 	desc = "Box of stuff used to implant death alarms."
 	illustration = "implant"
-	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6)
+	starts_with = list(/obj/item/implanter = 1, /obj/item/implantcase/death_alarm = 6, /obj/item/implantpad = 1)
 
 /obj/item/storage/box/condimentbottles
 	name = "box of condiment bottles"
@@ -556,6 +587,17 @@
 	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/sinpocket = 6)
 	desc_antag = "Crush bottom of package to initiate chemical heating. Wait for 20 seconds before consumption. Product will cool if not eaten within seven minutes."
 
+/obj/item/storage/box/donkpockets/gwok
+	name = "box of teriyaki Gwok-pockets"
+	icon_state = "gwokpocketbox"
+	item_state = "redbox"
+	illustration = null
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/teriyaki = 6)
+
+/obj/item/storage/box/donkpockets/gwok/takoyaki
+	name = "box of takoyaki Gwok-pockets"
+	starts_with = list(/obj/item/reagent_containers/food/snacks/donkpocket/takoyaki = 6)
+
 /obj/item/storage/box/janitorgloves
 	name = "janitorial gloves box"
 	desc = "A box full of janitorial gloves of all shapes and sizes."
@@ -573,7 +615,6 @@
 /obj/item/storage/box/monkeycubes
 	name = "monkey cube box"
 	desc = "Drymate brand monkey cubes. Just add water!"
-	icon = 'icons/obj/food.dmi'
 	icon_state = "monkeycubebox"
 	can_hold = list(/obj/item/reagent_containers/food/snacks/monkeycube)
 	starts_with = list(/obj/item/reagent_containers/food/snacks/monkeycube/wrapped = 5)
@@ -746,7 +787,6 @@
 /obj/item/storage/box/freezer
 	name = "portable freezer"
 	desc = "This nifty shock-resistant device will keep your 'groceries' nice and non-spoiled."
-	icon = 'icons/obj/storage.dmi'
 	icon_state = "portafreezer"
 	item_state = "medicalpack"
 	max_w_class = ITEMSIZE_NORMAL
@@ -758,7 +798,7 @@
 	name = "organ cooler"
 	desc = "A sealed, cooled container to keep organs from decaying."
 	icon_state = "organcooler"
-	item_state = "advfirstaid"
+	item_state = "redbox"
 	max_w_class = ITEMSIZE_NORMAL
 	foldable = FALSE
 	w_class = ITEMSIZE_LARGE
@@ -918,18 +958,26 @@
 
 /obj/item/storage/box/toothpaste
 	can_hold = list(/obj/item/reagent_containers/toothpaste,
-					/obj/item/reagent_containers/toothbrush)
+					/obj/item/reagent_containers/toothbrush,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
+					)
 
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush = 1)
+					/obj/item/reagent_containers/toothbrush = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/green
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush/green = 1)
+					/obj/item/reagent_containers/toothbrush/green = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/red
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-				/obj/item/reagent_containers/toothbrush/red = 1)
+				/obj/item/reagent_containers/toothbrush/red = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/holobadge
 	name = "holobadge box"
@@ -944,10 +992,10 @@
 	starts_with = list(/obj/item/clothing/accessory/badge/sol_visa = 6)
 
 /obj/item/storage/box/ceti_visa
-	name = "TCFL recruitment papers box"
-	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Foreign Legion."
+	name = "TCAF recruitment papers box"
+	desc = "A box full of papers that signify one as a recruit of the Tau Ceti Armed Forces."
 	illustration = "paper"
-	starts_with = list(/obj/item/clothing/accessory/badge/tcfl_papers = 6)
+	starts_with = list(/obj/item/clothing/accessory/badge/tcaf_papers = 6)
 
 /obj/item/storage/box/hadii_card
 	name = "honorary party member card box"
@@ -979,11 +1027,11 @@
 	illustration = "paper"
 	starts_with = list(/obj/item/book/manual/dominia_honor = 6)
 
-/obj/item/storage/box/tcfl_pamphlet
-	name = "tau ceti foreign legion pamphlets box"
-	desc = "A box full of tau ceti foreign legion pamphlets."
+/obj/item/storage/box/tcaf_pamphlet
+	name = "tau ceti armed forces pamphlets box"
+	desc = "A box full of tau ceti armed forces pamphlets."
 	illustration = "paper"
-	starts_with = list(/obj/item/book/manual/tcfl_pamphlet = 6)
+	starts_with = list(/obj/item/book/manual/tcaf_pamphlet = 6)
 
 /obj/item/storage/box/sharps
 	name = "sharps disposal box"
@@ -1088,8 +1136,8 @@
 	else if(length(contents) < 8)
 		icon_state = "paperbag_[choice]-food"
 
-/obj/item/storage/box/papersack/attackby(obj/item/O, mob/user)
-	if(O.ispen())
+/obj/item/storage/box/papersack/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ispen())
 		if(!papersack_designs)
 			papersack_designs = sortList(list(
 			"None" = image(icon = src.icon, icon_state = "paperbag_None"),
@@ -1120,10 +1168,10 @@
 		update_icon()
 		return
 
-	else if(O.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(length(contents) == 0)
 			to_chat(user, SPAN_NOTICE("You begin poking holes in \the [src]."))
-			if(O.use_tool(src, user, 30))
+			if(attacking_item.use_tool(src, user, 30))
 				if(choice == "SmileyFace")
 					var/obj/item/clothing/head/papersack/smiley/S = new()
 					user.put_in_hands(S)
@@ -1204,6 +1252,80 @@
 		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
 	)
 
-/obj/item/storage/box/produce/fill()
-	. = ..()
+/obj/item/storage/box/cleaner_tablets
+	name = "\improper Idris cleaner tablets box"
+	desc = "A box of advanced formula chemical tablets designed by Idris Incorporated."
+	desc_extended = "A new generation of cleaning chemicals, according to Idris at least. The instructions on the box reads: \"Dissolve tablet fully in container of water\". A warning label mentions that you should not consume the tablets nor drink the mixture after dissolving them."
+	illustration = "soapbucket"
+	max_storage_space = 16
+	starts_with = list(
+		/obj/item/reagent_containers/pill/cleaner_tablet = 16
+	)
+
+/obj/item/storage/box/led_collars
+	name = "box of LED collars"
+	desc = "A box containing eight LED collars, usually worn around the neck of the voidsuit."
+	starts_with = list(/obj/item/clothing/accessory/led_collar = 8)
+
+/obj/item/storage/box/led_collars/fill()
+	..()
 	make_exact_fit()
+/obj/item/storage/box/traps/punji
+	name = "box of punji traps"
+	desc = "A box containing 5 punji traps."
+	starts_with = list(/obj/item/trap/punji = 5)
+
+/obj/item/storage/box/landmines/standstill
+	name = "box of standstill landmines"
+	desc = "A box containing 5 standstill landmines."
+	starts_with = list(/obj/item/landmine/standstill = 5)
+
+/obj/item/storage/box/landmines/door_rigging
+	name = "box of door rigging landmines"
+	desc = "A box containing 5 door rigging landmines."
+	starts_with = list(/obj/item/landmine/frag/door_rigging = 5)
+
+/obj/item/storage/box/landmines/claymore
+	name = "box of claymore landmines"
+	desc = "A box containing 5 claymore landmines, relative detonators, and a spare one to trigger them all."
+	starts_with = list(
+		/obj/item/landmine/claymore = 5,
+		/obj/item/device/assembly/signaler = 6
+		)
+
+/obj/item/storage/box/tea
+	name = "sencha cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of sencha, a type of green tea."
+	desc_info = "A subsidiary of Gwok Group, the Konyang-cha tea company is the spur's foremost vendor of artisanal loose leaf tea, \
+				selling blends sourced from independent Konyanger farmers. Popular both on Konyang and off-world, it is considered a symbol of Konyang's culture."
+	icon = 'icons/obj/item/reagent_containers/teaware.dmi'
+	icon_state = "can"
+	item_state = "can"
+	drop_sound = 'sound/items/drop/metal_pot.ogg'
+	pickup_sound = 'sound/items/drop/metal_pot.ogg'
+	contained_sprite = TRUE
+	max_storage_space = 1
+	can_hold = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea
+	)
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea = 7
+	)
+	foldable = null
+
+/obj/item/storage/box/tea/tieguanyin
+	name = "tieguanyin cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of tieguanyin, a type of oolong tea."
+	icon_state = "can_tie"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/tieguanyin = 7
+	)
+
+/obj/item/storage/box/tea/jaekseol
+	name = "jaekseol cha-tin"
+	desc = "A tin bearing the logo of the Konyang-cha tea company. This one contains a bag of jaekseol, a type of black tea."
+	icon_state = "can_jaek"
+	starts_with = list(
+		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
+	)
+

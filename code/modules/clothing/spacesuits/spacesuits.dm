@@ -9,7 +9,7 @@
 	icon_state = "softsuit_helmet"
 	item_state = "softsuit_helmet"
 	contained_sprite = TRUE
-	item_flags = THICKMATERIAL | INJECTIONPORT | AIRTIGHT
+	item_flags = ITEM_FLAG_THICK_MATERIAL | ITEM_FLAG_INJECTION_PORT | ITEM_FLAG_AIRTIGHT
 	permeability_coefficient = 0.01
 	armor = list(
 		bio = ARMOR_BIO_SHIELDED,
@@ -36,7 +36,8 @@
 
 /obj/item/clothing/head/helmet/space/Initialize()
 	. = ..()
-	build_and_apply_species_adaption()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space
 	name = "softsuit"
@@ -49,7 +50,7 @@
 	w_class = ITEMSIZE_LARGE
 	gas_transfer_coefficient = 0.01
 	permeability_coefficient = 0.02
-	item_flags = THICKMATERIAL|INJECTIONPORT
+	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_INJECTION_PORT
 	body_parts_covered = UPPER_TORSO|LOWER_TORSO|LEGS|FEET|ARMS|HANDS
 	allowed = list(/obj/item/device/flashlight, /obj/item/tank/emergency_oxygen, /obj/item/device/suit_cooling_unit, /obj/item/tank)
 	slowdown = 1
@@ -57,25 +58,29 @@
 		bio = ARMOR_BIO_SHIELDED,
 		rad = ARMOR_RAD_SMALL
 	)
-	flags_inv = HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
+	flags_inv = HIDEWRISTS|HIDEGLOVES|HIDESHOES|HIDEJUMPSUIT|HIDETAIL
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
 	min_pressure_protection = 0
 	max_pressure_protection = SPACE_SUIT_MAX_PRESSURE
 	siemens_coefficient = 0.5
 	species_restricted = list("exclude",BODYTYPE_DIONA,BODYTYPE_GOLEM,BODYTYPE_VAURCA_BULWARK)
+	protects_against_weather = TRUE
 
 	var/list/supporting_limbs //If not-null, automatically splints breaks. Checked when removing the suit.
 
 /obj/item/clothing/suit/space/Initialize()
 	. = ..()
-	build_and_apply_species_adaption()
+	base_name = name
+
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()
 
 /obj/item/clothing/suit/space/equipped(mob/M)
 	check_limb_support()
 	..()
 
-/obj/item/clothing/suit/space/dropped(var/mob/user)
+/obj/item/clothing/suit/space/dropped(mob/user)
 	check_limb_support(user)
 	..()
 

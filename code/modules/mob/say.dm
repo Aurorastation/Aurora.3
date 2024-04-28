@@ -5,7 +5,6 @@
 	set name = "Say"
 	set category = "IC"
 
-	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, SPAN_WARNING("Speech is currently admin-disabled."))
 		return
@@ -21,7 +20,6 @@
 	set name = "Me"
 	set category = "IC"
 
-	SStyping.set_indicator_state(client, FALSE)
 	if(say_disabled)	//This is here to try to identify lag problems
 		to_chat(usr, "<span class='warning'>Speech is currently admin-disabled.</span>")
 		return
@@ -32,7 +30,7 @@
 		return
 
 	if(use_me)
-		usr.emote("me",usr.emote_type,message)
+		usr.client_emote("me",usr.emote_type,message)
 	else
 		usr.emote(message)
 
@@ -42,7 +40,7 @@
 		return
 
 	if(!src.client.holder)
-		if(!config.dsay_allowed)
+		if(!GLOB.config.dsay_allowed)
 			to_chat(src, "<span class='danger'>Deadchat is globally muted.</span>")
 			return
 
@@ -54,16 +52,15 @@
 
 	say_dead_direct("[pick("complains","moans","whines","laments","blubbers")], <span class='message linkify'>\"[message]\"</span>", src)
 
-/mob/proc/say_understands(var/mob/other,var/datum/language/speaking = null)
-
-	if (src.stat == 2)		//Dead
+/mob/proc/say_understands(var/mob/other, var/datum/language/speaking = null)
+	if(src.stat == DEAD)
 		return TRUE
 
-	//Universal speak makes everything understandable, for obvious reasons.
-	else if(src.universal_speak || src.universal_understand)
+	// Universal speak makes everything understandable, for obvious reasons.
+	if(src.universal_speak || src.universal_understand)
 		return TRUE
 
-	//Languages are handled after.
+	// Languages are handled after.
 	if (!speaking)
 		if(!other)
 			return TRUE
@@ -78,7 +75,7 @@
 	if(speaking.flags & INNATE)
 		return TRUE
 
-	//Language check.
+	// Language check.
 	for(var/datum/language/L in src.languages)
 		if(speaking.name == L.name)
 			return TRUE
@@ -86,12 +83,12 @@
 	return FALSE
 
 /*
-   ***Deprecated***
-   let this be handled at the hear_say or hear_radio proc
-   This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
-   robot_talk() proc.
-   There is no language handling build into it however there is at the /mob level so we accept the call
-   for it but just ignore it.
+	***Deprecated***
+	let this be handled at the hear_say or hear_radio proc
+	This is left in for robot speaking when humans gain binary channel access until I get around to rewriting
+	robot_talk() proc.
+	There is no language handling build into it however there is at the /mob level so we accept the call
+	for it but just ignore it.
 */
 
 /mob/proc/say_quote(var/message, var/datum/language/speaking = null, var/singing = FALSE, var/whisper = FALSE)
@@ -145,20 +142,38 @@
 
 	return null
 
-//parses the language code (e.g. :j) from text, such as that supplied to say.
-//returns the language object only if the code corresponds to a language that src can speak, otherwise null.
-/mob/proc/parse_language(var/message)
+/**
+ * Parses the language code (e.g. :j) from text, such as that supplied to say
+ *
+ * Returns a `/datum/language` only if the code corresponds to a language that src can speak, otherwise `null`
+ *
+ * * message - A string, the message to parse
+ */
+/mob/proc/parse_language(message)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+	RETURN_TYPE(/datum/language)
+
 	var/prefix = copytext(message,1,2)
 	if(length(message) >= 1 && prefix == "!")
-		return all_languages[LANGUAGE_NOISE]
+		return GLOB.all_languages[LANGUAGE_NOISE]
 
+	//Check that the message is at least 2 characters long and is there's a prefix starting it
 	if(length(message) >= 2 && is_language_prefix(prefix))
-		var/language_prefix = lowertext(copytext(message, 2, 4))
-		var/datum/language/L = language_keys[language_prefix]
-		if(!L || !can_speak(L))
-			language_prefix = lowertext(copytext(message, 2, 3))
-			L = language_keys[language_prefix]
-		if(can_speak(L))
-			return L
 
-	return null
+		//Get the first 2 letters after the prefix (position 2 and 3)
+		var/language_prefix = lowertext(copytext(message, 2, 4))
+
+		//Try to grab a language associated with said prefix
+		var/datum/language/L = GLOB.language_keys[language_prefix]
+
+		//If we didn't find a language, or we found one we cannot speak, try with a single letter identification
+		if(!istype(L) || (istype(L) && !can_speak(L)))
+			language_prefix = lowertext(copytext(message, 2, 3))
+			L = GLOB.language_keys[language_prefix]
+
+		//Check if we can speak the language, otherwise return null
+		if(istype(L) && can_speak(L))
+			return L
+		else
+			return null

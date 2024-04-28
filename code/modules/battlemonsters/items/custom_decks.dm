@@ -21,9 +21,9 @@
 	var/list/deck_data = list()
 	for(var/i=1,i <= contained_cards,i++)
 		CHECK_TICK //This stuff is a little intensive I think.
-		var/datum/battle_monsters/selected_prefix = SSbattlemonsters.GetRandomPrefix_Filtered(rarity_min,rarity_max)
-		var/datum/battle_monsters/selected_root = SSbattlemonsters.FindMatchingRoot(pickweight(species))
-		var/datum/battle_monsters/selected_suffix = SSbattlemonsters.GetRandomSuffix_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_prefix = SSbattle_monsters.GetRandomPrefix_Filtered(rarity_min,rarity_max)
+		var/datum/battle_monsters/selected_root = SSbattle_monsters.FindMatchingRoot(pickweight(species))
+		var/datum/battle_monsters/selected_suffix = SSbattle_monsters.GetRandomSuffix_Filtered(rarity_min,rarity_max)
 		deck_data += "[selected_prefix.id],[selected_root.id],[(selected_prefix.rarity_score + selected_root.rarity_score) >= 3 ? selected_suffix.id : "no_title"]"
 
 	generated_deck.stored_card_names = deck_data

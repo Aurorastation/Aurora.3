@@ -1,13 +1,11 @@
-var/datum/controller/subsystem/statpanels/SSstatpanels
-
-/datum/controller/subsystem/statpanels
+SUBSYSTEM_DEF(statpanels)
 	name = "Stat Panels"
 	wait = 4
-	init_order = SS_INIT_MISC_FIRST
-	priority = SS_PRIORITY_STATPANELS
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	init_order = INIT_ORDER_STATPANELS
 	init_stage = INITSTAGE_EARLY
-
+	priority = FIRE_PRIORITY_STATPANEL
+	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
+	flags = SS_NO_INIT
 	var/list/currentrun = list()
 	var/list/global_data
 	var/list/mc_data
@@ -21,9 +19,6 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	///how many full runs this subsystem has completed. used for variable rate refreshes.
 	var/num_fires = 0
 
-/datum/controller/subsystem/statpanels/New()
-	NEW_SS_GLOBAL(SSstatpanels)
-
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		num_fires++
@@ -33,19 +28,20 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		if(evacuation_controller)
 			eta_status = evacuation_controller.get_status_panel_eta()
 		global_data = list(
-			"Map: [current_map.name]",
-			"Round ID: [game_id ? game_id : "NULL"]",
+			"Map: [SSatlas.current_map.name]",
+			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
-			"Current Date: [game_year]-[current_month]-[current_day]",
+			"Current Date: [GLOB.game_year]-[current_month]-[current_day]",
 			"Round Time: [get_round_duration_formatted()]",
 			"Ship Time: [worldtime2text()]",
 			"Current Space Sector: [SSatlas.current_sector.name]",
-			"Last Transfer Vote: [SSvote.last_transfer_vote ? time2text(SSvote.last_transfer_vote, "hh:mm") : "Never"]"
+			"Last Transfer Vote: [GLOB.last_transfer_vote ? time2text(GLOB.last_transfer_vote, "hh:mm") : "Never"]",
+			"Next Port Visit: [SSatlas.current_sector.next_port_visit_string]"
 		)
 		if(eta_status)
 			global_data += eta_status
 
-		src.currentrun = clients.Copy()
+		src.currentrun = GLOB.clients.Copy()
 		mc_data = null
 
 	var/list/currentrun = src.currentrun
@@ -71,13 +67,21 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 			if(target.stat_tab == "MC" && ((num_fires % mc_wait == 0)))
 				set_MC_tab(target)
 
+			if(!length(GLOB.sdql2_queries) && ("SDQL2" in target.panel_tabs))
+				target.stat_panel.send_message("remove_sdql2")
+
+			else if(length(GLOB.sdql2_queries) && (target.stat_tab == "SDQL2" || !("SDQL2" in target.panel_tabs)) && num_fires % default_wait == 0)
+				set_SDQL2_tab(target)
+
 		if(target.mob)
 			var/mob/target_mob = target.mob
+
+			// Handle the action panels of the stat panel
+
 			var/update_actions = FALSE
 			// We're on a spell tab, update the tab so we can see cooldowns progressing and such
 			if(target.stat_tab in target.spell_tabs)
 				update_actions = TRUE
-
 			// We're not on a spell tab per se, but we have something fitting.
 			if(!length(target.spell_tabs) && istype(target_mob.back, /obj/item/rig))
 				update_actions = TRUE
@@ -97,10 +101,10 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 /datum/controller/subsystem/statpanels/proc/set_status_tab(client/target)
 	if(!global_data)//statbrowser hasnt fired yet and we were called from immediate_send_stat_data()
 		var/list/preliminary_stats = list("The server is initializing...")
-		if(current_map?.name)
-			preliminary_stats.Add("Map: [current_map.name]")
-		if(game_id)
-			preliminary_stats.Add("Round ID: [game_id]")
+		if(SSatlas?.current_map?.name)
+			preliminary_stats.Add("Map: [SSatlas.current_map.name]")
+		if(GLOB?.round_id)
+			preliminary_stats.Add("Round ID: [GLOB.round_id]")
 		if(world?.timeofday)
 			preliminary_stats.Add("Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]")
 		if(SSatlas?.current_sector?.name)
@@ -108,8 +112,9 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		target.stat_panel.send_message("update_stat", list(global_data = preliminary_stats, other_str = target.mob?.get_status_tab_items()))
 
 	target.stat_panel.send_message("update_stat", list(
-		global_data = global_data,
-		other_str = target.mob?.get_status_tab_items(),
+		"global_data" = global_data,
+		"ping_str" = "Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)",
+		"other_str" = target.mob?.get_status_tab_items(),
 	))
 
 /datum/controller/subsystem/statpanels/proc/set_MC_tab(client/target)
@@ -117,7 +122,17 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	var/coord_entry = COORD(eye_turf)
 	if(!mc_data)
 		generate_mc_data()
-	target.stat_panel.send_message("update_mc", list(mc_data = mc_data, "coord_entry" = coord_entry))
+	target.stat_panel.send_message("update_mc", list("mc_data" = mc_data, "coord_entry" = coord_entry))
+
+/datum/controller/subsystem/statpanels/proc/set_SDQL2_tab(client/target)
+	var/list/sdql2A = list()
+	sdql2A[++sdql2A.len] = list("", "Access Global SDQL2 List", REF(GLOB.sdql2_vv_statobj))
+	var/list/sdql2B = list()
+	for(var/datum/sdql2_query/query as anything in GLOB.sdql2_queries)
+		sdql2B = query.generate_stat()
+
+	sdql2A += sdql2B
+	target.stat_panel.send_message("update_sdql2", sdql2A)
 
 /// Set up the various action tabs.
 /datum/controller/subsystem/statpanels/proc/set_action_tabs(client/target, mob/target_mob)
@@ -129,6 +144,28 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 	target.stat_panel.send_message("update_spells", list(spell_tabs = target.spell_tabs, actions = actions))
 
+/**
+ * Aurora snowflake code,
+ * It is like `set_action_tabs`, except this runs for the RIG suits that use spell tabs
+ *
+ * Why? Because the existence of the RIG hardsuits is the best proof that an omnibenevolent, omniscent and all-powerful lord do not exist,
+ * as such a thing would neither permit nor allow the RIG hardsuits to be a thing
+ *
+ * On a more serious note, that's because the spells have to be refreshed anew due to how we use them
+ *
+ * Remember to call exterminatus on this when we'll stop using the spell tabs
+ */
+/datum/controller/subsystem/statpanels/proc/set_action_tabs_RIG(client/target, mob/target_mob)
+	var/list/actions = target_mob.get_actions_for_statpanel()
+	target.spell_tabs.Cut()
+
+	for(var/action_data in actions)
+		target.spell_tabs |= action_data[1]
+
+	//Ssssh, don't question it, it works, that's all we need to know
+	target.stat_panel.send_message("remove_spells", force = TRUE)
+	target.stat_panel.send_message("update_spells", list(spell_tabs = target.spell_tabs, actions = actions), TRUE)
+
 /datum/controller/subsystem/statpanels/proc/set_turf_examine_tab(client/target, mob/target_mob)
 	var/list/overrides = list()
 	for(var/image/target_image as anything in target.images)
@@ -138,7 +175,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 	var/list/atoms_to_display = list(target_mob.listed_turf)
 	for(var/atom/movable/turf_content as anything in target_mob.listed_turf)
-		if(turf_content.mouse_opacity == 0)
+		if(turf_content.mouse_opacity == MOUSE_OPACITY_TRANSPARENT)
 			continue
 		if(turf_content.invisibility > target_mob.see_invisible)
 			continue
@@ -183,12 +220,12 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 			continue
 		// We already have it. Success!
 		if(existing_image)
-			turf_items[++turf_items.len] = list("[turf_item.name]", ref(turf_item), existing_image)
+			turf_items[++turf_items.len] = list("[turf_item.name]", REF(turf_item), existing_image)
 			continue
 		// Now, we're gonna queue image generation out of those refs
 		to_make += turf_item
 		already_seen[turf_item] = OBJ_IMAGE_LOADING
-		obj_window.RegisterSignal(turf_item, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted)) // we reset cache if anything in it gets deleted
+		obj_window.RegisterSignal(turf_item, COMSIG_QDELETING, TYPE_PROC_REF(/datum/object_window_info,viewing_atom_deleted)) // we reset cache if anything in it gets deleted
 	return turf_items
 
 #undef OBJ_IMAGE_LOADING
@@ -198,14 +235,15 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		list("CPU:", world.cpu),
 		list("Instances:", "[num2text(world.contents.len, 10)]"),
 		list("World Time:", "[world.time]"),
-		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_TICK_USAGE,0.1)]%)"),
+		list("Globals:", GLOB.stat_entry(), text_ref(GLOB)),
+		list("Byond:", "(FPS:[world.fps]) (TickCount:[world.time/world.tick_lag]) (TickDrift:[round(Master.tickdrift,1)]([round((Master.tickdrift/(world.time/world.tick_lag))*100,0.1)]%)) (Internal Tick Usage: [round(MAPTICK_LAST_INTERNAL_TICK_USAGE,0.1)]%)"),
 		list("Master Controller:", Master.stat_entry(), text_ref(Master)),
 		list("Failsafe Controller:", Failsafe.stat_entry(), text_ref(Failsafe)),
 		list("","")
 	)
-	for(var/datum/controller/subsystem/sub_system in Master.subsystems)
+	for(var/datum/controller/subsystem/sub_system as anything in Master.subsystems)
 		mc_data[++mc_data.len] = list("\[[sub_system.state_letter()]][sub_system.name]", sub_system.stat_entry(), text_ref(sub_system))
-	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [cameranet.cameras.len] | Chunks: [cameranet.chunks.len]", text_ref(cameranet))
+	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [GLOB.cameranet.cameras.len] | Chunks: [GLOB.cameranet.chunks.len]", text_ref(GLOB.cameranet))
 
 ///immediately update the active statpanel tab of the target client
 /datum/controller/subsystem/statpanels/proc/immediate_send_stat_data(client/target)
@@ -217,6 +255,19 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 		return TRUE
 
 	var/mob/target_mob = target.mob
+
+	// Handle actions
+
+	var/update_actions = FALSE
+	if(target.stat_tab in target.spell_tabs)
+		update_actions = TRUE
+
+	if(!length(target.spell_tabs) && istype(target_mob.back, /obj/item/rig))
+		update_actions = TRUE
+
+	if(update_actions)
+		set_action_tabs(target, target_mob)
+		return TRUE
 
 	// Handle turfs
 
@@ -234,6 +285,12 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	if(target.stat_tab == "MC")
 		set_MC_tab(target)
 		return TRUE
+
+	if(!length(GLOB.sdql2_queries) && ("SDQL2" in target.panel_tabs))
+		target.stat_panel.send_message("remove_sdql2")
+
+	else if(length(GLOB.sdql2_queries) && target.stat_tab == "SDQL2")
+		set_SDQL2_tab(target)
 
 /// Stat panel window declaration
 /client/var/datum/tgui_window/stat_panel
@@ -258,7 +315,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 	. = ..()
 	src.parent = parent
 
-/datum/object_window_info/Destroy(force, ...)
+/datum/object_window_info/Destroy(force)
 	atoms_to_show = null
 	atoms_to_images = null
 	atoms_to_imagify = null
@@ -269,7 +326,7 @@ var/datum/controller/subsystem/statpanels/SSstatpanels
 
 /// Takes a client, attempts to generate object images for it
 /// We will update the client with any improvements we make when we're done
-/datum/object_window_info/process(delta_time)
+/datum/object_window_info/process(seconds_per_tick)
 	// Cache the datum access for sonic speed
 	var/list/to_make = atoms_to_imagify
 	var/list/newly_seen = atoms_to_images

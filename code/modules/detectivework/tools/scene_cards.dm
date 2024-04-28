@@ -25,9 +25,9 @@
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
 	w_class = ITEMSIZE_TINY
-	flags = NOBLUDGEON
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	randpixel = 1
-	layer = ABOVE_MOB_LAYER //so you can mark bodies
+	layer = ABOVE_HUMAN_LAYER //so you can mark bodies
 	var/number = 1
 
 /obj/item/csi_marker/afterattack(atom/A, mob/user, proximity)

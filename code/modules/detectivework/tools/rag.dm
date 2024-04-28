@@ -23,7 +23,8 @@
 	possible_transfer_amounts = list(5)
 	volume = 10
 	can_be_placed_into = null
-	flags = OPENCONTAINER | NOBLUDGEON
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	unacidable = FALSE
 	fragile = FALSE
 	drop_sound = 'sound/items/drop/cloth.ogg'
@@ -52,11 +53,11 @@
 	else
 		remove_contents(user)
 
-/obj/item/reagent_containers/glass/rag/attackby(obj/item/W, mob/user)
-	if(!on_fire && W.isFlameSource())
+/obj/item/reagent_containers/glass/rag/attackby(obj/item/attacking_item, mob/user)
+	if(!on_fire && attacking_item.isFlameSource())
 		ignite()
 		if(on_fire)
-			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [W]."))
+			visible_message(SPAN_WARNING("\The [user] lights \the [src] with \the [attacking_item]."))
 		else
 			to_chat(user, SPAN_WARNING("You manage to singe \the [src], but fail to light it."))
 		return TRUE
@@ -145,8 +146,8 @@
 					for(var/_R in reagents.reagent_volumes)
 						var/singleton/reagent/R = GET_SINGLETON(_R)
 						var/strength = R.germ_adjust * reagents.reagent_volumes[_R]/4
-						if(ispath(_R, /singleton/reagent/alcohol))
-							var/singleton/reagent/alcohol/A = R
+						if(ispath(_R, /singleton/reagent/alcohol/ethanol))
+							var/singleton/reagent/alcohol/ethanol/A = R
 							strength = strength * (A.strength/100)
 						W.germ_level -= min(strength, W.germ_level)//Clean the wound a bit.
 						if (W.germ_level <= 0)
@@ -155,12 +156,12 @@
 					reagents.trans_to_mob(H, reagents.total_volume*0.75, CHEM_TOUCH) // most of it gets on the skin
 					reagents.trans_to_mob(H, reagents.total_volume*0.25, CHEM_BLOOD) // some gets in the wound
 					user.visible_message(SPAN_NOTICE("\The [user] bandages \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."), \
-					                     SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
+											SPAN_NOTICE("You bandage \a [W.desc] on [M]'s [affecting.name] with [src], tying it in place."))
 					W.bandage()
 					qdel(src) // the rag is used up, it'll be all bloody and useless after
 					return // we can only do one at a time
 			else if(reagents.total_volume)
-				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & AIRTIGHT))
+				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
 					user.visible_message(
 						SPAN_DANGER("\The [user] smothers [target] with [src]!"),
@@ -305,7 +306,7 @@
 
 /obj/item/reagent_containers/glass/rag/advanced/idris
 	name = "Idris advanced service cloth"
-	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. It's dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self respecting chef or bartender!"
+	desc = "An advanced rag developed and sold by Idris Incorporated at a steep price. Its dry-clean design and advanced insulating synthetic weave make this the pinnacle of service cloths for any self-respecting chef or bartender!"
 	icon_state = "idrisrag"
 	volume = 15
 

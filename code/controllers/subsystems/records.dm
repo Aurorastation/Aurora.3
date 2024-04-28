@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/records/SSrecords
-
-/datum/controller/subsystem/records
+SUBSYSTEM_DEF(records)
 	name = "Records"
 	flags = SS_NO_FIRE
 
@@ -22,7 +20,6 @@
 	var/list/accents = list()
 
 /datum/controller/subsystem/records/Initialize()
-	..()
 	for(var/type in localized_fields)
 		localized_fields[type] = compute_localized_field(type)
 
@@ -30,7 +27,9 @@
 	InitializeReligions()
 	InitializeAccents()
 
-/datum/controller/subsystem/records/New()
+	return SS_INIT_SUCCESS
+
+/datum/controller/subsystem/records/PreInit()
 	records = list()
 	records_locked = list()
 	warrants = list()
@@ -39,7 +38,6 @@
 	excluded_fields = list()
 	localized_fields = list()
 	manifest = list()
-	NEW_SS_GLOBAL(SSrecords)
 	var/datum/D = new()
 	for(var/v in D.vars)
 		excluded_fields[v] = v
@@ -110,6 +108,7 @@
 			viruses += record
 		if(/datum/record/shuttle_manifest)
 			shuttle_manifests += record
+	onCreate(record)
 
 /datum/controller/subsystem/records/proc/update_record(var/datum/record/record)
 	switch(record.type)
@@ -181,7 +180,7 @@
 				return r
 
 /datum/controller/subsystem/records/proc/build_records()
-	for(var/mob/living/carbon/human/H in player_list)
+	for(var/mob/living/carbon/human/H in GLOB.player_list)
 		generate_record(H)
 
 /datum/controller/subsystem/records/proc/reset_manifest()
@@ -189,7 +188,7 @@
 	update_static_data_for_all_viewers()
 
 /datum/controller/subsystem/records/ui_state(mob/user)
-	return always_state
+	return GLOB.always_state
 
 /datum/controller/subsystem/records/ui_status(mob/user, datum/ui_state/state)
 	return (isnewplayer(user) || isobserver(user) || issilicon(user)) ? UI_INTERACTIVE : UI_CLOSE
@@ -202,7 +201,7 @@
 	if(action == "follow")
 		var/mob/abstract/observer/O = usr
 		if(istype(O))
-			for(var/mob/living/M in human_mob_list)
+			for(var/mob/living/M in GLOB.human_mob_list)
 				if(istype(M) && M.real_name == params["name"])
 					O.ManualFollow(M)
 					break
@@ -211,7 +210,7 @@
 /datum/controller/subsystem/records/ui_static_data(mob/user)
 	var/list/data = list()
 	data["manifest"] = SSrecords.get_manifest_list()
-	data["allow_follow"] = isobserver(usr)
+	data["allow_follow"] = isobserver(user)
 	return data
 
 /datum/controller/subsystem/records/proc/open_manifest_tgui(mob/user, datum/tgui/ui)
@@ -261,7 +260,7 @@
 
 	// silicons are not in records, we need to add them manually
 	var/dept = DEPARTMENT_EQUIPMENT
-	for(var/mob/living/silicon/S in player_list)
+	for(var/mob/living/silicon/S in GLOB.player_list)
 		if(istype(S, /mob/living/silicon/robot))
 			var/mob/living/silicon/robot/R = S
 			if(R.scrambled_codes)
@@ -289,19 +288,23 @@
 	get_manifest_list()
 	return manifest_json
 
-/datum/controller/subsystem/records/proc/onDelete(var/datum/record/r)
-	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_delete(r)
+/datum/controller/subsystem/records/proc/onCreate(var/datum/record/record)
+	SEND_SIGNAL(src, COMSIG_RECORD_CREATED, record)
 
-/datum/controller/subsystem/records/proc/onModify(var/datum/record/r)
-	if(r in records)
-		reset_manifest()
+/datum/controller/subsystem/records/proc/onDelete(var/datum/record/record)
 	for (var/listener in GET_LISTENERS("SSrecords"))
-		var/listener/record/rl = listener
-		if(istype(rl))
-			rl.on_modify(r)
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_delete(record)
+
+/datum/controller/subsystem/records/proc/onModify(var/datum/record/record)
+	if(record in records)
+		reset_manifest()
+	SEND_SIGNAL(record, COMSIG_RECORD_MODIFIED)
+	for (var/listener in GET_LISTENERS("SSrecords"))
+		var/listener/record/record_listener = listener
+		if(istype(record_listener))
+			record_listener.on_modify(record)
 
 /*
  * Helping functions for everyone
@@ -335,7 +338,7 @@
 		religions[religion.name] = religion
 
 	if (!religions.len)
-		crash_with("No citizenships located in SSrecords.")
+		crash_with("No religions located in SSrecords.")
 
 /datum/controller/subsystem/records/proc/InitializeAccents()
 	for (var/type in subtypesof(/datum/accent))

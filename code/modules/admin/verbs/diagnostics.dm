@@ -48,7 +48,7 @@
 	var/largest_click_time = 0
 	var/mob/largest_move_mob = null
 	var/mob/largest_click_mob = null
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if(!M.client)
 			continue
 		if(M.next_move >= largest_move_time)
@@ -105,7 +105,7 @@
 	if(!check_rights(R_SERVER|R_DEV))
 		return
 
-	if (config.use_forumuser_api)
+	if (GLOB.config.use_forumuser_api)
 		update_admins_from_api(FALSE)
 
 	log_and_message_admins("manually reloaded admins.")

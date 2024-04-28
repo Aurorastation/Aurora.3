@@ -9,7 +9,7 @@
 	uses_species_whitelist = FALSE
 	respawn_flag = null
 
-	outfit = /datum/outfit/admin/database_freighter_crew
+	outfit = /obj/outfit/admin/database_freighter_crew
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -17,7 +17,7 @@
 	special_role = "Database Freighter Surveyor"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/datum/outfit/admin/database_freighter_crew
+/obj/outfit/admin/database_freighter_crew
 	name = "Database Freighter Surveyor"
 
 	id = /obj/item/card/id
@@ -30,8 +30,8 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/database_freighter_crew/get_id_access()
-	return list(access_pra, access_external_airlocks)
+/obj/outfit/admin/database_freighter_crew/get_id_access()
+	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/database_freighter_crew/captain
 	short_name = "database_freighter_captain"
@@ -43,15 +43,16 @@
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /datum/outfit/admin/database_freighter_crew/captain
+	outfit = /obj/outfit/admin/database_freighter_crew/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 	assigned_role = "Database Freighter Head Surveyor"
 	special_role = "Database Freighter Head Surveyor"
 
-/datum/outfit/admin/database_freighter_crew/captain
+/obj/outfit/admin/database_freighter_crew/captain
 	name = "Database Freighter Head Surveyor"
 
 	uniform = /obj/item/clothing/under/tajaran/database_freighter/captain
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
 	accessory = /obj/item/clothing/accessory/hadii_pin
+	l_hand = /obj/item/clothing/accessory/badge/hadii_card/member

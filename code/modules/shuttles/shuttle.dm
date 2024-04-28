@@ -22,8 +22,12 @@
 
 	var/knockdown = TRUE //whether shuttle downs non-buckled_to people when it moves
 
-	var/defer_initialisation = FALSE //this shuttle will/won't be initialised automatically. If set to true, you are responsible for initialzing the shuttle manually.
-	                                 //Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
+	/**
+	 * This shuttle will/won't be initialised automatically.
+	 * If set to `TRUE`, you are responsible for initialzing the shuttle manually.
+	 * Useful for shuttles that are initialed by map_template loading, or shuttles that are created in-game or not used.
+	 */
+	var/defer_initialisation = FALSE
 	var/logging_home_tag   //Whether in-game logs will be generated whenever the shuttle leaves/returns to the landmark with this landmark_tag.
 	var/logging_access     //Controls who has write access to log-related stuff; should correlate with pilot access.
 
@@ -45,6 +49,7 @@
 		if(!istype(A))
 			CRASH("Shuttle \"[name]\" couldn't locate area [T].")
 		areas += A
+		RegisterSignal(A, COMSIG_QDELETING, PROC_REF(remove_shuttle_area))
 	shuttle_area = areas
 
 	if(initial_location)
@@ -88,7 +93,7 @@
 	if(sound_takeoff)
 		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
 			return
-		playsound(current_location, sound_takeoff, 25, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 25, 20)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -114,7 +119,7 @@
 	if(sound_takeoff)
 		if(!fuel_check(TRUE)) // Check for fuel, but don't use any.
 			return
-		playsound(current_location, sound_takeoff, 50, 20, is_global = TRUE)
+		playsound(current_location, sound_takeoff, 50, 20)
 	spawn(warmup_time*10)
 		if(moving_status == SHUTTLE_IDLE)
 			return	//someone cancelled the launch
@@ -134,7 +139,7 @@
 			while (world.time < arrive_time)
 				if(!fwooshed && (arrive_time - world.time) < 100)
 					fwooshed = 1
-					playsound(destination, sound_landing, 50, 20, is_global = TRUE)
+					playsound(destination, sound_landing, 50, 20)
 				sleep(5)
 			if(!attempt_move(destination))
 				destination.clear_landing_indicators()
@@ -164,9 +169,9 @@
 		testing("Moving [A]")
 		translation += get_turf_translation(get_turf(current_location), get_turf(destination), A.contents)
 	var/old_location = current_location
-	shuttle_pre_move_event.raise_event(src, old_location, destination)
+	GLOB.shuttle_pre_move_event.raise_event(src, old_location, destination)
 	shuttle_moved(destination, translation)
-	shuttle_moved_event.raise_event(src, old_location, destination)
+	GLOB.shuttle_moved_event.raise_event(src, old_location, destination)
 	destination.shuttle_arrived(src)
 	return TRUE
 
@@ -177,7 +182,7 @@
 
 	if((flags & SHUTTLE_FLAGS_ZERO_G))
 		var/new_grav = 1
-		if(destination.flags & SLANDMARK_FLAG_ZERO_G)
+		if(destination.landmark_flags & SLANDMARK_FLAG_ZERO_G)
 			var/area/new_area = get_area(destination)
 			new_grav = new_area.has_gravity
 		for(var/area/our_area in shuttle_area)
@@ -307,3 +312,10 @@
 
 /datum/shuttle/proc/on_move_interim()
 	return
+
+/datum/shuttle/proc/remove_shuttle_area(area/area_to_remove)
+	UnregisterSignal(area_to_remove, COMSIG_QDELETING)
+	SSshuttle.shuttle_areas -= area_to_remove
+	shuttle_area -= area_to_remove
+	if(!length(shuttle_area))
+		qdel(src)

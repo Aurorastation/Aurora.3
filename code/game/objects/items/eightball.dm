@@ -83,7 +83,7 @@
 	var/answered = FALSE
 
 /obj/item/eightball/haunted/start_shaking(mob/user)
-	for(var/mob/abstract/observer/O in player_list)
+	for(var/mob/abstract/observer/O in GLOB.player_list)
 		if(O.client)
 			to_chat(O, "[ghost_follow_link(user, O)] <span class='deadsay'><font size=3><b>\The [user] is shaking \the [src], hoping to get an answer to \"[question]\".<a href='?src=\ref[src];candidate=\ref[O]'>(Answer)</a></b></font></span>")
 
@@ -103,7 +103,7 @@
 		return 1
 
 /obj/item/eightball/haunted/proc/get_ghost_answer(mob/user)
-	var/answer = input("Choose the answer.", "Magic eightball question") as null|anything in possible_answers
+	var/answer = tgui_input_list(user, "Choose the answer.", "Magic Eight-Ball", possible_answers)
 
 	if(answered)
 		return

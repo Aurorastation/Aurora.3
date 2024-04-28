@@ -1,11 +1,16 @@
 /datum/map_template/ruin/away_site/pra_satellite
 	name = "hadiist satellite"
 	description = "A People's Republic of Adhomai satellite used to survey the system."
-	suffixes = list("away_site/tajara/pra_satellite/pra_satellite.dmm")
+
+	prefix = "away_site/tajara/pra_satellite/"
+	suffixes = list("pra_satellite.dmm")
+
 	sectors = list(SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "pra_satellite"
+
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/pra_satellite
 	map = "hadiist satellite"
@@ -48,7 +53,7 @@
 /area/pra_satellite
 	name = "Hadiist Satellite"
 	icon_state = "research"
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	requires_power = TRUE
 	base_turf = /turf/simulated/floor/plating
 	no_light_control = TRUE

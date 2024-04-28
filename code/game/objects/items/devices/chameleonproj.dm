@@ -3,7 +3,7 @@
 	desc = "A strange device."
 	desc_antag = "This device can let you disguise as common objects. Click on an object with this in your active hand to scan it, then activate it to use it in your hand."
 	icon_state = "shield0"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	item_state = "electronic"
 	throwforce = 5

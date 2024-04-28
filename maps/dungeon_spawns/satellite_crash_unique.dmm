@@ -35,7 +35,6 @@
 "i" = (
 /obj/effect/decal/cleanable/liquid_fuel,
 /obj/structure/computerframe{
-	layer = 3.1
 	},
 /obj/item/device/gps,
 /obj/item/material/shard,

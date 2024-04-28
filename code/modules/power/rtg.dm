@@ -47,12 +47,12 @@
 
 	power_gen = initial(power_gen) * part_level
 
-/obj/machinery/power/rtg/attackby(obj/item/I, mob/user, params)
-	if(default_part_replacement(user, I))
+/obj/machinery/power/rtg/attackby(obj/item/attacking_item, mob/user, params)
+	if(default_part_replacement(user, attacking_item))
 		return
-	else if(default_deconstruction_screwdriver(user, I))
+	else if(default_deconstruction_screwdriver(user, attacking_item))
 		return
-	else if(default_deconstruction_crowbar(user, I))
+	else if(default_deconstruction_crowbar(user, attacking_item))
 		return
 	return ..()
 
@@ -98,7 +98,7 @@
 	origin_tech = list(
 		TECH_DATA = 3,
 		TECH_MATERIAL = 4,
-		TECH_POWER = 3, 
+		TECH_POWER = 3,
 		TECH_ENGINEERING = 3,
 		TECH_PHORON = 3
 	)

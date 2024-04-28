@@ -4,7 +4,7 @@
 	icon = 'icons/obj/clothing/hats/soft_caps.dmi'
 	icon_state = "softcap"
 	item_state = "softcap"
-	item_flags = SHOWFLAVORTEXT
+	item_flags = ITEM_FLAG_SHOW_FLAVOR_TEXT
 	contained_sprite = TRUE
 	var/flipped = FALSE
 	siemens_coefficient = 0.9
@@ -185,3 +185,9 @@
 	desc = "A peaked cap in a teal colour with a purple brim."
 	icon_state = "custodian_idris"
 	item_state = "custodian_idris"
+
+/obj/item/clothing/head/softcap/orion_custodian
+	name = "orion custodial softcap"
+	desc = "A peaked cap in a brown colour with a purple brim."
+	icon_state = "custodian_orion"
+	item_state = "custodian_orion"

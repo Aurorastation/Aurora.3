@@ -42,6 +42,7 @@
 	new /obj/item/ammo_magazine/a10mm(src)
 	new /obj/item/storage/box/handcuffs(src)
 	new /obj/item/storage/box/flashbangs(src)
+	new /obj/item/storage/box/stingers(src)
 	new /obj/item/gun/energy/gun(src)
 	new /obj/item/gun/energy/gun(src)
 	new /obj/item/gun/energy/gun(src)

@@ -1,4 +1,4 @@
-/datum/outfit/admin/megacorp/hephaestus_trooper
+/obj/outfit/admin/megacorp/hephaestus_trooper
 	name = "Hephaestus Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/engineer/apprentice/heph
@@ -28,7 +28,7 @@
 	)
 	id_iff = IFF_HEPH
 
-/datum/outfit/admin/megacorp/hephaestus_trooper/heavy
+/obj/outfit/admin/megacorp/hephaestus_trooper/heavy
 	name = "Hephaestus Heavy Asset Protection"
 
 	back = /obj/item/gun/projectile/shotgun/pump/combat
@@ -41,7 +41,7 @@
 			/obj/item/ammo_casing/shotgun/pellet = 8
 	)
 
-/datum/outfit/admin/megacorp/zenghu_trooper
+/obj/outfit/admin/megacorp/zenghu_trooper
 	name = "Zeng Hu Pharmaceuticals Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
@@ -71,7 +71,7 @@
 	)
 	id_iff = IFF_ZENGHU
 
-/datum/outfit/admin/megacorp/zenghu_trooper/heavy
+/obj/outfit/admin/megacorp/zenghu_trooper/heavy
 	name = "Zeng Hu Pharmaceuticals Heavy Asset Protection"
 
 	gloves = /obj/item/clothing/gloves/force
@@ -79,7 +79,7 @@
 
 	accessory_contents = list(/obj/item/gun/energy/decloner = 1)
 
-/datum/outfit/admin/megacorp/zavodskoi_trooper
+/obj/outfit/admin/megacorp/zavodskoi_trooper
 	name = "Zavodskoi Interstellar Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/security/zavod
@@ -115,7 +115,7 @@
 	)
 	id_iff = IFF_ZAVOD
 
-/datum/outfit/admin/megacorp/zavodskoi_trooper/heavy
+/obj/outfit/admin/megacorp/zavodskoi_trooper/heavy
 	name = "Zavodskoi Interstellar Heavy Asset Protection"
 
 	gloves = /obj/item/clothing/gloves/force
@@ -130,11 +130,11 @@
 			/obj/item/ammo_magazine/c762/sol = 2
 	)
 
-/datum/outfit/admin/megacorp/einstein_trooper/heavy
+/obj/outfit/admin/megacorp/einstein_trooper/heavy
 	name = "Einstein Engines Asset Protection"
 
 	uniform = /obj/item/clothing/under/rank/einstein
-	back = /obj/item/rig/ert/assetprotection/einstein
+	back = /obj/item/rig/ert/einstein
 	belt = /obj/item/storage/belt/security/tactical
 	shoes = null
 	gloves = null

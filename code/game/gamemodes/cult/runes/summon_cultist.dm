@@ -14,8 +14,10 @@
 		if(iscultist(C) && !C.stat)
 			users += C
 
+	cultists = cultists - user
+
 	if(users.len >= 3)
-		var/mob/living/carbon/cultist = input("Choose the one who you want to summon", "Followers of Geometer") as null|anything in (cultists - user)
+		var/mob/living/carbon/cultist = tgui_input_list(usr, "Choose the one who you want to summon.", "Followers of the Geometer", cultists)
 		if(!cultist)
 			return fizzle(user, A)
 		if(cultist == user) //just to be sure.

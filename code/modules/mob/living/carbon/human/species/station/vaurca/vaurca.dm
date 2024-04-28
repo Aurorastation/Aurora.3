@@ -30,7 +30,7 @@
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/bug
 	rarity_value = 4
 	slowdown = 1
-	darksight = 8 //USELESS
+	darksight = 8 //Allows you to see through black k'ois if the night vision is on
 	eyes = "vaurca_eyes" //makes it so that eye colour is not changed when skin colour is.
 	eyes_are_impermeable = TRUE
 
@@ -56,7 +56,7 @@
 	breath_eff_mul = 6 // 1/6 * breath_eff_mul = fraction of gas consumed
 	poison_type = GAS_NITROGEN //a species that breathes plasma shouldn't be poisoned by it.
 	breathing_sound = null //They don't work that way I guess? I'm a coder not a purple man.
-	mob_size = 13 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
+	mob_size = 10 //their half an inch thick exoskeleton and impressive height, plus all of their mechanical organs.
 	natural_climbing = TRUE
 	climb_coeff = 0.75
 
@@ -101,6 +101,8 @@
 	stamina_recovery = 2	//slow recovery
 
 	has_organ = list(
+		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
+		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca,
 		BP_NEURAL_SOCKET        = /obj/item/organ/internal/vaurca/neuralsocket,
 		BP_LUNGS               = /obj/item/organ/internal/lungs/vaurca,
 		BP_FILTRATION_BIT       = /obj/item/organ/internal/vaurca/filtrationbit,
@@ -109,9 +111,7 @@
 		BP_LIVER               = /obj/item/organ/internal/liver/vaurca,
 		BP_KIDNEYS             = /obj/item/organ/internal/kidneys/vaurca,
 		BP_STOMACH             = /obj/item/organ/internal/stomach/vaurca,
-		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca,
-		BP_BRAIN               = /obj/item/organ/internal/brain/vaurca,
-		BP_EYES                = /obj/item/organ/internal/eyes/night/vaurca
+		BP_APPENDIX            = /obj/item/organ/internal/appendix/vaurca
 	)
 
 	has_limbs = list(
@@ -128,6 +128,11 @@
 		BP_R_FOOT = list("path" = /obj/item/organ/external/foot/right/vaurca)
 		)
 
+	inherent_verbs = list(
+		/mob/living/carbon/human/proc/hivenet_recieve,
+		/mob/living/carbon/human/proc/hivenet_manifest
+	)
+
 	default_h_style = "Classic Antennae"
 
 	move_trail = /obj/effect/decal/cleanable/blood/tracks/claw
@@ -142,6 +147,8 @@
 
 	alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_STOMACH, BP_APPENDIX)
 	psi_deaf = TRUE
+	possible_speech_bubble_types = list("robot", "default")
+	valid_prosthetics = list(PROSTHETIC_VAURCA)
 
 /datum/species/bug/before_equip(var/mob/living/carbon/human/H)
 	. = ..()

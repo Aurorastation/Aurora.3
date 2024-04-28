@@ -28,7 +28,7 @@
 	icon = 'icons/turf/walls.dmi'
 	icon_state = "rockvault"
 
-/turf/unsimulated/mask/ChangeTurf(var/turf/N, var/tell_universe=1, var/force_lighting_update = 0)
+/turf/unsimulated/mask/ChangeTurf(N, tell_universe = TRUE, force_lighting_update = FALSE, ignore_override = FALSE, mapload = FALSE)
 	if (!N)
 		return
 
@@ -48,8 +48,13 @@
 	return
 
 /turf/unsimulated/mask/Initialize()
-	initialized = TRUE
-	return
+	SHOULD_CALL_PARENT(FALSE)
+
+	if(flags_1 & INITIALIZED_1)
+		stack_trace("Warning: [src]([type]) initialized multiple times!")
+	flags_1 |= INITIALIZED_1
+
+	return INITIALIZE_HINT_NORMAL
 
 /turf/unsimulated/chasm_mask/New()
 	return

@@ -170,7 +170,7 @@ For reference, here are the standard span classes for user output, and the corre
 * `<span class='warning'></span>` also corresponds to `\red` and is not bold.
 * `<span class='notice'></span>` corresponds to `\blue` and is not bold.
 
-There exist pre-processor macros for using these spans. `span(class, text)` which is the equivalent of typing a string that looks like this: `"<span class='[class]'>[text]</span>"` and macros such as `SPAN_WARNING(text)`, `SPAN_NOTICE(text)`, `SPAN_DANGER(text)`.
+There exist pre-processor macros for using these spans. `span(class, text)` which is the equivalent of typing a string that looks like this: `"<span class='[class]'>[text]</span>"` and macros such as `SPAN_WARNING(text)`, `SPAN_NOTICE(text)`, `SPAN_DANGER(text)`. Using the SPAN_X() macros is preferred.
 
 The stylesheet available for use within DM can be found in `code/stylesheet.dm`.
 
@@ -232,5 +232,8 @@ Due to our current situation with 5 different HTML UI systems we are now enforci
  0. Touched UI file is too large.
  0. TGUI can't accommodate that type of UI.
 
-### Responsiveness
-All new UIs must be responsive, that means that when parameters change in game world, UI data must update as quickly as possible to reflect that change. If change is time dependant, then client side time approximation should be used.
+### Globals
+All globals must use the defines found in `__defines/_globals.dm`. This is to store globals inside the Global Controller, allowing us to view and edit them at runtime. Here are a few examples.
+`GLOBAL_VAR(thing)` will create a global variable `var/thing` accessed with `GLOB.thing`.
+`GLOBAL_LIST_INIT(list_of_stuff, list("stuff", "thing"))` will create a global list `var/list/list_of_stuff = list("stuff, thing")` accessed with `GLOB.list_of_stuff`.
+`GLOBAL_DATUM_INIT(cake, /datum/cake, new)` will create a global `/datum/cake/cake` and `new` it, accessed with `GLOB.cake`.

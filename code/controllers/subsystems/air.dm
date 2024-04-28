@@ -1,5 +1,3 @@
-/var/datum/controller/subsystem/air/SSair
-
 /*
 
 Overview:
@@ -63,10 +61,10 @@ Class Procs:
 
 */
 
-/datum/controller/subsystem/air
+SUBSYSTEM_DEF(air)
 	name = "Air"
 	priority = SS_PRIORITY_AIR
-	init_order = SS_INIT_AIR
+	init_order = INIT_ORDER_AIR
 	flags = SS_POST_FIRE_TIMING
 	runlevels = RUNLEVELS_PLAYING
 
@@ -89,6 +87,10 @@ Class Procs:
 
 	var/active_zones = 0
 	var/next_id = 1
+
+	#ifdef ZASDBG
+	var/updated = 0
+	#endif
 
 /datum/controller/subsystem/air/proc/reboot()
 	set waitfor = FALSE
@@ -125,9 +127,6 @@ Class Procs:
 	msg = "TtU:[tiles_to_update.len] ZtU:[zones_to_update.len] AFZ:[active_fire_zones.len] AH:[active_hotspots.len] AE:[active_edges.len]"
 	return msg
 
-/datum/controller/subsystem/air/New()
-	NEW_SS_GLOBAL(SSair)
-
 /datum/controller/subsystem/air/Initialize(timeofday, simulate = TRUE)
 
 	var/starttime = REALTIMEOFDAY
@@ -161,7 +160,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 
 		admin_notice(SPAN_DANGER("Air settling completed in [(REALTIMEOFDAY - starttime)/10] seconds!"), R_DEBUG)
 
-	..(timeofday)
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/air/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
@@ -441,7 +440,7 @@ Total Unsimulated Turfs: [world.maxx*world.maxy*world.maxz - simulated_turf_coun
 		active_edges -= E
 
 /datum/controller/subsystem/air/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/air/ExplosionEnd()
-	wake()
+	can_fire = TRUE

@@ -25,9 +25,7 @@
 /singleton/surgery_step/generic/cut_with_laser
 	name = "Make Laser Incision"
 	allowed_tools = list(
-	/obj/item/surgery/scalpel/laser3 = 95, \
-	/obj/item/surgery/scalpel/laser2 = 85, \
-	/obj/item/surgery/scalpel/laser1 = 75
+	/obj/item/surgery/scalpel/laser = 100
 	)
 	priority = 2
 	min_duration = 50
@@ -183,7 +181,7 @@
 /singleton/surgery_step/generic/cut_open_vaurca/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)
 	user.visible_message("<b>[user]</b> has drilled into [target]'s [affected.name] carapace with \the [tool].", \
-						 SPAN_NOTICE("You have drilled into [target]'s [affected.name] carapace with \the [tool]."),)
+							SPAN_NOTICE("You have drilled into [target]'s [affected.name] carapace with \the [tool]."),)
 	affected.open = ORGAN_OPEN_INCISION
 
 	if(istype(target) && !(target.species.flags & NO_BLOOD))
@@ -280,6 +278,10 @@
 		self_msg = SPAN_NOTICE("You keep the incision open on [target]'s lower abdomen with \the [tool].")
 	user.visible_message(msg, self_msg)
 	affected.open = ORGAN_OPEN_RETRACTED
+
+	if(!affected.encased)
+		for(var/obj/item/implant/I in affected.implants)
+			I.exposed()
 
 /singleton/surgery_step/generic/retract_skin/fail_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/affected = target.get_organ(target_zone)

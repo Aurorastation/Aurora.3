@@ -1,19 +1,14 @@
-/var/global/datum/controller/subsystem/trade/SStrade
-
-/datum/controller/subsystem/trade
+SUBSYSTEM_DEF(trade)
 	name = "Trade"
 	wait = 1 MINUTE
-	flags = SS_NO_TICK_CHECK
 	runlevels = RUNLEVELS_PLAYING
 	var/list/traders = list() //List of all nearby traders
-
-/datum/controller/subsystem/trade/New()
-	NEW_SS_GLOBAL(SStrade)
 
 /datum/controller/subsystem/trade/Initialize()
 	for(var/i in 1 to rand(1,3))
 		generateTrader(1)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/trade/Recover()
 	traders = SStrade.traders

@@ -1,6 +1,6 @@
 // I thought about splitting these into files per category, but that just makes Ctrl+F'ing for problematic tips harder, so I'll just list them all in one file
 
-var/global/list/tips_by_category = list()
+GLOBAL_LIST_EMPTY(tips_by_category)
 
 /*
 	BASELINE TIP
@@ -95,7 +95,10 @@ var/global/list/tips_by_category = list()
 		"Spice up any round by spawning 100 greimorian larva on top of a vent.",
 		"The Maintenance Drones will never threaten to stab you, and in fact, cannot speak.",
 		"The Bluespace Technicians aren't real, they can't hurt you.",
-		"There is no escape."
+		"There is no escape.",
+		"Most large kitchen appliances 3D print their own single-use dishes out of leftover food scraps! Yum yum, recycling!",
+		"As a Clown, you are probably on the wrong server.",
+		"If you say the Q-word, anything bad that happens this shift is your fault."
 	)
 
 
@@ -211,6 +214,8 @@ var/global/list/tips_by_category = list()
 		"As a Gardener, you can mutate the plants growing in your hydroponics trays with unstable mutagen or, as an alternative, crude radioactives from chemistry to get special variations.",
 		"As a Gardener, you should look into increasing the potency of your plants. This increases the size, amount of chemicals, points gained from grinding them in the biogenerator, and lets people know you are a proficient hydroponicist.",
 		"As a Cook, any food you make will be much healthier than the junk food found in vendors. The crew will thank you for eating healthier, eventually.",
+		"As a Cook, you should be mindful that Humans can't digest Fatshouter milk very well and will get sick from it, and xeno-meat dishes contain a very dangerous acid.",
+		"As a Cook, You can use chicken meat instead of regular meat in every food dish that requires it, but you can't use regular meat instead of chicken meat.",
 		"As the Bartender, the drinks you start with only give you the basics. If you want more advanced mixtures, look into working with chemistry, hydroponics, or even mining for things to grind up and throw in!",
 		"As the Bartender, you can use a circular saw on your shotgun to make it easier to store.",
 		"As a Janitor, if someone steals your janicart, you can instead use your space cleaner spray, grenades, water sprayer or order another from Cargo.",
@@ -331,11 +336,12 @@ var/global/list/tips_by_category = list()
 /datum/tip/irl
 	category = CATEGORY_IRL
 	messages = list(
-		"Stand up and move around at least once every hour... in real life."
+		"Stand up and move around at least once every hour... in real life.",
+		"Don't forget to drink some water... in real life."
 	)
 
 
 /proc/populate_tip_list()
 	for(var/tip_type in subtypesof(/datum/tip))
 		var/datum/tip/tip_datum = new tip_type
-		tips_by_category[tip_datum.category] = tip_datum
+		GLOB.tips_by_category[tip_datum.category] = tip_datum

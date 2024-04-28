@@ -16,14 +16,22 @@
 	var/paint_colour = COLOR_WHITE
 
 	var/list/decals = list(
-		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
-		"wide quarter-turf" = list("path" = /obj/effect/floor_decal/corner_wide, "precise" = 1, "coloured" = 1),
-		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
-		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
-		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
-		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
-		"dotted outline" =    list("path" = /obj/effect/floor_decal/industrial/outline, "coloured" = 1),
+		// quarter
+		"quarter-turf" =          list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
+		"wide quarter-turf" =     list("path" = /obj/effect/floor_decal/corner_wide, "precise" = 1, "coloured" = 1),
+		"full quarter-turf" =     list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
+		// hazard
+		"hazard stripes" =        list("path" = /obj/effect/floor_decal/industrial/warning),
+		"corner, hazard" =        list("path" = /obj/effect/floor_decal/industrial/warning/corner),
+		// hatch
+		"hatched marking" =       list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
+		"hatched marking small" = list("path" = /obj/effect/floor_decal/industrial/hatch_small, "coloured" = 1),
+		"hatched marking tiny" =  list("path" = /obj/effect/floor_decal/industrial/hatch_tiny, "coloured" = 1),
+		// outline
+		"dotted outline" =        list("path" = /obj/effect/floor_decal/industrial/outline, "coloured" = 1),
+		"arrow" =             list("path" = /obj/effect/floor_decal/industrial/arrow, "precise" = 1, "coloured" = 1),
 		"loading sign" =      list("path" = /obj/effect/floor_decal/industrial/loading),
+		// signs
 		"1" =                 list("path" = /obj/effect/floor_decal/sign),
 		"2" =                 list("path" = /obj/effect/floor_decal/sign/two),
 		"A" =                 list("path" = /obj/effect/floor_decal/sign/a),
@@ -35,6 +43,7 @@
 		"CMO" =               list("path" = /obj/effect/floor_decal/sign/cmo),
 		"V" =                 list("path" = /obj/effect/floor_decal/sign/v),
 		"Psy" =               list("path" = /obj/effect/floor_decal/sign/p),
+		// remove all
 		"remove all decals" = list("path" = /obj/effect/floor_decal/reset)
 		)
 
@@ -165,7 +174,7 @@
 	new painting_decal(F, painting_dir, painting_colour)
 
 /obj/item/device/paint_sprayer/attack_self(var/mob/user)
-	var/choice = input("Do you wish to change the decal type, paint direction, or paint colour?") as null|anything in list("Decal","Direction", "Colour")
+	var/choice = tgui_alert(user, "Do you wish to change the decal type, paint direction, or paint colour?", "Paint Sprayer", list("Decal","Direction", "Colour"))
 	if(choice == "Decal")
 		choose_decal()
 	else if(choice == "Direction")
@@ -220,7 +229,7 @@
 		available_colors |= isnull(I.color) ? COLOR_WHITE : I.color
 	var/picked_color = available_colors[1]
 	if (available_colors.len > 1)
-		picked_color = input(user, "Which color do you wish to pick from?") as null|anything in available_colors
+		picked_color = tgui_input_list(user, "Which color do you wish to pick from?", "Paint Sprayer", available_colors)
 		if (user.incapacitated() || !user.Adjacent(F))
 			return FALSE
 	return picked_color
@@ -263,7 +272,7 @@
 		choices |= AIRLOCK_REGION_STRIPE
 	if (D.paintable & AIRLOCK_PAINTABLE_WINDOW)
 		choices |= AIRLOCK_REGION_WINDOW
-	choice = input(user, input_text) as null|anything in sortList(choices)
+	choice = tgui_input_list(user, input_text, "Paint Sprayer", sortList(choices))
 	if (!user.use_check_and_message() || !D || !user.Adjacent(D))
 		return FALSE
 	return choice
@@ -289,9 +298,9 @@
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 	return .
 
-/obj/item/device/paint_sprayer/examine(mob/user)
+/obj/item/device/paint_sprayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
+	. += "It is configured to produce the '[SPAN_NOTICE(decal)]' decal with a direction of '[SPAN_NOTICE(paint_dir)]' using [SPAN_NOTICE(paint_colour)] paint."
 
 /obj/item/device/paint_sprayer/verb/choose_colour()
 	set name = "Choose Colour"
@@ -301,7 +310,7 @@
 
 	if(usr.incapacitated())
 		return
-	var/new_colour = input(usr, "Choose a colour.", "paintgun", paint_colour) as color|null
+	var/new_colour = input(usr, "Choose a colour.", "Paint Sprayer", paint_colour) as color|null
 	change_colour(new_colour, usr)
 
 /obj/item/device/paint_sprayer/verb/choose_preset_colour()
@@ -326,7 +335,7 @@
 	if(usr.incapacitated())
 		return
 
-	var/new_decal = input("Select a decal.") as null|anything in decals
+	var/new_decal = tgui_input_list(usr, "Select a decal.", "Paint Sprayer", decals)
 	if(new_decal && !isnull(decals[new_decal]))
 		decal = new_decal
 		to_chat(usr, "<span class='notice'>You set \the [src] decal to '[decal]'.</span>")
@@ -340,7 +349,7 @@
 	if(usr.incapacitated())
 		return
 
-	var/new_dir = input("Select a direction.") as null|anything in paint_dirs
+	var/new_dir = tgui_input_list(usr, "Select a direction.", "Paint Sprayer", paint_dirs)
 	if(new_dir && !isnull(paint_dirs[new_dir]))
 		paint_dir = new_dir
 		to_chat(usr, "<span class='notice'>You set \the [src] direction to '[paint_dir]'.</span>")

@@ -144,7 +144,8 @@
 				/obj/item/grenade/smokebomb,
 				/obj/item/grenade/flashbang,
 				/obj/item/grenade/empgrenade,
-				/obj/item/grenade/chem_grenade/incendiary
+				/obj/item/grenade/chem_grenade/incendiary,
+				/obj/item/grenade/stinger
 				)
 			var/obj/item/storage/bag/plasticbag/bag = new /obj/item/storage/bag/plasticbag(spawned.loc)
 			for(var/i in 1 to 7)

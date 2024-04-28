@@ -1,5 +1,4 @@
 /mob/living
-	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 
 	//Health and life related vars
@@ -75,3 +74,6 @@
 	var/list/obj/aura/auras //Basically a catch-all aura/force-field thing.
 
 	var/named = FALSE //Affects renaming animals and monkey species. Set to TRUE for animals with unique names, such as station pets. Doesn't affect any other mob.
+
+	///what icon the mob uses for speechbubbles
+	var/bubble_icon = "default"

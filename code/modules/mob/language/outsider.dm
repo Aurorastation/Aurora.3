@@ -82,22 +82,6 @@
 	key = "y"
 	flags = RESTRICTED | HIVEMIND
 
-/datum/language/terminator
-	name = LANGUAGE_TERMINATOR
-	desc = "A heavily encrypted communication network that piggybacks off of the state telecomms relays to covertly link Hephaestus black ops droids to their control AIs."
-	speech_verb = list("buzzes")
-	ask_verb = list("buzzes")
-	exclaim_verb = list("buzzes")
-	sing_verb = list("buzzes")
-	colour = "bad"
-	key = "hd"
-	flags = RESTRICTED | HIVEMIND
-	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
-	space_chance = 10
-
-/datum/language/terminator/get_random_name()
-	return "HK [pick(list("Hera","Zeus","Artemis","Athena","Ares","Hades","Poseidon","Demeter","Apollo","Aphrodite","Hermes","Hestia","Dionysus","Persephone","Kronos","Odysseus","Ajax","Agamemnon","Chiron","Charon"))]-[rand(100, 999)]"
-
 /datum/language/revenant
 	name = LANGUAGE_REVENANT
 	desc = "The language of the forsaken bluespace inhabitants."
@@ -117,3 +101,96 @@
 	desc = "A manner of speaking that allows revenants to talk to eachother no matter the distance."
 	key = "rs"
 	flags = RESTRICTED | HIVEMIND
+
+/datum/language/bug/liidra
+	name = LANGUAGE_LIIDRA
+	desc = "The collective intelligence of the Lii'dra Hivemind. Similar to the Hivenet of ordinary Vaurcae, though impossible to understand for any not part of the gestalt consciousness."
+	key = "li"
+	flags = RESTRICTED | HIVEMIND
+
+/datum/language/bug/liidra/broadcast(mob/living/speaker, message, speaker_mask)
+	log_say("[key_name(speaker)] : ([name]) [message]",ckey=key_name(speaker))
+
+	if(!speaker_mask)
+		speaker_mask = speaker.real_name
+
+	var/msg = "<i><span class='game say'>[name], <span class='name'>[speaker_mask]</span>[format_message(message, get_spoken_verb(message), speaker_mask)]</span></i>"
+
+	if(isvaurca(speaker))
+		speaker.custom_emote(VISIBLE_MESSAGE, "[pick("twitches their antennae", "twitches their antennae rhythmically")].")
+		playsound(speaker, 'sound/voice/vaurca_antenna_twitch.ogg', 60, 1)
+
+	if (within_jamming_range(speaker))
+		// The user thinks that the message got through.
+		to_chat(speaker, msg)
+		return
+
+	for(var/mob/player in GLOB.player_list)
+		if(istype(player,/mob/abstract/observer) || check_special_condition(player))
+			if(!within_jamming_range(player))
+				to_chat(player, msg)
+
+/datum/language/bug/liidra/check_special_condition(mob/other)
+	var/mob/living/carbon/human/M = other
+	if(!istype(M))
+		return FALSE
+	if(istype(M, /mob/abstract/new_player))
+		return FALSE
+	if(within_jamming_range(other))
+		return FALSE
+	if(M.internal_organs_by_name[BP_NEURAL_SOCKET] && (GLOB.all_languages[LANGUAGE_LIIDRA] in M.languages)) //replace with Special Liidra Socket later
+		return TRUE
+	if(M.internal_organs_by_name["blackkois"] && (GLOB.all_languages[LANGUAGE_LIIDRA] in M.languages))
+		return TRUE
+	if(isvaurca(M))
+		var/interceptchance = 1 //tiny chance for normal bugs to hear a message
+		if(M.species.name == SPECIES_VAURCA_BREEDER) //ta are better at intercepting transmissions
+			if(istype(M.origin, /singleton/origin_item/origin/tupii_b) || istype(M.origin, /singleton/origin_item/origin/vedhra_b)) //experienced in fighting lii'dra
+				interceptchance = 15
+			else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE)) //electronic warfare specialists
+				interceptchance = 20
+			else
+				interceptchance = 10
+		else
+			if(istype(M.origin, /singleton/origin_item/origin/tupii) || istype(M.origin, /singleton/origin_item/origin/vedhra))
+				interceptchance = 5
+			else if(HAS_TRAIT(src, TRAIT_ORIGIN_ELECTRONIC_WARFARE))
+				interceptchance = 10
+		if(prob(interceptchance))
+			return TRUE
+	return FALSE
+
+/datum/language/greimorian
+	name = LANGUAGE_GREIMORIAN
+	desc = "The method which greimorians use to communicate with one another."
+	speech_verb = list("chitters")
+	ask_verb = list("hisses")
+	exclaim_verb = list("shrieks")
+	sing_verb = list("trills")
+	colour = "alien"
+	key = "gr"
+	syllables = list("sksk", "chch", "ss", "kh", "shsh", "sh", "gh", "ch", "tt")
+	flags = RESTRICTED
+
+/datum/language/greimorian/hivemind
+	name = LANGUAGE_GREIMORIAN_HIVEMIND
+	desc = "A way for greimorians to communicate with one another even when seperated."
+	key = "gh"
+	flags = RESTRICTED | HIVEMIND
+
+/datum/language/purpose
+	name = LANGUAGE_PURPOSE
+	desc = "A heavily encrypted communication network, used by the synthetics of Purpose."
+	speech_verb = list("beeps")
+	ask_verb = list("beeps")
+	exclaim_verb = list("loudly beeps")
+	sing_verb = list("rhythmically beeps")
+	colour = "changeling"
+	written_style = "encodedaudiolanguage"
+	key = "pr"
+	flags = RESTRICTED | NO_STUTTER | HIVEMIND
+	syllables = list("beep","beep","beep","beep","beep","boop","boop","boop","bop","bop","dee","dee","doo","doo","hiss","hss","buzz","buzz","bzz","ksssh","keey","wurr","wahh","tzzz")
+	space_chance = 10
+
+/datum/language/purpose/get_random_name()
+	return "[pick(list("HERA","ZEUS","ARTEMIS","ATHENA","ARES","HADES","POSEIDON","DEMETER","APOLLO","APHORDITE","HERMES","HESTIA","DIONYSUS","PERSEPHONE","KRONOS","ODYSSEUS","AJAX","AGAMENON","CHIRON","CHARON"))][rand(100, 999)]"

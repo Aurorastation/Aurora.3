@@ -29,12 +29,13 @@
 	if (hold.handle_mousedrop(usr, over_object))
 		..(over_object)
 
-/obj/item/clothing/accessory/storage/attackby(obj/item/W as obj, mob/user as mob)
-	return hold.attackby(W, user)
+/obj/item/clothing/accessory/storage/attackby(obj/item/attacking_item, mob/user)
+	return hold.attackby(attacking_item, user)
 
 /obj/item/clothing/accessory/storage/emp_act(severity)
+	. = ..()
+
 	hold.emp_act(severity)
-	..()
 
 /obj/item/clothing/accessory/storage/attack_self(mob/user as mob)
 	if(length(hold.contents))

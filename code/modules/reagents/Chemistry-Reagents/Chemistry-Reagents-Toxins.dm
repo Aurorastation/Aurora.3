@@ -73,14 +73,55 @@
 
 /singleton/reagent/toxin/panotoxin
 	name = "Panotoxin"
-	description = "A strange poison from the strange panocelium mushroom that causes intense pain when injected."
+	description = "An insidious poison from the panocelium mushroom that causes mind-shattering pain. Known to cause fatal shock in small doses. Torturers dilute it."
 	reagent_state = LIQUID
 	color = "#008844"
 	strength = 0
+	overdose = 2
+	od_minimum_dose = REAGENTS_OVERDOSE * 0.25
 	taste_description = "stinging needles"
 
+/singleton/reagent/toxin/panotoxin/initial_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	M.chem_tracking[/singleton/reagent/toxin/panotoxin] = 0
+
 /singleton/reagent/toxin/panotoxin/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
-	M.adjustHalLoss(removed*15)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!H.can_feel_pain())
+			return
+	if(prob(40))
+		M.apply_effect(20, DAMAGE_PAIN) //Third of a stunbaton per proc! This gets really bad.
+		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 20
+	else if(prob(5))
+		M.Stun(4)
+		M.custom_pain(SPAN_DANGER("You feel [pick("a spike of horrific pain razing through every cell of your body","your insides bursting into screaming fire","your body trying to turn itself inside out","what death must be like")]!"), 40)
+		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 40
+		M.visible_message(SPAN_WARNING("[M] [pick("writhes in agony!","seizes up!","contorts in pain!")]"))
+
+/singleton/reagent/toxin/panotoxin/overdose(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(!H.can_feel_pain())
+			return
+	if(prob(5))
+		M.visible_message(SPAN_WARNING("[M] [pick("twitches faintly...","quivers slightly...")]"), range = 2)
+	else if(prob(5))
+		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
+		M.custom_pain(SPAN_HIGHDANGER("You feel [pick("your innermost being rotting alive as it slides down a slope of sandpaper","death's crushing, scalding grip engulf you","your insides imploding into a horrific singularity","nothing at all but cold scorching agony","the end of everything, pouring into and suffusing you like a waterfall of needles")]!"), 120)
+		M.chem_tracking[/singleton/reagent/toxin/panotoxin] += 120
+		M.visible_message(SPAN_WARNING("[M] [pick("tenses all over, and doesn't relax!","convulses violently!")]"))
+
+/singleton/reagent/toxin/panotoxin/final_effect(var/mob/living/carbon/human/M, var/alien, var/holder)
+	var/pain_to_refund = M.chem_tracking[/singleton/reagent/toxin/panotoxin] //5u does about 1900-2600 pain.
+	if(pain_to_refund > 80)
+		M.visible_message("<b>[M]</b> visibly untenses.") //Torturers should microdose. This saves them constant scans while preventing spam if IV'd.
+		to_chat(M, SPAN_GOOD("You feel the agony start to recede!"))
+		M.apply_effect(pain_to_refund * -0.5, DAMAGE_PAIN) //Without this, they can easily be trapped in deep pain shock for most of a round with no recourse in the game except for red nightshade. We only do half because a lot of it heals during the dose.
+	if(pain_to_refund > 4000)
+		to_chat(M, SPAN_WARNING("You're... free? Was life always so beautiful...?"))
+		M.apply_effect(pain_to_refund * -0.3, DAMAGE_PAIN) //If it's super bad, reduce further to mitigate OOC agony. We've been through multiple heart failures at this point. Let's be generous.
+	M.chem_tracking -= /singleton/reagent/toxin/panotoxin
+	pain_to_refund = null
 
 /singleton/reagent/toxin/phoron
 	name = "Phoron"
@@ -108,9 +149,9 @@
 			metabolism = REM * 20 //vaurcae metabolise phoron faster than other species - good for them if their filter isn't broken.
 			var/obj/item/organ/internal/vaurca/filtrationbit/F = H.internal_organs_by_name[BP_FILTRATION_BIT]
 			if(isnull(F))
-				..()
+				return
 			else if(F.is_broken())
-				..()
+				return
 			else if(H.species.has_organ[BP_PHORON_RESERVE])
 				var/obj/item/organ/internal/vaurca/preserve/P = H.internal_organs_by_name[BP_PHORON_RESERVE]
 				if(isnull(P))
@@ -674,6 +715,39 @@
 	nicotine = REM * 0.1
 	taste_mult = 2
 
+/singleton/reagent/toxin/tobacco/srendarrs_hand
+	name = "S'rendarr's Hand"
+	description = "S'rendarr's Hand, known as Alyad'al S'rendarr to the tajara, originates from Adhomai. The nicotine-containing leaves are often dried out and stuffed into pipes or rolled in paper for smoking."
+	taste_description = "honeyed tobacco"
+	nicotine = 0.3
+
+/singleton/reagent/toxin/oracle
+	name = "Oracle"
+	description = "Oracle originates from Vysoka, where it is often chewed, or dried and smoked or snorted. This is a common variant."
+	reagent_state = SOLID
+	color = "#ad5555"
+	taste_description = "tartness"
+	strength = 0
+	taste_mult = 10
+	var/caromeg = 0.2
+
+/singleton/reagent/toxin/oracle/affect_blood(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	holder.add_reagent(/singleton/reagent/mental/caromeg, removed * caromeg)
+
+/singleton/reagent/toxin/oracle/rich
+	name = "Vedamor Oracle"
+	color = "#ed1c1c"
+	description = "Vedamor is a city-state on Vysoka, renown for its high-quality soil. Their oracle is renown for being sweeter and more effective than the common variety."
+	taste_description = "sweetness"
+	caromeg = 0.5
+
+/singleton/reagent/toxin/oracle/liquid
+	name = "Caromeg Solution"
+	description = "A diluted caromeg solution, refined from oracle."
+	reagent_state = LIQUID
+	caromeg = REM * 0.1
+	taste_mult = 2
+
 /mob/living/carbon/human/proc/berserk_start()
 	to_chat(src, SPAN_DANGER("An uncontrollable rage courses through your body and overtakes your thoughts - your blood begins to boil with fury!"))
 	add_client_color(/datum/client_color/berserk)
@@ -731,6 +805,16 @@
 	if(prob(5))
 		M.emote(pick("twitch_v", "grunt"))
 
+	if((M.bodytemperature < 151)) //red nightshade in extracool cryogenic conditions will restore bonebreaks, at the cost of blood depletion
+		var/mob/living/carbon/human/H = M
+		H.vessel.remove_reagent(/singleton/reagent/blood, rand(15,30))
+		for(var/obj/item/organ/external/E in H.organs)
+			if(E.status & ORGAN_BROKEN)
+				if(prob(10))
+					H.vessel.remove_reagent(/singleton/reagent/blood, rand(30, 60))
+					E.status &= ~ORGAN_BROKEN
+					M.visible_message("<b>[M]</b> spasms!", SPAN_DANGER("You feel a stabbing pain!"))
+
 /singleton/reagent/toxin/berserk/overdose(var/mob/living/carbon/M, var/datum/reagents/holder)
 	if(prob(25))
 		M.add_chemical_effect(CE_CARDIOTOXIC, 1)
@@ -768,49 +852,68 @@
 		H.berserk_stop()
 		berserked = FALSE
 
-/singleton/reagent/toxin/trioxin
-	name = "Trioxin"
-	description = "A synthetic compound of unknown origins, designated originally as a performance enhancing substance."
+/singleton/reagent/toxin/hylemnomil
+	name = "Hylemnomil-Zeta"
+	description = "An extraordinary synthetic compound created at Einstein Engines Research Base Omega-99. This compound is synthetically created to incorporate parts of \
+					the Rampancy Signal on Konyang. It rewrites an organism's DNA at the base and, similarly to rabies, makes the infected organic have an \
+					unstoppable need to feed on anything it sees. Instructions can be conveyed to some degree, such as information on who is an Einstein Engines \
+					employee and to not hurt them. The process of DNA rewriting leads to rapid rotting of the flesh."
 	reagent_state = LIQUID
-	color = "#E7E146"
+	color = "#551A8B"
 	strength = 1
-	taste_description = "old eggs"
+	taste_description = "unknown scientific concoction"
 	metabolism = REM
 	unaffected_species = IS_DIONA | IS_MACHINE | IS_UNDEAD
 	affects_dead = TRUE
 
-/singleton/reagent/toxin/trioxin/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
+/singleton/reagent/toxin/hylemnomil/affect_blood(var/mob/living/carbon/M, var/removed, var/datum/reagents/holder)
 	..()
-	if(istype(M,/mob/living/carbon/human))
+	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 
+		/// Thetamycin is a temporary fix.
 		if(H.reagents.has_reagent(/singleton/reagent/thetamycin, 15))
 			return
 
+		/// Antibodies are a more permanent one.
+		if(H.chem_effects[CE_ANTIBODIES])
+			return
+
 		if(!H.internal_organs_by_name[BP_ZOMBIE_PARASITE] && prob(15))
-			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
+			var/to_infest
+			var/list/possible_organs = list()
+			var/obj/item/organ/external/organ_to_check
+
+			/// The infection starts from the hands and feet. The closer it is to the brain, the higher the stage it starts at.
+			for(var/organ in list(BP_R_HAND, BP_L_HAND, BP_R_FOOT, BP_L_FOOT))
+				organ_to_check = H.organs_by_name[organ]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+					possible_organs[organ] = 1
+
+			if(!length(possible_organs))
+				for(var/organ in list(BP_R_ARM, BP_L_ARM, BP_R_LEG, BP_L_LEG))
+					organ_to_check = H.organs_by_name[organ]
+					if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+						possible_organs[organ] = 2
+
+			/// In case there aren't any appendages, try the groin.
+			if(!length(possible_organs))
+				organ_to_check = H.organs_by_name[BP_GROIN]
+				if(organ_to_check && !BP_IS_ROBOTIC(organ_to_check))
+					possible_organs[BP_GROIN] = 2
+
+			/// I'm not even sure how you get to being a nugget, but the last resort is the chest.
+			if(!length(possible_organs))
+				possible_organs[BP_CHEST] = 3
+
+			/// Infect the user, apply the right stage, then remove all hylemnomil from the user.
+			to_infest = pick(possible_organs)
+			var/obj/item/organ/external/affected = H.organs_by_name[to_infest]
 			var/obj/item/organ/internal/parasite/zombie/infest = new()
 			infest.replaced(H, affected)
-
-		if(H.species.zombie_type)
-			if(!H.internal_organs_by_name[BP_BRAIN])	//destroying the brain stops trioxin from bringing the dead back to life
-				return
-
-			if(H && H.stat != DEAD)
-				return
-
-			for(var/datum/language/L in H.languages)
-				H.remove_language(L.name)
-
-			var/r = H.r_skin
-			var/g = H.g_skin
-			var/b = H.b_skin
-
-			H.set_species(H.species.zombie_type, 0, 0, 0)
-			H.revive()
-			H.change_skin_color(r, g, b)
-			playsound(H.loc, 'sound/hallucinations/far_noise.ogg', 50, 1)
-			to_chat(H,"<font size='3'><span class='cult'>You return back to life as the undead, all that is left is the hunger to consume the living and the will to spread the infection.</font></span>")
+			infest.parent_organ = affected.limb_name
+			infest.stage = possible_organs[to_infest]
+			H.reagents.remove_reagent(type, REAGENT_VOLUME(H.reagents, type))
 
 /singleton/reagent/toxin/dextrotoxin
 	name = "Dextrotoxin"
@@ -904,3 +1007,23 @@
 			var/obj/item/organ/external/affected = H.get_organ(BP_CHEST)
 			var/obj/item/organ/internal/parasite/heartworm/infest = new()
 			infest.replaced(H, affected)
+
+/singleton/reagent/toxin/malignant_tumour_cells
+	name = "Malignant Tumour Cells"
+	description = "Cells of a malignant tumour which have broken off and entered the circulatory and/or lymphatic system to spread to other regions of the body."
+	reagent_state = SOLID
+	color = "#460000"
+	metabolism = REM/2 //Slow metabolisation so medical can potentially screen it early, given it's danger.
+	ingest_mul = 0
+	touch_mul = 0
+	breathe_mul = 0
+	taste_description = "blood"
+	taste_mult = 0.1
+	strength = 0
+
+/singleton/reagent/toxin/malignant_tumour_cells/affect_blood(mob/living/carbon/M, alien, removed, datum/reagents/holder)
+	..()
+	var/mob/living/carbon/human/H = M
+	if(!(REAGENT_VOLUME(M.reagents, /singleton/reagent/cytophenolate)) && !H.internal_organs_by_name[BP_TUMOUR_SPREADING]) //only affects people with immunosuppressants or a pre-existing malignant tumour
+		return
+	H.infest_with_parasite(H, BP_TUMOUR_SPREADING, pick(H.organs), 10)

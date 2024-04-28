@@ -6,7 +6,7 @@
 	melee_damage = 50
 	action_delay = 15
 	max_damage = 4000
-	power_use = 7500
+	power_use = 3500
 	has_hardpoints = list(HARDPOINT_LEFT_SHOULDER, HARDPOINT_RIGHT_SHOULDER)
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
@@ -17,7 +17,7 @@
 	icon_state = "strider_legs"
 	move_delay = 5
 	max_damage = 650
-	power_use = 5000
+	power_use = 2500
 	trample_damage = 45
 
 /obj/item/mech_component/sensors/superheavy
@@ -42,7 +42,7 @@
 	icon_state = "strider_body"
 	max_damage = 750
 	mech_health = 3500
-	power_use = 15000
+	power_use = 1500
 
 /obj/item/mech_component/chassis/superheavy/prebuild()
 	. = ..()

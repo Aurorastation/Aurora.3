@@ -30,9 +30,9 @@
 		material = SSmaterials.get_material_by_name(MATERIAL_STEEL)
 	update_icon()
 	. = ..()
-	spawn_mech_equipment()
+	INVOKE_ASYNC(src, PROC_REF(spawn_mech_equipment))
 	if(remote_network)
-		become_remote()
+		INVOKE_ASYNC(src, PROC_REF(become_remote))
 
 /mob/living/heavy_vehicle/premade/proc/add_parts()
 	if(!head && e_head)
