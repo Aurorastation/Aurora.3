@@ -1,0 +1,7 @@
+author: Crosarius
+
+delete-after: True
+
+changes:
+  - imageadd: "Added sprites for Si'akh Priest robes"
+  - rscadd: "Added Si'akh Priest robes to the Unathi xeno loadout."
