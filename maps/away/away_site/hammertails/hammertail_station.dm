@@ -1,7 +1,8 @@
 /datum/map_template/ruin/away_site/hammertail_station
 	name = "Hammertail Station"
 	description = "A station owned by the Hammertail smiths."
-	suffixes = list("away_site/hammertails/hammertail_station.dmm")
+	prefix = "away_site/hammertails/"
+	suffixes = list("hammertail_station.dmm")
 	sectors = list(SECTOR_BADLANDS, SECTOR_VALLEY_HALE, SECTOR_CORP_ZONE) //Sectors in the Hammertails' area of operation that aren't super well-patrolled
 	ship_cost = 1
 	spawn_weight = 1
@@ -10,6 +11,7 @@
 		/datum/shuttle/autodock/overmap/hammertail_shuttle,
 		/datum/shuttle/autodock/overmap/hammertail_pod
 	)
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/hammertail_station
 	map = "Hammertail Station"
