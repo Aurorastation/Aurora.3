@@ -11362,10 +11362,10 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 9
 	},
-/obj/effect/landmark/start{
-	name = "Xenoarchaeologist"
-	},
 /obj/structure/bed/stool/chair/office/light,
+/obj/effect/landmark/start{
+	name = "Research Understudy"
+	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
 "fkZ" = (
@@ -15495,6 +15495,16 @@
 /obj/structure/platform_stairs,
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/port/far)
+"gZA" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/landmark/start{
+	name = "Lab Assistant"
+	},
+/turf/simulated/floor/wood,
+/area/rnd/conference)
 "gZD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -25003,6 +25013,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard/far)
+"lCb" = (
+/obj/structure/bed/stool/chair/office/light,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Research Understudy"
+	},
+/turf/simulated/floor/wood,
+/area/rnd/conference)
 "lCC" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -28048,11 +28068,11 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
 	},
-/obj/effect/landmark/start{
-	name = "Xenoarchaeologist"
-	},
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Scientist"
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
@@ -32790,16 +32810,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/storage/secure)
-"pfr" = (
-/obj/effect/landmark/start{
-	name = "Lab Assistant"
-	},
-/obj/structure/bed/stool/chair/office/light{
-	dir = 1
-	},
-/obj/effect/floor_decal/spline/fancy/wood,
-/turf/simulated/floor/wood,
-/area/rnd/conference)
 "pfB" = (
 /obj/effect/floor_decal/corner/brown{
 	dir = 10
@@ -33864,6 +33874,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/camera/network/research{
 	c_tag = "Research - Meeting Room";
+	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Scientist"
+	},
+/obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -39584,6 +39600,16 @@
 	temperature = 253.15
 	},
 /area/horizon/kitchen/freezer)
+"ssI" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/landmark/start{
+	name = "Xenoarchaeologist"
+	},
+/turf/simulated/floor/wood,
+/area/rnd/conference)
 "ssK" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
@@ -42454,16 +42480,6 @@
 /obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/crew_quarters/heads/hor)
-"tNT" = (
-/obj/effect/landmark/start{
-	name = "Lab Assistant"
-	},
-/obj/structure/bed/stool/chair/office/light,
-/obj/effect/floor_decal/spline/fancy/wood{
-	dir = 1
-	},
-/turf/simulated/floor/wood,
-/area/rnd/conference)
 "tNU" = (
 /obj/structure/platform_stairs/full/east_west_cap,
 /obj/structure/platform/cutout{
@@ -48079,10 +48095,10 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 1
 	},
+/obj/effect/floor_decal/spline/fancy/wood,
 /obj/effect/landmark/start{
 	name = "Scientist"
 	},
-/obj/effect/floor_decal/spline/fancy/wood,
 /turf/simulated/floor/wood,
 /area/rnd/conference)
 "wlJ" = (
@@ -81119,7 +81135,7 @@ xcO
 byv
 bSD
 gqz
-jjl
+lCb
 ncA
 wlF
 vVL
@@ -81321,9 +81337,9 @@ daM
 rnA
 bSD
 jnF
-hSU
+ouk
 vye
-wlF
+gZA
 dxH
 dOi
 aTd
@@ -81523,9 +81539,9 @@ rSx
 qUz
 bSD
 jnF
-ouk
+jjl
 ncA
-wlF
+ssI
 vVL
 dOi
 aTd
@@ -81725,9 +81741,9 @@ pkA
 rnA
 bSD
 jnF
-tNT
+hSU
 ncA
-pfr
+ssI
 vVL
 dOi
 qFD
