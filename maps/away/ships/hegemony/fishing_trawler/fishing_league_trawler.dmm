@@ -73,7 +73,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
@@ -189,9 +190,6 @@
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA_port)
 "br" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
-	},
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -464,13 +462,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "el" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/aft{
 	name = "fore"
 	},
 /obj/machinery/door/blast/shutters/open{
 	id = "trawler_shuttle_shutters"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "ez" = (
@@ -729,12 +727,12 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/freezer)
 "gJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/regular/open{
 	dir = 4;
 	id = "trawler_lockdown";
 	name = "blast door"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/fishing_trawler/bridge)
 "gK" = (
@@ -1625,11 +1623,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/freezer)
 "ne" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open,
 /obj/machinery/door/blast/shutters/open{
 	id = "trawler_shuttle_shutters"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "nh" = (
@@ -1754,7 +1752,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fishing_trawler)
@@ -1994,10 +1993,10 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/port)
 "px" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA_port)
 "pC" = (
@@ -2011,10 +2010,11 @@
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/port)
 "pE" = (
-/obj/machinery/atmospherics/pipe/tank/air{
+/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/atmospherics/portables_connector{
 	dir = 1
 	},
-/obj/effect/floor_decal/industrial/outline/blue,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "pN" = (
@@ -2062,16 +2062,6 @@
 /obj/structure/closet/radiation,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/port)
-"ql" = (
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/dark_blue/diagonal,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/fishing_trawler)
 "qo" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	name = "Carbon Dioxide Supply Monitor";
@@ -2592,7 +2582,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor,
@@ -2726,7 +2717,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/engineering/Starboard)
 "uI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, bridge"
 	},
@@ -2735,6 +2725,7 @@
 	id = "trawler_lockdown";
 	name = "blast door"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/fishing_trawler/bridge)
 "uM" = (
@@ -3091,12 +3082,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
-"xN" = (
-/obj/structure/table/wood{
-	layer = 2.3
-	},
-/turf/simulated/floor/tiled/steel,
-/area/ship/fishing_trawler/EVA_port)
 "xV" = (
 /obj/machinery/firealarm/north,
 /obj/effect/decal/cleanable/dirt,
@@ -3115,10 +3100,10 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/fishing_trawler/kitchen)
 "ye" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/door/blast/shutters/open{
 	id = "trawler_shuttle_shutters"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "ym" = (
@@ -3383,7 +3368,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fishing_trawler)
@@ -3531,7 +3517,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
@@ -3584,7 +3571,6 @@
 /area/ship/fishing_trawler/corridor/starboard)
 "BM" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	target_pressure = 15000;
 	name = "Canister to Tank";
 	dir = 8
@@ -3662,10 +3648,10 @@
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA_starboard)
 "BV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA_starboard)
 "Cf" = (
@@ -4410,7 +4396,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -4581,6 +4568,9 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Jv" = (
@@ -4672,7 +4662,7 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/bridge)
 "JV" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/fishing_trawler/medical)
 "Ka" = (
@@ -4822,7 +4812,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /obj/effect/landmark/entry_point/fore{
 	name = "aft"
@@ -5190,9 +5181,11 @@
 /turf/simulated/floor/tiled/freezer,
 /area/ship/fishing_trawler/freezer)
 "NQ" = (
-/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/empty,
 /obj/effect/floor_decal/industrial/outline/red,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "NU" = (
@@ -5303,13 +5296,10 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/engineering/Starboard)
 "OX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Pa" = (
@@ -5369,7 +5359,6 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/starboard)
 "Pu" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/structure/table/steel,
 /obj/structure/closet/walllocker/emerglocker/west,
 /turf/simulated/floor/tiled/dark,
@@ -5409,7 +5398,8 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	shuttle_tag = "Fishing League Shuttle";
 	master_tag = "trawler_shuttle_airlock";
-	name = "trawler_shuttle_airlock"
+	name = "trawler_shuttle_airlock";
+	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/airless,
@@ -5866,10 +5856,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Tt" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA_port)
 "Tw" = (
@@ -6121,7 +6111,6 @@
 /area/ship/fishing_trawler/corridor/central)
 "VE" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	layer = 2.8;
 	name = "Tank to Thrusters";
 	target_pressure = 15000;
 	dir = 4
@@ -6255,10 +6244,10 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/corridor/port)
 "WF" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor,
 /area/ship/fishing_trawler/EVA_starboard)
 "WL" = (
@@ -6488,7 +6477,7 @@
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/Captain)
 "YO" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/freezer)
 "YP" = (
@@ -36315,8 +36304,8 @@ mk
 SK
 Nk
 Jr
-Af
 OX
+oH
 Aa
 Nk
 Nk
@@ -36573,7 +36562,7 @@ vj
 Nk
 kb
 kb
-ql
+oH
 Aa
 Nk
 Pp
@@ -41480,7 +41469,7 @@ YB
 Zb
 Vm
 bd
-xN
+Os
 Dq
 GE
 aC
