@@ -36,8 +36,8 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 			if("Yes")
 				switch(alert("Which version of Tracy would you like to run?", "Tracy Version", "Cancel", "Connection Based", "Disk Based"))
 					if("Connection Based")
-						SetConfig("env", "UTRACY_BIND_ADDRESS", "0.0.0.0")
-						SetConfig("env", "UTRACY_BIND_PORT", "12345")
+						world.SetConfig("env", "UTRACY_BIND_ADDRESS", "0.0.0.0")
+						world.SetConfig("env", "UTRACY_BIND_PORT", "12345")
 						prof_init(CONNECTION_VERSION) // This start's mafemergency's original version of Tracy. Requiring a direct connection, not writing to the disk.
 					if("Disk Based")
 						prof_init(DISK_VERSION) // This start's Affectedarc07's version of Tracy. Writing a .utracy file to the disk.
