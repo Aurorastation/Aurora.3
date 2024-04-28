@@ -1120,9 +1120,7 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "UT" = (
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "Vd" = (

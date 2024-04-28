@@ -15898,9 +15898,7 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "kTG" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
+/obj/effect/landmark/latejoincryo,
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/fitness/changing)

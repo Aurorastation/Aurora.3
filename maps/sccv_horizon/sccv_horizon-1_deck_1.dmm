@@ -323,9 +323,7 @@
 	pixel_y = 32
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "any" = (
@@ -12254,9 +12252,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/obj/effect/landmark{
-	name = "JoinLateLift"
-	},
+/obj/effect/landmark/latejoinlift,
 /obj/structure/disposalpipe/junction{
 	dir = 8;
 	icon_state = "pipe-j2"
@@ -16676,9 +16672,7 @@
 	c_tag = "Second Deck - Living Quarters Lift";
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
 "lEq" = (
@@ -18054,9 +18048,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/horizon/crew_quarters/cryo/living_quarters_lift)
@@ -29679,9 +29671,7 @@
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenoarch_atrium)
 "usu" = (
-/obj/effect/landmark{
-	name = "JoinLateLift"
-	},
+/obj/effect/landmark/latejoinlift,
 /obj/structure/disposalpipe/junction{
 	dir = 8;
 	icon_state = "pipe-j2"
@@ -31554,9 +31544,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLateLift"
-	},
+/obj/effect/landmark/latejoinlift,
 /obj/structure/disposalpipe/junction{
 	dir = 8;
 	icon_state = "pipe-j2"
