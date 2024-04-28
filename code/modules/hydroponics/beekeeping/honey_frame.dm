@@ -13,4 +13,4 @@
 
 /obj/item/honey_frame/filled/Initialize()
 	. = ..()
-	add_overlay("honeycomb")
+	AddOverlays("honeycomb")

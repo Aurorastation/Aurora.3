@@ -112,12 +112,12 @@ There are several things that need to be remembered:
 		return	// No point.
 
 	update_hud()		//TODO: remove the need for this
-	cut_overlays()
+	ClearOverlays()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		add_overlay(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
+		AddOverlays(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
 
 	else if (icon_update)
 		if (icon != stand_icon)
@@ -137,7 +137,7 @@ There are several things that need to be remembered:
 			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
 			ovr += aura_overlay
 
-		add_overlay(ovr)
+		AddOverlays(ovr)
 
 	if (((lying_prev != lying) || forceDirUpdate || size_multiplier != 1) && forceDirUpdate != UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
@@ -166,7 +166,7 @@ There are several things that need to be remembered:
 			M.Translate(0, 16*(size_multiplier-1))
 			animate(src, transform = M, time = ANIM_LYING_TIME)
 
-	compile_overlays()
+	UpdateOverlays()
 	lying_prev = lying
 
 /mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand, var/direction)
@@ -402,8 +402,8 @@ There are several things that need to be remembered:
 		part.cut_additional_images(src)
 		var/list/add_images = part.get_additional_images(src)
 		if(add_images)
-			add_overlay(add_images, TRUE)
-	compile_overlays()
+			AddOverlays(add_images, TRUE)
+	UpdateOverlays()
 
 	//END CACHED ICON GENERATION.
 	stand_icon.Blend(base_icon,ICON_OVERLAY)

@@ -183,7 +183,7 @@
 	dir = L.dir
 	var/image/I
 	I = image(icon = 'icons/obj/statue.dmi', icon_state = "icecube")
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/structure/closet/statue/ice/shatter(mob/user as mob)
 	if (user)

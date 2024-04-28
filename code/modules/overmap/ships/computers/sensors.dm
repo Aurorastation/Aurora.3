@@ -454,7 +454,7 @@
 /obj/machinery/shipsensors/update_icon()
 	icon_state = "[base_icon_state]_off"
 	if(!use_power)
-		cut_overlays()
+		ClearOverlays()
 
 	if(use_power)
 		icon_state = "[base_icon_state]_on"
@@ -475,11 +475,11 @@
 	else
 		overlay = "[overlay]5"
 
-	cut_overlays()
-	add_overlay(overlay)
+	ClearOverlays()
+	AddOverlays(overlay)
 	var/heat_percentage = heat / critical_heat * 100
 	if(heat_percentage > 85)
-		add_overlay("sensors-effect-hot")
+		AddOverlays("sensors-effect-hot")
 
 /obj/machinery/shipsensors/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

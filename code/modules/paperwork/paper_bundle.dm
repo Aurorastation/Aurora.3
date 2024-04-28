@@ -263,7 +263,7 @@
 /obj/item/paper_bundle/update_icon()
 	var/obj/item/paper/P = pages[1]
 	icon_state = P.icon_state
-	copy_overlays(P, TRUE)
+	CopyOverlays(P, TRUE)
 	underlays = 0
 	var/i = 0
 	var/photo
@@ -279,11 +279,11 @@
 		else if(istype(O, /obj/item/photo))
 			var/obj/item/photo/Ph = O
 			photo = 1
-			add_overlay(Ph.tiny)
+			AddOverlays(Ph.tiny)
 	if(i>1)
 		desc = "[i] papers clipped to each other."
 	else
 		desc = "A single sheet of paper."
 	if(photo)
 		desc += "\nThere is a photo attached to it."
-	add_overlay("clip")
+	AddOverlays("clip")

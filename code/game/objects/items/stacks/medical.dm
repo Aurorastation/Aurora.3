@@ -106,7 +106,7 @@ Contains:
 	if(!automatic_charge_overlays)	//Checks if the item has this feature enabled
 		return	//If it does not, do nothing
 	var/ratio = CEILING(clamp(amount / max_amount, 0, 1) * charge_sections, 1)
-	cut_overlays()
+	ClearOverlays()
 	var/iconState = "[icon_state]_charge"
 	if(!amount)	//Checks if there are still charges left in the item
 		return //If it does not, do nothing, as the overlays have been cut before this already.
@@ -114,7 +114,7 @@ Contains:
 		var/mutable_appearance/charge_overlay = mutable_appearance(icon, iconState)
 		for(var/i = ratio, i >= 1, i--)
 			charge_overlay.pixel_x = charge_x_offset * (i - 1)
-			add_overlay(charge_overlay)
+			AddOverlays(charge_overlay)
 
 // Bruise Pack.
 /obj/item/stack/medical/bruise_pack

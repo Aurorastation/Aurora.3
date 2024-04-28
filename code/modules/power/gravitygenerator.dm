@@ -85,7 +85,7 @@
 /obj/machinery/gravity_generator/main/station/Initialize()
 	. = ..()
 	setup_parts()
-	middle.add_overlay("activated")
+	middle.AddOverlays("activated")
 	update_list(TRUE)
 	addtimer(CALLBACK(src, PROC_REF(round_startset)), 100)
 
@@ -180,7 +180,7 @@
 	for(var/obj/machinery/gravity_generator/M in parts)
 		if(!(M.stat & BROKEN))
 			M.set_broken()
-	middle.cut_overlays()
+	middle.ClearOverlays()
 	charge_count = 0
 	breaker = 0
 	set_power()
@@ -305,7 +305,7 @@
 		pulse_radiation(100)
 		set_state(0)
 		if(middle)
-			middle.cut_overlays()
+			middle.ClearOverlays()
 		if(prob(1)) //It will spawn a small one and eat the generator. Won't cause any other issues considering it's a 1x1 and will go away on it's own.
 			new /obj/singularity(src.loc)
 		if(prob(33)) //Releasing all that power at once is dangerous.
@@ -411,9 +411,9 @@
 
 			if(overlay_state != current_overlay)
 				if(middle)
-					middle.cut_overlays()
+					middle.ClearOverlays()
 					if(overlay_state)
-						middle.add_overlay(overlay_state)
+						middle.AddOverlays(overlay_state)
 					current_overlay = overlay_state
 
 /obj/machinery/gravity_generator/main/proc/pulse_radiation(var/amount = 20)

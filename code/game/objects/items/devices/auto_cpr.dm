@@ -65,35 +65,35 @@
 		var/c_state = "battery[battery_level][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/battery_overlay = image(c_icon, c_state)
 		battery_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(battery_overlay)
+		I.AddOverlays(battery_overlay)
 	if(breath_mask)
 		var/c_state = "mask_[mask_on ? "worn" : "idle"][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/mask_overlay = image(c_icon, c_state)
 		mask_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(mask_overlay)
+		I.AddOverlays(mask_overlay)
 	if(tank)
 		if(tank_level)
 			var/c_state = "tank_indicator[tank_level][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 			var/image/tank_level_overlay = image(c_icon, c_state)
 			tank_level_overlay.appearance_flags = RESET_ALPHA
-			I.add_overlay(tank_level_overlay)
+			I.AddOverlays(tank_level_overlay)
 		var/c_state = "tank_[tank_type][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/tank_overlay = image(c_icon, c_state)
 		tank_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(tank_overlay)
+		I.AddOverlays(tank_overlay)
 	if(epp_active)
 		var/c_state = "epp_active[cpr_mode ? "_cpr" : ""][contained_sprite ? slot_str_to_contained_flag(slot) : ""]"
 		var/image/epp_overlay = image(c_icon, c_state)
 		epp_overlay.appearance_flags = RESET_ALPHA
-		I.add_overlay(epp_overlay)
+		I.AddOverlays(epp_overlay)
 	return I
 
 /obj/item/auto_cpr/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	item_state = "[cpr_mode ? "med_harness_cpr" : "[initial(item_state)]"]"
 
 	if(breath_mask)
-		add_overlay("mask_[mask_on ? "worn" : "idle"]")
+		AddOverlays("mask_[mask_on ? "worn" : "idle"]")
 	if(battery)
 		switch(battery.percent())
 			if(90 to INFINITY)	battery_level = 6
@@ -103,7 +103,7 @@
 			if(20 to 39)		battery_level = 2
 			if(05 to 19)		battery_level = 1
 			if(-INFINITY to 4)	battery_level = 0
-		add_overlay("battery[battery_level]")
+		AddOverlays("battery[battery_level]")
 	if(tank)
 		switch(tank.percent())
 			if(90 to INFINITY)	tank_level = 6
@@ -113,7 +113,7 @@
 			if(20 to 39)		tank_level = 2
 			if(05 to 19)		tank_level = 1
 			if(-INFINITY to 4)	tank_level = 0
-		add_overlay("tank_indicator[tank_level]")
+		AddOverlays("tank_indicator[tank_level]")
 
 		if(istype(tank, /obj/item/tank/emergency_oxygen/engi))
 			tank_type = "engi"
@@ -121,11 +121,11 @@
 			tank_type = "oxy"
 		else
 			tank_type = "other"
-		add_overlay("tank_[tank_type]")
+		AddOverlays("tank_[tank_type]")
 	if(epp_active)
-		add_overlay("epp_active")
+		AddOverlays("epp_active")
 	if(panel_open)
-		add_overlay("panel_open[battery ? "_battery" : ""]")
+		AddOverlays("panel_open[battery ? "_battery" : ""]")
 
 /obj/item/auto_cpr/mob_can_equip(mob/living/carbon/human/H, slot, disable_warning = 0, force = 0)
 	. = ..()

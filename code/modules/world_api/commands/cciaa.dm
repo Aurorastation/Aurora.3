@@ -248,7 +248,7 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/stamp
-	P.add_overlay(stampoverlay)
+	P.AddOverlays(stampoverlay)
 	if(stamptext)
 		P.stamps += "<HR><i>This paper has been stamped [stamptext].</i>"
 	else

@@ -42,7 +42,7 @@
 	var/i = 0
 	var/list/words = list()
 
-	cut_overlays()
+	ClearOverlays()
 	var/list/ovr = list()
 	for(var/obj/item/reagent_containers/food/snacks/O in ingredients)
 		words += O.ingredient_name || O.name
@@ -59,7 +59,7 @@
 	T.pixel_y = (ingredients.len * 2)+1
 	ovr += T
 
-	add_overlay(ovr)
+	AddOverlays(ovr)
 
 	name = lowertext("[english_list(words)] [base_name]")
 	if(length(name) > 80) name = "[pick(list("absurd","colossal","enormous","ridiculous"))] [base_name]"

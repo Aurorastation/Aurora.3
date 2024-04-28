@@ -28,14 +28,14 @@
 	return use(cell_amt) / CELLRATE
 
 /obj/item/cell/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	switch(percent())
 		if(95 to 100)
-			add_overlay("cell-o2")
+			AddOverlays("cell-o2")
 		if(25 to 94)
-			add_overlay("cell-o1")
+			AddOverlays("cell-o1")
 		if(0.05 to 25)
-			add_overlay("cell-o0")
+			AddOverlays("cell-o0")
 		if(0 to 0.05)
 			return
 

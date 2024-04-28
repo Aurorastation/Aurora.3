@@ -36,25 +36,25 @@
 
 // update the icon state and description of the light
 /obj/item/light/proc/update()
-	cut_overlays()
+	ClearOverlays()
 	switch(status)
 		if(LIGHT_OK)
 			icon_state = "[lighttype]_attachment"
 			var/image/I = image(icon, "[lighttype]")
 			I.color = brightness_color
-			add_overlay(I)
+			AddOverlays(I)
 			desc = "A replacement [name]."
 		if(LIGHT_BURNED)
 			icon_state = "[lighttype]_attachment"
 			var/image/I = image(icon, "[lighttype]_burned")
 			I.color = brightness_color
-			add_overlay(I)
+			AddOverlays(I)
 			desc = "A burnt-out [name]."
 		if(LIGHT_BROKEN)
 			icon_state = "[lighttype]_attachment_broken"
 			var/image/I = image(icon, "[lighttype]_broken")
 			I.color = brightness_color
-			add_overlay(I)
+			AddOverlays(I)
 			desc = "A broken [name]."
 
 // attack bulb/tube with object
