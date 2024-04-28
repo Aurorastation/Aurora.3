@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_cavern_geist.dmm")
 
+	unit_test_groups = list(1)
+
 //ghost roles
 
 /datum/ghostspawner/simplemob/adhomai_cavern_geist

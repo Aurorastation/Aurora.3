@@ -9,6 +9,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_nuclear_waste_makeshift.dmm")
 
+	unit_test_groups = list(2)
+
 /area/adhomai_nuclear_waste_makeshift
 	name = "Makeshift Radioactive Waste Disposal Site"
 	icon_state = "bluenew"

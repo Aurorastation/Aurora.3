@@ -8,3 +8,5 @@
 
 	prefix = "raskara/"
 	suffixes = list("raskara_ritual.dmm")
+
+	unit_test_groups = list(2)

@@ -7,7 +7,6 @@
 	desc = "See comments/documentation in code."
 	icon = 'icons/effects/map_effects.dmi'
 	icon_state = "marker_airlock"
-	layer = LIGHTING_LAYER
 
 	/// Radio frequency of this airlock.
 	/// For simple external/service access airlocks it does not affect anything.
