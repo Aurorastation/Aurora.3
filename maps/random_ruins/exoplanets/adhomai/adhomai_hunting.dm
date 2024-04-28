@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_hunting.dmm")
 
+	unit_test_groups = list(3)
+
 /area/adhomai_hunting
 	name = "Adhomai Hunting Lodge"
 	icon_state = "bluenew"

@@ -261,15 +261,6 @@
 		to_chat(holder.wearer, wearer_text)
 		return
 
-/mob/living/carbon/human/get_status_tab_items()
-	. = ..()
-
-	if(. && istype(back,/obj/item/rig))
-		var/obj/item/rig/R = back
-		if(R && !R.canremove && R.installed_modules.len)
-			var/cell_status = R.cell ? "[R.cell.charge]/[R.cell.maxcharge]" : "ERROR"
-			. += "Suit Charge: [cell_status]"
-
 /mob/living/carbon/human/get_actions_for_statpanel()
 	var/list/data = ..()
 	if(istype(back,/obj/item/rig))

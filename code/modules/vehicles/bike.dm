@@ -60,6 +60,7 @@
 
 /obj/vehicle/bike/Destroy()
 	QDEL_NULL(key)
+	QDEL_NULL(ion)
 	return ..()
 
 /obj/vehicle/bike/setup_vehicle()
@@ -265,12 +266,6 @@
 		icon_state = "[bike_icon]_off"
 
 	..()
-
-
-/obj/vehicle/bike/Destroy()
-	QDEL_NULL(ion)
-
-	return ..()
 
 /obj/vehicle/bike/Collide(var/atom/movable/AM)
 	. = ..()

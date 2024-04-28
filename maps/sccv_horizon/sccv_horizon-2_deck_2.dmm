@@ -534,7 +534,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "aob" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -844,7 +844,7 @@
 	RCon_tag = "Leviathan"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "atu" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -1258,7 +1258,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "azB" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -1777,7 +1777,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "aNp" = (
 /obj/effect/floor_decal/corner/dark_green/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1871,7 +1871,7 @@
 /area/engineering/engine_room)
 "aPN" = (
 /turf/simulated/wall/r_wall,
-/area/horizon/zta)
+/area/horizon/zat)
 "aQb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -3352,7 +3352,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "bvf" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3793,7 +3793,7 @@
 /area/rnd/hallway)
 "bDO" = (
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "bDV" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3817,7 +3817,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "bFA" = (
 /obj/effect/floor_decal/spline/fancy/wood,
 /obj/item/device/radio/intercom/south,
@@ -4047,7 +4047,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "bKu" = (
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /obj/structure/cable{
@@ -4465,7 +4465,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "bTo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -4523,7 +4523,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "bUd" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -5020,7 +5020,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "cgI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -6578,7 +6578,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "cXU" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -7076,7 +7076,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "dkR" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -7617,7 +7617,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "dyU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
@@ -7831,7 +7831,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "dDS" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -8134,7 +8134,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "dLO" = (
 /obj/machinery/door/window/westright,
 /obj/structure/platform_stairs/full/east_west_cap,
@@ -8388,7 +8388,7 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "dSH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark,
@@ -8427,7 +8427,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "dVc" = (
 /obj/structure/window/shuttle/scc_space_ship,
 /obj/structure/grille,
@@ -8658,7 +8658,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "dYr" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/plating,
@@ -8708,7 +8708,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "dZL" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -8764,7 +8764,7 @@
 /obj/item/device/flashlight/lamp,
 /obj/machinery/firealarm/north,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "ebq" = (
 /obj/structure/foamedmetal,
 /obj/structure/shuttle_part/scc_space_ship{
@@ -9407,7 +9407,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "erY" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark/full,
@@ -9552,7 +9552,7 @@
 "ewx" = (
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "ewD" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/spline/plain{
@@ -10337,7 +10337,7 @@
 	name = "Primary Armament Shielding"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "eQx" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -10490,7 +10490,7 @@
 "eUs" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "eUB" = (
 /obj/machinery/flasher{
 	id = "permflash"
@@ -11260,15 +11260,15 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "fhw" = (
 /obj/machinery/camera/motion{
-	c_tag = "ZTA Aft Port";
+	c_tag = "ZAT Aft Port";
 	dir = 8;
 	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "fhD" = (
 /obj/machinery/door/airlock/multi_tile/glass{
 	dir = 2;
@@ -11437,7 +11437,7 @@
 /area/engineering/engine_room)
 "fmk" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/zta)
+/area/horizon/zat)
 "fmz" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -11544,7 +11544,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "fpb" = (
 /obj/machinery/portable_atmospherics/hydroponics,
 /obj/machinery/light{
@@ -12027,7 +12027,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/ladder_mobile,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "fAK" = (
 /obj/machinery/button/remote/airlock{
 	dir = 4;
@@ -12808,7 +12808,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "fSm" = (
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -13083,7 +13083,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "fZB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -13872,7 +13872,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "goQ" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -14241,7 +14241,7 @@
 /obj/machinery/door/window/eastright,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "gwe" = (
 /obj/structure/bed/stool/chair{
 	dir = 4
@@ -14830,7 +14830,7 @@
 "gHk" = (
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "gHn" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -15922,7 +15922,7 @@
 	layer = 3.3
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "hkA" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -16174,7 +16174,7 @@
 /obj/machinery/door/window/eastright,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "hpX" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/hologram/holopad,
@@ -16277,7 +16277,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "hrP" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -16491,7 +16491,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "hym" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -17286,12 +17286,12 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/camera/motion{
-	c_tag = "ZTA Fore Starboard";
+	c_tag = "ZAT Fore Starboard";
 	dir = 4;
 	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "hRY" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -17434,7 +17434,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "hUW" = (
 /obj/machinery/door/airlock/glass_service{
 	dir = 4;
@@ -18450,7 +18450,7 @@
 /obj/machinery/porta_turret/sniper,
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "itW" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -18774,7 +18774,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "iCx" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -19778,7 +19778,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "iZg" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -19889,7 +19889,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "jcc" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -20068,11 +20068,11 @@
 	dir = 4
 	},
 /obj/machinery/camera/motion{
-	c_tag = "ZTA Access Fore";
+	c_tag = "ZAT Access Fore";
 	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "jgm" = (
 /obj/machinery/door/window/eastright,
 /obj/structure/platform_stairs/full/east_west_cap,
@@ -20677,7 +20677,7 @@
 	},
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "jsS" = (
 /obj/machinery/recharger{
 	pixel_y = 1
@@ -21250,7 +21250,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "jFS" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 1
@@ -21752,7 +21752,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "jTA" = (
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
 /area/engineering/engine_monitoring/rust)
@@ -22098,7 +22098,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "kbF" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 1
@@ -22445,7 +22445,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "kkW" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/effect/floor_decal/industrial/outline/security,
@@ -22592,7 +22592,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "kpR" = (
 /obj/random/junk,
 /obj/effect/decal/cleanable/dirt,
@@ -22884,7 +22884,7 @@
 /obj/effect/floor_decal/corner/pink/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "kwS" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -23816,7 +23816,7 @@
 /obj/item/clothing/ears/earmuffs,
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "kVO" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -24528,7 +24528,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "lnr" = (
 /obj/structure/coatrack{
 	pixel_x = -10;
@@ -24611,7 +24611,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "lqa" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
 	dir = 8
@@ -25252,7 +25252,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "lIc" = (
 /obj/structure/lattice,
 /obj/structure/platform/ledge{
@@ -26152,7 +26152,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "mcC" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/platform{
@@ -27226,7 +27226,7 @@
 	name = "port, leviathan"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/zta)
+/area/horizon/zat)
 "mCV" = (
 /obj/structure/cable/green{
 	icon_state = "1-8"
@@ -27258,7 +27258,7 @@
 "mDh" = (
 /obj/machinery/computer/ship/navigation,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "mDD" = (
 /obj/machinery/door/airlock/glass{
 	dir = 1;
@@ -27627,7 +27627,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/pink/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "mLL" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -27699,7 +27699,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "mMi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -28687,12 +28687,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/camera/motion{
-	c_tag = "ZTA Access Aft";
+	c_tag = "ZAT Access Aft";
 	dir = 4;
 	network = list("Command","Security")
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "nge" = (
 /turf/simulated/wall/r_wall,
 /area/engineering/lobby)
@@ -29048,7 +29048,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "nnr" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -29906,7 +29906,7 @@
 	},
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "nLC" = (
 /obj/machinery/hologram/holopad,
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
@@ -29970,7 +29970,7 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "nMY" = (
 /obj/machinery/light{
 	dir = 8
@@ -30012,11 +30012,11 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
-/obj/machinery/zta_lever{
+/obj/machinery/zat_lever{
 	pixel_x = 28
 	},
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "nOu" = (
 /obj/effect/floor_decal/corner_wide/lime{
 	dir = 4
@@ -30323,7 +30323,7 @@
 	name = "WARNING: RADIOACTIVE HIGH-YIELD ENERGETIC WEAPONS WITHIN"
 	},
 /turf/simulated/wall/shuttle/scc_space_ship/cardinal,
-/area/horizon/zta)
+/area/horizon/zat)
 "nZf" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -30627,14 +30627,14 @@
 /area/maintenance/wing/starboard)
 "ofb" = (
 /obj/structure/table/standard,
-/obj/item/folder/envelope/zta,
+/obj/item/folder/envelope/zat,
 /obj/machinery/camera/motion{
-	c_tag = "ZTA Fore Port";
+	c_tag = "ZAT Fore Port";
 	dir = 8;
 	network = list("Command","Security")
 	},
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "off" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp{
@@ -30816,7 +30816,7 @@
 	RCon_tag = "Leviathan Substation"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "oiL" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-4-f"
@@ -30904,7 +30904,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "okq" = (
 /obj/machinery/door/blast/shutters{
 	density = 0;
@@ -31143,6 +31143,9 @@
 /obj/item/flame/lighter/zippo,
 /obj/item/storage/box/fancy/candle_box,
 /obj/item/storage/box/fancy/candle_box,
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
+/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
+/obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/reagent_containers/toothpaste,
 /obj/item/device/quikpay,
@@ -31319,7 +31322,7 @@
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "ovz" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -31431,7 +31434,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "oyf" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/noticeboard{
@@ -31464,7 +31467,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/power/apc/critical/east,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "ozs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -32450,7 +32453,7 @@
 /area/engineering/lobby)
 "oXF" = (
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "oXY" = (
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
@@ -32687,7 +32690,7 @@
 	name = "viewing blast doors"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "pcG" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/low/south,
@@ -33299,7 +33302,7 @@
 /obj/machinery/door/firedoor,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "ptJ" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/effect/floor_decal/spline/plain{
@@ -34767,7 +34770,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "qgz" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/structure/sign/radiation{
@@ -34958,7 +34961,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "qlm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable/green{
@@ -35302,7 +35305,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "qtB" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -35652,7 +35655,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "qzF" = (
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
@@ -35867,7 +35870,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "qEL" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
@@ -36237,7 +36240,7 @@
 	name = "WARNING: RADIOACTIVE HIGH-YIELD ENERGETIC WEAPONS WITHIN"
 	},
 /turf/simulated/wall/r_wall,
-/area/horizon/zta)
+/area/horizon/zat)
 "qNd" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/floor_decal/industrial/loading/yellow{
@@ -36326,7 +36329,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "qPP" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/structure/cable/green{
@@ -36504,7 +36507,7 @@
 /area/horizon/security/brig)
 "qSN" = (
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "qSO" = (
 /obj/structure/cable/green{
 	icon_state = "2-4"
@@ -36941,7 +36944,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "rcH" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -36997,7 +37000,7 @@
 "rdZ" = (
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "rec" = (
 /obj/structure/closet/secure_closet/security,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -37043,7 +37046,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "rfb" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/tiled/dark,
@@ -37952,7 +37955,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "rCH" = (
 /obj/effect/floor_decal/corner/dark_green/diagonal,
 /obj/machinery/newscaster/north,
@@ -38135,7 +38138,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "rIK" = (
 /obj/structure/coatrack{
 	pixel_x = 10;
@@ -38167,7 +38170,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "rIP" = (
 /obj/machinery/firealarm/south,
 /obj/structure/disposalpipe/segment{
@@ -38255,7 +38258,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "rLm" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 1
@@ -39286,7 +39289,7 @@
 /obj/machinery/alarm/north,
 /obj/item/device/multitool,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "sjO" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -40693,12 +40696,12 @@
 	},
 /obj/item/hoist_kit,
 /obj/machinery/camera/motion{
-	c_tag = "ZTA Aft Starboard";
+	c_tag = "ZAT Aft Starboard";
 	dir = 4;
 	network = list("Command","Security")
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "sYU" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/structure/cable/orange{
@@ -40979,7 +40982,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "tfl" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/firedoor,
@@ -42095,7 +42098,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "tFL" = (
 /obj/effect/floor_decal/corner_wide/blue{
 	dir = 5
@@ -42257,7 +42260,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "tIa" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -42635,7 +42638,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "tQQ" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 6
@@ -42956,7 +42959,7 @@
 "uaC" = (
 /obj/machinery/firealarm/west,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "uaM" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 5
@@ -42973,7 +42976,7 @@
 /obj/machinery/light,
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "ubq" = (
 /turf/simulated/wall/r_wall,
 /area/horizon/security/hallway)
@@ -43976,7 +43979,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "usP" = (
 /obj/machinery/door/airlock{
 	dir = 4;
@@ -44228,7 +44231,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "uzy" = (
 /obj/machinery/firealarm/south,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -44322,14 +44325,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "uCX" = (
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "uDr" = (
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "uDs" = (
 /obj/effect/landmark/start{
 	name = "Cyborg"
@@ -44828,7 +44831,7 @@
 	pixel_y = 7
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/horizon/zta)
+/area/horizon/zat)
 "uOj" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -45661,7 +45664,7 @@
 /obj/machinery/cell_charger,
 /obj/structure/table/standard,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "vkq" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/security/hos,
@@ -46418,7 +46421,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "vFw" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner/mauve{
@@ -46738,7 +46741,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "vMl" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -48155,7 +48158,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/horizon/zta)
+/area/horizon/zat)
 "wmT" = (
 /obj/structure/railing/mapped,
 /obj/structure/platform/ledge{
@@ -48195,7 +48198,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "wne" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -48231,7 +48234,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "wok" = (
 /obj/structure/platform{
 	dir = 1
@@ -48540,7 +48543,7 @@
 	name = "airlock_horizon_deck_2_levi"
 	},
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "wuJ" = (
 /obj/machinery/light,
 /obj/effect/floor_decal/corner_wide/green{
@@ -48663,7 +48666,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "wyb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
 	id = "surgery2"
@@ -48915,7 +48918,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "wDX" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters/open{
@@ -49072,7 +49075,7 @@
 	},
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "wIz" = (
 /obj/structure/railing/mapped{
 	dir = 8
@@ -49398,7 +49401,7 @@
 "wPb" = (
 /obj/machinery/hologram/holopad,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "wPj" = (
 /obj/structure/lattice,
 /obj/structure/railing/mapped{
@@ -50970,7 +50973,7 @@
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/grille,
 /turf/simulated/floor/plating,
-/area/horizon/zta)
+/area/horizon/zat)
 "xzV" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
@@ -51060,7 +51063,7 @@
 "xDo" = (
 /obj/structure/bed/stool/chair/office/bridge/generic,
 /turf/simulated/floor/reinforced,
-/area/horizon/zta)
+/area/horizon/zat)
 "xDv" = (
 /obj/structure/table/wood,
 /obj/item/reagent_containers/food/condiment/shaker/salt{
@@ -52638,7 +52641,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/horizon/zta)
+/area/horizon/zat)
 "yjZ" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /obj/structure/platform{

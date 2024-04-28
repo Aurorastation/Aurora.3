@@ -2,7 +2,8 @@
 	name = "Coalition of Colonies"
 	desc = "The Coalition of Colonies was born out of the fires of the Interstellar War, the bloodiest war humanity has seen since its dawn as a species. The majority of its citizens prize their freedom above all else, which has led to problems with governance for the Coalition: to this day, it remains a very decentralized and fragmented entity that can only be brought together as a unified front in moments of extreme crisis. But with the recent growth of the Republic of Biesel, retreat of the Solarian Alliance, and an increasingly militaristic Empire of Dominia, perhaps this matter shall change in the years to come."
 	possible_origins = list(
-		/singleton/origin_item/origin/coc_wildborn
+		/singleton/origin_item/origin/coc_grown,
+		/singleton/origin_item/origin/coc_wildborn,
 	)
 
 /singleton/origin_item/origin/coc_grown

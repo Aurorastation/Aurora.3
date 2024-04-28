@@ -16,18 +16,6 @@
 		body.MouseDrop_T(dropping, user)
 	else . = ..()
 
-/mob/living/heavy_vehicle/MouseDrop_T(src_object, over_object, src_location, over_location, src_control, over_control, params, var/mob/user)
-	if(!user || incapacitated() || user.incapacitated() || lockdown)
-		return FALSE
-
-	if(!(user in pilots) && user != src)
-		return FALSE
-
-	//This is handled at active module level really, it is the one who has to know if it's supposed to act
-	if(selected_system)
-		return selected_system.MouseDragInteraction(src_object, over_object, src_location, over_location, src_control, over_control, params, user)
-
-
 /mob/living/heavy_vehicle/ClickOn(var/atom/A, params, var/mob/user)
 
 	if(!user || incapacitated() || user.incapacitated() || lockdown)
@@ -547,12 +535,6 @@
 			return ..()
 	else return STATUS_CLOSE
 	return ..()
-
-/mob/living/heavy_vehicle/get_inventory_slot(obj/item/I)
-	for(var/h in hardpoints)
-		if(hardpoints[h] == I)
-			return h
-	return 0
 
 /mob/living/heavy_vehicle/proc/rename(var/mob/user)
 	if(user != src && !(user in pilots))
