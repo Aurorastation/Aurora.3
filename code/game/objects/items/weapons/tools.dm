@@ -582,7 +582,7 @@
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
 		eyeshield = attacking_item
 		produces_flash = FALSE
-		AddOverlays("eyeshield_attached", TRUE)
+		AddOverlays("eyeshield_attached", ATOM_ICON_CACHE_PROTECTED)
 		return TRUE
 	if(istype(attacking_item, /obj/item/overcapacitor))
 		if(overcap)
@@ -591,7 +591,7 @@
 		user.drop_from_inventory(attacking_item, src)
 		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into \the [src]."))
 		overcap = attacking_item
-		AddOverlays("overcap_attached", TRUE)
+		AddOverlays("overcap_attached", ATOM_ICON_CACHE_PROTECTED)
 		toolspeed *= 2
 		return TRUE
 	if(attacking_item.isscrewdriver())
@@ -619,7 +619,7 @@
 			return TRUE
 		user.put_in_hands(remove_accessory)
 		to_chat(user, SPAN_NOTICE("You remove \the [remove_accessory] into \the [src]."))
-		CutOverlays("[remove_accessory.icon_state]_attached", TRUE)
+		CutOverlays("[remove_accessory.icon_state]_attached", ATOM_ICON_CACHE_PROTECTED)
 		return TRUE
 	return ..()
 

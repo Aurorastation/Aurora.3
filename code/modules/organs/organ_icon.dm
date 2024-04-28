@@ -230,7 +230,7 @@
 
 /obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
 	if(LAZYLEN(additional_images))
-		H.CutOverlays(additional_images, TRUE)
+		H.CutOverlays(additional_images, ATOM_ICON_CACHE_PROTECTED)
 		LAZYCLEARLIST(additional_images)
 
 // new damage icon system

@@ -108,9 +108,9 @@
 					S.blood_overlay.color = basecolor
 					S.AddOverlays(S.blood_overlay)
 				if(S.blood_overlay && S.blood_overlay.color != basecolor)
-					S.CutOverlays(S.blood_overlay, TRUE)
+					S.CutOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 					S.blood_overlay.color = basecolor
-					S.AddOverlays(S.blood_overlay, TRUE)
+					S.AddOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 				if(blood_DNA)
 					S.blood_DNA |= blood_DNA.Copy()
 

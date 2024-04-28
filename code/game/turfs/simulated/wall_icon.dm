@@ -51,9 +51,9 @@
 		generate_overlays()
 
 	if (LAZYLEN(reinforcement_images))
-		CutOverlays(reinforcement_images, TRUE)
+		CutOverlays(reinforcement_images, ATOM_ICON_CACHE_PROTECTED)
 	if (damage_image)
-		CutOverlays(damage_image, TRUE)
+		CutOverlays(damage_image, ATOM_ICON_CACHE_PROTECTED)
 
 	LAZYCLEARLIST(reinforcement_images)
 	damage_image = null
@@ -103,7 +103,7 @@
 		damage_image = damage_overlays[overlay]
 		overlays_to_add += damage_image
 
-	AddOverlays(overlays_to_add, TRUE)
+	AddOverlays(overlays_to_add, ATOM_ICON_CACHE_PROTECTED)
 	UNSETEMPTY(reinforcement_images)
 	SSicon_smooth.add_to_queue(src)
 	if(smoothing_flags & SMOOTH_UNDERLAYS)

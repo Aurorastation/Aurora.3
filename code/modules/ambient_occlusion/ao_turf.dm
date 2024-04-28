@@ -84,7 +84,7 @@
 
 #define CUT_AO(TARGET, AO_LIST) \
 	if (AO_LIST) { \
-		TARGET.CutOverlays(AO_LIST, TRUE); \
+		TARGET.CutOverlays(AO_LIST, ATOM_ICON_CACHE_PROTECTED); \
 		AO_LIST.Cut(); \
 	}
 
@@ -98,7 +98,7 @@
 	} \
 	UNSETEMPTY(AO_LIST); \
 	if (AO_LIST) { \
-		TARGET.AddOverlays(AO_LIST, TRUE); \
+		TARGET.AddOverlays(AO_LIST, ATOM_ICON_CACHE_PROTECTED); \
 	}
 
 /turf/proc/update_ao()

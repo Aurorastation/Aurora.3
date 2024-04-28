@@ -53,11 +53,11 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	//Do a contamination overlay? Temporary measure to keep contamination less deadly than it was.
 	if(!contaminated)
 		contaminated = 1
-		AddOverlays(contamination_overlay, TRUE)
+		AddOverlays(contamination_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 /obj/item/proc/decontaminate()
 	contaminated = 0
-	CutOverlays(contamination_overlay, TRUE)
+	CutOverlays(contamination_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 /mob/proc/contaminate()
 
