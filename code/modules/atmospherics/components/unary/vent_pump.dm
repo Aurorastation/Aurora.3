@@ -57,9 +57,10 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon
 	pump_direction = 0
+	frequency = 1441
 
 /obj/machinery/atmospherics/unary/vent_pump/siphon/atmos
-	icon_state = "map_vent_in"
+	icon_state = "map_vent"
 	external_pressure_bound = 0
 	external_pressure_bound_default = 0
 	internal_pressure_bound = PRESSURE_ONE_THOUSAND * 2
@@ -89,8 +90,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/Initialize(mapload)
 	if(mapload)
 		var/turf/T = loc
-		var/image/I = image(icon, T, icon_state, EFFECTS_ABOVE_LIGHTING_LAYER, dir, pixel_x, pixel_y)
-		I.plane = 0
+		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
+		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		I.color = color
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
@@ -119,6 +120,11 @@
 
 /obj/machinery/atmospherics/unary/vent_pump/Destroy()
 	unregister_radio(src, frequency)
+
+	if(initial_loc)
+		initial_loc.air_vent_info -= id_tag
+		initial_loc.air_vent_names -= id_tag
+
 	return ..()
 
 /obj/machinery/atmospherics/unary/vent_pump/high_volume
@@ -188,7 +194,7 @@
 		return 0
 	return 1
 
-/obj/machinery/atmospherics/unary/vent_pump/process()
+/obj/machinery/atmospherics/unary/vent_pump/process(seconds_per_tick)
 	..()
 
 	if (broadcast_status_next_process)
@@ -222,7 +228,7 @@
 
 			//limit flow rate from turfs
 			transfer_moles = min(transfer_moles, environment.total_moles*air_contents.volume/environment.volume)	//group_multiplier gets divided out here
-			power_draw = pump_gas(src, environment, air_contents, transfer_moles, power_rating)
+			power_draw = pump_gas(src, environment, air_contents, transfer_moles * seconds_per_tick, power_rating)
 
 	else
 		//If we're in an area that is fucking ideal, and we don't have to do anything, chances are we won't next tick either so why redo these calculations?
@@ -233,7 +239,7 @@
 
 	if (power_draw >= 0)
 		last_power_draw = power_draw
-		use_power_oneoff(power_draw)
+		use_power_oneoff(power_draw * seconds_per_tick)
 		if(network)
 			network.update = 1
 
@@ -373,95 +379,96 @@
 	broadcast_status_next_process = TRUE
 	update_icon()
 
-/obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/W, mob/user)
-	if(W.iswelder())
-		var/obj/item/weldingtool/WT = W
+/obj/machinery/atmospherics/unary/vent_pump/attackby(obj/item/attacking_item, mob/user)
+
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
 			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 		else if (WT.use(0,user))
 			to_chat(user, SPAN_NOTICE("Now welding the vent."))
-			if(W.use_tool(src, user, 30, volume = 50))
+			if(attacking_item.use_tool(src, user, 30, volume = 50))
 				if(!src || !WT.isOn())
 					return TRUE
 				welded = !welded
 				update_icon()
 				playsound(src, 'sound/items/welder_pry.ogg', 50, 1)
 				user.visible_message(SPAN_NOTICE("\The [user] [welded ? "welds \the [src] shut" : "unwelds \the [src]"]."), \
-									 SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
-									 "You hear welding.")
+										SPAN_NOTICE("You [welded ? "weld \the [src] shut" : "unweld \the [src]"]."), \
+										"You hear welding.")
 			else
 				to_chat(user, SPAN_NOTICE("You fail to complete the welding."))
 		else
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return TRUE
-	else if(istype(W, /obj/item/melee/arm_blade))
+
+
+	else if(istype(attacking_item, /obj/item/melee/arm_blade))
 		if(!welded)
-			to_chat(user, SPAN_WARNING("\The [W] can only be used to tear open welded air vents!"))
+			to_chat(user, SPAN_WARNING("\The [attacking_item] can only be used to tear open welded air vents!"))
 			return TRUE
-		user.visible_message(SPAN_WARNING("\The [user] starts using \the [W] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [W]..."))
-		user.do_attack_animation(src, W)
+		user.visible_message(SPAN_WARNING("\The [user] starts using \the [attacking_item] to hack open \the [src]!"), SPAN_NOTICE("You start hacking open \the [src] with \the [attacking_item]..."))
+		user.do_attack_animation(src, attacking_item)
 		playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 		var/cut_amount = 3
 		for(var/i = 0; i <= cut_amount; i++)
-			if(!W || !do_after(user, 30, src))
+			if(!attacking_item || !do_after(user, 30, src))
 				return TRUE
-			user.do_attack_animation(src, W)
-			user.visible_message(SPAN_WARNING("\The [user] smashes \the [W] into \the [src]!"), SPAN_NOTICE("You smash \the [W] into \the [src]."))
+			user.do_attack_animation(src, attacking_item)
+			user.visible_message(SPAN_WARNING("\The [user] smashes \the [attacking_item] into \the [src]!"), SPAN_NOTICE("You smash \the [attacking_item] into \the [src]."))
 			playsound(loc, 'sound/weapons/smash.ogg', 60, TRUE)
 			if(i == cut_amount)
 				welded = FALSE
-				spark(get_turf(src), 3, alldirs)
+				spark(get_turf(src), 3, GLOB.alldirs)
 				playsound(loc, 'sound/items/welder_pry.ogg', 50, TRUE)
 				update_icon()
-	else
+
+	else if(attacking_item.iswrench())
+
+		if(!(stat & NOPOWER) && use_power)
+			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
+
+		else
+
+			var/turf/T = src.loc
+
+			if(node && node.level==1 && isturf(T) && !T.is_plating())
+				to_chat(user, SPAN_WARNING("You must remove the plating first."))
+
+			else if(loc)
+				var/datum/gas_mixture/int_air = return_air()
+				var/datum/gas_mixture/env_air = loc.return_air()
+
+				if((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
+					to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
+					add_fingerprint(user)
+
+				else
+					to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
+
+					if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
+						user.visible_message(SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+												SPAN_NOTICE("You have unfastened \the [src]."), \
+												"You hear a ratchet.")
+						new /obj/item/pipe(loc, make_from=src)
+						qdel(src)
+
 		return ..()
 
-/obj/machinery/atmospherics/unary/vent_pump/examine(mob/user)
-	if(..(user, 1))
-		to_chat(user, "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s; [round(last_power_draw)] W")
+/obj/machinery/atmospherics/unary/vent_pump/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += "A small gauge in the corner reads [round(last_flow_rate, 0.1)] L/s at [round(last_power_draw)] W."
 	else
-		to_chat(user, "You are too far away to read the gauge.")
+		. += "You are too far away to read the gauge."
 	if(welded)
-		to_chat(user, "It seems welded shut.")
+		. += "It seems welded shut."
 
 /obj/machinery/atmospherics/unary/vent_pump/power_change()
 	var/old_stat = stat
 	..()
 	if(old_stat != stat)
 		update_icon()
-
-/obj/machinery/atmospherics/unary/vent_pump/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if (!W.iswrench())
-		return ..()
-	if (!(stat & NOPOWER) && use_power)
-		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], turn it off first."))
-		return TRUE
-	var/turf/T = src.loc
-	if (node && node.level==1 && isturf(T) && !T.is_plating())
-		to_chat(user, SPAN_WARNING("You must remove the plating first."))
-		return TRUE
-	var/datum/gas_mixture/int_air = return_air()
-	if(!loc) return FALSE
-	var/datum/gas_mixture/env_air = loc.return_air()
-	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
-		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
-		add_fingerprint(user)
-		return TRUE
-	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
-	if(W.use_tool(src, user, istype(W, /obj/item/pipewrench) ? 80 : 40, volume = 50))
-		user.visible_message( \
-			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
-			SPAN_NOTICE("You have unfastened \the [src]."), \
-			"You hear a ratchet.")
-		new /obj/item/pipe(loc, make_from=src)
-		qdel(src)
-		return TRUE
-
-/obj/machinery/atmospherics/unary/vent_pump/Destroy()
-	if(initial_loc)
-		initial_loc.air_vent_info -= id_tag
-		initial_loc.air_vent_names -= id_tag
-	return ..()
 
 #undef DEFAULT_PRESSURE_DELTA
 

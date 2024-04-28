@@ -1,5 +1,5 @@
 //allows right clicking mobs to send an admin PM to their client, forwards the selected mob's client to cmd_admin_pm
-/client/proc/cmd_admin_pm_context(mob/M as mob in mob_list)
+/client/proc/cmd_admin_pm_context(mob/M as mob in GLOB.mob_list)
 	set category = null
 	set name = "Admin PM Mob"
 	if(!holder)
@@ -17,7 +17,7 @@
 		to_chat(src, "<span class='warning'>Error: Admin-PM-Panel: Only administrators may use this command.</span>")
 		return
 	var/list/client/targets[0]
-	for(var/p in clients)
+	for(var/p in GLOB.clients)
 		var/client/T = p
 		if(T.mob)
 			if(istype(T.mob, /mob/abstract/new_player))
@@ -114,7 +114,7 @@
 			C.adminhelped = NOT_ADMINHELPED
 
 		//AdminPM popup for ApocStation and anybody else who wants to use it. Set it with POPUP_ADMIN_PM in config.txt ~Carn
-		if(config.popup_admin_pm)
+		if(GLOB.config.popup_admin_pm)
 			spawn(0)	//so we don't hold the caller proc up
 				var/sender = src
 				var/sendername = key
@@ -154,7 +154,7 @@
 	ticket.append_message(src.ckey, C.ckey, msg)
 
 	//we don't use message_admins here because the sender/receiver might get it too
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/X = s
 		//check client/X is an admin and isn't the sender or recipient
 		if(X == C || X == src)
@@ -175,13 +175,13 @@
 	msg = sanitize(msg)
 	sender = sanitize(sender, encode=0)
 
-	post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is requested", "message"="PlayerPM to **[discord_escape(sender)]** from **[discord_escape(key_name(src))]**: ```[discord_escape(html_decode(msg))]```"))
-	discord_bot.send_to_admins("PlayerPM to [discord_escape(sender)] from [discord_escape(key_name(src))]: [discord_escape(html_decode(msg))]")
+	SSdiscord.post_webhook_event(WEBHOOK_ADMIN_PM, list("title"="Help is requested", "message"="PlayerPM to **[SSdiscord.discord_escape(sender)]** from **[SSdiscord.discord_escape(key_name(src))]**: ```[SSdiscord.discord_escape(html_decode(msg))]```"))
+	SSdiscord.send_to_admins("PlayerPM to [SSdiscord.discord_escape(sender)] from [SSdiscord.discord_escape(key_name(src))]: [SSdiscord.discord_escape(html_decode(msg))]")
 
 	to_chat(src, "<span class='pm'><span class='out'>" + create_text_tag("PM <-", src) + " to <span class='name'>Discord-[sender]</span>: <span class='message linkify'>[msg]</span></span></span>")
 
 	log_admin("PM: [key_name(src)]->Discord-[sender]: [msg]")
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(C == src)
 			continue

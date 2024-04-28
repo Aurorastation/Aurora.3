@@ -1,4 +1,6 @@
 /datum/shuttle/autodock/multi
+	/// Tags of all the landmarks that this should can go to.
+	/// Can contain nested lists, as it is flattened before use.
 	var/list/destination_tags
 	var/list/destinations_cache = list()
 	var/last_cache_rebuild_time = 0
@@ -17,6 +19,7 @@
 /datum/shuttle/autodock/multi/proc/build_destinations_cache()
 	last_cache_rebuild_time = world.time
 	destinations_cache.Cut()
+	destination_tags = flatten_list(destination_tags)
 	for(var/destination_tag in destination_tags)
 		var/obj/effect/shuttle_landmark/landmark = SSshuttle.get_landmark(destination_tag)
 		if(istype(landmark))
@@ -65,9 +68,9 @@
 /datum/shuttle/autodock/multi/antag/proc/announce_departure()
 	if(cloaked || isnull(departure_message))
 		return
-	command_announcement.Announce(departure_message, announcer || "[current_map.boss_name]")
+	command_announcement.Announce(departure_message, announcer || "[SSatlas.current_map.boss_name]")
 
 /datum/shuttle/autodock/multi/antag/proc/announce_arrival()
 	if(cloaked || isnull(arrival_message))
 		return
-	command_announcement.Announce(arrival_message, announcer || "[current_map.boss_name]")
+	command_announcement.Announce(arrival_message, announcer || "[SSatlas.current_map.boss_name]")

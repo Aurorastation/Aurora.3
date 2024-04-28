@@ -125,10 +125,13 @@ var/const/NO_EMAG_ACT = -50
 	var/iff_faction = IFF_DEFAULT
 
 /obj/item/card/id/Destroy()
-	return ..()
+	QDEL_NULL(chat_user)
+	. = ..()
+	GC_TEMPORARY_HARDDEL
 
-/obj/item/card/id/examine(mob/user)
-	if (..(user, 1))
+/obj/item/card/id/examine(mob/user, distance)
+	. = ..()
+	if (distance <= 1)
 		show(user)
 
 /obj/item/card/id/on_slotmove(var/mob/living/user, slot)
@@ -154,12 +157,14 @@ var/const/NO_EMAG_ACT = -50
 		chat_user.username = chat_user.generateUsernameIdCard(src)
 
 /obj/item/card/id/proc/set_id_photo(var/mob/M)
-	front = getFlatIcon(M, SOUTH, ignore_parent_dir = TRUE)
+	front = getFlatIcon(M, SOUTH)
 	front.Scale(128, 128)
-	side = getFlatIcon(M, WEST, ignore_parent_dir = TRUE)
+	side = getFlatIcon(M, WEST)
 	side.Scale(128, 128)
 
 /mob/proc/set_id_info(var/obj/item/card/id/id_card)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	id_card.age = 0
 	id_card.registered_name	= real_name
 	id_card.sex = capitalize(gender)
@@ -277,9 +282,9 @@ var/const/NO_EMAG_ACT = -50
 				return 1
 	return ..()
 
-/obj/item/card/id/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/card/id))
-		var/obj/item/card/id/ID = W
+/obj/item/card/id/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/card/id))
+		var/obj/item/card/id/ID = attacking_item
 		if(ID.can_copy_access)
 			ID.access |= src.access
 			user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
@@ -360,7 +365,7 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "dark"
 	registered_name = "Syndicate"
 	assignment = "Syndicate Overlord"
-	access = list(access_syndicate, access_external_airlocks)
+	access = list(ACCESS_SYNDICATE, ACCESS_EXTERNAL_AIRLOCKS)
 
 /obj/item/card/id/syndicate/ert
 	name = "illicit commando identification card"
@@ -374,6 +379,9 @@ var/const/NO_EMAG_ACT = -50
 /obj/item/card/id/syndicate/raider
 	name = "passport"
 	assignment = "Visitor"
+
+/obj/item/card/id/syndicate/raider/update_name()
+	name = "[registered_name]'s Passport"
 
 /obj/item/card/id/highlander
 	name = "highlander identification card"
@@ -402,7 +410,7 @@ var/const/NO_EMAG_ACT = -50
 	desc = "An identification card issued to SCC-sanctioned merchants, indicating their right to sell and buy goods."
 	icon_state = "centcom"
 	overlay_state = "centcom"
-	access = list(access_merchant)
+	access = list(ACCESS_MERCHANT)
 
 /obj/item/card/id/synthetic
 	name = "\improper SCC equipment identification card"
@@ -412,7 +420,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Equipment"
 
 /obj/item/card/id/synthetic/New()
-	access = get_all_station_access() + access_equipment
+	access = get_all_station_access() + ACCESS_EQUIPMENT
 	..()
 
 /obj/item/card/id/synthetic/cyborg
@@ -424,7 +432,7 @@ var/const/NO_EMAG_ACT = -50
 
 /obj/item/card/id/synthetic/cyborg/New()
 	..()
-	access = list(access_equipment, access_ai_upload, access_external_airlocks) // barebones cyborg access. Job special added in different place
+	access = list(ACCESS_EQUIPMENT, ACCESS_AI_UPLOAD, ACCESS_EXTERNAL_AIRLOCKS) // barebones cyborg access. Job special added in different place
 
 /obj/item/card/id/minedrone
 	name = "mine drone identification card"
@@ -434,7 +442,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Minedrone"
 
 /obj/item/card/id/minedrone/New()
-	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station, access_external_airlocks)
+	access = list(ACCESS_MAINT_TUNNELS, ACCESS_MAILSORTING, ACCESS_CARGO, ACCESS_CARGO_BOT, ACCESS_QM, ACCESS_MINING, ACCESS_MINING_STATION, ACCESS_EXTERNAL_AIRLOCKS)
 	..()
 
 /obj/item/card/id/centcom
@@ -458,14 +466,14 @@ var/const/NO_EMAG_ACT = -50
 	pickup_sound = /singleton/sound_category/generic_pickup_sound
 
 /obj/item/card/id/ccia/id_flash(var/mob/user)
-    var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
-    var/blind_add_text = "Done with prejudice and professionalism, you mean business."
-    return ..(user, add_text, blind_add_text)
+	var/add_text = "Done with prejudice and professionalism, [user.get_pronoun("he")] means business."
+	var/blind_add_text = "Done with prejudice and professionalism, you mean business."
+	return ..(user, add_text, blind_add_text)
 
-/obj/item/card/id/ccia/fib
-	name = "\improper Federal Investigations Bureau identification card"
-	desc = "An ID straight from the Federal Investigations Bureau."
-	icon_state = "fib"
+/obj/item/card/id/ccia/bssb
+	name = "\improper Biesel Security Services Bureau identification card"
+	desc = "An ID straight from the Biesel Security Services Bureau."
+	icon_state = "bssb"
 
 /obj/item/card/id/ert
 	name = "\improper NanoTrasen Emergency Response Team identification card"
@@ -496,7 +504,7 @@ var/const/NO_EMAG_ACT = -50
 	assignment = "Freelancer Mercenary"
 
 /obj/item/card/id/distress/New()
-	access = list(access_distress, access_maint_tunnels, access_external_airlocks)
+	access = list(ACCESS_DISTRESS, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS)
 	..()
 
 /obj/item/card/id/distress/fsf
@@ -515,8 +523,12 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "legion"
 
 /obj/item/card/id/distress/legion/New()
-	access = list(access_legion, access_maint_tunnels, access_external_airlocks, access_security, access_engine, access_engine_equip, access_medical, access_research, access_atmospherics, access_medical_equip)
+	access = list(ACCESS_LEGION, ACCESS_MAINT_TUNNELS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_SECURITY, ACCESS_ENGINE, ACCESS_ENGINE_EQUIP, ACCESS_MEDICAL, ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_MEDICAL_EQUIP)
 	..()
+
+/obj/item/card/id/distress/legion/tcaf
+	name = "\improper Tau Ceti Armed Forces identification card"
+	assignment = "Republican Fleet Legionary"
 
 /obj/item/card/id/distress/ap_eridani
 	name = "\improper Eridani Private Military Contractor identification card"
@@ -611,6 +623,12 @@ var/const/NO_EMAG_ACT = -50
 	icon_state = "orion_card"
 	overlay_state = "orion_card"
 
+/obj/item/card/id/coalition
+	name = "\improper coalition identification card"
+	desc = "A rugged ID card denoting the wearer as a member of a Coalition of Colonies government organization."
+	icon_state = "coalition_card"
+	overlay_state = "nothing"
+
 /obj/item/card/id/bluespace
 	name = "bluespace identification card"
 	desc = "A bizarre imitation of an ID card; shifting and moving."
@@ -634,6 +652,19 @@ var/const/NO_EMAG_ACT = -50
 		..()
 
 /obj/item/card/id/away_site
-	access = list(access_generic_away_site, access_external_airlocks)
+	access = list(ACCESS_GENERIC_AWAY_SITE, ACCESS_EXTERNAL_AIRLOCKS)
+
+/obj/item/card/id/mecha
+	name = "exosuit access card"
+
+/obj/item/card/id/mecha/GetAccess()
+	var/mob/living/heavy_vehicle/exosuit = loc
+	if(!istype(loc) || !length(exosuit.pilots))
+		return list()
+	var/list/pilot_access = list()
+	for(var/mob/pilot as anything in exosuit.pilots)
+		var/obj/item/ID = pilot.GetIdCard()
+		pilot_access |= ID.GetAccess()
+	return pilot_access
 
 #undef ID_CARD_UNSET

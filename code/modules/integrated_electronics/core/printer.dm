@@ -16,9 +16,9 @@
 	upgraded = TRUE
 	can_clone = TRUE
 
-/obj/item/device/integrated_circuit_printer/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O,/obj/item/stack/material))
-		var/obj/item/stack/material/stack = O
+/obj/item/device/integrated_circuit_printer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item,/obj/item/stack/material))
+		var/obj/item/stack/material/stack = attacking_item
 		if(stack.material.name == DEFAULT_WALL_MATERIAL)
 			var/num = min((max_metal - metal) / metal_per_sheet, stack.amount)
 			if(num < 1)
@@ -29,26 +29,26 @@
 				metal += num * metal_per_sheet
 				return TRUE
 
-	if(istype(O,/obj/item/integrated_circuit))
+	if(istype(attacking_item,/obj/item/integrated_circuit))
 		to_chat(user, "<span class='notice'>You insert the circuit into \the [src]. </span>")
-		user.unEquip(O)
-		metal = min(metal + O.w_class, max_metal)
-		qdel(O)
+		user.unEquip(attacking_item)
+		metal = min(metal + attacking_item.w_class, max_metal)
+		qdel(attacking_item)
 		return TRUE
 
-	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/advanced))
+	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
 			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
 		upgraded = TRUE
 		return TRUE
 
-	if(istype(O,/obj/item/disk/integrated_circuit/upgrade/clone))
+	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/clone))
 		if(can_clone)
 			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [O] into  \the [src]. </span>")
+		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
 		can_clone = TRUE
 		return TRUE
 

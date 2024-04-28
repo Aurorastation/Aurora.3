@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/ao/SSocclusion
-
-/datum/controller/subsystem/ao
+SUBSYSTEM_DEF(ao)
 	name = "Ambient Occlusion"
 	init_order = SS_INIT_AO
 	wait = 1
@@ -9,16 +7,14 @@
 
 	var/list/queue = list()
 
-/datum/controller/subsystem/ao/New()
-	NEW_SS_GLOBAL(SSocclusion)
-
 /datum/controller/subsystem/ao/stat_entry(msg)
 	msg = "P:[queue.len]"
 	return ..()
 
 /datum/controller/subsystem/ao/Initialize()
 	fire(FALSE, TRUE)
-	..()
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/ao/fire(resumed = 0, no_mc_tick = FALSE)
 	var/list/curr = queue
@@ -43,7 +39,7 @@
 			return
 
 /datum/controller/subsystem/ao/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/ao/ExplosionEnd()
-	wake()
+	can_fire = TRUE

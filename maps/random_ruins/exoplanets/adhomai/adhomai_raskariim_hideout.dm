@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_raskariim_hideout.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_raskariim_hideout.dmm")
+
+	unit_test_groups = list(2)
 
 /area/adhomai_raskariim_hideout
 	name = "Abandoned House"
@@ -16,9 +20,10 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 	turf_initializer = new /datum/turf_initializer/maintenance/raskariim()
 	ambience = AMBIENCE_GHOSTLY
+	area_blurb = "You feel watched as you enter this old house."
 
 /datum/turf_initializer/maintenance/raskariim/initialize(var/turf/simulated/T)
 	..()
@@ -38,7 +43,7 @@
 	max_count = 3
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/raskariim_hideout
+	outfit = /obj/outfit/admin/raskariim_hideout
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -48,7 +53,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/raskariim_hideout
+/obj/outfit/admin/raskariim_hideout
 	name = "Raskariim"
 
 	uniform = list(
@@ -69,9 +74,9 @@
 
 	shoes = list(
 				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots,
-				/obj/item/clothing/shoes/tajara/workboots,
-				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+				/obj/item/clothing/shoes/jackboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	)
 
 	back = /obj/item/storage/backpack/satchel/leather

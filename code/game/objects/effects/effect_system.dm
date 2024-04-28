@@ -78,9 +78,9 @@ steam.start() -- spawns the effect
 			var/obj/effect/effect/steam/steam = new /obj/effect/effect/steam(src.location)
 			var/direction
 			if(src.cardinals)
-				direction = pick(cardinal)
+				direction = pick(GLOB.cardinal)
 			else
-				direction = pick(alldirs)
+				direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(1,2,3), i++)
 				sleep(5)
 				step(steam,direction)
@@ -128,11 +128,11 @@ steam.start() -- spawns the effect
 	if (istype(M))
 		return 0
 	if (M.internal != null)
-		if(M.wear_mask && (M.wear_mask.item_flags & AIRTIGHT))
+		if(M.wear_mask && (M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 			return 0
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
-			if(H.head && (H.head.item_flags & AIRTIGHT))
+			if(H.head && (H.head.item_flags & ITEM_FLAG_AIRTIGHT))
 				return 0
 		return 0
 	return 1
@@ -264,14 +264,13 @@ steam.start() -- spawns the effect
 			if(holder)
 				src.location = get_turf(holder)
 			var/obj/effect/effect/smoke/smoke = new smoke_type(src.location)
-			smoke.layer = ABOVE_MOB_LAYER
 			src.total_smoke++
 			var/direction = src.direction
 			if(!direction)
 				if(src.cardinals)
-					direction = pick(cardinal)
+					direction = pick(GLOB.cardinal)
 				else
-					direction = pick(alldirs)
+					direction = pick(GLOB.alldirs)
 			for(i=0, i<pick(0,1,1,1,2,2,2,3), i++)
 				sleep(10)
 				step(smoke,direction)

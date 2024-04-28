@@ -9,6 +9,7 @@
 /obj/item/reagent_containers/food/snacks/csandwich
 	name = "sandwich"
 	desc = "The best thing since sliced bread."
+	icon = 'icons/obj/item/reagent_containers/food/custom.dmi'
 	icon_state = "breadslice"
 	trash = /obj/item/trash/plate
 	bitesize = 2
@@ -17,7 +18,7 @@
 	var/base_name = "sandwich"
 	var/topper = "sandwich_top"
 
-/obj/item/reagent_containers/food/snacks/csandwich/attackby(obj/item/W as obj, mob/user)
+/obj/item/reagent_containers/food/snacks/csandwich/attackby(obj/item/attacking_item, mob/user)
 
 	var/sandwich_limit = 4
 	for(var/obj/item/O in ingredients)
@@ -27,12 +28,12 @@
 	if(src.contents.len > sandwich_limit)
 		to_chat(user, SPAN_WARNING("If you put anything else on \the [src] it's going to collapse."))
 		return
-	else if(istype(W,/obj/item/reagent_containers/food/snacks))
-		to_chat(user, SPAN_NOTICE("You layer [W] over \the [src]."))
-		var/obj/item/reagent_containers/F = W
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks))
+		to_chat(user, SPAN_NOTICE("You layer [attacking_item] over \the [src]."))
+		var/obj/item/reagent_containers/F = attacking_item
 		F.reagents.trans_to_obj(src, F.reagents.total_volume)
-		user.drop_from_inventory(W,src)
-		ingredients += W
+		user.drop_from_inventory(attacking_item, src)
+		ingredients += attacking_item
 		update()
 		return
 	..()
@@ -65,10 +66,27 @@
 	w_class = n_ceil(Clamp((ingredients.len/2),2,4))
 
 /obj/item/reagent_containers/food/snacks/csandwich/Destroy()
-	QDEL_NULL_LIST(ingredients)
+	QDEL_LIST(ingredients)
 	return ..()
 
-/obj/item/reagent_containers/food/snacks/csandwich/examine(mob/user)
-	..(user)
+/obj/item/reagent_containers/food/snacks/csandwich/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	var/obj/item/O = pick(contents)
-	to_chat(user, SPAN_NOTICE("You think you can see [O.name] in there."))
+	. += SPAN_NOTICE("You think you can see [O.name] in there.")
+
+/obj/item/reagent_containers/food/snacks/csandwich/roll
+	name = "roll"
+	desc = "Like a sandwich, but rounder."
+	icon_state = "roll"
+	bitesize = 2
+	base_name = "roll"
+	topper = "roll_top"
+
+/obj/item/reagent_containers/food/snacks/csandwich/burger
+	name = "burger"
+	desc = "The cornerstone of every nutritious breakfast."
+	icon_state = "hburger"
+	bitesize = 2
+	base_name = "burger"
+	topper = "burger_top"
+

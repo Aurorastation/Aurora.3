@@ -12,6 +12,7 @@
 	var/area/area = null
 	var/otherarea = null
 	power_channel = LIGHT
+	z_flags = ZMM_MANGLE_PLANES
 	//	luminosity = 1
 
 /obj/machinery/light_switch/Initialize()
@@ -37,9 +38,10 @@
 	else if (light_range)
 		set_light(FALSE)
 
-/obj/machinery/light_switch/examine(mob/user)
-	if(..(user, 1))
-		to_chat(user, "A light switch. It is [on? "on" : "off"].")
+/obj/machinery/light_switch/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += "It is [on ? "on" : "off"]."
 
 /obj/machinery/light_switch/attack_hand(mob/user)
 	playsound(src, /singleton/sound_category/switch_sound, 30)
@@ -72,8 +74,9 @@
 		update_icon()
 
 /obj/machinery/light_switch/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	power_change()
-	..(severity)

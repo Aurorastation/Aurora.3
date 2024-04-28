@@ -15,7 +15,7 @@
 
 /obj/machinery/computer/security/Initialize()
 	if(!network)
-		network = current_map.station_networks.Copy()
+		network = SSatlas.current_map.station_networks.Copy()
 	. = ..()
 	if(network.len)
 		current_network = network[1]
@@ -34,6 +34,16 @@
 	if ( viewflag < 0 ) //camera doesn't work
 		reset_current()
 	return viewflag
+
+/obj/machinery/computer/security/grants_equipment_vision(var/mob/user as mob)
+	if(user.stat || user.blinded || inoperable())
+		return FALSE
+	if(!current_camera)
+		return FALSE
+	var/viewflag = current_camera.check_eye(user)
+	if (viewflag < 0) //camera doesn't work
+		return FALSE
+	return TRUE
 
 /obj/machinery/computer/security/ui_interact(mob/user, ui_key = "main", datum/nanoui/ui = null, force_open = 1)
 	if(..())
@@ -66,13 +76,13 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_camera_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
+	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
 		return TRUE
 	if(href_list["switch_camera"])
-		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in cameranet.cameras
+		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in GLOB.cameranet.cameras
 		if(!C)
 			return
 		if(!(current_network in C.network))
@@ -225,13 +235,6 @@
 	current_camera = null
 	update_use_power(POWER_USE_IDLE)
 
-//Camera control: mouse.
-/atom/DblClick()
-	..()
-	if(istype(usr.machine,/obj/machinery/computer/security))
-		var/obj/machinery/computer/security/console = usr.machine
-		console.jump_on_click(usr,src)
-
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"
 	desc = "Used for watching an empty arena."
@@ -279,6 +282,16 @@
 	icon_keyboard = "yellow_key"
 	light_color = LIGHT_COLOR_YELLOW
 	circuit = /obj/item/circuitboard/security/engineering
+
+/obj/machinery/computer/security/engineering/terminal
+	name = "engineering camera monitor"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "engines"
+	icon_keyboard = "power_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1
 
 /obj/machinery/computer/security/engineering/Initialize()
 	if(!network)

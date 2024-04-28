@@ -1,10 +1,8 @@
-var/datum/controller/subsystem/docs/SSdocs
-
-/datum/controller/subsystem/docs
+SUBSYSTEM_DEF(docs)
 	name = "Documents"
 	wait = 30 SECONDS
 	flags = SS_NO_FIRE
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 
 	var/total_docs = 0
 	var/list/docs = list()
@@ -17,20 +15,17 @@ var/datum/controller/subsystem/docs/SSdocs
 
 /datum/controller/subsystem/docs/Initialize(timeofday)
 	//Load in the docs config
-	if(config.docs_load_docs_from == "sql")
-		log_subsystem_documents("SSdocs: Attempting to Load from SQL")
+	if(GLOB.config.docs_load_docs_from == "sql")
+		log_subsystem_documents("Attempting to Load from SQL")
 		load_from_sql()
-	else if(config.docs_load_docs_from == "json")
-		log_subsystem_documents("SSdocs: Attempting to Load from JSON")
+	else if(GLOB.config.docs_load_docs_from == "json")
+		log_subsystem_documents("Attempting to Load from JSON")
 		load_from_json()
 	else
 		log_config("SSdocs: invalid load option specified in config")
 		log_subsystem_documents("invalid load option specified in config")
 
-	..()
-
-/datum/controller/subsystem/docs/New()
-	NEW_SS_GLOBAL(SSdocs)
+	return SS_INIT_SUCCESS
 
 /*
 	Fetching Data
@@ -109,7 +104,7 @@ var/datum/controller/subsystem/docs/SSdocs
 
 //Load the document data from SQL
 /datum/controller/subsystem/docs/proc/load_from_sql()
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		log_subsystem_documents("SQL ERROR - Failed to connect. - Falling back to JSON")
 		return load_from_json()
 	else
@@ -117,7 +112,7 @@ var/datum/controller/subsystem/docs/SSdocs
 		reset_docs()
 
 		//Load the categories
-		var/DBQuery/document_query = dbcon.NewQuery("SELECT name, title, chance, content, tags FROM ss13_documents WHERE deleted_at IS NULL")
+		var/DBQuery/document_query = GLOB.dbcon.NewQuery("SELECT name, title, chance, content, tags FROM ss13_documents WHERE deleted_at IS NULL")
 		document_query.Execute()
 		while(document_query.NextRow())
 			CHECK_TICK

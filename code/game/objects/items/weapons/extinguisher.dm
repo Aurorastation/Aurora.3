@@ -5,12 +5,13 @@
 	icon_state = "metal_canister"
 	item_state = "metal_canister"
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = CONDUCT | OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 8
 	w_class = ITEMSIZE_NORMAL
 	throw_speed = 2
 	throw_range = 10
-	force = 8
+	force = 18
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	amount_per_transfer_from_this = 150
@@ -19,17 +20,17 @@
 	drop_sound = 'sound/items/drop/gascan.ogg'
 	pickup_sound = 'sound/items/pickup/gascan.ogg'
 
-/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/O, mob/user)
-	if(O.isscrewdriver())
+/obj/item/reagent_containers/extinguisher_refill/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(is_open_container())
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
-			flags |= OPENCONTAINER
-		to_chat(user, SPAN_NOTICE("Using \the [O], you [is_open_container() ? "unsecure" : "secure"] the cartridge's lid!"))
+			atom_flags |= ATOM_FLAG_OPEN_CONTAINER
+		to_chat(user, SPAN_NOTICE("Using \the [attacking_item], you [is_open_container() ? "unsecure" : "secure"] the cartridge's lid!"))
 		return TRUE
 
-	if(istype(O,/obj/item/extinguisher))
-		var/obj/item/extinguisher/E = O
+	if(istype(attacking_item, /obj/item/extinguisher))
+		var/obj/item/extinguisher/E = attacking_item
 		if(is_open_container())
 			to_chat(user,"<span class='notice'>\The [src] needs to be secured first!</span>")
 		else if(reagents.total_volume <= 0)
@@ -48,27 +49,28 @@
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of the cartridge's lid, you secure the reagents inside \the [src].</span>")
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
 			to_chat(user,"<span class='notice'>You can't secure the cartridge without putting reagents in!</span>")
 	else
 		to_chat(user,"<span class='notice'>\The reagents inside [src] are already secured!</span>")
 	return
 
-/obj/item/reagent_containers/extinguisher_refill/examine(var/mob/user) //Copied from inhalers.
-	if(!..(user, 2))
+/obj/item/reagent_containers/extinguisher_refill/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(!distance <= 2)
 		return
 
 	if(is_open_container())
 		if(LAZYLEN(reagents?.reagent_volumes))
-			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+			. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.")
 		else
-			to_chat(user,"<span class='notice'>It is empty.</span>")
+			. += SPAN_NOTICE("It is empty.")
 	else
 		if(LAZYLEN(reagents?.reagent_volumes))
-			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
+			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
 		else
-			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
+			. += SPAN_NOTICE("The cartridge seems spent.")
 
 /obj/item/reagent_containers/extinguisher_refill/filled
 	name = "extinguisher refiller (monoammonium phosphate)"
@@ -77,7 +79,7 @@
 /obj/item/reagent_containers/extinguisher_refill/filled/Initialize()
 	. = ..()
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, volume)
-	flags &= ~OPENCONTAINER
+	atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/extinguisher
 	name = "fire extinguisher"
@@ -86,12 +88,12 @@
 	icon_state = "fire_extinguisher0"
 	item_state = "fire_extinguisher"
 	hitsound = 'sound/weapons/smash.ogg'
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	throwforce = 10
 	w_class = ITEMSIZE_HUGE
 	throw_speed = 2
 	throw_range = 10
-	force = 10.0
+	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 90)
 	attack_verb = list("slammed", "whacked", "bashed", "thunked", "battered", "bludgeoned", "thrashed")
 	drop_sound = 'sound/items/drop/gascan.ogg'
@@ -111,10 +113,10 @@
 	icon_state = "miniFE0"
 	item_state = "miniFE"
 	hitsound = null	//it is much lighter, after all.
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	throwforce = 2
 	w_class = ITEMSIZE_SMALL
-	force = 2.0
+	force = 2
 	max_water = 60
 	spray_amount = 10
 	spray_particles = 1
@@ -126,10 +128,11 @@
 	reagents.add_reagent(/singleton/reagent/toxin/fertilizer/monoammoniumphosphate, max_water)
 	..()
 
-/obj/item/extinguisher/examine(mob/user)
-	if(..(user, 0))
-		to_chat(user,"\The [src] contains [src.reagents.total_volume] units of reagents.")
-		to_chat(user,"The safety is [safety ? "on" : "off"].")
+/obj/item/extinguisher/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 0)
+		. += SPAN_NOTICE("\The [src] contains [src.reagents.total_volume] units of reagents.")
+		. += SPAN_NOTICE("The safety is [safety ? "on" : "off"].")
 	return
 
 /obj/item/extinguisher/attack(mob/living/M, mob/living/user, target_zone)
@@ -144,10 +147,10 @@
 	to_chat(user, "The safety is [safety ? "on" : "off"].")
 	return
 
-/obj/item/extinguisher/attackby(var/obj/O as obj, var/mob/user as mob)
+/obj/item/extinguisher/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(O,/obj/item/reagent_containers/extinguisher_refill))
-		var/obj/item/reagent_containers/extinguisher_refill/ER = O
+	if(istype(attacking_item,/obj/item/reagent_containers/extinguisher_refill))
+		var/obj/item/reagent_containers/extinguisher_refill/ER = attacking_item
 		if(ER.is_open_container())
 			to_chat(user,"<span class='notice'>\The [ER] needs to be secured first!</span>")
 		else if(ER.reagents.total_volume <= 0)

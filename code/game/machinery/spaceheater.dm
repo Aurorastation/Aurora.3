@@ -9,7 +9,7 @@
 	clicksound = /singleton/sound_category/switch_sound
 	var/on = FALSE
 	var/active = 0
-	var/heating_power = 40 KILOWATTS
+	var/heating_power = 40 KILO WATTS
 	var/set_temperature = T0C + 20
 
 	var/obj/item/cell/apc/cell
@@ -36,14 +36,13 @@
 	if(panel_open)
 		add_overlay("sheater-open")
 
-/obj/machinery/space_heater/examine(mob/user)
-	..(user)
-
-	to_chat(user, "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"].")
+/obj/machinery/space_heater/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "The heater is [on ? "on" : "off"] and the hatch is [panel_open ? "open" : "closed"]."
 	if(panel_open)
-		to_chat(user, "The power cell is [cell ? "installed" : "missing"].")
+		. += "The power cell is [cell ? "installed" : "missing"]."
 	else
-		to_chat(user, "The charge meter reads [cell ? round(cell.percent(),1) : 0]%")
+		. += "The charge meter reads [cell ? round(cell.percent(),1) : 0]%"
 	return
 
 /obj/machinery/space_heater/powered()
@@ -52,23 +51,24 @@
 	return FALSE
 
 /obj/machinery/space_heater/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
-		..(severity)
 		return
+
 	if(cell)
 		cell.emp_act(severity)
-	..(severity)
 
-/obj/machinery/space_heater/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/cell))
+/obj/machinery/space_heater/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(panel_open)
 			if(cell)
 				to_chat(user, "There is already a power cell inside.")
 			else
 				// insert cell
-				user.drop_from_inventory(I,src)
-				cell = I
-				I.add_fingerprint(user)
+				user.drop_from_inventory(attacking_item,src)
+				cell = attacking_item
+				attacking_item.add_fingerprint(user)
 
 				visible_message(SPAN_NOTICE("[user] inserts a power cell into [src]."),
 					SPAN_NOTICE("You insert the power cell into [src]."))
@@ -76,7 +76,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("The hatch must be open to insert a power cell."))
 		return TRUE
-	else if(I.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		panel_open = !panel_open
 		user.visible_message(SPAN_NOTICE("[user] [panel_open ? "opens" : "closes"] the hatch on the [src]."),
 				SPAN_NOTICE("You [panel_open ? "open" : "close"] the hatch on the [src]."))
@@ -202,3 +202,10 @@
 			active = FALSE
 			power_change()
 		update_icon()
+
+/obj/machinery/space_heater/stationary//For mounting on walls in planetary buildings and stuff.
+	name = "stationary air conditioning unit"
+	desc = "A stationary air conditioning unit. It can heat or cool a room to your liking."
+	anchored = TRUE
+	can_be_unanchored = FALSE
+	density = FALSE

@@ -1,6 +1,4 @@
-/var/datum/controller/subsystem/processing/disposals/SSdisposals
-
-/datum/controller/subsystem/processing/disposals
+PROCESSING_SUBSYSTEM_DEF(disposals)
 	name = "Disposals"
 	wait = 1	// deciseconds
 	flags = SS_NO_INIT | SS_BACKGROUND
@@ -9,6 +7,5 @@
 	// Reference list for disposal sort junctions. Filled by sorting junctions' initialize().
 	var/list/tagger_locations
 
-/datum/controller/subsystem/processing/disposals/New()
-	NEW_SS_GLOBAL(SSdisposals)
+/datum/controller/subsystem/processing/disposals/PreInit()
 	LAZYINITLIST(tagger_locations)

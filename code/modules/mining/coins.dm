@@ -6,8 +6,8 @@
 	icon_state = "coin__heads"
 	randpixel = 8
 	desc = "A flat disc or piece of metal with an official stamp. An archaic type of currency."
-	flags = CONDUCT
-	force = 0.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 0
 	throwforce = 0.0
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
@@ -72,9 +72,9 @@
 	icon_state = "coin_mining_heads"
 	cmineral = "mining"
 
-/obj/item/coin/attackby(obj/item/W, mob/user)
-	if(W.iscoil())
-		var/obj/item/stack/cable_coil/CC = W
+/obj/item/coin/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iscoil())
+		var/obj/item/stack/cable_coil/CC = attacking_item
 		if(string_attached)
 			to_chat(user, SPAN_NOTICE("There already is a string attached to this coin."))
 			return
@@ -85,7 +85,7 @@
 		else
 			to_chat(user, SPAN_NOTICE("This cable coil appears to be empty."))
 		return
-	else if(W.iswirecutter())
+	else if(attacking_item.iswirecutter())
 		if(!string_attached)
 			..()
 			return
@@ -111,4 +111,4 @@
 		icon_state = "coin_[cmineral]_[comment]"
 		playsound(get_turf(src), 'sound/items/coinflip.ogg', 100, 1, -4)
 		user.visible_message(SPAN_NOTICE("\The [user] throws \the [src]. It lands on [comment]!"), \
-							 SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))
+								SPAN_NOTICE("You throw \the [src]. It lands on [comment]!"))

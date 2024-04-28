@@ -17,7 +17,7 @@
 	return ..()
 
 /datum/late_choices/ui_state(mob/user)
-	return new_player_state
+	return GLOB.new_player_state
 
 /datum/late_choices/ui_status(mob/user, datum/ui_state/state)
 	return isnewplayer(user) ? UI_INTERACTIVE : UI_CLOSE

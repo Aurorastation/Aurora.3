@@ -17,7 +17,7 @@
 	dissipate = 1
 	dissipate_delay = 10
 	dissipate_strength = 1
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	blend_mode = BLEND_ADD
 	var/failed_direction = 0
 	var/list/orbiting_balls = list()
@@ -69,15 +69,15 @@
 	else
 		..()
 
-/obj/singularity/energy_ball/examine(mob/user)
-	..()
+/obj/singularity/energy_ball/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(orbiting_balls.len)
-		to_chat(user, "There are [orbiting_balls.len] energy balls orbiting \the [src].")
+		. +=  "There are [orbiting_balls.len] energy balls orbiting \the [src]."
 
 
 /obj/singularity/energy_ball/proc/move_the_basket_ball(var/move_amount)
 
-	var/list/valid_directions = alldirs.Copy()
+	var/list/valid_directions = GLOB.alldirs.Copy()
 
 	var/can_zmove = !(locate(/obj/machinery/containment_field) in view(12,src))
 	if(can_zmove && prob(10))
@@ -127,10 +127,10 @@
 				zMove(DOWN)
 				visible_message(SPAN_DANGER("\The [src] gravitates from above!"))
 
-		if(dir in alldirs)
+		if(dir in GLOB.alldirs)
 			dir = move_dir
 		else
-			dir = pick(alldirs)
+			dir = pick(GLOB.alldirs)
 
 		for(var/mob/living/carbon/C in loc)
 			dust_mobs(C)
@@ -430,7 +430,7 @@
 		if(issilicon(closest_mob))
 			var/mob/living/silicon/S = closest_mob
 			if(stun_mobs)
-				S.emp_act(2)
+				S.emp_act(EMP_LIGHT)
 			tesla_zap(S, 7, power / 1.5, explosive, stun_mobs) // metallic folks bounce it further
 		else
 			tesla_zap(closest_mob, 5, power / 1.5, explosive, stun_mobs)

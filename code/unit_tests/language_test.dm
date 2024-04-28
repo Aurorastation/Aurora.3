@@ -1,5 +1,6 @@
 /datum/unit_test/language_test
 	name = "Language Test - Repeated Keys"
+	groups = list("generic", "language")
 
 /datum/unit_test/language_test/start_test()
 	var/list/used_keys = list()

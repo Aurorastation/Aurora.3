@@ -6,7 +6,7 @@ var/hadevent    = 0
 
 
 	var/list/area/areas = list()
-	for(var/area/A in the_station_areas)
+	for(var/area/A in GLOB.the_station_areas)
 		if(A.is_prison())
 			areas += A
 
@@ -49,7 +49,7 @@ var/hadevent    = 0
 
 		for(var/i=1,i<=lightsoutAmount,i++)
 			var/list/possibleEpicentres = list()
-			for(var/obj/effect/landmark/newEpicentre in landmarks_list)
+			for(var/obj/effect/landmark/newEpicentre in GLOB.landmarks_list)
 				if(newEpicentre.name == "lightsout" && !(newEpicentre in epicentreList))
 					possibleEpicentres += newEpicentre
 			if(possibleEpicentres.len)
@@ -78,8 +78,8 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 */
 
 	//AI laws
-	for(var/mob/living/silicon/ai/M in living_mob_list)
-		if(M.stat != 2 && M.see_in_dark != 0)
+	for(var/mob/living/silicon/ai/M in GLOB.living_mob_list)
+		if(M.stat != 2)
 			var/who2 = pick("ALIENS", "BEARS", "CLOWNS", "XENOS", "PETES", "BOMBS", "FETISHES", "WIZARDS", "SYNDICATE AGENTS", "CENTCOM OFFICERS", "SPACE PIRATES", "TRAITORS", "MONKEYS",  "BEES", "CARP", "CRABS", "EELS", "BANDITS", "LIGHTS")
 			var/what2 = pick("BOLTERS", "STAVES", "DICE", "SINGULARITIES", "TOOLBOXES", "NETTLES", "AIRLOCKS", "CLOTHES", "WEAPONS", "MEDKITS", "BOMBS", "CANISTERS", "CHAIRS", "BBQ GRILLS", "ID CARDS", "CAPTAINS")
 			var/what2pref = pick("SOFT", "WARM", "WET", "COLD", "ICY", "SEXY", "UGLY", "CUBAN")
@@ -97,7 +97,7 @@ Would like to add a law like "Law x is _______" where x = a number, and _____ is
 			var/allergysev = pick("deathly", "mildly", "severely", "contagiously")
 			var/crew
 			var/list/pos_crew = list()
-			for(var/mob/living/carbon/human/pos in player_list)
+			for(var/mob/living/carbon/human/pos in GLOB.player_list)
 				pos_crew += pos.real_name
 			if(pos_crew.len)
 				crew = pick(pos_crew)

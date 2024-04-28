@@ -117,7 +117,7 @@
 		if(H.mob_size < 10) // smaller than an unathi
 			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)
-			src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 3, 3)
+			src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 3, 3)
 
 			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)

@@ -61,13 +61,13 @@
 
 /obj/structure/closet/secure_closet/xenoarchaeologist
 	name = "xenoarchaeologist's locker"
-	req_access = list(access_xenoarch)
+	req_access = list(ACCESS_XENOARCH)
 	icon_state = "science"
 
 /obj/structure/closet/secure_closet/xenoarchaeologist/fill()
 	new /obj/item/clothing/under/rank/scientist(src)
 	new /obj/item/clothing/suit/storage/toggle/labcoat(src)
-	new /obj/item/clothing/shoes/science(src)
+	new /obj/item/clothing/shoes/sneakers/medsci(src)
 	new /obj/item/clothing/glasses/science(src)
 	new /obj/item/device/radio/headset/headset_sci(src)
 	new /obj/item/storage/belt/archaeology(src)
@@ -98,6 +98,7 @@
 	new /obj/item/storage/bag/fossils(src)
 	new /obj/item/device/hand_labeler(src)
 	new /obj/item/ore_detector(src)
+	new /obj/item/device/spaceflare(src)
 
 	// 2 Drills
 	new /obj/item/pickaxe/drill(src)
@@ -106,9 +107,9 @@
 //---- Isolation room air alarms
 
 /obj/machinery/alarm/isolation
-	req_one_access = list(access_research, access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 
 /obj/machinery/alarm/monitor/isolation
-	req_one_access = list(access_research, access_atmospherics, access_engine_equip)
+	req_one_access = list(ACCESS_RESEARCH, ACCESS_ATMOSPHERICS, ACCESS_ENGINE_EQUIP)
 	locked = 0
 	remote_control = 1

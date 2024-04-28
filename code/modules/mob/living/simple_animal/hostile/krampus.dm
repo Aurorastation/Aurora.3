@@ -30,7 +30,6 @@
 	attacktext = "punished"
 	attack_sound = 'sound/weapons/bladeslice.ogg'
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0
@@ -111,7 +110,7 @@
 
 	for(var/i in 1 to 5)
 		var/mob/living/simple_animal/hostile/gift/T = new /mob/living/simple_animal/hostile/gift(get_turf(src))
-		var/turf/landing = get_step(src, pick(alldirs))
+		var/turf/landing = get_step(src, pick(GLOB.alldirs))
 		INVOKE_ASYNC(T, TYPE_PROC_REF(/atom/movable, throw_at), landing, 30, 5)
 
 /mob/living/simple_animal/hostile/krampus/proc/send_to_hell(mob/living/M)

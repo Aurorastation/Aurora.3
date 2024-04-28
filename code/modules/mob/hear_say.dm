@@ -51,7 +51,7 @@
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
-		if((client.prefs.toggles & CHAT_GHOSTEARS) && (speaker in view(src)))
+		if((client.prefs.toggles & CHAT_GHOSTEARS) && (get_turf(speaker) in view(src)))
 			message = "<b>[message]</b>"
 
 	if(isdeaf(src))
@@ -73,7 +73,7 @@
 				on_hear_say("[track][accent_icon ? accent_icon + " " : ""]<span class='game say'><span class='name'>[speaker_name]</span>[alt_name] [verb], <span class='message'><span class='body'>\"[message]\"</span></span></span>")
 		if (speech_sound && (get_dist(speaker, src) <= world.view && src.z == speaker.z))
 			var/turf/source = speaker? get_turf(speaker) : get_turf(src)
-			playsound_simple(source, speech_sound, sound_vol, use_random_freq = TRUE)
+			playsound(source, speech_sound, sound_vol, vary = TRUE)
 		return TRUE
 
 /mob/proc/cant_hear()
@@ -179,7 +179,7 @@
 				var/list/impersonated = list()
 				var/mob/living/carbon/human/I = impersonated[speaker_name]
 				if(!I)
-					for(var/mob/living/carbon/human/M in mob_list)
+					for(var/mob/living/carbon/human/M in GLOB.mob_list)
 						if(M.real_name == speaker_name)
 							I = M
 							impersonated[speaker_name] = I

@@ -28,7 +28,7 @@
 	for(var/mob/living/L in nearby_mobs)
 		if(is_ally(L))
 			continue
-		
+
 		if(L.loc == owner)
 			continue
 

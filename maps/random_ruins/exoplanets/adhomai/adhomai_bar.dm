@@ -7,7 +7,11 @@
 	spawn_cost = 2
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_bar.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_bar.dmm")
+
+	unit_test_groups = list(2)
 
 /area/adhomai_bar
 	name = "Adhomian Inn"
@@ -16,7 +20,8 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/mineral/adhomai
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
+	area_blurb = "A typical Adhomian inn. The scent of alcohol and cigarette smoke as well as the warmth welcomes you."
 
 //ghost roles
 
@@ -30,7 +35,7 @@
 	spawnpoints = list("adhomai_bar_innkeeper")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/adhomai_bar_innkeeper
+	outfit = /obj/outfit/admin/adhomai_bar_innkeeper
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -40,12 +45,12 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_bar_innkeeper
+/obj/outfit/admin/adhomai_bar_innkeeper
 	name = "Adhomian Innkeeper"
 
 	uniform = /obj/item/clothing/under/sl_suit
 	head = /obj/item/clothing/head/flatcap
-	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	suit = /obj/item/clothing/suit/storage/hooded/tajaran/maroon
 	l_pocket = /obj/item/pocketwatch/adhomai
@@ -64,7 +69,7 @@
 	max_count = 2
 
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
-	outfit = /datum/outfit/admin/adhomai_bar_server
+	outfit = /obj/outfit/admin/adhomai_bar_server
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -74,11 +79,11 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_bar_server
+/obj/outfit/admin/adhomai_bar_server
 	name = "Adhomian Inn Staff"
 
 	uniform = /obj/item/clothing/under/sl_suit
-	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	accessory = /obj/item/clothing/accessory/wcoat
 	l_ear = null
@@ -96,7 +101,7 @@
 	spawnpoints = list("adhomai_bar_patron")
 	max_count = 4
 
-	outfit = /datum/outfit/admin/adhomai_bar_patron
+	outfit = /obj/outfit/admin/adhomai_bar_patron
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -106,7 +111,7 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/adhomai_bar_patron
+/obj/outfit/admin/adhomai_bar_patron
 	name = "Adhomian Patron"
 
 	uniform = list(
@@ -117,9 +122,9 @@
 
 	shoes = list(
 				/obj/item/clothing/shoes/tajara/footwraps,
-				/obj/item/clothing/shoes/tajara/jackboots,
-				/obj/item/clothing/shoes/tajara/workboots,
-				/obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+				/obj/item/clothing/shoes/jackboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara,
+				/obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	)
 
 	back = /obj/item/storage/backpack/satchel/leather

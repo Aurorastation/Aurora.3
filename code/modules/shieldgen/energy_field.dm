@@ -9,7 +9,7 @@
 	alpha = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	anchored = 1
-	layer = 4.1		//just above mobs
+	layer = ABOVE_HUMAN_LAYER
 	density = 0
 	var/strength = 0
 	var/ticks_recovering = 10
@@ -31,13 +31,15 @@
 /obj/effect/energy_field/proc/diffuse(var/duration)
 	diffused_for = max(duration, 0)
 
-/obj/effect/energy_field/attackby(obj/item/I, mob/user)
-	user.do_attack_animation(src, I)
-	if(I.force < 10)
-		user.visible_message(SPAN_WARNING("[user] harmlessly attacks \the [src] with \the [I]."), SPAN_WARNING("You attack \the [src] with \the [I], but it bounces off without doing any damage."))
+/obj/effect/energy_field/attackby(obj/item/attacking_item, mob/user)
+	user.do_attack_animation(src, attacking_item)
+	if(attacking_item.force < 10)
+		user.visible_message(SPAN_WARNING("[user] harmlessly attacks \the [src] with \the [attacking_item]."),
+								SPAN_WARNING("You attack \the [src] with \the [attacking_item], but it bounces off without doing any damage."))
 	else
-		user.visible_message(SPAN_WARNING("[user] attacks \the [src] with \the [I]."), SPAN_WARNING("You attack \the [src] with \the [I]."))
-		Stress(I.force / 10)
+		user.visible_message(SPAN_WARNING("[user] attacks \the [src] with \the [attacking_item]."),
+								SPAN_WARNING("You attack \the [src] with \the [attacking_item]."))
+		Stress(attacking_item.force / 10)
 
 /obj/effect/energy_field/attack_hand(mob/living/carbon/human/H)
 	if(istype(H))

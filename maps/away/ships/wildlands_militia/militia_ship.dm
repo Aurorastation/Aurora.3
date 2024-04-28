@@ -1,12 +1,17 @@
 /datum/map_template/ruin/away_site/militia_ship
 	name = "Militia Ship"
 	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
-	suffixes = list("ships/wildlands_milita/militia_ship.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+
+	prefix = "ships/wildlands_militia/"
+	suffixes = list("militia_ship.dmm")
+
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "militia_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/militia_shuttle)
+
+	unit_test_groups = list(3)
 
 /singleton/submap_archetype/militia_ship
 	map = "Militia Ship"
@@ -46,8 +51,8 @@
 	invisible_until_ghostrole_spawn = TRUE
 
 /obj/effect/overmap/visitable/ship/militia_ship/New()
-    designation = "[pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
-    ..()
+	designation = "[pick("Volunteer", "Part-Timer", "Last Line", "Fearless", "Protector", "Minuteman", "Watchdog", "Family Man", "Guardian", "Hoplite", "Home Guard", "Defender")]"
+	..()
 
 /obj/effect/shuttle_landmark/militia_ship/nav1
 	name = "Militia Ship - Port Side"

@@ -2,7 +2,7 @@
 // FOR DEBUGGING ONLY!
 
 /proc/lprof_write(var/atom/movable/obj, var/type = "UNKNOWN")
-	if (!lighting_profiling || !obj || !establish_db_connection(dbcon))
+	if (!lighting_profiling || !obj || !establish_db_connection(GLOB.dbcon))
 		return
 
 	var/x = null
@@ -20,7 +20,7 @@
 
 	var/static/DBQuery/lprof_q
 	if (!lprof_q)
-		lprof_q = dbcon.NewQuery({"INSERT INTO ss13dbg_lighting (time,tick_usage,type,name,loc_name,x,y,z)
+		lprof_q = GLOB.dbcon.NewQuery({"INSERT INTO ss13dbg_lighting (time,tick_usage,type,name,loc_name,x,y,z)
 		VALUES (:time:,:tick_usage:,:type:,:name:,:loc_name:,:x:,:y:,:z:);"})
 
 	lprof_q.Execute(

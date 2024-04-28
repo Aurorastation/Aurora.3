@@ -1,7 +1,10 @@
 /datum/event/apc_damage
 	var/apcSelectionRange	= 25
 	no_fake = 1
+
 /datum/event/apc_damage/start()
+	..()
+
 	var/obj/machinery/power/apc/A = acquire_random_apc()
 
 	var/severity_range = 0
@@ -22,7 +25,7 @@
 	var/list/possibleEpicentres = list()
 	var/list/apcs = list()
 
-	for(var/obj/effect/landmark/newEpicentre in landmarks_list)
+	for(var/obj/effect/landmark/newEpicentre in GLOB.landmarks_list)
 		if(newEpicentre.name == "lightsout")
 			possibleEpicentres += newEpicentre
 

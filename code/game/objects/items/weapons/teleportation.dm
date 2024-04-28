@@ -32,7 +32,7 @@
 	var/frequency = 1451
 	var/broadcasting = null
 	var/listening = TRUE
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	item_state = "electronic"
 	throw_speed = 4
@@ -76,7 +76,7 @@ Frequency:
 			if (sr)
 				src.temp += "<B>Located Beacons:</B><BR>"
 
-				for(var/obj/item/device/radio/beacon/W in teleportbeacons)
+				for(var/obj/item/device/radio/beacon/W in GLOB.teleportbeacons)
 					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
@@ -94,13 +94,13 @@ Frequency:
 							src.temp += "[W.code]-[dir2text(get_dir(sr, tr))]-[direct]<BR>"
 
 				src.temp += "<B>Extraneous Signals:</B><BR>"
-				for (var/obj/item/implant/tracking/W in implants)
+				for (var/obj/item/implant/tracking/W in GLOB.implants)
 					if (!W.implanted || !(istype(W.loc,/obj/item/organ/external) || ismob(W.loc)))
 						continue
 					else
 						var/mob/M = W.loc
-						if (M.stat == 2)
-							if (M.timeofdeath + 6000 < world.time)
+						if (M.stat == DEAD)
+							if (M.timeofdeath + W.lifespan_postmortem < world.time)
 								continue
 
 					var/turf/tr = get_turf(W)
@@ -146,7 +146,7 @@ Frequency:
 	icon_state = "hand_tele"
 	item_state = "electronic"
 	throwforce = 5
-	flags = HELDMAPTEXT
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 3
 	throw_range = 5
@@ -158,13 +158,13 @@ Frequency:
 
 	var/max_portals = 2
 
-/obj/item/hand_tele/examine(mob/user, distance)
+/obj/item/hand_tele/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(linked_pad)
 		var/area/A = get_area(linked_pad)
-		to_chat(user, SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]"))
+		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]")
 	else
-		to_chat(user, SPAN_WARNING("\The [src] isn't linked to any teleportation pads!"))
+		. += SPAN_WARNING("\The [src] isn't linked to any teleportation pads!")
 
 /obj/item/hand_tele/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
@@ -239,15 +239,15 @@ Frequency:
 				else
 					teleport_options["[A.name] (Inactive)"] = P
 		teleport_options["None (Dangerous)"] = null
-		var/teleport_choice = input(user, "Please select a teleporter to lock in on.", "Hand Teleporter") as null|anything in teleport_options
+		var/teleport_choice = tgui_input_list(user, "Please select a teleporter to lock in on.", "Hand Teleporter", teleport_options)
 		if(!teleport_choice)
 			return
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
+			GLOB.destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
-			destroyed_event.unregister(old_pad, src)
+			GLOB.destroyed_event.unregister(old_pad, src)
 		return
 	return ..()
 
@@ -266,7 +266,7 @@ Frequency:
 	desc_antag = "Click a closet with this to install. Step into the closet and close the door to teleport to the linked closet. It has a one minute cooldown after a batch teleport."
 	icon = 'icons/obj/modular_components.dmi'
 	icon_state = "cpu_normal_photonic"
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	w_class = ITEMSIZE_SMALL
 	origin_tech = list(TECH_MAGNET = 2, TECH_BLUESPACE = 3)
 	matter = list(DEFAULT_WALL_MATERIAL = 400)

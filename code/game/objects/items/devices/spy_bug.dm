@@ -4,10 +4,10 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "eshield0"
 	item_state = "nothing"
-	layer = TURF_LAYER+0.2
+	layer = BELOW_TABLE_LAYER
 
-	flags = CONDUCT
-	force = 5.0
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	force = 11
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_EARS
 	throwforce = 5.0
@@ -25,20 +25,23 @@
 	camera = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_bug/examine(mob/user)
-	. = ..(user, 0)
-	if(.)
-		to_chat(user, "It's a tiny camera, microphone, and transmission device in a happy union.")
-		to_chat(user, "Needs to be both configured and brought in contact with monitor device to be fully functional.")
+/obj/item/device/spy_bug/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 0)
+		. += "It's a tiny camera, microphone, and transmission device in a happy union."
+		. += "Needs to be both configured and brought in contact with monitor device to be fully functional."
 
 /obj/item/device/spy_bug/attack_self(mob/user)
 	radio.set_broadcasting(!radio.get_broadcasting())
 	to_chat(user, "\The [src]'s radio is [radio.get_broadcasting() ? "broadcasting" : "not broadcasting"] now. The current frequency is [radio.get_frequency()].")
 	radio.attack_self(user)
 
-/obj/item/device/spy_bug/attackby(obj/W as obj, mob/living/user as mob)
-	if(istype(W, /obj/item/device/spy_monitor))
-		var/obj/item/device/spy_monitor/SM = W
+/obj/item/device/spy_bug/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(user))
+		return
+
+	if(istype(attacking_item, /obj/item/device/spy_monitor))
+		var/obj/item/device/spy_monitor/SM = attacking_item
 		SM.pair(src, user)
 		return TRUE
 	else
@@ -68,10 +71,10 @@
 	radio = new(src)
 	become_hearing_sensitive(ROUNDSTART_TRAIT)
 
-/obj/item/device/spy_monitor/examine(mob/user)
-	. = ..(user, 1)
-	if(.)
-		to_chat(user, "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made.")
+/obj/item/device/spy_monitor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 1)
+		. += "The time '12:00' is blinking in the corner of the screen and \the [src] looks very cheaply made."
 
 /obj/item/device/spy_monitor/attack_self(mob/user)
 	if(operating)
@@ -80,9 +83,12 @@
 	radio.attack_self(user)
 	view_cameras(user)
 
-/obj/item/device/spy_monitor/attackby(obj/W as obj, mob/living/user as mob)
-	if(istype(W, /obj/item/device/spy_bug))
-		pair(W, user)
+/obj/item/device/spy_monitor/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(user))
+		return
+
+	if(istype(attacking_item, /obj/item/device/spy_bug))
+		pair(attacking_item, user)
 		return TRUE
 	else
 		return ..()
@@ -104,7 +110,7 @@
 
 	operating = 1
 	while(selected_camera && Adjacent(user))
-		selected_camera = input("Select camera bug to view.") as null|anything in cameras
+		selected_camera = tgui_input_list(user, "Select camera bug to view.", "Spy Monitor", cameras)
 	selected_camera = null
 	operating = 0
 

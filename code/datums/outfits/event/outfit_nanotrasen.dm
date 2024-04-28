@@ -1,4 +1,4 @@
-/datum/outfit/admin/nt
+/obj/outfit/admin/nt
 	name = "NanoTrasen Representative"
 
 	uniform = /obj/item/clothing/under/rank/centcom
@@ -16,10 +16,10 @@
 	id_icon = "centcom"
 	var/id_access = "NanoTrasen Representative"
 
-/datum/outfit/admin/nt/get_id_access()
+/obj/outfit/admin/nt/get_id_access()
 	return get_all_station_access() | get_centcom_access(id_access)
 
-/datum/outfit/admin/nt/officer
+/obj/outfit/admin/nt/officer
 	name = "NanoTrasen Navy Officer"
 
 	uniform = /obj/item/clothing/under/rank/centcom_officer
@@ -27,7 +27,7 @@
 	head = /obj/item/clothing/head/beret/centcom/officer
 	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
-/datum/outfit/admin/nt/captain
+/obj/outfit/admin/nt/captain
 	name = "NanoTrasen Navy Captain"
 
 	uniform = /obj/item/clothing/under/rank/centcom_captain
@@ -35,12 +35,12 @@
 	head = /obj/item/clothing/head/beret/centcom/captain
 	l_pocket = /obj/item/device/orbital_dropper/icarus_drones
 
-/datum/outfit/admin/nt/protection_detail
+/obj/outfit/admin/nt/protection_detail
 	name = "ERT Protection Detail"
 
 	uniform = /obj/item/clothing/under/ccpolice
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud
@@ -62,7 +62,7 @@
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/nt/protection_detail/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	if(H && H.belt)
 
@@ -83,7 +83,7 @@
 		H.belt.contents += shield
 
 
-/datum/outfit/admin/nt/ert_commander
+/obj/outfit/admin/nt/ert_commander
 	name = "ERT Commander"
 
 	uniform = /obj/item/clothing/under/rank/centcom_commander
@@ -106,7 +106,7 @@
 
 	id_access = "BlackOps Commander"
 
-/datum/outfit/admin/nt/cciaa
+/obj/outfit/admin/nt/cciaa
 	name = "CCIA Agent"
 
 	uniform = /obj/item/clothing/under/rank/centcom_officer
@@ -128,12 +128,22 @@
 	id_icon = "ccia"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/odinsec
+/obj/outfit/admin/nt/vip
+	name = "Very Important Person"
+
+	uniform = /obj/item/clothing/under/suit_jacket/nt_skirtsuit
+	shoes = /obj/item/clothing/shoes/flats
+	wrist = /obj/item/clothing/wrists/watch/gold
+	l_ear = /obj/item/device/radio/headset/ert/ccia
+	id = /obj/item/card/id/ccia
+	l_pocket = /obj/item/reagent_containers/spray/pepper
+
+/obj/outfit/admin/nt/odinsec
 	name = "NTCC Odin Security Specialist"
 
 	uniform = /obj/item/clothing/under/ccpolice
 	suit = /obj/item/clothing/suit/storage/vest/heavy/ert/peacekeeper
-	shoes = /obj/item/clothing/shoes/swat
+	shoes = /obj/item/clothing/shoes/combat
 	gloves = /obj/item/clothing/gloves/swat/tactical
 	l_ear = /obj/item/device/radio/headset/ert
 	glasses = /obj/item/clothing/glasses/sunglasses/sechud/tactical
@@ -161,7 +171,7 @@
 
 	id_access = "Odin Security"
 
-/datum/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/admin/nt/odinsec/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
 	if(H && H.w_uniform)
 
@@ -172,7 +182,7 @@
 		var/obj/item/clothing/under/rank/U = H.w_uniform
 		U.attach_accessory(null, holster)
 
-/datum/outfit/admin/nt/specops
+/obj/outfit/admin/nt/specops
 	name = "Special Operations Officer"
 
 	uniform = /obj/item/clothing/under/syndicate/combat
@@ -192,17 +202,17 @@
 
 	id_access = "Death Commando"
 
-/datum/outfit/admin/nt/fib
-	name = "FIB Agent"
+/obj/outfit/admin/nt/bssb
+	name = "BSSB Agent"
 
-	uniform = /obj/item/clothing/under/rank/fib
-	suit = /obj/item/clothing/suit/storage/toggle/fib
+	uniform = /obj/item/clothing/under/rank/bssb
+	suit = /obj/item/clothing/suit/storage/toggle/bssb
 	gloves = /obj/item/clothing/gloves/black
 
 	l_pocket = /obj/item/reagent_containers/spray/pepper
 	r_pocket = /obj/item/device/taperecorder/cciaa
-	l_hand = /obj/item/storage/lockbox/cciaa/fib
-	id = /obj/item/card/id/ccia/fib
+	l_hand = /obj/item/storage/lockbox/cciaa/bssb
+	id = /obj/item/card/id/ccia/bssb
 
 	accessory = /obj/item/clothing/accessory/holster/hip
 	accessory_contents = list(/obj/item/gun/projectile/sec/lethal = 1)
@@ -213,14 +223,28 @@
 		/obj/item/handcuffs = 1
 	)
 
-	id_icon = "fib"
+	id_icon = "bssb"
 	id_access = "CCIA Agent"
 
-/datum/outfit/admin/nt/fib/guard
-	name = "FIB Escort"
+/obj/outfit/admin/nt/bssb/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
-	suit = /obj/item/clothing/suit/armor/vest/fib
-	belt =/obj/item/storage/belt/security
+	if(H?.wear_suit)
+		var/obj/item/clothing/accessory/badge/bssb/senior/badge = new(src)
+		var/obj/item/clothing/U = H.wear_suit
+		U.attach_accessory(null, badge)
+
+/obj/outfit/admin/nt/bssb/guard
+	name = "BSSB Escort"
+
+	suit = /obj/item/clothing/suit/storage/toggle/bssb/armor
+	belt = /obj/item/storage/belt/security
+
+	shoes = /obj/item/clothing/shoes/jackboots
+	species_shoes = list(
+		SPECIES_UNATHI = /obj/item/clothing/shoes/jackboots/toeless,
+		SPECIES_TAJARA = /obj/item/clothing/shoes/jackboots/tajara,
+		SPECIES_TAJARA_MSAI = /obj/item/clothing/shoes/jackboots/tajara
+	)
 	r_pocket = null
 	l_hand = null
 	belt_contents = list(
@@ -233,17 +257,23 @@
 	backpack_contents = list(
 		/obj/item/storage/box/survival/engineer = 1,
 		/obj/item/storage/box/zipties = 1,
+		/obj/item/gun/energy/gun = 1,
 		/obj/item/clothing/head/helmet = 1
 	)
 
-	id_access = "CCIA Agent"
+/obj/outfit/admin/nt/bssb/guard/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 
-/datum/outfit/admin/nt/odindoc
+	if(H?.wear_suit)
+		var/obj/item/clothing/accessory/badge/bssb/badge = new(src)
+		var/obj/item/clothing/U = H.wear_suit
+		U.attach_accessory(null, badge)
+
+/obj/outfit/admin/nt/odindoc
 	name = "NTCC Odin Medical Specialist"
 
 	uniform = /obj/item/clothing/under/rank/medical/surgeon/zavod
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat
-	shoes = /obj/item/clothing/shoes/trauma
+	shoes = /obj/item/clothing/shoes/sneakers/black
 	mask = /obj/item/clothing/mask/surgical
 	l_hand = /obj/item/storage/firstaid/adv
 	headset = /obj/item/device/radio/headset/headset_med
@@ -277,12 +307,12 @@
 
 	id_access = "Medical Doctor"
 
-/datum/outfit/admin/nt/odinpharm
+/obj/outfit/admin/nt/odinpharm
 	name = "NTCC Odin Pharmacy Specialist"
 
 	uniform = /obj/item/clothing/under/rank/medical/pharmacist
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
-	shoes = /obj/item/clothing/shoes/chemist
+	shoes = /obj/item/clothing/shoes/sneakers/medsci
 	headset = /obj/item/device/radio/headset/headset_med
 	bowman = /obj/item/device/radio/headset/headset_med/alt
 	glasses = /obj/item/clothing/glasses/hud/health
@@ -294,29 +324,29 @@
 
 	id_access = "Medical Doctor"
 
-/datum/outfit/admin/nt/odinbartender
+/obj/outfit/admin/nt/odinbartender
 	name = "NTCC Odin Bartender"
 
 	uniform = /obj/item/clothing/under/rank/bartender
-	shoes = /obj/item/clothing/shoes/laceup/all_species
+	shoes = /obj/item/clothing/shoes/laceup
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	id_access = "Service"
 
-/datum/outfit/admin/nt/odinchef
+/obj/outfit/admin/nt/odinchef
 	name = "NTCC Odin Chef"
 
 	uniform = /obj/item/clothing/under/rank/chef
 	suit = /obj/item/clothing/suit/chef_jacket
 	head = /obj/item/clothing/head/chefhat
-	shoes = /obj/item/clothing/shoes/laceup/all_species
+	shoes = /obj/item/clothing/shoes/laceup
 	headset = /obj/item/device/radio/headset/headset_service
 	bowman = /obj/item/device/radio/headset/headset_service/alt
 
 	id_access = "Service"
 
-/datum/outfit/admin/nt/odinjanitor
+/obj/outfit/admin/nt/odinjanitor
 	name = "NTCC Odin Sanitation Specialist"
 
 	uniform = /obj/item/clothing/under/rank/janitor

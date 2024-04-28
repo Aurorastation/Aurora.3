@@ -12,26 +12,18 @@
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-/datum/gear/shoes/toeless
-	display_name = "toe-less jackboots"
-	path = /obj/item/clothing/shoes/jackboots/toeless
-	sort_category = "Xenowear"
-	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
-
 /datum/gear/shoes/caligae
 	display_name = "caligae selection"
-	path = /obj/item/clothing/shoes/caligae
-	whitelisted = list(SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI)
+	path = /obj/item/clothing/shoes/sandals/caligae
+	whitelisted = list(SPECIES_UNATHI, SPECIES_TAJARA, SPECIES_TAJARA_ZHAN, SPECIES_TAJARA_MSAI, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/shoes/caligae/New()
 	..()
 	var/list/caligae = list()
-	caligae["no sock"] = /obj/item/clothing/shoes/caligae
-	caligae["black sock"] = /obj/item/clothing/shoes/caligae/black
-	caligae["grey sock"] = /obj/item/clothing/shoes/caligae/grey
-	caligae["white sock"] = /obj/item/clothing/shoes/caligae/white
-	caligae["leather"] = /obj/item/clothing/shoes/caligae/armor
+	caligae["caligae, no sock"] = /obj/item/clothing/shoes/sandals/caligae
+	caligae["caligae, socks"] = /obj/item/clothing/shoes/sandals/caligae/socks
 	gear_tweaks += new /datum/gear_tweak/path(caligae)
 
 /datum/gear/shoes/toeless
@@ -43,11 +35,12 @@
 /datum/gear/shoes/toeless/New()
 	..()
 	var/list/shoes = list()
-	shoes["brown toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless
+	shoes["toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless
+	shoes["brown toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/brown
 	shoes["grey toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/grey
 	shoes["dark toeless workboots"] = /obj/item/clothing/shoes/workboots/toeless/dark
-	shoes["toeless black boots, short"] = /obj/item/clothing/shoes/jackboots/toeless
-	shoes["toeless black boots, knee"] = /obj/item/clothing/shoes/jackboots/toeless/knee
-	shoes["toeless black boots, thigh"] = /obj/item/clothing/shoes/jackboots/toeless/thigh
+	shoes["toeless jackboots"] = /obj/item/clothing/shoes/jackboots/toeless
+	shoes["toeless jackboots, cavalry"] = /obj/item/clothing/shoes/jackboots/toeless/cavalry
+	shoes["toeless jackboots, riding"] = /obj/item/clothing/shoes/jackboots/toeless/riding
 	shoes["toeless winterboots"] = /obj/item/clothing/shoes/winter/toeless
 	gear_tweaks += new /datum/gear_tweak/path(shoes)

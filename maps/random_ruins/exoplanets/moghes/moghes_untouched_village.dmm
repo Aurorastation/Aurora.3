@@ -1,0 +1,1897 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ab" = (
+/obj/structure/closet/secure_closet/freezer/meat,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/obj/item/reagent_containers/food/snacks/fish,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"ae" = (
+/obj/structure/table/rack,
+/obj/item/wirecutters/clippers,
+/obj/item/wirecutters/clippers,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"an" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"aK" = (
+/obj/structure/light_pole/r,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"bg" = (
+/obj/machinery/gibber,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/moghes_village)
+"bm" = (
+/obj/structure/table/wood,
+/obj/item/material/twohanded/pike/pitchfork,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"bC" = (
+/turf/simulated/floor/exoplanet/marble/dark,
+/area/moghes_village)
+"cH" = (
+/obj/structure/table/rack,
+/obj/item/material/hatchet/lumber,
+/obj/item/material/hatchet/lumber,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"eW" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"fb" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"fq" = (
+/obj/structure/light_pole,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"ge" = (
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"gg" = (
+/obj/structure/sink/kitchen{
+	pixel_y = 26
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"gs" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bottle/ammonia,
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"gv" = (
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"gX" = (
+/obj/structure/flora/log_bench{
+	dir = 1;
+	pixel_y = 15
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge"
+	},
+/area/moghes_village)
+"hQ" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"ip" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"iE" = (
+/obj/structure/flora/tree/jungle/small/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"kl" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"kx" = (
+/obj/structure/closet/cabinet,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi/himation,
+/obj/item/clothing/under/unathi{
+	color = "#4a3407"
+	},
+/obj/item/clothing/under/unathi,
+/obj/item/clothing/under/unathi/huytai{
+	color = "#4a3407"
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"kC" = (
+/obj/structure/table/rack,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"kO" = (
+/obj/machinery/appliance/cooker/oven,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"la" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner";
+	dir = 1
+	},
+/area/moghes_village)
+"lh" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"lF" = (
+/obj/structure/flora/grass/junglegrass/dense/random,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"lJ" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"lL" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/bed/stool/chair/sofa/right/brown,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"mp" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = -4;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/condiment/enzyme{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/machinery/reagentgrinder,
+/obj/machinery/light{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"mE" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"nO" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"nU" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"oi" = (
+/obj/structure/railing/fence,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
+	dir = 8
+	},
+/area/moghes_village)
+"oJ" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"pm" = (
+/obj/structure/bed/padded,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/black,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_villager";
+	identifier = "moghes_villager"
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"pt" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"pA" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"qk" = (
+/obj/machinery/light,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"qP" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"qT" = (
+/obj/structure/flora/log_bench{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"qZ" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"rb" = (
+/turf/simulated/floor/tiled/freezer,
+/area/moghes_village)
+"rC" = (
+/obj/structure/bed/stool/chair/sofa/left/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"rD" = (
+/obj/structure/table/stone/marble,
+/obj/item/clothing/wrists/unathi/maxtlatl,
+/obj/item/clothing/accessory/poncho/maxtlatl,
+/obj/item/clothing/head/unathi/maxtlatl,
+/obj/item/nullrod/shaman,
+/turf/simulated/floor/exoplanet/marble/dark,
+/area/moghes_village)
+"rL" = (
+/obj/item/device/radio/phone,
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"ss" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach,
+/area/moghes_village)
+"tl" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"tn" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"tM" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"uB" = (
+/obj/structure/flora/log_bench,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"uE" = (
+/obj/structure/table/standard,
+/obj/item/material/hatchet/butch,
+/turf/simulated/floor/tiled/freezer,
+/area/moghes_village)
+"uZ" = (
+/obj/structure/television,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"vC" = (
+/obj/structure/table/wood,
+/obj/item/saddle,
+/obj/item/saddle,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"vJ" = (
+/obj/structure/closet/crate/hydroponics,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/obj/item/seeds/clam,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"vQ" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/moghes_village)
+"wi" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner"
+	},
+/area/moghes_village)
+"wt" = (
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"xs" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"xz" = (
+/obj/machinery/vending/dinnerware,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"yU" = (
+/obj/structure/railing/fence,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
+	dir = 4
+	},
+/area/moghes_village)
+"Ac" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/moghes_village)
+"AE" = (
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"CA" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/glass/bucket/wood,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"CP" = (
+/obj/structure/bed/stool/chair/sofa/left/brown,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Dp" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"DK" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
+	dir = 8
+	},
+/area/moghes_village)
+"DP" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/floor_decal/spline/fancy/wood/corner{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Eo" = (
+/obj/structure/flora/log_bench{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "edge";
+	dir = 4
+	},
+/area/moghes_village)
+"EL" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Gf" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/water/shallow/moghes,
+/area/moghes_village)
+"Gp" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"GP" = (
+/obj/structure/table/rack,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/obj/item/material/minihoe,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Hm" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"Hv" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"HC" = (
+/obj/structure/closet/cabinet,
+/obj/item/gun/projectile/shotgun/doublebarrel,
+/obj/item/storage/box/shotgunshells,
+/obj/item/storage/box/shotgunshells,
+/obj/item/clothing/accessory/storage/bandolier,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"HV" = (
+/obj/effect/floor_decal/spline/fancy/wood/corner,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"ID" = (
+/obj/structure/simple_door/sandstone,
+/turf/simulated/floor/exoplanet/marble,
+/area/moghes_village)
+"IU" = (
+/obj/machinery/door/urban{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"Jt" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"JE" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"JK" = (
+/turf/simulated/floor/exoplanet/water/shallow/moghes,
+/area/moghes_village)
+"KD" = (
+/obj/structure/closet/crate/hydroponics,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"KH" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"Ls" = (
+/obj/structure/bed/stool/chair/sofa/right/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"Ma" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"Mo" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
+	dir = 4
+	},
+/area/moghes_village)
+"Mp" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "beachcorner";
+	dir = 1
+	},
+/area/moghes_village)
+"Mz" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"MP" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/exoplanet/carpet/orange,
+/area/moghes_village)
+"NR" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Oi" = (
+/turf/simulated/wall/sandstone,
+/area/moghes_village)
+"OV" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Pa" = (
+/obj/structure/coatrack,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"PL" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/item/reagent_containers/glass/beaker{
+	pixel_x = -6;
+	pixel_y = 8
+	},
+/obj/item/reagent_containers/food/condiment/sugar{
+	pixel_x = 7;
+	pixel_y = 8
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Rd" = (
+/obj/structure/table/rack,
+/obj/item/material/hatchet,
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Rq" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
+	dir = 4
+	},
+/area/moghes_village)
+"RN" = (
+/obj/structure/railing/fence,
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
+	dir = 1
+	},
+/area/moghes_village)
+"RQ" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"RV" = (
+/obj/machinery/portable_atmospherics/hydroponics/soil,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt/beach{
+	dir = 8
+	},
+/area/moghes_village)
+"Sa" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner";
+	dir = 4
+	},
+/area/moghes_village)
+"TG" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "beachcorner"
+	},
+/area/moghes_village)
+"UG" = (
+/turf/simulated/wall/birchwood,
+/area/moghes_village)
+"UJ" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_village)
+"Wx" = (
+/turf/simulated/floor/exoplanet/grass/moghes/dirt{
+	icon_state = "corner";
+	dir = 8
+	},
+/area/moghes_village)
+"WD" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Xa" = (
+/obj/structure/sink/kitchen{
+	dir = 8;
+	pixel_x = 21
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"Xc" = (
+/obj/structure/kitchenspike,
+/turf/simulated/floor/tiled/freezer,
+/area/moghes_village)
+"XG" = (
+/obj/structure/table/stone,
+/obj/item/flame/candle,
+/turf/simulated/floor/exoplanet/marble/dark,
+/area/moghes_village)
+"XM" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_village)
+"YM" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"YS" = (
+/obj/structure/window/reinforced,
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/door/window{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/moghes_village)
+"Zo" = (
+/obj/structure/bed/stool/chair/wood,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+"ZL" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/coatrack,
+/turf/simulated/floor/exoplanet/wood/birch{
+	temperature = 303.15
+	},
+/area/moghes_village)
+
+(1,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+lF
+lF
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+lF
+lF
+"}
+(2,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+XM
+lF
+XM
+lF
+lF
+lF
+WD
+XM
+UG
+UG
+UG
+UG
+UG
+UG
+UG
+UG
+UG
+XM
+XM
+lF
+mE
+Hv
+Hv
+Hv
+Hv
+lJ
+lF
+"}
+(3,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+WD
+XM
+UG
+kO
+wt
+HV
+OV
+OV
+OV
+qk
+UG
+UG
+UG
+UG
+TG
+Mo
+Rq
+Mo
+Rq
+yU
+lF
+"}
+(4,1,1) = {"
+XM
+UG
+UG
+UG
+UG
+UG
+UG
+UG
+XM
+XM
+XM
+WD
+XM
+UG
+mp
+wt
+YM
+xs
+xs
+xs
+EL
+UG
+kx
+lh
+UG
+ss
+Gf
+JK
+Gf
+JK
+RN
+lF
+"}
+(5,1,1) = {"
+XM
+UG
+KH
+Mz
+KH
+KH
+KH
+UG
+XM
+XM
+XM
+WD
+XM
+UG
+PL
+wt
+YM
+MP
+MP
+MP
+EL
+Gp
+wt
+wt
+UG
+ss
+Gf
+JK
+Gf
+JK
+RN
+lF
+"}
+(6,1,1) = {"
+XM
+UG
+ip
+KH
+KH
+Mz
+KH
+UG
+XM
+XM
+fq
+WD
+XM
+UG
+ab
+wt
+YM
+MP
+MP
+MP
+EL
+UG
+pm
+pm
+UG
+ss
+Gf
+JK
+Gf
+JK
+RN
+lF
+"}
+(7,1,1) = {"
+XM
+UG
+KH
+KH
+KH
+KH
+KH
+UG
+XM
+XM
+XM
+WD
+XM
+UG
+xz
+Xa
+YM
+qZ
+qZ
+qZ
+EL
+UG
+UG
+UG
+UG
+ss
+Gf
+JK
+Gf
+JK
+RN
+lF
+"}
+(8,1,1) = {"
+XM
+UG
+Mz
+KH
+KH
+Mz
+KH
+UG
+XM
+XM
+XM
+WD
+XM
+UG
+UG
+UG
+fb
+qP
+qP
+qP
+eW
+UG
+XM
+XM
+XM
+ss
+Gf
+JK
+Gf
+JK
+RN
+lF
+"}
+(9,1,1) = {"
+XM
+UG
+Hv
+Hv
+Hv
+UG
+IU
+UG
+XM
+XM
+XM
+WD
+XM
+XM
+XM
+UG
+lL
+wt
+wt
+wt
+AE
+UG
+XM
+XM
+lF
+Mp
+RV
+DK
+RV
+DK
+oi
+lF
+"}
+(10,1,1) = {"
+XM
+UG
+Hv
+Hv
+Hv
+Hv
+KH
+UG
+kl
+XM
+XM
+WD
+XM
+XM
+XM
+UG
+CP
+wt
+wt
+Pa
+rL
+UG
+XM
+XM
+lF
+tn
+Hm
+KH
+Hm
+Hm
+tl
+XM
+"}
+(11,1,1) = {"
+XM
+UG
+KH
+KH
+KH
+KH
+KH
+RQ
+WD
+WD
+WD
+WD
+XM
+XM
+XM
+UG
+UG
+UG
+hQ
+UG
+UG
+UG
+XM
+XM
+XM
+XM
+XM
+WD
+XM
+aK
+XM
+XM
+"}
+(12,1,1) = {"
+XM
+UG
+ip
+KH
+KH
+KH
+KH
+RQ
+WD
+WD
+WD
+WD
+XM
+XM
+XM
+XM
+XM
+Dp
+WD
+Dp
+XM
+XM
+XM
+XM
+XM
+WD
+WD
+WD
+WD
+WD
+WD
+XM
+"}
+(13,1,1) = {"
+XM
+UG
+KH
+KH
+KH
+KH
+bm
+UG
+kl
+XM
+XM
+WD
+XM
+XM
+lF
+lF
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+fq
+XM
+WD
+XM
+XM
+XM
+XM
+ge
+XM
+"}
+(14,1,1) = {"
+XM
+UG
+UJ
+vC
+KH
+KH
+CA
+UG
+XM
+XM
+XM
+WD
+XM
+XM
+XM
+lF
+XM
+XM
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+UG
+UG
+UG
+UG
+UG
+XM
+"}
+(15,1,1) = {"
+XM
+UG
+UG
+UG
+Ac
+UG
+UG
+UG
+XM
+XM
+XM
+WD
+XM
+wi
+Eo
+Wx
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+UG
+pm
+pm
+lh
+UG
+XM
+"}
+(16,1,1) = {"
+XM
+XM
+UG
+rb
+rb
+rb
+UG
+XM
+XM
+lF
+XM
+WD
+XM
+gX
+nU
+uB
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+UG
+wt
+wt
+wt
+UG
+XM
+"}
+(17,1,1) = {"
+XM
+XM
+UG
+vQ
+rb
+YS
+UG
+XM
+XM
+lF
+XM
+WD
+XM
+la
+qT
+Sa
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+UG
+UG
+UG
+UG
+HC
+kx
+wt
+UG
+XM
+"}
+(18,1,1) = {"
+XM
+XM
+UG
+uE
+Xc
+bg
+UG
+XM
+XM
+lF
+XM
+WD
+XM
+XM
+XM
+XM
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+UG
+gv
+rC
+UG
+UG
+UG
+hQ
+UG
+XM
+"}
+(19,1,1) = {"
+XM
+XM
+UG
+UG
+UG
+UG
+UG
+XM
+lF
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+UG
+uZ
+Ls
+EL
+NR
+NR
+AE
+UG
+XM
+"}
+(20,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+lF
+lF
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+XM
+XM
+WD
+XM
+XM
+XM
+pt
+UG
+Ma
+gv
+Zo
+nO
+nO
+Jt
+UG
+XM
+"}
+(21,1,1) = {"
+XM
+XM
+iE
+XM
+XM
+lF
+XM
+lF
+lF
+lF
+XM
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+WD
+Gp
+qP
+qP
+DP
+nO
+nO
+Jt
+UG
+XM
+"}
+(22,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+lF
+lF
+iE
+XM
+XM
+XM
+WD
+XM
+XM
+XM
+aK
+XM
+XM
+WD
+XM
+XM
+XM
+pt
+UG
+ZL
+wt
+oJ
+nO
+nO
+Jt
+UG
+XM
+"}
+(23,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+WD
+XM
+XM
+XM
+lF
+XM
+XM
+WD
+XM
+XM
+XM
+XM
+UG
+rL
+wt
+wt
+pA
+pA
+AE
+UG
+XM
+"}
+(24,1,1) = {"
+XM
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+XM
+XM
+XM
+WD
+XM
+XM
+lF
+lF
+lF
+lF
+WD
+XM
+XM
+XM
+XM
+UG
+UG
+UG
+hQ
+UG
+UG
+UG
+UG
+XM
+"}
+(25,1,1) = {"
+XM
+Oi
+bC
+XG
+bC
+XG
+bC
+Oi
+XM
+XM
+XM
+WD
+XM
+lF
+XM
+XM
+lF
+tM
+WD
+tM
+XM
+XM
+XM
+XM
+UG
+wt
+wt
+wt
+ab
+UG
+XM
+XM
+"}
+(26,1,1) = {"
+XM
+Oi
+bC
+bC
+bC
+bC
+bC
+Oi
+XM
+XM
+XM
+WD
+lF
+lF
+XM
+UG
+UG
+UG
+hQ
+UG
+UG
+UG
+XM
+XM
+UG
+gg
+wt
+wt
+wt
+UG
+XM
+XM
+"}
+(27,1,1) = {"
+XM
+Oi
+bC
+rD
+bC
+bC
+bC
+ID
+WD
+WD
+WD
+WD
+lF
+lF
+XM
+UG
+vJ
+wt
+wt
+wt
+kC
+UG
+XM
+XM
+UG
+xz
+kO
+mp
+JE
+UG
+XM
+XM
+"}
+(28,1,1) = {"
+XM
+Oi
+bC
+bC
+bC
+bC
+bC
+Oi
+XM
+XM
+aK
+XM
+lF
+lF
+XM
+UG
+an
+wt
+wt
+wt
+Rd
+UG
+XM
+XM
+UG
+UG
+UG
+UG
+UG
+UG
+XM
+XM
+"}
+(29,1,1) = {"
+XM
+Oi
+bC
+XG
+bC
+XG
+bC
+Oi
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+UG
+KD
+wt
+wt
+wt
+ae
+UG
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+"}
+(30,1,1) = {"
+XM
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+Oi
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+UG
+UG
+cH
+GP
+gs
+UG
+UG
+XM
+XM
+XM
+XM
+XM
+lF
+lF
+lF
+XM
+XM
+"}
+(31,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+iE
+XM
+XM
+XM
+XM
+XM
+UG
+UG
+UG
+UG
+UG
+XM
+XM
+XM
+lF
+lF
+lF
+lF
+XM
+XM
+XM
+XM
+"}
+(32,1,1) = {"
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+XM
+"}

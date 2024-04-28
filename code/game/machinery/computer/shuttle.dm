@@ -9,7 +9,11 @@
 	var/list/authorized = list(  )
 
 
-/obj/machinery/computer/shuttle/attackby(var/obj/item/card/W as obj, var/mob/user as mob)
+/obj/machinery/computer/shuttle/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/card/W = attacking_item
+	if(!istype(W))
+		return
+
 	if(stat & (BROKEN|NOPOWER))
 		return
 
@@ -33,7 +37,7 @@
 			to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
 			return
 
-		if(!(access_heads in id.access)) //doesn't have this access
+		if(!(ACCESS_HEADS in id.access)) //doesn't have this access
 			to_chat(user, "The access level of [id.registered_name]\'s card is not high enough. ")
 			return 0
 

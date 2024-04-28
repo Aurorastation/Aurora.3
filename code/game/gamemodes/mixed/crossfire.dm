@@ -7,8 +7,8 @@
 	require_all_templates = 1
 
 /datum/game_mode/crossfire/pre_setup()
-	round_description = "Mercenaries and raiders are approaching the [current_map.station_type]."
-	extended_round_description = "[current_map.company_short]'s wealth and success caught the attention of several enemies old and new,  \
-		and many seek to undermine them using illegal ways. Their crown jewel research [current_map.station_type] are not safe from those \
+	round_description = "Mercenaries and raiders are approaching the [SSatlas.current_map.station_type]."
+	extended_round_description = "[SSatlas.current_map.company_short]'s wealth and success caught the attention of several enemies old and new,  \
+		and many seek to undermine them using illegal ways. Their crown jewel research [SSatlas.current_map.station_type] are not safe from those \
 		malicious activities."
 	. = ..()

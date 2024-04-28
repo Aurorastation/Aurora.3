@@ -13,7 +13,7 @@
 	volume = 5
 	w_class = ITEMSIZE_SMALL
 	possible_transfer_amounts = null
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	center_of_mass = null
 	var/name_label
@@ -27,7 +27,7 @@
 		name = "[name] ([name_label])"
 		verbs += /atom/proc/remove_label
 	if(reagents_to_add)
-		flags = 0
+		atom_flags = 0
 		spent = FALSE
 	update_icon()
 
@@ -43,7 +43,7 @@
 		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
 		return
 
-	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
+	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
@@ -76,7 +76,7 @@
 		user.visible_message("<span class='notice'>\The [user] injects themselves with \the [src]</span>","<span class='notice'>You stick the \the [src] in your mouth and press the injection button.</span>")
 	else
 		user.visible_message("<span class='warning'>\The [user] attempts to administer \the [src] to \the [H]...</span>","<span class='notice'>You attempt to administer \the [src] to \the [H]...</span>")
-		if (!do_after(user, 1 SECONDS, act_target = H))
+		if (!do_after(user, 1 SECONDS, H))
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return
 
@@ -114,7 +114,7 @@
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 			spent = FALSE
 			update_icon()
 		else
@@ -123,10 +123,10 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/reagent_containers/inhaler/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
-		flags |= OPENCONTAINER
+/obj/item/reagent_containers/inhaler/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [attacking_item], you unsecure the inhaler's lid.</span>") // it locks shut after being secured
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 		return TRUE
 	. = ..()
@@ -146,17 +146,17 @@
 		add_overlay(reagent_overlay)
 	update_held_icon()
 
-/obj/item/reagent_containers/inhaler/examine(mob/user)
-	..(user)
+/obj/item/reagent_containers/inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, "<span class='notice'>It is currently loaded.</span>")
+		. += "<span class='notice'>It is currently loaded.</span>"
 	else
-		to_chat(user, "<span class='notice'>It is spent.</span>")
+		. += "<span class='notice'>It is spent.</span>"
 
 /obj/item/reagent_containers/inhaler/dexalin
 	name_label = "dexalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains dexalin."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/dexalin/Initialize()
 	. =..()
@@ -167,7 +167,7 @@
 /obj/item/reagent_containers/inhaler/peridaxon
 	name_label = "peridaxon"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains peridaxon."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/peridaxon/Initialize()
 	. =..()
@@ -178,7 +178,7 @@
 /obj/item/reagent_containers/inhaler/hyperzine
 	name_label = "hyperzine"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains hyperzine."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/hyperzine/Initialize()
 	. =..()
@@ -189,18 +189,18 @@
 /obj/item/reagent_containers/inhaler/xuxigas
 	name_label = "xu'xi gas"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains xu'xi gas."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/xuxigas/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/xuxigas, volume)
+	reagents.add_reagent(/singleton/reagent/drugs/xuxigas, volume)
 	update_icon()
 	return
 
 /obj/item/reagent_containers/inhaler/phoron
 	name_label = "phoron"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains phoron."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/phoron/Initialize()
 	. =..()
@@ -212,7 +212,7 @@
 	name = "vaurca autoinhaler (phoron)"
 	desc = "A strange device that contains some sort of heavy-duty bag and mouthpiece combo."
 	icon_state = "anthaler1"
-	flags = 0
+	atom_flags = 0
 	volume = 10
 	var/empty_state = "anthaler0"
 
@@ -226,7 +226,7 @@
 	name_label = "soporific"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains soporific."
 	volume = 10
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/soporific/Initialize()
 	. =..()
@@ -237,18 +237,18 @@
 /obj/item/reagent_containers/inhaler/space_drugs
 	name_label = "space drugs"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains space drugs."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/space_drugs/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/space_drugs, volume)
+	reagents.add_reagent(/singleton/reagent/drugs/mms, volume)
 	update_icon()
 	return
 
 /obj/item/reagent_containers/inhaler/ammonia
 	name_label = "ammonia"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains ammonia."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/ammonia/Initialize()
 	. =..()
@@ -259,7 +259,7 @@
 /obj/item/reagent_containers/inhaler/pulmodeiectionem
 	name_label = "pulmodeiectionem"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pulmodeiectionem."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/pulmodeiectionem/Initialize()
 	. =..()
@@ -271,7 +271,7 @@
 	name_label = "pneumalin"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one contains pneumalin."
 	volume = 10
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/pneumalin/Initialize()
 	. =..()
@@ -282,10 +282,10 @@
 /obj/item/reagent_containers/inhaler/raskara_dust
 	name_label = "unmarked autoinhaler"
 	desc = "A rapid and safe way to administer small amounts of drugs into the lungs by untrained or trained personnel. This one is unmarked."
-	flags = 0
+	atom_flags = 0
 
 /obj/item/reagent_containers/inhaler/raskara_dust/Initialize()
 	. =..()
-	reagents.add_reagent(/singleton/reagent/raskara_dust, volume)
+	reagents.add_reagent(/singleton/reagent/drugs/raskara_dust, volume)
 	update_icon()
 	return

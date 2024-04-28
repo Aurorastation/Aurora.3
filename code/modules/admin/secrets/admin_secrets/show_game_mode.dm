@@ -10,7 +10,7 @@
 	. = ..()
 	if(!.)
 		return
-	if (SSticker.mode) 
+	if (SSticker.mode)
 		alert("The game mode is [SSticker.mode.name]")
-	else 
+	else
 		alert("For some reason there's a ticker, but not a game mode")

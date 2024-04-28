@@ -6,9 +6,9 @@
 
 /turf/simulated/proc/update_graphic(list/graphic_add = null, list/graphic_remove = null)
 	if(graphic_add && LAZYLEN(graphic_add))
-		vis_contents += graphic_add
+		add_vis_contents(graphic_add)
 	if(graphic_remove && LAZYLEN(graphic_remove))
-		vis_contents -= graphic_remove
+		remove_vis_contents(graphic_remove)
 
 /turf/proc/update_air_properties()
 	var/block
@@ -93,7 +93,7 @@
 
 			var/connected_dirs
 			GET_ZONE_NEIGHBOURS(T, connected_dirs)
-			if(connected_dirs && (dir & reverse_dir[connected_dirs]) == dir)
+			if(connected_dirs && (dir & GLOB.reverse_dir[connected_dirs]) == dir)
 				. &= ~dir //they are, so unflag the cardinals in question
 
 	//it is safe to remove src from the zone if all cardinals are connected by corner turfs
@@ -111,7 +111,7 @@
 	ATMOS_CANPASS_TURF(s_block, src, src)
 	if(s_block & AIR_BLOCKED)
 		#ifdef ZASDBG
-		if(verbose) LOG_DEBUG("Self-blocked.")
+		log_subsystem_zas_debug("Self-blocked.")
 		//dbg(blocked)
 		#endif
 		if(zone)
@@ -145,7 +145,7 @@
 		if(block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) LOG_DEBUG("[d] is blocked.")
+			log_subsystem_zas_debug("[d] is blocked.")
 			//unsim.dbg(air_blocked, turn(180,d))
 			#endif
 
@@ -156,7 +156,7 @@
 		if(r_block & AIR_BLOCKED)
 
 			#ifdef ZASDBG
-			if(verbose) LOG_DEBUG("[d] is blocked.")
+			log_subsystem_zas_debug("[d] is blocked.")
 			//dbg(air_blocked, d)
 			#endif
 
@@ -179,7 +179,7 @@
 		if(istype(unsim, /turf/simulated))
 
 			var/turf/simulated/sim = unsim
-			sim.open_directions |= reverse_dir[d]
+			sim.open_directions |= GLOB.reverse_dir[d]
 
 			if(TURF_HAS_VALID_ZONE(sim))
 				//Might have assigned a zone, since this happens for each direction.
@@ -190,7 +190,7 @@
 					//    we are blocking them and not blocking ourselves - this prevents tiny zones from forming on doorways.
 					if(((block & ZONE_BLOCKED) && !(r_block & ZONE_BLOCKED)) || ((r_block & ZONE_BLOCKED) && !(s_block & ZONE_BLOCKED)))
 						#ifdef ZASDBG
-						if(verbose) LOG_DEBUG("[d] is zone blocked.")
+						log_subsystem_zas_debug("[d] is zone blocked.")
 
 						//dbg(zone_blocked, d)
 						#endif
@@ -202,21 +202,23 @@
 
 						#ifdef ZASDBG
 						dbg(assigned)
-						if(verbose) LOG_DEBUG("Added to [zone]")
+						log_subsystem_zas_debug("Added to [zone]")
 						#endif
 
 				else if(sim.zone != zone)
 
 					#ifdef ZASDBG
-					if(verbose) LOG_DEBUG("Connecting to [sim.zone]")
+					log_subsystem_zas_debug("Connecting to [sim.zone]")
 					#endif
 
 					SSair.connect(src, sim)
 
 			#ifdef ZASDBG
-				else if(verbose) LOG_DEBUG("[d] has same zone.")
+				else
+					log_subsystem_zas("[d] has same zone.")
 
-			else if(verbose) LOG_DEBUG("[d] has invalid zone.")
+			else
+				log_subsystem_zas("[d] has invalid zone.")
 			#endif
 		else
 			//Postponing connections to tiles until a zone is assured.

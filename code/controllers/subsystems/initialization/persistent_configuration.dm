@@ -1,8 +1,7 @@
-/var/datum/controller/subsystem/persistent_configuration/SSpersist_config = null
-
-/datum/controller/subsystem/persistent_configuration
+SUBSYSTEM_DEF(persistent_configuration)
 	name = "Persistent Configuration"
-	init_order = SS_INIT_PERSISTENT_CONFIG
+	init_order = INIT_ORDER_PERSISTENT_CONFIGURATION
+	init_stage = INITSTAGE_EARLY
 	flags = SS_NO_FIRE
 
 // Config options go here. Make sure to give them sane default values!
@@ -17,15 +16,17 @@
 	var/forced_awaymission = FALSE
 
 /datum/controller/subsystem/persistent_configuration/Initialize(timeofday)
-	SSpersist_config = src
+	SSpersistent_configuration = src
 
 	load_from_file("data/persistent_config.json")
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/persistent_configuration/proc/load_from_file(filename)
 	var/file = file2text(filename)
 
 	if (!file)
-		log_config("SSpersist_config: file [filename] not found, falling back to default values.")
+		log_config("SSpersistent_configuration: file [filename] not found, falling back to default values.")
 		return
 
 	var/list/decoded = null
@@ -56,7 +57,7 @@
 
 /datum/controller/subsystem/persistent_configuration/proc/populate_variables(list/decoded)
 	IF_FOUND_USE(decoded, last_gamemode)
-	master_mode = last_gamemode
+	GLOB.master_mode = last_gamemode
 
 	IF_FOUND_CONV(decoded, rounds_since_hard_restart, text2num)
 	IF_FOUND_USE(decoded, forced_awaymission)

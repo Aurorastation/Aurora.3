@@ -9,8 +9,8 @@
 	size = 12
 	usage_flags = PROGRAM_CONSOLE
 	requires_access_to_run = PROGRAM_ACCESS_LIST_ONE
-	required_access_run = list(access_merchant)
-	required_access_download = list(access_merchant)
+	required_access_run = list(ACCESS_MERCHANT)
+	required_access_download = list(ACCESS_MERCHANT)
 	tgui_id = "Merchant"
 	var/obj/machinery/merchant_pad/pad
 	var/current_merchant = 0
@@ -19,6 +19,10 @@
 	var/last_comms
 	var/temp
 	var/bank = 0 //A straight up money till
+
+/datum/computer_file/program/merchant/Destroy()
+	pad = null
+	. = ..()
 
 /datum/computer_file/program/merchant/proc/get_merchant(var/num)
 	if(num > SStrade.traders.len)
@@ -77,7 +81,7 @@
 	last_comms = "PAD NOT CONNECTED"
 
 /datum/computer_file/program/merchant/proc/bulk_offer(var/datum/trader/T, var/num)
-	var/BulkAmount = input("How many items? (Buy 1-50 items. 0 to cancel.)") as num
+	var/BulkAmount = tgui_input_number(usr, "How many items? (Buy 1-50 items. 0 to cancel.)", "Merchant", 1, 50, 0)
 	if(istext(BulkAmount))
 		last_comms = "ERROR: NUMBER EXPECTED"
 		return
@@ -245,9 +249,13 @@
 				bribe(T, text2num(params["PRG_bribe"]))
 
 /datum/computer_file/program/merchant/nka
-	required_access_run = list(access_nka)
-	required_access_download = list(access_nka)
+	required_access_run = list(ACCESS_NKA)
+	required_access_download = list(ACCESS_NKA)
 
 /datum/computer_file/program/merchant/guild
-	required_access_run = list(access_merchants_guild)
-	required_access_download = list(access_merchants_guild)
+	required_access_run = list(ACCESS_MERCHANTS_GUILD)
+	required_access_download = list(ACCESS_MERCHANTS_GUILD)
+
+/datum/computer_file/program/merchant/golden_deep
+	required_access_run = list(ACCESS_GOLDEN_DEEP)
+	required_access_download = list(ACCESS_GOLDEN_DEEP)

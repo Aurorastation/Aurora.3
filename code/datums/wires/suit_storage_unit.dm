@@ -1,47 +1,54 @@
 /datum/wires/suit_storage_unit
+	proper_name = "Suit Storage Unit"
 	holder_type = /obj/machinery/suit_cycler
-	wire_count = 3
 
-var/const/SUIT_STORAGE_WIRE_ELECTRIFY	= 1
-var/const/SUIT_STORAGE_WIRE_SAFETY		= 2
-var/const/SUIT_STORAGE_WIRE_LOCKED		= 4
+/datum/wires/suit_storage_unit/New()
+	wires = list(
+		WIRE_SAFETY,
+		WIRE_SHOCK,
+		WIRE_LOCKDOWN
+	)
+	add_duds(1)
+	..()
 
-/datum/wires/suit_storage_unit/CanUse(var/mob/living/L)
+/datum/wires/suit_storage_unit/interactable(mob/user)
+	if(!..())
+		return FALSE
 	var/obj/machinery/suit_cycler/S = holder
-	if(!istype(L, /mob/living/silicon))
+	if(!istype(user, /mob/living/silicon))
 		if(S.electrified)
-			if(S.shock(L, 100))
-				return 0
+			if(S.shock(user, 100))
+				return FALSE
 	if(S.panel_open)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
-/datum/wires/suit_storage_unit/GetInteractWindow()
+/datum/wires/suit_storage_unit/get_status()
 	var/obj/machinery/suit_cycler/S = holder
 	. += ..()
-	. += "<BR>The orange light is [S.electrified ? "off" : "on"].<BR>"
-	. += "The red light is [S.safeties ? "off" : "blinking"].<BR>"
-	. += "The yellow light is [S.locked ? "on" : "off"].<BR>"
+	. += "The orange light is [S.electrified ? "off" : "on"]."
+	. += "The red light is [S.safeties ? "off" : "blinking"]."
+	. += "The yellow light is [S.locked ? "on" : "off"]."
 
-/datum/wires/suit_storage_unit/UpdatePulsed(var/index)
+/datum/wires/suit_storage_unit/on_pulse(wire)
 	var/obj/machinery/suit_cycler/S = holder
-	switch(index)
-		if(SUIT_STORAGE_WIRE_SAFETY)
+	switch(wire)
+		if(WIRE_SAFETY)
 			S.safeties = !S.safeties
-		if(SUIT_STORAGE_WIRE_ELECTRIFY)
+		if(WIRE_SHOCK)
 			S.electrified = 30
-		if(SUIT_STORAGE_WIRE_LOCKED)
+		if(WIRE_LOCKDOWN)
 			S.locked = !S.locked
 
-/datum/wires/suit_storage_unit/UpdateCut(var/index, var/mended)
+/datum/wires/suit_storage_unit/on_cut(wire, mend, source)
 	var/obj/machinery/suit_cycler/S = holder
-	switch(index)
-		if(SUIT_STORAGE_WIRE_SAFETY)
-			S.safeties = mended
-		if(SUIT_STORAGE_WIRE_LOCKED)
-			S.locked = mended
-		if(SUIT_STORAGE_WIRE_ELECTRIFY)
-			if(mended)
+	switch(wire)
+		if(WIRE_SAFETY)
+			S.safeties = mend
+		if(WIRE_SHOCK)
+			S.locked = mend
+		if(WIRE_LOCKDOWN)
+			if(mend)
 				S.electrified = 0
 			else
 				S.electrified = -1

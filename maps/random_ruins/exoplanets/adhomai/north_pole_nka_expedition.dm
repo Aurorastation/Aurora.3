@@ -5,7 +5,11 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/north_pole_nka_expedition.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("north_pole_nka_expedition.dmm")
+
+	unit_test_groups = list(2)
 
 //ghost roles
 
@@ -19,7 +23,7 @@
 	spawnpoints = list("nka_polar_explorer")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/nka_polar_explorer
+	outfit = /obj/outfit/admin/nka_polar_explorer
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -29,13 +33,13 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/nka_polar_explorer
+/obj/outfit/admin/nka_polar_explorer
 	name = "New Kingdom Arctic Explorer"
 
 	uniform = /obj/item/clothing/under/tajaran/archeologist
 	suit = /obj/item/clothing/suit/storage/tajaran/archeologist
 	head = /obj/item/clothing/head/tajaran/archeologist
-	shoes = /obj/item/clothing/shoes/tajara/workboots/adhomian_boots
+	shoes = /obj/item/clothing/shoes/workboots/tajara/adhomian_boots
 	back = /obj/item/storage/backpack/satchel/leather
 	belt = /obj/item/melee/whip
 	accessory = /obj/item/clothing/accessory/holster/waist/brown
@@ -46,8 +50,8 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/datum/outfit/admin/nka_polar_explorer/get_id_access()
-	return list(access_nka)
+/obj/outfit/admin/nka_polar_explorer/get_id_access()
+	return list(ACCESS_NKA)
 
 /datum/ghostspawner/human/nka_polar_sailor
 	short_name = "nka_polar_sailor"
@@ -59,7 +63,7 @@
 	spawnpoints = list("nka_polar_sailor")
 	max_count = 3
 
-	outfit = /datum/outfit/admin/nka_polar_sailor
+	outfit = /obj/outfit/admin/nka_polar_sailor
 	possible_species = list(SPECIES_TAJARA,SPECIES_TAJARA_MSAI,SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -69,13 +73,13 @@
 
 	uses_species_whitelist = FALSE
 
-/datum/outfit/admin/nka_polar_sailor
+/obj/outfit/admin/nka_polar_sailor
 	name = "New Kingdom Arctic Sailor"
 
 	uniform = /obj/item/clothing/under/tajaran/nka_uniform/sailor
 	head = /obj/item/clothing/head/tajaran/nka_cap/sailor
 	back = /obj/item/storage/backpack/rucksack/tan
-	shoes = /obj/item/clothing/shoes/tajara/combat
+	shoes = /obj/item/clothing/shoes/combat
 	belt = /obj/item/storage/belt/military
 	l_ear = null
 
@@ -83,5 +87,5 @@
 	r_pocket = /obj/item/storage/wallet/random
 	l_pocket = /obj/item/device/radio
 
-/datum/outfit/admin/nka_polar_sailor/get_id_access()
-	return list(access_nka)
+/obj/outfit/admin/nka_polar_sailor/get_id_access()
+	return list(ACCESS_NKA)

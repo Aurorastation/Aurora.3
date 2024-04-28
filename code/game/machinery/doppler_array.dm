@@ -19,9 +19,9 @@ var/list/doppler_arrays = list()
 	doppler_arrays -= src
 	return ..()
 
-/obj/machinery/doppler_array/examine(mob/user)
+/obj/machinery/doppler_array/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"]."))
+	. += SPAN_NOTICE("\The [src] is [active ? "listening for explosions" : "[SPAN_WARNING("inactive")]"].")
 
 /obj/machinery/doppler_array/attack_hand(mob/user)
 	active = !active
@@ -59,7 +59,7 @@ var/list/doppler_arrays = list()
 		return
 
 	var/message = "Explosive disturbance detected - Epicenter at: grid ([x0],[y0],[z0]). Epicenter radius: [devastation_range]. Outer radius: [heavy_impact_range]. Shockwave radius: [light_impact_range]."
-	global_announcer.autosay(message, "Tachyon-Doppler Array", "Science")
+	GLOB.global_announcer.autosay(message, "Tachyon-Doppler Array", "Science")
 
 	var/list/gained_tech
 	switch(devastation_range)

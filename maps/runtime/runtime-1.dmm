@@ -207,16 +207,11 @@
 /turf/template_noop,
 /area/template_noop)
 "aB" = (
-/obj/structure/cable{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
+/obj/machinery/computer/terminal{
+	dir = 8
 	},
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/engineering)
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "aC" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -349,8 +344,8 @@
 /area/engineering)
 "aQ" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Gravity Generator";
-	dir = 4
+	dir = 4;
+	name = "Gravity Generator"
 	},
 /obj/structure/cable{
 	d1 = 4;
@@ -382,8 +377,8 @@
 /area/engineering/gravity_gen)
 "aT" = (
 /obj/machinery/door/airlock/glass_engineering{
-	name = "Gravity Generator";
-	dir = 4
+	dir = 4;
+	name = "Gravity Generator"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/dark,
@@ -513,10 +508,6 @@
 /obj/item/screwdriver,
 /obj/item/wirecutters,
 /obj/structure/table/standard,
-/obj/machinery/camera/network/engineering{
-	c_tag = "Engineering - Technical Storage";
-	dir = 1
-	},
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/plating,
 /area/engineering)
@@ -982,8 +973,8 @@
 /area/bridge)
 "cs" = (
 /obj/machinery/door/airlock/glass_command{
-	name = "Bridge";
-	dir = 1
+	dir = 1;
+	name = "Bridge"
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
@@ -1092,7 +1083,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
 "cF" = (
-/obj/structure/table,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
 	},
@@ -1195,10 +1185,9 @@
 /turf/simulated/wall/r_wall,
 /area/storage/primary)
 "cS" = (
-/obj/machinery/door/airlock/glass{
+/obj/machinery/computer/terminal{
 	dir = 1
 	},
-/obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "cT" = (
@@ -1343,19 +1332,15 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "do" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/hallway/secondary/entry)
+/obj/machinery/computer/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "dp" = (
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/tiled/full,
 /area/storage/primary)
 "dq" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /turf/simulated/floor/plating,
 /area/construction)
 "dr" = (
@@ -1416,6 +1401,20 @@
 /obj/effect/landmark/force_spawnpoint,
 /turf/simulated/floor/plating,
 /area/construction)
+"dB" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	dir = 4;
+	pixel_x = -20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "dC" = (
 /obj/machinery/light{
 	brightness_range = 16;
@@ -1445,10 +1444,28 @@
 /obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"eY" = (
+/obj/machinery/computer/ship/engines/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 "fq" = (
 /obj/machinery/computer/shuttle_control/explore/runtime,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"fH" = (
+/obj/machinery/door/airlock/glass{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/engineering/gravity_gen)
+"fM" = (
+/turf/unsimulated/wall/steel,
+/area/template_noop)
+"fV" = (
+/obj/machinery/atmospherics/portables_connector,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "fX" = (
 /turf/template_noop,
 /area/space)
@@ -1508,6 +1525,7 @@
 /area/engineering)
 "kP" = (
 /obj/machinery/firealarm/west,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "mn" = (
@@ -1542,6 +1560,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"oo" = (
+/obj/structure/table/rack,
+/obj/item/stack/material/steel/full,
+/obj/item/stack/material/glass/full,
+/turf/simulated/floor/plating,
+/area/construction)
 "pv" = (
 /obj/structure/cable{
 	d1 = 4;
@@ -1568,10 +1592,57 @@
 /obj/machinery/atmospherics/pipe/zpipe/up/supply,
 /turf/simulated/floor/plating,
 /area/maintenance/maintcentral)
+"qk" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_x = 20
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "qx" = (
 /obj/effect/landmark/entry_point/aft,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"qH" = (
+/obj/machinery/autolathe,
+/turf/simulated/floor/plating,
+/area/construction)
+"rm" = (
+/obj/item/blueprints/shuttle,
+/turf/simulated/floor/shuttle,
+/area/shuttle/runtime)
+"sf" = (
+/obj/machinery/computer/ship/sensors/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
+"sx" = (
+/obj/effect/shuttle_landmark/runtime/hangar{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/construction)
+"sU" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"sY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "tr" = (
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled,
@@ -1600,6 +1671,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry)
+"vl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "vm" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable{
@@ -1609,6 +1686,21 @@
 	},
 /turf/template_noop,
 /area/engineering)
+"wi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/access_button{
+	pixel_x = 27;
+	pixel_y = -11
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/machinery/door/airlock/external/blue,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "wk" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1616,8 +1708,13 @@
 /obj/item/modular_computer/console/preset/command,
 /turf/simulated/floor/tiled,
 /area/bridge)
+"wI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "wL" = (
-/obj/effect/shuttle_landmark/runtime/hangar,
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
@@ -1661,6 +1758,19 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"AB" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 6
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1669,6 +1779,7 @@
 /area/construction)
 "BP" = (
 /obj/machinery/firealarm/east,
+/obj/structure/table/standard,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "Ct" = (
@@ -1687,6 +1798,10 @@
 /obj/machinery/shipsensors,
 /turf/template_noop,
 /area/engineering)
+"Ft" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Fw" = (
 /obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
@@ -1744,10 +1859,30 @@
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/plating,
 /area/storage/primary)
+"Jd" = (
+/obj/effect/landmark{
+	name = "Observer-Start"
+	},
+/turf/simulated/floor/plating,
+/area/construction)
 "Jx" = (
 /obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"JE" = (
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = 27;
+	pixel_y = 11
+	},
+/obj/machinery/door/airlock/external/red,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Kz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/blue{
 	dir = 4
@@ -1778,6 +1913,41 @@
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_one)
+"LF" = (
+/obj/machinery/computer/ship/targeting/terminal,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
+"LM" = (
+/obj/effect/landmark/lobby_mobs_location,
+/turf/unsimulated/floor,
+/area/template_noop)
+"ME" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"Nn" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
+"Ot" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "PS" = (
 /obj/effect/landmark{
 	name = "Revenant"
@@ -1828,10 +1998,29 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/storage/primary)
+"Tj" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "Tq" = (
 /obj/effect/overmap/visitable/ship/landable/runtime,
 /turf/simulated/floor/shuttle,
 /area/shuttle/runtime)
+"Tz" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "TD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -1909,6 +2098,22 @@
 	},
 /turf/template_noop,
 /area/template_noop)
+"YI" = (
+/obj/machinery/door/airlock/external/khaki{
+	dir = 4
+	},
+/obj/machinery/access_button{
+	dir = 8;
+	pixel_x = -11;
+	pixel_y = -27
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "runtime_airlock_1_1";
+	name = "runtime_airlock_1_1"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/maintenance/maintcentral)
 "YP" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -1930,6 +2135,10 @@
 /obj/structure/fuel_port/phoron,
 /turf/simulated/wall/r_wall,
 /area/shuttle/runtime)
+"ZU" = (
+/obj/structure/table/standard,
+/turf/simulated/floor/tiled,
+/area/storage/primary)
 
 (1,1,1) = {"
 fX
@@ -3192,7 +3401,7 @@ Yc
 cK
 de
 Qe
-Vm
+rm
 Jx
 wL
 Vm
@@ -3965,7 +4174,7 @@ de
 de
 de
 de
-de
+sx
 de
 de
 de
@@ -5761,8 +5970,8 @@ bJ
 bJ
 cM
 cU
-de
-de
+qH
+oo
 de
 de
 de
@@ -7053,7 +7262,7 @@ dA
 dq
 dq
 de
-de
+Jd
 de
 de
 du
@@ -7798,7 +8007,7 @@ aa
 aa
 aa
 ab
-aa
+ab
 ad
 ab
 ab
@@ -8317,7 +8526,7 @@ ad
 aa
 aa
 ah
-aB
+dl
 ah
 ZE
 ab
@@ -9085,7 +9294,7 @@ aa
 ab
 aa
 ac
-ae
+ME
 ah
 an
 aC
@@ -9111,7 +9320,7 @@ da
 tr
 dm
 Sz
-da
+cS
 da
 cP
 ae
@@ -9342,7 +9551,7 @@ aa
 ab
 aa
 ac
-ae
+vl
 ah
 ao
 aD
@@ -9364,11 +9573,11 @@ dc
 cZ
 da
 cZ
-da
+sf
 da
 Fw
 da
-da
+cS
 da
 cP
 ae
@@ -9599,7 +9808,7 @@ aa
 ab
 aa
 Eu
-ae
+vl
 ah
 ap
 kc
@@ -9621,11 +9830,11 @@ dc
 cZ
 da
 cZ
-da
+LF
 da
 BP
 da
-da
+cS
 da
 cP
 ae
@@ -9851,12 +10060,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-aa
 ac
-ae
+ac
+YI
+ac
+ac
+vl
 ai
 ai
 jf
@@ -9878,7 +10087,7 @@ cZ
 dm
 da
 dm
-da
+eY
 Lp
 dm
 eH
@@ -10108,12 +10317,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-aa
 ac
-ae
+Nn
+Nn
+dB
+ac
+vl
 ai
 aq
 aF
@@ -10128,7 +10337,7 @@ bB
 cx
 UW
 bB
-cS
+dn
 da
 cZ
 dc
@@ -10139,7 +10348,7 @@ da
 da
 kP
 da
-da
+do
 da
 cP
 ae
@@ -10365,12 +10574,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-aa
-ac
-ae
+JE
+Tz
+AB
+Tj
+wi
+sY
 ai
 ar
 aG
@@ -10396,7 +10605,7 @@ da
 da
 da
 da
-da
+do
 da
 cP
 ae
@@ -10622,12 +10831,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-aa
 ac
-ae
+qk
+Ot
+Ot
+ac
+wI
 ai
 as
 aH
@@ -10642,18 +10851,18 @@ bB
 Ly
 bB
 bB
-cS
+dn
 da
+ZU
+cZ
+ZU
 da
 cZ
 da
 da
-cZ
 da
 da
-dm
-da
-da
+do
 da
 cP
 ae
@@ -10879,12 +11088,12 @@ aa
 aa
 aa
 aa
-aa
-aa
-ab
-aa
-Eu
-ae
+ac
+ac
+bU
+bU
+ac
+wI
 ai
 at
 at
@@ -10906,9 +11115,9 @@ da
 da
 da
 da
-da
-da
-da
+aB
+aB
+aB
 da
 da
 da
@@ -11137,11 +11346,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
 ae
+ae
+ac
+wI
 ai
 at
 at
@@ -11394,12 +11603,12 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
 ae
-ai
+ae
+ac
+Ft
+fH
 at
 at
 at
@@ -11651,11 +11860,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
 ae
+ae
+ac
+wI
 ai
 at
 at
@@ -11908,11 +12117,11 @@ aa
 aa
 aa
 aa
-aa
-ab
-aa
 ac
-ae
+ac
+ac
+ac
+wI
 ai
 at
 at
@@ -12165,11 +12374,11 @@ aa
 aa
 aa
 aa
-aa
 ab
 aa
-ac
-ae
+Eu
+fV
+Ft
 ai
 ai
 ai
@@ -12422,11 +12631,11 @@ aa
 aa
 aa
 aa
-aa
 ab
 aa
 ac
-ae
+fV
+sU
 ae
 ae
 ae
@@ -12679,7 +12888,6 @@ aa
 aa
 aa
 aa
-aa
 ab
 aa
 ac
@@ -12693,8 +12901,9 @@ ac
 ac
 ac
 ac
+ac
 bv
-do
+cv
 bv
 ac
 ac
@@ -12936,8 +13145,8 @@ aa
 aa
 aa
 aa
-aa
 ab
+aa
 aa
 aa
 aa
@@ -13193,7 +13402,7 @@ aa
 aa
 aa
 aa
-aa
+ab
 ab
 ab
 ab
@@ -13727,8 +13936,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+fM
 ac
 Uf
 Uf
@@ -13984,8 +14193,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+LM
 ac
 Uf
 Uf
@@ -14241,8 +14450,8 @@ aa
 aa
 aa
 aa
-aa
-aa
+fM
+fM
 ac
 ac
 ac

@@ -1,6 +1,4 @@
-var/datum/controller/subsystem/orbit/SSorbit
-
-/datum/controller/subsystem/orbit
+SUBSYSTEM_DEF(orbit)
 	name = "Orbits"
 	priority = SS_PRIORITY_ORBIT
 	wait = 2
@@ -9,9 +7,6 @@ var/datum/controller/subsystem/orbit/SSorbit
 
 	var/list/currentrun = list()
 	var/list/processing = list()
-
-/datum/controller/subsystem/orbit/New()
-	NEW_SS_GLOBAL(SSorbit)
 
 /datum/controller/subsystem/orbit/Recover()
 	src.processing = SSorbit.processing

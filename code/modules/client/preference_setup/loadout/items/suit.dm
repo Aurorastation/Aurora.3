@@ -81,6 +81,7 @@
 	l_hoodie["short-sleeved hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/short
 	l_hoodie["crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/crop
 	l_hoodie["sleeveless hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless
+	l_hoodie["sleeveless crop top hoodie"] = /obj/item/clothing/suit/storage/hooded/wintercoat/hoodie/sleeveless_crop
 	gear_tweaks += new /datum/gear_tweak/path(l_hoodie)
 
 /datum/gear/suit/mars
@@ -121,12 +122,12 @@
 	display_name = "surgical apron"
 	path = /obj/item/clothing/accessory/apron/surgery
 	cost = 1
-	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator")
+	allowed_roles = list("Scientist", "Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Xenobiologist", "Research Director", "Investigator", "Medical Personnel", "Science Personnel")
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
 
 /datum/gear/suit/medical_outerwear/New()
 	..()
@@ -138,7 +139,7 @@
 /datum/gear/suit/iac_outerwear
 	display_name = "IAC outerwear (jackets, vests, rigs)"
 	path = /obj/item/clothing/suit/storage/hazardvest/iac
-	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern", "Medical Personnel")
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/suit/iac_outerwear/New()
@@ -184,12 +185,12 @@
 /datum/gear/suit/suitjacket
 	display_name = "suit jacket"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/blazer
 	display_name = "blazer selection"
 	path = /obj/item/clothing/suit/storage/toggle/suitjacket/blazer
-	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION
 
 /datum/gear/suit/blazer/New()
 	..()
@@ -292,6 +293,13 @@
 	dominiacape["white dominian cape, zhao"] = /obj/item/clothing/accessory/poncho/dominia_cape/zhao/white
 	gear_tweaks += new /datum/gear_tweak/path(dominiacape)
 
+/datum/gear/suit/dominia_medical_cape
+	display_name = "tribunalist medical cape"
+	path = /obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	flags = GEAR_HAS_DESC_SELECTION
+	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "First Responder", "Medical Intern")
+	culture_restriction = list(/singleton/origin_item/culture/dominia, /singleton/origin_item/culture/dominian_unathi)
+
 /datum/gear/suit/dominia
 	display_name = "dominia coat and jacket selection"
 	description = "A selection of Dominian coats and jackets."
@@ -368,6 +376,8 @@
 	jacket["departmental jacket, service"] = /obj/item/clothing/suit/storage/toggle/serv_dep_jacket
 	gear_tweaks += new /datum/gear_tweak/path(jacket)
 
+/datum/gear/suit/miscellaneous
+	abstract_type = /datum/gear/suit/miscellaneous
 
 /datum/gear/suit/miscellaneous/peacoat
 	display_name = "peacoat"
@@ -535,3 +545,17 @@
 	display_name = "visegradi ponczo"
 	path = /obj/item/clothing/suit/storage/hooded/wintercoat/colorable/ponczo
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/suit/galatea_labcoat
+	display_name = "galatean labcoat"
+	description = "A labcoat design used by the Federal Technology of Galatea."
+	path = /obj/item/clothing/suit/storage/galatea_labcoat
+	origin_restriction = list(/singleton/origin_item/origin/galatea)
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/suit/galatea_labcoat/New()
+	..()
+	var/list/galatea_labcoat = list()
+	galatea_labcoat["galatean labcoat"] = /obj/item/clothing/suit/storage/galatea_labcoat
+	galatea_labcoat["galatean labcoat, alt"] = /obj/item/clothing/suit/storage/galatea_labcoat/alt
+	gear_tweaks += new /datum/gear_tweak/path(galatea_labcoat)

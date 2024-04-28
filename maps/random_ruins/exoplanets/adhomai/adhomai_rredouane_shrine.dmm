@@ -1,9 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "o" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "s" = (
 /obj/item/flame/candle{
@@ -26,47 +24,41 @@
 /obj/item/reagent_containers/food/drinks/drinkingglass/newglass/mug{
 	pixel_y = -5
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
+/obj/item/storage/altar/rredouane{
+	pixel_y = 15
 	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "u" = (
 /obj/structure/rredouane_statue,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "x" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
+/area/exoplanet/adhomai)
+"G" = (
+/obj/structure/sign/flag/rredouane,
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "J" = (
 /obj/item/storage/pill_bottle/dice/tajara{
 	pixel_x = 10;
-	pixel_y = -5
+	pixel_y = -10
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/obj/structure/sign/flag/rredouane,
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "K" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "N" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "P" = (
 /obj/structure/flora/rock/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "T" = (
 /obj/item/deck/cards{
@@ -77,9 +69,7 @@
 	pixel_y = 10;
 	pixel_x = -3
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"
@@ -122,7 +112,7 @@ N
 N
 N
 N
-N
+G
 T
 N
 N

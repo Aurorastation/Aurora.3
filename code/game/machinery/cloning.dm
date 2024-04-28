@@ -9,7 +9,7 @@
 		return
 
 	var/mob/selected = null
-	for(var/mob/living/M in player_list)
+	for(var/mob/living/M in GLOB.player_list)
 		//Dead people only thanks!
 		if((M.stat != 2) || (!M.client))
 			continue
@@ -32,7 +32,7 @@
 	anchored = 1
 	icon = 'icons/obj/cloning.dmi'
 	icon_state = "pod_0"
-	req_access = list(access_medical_equip) //since we have no genetics for now
+	req_access = list(ACCESS_MEDICAL_EQUIP) //since we have no genetics for now
 	var/mob/living/occupant
 	var/heal_level = 20 //The clone is released once its health reaches this level.
 	var/heal_rate = 1
@@ -87,7 +87,7 @@
 		if(ckey(clonemind.key) != R.ckey)
 			return 0
 	else
-		for(var/mob/abstract/observer/G in player_list)
+		for(var/mob/abstract/observer/G in GLOB.player_list)
 			if(G.ckey == R.ckey)
 				if(G.can_reenter_corpse)
 					break
@@ -212,16 +212,16 @@
 	return
 
 //Let's unlock this early I guess.  Might be too early, needs tweaking.
-/obj/machinery/clonepod/attackby(obj/item/W as obj, mob/user as mob)
+/obj/machinery/clonepod/attackby(obj/item/attacking_item, mob/user)
 	if(isnull(occupant))
-		if(default_deconstruction_screwdriver(user, W))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return TRUE
-		if(default_deconstruction_crowbar(user, W))
+		if(default_deconstruction_crowbar(user, attacking_item))
 			return TRUE
-		if(default_part_replacement(user, W))
+		if(default_part_replacement(user, attacking_item))
 			return TRUE
-	if(W.GetID())
-		if(!check_access(W.GetID()))
+	if(attacking_item.GetID())
+		if(!check_access(attacking_item.GetID()))
 			to_chat(user, "<span class='warning'>Access Denied.</span>")
 			return TRUE
 		if((!locked) || (isnull(occupant)))
@@ -232,13 +232,13 @@
 		else
 			locked = 0
 			to_chat(user, "System unlocked.")
-	else if(istype(W, /obj/item/reagent_containers/food/snacks/meat))
-		to_chat(user, "<span class='notice'>\The [src] processes \the [W].</span>")
+	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/meat))
+		to_chat(user, "<span class='notice'>\The [src] processes \the [attacking_item].</span>")
 		biomass += 50
-		user.drop_from_inventory(W,src)
-		qdel(W)
+		user.drop_from_inventory(attacking_item, src)
+		qdel(attacking_item)
 		return TRUE
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		if(locked && (anchored || occupant))
 			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
 		else
@@ -248,7 +248,7 @@
 				connected = null
 			else
 				anchored = 1
-			playsound(loc, W.usesound, 100, 1)
+			attacking_item.play_tool_sound(get_turf(src), 100)
 			if(anchored)
 				user.visible_message("[user] secures [src] to the floor.", "You secure [src] to the floor.")
 			else
@@ -340,9 +340,10 @@
 	return
 
 /obj/machinery/clonepod/emp_act(severity)
+	. = ..()
+
 	if(prob(100/severity))
 		malfunction()
-	..()
 
 /obj/machinery/clonepod/ex_act(severity)
 	switch(severity)
@@ -375,23 +376,6 @@
 		icon_state = "pod_1"
 	else if (mess)
 		icon_state = "pod_g"
-
-//Health Tracker Implant
-
-/obj/item/implant/health
-	name = "health implant"
-	var/healthstring = ""
-
-/obj/item/implant/health/proc/sensehealth()
-	if(!implanted)
-		return "ERROR"
-	else
-		if(isliving(implanted))
-			var/mob/living/L = implanted
-			healthstring = "[round(L.getOxyLoss())] - [round(L.getFireLoss())] - [round(L.getToxLoss())] - [round(L.getBruteLoss())]"
-		if(!healthstring)
-			healthstring = "ERROR"
-		return healthstring
 
 //Disk stuff.
 //The return of data disks?? Just for transferring between genetics machine/cloning machine.
@@ -448,10 +432,9 @@
 	read_only = !read_only
 	to_chat(user, "You flip the write-protect tab to [read_only ? "protected" : "unprotected"].")
 
-/obj/item/disk/data/examine(mob/user)
-	..(user)
-	to_chat(user, text("The write-protect tab is set to [read_only ? "protected" : "unprotected"]."))
-	return
+/obj/item/disk/data/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "The write-protect tab is set to [read_only ? "protected" : "unprotected"]."
 
 /*
  *	Diskette Box

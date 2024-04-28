@@ -1,14 +1,15 @@
 /obj/item/reagent_containers/ladle
 	name = "ladle"
-	desc = "A serving ladle. Holds 30u."
+	desc = "A serving ladle. Soup's on!"
 	icon = 'icons/obj/kitchen.dmi'
 	icon_state = "ladle"
 	amount_per_transfer_from_this = 10
 	possible_transfer_amounts = list(10, 15, 30)
 	w_class = ITEMSIZE_SMALL
 	volume = 30
-	force = 6
-	flags = OPENCONTAINER | NOBLUDGEON
+	force = 14
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	item_flags = ITEM_FLAG_NO_BLUDGEON
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 	center_of_mass = list("x"=14, "y"=6)

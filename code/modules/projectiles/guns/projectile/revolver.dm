@@ -71,7 +71,7 @@
 	accuracy_wielded = 1
 	fire_delay = ROF_UNWIELDY
 	fire_delay_wielded = ROF_SUPERHEAVY
-	force = 10
+	force = 15
 	recoil = 10
 	recoil_wielded = 5
 
@@ -85,11 +85,11 @@
 			if(H.mob_size <10)
 				H.visible_message(SPAN_WARNING("\The [src] flies out of \the [H]'s' hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 				H.drop_item(src)
-				src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 2, 2)
+				src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 2, 2)
 
 /obj/item/gun/projectile/revolver/detective
 	name = "antique revolver"
-	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber. Maybe the Tajara made it?"
+	desc = "An old, obsolete revolver. It has no identifying marks, and is chambered in an equally antiquated caliber."
 	icon = 'icons/obj/guns/detective.dmi'
 	icon_state = "detective"
 	item_state = "detective"
@@ -150,8 +150,8 @@
 	ammo_type = /obj/item/ammo_casing/cap
 	needspin = FALSE
 
-/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/W, mob/user)
-	if(!W.iswirecutter() || icon_state == "revolver")
+/obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
+	if(!attacking_item.iswirecutter() || icon_state == "revolver")
 		return ..()
 	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
 	icon = 'icons/obj/guns/revolver.dmi'
@@ -190,6 +190,12 @@
 	with an empty hand to remove any spent casings or shells, then insert new ones."
 	for(var/i in 1 to secondary_max_shells)
 		secondary_loaded += new secondary_ammo_type(src)
+
+/obj/item/gun/projectile/revolver/lemat/Destroy()
+	QDEL_LIST(secondary_loaded)
+	QDEL_LIST(tertiary_loaded)
+
+	. = ..()
 
 /obj/item/gun/projectile/revolver/lemat/unique_action(mob/living/user)
 	to_chat(user, "<span class='notice'>You change the firing mode on \the [src].</span>")
@@ -242,15 +248,15 @@
 		if(rand(1,max_shells) > loaded.len)
 			chamber_offset = rand(0,max_shells - loaded.len)
 
-/obj/item/gun/projectile/revolver/lemat/examine(mob/user)
-	..()
+/obj/item/gun/projectile/revolver/lemat/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(secondary_loaded)
 		var/to_print
 		for(var/round in secondary_loaded)
 			to_print += round
-		to_chat(user, "\The [src] has a secondary barrel loaded with \a [to_print]")
+		. += "\The [src] has a secondary barrel loaded with \a [to_print]."
 	else
-		to_chat(user, "\The [src] has a secondary barrel that is empty.")
+		. += "\The [src] has a secondary barrel that is empty."
 
 /obj/item/gun/projectile/revolver/adhomian
 	name = "adhomian service revolver"
@@ -282,7 +288,7 @@
 	fire_sound = 'sound/weapons/gunshot/gunshot_strong.ogg'
 	ammo_type = /obj/item/ammo_casing/c38
 	magazine_type = /obj/item/ammo_magazine/c38
-	force = 15
+	force = 22
 	sharp = TRUE
 	edge = TRUE
 	fire_delay = ROF_PISTOL
@@ -293,3 +299,37 @@
 		playsound(user.loc, "punchmiss", 50, 1)
 		return PROJECTILE_STOPPED
 	return FALSE
+
+/obj/item/gun/projectile/revolver/konyang/pirate
+	name = "reclaimed revolver"
+	desc = "A revolver, made out of cheap scrap metal. Often used by Konyang's pirates."
+	desc_extended = "A six-shot revolver, crudely hacked together out of different kinds of scrap metal and wood. Made working by the ingenuity Konyang's pirates often need to show. Chambered in .38 ammo."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "38_revolver"
+	item_state = "38_revolver"
+	caliber = "38"
+	ammo_type = /obj/item/ammo_casing/c38
+	magazine_type = /obj/item/ammo_magazine/c38
+	max_shells = 6
+
+/obj/item/gun/projectile/revolver/konyang/pirate/update_icon()
+	..()
+	if(loaded.len)
+		icon_state = "38_revolver"
+	else
+		icon_state = "38_revolver-e"
+
+/obj/item/gun/projectile/revolver/konyang/police
+	name = "police service revolver"
+	desc = "A compact and reliable .45 caliber revolver. This one has Konyang National Police markings as well as a lanyard attached to it."
+	desc_extended = "The Nam-Kawada model .45 caliber revolver, named after its two inventors, is an adaptation of an old Zavodskoi design designed to be easily made from colony ship autolathes. \
+	The original design was first introduced in 2307 due to a growing need to arm the nascent Konyang National Police (then known as the Suwon Colonial Constabulary) in the face of both wildlife and the occasional criminal activity.\
+	The lack of a need for an upgrade, as well as institutional attachment to the design, has led to its continued use for almost two centuries."
+	icon = 'icons/obj/guns/konyang_weapons.dmi'
+	icon_state = "police_gun"
+	item_state = "police_gun"
+	w_class = ITEMSIZE_NORMAL
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/revolver
+	magazine_type = /obj/item/ammo_magazine/c45/revolver
+	max_shells = 6

@@ -8,7 +8,7 @@
 //			/obj/item/item: The equipped item.
 //			slot:           The slot equipped to.
 
-var/singleton/observ/mob_equipped/mob_equipped_event = new()
+GLOBAL_DATUM_INIT(mob_equipped_event, /singleton/observ/mob_equipped, new)
 
 /singleton/observ/mob_equipped
 	name = "Mob Equipped"
@@ -33,12 +33,6 @@ var/singleton/observ/item_equipped/item_equipped_event = new()
 /********************
 * Equipped Handling *
 ********************/
-
-/obj/item/equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
-	. = ..()
-	mob_equipped_event.raise_event(user, src, slot)
-	item_equipped_event.raise_event(src, user, slot)
-	SEND_SIGNAL(src, COMSIG_ITEM_REMOVE, src)
 
 /obj/item/proc/check_equipped(var/mob/user, var/slot, var/assisted_equip = FALSE)
 	return TRUE

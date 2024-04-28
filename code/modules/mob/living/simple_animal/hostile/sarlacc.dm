@@ -60,8 +60,8 @@
 			)
 		var/obj/item/organ/external/G = H.get_organ(BP_GROIN)
 		G.droplimb(0,DROPLIMB_EDGE)
-		if(SSmob.greatasses.len)
-			var/obj/structure/greatworm/S = pick(SSmob.greatasses)
+		if(SSmobs.greatasses.len)
+			var/obj/structure/greatworm/S = pick(SSmobs.greatasses)
 			H.forceMove(S.loc)
 		else
 			H.gib()
@@ -92,7 +92,6 @@
 	desc = "The gaping maw opens and closes eternally, insatiably... Rumours however tell that those who can sate it are rewarded."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacc"
-	see_in_dark = 8
 	health = 100
 	maxHealth = 100
 	gender = NEUTER
@@ -111,7 +110,6 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	layer = 2.1
 	var/eating = 0
 	var/sated = 0
 	var/asleep = 0
@@ -126,14 +124,14 @@
 
 /mob/living/simple_animal/hostile/greatworm/Initialize()
 	. = ..()
-	SSmob.greatworms += src
+	SSmobs.greatworms += src
 	loot_count = 4+(rand(0,4))
 	var/obj/item/trap/sarlacc/L = new /obj/item/trap/sarlacc(src.loc)
 	L.originator = src
 	sarlacc = L
 
 /mob/living/simple_animal/hostile/greatworm/Destroy()
-	SSmob.greatworms -= src
+	SSmobs.greatworms -= src
 	if(sarlacc)
 		qdel(sarlacc)
 		sarlacc = null
@@ -313,7 +311,6 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	universal_speak = 1
@@ -348,10 +345,10 @@
 	faction = "worms"
 
 /mob/living/simple_animal/hostile/greatwormking/Destroy()
-	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
-	for(var/mob/living/L in SSmob.greatworms)
+	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, pressure_affected = 0)
+	for(var/mob/living/L in SSmobs.greatworms)
 		L.death()
-	for(var/obj/structure/S in SSmob.greatasses)
+	for(var/obj/structure/S in SSmobs.greatasses)
 		qdel(S)
 	return ..()
 
@@ -396,7 +393,7 @@
 	if(istype(A, /mob/living))
 		var/mob/living/L = A
 		if(L.reagents)
-			var/madhouse = pick(/singleton/reagent/psilocybin,/singleton/reagent/mindbreaker,/singleton/reagent/impedrezene,/singleton/reagent/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
+			var/madhouse = pick(/singleton/reagent/drugs/psilocybin,/singleton/reagent/drugs/mindbreaker,/singleton/reagent/drugs/impedrezene,/singleton/reagent/drugs/cryptobiolin,/singleton/reagent/soporific,/singleton/reagent/mutagen)
 			var/madhouse_verbal_component = pick(thoughts)
 			L.reagents.add_reagent(madhouse, 3)
 			to_chat(L, "<span class='alium'><b><i>[madhouse_verbal_component]</i></b></span>")
@@ -408,13 +405,12 @@
 	icon_state = "sarlaccend"
 	anchored = 1
 	density = 0
-	layer = 2.1
 
 /obj/structure/greatworm/Initialize()
 	. = ..()
-	SSmob.greatasses += src
+	SSmobs.greatasses += src
 
 /obj/structure/greatworm/Destroy()
-	SSmob.greatasses -= src
+	SSmobs.greatasses -= src
 	return ..()
 

@@ -7,7 +7,7 @@
 	icon_state = "recharger_off"
 	anchored = 1
 	idle_power_usage = 6
-	active_power_usage = 45 KILOWATTS
+	active_power_usage = 45 KILO WATTS
 	pass_flags = PASSTABLE
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/charging_efficiency = 1.3
@@ -32,10 +32,10 @@
 	var/portable = 1
 	var/list/chargebars
 
-/obj/machinery/recharger/examine(mob/user)
-	. = ..(user, 3)
-	to_chat(user, "There is [charging ? "\a [charging]" : "nothing"] in [src].")
-	if (charging && .)
+/obj/machinery/recharger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "There is [charging ? "\a [charging]" : "nothing"] in [src]."
+	if (charging && distance <= 3)
 		var/obj/item/cell/C = charging.get_cell()
 		if (istype(C) && user.client && (!user.progressbars || !user.progressbars[src]))
 			var/datum/progressbar/progbar = new(user, C.maxcharge, src)
@@ -48,18 +48,18 @@
 		LAZYREMOVE(chargebars, bar)
 		qdel(bar)
 
-/obj/machinery/recharger/attackby(obj/item/G, mob/user)
-	if(portable && G.iswrench())
+/obj/machinery/recharger/attackby(obj/item/attacking_item, mob/user)
+	if(portable && attacking_item.iswrench())
 		if(charging)
 			to_chat(user, SPAN_WARNING("You can't modify \the [src] while it has something charging inside."))
 			return TRUE
 		anchored = !anchored
 		user.visible_message("<b>[user]</b> [anchored ? "attaches" : "detaches"] \the [src].", SPAN_NOTICE("You [anchored ? "attach" : "detach"] \the [src]."))
-		playsound(loc, G.usesound, 75, 1)
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		return TRUE
 
-	if (istype(G, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
-		var/obj/item/gripper/Gri = G
+	if (istype(attacking_item, /obj/item/gripper))//Code for allowing cyborgs to use rechargers
+		var/obj/item/gripper/Gri = attacking_item
 		if (charging)//If there's something in the charger
 			if (Gri.grip_item(charging, user))//we attempt to grab it
 				charging = null
@@ -68,13 +68,13 @@
 				to_chat(user, SPAN_DANGER("Your gripper cannot hold \the [charging]."))
 		return TRUE
 
-	if(!G.dropsafety())
+	if(!attacking_item.dropsafety())
 		return TRUE
 
-	if(is_type_in_list(G, allowed_devices))
-		if (G.get_cell() == DEVICE_NO_CELL)
-			if (G.charge_failure_message)
-				to_chat(user, SPAN_WARNING("\The [G][G.charge_failure_message]"))
+	if(is_type_in_list(attacking_item, allowed_devices))
+		if (attacking_item.get_cell() == DEVICE_NO_CELL)
+			if (attacking_item.charge_failure_message)
+				to_chat(user, SPAN_WARNING("\The [attacking_item][attacking_item.charge_failure_message]"))
 			return TRUE
 		if(charging)
 			to_chat(user, SPAN_WARNING("\A [charging] is already charging here."))
@@ -84,8 +84,8 @@
 			to_chat(user, SPAN_WARNING("\The [name] blinks red as you try to insert the item!"))
 			return TRUE
 
-		user.drop_from_inventory(G,src)
-		charging = G
+		user.drop_from_inventory(attacking_item,src)
+		charging = attacking_item
 		update_icon()
 		return TRUE
 
@@ -150,8 +150,9 @@
 			charging = null
 
 /obj/machinery/recharger/emp_act(severity)
+	. = ..()
+
 	if(stat & (NOPOWER|BROKEN) || !anchored)
-		..(severity)
 		return
 
 	if(istype(charging,  /obj/item/gun/energy))
@@ -163,7 +164,6 @@
 		var/obj/item/melee/baton/B = charging
 		if(B.bcell)
 			B.bcell.charge = 0
-	..(severity)
 
 /obj/machinery/recharger/update_icon()	//we have an update_icon() in addition to the stuff in process to make it feel a tiny bit snappier.
 	if(charging)
@@ -176,7 +176,7 @@
 	desc = "A heavy duty wall recharger specialized for energy weaponry."
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "wrecharger_off"
-	active_power_usage = 75 KILOWATTS
+	active_power_usage = 75 KILO WATTS
 	allowed_devices = list(
 		/obj/item/gun/energy,
 		/obj/item/melee/baton,

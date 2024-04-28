@@ -52,7 +52,9 @@ var/list/global/all_tethers = list()
 			continue
 		tether(TD)
 
-/obj/item/tethering_device/emp_act()
+/obj/item/tethering_device/emp_act(severity)
+	. = ..()
+
 	deactivate()
 
 /obj/item/tethering_device/proc/activate()

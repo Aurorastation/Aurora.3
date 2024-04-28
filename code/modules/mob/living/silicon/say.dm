@@ -130,7 +130,7 @@
 					listening_obj |= O
 
 
-			for(var/mob/M in player_list)
+			for(var/mob/M in GLOB.player_list)
 				if(M.stat == DEAD && M.client?.prefs.toggles & CHAT_GHOSTEARS)
 					M.hear_say(message, verb, speaking, null, null, src)
 					continue
@@ -159,13 +159,6 @@
 		to_chat(src, SPAN_WARNING("No holopad connected."))
 		return FALSE
 	return TRUE
-
-/mob/living/silicon/ai/emote(var/act, var/type, var/message)
-	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T?.active_holograms[src]) //Is the AI using a holopad?
-		src.holopad_emote(message)
-	else //Emote normally, then.
-		..()
 
 #undef IS_AI
 #undef IS_ROBOT

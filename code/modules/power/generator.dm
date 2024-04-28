@@ -129,7 +129,7 @@
 			else
 				air2.temperature = air2.temperature + heat/air2_heat_capacity
 				air1.temperature = air1.temperature - energy_transfer/air1_heat_capacity
-			playsound(get_turf(src), 'sound/effects/beam.ogg', 25, FALSE, 10, , required_preferences = ASFX_AMBIENCE)
+			playsound(get_turf(src), 'sound/effects/beam.ogg', 25, FALSE, 10, , required_preferences = ASFX_AMBIENCE, channel = CHANNEL_AMBIENCE)
 
 	//Transfer the air
 	if (air1)
@@ -170,9 +170,9 @@
 		return
 	attack_hand(user)
 
-/obj/machinery/power/generator/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.iswrench())
-		playsound(src.loc, W.usesound, 75, 1)
+/obj/machinery/power/generator/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswrench())
+		attacking_item.play_tool_sound(get_turf(src), 75)
 		anchored = !anchored
 		user.visible_message("[user.name] [anchored ? "secures" : "unsecures"] the bolts holding [src.name] to the floor.", \
 					"You [anchored ? "secure" : "unsecure"] the bolts holding [src] to the floor.", \
@@ -235,7 +235,7 @@
 	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
 	if(!ui)
 		// the ui does not exist, so we'll create a new() one
-        // for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
+		// for a list of parameters and their descriptions see the code docs in \code\modules\nano\nanoui.dm
 		ui = new(user, src, ui_key, "generator.tmpl", "Thermoelectric Generator", 450, 500)
 		// when the ui is first opened this is the data it will use
 		ui.set_initial_data(data)

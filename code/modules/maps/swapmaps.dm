@@ -18,8 +18,7 @@
 	- House interiors
 	- Individual custom player houses
 	- Virtually unlimited terrain
-	- Sharing maps between servers running different instances of the same
-	  game
+	- Sharing maps between servers running different instances of the same game
 	- Loading and saving pieces of maps for reusable room templates
  */
 
@@ -58,7 +57,7 @@
 	SwapMaps_CreateFromTemplate(id)
 		Create a new map by loading another map to use as a template.
 		This map has id==src and will not be saved. To make it savable,
-		  change id with swapmap.SetID(newid).
+			change id with swapmap.SetID(newid).
 	SwapMaps_LoadChunk(id,turf/locorner)
 		Load a swapmap as a "chunk", at a specific place. A new datum is
 		created but it's not added to the list of maps to save or unload.
@@ -79,16 +78,16 @@
 		Cache an icon file by name for space-saving storage
 
 	swapmap.New(id,x,y,z)
-		Create a new map; specify id, width (x), height (y), and
-		 depth (z)
+		Create a new map; specify id, width (x), height (y), and depth (z)
 		Default size is world.maxx,world.maxy,1
+
 	swapmap.New(id,turf1,turf2)
 		Create a new map; specify id and 2 corners
-		This becomes a /swapmap for one of the compiled-in maps, for
-		 easy saving.
+		This becomes a /swapmap for one of the compiled-in maps, for easy saving.
+
 	swapmap.New()
-		Create a new map datum, but does not allocate space or assign an
-		 ID (used for loading).
+		Create a new map datum, but does not allocate space or assign an ID (used for loading).
+
 	swapmap.Del()
 		Deletes a map but does not save
 	swapmap.Save()
@@ -100,30 +99,28 @@
 	swapmap.SetID(id)
 		Change the map's id and make changes to the lookup list
 	swapmap.AllTurfs(z)
-		Returns a block of turfs encompassing the entire map, or on just
-		 one z-level
+		Returns a block of turfs encompassing the entire map, or on just one z-level
 		z is in world coordinates; it is optional
+
 	swapmap.Contains(turf/T)
 		Returns nonzero if T is inside the map's boundaries.
 		Also works for objs and mobs, but the proc is not area-safe.
 	swapmap.InUse()
-		Returns nonzero if a mob with a key is within the map's
-		 boundaries.
+		Returns nonzero if a mob with a key is within the map's boundaries.
+
 	swapmap.LoCorner(z=z1)
 		Returns locate(x1,y1,z), where z=z1 if none is specified.
 	swapmap.HiCorner(z=z2)
 		Returns locate(x2,y2,z), where z=z2 if none is specified.
 	swapmap.BuildFilledRectangle(turf/corner1,turf/corner2,item)
-		Builds a filled rectangle of item from one corner turf to the
-		 other, on multiple z-levels if necessary. The corners may be
-		 specified in any order.
+		Builds a filled rectangle of item from one corner turf to the other, on multiple z-levels if necessary. The corners may be specified in any order.
 		item is a type path like /turf/wall or /obj/barrel{full=1}.
+
 	swapmap.BuildRectangle(turf/corner1,turf/corner2,item)
-		Builds an unfilled rectangle of item from one corner turf to
-		 the other, on multiple z-levels if necessary.
+		Builds an unfilled rectangle of item from one corner turf to the other, on multiple z-levels if necessary.
+
 	swapmap.BuildInTurfs(list/turfs,item)
-		Builds item on all of the turfs listed. The list need not
-		 contain only turfs, or even only atoms.
+		Builds item on all of the turfs listed. The list need not contain only turfs, or even only atoms.
  */
 
 /swapmap

@@ -1,15 +1,13 @@
-var/datum/controller/subsystem/lighting/SSlighting
-
 /var/lighting_profiling = FALSE
 /var/lighting_overlays_initialized = FALSE
 
-/datum/controller/subsystem/lighting
+SUBSYSTEM_DEF(lighting)
 	name = "Lighting"
 	wait = LIGHTING_INTERVAL
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
-	init_order = SS_INIT_LIGHTING
+	init_order = INIT_ORDER_LIGHTING
 
 	var/total_lighting_overlays = 0
 	var/total_lighting_sources = 0
@@ -34,9 +32,6 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/force_override = FALSE	// For admins.
 #endif
 
-/datum/controller/subsystem/lighting/New()
-	NEW_SS_GLOBAL(SSlighting)
-
 /datum/controller/subsystem/lighting/stat_entry(msg)
 	var/list/out = list(
 #ifdef USE_INTELLIGENT_LIGHTING_UPDATES
@@ -53,10 +48,10 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
-	wake()
+	can_fire = TRUE
 	if (!force_override)
 		force_queued = FALSE
 
@@ -75,9 +70,9 @@ var/datum/controller/subsystem/lighting/SSlighting
 	var/turf/T
 	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (thing in Z_ALL_TURFS(zlevel))
+		for (thing in Z_TURFS(zlevel))
 			T = thing
-			if(config.starlight)
+			if(GLOB.config.starlight)
 				var/turf/space/S = T
 				if(istype(S) && S.use_starlight)
 					S.update_starlight()
@@ -113,7 +108,7 @@ var/datum/controller/subsystem/lighting/SSlighting
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
 #endif
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)
@@ -131,6 +126,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (lq_idex <= curr_lights.len)
 		var/datum/light_source/L = curr_lights[lq_idex++]
+		if(QDELETED(L))
+			continue
 
 		if (L.needs_update != LIGHTING_NO_UPDATE)
 			total_ss_updates += 1
@@ -154,6 +151,8 @@ var/datum/controller/subsystem/lighting/SSlighting
 
 	while (cq_idex <= curr_corners.len)
 		var/datum/lighting_corner/C = curr_corners[cq_idex++]
+		if(QDELETED(C))
+			continue
 
 		if (C.needs_update)
 			C.update_overlays()

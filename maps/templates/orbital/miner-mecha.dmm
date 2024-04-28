@@ -1,0 +1,94 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/template_noop)
+"c" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"j" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"n" = (
+/mob/living/heavy_vehicle/premade/miner,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"p" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"F" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/template_noop,
+/area/template_noop)
+"J" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+"O" = (
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/turf/template_noop,
+/area/template_noop)
+"P" = (
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/template_noop,
+/area/template_noop)
+"V" = (
+/obj/structure/railing/mapped,
+/turf/template_noop,
+/area/template_noop)
+"X" = (
+/turf/simulated/floor/reinforced,
+/area/template_noop)
+
+(1,1,1) = {"
+a
+P
+a
+P
+a
+"}
+(2,1,1) = {"
+V
+j
+X
+p
+O
+"}
+(3,1,1) = {"
+a
+X
+n
+X
+a
+"}
+(4,1,1) = {"
+V
+J
+X
+c
+O
+"}
+(5,1,1) = {"
+a
+F
+a
+F
+a
+"}

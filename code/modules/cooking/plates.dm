@@ -16,18 +16,18 @@ Plates that can hold your cooking stuff
 	fragile = 3
 	shatter_material = DEFAULT_TABLE_MATERIAL // Slight typecasting abuse here, gets converted to a material in Initialize().
 	can_be_placed_into = list()
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	var/grease = FALSE
 
-/obj/item/reagent_containers/bowl/examine(mob/user, distance)
+/obj/item/reagent_containers/bowl/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(grease)
-		to_chat(user, SPAN_WARNING("\The [name] looks a little unclean."))
+		. += SPAN_WARNING("\The [name] looks a little unclean.")
 
-/obj/item/reagent_containers/bowl/attackby(obj/item/W, mob/user)
-	if(istype(W,/obj/item/material/kitchen/utensil))
-		var/obj/item/material/kitchen/utensil/U = W
-		if(istype(W,/obj/item/material/kitchen/utensil/fork))
+/obj/item/reagent_containers/bowl/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil))
+		var/obj/item/material/kitchen/utensil/U = attacking_item
+		if(istype(attacking_item,/obj/item/material/kitchen/utensil/fork))
 			to_chat(user, SPAN_NOTICE("You uselessly pass \the [U] through \the [src]'s contents."))
 			playsound(user.loc, /singleton/sound_category/generic_pour_sound, 50, 1)
 			return
@@ -101,7 +101,7 @@ Plates that can hold your cooking stuff
 /obj/item/reagent_containers/bowl/plate
 	name = "plate"
 	desc = "A plate for dishing up the finest of cuisine."
-	flags = null
+	atom_flags = 0
 	icon_state = "plate"
 	var/obj/item/holding
 
@@ -111,25 +111,25 @@ Plates that can hold your cooking stuff
 		qdel(holding)
 	return ..()
 
-/obj/item/reagent_containers/bowl/plate/examine(mob/user, distance)
+/obj/item/reagent_containers/bowl/plate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(holding)
-		to_chat(user, "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src].")
-		to_chat(user, SPAN_INFO(" - [holding.desc]"))
+		. += "It looks like there is \a [SPAN_INFO(holding.name)] on \the [src]."
+		. += SPAN_INFO(" - [holding.desc]")
 
-/obj/item/reagent_containers/bowl/plate/attackby(obj/item/I, mob/user)
-	if((istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash)) && !holding)
-		user.unEquip(I)
-		I.forceMove(src)
-		holding = I
+/obj/item/reagent_containers/bowl/plate/attackby(obj/item/attacking_item, mob/user)
+	if((istype(attacking_item, /obj/item/reagent_containers/food/snacks) || istype(attacking_item, /obj/item/trash)) && !holding)
+		user.unEquip(attacking_item)
+		attacking_item.forceMove(src)
+		holding = attacking_item
 		to_chat(user, SPAN_NOTICE("You place \the [holding.name] on \the [src]."))
 		update_icon()
 		return
-	if(istype(I, /obj/item/reagent_containers/food/snacks) || istype(I, /obj/item/trash))
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks) || istype(attacking_item, /obj/item/trash))
 		to_chat(user, SPAN_WARNING("\The [src] already has something on it!"))
 		return
-	if(istype(I, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/reagent_containers/food/snacks))
-		var/obj/item/temp_hold = holding.attackby(I, user)
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/reagent_containers/food/snacks))
+		var/obj/item/temp_hold = holding.attackby(attacking_item, user)
 		if(temp_hold != holding)
 			user.unEquip(temp_hold)
 			temp_hold.forceMove(src)
@@ -138,21 +138,21 @@ Plates that can hold your cooking stuff
 				grease = TRUE
 		update_icon()
 		return
-	if(istype(I, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/trash))
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil) && istype(holding, /obj/item/trash))
 		to_chat(user, SPAN_WARNING("You're not sure you should try to eat \the [holding.name]."))
-	if(istype(I, /obj/item/material/kitchen/utensil))
+	if(istype(attacking_item, /obj/item/material/kitchen/utensil))
 		to_chat(user, SPAN_WARNING("There isn't any food on \the [name]."))
 		update_icon()
 		return
 
 /obj/item/reagent_containers/bowl/plate/attack_self(mob/user)
-    if(!user.get_inactive_hand())
-        var/obj/item/reagent_containers/food/snacks/F = holding
-        user.put_in_hands(F)
-        holding = null
-        update_icon()
-        to_chat(user, SPAN_NOTICE("You take \the [F.name] from \the [name]."))
-        return
+	if(!user.get_inactive_hand())
+		var/obj/item/reagent_containers/food/snacks/F = holding
+		user.put_in_hands(F)
+		holding = null
+		update_icon()
+		to_chat(user, SPAN_NOTICE("You take \the [F.name] from \the [name]."))
+		return
 
 /obj/item/reagent_containers/bowl/plate/attack(mob/living/M, mob/living/user, target_zone)
 	if(istype(holding, /obj/item/reagent_containers/food/snacks))
@@ -177,3 +177,9 @@ Plates that can hold your cooking stuff
 		holding.update_icon() // Just to be safe.
 		LAZYADD(O, image(icon=holding.icon, icon_state=holding.icon_state))
 	set_overlays(O)
+
+/obj/item/reagent_containers/bowl/zhukamir
+	name = "\improper Zhukamir cauldron"
+	desc = "A small ornamental cauldron used as an altar by the worshippers of Zhukamir, the Ma'ta'ke deity of agriculture and cooking."
+	icon = 'icons/obj/tajara_items.dmi'
+	icon_state = "zhukamir"

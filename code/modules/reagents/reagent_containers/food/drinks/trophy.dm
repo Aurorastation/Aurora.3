@@ -10,7 +10,8 @@
 	matter = list(MATERIAL_IRON = 10)
 	possible_transfer_amounts = null
 	volume = 5
-	flags = CONDUCT | OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 
 /obj/item/reagent_containers/food/drinks/trophy/gold_cup
 	name = "gold cup"
@@ -40,7 +41,7 @@
 	desc = "At least you ranked!"
 	icon_state = "bronze_cup"
 	w_class = ITEMSIZE_SMALL
-	force = 5
+	force = 11
 	throwforce = 4
 	amount_per_transfer_from_this = 10
 	matter = list(MATERIAL_IRON = 40)

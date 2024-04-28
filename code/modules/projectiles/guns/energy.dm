@@ -29,7 +29,12 @@
 	var/self_recharge = 0	//if set, the weapon will recharge itself
 	var/use_external_power = 0 //if set, the weapon will look for an external power source to draw from, otherwise it recharges magically
 	var/recharge_time = 4
+	/// Multiplies by charge cost to determine how much charge should be returned
+	var/recharge_multiplier = 1
 	var/charge_tick = 0
+
+	/// External power source for the gun. Checked by get_external_power_supply()
+	var/obj/item/recharger
 
 	//vars passed to turrets
 	var/can_turret = 0						//1 allows you to attach the gun on a turret
@@ -44,8 +49,9 @@
 	if(.)
 		update_icon()
 
-/obj/item/gun/energy/emp_act(var/severity)
-	..()
+/obj/item/gun/energy/emp_act(severity)
+	. = ..()
+
 	disable_cell_temp(severity)
 	queue_icon_update()
 
@@ -59,7 +65,7 @@
 		to_chat(M, SPAN_DANGER("[src] locks up!"))
 		playsound(M, 'sound/weapons/smg_empty_alarm.ogg', 30)
 	var/initial_charge = power_supply.charge
-	power_supply.charge = 0	
+	power_supply.charge = 0
 	sleep(severity * 20)
 	power_supply.give(initial_charge)
 	update_maptext()
@@ -79,6 +85,8 @@
 	update_maptext()
 
 /obj/item/gun/energy/Destroy()
+	if(recharger)
+		disconnect()
 	QDEL_NULL(power_supply)
 	return ..()
 
@@ -92,7 +100,7 @@
 		if(!external || !external.use(charge_cost)) //Take power from the borg...
 			return 0
 
-	power_supply.give(charge_cost) //... to recharge the shot
+	power_supply.give(charge_cost * recharge_multiplier) //... to recharge the shot
 	update_maptext()
 	update_icon()
 
@@ -116,6 +124,8 @@
 	if(isrobot(src.loc.loc)) // for things inside a robot's module
 		var/mob/living/silicon/robot/R = src.loc.loc
 		return R.cell
+	if(recharger)
+		return recharger.get_cell()
 	if(istype(src.loc, /obj/item/rig_module))
 		var/obj/item/rig_module/module = src.loc
 		if(module.holder && module.holder.wearer)
@@ -129,13 +139,111 @@
 
 	return null
 
-/obj/item/gun/energy/examine(mob/user)
-	..(user)
-	if(get_dist(src, user) > 1)
+/**
+ * Connects the energy gun to an external power supply
+ *
+ * * powersource - the power supply in question. Can either be `/obj/item/rig_module/recharger` or `/obj/item/recharger_backpack`.
+ *
+ * Returns `TRUE` if the connection was successful, `FALSE` otherwise
+ */
+/obj/item/gun/energy/proc/connect(obj/item/powersource)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	//Validate that the type is allowed first of all
+	if(!is_type_in_list(powersource, list(/obj/item/rig_module/recharger, /obj/item/recharger_backpack)))
+		stack_trace("Wrong type to connect the energy gun to!")
+		return FALSE
+
+	//If we're already connected with something, we can't connect with something else
+	if(recharger)
+		to_chat(usr, SPAN_WARNING("\The [src] is already connected to \the [recharger]!"))
+		return FALSE
+
+	if(istype(powersource, /obj/item/rig_module/recharger))
+		var/obj/item/rig_module/recharger/rigcharge = powersource
+
+		if(!rigcharge.holder || !rigcharge.holder.wearer)
+			to_chat(usr, SPAN_WARNING("\The [rigcharge] must be installed in a rig and active!"))
+			return FALSE
+
+		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [powersource]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		rigcharge.connected = src
+		recharger = rigcharge.holder
+		self_recharge = TRUE
+		use_external_power = TRUE
+
+	else if(istype(powersource, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack/back_charge = powersource
+
+		if(!ismob(loc))
+			to_chat(usr, SPAN_WARNING("\The [back_charge] must be worn on the back before a weapon can be connected!"))
+			return FALSE
+
+		to_chat(usr, SPAN_NOTICE("You neatly plug \the [src] into \the [powersource]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		back_charge.connect(src)
+		recharger = back_charge
+		self_recharge = TRUE
+		use_external_power = TRUE
+
+	return TRUE
+
+
+///Disconnects the energy gun from its external power source if one exists.
+/obj/item/gun/energy/proc/disconnect()
+	SHOULD_NOT_SLEEP(TRUE)
+	if(!recharger)
+		to_chat(usr, SPAN_WARNING("\The [src] lacks an external power source to disconnect!"))
+		return
+
+	if(istype(recharger, /obj/item/rig))
+		var/obj/item/rig/rig = recharger
+		var/obj/item/rig_module/recharger/rigcharger = locate() in rig.installed_modules
+		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [recharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		if(rigcharger.active)
+			rigcharger.deactivate()
+
+		rigcharger.connected = null
+
+	else if(istype(recharger, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack/backcharger = recharger
+		to_chat(usr, SPAN_NOTICE("With a snap, \the [src] is disconnected from \the [recharger]."))
+		playsound(get_turf(src), 'sound/machines/click.ogg', 30, 0)
+		backcharger.disconnect(src)
+
+	recharger = null
+	self_recharge = initial(self_recharge)
+	use_external_power = initial(use_external_power)
+
+/obj/item/gun/energy/MouseDrop(atom/over)
+	. = ..()
+
+
+	if(istype(over, /obj/item/rig))
+		var/obj/item/rig/rig = over
+		var/obj/item/rig_module/recharger/rigcharge = locate() in rig.installed_modules
+		if(rigcharge)
+			connect(rigcharge)
+
+	else if(istype(over, /obj/item/recharger_backpack))
+		var/obj/item/recharger_backpack/backcharge = over
+		connect(backcharge)
+
+
+/obj/item/gun/energy/dropped(mob/user)
+	. = ..()
+
+	if(recharger)
+		disconnect()
+
+/obj/item/gun/energy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance > 1)
 		return
 	var/shots_remaining = round(power_supply.charge / charge_cost)
-	to_chat(user, "Has [shots_remaining] shot\s remaining.")
-	return
+	. += "It has [shots_remaining] shot\s remaining."
 
 /obj/item/gun/energy/update_icon()
 	if(charge_meter && power_supply && power_supply.maxcharge)
@@ -160,7 +268,7 @@
 		else
 			icon_state = "[initial(icon_state)][icon_state_ratio]"
 			item_state = "[initial(item_state)][item_state_ratio]"
-			
+
 	..()
 
 /obj/item/gun/energy/handle_post_fire()

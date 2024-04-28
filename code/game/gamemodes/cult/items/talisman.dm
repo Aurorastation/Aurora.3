@@ -2,6 +2,7 @@
 	icon_state = "paper_talisman"
 	can_change_icon_state = FALSE
 	var/uses = 1
+	var/network
 	var/datum/rune/rune
 	info = "<center><img src='talisman.png'></center><br/><br/>"
 
@@ -14,10 +15,13 @@
 	QDEL_NULL(rune)
 	return ..()
 
-/obj/item/paper/talisman/examine(mob/user)
-	..()
+/obj/item/paper/talisman/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(iscultist(user) && rune)
-		to_chat(user, "The spell inscription reads: <span class='cult'><b><i>[rune.name]</i></b></span>.")
+		var/network_text = ""
+		if(network)
+			network_text = " This spell's network tag reads: [SPAN_CULT(network)]."
+		. += "The spell inscription reads: [SPAN_CULT(rune.name)].[network_text]"
 
 /obj/item/paper/talisman/attack_self(mob/living/user)
 	if(iscultist(user))

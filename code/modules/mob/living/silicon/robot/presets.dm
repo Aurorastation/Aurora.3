@@ -62,7 +62,7 @@
 	set category = "BST"
 
 	src.custom_emote(VISIBLE_MESSAGE, "politely beeps as its lights start to flash.")
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 
@@ -84,3 +84,22 @@
 
 	status_flags ^= GODMODE
 	to_chat(src, SPAN_NOTICE("God mode is now [status_flags & GODMODE ? "enabled" : "disabled"]"))
+
+/mob/living/silicon/robot/purpose
+	mod_type = "Purpose"
+	spawn_module = /obj/item/robot_module/purpose
+	cell_type = /obj/item/cell/infinite
+	law_preset = /datum/ai_laws/nanotrasen/malfunction
+	scrambled_codes = TRUE
+	law_update = FALSE
+	overclocked = TRUE
+	has_jetpack = TRUE
+	braintype = "Android"
+
+/mob/living/silicon/robot/purpose/Initialize()
+	. = ..()
+	add_verb(src, /mob/living/silicon/robot/proc/choose_icon)
+	var/datum/robot_component/C = components["surge"]
+	C.installed = TRUE
+	C.wrapped = new C.external_type
+	setup_icon_cache()

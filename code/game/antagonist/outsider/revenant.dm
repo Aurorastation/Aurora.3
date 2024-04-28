@@ -16,6 +16,8 @@ var/datum/antagonist/revenant/revenants = null
 	var/kill_count = 0
 	var/obj/effect/portal/revenant/revenant_rift
 
+	has_idris_account = FALSE
+
 /datum/antagonist/revenant/New()
 	..()
 
@@ -25,12 +27,12 @@ var/datum/antagonist/revenant/revenants = null
 	revenants.revenant_rift = null
 	revenants.rifts_left--
 	if(revenants.rifts_left <= 0)
-		command_announcement.Announce("[current_map.station_name], we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
+		command_announcement.Announce("[SSatlas.current_map.station_name], we aren't detecting any more rift energy signatures. Mop up the rest of the invaders. Good work.", "Bluespace Breach Alert")
 
 /datum/antagonist/revenant/is_obvious_antag(datum/mind/player)
 	return TRUE
 
 /proc/message_all_revenants(var/message)
-	for(var/thing in human_mob_list)
+	for(var/thing in GLOB.human_mob_list)
 		if(isrevenant(thing))
 			to_chat(thing, message)

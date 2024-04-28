@@ -7,3 +7,5 @@
 	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
+	build_from_parts = TRUE
+	has_accents = TRUE

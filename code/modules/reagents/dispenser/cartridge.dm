@@ -44,15 +44,15 @@
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
 		add_overlay(lid)
 
-/obj/item/reagent_containers/chem_disp_cartridge/examine(mob/user)
-	..()
-	to_chat(user, "It has a capacity of [volume] units.")
+/obj/item/reagent_containers/chem_disp_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += "It has a capacity of [volume] units."
 	if(reagents.total_volume <= 0)
-		to_chat(user, "It is empty.")
+		. += "It is empty."
 	else
-		to_chat(user, "It contains [reagents.total_volume] units of liquid.")
+		. += "It contains [reagents.total_volume] units of liquid."
 	if(!is_open_container())
-		to_chat(user, "The cap is sealed.")
+		. += "The cap is sealed."
 
 /obj/item/reagent_containers/chem_disp_cartridge/verb/verb_set_label(L as text)
 	set name = "Set Cartridge Label"
@@ -86,13 +86,13 @@
 	..()
 	if (is_open_container())
 		to_chat(usr, "<span class = 'notice'>You put the cap on \the [src].</span>")
-		flags ^= OPENCONTAINER
+		atom_flags ^= ATOM_FLAG_OPEN_CONTAINER
 	else
 		to_chat(usr, "<span class = 'notice'>You take the cap off \the [src].</span>")
-		flags |= OPENCONTAINER
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 	update_icon()
 
-/obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/reagent_containers/chem_disp_cartridge/attackby(obj/item/attacking_item, mob/user)
 	..()
 	update_icon()
 

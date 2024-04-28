@@ -33,7 +33,7 @@
 /obj/item/spell/summon/on_use_cast(mob/living/user)
 	. = ..()
 	if(summon_options.len)
-		var/choice = input(user, "Choose a creature to kidnap from somewhere!", "Summon") as null|anything in summon_options
+		var/choice = tgui_input_list(user, "Choose a creature to kidnap from somewhere.", "Summon", summon_options)
 		if(choice)
 			summoned_mob_type = summon_options[choice]
 

@@ -9,7 +9,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	accuracy = 1
 	w_class = ITEMSIZE_NORMAL
-	force = 10
+	force = 15
 	origin_tech = list(TECH_COMBAT = 3, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	projectile_type = /obj/item/projectile/beam/midlaser
@@ -65,7 +65,7 @@
 	icon_state = "caplaser"
 	item_state = "caplaser"
 	has_item_ratio = FALSE
-	force = 5
+	force = 11
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT
 	w_class = ITEMSIZE_NORMAL
@@ -153,7 +153,7 @@
 	charge_cost = 400
 	max_shots = 4
 	fire_delay = 45
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_LARGE
 	accuracy = -3 //shooting at the hip
 	scoped_accuracy = 4
@@ -189,7 +189,7 @@
 	slot_flags = SLOT_BELT|SLOT_BACK
 	w_class = ITEMSIZE_LARGE
 	accuracy = 0
-	force = 10
+	force = 15
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	origin_tech = list(TECH_COMBAT = 4, TECH_MAGNET = 2)
 	projectile_type = /obj/item/projectile/beam/shotgun
@@ -228,9 +228,9 @@
 	turret_is_lethal = FALSE
 	turret_sprite_set = "red"
 
-/obj/item/gun/energy/lasertag/attackby(obj/item/I, mob/user)
-	if(I.ismultitool())
-		var/chosen_color = input(user, "Which color do you wish your gun to be?", "Color Selection") as null|anything in list("blue", "red")
+/obj/item/gun/energy/lasertag/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
+		var/chosen_color = tgui_input_list(user, "Which color do you wish your gun to be?", "Color Selection", list("blue", "red"))
 		if(!chosen_color)
 			return
 		get_tag_color(chosen_color)

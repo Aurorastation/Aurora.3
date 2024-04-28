@@ -18,7 +18,6 @@
 	desc = "Clumped up flesh, pulsating in rhythm with the tendrils that surround it."
 	icon_state = "tendril_node"
 	density = TRUE
-	layer = ABOVE_CABLE_LAYER + 0.2
 	maxHealth = 150
 	light_range = NODERANGE
 	light_color = LIGHT_COLOR_EMERGENCY
@@ -61,13 +60,13 @@
 
 	new /obj/effect/decal/cleanable/blood/no_dry(loc)
 	START_PROCESSING(SSprocessing, src)
-	dirs_left = cardinal.Copy()
+	dirs_left = GLOB.cardinal.Copy()
 
 /obj/structure/gore/tendrils/proc/update_neighbours(turf/U)
 	if(!U)
 		U = loc
 	if(istype(U))
-		for(var/dirn in cardinal)
+		for(var/dirn in GLOB.cardinal)
 			var/turf/T = get_step(U, dirn)
 			if(!istype(T))
 				continue
@@ -77,7 +76,7 @@
 
 /obj/structure/gore/tendrils/proc/update_sprite()
 	var/my_dir = 0
-	for(var/check_dir in cardinal)
+	for(var/check_dir in GLOB.cardinal)
 		var/turf/check = get_step(src, check_dir)
 		if(!istype(check))
 			continue

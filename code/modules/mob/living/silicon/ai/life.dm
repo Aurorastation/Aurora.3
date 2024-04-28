@@ -140,7 +140,14 @@
 	return ((!A.power_equip) && A.requires_power == 1 || istype(T, /turf/space)) && !istype(src.loc,/obj/item)
 
 /mob/living/silicon/ai/rejuvenate()
+	var/was_dead = stat == DEAD
+
 	..()
+
+	if(was_dead && stat != DEAD)
+		// Arise!
+		GLOB.cameranet.update_visibility(src, FALSE)
+
 	add_ai_verbs(src)
 
 /mob/living/silicon/ai/update_sight()
@@ -148,13 +155,11 @@
 		update_icon()
 		overlay_fullscreen("blind", /obj/screen/fullscreen/blind)
 		set_sight(sight&(~SEE_TURFS)&(~SEE_MOBS)&(~SEE_OBJS))
-		set_see_in_dark(0)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 	else if(stat == DEAD)
 		update_dead_sight()
 	else
 		set_sight(sight|SEE_TURFS|SEE_MOBS|SEE_OBJS)
-		set_see_in_dark(8)
 		set_see_invisible(SEE_INVISIBLE_LIVING)
 
 /mob/living/silicon/ai/is_blind()

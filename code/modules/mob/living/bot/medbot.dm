@@ -2,8 +2,8 @@
 	name = "Medibot"
 	desc = "A little medical robot. He looks somewhat underwhelmed."
 	icon_state = "medibot0"
-	req_one_access = list(access_medical, access_robotics)
-	botcard_access = list(access_medical, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
+	req_one_access = list(ACCESS_MEDICAL, ACCESS_ROBOTICS)
+	botcard_access = list(ACCESS_MEDICAL, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS)
 
 	var/obj/item/storage/firstaid/firstaid_item
 
@@ -57,10 +57,9 @@
 			if(path.len && (get_dist(patient, path[path.len]) > 2)) // We have a path, but it's off
 				path = list()
 			if(!path.len && (get_dist(src, patient) > 1))
-				spawn(0)
-					path = AStar(loc, get_turf(patient), /turf/proc/CardinalTurfsWithAccess, /turf/proc/Distance, 0, 30, id = botcard)
-					if(!path)
-						path = list()
+				path = get_path_to(src, patient, 30, 0, botcard.GetAccess())
+				if(!length(path))
+					path = list()
 			if(path.len)
 				icon_state = "medibots"
 				step_to(src, path[1])
@@ -176,8 +175,8 @@
 	bot_win.set_content(dat)
 	bot_win.open()
 
-/mob/living/bot/medbot/attackby(var/obj/item/O, var/mob/user)
-	if(istype(O, /obj/item/reagent_containers/glass))
+/mob/living/bot/medbot/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/reagent_containers/glass))
 		if(locked)
 			to_chat(user, SPAN_NOTICE("You cannot insert a beaker because the panel is locked."))
 			return
@@ -185,9 +184,9 @@
 			to_chat(user, SPAN_NOTICE("There is already a beaker loaded."))
 			return
 
-		user.drop_from_inventory(O,src)
-		reagent_glass = O
-		to_chat(user, SPAN_NOTICE("You insert [O]."))
+		user.drop_from_inventory(attacking_item, src)
+		reagent_glass = attacking_item
+		to_chat(user, SPAN_NOTICE("You insert [attacking_item]."))
 		return 1
 	else
 		..()
@@ -282,7 +281,7 @@
 		reagent_glass.forceMove(Tsec)
 		reagent_glass = null
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	qdel(src)
 	return
@@ -328,7 +327,8 @@
 
 /* Construction */
 
-/obj/item/storage/firstaid/attackby(var/obj/item/robot_parts/S, mob/user as mob)
+/obj/item/storage/firstaid/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/robot_parts/S = attacking_item
 	if ((!istype(S, /obj/item/robot_parts/l_arm)) && (!istype(S, /obj/item/robot_parts/r_arm)))
 		..()
 		return
@@ -356,10 +356,10 @@
 	var/created_name = "Medibot" //To preserve the name if it's a unique medbot I guess
 	var/obj/item/storage/firstaid/firstaid_item // store the firstaid type if it blows up
 
-/obj/item/firstaid_arm_assembly/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/firstaid_arm_assembly/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if(W.ispen())
-		var/t = sanitizeSafe(input(user, "Enter new robot name", name, created_name), MAX_NAME_LEN)
+	if(attacking_item.ispen())
+		var/t = sanitizeSafe( tgui_input_text(user, "Enter new robot name", name, created_name, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(!t)
 			return
 		if(!in_range(src, user) && loc != user)
@@ -368,9 +368,9 @@
 	else
 		switch(build_step)
 			if(0)
-				if(istype(W, /obj/item/device/healthanalyzer))
-					user.drop_from_inventory(W,get_turf(src))
-					qdel(W)
+				if(istype(attacking_item, /obj/item/device/healthanalyzer))
+					user.drop_from_inventory(attacking_item,get_turf(src))
+					qdel(attacking_item)
 					build_step++
 					to_chat(user, SPAN_NOTICE("You add the health sensor to [src]."))
 					name = "first-aid/robot arm/health analyzer assembly"
@@ -382,9 +382,9 @@
 					return 1
 
 			if(1)
-				if(isprox(W))
-					user.drop_from_inventory(W,get_turf(src))
-					qdel(W)
+				if(isprox(attacking_item))
+					user.drop_from_inventory(attacking_item, get_turf(src))
+					qdel(attacking_item)
 					to_chat(user, SPAN_NOTICE("You complete the Medibot! Beep boop."))
 					var/turf/T = get_turf(src)
 					var/mob/living/bot/medbot/S = new /mob/living/bot/medbot(T)

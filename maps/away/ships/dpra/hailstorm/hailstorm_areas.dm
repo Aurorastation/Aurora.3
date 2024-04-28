@@ -5,7 +5,7 @@
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/space
-	flags = RAD_SHIELDED
+	area_flags = AREA_FLAG_RAD_SHIELDED
 
 /area/hailstorm_ship/bridge
 	name = "Hailstorm Ship Bridge"
@@ -21,7 +21,7 @@
 
 /area/hailstorm_ship/gun_deck/second
 	name = "Hailstorm Ship Secondary Gun Deck"
-	icon_state = "zta"
+	icon_state = "zat"
 
 /area/hailstorm_ship/eva
 	name = "Hailstorm Ship EVA Storage"

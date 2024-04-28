@@ -23,35 +23,35 @@
 		// Handle things that are part of this interface but not removing/replacing a given item.
 		if("mask")
 			visible_message(SPAN_WARNING("\The [user] is trying to adjust \the [src]'s mask!"))
-			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				var/obj/item/clothing/mask/M = wear_mask
 				M.adjust_mask(user, FALSE)
 			return TRUE
 		if("tank")
 			visible_message(SPAN_WARNING("\The [user] is taking a look at \the [src]'s air tank."))
-			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				var/obj/item/tank/T = internal
 				to_chat(user, SPAN_NOTICE("\The [T] has [T.air_contents.return_pressure()] kPA left."))
 				to_chat(user, SPAN_NOTICE("The [T] is set to release [T.distribute_pressure] kPA."))
 			return TRUE
 		if("pockets")
 			visible_message("<span class='danger'>\The [user] is trying to empty \the [src]'s pockets!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				empty_pockets(user)
 			return 1
 		if("splints")
 			visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s splints!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				remove_splints(user)
 			return 1
 		if("sensors")
 			visible_message("<span class='danger'>\The [user] is trying to set \the [src]'s sensors!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				toggle_sensors(user)
 			return 1
 		if("internals")
 			visible_message("<span class='danger'>\The [usr] is trying to set \the [src]'s internals!</span>")
-			if(do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				toggle_internals(user)
 			return 1
 		if("tie")
@@ -72,7 +72,7 @@
 				return 0
 			visible_message("<span class='danger'>\The [usr] is trying to remove \the [src]'s [A.name]!</span>")
 
-			if(!do_after(user,HUMAN_STRIP_DELAY, act_target = src))
+			if(!do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				return 0
 
 			if(!A || suit.loc != src || !(A in suit.accessories))
@@ -88,7 +88,7 @@
 	// Are we placing or stripping?
 	var/stripping = target_slot
 	var/obj/item/held = user.get_active_hand()
-	
+
 	if(stripping)
 		if(!target_slot.canremove)
 			to_chat(user, "<span class='warning'>You cannot remove \the [src]'s [target_slot.name].</span>")

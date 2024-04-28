@@ -121,7 +121,7 @@
 
 			if(!colour2 && isturf(T) && !T.density)
 				var/datum/gas_mixture/environment = T.return_air()
-				var/turf_total = environment.total_moles()
+				var/turf_total = environment.get_total_moles()
 				//var/turf_total = T.co2 + T.oxygen + T.poison + T.sl_gas + T.n2
 
 

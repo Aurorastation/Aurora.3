@@ -1,12 +1,17 @@
 /datum/map_template/ruin/away_site/fsf_patrol_ship
 	name = "FSF Corvette"
 	description = "A small corvette manufactured for the Solarian Navy by Hephaestus, the Montevideo-class is an anti-piracy vessel through and through - with a shuttle bay that takes up a third of the ship and only a single weapon hardpoint located in one arm of the ship, the Montevideo is designed for long-term, self-sufficient operations in inhabited space against small-time pirate vessels that would be unable to overcome the ship's lackluster armaments. Generous automation and streamlined equipment allows it to function with a very small crew."
-	suffixes = list("ships/sol_merc/fsf_patrol_ship.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
-	spawn_weight = 1
+
+	prefix = "ships/sol_merc/"
+	suffixes = list("fsf_patrol_ship.dmm")
+
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE)
+	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
 	ship_cost = 1
 	id = "fsf_patrol_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/fsf_shuttle)
+
+	unit_test_groups = list(3)
 
 /singleton/submap_archetype/fsf_patrol_ship
 	map = "FSF Corvette"
@@ -98,7 +103,7 @@
 /obj/machinery/computer/shuttle_control/explore/fsf_shuttle
 	name = "shuttle control console"
 	shuttle_tag = "FSF Shuttle"
-	req_access = list(access_sol_ships)
+	req_access = list(ACCESS_SOL_SHIPS)
 
 /datum/shuttle/autodock/overmap/fsf_shuttle
 	name = "FSF Shuttle"

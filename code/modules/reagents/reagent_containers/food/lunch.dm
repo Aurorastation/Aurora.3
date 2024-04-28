@@ -89,7 +89,18 @@ var/list/lunchables_drinks_ = list(
 	/obj/item/reagent_containers/food/drinks/carton/small/milk,
 	/obj/item/reagent_containers/food/drinks/carton/small/milk/choco,
 	/obj/item/reagent_containers/food/drinks/carton/small/milk/strawberry,
-	/obj/item/reagent_containers/food/drinks/cans/melon_soda
+	/obj/item/reagent_containers/food/drinks/cans/melon_soda,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/cherry,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/phoron,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/klax,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/mixedberry,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn,
+	/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz
 )
 
 var/list/lunchables_vaurca_ = list(
@@ -104,12 +115,14 @@ var/list/lunchables_vaurca_snack_ = list(
 	/obj/item/reagent_containers/food/snacks/koiskebab3,
 	/obj/item/reagent_containers/food/snacks/friedkois,
 	/obj/item/reagent_containers/food/snacks/koismuffin,
-	/obj/item/reagent_containers/food/snacks/phoroncandy
+	/obj/item/reagent_containers/food/snacks/phoroncandy,
+	/obj/item/reagent_containers/food/snacks/koisbar,
+	/obj/item/reagent_containers/food/snacks/koisbar_clean,
 )
 
 var/list/lunchables_utensil_ = list(
 	/obj/item/material/kitchen/utensil/fork/chopsticks,
-	/obj/item/material/kitchen/utensil/fork/chopsticks/cheap,
+	/obj/item/material/kitchen/utensil/fork/chopsticks/bamboo,
 	/obj/item/material/kitchen/utensil/fork/plastic,
 	/obj/item/material/kitchen/utensil/spoon/plastic,
 	/obj/item/material/kitchen/utensil/knife/plastic

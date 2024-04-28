@@ -63,7 +63,7 @@ var/list/asset_datums = list()
 
 /// Returns whether or not the asset should attempt to read from cache
 /datum/asset/proc/should_refresh()
-	return !cross_round_cachable || !config.cache_assets
+	return !cross_round_cachable || !GLOB.config.cache_assets
 
 //If you don't need anything complicated.
 /datum/asset/simple
@@ -149,7 +149,7 @@ var/list/asset_datums = list()
 		return
 
 	// If it's cached, may as well load it now, while the loading is cheap
-	if(config.cache_assets && cross_round_cachable)
+	if(GLOB.config.cache_assets && cross_round_cachable)
 		load_immediately = TRUE
 
 	create_spritesheets()
@@ -195,7 +195,7 @@ var/list/asset_datums = list()
 	SSassets.transport.register_asset(res_name, fcopy_rsc(fname))
 	fdel(fname)
 
-	if (config.cache_assets && cross_round_cachable)
+	if (GLOB.config.cache_assets && cross_round_cachable)
 		write_to_cache()
 	fully_generated = TRUE
 	// If we were ever in there, remove ourselves
@@ -346,7 +346,11 @@ var/list/asset_datums = list()
 	return out.Join("\n")
 
 /datum/asset/spritesheet/proc/should_load_immediately()
+#ifdef DO_NOT_DEFER_ASSETS
 	return TRUE
+#else
+	return load_immediately
+#endif
 
 /datum/asset/spritesheet/proc/Insert(sprite_name, icon/I, icon_state="", dir=SOUTH, frame=1, moving=FALSE, icon/forced=FALSE)
 	if(should_load_immediately())
@@ -528,6 +532,8 @@ var/list/asset_datums = list()
 		"izweskiflag_small.png" = 'html/images/izweskiflag_small.png',
 		"goldenlogo.png" = 'html/images/factions/goldenlogo.png',
 		"goldenlogo_small.png" = 'html/images/factions/goldenlogo_small.png',
+		"pvpolicelogo.png" = 'html/images/pvpolicelogo.png',
+		"pvpolicelogo_small.png" = 'html/images/pvpolicelogo_small.png',
 		//scan images that appear on sensors
 		"no_data.png" = 'html/images/scans/no_data.png',
 		"horizon.png" = 'html/images/scans/horizon.png',
@@ -567,6 +573,11 @@ var/list/asset_datums = list()
 		"raskara.png" = 'html/images/scans/exoplanets/raskara.png',
 		"comet.png" = 'html/images/scans/exoplanets/comet.png',
 		"asteroid.png" = 'html/images/scans/exoplanets/asteroid.png',
+		"konyang.png" = 'html/images/scans/exoplanets/konyang.png',
+		"konyang_point_verdant.png" = 'html/images/scans/exoplanets/konyang_point_verdant.png',
+		"biesel.png" = 'html/images/scans/exoplanets/biesel.png',
+		"moghes.png" = 'html/images/scans/exoplanets/moghes.png',
+		"chanterel.png" = 'html/images/scans/exoplanets/chanterel.png',
 		//end scan images
 		"bluebird.woff" = 'html/fonts/OFL/Bluebird.woff',
 		"grandhotel.woff" = 'html/fonts/OFL/GrandHotel.woff',
@@ -586,7 +597,8 @@ var/list/asset_datums = list()
 		"copt-b.woff" = 'html/fonts/OFL/Copt-B.woff',
 		"ducados.woff" = 'html/fonts/OFL/Ducados.woff',
 		"kawkabmono.woff" = 'html/fonts/OFL/KawkabMono.woff',
-		"kaushanscript.woff" = 'html/fonts/OFL/KaushanScript.woff'
+		"kaushanscript.woff" = 'html/fonts/OFL/KaushanScript.woff',
+		"typewriter.woff" = 'html/fonts/OFL/typewriter.woff'
 	)
 	cross_round_cachable = TRUE
 
@@ -668,7 +680,7 @@ var/list/asset_datums = list()
 		Insert("pill[i]", 'icons/obj/chemical.dmi', "pill[i]")
 
 	for (var/sprite in bottle_sprites)
-		Insert(sprite, icon('icons/obj/chemical.dmi', sprite))
+		Insert(sprite, icon('icons/obj/item/reagent_containers/glass.dmi', sprite))
 	return ..()
 
 /datum/asset/spritesheet/accents
@@ -729,3 +741,22 @@ var/list/asset_datums = list()
 /// (Generated names do not include file extention.)
 /proc/generate_asset_name(file)
 	return "asset.[md5(fcopy_rsc(file))]"
+
+
+/datum/asset/changelog_item
+	_abstract = /datum/asset/changelog_item
+	var/item_filename
+
+/datum/asset/changelog_item/New(date)
+	item_filename = SANITIZE_FILENAME("[date].yml")
+	SSassets.transport.register_asset(item_filename, file("html/changelogs/archive/" + item_filename))
+
+/datum/asset/changelog_item/send(client)
+	if (!item_filename)
+		return
+	. = SSassets.transport.send_assets(client, item_filename)
+
+/datum/asset/changelog_item/get_url_mappings()
+	if (!item_filename)
+		return
+	. = list("[item_filename]" = SSassets.transport.get_asset_url(item_filename))

@@ -9,7 +9,7 @@
 	icon_state = "defibunit"
 	item_state = "defibunit"
 	contained_sprite = TRUE
-	force = 5
+	force = 11
 	throwforce = 6
 	w_class = ITEMSIZE_LARGE
 	origin_tech = list(TECH_BIO = 4, TECH_POWER = 2)
@@ -62,12 +62,12 @@
 
 	overlays = new_overlays
 
-/obj/item/defibrillator/examine(mob/user)
+/obj/item/defibrillator/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(bcell)
-		to_chat(user, "The charge meter is showing [bcell.percent()]% charge left.")
+		. += "The charge meter is showing [bcell.percent()]% charge left."
 	else
-		to_chat(user, "There is no cell inside.")
+		. += "There is no cell inside."
 
 /obj/item/defibrillator/ui_action_click()
 	toggle_paddles()
@@ -115,21 +115,21 @@
 				if(!H.put_in_active_hand(paddles))
 					to_chat(H, SPAN_WARNING("You need a free hand to take out the paddles!"))
 
-/obj/item/defibrillator/attackby(obj/item/W, mob/user, params)
-	if(W == paddles)
+/obj/item/defibrillator/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item == paddles)
 		reattach_paddles(user)
-	else if(istype(W, /obj/item/cell))
+	else if(istype(attacking_item, /obj/item/cell))
 		if(bcell)
 			to_chat(user, SPAN_NOTICE("\The [src] already has a cell."))
 		else
-			if(!user.unEquip(W))
+			if(!user.unEquip(attacking_item))
 				return
-			W.forceMove(src)
-			bcell = W
+			attacking_item.forceMove(src)
+			bcell = attacking_item
 			to_chat(user, SPAN_NOTICE("You install a cell in \the [src]."))
 			update_icon()
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.dropInto(loc)
@@ -276,7 +276,7 @@
 	name = initial(name)
 	update_icon()
 
-/obj/item/shockpaddles/dropped(var/mob/living/user)
+/obj/item/shockpaddles/dropped(mob/user)
 	..()
 	if(user)
 		var/obj/item/offhand/O = user.get_inactive_hand()
@@ -324,7 +324,7 @@
 /obj/item/shockpaddles/proc/check_contact(mob/living/carbon/human/H)
 	if(!combat)
 		for(var/obj/item/clothing/cloth in list(H.wear_suit, H.w_uniform))
-			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & THICKMATERIAL))
+			if((cloth.body_parts_covered & UPPER_TORSO) && (cloth.item_flags & ITEM_FLAG_THICK_MATERIAL))
 				return FALSE
 	return TRUE
 
@@ -380,7 +380,7 @@
 
 	//beginning to place the paddles on patient's chest to allow some time for people to move away to stop the process
 	user.visible_message(SPAN_WARNING("\The [user] begins to place [src] on [H]'s chest."), SPAN_WARNING("You begin to place [src] on [H]'s chest..."))
-	if(!do_after(user, 3 SECONDS, act_target = H))
+	if(!do_after(user, 3 SECONDS, H, DO_DEFAULT | DO_USER_UNIQUE_ACT))
 		return
 	user.visible_message(SPAN_NOTICE("\The [user] places [src] on [H]'s chest."), SPAN_WARNING("You place [src] on [H]'s chest."))
 	playsound(get_turf(src), 'sound/machines/defib_charge.ogg', 50, 0)
@@ -395,7 +395,7 @@
 		make_announcement("buzzes, \"Warning - Patient is in hypovolemic shock and may require a blood transfusion.\"", "warning") //also includes heart damage
 
 	//placed on chest and short delay to shock for dramatic effect, revive time is 5sec total
-	if(!do_after(user, chargetime, act_target = H))
+	if(!do_after(user, chargetime, H))
 		return
 
 	//deduct charge here, in case the base unit was EMPed or something during the delay time
@@ -458,7 +458,7 @@
 	playsound(get_turf(src), 'sound/machines/defib_charge.ogg', 50, 0)
 	audible_message(SPAN_WARNING("\The [src] lets out a steadily rising hum..."))
 
-	if(!do_after(user, chargetime, act_target = H))
+	if(!do_after(user, chargetime, H))
 		return
 
 	//deduct charge here, in case the base unit was EMPed or something during the delay time
@@ -533,6 +533,8 @@
 		return TRUE
 
 /obj/item/shockpaddles/emp_act(severity)
+	. = ..()
+
 	var/new_safety = rand(0, 1)
 	if(safety != new_safety)
 		safety = new_safety
@@ -543,7 +545,6 @@
 			make_announcement("beeps, \"Safety protocols disabled!\"", "warning")
 			playsound(get_turf(src), 'sound/machines/defib_safetyoff.ogg', 50, 0)
 		update_icon()
-	..()
 
 /obj/item/shockpaddles/robot
 	name = "defibrillator paddles"
@@ -669,13 +670,17 @@
 		STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/shockpaddles/standalone/emp_act(severity)
-	..()
+	. = ..()
+
 	var/new_fail = 0
+
 	switch(severity)
-		if(3)
+
+		if(EMP_HEAVY)
 			new_fail = max(fail_counter, 20)
 			visible_message("\The [src]'s reactor overloads!")
-		if(2)
+
+		if(EMP_LIGHT)
 			new_fail = max(fail_counter, 8)
 			if(ismob(loc))
 				to_chat(loc, SPAN_WARNING("\The [src] feel pleasantly warm."))

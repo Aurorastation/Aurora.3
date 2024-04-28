@@ -6,7 +6,8 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace-n"
 
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	layer = SUPERMATTER_WALL_LAYER
 	light_color = COLOR_CYAN_BLUE
 	light_power = 6
 	light_range = 8
@@ -73,10 +74,10 @@
 
 // /vg/: Don't let ghosts fuck with this.
 /turf/unsimulated/wall/supermatter/attack_ghost(mob/user as mob)
-	user.examinate(src)
+	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_ai(mob/user as mob)
-	return user.examinate(src)
+	examinate(user, src)
 
 /turf/unsimulated/wall/supermatter/attack_hand(mob/user as mob)
 	user.visible_message("<span class=\"warning\">\The [user] reaches out and touches \the [src]... And then blinks out of existance.</span>",\
@@ -87,15 +88,15 @@
 
 	Consume(user)
 
-/turf/unsimulated/wall/supermatter/attackby(obj/item/W as obj, mob/living/user as mob)
-	user.visible_message("<span class=\"warning\">\The [user] touches \a [W] to \the [src] as a silence fills the room...</span>",\
-		"<span class=\"danger\">You touch \the [W] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [W] flashes into dust as you flinch away from \the [src].</span>",\
+/turf/unsimulated/wall/supermatter/attackby(obj/item/attacking_item, mob/living/user)
+	user.visible_message("<span class=\"warning\">\The [user] touches \a [attacking_item] to \the [src] as a silence fills the room...</span>",\
+		"<span class=\"danger\">You touch \the [attacking_item] to \the [src] when everything suddenly goes silent.\"</span>\n<span class=\"notice\">\The [attacking_item] flashes into dust as you flinch away from \the [src].</span>",\
 		"<span class=\"warning\">Everything suddenly goes silent.</span>")
 
 	playsound(src, 'sound/effects/supermatter.ogg', 50, 1)
 
-	user.drop_from_inventory(W,src)
-	Consume(W)
+	user.drop_from_inventory(attacking_item,src)
+	Consume(attacking_item)
 	return TRUE
 
 

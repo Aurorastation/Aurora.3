@@ -6,7 +6,7 @@ SEE_MOBS  // can see all mobs, no matter what
 SEE_OBJS  // can see all objs, no matter what
 SEE_TURFS // can see all turfs (and areas), no matter what
 SEE_PIXELS// if an object is located on an unlit area, but some of its pixels are
-          // in a lit area (via pixel_x,y or smooth movement), can see those pixels
+			// in a lit area (via pixel_x,y or smooth movement), can see those pixels
 BLIND     // can't see anything
 */
 /obj/item/clothing/glasses
@@ -51,13 +51,13 @@ BLIND     // can't see anything
 
 	if(normal_layer == GLASSES_LAYER)
 		normal_layer = GLASSES_LAYER_ALT
-	else 
+	else
 		normal_layer = GLASSES_LAYER
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer == 21 ? "under" : "over"] your hair."))
 	update_clothing_icon()
 
 /obj/item/clothing/glasses/protects_eyestab(var/obj/stab_item, var/stabbed = FALSE)
-	if(stabbed && (body_parts_covered & EYES) && !(item_flags & THICKMATERIAL) && shatter_material && prob(stab_item.force * 5))
+	if(stabbed && (body_parts_covered & EYES) && !(item_flags & ITEM_FLAG_THICK_MATERIAL) && shatter_material && prob(stab_item.force * 5))
 		var/mob/M = loc
 		M.visible_message(SPAN_WARNING("\The [src] [M] is wearing gets shattered!"))
 		playsound(loc, /singleton/sound_category/glass_break_sound, 70, TRUE)
@@ -118,7 +118,7 @@ BLIND     // can't see anything
 	toggleable = 1
 	vision_flags = SEE_TURFS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 	activated_color = LIGHT_COLOR_GREEN
 
 /obj/item/clothing/glasses/meson/Initialize()
@@ -201,6 +201,18 @@ BLIND     // can't see anything
 	icon_state = "visor_medhud"
 	item_state = "visor_medhud"
 
+/obj/item/clothing/glasses/hud/health/aviator/pincenez
+	name = "medical HUD pincenez"
+	desc = "Modified pincenez glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "pincenez_med"
+	item_state = "pincenez_med"
+
+/obj/item/clothing/glasses/hud/health/aviator/panto
+	name = "medical HUD panto"
+	desc = "Modified panto glasses with a toggled health HUD. Comes with bonus prescription overlay."
+	icon_state = "panto_med"
+	item_state = "panto_med"
+
 /obj/item/clothing/glasses/science
 	name = "science goggles"
 	desc = "Used to protect your eyes against harmful chemicals!"
@@ -211,7 +223,8 @@ BLIND     // can't see anything
 	)
 	toggleable = 1
 	unacidable = 1
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
+	anomaly_protection = 0.1
 
 /obj/item/clothing/glasses/science/Initialize()
 	. = ..()
@@ -255,7 +268,7 @@ BLIND     // can't see anything
 	desc = "A simple pair of safety glasses. Thinner than their goggle counterparts, for those who can't decide between safety and style."
 	icon_state = "plaingoggles"
 	item_state = "plaingoggles"
-	item_flags = AIRTIGHT|THICKMATERIAL
+	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_THICK_MATERIAL
 	unacidable = 1
 
 /obj/item/clothing/glasses/safety/prescription
@@ -317,9 +330,9 @@ BLIND     // can't see anything
 	set category = "Object"
 	set name = "Change Glasses Layer"
 	set src in usr
-	
+
 	var/list/options = list("Under Hair" = GLASSES_LAYER, "Over Hair" = GLASSES_LAYER_ALT, "Over Headwear" = GLASSES_LAYER_OVER)
-	var/new_layer = input(usr, "Position Goggles", "Goggle style") as null|anything in options
+	var/new_layer = tgui_input_list(usr, "Position Goggles", "Goggles Style", options)
 	if(new_layer)
 		normal_layer = options[new_layer]
 		to_chat(usr, SPAN_NOTICE("\The [src] will now layer [new_layer]."))
@@ -480,13 +493,6 @@ BLIND     // can't see anything
 	icon_state = "eyepatch_white"
 	item_state = "eyepatch_white"
 
-/obj/item/clothing/glasses/monocle
-	name = "monocle"
-	desc = "Such a dapper eyepiece!"
-	icon_state = "monocle"
-	item_state = "monocle"
-	body_parts_covered = 0
-
 /obj/item/clothing/glasses/material
 	name = "optical material scanner"
 	desc = "Very confusing glasses."
@@ -499,7 +505,7 @@ BLIND     // can't see anything
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
 	vision_flags = SEE_OBJS
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/material/aviator
 	name = "material aviators"
@@ -525,23 +531,25 @@ BLIND     // can't see anything
 	prescription = 7
 	body_parts_covered = 0
 
-/obj/item/clothing/glasses/regular/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/clothing/glasses/hud/health))
-		user.drop_item(W)
-		qdel(W)
+/obj/item/clothing/glasses/regular/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/clothing/glasses/hud/health))
+		user.drop_item(attacking_item)
+		qdel(attacking_item)
 		to_chat(user, SPAN_NOTICE("You attach a set of medical HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/health/prescription/P = new /obj/item/clothing/glasses/hud/health/prescription(user.loc)
 		P.glasses_type = src.type
+		P.color = src.color
 		user.put_in_hands(P)
 		qdel(src)
-	if(istype(W, /obj/item/clothing/glasses/hud/security))
-		user.drop_item(W)
-		qdel(W)
+	if(istype(attacking_item, /obj/item/clothing/glasses/hud/security))
+		user.drop_item(attacking_item)
+		qdel(attacking_item)
 		to_chat(user, SPAN_NOTICE("You attach a set of security HUDs to your glasses."))
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
 		var/obj/item/clothing/glasses/hud/security/prescription/P = new /obj/item/clothing/glasses/hud/security/prescription(user.loc)
 		P.glasses_type = src.type
+		P.color = src.color
 		user.put_in_hands(P)
 		qdel(src)
 
@@ -563,25 +571,58 @@ BLIND     // can't see anything
 	desc = "Made by Uncool. Co."
 	icon_state = "hipster_glasses"
 	item_state = "hipster_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/threedglasses
-	desc = "A long time ago, people used these glasses to makes images from screens threedimensional."
+	desc = "A long time ago, people used these glasses to makes images from screens three-dimensional."
 	name = "3D glasses"
 	icon_state = "3d"
 	item_state = "3d"
 	body_parts_covered = 0
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/regular/jamjar
 	name = "jamjar glasses"
 	desc = "Also known as Virginity Protectors."
 	icon_state = "jamjar_glasses"
 	item_state = "jamjar_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
 
 /obj/item/clothing/glasses/regular/circle
 	name = "circle glasses"
 	desc = "Why would you wear something so controversial yet so brave?"
 	icon_state = "circle_glasses"
 	item_state = "circle_glasses"
+	build_from_parts = TRUE
+	worn_overlay = "lens"
+
+/obj/item/clothing/glasses/regular/contacts
+	name = "contact lenses"
+	desc = "The benefits of sight without the troubles of glasses! Just don't drop them."
+	icon_state = "contacts"
+	item_state = "contacts"
+
+/obj/item/clothing/glasses/regular/pincenez
+	name = "pince-nez glasses"
+	desc = "Popularized in the 19th century by French people, evil scientists, and dead people in bathtubs."
+	icon_state = "pincenez"
+	item_state = "pincenez"
+
+/obj/item/clothing/glasses/regular/panto
+	name = "panto glasses"
+	desc = "So iconic. So generic. The monobloc chair of the glasses world."
+	icon_state = "panto"
+	item_state = "panto"
+
+/obj/item/clothing/glasses/monocle
+	name = "monocle"
+	desc = "Such a dapper eyepiece!"
+	icon_state = "monocle"
+	item_state = "monocle"
+	body_parts_covered = 0
 
 /obj/item/clothing/glasses/aug/glasses
 	name = "corrective lenses"
@@ -591,6 +632,8 @@ BLIND     // can't see anything
 	prescription = 7
 	body_parts_covered = 0
 	canremove = FALSE
+
+// Sunglasses
 
 /obj/item/clothing/glasses/sunglasses
 	name = "sunglasses"
@@ -681,7 +724,7 @@ BLIND     // can't see anything
 	action_button_name = "Flip Welding Goggles"
 
 	var/up = 0
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	normal_layer = GLASSES_LAYER_ALT
@@ -724,7 +767,7 @@ BLIND     // can't see anything
 	icon_state = "welding-aug"
 	item_state = "welding-aug"
 	contained_sprite = TRUE
-	item_flags = THICKMATERIAL
+	item_flags = ITEM_FLAG_THICK_MATERIAL
 	flash_protection = FLASH_PROTECTION_MAJOR
 	tint = TINT_HEAVY
 	canremove = FALSE
@@ -867,7 +910,7 @@ BLIND     // can't see anything
 	desc = "Flash-resistant goggles with inbuilt combat and security information."
 	icon_state = "swatgoggles"
 	item_state = "swatgoggles"
-	item_flags = AIRTIGHT|THICKMATERIAL
+	item_flags = ITEM_FLAG_AIRTIGHT|ITEM_FLAG_THICK_MATERIAL
 
 /obj/item/clothing/glasses/sunglasses/sechud/head
 	name = "advanced aviators"
@@ -961,6 +1004,18 @@ BLIND     // can't see anything
 	icon_state = "visor_sec"
 	item_state = "visor_sec"
 
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/pincenez
+	name = "security HUD pincenez"
+	desc = "NanoTrasen security pincenez glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "pincenez_sec"
+	item_state = "pincenez_sec"
+
+/obj/item/clothing/glasses/sunglasses/sechud/aviator/panto
+	name = "security HUD panto"
+	desc = "NanoTrasen security panto glasses that can be switched between HUD and flash protection modes. They come with a built-in prescription overlay."
+	icon_state = "panto_sec"
+	item_state = "panto_sec"
+
 /obj/item/clothing/glasses/thermal
 	name = "optical thermal scanner"
 	desc = "Thermals in the shape of glasses."
@@ -975,9 +1030,11 @@ BLIND     // can't see anything
 	vision_flags = SEE_MOBS
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	flash_protection = FLASH_PROTECTION_REDUCED
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/emp_act(severity)
+	. = ..()
+
 	if(istype(src.loc, /mob/living/carbon/human))
 		var/mob/living/carbon/human/M = src.loc
 		to_chat(M, "<span class='danger'>\The [src] overloads and blinds you!</span>")
@@ -988,7 +1045,6 @@ BLIND     // can't see anything
 			if(!(M.disabilities & NEARSIGHTED))
 				M.disabilities |= NEARSIGHTED
 				addtimer(CALLBACK(M, TYPE_PROC_REF(/mob/living/carbon/human, thermal_reset_blindness)), 100)
-	..()
 
 /obj/item/clothing/glasses/thermal/Initialize()
 	. = ..()
@@ -1010,15 +1066,14 @@ BLIND     // can't see anything
 	toggleable = 0
 	activation_sound = null
 	action_button_name = null
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/plain/monocle
 	name = "thermonocle"
 	desc = "A monocle thermal."
 	icon_state = "thermonocle"
 	item_state = "thermonocle"
-	flags = null //doesn't protect eyes because it's a monocle, duh
-	item_flags = null
+	item_flags = null //doesn't protect eyes because it's a monocle, duh
 	body_parts_covered = 0
 
 /obj/item/clothing/glasses/thermal/plain/jensen
@@ -1203,7 +1258,7 @@ BLIND     // can't see anything
 	item_state = "spiffygogs"
 	action_button_name = "Adjust Goggles"
 	var/up = 0
-	item_flags = AIRTIGHT
+	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/spiffygogs/attack_self()
 	toggle()
@@ -1220,14 +1275,14 @@ BLIND     // can't see anything
 			flags_inv |= HIDEEYES
 			body_parts_covered |= EYES
 			icon_state = initial(icon_state)
-			item_flags |= AIRTIGHT
+			item_flags |= ITEM_FLAG_AIRTIGHT
 			to_chat(usr, "You flip \the [src] down over your eyes.")
 		else
 			src.up = !src.up
 			flags_inv &= ~HIDEEYES
 			body_parts_covered &= ~EYES
 			icon_state = "[initial(icon_state)]up"
-			item_flags &= ~AIRTIGHT
+			item_flags &= ~ITEM_FLAG_AIRTIGHT
 			to_chat(usr, "You push \the [src] up off your eyes.")
 		update_clothing_icon()
 		usr.update_action_buttons()

@@ -8,7 +8,7 @@
 	max_count = 3
 	uses_species_whitelist = FALSE
 
-	outfit = /datum/outfit/admin/nka_merchant_crew
+	outfit = /obj/outfit/admin/nka_merchant_crew
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	respawn_flag = null
@@ -17,11 +17,11 @@
 	special_role = "NKA Merchant Navy Crew"
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 
-/datum/outfit/admin/nka_merchant_crew
+/obj/outfit/admin/nka_merchant_crew
 	name = "New Kingdom Merchant Navy Crew"
 
 	id = /obj/item/card/id
-	shoes = /obj/item/clothing/shoes/tajara/workboots
+	shoes = /obj/item/clothing/shoes/workboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/nka_merchant_navy
 	head = /obj/item/clothing/head/tajaran/nka_merchant_navy
@@ -30,8 +30,8 @@
 
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/nka_merchant_crew/get_id_access()
-	return list(access_nka, access_external_airlocks)
+/obj/outfit/admin/nka_merchant_crew/get_id_access()
+	return list(ACCESS_NKA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/nka_merchant_crew/captain
 	short_name = "nka_merchant_captain"
@@ -42,7 +42,7 @@
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /datum/outfit/admin/nka_merchant_crew/captain
+	outfit = /obj/outfit/admin/nka_merchant_crew/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
 
@@ -50,10 +50,10 @@
 	special_role = "NKA Merchant Navy Captain"
 
 
-/datum/outfit/admin/nka_merchant_crew/captain
+/obj/outfit/admin/nka_merchant_crew/captain
 	name = "New Kingdom Merchant Navy Captain"
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/tajaran/nka_merchant_navy/captain
 	head = /obj/item/clothing/head/tajaran/nka_merchant_navy/captain
@@ -69,16 +69,16 @@
 	spawnpoints = list("nka_merchant_guard")
 	max_count = 1
 
-	outfit = /datum/outfit/admin/nka_merchant_crew/guard
+	outfit = /obj/outfit/admin/nka_merchant_crew/guard
 
 	assigned_role = "NKA Merchant Navy PMCG Guard"
 	special_role = "NKA Merchant Navy PMCG Guard"
 
 
-/datum/outfit/admin/nka_merchant_crew/guard
+/obj/outfit/admin/nka_merchant_crew/guard
 	name = "New Kingdom Merchant Navy PMCG Guard"
 
-	shoes = /obj/item/clothing/shoes/tajara/jackboots
+	shoes = /obj/item/clothing/shoes/jackboots/tajara
 
 	uniform = /obj/item/clothing/under/pmc_modsuit
 	head = /obj/item/clothing/head/beret/corporate/pmc

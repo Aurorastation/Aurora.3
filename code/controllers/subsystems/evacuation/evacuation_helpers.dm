@@ -29,7 +29,7 @@
 	if(!isnull(evac_called_at))
 		return FALSE
 
-	if (!universe.OnShuttleCall(null))
+	if (!GLOB.universe.OnShuttleCall(null))
 		return FALSE
 
 	if(!forced)

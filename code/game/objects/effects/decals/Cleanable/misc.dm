@@ -81,7 +81,7 @@
 	desc = "Somebody should remove that."
 	density = FALSE
 	anchored = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb1"
 
@@ -90,7 +90,7 @@
 	desc = "Somebody should remove that."
 	density = FALSE
 	anchored = TRUE
-	layer = ABOVE_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "cobweb2"
 
@@ -99,7 +99,7 @@
 	desc = "It looks like a melted... something."
 	density = FALSE
 	anchored = TRUE
-	layer = 3
+	layer = OBJ_LAYER
 	icon = 'icons/obj/chemical.dmi'
 	icon_state = "molten"
 
@@ -163,7 +163,7 @@
 
 /obj/effect/decal/cleanable/confetti/attack_hand(mob/user)
 	to_chat(user, SPAN_NOTICE("You start to meticulously pick up the confetti."))
-	if(do_after(user, 60))
+	if(do_after(user, 6 SECONDS))
 		qdel(src)
 
 /obj/effect/decal/cleanable/acid_remnants

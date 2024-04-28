@@ -47,22 +47,24 @@
 	return
 
 /obj/machinery/mass_driver/emp_act(severity)
+	. = ..()
+
 	if(stat & (BROKEN|NOPOWER))
 		return
+
 	drive()
-	..(severity)
 
-/obj/machinery/mass_driver/attackby(obj/item/W, mob/user)
+/obj/machinery/mass_driver/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(!anchored)
-			playsound(src.loc, W.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("[user.name] secures [src] to the floor.", \
 				"You secure the external reinforcing bolts to the floor.", \
 				"You hear a ratchet")
 			src.anchored = 1
 		else
-			playsound(src.loc, W.usesound, 75, 1)
+			attacking_item.play_tool_sound(get_turf(src), 75)
 			user.visible_message("[user.name] unsecures [src] from the floor.", \
 				"You unsecure the external reinforcing bolts from the floor.", \
 				"You hear a ratchet")
@@ -78,7 +80,7 @@
 
 /obj/item/mass_driver_diy/attack_self(mob/user)
 	to_chat(user, "<span class='notice'>You start piecing together the kit...</span>")
-	if(do_after(user, 80))
+	if(do_after(user, 8 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		var/master_id = "[user.name] - [pick("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z")][rand(100,999)]"
 		var/obj/machinery/mass_driver/mining/R = new /obj/machinery/mass_driver/mining(user.loc)
 		R.id = master_id
@@ -108,7 +110,7 @@
 		return
 
 	var/placement_dir = get_dir(user, W)
-	if (!(placement_dir in cardinal))
+	if (!(placement_dir in GLOB.cardinal))
 		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
 		return
 
@@ -118,7 +120,7 @@
 		stuff_on_wall = 1
 
 	//crude, but will cover most cases. We could do stuff like check pixel_x/y but it's not really worth it.
-	for (var/dir in cardinal)
+	for (var/dir in GLOB.cardinal)
 		var/turf/T = get_step(W, dir)
 		if (locate(/obj/machinery/button) in T)
 			stuff_on_wall = 1

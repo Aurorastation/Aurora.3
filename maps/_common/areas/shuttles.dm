@@ -5,9 +5,9 @@
 	name = "Shuttle"
 	icon_state = "shuttle"
 	requires_power = 0
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	no_light_control = 1
-	flags = RAD_SHIELDED | SPAWN_ROOF
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF
 	centcomm_area = 1
 
 /area/shuttle/arrival
@@ -32,7 +32,7 @@
 /area/shuttle/escape
 	name = "Transfer Shuttle"
 	base_turf = /turf/unsimulated/floor/plating
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/shuttle/escape_pod
 	name = "Escape pod"
@@ -66,22 +66,22 @@
 
 /area/shuttle/burglar
 	name = "Unidentified Transport"
-	flags = RAD_SHIELDED | SPAWN_ROOF | NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED
 
 /area/shuttle/skipjack
-	flags = RAD_SHIELDED | SPAWN_ROOF | NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED
 
 /area/shuttle/mercenary
-	flags = RAD_SHIELDED | SPAWN_ROOF | NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED
 
 /area/shuttle/syndicate_elite
 	name = "Naval Transport Shuttle"
-	flags = RAD_SHIELDED | SPAWN_ROOF | NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED
 
-/area/shuttle/administration
+/area/shuttle/hapt
 	name = "Unidentified Corvette"
 	base_turf = /turf/unsimulated/floor/plating
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 
 /area/shuttle/research
 	name = "Research Shuttle"
@@ -90,7 +90,7 @@
 /area/shuttle/legion
 	name = "Foreign Legion Shuttle"
 	base_turf = /turf/unsimulated/floor/plating
-	flags = RAD_SHIELDED | SPAWN_ROOF | NO_CREW_EXPECTED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED
 
 /area/shuttle/distress
 	name = "Unidentified Shuttle"
@@ -99,5 +99,5 @@
 /area/shuttle/merchant
 	name = "Merchant Ship"
 	base_turf = /turf/space
-	sound_env = LARGE_ENCLOSED
-	flags = RAD_SHIELDED | SPAWN_ROOF | NO_CREW_EXPECTED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
+	area_flags = AREA_FLAG_RAD_SHIELDED | AREA_FLAG_SPAWN_ROOF | AREA_FLAG_NO_CREW_EXPECTED

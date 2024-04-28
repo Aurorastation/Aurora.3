@@ -53,7 +53,10 @@
 		imprisoned = temporarymob
 
 	if(health == 0) //meaning if the statue didn't find a valid target
-		initialized = TRUE
+		if(flags_1 & INITIALIZED_1)
+			stack_trace("Warning: [src]([type]) initialized multiple times!")
+		flags_1 |= INITIALIZED_1
+
 		return INITIALIZE_HINT_QDEL
 
 	START_PROCESSING(SSprocessing, src)
@@ -78,9 +81,9 @@
 	appearance_flags |= KEEP_TOGETHER
 	dir = L.dir
 	color = list(
-				    0.30, 0.3, 0.25,
-				    0.30, 0.3, 0.25,
-				    0.30, 0.3, 0.25
+					0.30, 0.3, 0.25,
+					0.30, 0.3, 0.25,
+					0.30, 0.3, 0.25
 				)
 	name = "statue of [L.name]"
 	desc = "An incredibly lifelike stone carving."
@@ -139,11 +142,11 @@
 		health -= 60 / severity
 		check_health()
 
-/obj/structure/closet/statue/attackby(obj/item/I as obj, mob/user as mob)
+/obj/structure/closet/statue/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	health -= I.force
+	health -= attacking_item.force
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] strikes [src] with [I].</span>")
+	visible_message("<span class='danger'>[user] strikes [src] with [attacking_item].</span>")
 	check_health()
 
 /obj/structure/closet/statue/MouseDrop_T()

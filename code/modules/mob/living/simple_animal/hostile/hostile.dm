@@ -52,7 +52,7 @@
 	friends = null
 	target_mob = null
 	targets = null
-	QDEL_NULL_ASSOC(target_type_validator_map)
+	QDEL_LIST_ASSOC_VAL(target_type_validator_map)
 	return ..()
 
 /mob/living/simple_animal/hostile/can_name(var/mob/living/M)
@@ -74,6 +74,10 @@
 		if(ismob(A)) //Don't target mobs with keys that have logged out.
 			var/mob/M = A
 			if(M.key && !M.client)
+				continue
+		if(isliving(A))
+			var/mob/living/M = A
+			if(M.paralysis)
 				continue
 		if(!isturf(A.loc))
 			A = A.loc
@@ -151,9 +155,7 @@
 	return
 
 /mob/living/simple_animal/hostile/proc/see_target()
-	var/los = null
-	SPATIAL_CHECK_LOS(los, src, target_mob, world.view)
-	return los
+	return is_in_sight(src, target_mob)
 
 /mob/living/simple_animal/hostile/proc/MoveToTarget()
 	stop_automated_movement = 1
@@ -164,13 +166,13 @@
 	if(target_mob in targets)
 		if(ranged)
 			if(get_dist(src, target_mob) <= ranged_attack_range)
-				walk(src, 0) // We gotta stop moving if we are in range
+				SSmove_manager.stop_looping(src)
 				OpenFire(target_mob)
 			else
-				walk_to(src, target_mob, 6, move_to_delay)
+				SSmove_manager.move_to(src, target_mob, 6, move_to_delay)
 		else
 			change_stance(HOSTILE_STANCE_ATTACKING)
-			walk_to(src, target_mob, 1, move_to_delay)
+			SSmove_manager.move_to(src, target_mob, 1, move_to_delay)
 
 /mob/living/simple_animal/hostile/proc/AttackTarget()
 	stop_automated_movement = 1
@@ -197,7 +199,8 @@
 		return 0
 
 /mob/living/simple_animal/hostile/proc/on_attack_mob(var/mob/hit_mob, var/obj/item/organ/external/limb)
-	return
+	if(isliving(hit_mob) && istype(limb))
+		limb.add_autopsy_data("Mauling by [src.name]")
 
 /mob/living/simple_animal/hostile/proc/AttackingTarget()
 	setClickCooldown(attack_delay)
@@ -216,6 +219,8 @@
 	var/atom/target
 	if(isliving(target_mob))
 		var/mob/living/L = target_mob
+		if(L.paralysis)
+			return
 		on_attack_mob(L, L.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, armor_penetration, attack_flags, damage_type))
 		target = L
 	else if(istype(target_mob, /obj/machinery/bot))
@@ -236,7 +241,7 @@
 	if(target)
 		face_atom(target)
 		if(!ranged && smart_melee)
-			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 0.6 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(PostAttack), target), 1.2 SECONDS)
 		return target
 
 /mob/living/simple_animal/hostile/proc/PostAttack(var/atom/target)
@@ -258,18 +263,18 @@
 /mob/living/simple_animal/hostile/proc/LoseTarget()
 	change_stance(HOSTILE_STANCE_IDLE)
 	target_mob = null
-	walk(src, 0)
+	SSmove_manager.stop_looping(src)
 	LostTarget()
 
 /mob/living/simple_animal/hostile/proc/LostTarget()
 	return
 
 /mob/living/simple_animal/hostile/proc/get_targets(dist = world.view)
-	return get_targets_in_LOS(dist, src)
+	return get_hearers_in_LOS(dist, src)
 
 /mob/living/simple_animal/hostile/death()
 	..()
-	walk(src, 0)
+	SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/think()
 	..()
@@ -378,7 +383,7 @@
 		return FALSE
 
 	if(prob(break_stuff_probability) || bypass_prob) //bypass_prob is used to make mob destroy things in the way to our target
-		for(var/card_dir in cardinal) // North, South, East, West
+		for(var/card_dir in GLOB.cardinal) // North, South, East, West
 			var/turf/target_turf = get_step(src, card_dir)
 
 			var/obj/found_obj = locate(/obj/effect/energy_field) in target_turf
@@ -394,7 +399,7 @@
 
 			found_obj = locate(/obj/structure/window) in target_turf
 			if(found_obj)
-				if(HAS_FLAG(found_obj.flags, ON_BORDER) && found_obj.dir != reverse_dir[card_dir])
+				if((found_obj.atom_flags & ATOM_FLAG_CHECKS_BORDER) && found_obj.dir != GLOB.reverse_dir[card_dir])
 					continue
 				found_obj.attack_generic(src, rand(melee_damage_lower, melee_damage_upper), attacktext, TRUE)
 				hostile_last_attack = world.time
@@ -446,8 +451,8 @@
 /mob/living/simple_animal/hostile/proc/check_horde()
 	if(evacuation_controller.is_prepared())
 		if(!enroute && !target_mob)	//The shuttle docked, all monsters rush for the escape hallway
-			if(!shuttletarget && escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
-				shuttletarget = pick(escape_list) //Pick a shuttle target
+			if(!shuttletarget && GLOB.escape_list.len) //Make sure we didn't already assign it a target, and that there are targets to pick
+				shuttletarget = pick(GLOB.escape_list) //Pick a shuttle target
 			enroute = 1
 			stop_automated_movement = 1
 			spawn()

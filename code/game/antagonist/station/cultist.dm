@@ -1,16 +1,14 @@
 var/datum/antagonist/cultist/cult
 
 /proc/iscultist(var/mob/player)
-	if(!cult || !player.mind)
-		return 0
-	if(player.mind in cult.current_antagonists)
-		return 1
-
-/proc/iscult(var/mob/test)
-	if (test.faction == "cult")
-		return 1
-
-	else return iscultist(test)
+	if(player.faction == "cult")
+		return TRUE
+	if(player.mind)
+		if(player.mind.antag_datums[MODE_CULTIST])
+			return TRUE
+		if(cult && (player.mind in cult.current_antagonists))
+			return TRUE
+	return FALSE
 
 /datum/antagonist/cultist
 	id = MODE_CULTIST
@@ -81,8 +79,13 @@ var/datum/antagonist/cultist/cult
 		player.current.remove_language(LANGUAGE_CULT)
 		player.current.remove_language(LANGUAGE_OCCULT)
 
-/datum/antagonist/cultist/add_antagonist(var/datum/mind/player)
-	. = ..()
+	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
+	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
+	remove_verb(player.current, /datum/cultist/proc/forget_rune)
+	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
+
+/datum/antagonist/cultist/add_antagonist(var/datum/mind/player, var/do_not_equip)
+	. = ..(player, do_not_equip=do_not_equip)
 	if(.)
 		to_chat(player, "You catch a glimpse of the Realm of Nar-Sie, the Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of That Which Waits. Assist your new compatriots in their dark dealings. Their goals are yours, and yours are theirs. You serve the Dark One above all else. Bring It back.")
 		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))
@@ -93,15 +96,6 @@ var/datum/antagonist/cultist/cult
 			add_verb(player.current, /datum/cultist/proc/forget_rune)
 			add_verb(player.current, /datum/cultist/proc/scribe_rune)
 			player.antag_datums[MODE_CULTIST] = new /datum/cultist()
-
-
-/datum/antagonist/cultist/remove_antagonist(var/datum/mind/player)
-	. = ..()
-
-	remove_verb(player.current, /datum/antagonist/cultist/proc/appraise_offering)
-	remove_verb(player.current, /datum/cultist/proc/memorize_rune)
-	remove_verb(player.current, /datum/cultist/proc/forget_rune)
-	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
 
 /datum/antagonist/cultist/can_become_antag(var/datum/mind/player, ignore_role = 1)
 	if(!..())
@@ -121,7 +115,7 @@ var/datum/antagonist/cultist/cult
 		targets |= target
 	targets -= usr
 
-	var/mob/living/carbon/target = input(usr,"Who do you believe may be a worthy offering?") as null|anything in targets
+	var/mob/living/carbon/target = tgui_input_list(usr,"Who do you believe may be a worthy offering?", "Cult", targets)
 	if(!istype(target))
 		return
 

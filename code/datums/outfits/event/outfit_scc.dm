@@ -1,4 +1,4 @@
-/datum/outfit/admin/scc
+/obj/outfit/admin/scc
 	name = "SCC Agent"
 
 	uniform = /obj/item/clothing/under/rank/scc
@@ -20,22 +20,23 @@
 	id_icon = "centcom"
 	var/id_access = "SCC Agent"
 
-/datum/outfit/admin/scc/get_id_access()
+/obj/outfit/admin/scc/get_id_access()
 	return get_all_station_access() | get_centcom_access(id_access)
 
-/datum/outfit/admin/scc/executive
+/obj/outfit/admin/scc/executive
 	name = "SCC Executive"
 
 	uniform = /obj/item/clothing/under/rank/scc/executive
 
 	id_access = "SCC Executive"
 
-/datum/outfit/admin/scc/bodyguard
+/obj/outfit/admin/scc/bodyguard
 	name = "SCC Bodyguard"
 
 	head = /obj/item/clothing/head/helmet/merc/scc
 	uniform = /obj/item/clothing/under/tactical
 	suit = /obj/item/clothing/suit/armor/carrier/heavy/scc
+	l_ear = /obj/item/device/radio/headset/ert/ccia/alt
 	shoes = /obj/item/clothing/shoes/jackboots
 	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/security
 

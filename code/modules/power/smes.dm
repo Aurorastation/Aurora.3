@@ -100,13 +100,13 @@
 /obj/machinery/power/smes/Initialize()
 	. = ..()
 	SSmachinery.smes_units += src
-	big_spark = bind_spark(src, 5, alldirs)
+	big_spark = bind_spark(src, 5, GLOB.alldirs)
 	small_spark = bind_spark(src, 3)
 	if(!powernet)
 		connect_to_network()
 
 	dir_loop:
-		for(var/d in cardinal)
+		for(var/d in GLOB.cardinal)
 			var/turf/T = get_step(src, d)
 			for(var/obj/machinery/power/terminal/term in T)
 				if(term && term.dir == turn(d, 180))
@@ -123,17 +123,17 @@
 	if(!should_be_mapped)
 		warning("Non-buildable or Non-magical SMES at [src.x]X [src.y]Y [src.z]Z")
 
-/obj/machinery/power/smes/examine(mob/user)
+/obj/machinery/power/smes/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_badly_damaged())
-		to_chat(user, SPAN_DANGER("\The [src] is damaged to the point of non-function!"))
+		. += SPAN_DANGER("\The [src] is damaged to the point of non-function!")
 	if(open_hatch)
-		to_chat(user, SPAN_SUBTLE("The maintenance hatch is open."))
+		. += SPAN_SUBTLE("The maintenance hatch is open.")
 		if (max_coils > 1 && Adjacent(user))
 			var/list/coils = list()
 			for(var/obj/item/smes_coil/C in component_parts)
 				coils += C
-			to_chat(user, "The [max_coils] coil slots contain: [counting_english_list(coils)]")
+			. += "The [max_coils] coil slots contain: [counting_english_list(coils)]."
 
 /obj/machinery/power/smes/proc/can_function()
 	if(is_badly_damaged())
@@ -304,7 +304,7 @@
 			to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			return 1
 	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
-	if(do_after(user, 50))
+	if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
 		terminal.master = src
@@ -327,8 +327,8 @@
 	add_fingerprint(user)
 	ui_interact(user)
 
-/obj/machinery/power/smes/attackby(var/obj/item/W, var/mob/user)
-	if(W.isscrewdriver())
+/obj/machinery/power/smes/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(!open_hatch)
 			if(is_badly_damaged())
 				to_chat(user, SPAN_WARNING("\The [src]'s maintenance panel is broken open!"))
@@ -351,9 +351,9 @@
 		to_chat(user, "<span class='warning'>You need to open access hatch on [src] first!</span>")
 		return 0
 
-	if(W.iscoil() && !terminal && !building_terminal)
+	if(attacking_item.iscoil() && !terminal && !building_terminal)
 		building_terminal = 1
-		var/obj/item/stack/cable_coil/CC = W
+		var/obj/item/stack/cable_coil/CC = attacking_item
 		if (CC.get_amount() <= 10)
 			to_chat(user, "<span class='warning'>You need more cables.</span>")
 			building_terminal = 0
@@ -370,7 +370,7 @@
 		stat = 0
 		return 0
 
-	else if(W.iswirecutter() && terminal && !building_terminal)
+	else if(attacking_item.iswirecutter() && terminal && !building_terminal)
 		building_terminal = 1
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
@@ -378,7 +378,7 @@
 				to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
 			else
 				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
-				if(W.use_tool(src, user, 50, volume = 50))
+				if(attacking_item.use_tool(src, user, 50, volume = 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
 						building_terminal = 0
@@ -478,9 +478,9 @@
 		else if(prob(15)) //Power drain
 			small_spark.queue()
 			if(prob(50))
-				emp_act(1)
+				emp_act(EMP_HEAVY)
 			else
-				emp_act(2)
+				emp_act(EMP_LIGHT)
 		else if(prob(5)) //smoke only
 			var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 			smoke.set_up(3, 0, src.loc)
@@ -500,6 +500,8 @@
 		outputting = 0
 
 /obj/machinery/power/smes/emp_act(severity)
+	. = ..()
+
 	if(prob(50))
 		inputting(rand(0,1))
 		outputting(rand(0,1))
@@ -513,7 +515,6 @@
 	if(prob(50))
 		energy_fail(rand(0 + (severity * 30),30 + (severity * 30)))
 	update_icon()
-	..()
 
 
 /obj/machinery/power/smes/magical

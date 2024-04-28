@@ -107,7 +107,7 @@
 			msg+="!"
 
 	var/list/listening = viewers(holder_atom)
-	for(var/mob/M in mob_list)
+	for(var/mob/M in GLOB.mob_list)
 		if (!M.client)
 			continue //skip monkeys and leavers
 		if (istype(M, /mob/abstract/new_player))

@@ -7,7 +7,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 8
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/a454
 	name = "speed loader (.454)"
@@ -17,7 +17,7 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38
 	name = "speed loader (.38)"
@@ -27,7 +27,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38/rubber
 	name = "speed loader (.38 rubber)"
@@ -37,6 +37,14 @@
 	name = "speed loader (.38 haywire)"
 	ammo_type = /obj/item/ammo_casing/c38/emp
 	matter = list(DEFAULT_WALL_MATERIAL = 360, MATERIAL_URANIUM = 600)
+
+/obj/item/ammo_magazine/c45/revolver
+	name = "speed loader (.45)"
+	icon_state = "a454"
+	caliber = ".45"
+	ammo_type = /obj/item/ammo_casing/c45/revolver
+	max_ammo = 6
+	multiple_sprites = TRUE
 
 // End of Revolvos //
 
@@ -122,6 +130,30 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 16
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45m/dominia
+	name = "dominian service pistol magazine (.45)"
+	desc = "A magazine specifically designed for a Dominian service pistol."
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol_mag"
+	max_ammo = 11
+
+/obj/item/ammo_magazine/c46m
+	name = "magazine (4.6mm)"
+	icon_state = "4.6x30p"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = "4.6mm"
+	desc = "A magazine designed for the dNAC-4.6 pistol."
+	ammo_type = /obj/item/ammo_casing/c46mm
+	max_ammo = 15
+	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/c46m/extended
+	name = "extended magazine (4.6mm)"
+	icon_state = "4.6x30p_extended"
+	desc = "A magazine designed for the dNAC-4.6 II submachine gun, but can also be used in the dNAC-4.6 pistol."
+	max_ammo = 30
 
 /obj/item/ammo_magazine/super_heavy
 	name = ".599 magazine"
@@ -271,6 +303,16 @@
 /obj/item/ammo_magazine/submachinemag/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/submachinemag/assassin
+	name = "magazine (6mm)"
+	icon_state = "tommy-mag"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c6mm
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
+	caliber = "6mm"
+	insert_sound = /singleton/sound_category/polymer_slide_reload
+	max_ammo = 30
+
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
@@ -281,6 +323,16 @@
 	caliber = ".45"
 	insert_sound = /singleton/sound_category/polymer_slide_reload
 	max_ammo = 50
+
+/obj/item/ammo_magazine/smg10mm
+	name = "smg magazine (10mm)"
+	desc = "A detachable magazine for the improvised konyanger pirate SMG, made from scrap metal."
+	icon_state = "10mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/smg10mm
+	caliber = "10mm"
+	max_ammo = 20
+	multiple_sprites = 1
 
 // End of SMGs and PDWs //
 
@@ -315,6 +367,10 @@
 	icon_state = "5.56AP"
 	ammo_type = /obj/item/ammo_casing/a556/polymer
 
+/obj/item/ammo_magazine/a556/k556
+	name = "konyang rifle magazine"
+	icon_state = "k556rifle_mag"
+
 /obj/item/ammo_magazine/a556/carbine
 	name = "carbine magazine (5.56mm)"
 	icon_state = "5.56c"
@@ -346,6 +402,10 @@
 	icon_state = "5.56c_practice"
 	ammo_type = /obj/item/ammo_casing/a556/blank
 
+/obj/item/ammo_magazine/a556/carbine/konyang47
+	name = "konyang carbine magazine"
+	icon_state = "k47_mag"
+
 /obj/item/ammo_magazine/a556/makeshift
 	name = "makeshift magazine (5.56mm)"
 	icon_state = "5.56m"
@@ -354,6 +414,27 @@
 	max_ammo = 7
 
 /obj/item/ammo_magazine/a556/makeshift/empty
+	initial_ammo = 0
+
+/obj/item/ammo_magazine/a556/dlmg
+	name = "MPR-24/5 light machine gun magazine (5.56mm)"
+	max_ammo = 50
+	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon_state = "dom_lmg_mag"
+
+/obj/item/ammo_magazine/a65
+	name = "magazine (6.5mm)"
+	icon_state = "c6.5mm"
+	origin_tech = list(TECH_COMBAT = 3)
+	mag_type = MAGAZINE
+	caliber = "a65"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	matter = list(DEFAULT_WALL_MATERIAL = 1800)
+	ammo_type = /obj/item/ammo_casing/a65
+	max_ammo = 20
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/a65/empty
 	initial_ammo = 0
 
 /obj/item/ammo_magazine/a75
@@ -414,6 +495,11 @@
 
 /obj/item/ammo_magazine/c762/dpra
 	icon_state = "mrrazhak_mag"
+
+/obj/item/ammo_magazine/c762/dominia
+	name = "mpr-24/5 carbine magazine (7.62mm)"
+	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon_state = "dom_carbine_mag"
 
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
@@ -505,6 +591,54 @@
 	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
 	matter = list(DEFAULT_WALL_MATERIAL = 2880, MATERIAL_GLASS = 5760)
 
+/obj/item/ammo_magazine/xanan_shotgun
+	name = "magazine"
+	desc = "A magazine for the dNAC-12 combat shotgun."
+	icon = 'icons/obj/guns/xanu_shotgun_mags.dmi'
+	icon_state = "xanu_shell_magazine"
+	caliber = "shotgun"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 8
+	matter = list(MATERIAL_STEEL = 2880)
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/xanan_shotgun/shells
+	name = "magazine (buckshot)"
+	icon_state = "xanu_shell_magazine_buckshot"
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/ammo_magazine/xanan_shotgun/incendiary
+	name = "magazine (incendiary)"
+	icon_state = "xanu_shell_magazine_incendiary"
+	ammo_type = /obj/item/ammo_casing/shotgun/incendiary
+
+/obj/item/ammo_magazine/xanan_shotgun/beanbag
+	name = "magazine (beanbag)"
+	icon_state = "xanu_shell_magazine_beanbag"
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+
+/obj/item/ammo_magazine/xanan_shotgun/slugs
+	name = "magazine (slugs)"
+	icon_state = "xanu_shell_magazine_slug"
+	ammo_type = /obj/item/ammo_casing/shotgun
+
+/obj/item/ammo_magazine/xanan_shotgun/emp
+	name = "magazine (haywire slugs)"
+	icon_state = "xanu_shell_magazine_emp"
+	ammo_type = /obj/item/ammo_casing/shotgun/emp
+
+/obj/item/ammo_magazine/xanan_shotgun/stun
+	name = "magazine (stun)"
+	icon_state = "xanu_shell_magazine_stun"
+	ammo_type = /obj/item/ammo_casing/shotgun/emp
+
+/obj/item/ammo_magazine/xanan_shotgun/tracker
+	name = "magazine (tracking slug)"
+	icon_state = "xanu_shell_magazine_tracker"
+	ammo_type = /obj/item/ammo_casing/shotgun/tracking
+
 /obj/item/ammo_magazine/minigun
 	name = "minigun magazine box (7.62mm)"
 	icon_state = "a762"
@@ -571,3 +705,45 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 600)
 	max_ammo = 7
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/konyang_shotgun
+	name = "konyang shotgun magazine"
+	icon_state = "konyang_shotgun"
+	caliber = "shotgun"
+	insert_sound = /singleton/sound_category/rifle_slide_reload
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/shotgun
+	max_ammo = 9
+	multiple_sprites = 1
+
+/obj/item/ammo_magazine/spitterpistol
+	name = "spitter pistol magazine"
+	icon_state = "spitterpistol_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 8
+
+/obj/item/ammo_magazine/hookmg
+	name = "hook machinegun magazine"
+	icon_state = "hookmg_ammobox"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 50
+
+/obj/item/ammo_magazine/crackrifle
+	name = "crack rifle magazine"
+	icon_state = "crackrifle_mag"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 33
+
+/obj/item/ammo_magazine/tempestsmg
+	name = "tempest smg magazine"
+	icon_state = "tempestsmg_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 20

@@ -28,7 +28,7 @@
 		/area/medical/cryo,
 		/area/medical/surgery,
 		/area/turret_protected/ai,
-		/area/engineering/smes/tesla,
+		/area/engineering/smes/rust,
 		/area/tcommsat/mainlvl_tcomms__relay,
 		/area/tcommsat/mainlvl_tcomms__relay/second,
 		/area/rnd/isolation_a,

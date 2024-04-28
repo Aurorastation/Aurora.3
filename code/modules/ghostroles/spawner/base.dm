@@ -1,12 +1,28 @@
 /datum/ghostspawner
 	var/short_name = null
 	var/name = null
+
+	/// Description of the spawner, as seen in the ghostspawner GUI.
+	/// Should be short and simple description, to not clutter up the menus.
+	/// Should have the most brief description and expectations for the role.
 	var/desc = null
+
+	/// Similar to the normal desc, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/desc_ooc = null
+
+	/// Message shown to the player immediately after spawning.
+	/// Can be longer than the description, and more detailed.
+	/// Should also contain anything else specific to the role, for example:
+	/// who does this role answer to, location of the equipment, gimmick or background ideas, tips on how to play it, etc.
+	var/welcome_message = null
+	/// Similar to the normal welcome message, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/welcome_message_ooc = null
 
 	var/observers_only = FALSE
 	var/show_on_job_select = TRUE // Determines if the ghost spawner role is considered unique or not.
 
-	var/welcome_message = null
 	var/list/tags = list() //Tags associated with that spawner
 
 	//Vars regarding the spawnpoints and conditions of the spawner
@@ -15,17 +31,28 @@
 
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name) - Use loc_type: GS_LOC_POS
 	var/landmark_name = null //Alternatively you can specify a landmark name - Use loc_type: GS_LOC_POS
+	var/landmark_type = null //Specify a landmark type to look for, instead of the name, this takes precedence over landmark_name
 
 	var/loc_type = GS_LOC_POS
 
-	var/max_count = 0 //How often can this spawner be used
-	var/count = 0 //How ofen has this spawner been used
-	var/req_perms = null //What permission flags are required to use this spawner
+	/// How often can this spawner be used
+	var/max_count = 0
+	/// How often has this spawner been used
+	var/count = 0
+	/// What permission flags are required to use this spawner
+	var/req_perms = null
+	/// What permission flags are required to edit this spawner
 	var/req_perms_edit = R_ADMIN
-	var/enabled = TRUE //If the spawnpoint is enabled
-	var/enable_chance = null //If set to a value other than null, has the set chance to become enabled
-	var/enable_dmessage = TRUE //The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
-	var/respawn_flag = null //Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
+	/// If the spawnpoint is enabled
+	var/enabled = TRUE
+	/// If set to a value other than null, has the set chance to become enabled
+	var/enable_chance = null
+	/// The message to send to deadchat if the ghostspawner is enabled or TRUE for a default message
+	var/enable_dmessage = TRUE
+	/// Flag to check for when trying to spawn someone of that type (CREW, ANIMAL, MINISYNTH)
+	var/respawn_flag = null
+	/// Whether to disable and hide if full
+	var/disable_and_hide_if_full = TRUE
 
 	//If jobban_job is set, then it will check if the user is jobbanned from a specific job. Otherwise it will check for the name of the spawner.
 	//it will also check if there is a whitelist required and if the player has the relevant whitelist for the specified job (or the name of the spawner)
@@ -39,6 +66,9 @@
 	var/mob_name_prefix = null //The prefix that should be applied to the mob (i.e. CCIAA, Tpr., Cmdr.)
 	var/mob_name_suffix = null //The suffix that should be applied to the mob name
 	var/away_site = FALSE
+
+	/// A lazylist of weakrefs to mobs this spawner has spawned
+	var/list/datum/weakref/spawned_mobs
 
 /datum/ghostspawner/New()
 	. = ..()
@@ -58,7 +88,7 @@
 	if(!enabled && !can_edit(user)) //If its not enabled and the user cant edit it, dont show it
 		return "Currently Disabled"
 
-	if(loc_type == GS_LOC_ATOM && !length(spawn_atoms))
+	if(disable_and_hide_if_full && (loc_type == GS_LOC_ATOM && !length(spawn_atoms)))
 		return "No spawn atoms available"
 
 	var/ban_reason = jobban_isbanned(user,jobban_job)
@@ -83,11 +113,11 @@
 		return "This spawner is not enabled."
 	if(respawn_flag && !user.MayRespawn(0,respawn_flag))
 		return "You can not respawn at this time."
-	if(!config.enter_allowed)
+	if(!GLOB.config.enter_allowed)
 		return "There is an administrative lock on entering the game."
 	if(SSticker.mode?.explosion_in_progress)
 		return "The station is currently exploding."
-	if(max_count && count > max_count)
+	if(max_count && (count >= max_count))
 		return "No more slots are available."
 	//Check if a spawnpoint is available
 	if(loc_type == GS_LOC_POS)
@@ -102,7 +132,7 @@
 //Proc executed before someone is spawned in
 /datum/ghostspawner/proc/pre_spawn(mob/user)
 	count++ //Increment the spawned in mob count
-	if(max_count && count >= max_count)
+	if(disable_and_hide_if_full && max_count && (count >= max_count))
 		enabled = FALSE
 	return TRUE
 
@@ -119,10 +149,13 @@
 					spawnpoints -= spawnpoint //Set the spawnpoint at the bottom of the list.
 					spawnpoints += spawnpoint
 				return T
-	if(!isnull(landmark_name))
+	if(!isnull(landmark_name) || !isnull(landmark_type))
 		var/list/possible_landmarks = list()
-		for(var/obj/effect/landmark/landmark in landmarks_list)
-			if(landmark.name == landmark_name)
+		for(var/obj/effect/landmark/landmark in GLOB.landmarks_list)
+			if(landmark_type)
+				if(istype(landmark, landmark_type))
+					possible_landmarks += landmark
+			else if(landmark.name == landmark_name)
 				possible_landmarks += landmark
 		if(length(possible_landmarks))
 			var/obj/effect/landmark/L = pick(possible_landmarks)
@@ -142,9 +175,19 @@
 		spawn_atoms -= A
 	return A
 
-//The proc to actually spawn in the user
+/**
+ * The proc to actually spawn in the user
+ *
+ * OVERWRITE THIS IN THE CHILD IMPLEMENTATIONS to return the spawned in mob !!!
+ *
+ * This is a basic proc for atom based spawners
+ *
+ * * user - A `/mob` to assign the current owner (client) of, to the new ghost spawn
+ *
+ * Returns a `/mob` which is the spawned mob, or `null` in case of error/unavailability
+ */
 /datum/ghostspawner/proc/spawn_mob(mob/user)
-	//OVERWRITE THIS IN THE CHILD IMPLEMENTATIONS to return the spawned in mob !!!
+	RETURN_TYPE(/mob)
 
 	//This is a basic proc for atom based spawners.
 	//  Location based spawners usually need a bit more logic
@@ -162,22 +205,24 @@
 
 //Proc executed after someone is spawned in
 /datum/ghostspawner/proc/post_spawn(mob/user)
-	if(max_count && count >= max_count)
+	if(disable_and_hide_if_full && max_count && (count >= max_count))
 		disable()
 	if(welcome_message)
-		to_chat(user, SPAN_NOTICE(welcome_message))
+		to_chat(user, EXAMINE_BLOCK(SPAN_NOTICE(welcome_message)))
 	else
 		if(name)
-			to_chat(user, SPAN_INFO("You are spawning as: ") + name)
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("You are spawning as: ") + name))
 		if(desc)
-			to_chat(user, SPAN_INFO("Role description: ") + desc)
-	universe.OnPlayerLatejoin(user)
-	if(current_map.use_overmap)
-		var/obj/effect/overmap/visitable/sector = map_sectors["[user.z]"]
+			to_chat(user, EXAMINE_BLOCK(SPAN_INFO("Role description: ") + desc))
+	if(welcome_message_ooc)
+		to_chat(user, EXAMINE_BLOCK(SPAN_INFO("(OOC Notes: [welcome_message_ooc])")))
+	GLOB.universe.OnPlayerLatejoin(user)
+	if(SSatlas.current_map.use_overmap)
+		var/obj/effect/overmap/visitable/sector = GLOB.map_sectors["[user.z]"]
 		if(sector?.invisible_until_ghostrole_spawn)
 			sector.x = sector.start_x
 			sector.y = sector.start_y
-			sector.z = current_map.overmap_z
+			sector.z = SSatlas.current_map.overmap_z
 			sector.invisible_until_ghostrole_spawn = FALSE
 	return TRUE
 
@@ -207,7 +252,7 @@
 		log_and_message_admins("has enabled the ghostspawner [src.name]")
 	enabled = TRUE
 	if(enable_dmessage)
-		for(var/mob/abstract/observer/O in player_list)
+		for(var/mob/abstract/observer/O in GLOB.player_list)
 			if(O.client && !cant_see(O))
 				if(enable_dmessage == TRUE)
 					to_chat(O, "<span class='deadsay'><b>A ghostspawner for a \"[src.name]\" has been enabled.</b></span>")

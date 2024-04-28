@@ -55,7 +55,7 @@
 
 /obj/item/rig/internalaffairs/equipped
 
-	req_access = list(access_lawyer)
+	req_access = list(ACCESS_LAWYER)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -166,7 +166,7 @@
 
 /obj/item/rig/eva/equipped
 
-	req_access = list(access_engine_equip)
+	req_access = list(ACCESS_ENGINE_EQUIP)
 
 	initial_modules = list(
 		/obj/item/rig_module/device/basicdrill,
@@ -178,7 +178,7 @@
 	siemens_coefficient = 0
 
 /obj/item/rig/eva/equipped/pirate
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/eva/pirate
 
 /obj/item/clothing/head/helmet/space/rig/eva/pirate
@@ -203,7 +203,7 @@
 
 /obj/item/rig/eva/pilot/equipped
 
-	req_access = list(access_bridge_crew)
+	req_access = list(ACCESS_BRIDGE_CREW)
 
 	initial_modules = list(
 		/obj/item/rig_module/maneuvering_jets,
@@ -235,6 +235,7 @@
 
 	helm_type = /obj/item/clothing/head/helmet/space/rig/ce
 	glove_type = /obj/item/clothing/gloves/rig/ce
+	boot_type = /obj/item/clothing/shoes/magboots/advance
 
 	allowed = list(/obj/item/device/flashlight,/obj/item/tank,/obj/item/device/suit_cooling_unit,/obj/item/storage/bag/ore,/obj/item/device/t_scanner,/obj/item/pickaxe,/obj/item/material/twohanded/fireaxe,/obj/item/rfd/construction,/obj/item/storage/backpack/cell,/obj/item/storage/toolbox,/obj/item/storage/bag/inflatable)
 
@@ -245,7 +246,7 @@
 
 /obj/item/rig/ce/equipped
 
-	req_access = list(access_ce)
+	req_access = list(ACCESS_CE)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -287,10 +288,11 @@
 	req_one_access = list()
 
 	allowed_module_types = MODULE_GENERAL | MODULE_UTILITY
+	anomaly_protection = TRUE
 
 /obj/item/rig/hazmat/equipped
 
-	req_access = list(access_rd)
+	req_access = list(ACCESS_RD)
 
 	initial_modules = list(
 		/obj/item/rig_module/ai_container,
@@ -315,7 +317,7 @@
 		rad = ARMOR_RAD_SHIELDED
 	)
 	siemens_coefficient = 0.50
-	slowdown = 0
+	slowdown = 1
 	offline_slowdown = 2
 	offline_vision_restriction = TINT_HEAVY
 
@@ -330,7 +332,7 @@
 
 /obj/item/rig/medical/equipped
 
-	req_access = list(access_first_responder)
+	req_access = list(ACCESS_FIRST_RESPONDER)
 
 	initial_modules = list(
 		/obj/item/rig_module/chem_dispenser/injector/paramedic,
@@ -371,7 +373,7 @@
 
 /obj/item/rig/hazard/equipped
 
-	req_access = list(access_brig)
+	req_access = list(ACCESS_BRIG)
 
 	initial_modules = list(
 		/obj/item/rig_module/vision/sechud,
@@ -381,7 +383,7 @@
 		)
 
 /obj/item/rig/hazard/equipped/pirate
-	req_access = list(access_syndicate)
+	req_access = list(ACCESS_SYNDICATE)
 	helm_type = /obj/item/clothing/head/helmet/space/rig/hazard/pirate
 
 /obj/item/clothing/head/helmet/space/rig/hazard/pirate

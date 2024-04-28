@@ -6,7 +6,6 @@
 	color = "#404040"
 	level = 2
 	connect_types = CONNECT_TYPE_HE
-	layer = 2.41
 	var/initialize_directions_he
 	var/surface = 2	//surface area in m^2
 	var/icon_temperature = T20C //stop small changes in temperature causing an icon refresh
@@ -32,7 +31,7 @@
 	var/node1_dir
 	var/node2_dir
 
-	for(var/direction in cardinal)
+	for(var/direction in GLOB.cardinal)
 		if(direction&initialize_directions_he)
 			if (!node1_dir)
 				node1_dir = direction

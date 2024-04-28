@@ -7,6 +7,25 @@
 	contained_sprite = FALSE
 	species_restricted = list(BODYTYPE_VAURCA_BREEDER)
 	sprite_sheets = list(BODYTYPE_VAURCA_BREEDER = 'icons/mob/species/breeder/head.dmi')
+	var/raised = FALSE
+
+/obj/item/clothing/head/vaurca_breeder/verb/raise_shroud()
+	set name = "Raise Shroud"
+	set desc = "Raise your shroud."
+	set category = "Object"
+	set src in usr
+
+	if(use_check_and_message(usr) || !ishuman(usr))
+		return FALSE
+
+	var/mob/living/carbon/human/user = usr
+
+	raised = !raised
+	to_chat(user, SPAN_NOTICE("You [raised ? "raise" : "lower"] your shroud."))
+	icon_state = "[initial(icon_state)][raised ? "_raised" : ""]"
+
+	user.update_icon()
+	user.update_inv_head()
 
 /obj/item/clothing/head/vaurca_breeder/klax
 	name = "k'lax represenatitve shroud"

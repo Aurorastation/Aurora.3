@@ -5,13 +5,13 @@
 	icon_state = "posibrain"
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_ENGINEERING = 4, TECH_MATERIAL = 4, TECH_BLUESPACE = 2, TECH_DATA = 4)
-	req_access = list(access_robotics)
+	req_access = list(ACCESS_ROBOTICS)
 	can_be_ipc = TRUE
 	var/searching = FALSE
 
 /obj/item/device/mmi/digital/posibrain/Initialize()
 	. = ..()
-	var/datum/language/L = all_languages[LANGUAGE_EAL]
+	var/datum/language/L = GLOB.all_languages[LANGUAGE_EAL]
 	brainmob.name = L.get_random_name()
 	brainmob.real_name = brainmob.name
 
@@ -23,7 +23,7 @@
 	else
 		icon_state = initial(icon_state)
 
-/obj/item/device/mmi/digital/posibrain/attackby(obj/item/I, mob/user)
+/obj/item/device/mmi/digital/posibrain/attackby(obj/item/attacking_item, mob/user)
 	return
 
 /obj/item/device/mmi/digital/posibrain/attack_self(mob/user)
@@ -57,14 +57,14 @@
 
 	var/area/A = get_area(src)
 	if(istype(A, /area/assembly/robotics))
-		global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
+		GLOB.global_announcer.autosay("A positronic brain has completed its boot process in: [A.name].", "Robotics Oversight", "Science")
 
 	brainmob.client.init_verbs()
 
 	return src
 
 /obj/item/device/mmi/digital/posibrain/update_name()
-	var/new_name = input(brainmob, "Choose your name.", "Name Selection", brainmob.real_name) as text
+	var/new_name = tgui_input_text(brainmob, "Choose your name.", "Name Selection", brainmob.real_name, MAX_NAME_LEN)
 	if(new_name)
 		brainmob.real_name = new_name
 		brainmob.name = new_name
@@ -72,27 +72,24 @@
 	visible_message(SPAN_NOTICE("\The [src] chimes quietly."))
 	return ..()
 
-/obj/item/device/mmi/digital/posibrain/examine(mob/user)
-	if(!..(user))
-		return
+/obj/item/device/mmi/digital/posibrain/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 
-	var/msg = "<span class='info'>*---------*</span>\nThis is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
-	msg += "<span class='warning'>"
+	. += "This is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
+	. += "<span class='warning'>"
 
 	if(brainmob?.key)
 		switch(brainmob.stat)
 			if(CONSCIOUS)
 				if(!src.brainmob.client)
-					msg += "It appears to be in stand-by mode.\n" //afk
+					. += "It appears to be in stand-by mode.\n" //afk
 			if(UNCONSCIOUS)
-				msg += "<span class='warning'>It doesn't seem to be responsive.</span>\n"
+				. += "<span class='warning'>It doesn't seem to be responsive.</span>\n"
 			if(DEAD)
-				msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
+				. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	else
-		msg += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
-	msg += "</span><span class='info'>*---------*</span>"
-	to_chat(user, msg)
-	return
+		. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
+	. += "</span>"
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)
@@ -107,14 +104,13 @@
 	return
 
 /obj/item/device/mmi/digital/posibrain/emp_act(severity)
+	. = ..()
+
 	if(!brainmob)
 		return
-	else
-		switch(severity)
-			if(1)
-				brainmob.emp_damage += rand(20,30)
-			if(2)
-				brainmob.emp_damage += rand(10,20)
-			if(3)
-				brainmob.emp_damage += rand(0,10)
-	..()
+
+	switch(severity)
+		if(EMP_HEAVY)
+			brainmob.emp_damage += rand(20,30)
+		if(EMP_LIGHT)
+			brainmob.emp_damage += rand(10,20)

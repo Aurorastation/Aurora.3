@@ -30,7 +30,7 @@
 	. = ..()
 	harvest_time = world.time
 	var/count = 0
-	for (var/mob/living/simple_animal/mushroom in living_mob_list)
+	for (var/mob/living/simple_animal/mushroom in GLOB.living_mob_list)
 		count++
 
 	if (count > GLOBAL_MUSHROOM_LIMIT)

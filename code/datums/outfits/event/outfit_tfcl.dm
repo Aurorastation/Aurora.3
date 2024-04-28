@@ -1,10 +1,10 @@
-/datum/outfit/admin/tcfl
+/obj/outfit/admin/tcfl
 	name = "TCFL Legate"
 
 	uniform = /obj/item/clothing/under/legion/legate
 	suit = /obj/item/clothing/suit/storage/vest/legion/legate
 	gloves = /obj/item/clothing/gloves/swat/tactical
-	shoes = /obj/item/clothing/shoes/swat/ert
+	shoes = /obj/item/clothing/shoes/combat
 	l_ear = /obj/item/device/radio/headset/legion
 	head = /obj/item/clothing/head/legion/legate
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
@@ -27,5 +27,5 @@
 	id_iff = IFF_TCFL
 	var/id_access = "NanoTrasen Representative"
 
-/datum/outfit/admin/tcfl/get_id_access()
+/obj/outfit/admin/tcfl/get_id_access()
 	return get_all_accesses() | get_centcom_access(id_access)

@@ -31,6 +31,7 @@
 		compass_heading_marker.maptext = "<center><font color = '#00ffffff' size = 2><b>△</b></font></center>"
 		compass_heading_marker.filters = filter(type="drop_shadow", color = "#00ffffaa", size = 2, offset = 1,x = 0, y = 0)
 		compass_heading_marker.layer = UNDER_HUD_LAYER
+		compass_heading_marker.plane = HUD_PLANE
 
 	for(var/i in 0 to (360/(COMPASS_PERIOD))-1)
 		var/image/I = new /image/compass_marker
@@ -44,7 +45,7 @@
 			else
 				str = angle_step_to_dir[clamp(round(angle/45)+1, 1, length(angle_step_to_dir))]
 			str_col = "#ffffffaa"
-		else 
+		else
 			str = "〡"
 			str_col = "#aaaaaa88"
 		I.maptext = "<center><font color = '[str_col]' size = '1px'><b>[str]</b></font></center>"
@@ -54,12 +55,13 @@
 		I.transform = M
 		I.filters = filter(type="drop_shadow", color = "#77777777", size = 2, offset = 1,x = 0, y = 0)
 		I.layer = UNDER_HUD_LAYER
+		I.plane = HUD_PLANE
 		LAZYADD(compass_static_labels, I)
 
 	rebuild_overlay_lists(TRUE)
 
 /obj/compass_holder/Destroy()
-	QDEL_NULL_LIST(compass_waypoints)
+	QDEL_LIST(compass_waypoints)
 	. = ..()
 
 /obj/compass_holder/proc/get_heading()

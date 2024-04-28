@@ -39,25 +39,25 @@
 		SPAN_DANGER("\The [src] attempts to escape [wear_suit]!"),
 		SPAN_WARNING("You attempt to escape [wear_suit]. (This will take around 6 minutes and you need to stand still)")
 		)
-	if (!do_after(src, 1.5 MINUTES, act_target = src))
+	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_WARNING("\The [src] is shifting in their [wear_suit]!"),
 			SPAN_WARNING("You start to loosen the [wear_suit].")
 		)
-	if (!do_after(src, 1.5 MINUTES, act_target = src))
+	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_DANGER("\The [src] is moving in their [wear_suit]!"),
 			SPAN_WARNING("You slip one of your arms out of the [wear_suit].")
 		)
-	if (!do_after(src, 1.5 MINUTES, act_target = src))
+	if (!do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		return
 	visible_message(
 			SPAN_DANGER("\The [src] is moving around in their [wear_suit] - it looks like they are about to break out!"),
 			SPAN_WARNING("You start to pull loose the straps on the straightjacket[wear_suit].")
 		)
-	if (do_after(src, 1.5 MINUTES, act_target = src))
+	if (do_after(src, 1.5 MINUTES, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DEFAULT & ~INCAPACITATION_RESTRAINED))
 		var/obj/ex_suit = wear_suit
 		remove_from_mob(wear_suit)
 		ex_suit.forceMove(get_turf(src))
@@ -107,7 +107,7 @@
 			SPAN_WARNING("You attempt to slip out of \the [HC]. (This will take around [displaytime] minutes and you need to stand still)")
 			)
 
-	if(do_after(src, breakouttime))
+	if(do_after(src, breakouttime, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
 		if(!handcuffed)
 			return
 
@@ -161,7 +161,7 @@
 		SPAN_WARNING("You attempt to remove \the [HC]. (This will take around [displaytime] minutes and you need to stand still)")
 		)
 
-	if(do_after(src, breakouttime))
+	if(do_after(src, breakouttime, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
 		if(!legcuffed || buckled_to)
 			return
 		visible_message(
@@ -174,7 +174,7 @@
 		update_inv_legcuffed()
 
 /mob/living/carbon/proc/can_break_cuffs()
-	if(HAS_FLAG(mutations, HULK))
+	if((mutations & HULK))
 		return TRUE
 
 	if(stamina < 100)
@@ -191,7 +191,7 @@
 		SPAN_WARNING("You attempt to break your [handcuffed.name]. (This will take around 10 seconds and you need to stand still)")
 		)
 
-	if(do_after(src, 10 SECONDS))
+	if(do_after(src, 10 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
 		if(!handcuffed)
 			return
 
@@ -200,7 +200,7 @@
 			SPAN_WARNING("You successfully break your [handcuffed.name].")
 			)
 
-		if((isunathi(src)) || HAS_FLAG(mutations, HULK))
+		if((isunathi(src)) || (mutations & HULK) && !(src.isSynthetic()) && !(isvaurca(src)))
 			say(pick("RAAAAAAAARGH!", "HNNNNNNNNNGGGGGGH!", "GWAAAAAAAARRRHHH!", "NNNNNNNNGGGGGGGGHH!", "AAAAAAARRRGH!" ))
 			stamina -= 100 //takes a bunch of stamina
 
@@ -214,7 +214,7 @@
 	to_chat(src, SPAN_WARNING("You attempt to break your legcuffs. (This will take around 5 seconds and you need to stand still)"))
 	visible_message(SPAN_DANGER("[src] is trying to break the legcuffs!"))
 
-	if(do_after(src, 50))
+	if(do_after(src, 50, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT, incapacitation_flags = INCAPACITATION_DISABLED))
 		if(!legcuffed || buckled_to)
 			return
 

@@ -9,7 +9,7 @@
 	icon = 'icons/obj/device.dmi'
 	icon_state = "shield0"
 	var/active = 0.0
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	item_state = "electronic"
 	throwforce = 10.0
 	throw_speed = 2
@@ -26,12 +26,12 @@
 
 /obj/item/cloaking_device/New()
 	..()
-	cloaking_devices += src
+	GLOB.cloaking_devices += src
 	cell = new /obj/item/cell/high(src)
 
 /obj/item/cloaking_device/Destroy()
 	. = ..()
-	cloaking_devices -= src
+	GLOB.cloaking_devices -= src
 
 /obj/item/cloaking_device/equipped(var/mob/user, var/slot)
 	..()
@@ -39,7 +39,7 @@
 	register_owner(user)
 
 //Handles dropped or thrown cloakers
-/obj/item/cloaking_device/dropped(var/mob/user)
+/obj/item/cloaking_device/dropped(mob/user)
 	..()
 	var/mob/M = get_holding_mob()
 	if(!M)
@@ -92,10 +92,11 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 /obj/item/cloaking_device/emp_act(severity)
+	. = ..()
+
 	deactivate()
 	if (cell)
 		cell.emp_act(severity)
-	..()
 
 /obj/item/cloaking_device/proc/register_owner(var/mob/user)
 	if (!owner || owner != user)
@@ -117,17 +118,17 @@
 		modifier.stop(1)
 		modifier = null
 
-/obj/item/cloaking_device/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/cell))
+/obj/item/cloaking_device/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(!cell)
-			user.drop_from_inventory(W,src)
-			cell = W
+			user.drop_from_inventory(attacking_item, src)
+			cell = attacking_item
 			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
 			update_icon()
 		else
 			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
 
-	else if(W.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))
@@ -137,12 +138,12 @@
 			return
 	..()
 
-/obj/item/cloaking_device/examine(mob/user)
-	..()
+/obj/item/cloaking_device/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if (!cell)
-		to_chat(user, "It needs a power cell to function.")
+		. += SPAN_WARNING("It needs a power cell to function.")
 	else
-		to_chat(user, "It has [cell.percent()]% power remaining")
+		. += SPAN_NOTICE("It has [cell.percent()]% power remaining.")
 
 /obj/item/cloaking_device/process()
 	if (!cell || !cell.checked_use(power_usage*CELLRATE))
@@ -171,7 +172,7 @@
 
 /datum/modifier/cloaking_device/deactivate()
 	..()
-	for (var/a in cloaking_devices)//Check for any other cloaks
+	for (var/a in GLOB.cloaking_devices)//Check for any other cloaks
 		if (a != source)
 			var/obj/item/cloaking_device/CD = a
 			if (CD.get_holding_mob() == target)

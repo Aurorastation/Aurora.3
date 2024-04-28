@@ -41,7 +41,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 /obj/var/contaminated = 0
 
 /obj/item/proc/can_contaminate()
-	if(flags & PHORONGUARD)
+	if(item_flags & ITEM_FLAG_PHORON_GUARD)
 		return FALSE
 	return TRUE
 
@@ -99,15 +99,15 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 		var/burn_eyes = 1
 
 		//Check for protective glasses
-		if(glasses && (glasses.body_parts_covered & EYES) && (glasses.item_flags & AIRTIGHT))
+		if(glasses && (glasses.body_parts_covered & EYES) && (glasses.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//Check for protective maskwear
-		if(burn_eyes && wear_mask && (wear_mask.body_parts_covered & EYES) && (wear_mask.item_flags & AIRTIGHT))
+		if(burn_eyes && wear_mask && (wear_mask.body_parts_covered & EYES) && (wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//Check for protective helmets
-		if(burn_eyes && head && (head.body_parts_covered & EYES) && (head.item_flags & AIRTIGHT))
+		if(burn_eyes && head && (head.body_parts_covered & EYES) && (head.item_flags & ITEM_FLAG_AIRTIGHT))
 			burn_eyes = 0
 
 		//If we still need to, burn their eyes
@@ -141,7 +141,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	//Checks if the head is adequately sealed.
 	if(head)
 		if(vsc.plc.PHORONGUARD_ONLY)
-			if(head.flags & PHORONGUARD)
+			if(head.item_flags & ITEM_FLAG_PHORON_GUARD)
 				return 1
 		else if(head.body_parts_covered & EYES)
 			return 1
@@ -153,7 +153,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	for(var/obj/item/protection in list(wear_suit, gloves, shoes))
 		if(!protection)
 			continue
-		if(vsc.plc.PHORONGUARD_ONLY && !(protection.flags & PHORONGUARD))
+		if(vsc.plc.PHORONGUARD_ONLY && !(protection.item_flags & ITEM_FLAG_PHORON_GUARD))
 			return 0
 		coverage |= protection.body_parts_covered
 
@@ -167,17 +167,3 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(w_uniform) w_uniform.contaminate()
 	if(shoes) shoes.contaminate()
 	if(gloves) gloves.contaminate()
-
-
-/turf/Entered(atom/movable/thing, turf/oldLoc)
-	. = ..(thing, oldLoc)
-	//Items that are in phoron, but not on a mob, can still be contaminated.
-	var/obj/item/I = thing
-	if(istype(I) && vsc.plc.CLOTH_CONTAMINATION && I.can_contaminate())
-		var/datum/gas_mixture/env = return_air(1)
-		if(!env)
-			return
-		for(var/g in env.gas)
-			if(gas_data.flags[g] & XGM_GAS_CONTAMINANT && env.gas[g] > gas_data.overlay_limit[g] + 1)
-				I.contaminate()
-				break

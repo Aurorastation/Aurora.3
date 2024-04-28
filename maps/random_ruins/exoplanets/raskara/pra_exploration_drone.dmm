@@ -15,6 +15,20 @@
 	dir = 1
 	},
 /area/exoplanet)
+"rx" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Cockpit";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/exoplanet)
+"DP" = (
+/obj/machinery/door/airlock/hatch{
+	name = "Cockpit";
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/exoplanet)
 "GU" = (
 /mob/living/simple_animal/hostile/retaliate/pra_exploration_drone,
 /turf/simulated/floor/tiled/dark,
@@ -27,16 +41,36 @@
 
 (1,1,1) = {"
 aX
-ab
+aX
+rx
+aX
 aX
 "}
 (2,1,1) = {"
+aX
+aX
+ab
+aX
+aX
+"}
+(3,1,1) = {"
+DP
 pD
 GU
 br
+DP
 "}
-(3,1,1) = {"
+(4,1,1) = {"
+aX
 aX
 HX
+aX
+aX
+"}
+(5,1,1) = {"
+aX
+aX
+rx
+aX
 aX
 "}

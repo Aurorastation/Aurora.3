@@ -13,8 +13,11 @@
 	var/sizeclass = "Unknown"							//The class of the design if applicable. Not a prefix. Should be things like battlestations or corvettes
 	var/shiptype = "Unknown"							//The designated purpose of the design. Should briefly describe whether it's a combatant or study vessel for example
 
+	var/alignment = "Unknown"							//For landing sites. Allows the crew to know if they're landing somewhere bad or not
+
 	var/generic_object = TRUE //Used to give basic scan descriptions of every generic overmap object that excludes noteworthy locations, ships and exoplanets
 	var/static_vessel = FALSE //Used to expand scan details for visible space stations
+	var/landing_site = FALSE //Used for unique landing sites that occupy the same overmap tile as another - for example, the implementation of Point Verdant and Konyang
 
 	layer = OVERMAP_SECTOR_LAYER
 
@@ -52,22 +55,39 @@
 		. += "<hr>"
 		. += "<br><center><b>Native Database Notes</b></center>"
 		. += "<br><small>[desc]</small>"
+	if(landing_site == TRUE)
+		. += "<hr>"
+		. += "<br><center><large><b>Designated Landing Zone Details</b></large>"
+		. += "<br><large><b>[name]</b></large></center>"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Specifications</b>"
+		. += "<br><img src = [scanimage]></center>"
+		. += "<br><small><b>Governing Body:</b> [alignment]"
+		. += "<hr>"
+		. += "<br><center><b>Native Database Notes</b></center>"
+		. += "<br><small>[desc]</small>"
 	else if(generic_object == TRUE)
 		return desc
+
+/// Returns the direction the overmap object is moving in, rather than just the way it's facing
+/obj/effect/overmap/proc/get_heading()
+	return dir
 
 /obj/effect/overmap/proc/handle_wraparound()
 	var/nx = x
 	var/ny = y
 	var/low_edge = 1
-	var/high_edge = current_map.overmap_size - 1
+	var/high_edge = SSatlas.current_map.overmap_size - 1
 
-	if((dir & WEST) && x == low_edge)
+	var/heading = get_heading()
+
+	if((heading & WEST) && x == low_edge)
 		nx = high_edge
-	else if((dir & EAST) && x == high_edge)
+	else if((heading & EAST) && x == high_edge)
 		nx = low_edge
-	if((dir & SOUTH)  && y == low_edge)
+	if((heading & SOUTH)  && y == low_edge)
 		ny = high_edge
-	else if((dir & NORTH) && y == high_edge)
+	else if((heading & NORTH) && y == high_edge)
 		ny = low_edge
 	if((x == nx) && (y == ny))
 		return //we're not flying off anywhere
@@ -78,11 +98,11 @@
 
 /obj/effect/overmap/Initialize()
 	. = ..()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return INITIALIZE_HINT_QDEL
 
 	if(known)
-		layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()
@@ -116,7 +136,7 @@
 			if(!istype(GS.linked.loc, /turf/unsimulated/map))
 				to_chat(H, SPAN_WARNING("The safeties won't let you target while you're not on the Overmap!"))
 				return
-			var/my_sector = map_sectors["[H.z]"]
+			var/my_sector = GLOB.map_sectors["[H.z]"]
 			if(istype(my_sector, /obj/effect/overmap/visitable))
 				var/obj/effect/overmap/visitable/V = my_sector
 				if(V != src && length(V.ship_weapons)) //no guns, no lockon
@@ -129,6 +149,26 @@
 							V.detarget(V.targeting, C)
 							V.target(src, H.machine)
 			GS.targeting = FALSE //Extra safety.
+
+/obj/effect/overmap/MouseEntered(location, control, params)
+	. = ..()
+	var/list/modifiers = params2list(params)
+	if(modifiers["shift"])
+		params = replacetext(params, "shift=1;", "") // tooltip doesn't appear unless this is stripped
+		var/description = get_tooltip_description()
+		openToolTip(usr, src, params, name, description)
+
+/obj/effect/overmap/proc/get_tooltip_description()
+	if(!desc)
+		return ""
+	var/description = "<ul>"
+	description += "<li>[desc]</li>"
+	description += "</ul>"
+	return description
+
+/obj/effect/overmap/MouseExited(location, control, params)
+	. = ..()
+	closeToolTip(usr)
 
 /obj/effect/overmap/visitable/proc/target(var/obj/effect/overmap/O, var/obj/machinery/computer/ship/C)
 	C.targeting = TRUE
@@ -152,20 +192,20 @@
 		O.maptext_x = -10
 		O.maptext_width = 72
 		O.maptext_height = 32
-		playsound(C, 'sound/items/goggles_charge.ogg')
+		playsound(C, 'sound/items/goggles_charge.ogg', 70)
 		C.visible_message(SPAN_DANGER("[usr] engages the targeting systems, acquiring a lock on the target!"))
 		if(istype(O, /obj/effect/overmap/visitable/ship))
 			var/obj/effect/overmap/visitable/ship/S = O
 			for(var/obj/machinery/computer/ship/SH in S.consoles)
 				if(istype(SH, /obj/machinery/computer/ship/sensors))
-					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg')
+					playsound(SH, 'sound/effects/ship_weapons/locked_on.ogg', 70)
 					SH.visible_message(SPAN_DANGER("<font size=4>\The [SH] beeps alarmingly, signaling an enemy lock-on!</font>"))
 	else
 		C.targeting = FALSE
 
 /obj/effect/overmap/visitable/proc/detarget(var/obj/effect/overmap/O,  var/obj/machinery/computer/C)
 	if(C)
-		playsound(C, 'sound/items/rfd_interrupt.ogg')
+		playsound(C, 'sound/items/rfd_interrupt.ogg', 70)
 	if(O)
 		O.cut_overlay(O.targeted_overlay)
 		O.maptext = null

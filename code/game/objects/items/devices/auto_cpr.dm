@@ -5,9 +5,10 @@
 	desc = "A specialized medical harness that gives regular compressions to the patient's ribcage for cases of urgent heart issues, and functions as an emergency \
 	artificial respirator for cases of urgent lung issues."
 	desc_info = "The Stabilizer Harness' CPR mode is capable of restarting the heart much like manual CPR with a chance for rib cracking ONLY IF the patient is flat lining,\
-	 while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use power from the battery. \
-	 <br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add other items. \
-	 The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
+				while the EPP mode can keep the patient breathing during transport for as long as there's appropriate air in the installed tank. Both use power from the battery. \
+				<br> Use this item in your hand to toggle the CPR or EPP modes on/off.<br> Use a Screwdriver on it to unscrew the panel to be able to remove/add other items. \
+				The tank can be removed with a Wrench. The battery can be removed with a crowbar. Use the item in your hand the panel unscrewed to remove the breath mask."
+
 	icon = 'icons/obj/med_harness.dmi'
 	icon_state = "med_harness"
 	item_state = "med_harness"
@@ -154,14 +155,14 @@
 			return
 
 		if(user.unEquip(src))
-			if(!H.equip_to_slot_if_possible(src, slot_wear_suit, del_on_fail=0, disable_warning=1, redraw_mob=1))
+			if(!H.equip_to_slot_if_possible(src, slot_wear_suit, delete_on_fail = FALSE, disable_warning = TRUE, redraw_mob = TRUE))
 				user.put_in_active_hand(src)
 			return 1
 	else
 		return ..()
 
-/obj/item/auto_cpr/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/auto_cpr/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(ishuman(loc))
 			var/mob/living/carbon/human/H = loc
 			if(H.get_inventory_slot(src) == slot_wear_suit)
@@ -173,7 +174,7 @@
 		return TRUE
 
 	if(panel_open)
-		if(W.iswrench())
+		if(attacking_item.iswrench())
 			if(!tank)
 				to_chat(user, "There isn't a tank to remove!")
 				return TRUE
@@ -183,7 +184,7 @@
 			tank = null
 			update_icon()
 			return TRUE
-		if(W.iscrowbar())
+		if(attacking_item.iscrowbar())
 			if(!battery)
 				to_chat(user, "There isn't a battery to remove!")
 				return TRUE
@@ -193,34 +194,34 @@
 			battery = null
 			update_icon()
 			return TRUE
-		if(istype(W, /obj/item/cell))
+		if(istype(attacking_item, /obj/item/cell))
 			if(battery)
 				to_chat(user, "There is already \a [battery] installed.")
 				return TRUE
-			user.drop_from_inventory(W, src)
-			battery = W
-			user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			battery = attacking_item
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
-		if(istype(W, /obj/item/clothing/mask/breath))
-			if(is_type_in_list(W, mask_blacklist))
-				to_chat(user, "\The [W] is incompatible with \the [src].")
+		if(istype(attacking_item, /obj/item/clothing/mask/breath))
+			if(is_type_in_list(attacking_item, mask_blacklist))
+				to_chat(user, "\The [attacking_item] is incompatible with \the [src].")
 				return TRUE
 			if(breath_mask)
 				to_chat(user, "There is already \a [breath_mask] installed.")
 				return TRUE
-			user.drop_from_inventory(W, src)
-			breath_mask = W
-			user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			breath_mask = attacking_item
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
-		if(istype(W, /obj/item/tank/emergency_oxygen))
+		if(istype(attacking_item, /obj/item/tank/emergency_oxygen))
 			if(tank)
 				to_chat(user, "There is already \a [tank] installed!")
 				return TRUE
-			user.drop_from_inventory(W, src)
-			tank = W
-			user.visible_message(SPAN_NOTICE("[user] places \the [W] in \the [src]."), SPAN_NOTICE("You place \the [W] in \the [src]."))
+			user.drop_from_inventory(attacking_item, src)
+			tank = attacking_item
+			user.visible_message(SPAN_NOTICE("[user] places \the [attacking_item] in \the [src]."), SPAN_NOTICE("You place \the [attacking_item] in \the [src]."))
 			update_icon()
 			return TRUE
 
@@ -251,6 +252,8 @@
 	..()
 
 /obj/item/auto_cpr/emp_act(severity)
+	. = ..()
+
 	epp_off()
 	cpr_mode = FALSE
 	if(battery)
@@ -474,17 +477,17 @@
 	playsound(usr, 'sound/machines/click.ogg', 50)
 	update_icon()
 
-/obj/item/auto_cpr/examine(mob/user)
-	..(user)
-	if(!user.Adjacent(src))
+/obj/item/auto_cpr/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(!is_adjacent)
 		return
-	to_chat(user, SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"]."))
+	. += SPAN_NOTICE("\The [src]'s [EPP] is currently [epp_mode ? "on" : "off"], while the Auto CPR is [cpr_mode ? "on" : "off"].")
 	if(battery)
-		to_chat(user, SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge."))
+		. += SPAN_NOTICE("It currently has a battery with [battery.percent()]% charge.")
 	if(tank)
-		to_chat(user, SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
-		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]"))
+		. += SPAN_NOTICE("It has [icon2html(tank, user)] \the [tank] installed. The meter shows [round(tank.air_contents.return_pressure())]kPa, \
+		with the pressure set to [round(tank.distribute_pressure)]kPa.[epp_active ? " The [EPP] is active." : ""]")
 	if(breath_mask)
-		to_chat(user, SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed."))
+		. += SPAN_NOTICE("It has [icon2html(breath_mask, user)] \the [breath_mask] installed.")
 
 #undef EPP

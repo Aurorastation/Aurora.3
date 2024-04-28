@@ -4,12 +4,16 @@
 /obj/item/reagent_containers/food/snacks
 	var/tmp/list/cooked
 
+//similar process for food containers that you can create via a cooking process
+/obj/item/storage/box/fancy/food
+	var/tmp/list/cooked
+
 // Root type for cooking machines. See following files for specific implementations.
 /obj/machinery/appliance
 	name = "cooker"
 	desc = DESC_PARENT
 	desc_info = "Control-click this to change its temperature."
-	icon = 'icons/obj/cooking_machines.dmi'
+	icon = 'icons/obj/machinery/cooking_machines.dmi'
 	var/appliancetype = 0
 	density = 1
 	anchored = 1
@@ -46,6 +50,7 @@
 	var/selected_option
 	var/list/output_options = list()
 	var/finish_verb = "pings!"
+	var/place_verb = "into"
 	var/combine_first = FALSE//If 1, this appliance will do combination cooking before checking recipes
 
 /obj/machinery/appliance/Initialize()
@@ -66,21 +71,20 @@
 		qdel(CI)
 	return ..()
 
-/obj/machinery/appliance/examine(var/mob/user)
-	..()
-	if(Adjacent(usr))
-		list_contents(user)
-		return TRUE
+/obj/machinery/appliance/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
+		. += list_contents(user)
 
 /obj/machinery/appliance/proc/list_contents(var/mob/user)
+	. = list()
 	if (isemptylist(cooking_objs))
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. = SPAN_NOTICE("It is empty.")
 		return
-	var/string = "Contains...<ul>"
+	. = "Contains...<ul>"
 	for (var/datum/cooking_item/CI in cooking_objs)
-		string += "<li>\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
-	string += "</ul>"
-	to_chat(user, string)
+		. += "\a [CI.container.label(null, CI.combine_target)], [report_progress(CI)]</li>"
+	. += "</ul>"
 
 /obj/machinery/appliance/proc/report_progress(var/datum/cooking_item/CI)
 	if (!CI || !CI.max_cookwork)
@@ -131,14 +135,14 @@
 
 /obj/machinery/appliance/proc/choose_output()
 	set src in view()
-	set name = "Choose output"
+	set name = "Choose Output"
 	set category = "Object"
 
 	if (use_check_and_message(usr, issilicon(usr) ? USE_ALLOW_NON_ADJACENT : 0))
 		return
 	if(isemptylist(output_options))
 		return
-	var/choice = input("What specific food do you wish to make with [src]?", "Choose Output") as null|anything in output_options+"Default"
+	var/choice = tgui_input_list(usr, "What specific food do you wish to make with [src]?", "Choose Output", output_options + "Default")
 	if(!choice)
 		return
 	selected_option = (choice == "Default") ? null : choice
@@ -194,29 +198,29 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/appliance/attackby(var/obj/item/I, var/mob/user)
+/obj/machinery/appliance/attackby(obj/item/attacking_item, mob/user)
 	if(!cook_type || (stat & (BROKEN)))
 		to_chat(user, SPAN_WARNING("[src] is not working."))
 		return
 
-	var/result = can_insert(I, user)
+	var/result = can_insert(attacking_item, user)
 	if(result == CANNOT_INSERT)
-		if(default_deconstruction_screwdriver(user, I))
+		if(default_deconstruction_screwdriver(user, attacking_item))
 			return
-		else if(default_part_replacement(user, I))
+		else if(default_part_replacement(user, attacking_item))
 			return
-		else if(default_deconstruction_crowbar(user, I))
+		else if(default_deconstruction_crowbar(user, attacking_item))
 			return
 		return
 
 	if(result == INSERT_GRABBED)
-		var/obj/item/grab/G = I
+		var/obj/item/grab/G = attacking_item
 		if (G && istype(G) && G.affecting)
 			cook_mob(G.affecting, user)
 			return
 
 	//From here we can start cooking food
-	add_content(I, user)
+	add_content(attacking_item, user)
 	update_icon()
 
 
@@ -232,7 +236,8 @@
 		I.forceMove(src)
 		cooking_objs.Add(CI)
 		if (CC.check_contents() == CONTAINER_EMPTY)//If we're just putting an empty container in, then dont start any processing.
-			user.visible_message("<b>[user]</b> puts [I] into [src].")
+			user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].")
+			playsound(src, I.drop_sound, DROP_SOUND_VOLUME)
 			return
 	else
 		if (CI && istype(CI))
@@ -245,7 +250,8 @@
 		CI.combine_target = selected_option
 
 	// We can actually start cooking now.
-	user.visible_message("<b>[user]</b> puts [I] into [src].")
+	user.visible_message("<b>[user]</b> puts [I] [place_verb] [src].")
+	playsound(src, I.drop_sound, DROP_SOUND_VOLUME)
 	if(selected_option || length(CI.container.contents) || select_recipe(CI.container || src, appliance = CI.container.appliancetype)) // we're doing combo cooking, we're not just heating reagents, OR we have a valid reagent-only recipe
 		// this is to stop reagents from burning when you're heating stuff
 		get_cooking_work(CI)

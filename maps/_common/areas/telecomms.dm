@@ -15,6 +15,7 @@
 /area/tcommsat/chamber
 	name = "Telecoms Central Compartment"
 	icon_state = "tcomsatcham"
+	area_blurb = "Countless machines sit here, an unfathomably complicated network that runs every radio and computer connection. The air lacks any notable scent, having been filtered of dust and pollutants before being allowed into the room and all the sensitive machinery."
 
 /area/turret_protected/tcomsat
 	name = "Telecoms Exterior"

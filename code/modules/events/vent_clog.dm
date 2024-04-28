@@ -11,10 +11,10 @@
 		/singleton/reagent/spacecleaner = 6,
 		/singleton/reagent/nutriment = 6,
 		/singleton/reagent/capsaicin/condensed = 2,
-		/singleton/reagent/mindbreaker = 0.5,
+		/singleton/reagent/drugs/mindbreaker = 0.5,
 		/singleton/reagent/lube = 4,
 		/singleton/reagent/drink/banana = 3,
-		/singleton/reagent/space_drugs = 3,
+		/singleton/reagent/drugs/mms = 3,
 		/singleton/reagent/water/holywater = 1,
 		/singleton/reagent/drink/hot_coco = 3,
 		/singleton/reagent/hyperzine = 0.75,
@@ -30,7 +30,7 @@
 		/singleton/reagent/stone_dust = 0.5,
 		/singleton/reagent/crayon_dust = 1,
 		/singleton/reagent/alcohol/butanol = 2,
-		/singleton/reagent/alcohol = 2,
+		/singleton/reagent/alcohol/ethanol = 2,
 		/singleton/reagent/sugar = 2,
 		/singleton/reagent/drink/coffee = 4,
 		/singleton/reagent/wulumunusha = 0.25,
@@ -38,12 +38,12 @@
 		/singleton/reagent/sodiumchloride = 2,
 		/singleton/reagent/drink/zorasoda/venomgrass = 1,
 		/singleton/reagent/nutriment/protein/egg = 2,
-		/singleton/reagent/serotrotium = 1,
-		/singleton/reagent/psilocybin = 0.5,
+		/singleton/reagent/drugs/serotrotium = 1,
+		/singleton/reagent/drugs/psilocybin = 0.5,
 		/singleton/reagent/toxin/spectrocybin = 0.1,
-		/singleton/reagent/ambrosia_extract = 0.3,
-		/singleton/reagent/skrell_nootropic = 0.5,
-		/singleton/reagent/xuxigas = 2
+		/singleton/reagent/drugs/ambrosia_extract = 0.3,
+		/singleton/reagent/drugs/skrell_nootropic = 0.5,
+		/singleton/reagent/drugs/xuxigas = 2
 	)
 
 /datum/event/vent_clog/setup()

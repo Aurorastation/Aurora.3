@@ -10,7 +10,7 @@
 	Golden Deep who find themselves in human space are known as 'affiliates', and find themselves ostracized and cut off from the \
 	Frontier collective. Due to their peerless skill in business and clerical duties, affiliates share warm relations with NanoTrasen and \
 	find themselves the target of job opportunities in exchange for citizenship."
-	consular_outfit = /datum/outfit/job/representative/consular/golden
+	consular_outfit = /obj/outfit/job/representative/consular/golden
 
 	job_species_blacklist = list(
 		"Consular Officer" = list(
@@ -28,13 +28,29 @@
 			SPECIES_VAURCA_WARRIOR,
 			SPECIES_VAURCA_BULWARK,
 			SPECIES_VAURCA_BREEDER
+		),
+		"Diplomatic Aide" = list(
+			SPECIES_HUMAN,
+			SPECIES_HUMAN_OFFWORLD,
+			SPECIES_DIONA,
+			SPECIES_DIONA_COEUS,
+			SPECIES_SKRELL,
+			SPECIES_SKRELL_AXIORI,
+			SPECIES_TAJARA,
+			SPECIES_TAJARA_MSAI,
+			SPECIES_TAJARA_ZHAN,
+			SPECIES_UNATHI,
+			SPECIES_VAURCA_WORKER,
+			SPECIES_VAURCA_WARRIOR,
+			SPECIES_VAURCA_BULWARK,
+			SPECIES_VAURCA_BREEDER
 		)
 	)
 
-/datum/outfit/job/representative/consular/golden
+/obj/outfit/job/representative/consular/golden
 	name = "Golden Deep Consular Officer"
 
-	uniform = /obj/item/clothing/under/suit_jacket/burgundy
+	uniform = /obj/item/clothing/under/goldendeep/suit
 	backpack_contents = list(
-		/obj/item/gun/energy/pistol = 1
+		/obj/item/gun/energy/pistol/goldendeep = 1
 	)

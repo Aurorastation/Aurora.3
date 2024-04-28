@@ -8,9 +8,9 @@
 	density = FALSE
 	anchored = TRUE
 	w_class = ITEMSIZE_NORMAL
-	layer = UNDER_PIPE_LAYER //under pipes
+	layer = LATTICE_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
-	smooth = SMOOTH_MORE
+	smoothing_flags = SMOOTH_MORE
 	canSmoothWith = list(
 		/obj/structure/lattice,
 		/turf/simulated/wall,
@@ -49,19 +49,19 @@
 			qdel(src)
 	return
 
-/obj/structure/lattice/attackby(obj/item/C, mob/user)
-	if (istype(C, /obj/item/stack/tile/floor))
+/obj/structure/lattice/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/stack/tile/floor))
 		var/turf/T = get_turf(src)
-		T.attackby(C, user) //BubbleWrap - hand this off to the underlying turf instead
+		T.attackby(attacking_item, user) //BubbleWrap - hand this off to the underlying turf instead
 		return
-	if (C.iswelder())
-		var/obj/item/weldingtool/WT = C
+	if (attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
 			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
-	if (istype(C, /obj/item/stack/rods))
-		var/obj/item/stack/rods/R = C
+	if (istype(attacking_item, /obj/item/stack/rods))
+		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(2))
 			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
@@ -74,7 +74,7 @@
 	desc = "A catwalk for easier EVA maneuvering."
 	icon = 'icons/obj/smooth/catwalk.dmi'
 	icon_state = "catwalk"
-	smooth = SMOOTH_TRUE
+	smoothing_flags = SMOOTH_TRUE
 	canSmoothWith = list(
 		/obj/structure/lattice/catwalk,
 		/obj/structure/lattice/catwalk/indoor
@@ -85,28 +85,28 @@
 /obj/structure/lattice/catwalk/indoor
 	desc = "A floor-mounted catwalk designed to protect pipes & station wiring from passing feet."
 	can_be_unanchored = TRUE
-	layer = 2.7	// Above wires.
+	layer = CATWALK_LAYER
 
-/obj/structure/lattice/catwalk/attackby(obj/item/C, mob/user)
-	if(C.iswelder())
-		var/obj/item/weldingtool/WT = C
+/obj/structure/lattice/catwalk/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(1, user))
 			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 			return
-		if(C.use_tool(src, user, 5, volume = 50))
+		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			to_chat(user, SPAN_NOTICE("You slice apart [src]."))
 			var/obj/item/stack/rods/R = new /obj/item/stack/rods(get_turf(src))
 			R.amount = return_amount
 			R.update_icon()
 			qdel(src)
 
-/obj/structure/lattice/catwalk/indoor/attackby(obj/item/C, mob/user)
-	if(C.isscrewdriver())
-		if(C.use_tool(src, user, 5, volume = 50))
+/obj/structure/lattice/catwalk/indoor/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
+		if(attacking_item.use_tool(src, user, 5, volume = 50))
 			anchored = !anchored
 			to_chat(user, SPAN_NOTICE("You [anchored ? "" : "un"]anchor [src]."))
-			queue_smooth(src)
-			queue_smooth_neighbors(src)
+			SSicon_smooth.add_to_queue(src)
+			SSicon_smooth.add_to_queue_neighbors(src)
 	else
 		..()
 
@@ -122,15 +122,15 @@
 	icon = 'icons/obj/grate.dmi'
 	icon_state = "grate"
 	return_amount = 1
-	smooth = null
+	smoothing_flags = null
 	color = COLOR_TILED
 	var/base_icon_state = "grate"
 	var/damaged = FALSE
 
-/obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/C, mob/user)
-	if(C.iswelder() && damaged)
-		var/obj/item/weldingtool/WT = C
-		if(C.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
+/obj/structure/lattice/catwalk/indoor/grate/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder() && damaged)
+		var/obj/item/weldingtool/WT = attacking_item
+		if(attacking_item.use_tool(src, user, 5, volume = 50) && WT.use(1, user))
 			user.visible_message(
 				SPAN_NOTICE("\The [user] slices apart \the [src], leaving nothing useful behind."),
 				SPAN_NOTICE("You slice apart \the [src], leaving nothing useful behind."),
@@ -169,7 +169,7 @@
 	icon_state = "grate_light"
 	base_icon_state = "grate_light"
 	return_amount = 1
-	color = COLOR_GUNMETAL
+	color = COLOR_GRAY50
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old/Initialize()
 	. = ..()
@@ -185,3 +185,44 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/dark
 	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/gunmetal
+	color = COLOR_DARK_GUNMETAL
+
+/obj/structure/lattice/catwalk/indoor/grate/slate
+	color = COLOR_SLATE
+
+/obj/structure/lattice/catwalk/indoor/urban
+	name = "grate"
+	desc = "A metal grate."
+	icon = 'icons/obj/structure/over_turf.dmi'
+	icon_state = "city_grate"
+	return_amount = 1
+	smoothing_flags = null
+
+/obj/structure/lattice/catwalk/indoor/tatami
+	name = "tatami spread"
+	desc = "A straw mat rug of some sort, frequently referred to as a tatami."
+	icon = 'icons/obj/structure/over_turf.dmi'
+	icon_state = "tatami"
+	return_amount = null
+	smoothing_flags = null
+	footstep_sound = /singleton/sound_category/carpet_footstep
+
+/obj/structure/lattice/catwalk/indoor/planks
+	name = "flooring plank"
+	desc = "A ricket assortment of planks meant to be stood upon."
+	icon = 'icons/obj/structure/urban/wood.dmi'
+	icon_state = "plank"
+	return_amount = null
+	smoothing_flags = null
+	footstep_sound = /singleton/sound_category/wood_footstep
+
+/obj/structure/lattice/catwalk/indoor/planks/opaque
+	icon_state = "plank_dark"
+
+/obj/structure/lattice/catwalk/indoor/planks/stairs
+	icon_state = "plank_stairs"
+
+/obj/structure/lattice/catwalk/indoor/planks/deep
+	icon_state = "plank_deep"

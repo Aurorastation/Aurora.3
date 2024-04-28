@@ -9,10 +9,10 @@
 	w_class = ITEMSIZE_LARGE
 	var/max_fuel = 60
 
-/obj/item/bee_smoker/examine(mob/user)
-	..()
-	if(user.Adjacent(src))
-		to_chat(user, SPAN_NOTICE("It has <b>[get_fuel()]/[max_fuel]</b> welding fuel left."))
+/obj/item/bee_smoker/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
+		. += SPAN_NOTICE("It has <b>[get_fuel()]/[max_fuel]</b> welding fuel left.")
 
 /obj/item/bee_smoker/Initialize()
 	. = ..()

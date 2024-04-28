@@ -111,17 +111,17 @@
 	else
 		user << browse(null,"window=eftpos")
 
-/obj/item/device/eftpos/attackby(var/obj/item/O, var/mob/user)
+/obj/item/device/eftpos/attackby(obj/item/attacking_item, mob/user)
 
-	var/obj/item/card/id/I = O.GetID()
+	var/obj/item/card/id/I = attacking_item.GetID()
 
 	if(I)
 		if(linked_account)
-			scan_card(I, O)
+			scan_card(I, attacking_item)
 		else
 			to_chat(user, "[icon2html(src, user)]<span class='warning'>Unable to connect to linked account.</span>")
-	else if (istype(O, /obj/item/spacecash/ewallet))
-		var/obj/item/spacecash/ewallet/E = O
+	else if (istype(attacking_item, /obj/item/spacecash/ewallet))
+		var/obj/item/spacecash/ewallet/E = attacking_item
 		if (linked_account)
 			if(!linked_account.suspended)
 				if(transaction_locked && !transaction_paid)
@@ -144,7 +144,7 @@
 						T.time = worldtime2text()
 						SSeconomy.add_transaction_log(linked_account,T)
 					else
-						to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [O] doesn't have that much money!</span>")
+						to_chat(user, "[icon2html(src, user)]<span class='warning'>\The [attacking_item] doesn't have that much money!</span>")
 			else
 				to_chat(user, "[icon2html(src, user)]<span class='warning'>Connected account has been suspended.</span>")
 		else
@@ -220,7 +220,7 @@
 				var/obj/item/I = usr.get_active_hand()
 				if (istype(I, /obj/item/card))
 					var/obj/item/card/id/C = I
-					if((access_cent_ccia in C.access) || (access_hop in C.access) || (access_captain in C.access))
+					if((ACCESS_CENT_CCIA in C.access) || (ACCESS_HOP in C.access) || (ACCESS_CAPTAIN in C.access))
 						access_code = 0
 						to_chat(usr, "[icon2html(src, usr)]<span class='info'>Access code reset to 0.</span>")
 				else if (istype(I, /obj/item/card/emag))

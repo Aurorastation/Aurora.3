@@ -115,30 +115,30 @@
 	if (!user)
 		return
 
-	if (user.byond_version < config.client_warn_version)
+	if (user.byond_version < GLOB.config.client_warn_version)
 		var/version_warn = ""
 		version_warn += "<b>Your version of BYOND may be out of date!</b><br>"
-		version_warn += config.client_warn_message
+		version_warn += GLOB.config.client_warn_message
 		version_warn += "Your version: [user.byond_version].<br>"
-		version_warn += "Required version to remove this message: [config.client_warn_version] or later.<br>"
+		version_warn += "Required version to remove this message: [GLOB.config.client_warn_version] or later.<br>"
 		version_warn += "Visit http://www.byond.com/download/ to get the latest version of BYOND."
 
 		new_notification("danger", version_warn)
 
-	if (custom_event_msg && custom_event_msg != "")
+	if (GLOB.custom_event_msg && GLOB.custom_event_msg != "")
 		var/custom_event_warn = "<b><center>A custom event is taking place!</center></b><br>"
-		custom_event_warn += "<b>OOC Info:</b><br>[custom_event_msg]"
+		custom_event_warn += "<b>OOC Info:</b><br>[GLOB.custom_event_msg]"
 
 		new_notification("danger", custom_event_warn)
 
-	if (lastchangelog != changelog_hash)
+	if (lastchangelog != GLOB.changelog_hash)
 		winset(user, "rpane.changelog", "background-color=#eaeaea;font-style=bold")
-		if (config.aggressive_changelog)
+		if (GLOB.config.aggressive_changelog)
 			new_notification("info", "You have unread updates in the changelog.", callback_src = user, callback_proc = "changes")
 		else
 			new_notification("info", "You have unread updates in the changelog.")
 
-	if (config.sql_enabled)
+	if (GLOB.config.sql_enabled)
 
 		var/list/warnings = user.warnings_gather()
 		if (warnings["unread"])
@@ -160,11 +160,11 @@
 	if(!user)
 		return null
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Error initiatlizing database connection while getting notifications.")
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery({"SELECT
+	var/DBQuery/query = GLOB.dbcon.NewQuery({"SELECT
 		message, type, id
 		FROM ss13_player_notifications
 		WHERE acked_at IS NULL AND ckey = :ckey:
@@ -187,17 +187,17 @@
 				panel_notification=1
 				notification_count++
 			if("admin")
-				discord_bot.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
-				post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
+				SSdiscord.send_to_admins("Server Notification for [user.ckey]: [query.item[1]]")
+				SSdiscord.post_webhook_event(WEBHOOK_ADMIN, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immediately ack the notification
 				autoack=1
 			if("ccia")
-				discord_bot.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
-				post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
+				SSdiscord.send_to_cciaa("Server Notification for [user.ckey]: [query.item[1]]")
+				SSdiscord.post_webhook_event(WEBHOOK_CCIAA_EMERGENCY_MESSAGE, list("title"="Server Notification for: [user.ckey]", "message"="Server Notification Triggered for [user.ckey]: [query.item[1]]"))
 				//Immeidately ack the notification
 				autoack=1
 		if(autoack)
-			var/DBQuery/ackquery = dbcon.NewQuery({"UPDATE ss13_player_notifications
+			var/DBQuery/ackquery = GLOB.dbcon.NewQuery({"UPDATE ss13_player_notifications
 				SET acked_by = 'autoack-server', acked_at = NOW()
 				WHERE id = :id:
 			"})
@@ -214,11 +214,11 @@
 	if (!user)
 		return null
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Error initiatlizing database connection while counting CCIA actions.")
 		return null
 
-	var/DBQuery/prep_query = dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")
+	var/DBQuery/prep_query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_characters WHERE ckey = :ckey:")
 	prep_query.Execute(list("ckey" = user.ckey))
 	var/list/chars = list()
 
@@ -228,7 +228,7 @@
 	if (!chars.len)
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery({"SELECT
+	var/DBQuery/query = GLOB.dbcon.NewQuery({"SELECT
 		COUNT(act_chr.action_id) AS action_count
 	FROM ss13_ccia_action_char act_chr
 	JOIN ss13_characters chr ON act_chr.char_id = chr.id

@@ -27,7 +27,7 @@
 /singleton/reagent/copper
 	value = 0.02
 
-/singleton/reagent/alcohol
+/singleton/reagent/alcohol/ethanol
 	value = 0.01
 
 /singleton/reagent/alcohol/butanol
@@ -134,6 +134,42 @@
 
 /singleton/reagent/drink/milkshake
 	value = 0.12
+
+/singleton/reagent/drink/ntella_milkshake
+	value = 0.14
+
+/singleton/reagent/drink/shake_caramel
+	value = 0.13
+
+/singleton/reagent/drink/shake_strawberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_dirtberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_blueberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_chocolate
+	value = 0.13
+
+/singleton/reagent/drink/shake_blue_raspberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_raspberry
+	value = 0.13
+
+/singleton/reagent/drink/shake_berry
+	value = 0.13
+
+/singleton/reagent/drink/shake_ylpha
+	value = 0.13
+
+/singleton/reagent/drink/shake_choco_mint
+	value = 0.13
+
+/singleton/reagent/drink/ntella_hot_chocolate
+	value = 0.13
 
 /singleton/reagent/drink/rewriter
 	value = 0.11
@@ -765,22 +801,22 @@
 /singleton/reagent/polysomnine/beer2
 	value = 2.2
 
-/singleton/reagent/space_drugs
+/singleton/reagent/drugs/mms
 	value = 2.8
 
-/singleton/reagent/serotrotium
+/singleton/reagent/drugs/serotrotium
 	value = 2.5
 
-/singleton/reagent/cryptobiolin
+/singleton/reagent/drugs/cryptobiolin
 	value = 2
 
-/singleton/reagent/impedrezene
+/singleton/reagent/drugs/impedrezene
 	value = 1.8
 
-/singleton/reagent/mindbreaker
+/singleton/reagent/drugs/mindbreaker
 	value = 0.6
 
-/singleton/reagent/psilocybin
+/singleton/reagent/drugs/psilocybin
 	value = 0.7
 
 /singleton/reagent/aslimetoxin
@@ -813,5 +849,5 @@
 /singleton/reagent/toxin/undead
 	value = 300
 
-/singleton/reagent/ambrosia_extract
+/singleton/reagent/drugs/ambrosia_extract
 	value = 2.8

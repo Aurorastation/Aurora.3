@@ -12,13 +12,16 @@
 /obj/item/stack
 	gender = PLURAL
 	origin_tech = list(TECH_MATERIAL = 1)
-	flags = HELDMAPTEXT
+	item_flags = ITEM_FLAG_HELD_MAP_TEXT
 	var/list/datum/stack_recipe/recipes
 	var/singular_name
 	var/amount = 1
 	var/max_amount //also see stack recipes initialisation, param "max_res_amount" must be equal to this max_amount
 	var/stacktype //determines whether different stack types can merge
-	var/build_type = null //used when directly applied to a turf
+
+	///Used when directly applied to a turf to behave as a different `/obj/item/stack/tile` than it's actual type
+	var/obj/item/stack/tile/build_type = null
+
 	var/uses_charge = 0
 	var/list/charge_costs = null
 	var/list/datum/matter_synth/synths = null
@@ -52,6 +55,7 @@
 /obj/item/stack/Destroy()
 	if (src && usr && usr.machine == src)
 		usr << browse(null, "window=stack")
+		usr.unset_machine()
 	return ..()
 
 /obj/item/stack/update_icon()
@@ -67,13 +71,14 @@
 	else
 		icon_state = "[initial(icon_state)]_3"
 
-/obj/item/stack/examine(mob/user)
-	if(..(user, 1))
+/obj/item/stack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
 		if(!iscoil())
 			if(!uses_charge)
-				to_chat(user, "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack.")
+				. += "There [src.amount == 1 ? "is" : "are"] <b>[src.amount]</b> [src.singular_name]\s in the stack."
 			else
-				to_chat(user, "You have enough charge to produce <b>[get_amount()]</b>.")
+				. += "You have enough charge to produce <b>[get_amount()]</b>."
 
 /obj/item/stack/attack_self(mob/user)
 	list_recipes(user, recipes)
@@ -158,7 +163,7 @@
 
 	to_chat(user, SPAN_NOTICE("Building [recipe.title]..."))
 	if (recipe.time)
-		if (!do_after(user, recipe.time))
+		if (!do_after(user, recipe.time, do_flags = DO_REPAIR_CONSTRUCT))
 			return
 
 	if (use(required))
@@ -334,9 +339,9 @@
 		..()
 	return
 
-/obj/item/stack/attackby(obj/item/W as obj, mob/user as mob)
-	if (istype(W, /obj/item/stack))
-		var/obj/item/stack/S = W
+/obj/item/stack/attackby(obj/item/attacking_item, mob/user)
+	if (istype(attacking_item, /obj/item/stack))
+		var/obj/item/stack/S = attacking_item
 		if (user.get_inactive_hand()==src)
 			src.transfer_to(S, 1)
 		else

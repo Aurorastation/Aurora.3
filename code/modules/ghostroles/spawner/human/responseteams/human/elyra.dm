@@ -5,7 +5,7 @@
 	welcome_message = "You're a member of the Elyran Navy. While on patrol, your ship received a distress signal and you were sent to investigate. Obey the orders of your commander."
 	max_count = 3
 	mob_name_prefix = "Cm. "
-	outfit = /datum/outfit/admin/ert/elyran_trooper
+	outfit = /obj/outfit/admin/ert/elyran_trooper
 	possible_species = list(SPECIES_HUMAN)
 
 	extra_languages = list(LANGUAGE_ELYRAN_STANDARD)
@@ -17,7 +17,7 @@
 	welcome_message = "You're an officer of the Elyran Navy. While on patrol, your ship received a distress signal and you were sent to investigate. Lead your team."
 	mob_name_prefix = "Ens. "
 	max_count = 1
-	outfit = /datum/outfit/admin/ert/elyran_trooper/leader
+	outfit = /obj/outfit/admin/ert/elyran_trooper/leader
 
 /datum/ghostspawner/human/ert/elyra/engineer
 	short_name = "elyra_engtrooper"
@@ -25,7 +25,7 @@
 	desc = "The engineering trooper of the Elyran Navy team."
 	mob_name_prefix = "PO3. "
 	max_count = 1
-	outfit = /datum/outfit/admin/ert/elyran_trooper/engineer
+	outfit = /obj/outfit/admin/ert/elyran_trooper/engineer
 
 /datum/ghostspawner/human/ert/elyra/heavy
 	short_name = "elyra_heavy"
@@ -33,7 +33,7 @@
 	desc = "The heavy trooper of the Elyran Navy team."
 	mob_name_prefix = "PO3. "
 	max_count = 1
-	outfit = /datum/outfit/admin/ert/elyran_trooper/heavy
+	outfit = /obj/outfit/admin/ert/elyran_trooper/heavy
 
 /datum/ghostspawner/human/ert/elyra/medical
 	short_name = "elyra_medtrooper"
@@ -41,4 +41,4 @@
 	desc = "The medical trooper of the Elyran Navy team."
 	mob_name_prefix = "PO3. "
 	max_count = 1
-	outfit = /datum/outfit/admin/ert/elyran_trooper/medical
+	outfit = /obj/outfit/admin/ert/elyran_trooper/medical

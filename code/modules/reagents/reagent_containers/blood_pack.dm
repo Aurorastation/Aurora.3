@@ -1,6 +1,6 @@
 /obj/item/storage/box/bloodpacks
-	name = "blood packs bags"
-	desc = "This box contains blood packs."
+	name = "\improper IV bags"
+	desc = "This box contains IV bags."
 	illustration = "blood"
 
 /obj/item/storage/box/bloodpacks/fill()
@@ -14,7 +14,7 @@
 	new /obj/item/reagent_containers/blood/empty(src)
 
 /obj/item/reagent_containers/blood
-	name = "blood pack"
+	name = "\improper IV bag"
 	desc = "Contains fluids used for transfusions."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "bloodpack"
@@ -24,7 +24,7 @@
 
 	amount_per_transfer_from_this = 0.2
 	possible_transfer_amounts = list(0.2, 1, 2, 3, 4)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 
 	var/datum/weakref/attached_mob
 
@@ -37,7 +37,7 @@
 /obj/item/reagent_containers/blood/Initialize()
 	. = ..()
 	if(blood_type != null)
-		name = "blood pack [blood_type]"
+		name = "\improper IV bag - [blood_type] blood"
 		reagents.add_reagent(/singleton/reagent/blood, volume, list("donor"=null,"blood_DNA"=null,"blood_type"=blood_type,"trace_chem"=null,"dose_chem"=null))
 		w_class = ITEMSIZE_NORMAL
 		update_icon()
@@ -80,7 +80,7 @@
 				LAZYADD(src.other_DNA, M.dna.unique_enzymes)
 				src.other_DNA_type = "saliva"
 
-			while (do_after(user, 25, 5, 1))
+			while (do_after(user, 25, 5))
 				var/blood_taken = 0
 				blood_taken = min(5, REAGENT_VOLUME(reagents, /singleton/reagent/blood)/4)
 
@@ -155,18 +155,18 @@
 		attached_mob = null
 	STOP_PROCESSING(SSprocessing, src)
 
-/obj/item/reagent_containers/blood/examine(mob/user, distance = 2)
-	if (..() && vampire_marks)
-		to_chat(user, SPAN_WARNING("There are teeth marks on it."))
-	return
+/obj/item/reagent_containers/blood/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if (distance <= 2 && vampire_marks)
+		. += SPAN_WARNING("There are sharp, canine-like teeth marks on it.")
 
-/obj/item/reagent_containers/blood/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/attackby(obj/item/attacking_item, mob/user)
 	..()
-	if (P.ispen())
-		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty blood pack") //Stops people mucking with bloodpacks that are filled
+	if (attacking_item.ispen())
+		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood) && name != "empty IV bag") //Stops people mucking with bloodpacks that are filled
 			to_chat(user, SPAN_NOTICE("You can't relabel [name] until it is empty!"))
 			return
-		var/blood_name = input(user, "What blood type would you like to label it as?", "Blood Types") in list("A+", "A-", "B+", "B-", "O+", "O-", "AB+", "AB-", "Saline Plus", "Clear", "Cancel")
+		var/blood_name = tgui_input_list(user, "What would you like to label the IV bag?", "Label Selection",  list("A+ blood", "A- blood", "B+ blood", "B- blood", "O+ blood", "O- blood", "AB+ blood", "AB- blood", "Saline Plus", "Cryonics mixture", "Other mixture", "Clear", "Cancel"))
 		if(blood_name == "Cancel")
 			return
 		var/obj/item/i = user.get_active_hand()
@@ -176,20 +176,20 @@
 			blood_type = null
 			name = initial(name)
 			desc = initial(desc)
-			to_chat(user, SPAN_NOTICE("You clear the blood pack label."))
+			to_chat(user, SPAN_NOTICE("You clear the IV bag label."))
 			update_icon()
 			return
 		blood_type = blood_name
-		name = "blood pack [blood_type]"
+		name = "\improper IV bag - [blood_type]"
 		desc = "Contains fluids used for transfusions."
-		to_chat(user, SPAN_NOTICE("You label the blood pack as [blood_type]."))
+		to_chat(user, SPAN_NOTICE("You label the IV bag as [blood_type]."))
 		update_icon()
 		return
 
-	if (istype(P, /obj/item/) && P.sharp == 1)
+	if (istype(attacking_item, /obj/item/) && attacking_item.sharp == 1)
 		var/mob/living/carbon/human/H = usr
-		if(LAZYLEN(P.attack_verb))
-			user.visible_message(SPAN_DANGER("[src] has been [pick(P.attack_verb)] with \the [P] by [user]!"))
+		if(LAZYLEN(attacking_item.attack_verb))
+			user.visible_message(SPAN_DANGER("[src] has been [pick(attacking_item.attack_verb)] with \the [attacking_item] by [user]!"))
 		var/atkmsg_filled = null
 		if (REAGENT_VOLUME(reagents, /singleton/reagent/blood))
 			atkmsg_filled = " and the contents spray everywhere"
@@ -202,7 +202,7 @@
 					if(51 to INFINITY)	strength = 4
 				for (var/j = 0, j < strength - 1, j++) //The number of separate splatters
 					spray_loop:
-						var/direction = pick(alldirs)
+						var/direction = pick(GLOB.alldirs)
 						var/target
 						for (var/i = 1, i < strength, i++) //The distance the splatters will travel from random direction
 							switch (direction)
@@ -269,17 +269,17 @@
 	blood_type = "O-"
 
 /obj/item/reagent_containers/blood/empty
-	name = "empty blood pack"
+	name = "empty IV bag"
 	desc = "Seems pretty useless... Maybe if there were a way to fill it?"
 	icon_state = "bloodpack"
 
 /obj/item/reagent_containers/blood/ripped
-	name = "ripped blood pack"
+	name = "ripped IV bag"
 	desc = "It's torn up and useless."
 	icon = 'icons/obj/bloodpack.dmi'
 	icon_state = "ripped"
 	volume = 0
 
-/obj/item/reagent_containers/blood/ripped/attackby(obj/item/P as obj, mob/user as mob)
+/obj/item/reagent_containers/blood/ripped/attackby(obj/item/attacking_item, mob/user)
 	to_chat(user, SPAN_WARNING("You can't do anything further with this."))
 	return

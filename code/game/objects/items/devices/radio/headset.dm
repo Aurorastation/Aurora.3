@@ -3,7 +3,7 @@
 	desc = "An updated, modular intercom that fits over the head. Takes encryption keys."
 	icon_state = "headset"
 	item_state = "headset"
-	matter = list(DEFAULT_WALL_MATERIAL = 75)
+	matter = list(MATERIAL_ALUMINIUM = 75)
 	subspace_transmission = TRUE
 	canhear_range = 0 // can't hear headsets from very far away
 
@@ -56,12 +56,14 @@
 /obj/item/device/radio/headset/list_channels(var/mob/user)
 	return list_secure_channels()
 
-/obj/item/device/radio/headset/examine(mob/user)
-	if(!(..(user, 1) && radio_desc))
+/obj/item/device/radio/headset/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+
+	if(!(is_adjacent && radio_desc))
 		return
 
-	to_chat(user, "The following channels are available:")
-	to_chat(user, radio_desc)
+	. += "The following channels are available:"
+	. += radio_desc
 
 /obj/item/device/radio/headset/setupRadioDescription()
 	if(translate_binary || translate_hivenet)
@@ -72,10 +74,10 @@
 /obj/item/device/radio/headset/handle_message_mode(mob/living/M, message, channel)
 	if(channel == "special")
 		if(translate_binary)
-			var/datum/language/binary = all_languages[LANGUAGE_ROBOT]
+			var/datum/language/binary = GLOB.all_languages[LANGUAGE_ROBOT]
 			binary.broadcast(M, message)
 		if(translate_hivenet)
-			var/datum/language/bug = all_languages[LANGUAGE_VAURCA]
+			var/datum/language/bug = GLOB.all_languages[LANGUAGE_VAURCA]
 			bug.broadcast(M, message)
 		return null
 
@@ -104,8 +106,8 @@
 
 	..()
 
-/obj/item/device/radio/headset/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/device/radio/headset/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		if(keyslot1 || keyslot2)
 			for(var/ch_name in channels)
 				SSradio.remove_object(src, radiochannels[ch_name])
@@ -128,17 +130,17 @@
 		else
 			to_chat(user, SPAN_WARNING("This headset doesn't have any encryption keys!"))
 
-	else if(istype(W, /obj/item/device/encryptionkey))
+	else if(istype(attacking_item, /obj/item/device/encryptionkey))
 		if(keyslot1 && keyslot2)
 			to_chat(user, SPAN_WARNING("The headset can't hold another key!"))
 			return
 
 		if(!keyslot1)
-			user.drop_from_inventory(W, src)
-			keyslot1 = W
+			user.drop_from_inventory(attacking_item, src)
+			keyslot1 = attacking_item
 		else
-			user.drop_from_inventory(W, src)
-			keyslot2 = W
+			user.drop_from_inventory(attacking_item, src)
+			keyslot2 = attacking_item
 
 		recalculateChannels(TRUE)
 
@@ -200,7 +202,7 @@
 	desc_info = "This radio doubles as a pair of earmuffs by providing sound protection."
 	icon_state = "earset"
 	item_state = "earset"
-	item_flags = SOUNDPROTECTION
+	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/wrist
@@ -475,6 +477,28 @@
 	item_state = "wristset_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
+/obj/item/device/radio/headset/headset_xenoarch
+	name = "xenoarchaeology radio headset"
+	desc = "A sciency headset for Xenoarchaeologists."
+	icon_state = "sci_headset"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/headset_xenoarch/alt
+	name = "xenoarchaeology bowman headset"
+	icon_state = "sci_headset_alt"
+
+/obj/item/device/radio/headset/alt/double/xenoarch
+	name = "soundproof xenoarchaeology headset"
+	icon_state = "earset_sci"
+	item_state = "earset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/xenoarch
+	name = "wristbound xenoarchaeology radio"
+	icon_state = "wristset_sci"
+	item_state = "wristset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
 /obj/item/device/radio/headset/headset_rob
 	name = "robotics radio headset"
 	desc = "Made specifically for the roboticists who cannot decide between departments."
@@ -650,7 +674,7 @@
 	icon = 'icons/obj/clothing/ears/earmuffs.dmi'
 	icon_state = "earmuffs"
 	item_state = "earmuffs"
-	item_flags = SOUNDPROTECTION
+	item_flags = ITEM_FLAG_SOUND_PROTECTION
 	slot_flags = SLOT_EARS | SLOT_TWOEARS
 
 /obj/item/device/radio/headset/syndicate
@@ -677,6 +701,12 @@
 	syndie = TRUE
 	ks1type = /obj/item/device/encryptionkey/burglar
 
+/obj/item/device/radio/headset/jockey
+	icon_state = "syn_headset"
+	origin_tech = list(TECH_ILLEGAL = 2)
+	syndie = TRUE
+	ks1type = /obj/item/device/encryptionkey/jockey
+
 /obj/item/device/radio/headset/ninja
 	icon_state = "syn_headset"
 	origin_tech = list(TECH_ILLEGAL = 3)
@@ -700,11 +730,11 @@
 	var/use_common = FALSE
 
 /obj/item/device/radio/headset/ship/Initialize()
-	if(!current_map.use_overmap)
+	if(!SSatlas.current_map.use_overmap)
 		return ..()
 
 	var/turf/T = get_turf(src)
-	var/obj/effect/overmap/visitable/V = map_sectors["[T.z]"]
+	var/obj/effect/overmap/visitable/V = GLOB.map_sectors["[T.z]"]
 	if(istype(V) && V.comms_support)
 		default_frequency = assign_away_freq(V.name)
 		if(V.comms_name)
@@ -714,6 +744,10 @@
 
 	if (use_common)
 		set_frequency(PUB_FREQ)
+
+/obj/item/device/radio/headset/ship/coalition_navy
+	icon_state = "coal_headset"
+	ks1type = /obj/item/device/encryptionkey/ship/coal_navy
 
 /obj/item/device/radio/headset/ship/common
 	use_common = TRUE
@@ -728,6 +762,11 @@
 	desc = "The headset of the boss's boss."
 	icon_state = "com_headset"
 	ks2type = /obj/item/device/encryptionkey/ert
+
+/obj/item/device/radio/headset/ert/alt
+	name = "emergency response team bowman headset"
+	icon_state = "com_headset_alt"
+	item_state = "headset_alt"
 
 /obj/item/device/radio/headset/legion
 	name = "Tau Ceti Foreign Legion radio headset"
@@ -766,9 +805,10 @@
 	var/myAi = null    // Atlantis: Reference back to the AI which has this radio.
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
 
-/obj/item/device/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
-	return ..(input_frequency, level, !disabledAi)
-
 /obj/item/device/radio/headset/heads/ai_integrated/Destroy()
 	myAi = null
-	return ..()
+	. = ..()
+	GC_TEMPORARY_HARDDEL
+
+/obj/item/device/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
+	return ..(input_frequency, level, !disabledAi)

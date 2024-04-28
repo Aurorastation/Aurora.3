@@ -68,7 +68,7 @@
 
 /singleton/surgery_step/generic/alter_face/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
+	if(head.disfigured || (target.mutations & HUSK))
 		head.disfigured = FALSE
 		target.mutations &= ~HUSK
 		target.update_body()
@@ -81,7 +81,7 @@
 		target.dna.real_name = getName
 		if(target.mind)
 			target.mind.name = target.name
-		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = default_state, state_object = target)
+		target.change_appearance(APPEARANCE_PLASTICSURGERY &~ APPEARANCE_PROSTHETICS, user, TRUE, ui_state = GLOB.default_state, state_object = target)
 		target.op_stage.face = FACE_ALTERED
 
 
@@ -215,12 +215,12 @@
 
 /singleton/surgery_step/robotics/face/alter_synthface/end_step(mob/living/user, mob/living/carbon/human/target, target_zone, obj/item/tool)
 	var/obj/item/organ/external/head/head = target.get_organ(target_zone)
-	if(head.disfigured || HAS_FLAG(target.mutations, HUSK))
+	if(head.disfigured || (target.mutations & HUSK))
 		head.disfigured = FALSE
 		target.mutations &= ~HUSK
 		target.update_body()
 		user.visible_message("<b>[user]</b> finishes adjusting [target]'s synthetic face.", \
-							 SPAN_NOTICE("You successfully adjust [target]'s appearance."))
+								SPAN_NOTICE("You successfully adjust [target]'s appearance."))
 
 	var/getName = sanitize(input(user, "What is your patient's new identity?", "Name change") as null|text, MAX_NAME_LEN)
 	if(getName)
@@ -229,7 +229,7 @@
 		target.dna.real_name = getName
 		if(target.mind)
 			target.mind.name = target.name
-		target.change_appearance(APPEARANCE_PLASTICSURGERY, user, TRUE, ui_state = default_state, state_object = target)
+		target.change_appearance(APPEARANCE_PLASTICSURGERY &~ APPEARANCE_PROSTHETICS, user, TRUE, ui_state = GLOB.default_state, state_object = target)
 		target.op_stage.face = FACE_ALTERED
 
 

@@ -1,4 +1,4 @@
-/mob/living/simple_animal/hostile/spider_queen
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen
 	name = "colossal greimorian"
 	desc = "A monstrous six-legged Greimorian."
 	desc_extended = "Greimorians are a species of arthropods whose evolutionary traits have made them an extremely dangerous invasive species.  \
@@ -13,7 +13,6 @@
 	emote_hear = list("chitters")
 	speak_chance = 5
 	turns_per_move = 5
-	see_in_dark = 10
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	meat_type = /obj/item/reagent_containers/food/snacks/xenomeat
 	organ_names = list("thorax", "legs", "head")
@@ -23,8 +22,8 @@
 	blood_type = "#51C404"
 	blood_overlay_icon = null
 	stop_automated_movement_when_pulled = 0
-	maxHealth = 1100
-	health = 1100
+	maxHealth = 1000
+	health = 1000
 	melee_damage_lower = 35
 	melee_damage_upper = 40
 	armor_penetration = 30
@@ -32,6 +31,13 @@
 	heat_damage_per_tick = 20
 	cold_damage_per_tick = 20
 	faction = "spiders"
+	fed = 3
+
+	minbodytemp = 0
+	maxbodytemp = 350
+	min_oxy = 0
+	max_co2 = 0
+	max_tox = 0
 
 	mob_swap_flags = HUMAN|SIMPLE_ANIMAL|SLIME|MONKEY
 	mob_push_flags = ALLMOBS
@@ -41,7 +47,7 @@
 
 	pass_flags = PASSTABLE|PASSRAILING
 	move_to_delay = 6
-	speed = 1
+	speed = -1
 	mob_size = 15
 	environment_smash = 2
 
@@ -55,18 +61,19 @@
 
 	var/hovering = FALSE
 
-/mob/living/simple_animal/hostile/spider_queen/Initialize()
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Initialize()
 	. = ..()
+
 	add_spell(new /spell/targeted/ceiling_climb, "const_spell_ready")
 
-/mob/living/simple_animal/hostile/spider_queen/update_icon()
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/update_icon()
 	..()
 
 	if(hovering)
 		icon_state = "spider_queen_shadow"
 	else
 		icon_state = initial(icon_state)
-/mob/living/simple_animal/hostile/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/UnarmedAttack(var/atom/A, var/proximity)
 	if(hovering)
 		return
 	..()
@@ -87,8 +94,8 @@
 
 /spell/targeted/ceiling_climb/cast(mob/target,var/mob/living/user as mob)
 	..()
-	if(istype(user, /mob/living/simple_animal/hostile/spider_queen))
-		var/mob/living/simple_animal/hostile/spider_queen/M = user
+	if(istype(user, /mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen))
+		var/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/M = user
 		if(M.hovering)
 			return FALSE
 		M.hovering = TRUE
@@ -96,13 +103,13 @@
 		M.speed = -1
 		M.update_icon()
 		M.pass_flags = PASSTABLE | PASSMOB
-		M.layer = BELOW_MOB_LAYER
+		M.layer = LYING_MOB_LAYER
 		addtimer(CALLBACK(src, PROC_REF(do_landing), M), 1 MINUTE)
 		return TRUE
 	else
 		return FALSE
 
-/spell/targeted/ceiling_climb/proc/do_landing(var/mob/living/simple_animal/hostile/spider_queen/S)
+/spell/targeted/ceiling_climb/proc/do_landing(var/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/S)
 	S.hovering = FALSE
 	S.mouse_opacity = TRUE
 	S.speed = initial(S.speed)
@@ -115,5 +122,9 @@
 		for(var/mob/living/M in target_turf)
 			if(M != src)
 				M.apply_damage(50, DAMAGE_BRUTE)
-				M.apply_effect(6, STUN, blocked)
+				M.apply_effect(6, STUN)
 	return TRUE
+
+/mob/living/simple_animal/hostile/giant_spider/nurse/spider_queen/Life()
+	..()
+	adjustBruteLoss(-3)

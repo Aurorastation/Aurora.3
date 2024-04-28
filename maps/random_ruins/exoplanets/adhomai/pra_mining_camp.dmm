@@ -2,65 +2,49 @@
 "as" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/railing/mapped,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ch" = (
 /obj/structure/table/standard,
 /obj/item/deck/cards,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ct" = (
 /obj/machinery/vending/cola,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "dd" = (
 /obj/structure/plasticflaps,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/machinery/conveyor{
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "dO" = (
 /obj/machinery/mineral/processing_unit_console{
 	pixel_y = 28
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "dP" = (
 /obj/structure/table/steel,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "eJ" = (
 /obj/structure/table/standard,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ft" = (
 /obj/structure/table/standard,
@@ -68,17 +52,13 @@
 	pixel_y = 7
 	},
 /obj/item/storage/toolbox/mechanical,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "gi" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /mob/living/heavy_vehicle/premade/miner,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "gq" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -86,69 +66,52 @@
 	identifier = "adhomai_pra_miner_teslabody";
 	name = "igs -adhomai_pra_miner_teslabody"
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "hd" = (
 /obj/structure/sign/flag/nanotrasen{
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "hQ" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "iI" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_mining_camp)
 "jt" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "jO" = (
 /obj/structure/table/steel,
 /obj/item/gun/custom_ka/frame01/prebuilt,
 /obj/item/gun/custom_ka/frame01/prebuilt,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "lH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/drill,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ml" = (
 /obj/structure/table/standard,
 /obj/machinery/cell_charger,
 /obj/machinery/light,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "om" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -162,93 +125,72 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "on" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "oR" = (
 /obj/structure/sign/flag/nanotrasen{
-	pixel_x = -32
+	pixel_x = -32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "pa" = (
 /obj/structure/bed/stool/bar/padded/red,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "qx" = (
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "qB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mining/brace{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "qO" = (
 /obj/structure/closet/crate,
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "rM" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "um" = (
 /obj/structure/closet/crate/plastic,
 /obj/item/storage/firstaid,
 /obj/item/storage/firstaid,
 /obj/item/storage/firstaid,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "up" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "uN" = (
 /obj/machinery/vending/cigarette,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "vd" = (
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -258,9 +200,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "wx" = (
 /obj/item/device/flashlight/lantern,
@@ -270,9 +210,7 @@
 /obj/item/ore_detector,
 /obj/item/ore_detector,
 /obj/item/ore_detector,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "wW" = (
 /obj/structure/table/steel,
@@ -283,38 +221,29 @@
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
 /obj/item/plastique/seismic,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "yD" = (
 /obj/machinery/door/airlock{
 	name = "Mining Smelter";
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "zx" = (
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Bh" = (
 /obj/structure/table/steel,
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
 /obj/item/storage/belt/mining,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Bx" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -329,32 +258,24 @@
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Cg" = (
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "CC" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Fc" = (
 /turf/simulated/wall/concrete,
 /area/pra_mining_camp)
 "Gq" = (
 /obj/machinery/vending/snack,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Gu" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -362,14 +283,10 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Hg" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Hq" = (
 /obj/machinery/mineral/stacking_machine{
@@ -377,22 +294,18 @@
 	},
 /obj/machinery/conveyor{
 	dir = 8;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Iy" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -403,9 +316,7 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "ID" = (
 /obj/structure/closet/crate,
@@ -413,9 +324,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "JG" = (
 /obj/structure/bed/stool/bar/padded/red,
@@ -423,18 +332,14 @@
 	identifier = "adhomai_pra_miner";
 	name = "igs -adhomai_pra_miner"
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "JZ" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Kl" = (
 /obj/structure/closet/crate/freezer,
@@ -450,15 +355,11 @@
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/item/reagent_containers/food/snacks/liquidfood,
 /obj/item/reagent_containers/food/snacks/liquidfood,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "KR" = (
 /obj/structure/table/standard,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Lo" = (
 /obj/machinery/mineral/processing_unit{
@@ -467,12 +368,9 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Mq" = (
 /obj/structure/closet/crate/freezer,
@@ -483,23 +381,18 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Nf" = (
 /obj/structure/table/steel,
 /obj/item/gun/energy/plasmacutter,
 /obj/item/gun/energy/plasmacutter,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "NA" = (
 /obj/machinery/conveyor{
 	dir = 1;
-	id = "pra_mining_base";
-	layer = 2.9
+	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -513,17 +406,13 @@
 /obj/machinery/mineral/unloading_machine{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "OX" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_mining_camp)
 "PL" = (
 /obj/structure/table/steel,
@@ -535,82 +424,65 @@
 /obj/item/clothing/mask/gas,
 /obj/item/clothing/mask/gas,
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "PT" = (
 /obj/structure/sign/flag/pra{
-	pixel_x = 32
+	pixel_x = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Qq" = (
 /obj/structure/table/standard,
 /obj/item/trash/liquidfood,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Qx" = (
 /obj/machinery/door/airlock{
 	name = "Equipment Storage";
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Rc" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "RM" = (
 /obj/structure/table/steel,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
 /obj/item/pickaxe/drill,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Tn" = (
 /obj/machinery/conveyor{
 	dir = 10;
 	id = "pra_mining_base";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/warning/corner,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Tx" = (
 /obj/structure/sign/flag/nanotrasen{
 	pixel_y = 32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "TJ" = (
 /obj/structure/sign/flag/pra{
 	pixel_y = -32
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "TS" = (
 /obj/item/pickaxe,
@@ -627,15 +499,12 @@
 /obj/item/device/analyzer,
 /obj/item/clothing/head/welding,
 /obj/item/clothing/head/welding,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "UM" = (
 /obj/machinery/conveyor{
 	dir = 9;
 	id = "pra_mining_base";
-	layer = 2.9;
 	reversed = 1
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -644,62 +513,47 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "Vr" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "WA" = (
 /obj/machinery/light,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "WP" = (
 /obj/structure/sign/flag/pra{
-	pixel_y = 32
+	pixel_y = 32;
+	stand_icon = null
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "WW" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "XU" = (
 /obj/structure/table/standard,
 /obj/item/material/ashtray/plastic,
 /obj/item/clothing/mask/smokable/cigarette/adhomai,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 "YB" = (
 /obj/machinery/light{
 	dir = 4;
 	status = 2
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_mining_camp)
 "ZG" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "pra_mining_base"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/pra_mining_camp)
 
 (1,1,1) = {"

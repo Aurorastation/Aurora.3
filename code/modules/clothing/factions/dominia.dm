@@ -173,6 +173,13 @@
 	icon_state = "armsman_mantle"
 	item_state = "armsman_mantle"
 
+/obj/item/clothing/accessory/poncho/dominia_cape/hospital
+	name = "tribunalist medical cape"
+	desc = "A white-and-green cape in the style of the Dominian clergy. Worn by those medical workers affiliated with the Moroz Holy Tribunal."
+	cape_backing_state = ""
+	icon_state = "dominian_cape_hospital"
+	item_state = "dominian_cape_hospital"
+
 /obj/item/clothing/suit/storage/dominia
 	name = "dominian great coat"
 	desc = "This is a great coat in the style of Dominian nobility. It's the latest fashion across Dominian space."
@@ -595,7 +602,7 @@
 	name = "dominian consular officer's dress cap"
 	desc = "A quite fashionable cap issued to the members of His Majesty's Diplomatic Service."
 	desc_extended = "His Majesty's Diplomatic Service - as with much of the Empire tends to be dominated by the great houses, though the Service also employs many \
-    commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
+	commoners - as long as they can pass the rigorous examinations required to become a full member of the Diplomatic Service."
 	icon = 'icons/clothing/head/dominia_consular_cap.dmi'
 	icon_state = "dominia_consular_cap"
 	item_state = "dominia_consular_cap"
@@ -655,6 +662,43 @@
 	item_state = "dominia_amulet"
 	icon_state = "dominia_amulet"
 	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/dominia/lyodii
+	name = "lyodic tribunal necklace"
+	desc = "An amulet depicting the three animal aspects of Lyodic Tribunalism upon a bone plate. \
+			A prominent symbol of the Lyodic take on the religion, worn by both its shamans and followers."
+	desc_extended = ""
+	icon = 'icons/clothing/accessories/lyodii_amulet.dmi'
+	icon_state = "lyodii_amulet"
+	item_state = "lyodii_amulet"
+
+/obj/item/clothing/accessory/dominia/tic
+	name = "tribunal investigator card"
+	desc = "A gold-gilded card given to those who are active investigators within the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			In essence the religion police of the Tribunal, these investigators are found through the entirety of the Empire of Dominia."
+	icon = 'icons/clothing/accessories/tic_cards.dmi'
+	icon_state = "tic_card"
+	item_state = "tic_card"
+
+/obj/item/clothing/accessory/dominia/tic/retired
+	name = "retired tribunal investigator card"
+	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			This card holds a sleek grey coloration strip, denoting the owner as having been a standard investigator."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
+	icon_state = "tic_card_ret"
+	item_state = "tic_card_ret"
+
+/obj/item/clothing/accessory/dominia/tic/retired/caladius
+	name = "retired tribunal investigator card"
+	desc = "A silver-gilded card given to those who have since retired from the Tribunal Investigations Constabulary, otherwise known as TIC. \
+			This card holds a color strip of House Caladius, denoting the owner as a priest of the Tribunal."
+	desc_extended = "The day-to-day work of investigating religious crimes and violations falls upon the shoulders of the people who fill the \
+	ranks of the Tribunal Investigation Constabulary. These investigators often collaborate with and work alongside the nominally secular \
+	His Imperial Majesty's Constable Service (HIMCS), the Empire's main policing agency."
+	icon_state = "tic_card_ret_alt"
+	item_state = "tic_card_ret_alt"
 
 /obj/item/clothing/head/ushanka/dominia
 	name = "fisanduhian ushanka"
@@ -773,3 +817,51 @@
 	icon_state = "officercoat"
 	item_state = "officercoat"
 	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/army
+	name = "imperial army uniform"
+	desc = "The standard-issue combat fatigues of an Imperial Army regular. This one features forest camouflage."
+	desc_extended = "While the Empire's nobility is known for its vibrant fashion, the common soldiers of the Imperial Army wear drab fatigues intended to conceal them \
+	from view. The iconic “Morozian green,” camouflage of the Imperial Army's most common uniform has become a common symbol of the Empire's colonialist policies abroad."
+	icon = 'icons/clothing/under/uniforms/dominia_army.dmi'
+	icon_state = "dom_uniform"
+	item_state = "dom_uniform"
+	contained_sprite = TRUE
+
+/obj/item/clothing/under/dominia/army/nco
+	name = "imperial army NCO uniform"
+	desc = "An Imperial Army non-commissioned officer's fatigues. This one features forest camouflage."
+	icon_state = "dom_uniform1"
+	item_state = "dom_uniform1"
+
+/obj/item/clothing/accessory/dominia/nco_badge
+	name = "imperial army NCO badge"
+	desc = "A sleeve patch worn by non-commissioned officers of the Imperial Army."
+	desc_extended = "Non-commissioned officers form the backbone of the Imperial Army's troops. Typically recruited from Novi Jadran's countryside, they are well-trained \
+	and well-motivated soldiers focused on ensuring their troops' survival and their mission's success."
+	icon = 'icons/clothing/accessories/dominia_nco_badge.dmi'
+	icon_state = "dom_nco"
+	item_state = "dom_nco"
+
+/obj/item/storage/backpack/dominia
+	name = "imperial army rucksack"
+	desc = "A rugged Imperial Army backpack intended for use during the Empire's frontier wars."
+	icon = 'icons/clothing/backpacks/dominia_backpack.dmi'
+	icon_state = "dom_backpack"
+	item_state = "dom_backpack"
+
+/obj/item/storage/backpack/dominia/nco
+	name = "imperial army NCO rucksack"
+	desc = "A non-commissioned officer's backpack. The radio set built into it allows for individual squads to stay in cohesion."
+	icon = 'icons/clothing/backpacks/dominia_backpack.dmi'
+	icon_state = "dom_backpack_nco"
+	item_state = "dom_backpack_nco"
+
+/obj/item/clothing/head/dominian_army
+	name = "imperial army field cap"
+	desc = "A green cap worn by enlisted members of the Imperial Army."
+	desc_extended = "The green of an enlisted soldier's cap both help it blend in and marks its wearer as a commoner. After all, no great house employs green in its \
+	standard."
+	icon = 'icons/clothing/head/dominia_army_hat.dmi'
+	icon_state = "dom_hat"
+	item_state = "dom_hat"

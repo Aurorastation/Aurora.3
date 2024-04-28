@@ -78,10 +78,10 @@
 		return
 	to_chat(user, "<span class='warning'>You can't move.</span>")
 
-/obj/effect/spresent/attackby(obj/item/W as obj, mob/user as mob)
+/obj/effect/spresent/attackby(obj/item/attacking_item, mob/user)
 	..()
 
-	if (!W.iswirecutter())
+	if (!attacking_item.iswirecutter())
 		to_chat(user, "<span class='warning'>I need wirecutters for that.</span>")
 		return
 
@@ -203,7 +203,7 @@
 		/obj/item/pen/invisible,
 		/obj/item/clothing/wrists/watch,
 		/obj/item/lipstick/random,
-		/obj/item/clothing/shoes/carp,
+		/obj/item/clothing/shoes/slippers/carp,
 		/obj/item/bikehorn,
 		/obj/item/toy/waterballoon,
 		/obj/item/toy/blink,

@@ -1,13 +1,13 @@
-/obj/item/modular_computer/examine(mob/user)
-	..()
-	if(Adjacent(user))
-		to_chat(user, FONT_SMALL(SPAN_NOTICE("It contains the following hardware:")))
+/obj/item/modular_computer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(is_adjacent)
+		. += FONT_SMALL(SPAN_NOTICE("It contains the following hardware:"))
 		for(var/obj/CH in get_all_components())
-			to_chat(user, FONT_SMALL(SPAN_NOTICE(" - [capitalize_first_letters(CH.name)]")))
+			. += FONT_SMALL(SPAN_NOTICE(" - [capitalize_first_letters(CH.name)]"))
 	if(damage > broken_damage)
-		to_chat(user, SPAN_DANGER("It is heavily damaged!"))
+		. += SPAN_DANGER("It is heavily damaged!")
 	else if(damage)
-		to_chat(user, SPAN_WARNING("It is damaged."))
+		. += SPAN_WARNING("It is damaged.")
 
 /obj/item/modular_computer/proc/break_apart(msg = TRUE)
 	if(msg)
@@ -44,7 +44,9 @@
 	take_damage(rand(125, 200) / severity, 30 / severity, msg = FALSE)
 
 // EMPs are similar to explosions, but don't cause physical damage to the casing. Instead they screw up the components
-/obj/item/modular_computer/emp_act(var/severity)
+/obj/item/modular_computer/emp_act(severity)
+	. = ..()
+
 	take_damage(rand(100, 200) / severity, 50 / severity, FALSE)
 
 // "Stun" weapons can cause minor damage to components (short-circuits?)

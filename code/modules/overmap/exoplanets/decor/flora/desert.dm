@@ -49,5 +49,5 @@
 	icon_state = "drift"
 
 /obj/effect/floor_decal/dune/random/Initialize(mapload, newdir, newcolour, bypass, set_icon_state)
-	supplied_dir = pick(cardinal)
+	supplied_dir = pick(GLOB.cardinal)
 	. = ..()

@@ -21,7 +21,7 @@
 	melee_damage = 50
 	action_delay = 15
 	max_damage = 200
-	power_use = 7500
+	power_use = 3500
 	punch_sound = 'sound/mecha/mech_punch_slow.ogg'
 
 /obj/item/mech_component/propulsion/heavy
@@ -31,7 +31,7 @@
 	icon_state = "heavy_legs"
 	move_delay = 5
 	max_damage = 200
-	power_use = 5000
+	power_use = 2500
 	trample_damage = 45
 
 /obj/item/mech_component/sensors/heavy
@@ -57,7 +57,7 @@
 	max_damage = 300
 	mech_health = 1000
 	has_hardpoints = list(HARDPOINT_BACK)
-	power_use = 5000
+	power_use = 500
 
 /obj/item/mech_component/chassis/heavy/prebuild()
 	. = ..()

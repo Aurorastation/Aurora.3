@@ -4,6 +4,7 @@
 	ping_effect = "ping_s"
 	pass_flags = PASSTABLE | PASSGLASS | PASSGRILLE | PASSRAILING
 	damage = 30
+	armor_penetration = 10
 	damage_type = DAMAGE_BURN
 	impact_sounds = list(BULLET_IMPACT_MEAT = SOUNDS_LASER_MEAT, BULLET_IMPACT_METAL = SOUNDS_LASER_METAL)
 	check_armor = "laser"
@@ -20,6 +21,7 @@
 /obj/item/projectile/beam/practice
 	name = "laser"
 	damage = 5
+	armor_penetration = 0
 	damage_type = DAMAGE_PAIN
 	eyeblur = 0
 
@@ -29,6 +31,14 @@
 
 /obj/item/projectile/beam/pistol/scc
 	armor_penetration = 15
+
+	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
+	tracer_type = /obj/effect/projectile/tracer/laser/scc
+	impact_type = /obj/effect/projectile/impact/laser/scc
+
+/obj/item/projectile/beam/pistol/scc/weak
+	damage = 20
+	armor_penetration = 10
 
 	muzzle_type = /obj/effect/projectile/muzzle/laser/scc
 	tracer_type = /obj/effect/projectile/tracer/laser/scc
@@ -212,6 +222,33 @@
 	tracer_type = /obj/effect/projectile/tracer/stun
 	impact_type = /obj/effect/projectile/impact/stun
 
+/obj/item/projectile/beam/disorient
+	name = "disorienting pulse"
+	icon_state = "stun"
+	damage = 1
+	sharp = FALSE
+	eyeblur = 1
+	agony = 30
+	damage_type = DAMAGE_BURN
+
+	muzzle_type = /obj/effect/projectile/muzzle/disabler
+	tracer_type = /obj/effect/projectile/tracer/disabler
+	impact_type = /obj/effect/projectile/impact/disabler
+
+/obj/item/projectile/beam/disorient/on_hit(var/atom/target, var/blocked = 0)
+	if(ishuman(target) && blocked < 100 && !issilicon(target) && !isipc(target)) //Make them trip
+		var/mob/living/carbon/human/H = target
+		H.druggy = min(H.druggy + 15, 75)
+
+		//do some maths to determine amount of dizzy to add
+		var/makeDizzy = 250 - H.dizziness
+		makeDizzy = min(makeDizzy, 50) //This should make it go back to 50
+		H.make_dizzy(makeDizzy)
+
+		H.confused = 5
+		H.slurring = min(H.slurring + 15, 75)
+	. = ..()
+
 /obj/item/projectile/beam/gatlinglaser
 	name = "diffused laser"
 	icon_state = "heavylaser"
@@ -253,7 +290,7 @@
 				M.visible_message("<span class='danger'>\The [M] gets fried!</span>")
 				M.color = "#4d4d4d" //get fried
 				M.death()
-				spark(M, 3, alldirs)
+				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
 				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
@@ -295,7 +332,7 @@
 			if(M.mob_size <= 4 && (M.find_type() & TYPE_ORGANIC))
 				M.visible_message("<span class='danger'>[M] bursts like a balloon!</span>")
 				M.gib()
-				spark(M, 3, alldirs)
+				spark(M, 3, GLOB.alldirs)
 			else if(iscarbon(M) && M.contents.len)
 				for(var/obj/item/holder/H in M.contents)
 					if(!H.contained)
@@ -362,25 +399,18 @@
 /obj/item/projectile/beam/thermaldrill
 	name = "thermal drill"
 	icon_state = "gauss"
-	damage = 2
+	damage = 15
 	no_attack_log = TRUE
 
 	muzzle_type = /obj/effect/projectile/muzzle/solar
 	tracer_type = /obj/effect/projectile/tracer/solar
 	impact_type = /obj/effect/projectile/impact/solar
 
-/obj/item/projectile/beam/thermaldrill/on_impact(var/atom/A)
-	if(isturf(A))
-		if(istype(A, /turf/simulated/mineral))
-			if(prob(75)) //likely because its a mining tool
-				var/turf/simulated/mineral/M = A
-				if(prob(33))
-					M.GetDrilled(1)
-				else if(!M.emitter_blasts_taken)
-					M.emitter_blasts_taken += 2
-				else if(prob(66))
-					M.emitter_blasts_taken += 2
-	..()
+/obj/item/projectile/beam/thermaldrill/on_impact(var/atom/hit_atom)
+	if(istype(hit_atom, /turf/simulated/mineral))
+		var/turf/simulated/mineral/mineral = hit_atom
+		mineral.GetDrilled(TRUE)
+	return ..()
 
 
 
@@ -404,7 +434,7 @@
 	//Harmlessly passes through cultists and constructs
 	if (target_mob == ignore)
 		return 0
-	if (iscult(target_mob))
+	if (iscultist(target_mob))
 		return 0
 
 	return ..()

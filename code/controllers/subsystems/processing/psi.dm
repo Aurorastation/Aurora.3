@@ -1,11 +1,9 @@
 var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psionically Harmonious", "Psionic Apex", "Limitless")
 
-/var/datum/controller/subsystem/processing/psi/SSpsi
-
-/datum/controller/subsystem/processing/psi
+PROCESSING_SUBSYSTEM_DEF(psi)
 	name = "Psionics"
 	priority = SS_PRIORITY_PSYCHICS
-	flags = SS_BACKGROUND
+	flags = SS_BACKGROUND | SS_NO_INIT
 
 	var/checking_nlom = FALSE
 	var/last_nlom_awareness_check = 0
@@ -16,10 +14,8 @@ var/global/list/psychic_ranks_to_strings = list("Psionically Sensitive", "Psioni
 	var/list/all_aura_images = list()
 	var/list/all_psi_complexes = list()
 
-/datum/controller/subsystem/processing/psi/New()
-	NEW_SS_GLOBAL(SSpsi)
-
 /datum/controller/subsystem/processing/psi/fire(resumed)
+	CAN_BE_REDEFINED(TRUE)
 	..()
 	if((world.time >= (last_nlom_awareness_check + 30 MINUTES)) && !checking_nlom && !completing_nlom)
 		checking_nlom = TRUE

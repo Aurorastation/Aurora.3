@@ -13,17 +13,18 @@
 	. = ..()
 	health = maxHealth
 
-/obj/structure/bed/nest/examine(mob/user)
-	if(..(user, 2))
+/obj/structure/bed/nest/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 2)
 		var/health_div = health / maxHealth
 		if(health_div >= 0.9)
-			to_chat(user, SPAN_NOTICE("\The [src] appears completely intact."))
+			. += SPAN_NOTICE("\The [src] appears completely intact.")
 		else if(health_div >= 0.7)
-			to_chat(user, SPAN_NOTICE("\The [src] is starting to tear somewhat."))
+			. += SPAN_NOTICE("\The [src] is starting to tear somewhat.")
 		else if(health_div >= 0.4)
-			to_chat(user, SPAN_WARNING("\The [src] is starting to fall apart."))
+			. += SPAN_WARNING("\The [src] is starting to fall apart.")
 		else
-			to_chat(user, SPAN_WARNING("\The [src] is barely holding itself together!"))
+			. += SPAN_WARNING("\The [src] is barely holding itself together!")
 
 /obj/structure/bed/nest/update_icon()
 	return
@@ -40,7 +41,7 @@
 				return
 			M.last_special = world.time
 			M.visible_message(SPAN_WARNING("[M] starts struggling to break free of the sticky flesh..."), SPAN_WARNING("You struggle to break free from the gelatinous flesh..."), SPAN_WARNING("You hear squelching..."))
-			if(do_after(M, NEST_RESIST_TIME, TRUE))
+			if(do_after(M, NEST_RESIST_TIME))
 				unbuckle_buckled_mob(M)
 
 /obj/structure/bed/nest/proc/unbuckle_buckled_mob(var/mob/buck)
@@ -49,11 +50,11 @@
 		buck.old_y = 0
 		unbuckle()
 
-/obj/structure/bed/nest/attackby(obj/item/W, mob/user)
+/obj/structure/bed/nest/attackby(obj/item/attacking_item, mob/user)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	user.do_attack_animation(src, W)
-	var/force_damage = W.force
-	if(W.damtype == DAMAGE_BURN)
+	user.do_attack_animation(src, attacking_item)
+	var/force_damage = attacking_item.force
+	if(attacking_item.damtype == DAMAGE_BURN)
 		force_damage *= 1.25
 	health -= force_damage
 	playsound(loc, 'sound/effects/attackblob.ogg', 80, TRUE)

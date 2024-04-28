@@ -42,7 +42,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  * @return	num		1
  */
 /hook/startup/proc/loadJobBans()
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		jobban_loadbanfile()
 	else
 		jobban_loaddatabase()
@@ -87,7 +87,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	jobban_keylist[key][rank] = list(reason, unban_time)
 
 	// Log the ban to the appropriate place.
-	if (config.ban_legacy_system)
+	if (GLOB.config.ban_legacy_system)
 		jobban_savebanfile()
 	else
 		DB_ban_record(minutes < 0 ? BANTYPE_JOB_PERMA : BANTYPE_JOB_TEMP, null, minutes, reason, rank, banckey = key)
@@ -111,9 +111,9 @@ var/list/jobban_keylist = list() // Global jobban list.
 	CKEY_OR_MOB(ckey, player)
 
 	if (ckey)
-		if (guest_jobbans(rank) && config.guest_jobban && IsGuestKey(ckey))
+		if (guest_jobbans(rank) && GLOB.config.guest_jobban && IsGuestKey(ckey))
 			return "GUEST JOB-BAN"
-		if (config.usewhitelist && ismob(player) && !check_whitelist_rank(player, rank))
+		if (GLOB.config.usewhitelist && ismob(player) && !check_whitelist_rank(player, rank))
 			return "WHITELISTED"
 
 		var/age_whitelist = player_old_enough_for_role(player, rank)
@@ -124,8 +124,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 
 		if (isnull(antag_bantypes))
 			antag_bantypes = list()
-			for (var/antag_type in all_antag_types)
-				var/datum/antagonist/antag = all_antag_types[antag_type]
+			for (var/antag_type in GLOB.all_antag_types)
+				var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 				if (antag && antag.bantype)
 					antag_bantypes |= antag.bantype
 
@@ -179,15 +179,15 @@ var/list/jobban_keylist = list() // Global jobban list.
  */
 /proc/jobban_loaddatabase()
 	// No database. Weee.
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Database connection failed. Reverting to the legacy ban system.")
 		log_misc("Database connection failed. Reverting to the legacy ban system.")
-		config.ban_legacy_system = 1
+		GLOB.config.ban_legacy_system = 1
 		jobban_loadbanfile()
 		return
 
 	// All jobbans in one query. Because we don't actually care.
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, ckey, job, reason FROM ss13_ban WHERE isnull(unbanned) AND ((bantype = 'JOB_PERMABAN') OR (bantype = 'JOB_TEMPBAN' AND expiration_time > Now()))")
 	query.Execute()
 
 	while (query.NextRow())
@@ -249,7 +249,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 				jobban_keylist -= ckey
 
 			// Update appropriate ban files.
-			if (config.ban_legacy_system)
+			if (GLOB.config.ban_legacy_system)
 				jobban_savebanfile()
 
 /**
@@ -269,7 +269,7 @@ var/list/jobban_keylist = list() // Global jobban list.
  *					FALSE if ban is not expired.
  */
 /proc/jobban_isexpired(var/list/tuple, var/player, var/rank)
-	if (config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
+	if (GLOB.config.ban_legacy_system && tuple[2] && (tuple[2] > 0) && (tuple[2] < world.realtime))
 		// It's expired. Remove it.
 		jobban_unban(player, rank)
 
@@ -562,8 +562,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 	var/isbanned_dept = jobban_isbanned(ckey, "Antagonist")
 	jobs += "<table cellpadding='1' cellspacing='0' width='100%'>"
 	jobs += "<tr bgcolor='ffeeaa'><th colspan='10'><a href='?src=\ref[src];jobban_job=Antagonist;jobban_tgt=[ckey]'>Antagonist Positions</a></th></tr><tr align='center'>"
-	for (var/antag_type in all_antag_types)
-		var/datum/antagonist/antag = all_antag_types[antag_type]
+	for (var/antag_type in GLOB.all_antag_types)
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 		if (!antag || !antag.bantype)
 			continue
 		if (isbanned_dept || jobban_isbanned(ckey, antag.bantype))
@@ -608,7 +608,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 		to_chat(usr, "<span class='warning'>You do not have the appropriate permissions to add job bans!</span>")
 		return 0
 
-	if (check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0) && !config.mods_can_job_tempban) // If mod and tempban disabled
+	if (check_rights(R_MOD, 0) && !check_rights(R_ADMIN, 0) && !GLOB.config.mods_can_job_tempban) // If mod and tempban disabled
 		to_chat(usr, "<span class='warning'>Mod jobbanning is disabled!</span>")
 		return 0
 
@@ -729,8 +729,8 @@ var/list/jobban_keylist = list() // Global jobban list.
 				var/mins = input(usr, "How long (in minutes)?", "Ban time", 1440) as num|null
 				if (!mins)
 					return 0
-				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > config.mod_job_tempban_max)
-					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [config.mod_job_tempban_max] minutes!</span>")
+				if (check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_job_tempban_max)
+					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [GLOB.config.mod_job_tempban_max] minutes!</span>")
 					return 0
 				var/reason = sanitize(input(usr,"Reason?","Please State Reason","") as text|null)
 				if (!reason)
@@ -748,7 +748,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 						msg = R
 					else
 						msg += ", [R]"
-				if (config.ban_legacy_system)
+				if (GLOB.config.ban_legacy_system)
 					notes_add(ckey, "Banned from [msg] - [reason]", usr)
 				else
 					notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
@@ -777,7 +777,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 						else
 							msg += ", [R]"
 
-					if (config.ban_legacy_system)
+					if (GLOB.config.ban_legacy_system)
 						notes_add(ckey, "Banned  from [msg] - [reason]", usr)
 					else
 						notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
@@ -795,7 +795,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 	//Unbanning joblist
 	//all jobs in joblist are banned already OR we didn't give a reason (implying they shouldn't be banned)
 	if (joblist.len) //at least 1 banned job exists in joblist so we have stuff to unban.
-		if (!config.ban_legacy_system)
+		if (!GLOB.config.ban_legacy_system)
 			// This is important. jobban_unban() can't actually lift DB bans. So the DB unban
 			// panel must be used instead.
 			to_chat(usr, "Unfortunately, database based unbanning cannot be done through this panel")

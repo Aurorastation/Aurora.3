@@ -8,16 +8,15 @@
 	icon_state = "term"
 	desc = "It's an underfloor wiring terminal for power equipment."
 	level = 1
-	layer = TURF_LAYER
+	layer = EXPOSED_WIRE_TERMINAL_LAYER
 	var/obj/machinery/power/master = null
 	anchored = 1
-	layer = 2.6 // a bit above wires
 
 
 /obj/machinery/power/terminal/Initialize()
 	. = ..()
 	var/turf/T = src.loc
-	if(level == 1) 
+	if(level == 1)
 		hide(!T.is_plating())
 	return
 

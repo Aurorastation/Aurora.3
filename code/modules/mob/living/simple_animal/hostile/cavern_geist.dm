@@ -31,7 +31,6 @@
 	attacktext = "mangled"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 	pixel_x = -16
 	speed = -1

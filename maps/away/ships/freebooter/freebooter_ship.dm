@@ -1,12 +1,17 @@
 /datum/map_template/ruin/away_site/freebooter_ship
 	name = "Freebooter Ship"
 	description = "One of the most common sights in the Orion Spur, even outside of human space, is the Hephaestus-produced Ox-class freighter. Designed to haul significant amounts of cargo on well-charted routes between civilized systems, the Ox-class is the backbone of many interstellar markets outside of the United Syndicates of Himeo. Repurposed Ox-class freighters are often used by pirates throughout the Spur thanks to their large size and ease of maintenance – and modification."
-	suffixes = list("ships/freebooter/freebooter_ship.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_NEW_ANKARA, SECTOR_BADLANDS, SECTOR_AEMAQ, SECTOR_SRANDMARR, ALL_COALITION_SECTORS)
+
+	prefix = "ships/freebooter/"
+	suffixes = list("freebooter_ship.dmm")
+
+	sectors = list(ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "freebooter_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/freebooter_shuttle)
+
+	unit_test_groups = list(2)
 
 /singleton/submap_archetype/freebooter_ship
 	map = "Freebooter Ship"
@@ -23,8 +28,38 @@
 /area/ship/freebooter_ship/gunnery
 	name = "Freebooter Gunnery"
 
+/area/ship/freebooter_ship/ammo
+	name = "Freebooter Ammunition Storage"
+
+/area/ship/freebooter_ship/gunneryentrance
+	name = "Freebooter Ship Gunnery Entrance"
+
 /area/ship/freebooter_ship/bridge
 	name = "Freebooter Bridge"
+
+/area/ship/freebooter_ship/forehallway
+	name = "Freebooter Fore Hallway"
+
+/area/ship/freebooter_ship/forehallwayport
+	name = "Freebooter Fore Hallway Port"
+
+/area/ship/freebooter_ship/closet
+	name = "Freebooter Multi-Purpose Closet"
+
+/area/ship/freebooter_ship/cryo
+	name = "Freebooter Cryogenics Storage"
+
+/area/ship/freebooter_ship/dorms
+	name = "Freebooter Dormitories"
+
+/area/ship/freebooter_ship/lockers
+	name = "Freebooter Locker Rooms"
+
+/area/ship/freebooter_ship/head
+	name = "Freebooter Head"
+
+/area/ship/freebooter_ship/medical
+	name = "Freebooter Medical Bay"
 
 /area/ship/freebooter_ship/pod1
 	name = "Freebooter Pod One"
@@ -59,9 +94,15 @@
 /area/ship/freebooter_ship/engineering
 	name = "Freebooter Engineering"
 
+
+/area/ship/freebooter_ship/exterior
+	name = "Freebooter Ship Exterior"
+	requires_power = FALSE
+
 /area/shuttle/freebooter_shuttle
 	name = "Freebooter Shuttle"
 	icon_state = "shuttle2"
+	requires_power = TRUE
 
 //ship stuff
 

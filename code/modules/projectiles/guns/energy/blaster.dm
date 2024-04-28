@@ -8,7 +8,7 @@
 	fire_sound = 'sound/weapons/laser1.ogg'
 	slot_flags = SLOT_BELT|SLOT_HOLSTER
 	w_class = ITEMSIZE_SMALL
-	force = 5
+	force = 11
 	origin_tech = list(TECH_COMBAT = 2, TECH_MAGNET = 2)
 	matter = list(DEFAULT_WALL_MATERIAL = 2000)
 	offhand_accuracy = 1
@@ -84,7 +84,7 @@
 	offhand_accuracy = 0
 	projectile_type = /obj/item/projectile/energy/blaster/heavy
 
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
 	can_bayonet = TRUE
@@ -109,3 +109,30 @@
 		toggle_scope(2.0, usr)
 	else
 		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+
+/obj/item/gun/energy/blaster/tcaf
+	name = "blaster rifle"
+	desc = "Developed by Zavodskoi Interstellar, the Z.I. Guardian is a burst-fire blaster rifle designed for the armed forces of the Republic of Biesel. Cheap, reliable and easy to mass-produce, these weapons can be seen across the branches of the TCAF."
+	desc_extended = "Released in early 2464, the Guardian is a modernisation of the outdated blasters previously used by the TCFL developed in conjunction with the Zo'ra Hive. Since its release, it has been widely adopted by Biesel, leading to a slight fall in NanoTrasen market share as Zavodskoi took their place as the main arms supplier of the TCAF."
+	icon = 'icons/obj/guns/blaster_ar.dmi'
+	icon_state = "blaster_ar"
+	item_state = "blaster_ar"
+	max_shots = 20
+	projectile_type = /obj/item/projectile/energy/blaster/heavy
+	fire_sound = 'sound/weapons/laserstrong.ogg'
+	slot_flags = SLOT_BACK
+	w_class = ITEMSIZE_LARGE
+	is_wieldable = TRUE
+	can_bayonet = TRUE
+	knife_x_offset = 23
+	knife_y_offset = 13
+	accuracy = -1
+	fire_delay = ROF_RIFLE
+	fire_delay_wielded = 5
+	burst_delay = 4
+	accuracy_wielded = 2
+	origin_tech = list(TECH_COMBAT = 5, TECH_MAGNET = 3, TECH_PHORON = 2)
+	firemodes = list(
+		list(mode_name="semiauto", burst=1, fire_delay=ROF_INTERMEDIATE),
+		list(mode_name="3-round bursts", burst=3, burst_accuracy=list(2,1,1), dispersion=list(0, 7.5))
+		)

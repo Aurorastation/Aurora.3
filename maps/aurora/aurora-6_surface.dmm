@@ -14,14 +14,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/security/bridge_surface_checkpoint)
-"aac" = (
-/obj/machinery/door/airlock/external{
-	icon_state = "door_locked";
-	locked = 1;
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/bridge/levela)
 "aaq" = (
 /obj/machinery/light{
 	dir = 8;
@@ -675,7 +667,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
@@ -1217,7 +1208,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -2112,7 +2102,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /obj/structure/window/reinforced,
@@ -2344,9 +2333,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -2756,9 +2742,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "cgw" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -3058,7 +3041,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -3131,8 +3113,7 @@
 /area/tcommsat/chamber)
 "cwm" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8;
-	layer = 3.5
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -3366,9 +3347,7 @@
 	req_access = null;
 	dir = 1
 	},
-/obj/effect/spider/stickyweb{
-	layer = 3.5
-	},
+/obj/effect/spider/stickyweb,
 /obj/machinery/door/blast/shutters{
 	id = "commissary_counter";
 	name = "Shutter"
@@ -3971,7 +3950,6 @@
 /obj/machinery/access_button{
 	command = "cycle_exterior";
 	frequency = 1399;
-	layer = 3.5;
 	master_tag = "admin_shuttle_dock_airlock";
 	name = "exterior access button";
 	pixel_x = 21;
@@ -4484,7 +4462,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "science_shuttle";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "science_shuttle_pump";
 	tag_chamber_sensor = "science_shuttle_sensor";
@@ -4840,10 +4817,6 @@
 /obj/item/stock_parts/subspace/crystal,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
-"elM" = (
-/obj/effect/shuttle_landmark/admin/green,
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/explored)
 "elP" = (
 /obj/machinery/door/airlock/glass{
 	name = "Kitchen";
@@ -4885,7 +4858,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -5214,7 +5186,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = -32
 	},
@@ -5576,7 +5547,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_x = 32
 	},
@@ -6979,7 +6949,6 @@
 /area/solar/fore)
 "giv" = (
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = -32
 	},
 /obj/machinery/light{
@@ -7459,7 +7428,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -8027,9 +7995,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -9414,17 +9379,14 @@
 /obj/item/storage/box/fancy/cookiesnack,
 /obj/item/storage/box/fancy/cookiesnack,
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.01;
 	pixel_x = -8;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.01;
 	pixel_x = -1;
 	pixel_y = 14
 	},
 /obj/item/reagent_containers/food/drinks/waterbottle{
-	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 14
 	},
@@ -9514,7 +9476,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -9596,9 +9557,6 @@
 /obj/structure/cable/green{
 	d2 = 2;
 	icon_state = "0-2"
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
 	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Cryogenic Storage";
@@ -9906,7 +9864,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
@@ -10281,9 +10238,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -10822,7 +10776,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -10842,9 +10795,6 @@
 "jFv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -11582,7 +11532,6 @@
 	dir = 6
 	},
 /obj/structure/window/reinforced{
-	layer = 6;
 	name = "adjusted window"
 	},
 /obj/structure/bed/stool/chair/office/bridge{
@@ -11906,7 +11855,6 @@
 	dir = 9
 	},
 /obj/item/storage/firstaid/regular{
-	layer = 3.01;
 	pixel_x = 6;
 	pixel_y = 3
 	},
@@ -11914,9 +11862,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/fire{
-	layer = 3.01
-	},
+/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "kAm" = (
@@ -11977,17 +11923,12 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 8
 	},
-/obj/machinery/station_map{
-	dir = 8;
-	pixel_x = 32
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/central)
 "kDq" = (
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1379;
-	layer = 3.3;
 	master_tag = "brig_solar_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -12694,15 +12635,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/solarmaint)
-"lkM" = (
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/obj/machinery/station_map{
-	pixel_y = 32
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/fore)
 "lkU" = (
 /obj/machinery/door/airlock{
 	id_tag = "Dormitory 2";
@@ -12975,9 +12907,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "lvK" = (
-/obj/structure/closet/cabinet{
-	layer = 2.9
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/booze,
 /obj/effect/decal/cleanable/cobweb2,
@@ -13440,10 +13370,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
-"lMR" = (
-/obj/item/device/radio/intercom/east,
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/central)
 "lMS" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/regular{
@@ -14650,9 +14576,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -14801,7 +14724,6 @@
 	dir = 9
 	},
 /obj/structure/window/reinforced{
-	layer = 6;
 	name = "adjusted window"
 	},
 /obj/structure/bed/stool/chair/office/bridge{
@@ -16685,12 +16607,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/bridge/levela)
-"oGz" = (
-/obj/machinery/door/airlock/glass{
-	dir = 4
-	},
-/turf/simulated/floor/tiled,
-/area/hallway/secondary/entry/aft)
 "oHb" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -16711,7 +16627,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK";
 	pixel_y = -32
 	},
@@ -16901,9 +16816,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/status_display{
-	layer = 3.5
-	},
+/obj/machinery/status_display,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "oQX" = (
@@ -17137,7 +17050,6 @@
 /obj/machinery/access_button{
 	command = "cycle_interior";
 	frequency = 1380;
-	layer = 3.3;
 	master_tag = "centcom_shuttle_dock_airlock";
 	name = "interior access button";
 	pixel_x = -25;
@@ -17165,7 +17077,6 @@
 	dir = 1
 	},
 /obj/machinery/status_display{
-	layer = 4;
 	pixel_x = 32
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller/escape_pod{
@@ -17457,9 +17368,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "pqk" = (
-/obj/structure/closet/cabinet{
-	layer = 2.9
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/random_flag,
 /obj/random/random_flag,
@@ -18424,7 +18333,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/corner/dark_blue{
@@ -18524,7 +18432,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -20368,7 +20275,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /obj/structure/window/reinforced{
@@ -21983,7 +21889,6 @@
 	dir = 1
 	},
 /obj/structure/window/reinforced{
-	layer = 5;
 	name = "adjusted reinforced window"
 	},
 /obj/effect/floor_decal/corner/dark_blue/full{
@@ -22197,9 +22102,6 @@
 "tov" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
-	},
-/obj/effect/landmark{
-	name = "KickoffLocation"
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -23489,7 +23391,6 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/blast/shutters{
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -24040,9 +23941,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -24381,10 +24279,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
-"vgQ" = (
-/obj/effect/shuttle_landmark/admin/command,
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/explored)
 "vhb" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -24398,7 +24292,6 @@
 /obj/machinery/door/blast/shutters{
 	dir = 8;
 	id = "office_shutter";
-	layer = 3.1;
 	name = "Office Shutters"
 	},
 /turf/simulated/floor/plating,
@@ -25290,9 +25183,6 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -25371,7 +25261,6 @@
 "vZO" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/door/firedoor{
-	layer = 2.8;
 	open_layer = 2.8
 	},
 /turf/simulated/floor/plating,
@@ -25638,9 +25527,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/status_display{
-	layer = 3.5
-	},
+/obj/machinery/status_display,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "wlt" = (
@@ -26380,7 +26267,6 @@
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	id_tag = "brig_solar_airlock";
-	layer = 3.3;
 	pixel_y = -25;
 	req_access = list(13);
 	tag_airpump = "brig_solar_pump";
@@ -26390,7 +26276,6 @@
 	},
 /obj/machinery/airlock_sensor{
 	id_tag = "brig_solar_sensor";
-	layer = 3.3;
 	pixel_x = 12;
 	pixel_y = -25
 	},
@@ -26544,7 +26429,6 @@
 /obj/structure/sign/securearea{
 	desc = "A warning sign which reads 'EXTERNAL AIRLOCK'";
 	icon_state = "space";
-	layer = 4;
 	name = "EXTERNAL AIRLOCK"
 	},
 /turf/simulated/floor/plating,
@@ -27692,9 +27576,7 @@
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice)
 "yav" = (
-/obj/structure/closet/cabinet{
-	layer = 2.9
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/padded/red,
 /obj/structure/bed/stool/padded/red,
@@ -48399,7 +48281,7 @@ fdu
 fdu
 fdu
 fdu
-elM
+kKF
 fdu
 fdu
 fdu
@@ -54017,7 +53899,7 @@ twe
 pMI
 qmj
 twe
-lkM
+vHg
 oUS
 kqa
 cCJ
@@ -54806,7 +54688,7 @@ oVw
 hZo
 kvz
 kvz
-lMR
+wZN
 kvz
 kvz
 aVE
@@ -54828,7 +54710,7 @@ qLs
 kvz
 kvz
 xpj
-lMR
+wZN
 kvz
 fCy
 kvz
@@ -56636,7 +56518,7 @@ kvz
 aVE
 kvz
 wGw
-oGz
+aaa
 wGw
 kSh
 fQm
@@ -77944,7 +77826,7 @@ fdu
 fdu
 fdu
 fdu
-vgQ
+kKF
 fdu
 fdu
 fdu
@@ -81559,7 +81441,7 @@ fdu
 fdu
 fdu
 cta
-aac
+jAf
 oHb
 fdu
 fdu

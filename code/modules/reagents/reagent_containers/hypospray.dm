@@ -15,7 +15,7 @@
 	unacidable = 1
 	volume = 15
 	possible_transfer_amounts = list(5, 10, 15)
-	flags = OPENCONTAINER
+	atom_flags = ATOM_FLAG_OPEN_CONTAINER
 	slot_flags = SLOT_BELT
 	drop_sound = 'sound/items/drop/gun.ogg'
 	pickup_sound = 'sound/items/pickup/gun.ogg'
@@ -129,7 +129,7 @@
 		name = "[name] ([name_label])"
 		verbs += /atom/proc/remove_label
 	if(reagents_to_add)
-		flags = 0
+		atom_flags = 0
 		spent = FALSE
 	update_icon()
 
@@ -149,7 +149,7 @@
 	if(is_open_container())
 		to_chat(user, SPAN_WARNING("\The [src] hasn't been secured yet!"))
 		return
-	if(do_after(user, 1 SECOND, TRUE))
+	if(do_after(user, 1 SECOND))
 		inject(user, user, TRUE)
 
 /obj/item/reagent_containers/hypospray/autoinjector/AltClick(mob/user)
@@ -157,17 +157,17 @@
 		if(LAZYLEN(reagents.reagent_volumes))
 			to_chat(user, SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			spent = FALSE
-			flags &= ~OPENCONTAINER
+			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 			update_icon()
 		else
 			to_chat(user, SPAN_NOTICE("You can't secure \the [src] without putting reagents in!"))
 		return
 	return ..()
 
-/obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user, SPAN_NOTICE("Using \the [W], you unsecure the autoinjector's lid.")) // it locks shut after being secured
-		flags |= OPENCONTAINER
+/obj/item/reagent_containers/hypospray/autoinjector/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() && !is_open_container())
+		to_chat(user, SPAN_NOTICE("Using \the [attacking_item], you unsecure the autoinjector's lid.")) // it locks shut after being secured
+		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		update_icon()
 		return TRUE
 	. = ..()
@@ -187,12 +187,12 @@
 		add_overlay(reagent_overlay)
 	update_held_icon()
 
-/obj/item/reagent_containers/hypospray/autoinjector/examine(mob/user)
-	..(user)
+/obj/item/reagent_containers/hypospray/autoinjector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(LAZYLEN(reagents.reagent_volumes))
-		to_chat(user, SPAN_NOTICE("It is currently loaded."))
+		. += SPAN_NOTICE("It is currently loaded.")
 	else
-		to_chat(user, SPAN_NOTICE("It is empty."))
+		. += SPAN_NOTICE("It is empty.")
 
 
 /obj/item/reagent_containers/hypospray/autoinjector/inaprovaline
@@ -215,12 +215,12 @@
 	name_label = "coagzolug"
 	desc = "A rapid and safe way to administer small amounts of drugs by untrained or trained personnel. This one contains coagzolug, a quick-acting blood coagulant that will slow bleeding for as long as it's within the bloodstream."
 	volume = 5
-	flags = 0
+	atom_flags = 0
 	reagents_to_add = list(/singleton/reagent/coagzolug = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin
 	name_label = "hyronalin"
-	flags = 0
+	atom_flags = 0
 	reagents_to_add = list(/singleton/reagent/hyronalin = 5)
 
 /obj/item/reagent_containers/hypospray/autoinjector/sideeffectbgone
@@ -321,7 +321,7 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/sanasomnum
 	name = "sanasomnum autoinjector"
-	desc = "A special autoinjector loaded with outlawed biomechanical stem cells, inducing a regenerative coma so intense it can heal almost any injury - even broken bones, organ and brain damage, severed tendons, and arterial damage. Upon use one will fall immediately into a state of unconsciousness lasting roughly three to five minutes, arising completely healed. The only thing it cannot fix are organs that have been destroyed outright, or so much cumulative damage that death is all but certain. The only downside is that Sanasomnum use guarantees extreme cancerous growth months or years down the line, which is invariably fatal in the long-term. However, in the short-term, it will save your life."
+	desc = "An autoinjector loaded with sanasomnum, an experimental and outlawed combination medicine known to cause paralysis and cancerous growths in the few human studies it was trialled during. As a result, little further research has been done on it... nothing that's available to the public, at least." //antag chemical. this is the non-antag facing description so no one reads the autoinjector desc and considers it fairgame to then use it.
 	volume = 20
 	amount_per_transfer_from_this = 20
 
@@ -347,3 +347,17 @@
 	volume = 10
 	amount_per_transfer_from_this = 10
 	reagents_to_add = list(/singleton/reagent/peridaxon = 10)
+
+/obj/item/reagent_containers/hypospray/autoinjector/impedrezene
+	name = "impedrezene autoinjector"
+	desc = "An autoinjector loaded with impedrezene, a narcotic that impairs one's ability to think by impeding the function of brain cells in the cerebral cortex."
+	volume = 5
+	amount_per_transfer_from_this = 5
+	reagents_to_add = list(/singleton/reagent/drugs/impedrezene)
+
+/obj/item/reagent_containers/hypospray/autoinjector/night_juice
+	name = "night life autoinjector"
+	desc = "An auto injector loaded with night life, a liquid narcotic commonly used by the more wealthy drug-abusing citizens of the Eridani Federation."
+	volume = 10
+	amount_per_transfer_from_this = 10
+	reagents_to_add = list(/singleton/reagent/drugs/night_juice)

@@ -118,7 +118,7 @@
 
 	add_fingerprint(usr)
 
-/obj/machinery/atmospherics/unary/freezer/process()
+/obj/machinery/atmospherics/unary/freezer/process(seconds_per_tick)
 	..()
 
 	if(stat & (NOPOWER|BROKEN) || !use_power)
@@ -136,11 +136,11 @@
 		var/cop = FREEZER_PERF_MULT * air_contents.temperature/heatsink_temperature	//heatpump coefficient of performance from thermodynamics -> power used = heat_transfer/cop
 		heat_transfer = min(heat_transfer, cop * power_rating)	//limit heat transfer by available power
 
-		var/removed = -air_contents.add_thermal_energy(-heat_transfer)		//remove the heat
+		var/removed = -air_contents.add_thermal_energy(-heat_transfer*seconds_per_tick)		//remove the heat
 		if(debug)
 			visible_message("[src]: Removing [removed] W.")
 
-		use_power_oneoff(power_rating)
+		use_power_oneoff(power_rating*seconds_per_tick)
 
 		network.update = 1
 	else
@@ -171,17 +171,17 @@
 	power_setting = new_power_setting
 	power_rating = max_power_rating * (power_setting/100)
 
-/obj/machinery/atmospherics/unary/freezer/attackby(var/obj/item/O as obj, var/mob/user as mob)
-	if(default_deconstruction_screwdriver(user, O))
+/obj/machinery/atmospherics/unary/freezer/attackby(obj/item/attacking_item, mob/user)
+	if(default_deconstruction_screwdriver(user, attacking_item))
 		return TRUE
-	if(default_deconstruction_crowbar(user, O))
+	if(default_deconstruction_crowbar(user, attacking_item))
 		return TRUE
-	if(default_part_replacement(user, O))
+	if(default_part_replacement(user, attacking_item))
 		return TRUE
 
 	return ..()
 
-/obj/machinery/atmospherics/unary/freezer/examine(mob/user)
-	..(user)
+/obj/machinery/atmospherics/unary/freezer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
 	if(panel_open)
-		to_chat(user, "The maintenance hatch is open.")
+		. += "The maintenance hatch is open."

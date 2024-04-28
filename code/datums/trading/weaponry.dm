@@ -130,7 +130,8 @@
 		/obj/item/gun/projectile/shotgun/foldable             = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/rifle/adhomian     = TRADER_THIS_TYPE,
 		/obj/item/gun/projectile/automatic/rifle/dpra         = TRADER_ALL,
-		/obj/item/gun/projectile/revolver/knife               = TRADER_THIS_TYPE
+		/obj/item/gun/projectile/revolver/knife               = TRADER_THIS_TYPE,
+		/obj/item/gun/projectile/shotgun/pump/rifle/dominia   = TRADER_BLACKLIST
 	)
 
 
@@ -167,7 +168,7 @@
 		/obj/item/clothing/glasses/night                          = TRADER_THIS_TYPE,
 		/obj/item/clothing/glasses/sunglasses/sechud/tactical     = TRADER_THIS_TYPE,
 		/obj/item/clothing/gloves/swat                            = TRADER_THIS_TYPE,
-		/obj/item/clothing/shoes/swat                             = TRADER_THIS_TYPE,
+		/obj/item/clothing/shoes/combat                             = TRADER_THIS_TYPE,
 		/obj/item/clothing/under/tactical                         = TRADER_THIS_TYPE,
 		/obj/item/clothing/mask/gas/tactical                      = TRADER_THIS_TYPE,
 		/obj/item/shield/riot/tact                         = TRADER_THIS_TYPE,

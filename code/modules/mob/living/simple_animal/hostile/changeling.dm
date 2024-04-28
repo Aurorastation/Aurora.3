@@ -37,7 +37,6 @@
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 	emote_sounds = list('sound/effects/creatures/bear_loud_1.ogg', 'sound/effects/creatures/bear_loud_2.ogg', 'sound/effects/creatures/bear_loud_3.ogg', 'sound/effects/creatures/bear_loud_4.ogg')
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	minbodytemp = 0
@@ -60,9 +59,6 @@
 		icon_living = "horror"
 		icon_dead = "horror_dead"
 
-/mob/living/simple_animal/hostile/true_changeling/do_animate_chat(var/message, var/datum/language/language, var/small, var/list/show_to, var/duration, var/list/message_override)
-	INVOKE_ASYNC(src, /atom/movable/proc/animate_chat, message, language, small, show_to, duration)
-
 /mob/living/simple_animal/hostile/true_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
@@ -72,7 +68,7 @@
 	if(prob(10))
 		custom_emote(VISIBLE_MESSAGE, pick( list("shrieks!","roars!", "screeches!", "snarls!", "bellows!", "screams!") ) )
 		var/sound = pick(loud_sounds)
-		playsound(src, sound, 90, 1, 15, usepressure = 0)
+		playsound(src, sound, 90, 1, 15, pressure_affected = 0)
 
 
 /mob/living/simple_animal/hostile/true_changeling/death(gibbed)
@@ -167,7 +163,6 @@
 	attacktext = "mangled"
 	attack_sound = 'sound/weapons/bloodyslice.ogg'
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	pass_flags = PASSTABLE
@@ -184,14 +179,37 @@
 
 	var/mob/living/carbon/human/occupant = null
 
+	/// after this amount of time, we gain the untransform verb
+	var/untransform_time = 0
+	/// if we don't have an occupant yet, we'll use this one when we gain the untransform verb
+	var/mob/living/carbon/human/untransform_occupant = null
+
+/mob/living/simple_animal/hostile/lesser_changeling/revive
+	untransform_time = 5 MINUTES
+
 /mob/living/simple_animal/hostile/lesser_changeling/Initialize()
 	. = ..()
 	add_verb(src, /mob/living/proc/ventcrawl)
-	add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/verb/untransform)
+	if(!untransform_time)
+		add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/proc/untransform)
+	else
+		addtimer(CALLBACK(src, PROC_REF(add_untransform_verb)), untransform_time, TIMER_UNIQUE|TIMER_OVERRIDE)
 
 /mob/living/simple_animal/hostile/lesser_changeling/mind_initialize()
 	..()
 	mind.assigned_role = "Changeling"
+
+/mob/living/simple_animal/hostile/lesser_changeling/Destroy()
+	. = ..()
+	QDEL_NULL(occupant)
+	QDEL_NULL(untransform_occupant)
+
+/mob/living/simple_animal/hostile/lesser_changeling/proc/add_untransform_verb()
+	if(!occupant)
+		occupant = untransform_occupant
+		untransform_occupant = null
+	to_chat(src, SPAN_ALIEN("We are now ready to assume a greater form."))
+	add_verb(src, /mob/living/simple_animal/hostile/lesser_changeling/proc/untransform)
 
 /mob/living/simple_animal/hostile/lesser_changeling/death(gibbed)
 	..()
@@ -202,13 +220,14 @@
 			if(mind)
 				mind.transfer_to(occupant)
 				occupant.client.init_verbs()
+			occupant = null
 
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
 		qdel(src)
 		return
 
-/mob/living/simple_animal/hostile/lesser_changeling/verb/untransform()
+/mob/living/simple_animal/hostile/lesser_changeling/proc/untransform()
 	set name = "Return to original form"
 	set desc = "Return to your original form."
 	set category = "Changeling"
@@ -231,6 +250,7 @@
 		if(mind)
 			mind.transfer_to(occupant)
 		occupant.client.init_verbs()
+		occupant = null
 		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
 		gibs(src.loc)
 		qdel(src)

@@ -44,7 +44,7 @@
 	icon_state = "lightreplacer"
 	item_state = "lightreplacer"
 
-	flags = CONDUCT
+	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
 	origin_tech = list(TECH_MAGNET = 3, TECH_MATERIAL = 2)
 
@@ -72,15 +72,16 @@
 	failmsg = "The [name]'s refill light blinks red."
 	..()
 
-/obj/item/device/lightreplacer/examine(mob/user)
-	if(..(user, 2))
-		to_chat(user, "It has [uses] lights remaining.")
+/obj/item/device/lightreplacer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	if(distance <= 2)
+		. += "It has [uses] lights remaining."
 		if (store_broken)
-			to_chat(user, "It is storing [stored()]/[max_stored] broken lights.")
+			. += "It is storing [stored()]/[max_stored] broken lights."
 
-/obj/item/device/lightreplacer/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/stack/material) && W.get_material_name() == "glass")
-		var/obj/item/stack/G = W
+/obj/item/device/lightreplacer/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "glass")
+		var/obj/item/stack/G = attacking_item
 		if(uses >= max_uses)
 			to_chat(user, SPAN_WARNING("[src.name] is full."))
 		else if(G.use(5))
@@ -92,8 +93,8 @@
 			to_chat(user, SPAN_WARNING("You need 5 sheets of glass to replace lights."))
 		return TRUE
 
-	if(istype(W, /obj/item/light))
-		var/obj/item/light/L = W
+	if(istype(attacking_item, /obj/item/light))
+		var/obj/item/light/L = attacking_item
 		if(L.status == 0) // LIGHT OKAY
 			if(uses < max_uses)
 				AddUses(1)
@@ -104,8 +105,8 @@
 			to_chat(user, SPAN_WARNING("You need a working light."))
 		return TRUE
 
-	if(istype(W, /obj/item/device/lightreplacer))
-		var/obj/item/device/lightreplacer/LR = W
+	if(istype(attacking_item, /obj/item/device/lightreplacer))
+		var/obj/item/device/lightreplacer/LR = attacking_item
 		if(LR.uses == LR.max_uses)
 			to_chat(user, SPAN_WARNING("\The [LR] is already full!"))
 			return TRUE
@@ -146,7 +147,7 @@
 			to_chat(user, SPAN_WARNING("There are no more working lights left in the box!"))
 			return
 
-		if (do_after(user, load_interval, needhand = 0) && boxstartloc == box.loc && ourstartloc == src.loc)
+		if (do_after(user, load_interval, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND) && boxstartloc == box.loc && ourstartloc == src.loc)
 			if(uses >= max_uses) //catches loading from multiple boxes
 				break
 			uses++

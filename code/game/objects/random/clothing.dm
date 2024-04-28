@@ -123,7 +123,7 @@
 		/obj/item/clothing/mask/gas = 10,
 
 		/obj/item/clothing/shoes/chameleon = 0.5,
-		/obj/item/clothing/shoes/black = 5,
+		/obj/item/clothing/shoes/sneakers/black = 5,
 
 		/obj/item/clothing/suit/chameleon = 0.1,
 		/obj/item/clothing/suit/armor/vest = 1,
@@ -232,6 +232,7 @@
 	icon_state = "beret"
 	problist = list(
 		/obj/item/clothing/head/beret/colorable/random = 5,
+		/obj/item/clothing/head/beret/peaked/colourable/random = 5,
 		/obj/item/clothing/head/beret/engineering = 3,
 		/obj/item/clothing/head/beret/atmos = 3,
 		/obj/item/clothing/head/beret/medical = 3,
