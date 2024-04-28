@@ -531,3 +531,14 @@
   - qol: Hopefully fixes docking issues with the independent freighter shuttle.
   nauticall:
   - bugfix: Fixed the New Horizons drink not having a sprite.
+2024-04-28:
+  Alberyk:
+  - rscadd: Added lore radio stations to Tau Ceti.
+  DreamySkrell:
+  - rscadd: 'Disables ships that do not follow current standards: EE, TCFL, FSF.'
+  - rscadd: Cult Base cultists spawn without cult books, so they can only use the
+      runes mapped into the map, and can't make more.
+  - rscadd: Conversion rune added that does not give the new cultist the cult book.
+  - rscadd: Cult Base mapping and ghostspawner tweaks.
+  FluffyGhost:
+  - server: Updated tracy to our v27042024, now supports 515.1636.
