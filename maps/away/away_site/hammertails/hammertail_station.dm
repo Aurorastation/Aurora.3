@@ -6,7 +6,6 @@
 	ship_cost = 1
 	spawn_weight = 1
 	id = "hammertail_station"
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 	shuttles_to_initialise = list(
 		/datum/shuttle/autodock/overmap/hammertail_shuttle,
 		/datum/shuttle/autodock/overmap/hammertail_pod
