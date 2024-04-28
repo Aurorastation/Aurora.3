@@ -473,6 +473,7 @@
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "abi" = (
@@ -660,6 +661,7 @@
 /obj/structure/sign/poster{
 	pixel_x = 32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/freezer,
 /area/sensor_relay/quarters)
 "adF" = (
@@ -1355,6 +1357,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/quarters)
 "anw" = (
@@ -1602,9 +1605,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay/hydroponics)
 "asv" = (
-/obj/machinery/shipsensors/strong/venator/relay{
-	pixel_y = -16
-	},
+/obj/machinery/shipsensors/strong/venator/relay,
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "asy" = (
@@ -3115,6 +3116,7 @@
 	dir = 6
 	},
 /obj/item/device/radio/intercom/ship/east,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "aZn" = (
@@ -3478,6 +3480,12 @@
 	},
 /turf/simulated/floor/airless,
 /area/sensor_relay)
+"kGj" = (
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled,
+/area/sensor_relay)
 "kIN" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -3583,6 +3591,7 @@
 	dir = 6
 	},
 /obj/machinery/alarm/east,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "oCr" = (
@@ -3793,6 +3802,19 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
+"tus" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
+/obj/machinery/door/firedoor,
+/obj/effect/floor_decal/industrial/hatch/yellow,
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 2;
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/full,
+/area/sensor_relay)
 "tuG" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -3803,6 +3825,11 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
+"tLJ" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/turf/simulated/floor/carpet/green,
+/area/sensor_relay/quarters)
 "uhc" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -3873,6 +3900,7 @@
 /obj/effect/floor_decal/industrial/outline_door/yellow{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "uYz" = (
@@ -3940,6 +3968,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/floor_decal/industrial/outline_door/yellow,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "wHN" = (
@@ -36780,7 +36809,7 @@ dWa
 abb
 aiW
 wAM
-agJ
+tus
 uUk
 abd
 abe
@@ -37037,7 +37066,7 @@ aBf
 abg
 kIN
 sRW
-aau
+kGj
 abh
 aYV
 nBw
@@ -37303,7 +37332,7 @@ aoD
 aNP
 aNP
 akX
-jOf
+tLJ
 aiX
 aNP
 aNP
@@ -38075,7 +38104,7 @@ aoU
 aNP
 axZ
 jOf
-jOf
+tLJ
 aza
 aNP
 aZn
