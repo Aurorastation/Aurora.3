@@ -6,8 +6,14 @@
 #define DISK_VERSION "disk"
 #define CONNECTION_VERSION "connection"
 
-var/byond_tracy_running = 0			// Whether byond-tracy is currently running or not, no matter what version.
-var/byond_tracy_running_v = null	// Which version of byond-tracy is currently running, so we call the right binary on destruction.
+/// Whether byond-tracy is currently running or not, no matter what version.
+GLOBAL_VAR_INIT(byond_tracy_running, FALSE)
+
+/// Which version of byond-tracy is currently running, so we call the right binary on destruction.
+GLOBAL_VAR_INIT(byond_tracy_running_v, FALSE)
+
+/// The path we have invoked to load byond tracy
+GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 
 /world/New()
 	CAN_BE_REDEFINED(TRUE)
@@ -17,7 +23,7 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 
 /world/Del()
 	CAN_BE_REDEFINED(TRUE)
-	if(byond_tracy_running)
+	if(GLOB.byond_tracy_running)
 		prof_destroy()
 	. = ..()
 
@@ -25,7 +31,7 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 	set name = "Start Tracy Profiler"
 	set category = "Debug"
 	set desc = "Starts the tracy profiler, which will await the client connection or save utracy files to the server's disk."
-	if(!byond_tracy_running)
+	if(!GLOB.byond_tracy_running)
 		switch(alert("Are you sure? Tracy will remain active until the server restarts.", "Tracy Init", "No", "Yes"))
 			if("Yes")
 				switch(alert("Which version of Tracy would you like to run?", "Tracy Version", "Cancel", "Connection Based", "Disk Based"))
@@ -57,11 +63,12 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 			else
 				CRASH("unsupported platform")
 
+	GLOB.byond_tracy_path = lib
 	var/init = call_ext(lib, "init")()
 	if("0" != init) CRASH("[lib] init error: [init]")
 
-	byond_tracy_running = TRUE
-	byond_tracy_running_v = version
+	GLOB.byond_tracy_running = TRUE
+	GLOB.byond_tracy_running_v = version
 
 /**
  * Stops Tracy.
@@ -70,7 +77,7 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 /proc/prof_destroy()
 	var/lib
 
-	switch(byond_tracy_running_v)
+	switch(GLOB.byond_tracy_running_v)
 		if(CONNECTION_VERSION)
 			if(world.system_type == MS_WINDOWS)
 				lib = "tracy.dll"
@@ -89,8 +96,8 @@ var/byond_tracy_running_v = null	// Which version of byond-tracy is currently ru
 
 	call_ext(lib, "destroy")()
 
-	byond_tracy_running = FALSE
-	byond_tracy_running_v = null
+	GLOB.byond_tracy_running = FALSE
+	GLOB.byond_tracy_running_v = null
 
 #undef DISK_VERSION
 #undef CONNECTION_VERSION
