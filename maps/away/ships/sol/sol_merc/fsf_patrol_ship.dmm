@@ -131,6 +131,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "aej" = (
@@ -189,6 +192,7 @@
 	dir = 2
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "ajL" = (
@@ -262,7 +266,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "fsf_shuttle_shutters";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -347,6 +351,15 @@
 /obj/effect/floor_decal/carpet/blue{
 	dir = 1
 	},
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c1000,
+/obj/item/spacecash/c500,
+/obj/item/spacecash/c500,
+/obj/random/spacecash,
+/obj/random/spacecash,
+/obj/random/spacecash,
 /turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship/officer)
 "aCd" = (
@@ -433,6 +446,7 @@
 /obj/structure/bed/stool/chair/office/bridge/generic{
 	dir = 8
 	},
+/obj/effect/floor_decal/carpet/blue,
 /turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship/officer)
 "aHt" = (
@@ -704,6 +718,9 @@
 /obj/machinery/alarm/south{
 	req_one_access = list(24,11, 203)
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "beU" = (
@@ -765,6 +782,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/briefing)
+"btd" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = -24;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/atmos)
 "buB" = (
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
@@ -1005,7 +1040,7 @@
 	icon_state = "tube_empty"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
 "cCV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1203,6 +1238,9 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "dZZ" = (
@@ -1270,7 +1308,6 @@
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
 "enT" = (
@@ -1364,6 +1401,10 @@
 	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/requisitions)
+"eCG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/atmos)
 "eCP" = (
 /obj/structure/ship_weapon_dummy,
 /turf/template_noop,
@@ -1474,7 +1515,7 @@
 	weapon_id = "FSF Francisca Rotary Gun"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/ship/fsf_patrol_ship/starboardhallway)
 "fhJ" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/wall/shuttle/raider,
@@ -1612,8 +1653,12 @@
 /obj/structure/table/steel,
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
-	id = "elyran_shuttle_shutters";
+	id = "fsf_shuttle_shutters";
 	name = "Shuttle Safety Shutters"
+	},
+/obj/item/storage/bag/inflatable{
+	pixel_x = 4;
+	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
@@ -2089,7 +2134,7 @@
 /area/ship/fsf_patrol_ship/quarters)
 "hjW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fsf_patrol_ship/starboardhallway)
 "hmC" = (
 /obj/effect/decal/cleanable/dirt,
@@ -2167,11 +2212,10 @@
 	dir = 8;
 	icon_state = "tube_empty"
 	},
-/obj/effect/decal/cleanable/floor_damage/broken2,
-/obj/machinery/computer/shuttle_control/explore/sfa_shuttle{
+/obj/machinery/computer/shuttle_control/explore/fsf_shuttle{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
 "hBs" = (
 /obj/structure/bed/padded,
@@ -2226,6 +2270,9 @@
 /obj/item/ammo_magazine/c762/sol,
 /obj/item/gun/projectile/automatic/rifle/sol,
 /obj/item/ammo_magazine/c762/sol,
+/obj/item/gun/projectile/shotgun/pump/combat/sol,
+/obj/item/storage/box/shotgunshells,
+/obj/item/clothing/accessory/storage/bandolier,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/armory)
 "hVU" = (
@@ -2294,6 +2341,11 @@
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
 /obj/item/ammo_magazine/mc9mm,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
+/obj/item/clothing/accessory/holster/hip,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/armory)
 "icj" = (
@@ -2375,6 +2427,25 @@
 "inj" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/fsf_patrol_ship/briefing)
+"ipI" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/atmos)
 "irs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/binary/passive_gate/supply{
@@ -2479,6 +2550,12 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/medical)
+"iIE" = (
+/obj/effect/floor_decal/carpet/blue{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/cyan,
+/area/ship/fsf_patrol_ship/officer)
 "iIT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
@@ -2773,7 +2850,7 @@
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	target_pressure = 250
 	},
-/obj/structure/lattice/catwalk/indoor/grate/damaged,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/fsf_shuttle)
 "jOd" = (
@@ -2813,7 +2890,7 @@
 	},
 /obj/machinery/embedded_controller/radio/simple_docking_controller{
 	frequency = 1380;
-	id_tag = "tcaf_dock";
+	id_tag = "fsf_hangar";
 	name = "\improper shuttle docking port controller";
 	req_one_access = list(204);
 	dir = 2;
@@ -2911,6 +2988,9 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/ship/fsf_patrol_ship/atmos)
 "kBo" = (
+/obj/machinery/atmospherics/portables_connector/aux{
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "kBp" = (
@@ -2973,6 +3053,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "kIx" = (
@@ -3085,6 +3168,9 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
 /turf/simulated/floor,
@@ -3203,7 +3289,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters"
+	id = "fsf_shuttle_shutters"
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/fsf_shuttle)
@@ -3272,6 +3358,14 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/light{
+	dir = 1;
+	inserted_light = /obj/item/light/tube/colored/blue;
+	icon_state = "tube_empty"
+	},
+/obj/structure/sign/nosmoking_1{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/atmos)
@@ -3465,6 +3559,7 @@
 /obj/item/stack/material/plastic/full,
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/item/stack/material/lead/full,
+/obj/item/stack/barricade/plasteel/full,
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/engineering)
 "mbP" = (
@@ -3587,6 +3682,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "mEc" = (
@@ -3790,10 +3886,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/gym)
 "nic" = (
-/obj/structure/sign/nosmoking_1{
-	pixel_x = -10;
-	pixel_y = 32
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
@@ -3853,6 +3945,14 @@
 "nBN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/atmos)
+"nDG" = (
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/turf/simulated/floor,
 /area/ship/fsf_patrol_ship/atmos)
 "nEa" = (
 /obj/effect/shuttle_landmark/fsf_aft,
@@ -3930,7 +4030,7 @@
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/grenade/chem_grenade/metalfoam,
 /obj/item/stack/material/glass/full,
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fsf_patrol_ship/starboardhallway)
 "obG" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -4011,7 +4111,7 @@
 	name = "fore, cockpit"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "fsf_shuttle_shutters";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -4038,6 +4138,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/ammo)
+"ooF" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/atmos)
 "ooR" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -4221,6 +4334,16 @@
 /obj/item/pen,
 /turf/simulated/floor/wood,
 /area/ship/fsf_patrol_ship/officer)
+"pej" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/atmos)
 "pfE" = (
 /turf/simulated/floor/reinforced,
 /area/ship/fsf_patrol_ship/engineering)
@@ -4257,7 +4380,7 @@
 "pnp" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fsf_patrol_ship/starboardhallway)
 "pvy" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -4307,7 +4430,7 @@
 /obj/machinery/power/apc/high/west{
 	req_access = list(203)
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fsf_patrol_ship/starboardhallway)
 "pXP" = (
 /obj/effect/landmark/entry_point/port{
@@ -4358,11 +4481,6 @@
 /area/ship/fsf_patrol_ship/starboardpropulsion)
 "qil" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
@@ -4374,6 +4492,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/atmos)
@@ -4480,7 +4601,6 @@
 	dir = 8
 	},
 /obj/structure/window/reinforced,
-/obj/effect/decal/cleanable/floor_damage/tiled_broken0,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
 "qyG" = (
@@ -4527,7 +4647,6 @@
 	name = "waste canister"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/fsf_shuttle)
 "qHm" = (
@@ -4699,6 +4818,22 @@
 /obj/effect/floor_decal/corner_wide/green/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/medical)
+"rzD" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -28;
+	pixel_y = 12
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/shuttle_landmark/fsf_dock/aft,
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/atmos)
 "rAo" = (
 /obj/machinery/atmospherics/portables_connector/scrubber{
 	dir = 8
@@ -4813,7 +4948,6 @@
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/effect/floor_decal/industrial/outline/grey,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/fsf_shuttle)
 "sgx" = (
@@ -4847,6 +4981,15 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
+"sjh" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/atmos)
 "smQ" = (
 /obj/structure/bed/padded,
 /obj/effect/decal/cleanable/dirt,
@@ -4867,6 +5010,17 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/ship/fsf_patrol_ship/mess)
+"srL" = (
+/obj/machinery/light{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking{
+	landmark_tag = "nav_fsf_dock_aft";
+	master_tag = "airlock_fsf_dock_aft";
+	name = "airlock_fsf_dock_aft"
+	},
+/turf/simulated/floor,
+/area/ship/fsf_patrol_ship/atmos)
 "swZ" = (
 /obj/structure/table/steel,
 /obj/item/storage/box/cups,
@@ -5220,6 +5374,9 @@
 	dir = 8
 	},
 /obj/effect/overmap/visitable/ship/landable/fsf_shuttle,
+/obj/effect/floor_decal/spline/plain/grey{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
 "tKM" = (
@@ -5334,6 +5491,9 @@
 	},
 /turf/simulated/floor,
 /area/ship/fsf_patrol_ship/dock)
+"uzA" = (
+/turf/simulated/floor/tiled/dark,
+/area/ship/fsf_patrol_ship/atmos)
 "uBC" = (
 /obj/structure/closet/firecloset/full,
 /obj/effect/floor_decal/industrial/outline/red,
@@ -5789,7 +5949,7 @@
 "wha" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
-/turf/simulated/floor,
+/turf/simulated/floor/carpet/rubber,
 /area/ship/fsf_patrol_ship/starboardhallway)
 "wmb" = (
 /obj/effect/floor_decal/corner_wide/green/diagonal,
@@ -5821,7 +5981,7 @@
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/fsf_shuttle)
 "wuH" = (
 /obj/structure/bed/stool,
@@ -5854,6 +6014,13 @@
 "wxY" = (
 /obj/structure/table/wood,
 /obj/item/modular_computer/laptop/preset/civilian,
+/obj/effect/floor_decal/carpet/blue,
+/obj/effect/floor_decal/carpet/blue{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet/blue{
+	dir = 10
+	},
 /turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship/officer)
 "wBq" = (
@@ -6062,6 +6229,9 @@
 	pixel_x = 5;
 	pixel_y = -4
 	},
+/obj/effect/floor_decal/carpet/blue{
+	dir = 8
+	},
 /turf/simulated/floor/carpet/cyan,
 /area/ship/fsf_patrol_ship/officer)
 "xeO" = (
@@ -6076,6 +6246,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fsf_patrol_ship/requisitions)
+"xfb" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/turf/template_noop,
+/area/space)
 "xgf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 6
@@ -6121,6 +6295,9 @@
 "xto" = (
 /obj/effect/floor_decal/carpet/blue{
 	dir = 1
+	},
+/obj/effect/floor_decal/carpet/blue{
+	dir = 8
 	},
 /obj/effect/floor_decal/carpet/blue{
 	dir = 9
@@ -35471,7 +35648,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xfb
 xRX
 xRX
 xRX
@@ -36242,7 +36419,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xfb
 vJj
 trv
 kBo
@@ -36787,7 +36964,7 @@ hjW
 wha
 ePG
 xto
-uWQ
+iIE
 xdq
 wxY
 oSU
@@ -37013,7 +37190,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xfb
 vJj
 qhP
 rAo
@@ -37271,7 +37448,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+qHA
 qHA
 qHA
 qHA
@@ -37528,11 +37705,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-xRX
-uRy
+rzD
+nDG
+sjh
+btd
+eCG
 qil
 mWk
 mWk
@@ -37743,7 +37920,6 @@ xRX
 xRX
 xRX
 xRX
-nEa
 xRX
 xRX
 xRX
@@ -37786,10 +37962,11 @@ xRX
 xRX
 xRX
 xRX
-xRX
-xRX
-xRX
-uRy
+pej
+srL
+ipI
+ooF
+uzA
 nic
 iQy
 ybt
@@ -38042,8 +38219,8 @@ xRX
 xRX
 xRX
 xRX
-xRX
 jIq
+uRy
 uRy
 uRy
 uRy
@@ -38298,7 +38475,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xfb
 xRX
 uRy
 kzm
@@ -39069,7 +39246,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xfb
 xRX
 hWc
 pfE
@@ -39840,7 +40017,7 @@ xRX
 xRX
 xRX
 xRX
-xRX
+xfb
 xRX
 hWc
 hWc
