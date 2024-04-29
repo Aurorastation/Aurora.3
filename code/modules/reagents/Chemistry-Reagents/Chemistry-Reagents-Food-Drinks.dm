@@ -288,7 +288,7 @@
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA)))
+		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA, IS_UNATHI)))
 			var/list/nemiik_messages = list(
 				"Your stomache feels a bit unsettled...",
 				"Your throat tingles slightly...",
@@ -1495,7 +1495,7 @@
 	..()
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
-		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA)))
+		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA, IS_UNATHI)))
 			var/list/nemiik_messages = list(
 				"Your stomache feels a bit unsettled...",
 				"Your throat tingles slightly...",
