@@ -140,7 +140,14 @@
 	return ((!A.power_equip) && A.requires_power == 1 || istype(T, /turf/space)) && !istype(src.loc,/obj/item)
 
 /mob/living/silicon/ai/rejuvenate()
+	var/was_dead = stat == DEAD
+
 	..()
+
+	if(was_dead && stat != DEAD)
+		// Arise!
+		GLOB.cameranet.update_visibility(src, FALSE)
+
 	add_ai_verbs(src)
 
 /mob/living/silicon/ai/update_sight()

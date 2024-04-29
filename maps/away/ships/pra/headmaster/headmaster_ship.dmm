@@ -1259,31 +1259,16 @@
 	},
 /area/headmaster_ship/hangar)
 "dn" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 8;
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+	pixel_x = -35;
+	pixel_y = -21;
+	dir = 1
 	},
 /turf/simulated/floor,
-/area/shuttle/headmaster_shuttle)
+/area/headmaster_ship/hangar)
 "dp" = (
 /obj/structure/bed/handrail{
 	dir = 4
@@ -1888,12 +1873,8 @@
 	},
 /area/headmaster_ship/barracks)
 "fq" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/headmaster_shuttle)
+/turf/simulated/floor/plating/cooled,
+/area/headmaster_ship/hangar)
 "fu" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -3017,16 +2998,11 @@
 	},
 /area/headmaster_ship/barracks)
 "iW" = (
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating/cooled,
-/area/headmaster_ship/hangar)
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/headmaster_shuttle)
 "iY" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/regular{
@@ -3148,10 +3124,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/headmaster_ship/cic)
 "jv" = (
-/obj/structure/cable{
-	icon_state = "1-2";
-	dir = 1
-	},
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3160,9 +3132,9 @@
 	dir = 1
 	},
 /obj/machinery/access_button{
-	pixel_x = -22;
-	dir = 4;
-	pixel_y = 30
+	pixel_x = -26;
+	dir = 1;
+	pixel_y = 10
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -3172,6 +3144,9 @@
 	name = "headmaster_shuttle";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor,
 /area/shuttle/headmaster_shuttle)
@@ -3314,7 +3289,7 @@
 /area/headmaster_ship/medbay)
 "jU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
+	dir = 1;
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -6677,12 +6652,11 @@
 	},
 /area/headmaster_ship/dock)
 "Mb" = (
-/obj/effect/decal/cleanable/blood/oil,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
-/turf/simulated/floor/plating/cooled,
-/area/headmaster_ship/hangar)
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/headmaster_shuttle)
 "Mc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
@@ -37117,7 +37091,7 @@ Bz
 ub
 gg
 bK
-Mb
+hg
 RS
 hA
 Jn
@@ -37372,9 +37346,9 @@ nq
 oh
 Bz
 gg
-hg
-Jn
-Jn
+fq
+IO
+Mb
 Jn
 kS
 TF
@@ -37629,7 +37603,7 @@ Jv
 oh
 Bz
 dY
-Rm
+fq
 jU
 Pb
 dp
@@ -38143,8 +38117,8 @@ in
 oh
 Bz
 uh
-IO
 fq
+jU
 sn
 mF
 aj
@@ -38400,9 +38374,9 @@ mj
 oh
 Bz
 Bx
-FU
-Jn
-Jn
+fq
+Rm
+iW
 Jn
 kS
 ly
@@ -38659,7 +38633,7 @@ Bz
 dq
 kw
 Lc
-iW
+FU
 EC
 aN
 Jn

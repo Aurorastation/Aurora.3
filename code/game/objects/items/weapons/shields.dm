@@ -316,8 +316,8 @@
 	var/active = 0
 
 /obj/item/shield/riot/tact/legion
-	name = "legion ballistic shield"
-	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Foreign Legion."
+	name = "\improper TCAF ballistic shield"
+	desc = "A highly advanced ballistic shield crafted from durable materials and plated ablative panels. Can be collapsed for mobility. This one has been painted in the colors of the Tau Ceti Armed Forces."
 	icon_state = "legion_tactshield"
 	item_state = "legion_tactshield"
 

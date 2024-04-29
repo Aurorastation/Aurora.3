@@ -237,6 +237,7 @@ Proc for attack log creation, because really why not
 	if((src in GLOB.living_mob_list) || (src in GLOB.dead_mob_list))
 		return FALSE
 	GLOB.dead_mob_list += src
+	GLOB.death_event.raise_event(src)
 	return TRUE
 
 // Returns true if the mob was removed form the dead list

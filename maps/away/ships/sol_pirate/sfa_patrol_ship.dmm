@@ -116,7 +116,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters"
+	id = "sfa_shuttle_shutters"
 	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/sfa_shuttle)
@@ -381,7 +381,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "aIR" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship)
 "aJd" = (
@@ -445,7 +445,7 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, workshop"
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "aVv" = (
@@ -618,6 +618,12 @@
 	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
+	},
+/obj/machinery/button/remote/blast_door{
+	dir = 4;
+	pixel_x = 19;
+	name = "Bridge Blast Door";
+	id = "sfa bridge blast"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Bridge)
@@ -910,7 +916,7 @@
 	frame_color = "#6C7364"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "sfa_shuttle_shutters";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -974,9 +980,6 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
-/obj/effect/shuttle_landmark/sfa_shuttle/hangar{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -1311,7 +1314,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
 "ebV" = (
@@ -1459,7 +1462,7 @@
 /area/space)
 "euO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Brig)
 "ews" = (
@@ -1484,11 +1487,10 @@
 /turf/simulated/floor/holofloor/wood,
 /area/ship/sfa_patrol_ship/Quarters)
 "eyV" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
-	icon_state = "map"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/wall,
 /area/shuttle/sfa_shuttle)
 "eBj" = (
 /obj/structure/closet/crate/medical,
@@ -1610,7 +1612,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "eVI" = (
@@ -1761,7 +1763,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/custodialammo)
 "foE" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white/airless,
 /area/ship/sfa_patrol_ship/head)
 "fpk" = (
@@ -2012,12 +2014,12 @@
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/destroyedrec)
 "gfP" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "gjk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "gka" = (
@@ -2051,7 +2053,7 @@
 	name = "fore, cockpit"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "sfa_shuttle_shutters";
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -2275,7 +2277,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "gJf" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/head)
 "gLL" = (
@@ -3072,7 +3074,7 @@
 /area/ship/sfa_patrol_ship/destroyedammo)
 "jrB" = (
 /obj/structure/lattice,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/docking)
 "jsy" = (
@@ -3264,18 +3266,26 @@
 	dir = 1
 	},
 /obj/machinery/access_button{
-	pixel_x = -22;
-	dir = 4;
-	pixel_y = 30
+	pixel_x = 37;
+	dir = 1;
+	pixel_y = 7
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
-	master_tag = "airlock_elyran_shuttle";
-	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
-	shuttle_tag = "Elyran Naval Shuttle"
+	master_tag = "airlock_sfa_shuttle";
+	name = "airlock_sfa_shuttle";
+	req_one_access = list(203);
+	shuttle_tag = "SFA Shuttle"
+	},
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 26;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/sfa_shuttle)
@@ -3452,7 +3462,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/head)
 "kAt" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white/airless,
 /area/ship/sfa_patrol_ship/destroyedmedbay)
 "kCw" = (
@@ -3541,7 +3551,7 @@
 	start_pressure = 1500
 	},
 /obj/effect/floor_decal/industrial/outline/blue,
-/obj/machinery/light/colored/decayed{
+/obj/machinery/light{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -3899,7 +3909,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 8
 	},
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/plating,
 /area/shuttle/sfa_shuttle)
 "mfq" = (
@@ -4487,7 +4497,7 @@
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "nQA" = (
 /obj/structure/lattice,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark/airless,
 /area/ship/sfa_patrol_ship/destroyedrec)
 "nQD" = (
@@ -4526,6 +4536,12 @@
 "nTk" = (
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/destroyedmedbay)
+"nYj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/sfa_shuttle)
 "oaR" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -4764,6 +4780,9 @@
 /obj/structure/lattice/catwalk/indoor/grate/gunmetal,
 /obj/structure/cable/green{
 	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "0-8"
 	},
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/hangar)
@@ -5073,7 +5092,7 @@
 "qcx" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip/oil,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship)
 "qcH" = (
@@ -5133,7 +5152,7 @@
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "qfX" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /obj/item/tape/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/SFA_Armory)
@@ -5149,11 +5168,6 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/machinery/light{
-	dir = 1;
-	inserted_light = /obj/item/light/tube/colored/blue;
-	icon_state = "tube_empty"
-	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/plating,
 /area/shuttle/sfa_shuttle)
@@ -5163,7 +5177,7 @@
 /area/ship/sfa_patrol_ship/TreasureRoom)
 "qjY" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
+	dir = 1;
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
@@ -5349,6 +5363,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/Engineering)
 "qYI" = (
@@ -5394,7 +5411,7 @@
 /area/ship/sfa_patrol_ship)
 "rbn" = (
 /obj/structure/lattice,
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/space/dynamic,
 /area/ship/sfa_patrol_ship/head)
 "rcS" = (
@@ -5899,7 +5916,7 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/destroyedammo)
 "sPe" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark/full/airless,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "sQX" = (
@@ -6058,17 +6075,9 @@
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "tIr" = (
 /obj/structure/table/steel,
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
-	id_tag = "sfa_shuttle";
-	frequency = 1380;
-	child_names_txt = "SFA Shuttle Airlock";
-	child_tags_txt = "sfa_shuttle";
-	dir = 8
-	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
-	id = "elyran_shuttle_shutters";
+	id = "sfa_shuttle_shutters";
 	name = "Shuttle Safety Shutters"
 	},
 /turf/simulated/floor/tiled/dark/full,
@@ -6201,7 +6210,7 @@
 /turf/simulated/floor/plating,
 /area/ship/sfa_patrol_ship/Engine2)
 "ucv" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/airless,
 /area/ship/sfa_patrol_ship/docking)
 "ufa" = (
@@ -6523,7 +6532,7 @@
 /turf/simulated/floor/reinforced/airless,
 /area/ship/sfa_patrol_ship/destroyedammo)
 "vEW" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/white,
 /area/ship/sfa_patrol_ship/destroyedmedbay)
 "vGd" = (
@@ -6593,7 +6602,7 @@
 /turf/simulated/floor/carpet/art,
 /area/ship/sfa_patrol_ship/Officer)
 "wfl" = (
-/obj/structure/inflatable,
+/obj/structure/inflatable/wall,
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
 "wfy" = (
@@ -6827,13 +6836,12 @@
 /area/ship/sfa_patrol_ship/destroyedrec)
 "wTY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
-	id_tag = "sfa_shuttle";
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	id_tag = "sfa_shuttle_dock";
+	dir = 8;
+	name = "SFA Shuttle docking port controller";
 	frequency = 1380;
-	child_names_txt = "SFA Shuttle Airlock";
-	child_tags_txt = "sfa_shuttle";
-	dir = 8
+	pixel_x = 26
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/sfa_patrol_ship/hangar)
@@ -7100,31 +7108,17 @@
 /turf/simulated/wall/shuttle/raider,
 /area/ship/sfa_patrol_ship/SFA_Armory)
 "xPX" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 8;
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_sfa_shuttle";
-	name = "airlock_sfa_shuttle";
-	req_one_access = list(203);
-	shuttle_tag = "SFA Shuttle"
+/obj/effect/shuttle_landmark/sfa_shuttle/hangar{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
-/area/shuttle/sfa_shuttle)
+/area/ship/sfa_patrol_ship/hangar)
 "xRe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -44057,7 +44051,7 @@ mLa
 mET
 rDU
 eoS
-rDU
+iZb
 nSb
 gCs
 gxJ
@@ -44312,9 +44306,9 @@ uAK
 pFv
 mLa
 wha
-iZb
-ikP
-ikP
+rDU
+gtO
+nYj
 ikP
 mfb
 qil
@@ -44569,8 +44563,8 @@ sey
 aEm
 mLa
 wha
-aSJ
-eyV
+rDU
+qjY
 lQk
 hjW
 sfX
@@ -45083,7 +45077,7 @@ hyd
 uqX
 mLa
 rOk
-gtO
+rDU
 qjY
 rLR
 lGR
@@ -45340,9 +45334,9 @@ eXO
 iOh
 cUD
 hRm
-pIa
-ikP
-gxJ
+rDU
+aSJ
+eyV
 ikP
 sxp
 kMb
@@ -45599,7 +45593,7 @@ viZ
 puC
 rDU
 anS
-anS
+pIa
 fJS
 llg
 ikP

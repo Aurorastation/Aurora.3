@@ -174,6 +174,10 @@
 					if(component_check)
 						attacking_item.play_tool_sound(get_turf(src), 50)
 						var/obj/machinery/new_machine = new circuit.build_path(loc, dir, FALSE)
+						if(istype(circuit, /obj/item/circuitboard/unary_atmos))
+							var/obj/item/circuitboard/unary_atmos/U = circuit
+							U.init_dirs = dir
+							U.machine_dir = U
 						if(istype(new_machine))
 							if(new_machine.component_parts)
 								new_machine.component_parts.Cut()

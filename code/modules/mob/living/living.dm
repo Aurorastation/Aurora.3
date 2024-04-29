@@ -911,14 +911,30 @@ default behaviour is:
 /mob/living/Initialize()
 	. = ..()
 	add_to_target_grid()
+	ability_master = new /obj/screen/movable/ability_master(FALSE, src)
 
 /mob/living/Destroy()
+
+	//Aiming overlay
+	QDEL_NULL(aiming)
+	QDEL_LIST(aimed_at_by)
+
+	//Psi complexus
+	QDEL_NULL(psi)
+
+	if(vr_mob)
+		vr_mob = null
+	if(old_mob)
+		old_mob = null
+
+	//Remove contained mobs
 	if(loc)
 		for(var/mob/M in contents)
 			M.dropInto(loc)
 	else
 		for(var/mob/M in contents)
 			qdel(M)
+
 	QDEL_NULL(reagents)
 	clear_from_target_grid()
 
@@ -1004,6 +1020,12 @@ default behaviour is:
 	set name = "mov_intent"
 	if(hud_used?.move_intent)
 		hud_used.move_intent.Click()
+
+/mob/living/verb/toggle_intentionally_lying()
+	set hidden = 1
+	set name = "lie_down"
+	if(hud_used?.move_intent)
+		hud_used.move_intent.Click(params="button=middle")
 
 /**
  * Used by a macro in skin.dmf to toggle the throw

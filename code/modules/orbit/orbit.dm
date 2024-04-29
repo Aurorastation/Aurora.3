@@ -93,8 +93,3 @@
 /atom/movable/proc/stop_orbit()
 	SpinAnimation(0,0)
 	QDEL_NULL(orbiting)
-
-/atom/movable/Destroy(force = FALSE)
-	. = ..()
-	if (orbiting)
-		stop_orbit()

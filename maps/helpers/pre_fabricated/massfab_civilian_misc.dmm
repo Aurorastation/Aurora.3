@@ -1,0 +1,6369 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/random/pottedplant,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"at" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = -9
+	},
+/obj/machinery/light_switch{
+	pixel_x = 7;
+	pixel_y = -19
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"aI" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"bi" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"bk" = (
+/obj/machinery/light_switch{
+	pixel_x = -7;
+	pixel_y = -19
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"bt" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	pixel_y = 26
+	},
+/obj/structure/mirror{
+	pixel_y = 36
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"bR" = (
+/obj/structure/table/wood,
+/obj/random/lavalamp,
+/turf/simulated/floor/wood,
+/area/space)
+"bW" = (
+/obj/item/reagent_containers/food/snacks/meat/pig,
+/obj/item/reagent_containers/food/snacks/meat/pig,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/fancy/egg_box,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/structure/closet/secure_closet/refrigerator,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"cc" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/recharge_station,
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"cf" = (
+/obj/machinery/door/airlock/service,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"cg" = (
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1;
+	pixel_x = 19
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"cj" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"cl" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"cq" = (
+/obj/machinery/door/airlock/freezer{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"cJ" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/chem_disp_cartridge/water,
+/obj/item/reagent_containers/chem_disp_cartridge/water,
+/obj/item/reagent_containers/chem_disp_cartridge/water,
+/obj/item/reagent_containers/chem_disp_cartridge/water,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"cX" = (
+/obj/structure/table/rack,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"dU" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 8
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"dX" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/machinery/appliance/cooker/stove,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ek" = (
+/obj/structure/table/stone/marble,
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar";
+	pixel_x = 2;
+	pixel_y = 18
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"eu" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/machinery/door/airlock/research,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"eU" = (
+/turf/simulated/wall/wood,
+/area/space)
+"fo" = (
+/obj/machinery/door/urban/glass_sliding/double,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"fD" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"fN" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/shower{
+	dir = 1;
+	pixel_y = -8
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1;
+	pixel_x = 19
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"fX" = (
+/obj/structure/bookcase/libraryspawn/fiction,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"ge" = (
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 21;
+	pixel_y = -5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"gj" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/toilet{
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"gp" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1
+	},
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"gC" = (
+/obj/structure/toilet{
+	dir = 8;
+	color = "736071"
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1;
+	pixel_x = 19
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"gO" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze{
+	pixel_y = 2;
+	pixel_x = 4
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1;
+	pixel_x = -18
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"hp" = (
+/obj/random/pottedplant,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"hq" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 21;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"hr" = (
+/obj/machinery/door/window/southleft{
+	name = "Shower"
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"hw" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"hQ" = (
+/obj/machinery/door/airlock/freezer,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"ij" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"im" = (
+/obj/structure/table/wood,
+/obj/item/flora/pottedplant_small,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"is" = (
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/door/airlock/research{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"iw" = (
+/obj/item/reagent_containers/food/snacks/meat/pig,
+/obj/item/reagent_containers/food/snacks/meat/pig,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/item/reagent_containers/food/snacks/meat/chicken,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/obj/item/reagent_containers/food/drinks/carton/milk,
+/obj/item/reagent_containers/food/drinks/carton/soymilk,
+/obj/item/reagent_containers/food/condiment/flour,
+/obj/item/storage/box/fancy/egg_box,
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/closet/secure_closet/refrigerator,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"iJ" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"iP" = (
+/obj/machinery/door/window/northright{
+	name = "Shower"
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"iR" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/fan{
+	pixel_y = 1;
+	pixel_x = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"jm" = (
+/obj/machinery/shower{
+	pixel_y = 24
+	},
+/obj/structure/curtain/open/shower,
+/obj/structure/window/reinforced{
+	layer = 5;
+	name = "adjusted reinforced window"
+	},
+/obj/machinery/door/window/southleft{
+	name = "Shower";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"jv" = (
+/obj/structure/table/wood,
+/obj/item/flora/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"jw" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"jC" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/item/clothing/shoes/workboots{
+	pixel_y = -6;
+	pixel_x = 4
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = 2;
+	pixel_x = -5
+	},
+/obj/machinery/light_switch{
+	pixel_x = 9;
+	pixel_y = -19
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"ka" = (
+/turf/simulated/floor/wood,
+/area/space)
+"kd" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"lb" = (
+/obj/effect/map_effect/window_spawner/full/wood,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"ls" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"lz" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 8;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lC" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/lights/colored/blue{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/storage/box/lights/colored/cyan{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/item/storage/box/lights/colored/green{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/storage/box/lights/colored/magenta{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/storage/box/lights/colored/red{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/storage/box/lights/colored/yellow{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/structure/weapon_rack/double{
+	pixel_y = -32
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"lD" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"lQ" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"md" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"mo" = (
+/obj/structure/bed/padded,
+/obj/item/bedsheet,
+/turf/simulated/floor/wood,
+/area/space)
+"mJ" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"mN" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = 8
+	},
+/obj/item/pen/black,
+/turf/simulated/floor/wood,
+/area/space)
+"nf" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = -9;
+	pixel_y = 16
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"nh" = (
+/obj/structure/table/stone/marble,
+/obj/item/glass_jar{
+	desc = "A small empty jar that is mostly used for giving a tip.";
+	name = "tip jar";
+	pixel_x = 5
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"ns" = (
+/turf/simulated/wall/shuttle/legion,
+/area/space)
+"nw" = (
+/obj/structure/table/stone/marble,
+/turf/simulated/floor/marble/dark,
+/area/space)
+"nx" = (
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/door/airlock/security{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"nz" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"nR" = (
+/obj/structure/table/rack,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"nT" = (
+/obj/structure/table/stone/marble,
+/obj/structure/television{
+	pixel_x = 1;
+	pixel_y = 23
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"nW" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"oj" = (
+/obj/structure/table/rack/cafe_table,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"os" = (
+/obj/structure/table/wood,
+/obj/structure/television{
+	pixel_x = 16;
+	pixel_y = 16
+	},
+/obj/item/flora/pottedplant_small{
+	pixel_y = -1;
+	pixel_x = -4
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"oL" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl{
+	pixel_y = 14
+	},
+/obj/item/material/ashtray/bronze{
+	pixel_x = 3;
+	pixel_y = 0
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"oT" = (
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"pi" = (
+/obj/structure/bookcase/libraryspawn/nonfiction,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"pA" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/recharge_station,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"pS" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"qh" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/fan{
+	pixel_y = 1;
+	pixel_x = 5
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"qy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -21;
+	pixel_y = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"rk" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"rn" = (
+/obj/structure/curtain/open/shower,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/northright{
+	name = "Shower"
+	},
+/obj/machinery/shower{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"rr" = (
+/obj/machinery/door/window/southright{
+	name = "Shower"
+	},
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"rH" = (
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"rR" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/machinery/shower{
+	dir = 1;
+	pixel_y = -8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"so" = (
+/obj/random/keg,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"st" = (
+/obj/structure/closet/gmcloset,
+/obj/item/flame/lighter/zippo,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/device/quikpay,
+/obj/item/storage/box/fancy/matches,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/beanbags,
+/obj/item/wrench,
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"sy" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 8
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"sE" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 8;
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"ta" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = 8
+	},
+/obj/item/pen/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"tb" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"te" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 14;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 11;
+	pixel_y = 1
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/item/reagent_containers/food/drinks/bottle/wine{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"um" = (
+/obj/structure/table/wood,
+/obj/item/flora/pottedplant_small{
+	pixel_y = -1;
+	pixel_x = -4
+	},
+/obj/structure/television{
+	pixel_x = 16;
+	pixel_y = 16
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"un" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 21;
+	pixel_y = -5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"uq" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 8;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl{
+	pixel_y = -1
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"uz" = (
+/obj/structure/table/rack,
+/obj/item/storage/box/fancy/chips/variety,
+/obj/item/storage/box/fancy/chips/variety,
+/obj/item/reagent_containers/food/snacks/whitechocolate/wrapped,
+/obj/item/reagent_containers/food/snacks/candy,
+/obj/item/reagent_containers/food/snacks/sosjerky,
+/turf/simulated/floor/wood,
+/area/space)
+"uA" = (
+/obj/structure/bed/stool/chair/wood,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"uO" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/random/soap,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"vp" = (
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 24
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"vM" = (
+/obj/structure/table/wood,
+/obj/structure/television{
+	pixel_x = 16;
+	pixel_y = 16
+	},
+/obj/item/flora/pottedplant_small{
+	pixel_y = -1;
+	pixel_x = -4
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"wc" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 13
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"wm" = (
+/obj/structure/bed/stool/chair/office/light,
+/turf/simulated/floor/wood,
+/area/space)
+"wq" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl{
+	pixel_y = 1
+	},
+/obj/item/material/ashtray/bronze{
+	pixel_x = -4;
+	pixel_y = 9
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"wu" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/chem_disp_cartridge/brownstar,
+/obj/item/reagent_containers/chem_disp_cartridge/cola,
+/obj/item/reagent_containers/chem_disp_cartridge/dr_gibb,
+/obj/item/reagent_containers/chem_disp_cartridge/lemon_lime,
+/obj/item/reagent_containers/chem_disp_cartridge/sodawater,
+/obj/item/reagent_containers/chem_disp_cartridge/spaceup,
+/obj/item/reagent_containers/chem_disp_cartridge/root_beer,
+/obj/item/reagent_containers/chem_disp_cartridge/tonic,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"wG" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 4
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"xr" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 1
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"xx" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"yl" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/chem_disp_cartridge/beer,
+/obj/item/reagent_containers/chem_disp_cartridge/ale,
+/obj/item/reagent_containers/chem_disp_cartridge/butanol,
+/obj/item/reagent_containers/chem_disp_cartridge/champagne,
+/obj/item/reagent_containers/chem_disp_cartridge/cognac,
+/obj/item/reagent_containers/chem_disp_cartridge/ethanol,
+/obj/item/reagent_containers/chem_disp_cartridge/gin,
+/obj/item/reagent_containers/chem_disp_cartridge/mead,
+/obj/item/reagent_containers/chem_disp_cartridge/rum,
+/obj/item/reagent_containers/chem_disp_cartridge/tequila,
+/obj/item/reagent_containers/chem_disp_cartridge/tonic,
+/obj/item/reagent_containers/chem_disp_cartridge/vermouth,
+/obj/item/reagent_containers/chem_disp_cartridge/vodka,
+/obj/item/reagent_containers/chem_disp_cartridge/whiskey,
+/obj/item/reagent_containers/chem_disp_cartridge/wine,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"yv" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce,
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"yx" = (
+/obj/machinery/door/urban,
+/turf/simulated/floor/marble/dark,
+/area/space)
+"yA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = -6
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"yP" = (
+/obj/machinery/vending/snack,
+/turf/simulated/floor/wood,
+/area/space)
+"zk" = (
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 24
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"zF" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zH" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"zK" = (
+/obj/structure/bed/padded,
+/obj/structure/bed/padded/bunk,
+/obj/item/bedsheet{
+	pixel_y = 15
+	},
+/obj/item/bedsheet,
+/turf/simulated/floor/wood,
+/area/space)
+"zN" = (
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1;
+	color = "4974a5"
+	},
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"zW" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ae" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl,
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"An" = (
+/obj/machinery/door/airlock/service{
+	dir = 4;
+	name = "Bathroom"
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"AH" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 9
+	},
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 21;
+	pixel_y = -5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"AL" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"AR" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Ba" = (
+/obj/machinery/light_switch{
+	dir = 4;
+	pixel_x = 21;
+	pixel_y = 7
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Bd" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = 5
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Be" = (
+/obj/structure/table/wood,
+/obj/item/flora/pottedplant_small{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Bm" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/fan{
+	pixel_y = 13;
+	pixel_x = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Bv" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"BW" = (
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/toilet{
+	dir = 8;
+	color = "4974a5"
+	},
+/obj/machinery/light/small{
+	dir = 4;
+	must_start_working = 1;
+	pixel_x = 19
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Cd" = (
+/obj/structure/toilet{
+	pixel_y = 16;
+	color = "736071"
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Cn" = (
+/obj/structure/bed/stool/chair/wood{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Cp" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze{
+	pixel_y = 3;
+	pixel_x = 4
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1;
+	pixel_x = -18
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"CD" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = 7;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"CO" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze{
+	pixel_y = 4;
+	pixel_x = 2
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1;
+	pixel_x = -18
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"CP" = (
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/toilet{
+	pixel_y = 16;
+	color = "4974a5"
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Di" = (
+/obj/machinery/vending/cigarette,
+/turf/simulated/floor/wood,
+/area/space)
+"Dp" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -15
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate{
+	pixel_x = -7
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 1;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 9;
+	pixel_y = 0
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = -3;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 8;
+	pixel_y = 18
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"DC" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/obj/machinery/recharge_station,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"DM" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	pixel_y = 16
+	},
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"DP" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"DT" = (
+/obj/structure/toilet{
+	dir = 4;
+	color = "736071"
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1;
+	pixel_x = -18
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Ef" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ek" = (
+/obj/structure/table/wood,
+/obj/item/paper_bin{
+	pixel_y = 2;
+	pixel_x = -8
+	},
+/obj/item/pen/black,
+/turf/simulated/floor/wood,
+/area/space)
+"Eo" = (
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/door/airlock/research,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ER" = (
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Fj" = (
+/obj/machinery/shower{
+	dir = 1
+	},
+/obj/structure/curtain/open/shower,
+/obj/structure/window/reinforced{
+	dir = 1
+	},
+/obj/machinery/door/window/northright{
+	dir = 8;
+	name = "Shower"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Fv" = (
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -21;
+	pixel_y = -7
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"FN" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -15;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate{
+	pixel_x = -7;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 1;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 9;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -15;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate{
+	pixel_x = -7;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"Gh" = (
+/turf/template_noop,
+/area/space)
+"GI" = (
+/obj/structure/table/stone/marble,
+/obj/item/material/ashtray/bronze{
+	pixel_x = 8;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/snacks/chipplate/peanuts_bowl{
+	pixel_y = 14
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"GS" = (
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"GX" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_soft/full{
+	pixel_x = -9;
+	pixel_y = -2;
+	dir = 1
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = -1;
+	pixel_y = 15
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Hi" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ho" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/item/reagent_containers/glass/bucket/wood,
+/obj/item/mop,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"HC" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"HP" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/storage/box/produce,
+/obj/item/storage/box/produce,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"HS" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ij" = (
+/obj/structure/bed/stool/bar/padded/black,
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Iu" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"Jd" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/turf/simulated/floor/wood,
+/area/space)
+"Jg" = (
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 1
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Jj" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/holomenu{
+	pixel_x = 9;
+	pixel_y = 8
+	},
+/obj/item/holomenu{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/paper_bin{
+	pixel_x = -6;
+	pixel_y = 7
+	},
+/obj/item/pen{
+	pixel_x = -7;
+	pixel_y = 9
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"Ju" = (
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"JC" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"JE" = (
+/obj/structure/table/rack/retail_shelf,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"JT" = (
+/obj/structure/table/wood,
+/obj/item/storage/box/lights/colored/blue{
+	pixel_x = 6;
+	pixel_y = 10
+	},
+/obj/item/storage/box/lights/colored/cyan{
+	pixel_x = -6;
+	pixel_y = 10
+	},
+/obj/item/storage/box/lights/colored/green{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/obj/item/storage/box/lights/colored/magenta{
+	pixel_x = -6;
+	pixel_y = 6
+	},
+/obj/item/storage/box/lights/colored/red{
+	pixel_x = 6;
+	pixel_y = 2
+	},
+/obj/item/storage/box/lights/colored/yellow{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"JV" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random_produce/box,
+/obj/random_produce/box,
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"Kh" = (
+/turf/simulated/wall,
+/area/space)
+"Kr" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = 5
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = -7;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"KI" = (
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"KP" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/chem_disp_cartridge/apple,
+/obj/item/reagent_containers/chem_disp_cartridge/berryjuice,
+/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
+/obj/item/reagent_containers/chem_disp_cartridge/cranberry,
+/obj/item/reagent_containers/chem_disp_cartridge/cream,
+/obj/item/reagent_containers/chem_disp_cartridge/lemon,
+/obj/item/reagent_containers/chem_disp_cartridge/icetea,
+/obj/item/reagent_containers/chem_disp_cartridge/lime,
+/obj/item/reagent_containers/chem_disp_cartridge/milk,
+/obj/item/reagent_containers/chem_disp_cartridge/soymilk,
+/obj/item/reagent_containers/chem_disp_cartridge/toothpaste,
+/obj/item/reagent_containers/chem_disp_cartridge/watermelon,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"KR" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	pixel_y = 16
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Lg" = (
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Lm" = (
+/obj/structure/bookcase/libraryspawn/nonfiction,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Lo" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"LA" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	pixel_x = -8
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"LS" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_x = -17;
+	pixel_y = -3
+	},
+/obj/machinery/reagentgrinder{
+	pixel_y = 2;
+	pixel_x = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"My" = (
+/obj/machinery/door/window/northleft{
+	name = "Shower"
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"MT" = (
+/obj/machinery/recharge_station,
+/turf/simulated/floor/wood,
+/area/space)
+"Ns" = (
+/obj/structure/table/wood,
+/obj/item/material/ashtray/bronze{
+	pixel_y = -1;
+	pixel_x = 3
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1;
+	pixel_x = -18
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Nt" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_x = -3;
+	pixel_y = 16
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Nw" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Nz" = (
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -21;
+	pixel_y = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"NK" = (
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/obj/item/reagent_containers/chem_disp_cartridge/ice,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"NN" = (
+/obj/structure/bed/stool/bar/padded/black{
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Or" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/glass/bottle/syrup/caramel{
+	pixel_x = -15;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/chocolate{
+	pixel_x = -7;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/pumpkin{
+	pixel_x = 1;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/glass/bottle/syrup/vanilla{
+	pixel_x = 9;
+	pixel_y = 21
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = -9;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/shaker{
+	pixel_x = 3;
+	pixel_y = 5
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"OA" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/bar_alc/full{
+	pixel_x = -3;
+	pixel_y = -2;
+	dir = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"OQ" = (
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/structure/toilet{
+	dir = 4;
+	color = "4974a5"
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1;
+	pixel_x = -18
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"OS" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/fan{
+	pixel_y = 3;
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"OZ" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Pb" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 4
+	},
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/cooking_container/board,
+/obj/item/material/kitchen/utensil/knife{
+	pixel_x = 12
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Pj" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Ps" = (
+/turf/simulated/floor/tiled/full,
+/area/space)
+"PK" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 9
+	},
+/obj/machinery/light_switch{
+	dir = 8;
+	pixel_x = -21;
+	pixel_y = 5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"PR" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"PV" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Qs" = (
+/obj/structure/curtain/black,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Qu" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"QG" = (
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Rg" = (
+/obj/machinery/computer/slot_machine,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"Rr" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/structure/curtain/open/shower,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/machinery/door/window/northright{
+	name = "Shower"
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Rt" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"RF" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light_switch{
+	pixel_x = -7;
+	pixel_y = -19
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"RK" = (
+/obj/machinery/light_switch{
+	pixel_x = 9;
+	pixel_y = -19
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"RS" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce,
+/obj/random_produce,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"Sf" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/obj/machinery/light/small{
+	dir = 8;
+	must_start_working = 1;
+	pixel_x = -18
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"SA" = (
+/obj/structure/table/wood,
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"SL" = (
+/obj/structure/bed/stool/chair/sofa/left/brown{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"SN" = (
+/obj/machinery/door/airlock/multi_tile/glass,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Th" = (
+/obj/structure/table/stone/marble,
+/obj/machinery/chemical_dispenser/coffeemaster/full{
+	pixel_x = -17;
+	pixel_y = 16
+	},
+/obj/item/reagent_containers/glass/rag{
+	pixel_x = -1;
+	pixel_y = 2
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_y = 6;
+	pixel_x = 11
+	},
+/obj/machinery/reagentgrinder{
+	pixel_y = 23;
+	pixel_x = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Tk" = (
+/obj/structure/table/rack/retail_shelf,
+/obj/item/reagent_containers/chem_disp_cartridge/apple,
+/obj/item/reagent_containers/chem_disp_cartridge/berryjuice,
+/obj/item/reagent_containers/chem_disp_cartridge/clean_kois,
+/obj/item/reagent_containers/chem_disp_cartridge/cranberry,
+/obj/item/reagent_containers/chem_disp_cartridge/cream,
+/obj/item/reagent_containers/chem_disp_cartridge/lemon,
+/obj/item/reagent_containers/chem_disp_cartridge/icetea,
+/obj/item/reagent_containers/chem_disp_cartridge/lime,
+/obj/item/reagent_containers/chem_disp_cartridge/milk,
+/obj/item/reagent_containers/chem_disp_cartridge/soymilk,
+/obj/item/reagent_containers/chem_disp_cartridge/toothpaste,
+/obj/item/reagent_containers/chem_disp_cartridge/watermelon,
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"Tn" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Tx" = (
+/obj/random/keg,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"TO" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 6
+	},
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/peppermill{
+	pixel_x = 14;
+	pixel_y = 11
+	},
+/obj/item/reagent_containers/food/condiment/shaker/salt{
+	pixel_x = 8;
+	pixel_y = 9
+	},
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_x = 11;
+	pixel_y = 1
+	},
+/obj/item/reagent_containers/food/drinks/bottle/wine{
+	pixel_y = 4
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"TR" = (
+/obj/structure/closet/gmcloset,
+/obj/item/flame/lighter/zippo,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/storage/box/fancy/candle_box,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/reagent_containers/toothpaste,
+/obj/item/device/quikpay,
+/obj/item/storage/box/fancy/matches,
+/obj/item/storage/box/beanbags,
+/obj/item/storage/box/beanbags,
+/obj/item/wrench,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/turf/simulated/floor/exoplanet/tiled/white,
+/area/space)
+"Ug" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/shower{
+	pixel_y = 15
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Us" = (
+/obj/structure/window/reinforced{
+	dir = 4;
+	maxhealth = 140
+	},
+/obj/machinery/shower{
+	dir = 1;
+	pixel_y = -8
+	},
+/obj/structure/curtain/open/shower,
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Ux" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/fan{
+	pixel_y = 13;
+	pixel_x = -5
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"UA" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 9
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = -9
+	},
+/obj/machinery/light_switch{
+	pixel_x = 9;
+	pixel_y = -19
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"UY" = (
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/spacespice{
+	pixel_y = 1;
+	pixel_x = -9
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Vm" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/curtain/open/shower,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"Vy" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"VT" = (
+/obj/structure/table/rack,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/random/soap,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/turf/simulated/floor/tiled/freezer,
+/area/space)
+"VV" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Wl" = (
+/obj/structure/bed/stool/chair/sofa/right/brown{
+	dir = 1
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"Wm" = (
+/obj/structure/closet/secure_closet/personal/cabinet,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"WA" = (
+/obj/structure/table/wood,
+/obj/item/toy/desk/fan{
+	pixel_y = 13;
+	pixel_x = 5
+	},
+/turf/simulated/floor/carpet/brown,
+/area/space)
+"WB" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light/small{
+	dir = 1;
+	pixel_y = 17
+	},
+/obj/structure/toilet{
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Xa" = (
+/obj/effect/floor_decal/corner/blue/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/blue/diagonal,
+/obj/machinery/door/airlock/security,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Xg" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Xn" = (
+/obj/machinery/vending/boozeomat{
+	req_access = null
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Xy" = (
+/turf/simulated/wall/shuttle/palepurple,
+/area/space)
+"XA" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green{
+	pixel_y = 9
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"XH" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/toilet{
+	pixel_y = 16
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"XN" = (
+/obj/machinery/vending/dinnerware/bar,
+/turf/simulated/floor/marble/dark,
+/area/space)
+"XP" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 4;
+	pixel_x = 12
+	},
+/obj/structure/mirror{
+	pixel_x = 27
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Yd" = (
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 10
+	},
+/obj/item/clothing/shoes/workboots{
+	pixel_y = 17;
+	pixel_x = 4
+	},
+/obj/item/clothing/shoes/sneakers/black{
+	pixel_y = 9;
+	pixel_x = -5
+	},
+/obj/machinery/light_switch{
+	dir = 1;
+	pixel_x = 7;
+	pixel_y = 24
+	},
+/turf/simulated/floor/tiled/dark,
+/area/space)
+"Yg" = (
+/obj/structure/toilet{
+	dir = 1;
+	pixel_y = -1;
+	color = "736071"
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/light/small{
+	pixel_y = -22
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Yi" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/sink{
+	dir = 8;
+	pixel_x = -12
+	},
+/obj/structure/mirror{
+	pixel_x = -28
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Yn" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Yy" = (
+/obj/machinery/door/airlock/service{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"YA" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/structure/table/rack,
+/obj/item/reagent_containers/toothpaste{
+	pixel_x = -3
+	},
+/obj/item/reagent_containers/toothbrush,
+/obj/item/reagent_containers/toothbrush,
+/obj/item/towel/random,
+/obj/random/soap,
+/turf/simulated/floor/tiled/white,
+/area/space)
+"Zl" = (
+/obj/machinery/smartfridge/drinks{
+	opacity = 1
+	},
+/turf/simulated/floor/marble/dark,
+/area/space)
+"Zs" = (
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/turf/simulated/floor/wood,
+/area/space)
+"ZA" = (
+/obj/structure/table/wood,
+/obj/item/device/flashlight/lamp/green,
+/turf/simulated/floor/wood,
+/area/space)
+"ZB" = (
+/obj/effect/floor_decal/corner/black{
+	dir = 1
+	},
+/obj/effect/floor_decal/corner/black,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/structure/table/rack,
+/obj/random/soap,
+/obj/item/towel/random,
+/obj/item/towel/random,
+/obj/random/soap,
+/turf/simulated/floor/tiled/white,
+/area/space)
+
+(1,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(2,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(3,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Pj
+AL
+Yi
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Pj
+AL
+Yi
+Kh
+Kh
+Kh
+Gh
+Kh
+Ux
+Ek
+ka
+qy
+cf
+Gh
+Kh
+mo
+PK
+ka
+at
+Kh
+Gh
+Kh
+mo
+Nz
+kd
+ka
+uz
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(4,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+dU
+ka
+ka
+yA
+Kh
+Gh
+Kh
+Zs
+ka
+ka
+Xg
+cf
+Gh
+Kh
+XA
+ka
+ka
+ka
+UA
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(5,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Lo
+Lo
+Lo
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Lo
+Lo
+Lo
+Kh
+Kh
+Kh
+Gh
+Kh
+bR
+mo
+Ba
+Jd
+Kh
+Gh
+Kh
+ka
+ka
+ka
+ka
+Kh
+Gh
+Kh
+md
+ka
+ka
+ka
+Xg
+cf
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(6,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Zs
+vM
+ka
+SL
+Kh
+Gh
+Kh
+vM
+ka
+SL
+ka
+OS
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(7,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+xx
+Lo
+Yn
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+xx
+Lo
+Yn
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Jd
+jv
+ka
+Wl
+Kh
+Gh
+Kh
+jv
+ka
+xr
+wm
+mN
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(8,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+zH
+hQ
+Lo
+Lo
+Lo
+hQ
+DC
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(9,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Jd
+Fv
+mo
+bR
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(10,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Bd
+ka
+ka
+ls
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(11,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+cf
+un
+ka
+mN
+iR
+Kh
+Gh
+Kh
+vM
+ka
+SL
+Jd
+Kh
+Gh
+Kh
+Ek
+OZ
+um
+ka
+SL
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(12,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+gp
+Kh
+Gh
+Kh
+zH
+hQ
+Lo
+Lo
+Lo
+hQ
+DC
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+jv
+ka
+Wl
+QG
+Kh
+Gh
+Kh
+Bm
+ka
+jv
+ka
+Wl
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(13,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+xx
+Lo
+Yn
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+xx
+Lo
+Yn
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+ka
+ka
+ka
+ka
+Kh
+Gh
+cf
+Vy
+ka
+ka
+ka
+Wm
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(14,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+gp
+Kh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+gp
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+cf
+Vy
+ka
+ka
+QG
+Kh
+Gh
+Kh
+Kr
+ka
+ka
+ka
+XA
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(15,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Lo
+Lo
+Lo
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Lo
+Lo
+Lo
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kr
+ka
+AH
+mo
+Kh
+Gh
+Kh
+uz
+ka
+tb
+ge
+mo
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(16,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+gp
+Kh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+gp
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(17,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+DP
+VV
+XP
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+DP
+VV
+XP
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(18,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+"}
+(19,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+ka
+Nw
+Jd
+Kh
+os
+AR
+Jg
+Ju
+AR
+pi
+Kh
+Gh
+Kh
+os
+AR
+Jg
+Ju
+Lm
+fX
+Kh
+Jd
+Jd
+ka
+Kh
+Gh
+"}
+(20,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Kh
+ka
+ka
+RK
+Kh
+Be
+Ju
+mJ
+Ju
+Ju
+fX
+Kh
+Gh
+Kh
+Be
+Ju
+mJ
+Ju
+Ju
+Ju
+cf
+ka
+ka
+ka
+Kh
+Gh
+"}
+(21,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Pj
+AL
+Yi
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Pj
+AL
+Yi
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+ka
+ka
+ka
+cf
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Kh
+Gh
+Kh
+Ju
+Ju
+Ju
+Ju
+Ju
+bk
+Kh
+vp
+ka
+ka
+Kh
+Gh
+"}
+(22,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Sf
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+Sf
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Gh
+Kh
+bR
+zK
+XA
+Kh
+zk
+uA
+im
+Cn
+Ju
+Ju
+Kh
+Gh
+Kh
+Ju
+Ju
+uA
+im
+Cn
+Ju
+Kh
+ZA
+zK
+bR
+Kh
+Gh
+"}
+(23,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+uO
+Lo
+Lo
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+uO
+Lo
+Lo
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Ju
+uA
+SA
+Cn
+Ju
+jC
+Kh
+Gh
+Kh
+Yd
+Ju
+uA
+SA
+Cn
+Ju
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+"}
+(24,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Sf
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+Sf
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Gh
+Kh
+jm
+Lo
+Lo
+cf
+Ju
+Ju
+Ju
+Ju
+Ju
+Xg
+cf
+Gh
+cf
+Rt
+Ju
+Ju
+Ju
+Ju
+Ju
+cf
+Lo
+Lo
+rn
+Kh
+Gh
+"}
+(25,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+ZB
+Lo
+Yn
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+ZB
+Lo
+Yn
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+xx
+Lo
+RF
+Kh
+Hi
+zF
+zF
+cj
+ij
+Ju
+Kh
+Gh
+Kh
+Ju
+ij
+Hi
+zF
+zF
+cj
+Kh
+HS
+Lo
+Yn
+Kh
+Gh
+"}
+(26,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Sf
+hQ
+Lo
+Lo
+Lo
+hQ
+HC
+Kh
+Gh
+Kh
+pA
+hQ
+Lo
+Lo
+Lo
+hQ
+DC
+Kh
+Gh
+Gh
+Kh
+lz
+VV
+YA
+Kh
+te
+dX
+Pb
+iw
+ta
+qh
+Kh
+Gh
+Kh
+WA
+ta
+bW
+Pb
+dX
+TO
+Kh
+sE
+VV
+YA
+Kh
+Gh
+"}
+(27,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+"}
+(28,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(29,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+cq
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+"}
+(30,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+fN
+Kh
+Gh
+Kh
+zH
+hQ
+Lo
+Lo
+Lo
+hQ
+cc
+Kh
+Gh
+Gh
+Kh
+MT
+Nw
+Jd
+Kh
+os
+AR
+Jg
+Ju
+AR
+pi
+Kh
+Gh
+Kh
+os
+AR
+Jg
+Ju
+Lm
+fX
+Kh
+Jd
+Jd
+MT
+Kh
+Gh
+"}
+(31,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+xx
+Lo
+JC
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+xx
+Lo
+JC
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+ka
+ka
+RK
+Kh
+Be
+Ju
+mJ
+Ju
+Ju
+fX
+Kh
+Gh
+Kh
+Be
+Ju
+mJ
+Ju
+Ju
+Ju
+cf
+ka
+ka
+ka
+Kh
+Gh
+"}
+(32,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+fN
+Kh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+fN
+Kh
+Gh
+Gh
+Kh
+ka
+ka
+ka
+cf
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Kh
+Gh
+Kh
+Ju
+Ju
+Ju
+Ju
+Ju
+bk
+Kh
+vp
+ka
+ka
+Kh
+Gh
+"}
+(33,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Lo
+Lo
+lD
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Lo
+Lo
+lD
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+bR
+zK
+XA
+Kh
+zk
+uA
+im
+Cn
+Ju
+Ju
+Kh
+Gh
+Kh
+Ju
+Ju
+uA
+im
+Cn
+Ju
+Kh
+ZA
+zK
+bR
+Kh
+Gh
+"}
+(34,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+WB
+hQ
+Lo
+Lo
+Lo
+hQ
+fN
+Kh
+Gh
+Kh
+DM
+hQ
+Lo
+Lo
+Lo
+hQ
+fN
+Kh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Ju
+uA
+SA
+Cn
+Ju
+jC
+Kh
+Gh
+Kh
+Yd
+Ju
+uA
+SA
+Cn
+Ju
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+"}
+(35,1,1) = {"
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+DP
+VV
+XP
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+DP
+VV
+XP
+Kh
+Kh
+Kh
+Gh
+Gh
+Kh
+jm
+Lo
+Lo
+cf
+Ju
+Ju
+Ju
+Ju
+Ju
+Xg
+cf
+Gh
+cf
+Rt
+Ju
+Ju
+Ju
+Ju
+Ju
+cf
+Lo
+Lo
+rn
+Kh
+Gh
+"}
+(36,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Gh
+Gh
+Gh
+Kh
+xx
+Lo
+RF
+Kh
+Hi
+zF
+zF
+cj
+ij
+Ju
+Kh
+Gh
+Kh
+Ju
+ij
+Hi
+zF
+zF
+cj
+Kh
+HS
+Lo
+Yn
+Kh
+Gh
+"}
+(37,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+lz
+VV
+YA
+Kh
+te
+dX
+Pb
+iw
+ta
+qh
+Kh
+Gh
+Kh
+WA
+ta
+bW
+Pb
+dX
+TO
+Kh
+sE
+VV
+YA
+Kh
+Gh
+"}
+(38,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+"}
+(39,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(40,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+ns
+ns
+ns
+Gh
+ns
+nx
+ns
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+Gh
+"}
+(41,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+ns
+CP
+Xa
+Gh
+ns
+BW
+ns
+Gh
+Kh
+AL
+AL
+AL
+hr
+PR
+GS
+GS
+cX
+Kh
+Gh
+eU
+Tx
+so
+eU
+lQ
+Yi
+eU
+Pj
+lQ
+eU
+Rg
+CO
+Rg
+Ns
+Rg
+Cp
+Rg
+gO
+Rg
+eU
+Gh
+"}
+(42,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+ns
+ns
+ns
+Gh
+ns
+ns
+ns
+Gh
+Kh
+Lo
+Lo
+Lo
+rr
+GS
+GS
+GS
+nR
+Kh
+Gh
+eU
+so
+GS
+eU
+Lo
+Lo
+eU
+Lo
+Lo
+eU
+oT
+Ju
+oT
+Ju
+oT
+Ju
+oT
+Ju
+oT
+eU
+Gh
+"}
+(43,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+gj
+Lo
+aI
+Kh
+Ug
+GS
+GS
+Tn
+Kh
+Gh
+eU
+so
+GS
+eU
+eU
+Yy
+eU
+Yy
+eU
+eU
+Qs
+Qs
+Qs
+eU
+Qs
+eU
+Qs
+Qs
+Qs
+eU
+Gh
+"}
+(44,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+ns
+ns
+ns
+Gh
+ns
+ns
+ns
+Gh
+Kh
+XH
+Lo
+Ef
+Kh
+Ug
+GS
+GS
+Tn
+Kh
+Gh
+eU
+JE
+GS
+eU
+yP
+ka
+ka
+ka
+ka
+ka
+Ju
+Ju
+Ju
+AR
+Ju
+AR
+Ju
+Ju
+Ju
+fo
+Gh
+"}
+(45,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Xa
+zN
+ns
+Gh
+ns
+OQ
+ns
+Gh
+Kh
+XH
+Lo
+Ef
+Kh
+Ug
+GS
+GS
+Tn
+Kh
+Gh
+eU
+NK
+GS
+eU
+Di
+cg
+ka
+ka
+cg
+ka
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ps
+Gh
+"}
+(46,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+ns
+ns
+ns
+Gh
+ns
+nx
+ns
+Gh
+Kh
+XH
+Lo
+Ef
+Kh
+Ug
+GS
+GS
+Tn
+Kh
+Gh
+eU
+eU
+cq
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+hp
+Ju
+wG
+Ju
+wG
+Ju
+wG
+Ju
+fD
+eU
+Gh
+"}
+(47,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+XH
+Lo
+Ef
+Kh
+jw
+GS
+GS
+Vm
+Kh
+Gh
+eU
+Ae
+KI
+KI
+Jj
+eU
+XN
+ER
+ER
+Zl
+ER
+Ju
+oj
+Ju
+oj
+Ju
+oj
+Ju
+Ju
+lb
+Gh
+"}
+(48,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Xy
+Xy
+Xy
+Gh
+Xy
+is
+Xy
+Gh
+Kh
+KR
+Lo
+aI
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+eU
+RS
+KI
+KI
+st
+eU
+Xn
+ER
+ER
+nw
+NN
+Ju
+sy
+Ju
+sy
+Ju
+sy
+Ju
+Ju
+lb
+Gh
+"}
+(49,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Xy
+Cd
+eu
+Gh
+Xy
+gC
+Xy
+Gh
+Kh
+Ho
+Lo
+Lo
+Lo
+Lo
+Lo
+Lo
+Lo
+SN
+Gh
+eU
+rk
+KI
+KI
+KI
+nW
+ER
+ER
+ER
+GI
+NN
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+lb
+Gh
+"}
+(50,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Xy
+Xy
+Xy
+Gh
+Xy
+Xy
+Xy
+Gh
+Kh
+zW
+Qu
+Lo
+Lo
+Lo
+Lo
+Qu
+Lo
+Ps
+Gh
+eU
+JV
+KI
+KI
+lC
+eU
+Nt
+ER
+ER
+nw
+NN
+Ju
+Ju
+wG
+wG
+wG
+wG
+wG
+fD
+eU
+Gh
+"}
+(51,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+eU
+HP
+KI
+KI
+rH
+eU
+nf
+ER
+ER
+nw
+NN
+Ju
+Ju
+SA
+SA
+SA
+SA
+SA
+Ju
+lb
+Gh
+"}
+(52,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Xy
+Xy
+Xy
+Gh
+Xy
+Xy
+Xy
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+eU
+wu
+KI
+KI
+FN
+eU
+Th
+ER
+ER
+oL
+NN
+Ju
+Ju
+SA
+SA
+SA
+SA
+SA
+Ju
+lb
+Gh
+"}
+(53,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Eo
+Yg
+Xy
+Gh
+Xy
+DT
+Xy
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+eU
+KP
+KI
+KI
+Iu
+eU
+Or
+ER
+ER
+ek
+NN
+Ju
+Ju
+sy
+sy
+sy
+sy
+sy
+Ju
+lb
+Gh
+"}
+(54,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Xy
+Xy
+Xy
+Gh
+Xy
+is
+Xy
+Gh
+SN
+Lo
+hw
+Lo
+Lo
+Lo
+Lo
+hw
+zW
+Kh
+Gh
+eU
+yl
+KI
+KI
+cJ
+eU
+nT
+nz
+ER
+yx
+ER
+iJ
+Ju
+Ju
+Ju
+Ju
+Ju
+iJ
+Ju
+eU
+Gh
+"}
+(55,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Ps
+Lo
+Lo
+Lo
+Lo
+Lo
+Lo
+Lo
+Ho
+Kh
+Gh
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+Gh
+"}
+(56,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+gj
+Lo
+aI
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}
+(57,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+bi
+GS
+GS
+rR
+Kh
+XH
+Lo
+Ef
+Kh
+Gh
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+Gh
+"}
+(58,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+YA
+AL
+lQ
+Kh
+Gh
+Kh
+jm
+Lo
+Lo
+cf
+Gh
+Kh
+Bv
+GS
+GS
+Us
+Kh
+XH
+Lo
+Ef
+Kh
+Gh
+eU
+Rg
+gO
+Rg
+Ns
+Rg
+Ns
+Rg
+CO
+Rg
+eU
+lQ
+Yi
+eU
+Pj
+lQ
+eU
+so
+so
+eU
+Gh
+"}
+(59,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+CD
+Lo
+Yn
+Kh
+Gh
+Kh
+xx
+Lo
+RF
+Kh
+Gh
+Kh
+Bv
+GS
+GS
+Us
+Kh
+XH
+Lo
+Ef
+Kh
+Gh
+eU
+oT
+Ju
+oT
+Ju
+oT
+Ju
+oT
+Ju
+oT
+eU
+Lo
+Lo
+eU
+Lo
+Lo
+eU
+GS
+so
+eU
+Gh
+"}
+(60,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+cf
+Lo
+Lo
+Fj
+Kh
+Gh
+Kh
+sE
+VV
+YA
+Kh
+Gh
+Kh
+Bv
+GS
+GS
+Us
+Kh
+XH
+Lo
+Ef
+Kh
+Gh
+eU
+Qs
+Qs
+Qs
+eU
+Qs
+eU
+Qs
+Qs
+Qs
+eU
+eU
+An
+eU
+An
+eU
+eU
+GS
+so
+eU
+Gh
+"}
+(61,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+Bv
+GS
+GS
+Us
+Kh
+KR
+Lo
+aI
+Kh
+Gh
+fo
+Ju
+Ju
+Ju
+AR
+Ju
+AR
+Ju
+Ju
+Ju
+ka
+ka
+ka
+ka
+ka
+yP
+eU
+GS
+JE
+eU
+Gh
+"}
+(62,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+nR
+GS
+GS
+GS
+My
+Lo
+Lo
+Lo
+Kh
+Gh
+Ps
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+ka
+cg
+ka
+ka
+cg
+Di
+eU
+GS
+Lg
+eU
+Gh
+"}
+(63,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+Kh
+VT
+GS
+GS
+PV
+iP
+wc
+wc
+wc
+Kh
+Gh
+eU
+cl
+Ju
+wG
+Ju
+wG
+Ju
+wG
+Ju
+ad
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+cq
+eU
+eU
+Gh
+"}
+(64,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+LA
+hw
+Rr
+Kh
+Gh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Kh
+Gh
+lb
+Ju
+Ju
+oj
+Ju
+oj
+Ju
+oj
+Ju
+ER
+Zl
+ER
+ER
+XN
+eU
+Jj
+KI
+KI
+yl
+eU
+Gh
+"}
+(65,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+bt
+Lo
+Lo
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+lb
+Ju
+Ju
+sy
+Ju
+sy
+Ju
+sy
+Ju
+Ij
+nw
+ER
+ER
+Xn
+eU
+TR
+KI
+KI
+Tk
+eU
+Gh
+"}
+(66,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+YA
+hq
+Lo
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+lb
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ju
+Ij
+uq
+ER
+ER
+ER
+nW
+KI
+KI
+KI
+wu
+eU
+Gh
+"}
+(67,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Kh
+Kh
+Kh
+Yy
+Kh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+eU
+cl
+wG
+wG
+wG
+wG
+wG
+Ju
+Ju
+Ij
+nw
+ER
+ER
+OA
+eU
+JT
+KI
+KI
+HP
+eU
+Gh
+"}
+(68,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+lb
+Ju
+SA
+SA
+SA
+SA
+SA
+Ju
+Ju
+Ij
+nw
+ER
+ER
+GX
+eU
+rH
+KI
+KI
+JV
+eU
+Gh
+"}
+(69,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+lb
+Ju
+SA
+SA
+SA
+SA
+SA
+Ju
+Ju
+Ij
+wq
+ER
+ER
+LS
+eU
+FN
+KI
+KI
+rk
+eU
+Gh
+"}
+(70,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+lb
+Ju
+sy
+sy
+sy
+sy
+sy
+Ju
+Ju
+Ij
+nh
+ER
+ER
+Dp
+eU
+pS
+KI
+KI
+yv
+eU
+Gh
+"}
+(71,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+eU
+Ju
+iJ
+Ju
+Ju
+Ju
+Ju
+Ju
+iJ
+ER
+yx
+ER
+nz
+UY
+eU
+cJ
+KI
+KI
+Ae
+eU
+Gh
+"}
+(72,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+eU
+Gh
+"}
+(73,1,1) = {"
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+Gh
+"}

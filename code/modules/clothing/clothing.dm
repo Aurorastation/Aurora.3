@@ -63,6 +63,12 @@
 
 /obj/item/clothing/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
+
+	if(IC)
+		IC.clothing = null
+		action_circuit = null // Will get deleted by qdel-ing the IC assembly.
+		qdel(IC)
+
 	QDEL_LIST(accessories)
 	return ..()
 
@@ -131,6 +137,9 @@
 	. = ..()
 	if(tint)
 		user.handle_vision()
+
+	for(var/obj/item/clothing/accessory/bling in accessories)
+		bling.on_clothing_change(user)
 
 // taking off
 /obj/item/clothing/dropped(mob/user)
@@ -514,27 +523,6 @@
 // Called just before an attack_hand(), in mob/UnarmedAttack()
 /obj/item/clothing/gloves/proc/Touch(var/atom/A, mob/user, var/proximity)
 	return 0 // return 1 to cancel attack_hand()
-
-/obj/item/clothing/gloves/attackby(obj/item/attacking_item, mob/user)
-	..()
-	if(is_sharp(attacking_item))
-		if(clipped)
-			to_chat(user, SPAN_NOTICE("\The [src] have already been clipped!"))
-			update_icon()
-			return
-
-		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
-		user.visible_message(SPAN_WARNING("[user] cuts the fingertips off of \the [src]."),SPAN_WARNING("You cut the fingertips off of \the [src]."))
-
-		clipped = 1
-		siemens_coefficient += 0.25
-		name = "modified [name]"
-		desc = "[desc]<br>They have had the fingertips cut off of them."
-		if("exclude" in species_restricted)
-			species_restricted -= BODYTYPE_UNATHI
-			species_restricted -= BODYTYPE_TAJARA
-			species_restricted -= BODYTYPE_VAURCA
-		return
 
 /obj/item/clothing/gloves/mob_can_equip(mob/user, slot, disable_warning = FALSE)
 	var/mob/living/carbon/human/H = user

@@ -209,16 +209,6 @@
 	amount = max_amount
 	update_icon()
 
-/obj/item/stack/material/osmium
-	name = "osmium"
-	icon_state = "sheet-silver"
-	default_type = MATERIAL_OSMIUM
-
-/obj/item/stack/material/osmium/full/Initialize()
-	. = ..()
-	amount = max_amount
-	update_icon()
-
 /obj/item/stack/material/silver
 	name = "silver"
 	icon_state = "sheet-silver"

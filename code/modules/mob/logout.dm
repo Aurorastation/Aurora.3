@@ -2,6 +2,9 @@
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(src, COMSIG_MOB_LOGOUT)
 
+	//TGUI
+	remove_all_indicators()
+
 	SSnanoui.user_logout(src) // this is used to clean up (remove) this user's Nano UIs
 	GLOB.player_list -= src
 	disconnect_time = world.realtime
