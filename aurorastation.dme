@@ -3725,6 +3725,7 @@
 #include "interface\fonts\pixellari.dm"
 #include "interface\fonts\spess_font.dm"
 #include "interface\fonts\tiny_unicode.dm"
+#include "interface\skin.dmf"
 #include "maps\_common\areas\ai.dm"
 #include "maps\_common\areas\areas.dm"
 #include "maps\_common\areas\asteroid_areas.dm"
