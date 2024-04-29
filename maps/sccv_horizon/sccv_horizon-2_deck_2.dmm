@@ -832,6 +832,9 @@
 /obj/structure/morgue{
 	dir = 8
 	},
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "ati" = (
@@ -5621,10 +5624,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/hallway)
 "cuW" = (
-/obj/machinery/light{
+/obj/structure/disposalpipe/segment,
+/obj/machinery/light/floor{
 	dir = 8
 	},
-/obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
 "cvb" = (
@@ -15703,6 +15706,15 @@
 /obj/machinery/alarm/north,
 /turf/simulated/floor/tiled,
 /area/operations/lobby)
+"heN" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "hfh" = (
 /obj/machinery/camera/network/service{
 	c_tag = "Service - Chapel Port";
@@ -21038,14 +21050,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
 /obj/structure/sign/vacuum{
 	icon_state = "deathsposal";
 	pixel_y = 35
+	},
+/obj/machinery/light/floor{
+	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/xenobiology/xenoflora)
@@ -22048,7 +22060,7 @@
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 4
 	},
-/obj/machinery/light{
+/obj/machinery/light/floor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -25022,7 +25034,7 @@
 /obj/machinery/door/firedoor{
 	dir = 4
 	},
-/turf/simulated/floor/plating,
+/turf/simulated/floor/tiled,
 /area/rnd/xenobiology)
 "lDz" = (
 /obj/machinery/kinetic_harvester{
@@ -25802,6 +25814,9 @@
 "lUA" = (
 /obj/structure/table/rack,
 /obj/item/storage/box/mousetraps,
+/obj/machinery/light{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology)
 "lVd" = (
@@ -36648,6 +36663,9 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "qVJ" = (
@@ -44447,9 +44465,6 @@
 /obj/machinery/door/window/holowindoor{
 	dir = 1
 	},
-/obj/machinery/door/window/holowindoor{
-	dir = 1
-	},
 /obj/machinery/door/window/holowindoor,
 /obj/machinery/door/blast/regular/open{
 	fail_secure = 1;
@@ -44564,7 +44579,6 @@
 /obj/item/reagent_containers/spray/plantbgone,
 /obj/item/material/minihoe,
 /obj/item/material/hatchet,
-/obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
 /area/rnd/xenobiology/xenoflora)
 "uIf" = (
@@ -45743,6 +45757,9 @@
 	pixel_y = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light/floor{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology)
 "vnz" = (
@@ -47834,7 +47851,7 @@
 /turf/simulated/floor/tiled/white,
 /area/horizon/kitchen)
 "wgI" = (
-/obj/machinery/light{
+/obj/machinery/light/floor{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -83375,7 +83392,7 @@ qgN
 qgN
 qgN
 xHv
-xhf
+heN
 atQ
 atQ
 aAR
@@ -83981,7 +83998,7 @@ qgN
 qgN
 qgN
 xHv
-xhf
+heN
 atQ
 atQ
 fpb
