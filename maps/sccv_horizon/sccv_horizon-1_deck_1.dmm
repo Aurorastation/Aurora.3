@@ -15200,9 +15200,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
+/obj/effect/landmark/latejoincyborg,
 /turf/simulated/floor/carpet/rubber,
 /area/assembly/chargebay)
 "kzC" = (
@@ -23288,12 +23286,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
+/obj/effect/landmark/latejoincyborg,
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "pYa" = (
