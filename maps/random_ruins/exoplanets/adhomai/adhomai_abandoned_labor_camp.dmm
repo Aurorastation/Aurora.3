@@ -5,16 +5,12 @@
 	req_access = list(209);
 	dir = 4
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "am" = (
 /obj/structure/closet/cabinet,
 /obj/item/shovel,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "ds" = (
 /obj/machinery/light,
@@ -31,9 +27,7 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "ev" = (
 /obj/structure/sign/flag/pra{
@@ -54,22 +48,16 @@
 "eS" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/trash/cigbutt,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "eU" = (
 /obj/structure/table/steel,
 /obj/item/trash/can/adhomian_can,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "fq" = (
 /obj/structure/table/steel,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "fZ" = (
 /obj/structure/closet/cabinet,
@@ -92,15 +80,11 @@
 /obj/structure/sign/flag/pra/large/west{
 	pixel_x = -32
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "hm" = (
 /obj/effect/floor_decal/concrete,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "jg" = (
 /turf/simulated/wall/concrete,
@@ -109,9 +93,7 @@
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 4
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "ko" = (
 /obj/machinery/door/window/brigdoor/northright{
@@ -125,9 +107,7 @@
 	pixel_y = 10;
 	pixel_x = -5
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "kB" = (
 /obj/structure/blocker/steel/fence{
@@ -142,20 +122,15 @@
 /obj/effect/floor_decal/concrete{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "kJ" = (
 /obj/structure/closet/cabinet,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "kO" = (
 /obj/structure/window/reinforced{
-	dir = 4;
-	icon_state = "rwindow"
+	dir = 4
 	},
 /obj/structure/table/steel,
 /obj/item/material/ashtray/bronze,
@@ -163,9 +138,7 @@
 	pixel_y = 32
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "mf" = (
 /obj/structure/bed/padded,
@@ -174,9 +147,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "mC" = (
 /turf/simulated/floor/exoplanet/snow/cold,
@@ -188,9 +159,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/handcuffs,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "mR" = (
 /obj/structure/sign/painting_frame/hadii{
@@ -199,9 +168,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 10
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "ot" = (
 /obj/machinery/light{
@@ -214,17 +181,13 @@
 	outside = 1
 	},
 /obj/effect/floor_decal/concrete/large/full,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "pU" = (
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "qm" = (
 /obj/machinery/door/airlock/security{
@@ -232,9 +195,7 @@
 	req_access = list(209);
 	dir = 1
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "qI" = (
 /obj/structure/sign/flag/pra/large/north{
@@ -254,46 +215,34 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "rM" = (
 /obj/machinery/light/small,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "sQ" = (
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "sS" = (
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "uc" = (
 /obj/machinery/vending/coffee,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "uU" = (
 /obj/effect/floor_decal/concrete{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "vw" = (
 /obj/structure/closet/outhouse,
@@ -304,9 +253,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "wj" = (
 /obj/structure/closet/cabinet,
@@ -314,9 +261,7 @@
 	dir = 4
 	},
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "wx" = (
 /obj/effect/decal/cleanable/blood/splatter,
@@ -324,15 +269,11 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "wU" = (
 /obj/item/clothing/suit/storage/tajaran/pra_jacket/armored,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "xc" = (
 /obj/structure/railing/mapped{
@@ -344,16 +285,12 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "xn" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/under/color/orange,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "yd" = (
 /obj/structure/sign/flag/pra{
@@ -366,22 +303,16 @@
 /obj/effect/floor_decal/concrete/large/cee{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "yV" = (
 /obj/effect/floor_decal/concrete/large/cee{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "zf" = (
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "zh" = (
 /obj/structure/bed/padded,
@@ -390,9 +321,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/cobweb2,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "zA" = (
 /obj/machinery/button/remote/blast_door{
@@ -402,9 +331,7 @@
 	pixel_y = 32
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Aq" = (
 /turf/simulated/floor/tiled/freezer{
@@ -415,16 +342,12 @@
 /obj/effect/floor_decal/concrete/large{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "BZ" = (
 /obj/structure/table/steel,
 /obj/item/trash/liquidfood,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Cc" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -436,17 +359,13 @@
 	pixel_y = -32;
 	stand_icon = null
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Ci" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 1
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Cw" = (
 /obj/structure/closet/secure_closet/guncabinet{
@@ -457,17 +376,13 @@
 	},
 /obj/effect/floor_decal/industrial/outline/security,
 /obj/item/melee/baton/stunrod,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "DP" = (
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Fz" = (
 /obj/structure/sign/painting_frame/hadii{
@@ -476,9 +391,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 5
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "FM" = (
 /obj/structure/flora/grass/brown,
@@ -494,38 +407,28 @@
 /obj/effect/floor_decal/concrete{
 	dir = 9
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "GR" = (
 /obj/structure/table/rack,
 /obj/machinery/light/small,
 /obj/item/device/flashlight/lantern,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Ht" = (
 /obj/structure/table/rack,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
 /obj/item/storage/bag/ore,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "HM" = (
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "HX" = (
 /obj/structure/closet/cabinet,
 /obj/item/pickaxe,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Ic" = (
 /obj/machinery/light/small{
@@ -541,15 +444,11 @@
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "IM" = (
 /obj/item/trash/can/adhomian_can,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "IO" = (
 /obj/machinery/light{
@@ -568,15 +467,11 @@
 	pixel_y = 32;
 	stand_icon = null
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "LT" = (
 /obj/effect/floor_decal/concrete/large,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Oa" = (
 /obj/structure/closet/cabinet,
@@ -584,9 +479,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Oc" = (
 /obj/structure/bed/padded,
@@ -594,9 +487,7 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "OA" = (
 /obj/machinery/door/blast/shutters{
@@ -605,18 +496,14 @@
 /obj/effect/floor_decal/concrete{
 	dir = 6
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Pa" = (
 /obj/structure/table/rack,
 /obj/item/pickaxe,
 /obj/item/pickaxe,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Pw" = (
 /obj/structure/blocker/steel/fence{
@@ -626,17 +513,13 @@
 /area/exoplanet/adhomai)
 "Qe" = (
 /obj/machinery/door/urban,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Rh" = (
 /obj/effect/floor_decal/concrete{
 	dir = 5
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Rw" = (
 /obj/machinery/shower{
@@ -649,9 +532,7 @@
 /area/exoplanet/adhomai)
 "Sg" = (
 /obj/structure/bed/stool/bar/padded/brown,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "SK" = (
 /obj/effect/floor_decal/concrete{
@@ -660,9 +541,7 @@
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Tp" = (
 /obj/effect/decal/cleanable/dirt,
@@ -671,9 +550,7 @@
 	stand_icon = null
 	},
 /obj/item/handcuffs,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "TD" = (
 /obj/machinery/light/small{
@@ -689,23 +566,17 @@
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = -32
 	},
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Wa" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "WK" = (
 /obj/effect/floor_decal/concrete{
 	dir = 10
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Xk" = (
 /obj/machinery/light{
@@ -725,59 +596,43 @@
 /obj/machinery/door/blast/shutters{
 	id = "labor_entry"
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Yc" = (
 /obj/effect/floor_decal/concrete{
 	dir = 8
 	},
 /obj/effect/floor_decal/concrete,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Yn" = (
 /obj/machinery/door/urban,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "YQ" = (
 /obj/machinery/photocopier,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "YV" = (
 /obj/structure/filingcabinet/chestdrawer,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "Zf" = (
 /obj/effect/floor_decal/concrete/large/cee,
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 "Zi" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(209)
 	},
 /obj/effect/floor_decal/industrial/outline/security,
-/turf/simulated/floor/concrete/square{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete/square,
 /area/exoplanet/adhomai)
 "ZL" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 4
 	},
-/turf/simulated/floor/concrete{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/concrete,
 /area/exoplanet/adhomai)
 
 (1,1,1) = {"

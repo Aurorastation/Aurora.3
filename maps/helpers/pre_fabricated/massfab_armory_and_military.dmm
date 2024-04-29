@@ -1,0 +1,2700 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"cR" = (
+/obj/machinery/door/airlock/multi_tile/glass,
+/turf/simulated/floor/tiled/full,
+/area/space)
+"df" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dh" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dt" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"dQ" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 1
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ed" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ez" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/hand_labeler{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"eC" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"eD" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"eG" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"fj" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"fQ" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"hO" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"iq" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"kA" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 1
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ou" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"pK" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"qA" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"rx" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"tf" = (
+/turf/simulated/floor/tiled/full,
+/area/space)
+"tC" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"tD" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"tL" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/hand_labeler{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"um" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"uu" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"uO" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"wO" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"yp" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"yR" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"zk" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"zR" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/leyon,
+/obj/item/gun/projectile/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/item/ammo_magazine/mc10mm/leyon,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Aa" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"AQ" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 1
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Dn" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Dt" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"DD" = (
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 2;
+	pixel_y = 26
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"EU" = (
+/turf/simulated/wall,
+/area/space)
+"EX" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"HG" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"HK" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"HN" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/hand_labeler{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 1
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"IJ" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/gun/projectile/sec/lethal,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/item/ammo_magazine/c45m,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Lk" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Lx" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"LL" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/structure/table/standard,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/radio/sec/off,
+/obj/item/device/hand_labeler{
+	pixel_x = 7;
+	pixel_y = 10
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/obj/item/crowbar/red{
+	pixel_x = 1;
+	pixel_y = -7
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"LN" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"My" = (
+/obj/structure/table/rack,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Nc" = (
+/turf/template_noop,
+/area/space)
+"NP" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"OU" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Px" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/machinery/vending/security{
+	req_access = null
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"PJ" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 8;
+	name = "adjusted light fixture";
+	pixel_x = -10
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"PV" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/standard,
+/obj/item/storage/box/fancy/donut{
+	pixel_y = 8
+	},
+/obj/item/storage/box/fancy/donut,
+/obj/item/storage/box/flashbangs,
+/obj/item/storage/box/flashbangs,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"QB" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 1
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Rg" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 32;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Rk" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Sr" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/suit/armor/carrier/officer,
+/obj/item/clothing/head/helmet/security,
+/obj/item/clothing/head/helmet/security,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"ST" = (
+/obj/machinery/door/airlock/multi_tile/glass{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/space)
+"Tp" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"TV" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 1;
+	name = "adjusted light fixture";
+	pixel_y = 19;
+	pixel_x = 1
+	},
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/gun/projectile/automatic/rifle/dnac,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/obj/item/ammo_magazine/a65,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Uc" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = -28;
+	pixel_y = 3
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Un" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/table/rack,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/suit/armor/carrier/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/item/clothing/head/helmet/riot,
+/obj/machinery/light{
+	name = "adjusted light fixture"
+	},
+/obj/item/clothing/mask/gas/alt,
+/obj/item/clothing/mask/gas/alt,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"UB" = (
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 3;
+	pixel_y = -24
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"UI" = (
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Wj" = (
+/obj/structure/table/rack,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/suit/armor/carrier/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/head/helmet/security/heavy,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/under/rank/security,
+/obj/item/clothing/shoes/jackboots,
+/obj/item/clothing/shoes/jackboots,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Xr" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/obj/item/gun/energy/rifle,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Zh" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/item/gun/energy/gun,
+/obj/item/gun/energy/gun,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+"Zr" = (
+/obj/effect/floor_decal/corner/paleblue/diagonal,
+/obj/effect/floor_decal/corner/dark_blue/diagonal{
+	dir = 4
+	},
+/obj/structure/closet/secure_closet/guncabinet,
+/obj/machinery/light{
+	brightness_power = 0.5;
+	brightness_range = 3;
+	dir = 4;
+	name = "adjusted light fixture";
+	pixel_x = 10
+	},
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/gun/projectile/automatic/rifle/carbine/civcarbine,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/obj/item/ammo_magazine/a556/carbine/polymer,
+/turf/simulated/floor/tiled/steel,
+/area/space)
+
+(1,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(2,1,1) = {"
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+"}
+(3,1,1) = {"
+Nc
+EU
+yp
+Lx
+Lx
+PV
+EU
+Nc
+EU
+hO
+eG
+hO
+hO
+df
+yp
+EU
+Nc
+EU
+Tp
+My
+tD
+EU
+Nc
+"}
+(4,1,1) = {"
+Nc
+EU
+AQ
+Lx
+Lx
+tL
+EU
+Nc
+EU
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+cR
+Nc
+EU
+DD
+Lx
+Lx
+cR
+Nc
+"}
+(5,1,1) = {"
+Nc
+EU
+hO
+Lx
+Lx
+Px
+EU
+Nc
+EU
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+tf
+Nc
+EU
+DD
+Lx
+Lx
+tf
+Nc
+"}
+(6,1,1) = {"
+Nc
+EU
+hO
+Lx
+Lx
+uu
+EU
+Nc
+EU
+Lk
+HK
+uu
+Px
+LL
+PV
+EU
+Nc
+EU
+dt
+fQ
+IJ
+EU
+Nc
+"}
+(7,1,1) = {"
+Nc
+EU
+kA
+Lx
+Lx
+zk
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+"}
+(8,1,1) = {"
+Nc
+EU
+hO
+Lx
+Lx
+Lk
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(9,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+"}
+(10,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+PV
+ez
+Px
+uu
+fj
+Lk
+EU
+Nc
+EU
+IJ
+PJ
+dt
+EU
+Nc
+"}
+(11,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+cR
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+EU
+Nc
+cR
+Lx
+Lx
+UB
+EU
+Nc
+"}
+(12,1,1) = {"
+Nc
+EU
+Xr
+Lx
+Lx
+hO
+EU
+Nc
+tf
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+EU
+Nc
+tf
+Lx
+Lx
+UB
+EU
+Nc
+"}
+(13,1,1) = {"
+Nc
+EU
+TV
+Lx
+Lx
+NP
+EU
+Nc
+EU
+yp
+dh
+hO
+hO
+um
+hO
+EU
+Nc
+EU
+tD
+Wj
+Tp
+EU
+Nc
+"}
+(14,1,1) = {"
+Nc
+EU
+uu
+Lx
+Lx
+hO
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+"}
+(15,1,1) = {"
+Nc
+EU
+Px
+Lx
+Lx
+hO
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(16,1,1) = {"
+Nc
+EU
+HN
+Lx
+Lx
+Un
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+"}
+(17,1,1) = {"
+Nc
+EU
+PV
+Lx
+Lx
+yp
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+tD
+Lx
+Lx
+IJ
+EU
+"}
+(18,1,1) = {"
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+ou
+Lx
+Lx
+tC
+EU
+"}
+(19,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+Tp
+Rg
+Rg
+dt
+EU
+"}
+(20,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+"}
+(21,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(22,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+"}
+(23,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+dt
+Uc
+Uc
+Tp
+EU
+"}
+(24,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+Rk
+Lx
+Lx
+LN
+EU
+"}
+(25,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+IJ
+Lx
+Lx
+tD
+EU
+"}
+(26,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+"}
+(27,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(28,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+"}
+(29,1,1) = {"
+Nc
+EU
+uO
+pK
+tD
+EU
+Nc
+Nc
+EU
+yp
+Lx
+Lx
+PV
+EU
+Nc
+EU
+EX
+iq
+EX
+EX
+df
+yp
+EU
+"}
+(30,1,1) = {"
+Nc
+EU
+DD
+Lx
+Lx
+cR
+Nc
+Nc
+EU
+AQ
+Lx
+Lx
+tL
+EU
+Nc
+EU
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+cR
+"}
+(31,1,1) = {"
+Nc
+EU
+DD
+Lx
+Lx
+tf
+Nc
+Nc
+EU
+EX
+Lx
+Lx
+Px
+EU
+Nc
+EU
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+tf
+"}
+(32,1,1) = {"
+Nc
+EU
+yR
+UI
+zR
+EU
+Nc
+Nc
+EU
+EX
+Lx
+Lx
+wO
+EU
+Nc
+EU
+Dt
+Zr
+wO
+Px
+LL
+PV
+EU
+"}
+(33,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+Nc
+EU
+QB
+Lx
+Lx
+rx
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+"}
+(34,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+EX
+Lx
+Lx
+Zh
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(35,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+"}
+(36,1,1) = {"
+Nc
+EU
+zR
+HG
+yR
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+PV
+ez
+Px
+wO
+OU
+Zh
+EU
+"}
+(37,1,1) = {"
+Nc
+cR
+Lx
+Lx
+UB
+EU
+Nc
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+cR
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+EU
+"}
+(38,1,1) = {"
+Nc
+tf
+Lx
+Lx
+UB
+EU
+Nc
+Nc
+EU
+Zh
+Lx
+Lx
+EX
+EU
+Nc
+tf
+Lx
+Lx
+Lx
+Lx
+Lx
+Lx
+EU
+"}
+(39,1,1) = {"
+Nc
+EU
+tD
+Dn
+uO
+EU
+Nc
+Nc
+EU
+dQ
+Lx
+Lx
+Aa
+EU
+Nc
+EU
+yp
+dh
+EX
+EX
+Sr
+EX
+EU
+"}
+(40,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+Nc
+Nc
+EU
+wO
+Lx
+Lx
+EX
+EU
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+EU
+"}
+(41,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+EU
+Px
+Lx
+Lx
+EX
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(42,1,1) = {"
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+Nc
+EU
+HN
+Lx
+Lx
+Un
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(43,1,1) = {"
+Nc
+EU
+tD
+Lx
+Lx
+zR
+EU
+Nc
+EU
+PV
+Lx
+Lx
+yp
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(44,1,1) = {"
+Nc
+EU
+eD
+Lx
+Lx
+eC
+EU
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(45,1,1) = {"
+Nc
+EU
+uO
+Rg
+Rg
+yR
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(46,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(47,1,1) = {"
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(48,1,1) = {"
+Nc
+EU
+EU
+EU
+EU
+EU
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(49,1,1) = {"
+Nc
+EU
+yR
+Uc
+Uc
+uO
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(50,1,1) = {"
+Nc
+EU
+qA
+Lx
+Lx
+ed
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(51,1,1) = {"
+Nc
+EU
+zR
+Lx
+Lx
+tD
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}
+(52,1,1) = {"
+Nc
+EU
+EU
+tf
+ST
+EU
+EU
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+Nc
+"}

@@ -50,6 +50,10 @@
 
 	QDEL_NULL(ability_master)
 
+	if(click_handlers)
+		click_handlers.QdelClear()
+		QDEL_NULL(click_handlers)
+
 	return ..()
 
 /mob/New()
@@ -96,6 +100,8 @@
 	if (!ckey && mob_thinks)
 		MOB_START_THINKING(src)
 
+	update_emotes()
+
 	become_hearing_sensitive()
 
 /**
@@ -130,6 +136,7 @@
 	. = stat != new_stat
 	if(.)
 		stat = new_stat
+		remove_all_indicators()
 
 /mob/show_message(msg, type, alt, alt_type)//Message, type of message (1 or 2), alternative message, alt message type (1 or 2)
 
@@ -273,7 +280,9 @@
 			. += P.slowdown
 
 /mob/proc/Life()
-	return
+	if(LAZYLEN(spell_masters))
+		for(var/obj/screen/movable/spell_master/spell_master in spell_masters)
+			spell_master.update_spells(0, src)
 
 /mob/proc/buckled_to()
 	// Preliminary work for a future buckle rewrite,
@@ -528,16 +537,14 @@
 /client/verb/changes()
 	set name = "Changelog"
 	set category = "OOC"
-	var/datum/asset/changelog = get_asset_datum(/datum/asset/simple/changelog)
-	changelog.send(src)
+	if(!GLOB.changelog_tgui)
+		GLOB.changelog_tgui = new /datum/changelog()
 
-	var/datum/browser/changelog_win = new(mob, "changes", "Changelog", 675, 650)
-	changelog_win.set_content(file2text('html/changelog.html'))
-	changelog_win.open()
+	GLOB.changelog_tgui.ui_interact(mob)
 	if(prefs.lastchangelog != GLOB.changelog_hash)
 		prefs.lastchangelog = GLOB.changelog_hash
 		prefs.save_preferences()
-		winset(src, "rpane.changelog", "background-color=none;font-style=;")
+		winset(src, "infowindow.changelog", "font-style=;")
 
 /mob/verb/observe()
 	set name = "Observe"
@@ -1214,6 +1221,8 @@
 		return ..(ndir)
 
 /mob/forceMove(atom/dest)
+	var/old_z = GET_Z(src)
+
 	var/atom/movable/AM
 	if (dest != loc && istype(dest, /atom/movable))
 		AM = dest
@@ -1227,6 +1236,9 @@
 		LAZYREMOVE(AM.contained_mobs, src)
 
 	. = ..()
+
+	if(. && client)
+		client.update_skybox(old_z != GET_Z(src))
 
 /mob/verb/northfaceperm()
 	set hidden = 1
@@ -1394,7 +1406,20 @@
 /// Adds this list to the output to the stat browser
 /mob/proc/get_status_tab_items()
 	. = list("") //we want to offset unique stuff from standard stuff
+
 	SEND_SIGNAL(src, COMSIG_MOB_GET_STATUS_TAB_ITEMS, .)
+
+	if(. && LAZYLEN(spell_list))
+		for(var/spell/S in spell_list)
+			if((!S.connected_button) || !statpanel(S.panel))
+				continue //Not showing the noclothes spell
+			switch(S.charge_type)
+				if(Sp_RECHARGE)
+					. += "[S.panel] [S.charge_counter/10.0]/[S.charge_max/10] [S.connected_button]"
+				if(Sp_CHARGES)
+					. +="[S.panel] [S.charge_counter]/[S.charge_max] [S.connected_button]"
+				if(Sp_HOLDVAR)
+					. += "[S.panel] [S.holder_var_type] [S.holder_var_amount] [S.connected_button]"
 
 /// This proc differs slightly from normal TG usage with actions due to how it is repurposed here for hardsuit modules.
 /// Take a look at /mob/living/carbon/human/get_actions_for_statpanel().
@@ -1453,6 +1478,16 @@
 		return WEATHER_PROTECTED
 
 	return WEATHER_EXPOSED
+
+/mob/proc/check_emissive_equipment()
+	var/old_zflags = z_flags
+	z_flags &= ~ZMM_MANGLE_PLANES
+	for(var/atom/movable/AM in get_equipped_items(TRUE))
+		if(AM.z_flags & ZMM_MANGLE_PLANES)
+			z_flags |= ZMM_MANGLE_PLANES
+			break
+	if(old_zflags != z_flags)
+		UPDATE_OO_IF_PRESENT
 
 #undef UNBUCKLED
 #undef PARTIALLY_BUCKLED

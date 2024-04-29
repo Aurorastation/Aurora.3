@@ -3886,10 +3886,6 @@
 /obj/effect/shuttle_landmark/idris_wreck/nav3,
 /turf/template_noop,
 /area/space)
-"YQ" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/exoplanet/tiled,
-/area/idris_wreck/starbthrust)
 "Zg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -14194,7 +14190,7 @@ aY
 aY
 aY
 vs
-YQ
+Ec
 xf
 cF
 HQ

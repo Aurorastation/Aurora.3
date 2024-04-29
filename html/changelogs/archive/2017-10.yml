@@ -1,0 +1,234 @@
+2017-10-13:
+  Alberyk:
+  - bugfix: Fixed two AIs spawning during paranoia.
+  Belsima:
+  - bugfix: Microwaves can now be cleaned with soap.
+  MoondancerPony:
+  - tweak: Telescience now starts with 3 crystals again.
+  - balance: Telescience can now go up to 5 crystals instead of just 4.
+  - bugfix: The default Z-level for the telescience console is now the level it's
+      actually on.
+2017-10-15:
+  AgentWhatever:
+  - tweak: After a very long and elaborate process, we have finally learned our new
+      announcement system that the location of certain objects beamed onto the station
+      is, in fact, known. You are welcome
+  Alberyk:
+  - rscdel: Removed cult word research, cultists can use their runes without having
+      to find out the meanings.
+  - rscadd: Ghosts have more influence upon the material plane during cult rounds.
+  - tweak: Manifested ghosts can't be used to summon Nar'sie anymore.
+  - tweak: The null is more powerful against the forces of the paranormal now.
+  - rscadd: Added a new bag option; messenger bags.
+  - balance: The telebaton stun should not longer ignore the target's armor.
+  - rscadd: Ported the baystation12 merchant jobs, with additions and proper modifications.
+  - rscadd: Added new cleric wizard spells.
+  - tweak: Summon bear and summon bats should be a bit more powerful.
+  - tweak: You can now only use transformation sting on bodies.
+  - rscadd: Added dice to the custom loadout.
+  - tweak: Replaced the combat module plasma cutter with a new melee weapon.
+  - bugfix: Fixed traitor cyborgs not being emmaged whens selected as traitors.
+  - bugfix: Fixed the syndicate borg's emag not working as it should.
+  - tweak: Bees damage should be less deadly now.
+  - rscadd: Added new immersive pool mechanics.
+  - soundadd: Added new sounds to certain items and actions.
+  - soundadd: Added new sounds to some cult runes.
+  - tweak: Cultists can not accept wizard contracts anymore.
+  - rscadd: Added new food recipes.
+  - rscadd: You can now pick up corgis.
+  - tweak: IPCs, dionae and other races that could not suffer oxygen damage, should
+      be able to succumb now.
+  - rscadd: Added a tajara language; Ya'ssa.
+  - tweak: Changed the default occupation's preference to return to lobby if you do
+      not get the job you want.
+  - rscadd: Revolutionaries and loyalists now have access to a device that can create
+      a single central command report.
+  Arrow768:
+  - rscadd: Cargo is now based on credits instead of points.
+  - rscadd: Adds more mixed modes (feeding, infiltration, paranormal).
+  - balance: Halfs the blood required for diseased touch.
+  - rscadd: Added a button to call the emergency shuttle.
+  - rscdel: It is no longer possible to call the shuttle using the command console.
+  BRAINOS:
+  - imageadd: Completely resprited prosthetic limbs with all new sprites for Bishop,
+      Xion, Hephaestus and Zeng-Hu. The first three are a major step forward in quality,
+      while Zeng-Hu's limbs are entirely re-imagined as something new!
+  Belsima:
+  - imageadd: Replaced ATM, requisition, and some other consoles with old holographic
+      sprites.
+  Chaoko99:
+  - rscadd: Nitrous Oxide is an oxidizer.
+  - imageadd: Replaced the old [CAUTION] Canister with a cleaner sprite.
+  - imageadd: Added a hazard stripe overlay for people to add to new canister sprites
+      in DM.
+  - tweak: Nerfed space bear speed, damage.
+  - tweak: Parallax dust now defaults to on.
+  - imageadd: Replaced the energy sword and double saber sprites with those from /TG/.
+  - rscadd: Gravity generator has lights now.
+  - bugfix: Singularity cannot eat ore overlays anymore, they will be destroyed alongside
+      their respective asteroid wall.
+  - imageadd: Replaced our RPED sprite with /TG/'s, and added a little animation atop
+      that.
+  - rscadd: Added a special bag for slime cores. Credit to Virgo for the sprite.
+  - tweak: Hastens slime-core extraction surgery slightly.
+  Ezuo:
+  - rscadd: Added a box in the chaplain's office that allows them to select from a
+      null rod, staff, or athame.
+  HetNeSS:
+  - rscadd: Added a GPS tool to rescue cyborg module pack and a mining drill to construction
+      borg module pack
+  Juani2400:
+  - maptweak: 'Remapped: Atmospherics, Captain''s Office, Heads of Staff Conference
+      Room, CMO''s office, Medical Briefing Room, Security Processing and Holding
+      Cell.'
+  - maptweak: 'Modified: Robotics Laboratory.'
+  - maptweak: Mapped in the desk ringers.
+  - rscadd: 'Added a new subtype of folder: Security.'
+  - rscadd: Added new flooring decals for Medical.
+  - wip: Started the re-work of map areas. Most areas have been renamed as a result.
+      More changes to be done eventually.
+  Karolis2011:
+  - rscadd: Replaced command and communications console with modular console
+  Lohikar:
+  - rscadd: Added some subtle shadow effects to walls and open spaces that should
+      make them stand out more.
+  - tweak: ChemMasters will now default to transfer-to-beaker instead of transfer-to-disposal.
+  - balance: Welding and disassembling lockers now takes 2 seconds instead of being
+      instantaneous.
+  - rscadd: Escaping welded lockers now shows a progress bar to the escapee if Progress
+      Bars are enabled in your global preferences.
+  - spellcheck: Made some sanity check messages more clear as to why an object cannot
+      be interacted with.
+  - rscdel: The Bluespace Bears / Bioweapons event has been removed.
+  - rscadd: NT is proud to announce general availability of modular electronics kits
+      for Research and Engineering departments galaxy-wide, batteries not included.
+      (Ported from Polaris)
+  - tweak: Implants now actually fit back in the implanter that they were removed
+      from.
+  - tweak: Round duration is now actually the duration of the round, instead of time
+      passed since last server reboot.
+  - soundadd: Elevators now have elevator music.
+  - imageadd: APCs now have west/east icon states.
+  - maptweak: Fire alarms should no longer have inconsistent offsets on walls.
+  - rscadd: Guest ID cards' icons will now change when they expire.
+  - bugfix: Removed some extra pixels in some voidsuit helmets' item light overlay.
+  - tweak: Preferences setup will now tell you if you try to add body markings to
+      a species that has none available.
+  - tweak: Admin revive will now restore body markings and round-start prosthetics.
+  - rscadd: Wires can now be placed on catwalks in space.
+  - rscadd: 'Two new icon scaling sizes have been added to the Icons menu: 96x and
+      128x.'
+  - bugfix: Stairs now actually work. Not that there is any.
+  - rscadd: Walking off the side of (real) stairs will now cause you to faceplant
+      on the ground.
+  - bugfix: Multi-tile doors' icons should now work properly with open spaces.
+  - rscadd: Sprinting stamina now has a bar showing your remaining stamina instead
+      of coloring the sprint button.
+  - imageadd: Replaced our ancient wall sprites with a slightly tweaked fancy one
+      from Europa.
+  MoondancerPony:
+  - rscadd: You can now print device cells from the protolathe or mechatronic fabricator
+      for use in integrated electronics.
+  - bugfix: Damage overlays now update on their own. You can stop punching IPCs and
+      shells to fix their faces, now, Lualyrr.
+  - rscadd: 'Shells now have their own face repair surgery. Use it when they''re showing
+      up as Unknown. The steps are: Scalpel, Multitool/Cable Coil, Retractor/Wirecutters,
+      Cautery.'
+  Pacmandevil:
+  - balance: Whenever you shoot someone while aiming at them, the aim is Dropped
+  - balance: There is now a cooldown to re-aiming after you shoot, this is currently
+      3 seconds.
+  - rscadd: A few more Emotes. try to not slap yourselves too much.
+  Printer16:
+  - bugfix: Deconstructing book cases now gives the proper type of wood.
+  - bugfix: You will now receive a message when implanted with a loyalty implant.
+  - rscadd: 'Added a new code: Code Yellow. This is used for biological threats (IE.
+      carp or space vines) and does not allow security to search without a warrant.'
+  - rscadd: The crusher is no longer safe to use while operational.
+  - rscadd: Added a drop pod.
+  - rscadd: The gravity generator was added back.
+  - rscadd: Ported holocalls.
+  - rscadd: 'Added a limit to the mining vendor. '
+  - balance: The floodlight was changed to come on the shuttle when bought from the
+      mining vendor.
+  - tweak: You can now upgrade sleepers, cooking appliances, tesla coils and the ore
+      processer.
+  - rscadd: Beakers now show a message if they have solids inside.
+  - rscadd: Added an accuracy rating to containers. Containers will only tell you
+      how many units of chemicals there are according to how accurate they are.
+  - rscadd: Admins can now replace people using the 'replace player with ghost' option
+      in the secrets tab.
+  - rscadd: You can now view the probability of each gamemode using the check gamemode
+      probability verb.
+  Scheveningen:
+  - balance: Adds a dispersion effect to the thermal drill.
+  - balance: Tentatively buffs laser damage types across the board and makes other
+      adjustments to their overall impact.
+  - balance: Reduces laser rifle maximum capacity to 15 (down from 20). It is a change
+      to make it less oppressive.
+  SoundScopes:
+  - rscdel: Can no longer point at things using alt+rightclick due to hacky code
+  wraithcraft:
+  - rscadd: Added Champagne, Mint Syrup and Bitters. (Now avaliable in your local
+      booze-o-mat)
+  - rscadd: Added Champagne to the booze dispenser.
+  - rscadd: Added 11 new (moderately thought out) cocktails.
+2017-10-20:
+  Lohikar:
+  - bugfix: Parallax preferences now actually get loaded, because apparently that's
+      important or something.
+  - bugfix: Shuttles should now longer get mysterious square shadows.
+  MoondancerPony:
+  - bugfix: Memory chips will no longer automatically overwrite themselves to whatever
+      their outputs are connected to, and will now output properly. An engineer seems
+      to have installed the chip backwards inside the casing. NanoTrasen apologises
+      for this lapse in service.
+  - bugfix: Locators and other scanning devices now properly push data to other devices.
+  - bugfix: Basic pathfinders will now stop moving if they cannot see their target,
+      instead of jamming.
+2017-10-22:
+  Skull132:
+  - bugfix: Hull and bubble shields now work as expected once more.
+2017-10-24:
+  Lohikar:
+  - bugfix: Shadows no longer mysteriously hang around after building or destroying
+      walls.
+  - bugfix: IPCs no longer have organic (right) legs. We're not really sure how they
+      got them, and we don't want to know.
+  - bugfix: The sprint indicator now actually works for IPCs, as well as updating
+      immediately when toggled by a species with stamina.
+2017-10-28:
+  Alberyk:
+  - bugfix: Blood heal should now fix broken bones and internal bleeding.
+  Chaoko99:
+  - bugfix: Fixed Tesla Balls never deleting themselves.
+  - spellcheck: Corrected the Anomaly Core description, added some clarification of
+      its use.
+  TheGreatJorge:
+  - maptweak: Blast doors should now be properly oriented.
+  - bugfix: Fixes APC overlays.
+  - rscadd: Xenoarcheology now has one portable ladder and hoist kit available at
+      the excavation site rack.
+2017-10-29:
+  Skull132:
+  - bugfix: Sleepers will no longer jettison their stored components when you exit
+      them.
+  - bugfix: Vampires approaching frenzy will now get their appropriate messages again.
+  - balance: 'For vampires: capped the maximum time you can accumulate for frenzy.
+      And having more blood will now reduce frenzy faster: the more humans you succ
+      dry, the faster you become human again!'
+  - bugfix: Fixed a runtime in robot/put_in_hands, which bugged out numerous gripper
+      interactions. To include building robots as a science borg.
+  - bugfix: Toxins can now be added to the pathogenic dish incubator again.
+  - balance: Robotic eyes (not assisted ones!) are now partially immune to pepperspray
+      effects. Because robots.
+  - bugfix: Death timers no longer reset if you re-enter your corpse.
+  - bugfix: 'Holocall fixes: icons are generated properly, caller view is moved properly,
+      icons are cleaned up properly, AI interaction is now fine.'
+  - imageadd: Added a second lobby screen, courtesy of NursieKitty and Zelm.
+  - tweak: Wizards can no longer upgrade spacebats into an instant-summon. The ability
+      to spam mobs is bad ju-ju.
+2017-10-30:
+  Alberyk:
+  - rscdel: Removed mixed secret from the voting options, all mixed gamemodes should
+      be added to the regular secret rotation.

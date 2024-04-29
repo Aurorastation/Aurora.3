@@ -62,6 +62,15 @@
 	add_verb(src, /mob/living/simple_animal/spiderbot/proc/control_integrated_radio)
 	voice_name = name
 
+	radio = new radio_type(src)
+	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
+	camera.c_tag = "spiderbot-[real_name]"
+	camera.replace_networks(list("SS13"))
+
+/mob/living/simple_animal/spiderbot/Destroy()
+	eject_brain()
+	return ..()
+
 /mob/living/simple_animal/spiderbot/can_name(var/mob/living/M)
 	return FALSE
 
@@ -215,19 +224,6 @@
 
 /mob/living/simple_animal/spiderbot/get_radio()
 	return radio
-
-/mob/living/simple_animal/spiderbot/Destroy()
-	eject_brain()
-	return ..()
-
-/mob/living/simple_animal/spiderbot/Initialize()
-	. = ..()
-
-	radio = new radio_type(src)
-	camera = new /obj/machinery/camera(src, 0, TRUE, TRUE)
-	camera.c_tag = "spiderbot-[real_name]"
-	camera.replace_networks(list("SS13"))
-
 
 /mob/living/simple_animal/spiderbot/death()
 

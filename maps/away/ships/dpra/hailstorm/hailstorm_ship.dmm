@@ -3857,12 +3857,12 @@
 	},
 /area/hailstorm_ship)
 "Up" = (
-/obj/machinery/ammunition_loader/grauwolf{
-	weapon_id = "Hailstorm Port Gun"
-	},
 /obj/structure/window/reinforced{
 	dir = 1;
 	icon_state = "rwindow"
+	},
+/obj/machinery/ammunition_loader/francisca{
+	weapon_id = "Hailstorm Port Gun"
 	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
@@ -3879,7 +3879,7 @@
 	},
 /area/shuttle/hailstorm_shuttle)
 "UD" = (
-/obj/machinery/ammunition_loader/grauwolf{
+/obj/machinery/ammunition_loader/francisca{
 	weapon_id = "Hailstorm Starboard Gun"
 	},
 /turf/simulated/floor/tiled{

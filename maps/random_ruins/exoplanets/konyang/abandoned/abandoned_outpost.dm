@@ -5,8 +5,13 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
-	suffixes = list("konyang/abandoned_outpost.dmm")
+
+	prefix = "konyang/abandoned/"
+	suffixes = list("abandoned_outpost.dmm")
+
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_telecomms_outpost)
+
+	unit_test_groups = list(1)
 
 /obj/effect/landmark/corpse/konyang_army
 	name = "Konyang Soldier"

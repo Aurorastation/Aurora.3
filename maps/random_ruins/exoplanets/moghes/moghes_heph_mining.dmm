@@ -1,0 +1,1814 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"bj" = (
+/obj/structure/table/steel,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"bt" = (
+/obj/structure/closet,
+/obj/item/clothing/under/rank/miner/heph,
+/obj/item/clothing/shoes/workboots/toeless,
+/obj/item/clothing/head/hardhat/green,
+/obj/item/storage/backpack/heph,
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus{
+	color = "#2a2b2e"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"bN" = (
+/obj/structure/bed,
+/obj/structure/curtain/open/bed,
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_heph_miner";
+	identifier = "moghes_heph_miner"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"do" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/heph{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"dI" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"ft" = (
+/obj/machinery/mining/drill,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"gg" = (
+/obj/structure/table/wood,
+/obj/item/device/radio/phone,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"gD" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9;
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
+	},
+/obj/structure/railing/mapped,
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"hz" = (
+/obj/structure/table/steel,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"ib" = (
+/obj/machinery/recharger/wallcharger{
+	layer = 3.3;
+	pixel_x = 4;
+	pixel_y = 24
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"ii" = (
+/obj/structure/table/steel,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/clothing/mask/gas,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"iA" = (
+/obj/machinery/door/airlock{
+	name = "Living Quarters"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"jh" = (
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"jA" = (
+/obj/structure/table/steel,
+/obj/item/storage/firstaid/adv,
+/obj/item/storage/firstaid/regular,
+/obj/item/storage/firstaid/regular,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"nc" = (
+/obj/structure/table/steel,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"ni" = (
+/obj/machinery/mineral/processing_unit_console{
+	pixel_y = -28
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"oM" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/obj/machinery/mineral/processing_unit{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"pJ" = (
+/obj/structure/closet/toolcloset/empty,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/clothing/glasses/welding,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
+/obj/item/weldingtool,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/crowbar,
+/obj/item/crowbar,
+/obj/item/crowbar,
+/obj/item/wrench,
+/obj/item/wrench,
+/obj/item/wrench,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"qc" = (
+/turf/simulated/wall/concrete,
+/area/moghes_heph_mining)
+"qz" = (
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"qD" = (
+/obj/structure/ore_box,
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"qV" = (
+/obj/structure/table/steel,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/gps/mining,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/obj/item/device/radio/off,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"rt" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"tp" = (
+/obj/structure/bed/stool/bar/padded/red,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"tJ" = (
+/obj/machinery/door/airlock{
+	name = "Mining Smelter"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"ur" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"uG" = (
+/obj/structure/table/steel,
+/obj/structure/reagent_dispensers/keg/xuizikeg,
+/obj/machinery/light,
+/obj/structure/sign/flag/heph{
+	pixel_y = -32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"vX" = (
+/obj/machinery/mech_recharger/hephaestus,
+/mob/living/heavy_vehicle/premade/miner,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"wv" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9;
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"wZ" = (
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_heph_mining)
+"zF" = (
+/obj/structure/table/steel,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"AL" = (
+/obj/structure/table/steel,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/obj/item/storage/belt/mining,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Bo" = (
+/obj/machinery/door/airlock{
+	name = "Equipment Storage"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Cd" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9;
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 1
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"EO" = (
+/obj/machinery/vending/snack,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/heph{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"FU" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Gw" = (
+/obj/machinery/mineral/unloading_machine,
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"GL" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/heph{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"GW" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/obj/item/reagent_containers/food/snacks/meatsnack,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Hi" = (
+/obj/effect/floor_decal/industrial/loading/yellow{
+	dir = 1
+	},
+/obj/machinery/mineral/stacking_unit_console{
+	pixel_y = null;
+	pixel_x = -32
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Hk" = (
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Hm" = (
+/obj/structure/table/steel,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/structure/sign/flag/heph/large/north{
+	pixel_y = 32
+	},
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"IE" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9;
+	dir = 1
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/obj/machinery/mineral/stacking_machine{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/light{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Kw" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"KW" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"LS" = (
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"MH" = (
+/obj/machinery/conveyor_switch{
+	id = "moghes_heph_base"
+	},
+/obj/machinery/light,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"MQ" = (
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/sign/flag/heph{
+	pixel_y = 32;
+	stand_icon = "banner"
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"NL" = (
+/obj/structure/table/steel,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/obj/item/device/analyzer,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"NQ" = (
+/obj/structure/table/steel,
+/obj/item/storage/box/drinkingglasses,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"OF" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"QW" = (
+/obj/machinery/vending/coffee,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Rg" = (
+/obj/structure/table/steel,
+/obj/item/gun/energy/plasmacutter,
+/obj/item/gun/energy/plasmacutter,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Sc" = (
+/obj/structure/closet/toolcloset/empty,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/ore_detector,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Ss" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"SI" = (
+/obj/machinery/vending/dinnerware/plastic,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Ut" = (
+/obj/structure/table/steel,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/obj/item/plastique/seismic,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Uw" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/structure/closet,
+/obj/item/clothing/under/vaurca/gearharness/black,
+/obj/item/clothing/shoes/vaurca,
+/obj/item/storage/backpack/heph,
+/obj/item/clothing/accessory/poncho/unathimantle/hephaestus{
+	color = "#2a2b2e"
+	},
+/obj/item/reagent_containers/inhaler/phoron_special,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Vs" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"VZ" = (
+/obj/machinery/conveyor{
+	id = "moghes_heph_base";
+	layer = 2.9;
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/railing/mapped,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"Yb" = (
+/obj/structure/table/steel,
+/obj/machinery/cell_charger,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+"ZL" = (
+/obj/effect/floor_decal/industrial/loading/yellow,
+/turf/simulated/floor/exoplanet/concrete{
+	temperature = 303.15
+	},
+/area/moghes_heph_mining)
+
+(1,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(2,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(3,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(4,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(5,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qc
+qc
+qc
+qc
+qc
+wZ
+"}
+(6,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+qc
+Rg
+qz
+Ut
+qc
+wZ
+"}
+(7,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+qc
+qc
+qc
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+GW
+qz
+qz
+qz
+rt
+qz
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+qc
+Hm
+qz
+Yb
+qc
+wZ
+"}
+(8,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+bN
+qz
+bN
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+FU
+qz
+qz
+tp
+tp
+qz
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+qc
+hz
+qz
+qV
+qc
+wZ
+"}
+(9,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+qc
+Vs
+qc
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+SI
+qz
+tp
+nc
+NQ
+tp
+qz
+qz
+qz
+qz
+qz
+wZ
+qc
+ib
+qz
+pJ
+qc
+wZ
+"}
+(10,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+bN
+qz
+bN
+qc
+wZ
+wZ
+wZ
+wZ
+qc
+EO
+qz
+tp
+nc
+nc
+tp
+qz
+uG
+qc
+wZ
+qz
+qz
+Bo
+qz
+qz
+qz
+qc
+wZ
+"}
+(11,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+qc
+qz
+qc
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+QW
+qz
+tp
+nc
+nc
+tp
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+qc
+qz
+qz
+Sc
+qc
+wZ
+"}
+(12,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+Uw
+qz
+bt
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+qz
+qz
+tp
+tp
+qz
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+qc
+zF
+qz
+NL
+qc
+wZ
+"}
+(13,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+jh
+qz
+bt
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+qz
+qz
+qz
+OF
+qz
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+qc
+AL
+qz
+bj
+qc
+wZ
+"}
+(14,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+gg
+qz
+bt
+qc
+wZ
+wZ
+wZ
+wZ
+qc
+wZ
+qz
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+qc
+ii
+qz
+jA
+qc
+wZ
+"}
+(15,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+qc
+qc
+iA
+qc
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qc
+qc
+qc
+qc
+qc
+wZ
+"}
+(16,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(17,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(18,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(19,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(20,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(21,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(22,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qD
+qz
+qD
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+qc
+Ss
+Kw
+qz
+Hi
+wv
+IE
+VZ
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(23,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qD
+qz
+qD
+wZ
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+qc
+dI
+Ss
+qz
+qz
+qz
+qz
+Cd
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(24,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qc
+do
+qz
+qD
+qc
+wZ
+wZ
+wZ
+qz
+wZ
+wZ
+wZ
+qc
+qz
+qz
+qz
+qz
+qz
+qz
+Cd
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(25,1,1) = {"
+wZ
+wZ
+wZ
+qc
+GL
+qz
+wZ
+wZ
+qz
+qz
+qz
+wZ
+wZ
+wZ
+qz
+qz
+qz
+qz
+qz
+tJ
+qz
+qz
+qz
+qz
+ni
+qc
+oM
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(26,1,1) = {"
+wZ
+wZ
+wZ
+qz
+vX
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+qc
+jh
+qz
+qz
+qz
+qz
+qz
+Cd
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(27,1,1) = {"
+wZ
+wZ
+wZ
+qc
+GL
+qz
+wZ
+wZ
+qz
+qz
+qz
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+qz
+MH
+qc
+qz
+qz
+qz
+qz
+qz
+qz
+Cd
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(28,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qc
+MQ
+qz
+LS
+qc
+wZ
+wZ
+wZ
+wZ
+qz
+ZL
+KW
+Gw
+KW
+ur
+KW
+KW
+KW
+ur
+gD
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(29,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+ft
+qz
+ft
+wZ
+wZ
+wZ
+wZ
+wZ
+qz
+qz
+qz
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+qc
+wZ
+wZ
+wZ
+wZ
+"}
+(30,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+Hk
+qz
+Hk
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(31,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+qc
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
+(32,1,1) = {"
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+wZ
+"}
