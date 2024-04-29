@@ -99,7 +99,7 @@
 	desc = "Some well-done k'ois, grilled to perfection."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_steak"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 15)
 	bitesize = 7
 
@@ -109,7 +109,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_donut"
 	item_state = "kois_donut"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	overlay_state = "box-kois_donut"
 	reagents_to_add = list(/singleton/reagent/kois = 15, /singleton/reagent/toxin/phoron = 10)
 	bitesize = 5
@@ -119,7 +119,7 @@
 	desc = "Baked k'ois goop, molded into a little cake."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_muffin"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 10, /singleton/reagent/toxin/phoron = 15)
 	bitesize = 5
 
@@ -128,8 +128,16 @@
 	desc = "K'ois inside k'ois. Peak Vaurcesian cuisine."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "kois_burger"
-	filling_color = "#dcd9cd"
+	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 20)
+	bitesize = 8
+
+/obj/item/reagent_containers/food/snacks/nakarka_burger
+	name = "nakarka burger"
+	desc = "A k'ois burger with a slice of soft, tangy nakarka cheese."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
+	icon_state = "nakarka_burger"
+	filling_color = "#92cc34"
 	bitesize = 8
 
 /obj/item/storage/box/fancy/vkrexitaffy
@@ -227,12 +235,12 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/vaurca.dmi'
 	icon_state = "koicomb"
 	filling_color = "#E6E600"
-	reagents_to_add = list(/singleton/reagent/kois = 25, /singleton/reagent/toxin/phoron = 20)
+	reagents_to_add = list(/singleton/reagent/kois = 20, /singleton/reagent/toxin/phoron = 20, /singleton/reagent/drink/milk/nemiik = 5)
 	bitesize = 8
 
 /obj/item/reagent_containers/food/snacks/koicomb/update_icon()
-	var/percent_pazillo = round((reagents.total_volume / 45) * 100)
-	switch(percent_pazillo)
+	var/percent_koicomb = round((reagents.total_volume / 45) * 100)
+	switch(percent_koicomb)
 		if(0 to 50)
 			icon_state = "koicomb_bitten"
 		if(51 to INFINITY)

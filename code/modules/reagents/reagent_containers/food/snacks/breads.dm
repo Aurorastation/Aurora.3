@@ -92,15 +92,6 @@
 	bitesize = 2
 	center_of_mass = list("x"=16, "y"=4)
 
-/obj/item/reagent_containers/food/snacks/shakshoukabread
-	name = "shakshouka bread slice"
-	desc = "A slice of bread that was used to scoop up a healthy helping of Shakshouka"
-	icon = 'icons/obj/item/reagent_containers/food/bread.dmi'
-	icon_state = "shakshoukabread"
-	filling_color = "#cf5728"
-	bitesize = 2
-	center_of_mass = list("x"=16, "y"=4)
-
 /obj/item/reagent_containers/food/snacks/breadslice/filled
 	reagents_to_add = list(/singleton/reagent/nutriment = 1)
 	reagent_data = list(/singleton/reagent/nutriment = list("bread" = 2))

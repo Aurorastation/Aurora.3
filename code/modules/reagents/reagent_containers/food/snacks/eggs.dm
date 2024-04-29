@@ -203,27 +203,6 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("zesty tomatoes" = 4))
 	filling_color = "#BB2912"
 
-///obj/item/reagent_containers/food/snacks/dip/attackby(/obj/item/reagent_containers/food/snacks/shakshouka as obj, mob/user as mob)
-//	.=..()
-//	var/obj/item/reagent_containers/food/snacks/returningitem
-//	if(istype(item,/obj/item/reagent_containers/food/snacks/breadslice) && item.icon_state == "breadslice")
-//		returningitem = new shakshoukabread(src)
-//	if(returningitem)
-//		returningitem.reagents.clear_reagents()
-//		item.reagents.trans_to(returningitem, item.reagents.total_volume) //Clear the bread slice
-//	else
-//		returningitem.bitesize = Clamp(returningitem.reagents.total_volume*0.5,1,10) //Old bread slice to new bread slice
-//		qdel(item)
-//		reagents.trans_to(returningitem, bitesize) //Shakshouka to new bread
-//		user.put_in_hands(returningitem)
-//		if (reagents && reagents.total_volume)
-//			to_chat(user, "You scoop up some of the dish into \the [returningitem].")
-//		else
-//			to_chat(user, "You scoop up what remains of the dish into \the [returningitem].")
-//			qdel(src)
-
-
-
 /obj/item/reagent_containers/food/snacks/eggs_benedict
 	name = "eggs benedict"
 	gender = PLURAL
