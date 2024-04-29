@@ -54,7 +54,7 @@
 		slurring = max(slurring, 75)
 		if (life_tick % 4 == 1)
 			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
-			if (prob(chance))It'
+			if (prob(chance))
 				delayed_vomit()
 
 	if(bac > INTOX_BALANCE*SR)
