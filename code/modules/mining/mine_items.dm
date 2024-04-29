@@ -1118,12 +1118,12 @@ var/list/total_extraction_beacons = list()
 			return
 
 /obj/item/oremagnet/proc/toggle_on(mob/user)
-	if(!isprocessing)
+	if(!(datum_flags & DF_ISPROCESSING))
 		START_PROCESSING(SSprocessing, src)
 	else
 		STOP_PROCESSING(SSprocessing, src)
 	if(user)
-		to_chat(user, "<span class='[isprocessing ? "notice" : "warning"]'>You switch [isprocessing ? "on" : "off"] [src].</span>")
+		to_chat(user, "<span class='[(datum_flags & DF_ISPROCESSING) ? "notice" : "warning"]'>You switch [(datum_flags & DF_ISPROCESSING) ? "on" : "off"] [src].</span>")
 
 /obj/item/oremagnet/Destroy()
 	STOP_PROCESSING(SSprocessing, src)

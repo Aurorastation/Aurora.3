@@ -657,12 +657,6 @@
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
 		dat += "<b>Primarily [u_attack.attack_name] </b><br/><br/><br/>"
 
-	src << browse(dat, "window=checkattack")
-	return
-
-/mob/living/carbon/human/check_attacks()
-	var/dat = ""
-
 	if(default_attack)
 		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/><br/>"
 
@@ -685,19 +679,6 @@
 	var/datum/browser/attack_win = new(src, "checkattack", "Known Attacks", 450, 500)
 	attack_win.set_content(dat)
 	attack_win.open()
-
-/mob/living/carbon/human/Topic(href, href_list)
-	if(href_list["default_attk"])
-		if(href_list["default_attk"] == "reset_attk")
-			set_default_attack(null)
-		else
-			var/datum/unarmed_attack/u_attack = locate(href_list["default_attk"])
-			if(u_attack && (u_attack in species.unarmed_attacks))
-				set_default_attack(u_attack)
-		check_attacks()
-		return 1
-	else
-		return ..()
 
 /mob/living/carbon/human/proc/set_default_attack(var/datum/unarmed_attack/u_attack)
 	default_attack = u_attack

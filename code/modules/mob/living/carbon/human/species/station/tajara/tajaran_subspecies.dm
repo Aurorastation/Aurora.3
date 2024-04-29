@@ -188,6 +188,8 @@
 	bump_flag = HEAVY
 	swap_flags = ~HEAVY
 	push_flags = (~HEAVY) ^ ROBOT
+	possible_external_organs_modifications = list("Normal", "Amputated") //We don't have any alternate limbs for Tesla suits
+	valid_prosthetics = null
 
 /datum/species/tajaran/tesla_body/New()
 	..()

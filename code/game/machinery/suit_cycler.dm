@@ -35,6 +35,7 @@
 	icon_state = "base"
 
 	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/active = FALSE		// PLEASE HOLD.
 	var/safeties = TRUE		// The cycler won't start with a living thing inside it unless safeties are off.
@@ -111,16 +112,16 @@
 		var/image/occupant_image = image(occupant.icon, occupant.icon_state)
 		occupant_image.overlays = occupant.overlays
 		add_overlay(occupant_image)
-	var/image/overbase = image(icon, "overbase", layer = ABOVE_ALL_MOB_LAYER)
+	var/image/overbase = image(icon, "overbase", layer = ABOVE_HUMAN_LAYER)
 	add_overlay(overbase)
 	if(locked || active)
-		var/image/closed = image(icon, "closed", layer = ABOVE_ALL_MOB_LAYER)
+		var/image/closed = image(icon, "closed", layer = ABOVE_HUMAN_LAYER)
 		add_overlay(closed)
 	else
-		var/image/open = image(icon, "open", layer = ABOVE_ALL_MOB_LAYER)
+		var/image/open = image(icon, "open", layer = ABOVE_HUMAN_LAYER)
 		add_overlay(open)
 	if(panel_open)
-		var/image/panel = image(icon, "panel", layer = ABOVE_ALL_MOB_LAYER)
+		var/image/panel = image(icon, "panel", layer = ABOVE_HUMAN_LAYER)
 		add_overlay(panel)
 
 	if(irradiating)

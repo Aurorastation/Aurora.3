@@ -233,8 +233,8 @@
 	else
 		return FALSE
 	var/mob/user = usr
-	if(user && istype(user) && !forced)
-		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+	if(user && istype(user) && !forced && !QDELETED(src))
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum, ui_interact), user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
 /**
@@ -516,7 +516,7 @@
 			P.event_registered()
 
 	output_notice("Registration successful!")
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, 0)
+	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, falloff_distance = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return registered_id
 
 /obj/item/modular_computer/proc/unregister_account()

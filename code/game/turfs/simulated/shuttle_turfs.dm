@@ -54,6 +54,9 @@
 /turf/simulated/wall/shuttle/dark/cardinal/blue
 	color = "#6176a1"
 
+/turf/simulated/wall/shuttle/dark/cardinal/coalition
+	color = COLOR_COALITION
+
 /turf/simulated/wall/shuttle/dark/cardinal/gold
 	color = COLOR_GOLD
 
@@ -116,6 +119,12 @@
 
 /turf/simulated/wall/shuttle/raider
 	color = "#6C7364"
+
+/turf/simulated/wall/shuttle/hapt
+	color = "#2E2B2B"
+
+/turf/simulated/wall/shuttle/hapt/blue
+	color = "#3c526f"
 
 /turf/simulated/wall/shuttle/legion
 	color = "#5F78A0"
@@ -446,7 +455,7 @@
 	desc = "The strong glass face of a Jester-type shuttle cockpit."
 	icon = 'icons/turf/shuttles_unique/scc/scout_shuttle/cockpit_windows.dmi'
 	icon_state = "4,1"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 //Intrepid pieces
 /turf/simulated/wall/shuttle/unique/scc/research
@@ -476,7 +485,7 @@
 	desc = "The strong glass face of a Pathfinder class shuttle cockpit."
 	icon = 'icons/turf/shuttles_unique/scc/research_shuttle/cockpit_windows.dmi'
 	icon_state = "2,1"
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 
 //Spark pieces
 /turf/simulated/wall/shuttle/unique/scc/mining

@@ -102,6 +102,9 @@
 
 	var/iff // identify friend or foe. will check mob's IDs to see if they match, if they do, won't hit
 
+	///If the projectile launches a secondary projectile in addition to itself.
+	var/secondary_projectile
+
 /obj/item/projectile/CanPass()
 	return TRUE
 
@@ -115,7 +118,7 @@
 		return FALSE
 	var/mob/living/L = target
 	if(damage_type == DAMAGE_BRUTE && damage > 5) //weak hits shouldn't make you gush blood
-		var/splatter_color = "#A10808"
+		var/splatter_color = COLOR_HUMAN_BLOOD
 		var/mob/living/carbon/human/H = target
 		if (istype(H) && H.species && H.species.blood_color)
 			splatter_color = H.species.blood_color
@@ -166,6 +169,10 @@
 	var/direct_target
 	if(get_turf(target) == get_turf(src))
 		direct_target = target
+
+	if(ispath(secondary_projectile))
+		var/obj/item/projectile/BB = new secondary_projectile(src)
+		BB.launch_projectile(target, target_zone, user, params, angle_override, forced_spread)
 
 	preparePixelProjectile(target, user? user : get_turf(src), params, forced_spread)
 	return fire(angle_override, direct_target)
@@ -373,7 +380,7 @@
 		return process_hitscan()
 	else
 		generate_muzzle_flash()
-		if(!isprocessing)
+		if(!(datum_flags & DF_ISPROCESSING))
 			START_PROCESSING(SSprojectiles, src)
 		pixel_move(1)	//move it now!
 

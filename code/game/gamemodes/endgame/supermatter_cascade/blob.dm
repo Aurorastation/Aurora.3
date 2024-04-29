@@ -6,7 +6,8 @@
 	icon = 'icons/turf/space.dmi'
 	icon_state = "bluespace-n"
 
-	layer = EFFECTS_ABOVE_LIGHTING_LAYER
+	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	layer = SUPERMATTER_WALL_LAYER
 	light_color = COLOR_CYAN_BLUE
 	light_power = 6
 	light_range = 8

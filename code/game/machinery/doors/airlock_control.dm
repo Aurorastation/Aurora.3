@@ -119,49 +119,16 @@
 		radio_connection.post_signal(src, signal, range = AIRLOCK_CONTROL_RANGE, filter = RADIO_AIRLOCK)
 
 
-/obj/machinery/door/airlock/open(surpress_send)
-	. = ..()
-	if(!surpress_send) send_status()
-
-
-/obj/machinery/door/airlock/close(surpress_send)
-	. = ..()
-	if(!surpress_send) send_status()
-
 /obj/machinery/door/airlock/proc/set_frequency(new_frequency)
 	SSradio.remove_object(src, frequency)
 	if(new_frequency)
 		frequency = new_frequency
 		radio_connection = SSradio.add_object(src, frequency, RADIO_AIRLOCK)
 
-/obj/machinery/door/airlock/Initialize(mapload, d = 0, populate_components = TRUE, var/obj/structure/door_assembly/DA)
-	. = ..()
-	if(frequency)
-		set_frequency(frequency)
-
-	//wireless connection
-	if(_wifi_id)
-		wifi_receiver = new(_wifi_id, src)
-
-	update_icon()
-
-	if(SSradio)
-		set_frequency(frequency)
-
-	if(DA)
-		bound_height = DA.bound_height
-		bound_width = DA.bound_width
-
-/obj/machinery/door/airlock/Destroy()
-	if(frequency && SSradio)
-		SSradio.remove_object(src,frequency)
-	return ..()
-
 /obj/machinery/airlock_sensor
 	name = "airlock sensor"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "airlock_sensor_off"
-	layer = OBJ_LAYER
 
 	anchored = 1
 	power_channel = ENVIRON
@@ -242,7 +209,6 @@
 	name = "access button"
 	icon = 'icons/obj/airlock_machines.dmi'
 	icon_state = "access_button_standby"
-	layer = OBJ_LAYER
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 
 	anchored = 1

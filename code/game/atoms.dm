@@ -59,6 +59,7 @@
 	return
 
 /atom/proc/additional_sight_flags()
+	SHOULD_BE_PURE(TRUE)
 	return 0
 
 /atom/proc/additional_see_invisible()
@@ -527,7 +528,7 @@
 		blood_DNA = list()
 
 	was_bloodied = 1
-	blood_color = "#A10808"
+	blood_color = COLOR_HUMAN_BLOOD
 	if(istype(M))
 		if (!istype(M.dna, /datum/dna))
 			M.dna = new /datum/dna(null)
@@ -646,7 +647,7 @@
 // "deaf_message" (optional) is what deaf people will see.
 // "hearing_distance" (optional) is the range, how many tiles away the message can be heard.
 /atom/proc/audible_message(var/message, var/deaf_message, var/hearing_distance, var/intent_message = null, var/intent_range = 7)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!hearing_distance)
 		hearing_distance = world.view
@@ -660,7 +661,7 @@
 		intent_message(intent_message, intent_range, hearers) // pass our hearers list through to intent_message so it doesn't have to call get_hearers again
 
 /atom/proc/intent_message(var/message, var/range = 7, var/list/hearers = list())
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 	if(air_sound(src))
 		if(!hearers.len)
 			hearers = get_hearers_in_view(range, src)

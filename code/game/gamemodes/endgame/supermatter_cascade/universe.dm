@@ -60,7 +60,6 @@ var/global/universe_has_ended = 0
 
 	PlayerSet()
 
-	new /obj/singularity/narsie/large/exit(pick(GLOB.endgame_exits))
 	var/time = rand(30, 60)
 	LOG_DEBUG("universal_state/cascade: Announcing to world in [time] seconds.")
 	LOG_DEBUG("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")

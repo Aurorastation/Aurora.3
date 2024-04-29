@@ -15,7 +15,7 @@
 	pickup_sound = 'sound/items/pickup/accessory.ogg'
 	siemens_coefficient = 1.0
 	var/flipped = 0
-	var/normal_layer = TRUE
+	var/mob_wear_layer = WRISTS_LAYER_OVER
 
 /obj/item/clothing/wrists/update_clothing_icon()
 	if (ismob(src.loc))
@@ -29,6 +29,18 @@
 /obj/item/clothing/wrists/proc/update_flip_verb()
 	if((gender != PLURAL) && (flipped != -1)) // Check for plurality and whether it has a flipped icon.
 		verbs += /obj/item/clothing/wrists/watch/proc/swapwrists
+
+/obj/item/clothing/wrists/verb/change_layer()
+	set category = "Object"
+	set name = "Change Wristwear Layer"
+	set src in usr
+
+	var/list/options = list("Under Uniform" = WRISTS_LAYER_UNDER, "Over Uniform" = WRISTS_LAYER_UNIFORM, "Over Suit" = WRISTS_LAYER_OVER)
+	var/new_layer = tgui_input_list(usr, "Position Wristwear", "Wristwear Style", options)
+	if(new_layer)
+		mob_wear_layer = options[new_layer]
+		to_chat(usr, SPAN_NOTICE("\The [src] will now layer [new_layer]."))
+		update_clothing_icon()
 
 /obj/item/clothing/wrists/watch/proc/swapwrists()
 	set category = "Object"
@@ -47,15 +59,6 @@
 		playsound(src, equip_sound, EQUIP_SOUND_VOLUME)
 	else
 		playsound(src, drop_sound, DROP_SOUND_VOLUME)
-	update_clothing_icon()
-
-/obj/item/clothing/wrists/proc/change_layer()
-	set category = "Object"
-	set name = "Change Wrist Layer"
-	set src in usr
-
-	normal_layer = !normal_layer
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "under" : "over"] your outerwear."))
 	update_clothing_icon()
 
 /obj/item/clothing/wrists/bracelet

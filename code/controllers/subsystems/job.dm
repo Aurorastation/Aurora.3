@@ -583,11 +583,7 @@ SUBSYSTEM_DEF(jobs)
 		if(spawnpos && istype(spawnpos))
 			if(spawnpos.check_job_spawning(rank))
 				if(istype(spawnpos, /datum/spawnpoint/cryo) && (rank in command_positions))
-					var/datum/spawnpoint/cryo/C = spawnpos
-					if(length(C.command_turfs))
-						H.forceMove(pick(C.command_turfs))
-					else
-						H.forceMove(pick(spawnpos.turfs))
+					H.forceMove(pick(spawnpos.turfs))
 				else
 					H.forceMove(pick(spawnpos.turfs))
 				. = spawnpos.msg
@@ -860,7 +856,7 @@ SUBSYSTEM_DEF(jobs)
 	T.icon_state = "nothing"
 	T.maptext_height = 64
 	T.maptext_width = 512
-	T.layer = SCREEN_LAYER+1
+	T.layer = HUD_ABOVE_ITEM_LAYER
 	T.plane = FLOAT_PLANE
 	T.screen_loc = "LEFT+1,BOTTOM+2"
 

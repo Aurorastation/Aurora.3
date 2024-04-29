@@ -159,12 +159,16 @@ GLOBAL_VAR_INIT(running_create_and_destroy, FALSE)
 	ignore += typesof(/mob/living/heavy_vehicle)
 	ignore += typesof(/obj/singularity/narsie)
 	ignore += typesof(/obj/screen/ability)
+	ignore += typesof(/obj/effect/bmode)
 
 	// Requires something in icon update or runtimes
 	ignore += typesof(/obj/item/gun/energy/gun/nuclear)
 
 	// do_spread sleeps and tries to addtimer after the src is qdeleted
 	ignore += typesof(/obj/effect/plant)
+
+	// Cannot be deleted
+	ignore += typesof(/obj/effect/landmark/entry_point)
 
 	/*
 	 * END EXCLUSIONS OF THE TEST

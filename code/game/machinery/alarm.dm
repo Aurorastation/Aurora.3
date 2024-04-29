@@ -110,6 +110,7 @@ pixel_x = 10;
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not

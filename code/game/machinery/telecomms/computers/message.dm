@@ -34,8 +34,17 @@
 	var/custommessage 	= "This is a test, please ignore."
 
 /obj/machinery/computer/message_monitor/Initialize()
-	. = ..()
+	..()
 	spark_system = bind_spark(src, 5)
+
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/message_monitor/LateInitialize()
+	//If the server isn't linked to a server, and there's a server available, default it to the first one in the list.
+	if(!linkedServer)
+		for(var/obj/machinery/telecomms/message_server/S in SSmachinery.all_telecomms)
+			linkedServer = S
+			break
 
 /obj/machinery/computer/message_monitor/Destroy()
 	QDEL_NULL(spark_system)
@@ -79,17 +88,6 @@
 	else
 		icon_screen = initial(icon_screen)
 	..()
-
-/obj/machinery/computer/message_monitor/Initialize()
-	..()
-	return INITIALIZE_HINT_LATELOAD
-
-/obj/machinery/computer/message_monitor/LateInitialize()
-	//If the server isn't linked to a server, and there's a server available, default it to the first one in the list.
-	if(!linkedServer)
-		for(var/obj/machinery/telecomms/message_server/S in SSmachinery.all_telecomms)
-			linkedServer = S
-			break
 
 /obj/machinery/computer/message_monitor/attack_hand(var/mob/living/user as mob)
 	if(stat & (NOPOWER|BROKEN))

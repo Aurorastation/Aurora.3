@@ -127,6 +127,11 @@
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/table/MouseDrop_T(atom/dropping, mob/user, params)
+	var/obj/item/stack/material/what = dropping
+	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
+		reinforce_table(what, usr)
+		return
+
 	if(ismob(dropping.loc)) //If placing an item
 		if(!isitem(dropping) || user.get_active_hand() != dropping)
 			return ..()
@@ -231,6 +236,74 @@
 	if(!attacking_item.dropsafety())
 		return
 
+	if(reinforced && attacking_item.isscrewdriver())
+		remove_reinforced(attacking_item, user)
+		if(!reinforced)
+			update_desc()
+			queue_icon_update()
+			update_material()
+		return 1
+
+	if(carpeted && attacking_item.iscrowbar())
+		user.visible_message("<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
+								"<span class='notice'>You remove the carpet from \the [src].</span>")
+		new /obj/item/stack/tile/carpet(loc)
+		carpeted = 0
+		queue_icon_update()
+		return 1
+
+	if(!carpeted && material && istype(attacking_item, /obj/item/stack/tile/carpet))
+		var/obj/item/stack/tile/carpet/C = attacking_item
+		if(C.use(1))
+			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
+									"<span class='notice'>You add \the [C] to \the [src].</span>")
+			carpeted = 1
+			queue_icon_update()
+			return 1
+		else
+			to_chat(user, "<span class='warning'>You don't have enough carpet!</span>")
+
+	if(!reinforced && !carpeted && material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+		remove_material(attacking_item, user)
+		if(!material)
+			update_connections(1)
+			queue_icon_update()
+			for(var/obj/structure/table/T in oview(src, 1))
+				T.queue_icon_update()
+			update_desc()
+			update_material()
+		return 1
+
+	if(!carpeted && !reinforced && !material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+		dismantle(attacking_item, user)
+		return 1
+
+	if(health < maxhealth && attacking_item.iswelder())
+		var/obj/item/weldingtool/F = attacking_item
+		if(F.welding)
+			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
+			if(!attacking_item.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
+				return
+			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
+									"<span class='notice'>You repair some damage to \the [src].</span>")
+			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
+			return 1
+
+	if(!material && can_plate && istype(attacking_item, /obj/item/stack/material))
+		material = common_material_add(attacking_item, user, "plat")
+		if(material)
+			update_connections(1)
+			queue_icon_update()
+			update_desc()
+			update_material()
+		return 1
+
+	if(!material && can_plate && istype(attacking_item, /obj/item/reagent_containers/cooking_container/board/bowl))
+		new /obj/structure/chemkit(loc)
+		qdel(attacking_item)
+		qdel(src)
+		return 1
+
 	if(istype(attacking_item, /obj/item/melee/energy/blade))
 		var/obj/item/melee/energy/blade/blade = attacking_item
 		blade.spark_system.queue()
@@ -267,8 +340,10 @@
 		auto_align(attacking_item, params)
 		return
 
-#define CELLS 8								//Amount of cells per row/column in grid
-#define CELLSIZE (world.icon_size/CELLS)	//Size of a cell in pixels
+/// Amount of cells per row/column in grid
+#define CELLS 8
+/// Size of a cell in pixels
+#define CELLSIZE (world.icon_size/CELLS)
 /*
 Automatic alignment of items to an invisible grid, defined by CELLS and CELLSIZE.
 Since the grid will be shifted to own a cell that is perfectly centered on the turf, we end up with two 'cell halves'
@@ -281,14 +356,19 @@ closest to where the cursor has clicked on.
 Note: This proc can be overwritten to allow for different types of auto-alignment.
 */
 /obj/item/var/list/center_of_mass = list("x" = 16,"y" = 16)
+
 /obj/structure/table/proc/auto_align(obj/item/W, click_parameters, var/animate = FALSE)
+	if(initial(W.layer) <= BELOW_TABLE_LAYER) // stuff below tables should not accidentally be adjusted to be above them
+		W.layer = initial(W.layer)
+		return TRUE
+
 	if(!W.center_of_mass)
 		W.randpixel_xy()
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
-		return
+		return TRUE
 
 	if(!click_parameters)
-		return
+		return FALSE
 
 	var/list/mouse_control = mouse_safe_xy(click_parameters)
 	var/mouse_x = mouse_control["icon-x"]
@@ -309,6 +389,7 @@ Note: This proc can be overwritten to allow for different types of auto-alignmen
 			W.pixel_x = target_x
 			W.pixel_y = target_y
 		W.layer = initial(W.layer) + ((32 - W.pixel_y) / 1000)
+		return TRUE
 
 #undef CELLS
 #undef CELLSIZE

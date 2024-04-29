@@ -75,3 +75,29 @@
 			/mob/living/simple_animal/tindalos = 1
 		)
 	)
+
+/singleton/biome/desert/wasteland //TODO: Add cool wrecked shit for the wasteland
+	generators = list(
+		GRASSES = list(BATCHED_NOISE, -0.1, 360, 4),
+		SMALL_FLORA = list(POISSON_SAMPLE, 7),
+		LARGE_FLORA = list(POISSON_SAMPLE, 7),
+		WILDLIFE = list(POISSON_SAMPLE, 45)
+	)
+	spawn_types = list(
+		GRASSES = list(
+			/obj/structure/flora/grass/desert/bush = 1,
+			/obj/structure/flora/grass/desert = 3
+		),
+		SMALL_FLORA = list(
+			/obj/structure/flora/rock/desert = 1,
+			/obj/structure/flora/rock/desert/scrub = 3,
+		),
+		LARGE_FLORA = list(
+			/obj/structure/flora/tree/desert/tiny = 1
+		),
+		WILDLIFE = list(
+			/mob/living/simple_animal/hostile/shrieker = 1,
+			/mob/living/carbon/human/stok/moghes = 1,
+			/mob/living/simple_animal/threshbeast = 1
+		)
+	)
