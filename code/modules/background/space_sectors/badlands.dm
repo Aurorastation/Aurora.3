@@ -130,8 +130,8 @@
 	)
 
 	lore_radio_stations = list(
-		"72.4 Radio Free Ouerea" = "texts/lore_radio/uueoaesa/72.4_Radio_Free_Ouerea.txt",
-		"83.3 Canyon City Radio" = "texts/lore_radio/uueoaesa/83.3_Canyon_City_Radio.txt",
-		"132.6 SkaldFM" = "texts/lore_radio/uueoaesa/132.6_Skald_FM.txt",
-		"166.8 Discontinued Emergency Broadcast" = "texts/lore_radio/uueoaesa/166.8_Azarak_Emergency_Broadcast.txt"
+		"72.4 Radio Free Ouerea" = 'texts/lore_radio/uueoaesa/72.4_Radio_Free_Ouerea.txt',
+		"83.3 Canyon City Radio" = 'texts/lore_radio/uueoaesa/83.3_Canyon_City_Radio.txt',
+		"132.6 SkaldFM" = 'texts/lore_radio/uueoaesa/132.6_Skald_FM.txt',
+		"166.8 Discontinued Emergency Broadcast" = 'texts/lore_radio/uueoaesa/166.8_Azarak_Emergency_Broadcast.txt'
 	)
