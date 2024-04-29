@@ -5728,7 +5728,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/machinery/light,
+/obj/machinery/light/floor,
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "czb" = (
@@ -10982,7 +10982,7 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 5
 	},
-/obj/machinery/light{
+/obj/machinery/light/floor{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
@@ -28610,16 +28610,6 @@
 /obj/structure/platform{
 	dir = 1
 	},
-/obj/machinery/button/remote/airlock/screamer{
-	channel = "Science";
-	dir = 1;
-	id = "server_door_lock";
-	message = "The Server Room Airlock's ID lock toggle has been used.";
-	name = "Server Room Control";
-	pixel_y = 32;
-	req_access = list(47);
-	specialfunctions = 2
-	},
 /turf/simulated/floor/carpet/purple,
 /area/crew_quarters/heads/hor)
 "neT" = (
@@ -41670,6 +41660,9 @@
 	dir = 5
 	},
 /obj/structure/extinguisher_cabinet/north,
+/obj/machinery/light/floor{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "twc" = (
@@ -47618,15 +47611,6 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/hallway/primary/central_two)
-"wbV" = (
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/conference)
 "wcc" = (
 /obj/machinery/fusion_fuel_injector/mapped{
 	dir = 8;
@@ -78132,7 +78116,7 @@ wkk
 uje
 dOi
 hHM
-wbV
+qnb
 bZU
 qnb
 qnb
@@ -78339,7 +78323,7 @@ qsv
 ylu
 ylu
 bfF
-vVL
+cyG
 uGW
 jsI
 iNo
