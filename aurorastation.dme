@@ -3812,6 +3812,7 @@
 #include "maps\away\away_site\tajara\taj_safehouse\tajara_safehouse.dm"
 #include "maps\away\away_site\tajara\taj_safehouse\tajara_safehouse_ghostroles.dm"
 #include "maps\away\away_site\wrecked_nt_ship\wrecked_nt_ship.dm"
+#include "maps\away\away_site\zavod_shuttle_destroyed\zavod_shuttle_destroyed.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_areas.dm"
 #include "maps\away\ships\biesel\tcaf_corvette\tcaf_corvette_ghostroles.dm"
