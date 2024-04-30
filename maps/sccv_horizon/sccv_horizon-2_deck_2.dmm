@@ -4701,14 +4701,6 @@
 /obj/machinery/vending/snack,
 /turf/simulated/floor/tiled/dark,
 /area/operations/lobby)
-"bVT" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/door/blast/shutters/open{
-	id = "RnDShutters";
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/rnd/hallway)
 "bWv" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -10705,6 +10697,9 @@
 /area/security/checkpoint2)
 "eWv" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "exploratory_chem_shutters"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/chemistry)
 "eWz" = (
@@ -11537,13 +11532,6 @@
 "fnn" = (
 /turf/simulated/wall,
 /area/engineering/atmos/storage)
-"fns" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 10
-	},
-/obj/machinery/light/floor,
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "fnv" = (
 /obj/structure/window/reinforced,
 /obj/machinery/gibber,
@@ -15633,6 +15621,30 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/rnd/xenobiology)
+"hbt" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/structure/sink{
+	pixel_y = 28;
+	pixel_x = -10
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "It controls the research shutters.";
+	id = "exploratory_chem_shutters";
+	name = "Exploratory Chemistry Shutters";
+	dir = 1;
+	pixel_y = 37;
+	pixel_x = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	desc = "It controls the research shutters.";
+	id = "science_chem_desk";
+	name = "Exploratory Chemistry Desk";
+	pixel_x = 8;
+	dir = 1;
+	pixel_y = 26
+	},
+/turf/simulated/floor/tiled/white,
+/area/rnd/chemistry)
 "hbG" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -24809,6 +24821,13 @@
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/security/head_of_security)
+"lxo" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "RnDShutters"
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/lab)
 "lxH" = (
 /obj/effect/floor_decal/corner/mauve/full{
 	dir = 8
@@ -29106,6 +29125,15 @@
 	},
 /turf/simulated/floor/tiled/full,
 /area/horizon/hallway/deck_two/fore)
+"nnk" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 1
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/rnd/xenobiology/xenoflora)
 "nnm" = (
 /obj/machinery/door/window/southleft,
 /obj/machinery/light/small{
@@ -29810,6 +29838,10 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/engineering/smes/rust)
+"nGt" = (
+/obj/machinery/chem_heater,
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/chemistry)
 "nGI" = (
 /obj/effect/floor_decal/corner/dark_green/full{
 	dir = 8
@@ -30134,27 +30166,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist/surgicalbay)
-"nSv" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner/mauve{
-	dir = 5
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled,
-/area/rnd/hallway)
 "nSV" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-4-f"
@@ -30962,6 +30973,13 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
 /area/medical/first_responder)
+"okP" = (
+/obj/effect/floor_decal/corner/mauve{
+	dir = 10
+	},
+/obj/machinery/light/floor,
+/turf/simulated/floor/tiled,
+/area/rnd/hallway)
 "olJ" = (
 /obj/structure/shuttle_part/scc_space_ship{
 	icon_state = "d3-5"
@@ -31894,15 +31912,6 @@
 /obj/effect/floor_decal/corner_wide/yellow,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering/rust)
-"oGU" = (
-/obj/machinery/atmospherics/pipe/manifold/visible{
-	dir = 1
-	},
-/obj/machinery/light/floor{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/rnd/xenobiology/xenoflora)
 "oHI" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -33449,10 +33458,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/rnd/chemistry)
-"puB" = (
-/obj/machinery/chem_heater,
-/turf/simulated/floor/tiled/dark/full,
-/area/rnd/chemistry)
 "puN" = (
 /obj/structure/table/rack,
 /obj/random/loot,
@@ -34755,6 +34760,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
+"qeN" = (
+/obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
+/obj/machinery/door/blast/shutters/open{
+	id = "exploratory_chem_shutters";
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/rnd/chemistry)
 "qeZ" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee{
@@ -44690,13 +44703,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/damaged,
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard)
-"uJD" = (
-/obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/structure/sink{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/white,
-/area/rnd/chemistry)
 "uKi" = (
 /obj/random/loot,
 /obj/structure/closet,
@@ -50288,6 +50294,27 @@
 /obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
+"xlx" = (
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/mauve{
+	dir = 5
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/rnd/hallway)
 "xlz" = (
 /obj/machinery/computer/security/engineering{
 	name = "Drone Monitoring Cameras"
@@ -51830,10 +51857,11 @@
 "xWb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{
-	id = "RnDShutters"
+	id = "RnDShutters";
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/rnd/lab)
+/area/rnd/hallway)
 "xWr" = (
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -76184,9 +76212,9 @@ ebk
 rvf
 uTr
 uTr
-eWv
-eWv
-eWv
+qeN
+qeN
+qeN
 uTr
 eHG
 qGp
@@ -76587,7 +76615,7 @@ dJh
 iGU
 tHv
 uTr
-uJD
+hbt
 eRp
 eGs
 rSx
@@ -77591,13 +77619,13 @@ pnY
 jSY
 gax
 tiV
-bVT
-bVT
+xWb
+xWb
 tiV
 xxy
-fns
+okP
 uTr
-puB
+nGt
 vgn
 knA
 xVt
@@ -78199,7 +78227,7 @@ kyR
 cer
 dEb
 upt
-xWb
+lxo
 qhA
 rwU
 fIa
@@ -78402,8 +78430,8 @@ dzI
 pRo
 uxf
 taf
-nSv
-fns
+xlx
+okP
 fIa
 vFz
 sRC
@@ -78603,7 +78631,7 @@ jES
 jeb
 mso
 hfv
-xWb
+lxo
 wEq
 umW
 gzU
@@ -83442,7 +83470,7 @@ qgN
 qgN
 qgN
 xHv
-oGU
+nnk
 atQ
 atQ
 aAR
@@ -84048,7 +84076,7 @@ qgN
 qgN
 qgN
 xHv
-oGU
+nnk
 atQ
 atQ
 fpb
