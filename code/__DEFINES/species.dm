@@ -17,6 +17,7 @@
 
 #define SPECIES_VAURCA_WORKER		"Vaurca Worker"
 #define SPECIES_VAURCA_WARRIOR		"Vaurca Warrior"
+#define SPECIES_VAURCA_ATTENDANT	"Vaurca Attendant"
 #define SPECIES_VAURCA_BREEDER		"Vaurca Breeder"
 #define SPECIES_VAURCA_WARFORM		"Vaurca Warform"
 #define SPECIES_VAURCA_BULWARK		"Vaurca Bulwark"
@@ -90,6 +91,7 @@
 #define BODYTYPE_VAURCA				"Vaurca"
 #define BODYTYPE_VAURCA_BREEDER		"Vaurca Breeder"
 #define BODYTYPE_VAURCA_BULWARK		"Vaurca Bulwark"
+#define BODYTYPE_VAURCA_ATTENDANT 	"Vaurca Attendant"
 #define BODYTYPE_VAURCA_WARFORM		"Vaurca Warform"
 
 #define BODYTYPE_IPC				"Machine"
