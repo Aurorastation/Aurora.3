@@ -21,7 +21,6 @@
 	icon_dead = "rat_gray_dead"
 	icon_rest = "rat_gray_sleep"
 
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	var/swarm_name = "peasentry"

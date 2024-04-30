@@ -46,7 +46,7 @@
 		if(name_language == TRADER_DEFAULT_NAME)
 			name = capitalize(pick(first_names_female + first_names_male)) + " " + capitalize(pick(last_names))
 		else
-			var/datum/language/L = all_languages[name_language]
+			var/datum/language/L = GLOB.all_languages[name_language]
 			if(L)
 				name = L.get_random_name(pick(MALE,FEMALE))
 	if(possible_origins && possible_origins.len)

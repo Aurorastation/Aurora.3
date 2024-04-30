@@ -80,22 +80,22 @@
 /obj/item/mech_component/sensors/ready_to_install()
 	return (radio && camera)
 
-/obj/item/mech_component/sensors/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing, /obj/item/mech_component/control_module))
+/obj/item/mech_component/sensors/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mech_component/control_module))
 		if(software)
 			to_chat(user, SPAN_WARNING("\The [src] already has a control modules installed."))
 			return
-		if(install_component(thing, user)) software = thing
-	else if(istype(thing,/obj/item/robot_parts/robot_component/radio))
+		if(install_component(attacking_item, user)) software = attacking_item
+	else if(istype(attacking_item,/obj/item/robot_parts/robot_component/radio))
 		if(radio)
 			to_chat(user, SPAN_WARNING("\The [src] already has a radio installed."))
 			return
-		if(install_component(thing, user)) radio = thing
-	else if(istype(thing,/obj/item/robot_parts/robot_component/camera))
+		if(install_component(attacking_item, user)) radio = attacking_item
+	else if(istype(attacking_item,/obj/item/robot_parts/robot_component/camera))
 		if(camera)
 			to_chat(user, SPAN_WARNING("\The [src] already has a camera installed."))
 			return
-		if(install_component(thing, user)) camera = thing
+		if(install_component(attacking_item, user)) camera = attacking_item
 	else
 		return ..()
 
@@ -108,9 +108,9 @@
 	var/list/installed_software = list()
 	var/max_installed_software = 2
 
-/obj/item/mech_component/control_module/examine(mob/user)
+/obj/item/mech_component/control_module/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, SPAN_NOTICE("<a href='?src=\ref[src];info=software'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</a>"))
+	. += SPAN_NOTICE("<a href='?src=\ref[src];info=software'>It has [max_installed_software - LAZYLEN(installed_software)] empty slot\s remaining out of [max_installed_software].</a>")
 
 /obj/item/mech_component/control_module/Topic(href, href_list)
 	. = ..()
@@ -120,11 +120,11 @@
 		if("software")
 			to_chat(usr, SPAN_NOTICE("Software for \the [src] can be created at the circuit imprinter."))
 
-/obj/item/mech_component/control_module/attackby(var/obj/item/thing, var/mob/user)
-	if(istype(thing, /obj/item/circuitboard/exosystem))
-		install_software(thing, user)
+/obj/item/mech_component/control_module/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/circuitboard/exosystem))
+		install_software(attacking_item, user)
 		return
-	else if(thing.isscrewdriver())
+	else if(attacking_item.isscrewdriver())
 		var/result = ..()
 		update_software()
 		return result

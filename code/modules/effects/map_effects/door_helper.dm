@@ -1,5 +1,5 @@
 /obj/effect/map_effect/door_helper
-	layer = DOOR_CLOSED_LAYER + 0.1
+	layer = CLOSED_DOOR_LAYER + 0.01
 
 /obj/effect/map_effect/door_helper/Initialize(mapload, ...)
 	..()
@@ -38,7 +38,24 @@
 		A.req_one_access_by_level = req_one_access_by_level
 
 /obj/effect/map_effect/door_helper/level_access/test1
-	access_by_level = list("green" = list(access_security))
+	access_by_level = list("green" = list(ACCESS_SECURITY))
 
 /obj/effect/map_effect/door_helper/level_access/test2
-	req_one_access_by_level = list("green" = list(access_security, access_heads))
+	req_one_access_by_level = list("green" = list(ACCESS_SECURITY, ACCESS_HEADS))
+
+/obj/effect/map_effect/door_helper/level_access/command_foyer
+	access_by_level = list(
+	"green",
+	"yellow" = list(19,38,72),
+	"blue" = list(19,38,72),
+	"red" = list(19,38,72),
+	"delta" = list(19,38,72)
+)
+
+/obj/effect/map_effect/door_helper/level_access/command_stairwell
+	access_by_level = list(
+	"green" = list(19,28,38),
+	"blue" = list(19,38),
+	"red" = list(19,38),
+	"delta" = list(19,38)
+)

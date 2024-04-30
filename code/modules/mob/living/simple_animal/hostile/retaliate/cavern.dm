@@ -45,7 +45,6 @@
 	faction = "cavern"
 
 	flying = TRUE
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 /mob/living/simple_animal/hostile/retaliate/cavern_dweller/Allow_Spacemove(var/check_drift = 0)
@@ -110,7 +109,6 @@
 	minbodytemp = 0
 	light_range = 10
 	light_wedge = LIGHT_WIDE
-	see_in_dark = 8
 	psi_pingable = FALSE
 
 	faction = "sol"
@@ -133,7 +131,7 @@
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	for(var/obj/item/ore/O in loot)
 		O.forceMove(src.loc)
 	qdel(src)
@@ -177,7 +175,7 @@
 			break
 
 	if(target_ore)
-		walk_to(src, target_ore, 1, move_to_delay)
+		SSmove_manager.move_to(src, target_ore, 1, move_to_delay)
 	else if(found_turfs.len)
 		for(var/turf/simulated/mineral/M in found_turfs)
 			if(!QDELETED(M) || !M.mineral)

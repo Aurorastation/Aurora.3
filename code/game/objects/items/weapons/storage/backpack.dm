@@ -38,7 +38,7 @@
 	set src in usr
 	if(use_check_and_message(usr))
 		return 0
-	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in backbagstrap)
+	switch(input(usr, "Choose your bag strap style.", "[src]") as null|anything in GLOB.backbagstrap)
 		if("Hidden")
 			alpha_mask = "hidden"
 		if("Thin")
@@ -94,10 +94,10 @@
 	storage_cost = 29
 	empty_delay = 0.8 SECOND
 
-/obj/item/storage/backpack/holding/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/storage/backpack/holding))
+/obj/item/storage/backpack/holding/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/storage/backpack/holding))
 		to_chat(user, "<span class='warning'>The Bluespace interfaces of the two devices conflict and malfunction.</span>")
-		qdel(W)
+		qdel(attacking_item)
 		return
 	..()
 
@@ -927,6 +927,7 @@
 	contained_sprite = FALSE
 	sprite_sheets = list(BODYTYPE_VAURCA = 'icons/mob/species/vaurca/back.dmi', BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/back.dmi')
 	var/hooded = FALSE
+	var/cape_backing_state = "cape_backing"
 
 /obj/item/storage/backpack/cloak/verb/toggle_cloak_hood()
 	set name = "Toggle Cloak Hood"
@@ -942,6 +943,12 @@
 	var/mob/living/carbon/human/H = src.loc
 	H.update_icon()
 	H.update_inv_back()
+
+/obj/item/storage/backpack/cloak/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
+	var/image/I = ..()
+	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", MOB_SHADOW_LAYER)
+	I.add_overlay(cape_backing)
+	return I
 
 /obj/item/storage/backpack/cloak/sedantis
 	name = "Sedantis tunnel cloak"

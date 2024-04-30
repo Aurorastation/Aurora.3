@@ -15,7 +15,7 @@
 
 /obj/machinery/computer/security/Initialize()
 	if(!network)
-		network = current_map.station_networks.Copy()
+		network = SSatlas.current_map.station_networks.Copy()
 	. = ..()
 	if(network.len)
 		current_network = network[1]
@@ -76,13 +76,13 @@
 	if(!network_access)
 		return TRUE
 
-	return (check_camera_access(user, access_security) && security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
+	return (check_camera_access(user, ACCESS_SECURITY) && GLOB.security_level >= SEC_LEVEL_BLUE) || check_camera_access(user, network_access)
 
 /obj/machinery/computer/security/Topic(href, href_list)
 	if(..())
 		return TRUE
 	if(href_list["switch_camera"])
-		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in cameranet.cameras
+		var/obj/machinery/camera/C = locate(href_list["switch_camera"]) in GLOB.cameranet.cameras
 		if(!C)
 			return
 		if(!(current_network in C.network))
@@ -234,13 +234,6 @@
 			L.tracking_cancelled()
 	current_camera = null
 	update_use_power(POWER_USE_IDLE)
-
-//Camera control: mouse.
-/atom/DblClick()
-	..()
-	if(istype(usr.machine,/obj/machinery/computer/security))
-		var/obj/machinery/computer/security/console = usr.machine
-		console.jump_on_click(usr,src)
 
 /obj/machinery/computer/security/telescreen
 	name = "Telescreen"

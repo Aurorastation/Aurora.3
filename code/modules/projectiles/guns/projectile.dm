@@ -51,7 +51,7 @@
 /obj/item/gun/projectile/Destroy()
 	chambered = null
 	QDEL_NULL(ammo_magazine)
-	QDEL_NULL_LIST(loaded)
+	QDEL_LIST(loaded)
 	. = ..()
 
 /obj/item/gun/projectile/update_icon()
@@ -155,7 +155,7 @@
 				AM.forceMove(src)
 				ammo_magazine = AM
 				user.visible_message("[user] inserts [AM] into [src].", "<span class='notice'>You insert [AM] into [src].</span>")
-				playsound(src.loc, AM.insert_sound, 50, FALSE)
+				playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
 					to_chat(user,"<span class='warning'>[src] is full!</span>")
@@ -171,7 +171,7 @@
 						count++
 				if(count)
 					user.visible_message("[user] reloads [src].", "<span class='notice'>You load [count] round\s into [src] using \the [AM].</span>")
-					playsound(src.loc, AM.insert_sound, 50, FALSE)
+					playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		AM.update_icon()
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
@@ -189,7 +189,7 @@
 		C.forceMove(src)
 		loaded.Insert(1, C) //add to the head of the list
 		user.visible_message("[user] inserts \a [C] into [src].", "<span class='notice'>You insert \a [C] into [src].</span>")
-		playsound(src.loc, C.reload_sound, 50, FALSE)
+		playsound(src.loc, C.reload_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE) //Casings, aka single bullets, are extremely quiet
 	update_maptext()
 	update_icon()
 
@@ -201,7 +201,7 @@
 		else
 			user.put_in_hands(ammo_magazine)
 		user.visible_message("[user] removes [ammo_magazine] from [src].", "<span class='notice'>You remove [ammo_magazine] from [src].</span>")
-		playsound(src.loc, ammo_magazine.eject_sound, 50, FALSE)
+		playsound(src.loc, ammo_magazine.eject_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
 		ammo_magazine.update_icon()
 		ammo_magazine = null
 	else if(loaded.len)
@@ -212,7 +212,7 @@
 			if(T)
 				for(var/obj/item/ammo_casing/C in loaded)
 					C.forceMove(T)
-					playsound(C, /singleton/sound_category/casing_drop_sound, 50, FALSE)
+					playsound(C, /singleton/sound_category/casing_drop_sound, 50, extrarange = SILENCED_SOUND_EXTRARANGE, falloff_exponent = (SOUND_FALLOFF_EXPONENT+2))
 					count++
 				loaded.Cut()
 			if(count)
@@ -227,22 +227,25 @@
 	update_maptext()
 	update_icon()
 
-/obj/item/gun/projectile/attackby(obj/item/I, mob/user)
+/obj/item/gun/projectile/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
 	if(.)
 		return
-	load_ammo(I, user)
-	if(istype(I, /obj/item/suppressor))
-		var/obj/item/suppressor/S = I
+	load_ammo(attacking_item, user)
+	if(istype(attacking_item, /obj/item/suppressor))
+		var/obj/item/suppressor/S = attacking_item
 		if(!can_suppress)
 			balloon_alert(user, "\the [S.name] doesn't fit")
 			return
-		if(user.l_hand != suppressor && user.r_hand != suppressor)
-			balloon_alert(user, "not in hand")
-			return
+
 		if(suppressed)
 			balloon_alert(user, "already has a suppressor")
 			return
+
+		if(user.l_hand != S && user.r_hand != S)
+			balloon_alert(user, "not in hand")
+			return
+
 		user.drop_from_inventory(suppressor, src)
 		balloon_alert(user, "[S.name] attached")
 		install_suppressor(S)
@@ -285,17 +288,17 @@
 		ammo_magazine = null
 		update_icon() //make sure to do this after unsetting ammo_magazine
 
-/obj/item/gun/projectile/examine(mob/user, distance, is_adjacent)
+/obj/item/gun/projectile/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 1)
 		return
 	if(jam_num)
-		to_chat(user, "<span class='warning'>It looks jammed.</span>")
+		. += "<span class='warning'>It looks jammed.</span>"
 	if(ammo_magazine)
-		to_chat(user, "It has \a [ammo_magazine] loaded.")
+		. += "It has \a [ammo_magazine] loaded."
 	if(suppressed)
-		to_chat(user, "It has a suppressor attached.")
-	to_chat(user, "Has [get_ammo()] round\s remaining.")
+		. += "It has a suppressor attached."
+	. += "Has [get_ammo()] round\s remaining."
 	return
 
 /obj/item/gun/projectile/get_ammo()

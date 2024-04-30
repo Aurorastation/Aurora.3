@@ -38,7 +38,7 @@
 		return
 
 	var/list/mob_choices = list()
-	for(var/mob/living/L in mob_list)
+	for(var/mob/living/L in GLOB.mob_list)
 		if(L == user)
 			continue
 		if(!L.is_psi_blocked())

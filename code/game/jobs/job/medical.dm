@@ -17,26 +17,21 @@
 		SPECIES_SKRELL_AXIORI = 80
 	)
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
-			access_pharmacy, access_virology, access_cmo, access_surgery, access_RC_announce, access_engine, access_ship_weapons, access_construction,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_external_airlocks, access_research, access_mining, access_mailsorting,
-			access_first_responder, access_maint_tunnels, access_intrepid, access_teleporter)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
+			ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION,
+			ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_PSYCHIATRIST, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
+			ACCESS_FIRST_RESPONDER, ACCESS_MAINT_TUNNELS, ACCESS_INTREPID, ACCESS_TELEPORTER)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_GENETICS, ACCESS_HEADS,
+			ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_CMO, ACCESS_SURGERY, ACCESS_RC_ANNOUNCE, ACCESS_ENGINE, ACCESS_SHIP_WEAPONS, ACCESS_CONSTRUCTION,
+			ACCESS_KEYCARD_AUTH, ACCESS_SEC_DOORS, ACCESS_PSYCHIATRIST, ACCESS_EVA, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_RESEARCH, ACCESS_MINING, ACCESS_MAILSORTING,
+			ACCESS_FIRST_RESPONDER, ACCESS_MAINT_TUNNELS, ACCESS_INTREPID, ACCESS_TELEPORTER)
 
 	minimal_player_age = 10
-	ideal_character_age = list(
-		SPECIES_HUMAN = 50,
-		SPECIES_SKRELL = 100,
-		SPECIES_SKRELL_AXIORI = 100
-	)
-	outfit = /datum/outfit/job/cmo
+	outfit = /obj/outfit/job/cmo
 
 	blacklisted_species = list(SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN, SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/cmo
+/obj/outfit/job/cmo
 	name = "Chief Medical Officer"
 	jobtype = /datum/job/cmo
 
@@ -74,14 +69,14 @@
 	economic_modifier = 7
 
 	minimum_character_age = list(
-		SPECIES_HUMAN = 25,
+		SPECIES_HUMAN = 30,
 		SPECIES_SKRELL = 60,
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	outfit = /datum/outfit/job/doctor
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
+	outfit = /obj/outfit/job/doctor
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /datum/job/surgeon
@@ -103,12 +98,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_eva)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_genetics, access_eva)
-	outfit = /datum/outfit/job/doctor/surgeon
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
+	outfit = /obj/outfit/job/doctor/surgeon
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/doctor
+/obj/outfit/job/doctor
 	name = "Physician"
 	base_name = "Physician"
 	jobtype = /datum/job/doctor
@@ -137,7 +132,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/med
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/outfit/job/doctor/surgeon
+/obj/outfit/job/doctor/surgeon
 	name = "Surgeon"
 	jobtype = /datum/job/surgeon
 
@@ -145,7 +140,7 @@
 	suit = /obj/item/clothing/suit/storage/toggle/labcoat/nt
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
-/datum/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/doctor/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
 
@@ -167,12 +162,12 @@
 		SPECIES_SKRELL_AXIORI = 60
 	)
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics)
-	minimal_access = list(access_medical, access_medical_equip, access_pharmacy, access_virology)
-	outfit = /datum/outfit/job/pharmacist
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
+	outfit = /obj/outfit/job/pharmacist
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/pharmacist
+/obj/outfit/job/pharmacist
 	name = "Pharmacist"
 	jobtype = /datum/job/pharmacist
 
@@ -217,14 +212,14 @@
 
 	supervisors = "the chief medical officer"
 	selection_color = "#15903a"
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_genetics, access_psychiatrist)
-	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_PSYCHIATRIST)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PSYCHIATRIST)
 	alt_titles = list("Psychologist")
-	outfit = /datum/outfit/job/psychiatrist
-	alt_outfits = list("Psychologist" = /datum/outfit/job/psychiatrist/psycho)
+	outfit = /obj/outfit/job/psychiatrist
+	alt_outfits = list("Psychologist" = /obj/outfit/job/psychiatrist/psycho)
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/psychiatrist
+/obj/outfit/job/psychiatrist
 	name = "Psychiatrist"
 	base_name = "Psychiatrist"
 	jobtype = /datum/job/psychiatrist
@@ -252,7 +247,7 @@
 	messengerbag = /obj/item/storage/backpack/messenger/psych
 	messengerbag_faction = /obj/item/storage/backpack/messenger/nt
 
-/datum/outfit/job/psychiatrist/psycho
+/obj/outfit/job/psychiatrist/psycho
 	name = "Psychologist"
 	jobtype = /datum/job/psychiatrist
 
@@ -274,13 +269,13 @@
 		SPECIES_SKRELL_AXIORI = 55
 	)
 
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_pharmacy, access_virology, access_eva, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_external_airlocks, access_psychiatrist, access_first_responder)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_eva, access_maint_tunnels, access_engine, access_research, access_sec_doors, access_external_airlocks, access_first_responder)
-	outfit = /datum/outfit/job/med_tech
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_PSYCHIATRIST, ACCESS_FIRST_RESPONDER)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_EVA, ACCESS_MAINT_TUNNELS, ACCESS_ENGINE, ACCESS_RESEARCH, ACCESS_SEC_DOORS, ACCESS_EXTERNAL_AIRLOCKS, ACCESS_FIRST_RESPONDER)
+	outfit = /obj/outfit/job/med_tech
 
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/med_tech
+/obj/outfit/job/med_tech
 	name = "First Responder"
 	base_name = "First Responder"
 	jobtype = /datum/job/med_tech
@@ -319,10 +314,15 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	alt_titles = list("First Responder Trainee", "Pharmacy Intern", "Resident Surgeon", "Resident Psychiatrist")
-	alt_outfits = list("First Responder Trainee" = /datum/outfit/job/intern_med/medtech, "Pharmacy Intern" = /datum/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /datum/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /datum/outfit/job/intern_med/psychiatrist)
+	alt_titles = list("First Responder Trainee", "Pharmacy Intern", "Resident Physician", "Resident Surgeon", "Resident Psychiatrist")
+	alt_outfits = list("First Responder Trainee" = /obj/outfit/job/intern_med/medtech, "Pharmacy Intern" = /obj/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /obj/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /obj/outfit/job/intern_med/psychiatrist)
 	alt_ages = list("Pharmacy Intern" = list(
 		SPECIES_HUMAN = 25,
+		SPECIES_SKRELL = 58,
+		SPECIES_SKRELL_AXIORI = 58
+	),
+	"Resident Physician" = list(
+		SPECIES_HUMAN = 28,
 		SPECIES_SKRELL = 58,
 		SPECIES_SKRELL_AXIORI = 58
 	),
@@ -340,17 +340,17 @@
 	spawn_positions = 2
 	supervisors = "the Chief Medical Officer"
 	selection_color = "#15903a"
-	access = list(access_medical, access_medical_equip)
-	minimal_access = list(access_medical, access_medical_equip)
+	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
+	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP)
 	minimum_character_age = list(
 		SPECIES_HUMAN = 18,
 		SPECIES_SKRELL = 50,
 		SPECIES_SKRELL_AXIORI = 50
 	)
-	outfit = /datum/outfit/job/intern_med
+	outfit = /obj/outfit/job/intern_med
 	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
-/datum/outfit/job/intern_med
+/obj/outfit/job/intern_med
 	name = "Medical Intern"
 	jobtype = /datum/job/intern_med
 
@@ -374,7 +374,7 @@
 	wristbound = /obj/item/modular_computer/handheld/wristbound/preset/pda/medical
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
-/datum/outfit/job/intern_med/medtech
+/obj/outfit/job/intern_med/medtech
 	name = "First Responder Trainee"
 
 	head = /obj/item/clothing/head/softcap/nt
@@ -389,7 +389,7 @@
 		/obj/item/storage/firstaid = 1
 	)
 
-/datum/outfit/job/intern_med/pharmacist
+/obj/outfit/job/intern_med/pharmacist
 	name = "Pharmacy Intern"
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
@@ -399,16 +399,16 @@
 	dufflebag = /obj/item/storage/backpack/duffel/pharm
 	messengerbag = /obj/item/storage/backpack/messenger/pharm
 
-/datum/outfit/job/intern_med/surgeon
+/obj/outfit/job/intern_med/surgeon
 	name = "Resident Surgeon"
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci
 
-/datum/outfit/job/intern_med/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+/obj/outfit/job/intern_med/surgeon/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(!isskrell(H))
 		H.equip_to_slot_or_del(new /obj/item/clothing/head/surgery(H), slot_head)
 
-/datum/outfit/job/intern_med/psychiatrist
+/obj/outfit/job/intern_med/psychiatrist
 	name = "Resident Psychiatrist"
 
 	shoes = /obj/item/clothing/shoes/sneakers/medsci

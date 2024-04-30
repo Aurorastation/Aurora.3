@@ -3,7 +3,7 @@
 
 SUBSYSTEM_DEF(misc_early)
 	name = "Early Miscellaneous Init"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
 
 /datum/controller/subsystem/misc_early/Initialize(timeofday)
@@ -32,19 +32,17 @@ SUBSYSTEM_DEF(misc_early)
 
 	// Get BOREALIS to warn staff about a lazy admin forgetting visibility to 0
 	// before anyone has a chance to change it!
-	if (discord_bot)
-		discord_bot.alert_server_visibility()
-
-	global_initialize_webhooks()
+	if (SSdiscord)
+		SSdiscord.alert_server_visibility()
 
 	// Setup ore.
 	for(var/oretype in subtypesof(/ore))
 		var/ore/OD = new oretype()
-		ore_data[OD.name] = OD
+		GLOB.ore_data[OD.name] = OD
 
 	// Setup cargo spawn lists.
 	setup_cargo_spawn_lists()
 
 	click_catchers = create_click_catcher()
 
-	..()
+	return SS_INIT_SUCCESS

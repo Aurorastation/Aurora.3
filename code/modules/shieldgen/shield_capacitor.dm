@@ -7,7 +7,7 @@
 	density = TRUE
 	/// Doesn't use APC power.
 	use_power = POWER_USE_OFF
-	req_one_access = list(access_captain, access_security, access_engine)
+	req_one_access = list(ACCESS_CAPTAIN, ACCESS_SECURITY, ACCESS_ENGINE)
 
 	var/active = FALSE
 	/// Not to be confused with power cell charge, this is in Joules.
@@ -37,18 +37,18 @@
 		to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
 		. = TRUE
 		updateDialog()
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 
-/obj/machinery/shield_capacitor/attackby(obj/item/W, mob/user)
+/obj/machinery/shield_capacitor/attackby(obj/item/attacking_item, mob/user)
 
-	if(istype(W, /obj/item/card/id))
+	if(istype(attacking_item, /obj/item/card/id))
 		if(allowed(user))
 			locked = !locked
 			to_chat(user, "Controls are now [locked ? "locked." : "unlocked."]")
 			updateDialog()
 		else
 			to_chat(user, SPAN_ALERT("Access denied."))
-	else if(W.iswrench())
+	else if(attacking_item.iswrench())
 		anchored = !anchored
 		visible_message(SPAN_NOTICE("\The [src] has been [anchored ? "bolted to the floor" : "unbolted from the floor"] by \the [user]."))
 

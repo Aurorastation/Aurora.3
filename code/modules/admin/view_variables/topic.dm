@@ -123,17 +123,6 @@
 
 		src.cmd_admin_dust(M)
 
-	else if(href_list["build_mode"])
-		if(!check_rights(R_BUILDMODE|R_DEV))	return
-
-		var/mob/M = locate(href_list["build_mode"])
-		if(!istype(M))
-			to_chat(usr, "This can only be used on instances of type /mob")
-			return
-
-		togglebuildmode(M)
-		href_list["datumrefresh"] = href_list["build_mode"]
-
 	else if(href_list["drop_everything"])
 		if(!check_rights(R_DEBUG|R_ADMIN))	return
 
@@ -329,7 +318,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob/living/carbon/human")
 			return
 
-		var/new_species = input("Please choose a new species.","Species",null) as null|anything in all_species
+		var/new_species = input("Please choose a new species.","Species",null) as null|anything in GLOB.all_species
 
 		if(!H)
 			to_chat(usr, "Mob doesn't exist anymore")
@@ -348,7 +337,7 @@
 			to_chat(usr, "This can only be done to instances of type /mob")
 			return
 
-		var/new_language = input("Please choose a language to add.","Language",null) as null|anything in all_languages
+		var/new_language = input("Please choose a language to add.","Language",null) as null|anything in GLOB.all_languages
 
 		if(!new_language)
 			return

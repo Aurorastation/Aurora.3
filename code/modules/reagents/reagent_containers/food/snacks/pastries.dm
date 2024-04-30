@@ -9,8 +9,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "muffin"
 	filling_color = "#E0CF9B"
-	center_of_mass = list("x"=17, "y"=4)
-	reagents_to_add = list(/singleton/reagent/nutriment = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 3, "muffin" = 3))
 	bitesize = 2
 
@@ -20,7 +19,6 @@
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "berrymuffin"
 	filling_color = "#E0CF9B"
-	center_of_mass = list("x"=17, "y"=4)
 
 	reagents_to_add = list(/singleton/reagent/nutriment = 5)
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "berries" = 2))
@@ -30,20 +28,83 @@
 
 /obj/item/reagent_containers/food/snacks/pancakes
 	name = "pancakes"
+	gender = PLURAL
 	desc = "Pancakes, delicious."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
 	icon_state = "pancakes"
 	trash = /obj/item/trash/plate
 	reagents_to_add = list(/singleton/reagent/nutriment = 8)
 	reagent_data = list(/singleton/reagent/nutriment = list("pancake" = 8))
-	bitesize = 2
-	filling_color = "#EDF291"
+	bitesize = 3
+	filling_color = "#facf7e"
+
+///makes pancakes change their look and name, flavor and description when you add syrup to them instead of having to have them each be an entirely separate food item that has to be made by the cook. This also means ingredient contents carry over if you turn one type of pancake into another.
+/obj/item/reagent_containers/food/snacks/pancakes/on_reagent_change()
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_chocolate))
+		name = "chocolate pancakes"
+		desc = "Delicious pancakes covered in chocolate syrup."
+		icon_state = "pancakes_chocolate"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_berry))
+		name = "berry pancakes"
+		desc = "Delicious pancakes covered in berry syrup."
+		icon_state = "pancakes_berry"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_strawberry))
+		name = "strawberry pancakes"
+		desc = "Delicious pancakes covered in strawberry syrup."
+		icon_state = "pancakes_strawberry"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_caramel))
+		name = "caramel pancakes"
+		desc = "Delicious pancakes covered in caramel syrup."
+		icon_state = "pancakes_caramel"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_vanilla))
+		name = "vanilla pancakes"
+		desc = "Delicious pancakes covered in vanilla syrup."
+		icon_state = "pancakes_vanilla"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_pumpkin))
+		name = "pumpkin spice pancakes"
+		desc = "A delicious autumn breakfast."
+		icon_state = "pancakes_pumpkin"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_ylphaberry))
+		name = "ylpha berry pancakes"
+		desc = "Overwhelmingly sweet with a side of tangy, a delicious way to wake up!"
+		icon_state = "pancakes_ylpha"
+
+	if(reagents.has_any_reagent(list(/singleton/reagent/nutriment/ketchup, /singleton/reagent/nutriment/mayonnaise, /singleton/reagent/antidexafen, /singleton/reagent/carbon))) //Because scrubbers and quirky people exist.
+		name = "ruined pancakes"
+		desc = "Why? Who hurt you?"
+		icon_state = "pancakes_ruined"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_blueberry))
+		name = "blueberry pancakes"
+		desc = "They're a little... TOO neon blue, aren't they? Doesn't look right... Oh well, they're full of sugar so who cares!"
+		icon_state = "pancakes_blueberry"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_raspberry))
+		name = "raspberry pancakes"
+		desc = "Your inner 12-year-old-girl-having-a-birthday party is squealing with overwhelming glee the longer you look at this."
+		icon_state = "pancakes_raspberry"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_blueraspberry))
+		name = "blue raspberry pancakes"
+		desc = "Delicious pancakes covered in blue raspberry syrup."
+		icon_state = "pancakes_blue_raspberry"
+
+	if(reagents.has_reagent(/singleton/reagent/condiment/syrup_dirtberry))
+		name = "nifnif pancakes"
+		desc = "Dirtberry pancakes with little bits of roasted nifnif for extra crunch! It may not be traditional adhomian cuisine but it sure is popular there now anyway!"
+		icon_state = "pancakes_nifnif"
 
 /obj/item/reagent_containers/food/snacks/pancakes/berry
 	name = "berry pancakes"
 	desc = "Pancakes with berries, delicious."
 	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
-	icon_state = "berry_pancakes"
+	icon_state = "pancakes_berry"
 
 ////////////////////////////////////////////WAFFLES////////////////////////////////////////////
 
@@ -414,6 +475,50 @@
 /obj/item/reagent_containers/food/snacks/cakeslice/apple/filled
 	reagents_to_add = list(/singleton/reagent/nutriment = 3)
 	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 5, "sweetness" = 5, "apple" = 5))
+
+/obj/item/reagent_containers/food/snacks/sliceable/cake/ntella_cheesecake
+	name = "NTella cheesecake"
+	desc = "An elaborate layer cheesecake made with chocolate hazelnut spread. You gain calories just by looking at it for too long."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "NTellacheesecake"
+	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/ntella_cheesecake_slice
+	slices_num = 5
+	filling_color = "#331c03"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 20)
+	reagent_data = list(/singleton/reagent/nutriment = list("hazelnut chocolate" = 15, "creamy cheese" = 10, "crunchy cookie base" = 5))
+
+/obj/item/reagent_containers/food/snacks/cakeslice/ntella_cheesecake_slice
+	name = "NTella cheesecake slice"
+	desc = "A slice of cake marrying the chocolate taste of NTella with the creamy smoothness of cheesecake, all on a cookie crumble base."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "NTellacheesecake_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#331c03"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
+
+/obj/item/reagent_containers/food/snacks/sliceable/cake/starcake //
+	name = "starcake"
+	desc = "This pound cake mixes citrus fruits with cocoa, and has a layer of creamy glaze on top. It's dense and relatively simple to make. You can find it in various coffee shops and bakeries around the spur, but for some uknown reason, in the weeping stars system it has become somewhat associated with funerals over the years."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "starcake"
+	slice_path = /obj/item/reagent_containers/food/snacks/cakeslice/starcake
+	slices_num = 6
+	filling_color = "#f0b97b"
+	center_of_mass = list("x"=16, "y"=10)
+	reagents_to_add = list(/singleton/reagent/nutriment = 15, /singleton/reagent/nutriment/glucose = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("cake" = 10, "cocoa" = 10, "orange" = 15))
+
+/obj/item/reagent_containers/food/snacks/cakeslice/starcake
+	name = "starcake slice"
+	desc = "A thin slice of pound cake that mixes citrus fruits with cocoa, and has a layer of creamy glaze on top. Enjoyed with a side of coffee or tea all over the spur, in the weeping stars system it is also frequently served in funerals for some reason."
+	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
+	icon_state = "starcake_slice"
+	trash = /obj/item/trash/plate
+	filling_color = "#f0b97b"
+	bitesize = 2
+	center_of_mass = list("x"=16, "y"=14)
 
 //Predesigned pies
 //=======================

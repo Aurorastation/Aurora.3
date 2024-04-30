@@ -6,3 +6,5 @@
 	template_flags = TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_HANEUNIM)
 	suffixes = list("konyang/ocean/reef.dmm")
+
+	unit_test_groups = list(3)

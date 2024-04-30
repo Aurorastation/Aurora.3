@@ -9,10 +9,14 @@
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
 	possible_themes = list(/datum/exoplanet_theme/desert)
+	flora_diversity = 4
+	has_trees = FALSE
 	surface_color = "#d6cca4"
 	water_color = null
 	ruin_planet_type = PLANET_DESERT
 	ruin_allowed_tags = RUIN_LOWPOP|RUIN_MINING|RUIN_SCIENCE|RUIN_HOSTILE|RUIN_WRECK|RUIN_NATURAL
+
+	unit_test_groups = list(1)
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/generate_map()
 	lightlevel = rand(5,10)/10	//deserts are usually :lit:
@@ -27,6 +31,27 @@
 			limit = initial(H.heat_level_1) - rand(1,10)
 		atmosphere.temperature = min(T20C + rand(20, 100), limit)
 		atmosphere.update_values()
+
+/obj/effect/overmap/visitable/sector/exoplanet/desert/generate_ground_survey_result()
+	..()
+	if(prob(40))
+		ground_survey_result += "<br>High quality natural fertilizer found in subterranean pockets"
+	if(prob(40))
+		ground_survey_result += "<br>High nitrogen and phosphorus contents of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Chemical extraction indicates soil is rich in major and secondary nutrients for agriculture"
+	if(prob(40))
+		ground_survey_result += "<br>Analysis indicates low contaminants of the soil"
+	if(prob(40))
+		ground_survey_result += "<br>Soft clays detected, composed of quartz and calcites"
+	if(prob(40))
+		ground_survey_result += "<br>Muddy dirt rich in organic material"
+	if(prob(40))
+		ground_survey_result += "<br>Stratigraphy indicates low risk of tectonic activity in this region"
+	if(prob(40))
+		ground_survey_result += "<br>Fossilized organic material found settled in sedimentary rock"
+	if(prob(10))
+		ground_survey_result += "<br>Traces of fissile material"
 
 /obj/effect/overmap/visitable/sector/exoplanet/desert/adapt_seed(var/datum/seed/S)
 	..()
@@ -107,7 +132,7 @@
 	if(buckled)
 		overlays += buckled
 		var/image/I = image(icon,icon_state="overlay")
-		I.layer = ABOVE_MOB_LAYER
+		I.layer = ABOVE_HUMAN_LAYER
 		overlays += I
 
 /obj/structure/quicksand/proc/expose()
@@ -119,8 +144,8 @@
 	exposed = 1
 	update_icon()
 
-/obj/structure/quicksand/attackby(obj/item/W, mob/user)
-	if(!exposed && W.force)
+/obj/structure/quicksand/attackby(obj/item/attacking_item, mob/user)
+	if(!exposed && attacking_item.force)
 		expose()
 	else
 		..()

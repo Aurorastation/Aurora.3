@@ -27,7 +27,8 @@
 /mob/living/simple_animal/hostile/rogue_drone/Initialize()
 	. = ..()
 	name = "[initial(name)] ([rand(100, 999)])"
-	eye_overlay = image(icon, "[icon_state]-eyes_emag", layer = EFFECTS_ABOVE_LIGHTING_LAYER)
+	eye_overlay = image(icon, "[icon_state]-eyes_emag")
+	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
 	add_overlay(eye_overlay)
 
@@ -41,7 +42,7 @@
 	..(null, "blows apart!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 1, alldirs)
+	spark(T, 1, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/rogue_drone/validator_living(var/mob/living/L, var/atom/current)

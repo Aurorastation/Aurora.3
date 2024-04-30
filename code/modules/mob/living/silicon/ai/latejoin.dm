@@ -1,20 +1,22 @@
-var/global/list/empty_playable_ai_cores = list()
+GLOBAL_LIST_EMPTY(empty_playable_ai_cores)
 
-/hook/roundstart/proc/spawn_empty_ai()
-	if("AI" in SSticker.mode.disabled_jobs)
-		return 1	// Don't make empty AI's if you can't have them (also applies to Malf)
-	for(var/obj/effect/landmark/start/S in landmarks_list)
+/hook/pregame_start/proc/spawn_empty_ai()
+	//No gamemode disables the AI anyways, and this would prevent this hook from working correctly, so it's a problem for whoever might want to implement a gamemode that doesn't
+	//allow an AI in the future, which is likely (hopefully?) never
+	// if("AI" in SSticker.mode.disabled_jobs)
+	// 	return 1	// Don't make empty AI's if you can't have them (also applies to Malf)
+	for(var/obj/effect/landmark/start/S in GLOB.landmarks_list)
 		if(S.name != "AI")
 			continue
 		if(locate(/mob/living) in S.loc)
 			continue
-		empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(get_turf(S))
+		GLOB.empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(get_turf(S))
 
 	return 1
 
 /mob/living/silicon/ai/proc/do_wipe_core()
-	empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(loc)
-	global_announcer.autosay("[src] has been moved to intelligence storage.", "Artificial Intelligence Oversight")
+	GLOB.empty_playable_ai_cores += new /obj/structure/AIcore/deactivated(loc)
+	GLOB.global_announcer.autosay("[src] has been moved to intelligence storage.", "Artificial Intelligence Oversight")
 
 	//Handle job slot/tater cleanup.
 	var/job = mind.assigned_role

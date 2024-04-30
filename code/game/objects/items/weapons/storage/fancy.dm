@@ -73,14 +73,14 @@
 		update_icon()
 	. = ..()
 
-/obj/item/storage/box/fancy/examine(mob/user)
+/obj/item/storage/box/fancy/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!icon_type || !storage_type)
 		return
 	if(contents.len <= 0)
-		to_chat(user, "There are no [src.icon_type]s left in the [src.storage_type].")
+		. += "There are no [src.icon_type]s left in the [src.storage_type]."
 	else
-		to_chat(user, "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type].")
+		. += "There [src.contents.len == 1 ? "is" : "are"] <b>[src.contents.len]</b> [src.icon_type]\s left in \the [src.storage_type]."
 
 /*
  * Donut Box
@@ -226,8 +226,9 @@
 	for(var/obj/item/pen/crayon/crayon in contents)
 		add_overlay("[crayon.colourName]")
 
-/obj/item/storage/box/fancy/crayons/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W,/obj/item/pen/crayon))
+/obj/item/storage/box/fancy/crayons/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pen/crayon))
+		var/obj/item/pen/crayon/W = attacking_item
 		switch(W:colourName)
 			if("mime")
 				to_chat(usr, "This crayon is too sad to be contained in this box.")
@@ -256,7 +257,8 @@
 	starts_with = list(/obj/item/flame/match = 10)
 	icon_overlays = FALSE
 
-/obj/item/storage/box/fancy/matches/attackby(obj/item/flame/match/W, mob/user)
+/obj/item/storage/box/fancy/matches/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/flame/match/W = attacking_item
 	if(istype(W) && !W.lit)
 		if(prob(25))
 			playsound(src.loc, 'sound/items/cigs_lighters/matchstick_lit.ogg', 25, 0, -1)
@@ -317,51 +319,42 @@
 	if(opened)
 		icon_state = "[initial(icon_state)][contents.len]"
 
-/obj/item/storage/box/fancy/cigarettes/remove_from_storage(obj/item/W as obj, atom/new_location)
-		var/obj/item/clothing/mask/smokable/cigarette/C = W
-		if(!istype(C)) return // what
-		reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
-		..()
+/obj/item/storage/box/fancy/cigarettes/remove_from_storage(obj/item/removed_item, atom/new_location)
+	var/obj/item/clothing/mask/smokable/cigarette/C = removed_item
+	if(!istype(C))
+		return ..()
+	reagents.trans_to_obj(C, (reagents.total_volume/contents.len))
+	return ..()
 
 /obj/item/storage/box/fancy/cigarettes/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, target_zone)
 	if(!ismob(M))
 		return
 	if(!opened)
-		to_chat(user, SPAN_NOTICE("\The [src] is closed."))
+		to_chat(user, SPAN_WARNING("\The [src] is closed."))
 		return
 	if(target_zone == BP_MOUTH && contents.len > 0)
-		var/obj/item/clothing/mask/smokable/cigarette/W = new cigarette_to_spawn(M)
-		if(!istype(W) || M.wear_mask)
-			to_chat(user, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
-			if(M != user)
-				to_chat(M, SPAN_NOTICE("\The [M.wear_mask] is in the way."))
+		if(M.wear_mask)
+			to_chat(user, SPAN_WARNING("\The [M.wear_mask] is in the way."))
+			return
+		var/obj/item/clothing/mask/smokable/cigarette/cig = locate() in src
+		if(!istype(cig))
+			to_chat(user, SPAN_WARNING("There isn't a cigarette in \the [src]!"))
 			return
 		if(M != user)
-			if(use_check(M))
+			if(!use_check(M))
 				to_chat(user, SPAN_WARNING("[M.name] is in no condition to handle items!"))
 				return
-			var/response = ""
-			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up \the [src] to \the [M]'s mouth."), SPAN_NOTICE("You hold up \the [src] to \the [M]'s mouth, waiting for them to accept."))
-			response = alert(M, "\The [user] offers you \a [W.name]. Do you accept?", "Smokable offer", "Accept", "Decline")
+			user.visible_message(SPAN_NOTICE("\The <b>[user]</b> holds up the open [src.name] to \the [M]'s mouth."), SPAN_NOTICE("You hold up the open [src.name] to \the [M]'s mouth, waiting for them to accept."))
+			var/response = alert(M, "\The [user] offers you \a [cig.name]. Do you accept?", "Smokable Offer", "Accept", "Decline")
 			if(response != "Accept")
-				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src] away."))
+				M.visible_message(SPAN_NOTICE("<b>[M]</b> pushes [user]'s [src.name] away."))
 				return
 			if(!M.Adjacent(user))
 				to_chat(user, SPAN_WARNING("You need to stay in reaching distance while giving an object."))
 				to_chat(M, SPAN_WARNING("\The [user] moved too far away."))
 				return
-		//Checking contents of packet so lighters won't be cigarettes.
-		for (var/i = contents.len; i > 0; i--)
-			W = contents[i]
-			if (istype(W))
-				break
-			else
-				W = null
-		if (!W)
-			return
-		reagents.trans_to_obj(W, (reagents.total_volume/contents.len))
-		M.equip_to_slot_if_possible(W, slot_wear_mask)
-		reagents.maximum_volume = 15 * contents.len
+		remove_from_storage(cig, get_turf(M))
+		M.equip_to_slot_if_possible(cig, slot_wear_mask)
 		M.visible_message(SPAN_NOTICE("<b>[M]</b> casually pulls out a [icon_type] from \the [src] with [M.get_pronoun("his")] mouth."), SPAN_NOTICE("You casually pull out a [icon_type] from \the [src] with your mouth."), range = 3)
 		update_icon()
 		return
@@ -464,7 +457,7 @@
 	can_hold = list(/obj/item/reagent_containers/glass/beaker/vial)
 	max_storage_space = 12 //The sum of the w_classes of all the items in this storage item.
 	storage_slots = 6
-	req_access = list(access_virology)
+	req_access = list(ACCESS_VIROLOGY)
 
 /obj/item/storage/lockbox/vials/Initialize()
 	. = ..()
@@ -482,7 +475,7 @@
 	else
 		add_overlay("ledb")
 
-/obj/item/storage/lockbox/vials/attackby(obj/item/W as obj, mob/user as mob)
+/obj/item/storage/lockbox/vials/attackby(attacking_item, mob/user)
 	..()
 	update_icon()
 
@@ -490,7 +483,7 @@
 	icon_state = "vialbox6"
 	locked = FALSE
 	starts_with = list(/obj/item/reagent_containers/glass/beaker/vial = 6)
-	req_access = list(access_forensics_lockers)
+	req_access = list(ACCESS_FORENSICS_LOCKERS)
 
 /obj/item/storage/box/fancy/chocolate_box
 	name = "chocolate box"
@@ -620,18 +613,18 @@
 
 	update_icon()
 
-/obj/item/pizzabox/attackby( obj/item/I as obj, mob/user as mob )
-	if( istype(I, /obj/item/pizzabox/) )
-		var/obj/item/pizzabox/box = I
+/obj/item/pizzabox/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/pizzabox/) )
+		var/obj/item/pizzabox/box = attacking_item
 
-		if( !box.open && !src.open )
+		if(!box.open && !src.open )
 			// Make a list of all boxes to be added
 			var/list/boxestoadd = list()
 			boxestoadd += box
 			for(var/obj/item/pizzabox/i in box.boxes)
 				boxestoadd += i
 
-			if( (boxes.len+1) + boxestoadd.len <= 5 )
+			if((boxes.len+1) + boxestoadd.len <= 5)
 				user.drop_from_inventory(box,src)
 				box.boxes = list() // Clear the box boxes so we don't have boxes inside boxes. - Xzibit
 				src.boxes.Add( boxestoadd )
@@ -647,28 +640,28 @@
 
 		return
 
-	if( istype(I, /obj/item/reagent_containers/food/snacks/sliceable/pizza/) ) // Long ass fucking object name
+	if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/sliceable/pizza/)) // Long ass fucking object name
 
-		if( src.open )
-			user.drop_from_inventory(I,src)
-			src.pizza = I
+		if(src.open)
+			user.drop_from_inventory(attacking_item, src)
+			src.pizza = attacking_item
 
 			update_icon()
 
-			to_chat(user, SPAN_WARNING("You put \the [I] in \the [src]!"))
+			to_chat(user, SPAN_WARNING("You put \the [attacking_item] in \the [src]!"))
 		else
-			to_chat(user, SPAN_WARNING("You try to push \the [I] through the lid but it doesn't work!"))
+			to_chat(user, SPAN_WARNING("You try to push \the [attacking_item] through the lid but it doesn't work!"))
 		return
 
-	if( I.ispen() )
+	if(attacking_item.ispen())
 
-		if( src.open )
+		if(src.open)
 			return
 
-		var/t = sanitize(input("Enter what you want to add to the tag:", "Write", null, null) as text, 30)
+		var/t = sanitize( tgui_input_text(user, "Enter what you want to add to the tag:", "Write", max_length = 30), 30 )
 
 		var/obj/item/pizzabox/boxtotagto = src
-		if( boxes.len > 0 )
+		if(boxes.len > 0)
 			boxtotagto = boxes[boxes.len]
 
 		boxtotagto.boxtag = copytext("[boxtotagto.boxtag][t]", 1, 30)

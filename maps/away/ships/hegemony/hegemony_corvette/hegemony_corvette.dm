@@ -1,8 +1,12 @@
 /datum/map_template/ruin/away_site/hegemony_corvette
 	name = "Hegemony Corvette"
 	description = "Ship with lizards."
-	suffixes = list("ships/hegemony/hegemony_corvette/hegemony_corvette.dmm")
+
+	prefix = "ships/hegemony/hegemony_corvette/"
+	suffixes = list("hegemony_corvette.dmm")
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_UUEOAESA)
+	spawn_weight_sector_dependent = list(SECTOR_UUEOAESA = 1.5)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "hegemony_corvette"
@@ -109,7 +113,7 @@
 	shuttle_area = list(/area/shuttle/hegemony)
 	current_location = "nav_hegemony_corvette_shuttle"
 	landmark_transition = "nav_transit_hegemony_corvette"
-	dock_target = "hegemony_shuttle"
+	dock_target = "airlock_hegemony_shuttle"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hegemony_corvette_shuttle"
@@ -123,7 +127,7 @@
 /obj/effect/shuttle_landmark/hegemony_shuttle/dock
 	name = "Hegemony Corvette - Shuttle Dock"
 	landmark_tag = "nav_hegemony_corvette_shuttle"
-	docking_controller = "hegemony_shuttle_dock"
+	docking_controller = "airlock_hegemony_dock"
 	base_area = /area/space
 	base_turf = /turf/space
 	movable_flags = MOVABLE_FLAG_EFFECTMOVE

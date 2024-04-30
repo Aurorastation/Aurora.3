@@ -77,6 +77,9 @@ var/global/list/engineering_networks = list(
 /obj/machinery/camera/network/thunder
 	network = list(NETWORK_THUNDER)
 
+/obj/machinery/camera/network/news
+	network = list(NETWORK_NEWS)
+
 // EMP
 
 /obj/machinery/camera/emp_proof/Initialize()

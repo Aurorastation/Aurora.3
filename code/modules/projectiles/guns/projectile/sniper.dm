@@ -8,7 +8,7 @@
 	icon_state = "heavysniper"
 	item_state = "heavysniper"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 2, TECH_ILLEGAL = 8)
 	caliber = "14.5mm"
@@ -129,7 +129,7 @@
 		if(H.mob_size < 10 && !has_online_rig) // smaller than an unathi
 			H.visible_message(SPAN_WARNING("\The [src] goes flying out of \the [H]'s hand!"), SPAN_WARNING("\The [src] flies out of your hand!"))
 			H.drop_item(src)
-			src.throw_at(get_edge_target_turf(src, reverse_dir[H.dir]), 3, 3)
+			src.throw_at(get_edge_target_turf(src, GLOB.reverse_dir[H.dir]), 3, 3)
 
 			var/obj/item/organ/external/LH = H.get_organ(BP_L_HAND)
 			var/obj/item/organ/external/RH = H.get_organ(BP_R_HAND)
@@ -147,7 +147,7 @@
 	icon_state = "tranqsniper"
 	item_state = "tranqsniper"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 6, TECH_MATERIAL = 2)
 	caliber = "PPS"
@@ -173,7 +173,7 @@
 		icon_state = "tranqsniper"
 
 /obj/item/gun/projectile/dragunov
-	name = "marksman rifle"
+	name = "adhomian marksman rifle"
 	desc = "A semi-automatic marksman rifle."
 	icon = 'icons/obj/guns/dragunov.dmi'
 	icon_state = "dragunov"
@@ -183,7 +183,7 @@
 	The rifle is commonly issued to the feared Das'nrra Marksmen."
 
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 3, TECH_MAGNET = 2, TECH_ILLEGAL = 5)
 	caliber = "a762"
@@ -236,7 +236,7 @@
 	icon_state = "w556rifle"
 	item_state = "w556rifle"
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 5, TECH_MATERIAL = 3)
 	caliber = "a556"

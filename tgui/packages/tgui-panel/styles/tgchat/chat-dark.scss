@@ -196,8 +196,11 @@ a.popt {
 /* MOTD */
 .motd {
   color: #a4bad6;
-  font-family: Verdana, sans-serif;
+  font-family: 'Times New Roman', Times, serif;
   white-space: 'normal';
+  border: 1px solid #a4bad6;
+  margin: 0.5em;
+  padding: 0.5em 0.75em;
 }
 .motd h1,
 .motd h2,
@@ -208,12 +211,7 @@ a.popt {
   color: #a4bad6;
   text-decoration: underline;
 }
-.vote {
-  color: #9933ff;
-}
-.alert {
-  color: #d82020;
-}
+
 .motd a,
 .motd a:link,
 .motd a:visited,
@@ -357,6 +355,7 @@ em {
 }
 .aooc {
   color: #d1021e;
+  font-weight: bold;
 }
 
 /* Admin: Private Messages */
@@ -466,7 +465,10 @@ em {
   font-weight: bold;
 }
 .alert {
-  color: #ff0000;
+  color: #d82020;
+}
+.vote {
+  color: #9933ff;
 }
 
 .emote {
@@ -564,7 +566,7 @@ em {
   color: #c79322;
 }
 .soghun_alt {
-  color: #024402;
+  color: #068b5f;
 }
 .changeling {
   color: #800080;
@@ -605,4 +607,38 @@ em {
 .bad {
   color: #ee0000;
   font-weight: bold;
+}
+
+.examine_block {
+  background: #1b1c1e;
+  border: 1px solid #a4bad6;
+  margin: 0.5em;
+  padding: 0.5em 0.75em;
+
+  &--grey {
+    @extend .examine_block;
+    border-color: #808080;
+  }
+
+  &--blue {
+    @extend .examine_block;
+    border-color: #3c5dc0;
+  }
+
+  &--red {
+    @extend .examine_block;
+    border-color: #e21111;
+  }
+
+  &--deep-cyan {
+    @extend .examine_block;
+    border-color: #0f7e62;
+  }
+}
+
+.examine_block .icon {
+  width: 1.5em;
+  height: 1.5em;
+  margin: 0;
+  padding: 0;
 }

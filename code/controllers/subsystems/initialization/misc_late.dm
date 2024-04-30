@@ -2,41 +2,44 @@
 
 SUBSYSTEM_DEF(misc_late)
 	name = "Late Miscellaneous Init"
-	init_order = SS_INIT_MISC
+	init_order = INIT_ORDER_MISC
 	flags = SS_NO_FIRE | SS_NO_DISPLAY
+
+	/// this is a list of things that fire when late misc init is called
+	var/list/late_misc_firers
 
 /datum/controller/subsystem/misc_late/Initialize(timeofday)
 	// Setup the teleport locs.
-	for(var/area/AR as anything in the_station_areas)
+	for(var/area/AR as anything in GLOB.the_station_areas)
 		if(AR.area_flags & AREA_FLAG_NO_GHOST_TELEPORT_ACCESS)
 			continue
 		var/list/area_turfs = AR.contents
 		if (area_turfs.len) // Check the area is mapped
-			ghostteleportlocs += AR.name
-			ghostteleportlocs[AR.name] = AR
-	if(current_map.use_overmap && map_overmap)
-		ghostteleportlocs[map_overmap.name] = map_overmap
+			GLOB.ghostteleportlocs += AR.name
+			GLOB.ghostteleportlocs[AR.name] = AR
+	if(SSatlas.current_map.use_overmap && map_overmap)
+		GLOB.ghostteleportlocs[map_overmap.name] = map_overmap
 
-	sortTim(ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))
+	sortTim(GLOB.ghostteleportlocs, GLOBAL_PROC_REF(cmp_text_asc))
 
 	setupgenetics()
 
-	if (config.fastboot)
+	if (GLOB.config.fastboot)
 		admin_notice("<span class='notice'><b>Fastboot is enabled; some features may not be available.</b></span>", R_DEBUG)
 
 	populate_code_phrases()
 
 	// this covers mapped in drone fabs
-	for(var/atom/thing as anything in SSatoms.late_misc_firers)
+	for(var/atom/thing as anything in late_misc_firers)
 		thing.do_late_fire()
-		LAZYREMOVE(SSatoms.late_misc_firers, thing)
+		LAZYREMOVE(late_misc_firers, thing)
 
-	if (config.use_forumuser_api)
+	if (GLOB.config.use_forumuser_api)
 		update_admins_from_api(TRUE)
 
-	..(timeofday)
+	return SS_INIT_SUCCESS
 
 /proc/sorted_add_area(area/A)
-	all_areas += A
+	GLOB.all_areas += A
 
-	sortTim(all_areas, GLOBAL_PROC_REF(cmp_name_asc))
+	sortTim(GLOB.all_areas, GLOBAL_PROC_REF(cmp_name_asc))

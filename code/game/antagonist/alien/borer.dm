@@ -37,7 +37,7 @@ var/datum/antagonist/xenos/borer/borers
 		var/mob/living/simple_animal/borer/borer = M
 
 		var/list/hosts = list()
-		for(var/mob/living/carbon/human/H in mob_list)
+		for(var/mob/living/carbon/human/H in GLOB.mob_list)
 			if(!H.mind)
 				continue
 			if(H.mind?.special_role)

@@ -19,32 +19,32 @@
 	return res
 
 /datum/event/electrical_storm/announce()
-	..()
-	for (var/zlevel in affecting_z)
-		if(zlevel in current_map.station_levels)
-			switch(severity)
-				if(EVENT_LEVEL_MUNDANE)
-					command_announcement.Announce("A minor electrical storm has been detected near the [location_name()]. Please watch out for possible electrical discharges.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
-				if(EVENT_LEVEL_MODERATE)
-					command_announcement.Announce("The [location_name()] is about to pass through an electrical storm. Please secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
-				if(EVENT_LEVEL_MAJOR)
-					command_announcement.Announce("Alert. A strong electrical storm has been detected in proximity of the [location_name()]. It is recommended to immediately secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
-			break
+	switch(severity)
+		if(EVENT_LEVEL_MUNDANE)
+			command_announcement.Announce("A minor electrical storm has been detected near the [location_name()]. Please watch out for possible electrical discharges.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
+		if(EVENT_LEVEL_MODERATE)
+			command_announcement.Announce("The [location_name()] is about to pass through an electrical storm. Please secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
+		if(EVENT_LEVEL_MAJOR)
+			command_announcement.Announce("Alert. A strong electrical storm has been detected in proximity of the [location_name()]. It is recommended to immediately secure sensitive electrical equipment until the storm passes.", "[location_name()] Sensor Array", new_sound = 'sound/AI/electrical_storm.ogg', zlevels = affecting_z)
 
-/datum/event/electrical_storm/start()
-	..()
+/datum/event/electrical_storm/setup()
 	valid_apcs = list()
 	for(var/obj/machinery/power/apc/A in SSmachinery.machinery)
-		if(A.z in affecting_z && !A.is_critical)
-			valid_apcs.Add(A)
-	if(!valid_apcs.len)
-		kill(TRUE)
+		if((A.z in affecting_z) && !A.is_critical)
+			valid_apcs += A
 	endWhen = (severity * 60) + startWhen
+
+/datum/event/electrical_storm/end(faked)
+	..()
+
+	valid_apcs = null
 
 /datum/event/electrical_storm/tick()
 	..()
-	if(!valid_apcs.len)
-		CRASH("No valid APCs found for electrical storm event! This is likely a bug.")
+
+	if(!length(valid_apcs))
+		return
+
 	var/list/picked_apcs = list()
 	for(var/i=0, i< severity*2, i++) // up to 2/4/6 APCs per tick depending on severity
 		picked_apcs |= pick(valid_apcs)
@@ -69,10 +69,7 @@
 		if(prob((0.2 * severity) - 0.2))
 			T.set_broken()
 
-/datum/event/electrical_storm/end()
-	..()
-	valid_apcs = null
-	for (var/zlevel in affecting_z)
-		if(zlevel in current_map.station_levels)
-			command_announcement.Announce("The [location_name()] has cleared the electrical storm. Please repair any electrical overloads.", "Electrical Storm Alert", zlevels = affecting_z)
-			break
+/datum/event/electrical_storm/announce_end()
+	. = ..()
+	if(.)
+		command_announcement.Announce("The [location_name()] has cleared the electrical storm. Please repair any electrical overloads.", "Electrical Storm Alert", zlevels = affecting_z)

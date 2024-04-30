@@ -144,7 +144,7 @@
 	affected.implants += tool
 	if(istype(tool, /obj/item/device/gps))
 		var/obj/item/device/gps/gps = tool
-		moved_event.register(target, gps, TYPE_PROC_REF(/obj/item/device/gps, update_position))
+		GLOB.moved_event.register(target, gps, TYPE_PROC_REF(/obj/item/device/gps, update_position))
 		gps.implanted_into = target
 	tool.forceMove(affected)
 	affected.cavity = CAVITY_CLOSED
@@ -212,7 +212,7 @@
 
 				else if(istype(I, /obj/item/device/gps))
 					var/obj/item/device/gps/gps = I
-					moved_event.unregister(target, gps)
+					GLOB.moved_event.unregister(target, gps)
 					gps.implanted_into = null
 
 				playsound(target.loc, 'sound/effects/squelch1.ogg', 50, 1)

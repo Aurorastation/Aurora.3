@@ -135,3 +135,105 @@
 	desc = "A square made of layers of three chocolates."
 	icon_state = "praline10"
 	reagent_data = list(/singleton/reagent/nutriment = list("milk, white, and dark chocolate" = 1))
+
+//crepe dishes
+
+/obj/item/reagent_containers/food/snacks/crepe
+	name = "crepe"
+	desc = "A very thin pancake."
+	trash = /obj/item/trash/plate
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	filling_color = "#d4b28b"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/crepe/chocolate
+	name = "chocolate crepe"
+	desc = "A very thin pancake with some NTella spread in it."
+	icon_state = "chocolatecrepe"
+	filling_color = "#3d2313"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/choconutspread = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/crepe/chocolatefancy
+	name = "fancy chocolate crepe"
+	desc = "chocolate crepes, ice cream, blueberries and banana slices. separately they're all cheap snacks from a 10 year old's birthday party snack table. But together they somehow make a really fancy looking dessert."
+	icon_state = "chocolatecrepe_fancy"
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/choconutspread = 4)
+	reagent_data = list(/singleton/reagent/nutriment/choconutspread = list("hazelnutty chocolate" = 10), /singleton/reagent/nutriment = list("banana" = 4, "ice cream" = 4, "dough" = 3))
+	filling_color = "#3d2313"
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/crepe/whitechocolate
+	name = "white chocolate crepe"
+	desc = "A very thin pancake with some white chocolate in it."
+	icon_state = "whitechocolatecrepe"
+	filling_color = "#fffcd3"
+	reagents_to_add = list(/singleton/reagent/nutriment = 2, /singleton/reagent/nutriment/choconutspread = 4, /singleton/reagent/sugar = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("dough" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/crepe/whitechocolate_fancy
+	name = "fancy white chocolate crepe"
+	desc = "White chocolate, strawberries and ice cream! Yum yum!"
+	icon_state = "whitechocolatecrepe_fancy"
+	filling_color = "#fffcd3"
+	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/sugar = 4, /singleton/reagent/nutriment/vanilla = 2)
+	reagent_data = list(/singleton/reagent/nutriment = list("white chocolate" = 8, "strawberry" = 5, "dough" = 2))
+	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/crepe/breakfast
+	name = "savory breakfast crepe"
+	desc = "Cheddar cheese, eggs, crepe."
+	icon_state = "savorycrepe"
+	filling_color = "#ffe367"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("egg" = 6, "cheese" = 7, "chives" = 4))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/crepe/hamcheese
+	name = "ham and cheese crepe"
+	desc = "For people who look at desserts and think 'this would be better if we took out all the sweet things and replaced them with meat'."
+	icon_state = "hamcheesecrepe"
+	filling_color = "#e7aac7"
+	reagents_to_add = list(/singleton/reagent/nutriment = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("chives" = 2))
+	bitesize = 3
+
+/obj/item/reagent_containers/food/snacks/custard
+	name = "custard"
+	desc = "A lovely dessert that can also be used to make other, much less lazy desserts."
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "custard"
+	trash = /obj/item/trash/custard_bowl
+	filling_color = "#ebedc2"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/egg = 2, /singleton/reagent/nutriment/glucose = 5)
+	reagent_data = list(/singleton/reagent/nutriment = list("custard" = 5))
+	bitesize = 2
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'
+	is_liquid = TRUE
+
+//Custard + blowtorch = creme brulee
+/obj/item/reagent_containers/food/snacks/custard/attackby(obj/item/W, mob/living/user)
+	. = ..()
+	if(W.iswelder())
+		var/obj/item/weldingtool/welder = W
+		if(welder.isOn())
+			new /obj/item/reagent_containers/food/snacks/creme_brulee(src)
+			to_chat(user, "You apply the flame to the sugary custard, caramelizing it.")
+			playsound(get_turf(src), 'sound/items/flare.ogg', 100, 1)
+			qdel(src)
+
+/obj/item/reagent_containers/food/snacks/creme_brulee
+	name = "creme brulee"
+	desc = "You know what would makes a nice, sweet dessert better? A BLOWTORCH!"
+	icon = 'icons/obj/item/reagent_containers/food/confections.dmi'
+	icon_state = "brulee"
+	trash = /obj/item/trash/custard_bowl
+	filling_color = "#e9c35b"
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/egg = 1, /singleton/reagent/nutriment/glucose = 2, /singleton/reagent/nutriment/caramel = 4)
+	reagent_data = list(/singleton/reagent/nutriment = list("custard" = 5))
+	bitesize = 2
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'

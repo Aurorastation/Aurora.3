@@ -141,14 +141,15 @@
 
 /singleton/recipe/poppypretzel
 	appliance = OVEN
-	fruit = list("poppy" = 1)
 	reagent_mix = RECIPE_REAGENT_REPLACE
+	fruit = list("poppy" = 1)
 	items = list(/obj/item/reagent_containers/food/snacks/dough)
 	result = /obj/item/reagent_containers/food/snacks/poppypretzel
 	result_quantity = 2
 
 /singleton/recipe/bagel
 	appliance = OVEN
+	reagent_mix = RECIPE_REAGENT_REPLACE
 	fruit = list("poppy" = 1)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/doughslice
@@ -170,6 +171,24 @@
 		/obj/item/reagent_containers/food/snacks/sliceable/bread
 	)
 	result = /obj/item/reagent_containers/food/snacks/stuffing
+
+/singleton/recipe/angry_bread
+	appliance = OVEN
+	fruit = list("carrot" = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/flatbread,
+		/obj/item/reagent_containers/food/snacks/xenomeat,
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	result = /obj/item/reagent_containers/food/snacks/angry_bread
+
+/singleton/recipe/angry_bread/make_food(obj/container) // removing some reagents instead of using RECIPE_REAGENT_REPLACE so anything that's in the original meat you use is still in the final dish (namely whether or not the meat you use has polytrinic acid).
+	. = ..()
+	var/list/results = .
+	for(var/thing in results)
+		var/obj/item/xmg = thing
+		xmg.reagents.del_reagent(/singleton/reagent/drink/carrotjuice)
+		xmg.reagents.del_reagent(/singleton/reagent/nutriment/protein/cheese)
 
 //================================
 // Toasts and Toasted Sandwiches
@@ -216,13 +235,13 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/pbtoast
 
-/singleton/recipe/notellabread
+/singleton/recipe/ntella_bread
 	appliance = MIX
 	reagents = list(/singleton/reagent/nutriment/choconutspread = 5)
 	items = list(
 		/obj/item/reagent_containers/food/snacks/breadslice
 	)
-	result = /obj/item/reagent_containers/food/snacks/notellabread
+	result = /obj/item/reagent_containers/food/snacks/ntella_bread
 
 /singleton/recipe/slimetoast
 	appliance = SKILLET
@@ -393,6 +412,7 @@
 	)
 	fruit = list("eggplant" = 1)
 	result = /obj/item/reagent_containers/food/snacks/pita/sabich
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 
 /singleton/recipe/tunapita
 	items = list(

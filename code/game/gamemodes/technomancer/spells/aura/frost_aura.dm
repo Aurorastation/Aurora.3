@@ -23,7 +23,7 @@
 	var/list/nearby_mobs = range(round(calculate_spell_power(4)),owner)
 
 	var/temp_change = calculate_spell_power(40)
-	var/datum/species/baseline = all_species["Human"]
+	var/datum/species/baseline = GLOB.all_species["Human"]
 	var/temp_cap = baseline.cold_level_2 - 5
 
 	if(check_for_scepter())

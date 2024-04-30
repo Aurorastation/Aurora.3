@@ -81,7 +81,7 @@
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 
-			if(HAS_FLAG(H.mutations, HULK) || H.is_berserk())
+			if((H.mutations & HULK) || H.is_berserk())
 				damage += 5
 
 			playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
@@ -227,7 +227,7 @@
 						attack_message = "[H] attempted to strike [src], but missed!"
 					else
 						attack_message = "[H] attempted to strike [src], but [src.get_pronoun("he")] rolled out of the way!"
-						src.set_dir(pick(cardinal))
+						src.set_dir(pick(GLOB.cardinal))
 					miss_type = 1
 
 			if(!miss_type && block)
@@ -261,7 +261,7 @@
 			real_damage *= damage_multiplier
 			rand_damage *= damage_multiplier
 
-			if(HAS_FLAG(H.mutations, HULK))
+			if((H.mutations & HULK))
 				real_damage *= 2 // Hulks do twice the damage
 				rand_damage *= 2
 			if(H.is_berserk())
@@ -378,7 +378,7 @@
 						problem_railing = R
 						break
 				for(var/obj/structure/railing/R in get_step(T, dir))
-					if(R.dir == reverse_dir[dir])
+					if(R.dir == GLOB.reverse_dir[dir])
 						problem_railing = R
 						same_loc = TRUE
 						break
@@ -657,12 +657,6 @@
 	for(var/datum/unarmed_attack/u_attack in species.unarmed_attacks)
 		dat += "<b>Primarily [u_attack.attack_name] </b><br/><br/><br/>"
 
-	src << browse(dat, "window=checkattack")
-	return
-
-/mob/living/carbon/human/check_attacks()
-	var/dat = ""
-
 	if(default_attack)
 		dat += "Current default attack: [default_attack.attack_name] - <a href='byond://?src=\ref[src];default_attk=reset_attk'>Reset</a><br/><br/>"
 
@@ -685,19 +679,6 @@
 	var/datum/browser/attack_win = new(src, "checkattack", "Known Attacks", 450, 500)
 	attack_win.set_content(dat)
 	attack_win.open()
-
-/mob/living/carbon/human/Topic(href, href_list)
-	if(href_list["default_attk"])
-		if(href_list["default_attk"] == "reset_attk")
-			set_default_attack(null)
-		else
-			var/datum/unarmed_attack/u_attack = locate(href_list["default_attk"])
-			if(u_attack && (u_attack in species.unarmed_attacks))
-				set_default_attack(u_attack)
-		check_attacks()
-		return 1
-	else
-		return ..()
 
 /mob/living/carbon/human/proc/set_default_attack(var/datum/unarmed_attack/u_attack)
 	default_attack = u_attack

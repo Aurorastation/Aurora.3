@@ -9,7 +9,7 @@
 	if (!warned_ckey || !istext(warned_ckey))
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		to_chat(usr, "<span class='warning'>Error: warn(): Database Connection failed, reverting to legacy systems.</span>")
 		usr.client.warn_legacy(warned_ckey)
 		return
@@ -30,20 +30,20 @@
 
 	var/warned_computerid = null
 	var/warned_ip = null
-	var/client/C = directory[warned_ckey]
+	var/client/C = GLOB.directory[warned_ckey]
 	if (C)
 		warned_computerid = C.computer_id
 		warned_ip = C.address
 	else
-		var/DBQuery/lookup_query = dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
+		var/DBQuery/lookup_query = GLOB.dbcon.NewQuery("SELECT ip, computerid FROM ss13_player WHERE ckey = :ckey:")
 		lookup_query.Execute(list("ckey" = warned_ckey))
 
 		if (lookup_query.NextRow())
 			warned_ip = lookup_query.item[1]
 			warned_computerid = lookup_query.item[2]
 
-	var/DBQuery/insert_query = dbcon.NewQuery("INSERT INTO ss13_warnings (id, time, game_id, severity, reason, notes, ckey, computerid, ip, a_ckey, a_ip, a_computerid) VALUES (null, Now(), :game_id:, :warning_severity:, :warning_reason:, :warning_notes:, :warned_ckey:, :warned_computerid:, :warned_ip:, :a_ckey:, :a_ip:, :a_computerid:)")
-	insert_query.Execute(list("game_id" = game_id,"warning_severity" = warning_severity, "warning_reason" = warning_reason, "warning_notes" = warning_notes, "warned_ckey" = warned_ckey, "warned_computerid" = warned_computerid, "warned_ip" = warned_ip, "a_ckey" = ckey, "a_ip" = address, "a_computerid" = computer_id))
+	var/DBQuery/insert_query = GLOB.dbcon.NewQuery("INSERT INTO ss13_warnings (id, time, game_id, severity, reason, notes, ckey, computerid, ip, a_ckey, a_ip, a_computerid) VALUES (null, Now(), :game_id:, :warning_severity:, :warning_reason:, :warning_notes:, :warned_ckey:, :warned_computerid:, :warned_ip:, :a_ckey:, :a_ip:, :a_computerid:)")
+	insert_query.Execute(list("game_id" = GLOB.round_id,"warning_severity" = warning_severity, "warning_reason" = warning_reason, "warning_notes" = warning_notes, "warned_ckey" = warned_ckey, "warned_computerid" = warned_computerid, "warned_ip" = warned_ip, "a_ckey" = ckey, "a_ip" = address, "a_computerid" = computer_id))
 
 	notes_add_sql(warned_ckey, "Warning added by [ckey], for: [warning_reason]. || Notes regarding the warning: [warning_notes].", src, warned_ip, warned_computerid)
 
@@ -66,7 +66,7 @@
 		return
 
 	var/datum/preferences/D
-	var/client/C = directory[warned_ckey]
+	var/client/C = GLOB.directory[warned_ckey]
 	if(C)	D = C.prefs
 	else	D = preferences_datums[warned_ckey]
 
@@ -109,7 +109,7 @@
 	var/dcolor = "#ffaaaa"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		alert("Connection to the SQL database lost. Aborting. Please alert an Administrator or a member of staff.")
 		return
 
@@ -119,7 +119,7 @@
 	// Notifications
 	//
 
-	var/DBQuery/notification_query = dbcon.NewQuery({"SELECT
+	var/DBQuery/notification_query = GLOB.dbcon.NewQuery({"SELECT
 		id, message, created_by
 	FROM ss13_player_notifications
 	WHERE
@@ -163,7 +163,7 @@
 	dat += "<th width='60%'>REASON</th>"
 	dat += "</tr>"
 
-	var/DBQuery/search_query = dbcon.NewQuery("SELECT id, time, severity, reason, a_ckey, acknowledged, expired FROM ss13_warnings WHERE visible = 1 AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:) ORDER BY time DESC;")
+	var/DBQuery/search_query = GLOB.dbcon.NewQuery("SELECT id, time, severity, reason, a_ckey, acknowledged, expired FROM ss13_warnings WHERE visible = 1 AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:) ORDER BY time DESC;")
 	search_query.Execute(list("ckey" = ckey, "computer_id" = computer_id, "address" = address))
 
 	while (search_query.NextRow())
@@ -201,7 +201,7 @@
 		dat += "</tr>"
 
 	dat += "</table>"
-	usr << browse(dat, "window=mywarnings;size=900x500")
+	show_browser(usr, dat, "window=mywarnings;size=900x500")
 
 /*
  * A proc for acknowledging a warning
@@ -211,11 +211,11 @@
 	if (!warning_id)
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		alert("Connection to SQL database failed while attempting to update your warning's status!")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("UPDATE ss13_warnings SET acknowledged = 1 WHERE id = :warning_id:;")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET acknowledged = 1 WHERE id = :warning_id:;")
 	query.Execute(list("warning_id" = warning_id))
 
 	warnings_check()
@@ -226,11 +226,11 @@
 		log_world("ERROR: Error: Argument ID for notificaton acknowledgement not supplied.")
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Unable to establish db connection during notification acknowledgement.")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery({"UPDATE ss13_player_notifications
+	var/DBQuery/query = GLOB.dbcon.NewQuery({"UPDATE ss13_player_notifications
 	SET acked_by = :ckey:, acked_at = NOW()
 	WHERE id = :id: AND ckey = :ckey:
 	"})
@@ -246,20 +246,20 @@
 	var/count = 0
 	var/count_expire = 0
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return
 
 	var/list/client_details = list("ckey" = ckey, "computer_id" = computer_id, "address" = address)
 
-	var/DBQuery/expire_query = dbcon.NewQuery("SELECT id FROM ss13_warnings WHERE (acknowledged = 1 AND expired = 0 AND DATE_SUB(CURDATE(),INTERVAL 3 MONTH) > time) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
+	var/DBQuery/expire_query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_warnings WHERE (acknowledged = 1 AND expired = 0 AND DATE_SUB(CURDATE(),INTERVAL 3 MONTH) > time) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
 	expire_query.Execute(client_details)
 	while (expire_query.NextRow())
 		var/warning_id = text2num(expire_query.item[1])
-		var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_warnings SET expired = 1 WHERE id = :warning_id:")
+		var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET expired = 1 WHERE id = :warning_id:")
 		update_query.Execute(list("warning_id" = warning_id))
 		count_expire++
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
 	query.Execute(client_details)
 	while (query.NextRow())
 		count++
@@ -272,22 +272,24 @@
 
 	return data
 
-/*
+/**
  * A proc used to gather if someone has Unacknowledged Warnings
  */
 /client/proc/fetch_unacked_warning_count()
-	if (!dbcon)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	if (!GLOB.dbcon)
 		return
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return
 	var/count = 0
 
-	var/DBQuery/warning_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
+	var/DBQuery/warning_count_query = GLOB.dbcon.NewQuery("SELECT COUNT(*) FROM ss13_warnings WHERE (visible = 1 AND acknowledged = 0 AND expired = 0) AND (ckey = :ckey: OR computerid = :computer_id: OR ip = :address:)")
 	warning_count_query.Execute(list("ckey" = ckey, "computer_id" = computer_id, "address" = address))
 	if(warning_count_query.NextRow())
 		count += text2num(warning_count_query.item[1])
 
-	var/DBQuery/notification_count_query = dbcon.NewQuery("SELECT COUNT(*) FROM ss13_player_notifications WHERE ckey = :ckey: AND acked_at is NULL and type IN ('player_greeting','player_greeting_chat')")
+	var/DBQuery/notification_count_query = GLOB.dbcon.NewQuery("SELECT COUNT(*) FROM ss13_player_notifications WHERE ckey = :ckey: AND acked_at is NULL and type IN ('player_greeting','player_greeting_chat')")
 	notification_count_query.Execute(list("ckey" = ckey))
 	if(notification_count_query.NextRow())
 		count += text2num(notification_count_query.item[1])
@@ -317,7 +319,7 @@
 	var/dcolor = "#ffdddd"	//dark colour, severity = 1
 	var/ecolor = "#e3e3e3"	//gray colour, expired = 1
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
 
@@ -352,7 +354,7 @@
 			paramtwo = "AND ckey = :ckey: "
 			query_details["ckey"] = playerckey
 
-		var/DBQuery/search_query = dbcon.NewQuery("SELECT id, time, severity, reason, notes, ckey, a_ckey, acknowledged, expired, edited, lasteditor, lasteditdate FROM ss13_warnings WHERE visible = 1 [paramone] [paramtwo] ORDER BY time DESC;")
+		var/DBQuery/search_query = GLOB.dbcon.NewQuery("SELECT id, time, severity, reason, notes, ckey, a_ckey, acknowledged, expired, edited, lasteditor, lasteditdate FROM ss13_warnings WHERE visible = 1 [paramone] [paramtwo] ORDER BY time DESC;")
 		search_query.Execute(query_details)
 
 		while (search_query.NextRow())
@@ -408,7 +410,7 @@
 
 		dat +="</table>"
 
-	usr << browse(dat, "window=lookupwarns;size=900x500")
+	show_browser(usr, dat, "window=lookupwarns;size=900x500")
 	feedback_add_details("admin_verb","WARN-LKUP")
 
 //Admin Proc to add a new User Notification
@@ -419,7 +421,7 @@
 	if(!check_rights(R_ADMIN|R_MOD|R_DEV|R_CCIAA))
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Unable to establish db connection while adding a notification.")
 		return
 
@@ -429,7 +431,7 @@
 		return
 
 	//Validate ckey
-	var/DBQuery/validatequery = dbcon.NewQuery("SELECT id FROM ss13_player WHERE ckey = :ckey:")
+	var/DBQuery/validatequery = GLOB.dbcon.NewQuery("SELECT id FROM ss13_player WHERE ckey = :ckey:")
 	validatequery.Execute(list("ckey" = ckey))
 
 	if (validatequery.RowCount() == 0)
@@ -450,7 +452,7 @@
 		to_chat(usr,"You need to specify a notification message.")
 		return
 
-	var/DBQuery/addquery = dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
+	var/DBQuery/addquery = GLOB.dbcon.NewQuery("INSERT INTO ss13_player_notifications (`ckey`, `type`, `message`, `created_by`) VALUES (:ckey:, :type:, :message:, :a_ckey:)")
 	addquery.Execute(list("ckey" = ckey, "type" = type, "message" = message, "a_ckey" = usr.ckey))
 	to_chat(usr,"Notification added.")
 
@@ -463,7 +465,7 @@
 	if(!warning_id || !warning_edit)
 		return
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		alert("Connection to the SQL database lost. Aborting. Please alert the database admin!")
 		return
 
@@ -473,7 +475,7 @@
 	var/notes
 	var/list/query_details = list("warning_id" = warning_id, "a_ckey" = usr.ckey)
 
-	var/DBQuery/initial_query = dbcon.NewQuery("SELECT ckey, reason, notes FROM ss13_warnings WHERE id = :warning_id:")
+	var/DBQuery/initial_query = GLOB.dbcon.NewQuery("SELECT ckey, reason, notes FROM ss13_warnings WHERE id = :warning_id:")
 	initial_query.Execute(query_details)
 	while (initial_query.NextRow())
 		ckey = initial_query.item[1]
@@ -494,7 +496,7 @@
 	switch (warning_edit)
 		if ("delete")
 			if(alert("Delete this warning?", "Delete?", "Yes", "No") == "Yes")
-				var/DBQuery/deleteQuery = dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id:")
+				var/DBQuery/deleteQuery = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET visible = 0 WHERE id = :warning_id:")
 				deleteQuery.Execute(query_details)
 
 				message_admins("<span class='notice'>[key_name_admin(usr)] deleted one of [ckey]'s warnings.</span>")
@@ -510,7 +512,7 @@
 				to_chat(usr, "Cancelled")
 				return
 
-			var/DBQuery/reason_query = dbcon.NewQuery("UPDATE ss13_warnings SET reason = :new_reason:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
+			var/DBQuery/reason_query = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET reason = :new_reason:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
 			reason_query.Execute(query_details)
 
 			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning reasons.</span>")
@@ -523,7 +525,7 @@
 				to_chat(usr, "Cancelled")
 				return
 
-			var/DBQuery/notes_query = dbcon.NewQuery("UPDATE ss13_warnings SET notes = :new_notes:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
+			var/DBQuery/notes_query = GLOB.dbcon.NewQuery("UPDATE ss13_warnings SET notes = :new_notes:, edited = 1, lasteditor = :a_ckey:, lasteditdate = NOW() WHERE id = :warning_id:")
 			notes_query.Execute(query_details)
 
 			message_admins("<span class='notice'>[key_name_admin(usr)] edited one of [ckey]'s warning notes.</span>")

@@ -9,7 +9,7 @@
 	max_count = 5
 	uses_species_whitelist = FALSE
 
-	outfit = /datum/outfit/admin/peoples_station_crew
+	outfit = /obj/outfit/admin/peoples_station_crew
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI, SPECIES_TAJARA_ZHAN)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
@@ -18,7 +18,7 @@
 	extra_languages = list(LANGUAGE_SIIK_MAAS)
 	respawn_flag = null
 
-/datum/outfit/admin/peoples_station_crew
+/obj/outfit/admin/peoples_station_crew
 	name = "People's Space Station Crewmember"
 
 	id = /obj/item/card/id
@@ -32,8 +32,8 @@
 	accessory = /obj/item/clothing/accessory/badge/hadii_card
 	r_pocket = /obj/item/storage/wallet/random
 
-/datum/outfit/admin/peoples_station_crew/get_id_access()
-	return list(access_pra, access_external_airlocks)
+/obj/outfit/admin/peoples_station_crew/get_id_access()
+	return list(ACCESS_PRA, ACCESS_EXTERNAL_AIRLOCKS)
 
 /datum/ghostspawner/human/peoples_station_crew/captain
 	short_name = "peoples_station_captain"
@@ -45,14 +45,14 @@
 	max_count = 1
 	uses_species_whitelist = TRUE
 
-	outfit = /datum/outfit/admin/peoples_station_crew/captain
+	outfit = /obj/outfit/admin/peoples_station_crew/captain
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 
 	assigned_role = "People's Space Station Captain"
 	special_role = "People's Space Station Captain"
 
-/datum/outfit/admin/peoples_station_crew/captain
+/obj/outfit/admin/peoples_station_crew/captain
 	name = "People's Space Station Captain"
 
 	head = /obj/item/clothing/head/tajaran/orbital_captain
@@ -63,6 +63,7 @@
 						/obj/item/ammo_magazine/mc9mm = 1,
 						/obj/item/gun/projectile/pistol/adhomai = 1
 						)
+	l_hand = /obj/item/clothing/accessory/badge/hadii_card/member
 
 
 /datum/ghostspawner/human/peoples_station_crew/commissar
@@ -77,10 +78,10 @@
 	special_role = "Party Commissar"
 	uses_species_whitelist = TRUE
 
-	outfit = /datum/outfit/admin/peoples_station_crew/commissar
+	outfit = /obj/outfit/admin/peoples_station_crew/commissar
 	possible_species = list(SPECIES_TAJARA, SPECIES_TAJARA_MSAI)
 
-/datum/outfit/admin/peoples_station_crew/commissar
+/obj/outfit/admin/peoples_station_crew/commissar
 	name = "Party Commissar"
 
 	uniform = /obj/item/clothing/under/tajaran/cosmonaut/commissar
@@ -92,6 +93,7 @@
 	backpack_contents = list(
 						/obj/item/ammo_magazine/a50 = 2,
 						/obj/item/material/knife/trench = 1,
+						/obj/item/clothing/accessory/badge/hadii_card/member = 1,
 						/obj/item/storage/box/hadii_manifesto = 1,
 						/obj/item/storage/box/hadii_card = 1
 						)

@@ -93,7 +93,7 @@
 	icon = 'icons/obj/bureaucracy.dmi'
 	icon_state = "tape"
 	w_class = ITEMSIZE_TINY
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	anchored = 1 //it's sticky, no you cant move it
 	drop_sound = null
 	var/obj/item/stuck = null
@@ -136,8 +136,8 @@
 	var/dir_offset = 0
 	if(target_turf != source_turf)
 		dir_offset = get_dir(source_turf, target_turf)
-		if(!(dir_offset in cardinal))
-			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in cardinal directions, to)
+		if(!(dir_offset in GLOB.cardinal))
+			to_chat(user, "You cannot reach that from here.")		// can only place stuck papers in GLOB.cardinal directions, to)
 			return											// reduce papers around corners issue.
 
 	user.drop_from_inventory(src,source_turf)

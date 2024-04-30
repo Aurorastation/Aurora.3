@@ -149,8 +149,8 @@
 	user.internal = null
 
 /obj/screen/internals/proc/has_internals_mask(var/mob/living/carbon/human/user)
-	if(user.wear_mask && HAS_FLAG(user.wear_mask.item_flags, ITEM_FLAG_AIRTIGHT))
+	if(user.wear_mask && (user.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 		return TRUE
-	if(user.head && HAS_FLAG(user.head.item_flags, ITEM_FLAG_AIRTIGHT))
+	if(user.head && (user.head.item_flags & ITEM_FLAG_AIRTIGHT))
 		return TRUE
 	return FALSE

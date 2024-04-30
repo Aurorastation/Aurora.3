@@ -71,3 +71,14 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE //Get that water outta here
 	reagents = list(/singleton/reagent/spacespice = 2, /singleton/reagent/blackpepper = 1, /singleton/reagent/nutriment/protein/egg = 6)
 	result = /obj/item/reagent_containers/food/snacks/shakshouka
+
+/singleton/recipe/eggs_benedict
+	appliance = MIX
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/blackpepper = 1)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/plumphelmetbiscuit,
+		/obj/item/reagent_containers/food/snacks/poachedegg,
+		/obj/item/reagent_containers/food/snacks/cutlet
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/eggs_benedict

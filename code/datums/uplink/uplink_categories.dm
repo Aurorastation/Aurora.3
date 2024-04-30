@@ -11,7 +11,7 @@
 /datum/uplink_category/proc/can_view(obj/item/device/uplink/U)
 	if(LAZYLEN(restricted_antags))
 		for(var/antag_role in restricted_antags)
-			var/datum/antagonist/antag = all_antag_types[antag_role]
+			var/datum/antagonist/antag = GLOB.all_antag_types[antag_role]
 			if(antag.is_antagonist(U.uplink_owner))
 				return FALSE
 
@@ -22,7 +22,7 @@
 		return FALSE
 
 	for(var/antag_role in antag_roles)
-		var/datum/antagonist/antag = all_antag_types[antag_role]
+		var/datum/antagonist/antag = GLOB.all_antag_types[antag_role]
 		if(antag.is_antagonist(U.uplink_owner))
 			return TRUE
 	return FALSE

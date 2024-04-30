@@ -18,7 +18,7 @@
 
 /obj/item/device/geiger/proc/update_sound(playing)
 	if(playing && !sound_token)
-		sound_token = sound_player.PlayLoopingSound(src, sound_id, "sound/items/geiger.ogg", volume = geiger_volume, range = 4, falloff = 3, prefer_mute = TRUE)
+		sound_token = GLOB.sound_player.PlayLoopingSound(src, sound_id, 'sound/items/geiger.ogg', volume = geiger_volume, range = 4, falloff = 3, prefer_mute = TRUE)
 	else if(!playing && sound_token)
 		QDEL_NULL(sound_token)
 
@@ -33,13 +33,13 @@
 	radiation_count = SSradiation.get_rads_at_turf(get_turf(src))
 	update_icon()
 
-/obj/item/device/geiger/examine(mob/user)
+/obj/item/device/geiger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/msg = "[scanning ? "ambient" : "stored"] Radiation level: [radiation_count ? radiation_count : "0"] IU/s."
 	if(radiation_count > RAD_LEVEL_LOW)
-		to_chat(user, SPAN_WARNING("[msg]"))
+		. += SPAN_WARNING("[msg]")
 	else
-		to_chat(user, SPAN_NOTICE("[msg]"))
+		. += SPAN_NOTICE("[msg]")
 
 /obj/item/device/geiger/attack_self(mob/user)
 	scanning = !scanning

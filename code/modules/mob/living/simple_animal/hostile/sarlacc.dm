@@ -92,7 +92,6 @@
 	desc = "The gaping maw opens and closes eternally, insatiably... Rumours however tell that those who can sate it are rewarded."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlacc"
-	see_in_dark = 8
 	health = 100
 	maxHealth = 100
 	gender = NEUTER
@@ -111,7 +110,6 @@
 	min_n2 = 0
 	max_n2 = 0
 	minbodytemp = 0
-	layer = 2.1
 	var/eating = 0
 	var/sated = 0
 	var/asleep = 0
@@ -313,7 +311,6 @@
 	desc = "This pulsating brain seems somehow connected to all the other orifices in this room..."
 	icon = 'icons/mob/npc/cavern.dmi'
 	icon_state = "sarlaccbrain"
-	see_in_dark = 8
 	see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	universal_speak = 1
@@ -348,7 +345,7 @@
 	faction = "worms"
 
 /mob/living/simple_animal/hostile/greatwormking/Destroy()
-	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, usepressure = 0)
+	playsound(src.loc, 'sound/hallucinations/wail.ogg', 200, 1, pressure_affected = 0)
 	for(var/mob/living/L in SSmobs.greatworms)
 		L.death()
 	for(var/obj/structure/S in SSmobs.greatasses)
@@ -408,7 +405,6 @@
 	icon_state = "sarlaccend"
 	anchored = 1
 	density = 0
-	layer = 2.1
 
 /obj/structure/greatworm/Initialize()
 	. = ..()

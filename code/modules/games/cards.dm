@@ -60,12 +60,12 @@
 	else
 		..()
 
-/obj/item/deck/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O,/obj/item/hand))
-		var/obj/item/hand/H = O
+/obj/item/deck/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/hand))
+		var/obj/item/hand/H = attacking_item
 		for(var/datum/playingcard/P in H.cards)
 			cards += P
-		qdel(O)
+		qdel(attacking_item)
 		to_chat(user, SPAN_NOTICE("You place your cards at the bottom of \the [src]."))
 		return
 	..()
@@ -148,9 +148,9 @@
 		user.visible_message("<b>\The [user]</b> deals a card to \the [target].")
 	H.throw_at(get_step(target,target.dir),10,1,H)
 
-/obj/item/hand/attackby(obj/O as obj, mob/user as mob)
-	if(istype(O,/obj/item/hand))
-		var/obj/item/hand/H = O
+/obj/item/hand/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/hand))
+		var/obj/item/hand/H = attacking_item
 		user.visible_message("<b>\The [user]</b> adds \the [H] to their hand.", SPAN_NOTICE("You add \the [H] to your hand."))
 		for(var/datum/playingcard/P in cards)
 			H.cards += P
@@ -274,13 +274,13 @@
 	update_icon()
 	user.visible_message("\The [user] [concealed ? "conceals" : "reveals"] their hand.")
 
-/obj/item/hand/examine(mob/user)
+/obj/item/hand/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if((!concealed || src.loc == user) && cards.len)
 		if(cards.len > 1)
-			to_chat(user, "It contains: ")
+			. += "It contains: "
 		for(var/datum/playingcard/P in cards)
-			to_chat(user, "The [P.name]. [P.desc ? "<i>[P.desc]</i>" : ""]")
+			. += "The [P.name]. [P.desc ? "<i>[P.desc]</i>" : ""]"
 
 /obj/item/hand/update_icon(var/direction = 0)
 
@@ -304,7 +304,7 @@
 		add_overlay(I)
 		return
 
-	var/offset = Floor(20/cards.len)
+	var/offset = FLOOR(20/cards.len, 1)
 
 	var/matrix/M = matrix()
 	if(direction)
@@ -336,7 +336,7 @@
 		add_overlay(I)
 		i++
 
-/obj/item/hand/dropped(mob/user as mob)
+/obj/item/hand/dropped(mob/user)
 	. = ..()
 	if(locate(/obj/structure/table, loc))
 		src.update_icon(user.dir)

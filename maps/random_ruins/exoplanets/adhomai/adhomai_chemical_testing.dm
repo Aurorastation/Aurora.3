@@ -5,4 +5,8 @@
 
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_SRANDMARR)
-	suffixes = list("adhomai/adhomai_chemical_testing.dmm")
+
+	prefix = "adhomai/"
+	suffixes = list("adhomai_chemical_testing.dmm")
+
+	unit_test_groups = list(3)

@@ -26,14 +26,14 @@
 	var/current_only = text2num(queryparams["current_only"])
 	var/admin_only = text2num(queryparams["admin_only"])
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		statuscode = 500
 		response = "DB-Connection unavailable"
 		return TRUE
 
 	var/list/polldata = list()
 
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly FROM ss13_poll_question [(current_only || admin_only) ? "WHERE" : ""] [(admin_only ? "adminonly = true " : "")][(current_only && admin_only ? "AND " : "")][(current_only ? "Now() BETWEEN starttime AND endtime" : "")]")
+	var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly FROM ss13_poll_question [(current_only || admin_only) ? "WHERE" : ""] [(admin_only ? "adminonly = true " : "")][(current_only && admin_only ? "AND " : "")][(current_only ? "Now() BETWEEN starttime AND endtime" : "")]")
 	select_query.Execute()
 	while(select_query.NextRow())
 		polldata["[select_query.item[1]]"] = list(
@@ -63,13 +63,13 @@
 /datum/topic_command/get_poll_info/run_command(queryparams)
 	var/poll_id = text2num(queryparams["poll_id"])
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		statuscode = 500
 		response = "DB-Connection unavailable"
 		return TRUE
 
 	//Get general data about the poll
-	var/DBQuery/select_query = dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly, publicresult, viewtoken FROM ss13_poll_question WHERE id = :poll_id:")
+	var/DBQuery/select_query = GLOB.dbcon.NewQuery("SELECT id, polltype, starttime, endtime, question, multiplechoiceoptions, adminonly, publicresult, viewtoken FROM ss13_poll_question WHERE id = :poll_id:")
 	select_query.Execute(list("poll_id"=poll_id))
 
 	//Check if the poll exists
@@ -90,15 +90,15 @@
 		)
 
 	//Lets add a WI link to the poll, if we have the WI configured
-	if(config.webint_url)
-		poll_data["link"]="[config.webint_url]server/poll/[select_query.item[1]]/[select_query.item[9]]"
+	if(GLOB.config.webint_url)
+		poll_data["link"]="[GLOB.config.webint_url]server/poll/[select_query.item[1]]/[select_query.item[9]]"
 
 	var/list/result_data = list()
 
 	/** Return different data based on the poll type: */
 	//If we have a option or a multiple choice poll, return the number of options
 	if(poll_data["polltype"] == "OPTION" || poll_data["polltype"] == "MULTICHOICE")
-		var/DBQuery/result_query = dbcon.NewQuery({"SELECT ss13_poll_vote.optionid, ss13_poll_option.text, COUNT(*) as option_count
+		var/DBQuery/result_query = GLOB.dbcon.NewQuery({"SELECT ss13_poll_vote.optionid, ss13_poll_option.text, COUNT(*) as option_count
 			FROM ss13_poll_vote
 			LEFT JOIN ss13_poll_option ON ss13_poll_vote.optionid = ss13_poll_option.id
 			WHERE ss13_poll_vote.pollid = :poll_id:
@@ -119,7 +119,7 @@
 
 	//If we have a numval poll, return the options with the min, max, and average
 	else if(poll_data["polltype"] == "NUMVAL")
-		var/DBQuery/result_query = dbcon.NewQuery({"SELECT ss13_poll_vote.optionid, ss13_poll_option.text, ss13_poll_option.minval, ss13_poll_option.maxval, ss13_poll_option.descmin, ss13_poll_option.descmid, ss13_poll_option.descmax, AVG(rating) as option_rating_avg, MIN(rating) as option_rating_min, MAX(rating) as option_rating_max
+		var/DBQuery/result_query = GLOB.dbcon.NewQuery({"SELECT ss13_poll_vote.optionid, ss13_poll_option.text, ss13_poll_option.minval, ss13_poll_option.maxval, ss13_poll_option.descmin, ss13_poll_option.descmid, ss13_poll_option.descmax, AVG(rating) as option_rating_avg, MIN(rating) as option_rating_min, MAX(rating) as option_rating_max
 		FROM ss13_poll_vote
 		LEFT JOIN ss13_poll_option ON ss13_poll_vote.optionid = ss13_poll_option.id
 		WHERE ss13_poll_vote.pollid = :poll_id:
@@ -146,7 +146,7 @@
 
 	//If we have a textpoll, return the number of answers
 	else if(poll_data["polltype"] == "TEXT")
-		var/DBQuery/result_query = dbcon.NewQuery({"SELECT COUNT(*) as count FROM ss13_poll_textreply WHERE pollid = :poll_id:"})
+		var/DBQuery/result_query = GLOB.dbcon.NewQuery({"SELECT COUNT(*) as count FROM ss13_poll_textreply WHERE pollid = :poll_id:"})
 		result_query.Execute(list("poll_id"=poll_id))
 		if(result_query.NextRow())
 			result_data = list(
@@ -192,14 +192,14 @@
 		response = "Somethnig went horribly wrong."
 		return TRUE
 
-	if(!config.external_auth)
+	if(!GLOB.config.external_auth)
 		statuscode = 500
 		response = "External auth is disalowed."
 		del(una.client)
 		del(una)
 		return TRUE
 
-	var/client/cl = directory[ckey(queryparams["key"])]
+	var/client/cl = GLOB.directory[ckey(queryparams["key"])]
 	if(cl)
 		to_chat(cl, "Another connection has been made using your login key. This session has been terminated.")
 		del(cl)
@@ -229,7 +229,7 @@
 		response = "Something went horribly wrong."
 		return TRUE
 
-	if(!config.external_auth)
+	if(!GLOB.config.external_auth)
 		statuscode = 403
 		response = "External auth is disallowed."
 		del(una.client)
@@ -250,10 +250,10 @@
 
 /datum/topic_command/set_extenal_auth/run_command(queryparams)
 	if(queryparams["state"] == null)
-		config.external_auth = !config.external_auth
+		GLOB.config.external_auth = !GLOB.config.external_auth
 	else
-		config.external_auth = queryparams["state"]
+		GLOB.config.external_auth = queryparams["state"]
 
 	statuscode = 200
 	response = "External authentication state has been updated sucessfully."
-	data = config.external_auth
+	data = GLOB.config.external_auth

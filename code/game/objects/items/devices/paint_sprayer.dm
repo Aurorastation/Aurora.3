@@ -16,14 +16,22 @@
 	var/paint_colour = COLOR_WHITE
 
 	var/list/decals = list(
-		"quarter-turf" =      list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
-		"wide quarter-turf" = list("path" = /obj/effect/floor_decal/corner_wide, "precise" = 1, "coloured" = 1),
-		"full quarter-turf" = list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
-		"hazard stripes" =    list("path" = /obj/effect/floor_decal/industrial/warning),
-		"corner, hazard" =    list("path" = /obj/effect/floor_decal/industrial/warning/corner),
-		"hatched marking" =   list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
-		"dotted outline" =    list("path" = /obj/effect/floor_decal/industrial/outline, "coloured" = 1),
+		// quarter
+		"quarter-turf" =          list("path" = /obj/effect/floor_decal/corner, "precise" = 1, "coloured" = 1),
+		"wide quarter-turf" =     list("path" = /obj/effect/floor_decal/corner_wide, "precise" = 1, "coloured" = 1),
+		"full quarter-turf" =     list("path" = /obj/effect/floor_decal/corner_full, "precise" = 1, "coloured" = 1),
+		// hazard
+		"hazard stripes" =        list("path" = /obj/effect/floor_decal/industrial/warning),
+		"corner, hazard" =        list("path" = /obj/effect/floor_decal/industrial/warning/corner),
+		// hatch
+		"hatched marking" =       list("path" = /obj/effect/floor_decal/industrial/hatch, "coloured" = 1),
+		"hatched marking small" = list("path" = /obj/effect/floor_decal/industrial/hatch_small, "coloured" = 1),
+		"hatched marking tiny" =  list("path" = /obj/effect/floor_decal/industrial/hatch_tiny, "coloured" = 1),
+		// outline
+		"dotted outline" =        list("path" = /obj/effect/floor_decal/industrial/outline, "coloured" = 1),
+		"arrow" =             list("path" = /obj/effect/floor_decal/industrial/arrow, "precise" = 1, "coloured" = 1),
 		"loading sign" =      list("path" = /obj/effect/floor_decal/industrial/loading),
+		// signs
 		"1" =                 list("path" = /obj/effect/floor_decal/sign),
 		"2" =                 list("path" = /obj/effect/floor_decal/sign/two),
 		"A" =                 list("path" = /obj/effect/floor_decal/sign/a),
@@ -35,6 +43,7 @@
 		"CMO" =               list("path" = /obj/effect/floor_decal/sign/cmo),
 		"V" =                 list("path" = /obj/effect/floor_decal/sign/v),
 		"Psy" =               list("path" = /obj/effect/floor_decal/sign/p),
+		// remove all
 		"remove all decals" = list("path" = /obj/effect/floor_decal/reset)
 		)
 
@@ -289,9 +298,9 @@
 		playsound(get_turf(src), 'sound/effects/spray3.ogg', 30, 1, -6)
 	return .
 
-/obj/item/device/paint_sprayer/examine(mob/user)
+/obj/item/device/paint_sprayer/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	to_chat(user, "It is configured to produce the '[decal]' decal with a direction of '[paint_dir]' using [paint_colour] paint.")
+	. += "It is configured to produce the '[SPAN_NOTICE(decal)]' decal with a direction of '[SPAN_NOTICE(paint_dir)]' using [SPAN_NOTICE(paint_colour)] paint."
 
 /obj/item/device/paint_sprayer/verb/choose_colour()
 	set name = "Choose Colour"

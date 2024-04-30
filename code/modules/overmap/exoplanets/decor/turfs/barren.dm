@@ -12,6 +12,15 @@
 	. = ..()
 	update_icon()
 
+/turf/simulated/floor/exoplanet/barren/cave
+	name = "dense ground"
+
+/turf/simulated/floor/exoplanet/barren/cave/Initialize() // to make these tiles dark even on daytime exoplanets
+	. = ..()
+	set_light(0, 1, null)
+	footprint_color = null
+	update_icon(1)
+
 /turf/simulated/floor/exoplanet/barren/raskara
 	color = "#373737"
 

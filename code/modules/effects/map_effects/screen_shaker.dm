@@ -11,7 +11,7 @@
 	var/shake_strength = 1 // How much it shakes.
 
 /obj/effect/map_effect/interval/screen_shaker/trigger()
-	for(var/A in player_list)
+	for(var/A in GLOB.player_list)
 		var/mob/M = A
 		if(M.z == src.z && get_dist(src, M) <= shake_radius)
 			shake_camera(M, shake_duration, shake_strength)

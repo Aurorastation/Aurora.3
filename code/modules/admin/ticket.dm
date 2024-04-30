@@ -1,5 +1,5 @@
-var/global/list/tickets = list()
-var/global/list/ticket_panels = list()
+GLOBAL_LIST_EMPTY(tickets)
+GLOBAL_LIST_EMPTY(ticket_panels)
 
 /datum/ticket
 	var/owner
@@ -19,18 +19,18 @@ var/global/list/ticket_panels = list()
 
 /datum/ticket/New(var/owner)
 	src.owner = owner
-	tickets |= src
-	id = tickets.len
+	GLOB.tickets |= src
+	id = GLOB.tickets.len
 	opened_time = world.time
 	opened_rt = world.realtime
 
-	if (config.ticket_reminder_period)
-		reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+	if (GLOB.config.ticket_reminder_period)
+		reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), GLOB.config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /datum/ticket/proc/broadcast_closure(closing_user)
 	var/client/owner_client = client_by_ckey(owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [closing_user].")
+		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been closed/deemed unnecessary by [closing_user].")
 		owner_client.adminhelped = ADMINHELPED
 
 /datum/ticket/proc/set_to_closed(closing_key)
@@ -101,7 +101,7 @@ var/global/list/ticket_panels = list()
 
 	var/client/owner_client = client_by_ckey(src.owner)
 	if(owner_client && owner_client.adminhelped == ADMINHELPED_DISCORD)
-		discord_bot.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
+		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
 		owner_client.adminhelped = ADMINHELPED
 
 	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
@@ -128,20 +128,20 @@ var/global/list/ticket_panels = list()
 
 	if (!admin_found)
 		message_admins("<span class='danger'><b>[owner]'s ticket has yet to be closed!</b></span>")
-		for(var/s in staff)
+		for(var/s in GLOB.staff)
 			var/client/C = s
 			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))
 				sound_to(C, 'sound/effects/adminhelp.ogg')
 
-	reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
+	reminder_timer = addtimer(CALLBACK(src, PROC_REF(remind)), GLOB.config.ticket_reminder_period SECONDS, TIMER_UNIQUE|TIMER_STOPPABLE)
 
 /proc/get_open_ticket_by_ckey(var/owner)
-	for(var/datum/ticket/ticket in tickets)
+	for(var/datum/ticket/ticket in GLOB.tickets)
 		if(ticket.owner == owner && (ticket.status == TICKET_OPEN || ticket.status == TICKET_ASSIGNED))
 			return ticket // there should only be one open ticket by a client at a time, so no need to keep looking
 
 /proc/get_ticket_by_id(id)
-	for (var/datum/ticket/ticket in tickets)
+	for (var/datum/ticket/ticket in GLOB.tickets)
 		if (ticket.id == id)
 			return ticket
 
@@ -162,15 +162,15 @@ var/global/list/ticket_panels = list()
 	if (status != TICKET_CLOSED)
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return
 
-	var/DBQuery/Q = dbcon.NewQuery({"INSERT INTO ss13_tickets
+	var/DBQuery/Q = GLOB.dbcon.NewQuery({"INSERT INTO ss13_tickets
 		(game_id, message_count, admin_count, admin_list, opened_by, taken_by, closed_by, response_delay, opened_at, closed_at)
 	VALUES
 		(:g_id:, :m_count:, :a_count:, :a_list:, :opened_by:, :taken_by:, :closed_by:, :delay:, :opened_at:, :closed_at:)"})
 	Q.Execute(list(
-		"g_id" = game_id,
+		"g_id" = GLOB.round_id,
 		"m_count" = length(msgs),
 		"a_count" = length(assigned_admins),
 		"a_list" = json_encode(assigned_admins),
@@ -216,8 +216,8 @@ var/global/list/ticket_panels = list()
 	var/valid_holder = check_rights(R_MOD|R_ADMIN, FALSE, ticket_panel_window.user)
 
 	var/list/ticket_dat = list()
-	for(var/id = tickets.len, id >= 1, id--)
-		var/datum/ticket/ticket = tickets[id]
+	for(var/id = GLOB.tickets.len, id >= 1, id--)
+		var/datum/ticket/ticket = GLOB.tickets[id]
 		if(valid_holder || ticket.owner == C.ckey)
 			var/client/owner_client = client_by_ckey(ticket.owner)
 			var/status = "Unknown status"
@@ -275,7 +275,7 @@ var/global/list/ticket_panels = list()
 	..()
 
 	if(href_list["close"])
-		ticket_panels -= usr.client
+		GLOB.ticket_panels -= usr.client
 
 	switch(href_list["action"])
 		if("unview")
@@ -318,15 +318,15 @@ var/global/list/ticket_panels = list()
 	set category = "Admin"
 
 	var/datum/ticket_panel/ticket_panel = new()
-	ticket_panels[src] = ticket_panel
+	GLOB.ticket_panels[src] = ticket_panel
 	ticket_panel.ticket_panel_window = new(src.mob, "ticketpanel", "Ticket Manager", 1024, 768, ticket_panel)
 
 	ticket_panel.ticket_panel_window.set_content(ticket_panel.get_dat())
 	ticket_panel.ticket_panel_window.open()
 
 /proc/update_ticket_panels()
-	for(var/client/C in ticket_panels)
-		var/datum/ticket_panel/ticket_panel = ticket_panels[C]
+	for(var/client/C in GLOB.ticket_panels)
+		var/datum/ticket_panel/ticket_panel = GLOB.ticket_panels[C]
 		if(C.mob != ticket_panel.ticket_panel_window.user)
 			C.view_tickets()
 		else

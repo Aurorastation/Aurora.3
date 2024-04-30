@@ -23,7 +23,7 @@
 	complexity = number_of_pins
 	. = ..()
 
-/obj/item/integrated_circuit/memory/storage/examine(mob/user)
+/obj/item/integrated_circuit/memory/storage/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	var/i
 	for (i in 1 to outputs.len)
@@ -35,7 +35,7 @@
 				data = "[d]"
 		else if(!isnull(O.data))
 			data = O.data
-		to_chat(user, "\The [src] has [data] saved to address [i].")
+		. += "\The [src] has [data] saved to address [i]."
 
 /obj/item/integrated_circuit/memory/storage/do_work()
 	for(var/i = 1 to inputs.len)
@@ -91,7 +91,7 @@
 /obj/item/integrated_circuit/memory/constant/attack_self(mob/user)
 	var/datum/integrated_io/O = outputs[1]
 	var/type_to_use = input("Please choose a type to use.","[src] type setting") as null|anything in list("string","number","ref", "null")
-	if(!CanInteract(user, physical_state))
+	if(!CanInteract(user, GLOB.physical_state))
 		return
 
 	var/new_data = null
@@ -99,13 +99,13 @@
 		if("string")
 			accepting_refs = 0
 			new_data = sanitize(input("Now type in a string.","[src] string writing") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
-			if(istext(new_data) && CanInteract(user, physical_state))
+			if(istext(new_data) && CanInteract(user, GLOB.physical_state))
 				data = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(data)].</span>")
 		if("number")
 			accepting_refs = 0
 			new_data = input("Now type in a number.","[src] number writing") as null|num
-			if(isnum(new_data) && CanInteract(user, physical_state))
+			if(isnum(new_data) && CanInteract(user, GLOB.physical_state))
 				data = new_data
 				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [O.display_data(data)].</span>")
 		if("ref")

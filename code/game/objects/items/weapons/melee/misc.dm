@@ -15,7 +15,7 @@
 	item_state = "chain"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 10
+	force = 15
 	throwforce = 7
 	w_class = ITEMSIZE_NORMAL
 	origin_tech = list(TECH_COMBAT = 4)
@@ -29,7 +29,7 @@
 	icon_state = "chainswordoff"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throwforce = 7
 	w_class = ITEMSIZE_LARGE
 	sharp = 1
@@ -46,7 +46,7 @@
 	if(active)
 		playsound(user, 'sound/weapons/saw/chainsawstart.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("\The [src] rumbles to life."))
-		force = 35
+		force = 38
 		hitsound = 'sound/weapons/saw/chainsword.ogg'
 		icon_state = "chainswordon"
 		slot_flags = null
@@ -72,7 +72,7 @@
 	item_state = "kneehammer"
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
-	force = 25
+	force = 31
 	throwforce = 15.0
 	throw_speed = 5
 	throw_range = 7
@@ -118,7 +118,7 @@
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
 		var/T = get_turf(user)
-		spark(T, 3, alldirs)
+		spark(T, 3, GLOB.alldirs)
 		step_away(target,user,15)
 		sleep(1)
 		step_away(target,user,15)
@@ -157,7 +157,7 @@
 	icon_state = "whip"
 	item_state = "chain"
 	slot_flags = SLOT_BELT
-	force = 10
+	force = 15
 	w_class = ITEMSIZE_NORMAL
 	reach = 2
 	attack_verb = list("flogged", "whipped", "lashed", "disciplined")
@@ -185,7 +185,7 @@
 	contained_sprite = TRUE
 	obj_flags = OBJ_FLAG_CONDUCTABLE
 	slot_flags = SLOT_BELT
-	force = 15
+	force = 22
 	throwforce = 5
 	w_class = ITEMSIZE_LARGE
 	sharp = 1

@@ -7,7 +7,7 @@ SUBSYSTEM_DEF(lighting)
 	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
 
 	priority = SS_PRIORITY_LIGHTING
-	init_order = SS_INIT_LIGHTING
+	init_order = INIT_ORDER_LIGHTING
 
 	var/total_lighting_overlays = 0
 	var/total_lighting_sources = 0
@@ -48,10 +48,10 @@ SUBSYSTEM_DEF(lighting)
 
 /datum/controller/subsystem/lighting/ExplosionStart()
 	force_queued = TRUE
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/lighting/ExplosionEnd()
-	wake()
+	can_fire = TRUE
 	if (!force_override)
 		force_queued = FALSE
 
@@ -70,9 +70,9 @@ SUBSYSTEM_DEF(lighting)
 	var/turf/T
 	var/thing
 	for (var/zlevel = 1 to world.maxz)
-		for (thing in Z_ALL_TURFS(zlevel))
+		for (thing in Z_TURFS(zlevel))
 			T = thing
-			if(config.starlight)
+			if(GLOB.config.starlight)
 				var/turf/space/S = T
 				if(istype(S) && S.use_starlight)
 					S.update_starlight()
@@ -108,7 +108,7 @@ SUBSYSTEM_DEF(lighting)
 	SSticker.OnRoundstart(CALLBACK(src, PROC_REF(handle_roundstart)))
 #endif
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/lighting/fire(resumed = FALSE, no_mc_tick = FALSE)
 	if (!resumed)

@@ -18,7 +18,7 @@ BREATH ANALYZER
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 5
 	throw_range = 10
-	matter = list(DEFAULT_WALL_MATERIAL = 200)
+	matter = list(MATERIAL_ALUMINIUM = 200)
 	origin_tech = list(TECH_MAGNET = 1, TECH_BIO = 1)
 	var/last_scan = 0
 	var/mode = 1
@@ -90,11 +90,11 @@ BREATH ANALYZER
 
 /proc/health_scan_mob(var/mob/M, var/mob/living/user, var/show_limb_damage = TRUE, var/just_scan = FALSE, var/sound_scan)
 	if(!just_scan)
-		if (((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(50))
+		if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(50))
 			user.visible_message("<b>[user]</b> runs the scanner over the floor.", "<span class='notice'>You run the scanner over the floor.</span>", "<span class='notice'>You hear metal repeatedly clunking against the floor.</span>")
 			to_chat(user, "<span class='notice'><b>Scan results for the ERROR:</b></span>")
 			if(sound_scan)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 			return
 
 		if(!user.IsAdvancedToolUser())
@@ -106,7 +106,7 @@ BREATH ANALYZER
 	if(!istype(M, /mob/living/carbon/human))
 		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
 		if(sound_scan)
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
 
 	var/mob/living/carbon/human/H = M
@@ -114,7 +114,7 @@ BREATH ANALYZER
 	if(H.isSynthetic() && !H.isFBP())
 		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
 		if(sound_scan)
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
 
 	. = list()
@@ -146,18 +146,18 @@ BREATH ANALYZER
 	if(sound_scan)
 		switch(brain_result)
 			if(0)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 			if(-1)
-				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+				playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 			else
 				if(brain_result <= 25)
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 				else if(brain_result <= 50)
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 				else if(brain_result <= 90)
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 				else
-					playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
+					playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 
 	// Pulse rate.
 	var/pulse_result = "normal"
@@ -166,15 +166,16 @@ BREATH ANALYZER
 			pulse_result = "<span class='danger'>0</span>"
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
-		pulse_result = "<span class='scan_green'>[pulse_result] BPM</span>"
 		if(H.pulse() == PULSE_NONE)
 			pulse_result = "<span class='scan_danger'>[pulse_result] BPM</span>"
 		else if(H.pulse() < PULSE_NORM)
 			pulse_result = "<span class='scan_notice'>[pulse_result] BPM</span>"
 		else if(H.pulse() > PULSE_NORM)
 			pulse_result = "<span class='scan_warning'>[pulse_result] BPM</span>"
+		else
+			pulse_result = "<span class='scan_green'>[pulse_result] BPM</span>"
 	else
-		pulse_result = "<span class='scan_danger'>0 BPM</span>"
+		pulse_result = "<span class='scan_danger'>0</span>"
 	dat += "Pulse rate: [pulse_result]"
 
 	// Body temperature. Rounds to one digit after decimal.
@@ -207,14 +208,15 @@ BREATH ANALYZER
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
 				blood_volume_string = "<span class='scan_danger'>\<[BLOOD_VOLUME_SURVIVE]%</span>"
 
-		var/oxygenation_string = "<span class='scan_green'>[H.get_blood_oxygenation()]%</span>"
-		switch(H.get_blood_oxygenation())
+		var/oxygenation = H.get_blood_oxygenation()
+		var/oxygenation_string = "<span class='scan_green'>[oxygenation]%</span>"
+		switch(oxygenation)
 			if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
-				oxygenation_string = "<span class='scan_notice'>[oxygenation_string]%</span>"
+				oxygenation_string = "<span class='scan_notice'>[oxygenation]%</span>"
 			if(BLOOD_VOLUME_SURVIVE to BLOOD_VOLUME_OKAY)
-				oxygenation_string = "<span class='scan_warning'>[oxygenation_string]%</span>"
+				oxygenation_string = "<span class='scan_warning'>[oxygenation]%</span>"
 			if(-(INFINITY) to BLOOD_VOLUME_SURVIVE)
-				oxygenation_string = "<span class='scan_danger'>[oxygenation_string]%</span>"
+				oxygenation_string = "<span class='scan_danger'>[oxygenation]%</span>"
 		if(H.status_flags & FAKEDEATH)
 			oxygenation_string = "<span class='scan_danger'>[rand(0,10)]%</span>"
 		dat += "Blood pressure: [blood_pressure_string]"
@@ -379,7 +381,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 
@@ -414,7 +416,7 @@ BREATH ANALYZER
 	throw_speed = 4
 	throw_range = 20
 
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = FALSE
@@ -486,7 +488,7 @@ BREATH ANALYZER
 	throwforce = 5
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 	var/details = 0
@@ -526,7 +528,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 7
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 
 /obj/item/device/slime_scanner/attack(mob/living/M, mob/living/user)
 	if(!isslime(M))
@@ -590,7 +592,7 @@ BREATH ANALYZER
 	throwforce = 0
 	throw_speed = 3
 	throw_range = 3
-	matter = list(DEFAULT_WALL_MATERIAL = 30, MATERIAL_GLASS = 20)
+	matter = list(MATERIAL_ALUMINIUM = 30, MATERIAL_GLASS = 20)
 	origin_tech = list(TECH_MAGNET = 2, TECH_BIO = 2)
 
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
@@ -599,7 +601,7 @@ BREATH ANALYZER
 		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
 		return
 
-	if ( ((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(20))
+	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(20))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
@@ -633,19 +635,19 @@ BREATH ANALYZER
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
 		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
-		playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25)
+		playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
 
 	switch(H.getOxyLoss())
 		if(0 to 25)
 			to_chat(user,"Subject oxygen levels nominal.")
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_stable.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		if(25 to 50)
 			to_chat(user,"<span class='notice'>Subject oxygen levels abnormal.</span>")
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_danger.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 		if(50 to INFINITY)
 			to_chat(user,"<span class='notice'><b>Severe oxygen deprivation detected.</b></span>")
-			playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25)
+			playsound(user.loc, 'sound/items/healthscanner/healthscanner_critical.ogg', 25, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))

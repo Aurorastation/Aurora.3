@@ -181,7 +181,7 @@
 	// wrench: (un)anchor
 	// weldingtool: convert to real pipe
 
-/obj/structure/disposalconstruct/attackby(var/obj/item/I, var/mob/user)
+/obj/structure/disposalconstruct/attackby(obj/item/attacking_item, mob/user)
 	var/nicetype = "pipe"
 	var/ispipe = 0 // Indicates if we should change the level of this pipe
 	src.add_fingerprint(user)
@@ -220,7 +220,7 @@
 
 	var/obj/structure/disposalpipe/CP = locate() in T
 
-	if(I.iswrench())
+	if(attacking_item.iswrench())
 		if(anchored)
 			anchored = 0
 			if(ispipe)
@@ -255,12 +255,12 @@
 			else if(ptype != 15)
 				density = 1 // We don't want disposal bins or outlets to go density 0
 			to_chat(user, "You attach the [nicetype] to the underfloor.")
-		playsound(src.loc, I.usesound, 100, 1)
+		attacking_item.play_tool_sound(get_turf(src), 100)
 		update()
 
-	else if(I.iswelder())
+	else if(attacking_item.iswelder())
 		if(anchored)
-			var/obj/item/weldingtool/W = I
+			var/obj/item/weldingtool/W = attacking_item
 			if(W.use(0,user))
 				to_chat(user, "Welding the [nicetype] in place.")
 				if(W.use_tool(src, user, 20, volume = 50))

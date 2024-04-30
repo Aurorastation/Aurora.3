@@ -4,7 +4,7 @@
 	icon = 'icons/obj/radio.dmi'
 	icon_state = "red_phone"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 3.0
+	force = 3
 	throwforce = 2.0
 	throw_speed = 1
 	throw_range = 4
@@ -51,7 +51,7 @@
 	icon_state = "cane"
 	item_state = "stick"
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-	force = 10
+	force = 15
 	throwforce = 7.0
 	w_class = ITEMSIZE_LARGE
 	matter = list(DEFAULT_WALL_MATERIAL = 50)
@@ -223,22 +223,6 @@
 
 	return washit
 
-/obj/item/cane/shaman
-	name = "shaman staff"
-	desc = "A seven foot staff traditionally carried by Unathi shamans both as a symbol of authority and to aid them in walking. It is made out of dark, polished wood and is curved at the end."
-	icon_state = "shaman_staff"
-	item_state = "shaman_staff"
-	w_class = ITEMSIZE_LARGE
-
-/obj/item/cane/shaman/afterattack(atom/A, mob/user as mob, proximity)
-	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-	if(!proximity)
-		return
-	if (istype(A, /turf/simulated/floor))
-		user.visible_message("<span class='notice'>[user] loudly taps their [src.name] against the floor.</span>")
-		playsound(user.loc, 'sound/effects/shieldbash.ogg', 50, 1)
-		return
-
 /obj/item/cane/concealed
 	var/concealed_blade
 
@@ -263,13 +247,14 @@
 	else
 		..()
 
-/obj/item/cane/concealed/attackby(var/obj/item/canesword/W, var/mob/user)
-	if(!src.concealed_blade && istype(W))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [W] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [W] into \the [src].")
+/obj/item/cane/concealed/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/canesword/attacking_canesword = attacking_item
+	if(!src.concealed_blade && istype(attacking_canesword))
+		user.visible_message("<span class='warning'>[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [attacking_canesword] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
-		user.drop_from_inventory(W)
-		W.forceMove(src)
-		src.concealed_blade = W
+		user.drop_from_inventory(attacking_canesword)
+		attacking_canesword.forceMove(src)
+		src.concealed_blade = attacking_canesword
 		update_icon()
 		return TRUE
 	else
@@ -327,7 +312,7 @@
 		item_state = "telestick"
 		w_class = ITEMSIZE_LARGE
 		slot_flags = null
-		force = 6
+		force = 14
 		attack_verb = list("smacked", "struck", "slapped")
 		can_support = TRUE
 	else
@@ -390,7 +375,7 @@
 	w_class = ITEMSIZE_SMALL
 	throw_speed = 4
 	throw_range = 20
-	matter = list(DEFAULT_WALL_MATERIAL = 100)
+	matter = list(MATERIAL_ALUMINIUM = 25, MATERIAL_PLASTIC = 75)
 	origin_tech = list(TECH_MAGNET = 1)
 
 /obj/item/staff
@@ -398,7 +383,7 @@
 	desc = "A staff which only has the power to make you look like a nerd."
 	icon = 'icons/obj/wizard.dmi'
 	icon_state = "staff"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
@@ -424,7 +409,7 @@
 	icon = 'icons/obj/weapons.dmi'
 	icon_state = "qstaff0"
 	item_state = "stick"
-	force = 3.0
+	force = 3
 	throwforce = 5.0
 	throw_speed = 1
 	throw_range = 5
@@ -450,8 +435,8 @@
 	desc = "Heavy-duty switching circuits for power control."
 	matter = list(DEFAULT_WALL_MATERIAL = 50, MATERIAL_GLASS = 50)
 
-/obj/item/module/power_control/attackby(obj/item/W, mob/user)
-	if(W.ismultitool())
+/obj/item/module/power_control/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.ismultitool())
 		var/obj/item/circuitboard/ghettosmes/new_circuit = new /obj/item/circuitboard/ghettosmes(get_turf(src))
 		to_chat(user, SPAN_NOTICE("You modify \the [src] into a makeshift PSU circuitboard."))
 		qdel(src)
@@ -484,7 +469,7 @@
 
 /obj/item/camera_bug/attack_self(mob/usr as mob)
 	var/list/cameras = new/list()
-	for (var/obj/machinery/camera/C in cameranet.cameras)
+	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
@@ -521,10 +506,10 @@
 	icon = 'icons/obj/stock_parts.dmi'
 	icon_state = "neuralbroke"
 
-/obj/item/neuralbroke/attackby(obj/item/W as obj, mob/user as mob)
-	if(W.isscrewdriver())
+/obj/item/neuralbroke/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		new /obj/item/device/encryptionkey/hivenet(user.loc)
-		playsound(src.loc, W.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		to_chat(user, "You bypass the fried security chip and extract the encryption key.")
 		to_chat(user, "The fried neural socket crumbles away like dust.")
 		qdel(src)

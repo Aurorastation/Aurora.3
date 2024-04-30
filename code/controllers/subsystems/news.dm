@@ -14,15 +14,15 @@ SUBSYSTEM_DEF(news)
 	CreateFeedChannel("Tau Ceti Daily", "CentComm Minister of Information", 1, 1)
 	CreateFeedChannel("The Gibson Gazette", "Editor Carl Ritz", 1, 1)
 
-	if (config.news_use_forum_api)
+	if (GLOB.config.news_use_forum_api)
 		load_forum_news_config()
 
 		INVOKE_ASYNC(src, PROC_REF(load_from_forums))
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/news/proc/load_from_forums()
-	if (!config.forum_api_path || !global.forum_api_key)
+	if (!GLOB.config.forum_api_path || !global.forum_api_key)
 		LOG_DEBUG("SSnews: Unable to load from forums, API path or key not set up.")
 		return
 
@@ -79,7 +79,7 @@ SUBSYSTEM_DEF(news)
 			var/datum/computer_file/data/news_article/news = new()
 			news.filename = "[channel.channel_name] vol. [total_vol_count - count_pulled + news_count]"
 			news.stored_data = post["content"]
-			ntnet_global.available_news.Add(news)
+			GLOB.ntnet_global.available_news.Add(news)
 
 			if (news_count > archive_limit)
 				news.archived = 1
@@ -150,7 +150,7 @@ SUBSYSTEM_DEF(news)
 	alert_readers(FC.announcement)
 
 /datum/controller/subsystem/news/proc/alert_readers(var/annoncement)
-	set waitfor = FALSE
+	SHOULD_NOT_SLEEP(TRUE)
 	for(var/obj/machinery/newscaster/NEWSCASTER in allCasters)
 		NEWSCASTER.newsAlert(annoncement)
 		NEWSCASTER.update_icon()

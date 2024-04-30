@@ -104,22 +104,22 @@
 	if (network)
 		network.update = 1
 
-/obj/machinery/portable_atmospherics/attackby(var/obj/item/W as obj, var/mob/user as mob)
-	if ((istype(W, /obj/item/tank) && !( src.destroyed )))
+/obj/machinery/portable_atmospherics/attackby(obj/item/attacking_item, mob/user)
+	if ((istype(attacking_item, /obj/item/tank) && !( src.destroyed )))
 		if (src.holding)
 			return TRUE
-		var/obj/item/tank/T = W
+		var/obj/item/tank/T = attacking_item
 		user.drop_from_inventory(T,src)
 		src.holding = T
 		update_icon()
 		SStgui.update_uis(src)
 		return TRUE
 
-	else if (W.iswrench())
+	else if (attacking_item.iswrench())
 		if(connected_port)
 			disconnect()
 			to_chat(user, "<span class='notice'>You disconnect \the [src] from the port.</span>")
-			playsound(get_turf(src), W.usesound, 50, 1)
+			attacking_item.play_tool_sound(get_turf(src), 50)
 			update_icon()
 			SStgui.update_uis(src)
 			return TRUE
@@ -128,7 +128,7 @@
 			if(possible_port)
 				if(connect(possible_port))
 					to_chat(user, "<span class='notice'>You connect \the [src] to the port.</span>")
-					playsound(get_turf(src), W.usesound, 50, 1)
+					attacking_item.play_tool_sound(get_turf(src), 50)
 					update_icon()
 					SStgui.update_uis(src)
 					return TRUE
@@ -139,8 +139,8 @@
 				to_chat(user, "<span class='notice'>Nothing happens.</span>")
 				return TRUE
 
-	else if ((istype(W, /obj/item/device/analyzer)) && Adjacent(user))
-		var/obj/item/device/analyzer/A = W
+	else if ((istype(attacking_item, /obj/item/device/analyzer)) && Adjacent(user))
+		var/obj/item/device/analyzer/A = attacking_item
 		A.analyze_gases(src, user)
 		return TRUE
 
@@ -160,13 +160,13 @@
 		return 1
 	return 0
 
-/obj/machinery/portable_atmospherics/powered/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/cell))
+/obj/machinery/portable_atmospherics/powered/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/cell))
 		if(cell)
 			to_chat(user, "There is already a power cell installed.")
 			return TRUE
 
-		var/obj/item/cell/C = I
+		var/obj/item/cell/C = attacking_item
 
 		user.drop_from_inventory(C,src)
 		C.add_fingerprint(user)
@@ -176,7 +176,7 @@
 		SStgui.update_uis(src)
 		return TRUE
 
-	if(I.isscrewdriver())
+	if(attacking_item.isscrewdriver())
 		if(!cell)
 			to_chat(user, "<span class='warning'>There is no power cell installed.</span>")
 			return TRUE

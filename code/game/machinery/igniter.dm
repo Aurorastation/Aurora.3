@@ -70,7 +70,6 @@
 	var/disable = 0
 	var/last_spark = 0
 	var/base_state = "migniter"
-	layer = 3.3
 	anchored = 1
 	idle_power_usage = 2
 	active_power_usage = 4
@@ -102,8 +101,8 @@
 	..()
 	update_icon()
 
-/obj/machinery/sparker/attackby(obj/item/W as obj, mob/user as mob)
-	if (W.isscrewdriver())
+/obj/machinery/sparker/attackby(obj/item/attacking_item, mob/user)
+	if (attacking_item.isscrewdriver())
 		add_fingerprint(user)
 		disable = !disable
 		if(disable)
@@ -128,7 +127,7 @@
 
 
 	flick("migniter-spark", src)
-	spark(src, 2, alldirs)
+	spark(src, 2, GLOB.alldirs)
 	src.last_spark = world.time
 	use_power_oneoff(1000)
 	var/turf/location = src.loc

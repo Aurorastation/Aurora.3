@@ -80,8 +80,8 @@
 
 //Animal Hide to leather steps
 //Step one - dehairing.
-/obj/item/stack/material/animalhide/attackby(obj/item/W, mob/user)
-	if(is_sharp(W) && !W.noslice && !W.iswirecutter()) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
+/obj/item/stack/material/animalhide/attackby(obj/item/attacking_item, mob/user)
+	if(is_sharp(attacking_item) && !attacking_item.noslice && !attacking_item.iswirecutter()) //Can we cut and slice with the item? And does the hide still have something to remove? Say no to wirecutters since it's more about bladed items.
 		if(bare)
 			to_chat(user, SPAN_WARNING("There's nothing left to remove from \the [src]!"))
 			return
@@ -121,9 +121,9 @@
 		if(wetness <= 0)
 			make_leather()
 
-/obj/item/stack/material/animalhide/wetleather/attackby(obj/item/I, mob/user)
-	if(I.iswelder())
-		var/obj/item/weldingtool/WT = I
+/obj/item/stack/material/animalhide/wetleather/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.iswelder())
+		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.isOn())
 			if(being_dried)
 				to_chat(user, SPAN_WARNING("\The [src] are already being dried"))

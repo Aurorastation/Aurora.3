@@ -38,6 +38,9 @@
 
 		. += list(
 			"destination_name" = shuttle.get_destination_name(),
+			"destination_map_image" = shuttle.next_location ? SSholomap.minimaps_scan_base64[shuttle.next_location.z] : null,
+			"destination_x" = shuttle.next_location?.x,
+			"destination_y" = shuttle.next_location?.y,
 			"can_pick" = shuttle.moving_status == SHUTTLE_IDLE,
 			"fuel_usage" = shuttle.fuel_consumption * 100,
 			"remaining_fuel" = round(total_gas, 0.01) * 100,
@@ -56,6 +59,16 @@
 			D = tgui_input_list(usr, "Choose shuttle destination.", "Shuttle Destination", possible_d)
 		else
 			to_chat(usr, SPAN_WARNING("No valid landing sites in range."))
-		if(CanInteract(user, physical_state) && (D in possible_d))
+		if(CanInteract(user, GLOB.physical_state) && (D in possible_d))
 			shuttle.set_destination(possible_d[D])
 		return TRUE
+
+/obj/machinery/computer/shuttle_control/explore/terminal
+	name = "shuttle control terminal"
+	icon = 'icons/obj/machinery/modular_terminal.dmi'
+	icon_screen = "helm"
+	icon_keyboard = "tech_key"
+	is_connected = TRUE
+	has_off_keyboards = TRUE
+	can_pass_under = FALSE
+	light_power_on = 1

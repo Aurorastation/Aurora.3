@@ -4,11 +4,11 @@
 	set desc = "Visit the wiki."
 	set hidden = 1
 
-	if(config.wikiurl)
-		if(alert("This will open the wiki in your browser. Are you sure?",,"Yes","No")=="No")
+	if(GLOB.config.wikiurl)
+		if(tgui_alert(usr, "This will open the wiki in your browser. Are you sure?", "Wiki", list("Yes", "No")) == "No")
 			return
 
-		var/to_open = config.wikiurl
+		var/to_open = GLOB.config.wikiurl
 		if (sub_page)
 			to_open += sub_page
 
@@ -20,10 +20,10 @@
 	set name = "forum"
 	set desc = "Visit the forum."
 	set hidden = 1
-	if( config.forumurl )
-		if(alert("This will open the forum in your browser. Are you sure?",,"Yes","No")=="No")
+	if(GLOB.config.forumurl)
+		if(tgui_alert(usr, "This will open the forum in your browser. Are you sure?", "Forum", list("Yes", "No")) == "No")
 			return
-		send_link(src, config.forumurl)
+		send_link(src, GLOB.config.forumurl)
 	else
 		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
 	return
@@ -32,22 +32,27 @@
 	set name = "reportbug"
 	set desc = "Report a bug."
 	set hidden = 1
-	if( config.githuburl )
-		if(alert("This will open the issue tracker in your browser. Are you sure?",,"Yes","No")=="No")
+
+	if(GLOB.config.githuburl)
+		if(tgui_alert(usr, "This will open the issue tracker in your browser. Are you sure?", "Issue Tracker", list("Yes", "No")) == "No")
 			return
-		send_link(src, config.githuburl + "/issues")
+		send_link(src, GLOB.config.githuburl + "/issues")
 	else
 		to_chat(src, SPAN_WARNING("The issue tracker URL is not set in the server configuration."))
 	return
 
-#define RULES_FILE "config/rules.html"
 /client/verb/rules()
 	set name = "Rules"
 	set desc = "Show Server Rules."
 	set hidden = 1
 
-	src << browse(file2text(RULES_FILE), "window=rules;size=640x500")
-#undef RULES_FILE
+	if(GLOB.config.rulesurl)
+		if(tgui_alert(usr, "This will open the rules in your browser. Are you sure?", "Rules", list("Yes", "No")) == "No")
+			return
+		send_link(src, GLOB.config.rulesurl)
+	else
+		to_chat(src, SPAN_WARNING("The rules URL is not set in the server configuration."))
+	return
 
 /client/verb/hotkeys_help()
 	set name = "hotkeys-help"
@@ -178,10 +183,10 @@ Any-Mode: (hotkey doesn't need to be on)
 	set desc = "Visit the web interface."
 	set hidden = 1
 
-	if (config.webint_url)
-		if(alert("This will open the web interface in your browser. Are you sure?", ,"Yes","No") == "No")
+	if (GLOB.config.webint_url)
+		if(tgui_alert(usr, "This will open the Web Interface in your browser. Are you sure?", "Web Interface", list("Yes", "No")) == "No")
 			return
-		send_link(src, config.webint_url)
+		send_link(src, GLOB.config.webint_url)
 	else
 		to_chat(src, SPAN_WARNING("The web interface URL is not set in the server configuration."))
 	return
@@ -191,9 +196,9 @@ Any-Mode: (hotkey doesn't need to be on)
 	set desc = "Get a link to the Discord server."
 	set hidden = 1
 
-	if (discord_bot && discord_bot.active)
-		if(alert("This will open Discord in your browser or directly. Are you sure?",, "Yes", "No") == "Yes")
-			var/url_link = discord_bot.retreive_invite()
+	if (SSdiscord && SSdiscord.active)
+		if(tgui_alert(usr, "This will open Discord in your browser. Are you sure?", "Discord", list("Yes", "No")) == "No")
+			var/url_link = SSdiscord.retreive_invite()
 			if (url_link)
 				send_link(src, url_link)
 			else

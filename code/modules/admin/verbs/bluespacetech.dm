@@ -131,7 +131,7 @@
 	return 1
 
 /client/proc/bst_post_spawn(mob/living/carbon/human/bst/bst)
-	spark(bst, 3, alldirs)
+	spark(bst, 3, GLOB.alldirs)
 	bst.anchored = FALSE
 
 /mob/living/carbon/human/bst
@@ -164,7 +164,7 @@
 		return
 
 	src.custom_emote(VISIBLE_MESSAGE,"presses a button on their suit, followed by a polite bow.")
-	spark(src, 5, alldirs)
+	spark(src, 5, GLOB.alldirs)
 	QDEL_IN(src, 10)
 	animate(src, alpha = 0, time = 9, easing = QUAD_EASING)
 	if(key)
@@ -346,15 +346,6 @@
 	canremove = 0
 	storage_slots = 56
 	max_w_class = ITEMSIZE_IMMENSE
-
-/obj/item/device/radio/headset/ert/bst/attack_hand()
-	if(!usr)
-		return
-	if(!istype(usr, /mob/living/carbon/human/bst))
-		to_chat(usr, SPAN_ALERT("Your hand seems to go right through the [src]. It's like it doesn't exist."))
-		return
-	else
-		..()
 
 //Headset
 /obj/item/device/radio/headset/ert/bst

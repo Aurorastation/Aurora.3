@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/grand_romanovich
 	name = "Grand Romanovich Casino"
 	description = "An adhomian style casino in Tau Ceti's space."
-	suffixes = list("away_site/romanovich/grand_romanovich.dmm")
+
+	prefix = "away_site/romanovich/"
+	suffixes = list("grand_romanovich.dmm")
+
 	sectors = list(SECTOR_ROMANOVICH)
 	spawn_weight = 1
 	ship_cost = 2
@@ -78,11 +81,11 @@
 	density = 1
 	anchored = 1
 
-/obj/structure/casino/attackby(obj/item/W as obj, mob/user as mob, var/click_parameters)
-	if (!W) return
+/obj/structure/casino/attackby(obj/item/attacking_item, mob/user)
+	if (!attacking_item) return
 
-	if(user.unEquip(W, 0, src.loc))
-		user.make_item_drop_sound(W)
+	if(user.unEquip(attacking_item, 0, src.loc))
+		user.make_item_drop_sound(attacking_item)
 		return 1
 
 /obj/item/coin/casino

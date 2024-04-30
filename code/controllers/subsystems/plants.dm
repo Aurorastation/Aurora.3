@@ -2,7 +2,7 @@ SUBSYSTEM_DEF(plants)
 	name = "Seeds & Plants"
 	flags = 0	// Override parent's flags.
 	wait = 75
-	init_order = SS_INIT_SEEDS
+	init_order = INIT_ORDER_SEEDS
 	priority = SS_PRIORITY_PLANTS
 	runlevels = RUNLEVELS_PLAYING
 
@@ -78,7 +78,7 @@ SUBSYSTEM_DEF(plants)
 		plant_gene_datums[gene_mask] = G
 		gene_masked_list += (list(list("tag" = gene_tag, "mask" = gene_mask)))
 
-	..()
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/plants/Recover()
 	if (istype(SSplants))

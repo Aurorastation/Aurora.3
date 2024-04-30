@@ -5,7 +5,7 @@
 	icon_state = "bronze"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	var/toppled = FALSE
 	var/outside = FALSE
 	var/already_toppled = FALSE
@@ -44,16 +44,16 @@
 	toppled = TRUE
 	update_icon()
 
-/obj/structure/hadii_statue/attackby(obj/item/W, mob/user)
+/obj/structure/hadii_statue/attackby(obj/item/attacking_item, mob/user)
 	if(toppled)
 		return
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	user.do_attack_animation(src)
-	if(W.force <= 15)
-		visible_message(SPAN_WARNING("\The [W] bounces off \the [src]!"))
+	if(attacking_item.force <= 15)
+		visible_message(SPAN_WARNING("\The [attacking_item] bounces off \the [src]!"))
 		return
-	visible_message(SPAN_WARNING("\The [user] strikes \the [src] with \the [W]!"))
-	do_integrity_check(W.force)
+	visible_message(SPAN_WARNING("\The [user] strikes \the [src] with \the [attacking_item]!"))
+	do_integrity_check(attacking_item.force)
 
 /obj/structure/hadii_statue/proc/do_integrity_check(damage)
 	if(toppled)

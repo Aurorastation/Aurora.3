@@ -1,4 +1,4 @@
-var/list/banned_ruin_ids = list()
+GLOBAL_LIST_EMPTY(banned_ruin_ids)
 
 /proc/seedRuins(list/zlevels, budget, list/potentialRuins, allowed_area = /area/space, var/maxx = world.maxx, var/maxy = world.maxy, ignore_sector = FALSE)
 	if (!length(zlevels))
@@ -11,38 +11,65 @@ var/list/banned_ruin_ids = list()
 			UNLINT(log_module_ruins_warning("Z level [z] does not exist - Not generating ruins"))
 			return
 
+	var/remaining = budget
+
 	var/list/available = list()
 	var/list/selected = list()
 	var/list/force_spawn = list()
-	var/remaining = budget
 
-	for(var/datum/map_template/ruin/ruin in potentialRuins)
-		if(HAS_FLAG(ruin.template_flags, TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
+	/// List of ruin paths we've already processed as potential ruins, so we don't get stuck in an infinite loop if there's a cross-reference
+	var/list/handled_ruin_paths = list()
+	while(length(potentialRuins) > 0)
+		var/datum/map_template/ruin/ruin = pick(potentialRuins)
+
+		if((ruin.id in GLOB.banned_ruin_ids) || (ruin.type in handled_ruin_paths))
+			potentialRuins -= ruin
+			handled_ruin_paths += ruin.type
+			continue
+
+		if((ruin.template_flags & TEMPLATE_FLAG_SPAWN_GUARANTEED) && (ruin.spawns_in_current_sector()))
 			force_spawn |= ruin
+			for(var/ruin_path in ruin.force_ruins)
+				var/datum/map_template/ruin/force_ruin = new ruin_path
+				force_spawn |= force_ruin
+			potentialRuins -= ruin
+			handled_ruin_paths += ruin.type
 			continue
-		if(ruin.id in banned_ruin_ids)
-			continue
+
 		if(!(ruin.spawns_in_current_sector()) && !ignore_sector)
+			potentialRuins -= ruin
+			handled_ruin_paths += ruin.type
 			continue
+
+		if((ruin.template_flags & TEMPLATE_FLAG_PORT_SPAWN))
+			if(SSatlas.is_port_call_day())
+				force_spawn |= ruin
+				for(var/ruin_path in ruin.force_ruins)
+					var/datum/map_template/ruin/force_ruin = new ruin_path
+					force_spawn |= force_ruin
+			// No matter if it spawns or not, we want it removed from further consideration, it either spawns here or not at all
+			potentialRuins -= ruin
+			handled_ruin_paths += ruin.type
+			continue
+
 		available[ruin] = ruin.spawn_weight
+
+		for(var/ruin_path in ruin.allow_ruins)
+			var/datum/map_template/ruin/force_ruin = new ruin_path
+			potentialRuins += force_ruin
+
+		potentialRuins -= ruin
+		handled_ruin_paths += ruin.type
 
 	if(!length(available) && !length(force_spawn))
 		UNLINT(log_module_ruins_warning("No ruins available - Not generating ruins"))
 
-	for(var/datum/map_template/ruin/ruin in force_spawn)
-		var/turf/choice = validate_ruin(ruin, zlevels, filter_area = allowed_area, max_x = maxx, max_y = maxy)
-		if(!choice)
-			continue
-
-		log_admin("Ruin \"[ruin.name]\" force-spawned at ([choice.x], [choice.y], [choice.z])!")
-		load_ruin(choice, ruin)
-		selected += ruin
-
-		banned_ruin_ids += ruin.id
-		remaining -= ruin.spawn_cost
-
 	while (remaining > 0 && length(available))
 		var/datum/map_template/ruin/ruin = pickweight(available)
+		if(ruin.id in GLOB.banned_ruin_ids)
+			available -= ruin
+			continue
+
 		var/turf/choice = validate_ruin(ruin, zlevels, remaining, allowed_area, maxx, maxy)
 		if(!choice)
 			available -= ruin
@@ -52,11 +79,37 @@ var/list/banned_ruin_ids = list()
 		load_ruin(choice, ruin)
 		selected += ruin
 
+		for(var/ruin_path in ruin.force_ruins)
+			var/datum/map_template/ruin/force_ruin = new ruin_path
+			if(force_ruin.spawns_in_current_sector())
+				force_spawn |= force_ruin
+
+		for(var/datum/map_template/ruin/ban_ruin as anything in ruin.ban_ruins)
+			var/ruin_id = initial(ban_ruin.id)
+			GLOB.banned_ruin_ids += ruin_id
+
 		if(ruin.spawn_cost > 0)
 			remaining -= ruin.spawn_cost
+
 		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
-			banned_ruin_ids += ruin.id
+			GLOB.banned_ruin_ids += ruin.id
 			available -= ruin
+
+	for(var/datum/map_template/ruin/ruin in force_spawn)
+		if(ruin.id in GLOB.banned_ruin_ids)
+			continue
+
+		var/turf/choice = validate_ruin(ruin, zlevels, filter_area = allowed_area, max_x = maxx, max_y = maxy)
+		if(!choice)
+			log_admin("Ruin \"[ruin.name]\" failed to force-spawned at ([choice.x], [choice.y], [choice.z])!!!")
+			continue
+
+		log_admin("Ruin \"[ruin.name]\" force-spawned at ([choice.x], [choice.y], [choice.z])!")
+		load_ruin(choice, ruin)
+		selected += ruin
+
+		if(!(ruin.template_flags & TEMPLATE_FLAG_ALLOW_DUPLICATES))
+			GLOB.banned_ruin_ids += ruin.id
 
 	if (remaining)
 		log_admin("Ruin loader had no ruins to pick from with [budget] left to spend.")

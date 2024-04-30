@@ -1,447 +1,405 @@
+/// Define to mimic a span macro but for the purple font that vote specifically uses.
+#define vote_font(text) ("<font color='purple'>" + text + "</font>")
+
 SUBSYSTEM_DEF(vote)
-	name = "Voting"
-	wait = 1 SECOND
-	flags = SS_KEEP_TIMING | SS_NO_TICK_CHECK
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	priority = SS_PRIORITY_VOTE
+	name = "Vote"
+	wait = 1 SECONDS
+	flags = SS_KEEP_TIMING
+	init_order = INIT_ORDER_VOTE
+	runlevels = RUNLEVEL_LOBBY | RUNLEVELS_DEFAULT
 
-	var/next_transfer_time
-
-	var/initiator = null
-	var/started_time = null
-	var/time_remaining = 0
-	var/mode = null
-	var/question = null
-	var/list/choices = list()
+	/// A list of all generated action buttons
+	var/list/datum/action/generated_actions = list()
+	/// All votes that we can possible vote for.
+	var/list/datum/vote/possible_votes = list()
+	/// The vote we're currently voting on.
+	var/datum/vote/current_vote
+	/// A list of all ckeys who have voted for the current vote.
 	var/list/voted = list()
-	var/list/current_votes = list()
-	var/auto_muted = 0
-	var/last_transfer_vote = null
+	/// A list of all ckeys currently voting for the current vote.
+	var/list/voting = list()
 
-	var/list/round_voters = list()
+/datum/controller/subsystem/vote/Initialize()
+	for(var/vote_type in subtypesof(/datum/vote))
+		var/datum/vote/vote = new vote_type()
+		if(!vote.is_accessible_vote())
+			qdel(vote)
+			continue
 
-/datum/controller/subsystem/vote/Initialize(timeofday)
-	next_transfer_time = config.vote_autotransfer_initial
+		possible_votes[vote.name] = vote
 
-/datum/controller/subsystem/vote/fire(resumed = FALSE)
-	if (mode)
-		// No more change mode votes after the game has started.
-		if(mode == "gamemode" && ROUND_IS_STARTED)
-			to_world("<b>Voting aborted due to game start.</b>")
-			reset()
-			return
+	return SS_INIT_SUCCESS
 
-		if(((started_time + config.vote_period - world.time)) < 0)
-			result()
-			SStgui.close_uis(src)
-			reset()
 
-	if (get_round_duration() >= next_transfer_time - 600)
-		autotransfer()
-		next_transfer_time += config.vote_autotransfer_interval
+// Called by master_controller
+/datum/controller/subsystem/vote/fire()
+	if(!current_vote)
+		return
+	current_vote.time_remaining = round((current_vote.started_time + 600 - world.time) / 10) //Used to be "CONFIG_GET(number/vote_period)" instead of 600
+	if(current_vote.time_remaining < 0)
+		process_vote_result()
+		SStgui.close_uis(src)
+		reset()
 
-/datum/controller/subsystem/vote/proc/autotransfer()
-	initiate_vote("crew_transfer","the server", 1)
-	LOG_DEBUG("The server has called a crew transfer vote")
-
-/datum/controller/subsystem/vote/proc/autogamemode()
-	for(var/thing in clients)
-		var/client/C = thing
-		window_flash(C)
-	initiate_vote("gamemode","the server", 1)
-	LOG_DEBUG("The server has called a gamemode vote")
-
+/// Resets all of our vars after votes conclude / are cancelled.
 /datum/controller/subsystem/vote/proc/reset()
-	initiator = null
-	time_remaining = 0
-	mode = null
-	question = null
-	choices.Cut()
 	voted.Cut()
-	current_votes.Cut()
+	voting.Cut()
+
+	current_vote?.reset()
+	current_vote = null
+
+	QDEL_LIST(generated_actions)
+
 	SStgui.update_uis(src)
 
-/datum/controller/subsystem/vote/proc/get_result()
-	//get the highest number of votes
-	var/greatest_votes = 0
+/**
+ * Process the results of the vote.
+ * Collects all the winners, breaks any ties that occur,
+ * prints the results of the vote to the world,
+ * and finally follows through with the effects of the vote.
+ */
+/datum/controller/subsystem/vote/proc/process_vote_result()
+
+	// First collect all the non-voters we have.
+	var/list/non_voters = GLOB.directory.Copy() - voted
+	// Remove AFK or clientless non-voters.
+	for(var/non_voter_ckey in non_voters)
+		var/client/non_voter_client = non_voters[non_voter_ckey]
+		if(!istype(non_voter_client) || non_voter_client.is_afk())
+			non_voters -= non_voter_ckey
+
+	// Now get the result of the vote.
+	// This is a list, as we could have a tie (multiple winners).
+	var/list/winners = current_vote.get_vote_result(non_voters)
+
+	// Now we should determine who actually won the vote.
+	var/final_winner
+	// 1 winner? That's the winning option
+	if(length(winners) == 1)
+		final_winner = winners[1]
+
+	// More than 1 winner? Tiebreaker between all the winners
+	else if(length(winners) > 1)
+		final_winner = current_vote.tiebreaker(winners)
+
+	// Announce the results of the vote to the world.
+	var/to_display = current_vote.get_result_text(winners, final_winner, non_voters)
+
 	var/total_votes = 0
-	for(var/option in choices)
-		var/votes = choices[option]["votes"]
-		total_votes += votes
-		if(votes > greatest_votes)
-			greatest_votes = votes
-	//default-vote for everyone who didn't vote
-	if(!config.vote_no_default && choices.len)
-		var/non_voters = (clients.len - total_votes)
-		if(non_voters > 0)
-			if(mode == "restart")
-				choices["Continue Playing"]["votes"] += non_voters
-				if(choices["Continue Playing"]["votes"] >= greatest_votes)
-					greatest_votes = choices["Continue Playing"]["votes"]
-			else if(mode == "gamemode")
-				if(master_mode in choices)
-					choices[master_mode]["votes"] += non_voters
-					if(choices[master_mode]["votes"] >= greatest_votes)
-						greatest_votes = choices[master_mode]["votes"]
-			else if(mode == "crew_transfer")
-				var/factor = 0.5
-				switch(get_round_duration() / (10 * 60)) // minutes
-					if(0 to 60)
-						factor = 0.5
-					if(61 to 120)
-						factor = 0.8
-					if(121 to 240)
-						factor = 1
-					if(241 to 300)
-						factor = 1.2
-					else
-						factor = 1.4
-				choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] * factor)
-				to_world("<span class='vote'>Crew Transfer Factor: [factor]</span>")
-				greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
+	var/list/vote_choice_data = list()
+	for(var/choice in current_vote.choices)
+		var/choice_votes = current_vote.choices[choice]
+		total_votes += choice_votes
+		vote_choice_data["[choice]"] = choice_votes
 
-	if(mode == "crew_transfer")
-		if(round(get_round_duration() / 36000)+12 <= 14)
-			// Credit to Scopes @ oldcode.
-			to_world("<span class='vote'><b>Majority voting rule in effect. 2/3rds majority needed to initiate transfer.</b></span>")
-			choices["Initiate Crew Transfer"]["votes"] = round(choices["Initiate Crew Transfer"]["votes"] - round(total_votes / 3))
-			greatest_votes = max(choices["Initiate Crew Transfer"]["votes"], choices["Continue The Round"]["votes"])
+	// stringify the winners to prevent potential unimplemented serialization errors.
+	// Perhaps this can be removed in the future and we assert that vote choices must implement serialization.
+	var/final_winner_string = final_winner && "[final_winner]"
+	var/list/winners_string = list()
+	for(var/winner in winners)
+		winners_string += "[winner]"
 
-	//get all options with that many votes and return them in a list
-	. = list()
-	if(greatest_votes)
-		for(var/option in choices)
-			if(choices[option]["votes"] == greatest_votes)
-				. += option
+	var/list/vote_log_data = list(
+		"choices" = vote_choice_data,
+		"total" = total_votes,
+		"winners" = winners_string,
+		"final_winner" = final_winner_string,
+	)
+	var/log_string = replacetext(to_display, "\n", "\\n") // 'keep' the newlines, but dont actually print them as newlines
+	log_vote(log_string, vote_log_data)
+	to_chat(world, SPAN_INFO(vote_font("\n[to_display]")))
 
-/datum/controller/subsystem/vote/proc/announce_result()
-	var/list/winners = get_result()
-	var/text
-	if(winners.len > 0)
-		if(winners.len > 1)
-			if(mode != "gamemode" || SSticker.hide_mode == 0) // Here we are making sure we don't announce potential game modes
-				text = "<b>Vote Tied Between:</b>\n"
-				for(var/option in winners)
-					text += "\t[option]\n"
-		. = pick(winners)
+	// Finally, doing any effects on vote completion
+	if (final_winner) // if no one voted, or the vote cannot be won, final_winner will be null
+		current_vote.finalize_vote(final_winner)
 
-		for(var/key in current_votes)
-			if(current_votes[key] == .)
-				round_voters += key // Keep track of who voted for the winning round.
+/**
+ * One selection per person, and the selection with the most votes wins.
+ */
+/datum/controller/subsystem/vote/proc/submit_single_vote(mob/voter, their_vote)
+	if(!current_vote)
+		return
+	if(!voter?.ckey)
+		return
+	if(FALSE && voter.stat == DEAD && !voter.client?.holder) //Used to be "CONFIG_GET(flag/no_dead_vote)"
+		return
 
-		if((mode == "gamemode" && . == "Extended") || SSticker.hide_mode == 0) // Announce Extended gamemode, but not other gamemodes
-			text += "<b>Vote Result: [.]</b>"
-		else
-			if(mode != "gamemode")
-				text += "<b>Vote Result: [.]</b>"
-			else
-				text += "<b>The vote has ended.</b>" // What will be shown if it is a gamemode vote that isn't extended
+	// If user has already voted, remove their specific vote
+	if(voter.ckey in current_vote.choices_by_ckey)
+		var/their_old_vote = current_vote.choices_by_ckey[voter.ckey]
+		current_vote.choices[their_old_vote]--
 
 	else
-		text += "<b>Vote Result: Inconclusive - No Votes!</b>"
-		if(mode == "add_antagonist")
-			antag_add_failed = 1
-	log_vote(text)
-	to_world("<span class='vote'>[text]</span>")
+		voted += voter.ckey
 
-/datum/controller/subsystem/vote/proc/result()
-	. = announce_result()
-	var/restart = 0
-	if(.)
-		switch(mode)
-			if("restart")
-				if(. == "Restart Round")
-					restart = 1
-			if("gamemode")
-				if(master_mode != .)
-					SSpersistent_configuration.last_gamemode = .
-					if(SSticker.mode)
-						restart = 1
-					else
-						master_mode = .
-			if("crew_transfer")
-				if(. == "Initiate Crew Transfer")
-					init_shift_change(null, 1)
-				last_transfer_vote = get_round_duration()
-			if("add_antagonist")
-				if(isnull(.) || . == "None")
-					antag_add_failed = 1
-				else
-					additional_antag_types |= antag_names_to_ids[.]
+	current_vote.choices_by_ckey[voter.ckey] = their_vote
+	current_vote.choices[their_vote]++
 
-	if(mode == "gamemode") //fire this even if the vote fails.
-		if(!round_progressing)
-			round_progressing = 1
-			to_world("<span class='warning'><b>The round will start soon.</b></span>")
+	return TRUE
 
-	if(restart)
-		to_world("World restarting due to vote...")
-		feedback_set_details("end_error","restart vote")
-		sleep(50)
-		log_game("Rebooting due to restart vote")
-		world.Reboot()
+/**
+ * Any number of selections per person, and the selection with the most votes wins.
+ */
+/datum/controller/subsystem/vote/proc/submit_multi_vote(mob/voter, their_vote)
+	if(!current_vote)
+		return
+	if(!voter?.ckey)
+		return
+	if(FALSE && voter.stat == DEAD && !voter.client?.holder) //Used to be "CONFIG_GET(flag/no_dead_vote)"
+		return
 
-/datum/controller/subsystem/vote/proc/submit_vote(ckey, vote)
-	if(mode)
-		if (mode == "crew_transfer")
-			if(config.vote_no_dead && usr && !usr.client.holder)
-				if (isnewplayer(usr))
-					to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
-					return 0
-				else if (isobserver(usr))
-					var/mob/abstract/observer/O = usr
-					if (O.started_as_observer)
-						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
-						return 0
-		if(vote in choices)
-			if(current_votes[ckey])
-				choices[current_votes[ckey]]["votes"]--
-			var/vote_descriptor = ""
-			if(isnewplayer(usr))
-				vote_descriptor = ", from the lobby"
-			else if(isobserver(usr))
-				vote_descriptor = ", as an observer"
-			log_vote("[ckey] submitted their vote for: [vote][vote_descriptor]")
-			voted += usr.ckey
-			choices[vote]["votes"]++	//check this
-			current_votes[ckey] = vote
-			return 1
-	return 0
+	else
+		voted += voter.ckey
 
+	if(current_vote.choices_by_ckey[voter.ckey + their_vote] == 1)
+		current_vote.choices_by_ckey[voter.ckey + their_vote] = 0
+		current_vote.choices[their_vote]--
 
-/datum/controller/subsystem/vote/proc/initiate_vote(vote_type, initiator_key, automatic = FALSE)
-	if(!mode)
-		if(started_time != null && !(check_rights(R_ADMIN|R_MOD) || automatic))
-			// Transfer votes are their own little special snowflake
-			var/next_allowed_time = 0
-			if (vote_type == "crew_transfer")
-				if (config.vote_no_dead && !usr.client.holder)
-					if (isnewplayer(usr))
-						to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
-						return 0
-					else if (isobserver(usr))
-						var/mob/abstract/observer/O = usr
-						if (O.started_as_observer)
-							to_chat(usr, "<span class='warning'>You must be playing or have been playing to start a vote.</span>")
-							return 0
+	else
+		current_vote.choices_by_ckey[voter.ckey + their_vote] = 1
+		current_vote.choices[their_vote]++
 
-				if (last_transfer_vote)
-					next_allowed_time = (last_transfer_vote + config.vote_delay)
-				else
-					next_allowed_time = config.transfer_timeout
-			else
-				next_allowed_time = (started_time + config.vote_delay)
+	return TRUE
 
-			if(next_allowed_time > get_round_duration())
-				return 0
+/**
+ * Initiates a vote, allowing all players to vote on something.
+ *
+ * * vote_type - The type of vote to initiate. Can be a [/datum/vote] typepath, a [/datum/vote] instance, or the name of a vote datum.
+ * * vote_initiator_name - The ckey (if player initiated) or name that initiated a vote. Ex: "UristMcAdmin", "the server"
+ * * vote_initiator - If a person / mob initiated the vote, this is the mob that did it
+ * * forced - Whether we're forcing the vote to go through regardless of existing votes or other circumstances. Note: If the vote is admin created, forced becomes true regardless.
+ */
+/datum/controller/subsystem/vote/proc/initiate_vote(vote_type, vote_initiator_name, mob/vote_initiator, forced = FALSE)
 
-		//reset()
-		switch(vote_type)
-			if("restart")
-				AddChoice("Restart Round")
-				AddChoice("Continue Playing")
-			if("gamemode")
-				round_voters.Cut() //Delete the old list, since we are having a new gamemode vote
-				if(SSticker.current_state >= 2)
-					return 0
-				for (var/F in config.votable_modes)
-					var/datum/game_mode/M = gamemode_cache[F]
-					if(!M)
-						continue
-					AddChoice(F, capitalize(M.name), "", M.required_players)
-				AddChoice(ROUNDTYPE_STR_SECRET, "Secret")
-				if(ROUNDTYPE_STR_MIXED_SECRET in choices)
-					AddChoice(ROUNDTYPE_STR_MIXED_SECRET, "Mixed Secret")
-			if("crew_transfer")
-				if(check_rights(R_ADMIN|R_MOD, 0))
-					question = "End the shift?"
-					AddChoice("Initiate Crew Transfer")
-					AddChoice("Continue The Round")
-				else
-					if (get_security_level() == "red" || get_security_level() == "delta")
-						to_chat(initiator_key, "The current alert status is too high to call for a crew transfer!")
-						return 0
-					if(SSticker.current_state <= 2)
-						to_chat(initiator_key, "The crew transfer button has been disabled!")
-						return 0
-					question = "End the shift?"
-					AddChoice("Initiate Crew Transfer")
-					AddChoice("Continue The Round")
-			if("add_antagonist")
-				if(!config.allow_extra_antags || SSticker.current_state >= 2)
-					return 0
-				for(var/antag_type in all_antag_types)
-					var/datum/antagonist/antag = all_antag_types[antag_type]
-					if(!(antag.id in additional_antag_types) && antag.is_votable())
-						AddChoice(antag.role_text)
-				AddChoice("None")
-			if("custom")
-				question = tgui_input_text(usr, "What is the vote for?")
-				if(!question)
-					return FALSE
+	// Even if it's forced we can't vote before we're set up
+	if(!MC_RUNNING(init_stage))
+		if(vote_initiator)
+			to_chat(vote_initiator, SPAN_WARNING("You cannot start vote now, the server is not done initializing."))
+		return FALSE
 
-				for(var/i=1,i<=10,i++)
-					var/option = capitalize(sanitize(input(usr,"Please enter an option or hit cancel to finish") as text|null))
-					if(!option || mode || !usr.client)	break
-					AddChoice(option)
-			else
-				return 0
-		mode = vote_type
-		initiator = initiator_key
-		started_time = world.time
-		var/text = "[capitalize(mode)] vote started by [initiator]."
-		if(mode == "custom")
-			text += "\n[sanitizeSafe(question)]"
+	// Check if we have unlimited voting power.
+	// Admin started (or forced) voted will go through even if there's an ongoing vote,
+	// if voting is on cooldown, or regardless if a vote is config disabled (in some cases)
+	var/unlimited_vote_power = forced || !!(vote_initiator.client?.holder?.rights & (R_ADMIN)) //Used GLOB.admin_datum
 
-		log_vote(text)
-		for(var/cc in clients)
-			var/client/C = cc
-			to_chat(C, "<span class='vote'><b>[text]</b>\nType <b>vote</b> or click <a href='?src=\ref[src];open=1'>here</a> to place your votes.\nYou have [config.vote_period/10] seconds to vote.</span>")
-			if(C.prefs.sfx_toggles & ASFX_VOTE) //Personal mute
-				switch(vote_type)
-					if("crew_transfer")
-						sound_to(C, sound('sound/effects/vote.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
-					if("gamemode")
-						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
-					if("custom")
-						sound_to(C, sound('sound/ambience/vote_alarm.ogg', repeat = 0, wait = 0, volume = 50, channel = 3))
-		if(mode == "gamemode" && round_progressing)
-			round_progressing = 0
-			to_world("<span class='warning'><b>Round start has been delayed.</b></span>")
-		SStgui.update_uis(src)
-		return 1
-	return 0
+	if(current_vote && !unlimited_vote_power)
+		if(vote_initiator)
+			to_chat(vote_initiator, SPAN_WARNING("There is already a vote in progress! Please wait for it to finish."))
+		return FALSE
 
-/datum/controller/subsystem/vote/proc/AddChoice(name, display_name, extra_text = "", required_players = 0)
-	if(!display_name)
-		display_name = name
-	choices[name] = list(
-		"name" = display_name,
-		"extra" = extra_text,
-		"required_players" = required_players,
-		"votes" = 0
-	)
+	// Get our actual datum
+	var/datum/vote/to_vote
+	// If we were passed a path: find the path in possible_votes
+	if(ispath(vote_type, /datum/vote))
+		var/datum/vote/vote_path = vote_type
+		to_vote = possible_votes[initial(vote_path.name)]
 
-/datum/controller/subsystem/vote/ui_state(mob/user)
-	return always_state
+	// If we were passed an instance: use the instance
+	else if(istype(vote_type, /datum/vote))
+		to_vote = vote_type
 
-/datum/controller/subsystem/vote/ui_status(mob/user, datum/ui_state/state)
-	return UI_INTERACTIVE
+	// If we got neither a path or an instance, it could be a vote name, but is likely just an error / null
+	else
+		to_vote = possible_votes[vote_type]
+		if(!to_vote)
+			stack_trace("Voting initiate_vote was passed an invalid vote type. (Got: [vote_type || "null"])")
+
+	// No valid vote found? No vote
+	if(!istype(to_vote))
+		if(vote_initiator)
+			to_chat(vote_initiator, SPAN_WARNING("Invalid voting choice."))
+		return FALSE
+
+	// Vote can't be initiated in our circumstances? No vote
+	if(!to_vote.can_be_initiated(vote_initiator, unlimited_vote_power))
+		return FALSE
+
+	// Okay, we're ready to actually create a vote -
+	// Do a reset, just to make sure
+	reset()
+
+	// Try to create the vote. If the creation fails, no vote
+	if(!to_vote.create_vote(vote_initiator))
+		return FALSE
+
+	// Okay, the vote's happening now, for real. Set it up.
+	current_vote = to_vote
+
+	var/duration = 600 //As above, used to be "CONFIG_GET(number/vote_period)"
+	var/to_display = current_vote.initiate_vote(vote_initiator_name, duration)
+
+	log_vote(to_display)
+	to_chat(world, SPAN_INFO(vote_font("\n[SPAN_BOLD(to_display)]\n\
+		Type <b>vote</b> or click <a href='byond://winset?command=vote'>here</a> to place your votes.\n\
+		You have [DisplayTimeText(duration)] to vote.")))
+
+	// And now that it's going, give everyone a voter action
+	for(var/client/new_voter as anything in GLOB.clients)
+		var/datum/action/vote/voting_action = new()
+		voting_action.name = "Vote: [current_vote.override_question || current_vote.name]"
+		voting_action.Grant(new_voter.mob)
+
+		//new_voter.player_details.player_actions += voting_action
+		generated_actions += voting_action
+
+		if(current_vote.vote_sound && (new_voter.prefs.sfx_toggles & ASFX_VOTE)) //Used "new_voter.prefs.read_preference(/datum/preference/toggle/sound_announcements)" but we don't have it
+			SEND_SOUND(new_voter, sound(current_vote.vote_sound))
+
+	return TRUE
+
+/datum/controller/subsystem/vote/ui_state()
+	return GLOB.always_state
 
 /datum/controller/subsystem/vote/ui_interact(mob/user, datum/tgui/ui)
+	// Tracks who is currently voting
+	voting |= user.client?.ckey
 	ui = SStgui.try_update_ui(user, src, ui)
-	if (!ui)
-		ui = new(user, src, "Voting", "Voting", 400, 500)
+	if(!ui)
+		ui = new(user, src, "VotePanel")
 		ui.open()
 
-/datum/controller/subsystem/vote/Topic(href, href_list)
-	. = ..()
-	if(href_list["open"])
-		SSvote.ui_interact(usr)
-		return TRUE
+/datum/controller/subsystem/vote/ui_data(mob/user)
+	var/list/data = list()
 
-/datum/controller/subsystem/vote/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
+	var/is_lower_admin = (user.client?.holder?.rights & (R_ADMIN | R_MOD))
+	var/is_upper_admin = (user.client?.holder?.rights & (R_ADMIN)) // Used "check_rights_for(user.client, R_ADMIN)" but we don't have that
+
+	data["user"] = list(
+		"ckey" = user.client?.ckey,
+		"isLowerAdmin" = is_lower_admin,
+		"isUpperAdmin" = is_upper_admin,
+		// What the current user has selected in any ongoing votes.
+		"singleSelection" = current_vote?.choices_by_ckey[user.client?.ckey],
+		"multiSelection" = current_vote?.choices_by_ckey,
+	)
+
+	data["voting"]= is_lower_admin ? voting : list()
+
+	var/list/all_vote_data = list()
+	for(var/vote_name in possible_votes)
+		var/datum/vote/vote = possible_votes[vote_name]
+		if(!istype(vote))
+			continue
+
+		var/list/vote_data = list(
+			"name" = vote_name,
+			"canBeInitiated" = vote.can_be_initiated(forced = is_lower_admin),
+			"config" = vote.is_config_enabled(),
+			"message" = vote.message,
+		)
+
+		if(vote == current_vote)
+			var/list/choices = list()
+			for(var/key in current_vote.choices)
+				choices += list(list(
+					"name" = key,
+					"votes" = current_vote.choices[key],
+				))
+
+			data["currentVote"] = list(
+				"name" = current_vote.name,
+				"question" = current_vote.override_question,
+				"timeRemaining" = current_vote.time_remaining,
+				"countMethod" = current_vote.count_method,
+				"choices" = choices,
+				"vote" = vote_data,
+			)
+
+		all_vote_data += list(vote_data)
+
+	data["possibleVotes"] = all_vote_data
+
+	return data
+
+/datum/controller/subsystem/vote/ui_act(action, params)
 	. = ..()
 	if(.)
 		return
 
-	. = TRUE
-	var/isstaff = ui.user.client.holder && (ui.user.client.holder.rights & (R_ADMIN|R_MOD))
+	var/mob/voter = usr
 
 	switch(action)
 		if("cancel")
-			if(isstaff)
-				reset()
-				return TRUE
-		if("toggle_restart")
-			if(isstaff)
-				config.allow_vote_restart = !config.allow_vote_restart
-				SStgui.update_uis(src)
-				return TRUE
-		if("toggle_gamemode")
-			if(isstaff)
-				config.allow_vote_mode = !config.allow_vote_mode
-				SStgui.update_uis(src)
-				return TRUE
-		if("restart")
-			if(isstaff)
-				initiate_vote("restart", ui.user.key)
-				return TRUE
-			else if (config.allow_vote_restart)
-				var/admin_number_present = 0
-				var/admin_number_afk = 0
+			if(!(voter.client?.holder?.rights & (R_ADMIN | R_MOD)))
+				return
 
-				for (var/s in staff)
-					var/client/X = s
-					if (X.holder.rights & R_ADMIN)
-						admin_number_present++
-						if (X.is_afk())
-							admin_number_afk++
-						if (X.prefs.toggles & SOUND_ADMINHELP)
-							sound_to(X, 'sound/effects/adminhelp.ogg')
-
-				if ((admin_number_present - admin_number_afk) <= 0)
-					initiate_vote("restart", ui.user.key)
-					return TRUE
-				else
-					log_and_message_admins("tried to start a restart vote.", usr, null)
-					to_chat(ui.user, "<span class='notice'><b>There are active admins around! You cannot start a restart vote due to this.</b></span>")
-		if("gamemode")
-			if(config.allow_vote_mode || isstaff)
-				initiate_vote("gamemode", ui.user.key)
-				return TRUE
-		if("crew_transfer")
-			if(config.allow_vote_restart || isstaff)
-				initiate_vote("crew_transfer", ui.user.key)
-				return TRUE
-		if("add_antagonist")
-			if(!antag_add_failed && config.allow_extra_antags)
-				initiate_vote("add_antagonist", ui.user.key)
-				return TRUE
-		if("custom")
-			if(isstaff)
-				initiate_vote("custom", ui.user.key)
-				return TRUE
-		if("vote")
-			var/list/T = params["vote"]
-			var/our_vote = T["choice"]
-			if(our_vote)
-				if(submit_vote(ui.user.ckey, our_vote))
-					SStgui.update_uis(src)
+			message_admins("[key_name_admin(voter)] has cancelled the current vote.")
+			reset()
 			return TRUE
 
-/datum/controller/subsystem/vote/ui_data(mob/user)
-	var/list/data = list()
-	if(choices.len != LAZYLEN(data["choices"]))
-		data["choices"] = list()
-	for(var/choice in choices)
-		data["choices"] += list(list(
-			"choice" = choice,
-			"votes" = choices[choice]["votes"],
-			"extra" = choices[choice]["extra"],
-			"required_players" = choices[choice]["required_players"],
-		))
+		if("toggleVote")
+			var/datum/vote/selected = possible_votes[params["voteName"]]
+			if(!istype(selected))
+				return
 
-	data["mode"] = mode
-	data["voted"] = current_votes[user.ckey]
-	data["endtime"] = started_time + config.vote_period
-	data["allow_vote_restart"] = config.allow_vote_restart
-	data["allow_vote_mode"] = config.allow_vote_mode
-	data["allow_extra_antags"] = (!antag_add_failed && config.allow_extra_antags)
+			return selected.toggle_votable(voter)
 
-	if(!question)
-		data["question"] = capitalize(mode)
-	else
-		data["question"] = question
-	data["is_staff"] = user.client.holder && (user.client.holder.rights & (R_ADMIN|R_MOD))
-	var/slevel = get_security_level()
-	data["is_code_red"] = (slevel == "red" || slevel == "delta")
-	data["total_players"] = SSticker.total_players
-	data["total_players_ready"] = SSticker.total_players_ready
-	return data
+		if("callVote")
+			var/datum/vote/selected = possible_votes[params["voteName"]]
+			if(!istype(selected))
+				return
 
+			// Whether the user actually can initiate this vote is checked in initiate_vote,
+			// meaning you can't spoof initiate a vote you're not supposed to be able to
+			return initiate_vote(selected, voter.key, voter)
+
+		if("voteSingle")
+			return submit_single_vote(voter, params["voteOption"])
+
+		if("voteMulti")
+			return submit_multi_vote(voter, params["voteOption"])
+
+/datum/controller/subsystem/vote/ui_close(mob/user)
+	voting -= user.client?.ckey
+
+/*#########################
+	Aurora snowflake area
+###########################*/
+
+/datum/controller/subsystem/vote/proc/autogamemode()
+	initiate_vote(/datum/vote/gamemode, "Server", null, TRUE)
+
+/datum/controller/subsystem/vote/proc/autotransfer()
+	initiate_vote(/datum/vote/crewtransfer, "Server", null, TRUE)
+
+/*##############################
+	Aurora snowflake area end
+################################*/
+
+/// Mob level verb that allows players to vote on the current vote.
 /mob/verb/vote()
 	set category = "OOC"
 	set name = "Vote"
 
-	SSvote.ui_interact(src)
+	SSvote.ui_interact(usr)
+
+/// Datum action given to mobs that allows players to vote on the current vote.
+/datum/action/vote
+	name = "Vote!"
+	button_icon_state = "vote"
+	//show_to_observers = FALSE
+
+/datum/action/vote/IsAvailable(feedback = FALSE)
+	return TRUE // Democracy is always available to the free people
+
+/datum/action/vote/Trigger(trigger_flags)
+	. = ..()
+	if(!.)
+		return
+
+	owner.vote()
+	Remove(owner)
+
+// We also need to remove our action from the player actions when we're cleaning up.
+/datum/action/vote/Remove(mob/removed_from)
+	// if(removed_from.client)
+	// 	removed_from.client?.player_details.player_actions -= src
+
+	// else if(removed_from.ckey)
+	// 	var/datum/player_details/associated_details = GLOB.player_details[removed_from.ckey]
+	// 	associated_details?.player_actions -= src
+
+	return ..()
+
+#undef vote_font

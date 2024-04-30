@@ -126,7 +126,7 @@
 	has_item_ratio = FALSE
 	w_class = ITEMSIZE_NORMAL
 	fire_sound = 'sound/weapons/taser2.ogg'
-	force = 5
+	force = 11
 	projectile_type = /obj/item/projectile/beam/mousegun
 	slot_flags = SLOT_HOLSTER | SLOT_BELT
 	max_shots = 6
@@ -136,7 +136,7 @@
 
 /obj/item/gun/energy/mousegun/handle_post_fire(mob/user, atom/target, var/pointblank=0, var/reflex=0, var/playemote = 1)
 	var/T = get_turf(user)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	..()
 
 /obj/item/gun/energy/mousegun/emag_act(var/remaining_charges, var/mob/user)
@@ -200,7 +200,7 @@
 	charge_meter = 0
 	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/LightningShock.ogg'
-	force = 30
+	force = 33
 	projectile_type = /obj/item/projectile/energy/bfg
 	slot_flags = SLOT_BACK
 	max_shots = 3
@@ -224,7 +224,7 @@
 	charge_meter = 0
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-	force = 10
+	force = 15
 	projectile_type = /obj/item/projectile/beam/gatlinglaser
 	max_shots = 350
 	sel_mode = 1
@@ -283,7 +283,7 @@
 	w_class = ITEMSIZE_NORMAL
 	accuracy = 1
 	recoil = 1
-	force = 10
+	force = 15
 	projectile_type = /obj/item/projectile/energy/blaster/incendiary
 	max_shots = 7
 	burst = 1
@@ -373,7 +373,7 @@
 		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
 		return
 
-/obj/item/gun/energy/vaurca/typec/dropped(var/mob/user)
+/obj/item/gun/energy/vaurca/typec/dropped(mob/user)
 	..()
 	if(!istype(loc,/mob))
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
@@ -395,7 +395,7 @@
 	fire_sound = 'sound/magic/lightningbolt.ogg'
 	slot_flags = SLOT_BACK
 	w_class = ITEMSIZE_LARGE
-	force = 15
+	force = 22
 	projectile_type = /obj/item/projectile/beam/thermaldrill
 	max_shots = 90
 	burst = 10
@@ -475,7 +475,7 @@
 	charge_meter = 0
 	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/LightningShock.ogg'
-	force = 30
+	force = 33
 	projectile_type = /obj/item/projectile/beam/tesla
 	slot_flags = SLOT_BACK
 	max_shots = 3
@@ -501,7 +501,7 @@
 	charge_meter = 0
 	w_class = ITEMSIZE_LARGE
 	fire_sound = 'sound/magic/Repulse.ogg'
-	force = 30
+	force = 33
 	projectile_type = /obj/item/projectile/energy/gravitydisabler
 	slot_flags = SLOT_BACK
 	max_shots = 2

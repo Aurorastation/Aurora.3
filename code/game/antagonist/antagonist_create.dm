@@ -112,7 +112,7 @@
 		to_chat(player.current, "<span class='notice'>[welcome_text]</span>")
 
 	if(antag_sound)
-		player.current.playsound_simple(get_turf(src), sound(antag_sound), 50, FALSE)
+		player.current.playsound_local(get_turf(src), sound(antag_sound), 50, FALSE)
 
 	if((flags & ANTAG_HAS_NUKE) && !spawned_nuke)
 		create_nuke()
@@ -127,7 +127,7 @@
 		var/mob/living/carbon/human/H = player
 		var/datum/language/L = H.default_language
 		if(!L)
-			L = all_languages[LANGUAGE_TCB]
+			L = GLOB.all_languages[LANGUAGE_TCB]
 		H.real_name = L.get_random_name()
 		H.name = H.real_name
 		H.dna.real_name = H.real_name

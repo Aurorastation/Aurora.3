@@ -56,7 +56,7 @@
 
 	to_chat(user, SPAN_CULT("You psionically say to [target]: [text]"))
 
-	for (var/mob/M in player_list)
+	for (var/mob/M in GLOB.player_list)
 		if (istype(M, /mob/abstract/new_player))
 			continue
 		else if(M.stat == DEAD && M.client.prefs.toggles & CHAT_GHOSTEARS)

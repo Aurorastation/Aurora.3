@@ -1,4 +1,5 @@
 /datum/antagonist/proc/add_antagonist(var/datum/mind/player, var/ignore_role, var/do_not_equip, var/move_to_spawn, var/do_not_announce, var/preserve_appearance)
+	SHOULD_NOT_SLEEP(TRUE)
 
 	if(!add_antagonist_mind(player, ignore_role))
 		return 0
@@ -84,10 +85,10 @@
 
 
 /datum/antagonist/proc/log_antagonist_add(var/datum/mind/player)
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		return
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		LOG_DEBUG("AntagLog: SQL ERROR - Failed to connect.")
 		return
 
@@ -97,11 +98,11 @@
 		char_id = player.current.character_id
 
 	//Run the query to insert the antagonist into the db
-	var/DBQuery/new_log = dbcon.NewQuery("INSERT INTO ss13_antag_log ( ckey, char_id, game_id, char_name, special_role_name, special_role_added) VALUES ( :ckey:, :char_id:, :game_id:, :char_name:, :special_role_name:, :special_role_added:)")
-	new_log.Execute(list("ckey" = ckey(player.key) , "char_id" = char_id, "game_id" = game_id, "char_name" = player.current.name, "special_role_name"=role_text,"special_role_added" = "[get_round_duration_formatted()]:00"))
+	var/DBQuery/new_log = GLOB.dbcon.NewQuery("INSERT INTO ss13_antag_log ( ckey, char_id, game_id, char_name, special_role_name, special_role_added) VALUES ( :ckey:, :char_id:, :game_id:, :char_name:, :special_role_name:, :special_role_added:)")
+	new_log.Execute(list("ckey" = ckey(player.key) , "char_id" = char_id, "game_id" = GLOB.round_id, "char_name" = player.current.name, "special_role_name"=role_text,"special_role_added" = "[get_round_duration_formatted()]:00"))
 
 	//Run the query to get the inserted id
-	var/DBQuery/log_id = dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
+	var/DBQuery/log_id = GLOB.dbcon.NewQuery("SELECT LAST_INSERT_ID() AS log_id")
 	log_id.Execute()
 
 	//Save the inserted it to the antagonist datum
@@ -111,10 +112,10 @@
 	return
 
 /datum/antagonist/proc/log_antagonist_remove(var/datum/mind/player)
-	if(!config.sql_enabled)
+	if(!GLOB.config.sql_enabled)
 		return
 
-	if(!establish_db_connection(dbcon))
+	if(!establish_db_connection(GLOB.dbcon))
 		LOG_DEBUG("AntagLog: SQL ERROR - Failed to connect.")
 		return
 
@@ -122,5 +123,5 @@
 		return
 
 	//Run the query to update the db entry with the removal time
-	var/DBQuery/update_query = dbcon.NewQuery("UPDATE ss13_antag_log SET special_role_removed = :special_role_removed: WHERE id = :id:")
+	var/DBQuery/update_query = GLOB.dbcon.NewQuery("UPDATE ss13_antag_log SET special_role_removed = :special_role_removed: WHERE id = :id:")
 	update_query.Execute(list("id"=db_log_id,"special_role_removed"="[get_round_duration_formatted()]:00"))

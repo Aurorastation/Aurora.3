@@ -6,14 +6,14 @@
 	if (!ckey || !address || !computer_id || !ban_id)
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		log_misc("Ban database connection failure while attempting to mirror. Key passed for mirror handling: [ckey].")
 		return
 
 	var/bad_data = BAD_CKEY|BAD_IP|BAD_CID
 
-	var/DBQuery/original_ban = dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban WHERE id = :ban_id:")
+	var/DBQuery/original_ban = GLOB.dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban WHERE id = :ban_id:")
 	original_ban.Execute(list("ban_id" = ban_id))
 
 	if (original_ban.NextRow())
@@ -28,7 +28,7 @@
 			bad_data &= ~BAD_CID
 
 		if (bad_data)
-			var/DBQuery/mirrored_bans = dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban_mirrors WHERE isnull(deleted_at) AND ban_id = :ban_id:")
+			var/DBQuery/mirrored_bans = GLOB.dbcon.NewQuery("SELECT ckey, ip, computerid FROM ss13_ban_mirrors WHERE isnull(deleted_at) AND ban_id = :ban_id:")
 			mirrored_bans.Execute(list("ban_id" = ban_id))
 
 			while (mirrored_bans.NextRow())
@@ -57,12 +57,12 @@
 	if (!ckey || !address || !computer_id)
 		return null
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		log_world("ERROR: Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		log_misc("Ban database connection failure while attempting to check mirrors. Key passed for mirror checking: [ckey].")
 		return null
 
-	var/DBQuery/initial_query = dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE isnull(deleted_at) AND (ckey = :ckey: OR ip = :address: OR computerid = :computerid:)")
+	var/DBQuery/initial_query = GLOB.dbcon.NewQuery("SELECT DISTINCT ban_id FROM ss13_ban_mirrors WHERE isnull(deleted_at) AND (ckey = :ckey: OR ip = :address: OR computerid = :computerid:)")
 	initial_query.Execute(list("ckey" = ckey, "address" = address, "computerid" = computer_id))
 
 	var/list/ban_ids = list()
@@ -74,7 +74,7 @@
 	if (!ban_ids.len)
 		return null
 
-	var/DBQuery/search_query = dbcon.NewQuery("SELECT id FROM ss13_ban WHERE id IN :vars: AND isnull(unbanned) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now()))")
+	var/DBQuery/search_query = GLOB.dbcon.NewQuery("SELECT id FROM ss13_ban WHERE id IN :vars: AND isnull(unbanned) AND (bantype = 'PERMABAN' OR (bantype = 'TEMPBAN' AND expiration_time > Now()))")
 	search_query.Execute(list("vars" = ban_ids))
 
 	var/list/active_bans = list()
@@ -98,7 +98,7 @@
 	for (var/i = 1; i <= extra_info.len && i <= 50; i++)
 		. |= extra_info[i][1]
 
-	var/DBQuery/new_mirror = dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (id, ban_id, ckey, ip, computerid, source, extra_info, datetime) VALUES (NULL, :ban_id:, :ckey:, :address:, :computerid:, :source:, :info:, NOW())")
+	var/DBQuery/new_mirror = GLOB.dbcon.NewQuery("INSERT INTO ss13_ban_mirrors (id, ban_id, ckey, ip, computerid, source, extra_info, datetime) VALUES (NULL, :ban_id:, :ckey:, :address:, :computerid:, :source:, :info:, NOW())")
 	new_mirror.Execute(list("ban_id" = ban_id, "ckey" = ckey, "address" = address, "computerid" = computer_id, "source" = source, "info" = json_encode(.)))
 
 	log_misc("Mirrored ban #[ban_id] for player [ckey] from [address]-[computer_id].")
@@ -107,10 +107,10 @@
 	if (!ban_id)
 		return null
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		return null
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT id, ckey, ip, computerid, date(datetime) as datetime, source, extra_info, deleted_at FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT id, ckey, ip, computerid, date(datetime) as datetime, source, extra_info, deleted_at FROM ss13_ban_mirrors WHERE ban_id = :ban_id:")
 	query.Execute(list("ban_id" = ban_id))
 
 	var/list/mirrors = list()
@@ -194,11 +194,11 @@
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		to_chat(user, "<span class='warning'>Database connection failed!</span>")
 		return
 
-	var/DBQuery/query = dbcon.NewQuery("SELECT extra_info, ban_id FROM ss13_ban_mirrors WHERE id = :id:")
+	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT extra_info, ban_id FROM ss13_ban_mirrors WHERE id = :id:")
 	query.Execute(list("id" = mirror_id))
 
 	if (!query.NextRow())
@@ -229,13 +229,13 @@
 	if (!user || !check_rights(R_MOD|R_ADMIN) || !mirror_id)
 		return
 
-	if (!establish_db_connection(dbcon))
+	if (!establish_db_connection(GLOB.dbcon))
 		to_chat(user, "<span class='warning'>Database connection failed!</span>")
 		return
 
 	var/query_text = inactive ? "UPDATE ss13_ban_mirrors SET deleted_at = NULL WHERE id = :id:" : "UPDATE ss13_ban_mirrors SET deleted_at = NOW() WHERE id = :id:"
 
-	var/DBQuery/query = dbcon.NewQuery(query_text)
+	var/DBQuery/query = GLOB.dbcon.NewQuery(query_text)
 	query.Execute(list("id" = mirror_id))
 
 	if (query.ErrorMsg())
@@ -272,15 +272,15 @@
 		if (A & 2)
 			count++
 
-		if (config.access_deny_vms && count >= config.access_deny_vms)
-			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].", ckey = C.ckey)
-			message_admins("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[config.access_deny_vms] VM identifiers. IDs: [A].")
+		if (GLOB.config.access_deny_vms && count >= GLOB.config.access_deny_vms)
+			log_access("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].", ckey = C.ckey)
+			message_admins("Failed Login: [C.ckey] [C.address] [C.computer_id] - Matching [count]/[GLOB.config.access_deny_vms] VM identifiers. IDs: [A].")
 			spawn(20)
 				if (C)
 					del(C)
 			return
 
-		if (config.access_warn_vms && count >= config.access_warn_vms)
+		if (GLOB.config.access_warn_vms && count >= GLOB.config.access_warn_vms)
 			log_access("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].", ckey = C.ckey)
 			message_admins("Notice: [key_name(C)] [C.address] [C.computer_id] - Matching [count] VM identifiers. IDs: [A].")
 
@@ -309,7 +309,7 @@
 			if (dset[3] == C.computer_id)
 				new_info &= ~BAD_CID
 
-		var/list/bdata = world.IsBanned(dset[1], dset[2], dset[3], 1, real_bans_only = TRUE)
+		var/list/bdata = world.IsBanned(dset[1], dset[2], dset[3], 1, real_bans_only = TRUE, log_connection = FALSE)
 		if (bdata && bdata.len && !isnull(bdata["id"]))
 			ding_bannu = bdata["id"]
 			break

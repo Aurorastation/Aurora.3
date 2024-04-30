@@ -11,36 +11,37 @@
 /area/engineering/atmos
 	name = "Engineering - Atmospherics"
 	icon_state = "atmos"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = 1
 	ambience = list(AMBIENCE_ENGINEERING, AMBIENCE_ATMOS)
-	area_blurb = "Many tanks are here, providing life support systems for the vessel."
+	area_blurb = "Many volume tanks filled with gas reside here, some providing vital gases for the vessel's life support systems."
+	area_blurb_category = "atmos"
 
 /area/engineering/atmos/monitoring
 	name = "Engineering - Atmospherics Monitoring Room"
 	icon_state = "atmos_monitoring"
-	sound_env = STANDARD_STATION
+	sound_environment = SOUND_AREA_STANDARD_STATION
 
 /area/engineering/atmos/storage
 	name = "Engineering - Atmospherics Storage"
 	icon_state = "atmos_storage"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/engineering/drone_fabrication
 	name = "Engineering - Drone Fabrication"
 	icon_state = "drone_fab"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/engineering/engine_smes
 	name = "Engineering - Main Lvl. SMES Room"
 	icon_state = "engine_smes"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
 
 /area/engineering/engine_room
 	name = "Engineering - Engine Room"
 	icon_state = "engine"
-	sound_env = LARGE_ENCLOSED
+	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	no_light_control = 1
 	ambience = AMBIENCE_SINGULARITY
 
@@ -94,8 +95,9 @@
 /area/engineering/break_room
 	name = "Engineering - Break Room"
 	icon_state = "engineering_break"
-	sound_env = MEDIUM_SOFTFLOOR
-	area_blurb = "The smells of coffee and motor oil linger in the air."
+	sound_environment = SOUND_AREA_MEDIUM_SOFTFLOOR
+	area_blurb = "The smell of coffee intermixed with oil linger in the air."
+	area_blurb_category = "engi_breakroom"
 
 /area/engineering/engine_eva
 	name = "Engineering - Engine EVA"
@@ -116,7 +118,7 @@
 /area/engineering/cooling
 	name = "Engineering - Engine Cooling Radiator"
 	icon_state = "engine_monitoring"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED
 
 /area/engineering/gravity_gen
 	name = "Engineering - Gravity Generator"
@@ -125,4 +127,4 @@
 /area/engineering/backup_SMES
 	name = "Engineering - Backup Power Storage"
 	icon_state = "substation"
-	sound_env = SMALL_ENCLOSED
+	sound_environment = SOUND_AREA_SMALL_ENCLOSED

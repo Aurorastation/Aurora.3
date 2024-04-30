@@ -32,7 +32,7 @@
 		filling.color = reagents.get_color()
 		add_overlay(filling)
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/examine(mob/user, distance, is_adjacent)
+/obj/item/reagent_containers/personal_inhaler_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 
 	if (distance > 2)
@@ -40,14 +40,14 @@
 
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
-			to_chat(user,"<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>")
+			. += "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>"
 		else
-			to_chat(user,"<span class='notice'>It is empty.</span>")
+			. += "<span class='notice'>It is empty.</span>"
 	else
 		if(LAZYLEN(reagents.reagent_volumes))
-			to_chat(user,"<span class='notice'>The reagents are secured in the aerosol mix.</span>")
+			. += "<span class='notice'>The reagents are secured in the aerosol mix.</span>"
 		else
-			to_chat(user,"<span class='notice'>The cartridge seems spent.</span>")
+			. += "<span class='notice'>The cartridge seems spent.</span>"
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
@@ -60,9 +60,9 @@
 		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
 	return
 
-/obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [W], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
+/obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver() && !is_open_container())
+		to_chat(user,"<span class='notice'>Using \the [attacking_item], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		return
 	. = ..()
@@ -101,12 +101,12 @@
 	origin_tech = list(TECH_BIO = 2, TECH_MATERIAL = 2)
 	var/eject_when_empty = FALSE
 
-/obj/item/personal_inhaler/examine(mob/user, distance, is_adjacent)
+/obj/item/personal_inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance > 2)
 		return
 	if(stored_cartridge)
-		to_chat(user,"<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>")
+		. += "<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>"
 
 /obj/item/personal_inhaler/update_icon()
 	cut_overlays()
@@ -142,7 +142,7 @@
 		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
 		return
 
-	if (((user.is_clumsy()) || HAS_FLAG(user.mutations, DUMB)) && prob(10))
+	if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
 		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
 		if(M.eyes_protected(src, FALSE))
 			eyestab(M,user)
@@ -189,7 +189,8 @@
 	update_icon()
 	return
 
-/obj/item/personal_inhaler/attackby(var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge as obj, var/mob/user as mob)
+/obj/item/personal_inhaler/attackby(obj/item/attacking_item, mob/user)
+	var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge = attacking_item
 	if(istype(cartridge))
 		if(src.stored_cartridge)
 			to_chat(user,"<span class='notice'>\The [src] already has a cartridge.</span>")

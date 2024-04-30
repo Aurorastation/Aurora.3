@@ -5,22 +5,19 @@
 
 
 #define START_PROCESSING_IN_LIST(Datum, List) \
-if (Datum.isprocessing) {\
-	if(Datum.isprocessing != "SSmachinery.[#List]")\
-	{\
-		crash_with("Failed to start processing. [log_info_line(Datum)] is already being processed by [Datum.isprocessing] but queue attempt occured on SSmachinery.[#List]."); \
-	}\
+if (Datum.datum_flags & DF_ISPROCESSING) {\
+		crash_with("Failed to start processing. [log_info_line(Datum)] is already being processed but queue attempt occured on SSmachinery.[#List]."); \
 } else {\
-	Datum.isprocessing = "SSmachinery.[#List]";\
+	Datum.datum_flags |= DF_ISPROCESSING;\
 	SSmachinery.List += Datum;\
 }
 
 #define STOP_PROCESSING_IN_LIST(Datum, List) \
-if(Datum.isprocessing) {\
+if(Datum.datum_flags & DF_ISPROCESSING) {\
 	if(SSmachinery.List.Remove(Datum)) {\
-		Datum.isprocessing = null;\
+		(Datum.datum_flags &= ~DF_ISPROCESSING);\
 	} else {\
-		crash_with("Failed to stop processing. [log_info_line(Datum)] is being processed by [isprocessing] and not found in SSmachinery.[#List]"); \
+		crash_with("Failed to stop processing. [log_info_line(Datum)] is being processed and not found in SSmachinery.[#List]"); \
 	}\
 }
 
@@ -35,9 +32,10 @@ if(Datum.isprocessing) {\
 
 SUBSYSTEM_DEF(machinery)
 	name = "Machinery"
+	init_order = INIT_ORDER_MACHINES
 	priority = SS_PRIORITY_MACHINERY
-	init_order = SS_INIT_MACHINERY
-	flags = SS_POST_FIRE_TIMING
+	flags = SS_KEEP_TIMING
+	wait = 2 SECONDS
 
 	var/static/tmp/current_step = SSMACHINERY_PIPENETS
 	var/static/tmp/cost_pipenets = 0
@@ -87,7 +85,8 @@ SUBSYSTEM_DEF(machinery)
 	build_rcon_lists()
 	setup_atmos_machinery(machinery)
 	fire(FALSE, TRUE)	// Tick machinery once to pare down the list so we don't hammer the server on round-start.
-	..(timeofday)
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/machinery/fire(resumed = FALSE, no_mc_tick = FALSE)
 	var/timer
@@ -95,7 +94,7 @@ SUBSYSTEM_DEF(machinery)
 		timer = world.tick_usage
 		process_pipenets(resumed, no_mc_tick)
 		cost_pipenets = MC_AVERAGE(cost_pipenets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
+		if (state != SS_RUNNING && initialized)
 			return
 		current_step = SSMACHINERY_MACHINERY
 		resumed = FALSE
@@ -103,7 +102,7 @@ SUBSYSTEM_DEF(machinery)
 		timer = world.tick_usage
 		process_machinery(resumed, no_mc_tick)
 		cost_machinery = MC_AVERAGE(cost_machinery, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
+		if(state != SS_RUNNING && initialized)
 			return
 		current_step = SSMACHINERY_POWERNETS
 		resumed = FALSE
@@ -111,7 +110,7 @@ SUBSYSTEM_DEF(machinery)
 		timer = world.tick_usage
 		process_powernets(resumed, no_mc_tick)
 		cost_powernets = MC_AVERAGE(cost_powernets, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if(state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
+		if(state != SS_RUNNING && initialized)
 			return
 		current_step = SSMACHINERY_POWER_OBJECTS
 		resumed = FALSE
@@ -119,7 +118,7 @@ SUBSYSTEM_DEF(machinery)
 		timer = world.tick_usage
 		process_power_objects(resumed, no_mc_tick)
 		cost_power_objects = MC_AVERAGE(cost_power_objects, TICK_DELTA_TO_MS(world.tick_usage - timer))
-		if (state != SS_RUNNING && init_state == SS_INITSTATE_DONE)
+		if (state != SS_RUNNING && initialized)
 			return
 		current_step = SSMACHINERY_PIPENETS
 
@@ -127,7 +126,7 @@ SUBSYSTEM_DEF(machinery)
 	for(var/datum/powernet/powernet as anything in powernets)
 		qdel(powernet)
 	powernets.Cut()
-	setup_powernets_for_cables(cable_list)
+	setup_powernets_for_cables(GLOB.cable_list)
 
 /datum/controller/subsystem/machinery/proc/setup_powernets_for_cables(list/cables)
 	for (var/obj/structure/cable/cable as anything in cables)
@@ -162,10 +161,10 @@ SUBSYSTEM_DEF(machinery)
 		network = queue[i]
 		if (QDELETED(network))
 			if (network)
-				network.isprocessing = null
+				network.datum_flags &= ~DF_ISPROCESSING
 			pipenets -= network
 			continue
-		network.process()
+		network.process(wait * 0.1)
 		if (no_mc_tick)
 			CHECK_TICK
 		else if (MC_TICK_CHECK)
@@ -184,7 +183,7 @@ SUBSYSTEM_DEF(machinery)
 				continue // Hard delete; unlikely but possible. Soft deletes are handled below and expected.
 			if(machine in processing)
 				processing.Remove(machine)
-				machine.isprocessing = null
+				machine.datum_flags &= ~DF_ISPROCESSING
 				WARNING("[log_info_line(machine)] was found illegally queued on SSmachines.")
 				continue
 			else if(resumed)
@@ -198,12 +197,12 @@ SUBSYSTEM_DEF(machinery)
 
 		if (QDELETED(machine))
 			if (machine)
-				machine.isprocessing = null
+				machine.datum_flags &= ~DF_ISPROCESSING
 			processing -= machine
 			continue
 		//process_all was moved here because of calls overhead for no benefits
-		if(HAS_FLAG(machine.processing_flags, MACHINERY_PROCESS_SELF))
-			if(machine.process() == PROCESS_KILL)
+		if((machine.processing_flags & MACHINERY_PROCESS_SELF))
+			if(machine.process(wait * 0.1) == PROCESS_KILL)
 				STOP_PROCESSING_MACHINE(machine, MACHINERY_PROCESS_SELF)
 				processing -= machine
 		if (no_mc_tick)
@@ -220,7 +219,7 @@ SUBSYSTEM_DEF(machinery)
 		network = queue[i]
 		if (QDELETED(network))
 			if (network)
-				network.isprocessing = null
+				network.datum_flags &= ~DF_ISPROCESSING
 			powernets -= network
 			continue
 		network.reset(wait)
@@ -238,11 +237,11 @@ SUBSYSTEM_DEF(machinery)
 		item = queue[i]
 		if (QDELETED(item))
 			if (item)
-				item.isprocessing = null
+				item.datum_flags &= ~DF_ISPROCESSING
 			power_objects -= item
 			continue
 		if (!item.pwr_drain(wait))
-			item.isprocessing = null
+			item.datum_flags &= ~DF_ISPROCESSING
 			power_objects -= item
 		if (no_mc_tick)
 			CHECK_TICK
@@ -267,10 +266,10 @@ SUBSYSTEM_DEF(machinery)
 	return ..()
 
 /datum/controller/subsystem/machinery/ExplosionStart()
-	suspend()
+	can_fire = FALSE
 
 /datum/controller/subsystem/machinery/ExplosionEnd()
-	wake()
+	can_fire = TRUE
 
 /datum/controller/subsystem/machinery/proc/build_rcon_lists()
 	rcon_smes_units.Cut()

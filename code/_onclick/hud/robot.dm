@@ -1,6 +1,6 @@
 var/obj/screen/robot_inventory
 
-/mob/living/silicon/robot/instantiate_hud(var/datum/hud/HUD)
+/mob/living/silicon/robot/instantiate_hud(datum/hud/HUD)
 	HUD.robot_hud()
 
 /datum/hud/proc/robot_hud()
@@ -22,7 +22,6 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen/robot.dmi'
 	using.icon_state = "radio"
 	using.screen_loc = ui_movi
-	using.layer = SCREEN_LAYER
 	src.adding += using
 
 //Module select
@@ -48,7 +47,6 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen/robot.dmi'
 	using.icon_state = mymob.a_intent
 	using.screen_loc = ui_acti
-	using.layer = SCREEN_LAYER
 	src.adding += using
 	action_intent = using
 
@@ -94,7 +92,6 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen/robot.dmi'
 	using.icon_state = "panel"
 	using.screen_loc = ui_borg_panel
-	using.layer = SCREEN_LAYER
 	src.adding += using
 
 //Store
@@ -127,7 +124,6 @@ var/obj/screen/robot_inventory
 	// Computer device hud
 	if(r.computer)
 		r.computer.screen_loc = ui_oxygen
-		r.computer.layer = SCREEN_LAYER
 
 
 	//Handle the gun settings buttons
@@ -225,8 +221,7 @@ var/obj/screen/robot_inventory
 					A.screen_loc = "CENTER[x]:16,SOUTH+[y]:7"
 				else
 					A.screen_loc = "CENTER+[x]:16,SOUTH+[y]:7"
-				A.layer = SCREEN_LAYER
-
+				A.hud_layerise()
 				x++
 				if(x == 4)
 					x = -4
@@ -235,7 +230,7 @@ var/obj/screen/robot_inventory
 	else
 		//Modules display is hidden
 		//r.client.screen -= robot_inventory	//"store" icon
-		for(var/atom/A in r.module.modules)
+		for(var/atom/A in r.module?.modules)
 			if( (A != r.module_state_1) && (A != r.module_state_2) && (A != r.module_state_3) )
 				//Module is not currently active
 				r.client.screen -= A

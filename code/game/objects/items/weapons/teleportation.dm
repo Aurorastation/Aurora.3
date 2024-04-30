@@ -76,7 +76,7 @@ Frequency:
 			if (sr)
 				src.temp += "<B>Located Beacons:</B><BR>"
 
-				for(var/obj/item/device/radio/beacon/W in teleportbeacons)
+				for(var/obj/item/device/radio/beacon/W in GLOB.teleportbeacons)
 					if (W.get_frequency() == src.frequency)
 						var/turf/tr = get_turf(W)
 						if (tr.z == sr.z && tr)
@@ -94,7 +94,7 @@ Frequency:
 							src.temp += "[W.code]-[dir2text(get_dir(sr, tr))]-[direct]<BR>"
 
 				src.temp += "<B>Extraneous Signals:</B><BR>"
-				for (var/obj/item/implant/tracking/W in implants)
+				for (var/obj/item/implant/tracking/W in GLOB.implants)
 					if (!W.implanted || !(istype(W.loc,/obj/item/organ/external) || ismob(W.loc)))
 						continue
 					else
@@ -158,13 +158,13 @@ Frequency:
 
 	var/max_portals = 2
 
-/obj/item/hand_tele/examine(mob/user, distance)
+/obj/item/hand_tele/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(linked_pad)
 		var/area/A = get_area(linked_pad)
-		to_chat(user, SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]"))
+		. += SPAN_NOTICE("\The [src] is linked to a teleportation pad in [A.name]")
 	else
-		to_chat(user, SPAN_WARNING("\The [src] isn't linked to any teleportation pads!"))
+		. += SPAN_WARNING("\The [src] isn't linked to any teleportation pads!")
 
 /obj/item/hand_tele/set_initial_maptext()
 	held_maptext = SMALL_FONTS(7, "Ready")
@@ -245,9 +245,9 @@ Frequency:
 		var/old_pad = linked_pad
 		linked_pad = teleport_options[teleport_choice]
 		if(linked_pad)
-			destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
+			GLOB.destroyed_event.register(linked_pad, src, PROC_REF(pad_destroyed))
 		if(old_pad && linked_pad != old_pad)
-			destroyed_event.unregister(old_pad, src)
+			GLOB.destroyed_event.unregister(old_pad, src)
 		return
 	return ..()
 

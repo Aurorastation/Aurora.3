@@ -9,7 +9,7 @@
 	maxHealth = 45
 	health = 45
 	pass_flags = PASSTABLE|PASSRAILING
-	req_access = list(access_mining, access_robotics)
+	req_access = list(ACCESS_MINING, ACCESS_ROBOTICS)
 	id_card_type = /obj/item/card/id/minedrone
 	speed = -1
 	hat_x_offset = 1
@@ -46,10 +46,10 @@
 	update_icon()
 	density = FALSE
 
-/mob/living/silicon/robot/drone/mining/examine(mob/user)
+/mob/living/silicon/robot/drone/mining/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(health_upgrade)
-		to_chat(user, SPAN_NOTICE("\The [src] appears to have a reinforced chassis."))
+		. += SPAN_NOTICE("\The [src] appears to have a reinforced chassis.")
 	if(ranged_upgrade || drill_upgrade)
 		var/output_text = "\The [src]'s lights indicates it has"
 		if(ranged_upgrade && drill_upgrade)
@@ -58,7 +58,7 @@
 			output_text += " a stationbound class KA mounted to it."
 		else if(drill_upgrade)
 			output_text += " a jackhammer drill mounted to it."
-		to_chat(user, SPAN_NOTICE(output_text))
+		. += SPAN_NOTICE(output_text)
 
 /mob/living/silicon/robot/drone/mining/request_player()
 	if(too_many_active_drones())
@@ -83,32 +83,34 @@
 	to_chat(src, SPAN_DANGER("You have little individual will, some personality, and no drives or urges other than your laws and the art of mining."))
 	to_chat(src, SPAN_DANGER("Remember, <b>you DO NOT take orders from the AI.</b>"))
 
-/mob/living/silicon/robot/drone/mining/attackby(obj/item/W, mob/user)
-	if(istype(W, /obj/item/borg/upgrade))
-		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [W]."))
+/mob/living/silicon/robot/drone/mining/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/borg/upgrade))
+		to_chat(user, SPAN_WARNING("\The [src] is not compatible with \the [attacking_item]."))
 		return
 
-	if(istype(W, /obj/item/device/mine_bot_upgrade))
-		var/obj/item/device/mine_bot_upgrade/MBU = W
+	if(istype(attacking_item, /obj/item/device/mine_bot_upgrade))
+		var/obj/item/device/mine_bot_upgrade/MBU = attacking_item
 		MBU.upgrade_bot(src, user)
 		return
 
-	else if (W.GetID())
+	else if (attacking_item.GetID())
 		if(!allowed(user))
 			to_chat(user, SPAN_WARNING("Access denied."))
 			return
 		if(ckey || client)
-			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."), SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
+			user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src] shutting it down."),
+								SPAN_NOTICE("You swipe your ID over \the [src], shutting it down! You can swipe it again to make it search for a new intelligence."))
 			shut_down()
 			return
 		if(seeking_player)
 			to_chat(user, SPAN_WARNING("\The [src] is already in the reboot process."))
 			return
-		if(!config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
+		if(!GLOB.config.allow_drone_spawn || emagged || health < -maxHealth) //It's dead, Dave.
 			to_chat(user, SPAN_WARNING("The interface is fried, and a distressing burned smell wafts from the robot's interior. You're not rebooting this one."))
 			return
 
-		user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."), SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
+		user.visible_message(SPAN_WARNING("\The [user] swipes [user.get_pronoun("his")] ID card through \the [src], attempting to reboot it."),
+							SPAN_WARNING("You swipe your ID card through \the [src], attempting to reboot it."))
 		request_player()
 		return
 	..()
@@ -124,7 +126,7 @@
 	if(is_type_in_list(get_area(T), allowed_areas))
 		return FALSE
 	if(!self_destructing)
-		to_chat(src, SPAN_DANGER("WARNING: Removal from [current_map.company_name] property detected. Anti-Theft mode activated."))
+		to_chat(src, SPAN_DANGER("WARNING: Removal from [SSatlas.current_map.company_name] property detected. Anti-Theft mode activated."))
 		start_self_destruct(TRUE)
 	return TRUE
 

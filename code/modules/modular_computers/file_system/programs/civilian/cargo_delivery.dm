@@ -7,7 +7,7 @@
 	size = 6
 	requires_ntnet = TRUE
 	available_on_ntnet = TRUE
-	required_access_download = access_hop
+	required_access_download = ACCESS_HOP
 	usage_flags = PROGRAM_ALL
 	tgui_id = "CargoDelivery"
 
@@ -126,7 +126,7 @@
 
 
 	//But only cargo can switch between the pages
-	if(!istype(I) || !I.registered_name || !(access_cargo in I.access) || issilicon(usr))
+	if(!istype(I) || !I.registered_name || !(ACCESS_CARGO in I.access) || issilicon(usr))
 		to_chat(usr, SPAN_WARNING("Authentication error: Unable to locate ID with appropriate access to allow this operation."))
 		return
 

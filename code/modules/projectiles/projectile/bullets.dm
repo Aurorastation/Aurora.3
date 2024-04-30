@@ -62,22 +62,35 @@
 
 	return 0
 
-//For projectiles that actually represent clouds of projectiles
+/**
+ * # Pellet projectiles
+ *
+ * For projectiles that actually represent clouds of projectiles
+ */
 /obj/item/projectile/bullet/pellet
 	name = "shrapnel" //'shrapnel' sounds more dangerous (i.e. cooler) than 'pellet'
 	icon_state = "pellets"
 	damage = 20
-	var/pellets = 4			//number of pellets
-	var/range_step = 2		//projectile will lose a fragment each time it travels this distance. Can be a non-integer.
-	var/base_spread = 90	//lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
-	var/spread_step = 10	//higher means the pellets spread more across body parts with distance
+
+	///Number of pellets that will be ejected from this bullet
+	var/pellets = 4
+
+	///The projectile will lose a pellet each time it travels this distance. Can be a non-integer.
+	var/range_step = 2
+
+	///Lower means the pellets spread more across body parts. If zero then this is considered a shrapnel explosion instead of a shrapnel cone
+	var/base_spread = 90
+
+	///Higher means the pellets spread more across body parts with distance
+	var/spread_step = 10
 
 /obj/item/projectile/bullet/pellet/proc/get_pellets(var/distance)
 	var/pellet_loss = round((distance - 1)/range_step) //pellets lost due to distance
 	return max(pellets - pellet_loss, 1)
 
 /obj/item/projectile/bullet/pellet/attack_mob(var/mob/living/target_mob, var/distance, var/miss_modifier)
-	if (pellets < 0) return 1
+	if (pellets < 0)
+		return TRUE
 
 	var/total_pellets = get_pellets(distance)
 	var/spread = max(base_spread - (spread_step*distance), 0)
@@ -111,8 +124,8 @@
 
 	pellets -= hits //each hit reduces the number of pellets left
 	if (hits >= total_pellets || pellets <= 0)
-		return 1
-	return 0
+		return TRUE
+	return FALSE
 
 /obj/item/projectile/bullet/pellet/get_structure_damage()
 	var/distance = get_dist(loc, starting)
@@ -209,6 +222,10 @@
 	agony = 40
 	embed = 0
 
+/obj/item/projectile/bullet/pistol/assassin
+	damage = 20
+	armor_penetration = 5
+
 /* shotgun projectiles */
 
 /obj/item/projectile/bullet/shotgun
@@ -248,6 +265,10 @@
 		T.imp_in = organ.owner
 		T.part = organ
 		LAZYADD(organ.implants, T)
+
+/obj/item/projectile/bullet/shotgun/moghes
+	name = "wall shot"
+	secondary_projectile = /obj/item/projectile/bullet/pellet/shotgun/canister
 
 //Should do about 80 damage at 1 tile distance (adjacent), and 50 damage at 3 tiles distance.
 //Overall less damage than slugs in exchange for more damage at very close range and more embedding
@@ -415,6 +436,7 @@
 	icon = 'icons/obj/terminator.dmi'
 	icon_state = "flechette_bullet"
 	damage = 40
+	armor_penetration = 15
 	damage_type = DAMAGE_BRUTE
 	check_armor = "bullet"
 	embed = 1
@@ -427,6 +449,7 @@
 	shrapnel_type = /obj/item/material/shard/shrapnel/flechette
 	penetrating = 0
 	damage = 10
+	armor_penetration = 60
 
 /obj/item/projectile/bullet/gauss
 	name = "slug"
@@ -482,7 +505,7 @@
 	anti_materiel_potential = 2
 
 /obj/item/projectile/bullet/nuke/on_impact(var/atom/A)
-	for(var/mob/living/carbon/human/mob in human_mob_list)
+	for(var/mob/living/carbon/human/mob in GLOB.human_mob_list)
 		var/turf/T = get_turf(mob)
 		if(T && (loc.z == T.z))
 			if(ishuman(mob))

@@ -12,9 +12,13 @@ export type SuitCyclerData = {
   model_text: string;
   radiation_level: number;
   target_department: string;
+  department_change: BooleanLike;
   target_species: string;
+  species_change: BooleanLike;
   helmet: SuitObject;
   suit: SuitObject;
+  boots: SuitObject;
+  mask: SuitObject;
 };
 
 type SuitObject = {
@@ -80,6 +84,22 @@ export const SuitCycler = (props, context) => {
                 onClick={() => act('eject_suit')}
               />
             </LabeledList.Item>
+            <LabeledList.Item label="Boots">
+              <Button
+                disabled={data.in_use || data.locked || !data.boots}
+                content={data.boots ? data.boots.name : 'None'}
+                icon="shoe-prints"
+                onClick={() => act('eject_boots')}
+              />
+            </LabeledList.Item>
+            <LabeledList.Item label="Mask">
+              <Button
+                disabled={data.in_use || data.locked || !data.mask}
+                content={data.mask ? data.mask.name : 'None'}
+                icon="mask-ventilator"
+                onClick={() => act('eject_mask')}
+              />
+            </LabeledList.Item>
           </LabeledList>
         </Section>
         <Section title="Actions">
@@ -128,7 +148,9 @@ export const SuitCycler = (props, context) => {
             <LabeledList>
               <LabeledList.Item label="Target Department">
                 <Button
-                  disabled={data.in_use || data.locked}
+                  disabled={
+                    data.in_use || data.locked || !data.department_change
+                  }
                   content={data.target_department}
                   icon="city"
                   onClick={() => act('select_department')}
@@ -136,7 +158,7 @@ export const SuitCycler = (props, context) => {
               </LabeledList.Item>
               <LabeledList.Item label="Target Species">
                 <Button
-                  disabled={data.in_use || data.locked}
+                  disabled={data.in_use || data.locked || !data.species_change}
                   content={data.target_species}
                   icon="person"
                   onClick={() => act('select_species')}

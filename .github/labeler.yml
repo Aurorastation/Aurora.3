@@ -1,7 +1,4 @@
 # Folder Rules
-'Changelog Required':
-- '!html/changelogs/*.yml'
-
 Database:
 - SQL/**
 

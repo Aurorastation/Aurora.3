@@ -1,17 +1,16 @@
 /obj/structure/sign/double/barsign
 	icon = 'icons/obj/barsigns.dmi'
 	icon_state = "Off"
-	layer = 2.99
 	anchored = TRUE
-	req_access = list(access_bar) //Has to initalize at first, this is updated by instance's req_access
+	req_access = list(ACCESS_BAR) //Has to initalize at first, this is updated by instance's req_access
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
 	var/cult = 0
 	var/choice_types = /singleton/sign/double/bar
 
-/obj/structure/sign/double/barsign/attackby(obj/item/I, mob/user)
+/obj/structure/sign/double/barsign/attackby(obj/item/attacking_item, mob/user)
 	if(cult)
 		return ..()
-	var/obj/item/card/id/card = I.GetID()
+	var/obj/item/card/id/card = attacking_item.GetID()
 	if(istype(card))
 		if(check_access(card))
 			set_sign()
@@ -48,7 +47,7 @@
 /obj/structure/sign/double/barsign/kitchensign
 	icon = 'icons/obj/kitchensigns.dmi'
 	icon_state = "Off"
-	req_access = list(access_kitchen)
+	req_access = list(ACCESS_KITCHEN)
 	choice_types = /singleton/sign/double/kitchen
 
 /obj/structure/sign/double/barsign/kitchensign/mirrored // Visible from the other end of the sign.

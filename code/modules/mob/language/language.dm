@@ -41,7 +41,7 @@
 
 	for(var/i = 0;i<name_count;i++)
 		new_name = ""
-		for(var/x = rand(Floor(syllable_count/syllable_divisor),syllable_count);x>0;x--)
+		for(var/x = rand(FLOOR(syllable_count/syllable_divisor, 1),syllable_count);x>0;x--)
 			new_name += pick(syllables)
 		full_name += " [capitalize(lowertext(new_name))]"
 
@@ -136,7 +136,7 @@
 		speaker_mask = speaker.name
 	message = format_message(message, get_spoken_verb(message))
 
-	for(var/mob/player in player_list)
+	for(var/mob/player in GLOB.player_list)
 		player.hear_broadcast(src, speaker, speaker_mask, message)
 
 /mob/proc/hear_broadcast(var/datum/language/language, var/mob/speaker, var/speaker_name, var/message)
@@ -190,49 +190,106 @@
 	SHOULD_NOT_SLEEP(TRUE)
 	return TRUE
 
-// Language handling.
-/mob/proc/add_language(var/language)
+/**
+ * Adds a language to the known ones for the mob, returns `TRUE` if added successfully, `FALSE` otherwise
+ *
+ * Does NOT make it the default language
+ *
+ * * language - The language to add, can either be a `/datum/language` or a string, see the LANGUAGE_* defines in `code\__DEFINES\species_languages.dm` for the strings
+ */
+/mob/proc/add_language(language)
+	SHOULD_NOT_SLEEP(TRUE)
+
 	var/datum/language/new_language
 	if(istype(language, /datum/language))
 		new_language = language
 	else
-		new_language = all_languages[language]
+		new_language = GLOB.all_languages[language]
 
-	if (!istype(new_language) || !new_language)
-		CRASH("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
+	if(!istype(new_language) || !new_language)
+		crash_with("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
 
 	if(new_language in languages)
-		return 0
+		return FALSE
 
 	languages.Add(new_language)
-	return 1
+	return TRUE
+
+/**
+ * Set default language for a `/mob/living`, return `TRUE` if set successfully, `FALSE` otherwise
+ *
+ * * language - The language to set as default, can either be a `/datum/language`, a string as per `LANGUAGE_*` defines in `code\__DEFINES\species_languages.dm`,
+ * or `null` to remove the default language
+ */
+/mob/living/proc/set_default_language(language)
+	SHOULD_NOT_SLEEP(TRUE)
+
+	var/datum/language/new_default_language
+	if(istype(language, /datum/language))
+		new_default_language = language
+	else
+		new_default_language = GLOB.all_languages[language]
+
+	if(!isnull(new_default_language) && !istype(new_default_language))
+		stack_trace("ERROR: Language [language] not found in list of all languages. The language you're looking for may have been moved, renamed, or removed. Please recheck the spelling of the name.")
+		return FALSE
+
+	if(!isnull(new_default_language) && !(new_default_language in languages))
+		stack_trace("Trying to set a default language that is not known by the mob! The language must first be added for it to be set as default!")
+		return FALSE
+
+	default_language = new_default_language
+	return TRUE
+
+//Silicons can only speak languages listed in the `speech_synthesizer_langs`, even if they can understand more
+/mob/living/silicon/set_default_language(language)
+
+	//Return FALSE if they can't speak this language
+	if(!(language in speech_synthesizer_langs))
+		return FALSE
+
+	. = ..()
 
 /mob/proc/remove_language(var/rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = GLOB.all_languages[rem_language]
 	. = (L in languages)
 	languages.Remove(L)
 
 /mob/living/remove_language(rem_language)
-	var/datum/language/L = all_languages[rem_language]
+	var/datum/language/L = GLOB.all_languages[rem_language]
 	if(default_language == L)
 		default_language = null
 	return ..()
 
-// Can we speak this language, as opposed to just understanding it?
+/**
+ * Check if the language can be spoken by the mob,
+ * not the same thing as understood (you can understand a language without speaking it)
+ *
+ * * speaking - The `/datum/language` to check against, if the mob can speak it
+ *
+ * Returns `TRUE` if the mob speaks the language, `FALSE` otherwise
+ */
 /mob/proc/can_speak(datum/language/speaking)
+	SHOULD_NOT_SLEEP(TRUE)
+	SHOULD_BE_PURE(TRUE)
+
+	if(!istype(speaking))
+		stack_trace("No language supplied to check if it can be spoken!")
+		return FALSE
+
 	return (speaking.check_speech_restrict(src) && (universal_speak || (speaking && speaking.flags & INNATE) || (speaking in src.languages)))
 
 /mob/proc/get_language_prefix()
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)
 		return client.prefs.language_prefixes[1]
 
-	return config.language_prefixes[1]
+	return GLOB.config.language_prefixes[1]
 
 /mob/proc/is_language_prefix(var/prefix)
 	if(client && client.prefs.language_prefixes && client.prefs.language_prefixes.len)
 		return prefix in client.prefs.language_prefixes
 
-	return prefix in config.language_prefixes
+	return prefix in GLOB.config.language_prefixes
 
 //TBD
 /mob/verb/check_languages()

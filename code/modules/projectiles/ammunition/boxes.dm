@@ -7,7 +7,7 @@
 	ammo_type = /obj/item/ammo_casing/a357
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 8
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/a454
 	name = "speed loader (.454)"
@@ -17,7 +17,7 @@
 	ammo_type = /obj/item/ammo_casing/a454
 	matter = list(DEFAULT_WALL_MATERIAL = 1260)
 	max_ammo = 7
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38
 	name = "speed loader (.38)"
@@ -27,7 +27,7 @@
 	matter = list(DEFAULT_WALL_MATERIAL = 360)
 	ammo_type = /obj/item/ammo_casing/c38
 	max_ammo = 6
-	multiple_sprites = 1
+	multiple_sprites = TRUE
 
 /obj/item/ammo_magazine/c38/rubber
 	name = "speed loader (.38 rubber)"
@@ -43,6 +43,8 @@
 	icon_state = "a454"
 	caliber = ".45"
 	ammo_type = /obj/item/ammo_casing/c45/revolver
+	max_ammo = 6
+	multiple_sprites = TRUE
 
 // End of Revolvos //
 
@@ -128,6 +130,13 @@
 	ammo_type = /obj/item/ammo_casing/c45
 	max_ammo = 16
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/c45m/dominia
+	name = "dominian service pistol magazine (.45)"
+	desc = "A magazine specifically designed for a Dominian service pistol."
+	icon = 'icons/obj/guns/dominia_pistol.dmi'
+	icon_state = "dom_pistol_mag"
+	max_ammo = 11
 
 /obj/item/ammo_magazine/c46m
 	name = "magazine (4.6mm)"
@@ -294,6 +303,16 @@
 /obj/item/ammo_magazine/submachinemag/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/submachinemag/assassin
+	name = "magazine (6mm)"
+	icon_state = "tommy-mag"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/c6mm
+	matter = list(DEFAULT_WALL_MATERIAL = 1500)
+	caliber = "6mm"
+	insert_sound = /singleton/sound_category/polymer_slide_reload
+	max_ammo = 30
+
 /obj/item/ammo_magazine/submachinedrum
 	name = "drum magazine (.45)"
 	icon_state = "tommy-drum"
@@ -397,6 +416,12 @@
 /obj/item/ammo_magazine/a556/makeshift/empty
 	initial_ammo = 0
 
+/obj/item/ammo_magazine/a556/dlmg
+	name = "MPR-24/5 light machine gun magazine (5.56mm)"
+	max_ammo = 50
+	icon = 'icons/obj/guns/dominia_lmg.dmi'
+	icon_state = "dom_lmg_mag"
+
 /obj/item/ammo_magazine/a65
 	name = "magazine (6.5mm)"
 	icon_state = "c6.5mm"
@@ -470,6 +495,11 @@
 
 /obj/item/ammo_magazine/c762/dpra
 	icon_state = "mrrazhak_mag"
+
+/obj/item/ammo_magazine/c762/dominia
+	name = "mpr-24/5 carbine magazine (7.62mm)"
+	icon = 'icons/obj/guns/dominia_carbine.dmi'
+	icon_state = "dom_carbine_mag"
 
 /obj/item/ammo_magazine/boltaction
 	name = "ammo clip (7.62mm)"
@@ -685,3 +715,35 @@
 	ammo_type = /obj/item/ammo_casing/shotgun
 	max_ammo = 9
 	multiple_sprites = 1
+
+/obj/item/ammo_magazine/spitterpistol
+	name = "spitter pistol magazine"
+	icon_state = "spitterpistol_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 8
+
+/obj/item/ammo_magazine/hookmg
+	name = "hook machinegun magazine"
+	icon_state = "hookmg_ammobox"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 50
+
+/obj/item/ammo_magazine/crackrifle
+	name = "crack rifle magazine"
+	icon_state = "crackrifle_mag"
+	caliber = "5.8mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_rifle
+	max_ammo = 33
+
+/obj/item/ammo_magazine/tempestsmg
+	name = "tempest smg magazine"
+	icon_state = "tempestsmg_mag"
+	caliber = "11.6mm"
+	mag_type = MAGAZINE
+	ammo_type = /obj/item/ammo_casing/moghes_pistol
+	max_ammo = 20

@@ -74,10 +74,10 @@
 
 /obj/structure/janitorialcart/New()
 	..()
-	janitorial_supplies |= src
+	GLOB.janitorial_supplies |= src
 
 /obj/structure/janitorialcart/Destroy()
-	janitorial_supplies -= src
+	GLOB.janitorial_supplies -= src
 	QDEL_NULL(mybag)
 	QDEL_NULL(mymop)
 	QDEL_NULL(myspray)
@@ -88,18 +88,19 @@
 /obj/structure/janitorialcart/proc/get_short_status()
 	return "Contents: [english_list(contents)]"
 
-/obj/structure/janitorialcart/examine(mob/user, distance, is_adjacent)
+/obj/structure/janitorialcart/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1)
 		if (mybucket)
 			var/contains = mybucket.reagents.total_volume
-			to_chat(user, "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!")
+			. += "[icon2html(src, user)] The bucket contains [contains] unit\s of liquid!"
 		else
-			to_chat(user, "[icon2html(src, user)] There is no bucket mounted on it!")
+			. += "[icon2html(src, user)] There is no bucket mounted on it!"
 	//everything else is visible, so doesn't need to be mentioned
 
 
-/obj/structure/janitorialcart/MouseDrop_T(atom/movable/O as mob|obj, mob/living/user as mob)
+/obj/structure/janitorialcart/MouseDrop_T(atom/dropping, mob/user)
+	var/atom/movable/O = dropping
 	if (istype(O, /obj/structure/mopbucket) && !mybucket)
 		O.forceMove(src)
 		mybucket = O
@@ -133,67 +134,67 @@
 			return mybag.attackby(I, usr)
 
 
-/obj/structure/janitorialcart/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/mop) || istype(I, /obj/item/reagent_containers/glass/rag) || istype(I, /obj/item/soap))
+/obj/structure/janitorialcart/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/mop) || istype(attacking_item, /obj/item/reagent_containers/glass/rag) || istype(attacking_item, /obj/item/soap))
 		if (mybucket)
-			if(I.reagents.total_volume < I.reagents.maximum_volume)
+			if(attacking_item.reagents.total_volume < attacking_item.reagents.maximum_volume)
 				if(mybucket.reagents.total_volume < 1)
 					to_chat(user, "<span class='notice'>[mybucket] is empty!</span>")
 					update_icon()
 				else
-					mybucket.reagents.trans_to_obj(I, 5)	//
-					to_chat(user, "<span class='notice'>You wet [I] in [mybucket].</span>")
+					mybucket.reagents.trans_to_obj(attacking_item, 5)	//
+					to_chat(user, "<span class='notice'>You wet [attacking_item] in [mybucket].</span>")
 					playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 					update_icon()
 			else
-				to_chat(user, "<span class='notice'>[I] can't absorb anymore liquid!</span>")
+				to_chat(user, "<span class='notice'>[attacking_item] can't absorb anymore liquid!</span>")
 		else
-			to_chat(user, "<span class='notice'>There is no bucket mounted here to dip [I] into!</span>")
+			to_chat(user, "<span class='notice'>There is no bucket mounted here to dip [attacking_item] into!</span>")
 		return 1
 
-	else if(istype(I, /obj/item/reagent_containers/spray) && !myspray)
-		user.drop_from_inventory(I,src)
-		myspray = I
+	else if(istype(attacking_item, /obj/item/reagent_containers/spray) && !myspray)
+		user.drop_from_inventory(attacking_item, src)
+		myspray = attacking_item
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		to_chat(user, "<span class='notice'>You put [attacking_item] into [src].</span>")
 		return 1
 
-	else if(istype(I, /obj/item/device/lightreplacer) && !myreplacer)
-		user.drop_from_inventory(I,src)
-		myreplacer = I
+	else if(istype(attacking_item, /obj/item/device/lightreplacer) && !myreplacer)
+		user.drop_from_inventory(attacking_item, src)
+		myreplacer = attacking_item
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		to_chat(user, "<span class='notice'>You put [attacking_item] into [src].</span>")
 		return 1
 
-	else if(istype(I, /obj/item/storage/bag/trash) && !mybag)
-		user.drop_from_inventory(I,src)
-		mybag = I
-		I.forceMove(src)
+	else if(istype(attacking_item, /obj/item/storage/bag/trash) && !mybag)
+		user.drop_from_inventory(attacking_item, src)
+		mybag = attacking_item
+		attacking_item.forceMove(src)
 		update_icon()
 		updateUsrDialog()
-		to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+		to_chat(user, "<span class='notice'>You put [attacking_item] into [src].</span>")
 		return 1
 
-	else if(istype(I, /obj/item/clothing/suit/caution))
+	else if(istype(attacking_item, /obj/item/clothing/suit/caution))
 		if(signs < 4)
-			user.drop_from_inventory(I,src)
+			user.drop_from_inventory(attacking_item, src)
 			signs++
 			update_icon()
 			updateUsrDialog()
-			to_chat(user, "<span class='notice'>You put [I] into [src].</span>")
+			to_chat(user, "<span class='notice'>You put [attacking_item] into [src].</span>")
 		else
 			to_chat(user, "<span class='notice'>[src] can't hold any more signs.</span>")
 		return 1
 
 	else if(mybag)
-		return mybag.attackby(I, user)
+		return mybag.attackby(attacking_item, user)
 		//This return will prevent afterattack from executing if the object goes into the trashbag,
 		//This prevents dumb stuff like splashing the cart with the contents of a container, after putting said container into trash
 
-	else if (!has_items && (I.iswrench() || I.iswelder() || istype(I, /obj/item/gun/energy/plasmacutter)))
-		take_apart(user, I)
+	else if (!has_items && (attacking_item.iswrench() || attacking_item.iswelder() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
+		take_apart(user, attacking_item)
 		return
 	..()
 
@@ -202,7 +203,11 @@
 		spill()
 
 	if(user)
-		playsound(src.loc, I.usesound, 50, 1)
+
+		if(iswelder(I))
+			var/obj/item/welder = I
+			welder.play_tool_sound(get_turf(src), 50)
+
 		user.visible_message("<b>[user]</b> starts taking apart the [src]...", SPAN_NOTICE("You start disassembling the [src]..."))
 		if (!do_after(user, 30, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 			return

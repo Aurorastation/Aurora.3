@@ -471,15 +471,16 @@
 	if(!isSynthetic())
 		switch(damage)
 			if(-INFINITY to 10)
-				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
+				playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 			if(11 to 50)
-				playsound(src.loc, "sound/weapons/punch[rand(1, 4)].ogg", 75, 1)
+				var/sound_to_play = pick(list('sound/weapons/punch1.ogg', 'sound/weapons/punch2.ogg', 'sound/weapons/punch3.ogg', 'sound/weapons/punch4.ogg'))
+				playsound(src.loc, sound_to_play, 75, 1)
 			if(51 to INFINITY)
-				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
+				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
 				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
-		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
+		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
 	return TRUE
 
@@ -631,15 +632,15 @@
 	if(!isSynthetic())
 		switch(damage)
 			if(-INFINITY to 10)
-				playsound(src.loc, "sound/weapons/bladeslice.ogg", 50, 1)
+				playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
 			if(11 to 50)
 				playsound(src.loc, /singleton/sound_category/punch_sound, 75, 1)
 			if(51 to INFINITY)
-				playsound(src.loc, "sound/weapons/heavysmash.ogg", 100, 1)
+				playsound(src.loc, 'sound/weapons/heavysmash.ogg', 100, 1)
 			else
 				playsound(src.loc, /singleton/sound_category/swing_hit_sound, 75, 1)
 	else
-		playsound(src.loc, "sound/weapons/smash.ogg", 75, 1)
+		playsound(src.loc, 'sound/weapons/smash.ogg', 75, 1)
 
 	// Stats.
 	SSstatistics.IncrementSimpleStat("openturf_human_falls")
@@ -667,7 +668,7 @@
 
 	health -= (damage * brute_dam_coeff)
 
-	playsound(loc, "sound/effects/clang.ogg", 75, 1)
+	playsound(loc, 'sound/effects/clang.ogg', 75, 1)
 
 /**
  * Used to handle damage dealing for objects post fall. Why is it separated from
@@ -744,7 +745,8 @@
 	else
 		admin_attack_log((ismob(src) ? src : null), L, "fell onto", "was fallen on by", "fell ontop of")
 
-	playsound(L.loc, "sound/waepons/genhit[rand(1, 3)].ogg", 75, 1)
+	var/sound_to_play = pick(list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
+	playsound(L.loc, sound_to_play, 75, 1)
 
 	return L
 
@@ -794,7 +796,7 @@
 		forceMove(T)
 		tile_shifted = TRUE
 	follow()
-	moved_event.register(owner, src, PROC_REF(follow))
+	GLOB.moved_event.register(owner, src, PROC_REF(follow))
 
 /atom/movable/z_observer/proc/follow()
 
@@ -821,7 +823,7 @@
 	qdel(src)
 
 /atom/movable/z_observer/Destroy()
-	moved_event.unregister(owner, src, PROC_REF(follow))
+	GLOB.moved_event.unregister(owner, src, PROC_REF(follow))
 	owner = null
 	. = ..()
 

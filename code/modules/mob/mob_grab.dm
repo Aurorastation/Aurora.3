@@ -30,7 +30,7 @@
 	var/obj/item/grab/linked_grab
 	var/wielded = FALSE
 
-	layer = SCREEN_LAYER
+	layer = HUD_ABOVE_ITEM_LAYER
 	abstract = 1
 	item_state = "nothing"
 	w_class = ITEMSIZE_HUGE
@@ -411,7 +411,7 @@
 			affecting.buckled_to = null
 			affecting.update_canmove()
 			affecting.anchored = FALSE
-		moved_event.unregister(assailant, src, PROC_REF(move_affecting))
+		GLOB.moved_event.unregister(assailant, src, PROC_REF(move_affecting))
 
 	animate(affecting, pixel_x = affecting.get_standard_pixel_x(), pixel_y = affecting.get_standard_pixel_y(), 4, 1, LINEAR_EASING)
 	affecting.layer = initial(affecting.layer)
@@ -447,7 +447,7 @@
 
 	H.visible_message("<b>[H]</b> starts lifting \the [affecting] onto their shoulders...", SPAN_NOTICE("You start lifting \the [affecting] onto your shoulders..."))
 
-	if(!do_after(H, 3 SECONDS, TRUE))
+	if(!do_after(H, 1 SECONDS, affecting))
 		return
 
 	if(affecting.buckled_to)
@@ -468,7 +468,7 @@
 	affecting.buckled_to = assailant
 	affecting.forceMove(H.loc)
 	adjust_position()
-	moved_event.register(assailant, src, PROC_REF(move_affecting))
+	GLOB.moved_event.register(assailant, src, PROC_REF(move_affecting))
 
 /obj/item/grab/proc/set_wielding()
 	wielded = TRUE

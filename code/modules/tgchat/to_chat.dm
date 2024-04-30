@@ -27,7 +27,7 @@
 	if(!html && !text)
 		CRASH("Empty or null string in to_chat proc call.")
 	if(target == world)
-		target = clients
+		target = GLOB.clients
 
 	// Build a message
 	var/message = list()
@@ -74,7 +74,7 @@
 	trailing_newline = TRUE,
 	confidential = FALSE
 )
-	if(isnull(Master) || !SSchat?.init_state != SS_INITSTATE_DONE)
+	if(isnull(Master) || !SSchat?.initialized)
 		to_chat_immediate(target, html, type, text, avoid_highlighting)
 		return
 
@@ -87,7 +87,7 @@
 	if(!html && !text)
 		CRASH("Empty or null string in to_chat proc call.")
 	if(target == world)
-		target = clients
+		target = GLOB.clients
 
 	// Build a message
 	var/message = list()

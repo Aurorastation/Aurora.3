@@ -43,17 +43,17 @@
 		PH.linked_helm = null
 	return ..()
 
-/obj/machinery/computer/ship/helm/attackby(obj/item/I, user)
-	if(istype(I, /obj/item/clothing/head/helmet/pilot))
+/obj/machinery/computer/ship/helm/attackby(obj/item/attacking_item, user)
+	if(istype(attacking_item, /obj/item/clothing/head/helmet/pilot))
 		if(!connected)
 			to_chat(user, SPAN_WARNING("\The [src] isn't linked to any vessels!"))
 			return
-		var/obj/item/clothing/head/helmet/pilot/PH = I
-		if(I in linked_helmets)
-			to_chat(user, SPAN_NOTICE("You unlink \the [I] from \the [src]."))
+		var/obj/item/clothing/head/helmet/pilot/PH = attacking_item
+		if(attacking_item in linked_helmets)
+			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
 			PH.set_console(null)
 		else
-			to_chat(user, SPAN_NOTICE("You link \the [I] to \the [src]."))
+			to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src]."))
 			PH.set_console(src)
 			PH.set_hud_maptext("| Ship Status | [connected.x]-[connected.y] |<br>Speed: [connected.get_speed()] | Acceleration: [get_acceleration()]<br>ETA to Next Grid: [get_eta()]")
 		check_processing()
@@ -81,7 +81,7 @@
 /obj/machinery/computer/ship/helm/process()
 	..()
 	if (autopilot && dx && dy)
-		var/turf/T = locate(dx,dy,current_map.overmap_z)
+		var/turf/T = locate(dx,dy,SSatlas.current_map.overmap_z)
 		if(connected.loc == T)
 			if(connected.is_still())
 				autopilot = 0
@@ -116,6 +116,7 @@
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
 		ui = new(user, src, "Helm", capitalize_first_letters(name))
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
 
 /obj/machinery/computer/ship/helm/ui_data(mob/user)
@@ -193,7 +194,7 @@
 	if(action == "add")
 		var/datum/computer_file/data/waypoint/R = new()
 		var/sec_name = input("Input naviation entry name", "New navigation entry", "Sector #[known_sectors.len]") as text
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return FALSE
 		if(!sec_name)
 			sec_name = "Sector #[known_sectors.len]"
@@ -207,10 +208,10 @@
 				R.fields["y"] = connected.y
 			if("new")
 				var/newx = input("Input new entry x coordinate", "Coordinate input", connected.x) as num
-				if(!CanInteract(usr, physical_state))
+				if(!CanInteract(usr, GLOB.physical_state))
 					return TRUE
 				var/newy = input("Input new entry y coordinate", "Coordinate input", connected.y) as num
-				if(!CanInteract(usr, physical_state))
+				if(!CanInteract(usr, GLOB.physical_state))
 					return FALSE
 				R.fields["x"] = Clamp(newx, 1, world.maxx)
 				R.fields["y"] = Clamp(newy, 1, world.maxy)
@@ -224,14 +225,14 @@
 
 	if (action == "setx")
 		var/newx = input("Input new destination x coordinate", "Coordinate input", dx) as num|null
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newx)
 			dx = Clamp(newx, 1, world.maxx)
 
 	if (action == "sety")
 		var/newy = input("Input new destination y coordinate", "Coordinate input", dy) as num|null
-		if(!CanInteract(usr, physical_state))
+		if(!CanInteract(usr, GLOB.physical_state))
 			return
 		if (newy)
 			dy = Clamp(newy, 1, world.maxy)
@@ -250,7 +251,7 @@
 			var/mob/living/carbon/human/H = usr
 			var/dir_to_move = turn(connected.dir, ndir == WEST ? 90 : -90)
 			var/turf/new_turf = get_step(connected, dir_to_move)
-			if(new_turf.x > current_map.overmap_size || new_turf.y > current_map.overmap_size)
+			if(new_turf.x > SSatlas.current_map.overmap_size || new_turf.y > SSatlas.current_map.overmap_size)
 				to_chat(H, SPAN_WARNING("Automated piloting safeties prevent you from going into deep space."))
 				return
 			if(do_after(H, 1 SECOND) && connected.can_combat_roll())
@@ -331,45 +332,53 @@
 	can_pass_under = FALSE
 	light_power_on = 1
 
-/obj/machinery/computer/ship/navigation/ui_interact(mob/user, ui_key = "main", var/datum/nanoui/ui = null, var/force_open = 1)
-	if(!connected)
-		display_reconnect_dialog(user, "Navigation")
-		return
-
-	var/data[0]
-
-
-	var/turf/T = get_turf(connected)
-	var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
-
-	data["sector"] = current_sector ? current_sector.name : "Deep Space"
-	data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
-	data["s_x"] = connected.x
-	data["s_y"] = connected.y
-	data["speed"] = round(connected.get_speed()*1000, 0.01)
-	data["accel"] = round(connected.get_acceleration()*1000, 0.01)
-	data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
-	data["viewing"] = viewing_overmap(user)
-
-	if(connected.get_speed())
-		data["ETAnext"] = "[round(connected.ETA()/10)] seconds"
-	else
-		data["ETAnext"] = "N/A"
-
-	ui = SSnanoui.try_update_ui(user, src, ui_key, ui, data, force_open)
-	if (!ui)
-		ui = new(user, src, ui_key, "nav.tmpl", "[connected.get_real_name()] Navigation Screen", 380, 530)
-		ui.set_initial_data(data)
+/obj/machinery/computer/ship/navigation/ui_interact(mob/user, datum/tgui/ui)
+	ui = SStgui.try_update_ui(user, src, ui)
+	if(!ui)
+		ui = new(user, src, "Nav", capitalize_first_letters(name), ui_x=470, ui_y=320)
+		RegisterSignal(ui, COMSIG_TGUI_CLOSE, PROC_REF(handle_unlook_signal))
 		ui.open()
-		ui.set_auto_update(1)
 
-/obj/machinery/computer/ship/navigation/Topic(href, href_list)
+/obj/machinery/computer/ship/navigation/ui_data(mob/user)
+	var/list/data = list()
+
+	if(!connected)
+		display_reconnect_dialog(user, "navigation")
+	else
+		var/turf/T = get_turf(connected)
+		var/obj/effect/overmap/visitable/sector/current_sector = locate() in T
+
+		data["sector"] = current_sector ? current_sector.name : "Deep Space"
+		data["sector_info"] = current_sector ? current_sector.desc : "Not Available"
+		data["ship_coord_x"] = connected.x
+		data["ship_coord_y"] = connected.y
+		data["speed"] = round(connected.get_speed()*1000, 0.01)
+		data["accel"] = round(connected.get_acceleration()*1000, 0.01)
+		var/list/speed_xy = connected.get_speed_xy()
+		data["ship_speed_x"] = speed_xy[1]
+		data["ship_speed_y"] = speed_xy[2]
+		data["direction"] = dir2angle(connected.dir)
+		data["heading"] = connected.get_heading() ? dir2angle(connected.get_heading()) : 0
+		data["ETAnext"] = get_eta()
+		data["viewing"] = viewing_overmap(user)
+
+	return data
+
+/obj/machinery/computer/ship/navigation/proc/get_eta()
+	var/ETA = connected.ETA()
+	if(ETA && connected.get_speed())
+		return "[round(ETA/7)] seconds"
+	else
+		return "N/A"
+
+/obj/machinery/computer/ship/navigation/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	if(..())
-		return TOPIC_HANDLED
+		return TRUE
 
-	if (!connected)
-		return TOPIC_NOACTION
+	if(!connected)
+		return TRUE
 
-	if (href_list["viewing"])
+	if(action == "viewing")
 		viewing_overmap(usr) ? unlook(usr) : look(usr)
-		return TOPIC_REFRESH
+
+	add_fingerprint(usr)

@@ -13,7 +13,7 @@
 		return
 
 	var/list/T = list()
-	for (var/obj/machinery/camera/C in cameranet.cameras)
+	for (var/obj/machinery/camera/C in GLOB.cameranet.cameras)
 		var/list/tempnetwork = C.network&src.network
 		if (tempnetwork.len)
 			T[text("[][]", C.c_tag, (C.can_use() ? null : " (Deactivated)"))] = C
@@ -104,7 +104,7 @@
 		return list()
 
 	var/datum/trackable/TB = new()
-	for(var/mob/living/M in mob_list)
+	for(var/mob/living/M in GLOB.mob_list)
 		if(M == usr)
 			continue
 		if(M.tracking_status() != TRACKING_POSSIBLE)
@@ -208,7 +208,7 @@
 /mob/living/proc/near_camera()
 	if (!isturf(loc))
 		return 0
-	else if(!cameranet.is_visible(src))
+	else if(!GLOB.cameranet.is_visible(src))
 		return 0
 	return 1
 
@@ -260,7 +260,7 @@
 
 /mob/living/proc/tracking_cancelled()
 
-/mob/living/silicon/robot/tracking_initiated()
+/mob/living/silicon/robot/tracking_cancelled()
 	tracking_entities--
 	if(!tracking_entities && has_zeroth_law())
 		to_chat(src, "<span class='notice'>Internal camera is no longer being accessed.</span>")

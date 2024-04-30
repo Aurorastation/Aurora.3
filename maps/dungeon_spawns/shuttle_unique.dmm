@@ -3,7 +3,6 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "ab" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
 /turf/simulated/wall/shuttle/dark/corner{
 	dir = 9
 	},
@@ -23,7 +22,6 @@
 /turf/simulated/floor/plating,
 /area/dungeon/crashed_ship)
 "ad" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
 /turf/simulated/wall/shuttle/dark/corner{
 	dir = 5
 	},
@@ -470,13 +468,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/dungeon/crashed_ship)
 "bt" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
 /turf/simulated/wall/shuttle/dark/corner{
 	dir = 10
 	},
 /area/dungeon/crashed_ship)
 "bu" = (
-/turf/unsimulated/floor/asteroid/ash/rocky,
 /turf/simulated/wall/shuttle/dark/corner{
 	dir = 6
 	},

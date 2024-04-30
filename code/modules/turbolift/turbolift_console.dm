@@ -72,6 +72,10 @@
 	light_up = FALSE
 	update_icon()
 
+/obj/structure/lift/button/attack_ghost(var/mob/user)
+	if(check_rights(R_ADMIN, FALSE, user))
+		return ui_interact(user)
+
 /obj/structure/lift/button/ui_interact(var/mob/user)
 	if(!..())
 		return

@@ -1,6 +1,5 @@
 /mob/abstract/hivemind
 	name = "internal hivemind"
-	see_in_dark = 2
 	see_invisible = SEE_INVISIBLE_LIVING
 
 	var/mob/living/carbon/human/changeling_mob // the head honcho

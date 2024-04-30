@@ -51,9 +51,9 @@
 /mob/living/simple_animal/shade/can_name(var/mob/living/M)
 	return FALSE
 
-/mob/living/simple_animal/shade/attackby(var/obj/item/O as obj, var/mob/user as mob)  //Marker -Agouri
-	if(istype(O, /obj/item/device/soulstone))
-		var/obj/item/device/soulstone/S = O;
+/mob/living/simple_animal/shade/attackby(obj/item/attacking_item, mob/user)  //Marker -Agouri
+	if(istype(attacking_item, /obj/item/device/soulstone))
+		var/obj/item/device/soulstone/S = attacking_item
 		S.transfer_soul("SHADE", src, user)
 		return
 	return ..()
@@ -104,7 +104,7 @@
 	var/datum/weakref/original_body
 	var/datum/weakref/possessed_body
 
-/mob/living/simple_animal/shade/bluespace/apply_damage(var/damage, var/damagetype, var/def_zone, var/blocked, var/used_weapon, var/damage_flags, var/armor_pen, var/silent = FALSE)
+/mob/living/simple_animal/shade/bluespace/apply_damage(damage = 0, damagetype = DAMAGE_BRUTE, def_zone, blocked, used_weapon, damage_flags = 0, armor_pen, silent = FALSE)
 	return 0
 
 /mob/living/simple_animal/shade/bluespace/adjustBruteLoss()

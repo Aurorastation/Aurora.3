@@ -15,7 +15,6 @@
 	emote_see = list("stares ferociously", "stomps")
 	speak_chance = 10
 	turns_per_move = 10
-	see_in_dark = 6
 	meat_type = /obj/item/reagent_containers/food/snacks/bearmeat
 	meat_amount = 5
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
@@ -248,14 +247,14 @@
 	set_stance(HOSTILE_STANCE_TIRED)
 	speak_audio()
 	stance_step = 0
-	walk(src, 0) //This stops the bear's walking
+	SSmove_manager.stop_looping(src) //This stops the bear's walking
 
 /mob/living/simple_animal/hostile/bear/spatial/tire_out()
 	..()
 	spawn(5)
 		teleport()//Bluespace bears teleport away to rest
 
-/mob/living/simple_animal/hostile/bear/attackby(var/obj/item/O as obj, var/mob/user as mob)
+/mob/living/simple_animal/hostile/bear/attackby(obj/item/attacking_item, mob/user)
 	var/healthbefore = health
 	..()
 	spawn(1)
@@ -321,7 +320,7 @@
 		if (stance > HOSTILE_STANCE_ALERT)//If we're currently above alert
 			set_stance(HOSTILE_STANCE_ALERT)//Drop to alert and cease attacking
 		target_mob = null
-		walk(src, 0)
+		SSmove_manager.stop_looping(src)
 
 /mob/living/simple_animal/hostile/bear/AttackingTarget()
 	var/targetname = target_mob.name
@@ -394,14 +393,14 @@
 //This is triggered randomly periodically by the bear
 /mob/living/simple_animal/hostile/bear/proc/growl_soft()
 	var/sound = pick(quiet_sounds)
-	playsound(src, sound, 50, 1,3, usepressure = 0)
+	playsound(src, sound, 50, 1,3, pressure_affected = 0)
 
 
 //Plays a loud sound from a selection of four
 //Played when bear is attacking or dies
 /mob/living/simple_animal/hostile/bear/proc/growl_loud()
 	var/sound = pick(loud_sounds)
-	playsound(src, sound, 85, 1, 5, usepressure = 0)
+	playsound(src, sound, 85, 1, 5, pressure_affected = 0)
 
 //A special bear subclass which is more powerful and has the ability to teleport around to seek out prey.
 //It dislikes other bears and refuses to cooperate with them. If two of them see each other, one or both will teleport away

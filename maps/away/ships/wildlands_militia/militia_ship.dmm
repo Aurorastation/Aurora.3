@@ -18,7 +18,6 @@
 "aad" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_access = null;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -105,10 +104,7 @@
 /obj/item/paper_bin,
 /obj/item/pen/multi,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/ship/militia_ship)
 "aCd" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
@@ -156,21 +152,13 @@
 /area/ship/militia_ship)
 "aJd" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
-	dir = 1;
-	layer = 2.8
+	dir = 1
 	},
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "aMB" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/blackbox_recorder,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/ship/militia_ship)
 "aOU" = (
 /obj/machinery/light/small{
@@ -567,24 +555,15 @@
 /obj/item/modular_computer/console/preset/civilian,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/cobweb,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/ship/militia_ship)
 "fVv" = (
 /obj/machinery/telecomms/allinone/ship,
-/turf/simulated/floor/bluegrid{
-	name = "Server Base";
-	nitrogen = 500;
-	oxygen = 0;
-	temperature = 80
-	},
+/turf/simulated/floor/bluegrid/cooled,
 /area/ship/militia_ship)
 "fZq" = (
 /obj/machinery/door/airlock/security{
 	name = "Brig";
-	req_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -648,8 +627,7 @@
 /area/ship/militia_ship)
 "hdb" = (
 /obj/machinery/atmospherics/portables_connector{
-	dir = 8;
-	layer = 2.8
+	dir = 8
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
@@ -668,10 +646,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/ship/militia_ship)
 "hiw" = (
 /obj/machinery/door/airlock/hatch{
@@ -803,7 +778,6 @@
 "iGK" = (
 /obj/machinery/door/airlock/glass{
 	name = "Dinner Hall";
-	req_access = null;
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -917,7 +891,6 @@
 /obj/effect/floor_decal/corner/black/diagonal,
 /obj/machinery/door/airlock/silver{
 	name = "Kitchen";
-	req_access = null;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
@@ -1125,9 +1098,7 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/militia_ship)
 "ofY" = (
-/obj/machinery/atmospherics/portables_connector{
-	layer = 2.8
-	},
+/obj/machinery/atmospherics/portables_connector,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
@@ -1168,9 +1139,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/ship/militia_ship)
 "piw" = (
-/obj/structure/closet/secure_closet/freezer/kitchen{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -1180,7 +1149,6 @@
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -11
 	},
@@ -1266,7 +1234,6 @@
 "qwS" = (
 /obj/machinery/door/airlock/security{
 	name = "Dock";
-	req_access = null;
 	dir = 4
 	},
 /turf/simulated/floor/shuttle/dark_blue,
@@ -1337,7 +1304,6 @@
 "sGi" = (
 /obj/machinery/door/airlock/security{
 	name = "Cockpit";
-	req_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -1486,7 +1452,6 @@
 "vlC" = (
 /obj/machinery/door/airlock/security{
 	name = "Captain's Quarters";
-	req_access = null;
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
@@ -1561,10 +1526,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/turf/simulated/floor/tiled{
-	name = "cooled floor";
-	temperature = 278
-	},
+/turf/simulated/floor/tiled/cooled,
 /area/ship/militia_ship)
 "vRq" = (
 /turf/simulated/floor/tiled/dark,
@@ -1708,9 +1670,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/militia_ship)
-"xAC" = (
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/militia_ship)
 "xHt" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8;
@@ -1723,7 +1682,6 @@
 /obj/machinery/embedded_controller/radio/airlock/docking_port{
 	frequency = 1380;
 	id_tag = "militia_ship_port";
-	layer = 3.3;
 	pixel_y = 28;
 	tag_airpump = "militia_ship_pump";
 	tag_chamber_sensor = "militia_ship_sensor";
@@ -1733,9 +1691,7 @@
 /turf/simulated/floor,
 /area/ship/militia_ship)
 "xPN" = (
-/obj/machinery/computer/ship/helm{
-	req_access = null
-	},
+/obj/machinery/computer/ship/helm,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/militia_shuttle)
 "xQS" = (
@@ -32446,8 +32402,8 @@ mxc
 xzv
 uNN
 yjk
-xAC
-xAC
+mhS
+mhS
 aac
 dTw
 wLs

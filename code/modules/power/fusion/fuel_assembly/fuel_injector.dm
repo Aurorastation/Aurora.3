@@ -4,7 +4,7 @@
 	icon_state = "injector0"
 	density = TRUE
 	anchored = FALSE
-	req_access = list(access_engine)
+	req_access = list(ACCESS_ENGINE)
 	idle_power_usage = 10
 	active_power_usage = 500
 
@@ -34,30 +34,30 @@
 		else
 			Inject()
 
-/obj/machinery/fusion_fuel_injector/attackby(obj/item/W, mob/user)
+/obj/machinery/fusion_fuel_injector/attackby(obj/item/attacking_item, mob/user)
 
-	if(W.ismultitool())
+	if(attacking_item.ismultitool())
 		var/datum/component/local_network_member/fusion = GetComponent(/datum/component/local_network_member)
 		fusion.get_new_tag(user)
 		return
 
-	if(istype(W, /obj/item/fuel_assembly))
+	if(istype(attacking_item, /obj/item/fuel_assembly))
 		if(injecting)
 			to_chat(user, SPAN_WARNING("Shut \the [src] off before playing with the fuel rod!"))
 			return
-		if(!user.unEquip(W, src))
+		if(!user.unEquip(attacking_item, 0, src))
 			return
 		if(cur_assembly)
-			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [W]."))
+			visible_message(SPAN_NOTICE("\The [user] swaps \the [src]'s [cur_assembly] for \a [attacking_item]."))
 		else
-			visible_message(SPAN_NOTICE("\The [user] inserts \a [W] into \the [src]."))
+			visible_message(SPAN_NOTICE("\The [user] inserts \a [attacking_item] into \the [src]."))
 		if(cur_assembly)
 			cur_assembly.dropInto(loc)
 			user.put_in_hands(cur_assembly)
-		cur_assembly = W
+		cur_assembly = attacking_item
 		return
 
-	if(W.iswelder())
+	if(attacking_item.iswelder())
 		if(injecting)
 			to_chat(user, SPAN_WARNING("Shut \the [src] off first!"))
 			return

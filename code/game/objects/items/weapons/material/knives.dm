@@ -21,6 +21,10 @@
 	hitsound = 'sound/weapons/bladeslice.ogg'
 	surgerysound = 'sound/items/surgery/scalpel.ogg'
 
+/obj/item/material/knife/bloody/Initialize()
+	. = ..()
+	src.add_blood()
+
 /obj/item/material/knife/attack(mob/living/carbon/M as mob, mob/living/carbon/user as mob, var/target_zone)
 	if(active == 1)
 		if((target_zone != BP_EYES && target_zone != BP_HEAD) || M.eyes_protected(src, FALSE))
@@ -62,10 +66,15 @@
 /obj/item/material/knife/ritual
 	name = "ritual knife"
 	desc = "The unearthly energies that once powered this blade are now dormant."
-	icon = 'icons/obj/wizard.dmi'
+	icon = 'icons/obj/item/material/knife/ritual.dmi'
 	icon_state = "render"
-	item_state = "knife"
-	applies_material_colour = 0
+	item_state = "render"
+	contained_sprite = TRUE
+	applies_material_colour = FALSE
+
+/obj/item/material/knife/ritual/bloody/Initialize()
+	. = ..()
+	src.add_blood()
 
 /obj/item/material/knife/raskariim
 	name = "adhomian ritual dagger"
@@ -113,6 +122,11 @@
 
 /obj/item/material/knife/trench/silver/Initialize(newloc, material_key)
 	. = ..(newloc, MATERIAL_SILVER)
+
+/obj/item/material/knife/trench/bloody/Initialize()
+	. = ..()
+	src.add_blood()
+
 
 //Butterfly knives stab your eyes out too!
 

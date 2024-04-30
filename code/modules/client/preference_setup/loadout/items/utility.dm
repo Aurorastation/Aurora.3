@@ -42,6 +42,12 @@
 	folders["yellow folder"] = /obj/item/folder/yellow
 	gear_tweaks += new /datum/gear_tweak/path(folders)
 
+/datum/gear/utility/journal
+	display_name = "journal"
+	description = "A journal, kind of like a folder, but bigger! And personal."
+	path = /obj/item/journal
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
 /datum/gear/utility/fountainpen
 	display_name = "fountain pen selection"
 	description = "A selection of fountain pens."
@@ -94,7 +100,7 @@
 /datum/gear/utility/himeo_kit
 	display_name = "himean voidsuit kit"
 	path = /obj/item/voidsuit_modkit/himeo
-	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice")
+	allowed_roles = list("Shaft Miner", "Operations Manager", "Engineer", "Atmospheric Technician", "Chief Engineer", "Engineering Apprentice", "Engineering Personnel", "Operations Personnel")
 	origin_restriction = list(/singleton/origin_item/origin/himeo, /singleton/origin_item/origin/ipc_himeo, /singleton/origin_item/origin/free_council)
 
 /datum/gear/utility/wheelchair/color
@@ -150,6 +156,7 @@
 	pills["Neurostabin "] = /obj/item/storage/pill_bottle/neurostabin
 	pills["Orastabin"] = /obj/item/storage/pill_bottle/orastabin
 	pills["Parvosil"] = /obj/item/storage/pill_bottle/parvosil
+	pills["Corophenidate"] = /obj/item/storage/pill_bottle/corophenidate
 	gear_tweaks += new /datum/gear_tweak/path(pills)
 
 /datum/gear/utility/buddy_tag

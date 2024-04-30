@@ -97,12 +97,6 @@ var/list/global/random_stock_large = list()
 	var/area/warehouse
 	var/list/warehouseturfs = list()
 
-	var/list/infest_mobs_minor = list(
-		/mob/living/simple_animal/rat = 1,
-		/mob/living/simple_animal/lizard = 0.5,
-		/mob/living/simple_animal/yithian = 0.7,
-		/mob/living/simple_animal/tindalos = 0.6)
-
 	var/list/infest_mobs_moderate = list(
 		/mob/living/simple_animal/bee/standalone = 1,
 		/mob/living/simple_animal/hostile/retaliate/diyaab = 1,
@@ -117,7 +111,7 @@ var/list/global/random_stock_large = list()
 
 /datum/cargospawner/New()
 	//First lets get the reference to our warehouse
-	for(var/areapath in typesof(current_map.warehouse_basearea))
+	for(var/areapath in typesof(SSatlas.current_map.warehouse_basearea))
 		warehouse = locate(areapath)
 		if (warehouse)
 			for (var/turf/simulated/floor/T in warehouse)
@@ -130,7 +124,7 @@ var/list/global/random_stock_large = list()
 				tables |= B
 
 /datum/cargospawner/proc/start()
-	if (!current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
+	if (!SSatlas.current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
 		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
 		qdel(src)
 		return
@@ -138,7 +132,7 @@ var/list/global/random_stock_large = list()
 	//First, we spawn the larger items
 	//Large objects are spawned on preset locations around cargo
 	//These locations are designated by large stock marker objects, which are manually mapped in
-	for (var/obj/effect/large_stock_marker/LSM in world)
+	for (var/obj/effect/large_stock_marker/LSM in GLOB.large_stock_markers)
 		if (prob(STOCK_LARGE_PROB))
 			var/type = pickweight(random_stock_large)
 			if (type)
@@ -202,19 +196,14 @@ var/list/global/random_stock_large = list()
 		if ("3")
 			return pickweight(random_stock_common)
 
-//Minor and moderate mobs are checked per crate
-#define INFEST_PROB_MINOR	6
+// Moderate mobs are checked per crate
 #define INFEST_PROB_MODERATE	3
 
 #define INFEST_PROB_SEVERE	3//Severe is once per round, not per crate
 
 /datum/cargospawner/proc/handle_infestation()
 	for (var/obj/O in containers)
-		if (prob(INFEST_PROB_MINOR))
-	//No admin message for the minor mobs, because they are friendly and harmless
-			var/ctype = pickweight(infest_mobs_minor)
-			new ctype(O)
-		else if	 (prob(INFEST_PROB_MODERATE))
+		if(prob(INFEST_PROB_MODERATE))
 			var/ctype = pickweight(infest_mobs_moderate)
 			new ctype(O)
 			msg_admin_attack("Common cargo warehouse critter [ctype] spawned inside [O.name] coords (<a href='?_src_=holder;adminplayerobservecoodjump=1;X=[O.x];Y=[O.y];Z=[O.z]'>JMP</a>)")
@@ -246,9 +235,17 @@ var/list/global/random_stock_large = list()
 		var/turf/T = get_turf(a)
 		T.contents = shuffle(T.contents)
 
-
+GLOBAL_LIST_EMPTY_TYPED(large_stock_markers, /obj/effect/large_stock_marker)
 /obj/effect/large_stock_marker
 	name = "Large Stock Marker"
 	desc = "This marks a place where a large object could spawn in cargo"
 	icon = 'icons/mob/screen/generic.dmi'
 	icon_state = "x3"
+
+/obj/effect/large_stock_marker/Initialize(mapload, ...)
+	. = ..()
+	GLOB.large_stock_markers += src
+
+/obj/effect/large_stock_marker/Destroy()
+	GLOB.large_stock_markers -= src
+	. = ..()

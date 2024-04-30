@@ -7,7 +7,7 @@
 
 /datum/bounty/weapon_prototype/New()
 	name = "Weapon ([stat_name] [stat_comparison] [stat_value])"
-	description = "[current_map.company_name] is interested in a laser prototype with a [stat_name] stat [stat_comparison] [stat_value]. [current_map.boss_name] will pay handsomely for such a weapon."
+	description = "[SSatlas.current_map.company_name] is interested in a laser prototype with a [stat_name] stat [stat_comparison] [stat_value]. [SSatlas.current_map.boss_name] will pay handsomely for such a weapon."
 	reward += rand(0, 4) * 500
 	..()
 
@@ -64,11 +64,3 @@
 
 /datum/bounty/weapon_prototype/reliability/accepts_weapon(var/obj/item/gun/energy/laser/prototype/P)
 	return P.reliability > stat_value
-
-/datum/bounty/weapon_prototype/reliability
-	stat_name = "accuracy"
-	stat_value = 3
-	stat_comparison = "greater than"
-
-/datum/bounty/weapon_prototype/reliability/accepts_weapon(var/obj/item/gun/energy/laser/prototype/P)
-	return P.accuracy > stat_value

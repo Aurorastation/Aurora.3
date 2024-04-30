@@ -42,7 +42,7 @@
 	var/area/A = get_area(M)
 	var/location = A.name
 	if(cause == "emp" && prob(50))
-		location = pick(teleportbeacons)
+		location = pick(GLOB.teleportbeacons)
 	if(!A.requires_power) // We assume areas that don't use power are special zones
 		var/area/default = world.area
 		location = initial(default.name)
@@ -52,7 +52,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 	for(var/channel in list("Security", "Medical", "Command"))
-		global_announcer.autosay(death_message, "[mobname]'s Death Alarm", channel)
+		GLOB.global_announcer.autosay(death_message, "[mobname]'s Death Alarm", channel)
 
 /obj/item/implant/death_alarm/emp_act(severity)			//for some reason alarms stop going off in case they are emp'd, even without this
 	. = ..()

@@ -104,8 +104,8 @@
 		ammo_magazine = null
 	return ..()
 
-/obj/item/minigunpack/attackby(obj/item/W, mob/user, params)
-	if(W == gun)
+/obj/item/minigunpack/attackby(obj/item/attacking_item, mob/user, params)
+	if(attacking_item == gun)
 		remove_gun()
 		return 1
 	else

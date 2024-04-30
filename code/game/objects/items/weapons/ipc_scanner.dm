@@ -49,13 +49,13 @@
 		to_chat(user, SPAN_NOTICE("<b>Ownership Status:</b> [tag.ownership_info]"))
 		to_chat(user, SPAN_NOTICE("<b>Citizenship Info:</b> [tag.citizenship_info]"))
 
-/obj/item/ipc_tag_scanner/attackby(obj/item/W, mob/user)
-	if(W.isscrewdriver())
+/obj/item/ipc_tag_scanner/attackby(obj/item/attacking_item, mob/user)
+	if(attacking_item.isscrewdriver())
 		wires_exposed = !wires_exposed
 		user.visible_message(SPAN_WARNING("\The [user] [wires_exposed ? "exposes the wiring" : "closes the panel"] on \the [src]."), SPAN_WARNING("You [wires_exposed ? "expose the wiring" : "close the panel"] on \the [src]."), 3)
-	else if(W.iswirecutter() || W.ismultitool())
+	else if(attacking_item.iswirecutter() || attacking_item.ismultitool())
 		if(wires_exposed)
-			wires.Interact(user)
+			wires.interact(user)
 		else
 			to_chat(user, SPAN_WARNING("\The [src]'s wires aren't exposed."))
 	else

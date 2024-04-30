@@ -3,7 +3,7 @@
 /// So this just serves to remove the requirement to load assets fully during init
 SUBSYSTEM_DEF(asset_loading)
 	name = "Asset Loading"
-	priority = SS_PRIORITY_ASSET
+	priority = FIRE_PRIORITY_ASSETS
 	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_LOBBY|RUNLEVELS_DEFAULT
 	var/list/datum/asset/generate_queue = list()

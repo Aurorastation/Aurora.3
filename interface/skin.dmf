@@ -123,9 +123,6 @@ macro "borghotkeymode"
 		name = "CTRL+Q"
 		command = "unequip-module"
 	elem
-		name = "R"
-		command = ".southwest"
-	elem
 		name = "CTRL+R"
 		command = ".southwest"
 	elem "s_key"
@@ -218,6 +215,19 @@ macro "borghotkeymode"
 	elem
 		name = "NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
+
 
 macro "macro"
 	elem
@@ -388,6 +398,22 @@ macro "macro"
 	elem
 		name = "CTRL+NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
+  elem
+    name = "R"
+    command = "throw_intent_toggle"
+
 
 macro "hotkeymode"
 	elem
@@ -526,9 +552,6 @@ macro "hotkeymode"
 		name = "CTRL+Q"
 		command = ".northwest"
 	elem
-		name = "R"
-		command = ".southwest"
-	elem
 		name = "CTRL+R"
 		command = ".southwest"
 	elem "s_key"
@@ -622,11 +645,21 @@ macro "hotkeymode"
 		name = "NUMPAD3"
 		command = "body-l-leg"
 	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
 		name = ","
 		command = "move-upwards"
 	elem
 		name = "."
-		command = "move-down"
+		command = "Move-Down"
+  elem
+    name = "R"
+    command = "throw_intent_toggle"
+
 
 macro "borgmacro"
 	elem
@@ -791,6 +824,18 @@ macro "borgmacro"
 	elem
 		name = "CTRL+NUMPAD3"
 		command = "body-l-leg"
+	elem
+		name = "CTRL+Northeast"
+		command = "Move-Upwards"
+	elem
+		name = "CTRL+Southeast"
+		command = "Move-Down"
+	elem
+		name = ","
+		command = "Move-Upwards"
+	elem
+		name = "."
+		command = "Move-Down"
 
 
 menu "menu"
@@ -925,18 +970,20 @@ window "mapwindow"
 		can-minimize = false
 		can-resize = false
 		is-pane = true
+		on-status = ".winset \"status_bar.text=[[*]]\" "
 	elem "map"
 		type = MAP
 		pos = 0,0
 		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		font-family = "Arial Rounded MT Bold,Arial Black,Arial,sans-serif"
-		font-size = 7
+		font-family = "Grand9K Pixel"
+		font-size = 7pt
 		is-default = true
 		saved-params = "icon-size"
 		on-show = ".winset\"mainwindow.mainvsplit.left=mapwindow\""
 		on-hide = ".winset\"mainwindow.mainvsplit.left=\""
+		style = ".center { text-align: center; } .maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } .command_headset { font-weight: bold; } .context { font-family: 'Pixellari'; font-size: 12pt; -dm-text-outline: 1px black; }  .subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; } .small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } .big { font-family: 'Pixellari'; font-size: 12pt; } .reallybig { font-size: 12pt; } .extremelybig { font-size: 12pt; } .greentext { color: #00FF00; font-size: 6pt; } .redtext { color: #FF0000; font-size: 6pt; } .clown { color: #FF69BF; font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
 
 window "mainwindow"
 	elem "mainwindow"
@@ -1208,9 +1255,7 @@ window "tgui_say"
 	elem "tgui_say"
 		type = MAIN
 		pos = 848,500
-		size = 231x30
-		anchor1 = 50,50
-		anchor2 = 50,50
+		size = 380x30
 		is-visible = false
 		saved-params = ""
 		statusbar = false
@@ -1218,7 +1263,7 @@ window "tgui_say"
 	elem "browser"
 		type = BROWSER
 		pos = 0,0
-		size = 231x30
+		size = 380x30
 		anchor1 = 0,0
 		anchor2 = 0,0
 		saved-params = ""

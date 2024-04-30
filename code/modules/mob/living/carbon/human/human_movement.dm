@@ -41,20 +41,24 @@
 		tally += 6
 
 	if (!(species.flags & NO_COLD_SLOWDOWN))	// Bugs and machines don't move slower when cold.
-		if(HAS_FLAG(mutations, FAT))
+		if((mutations & FAT))
 			tally += 1.5
 		if (bodytemperature < 283.222)
 			tally += (283.222 - bodytemperature) / 10 * 1.75
 
 	tally += max(2 * stance_damage, 0) //damaged/missing feet or legs is slow
-	if(HAS_FLAG(mutations, mRun))
+	if((mutations & mRun))
 		tally = 0
 
 	tally = max(-2, tally + move_delay_mod)
 
-	var/obj/item/I = get_active_hand()
-	if(istype(I))
-		tally += I.slowdown
+	var/obj/item/AH = get_active_hand()
+	if(istype(AH))
+		tally += AH.slowdown
+
+	var/obj/item/IH = get_inactive_hand()
+	if(istype(IH))
+		tally += IH.slowdown
 
 	if(isitem(pulling))
 		var/obj/item/P = pulling
@@ -70,8 +74,11 @@
 			changeling = mind.antag_datums[MODE_CHANGELING]
 		if(!changeling)
 			tally += T.movement_cost
+		if(species && istype(T, /turf/simulated/floor/exoplanet/water))
+			if(species.can_breathe_water())
+				tally -= T.movement_cost
 
-	tally += config.human_delay
+	tally += GLOB.config.human_delay
 
 	if(!isnull(facing_dir) && facing_dir != dir)
 		tally += 3
@@ -152,11 +159,11 @@
 			if(S.do_special_footsteps(m_intent))
 				return
 		if (m_intent == M_RUN)
-			playsound(src, is_noisy ? footsound : species.footsound, 70, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+			playsound(src, (is_noisy ? footsound : species.footsound), 70, TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
 		else
 			footstep++
 			if (footstep % 2)
-				playsound(src, is_noisy ? footsound : species.footsound, 40, 1, required_asfx_toggles = ASFX_FOOTSTEPS)
+				playsound(src, (is_noisy ? footsound : species.footsound), 40, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE, required_asfx_toggles = ASFX_FOOTSTEPS)
 
 /mob/living/carbon/human/proc/handle_leg_damage()
 	if(!can_feel_pain())

@@ -12,7 +12,7 @@
 
 /obj/item/card/id/syndicate/New(mob/user as mob)
 	..()
-	access = syndicate_access.Copy()
+	access = GLOB.syndicate_access.Copy()
 	START_PROCESSING(SSprocessing, src)
 
 /obj/item/card/id/syndicate/Destroy()
@@ -20,11 +20,11 @@
 	unset_registered_user(registered_user)
 	return ..()
 
-/obj/item/card/id/syndicate/examine(mob/user, distance, is_adjacent)
+/obj/item/card/id/syndicate/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		if(user == registered_user)
-			to_chat(user, FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge.")))
+			. += FONT_SMALL(SPAN_NOTICE("It is at [charge]/[initial(charge)] charge."))
 
 /obj/item/card/id/syndicate/process()
 	if(electronic_warfare)
@@ -83,13 +83,13 @@
 	unset_registered_user()
 	registered_user = user
 	user.set_id_info(src)
-	destroyed_event.register(user, src, PROC_REF(unset_registered_user))
+	GLOB.destroyed_event.register(user, src, PROC_REF(unset_registered_user))
 	return TRUE
 
 /obj/item/card/id/syndicate/proc/unset_registered_user(var/mob/user)
 	if(!registered_user || (user && user != registered_user))
 		return
-	destroyed_event.unregister(registered_user, src)
+	GLOB.destroyed_event.unregister(registered_user, src)
 	registered_user = null
 
 /obj/item/card/id/syndicate/CanUseTopic(mob/user)
@@ -232,7 +232,7 @@
 			if("Factory Reset")
 				if(alert("This will factory reset the card, including access and owner. Continue?", "Factory Reset", "No", "Yes") == "Yes" && CanUseTopic(user, state))
 					age = initial(age)
-					access = syndicate_access.Copy()
+					access = GLOB.syndicate_access.Copy()
 					assignment = initial(assignment)
 					blood_type = initial(blood_type)
 					citizenship = initial(citizenship)

@@ -28,7 +28,7 @@
 	)
 
 	titles_to_loadout = list(
-		"Off-Duty Crew Member" = /datum/outfit/job/visitor/nanotrasen
+		"Off-Duty Crew Member" = /obj/outfit/job/visitor/nanotrasen
 	)
 
 
@@ -52,7 +52,7 @@
 
 	return objective
 
-/datum/outfit/job/visitor/nanotrasen
+/obj/outfit/job/visitor/nanotrasen
 	name = "Off-Duty Crew Member - NanoTrasen"
 
 	backpack_faction = /obj/item/storage/backpack/nt

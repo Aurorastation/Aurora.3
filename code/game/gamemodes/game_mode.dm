@@ -1,5 +1,5 @@
 var/global/antag_add_failed // Used in antag type voting.
-var/global/list/additional_antag_types = list()
+GLOBAL_LIST_EMPTY(additional_antag_types)
 
 /datum/game_mode
 	var/name = "invalid"
@@ -87,7 +87,7 @@ var/global/list/additional_antag_types = list()
 		if(href_list["debug_antag"] == "self")
 			usr.client.debug_variables(src)
 			return
-		var/datum/antagonist/antag = all_antag_types[href_list["debug_antag"]]
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["debug_antag"]]
 		if(antag)
 			usr.client.debug_variables(antag)
 			message_admins("Admin [key_name_admin(usr)] is debugging the [antag.role_text] template.")
@@ -95,16 +95,16 @@ var/global/list/additional_antag_types = list()
 		if(antag_tags && (href_list["remove_antag_type"] in antag_tags))
 			to_chat(usr, "Cannot remove core mode antag type.")
 			return
-		var/datum/antagonist/antag = all_antag_types[href_list["remove_antag_type"]]
-		if(antag_templates && antag_templates.len && antag && (antag in antag_templates) && (antag.id in additional_antag_types))
+		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["remove_antag_type"]]
+		if(antag_templates && antag_templates.len && antag && (antag in antag_templates) && (antag.id in GLOB.additional_antag_types))
 			antag_templates -= antag
-			additional_antag_types -= antag.id
+			GLOB.additional_antag_types -= antag.id
 			message_admins("Admin [key_name_admin(usr)] removed [antag.role_text] template from game mode.")
 	else if(href_list["add_antag_type"])
-		var/choice = input("Which type do you wish to add?") as null|anything in all_antag_types
+		var/choice = input("Which type do you wish to add?") as null|anything in GLOB.all_antag_types
 		if(!choice)
 			return
-		var/datum/antagonist/antag = all_antag_types[choice]
+		var/datum/antagonist/antag = GLOB.all_antag_types[choice]
 		if(antag)
 			if(!islist(SSticker.mode.antag_templates))
 				SSticker.mode.antag_templates = list()
@@ -154,7 +154,7 @@ var/global/list/additional_antag_types = list()
 	var/returning = GAME_FAILURE_NONE
 
 	var/playerC = 0
-	for(var/mob/abstract/new_player/player in player_list)
+	for(var/mob/abstract/new_player/player in GLOB.player_list)
 		if(player.client && player.ready)
 			playerC++
 
@@ -173,7 +173,7 @@ var/global/list/additional_antag_types = list()
 		if(antag_tags && antag_tags.len)
 			log_game_mode("Checking antag tags...")
 			for(var/antag_tag in antag_tags)
-				var/datum/antagonist/antag = all_antag_types[antag_tag]
+				var/datum/antagonist/antag = GLOB.all_antag_types[antag_tag]
 				if(!antag)
 					continue
 				log_game_mode("Checking antag tag: [antag.role_text]...")
@@ -193,7 +193,7 @@ var/global/list/additional_antag_types = list()
 			// Split the for loop here so that we can have a complete set of potential lists for each antag_tag before continuing
 			var/list/total_enemies = list()
 			for(var/antag_tag in antag_tags)
-				var/datum/antagonist/antag = all_antag_types[antag_tag]
+				var/datum/antagonist/antag = GLOB.all_antag_types[antag_tag]
 				if(!antag)
 					continue
 				var/list/potential = list()
@@ -277,9 +277,9 @@ var/global/list/additional_antag_types = list()
 	addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(display_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 
 	var/welcome_delay = rand(waittime_l, waittime_h)
-	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
+	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, send_welcome)), welcome_delay)
 
-	addtimer(CALLBACK(current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
+	addtimer(CALLBACK(SSatlas.current_map, TYPE_PROC_REF(/datum/map, load_holodeck_programs)), 5 MINUTES)
 
 	//Assign all antag types for this game mode. Any players spawned as antags earlier should have been removed from the pending list, so no need to worry about those.
 	for(var/datum/antagonist/antag in antag_templates)
@@ -293,7 +293,7 @@ var/global/list/additional_antag_types = list()
 
 	feedback_set_details("round_start","[time2text(world.realtime)]")
 	if(SSticker.mode)
-		feedback_set_details("master_mode","[master_mode]")
+		feedback_set_details("GLOB.master_mode","[GLOB.master_mode]")
 		feedback_set_details("game_mode","[SSticker.mode]")
 	feedback_set_details("server_ip","[world.internet_address]:[world.port]")
 	return 1
@@ -347,7 +347,7 @@ var/global/list/additional_antag_types = list()
 /datum/game_mode/proc/declare_completion()
 
 	var/is_antag_mode = (antag_templates && antag_templates.len)
-	var/discord_text = "A round of **[name]** has ended! \[Game ID: [game_id]\]\n\n"
+	var/discord_text = "A round of **[name]** has ended! \[Game ID: [GLOB.round_id]\]\n\n"
 	var/antag_text = ""
 	check_victory()
 	if(is_antag_mode)
@@ -357,14 +357,14 @@ var/global/list/additional_antag_types = list()
 			antag.check_victory()
 			antag.print_player_summary()
 			// Avoid the longest loop if we aren't actively using the bot.
-			if (discord_bot.active)
+			if (SSdiscord.active)
 				antag_text += antag.print_player_summary_discord()
 
 		sleep(10)
 		print_ownerless_uplinks()
 
 	discord_text += antag_text
-	discord_bot.send_to_announce(discord_text, 1)
+	SSdiscord.send_to_announce(discord_text, 1)
 	discord_text = ""
 
 	var/clients = 0
@@ -372,7 +372,7 @@ var/global/list/additional_antag_types = list()
 	var/escaped_total = 0
 	var/ghosts = 0
 
-	for(var/mob/M in player_list)
+	for(var/mob/M in GLOB.player_list)
 		if(M.client)
 			clients++
 			if(M.stat != DEAD && isipc(M))
@@ -406,8 +406,8 @@ var/global/list/additional_antag_types = list()
 		discord_text += "There were **no survivors** ([ghosts] ghosts)."
 	to_world(text)
 
-	discord_bot.send_to_announce(discord_text)
-	post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=game_id, "antags"=antag_text))
+	SSdiscord.send_to_announce(discord_text)
+	SSdiscord.post_webhook_event(WEBHOOK_ROUNDEND, list("survivours"=surviving_total, "escaped"=escaped_total, "ghosts"=ghosts, "gamemode"=name, "gameid"=GLOB.round_id, "antags"=antag_text))
 
 	if(clients > 0)
 		feedback_set("round_end_clients", clients)
@@ -427,13 +427,13 @@ var/global/list/additional_antag_types = list()
 	var/list/players = list()
 	var/list/candidates = list()
 
-	var/datum/antagonist/antag_template = all_antag_types[antag_id]
+	var/datum/antagonist/antag_template = GLOB.all_antag_types[antag_id]
 	if(!antag_template)
 		return candidates
 
 	// If this is being called post-roundstart then it doesn't care about ready status.
 	if(SSticker.current_state == GAME_STATE_PLAYING)
-		for(var/mob/player in player_list)
+		for(var/mob/player in GLOB.player_list)
 			if(!player.client)
 				continue
 			if(istype(player, /mob/abstract/new_player))
@@ -443,7 +443,7 @@ var/global/list/additional_antag_types = list()
 				candidates |= player.mind
 	else
 		// Assemble a list of active players without jobbans.
-		for(var/mob/abstract/new_player/player in player_list)
+		for(var/mob/abstract/new_player/player in GLOB.player_list)
 			if( player.client && player.ready )
 				players += player
 
@@ -460,7 +460,7 @@ var/global/list/additional_antag_types = list()
 
 /datum/game_mode/proc/num_players()
 	. = 0
-	for(var/mob/abstract/new_player/P in player_list)
+	for(var/mob/abstract/new_player/P in GLOB.player_list)
 		if(P.client && P.ready)
 			. ++
 
@@ -469,21 +469,21 @@ var/global/list/additional_antag_types = list()
 
 /datum/game_mode/proc/create_antagonists()
 
-	if(!config.traitor_scaling)
+	if(!GLOB.config.traitor_scaling)
 		antag_scaling_coeff = 0
 
 	if(antag_tags && antag_tags.len)
 		antag_templates = list()
 		for(var/antag_tag in antag_tags)
-			var/datum/antagonist/antag = all_antag_types[antag_tag]
+			var/datum/antagonist/antag = GLOB.all_antag_types[antag_tag]
 			if(antag)
 				antag_templates |= antag
 
-	if(additional_antag_types && additional_antag_types.len)
+	if(GLOB.additional_antag_types && GLOB.additional_antag_types.len)
 		if(!antag_templates)
 			antag_templates = list()
-		for(var/antag_type in additional_antag_types)
-			var/datum/antagonist/antag = all_antag_types[antag_type]
+		for(var/antag_type in GLOB.additional_antag_types)
+			var/datum/antagonist/antag = GLOB.all_antag_types[antag_type]
 			if(antag)
 				antag_templates |= antag
 
@@ -498,11 +498,11 @@ var/global/list/additional_antag_types = list()
 //////////////////////////
 /proc/get_logout_report()
 	var/msg = "<span class='notice'><b>Logout report</b>\n\n"
-	for(var/mob/living/L in mob_list)
+	for(var/mob/living/L in GLOB.mob_list)
 
 		if(L.ckey)
 			var/found = 0
-			for(var/client/C in clients)
+			for(var/client/C in GLOB.clients)
 				if(C.ckey == L.ckey)
 					found = 1
 					break
@@ -522,7 +522,7 @@ var/global/list/additional_antag_types = list()
 					continue //Dead
 
 			continue //Happy connected client
-		for(var/mob/abstract/observer/D in mob_list)
+		for(var/mob/abstract/observer/D in GLOB.mob_list)
 			if(D.mind && (D.mind.original == L || D.mind.current == L))
 				if(L.stat == DEAD)
 					msg += "<b>[L.name]</b> ([ckey(D.mind.key)]), the [L.job] (Dead)\n"
@@ -540,7 +540,7 @@ var/global/list/additional_antag_types = list()
 
 /proc/display_logout_report()
 	var/logout_report = get_logout_report()
-	for(var/s in staff)
+	for(var/s in GLOB.staff)
 		var/client/C = s
 		if(check_rights(R_MOD|R_ADMIN,0,C.mob))
 			to_chat(C.mob, logout_report)
@@ -556,7 +556,7 @@ var/global/list/additional_antag_types = list()
 /proc/get_poor()
 	var/list/characters = list()
 
-	for(var/mob/living/carbon/human/character in player_list)
+	for(var/mob/living/carbon/human/character in GLOB.player_list)
 		if(character.client)
 			if((character.client.prefs.economic_status == ECONOMICALLY_DESTITUTE) || (character.client.prefs.economic_status == ECONOMICALLY_RUINED)) // Discrimination.
 				characters += character
@@ -577,7 +577,7 @@ var/global/list/additional_antag_types = list()
 
 	if(!player || !player.current) return
 
-	if(config.objectives_disabled)
+	if(GLOB.config.objectives_disabled)
 		show_generic_antag_text(player)
 		return
 
@@ -609,23 +609,23 @@ var/global/list/additional_antag_types = list()
 	set name = "Check Gamemode Probability"
 	set category = "OOC"
 
-	if(config.show_game_type_odd)
+	if(GLOB.config.show_game_type_odd)
 		to_chat(src, "<b>Secret Mode Odds:</b>")
 		var/sum = 0
-		for(var/config_tag in config.probabilities_secret)
-			sum += config.probabilities_secret[config_tag]
-		for(var/config_tag in config.probabilities_secret)
-			if(config.probabilities_secret[config_tag] > 0)
-				var/percentage = round(config.probabilities_secret[config_tag] / sum * 100, 0.1)
+		for(var/config_tag in GLOB.config.probabilities_secret)
+			sum += GLOB.config.probabilities_secret[config_tag]
+		for(var/config_tag in GLOB.config.probabilities_secret)
+			if(GLOB.config.probabilities_secret[config_tag] > 0)
+				var/percentage = round(GLOB.config.probabilities_secret[config_tag] / sum * 100, 0.1)
 				to_chat(src, "[config_tag] [percentage]%")
 
 		to_chat(src, "<b>Mixed Secret Mode Odds:</b>")
 		sum = 0
-		for(var/config_tag in config.probabilities_mixed_secret)
-			sum += config.probabilities_mixed_secret[config_tag]
-		for(var/config_tag in config.probabilities_mixed_secret)
-			if(config.probabilities_mixed_secret[config_tag] > 0)
-				var/percentage = round(config.probabilities_mixed_secret[config_tag] / sum * 100, 0.1)
+		for(var/config_tag in GLOB.config.probabilities_mixed_secret)
+			sum += GLOB.config.probabilities_mixed_secret[config_tag]
+		for(var/config_tag in GLOB.config.probabilities_mixed_secret)
+			if(GLOB.config.probabilities_mixed_secret[config_tag] > 0)
+				var/percentage = round(GLOB.config.probabilities_mixed_secret[config_tag] / sum * 100, 0.1)
 				to_chat(src, "[config_tag] [percentage]%")
 	else
 		to_chat(src, "Displaying gamemode odds is disabled in the config.")

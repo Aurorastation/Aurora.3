@@ -37,7 +37,7 @@
 	..(null,"is smashed into pieces!")
 	var/T = get_turf(src)
 	new /obj/effect/gibspawner/robot(T)
-	spark(T, 3, alldirs)
+	spark(T, 3, GLOB.alldirs)
 	qdel(src)
 
 /mob/living/simple_animal/hostile/viscerator/CanPass(atom/movable/mover, turf/target, height, air_group)

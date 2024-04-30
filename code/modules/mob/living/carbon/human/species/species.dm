@@ -42,8 +42,12 @@
 	var/icon_y_offset = 0
 	var/typing_indicator_x_offset = 0
 	var/typing_indicator_y_offset = 0
+
+	///Horizontal offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
 	var/floating_chat_x_offset = null
-	var/floating_chat_y_offset = null
+
+	///Vertical offset in pixel used as a baseline for the runechat images (chat text above the mob when it talks)
+	var/floating_chat_y_offset = 8
 	var/accessory_x_offset = 0
 	var/accessory_y_offset = 0
 	var/eyes = "eyes_s"                                  // Icon for eyes.
@@ -51,7 +55,7 @@
 	var/has_floating_eyes                                // Eyes will overlay over darkness (glow)
 	var/eyes_icon_blend = ICON_ADD                       // The icon blending mode to use for eyes.
 	var/blood_type = "blood"
-	var/blood_color = "#A10808"                          // Red.
+	var/blood_color = COLOR_HUMAN_BLOOD                          // Red.
 	var/flesh_color = "#FFC896"                          // Pink.
 	var/examine_color                                    // The color of the species' name in the examine text. Defaults to flesh_color if unset.
 	var/base_color                                       // Used by changelings. Should also be used for icon previes..
@@ -305,6 +309,8 @@
 	var/character_creation_psi_points = 0
 	/// Is this species psionically deaf?
 	var/psi_deaf = FALSE
+	///Which species-unique robolimb types can this species take?
+	var/list/valid_prosthetics
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -369,9 +375,9 @@
 		else
 			return capitalize(pick(first_names_male)) + " " + capitalize(pick(last_names))
 
-	var/datum/language/species_language = all_languages[name_language]
+	var/datum/language/species_language = GLOB.all_languages[name_language]
 	if(!species_language)
-		species_language = all_languages[default_language]
+		species_language = GLOB.all_languages[default_language]
 	if(!species_language)
 		return "unknown"
 	return species_language.get_random_name(gender)
@@ -393,6 +399,10 @@
 	if(H.internal_organs_by_name) H.internal_organs_by_name.Cut()
 	if(H.bad_external_organs)     H.bad_external_organs.Cut()
 	if(H.bad_internal_organs)     H.bad_internal_organs.Cut()
+
+	var/datum/component/armor/armor_component = H.GetComponent(/datum/component/armor)
+	if(armor_component)
+		armor_component.RemoveComponent()
 
 	H.organs = list()
 	H.internal_organs = list()
@@ -550,7 +560,6 @@
 		return 1
 
 	if(!H.druggy)
-		H.set_see_in_dark((H.sight == (SEE_TURFS|SEE_MOBS|SEE_OBJS)) ? 8 : min(darksight + H.equipment_darkness_modifier, 8))
 		if(H.seer)
 			var/obj/effect/rune/R = locate(/obj/effect/rune) in get_turf(H)
 			if(R && R.type == /datum/rune/see_invisible)
@@ -567,7 +576,7 @@
 	H.set_fullscreen(H.eye_blind, "blind", /obj/screen/fullscreen/blind)
 	H.set_fullscreen(H.stat == UNCONSCIOUS, "blackout", /obj/screen/fullscreen/blackout)
 
-	if(config.welder_vision)
+	if(GLOB.config.welder_vision)
 		if(H.equipment_tint_total)
 			H.overlay_fullscreen("welder", /obj/screen/fullscreen/impaired, H.equipment_tint_total, 0.5 SECONDS)
 		else

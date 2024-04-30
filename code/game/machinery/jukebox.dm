@@ -24,13 +24,13 @@
 	var/datum/track/current_track
 	var/list/datum/track/tracks = list(
 		new/datum/track("Beyond", 'sound/music/ambispace.ogg'),
-		new/datum/track("Clouds of Fire", 'sound/music/clouds.s3m'),
-		new/datum/track("D`Bert", 'sound/music/title2.ogg'),
+		new/datum/track("Clouds of Fire", 'sound/music/lobby/clouds.s3m'),
+		new/datum/track("D`Bert", 'sound/music/lobby/title2.ogg'),
 		new/datum/track("D`Fort", 'sound/music/song_game.ogg'),
 		new/datum/track("Floating", 'sound/music/main.ogg'),
-		new/datum/track("Endless Space", 'sound/music/space.ogg'),
+		new/datum/track("Endless Space", 'sound/music/lobby/space.ogg'),
 		new/datum/track("Scratch", 'sound/music/title1.ogg'),
-		new/datum/track("Suspenseful", 'sound/music/traitor.ogg'),
+		new/datum/track("Suspenseful", 'sound/music/lobby/traitor.ogg'),
 		new/datum/track("Thunderdome", 'sound/music/THUNDERDOME.ogg'),
 		new/datum/track("Velvet Rose", 'sound/music/velvet_rose.ogg')
 	)
@@ -156,21 +156,21 @@
 
 	explosion(src.loc, 0, 0, 1, rand(1,2), 1)
 
-	spark(src, 3, alldirs)
+	spark(src, 3, GLOB.alldirs)
 
 	new /obj/effect/decal/cleanable/blood/oil(src.loc)
 	qdel(src)
 
-/obj/machinery/media/jukebox/attackby(obj/item/W as obj, mob/user as mob)
-	if(!istype(W, /obj/item/forensics))
+/obj/machinery/media/jukebox/attackby(obj/item/attacking_item, mob/user)
+	if(!istype(attacking_item, /obj/item/forensics))
 		src.add_fingerprint(user)
 
-	if(W.iswrench())
+	if(attacking_item.iswrench())
 		if(playing)
 			StopPlaying()
 		user.visible_message("<span class='warning'>[user] has [anchored ? "un" : ""]secured \the [src].</span>", "<span class='notice'>You [anchored ? "un" : ""]secure \the [src].</span>")
 		anchored = !anchored
-		playsound(src.loc, W.usesound, 50, 1)
+		attacking_item.play_tool_sound(get_turf(src), 50)
 		power_change()
 		update_icon()
 		return TRUE
@@ -197,7 +197,7 @@
 	if(!current_track)
 		return
 
-	token = sound_player.PlayLoopingSound(src, src, current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
+	token = GLOB.sound_player.PlayLoopingSound(src, src, current_track.sound, 30, 7, 1, prefer_mute = TRUE, sound_type = ASFX_MUSIC)
 
 	playing = 1
 	update_use_power(POWER_USE_ACTIVE)

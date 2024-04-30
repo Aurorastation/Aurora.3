@@ -222,7 +222,7 @@ Pins Below.
 	name = "access-keyed firing pin"
 	desc = "This access locked firing pin allows weapons to be fired only when the user has the required access."
 	fail_message = "<span class='warning'>ACCESS CHECK FAILED.</span>"
-	req_access = list(access_weapons)
+	req_access = list(ACCESS_WEAPONS)
 
 /obj/item/device/firing_pin/access/pin_auth(mob/living/user)
 	return !allowed(user)
@@ -305,13 +305,13 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 			var/obj/item/gun/energy/EG = gun
 			if(EG.required_firemode_auth[EG.sel_mode] == WIRELESS_PIN_STUN)
 				return TRUE
-			else if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
+			else if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level == SEC_LEVEL_RED)
 				return TRUE
 			else
 				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")
 				return FALSE
 		else
-			if (security_level == SEC_LEVEL_YELLOW || security_level == SEC_LEVEL_RED)
+			if (GLOB.security_level == SEC_LEVEL_YELLOW || GLOB.security_level == SEC_LEVEL_RED)
 				return TRUE
 			else
 				fail_message = SPAN_WARNING("Unable to fire: insufficient security level.")
@@ -325,30 +325,30 @@ var/list/wireless_firing_pins = list() //A list of all initialized wireless firi
 		return
 
 	else if(new_mode == WIRELESS_PIN_AUTOMATIC)
-		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		playsound(user, 'sound/weapons/laser_safetyon.ogg', 40)
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to automatic.</b>"))
 		lock_status = WIRELESS_PIN_AUTOMATIC
 
 	else if(new_mode == WIRELESS_PIN_DISABLED)
-		playsound(user, 'sound/weapons/laser_safetyoff.ogg')
+		playsound(user, 'sound/weapons/laser_safetyoff.ogg', 40)
 		to_chat(user, SPAN_WARNING("<b>\The wireless-control firing pin locks \the [gun.name]'s trigger!</b>"))
 		lock_status = WIRELESS_PIN_DISABLED
 
 	else if(new_mode == WIRELESS_PIN_STUN)
-		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		playsound(user, 'sound/weapons/laser_safetyon.ogg', 40)
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now set to stun only.</b>"))
 		lock_status = WIRELESS_PIN_STUN
 
 	else if(new_mode == WIRELESS_PIN_LETHAL)
-		playsound(user, 'sound/weapons/laser_safetyon.ogg')
+		playsound(user, 'sound/weapons/laser_safetyon.ogg', 40)
 		to_chat(user, SPAN_NOTICE("<b>\The [gun.name]'s wireless-control firing pin is now unrestricted.</b>"))
 		lock_status = WIRELESS_PIN_LETHAL
 
 	return
 
-/obj/item/device/firing_pin/wireless/attackby(obj/item/C, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
-	if(istype(C, /obj/item/card/id))
-		var/obj/item/card/id/idcard = C
+/obj/item/device/firing_pin/wireless/attackby(obj/item/attacking_item, mob/user) //Lets people register their IDs to the pin. Using it once registers you, using it again clears you.
+	if(istype(attacking_item, /obj/item/card/id))
+		var/obj/item/card/id/idcard = attacking_item
 		if(idcard.registered_name == registered_user)
 			to_chat(user, SPAN_NOTICE("You press your ID against the RFID reader and it deregisters your identity."))
 			registered_user = null

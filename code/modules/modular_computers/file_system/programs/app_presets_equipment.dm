@@ -23,9 +23,10 @@
 	available = FALSE
 
 /datum/modular_computer_app_presets/ai/return_install_programs(obj/item/modular_computer/comp)
-	return list(
+	var/list/_prg_list = list(
 		COMPUTER_APP_PRESET_SYSTEM,
 	)
+	return flatten_list(_prg_list)
 
 /datum/modular_computer_app_presets/command/teleporter
 	name = "command_teleporter"

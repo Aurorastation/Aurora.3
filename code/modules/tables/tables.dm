@@ -6,7 +6,7 @@
 	density = 1
 	anchored = 1
 	climbable = TRUE
-	layer = LAYER_TABLE
+	layer = TABLE_LAYER
 	throwpass = 1
 	breakable = TRUE
 	var/flipped = 0
@@ -72,6 +72,13 @@
 
 
 /obj/structure/table/Initialize()
+	if(table_mat)
+		material = SSmaterials.get_material_by_name(table_mat)
+	if(table_reinf)
+		reinforced = SSmaterials.get_material_by_name(table_reinf)
+	if(reinforced)
+		breakable = FALSE
+
 	. = ..()
 
 	// One table per turf.
@@ -99,93 +106,16 @@
 		T.queue_icon_update()
 	return ..()
 
-/obj/structure/table/examine(mob/user)
+/obj/structure/table/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)
-				to_chat(user, "<span class='warning'>It looks severely damaged!</span>")
+				. += "<span class='warning'>It looks severely damaged!</span>"
 			if(0.25 to 0.5)
-				to_chat(user, "<span class='warning'>It looks damaged!</span>")
+				. += "<span class='warning'>It looks damaged!</span>"
 			if(0.5 to 1.0)
-				to_chat(user, "<span class='notice'>It has a few scrapes and dents.</span>")
-
-/obj/structure/table/attackby(obj/item/W, mob/user)
-	if(reinforced && W.isscrewdriver())
-		remove_reinforced(W, user)
-		if(!reinforced)
-			update_desc()
-			queue_icon_update()
-			update_material()
-		return 1
-
-	if(carpeted && W.iscrowbar())
-		user.visible_message("<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
-								"<span class='notice'>You remove the carpet from \the [src].</span>")
-		new /obj/item/stack/tile/carpet(loc)
-		carpeted = 0
-		queue_icon_update()
-		return 1
-
-	if(!carpeted && material && istype(W, /obj/item/stack/tile/carpet))
-		var/obj/item/stack/tile/carpet/C = W
-		if(C.use(1))
-			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
-									"<span class='notice'>You add \the [C] to \the [src].</span>")
-			carpeted = 1
-			queue_icon_update()
-			return 1
-		else
-			to_chat(user, "<span class='warning'>You don't have enough carpet!</span>")
-
-	if(!reinforced && !carpeted && material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter)))
-		remove_material(W, user)
-		if(!material)
-			update_connections(1)
-			queue_icon_update()
-			for(var/obj/structure/table/T in oview(src, 1))
-				T.queue_icon_update()
-			update_desc()
-			update_material()
-		return 1
-
-	if(!carpeted && !reinforced && !material && (W.iswrench() || istype(W, /obj/item/gun/energy/plasmacutter)))
-		dismantle(W, user)
-		return 1
-
-	if(health < maxhealth && W.iswelder())
-		var/obj/item/weldingtool/F = W
-		if(F.welding)
-			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
-			if(!W.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
-				return
-			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
-									"<span class='notice'>You repair some damage to \the [src].</span>")
-			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
-			return 1
-
-	if(!material && can_plate && istype(W, /obj/item/stack/material))
-		material = common_material_add(W, user, "plat")
-		if(material)
-			update_connections(1)
-			queue_icon_update()
-			update_desc()
-			update_material()
-		return 1
-
-	if(!material && can_plate && istype(W, /obj/item/reagent_containers/cooking_container/board/bowl))
-		new /obj/structure/chemkit(loc)
-		qdel(W)
-		qdel(src)
-		return 1
-
-	return ..()
-
-/obj/structure/table/MouseDrop_T(obj/item/stack/material/what)
-	if(can_reinforce && isliving(usr) && (!usr.stat) && istype(what) && usr.get_active_hand() == what && Adjacent(usr))
-		reinforce_table(what, usr)
-	else
-		return ..()
+				. += "<span class='notice'>It has a few scrapes and dents.</span>"
 
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)
@@ -427,7 +357,7 @@
 	for(var/D in list(NORTH, SOUTH, EAST, WEST) - blocked_dirs)
 		var/turf/T = get_step(src, D)
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir == reverse_dir[D])
+			if(W.is_fulltile() || W.dir == GLOB.reverse_dir[D])
 				blocked_dirs |= D
 				break
 			else
@@ -438,7 +368,7 @@
 		var/turf/T = get_step(src, D)
 
 		for(var/obj/structure/window/W in T)
-			if(W.is_fulltile() || W.dir & reverse_dir[D])
+			if(W.is_fulltile() || W.dir & GLOB.reverse_dir[D])
 				blocked_dirs |= D
 				break
 

@@ -1,4 +1,4 @@
-/mob/living/silicon/proc/silicon_mimic_accent()
+/mob/living/silicon/verb/silicon_mimic_accent()
 	set name = "Mimic Accent"
 	set category = "Subsystems"
 

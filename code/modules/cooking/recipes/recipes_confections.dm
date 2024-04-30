@@ -48,7 +48,7 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/floatingisland
 
-/singleton/recipe/pralinebox //Don't put this recipe in the wiki i want it to be hidden here in the code.
+/singleton/recipe/pralinebox
 	appliance = SAUCEPAN
 	fruit = list("cherries" = 1)
 	items = list(
@@ -59,3 +59,61 @@
 	reagents = list(/singleton/reagent/nutriment/coco = 10 , /singleton/reagent/drink/milk/cream = 5)
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify it
 	result = /obj/item/storage/box/fancy/food/pralinebox
+
+/singleton/recipe/chocolatecrepe
+	appliance = SKILLET
+	items = list(
+	/obj/item/reagent_containers/food/snacks/plaincrepe
+	)
+	reagents = list(/singleton/reagent/nutriment/choconutspread = 5)
+	result = /obj/item/reagent_containers/food/snacks/crepe/chocolate
+
+/singleton/recipe/chocolatecrepe_fancy
+	fruit = list("banana" = 1)
+	items = list(
+	/obj/item/reagent_containers/food/snacks/crepe/chocolate,
+	/obj/item/reagent_containers/food/snacks/icecream
+	)
+	result = /obj/item/reagent_containers/food/snacks/crepe/chocolatefancy
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/whitechocolatecrepe
+	appliance = SKILLET
+	items = list(
+	/obj/item/reagent_containers/food/snacks/plaincrepe,
+	/obj/item/reagent_containers/food/snacks/whitechocolate
+	)
+	result = /obj/item/reagent_containers/food/snacks/crepe/whitechocolate
+
+/singleton/recipe/whitechocolatecrepe_fancy
+	fruit = list("strawberries" = 1)
+	items = list(
+	/obj/item/reagent_containers/food/snacks/crepe/whitechocolate,
+	/obj/item/reagent_containers/food/snacks/icecream
+	)
+	result = /obj/item/reagent_containers/food/snacks/crepe/whitechocolate_fancy
+	reagent_mix = RECIPE_REAGENT_REPLACE
+
+/singleton/recipe/breakfastcrepe //yeah savory crepes are not exactly confections but... still kind of the best place for it.
+	appliance = SKILLET
+	items = list(
+	/obj/item/reagent_containers/food/snacks/plaincrepe,
+	/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagents = list(/singleton/reagent/nutriment/protein/egg = 3)
+	result = /obj/item/reagent_containers/food/snacks/crepe/breakfast
+
+/singleton/recipe/hamcheesecrepe
+	appliance = SKILLET
+	items = list(
+	/obj/item/reagent_containers/food/snacks/plaincrepe,
+	/obj/item/reagent_containers/food/snacks/cheesewedge,
+	/obj/item/reagent_containers/food/snacks/cutlet
+	)
+	result = /obj/item/reagent_containers/food/snacks/crepe/hamcheese
+
+/singleton/recipe/custard
+	appliance = SAUCEPAN | POT
+	reagents = list(/singleton/reagent/drink/milk = 5, /singleton/reagent/sugar = 5, /singleton/reagent/nutriment/protein/egg = 3)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/custard

@@ -3,7 +3,7 @@
 	desc = "Warp through objects."
 	icon_state = "tech_blink"
 	point_cost = 4
-	ability_flags = PSI_FLAG_ANTAG
+	ability_flags = PSI_FLAG_LONER
 	spell_path = /obj/item/spell/warp
 
 /obj/item/spell/warp
@@ -39,7 +39,7 @@
 	visible_message(SPAN_NOTICE("[user] rests a hand on \the [hit_atom]."))
 	busy = TRUE
 
-	spark(our_turf, 3, cardinal)
+	spark(our_turf, 3, GLOB.cardinal)
 
 	while(i)
 		checked_turf = get_step(checked_turf, direction) //Advance in the given direction

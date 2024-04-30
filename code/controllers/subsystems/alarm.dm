@@ -6,7 +6,7 @@
 
 SUBSYSTEM_DEF(alarm)
 	name = "Alarms"
-	init_order = SS_INIT_MISC_FIRST
+	init_order = INIT_ORDER_MISC_FIRST
 	priority = SS_PRIORITY_ALARMS
 	runlevels = RUNLEVELS_PLAYING
 
@@ -17,6 +17,8 @@ SUBSYSTEM_DEF(alarm)
 
 /datum/controller/subsystem/alarm/Initialize(timeofday)
 	all_handlers = list(atmosphere_alarm, camera_alarm, fire_alarm, motion_alarm, power_alarm)
+
+	return SS_INIT_SUCCESS
 
 /datum/controller/subsystem/alarm/fire(resumed = FALSE)
 	if (!resumed)

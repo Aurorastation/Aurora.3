@@ -129,6 +129,7 @@
 	metabolism_mod = 0.8
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat/adhomai
+	valid_prosthetics = list(PROSTHETIC_TESLA)
 
 /datum/species/tajaran/after_equip(var/mob/living/carbon/human/H)
 	. = ..()
@@ -136,6 +137,3 @@
 		return
 	var/obj/item/clothing/shoes/sandals/S = new /obj/item/clothing/shoes/sandals(H)
 	H.equip_to_slot_or_del(S,slot_shoes)
-
-/datum/species/get_species_record_sex(var/mob/living/carbon/human/H)
-	return H.pronouns

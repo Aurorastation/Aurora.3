@@ -1,50 +1,45 @@
-/mob/living/silicon/robot/examine(mob/user, distance, is_adjacent)
+/mob/living/silicon/robot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	var/custom_infix = custom_name ? ", [mod_type] [braintype]" : ""
 	. = ..(user, distance, is_adjacent, infix = custom_infix)
 
-	var/msg = ""
+	. += describe_all_modules() // describe modules
 
-	msg += "\n"
-	msg += describe_all_modules() // describe modules
-	msg += "\n"
-
-	msg += "<span class='warning'>"
+	. += "<span class='warning'>"
 	if(getBruteLoss())
 		if(getBruteLoss() < 75)
-			msg += "It looks slightly dented.\n"
+			. += "It looks slightly dented."
 		else
-			msg += "<B>It looks severely dented!</B>\n"
+			. += "<B>It looks severely dented!</B>"
 	if(getFireLoss())
 		if(getFireLoss() < 75)
-			msg += "It looks slightly charred.\n"
+			. += "It looks slightly charred."
 		else
-			msg += "<B>It looks severely burnt and heat-warped!</B>\n"
-	msg += "</span>"
+			. += "<B>It looks severely burnt and heat-warped!</B>"
+	. += "</span>"
 
 	if(opened)
-		msg += "<span class='warning'>Its cover is open and the power cell is [cell ? "installed" : "missing"].</span>\n"
+		. += "<span class='warning'>Its cover is open and the power cell is [cell ? "installed" : "missing"].</span>"
 	else
-		msg += "Its cover is closed.\n"
+		. += "Its cover is closed."
 
 	if(!has_power)
-		msg += "<span class='warning'>It appears to be running on backup power.</span>\n"
+		. += "<span class='warning'>It appears to be running on backup power.</span>"
 
 	switch(stat)
 		if(CONSCIOUS)
-			if(!client)	msg += "It appears to be in stand-by mode.\n" //afk
+			if(!client)
+				. += "It appears to be in stand-by mode." //afk
 		if(UNCONSCIOUS)
-			msg += "<span class='warning'>It doesn't seem to be responding.</span>\n"
+			. += "<span class='warning'>It doesn't seem to be responding.</span>"
 		if(DEAD)
-			msg += "<span class='deadsay'>It looks completely unsalvageable.</span>\n"
-	msg += "*---------*"
+			. += "<span class='deadsay'>It looks completely unsalvageable.</span>"
 
 	if(print_flavor_text())
-		msg += "\n[print_flavor_text()]\n"
+		. += "\n[print_flavor_text()]\n"
 
 	if(pose)
-		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0 )
-			pose = addtext(pose, ".") //Makes sure all emotes end with a period.
-		msg += "\nIt [pose]"
+		if(findtext(pose, ".", length(pose)) == 0 && findtext(pose, "!", length(pose)) == 0 && findtext(pose, "?", length(pose)) == 0)
+			pose = addtext(pose, ".") // Makes sure all emotes end with punctuation.
+		. += "\nIt [pose]"
 
-	to_chat(user, msg)
-	user.showLaws(src)
+	. += user.examine_laws(src)

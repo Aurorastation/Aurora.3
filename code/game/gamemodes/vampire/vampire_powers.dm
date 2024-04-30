@@ -68,6 +68,15 @@
 	vampire.status |= VAMP_DRAINING
 
 	visible_message(SPAN_DANGER("[src] bites \the [T]'s neck!"), SPAN_DANGER("You bite \the [T]'s neck and begin to drain their blood."), SPAN_NOTICE("You hear a soft puncture and a wet sucking noise."))
+	if(T.mind.assigned_role == "Chaplain" && !(vampire.status & VAMP_FULLPOWER))
+		to_chat(src, SPAN_DANGER("\The [T]'s blood burns like venom in your throat! Your stomach churns with sickness, and you fall to the ground, retching in disgust!"))
+		to_chat(T, SPAN_DANGER("[src] sinks [src.get_pronoun("his")] fangs into your neck, and you feel your blood draining - before [src.get_pronoun("he")] collapses, gagging and choking!"))
+		src.adjustToxLoss(rand(10,20))
+		src.Weaken(10)
+		vampire.frenzy += rand(10,30)
+		src.vomit()
+		return
+
 	var/remembrance
 	if(vampire.stealth)
 		remembrance = "forgot"
@@ -181,13 +190,13 @@
 		if(ishuman(L))
 			if(!vampire_can_affect_target(L, 0, affect_ipc = TRUE))
 				continue
-
 			L.Weaken(8)
 			L.stuttering = 20
 			L.confused = 10
+			victims += L
 			to_chat(L, SPAN_DANGER("You are blinded by [src]'s glare!"))
 			L.flash_act(FLASH_PROTECTION_MAJOR)
-			victims += L
+
 		else if(isrobot(L))
 			L.Weaken(rand(3, 6))
 			victims += L
@@ -300,7 +309,7 @@
 
 	var/list/locs = list()
 
-	for(var/direction in alldirs)
+	for(var/direction in GLOB.alldirs)
 		var/turf/T = get_step(get_turf(src), direction)
 		if(T || !T.density || !T.contains_dense_objects())
 			locs += T
@@ -739,7 +748,7 @@
 	visible_message(SPAN_DANGER("[src] tears the flesh on their wrist, and holds it up to [T]. In a gruesome display, [T] starts lapping up the blood that's oozing from the fresh wound."), SPAN_WARNING("You inflict a wound upon yourself, and force them to drink your blood, thus starting the conversion process."))
 	to_chat(T, SPAN_WARNING("You feel an irresistible desire to drink the blood pooling out of [src]'s wound. Against your better judgement, you give in and start doing so."))
 
-	if(!do_mob(src, T, 50))
+	if(!do_mob(src, T, 20 SECONDS))
 		visible_message(SPAN_DANGER("[src] yanks away their hand from [T]'s mouth as they're interrupted, the wound quickly sealing itself!"), SPAN_DANGER("You are interrupted!"))
 		return
 
@@ -931,7 +940,7 @@
 
 	// You ain't goin' anywhere, bud.
 	if(!T.client && T.mind)
-		for(var/mob/abstract/observer/ghost in player_list)
+		for(var/mob/abstract/observer/ghost in GLOB.player_list)
 			if(ghost.mind == T.mind)
 				ghost.can_reenter_corpse = TRUE
 				ghost.reenter_corpse()

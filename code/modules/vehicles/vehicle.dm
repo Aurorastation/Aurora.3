@@ -7,7 +7,7 @@
 /obj/vehicle
 	name = "vehicle"
 	icon = 'icons/obj/vehicles.dmi'
-	layer = MOB_LAYER + 0.1 //so it sits above objects including mobs
+	layer = MECH_BASE_LAYER
 	density = 1
 	anchored = 1
 	animate_movement=1
@@ -84,21 +84,21 @@
 /obj/vehicle/proc/create_vehicle_overlay()
 	return
 
-/obj/vehicle/attackby(obj/item/W as obj, mob/user as mob)
-	if(istype(W, /obj/item/device/hand_labeler))
+/obj/vehicle/attackby(obj/item/attacking_item, mob/user)
+	if(istype(attacking_item, /obj/item/device/hand_labeler))
 		return
-	if(W.isscrewdriver() && !organic)
+	if(attacking_item.isscrewdriver() && !organic)
 		if(!locked)
 			open = !open
 			update_icon()
 			to_chat(user, "<span class='notice'>Maintenance panel is now [open ? "opened" : "closed"].</span>")
-	else if(W.iscrowbar() && cell && open && !organic)
+	else if(attacking_item.iscrowbar() && cell && open && !organic)
 		remove_cell(user)
 
-	else if(istype(W, /obj/item/cell) && !cell && open && !organic)
-		insert_cell(W, user)
-	else if(W.iswelder() && !organic)
-		var/obj/item/weldingtool/T = W
+	else if(istype(attacking_item, /obj/item/cell) && !cell && open && !organic)
+		insert_cell(attacking_item, user)
+	else if(attacking_item.iswelder() && !organic)
+		var/obj/item/weldingtool/T = attacking_item
 		if(T.welding)
 			if(health < maxhealth)
 				if(open)
@@ -111,13 +111,13 @@
 				to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
 		else
 			to_chat(user, "<span class='notice'>Unable to repair while [src] is off.</span>")
-	else if(hasvar(W,"force") && hasvar(W,"damtype"))
+	else if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		switch(W.damtype)
+		switch(attacking_item.damtype)
 			if("fire")
-				health -= W.force * fire_dam_coeff
+				health -= attacking_item.force * fire_dam_coeff
 			if("brute")
-				health -= W.force * brute_dam_coeff
+				health -= attacking_item.force * brute_dam_coeff
 		..()
 		healthcheck()
 	else
@@ -128,7 +128,7 @@
 	..()
 
 	if (prob(20) && !organic)
-		spark(src, 5, alldirs)
+		spark(src, 5, GLOB.alldirs)
 
 	healthcheck()
 
@@ -163,7 +163,7 @@
 	pulse2.icon_state = "empdisable"
 	pulse2.name = "emp sparks"
 	pulse2.anchored = 1
-	pulse2.set_dir(pick(cardinal))
+	pulse2.set_dir(pick(GLOB.cardinal))
 
 	QDEL_IN(pulse2, 10)
 	if(on)
@@ -315,7 +315,7 @@
 
 	load = C
 
-	C.layer = src.layer + 0.1
+	C.layer = VEHICLE_LOAD_LAYER
 	if(load_item_visible)
 		C.pixel_x += load_offset_x
 		if(ismob(C))
@@ -361,7 +361,7 @@
 	if(!dest || dest == v_turf || dest.is_hole)
 		var/list/options = new()
 		var/list/safe_options = new()
-		for(var/test_dir in alldirs)
+		for(var/test_dir in GLOB.alldirs)
 			var/turf/T = get_step_to(src, get_step(src, test_dir))
 			if(istype(T) && load.Adjacent(T))
 				options += T
@@ -399,7 +399,7 @@
 // Yes, it's not the full calculation. But it's relatively close, and will make it seamless.
 /obj/vehicle/post_buckle(var/mob/M)
 	if (M.client)
-		M.client.move_delay = M.movement_delay() + config.walk_speed
+		M.client.move_delay = M.movement_delay() + GLOB.config.walk_speed
 
 //-------------------------------------------------------
 // Stat update procs

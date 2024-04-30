@@ -19,25 +19,20 @@
 
 /datum/job/ai/get_spawn_positions()
 	var/spawnpoints = 0
-	for(var/obj/effect/landmark/start/sloc in landmarks_list)
+	for(var/obj/effect/landmark/start/sloc in GLOB.landmarks_list)
 		if (sloc.name == "AI")
 			spawnpoints++
 	return spawnpoints
 
 /datum/job/ai/get_total_positions()
 	var/active_ai_count = 0
-	for(var/mob/living/silicon/ai/ai in silicon_mob_list)
+	for(var/mob/living/silicon/ai/ai in GLOB.silicon_mob_list)
 		if(ai.client)
 			active_ai_count++
-	return empty_playable_ai_cores.len + active_ai_count
+	return GLOB.empty_playable_ai_cores.len + active_ai_count
 
 /datum/job/ai/is_position_available()
-	return empty_playable_ai_cores.len > 0
-
-/datum/job/ai/equip_preview(mob/living/carbon/human/H)
-	H.equip_to_slot_or_del(new /obj/item/clothing/suit/straight_jacket(H), slot_wear_suit)
-	H.equip_to_slot_or_del(new /obj/item/clothing/head/cardborg(H), slot_head)
-	return 1
+	return GLOB.empty_playable_ai_cores.len > 0
 
 /datum/job/cyborg
 	title = "Cyborg"
