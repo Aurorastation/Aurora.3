@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Entering a blank OOC message will now cancel the message, rather than sending nothing to chat."
