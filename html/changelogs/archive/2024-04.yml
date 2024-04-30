@@ -571,3 +571,6 @@
   - qol: Adds CO2 tanks to the Cyclops and the Ranger Gunboat.
   - qol: Adds several aesthetic features to several offships, like matching window
       colours.
+2024-04-30:
+  FluffyGhost:
+  - bugfix: Hopefully fixed Tracy not starting on Linux.
