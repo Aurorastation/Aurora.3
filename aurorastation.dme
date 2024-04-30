@@ -4067,6 +4067,7 @@
 #include "maps\random_ruins\exoplanets\moghes\moghes_memorial.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_otzek_herd.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_skakh.dm"
+#include "maps\random_ruins\exoplanets\moghes\moghes_temple.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_thakh.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_threshbeast_herd.dm"
 #include "maps\random_ruins\exoplanets\moghes\moghes_untouched_tyrant.dm"
