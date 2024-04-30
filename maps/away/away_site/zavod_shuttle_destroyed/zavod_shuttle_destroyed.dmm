@@ -1454,6 +1454,10 @@
 /obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/slate,
 /area/zavod_shuttle_destroyed)
+"XY" = (
+/obj/effect/shuttle_landmark/automatic,
+/turf/space,
+/area/space)
 "Yq" = (
 /obj/structure/table/standard,
 /obj/item/clothing/suit/storage/toggle/labcoat/zavodskoi,
@@ -11922,7 +11926,7 @@ bz
 bz
 bz
 bz
-bz
+XY
 bz
 bz
 bz
@@ -18683,7 +18687,7 @@ bz
 bz
 bz
 bz
-bz
+XY
 bz
 bz
 bz
@@ -33427,7 +33431,7 @@ bz
 bz
 bz
 bz
-bz
+XY
 bz
 bz
 bz
@@ -39758,7 +39762,7 @@ bz
 bz
 bz
 bz
-bz
+XY
 bz
 bz
 bz
@@ -56935,7 +56939,7 @@ bz
 bz
 bz
 bz
-bz
+XY
 bz
 bz
 bz
@@ -59156,7 +59160,7 @@ bz
 bz
 bz
 bz
-bz
+XY
 bz
 bz
 bz
