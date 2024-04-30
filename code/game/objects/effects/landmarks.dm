@@ -127,6 +127,25 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 	return INITIALIZE_HINT_QDEL
 
 /**
+ * # Force spawnpoint
+ *
+ * A spawnpoint that is forced to be used at spawn (join AND latejoin), *overriding everything else*, depending on the `job_tag` var
+ *
+ * If the `job_tag` is set to "Anyone", the spawnpoint will be used for all jobs
+ */
+/obj/effect/landmark/force_spawnpoint
+	name = "force spawnpoint"
+	var/job_tag = "Anyone"
+
+/obj/effect/landmark/force_spawnpoint/Initialize()
+	. = ..()
+	LAZYADD(GLOB.force_spawnpoints[job_tag], get_turf(src))
+
+/obj/effect/landmark/force_spawnpoint/Destroy()
+	LAZYREMOVE(GLOB.force_spawnpoints[job_tag], get_turf(src))
+	. = ..()
+
+/**
  * # Skrell SROM (dreaming) marker
  *
  * Used to indicate where the SROM is located
@@ -189,18 +208,6 @@ INITIALIZE_IMMEDIATE(/obj/effect/landmark/lobby_mobs_location)
 
 /obj/effect/landmark/distress_team_equipment
 	name = "distress equipment"
-
-/obj/effect/landmark/force_spawnpoint
-	name = "force spawnpoint"
-	var/job_tag = "Anyone"
-
-/obj/effect/landmark/force_spawnpoint/Initialize()
-	. = ..()
-	LAZYADD(GLOB.force_spawnpoints[job_tag], get_turf(src))
-
-/obj/effect/landmark/force_spawnpoint/Destroy()
-	LAZYREMOVE(GLOB.force_spawnpoints[job_tag], get_turf(src))
-	. = ..()
 
 /obj/effect/landmark/ruin
 	var/datum/map_template/ruin/ruin_template
