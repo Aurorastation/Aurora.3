@@ -464,7 +464,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain", "Visitor")
+	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/skakh/New()
@@ -482,5 +482,5 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain", "Visitor")
+	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
