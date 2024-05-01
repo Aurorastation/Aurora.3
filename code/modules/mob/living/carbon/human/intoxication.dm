@@ -44,7 +44,7 @@
 
 	if(bac > INTOX_REACTION*SR && bac < INTOX_BALANCE*SR)
 		if (prob(5))
-			to_chat(src,"<span class='notice'>You feel absolutely smashed!</span>")
+			to_chat(src, SPAN_NOTICE("You feel absolutely smashed!"))
 		if (confused == 0)
 			to_chat(src,"<span class='warning'>You feel uncoordinated and unsteady on your feet!</span>")
 		confused = max(confused, 10)
