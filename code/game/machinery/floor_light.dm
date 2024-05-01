@@ -147,7 +147,7 @@ var/list/floor_light_cache = list()
 				floor_light_cache[cache_key] = I
 			AddOverlays(floor_light_cache[cache_key])
 			var/mutable_appearance/I_emis = emissive_appearance(icon, "flicker[damaged]")
-			add_overlay(I_emis)
+			AddOverlays(I_emis)
 	if(stat & BROKEN)
 		icon_state = "broken"
 	else

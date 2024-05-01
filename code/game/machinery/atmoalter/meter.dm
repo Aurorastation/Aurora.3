@@ -95,8 +95,8 @@
 
 	AddOverlays(button_overlay)
 	AddOverlays(atmos_overlay)
-	add_overlay(button_emissive)
-	add_overlay(atmos_emissive)
+	AddOverlays(button_emissive)
+	AddOverlays(atmos_emissive)
 
 	if(frequency)
 		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)

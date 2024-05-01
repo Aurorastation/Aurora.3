@@ -139,7 +139,7 @@
 				AddOverlays(icon_keyboard)
 				if(icon_keyboard_emis)
 					var/mutable_appearance/emis = emissive_appearance(icon, icon_keyboard_emis)
-					add_overlay(emis)
+					AddOverlays(emis)
 		else if (overlay_layer != layer)
 			AddOverlays(image(icon, icon_screen, overlay_layer))
 		else

@@ -1141,18 +1141,18 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/eyepatch/hud/equipped(mob/user, slot)
 	if(active && slot == slot_glasses)
 		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-		user.add_overlay(mob_overlay_emis, TRUE)
+		user.AddOverlays(mob_overlay_emis, TRUE)
 		user.z_flags |= ZMM_MANGLE_PLANES
 	else
 		user.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-		user.add_overlay(mob_overlay_emis, TRUE)
+		user.AddOverlays(mob_overlay_emis, TRUE)
 		user.z_flags &= ZMM_MANGLE_PLANES
 	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()
 	if (ishuman(loc))
 		loc.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
-		loc.cut_overlay(mob_overlay, TRUE)
+		loc.CutOverlays(mob_overlay, TRUE)
 	QDEL_NULL(mob_overlay)
 	QDEL_NULL(mob_overlay_emis)
 	return ..()

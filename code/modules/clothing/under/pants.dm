@@ -54,7 +54,7 @@
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "pants_highvis_un-emis", alpha = src.alpha)
-		I.add_overlay(emissive_overlay)
+		I.AddOverlays(emissive_overlay)
 	return I
 
 /obj/item/clothing/under/pants/highvis_alt
@@ -68,7 +68,7 @@
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/emissive_overlay = emissive_appearance(mob_icon, "pants_highvis_alt_un-emis", alpha = src.alpha)
-		I.add_overlay(emissive_overlay)
+		I.AddOverlays(emissive_overlay)
 	return I
 
 /obj/item/clothing/under/pants/camo
