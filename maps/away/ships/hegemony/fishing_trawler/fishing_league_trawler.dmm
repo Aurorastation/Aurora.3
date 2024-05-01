@@ -412,6 +412,10 @@
 	},
 /obj/machinery/telecomms/allinone/ship,
 /obj/structure/railing/mapped,
+/obj/structure/sign/flag/fishingleague{
+	pixel_y = 32;
+	stand_icon = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "dN" = (
@@ -578,9 +582,14 @@
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/Captain)
 "fo" = (
-/obj/structure/sign/radiation,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/engineering/port)
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/power/apc/super/critical/south,
+/obj/structure/cable/green,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/fishing_trawler)
 "fp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -935,9 +944,17 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/port)
 "iy" = (
-/obj/structure/sign/vacuum,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/engineering/port)
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/fishing_trawler)
 "iI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
@@ -1203,11 +1220,6 @@
 /turf/simulated/floor,
 /area/shuttle/fishing_trawler)
 "kx" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
@@ -1343,9 +1355,21 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/fishing_trawler/EVA_starboard)
 "lp" = (
-/obj/structure/sign/vacuum,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/EVA_port)
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/radiation{
+	pixel_y = 32
+	},
+/turf/simulated/floor,
+/area/ship/fishing_trawler/engineering/port)
 "ls" = (
 /obj/machinery/light{
 	dir = 8
@@ -1715,6 +1739,9 @@
 	dir = 10
 	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "nL" = (
@@ -2203,6 +2230,9 @@
 "rn" = (
 /obj/machinery/light,
 /obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/structure/sign/vacuum{
+	pixel_y = -32
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/fishing_trawler/EVA_port)
 "ro" = (
@@ -2316,16 +2346,14 @@
 /turf/simulated/floor/reinforced,
 /area/ship/fishing_trawler/engineering/port)
 "sd" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 2;
-	icon_state = "1-2"
-	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
+	d1 = 2;
+	d2 = 8;
+	icon_state = "2-8"
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
@@ -2422,9 +2450,15 @@
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/port)
 "sX" = (
-/obj/structure/sign/electricshock,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/engineering/port)
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/fishing_trawler)
 "tb" = (
 /obj/machinery/alarm/west,
 /obj/effect/decal/cleanable/spiderling_remains,
@@ -2549,6 +2583,9 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/sign/electricshock{
+	pixel_y = 32
+	},
 /turf/simulated/floor,
 /area/ship/fishing_trawler/corridor/port)
 "tS" = (
@@ -2786,6 +2823,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/beige,
+/obj/structure/sign/vacuum{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/port)
 "vo" = (
@@ -2960,9 +3000,27 @@
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/port)
 "wD" = (
-/obj/structure/sign/vacuum,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/engineering/Starboard)
+/obj/effect/floor_decal/corner/beige{
+	dir = 5
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/sign/flag/fishingleague{
+	pixel_y = 32;
+	stand_icon = null
+	},
+/turf/simulated/floor/tiled/steel,
+/area/ship/fishing_trawler/corridor/central)
 "wE" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -3232,9 +3290,12 @@
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
 "zo" = (
-/obj/structure/sign/vacuum,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/corridor/central)
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/fishing_trawler)
 "zq" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -3264,6 +3325,9 @@
 	},
 /obj/effect/floor_decal/corner/beige{
 	dir = 5
+	},
+/obj/structure/sign/vacuum{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
@@ -3347,6 +3411,10 @@
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
 /obj/item/gun/energy/pistol/hegemony,
+/obj/structure/sign/flag/fishingleague{
+	pixel_y = 32;
+	stand_icon = null
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/fishing_trawler/bridge)
 "An" = (
@@ -3483,6 +3551,9 @@
 	dir = 5
 	},
 /obj/effect/floor_decal/corner/red/full,
+/obj/structure/sign/vacuum{
+	pixel_x = -32
+	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/EVA_starboard)
 "Bf" = (
@@ -3498,9 +3569,16 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/fishing_trawler/freezer)
 "Bj" = (
-/obj/structure/sign/vacuum,
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/ship/fishing_trawler/EVA_starboard)
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/structure/sign/flag/fishingleague{
+	pixel_y = 32;
+	stand_icon = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/fishing_trawler)
 "Bq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
@@ -5173,6 +5251,9 @@
 /obj/effect/floor_decal/corner/beige{
 	dir = 8
 	},
+/obj/structure/sign/vacuum{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/starboard)
 "NG" = (
@@ -5321,14 +5402,10 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/fishing_trawler)
 "Pj" = (
-/obj/machinery/power/apc/super/critical/north{
-	req_access = list(241)
-	},
-/obj/structure/cable/green{
-	d2 = 8;
-	icon_state = "0-8"
-	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
+/obj/machinery/light{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
 "Pn" = (
@@ -5841,17 +5918,13 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/fishing_trawler)
 "Tn" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/obj/machinery/light{
-	dir = 1
-	},
 /obj/effect/floor_decal/corner/dark_blue/diagonal,
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
+	},
+/obj/structure/sign/flag/fishingleague{
+	pixel_y = 32;
+	stand_icon = null
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/fishing_trawler)
@@ -5969,6 +6042,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
+/obj/structure/sign/flag/fishingleague{
+	pixel_y = 32;
+	stand_icon = null
+	},
 /turf/simulated/floor/wood,
 /area/ship/fishing_trawler/crew_quarters)
 "Uw" = (
@@ -6018,6 +6095,9 @@
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/sign/vacuum{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/steel,
 /area/ship/fishing_trawler/corridor/central)
 "UR" = (
@@ -34005,7 +34085,7 @@ po
 ZQ
 qd
 qd
-wD
+ZQ
 NF
 ro
 Cr
@@ -36560,10 +36640,10 @@ mk
 mk
 vj
 Nk
+Bj
 kb
-kb
-oH
-Aa
+iy
+fo
 Nk
 Pp
 mk
@@ -36819,7 +36899,7 @@ mk
 ne
 gf
 mh
-oH
+sX
 OT
 xn
 Nk
@@ -36828,7 +36908,7 @@ gq
 gq
 gq
 gq
-zo
+gq
 zy
 mv
 bG
@@ -37333,7 +37413,7 @@ mk
 el
 Ds
 vx
-Af
+zo
 FR
 nN
 tZ
@@ -37358,7 +37438,7 @@ jp
 rB
 kf
 zt
-Bj
+rB
 ll
 ll
 rB
@@ -37590,7 +37670,7 @@ mk
 ye
 yJ
 Af
-Af
+zo
 GW
 Nk
 Mq
@@ -38118,7 +38198,7 @@ Ys
 Nf
 Ys
 Bh
-rP
+wD
 Rb
 Vv
 Of
@@ -41716,7 +41796,7 @@ Ys
 Zs
 Ys
 Bh
-rP
+wD
 Rb
 dn
 dn
@@ -41987,7 +42067,7 @@ lV
 DH
 GE
 rn
-lp
+Vm
 mk
 mk
 mk
@@ -42996,7 +43076,7 @@ gq
 gq
 gq
 gq
-zo
+gq
 UN
 Ou
 bG
@@ -44282,10 +44362,10 @@ fY
 fY
 fY
 fY
-fo
-ez
+fY
+lp
 Nj
-sX
+fY
 tP
 sL
 PQ
@@ -45827,7 +45907,7 @@ OD
 OD
 NU
 vS
-iy
+fY
 vn
 kd
 cH
