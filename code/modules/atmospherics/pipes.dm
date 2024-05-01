@@ -26,6 +26,17 @@
 	desc_info += "<br>Most pipes and atmospheric devices can be connected or disconnected with a wrench.  The pipe's pressure must not be too high, \
 	or if it is a device, it must be turned off first."
 
+/obj/machinery/atmospherics/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	var/pipe_color_check = pipe_color || PIPE_COLOR_GREY
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.pipe_colors)
+		var/color_value = GLOB.pipe_colors[color_name]
+		if(pipe_color_check == color_value)
+			found_color_name = color_name
+			break
+	. += "This pipe is: <span style='color:[pipe_color_check == PIPE_COLOR_GREY ? COLOR_GRAY : pipe_color_check]'>[capitalize(found_color_name)]</span>"
+
 /obj/machinery/atmospherics/pipe/hides_under_flooring()
 	return level != 2
 
