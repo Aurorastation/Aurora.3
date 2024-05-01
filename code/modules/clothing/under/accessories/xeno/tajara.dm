@@ -521,24 +521,24 @@
 	item_state = "nka_waistcoat"
 
 /obj/item/clothing/accessory/tajaran/nka_waistcoat/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/buttons = image(icon, null, "nka_waistcoat_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	add_overlay(buttons)
+	AddOverlays(buttons)
 
 /obj/item/clothing/accessory/tajaran/nka_waistcoat/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/buttons = image(mob_icon, null, "nka_waistcoat_un_buttons")
 		buttons.appearance_flags = RESET_COLOR
-		I.add_overlay(buttons)
+		I.AddOverlays(buttons)
 	return I
 
 /obj/item/clothing/accessory/tajaran/nka_waistcoat/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/buttons = image(icon, null, "nka_waistcoat_un_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	base.add_overlay(buttons)
+	base.AddOverlays(buttons)
 	return base
 
 /obj/item/clothing/accessory/tajaran/nka_vest
@@ -548,24 +548,24 @@
 	item_state = "nka_vest"
 
 /obj/item/clothing/accessory/tajaran/nka_vest/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/buttons = image(icon, null, "nka_vest_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	add_overlay(buttons)
+	AddOverlays(buttons)
 
 /obj/item/clothing/accessory/tajaran/nka_vest/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/buttons = image(mob_icon, null, "nka_vest_un_buttons")
 		buttons.appearance_flags = RESET_COLOR
-		I.add_overlay(buttons)
+		I.AddOverlays(buttons)
 	return I
 
 /obj/item/clothing/accessory/tajaran/nka_vest/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/buttons = image(icon, null, "nka_vest_un_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	base.add_overlay(buttons)
+	base.AddOverlays(buttons)
 	return base
 
 /obj/item/clothing/accessory/dogtags/adhomai

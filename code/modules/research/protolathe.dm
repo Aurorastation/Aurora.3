@@ -145,7 +145,7 @@
 		if(max_material_storage - TotalMaterials() < (amount * SHEET_MATERIAL_AMOUNT)) //Can't overfill
 			amount = min(stack.get_amount(), round((max_material_storage - TotalMaterials()) / SHEET_MATERIAL_AMOUNT))
 
-	add_overlay("protolathe_[stack.default_type]")
+	AddOverlays("protolathe_[stack.default_type]")
 	CUT_OVERLAY_IN("protolathe_[stack.default_type]", 10)
 
 	busy = 1

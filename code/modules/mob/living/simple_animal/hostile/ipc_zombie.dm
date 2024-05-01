@@ -52,16 +52,16 @@
 	screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
 	screen_overlay.plane = plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	screen_overlay.appearance_flags = KEEP_APART
-	add_overlay(screen_overlay)
+	AddOverlays(screen_overlay)
 	set_light(MINIMUM_USEFUL_LIGHT_RANGE, 2, LIGHT_COLOR_TUNGSTEN)
 
 /mob/living/simple_animal/hostile/ipc_zombie/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(screen && stat != DEAD)
 		screen_overlay = image('icons/mob/npc/ipc_zombie.dmi', "[screen]")
 		screen_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		screen_overlay.appearance_flags = KEEP_APART
-		add_overlay(screen_overlay)
+		AddOverlays(screen_overlay)
 
 /mob/living/simple_animal/hostile/ipc_zombie/death()
 	..()

@@ -112,7 +112,7 @@
 	if (!check_icon_cache())
 		return
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(!node1 && !node2)
 		var/turf/T = get_turf(src)
@@ -123,7 +123,7 @@
 				qdel(meter)
 		qdel(src)
 	else
-		add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "[ptype][icon_connect_type]"))
+		AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "[ptype][icon_connect_type]"))
 
 /obj/machinery/atmospherics/pipe/zpipe/disconnect(obj/machinery/atmospherics/reference)
 	if(reference == node1)

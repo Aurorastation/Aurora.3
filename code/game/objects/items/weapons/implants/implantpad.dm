@@ -12,13 +12,13 @@
 	var/listening = TRUE
 
 /obj/item/implantpad/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "implantpad-[case ? "1" : "0"]"
 	if(case?.imp)
 		var/obj/item/implant/caseimplant = case.imp
 		var/implant_overlay_icon_state = "implantstorage_[caseimplant.implant_icon]"
 		var/mutable_appearance/implant_case_implant_overlay = mutable_appearance(icon, implant_overlay_icon_state)
-		add_overlay(implant_case_implant_overlay)
+		AddOverlays(implant_case_implant_overlay)
 
 
 /obj/item/implantpad/attack_hand(mob/user)

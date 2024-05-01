@@ -19,7 +19,7 @@
 
 /obj/vehicle/unicycle/Initialize()
 	. = ..()
-	add_overlay(image('icons/obj/vehicles.dmi', "unicycle_overlay", MOB_LAYER + 1))
+	AddOverlays(image('icons/obj/vehicles.dmi', "unicycle_overlay", MOB_LAYER + 1))
 	cell = new /obj/item/cell/high(src)
 
 /obj/vehicle/unicycle/load(var/atom/movable/C)

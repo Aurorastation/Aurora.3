@@ -70,7 +70,7 @@
 
 /obj/machinery/iff_beacon/update_icon()
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 	if(panel_open)
 		icon_state += "_o"
 	if(!operable() || !use_power)

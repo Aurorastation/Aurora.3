@@ -9,7 +9,7 @@
 
 /obj/structure/automobile/random/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	name = "[pick("deluxe Shibata Sport automotive","beat-up Poplar Auto Group automotive","weathered Shibata Sport automotive","beat-up Langenfeld automotive","deluxe Langenfeld automotive","weathered Langenfeld automotive")]"
 	desc = "A [name] vehicle of working condition."
 	icon_state = "car[rand(1, 10)]"
@@ -449,7 +449,7 @@
 
 /obj/structure/sign/billboard/advert/random/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "sign[rand(1, 14)]"
 	return
 

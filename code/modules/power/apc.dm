@@ -628,18 +628,18 @@
 
 	if(!(update_state & UPDATE_ALLGOOD))
 		if(overlays.len)
-			cut_overlays()
+			ClearOverlays()
 			return
 
 	if(update & 2)
-		cut_overlays()
+		ClearOverlays()
 		if(!(stat & (BROKEN|MAINT)) && update_state & UPDATE_ALLGOOD)
-			add_overlay(status_overlays_lock[locked+coverlocked+1])
-			add_overlay(status_overlays_charging[charging+1])
+			AddOverlays(status_overlays_lock[locked+coverlocked+1])
+			AddOverlays(status_overlays_charging[charging+1])
 			if(operating)
-				add_overlay(status_overlays_equipment[equipment+1])
-				add_overlay(status_overlays_lighting[lighting+1])
-				add_overlay(status_overlays_environ[environ+1])
+				AddOverlays(status_overlays_equipment[equipment+1])
+				AddOverlays(status_overlays_lighting[lighting+1])
+				AddOverlays(status_overlays_environ[environ+1])
 
 	if(update & 3)
 		if(update_state & UPDATE_BLUESCREEN)

@@ -74,14 +74,14 @@
 	return
 
 /obj/machinery/case_button/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		update_use_power(POWER_USE_OFF)
-		add_overlay("b[button]d") //Add the deactivated button overlay
-		add_overlay("g[cover]d") //Add the deactivated cover overlay
+		AddOverlays("b[button]d") //Add the deactivated button overlay
+		AddOverlays("g[cover]d") //Add the deactivated cover overlay
 		return
-	add_overlay("b[button][active]") //Add the button as overlay
-	add_overlay("g[cover][covered]") //Add the glass/shield overlay
+	AddOverlays("b[button][active]") //Add the button as overlay
+	AddOverlays("g[cover][covered]") //Add the glass/shield overlay
 	return
 
 //Activate the button - Needs to return 1 for the activation to be successful

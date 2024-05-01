@@ -269,7 +269,7 @@
 	return
 
 /obj/item/reagent_containers/syringe/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	var/iconstring = initial(item_state)
 	if(mode == SYRINGE_BROKEN)
@@ -278,11 +278,11 @@
 		return
 
 	if(mode == SYRINGE_CAPPED)
-		add_overlay("capped")
+		AddOverlays("capped")
 
 	if(reagents && reagents.total_volume)
 		worn_overlay = Clamp(round((reagents.total_volume / volume * 15),5), 1, 15) //rounded_vol
-		add_overlay(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
+		AddOverlays(overlay_image(icon, "[iconstring][worn_overlay]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
 		worn_overlay = 0 // don't change to null, or it will break
@@ -295,7 +295,7 @@
 				injoverlay = "draw"
 			if (SYRINGE_INJECT)
 				injoverlay = "inject"
-		add_overlay(injoverlay)
+		AddOverlays(injoverlay)
 
 /obj/item/reagent_containers/syringe/proc/syringestab(mob/living/carbon/target as mob, mob/living/carbon/user as mob)
 	if(mode == SYRINGE_CAPPED)

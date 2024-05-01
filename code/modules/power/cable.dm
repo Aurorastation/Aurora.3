@@ -625,8 +625,8 @@ By design, d1 is the smallest direction and d2 is the highest
 		item_state = "[initial(icon_state)]"
 		name += " coil"
 	update_held_icon()
-	cut_overlays()
-	add_overlay(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
+	ClearOverlays()
+	AddOverlays(overlay_image(icon, "[icon_state]_end", flags=RESET_COLOR))
 	check_maptext(SMALL_FONTS(7, get_amount()))
 
 /obj/item/stack/cable_coil/attackby(obj/item/attacking_item, mob/user)
@@ -1058,13 +1058,13 @@ By design, d1 is the smallest direction and d2 is the highest
 /obj/structure/noose/post_buckle(mob/living/M)
 	if(M == buckled)
 		layer = MOB_LAYER
-		add_overlay(over)
+		AddOverlays(over)
 		START_PROCESSING(SSprocessing, src)
 		M.pixel_y = initial(M.pixel_y) + 8 //rise them up a bit
 		M.dir = SOUTH
 	else
 		reset_plane_and_layer()
-		cut_overlay(over)
+		CutOverlays(over)
 		STOP_PROCESSING(SSprocessing, src)
 		pixel_x = initial(pixel_x)
 		M.pixel_x = initial(M.pixel_x)

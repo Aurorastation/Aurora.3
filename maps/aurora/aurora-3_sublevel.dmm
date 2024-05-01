@@ -3,7 +3,6 @@
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "aab" = (
-/obj/effect/landmark/dungeon_spawn,
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "aad" = (

@@ -2333,9 +2333,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -2745,9 +2742,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "cgw" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -8001,9 +7995,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -9567,9 +9558,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Cryogenic Storage";
 	pixel_x = -4
@@ -10251,9 +10239,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -10810,9 +10795,6 @@
 "jFv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -14594,9 +14576,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -22124,9 +22103,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "KickoffLocation"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
@@ -23965,9 +23941,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -25209,9 +25182,6 @@
 "vTG" = (
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,

@@ -35,7 +35,7 @@
 	if(apply_colour)
 		var/image/I = new(icon, icon_state)
 		I.color = material.icon_colour
-		add_overlay(I)
+		AddOverlays(I)
 
 	if(use_material_sound)	// SEE MATERIALS.DM
 		drop_sound = material.drop_sound
@@ -64,7 +64,7 @@
 
 /obj/item/stack/material/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	if(material)
 		update_strings()
 		if(apply_colour) // This is ass, but stops maptext from getting colored.
@@ -73,7 +73,7 @@
 				I.color = material.icon_colour
 			else
 				I.color = painted_colour
-			add_overlay(I)
+			AddOverlays(I)
 
 /obj/item/stack/material/transfer_to(obj/item/stack/S, var/tamount=null, var/type_verified)
 	var/obj/item/stack/material/M = S

@@ -282,13 +282,13 @@
 	update_icon()
 
 /obj/machinery/body_scanconsole/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
 		if(!console_overlay)
 			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
-		add_overlay(console_overlay)
+		AddOverlays(console_overlay)
 		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/Initialize()

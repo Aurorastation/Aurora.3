@@ -9975,7 +9975,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance{
 	dir = 1;
-	req_one_access = list(12)
+	req_one_access = list(12,26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard)
@@ -13270,9 +13270,7 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering/rust)
 "gcS" = (
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
+/obj/effect/landmark/latejoincyborg,
 /obj/machinery/computer/cryopod/robot{
 	pixel_x = -32
 	},
@@ -14696,9 +14694,7 @@
 /turf/simulated/floor/grass,
 /area/horizon/hydroponics/garden)
 "gFs" = (
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
+/obj/effect/landmark/latejoincyborg,
 /obj/effect/floor_decal/corner/mauve/diagonal,
 /obj/effect/floor_decal/spline/plain{
 	dir = 1
@@ -44841,7 +44837,7 @@
 	},
 /obj/machinery/door/airlock/maintenance{
 	dir = 4;
-	req_one_access = list(12)
+	req_one_access = list(12,26,29,31,48,67)
 	},
 /turf/simulated/floor/tiled/full,
 /area/maintenance/wing/starboard)
