@@ -6811,7 +6811,8 @@
 "dbn" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
 /obj/structure/disposalpipe/segment,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/structure/grille,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "dcF" = (
 /obj/machinery/light{
@@ -19004,7 +19005,6 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
 	},
-/obj/machinery/firealarm/west,
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
@@ -35323,10 +35323,6 @@
 /obj/structure/platform/ledge,
 /turf/simulated/open,
 /area/operations/office)
-"qrx" = (
-/obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/floor/tiled/dark/full,
-/area/crew_quarters/heads/hor)
 "qrz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -51196,7 +51192,8 @@
 /area/horizon/grauwolf)
 "xHv" = (
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
-/turf/simulated/wall/shuttle/scc_space_ship/cardinal,
+/obj/structure/grille,
+/turf/simulated/floor/tiled/dark/full,
 /area/rnd/xenobiology/xenoflora)
 "xHX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -81038,8 +81035,8 @@ qgN
 qgN
 qgN
 ifm
-qrx
-qrx
+jri
+jri
 jri
 ifm
 ifm
