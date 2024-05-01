@@ -60,7 +60,7 @@
 	if(bac > INTOX_BALANCE*SR)
 		slurring = max(slurring, 100)
 		if (prob(5))
-			to_chat(src,"<span class='notice'>You feel the room spinning...</span>")
+			to_chat(src, SPAN_NOTICE("You feel the room spinning..."))
 		if (life_tick % 4 == 1 && !lying && !buckled_to && prob(10))
 			src.visible_message("<span class='warning'>[src] loses balance and falls to the ground!</span>","<span class='warning'>You lose balance and fall to the ground!</span>")
 			Paralyse(3 SECONDS)
