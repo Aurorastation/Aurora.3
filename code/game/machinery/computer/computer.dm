@@ -15,7 +15,7 @@
 	var/icon_screen = "computer_generic"
 	var/icon_scanline
 	var/icon_keyboard = "green_key"
-	var/icon_keyboard_emis
+	var/icon_keyboard_emis = "green_key_mask"
 	var/light_range_on = 2
 	var/light_power_on = 1.3
 	var/overlay_layer
@@ -137,6 +137,9 @@
 				AddOverlays("[icon_keyboard]_off")
 			else
 				AddOverlays(icon_keyboard)
+				if(icon_keyboard_emis)
+					var/mutable_appearance/emis = emissive_appearance(icon, icon_keyboard_emis)
+					add_overlay(emis)
 		else if (overlay_layer != layer)
 			AddOverlays(image(icon, icon_screen, overlay_layer))
 		else

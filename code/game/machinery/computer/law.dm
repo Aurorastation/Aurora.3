@@ -5,6 +5,7 @@
 	desc = "Used to upload laws to the AI."
 	icon_screen = "aiupload"
 	icon_keyboard = "blue_key"
+	icon_keyboard_emis = "blue_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/aiupload
 	var/mob/living/silicon/ai/current = null
@@ -63,6 +64,7 @@
 	desc = "Used to upload laws to Cyborgs."
 	icon_screen = "aiupload"
 	icon_keyboard = "blue_key"
+	icon_keyboard_emis = "blue_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/borgupload
 	var/mob/living/silicon/robot/current = null

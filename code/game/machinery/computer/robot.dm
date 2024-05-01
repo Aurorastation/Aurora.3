@@ -5,6 +5,7 @@
 
 	icon_screen = "robot"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
 	req_one_access = list(ACCESS_RD, ACCESS_ROBOTICS)

@@ -3,6 +3,7 @@
 	desc = "A computer used to control the stationary scrubbers and pumps in the area."
 	icon_screen = "area_atmos"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/area_atmos
 
