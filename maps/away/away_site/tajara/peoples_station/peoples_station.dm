@@ -95,7 +95,7 @@
 /datum/shuttle/autodock/overmap/peoples_station_fang
 	name = "Orbital Fleet Fang"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/fang/engine, /area/shuttle/fang/bridge)
+	shuttle_area = list(/area/shuttle/fang)
 	current_location = "nav_hangar_peoples_station_fang"
 	landmark_transition = "nav_transit_peoples_station_fang"
 	range = 1
