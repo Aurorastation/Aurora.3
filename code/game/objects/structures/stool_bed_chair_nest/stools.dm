@@ -87,6 +87,7 @@
 	item_state = "bar_stool"
 	base_icon = "bar_stool"
 	held_item = /obj/item/material/stool/bar
+	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
