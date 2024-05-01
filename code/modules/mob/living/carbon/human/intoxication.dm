@@ -66,7 +66,7 @@
 			Paralyse(3 SECONDS)
 			if(bac > INTOX_CONSCIOUS*SR)
 				slurring = max(slurring, 90)
-				src.visible_message(SPAN_WARNING("[src] loses consciousness!"),SPAN_WARNING("You lose consciousness!"))
+				src.visible_message(SPAN_DANGER("[src] loses consciousness!"),SPAN_DANGER("You lose consciousness!"))
 				paralysis = max(paralysis, 60 SECONDS)
 				sleeping  = max(sleeping, 60 SECONDS)
 				adjustBrainLoss(5,30)
