@@ -310,15 +310,16 @@
 	drop_sound = 'sound/items/drop/paper.ogg'
 	pickup_sound = 'sound/items/pickup/paper.ogg'
 
-/obj/item/clothing/accessory/tajaran/srendarr
-	name = "holy sun rosette"
+/obj/item/clothing/accessory/tajaran/kin_srendarr
+	name = "\improper S'rendarr rosette"
 	desc = "A simple rosette accessory depicting the Tajaran god S'rendarr."
+	desc_extended = "A rosette accessory depicting the Tajaran God S'rendarr in his sun form. Rosettes were worn by the pious worshippers of S'rendarr and Messa as displays of faith. This fell out of fashion before the First Revolution but has returned in the modern era. Outwardly a sign of devoted faith, but to those who know this rosette marks a member of the Kin of S'rendarr."
 	icon_state = "rosette"
 	item_state = "rosette"
 	slot_flags = SLOT_MASK | SLOT_TIE
 	w_class = ITEMSIZE_TINY
 
-/obj/item/clothing/accessory/tajaran/srendarr/get_mask_examine_text(mob/user)
+/obj/item/clothing/accessory/tajaran/kin_srendarr/get_mask_examine_text(mob/user)
 	return "around [user.get_pronoun("his")] neck"
 
 /obj/item/clothing/accessory/tajaran/council_badge
