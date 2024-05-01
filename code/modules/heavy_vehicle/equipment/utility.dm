@@ -747,7 +747,7 @@
 		desc_info = "\The [src] has an anomaly core installed! You can use a wrench to remove it."
 		anomaly_overlay = image(AC.icon, null, AC.icon_state)
 		anomaly_overlay.pixel_y = 3
-		add_overlay(anomaly_overlay)
+		AddOverlays(anomaly_overlay)
 		return TRUE
 	if(attacking_item.iswrench())
 		if(!AC)
@@ -756,7 +756,7 @@
 		to_chat(user, SPAN_NOTICE("You remove \the [AC] from \the [src]."))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		user.put_in_hands(AC)
-		cut_overlay(anomaly_overlay)
+		CutOverlays(anomaly_overlay)
 		qdel(anomaly_overlay)
 		AC = null
 		if(owner)

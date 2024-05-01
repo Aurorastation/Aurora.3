@@ -50,20 +50,20 @@
 
 /obj/machinery/gibber/Initialize()
 	. = ..()
-	add_overlay("grjam")
+	AddOverlays("grjam")
 
 /obj/machinery/gibber/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if (dirty)
-		add_overlay("grbloody")
+		AddOverlays("grbloody")
 	if(stat & (NOPOWER|BROKEN))
 		return
 	if (!occupant)
-		add_overlay("grjam")
+		AddOverlays("grjam")
 	else if (operating)
-		add_overlay("gruse")
+		AddOverlays("gruse")
 	else
-		add_overlay("gridle")
+		AddOverlays("gridle")
 
 /obj/machinery/gibber/relaymove(mob/user as mob)
 	go_out()

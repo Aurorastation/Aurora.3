@@ -160,7 +160,7 @@
 /obj/machinery/status_display/proc/set_picture(state)
 	remove_display()
 	picture_state = state
-	add_overlay(picture_state)
+	AddOverlays(picture_state)
 
 /obj/machinery/status_display/proc/update_display(line1, line2)
 	var/new_text = {"<div style="font-size:[FONT_SIZE];color:[FONT_COLOR];font:'[FONT_STYLE]';text-align:center;" valign="top">[line1]<br>[line2]</div>"}
@@ -210,7 +210,7 @@
 		return "Launch"
 
 /obj/machinery/status_display/proc/remove_display()
-	cut_overlays()
+	ClearOverlays()
 	if(maptext)
 		maptext = ""
 

@@ -908,7 +908,7 @@ GLOBAL_LIST_INIT(seed_icon_cache, list())
 			leaves_image.color = leaves_color
 			leaves_image.appearance_flags = RESET_COLOR
 			//Add ourself as overlays to the generated image
-			generated_image.add_overlay(leaves_image)
+			generated_image.AddOverlays(leaves_image)
 
 		//Store the image in the cache, so we won't have to keep generating it
 		GLOB.seed_icon_cache[SEED_ICON_CACHE_KEY(icon_file_to_request, icon_state_to_request, color_to_request, leaves_overlay_to_request)] = generated_image

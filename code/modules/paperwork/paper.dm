@@ -178,7 +178,7 @@
 		throw_range = 8
 		old_name = name
 		name = "paper plane"
-		cut_overlays() //Removes stamp icons
+		ClearOverlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
@@ -191,7 +191,7 @@
 		icon_state = "paper_swan"
 		old_name = name
 		name = "origami swan"
-		cut_overlays() //Removes stamp icons
+		ClearOverlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
@@ -285,7 +285,7 @@
 	stamps = null
 	free_space = MAX_PAPER_MESSAGE_LEN
 	stamped = list()
-	cut_overlays()
+	ClearOverlays()
 	updateinfolinks()
 	update_icon()
 
@@ -420,7 +420,7 @@
 		var/image/S = image('icons/obj/bureaucracy.dmi', ico[i])
 		S.pixel_x = offset_x[i]
 		S.pixel_y = offset_y[i]
-		add_overlay(S)
+		AddOverlays(S)
 /**
  * Takes the paper's info variable, a user, and parses language markers that exist
  * in it. It returns an HTML string which represents the languages properly.
@@ -677,7 +677,7 @@
 		if(!stamped)
 			stamped = new
 		stamped += attacking_item.type
-		add_overlay(stampoverlay)
+		AddOverlays(stampoverlay)
 
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [attacking_item]."))

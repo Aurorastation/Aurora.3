@@ -14,9 +14,9 @@
 	update_icon()
 
 /obj/item/paper_scanner/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(drive)
-		add_overlay("paperscanner-drive")
+		AddOverlays("paperscanner-drive")
 
 /obj/item/paper_scanner/AltClick(mob/living/user)
 	if(!drive)

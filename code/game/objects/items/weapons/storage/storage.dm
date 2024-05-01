@@ -360,12 +360,12 @@
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
 			ND.sample_object.hud_layerise()
 			if(display_contents_initials)
-				ND.sample_object.cut_overlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
+				ND.sample_object.ClearOverlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
 				var/object_initials = handle_name_initials(ND.sample_object.name)
 				var/image/name_overlay = image(null)
 				name_overlay.maptext = SMALL_FONTS(7, object_initials)
 				name_overlay.maptext_x = 22 - ((length(object_initials) - 1) * 6)
-				ND.sample_object.add_overlay(name_overlay)
+				ND.sample_object.AddOverlays(name_overlay)
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -395,7 +395,7 @@
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
 	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
-	storage_start.cut_overlays()
+	storage_start.ClearOverlays()
 
 	var/matrix/M = matrix()
 	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
@@ -439,7 +439,7 @@
 		O.hud_layerise()
 
 	if (!defer_overlays)
-		storage_start.compile_overlays()
+		storage_start.UpdateOverlays()
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
 	return
@@ -654,7 +654,7 @@
 	if(W.maptext)
 		W.maptext = ""
 	if(display_contents_initials)
-		W.cut_overlays()
+		W.ClearOverlays()
 	W.on_exit_storage(src)
 	update_icon()
 	return TRUE
