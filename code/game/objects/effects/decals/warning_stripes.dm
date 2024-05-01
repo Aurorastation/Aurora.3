@@ -7,5 +7,5 @@
 	var/turf/T = get_turf(src)
 	var/image/I = image(icon, icon_state = icon_state, dir = dir)
 	I.color = color
-	T.add_overlay(I, TRUE)	// Register it as priority so we don't lose it on icon update.
+	T.AddOverlays(I, ATOM_ICON_CACHE_PROTECTED)	// Register it as protected so we don't lose it on icon update.
 	qdel(src)

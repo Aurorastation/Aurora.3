@@ -39,17 +39,17 @@ export const TurretControl = (props, context) => {
               ? 'Behaviour controls are locked.'
               : 'Behaviour controls are unlocked.'}
           </NoticeBox>
-          <ControlWindow />
+          <ControlSection />
         </Section>
         <Section title="Individual Controls">
-          <TurretsWindow />
+          <TurretsSection />
         </Section>
       </Window.Content>
     </Window>
   );
 };
 
-export const ControlWindow = (props, context) => {
+export const ControlSection = (props, context) => {
   const { act, data } = useBackend<TurretData>(context);
 
   return (
@@ -102,7 +102,7 @@ export const ControlWindow = (props, context) => {
   );
 };
 
-export const TurretsWindow = (props, context) => {
+export const TurretsSection = (props, context) => {
   const { act, data } = useBackend<TurretData>(context);
 
   return (

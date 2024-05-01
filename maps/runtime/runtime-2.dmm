@@ -13,6 +13,13 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
+"az" = (
+/obj/effect/landmark/latejoincyborg,
+/turf/simulated/floor/tiled{
+	name = "cooled floor";
+	temperature = 278
+	},
+/area/turret_protected/ai_upload_foyer)
 "aO" = (
 /turf/simulated/floor/tiled,
 /area/construction/storage)
@@ -1120,9 +1127,7 @@
 	},
 /area/turret_protected/ai_upload_foyer)
 "UT" = (
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/tiled,
 /area/construction/storage)
 "Vd" = (
@@ -6089,9 +6094,9 @@ GG
 oF
 Vp
 Ws
-wJ
+az
 Ml
-wJ
+az
 Xd
 ki
 wf

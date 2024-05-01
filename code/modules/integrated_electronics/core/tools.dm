@@ -198,10 +198,10 @@
 	return ..()
 
 /obj/item/device/integrated_electronics/detailer/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/detail_overlay = image('icons/obj/assemblies/electronic_tools.dmi', "detailer-color")
 	detail_overlay.color = detail_color
-	add_overlay(detail_overlay)
+	AddOverlays(detail_overlay)
 
 /obj/item/device/integrated_electronics/detailer/attack_self(mob/user)
 	var/color_choice = input(user, "Select color.", "Assembly Detailer", detail_color) as null|anything in color_list

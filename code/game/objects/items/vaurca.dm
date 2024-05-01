@@ -115,10 +115,10 @@
 	update_icon()
 
 /obj/item/skrell_projector/vaurca_projector/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(working)
 		var/image/overlay = overlay_image(icon, "zora_projector_light", light_color, RESET_COLOR)
-		add_overlay(overlay)
+		AddOverlays(overlay)
 
 /obj/item/skrell_projector/vaurca_projector/process()
 	if(!selected_world || !possible_messages)

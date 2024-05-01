@@ -10,6 +10,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_silo.dmm")
 
+	unit_test_groups = list(2)
+
 /area/adhomai_silo
 	name = "Adhomian Missile Silo"
 	icon_state = "bluenew"

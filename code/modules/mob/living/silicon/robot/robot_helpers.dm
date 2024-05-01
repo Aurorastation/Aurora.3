@@ -1,16 +1,16 @@
 /mob/living/silicon/robot/set_intent(var/set_intent)
 	a_intent = set_intent
-	cut_overlay(eye_overlay)
+	CutOverlays(eye_overlay)
 	if(!length(module_sprites))
 		return
 	if(!length(cached_eye_overlays))
 		setup_eye_cache()
 	if(!stat)
 		eye_overlay = cached_eye_overlays[a_intent]
-		add_overlay(eye_overlay)
+		AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/proc/handle_panel_overlay()
-	cut_overlay(panel_overlay)
+	CutOverlays(panel_overlay)
 	if(!length(cached_panel_overlays))
 		setup_panel_cache()
 	if(opened)
@@ -20,7 +20,7 @@
 			panel_overlay = cached_panel_overlays[ROBOT_PANEL_CELL]
 		else
 			panel_overlay = cached_panel_overlays[ROBOT_PANEL_NO_CELL]
-		add_overlay(panel_overlay)
+		AddOverlays(panel_overlay)
 
 /mob/living/silicon/robot/proc/setup_icon_cache()
 	if(!module_sprites[icontype])
@@ -46,10 +46,10 @@
 			I_HURT = image(icon, "[eyeprefix]-eyes_harm")
 		)
 	if(eye_overlay)
-		cut_overlay(eye_overlay)
+		CutOverlays(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
 	eye_overlay.plane = eye_plane
-	add_overlay(eye_overlay)
+	AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/proc/setup_panel_cache()
 	if(!length(module_sprites))

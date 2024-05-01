@@ -6,13 +6,20 @@
 /obj/effect/shuttle_landmark/runtime/transit,
 /turf/space,
 /area/space)
+"j" = (
+/turf/unsimulated/wall/steel,
+/area/space)
+"S" = (
+/obj/effect/landmark/newplayer_start,
+/turf/unsimulated/floor,
+/area/space)
 
 (1,1,1) = {"
-a
-a
-a
-a
-a
+j
+j
+j
+j
+j
 a
 a
 a
@@ -265,11 +272,11 @@ a
 a
 "}
 (2,1,1) = {"
-a
-a
-a
-a
-a
+j
+j
+j
+j
+j
 a
 a
 a
@@ -522,11 +529,11 @@ a
 a
 "}
 (3,1,1) = {"
-a
-a
-a
-a
-a
+j
+j
+S
+j
+j
 a
 a
 a
@@ -779,11 +786,11 @@ a
 a
 "}
 (4,1,1) = {"
-a
-a
-a
-a
-a
+j
+j
+j
+j
+j
 a
 a
 a
@@ -1036,11 +1043,11 @@ a
 a
 "}
 (5,1,1) = {"
-a
-a
-a
-a
-a
+j
+j
+j
+j
+j
 a
 a
 a

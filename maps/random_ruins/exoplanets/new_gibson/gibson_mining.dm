@@ -8,3 +8,5 @@
 
 	prefix = "new_gibson/"
 	suffixes = list("gibson_mining.dmm")
+
+	unit_test_groups = list(1)

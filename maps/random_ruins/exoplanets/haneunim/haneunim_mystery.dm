@@ -9,6 +9,8 @@
 	prefix = "haneunim/"
 	suffixes = list("haneunim_mystery.dmm")
 
+	unit_test_groups = list(1)
+
 /area/haneunim_mystery
 	name = "Ancient Vessel"
 	icon_state = "bluenew"

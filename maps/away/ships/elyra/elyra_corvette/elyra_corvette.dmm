@@ -155,7 +155,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/hangar)
 "aw" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -229,12 +231,8 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
-"aM" = (
-/obj/effect/decal/cleanable/blood/oil,
-/turf/simulated/floor,
-/area/ship/elyran_corvette/hangar)
 "aN" = (
 /obj/structure/railing/mapped{
 	icon_state = "railing0-0";
@@ -484,7 +482,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "cn" = (
 /obj/structure/cable{
@@ -598,7 +596,7 @@
 /area/ship/elyran_corvette/porthallway)
 "cI" = (
 /obj/machinery/floodlight,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "cJ" = (
 /obj/structure/sign/nosmoking_1{
@@ -731,7 +729,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "dV" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -767,7 +765,7 @@
 	target_pressure = 250
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "ef" = (
 /obj/structure/bed/stool/chair/office/dark{
@@ -802,7 +800,7 @@
 /area/ship/elyran_corvette/portwep)
 "et" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "ew" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -825,7 +823,7 @@
 	dir = 4;
 	icon_state = "map-scrubbers"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
 "ez" = (
 /obj/effect/floor_decal/corner/brown{
@@ -838,7 +836,7 @@
 	dir = 5
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "eD" = (
 /obj/effect/floor_decal/corner/yellow{
@@ -901,7 +899,12 @@
 /turf/simulated/floor/tiled,
 /area/ship/elyran_corvette/porthallway)
 "eY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/effect/landmark/entry_point/port{
 	name = "port, captains quarters"
 	},
@@ -1117,7 +1120,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "fN" = (
 /obj/machinery/washing_machine{
@@ -1232,7 +1235,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/medbay)
 "gc" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
@@ -1423,7 +1431,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "hh" = (
 /obj/structure/lattice/catwalk,
@@ -1442,6 +1450,9 @@
 	},
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 1
+	},
+/obj/structure/sign/flag/damascus{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -1616,7 +1627,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "ig" = (
 /obj/machinery/door/firedoor/noid,
@@ -1695,11 +1706,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 1
 	},
-/obj/machinery/access_button{
-	pixel_x = -22;
-	dir = 4;
-	pixel_y = 30
-	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/shuttle{
@@ -1709,7 +1715,20 @@
 	req_one_access = list(207);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
-/turf/simulated/floor,
+/obj/machinery/airlock_sensor/airlock_exterior{
+	pixel_x = 26;
+	pixel_y = 8;
+	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 37;
+	dir = 1;
+	pixel_y = 7
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "iz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1741,7 +1760,7 @@
 /area/ship/elyran_corvette/dorm)
 "iI" = (
 /obj/effect/decal/cleanable/generic,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "iK" = (
 /obj/effect/floor_decal/corner/red{
@@ -1767,7 +1786,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "iQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -1801,7 +1820,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "iX" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -1837,7 +1856,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "js" = (
 /obj/machinery/power/apc/east{
@@ -1911,7 +1930,7 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "jX" = (
 /obj/structure/cable{
@@ -1938,7 +1957,7 @@
 "kf" = (
 /obj/item/clothing/head/cone,
 /obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "kr" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1996,7 +2015,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardhallway)
 "kH" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -2176,7 +2197,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "lC" = (
 /obj/structure/platform,
@@ -2268,7 +2289,7 @@
 	master_tag = "airlock_elyran_corvette_dock_port";
 	name = "airlock_elyran_corvette_dock_port"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "mj" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -2345,7 +2366,7 @@
 	icon_state = "2-4"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "mV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -2426,7 +2447,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "nj" = (
 /obj/structure/table/steel,
@@ -2441,6 +2462,9 @@
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
+/obj/structure/sign/flag/newsuez{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "nm" = (
@@ -2452,7 +2476,7 @@
 	dir = 10
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "nt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -2622,7 +2646,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "og" = (
 /obj/structure/cable{
@@ -2643,7 +2667,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "ol" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -2910,7 +2934,9 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/messhall)
 "pK" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -2970,15 +2996,12 @@
 /turf/simulated/floor/lino,
 /area/ship/elyran_corvette/messhall)
 "qy" = (
-/obj/effect/shuttle_landmark/elyran_shuttle/hangar{
-	dir = 1
-	},
 /obj/structure/cable{
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "qA" = (
 /obj/machinery/door/firedoor/noid,
@@ -3140,7 +3163,7 @@
 	master_tag = "airlock_elyran_corvette_dock_starboard";
 	name = "airlock_elyran_corvette_dock_starboard"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "rk" = (
 /obj/effect/floor_decal/spline/plain/cee/beige,
@@ -3184,7 +3207,7 @@
 	pixel_y = 32;
 	pixel_x = 2
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "rp" = (
 /obj/effect/floor_decal/corner/beige{
@@ -3219,7 +3242,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/porthallway)
 "rL" = (
 /obj/structure/table/steel,
@@ -3316,7 +3339,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "ss" = (
 /obj/structure/railing/mapped{
@@ -3359,6 +3382,9 @@
 	},
 /obj/machinery/light/colored/decayed{
 	dir = 1
+	},
+/obj/structure/sign/flag/medina{
+	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -3512,34 +3538,20 @@
 	d2 = 8;
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "tM" = (
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/machinery/airlock_sensor/airlock_exterior{
-	pixel_x = -21;
-	pixel_y = 8;
-	dir = 4
+/obj/effect/shuttle_landmark/elyran_shuttle/hangar{
+	dir = 1
 	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "airlock_elyran_shuttle";
-	name = "airlock_elyran_shuttle";
-	req_one_access = list(207);
-	shuttle_tag = "Elyran Naval Shuttle"
-	},
-/turf/simulated/floor,
-/area/shuttle/elyran_shuttle)
+/turf/simulated/floor/plating,
+/area/ship/elyran_corvette/hangar)
 "tS" = (
 /obj/machinery/light/colored/decayed{
 	dir = 8
@@ -3597,6 +3609,9 @@
 	},
 /obj/machinery/computer/ship/sensors/terminal{
 	dir = 1
+	},
+/obj/structure/sign/flag/elyra{
+	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
@@ -3690,7 +3705,7 @@
 	master_tag = "airlock_elyra_corvette_port_1";
 	name = "airlock_elyra_corvette_port_1"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "uD" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -3705,7 +3720,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "uH" = (
 /obj/machinery/door/airlock/external{
@@ -3744,7 +3759,9 @@
 	},
 /area/ship/elyran_corvette/cic)
 "vc" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/structure/cable{
 	d1 = 4;
 	d2 = 8;
@@ -3843,7 +3860,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/hangar)
 "vI" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
@@ -3942,7 +3964,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "wm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
@@ -4053,7 +4075,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "wW" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
@@ -4097,7 +4119,9 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/hangar)
 "xc" = (
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -4198,7 +4222,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "xC" = (
 /obj/structure/railing/mapped{
@@ -4220,7 +4244,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/cic)
 "xE" = (
 /obj/structure/table/rack,
@@ -4322,13 +4346,11 @@
 	master_tag = "airlock_elyra_corvette_starboard_1";
 	name = "airlock_elyra_corvette_starboard_1"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "yi" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/power/smes/buildable/horizon_shuttle{
-	charge = 2e+006
-	},
+/obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable{
 	d2 = 4;
 	icon_state = "0-4"
@@ -4336,7 +4358,7 @@
 /obj/structure/sign/electricshock{
 	pixel_x = -32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "yl" = (
 /obj/structure/platform_deco{
@@ -4355,7 +4377,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "ys" = (
 /obj/effect/floor_decal/spline/fancy/wood{
@@ -4519,7 +4541,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/messhall)
 "zv" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_corvette_crew_viewing"
 	},
@@ -4543,7 +4570,12 @@
 	},
 /area/ship/elyran_corvette/hangar)
 "zB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_corvette_crew_viewing"
 	},
@@ -4569,7 +4601,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/portthrust)
 "zJ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_shuttle_shutters"
 	},
@@ -4597,13 +4634,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/starboardhallway)
 "zP" = (
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/decal/cleanable/liquid_fuel,
-/turf/simulated/floor,
-/area/ship/elyran_corvette/hangar)
+/turf/simulated/wall/shuttle/space_ship,
+/area/shuttle/elyran_shuttle)
 "zR" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -4627,7 +4662,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "zZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4747,7 +4782,9 @@
 /area/ship/elyran_corvette/portwep)
 "AM" = (
 /obj/structure/table/stone/marble,
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/messhall)
 "AN" = (
@@ -4779,7 +4816,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "AT" = (
 /obj/effect/floor_decal/corner/brown{
@@ -4843,7 +4880,7 @@
 	d2 = 4;
 	icon_state = "2-4"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "Bd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -4921,7 +4958,7 @@
 	dir = 9
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "BF" = (
 /obj/structure/closet/emcloset,
@@ -4961,9 +4998,8 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/engineering)
 "BR" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 4;
-	icon_state = "map"
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
 	},
 /turf/simulated/wall/shuttle/space_ship,
 /area/shuttle/elyran_shuttle)
@@ -5087,7 +5123,7 @@
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "CY" = (
 /obj/effect/floor_decal/corner/yellow/full,
@@ -5215,7 +5251,7 @@
 	dir = 8
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/porthallway)
 "DG" = (
 /obj/structure/platform,
@@ -5277,7 +5313,7 @@
 	master_tag = "airlock_elyra_corvette_port_2";
 	name = "airlock_elyra_corvette_port_2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "DZ" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -5494,7 +5530,7 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/porthallway)
 "Ff" = (
 /obj/structure/table/steel,
@@ -5586,7 +5622,7 @@
 	master_tag = "airlock_elyran_corvette_dock_starboard";
 	name = "airlock_elyran_corvette_dock_starboard"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "FD" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -5625,11 +5661,11 @@
 "Gd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/head/cone,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "Gi" = (
 /obj/structure/closet/crate/freezer/rations,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "Gk" = (
 /obj/effect/floor_decal/corner/beige{
@@ -5664,7 +5700,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Gw" = (
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "Gx" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -5703,7 +5739,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "GN" = (
 /obj/machinery/body_scanconsole{
@@ -5845,7 +5881,7 @@
 	icon_state = "2-8"
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "HC" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -5875,7 +5911,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
 "HF" = (
 /obj/structure/cable{
@@ -5925,7 +5961,7 @@
 	req_one_access = list(207);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "HP" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5999,7 +6035,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "Ir" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6055,7 +6091,7 @@
 	master_tag = "airlock_elyran_corvette_dock_port";
 	name = "airlock_elyran_corvette_dock_port"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "IA" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -6115,7 +6151,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/cic)
 "IP" = (
 /obj/structure/cable{
@@ -6234,7 +6270,7 @@
 /obj/structure/sign/crush{
 	pixel_x = -32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "JA" = (
 /obj/structure/window/reinforced{
@@ -6314,7 +6350,7 @@
 	master_tag = "airlock_elyran_corvette_dock_port";
 	name = "airlock_elyran_corvette_dock_port"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "JW" = (
 /obj/effect/landmark/entry_point/aft{
@@ -6405,7 +6441,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "Kr" = (
 /obj/structure/railing/mapped,
@@ -6471,7 +6507,9 @@
 	name = "Engineering";
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
@@ -6516,7 +6554,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/medbay)
 "Ld" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_shuttle_shutters";
 	dir = 4
@@ -6562,6 +6605,9 @@
 /obj/item/device/binoculars{
 	pixel_y = 5
 	},
+/obj/structure/sign/flag/persepolis{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "Li" = (
@@ -6576,7 +6622,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
 "Ll" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -6607,7 +6653,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/elyran_shuttle)
 "Lp" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /turf/simulated/floor/tiled/full,
 /area/ship/elyran_corvette/hangar)
 "Lq" = (
@@ -6957,7 +7008,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "Nw" = (
 /obj/effect/floor_decal/spline/plain/black,
@@ -7018,7 +7069,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "ND" = (
 /obj/effect/floor_decal/spline/plain/cee/beige{
@@ -7056,7 +7107,7 @@
 /area/ship/elyran_corvette/captain)
 "NG" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
-	dir = 8;
+	dir = 1;
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/space_ship,
@@ -7128,7 +7179,12 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/elyran_corvette/portthrust)
 "Ok" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_corvette_kitchen_viewing"
 	},
@@ -7145,7 +7201,7 @@
 /obj/machinery/floodlight{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "Ov" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7186,7 +7242,7 @@
 	master_tag = "airlock_elyran_corvette_dock_starboard";
 	name = "airlock_elyran_corvette_dock_starboard"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "OJ" = (
 /obj/machinery/power/apc/north{
@@ -7234,6 +7290,9 @@
 /obj/machinery/light/colored/decayed,
 /obj/structure/table/steel,
 /obj/item/clipboard,
+/obj/structure/sign/flag/aemaq{
+	pixel_y = -32
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/cic)
 "OQ" = (
@@ -7307,7 +7366,7 @@
 	master_tag = "airlock_elyran_corvette_dock_starboard";
 	name = "airlock_elyran_corvette_dock_starboard"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "Po" = (
 /obj/machinery/door/airlock/external{
@@ -7344,7 +7403,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/cic)
 "Pw" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -7440,6 +7499,31 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/ship/elyran_corvette/brig)
+"PS" = (
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/structure/cable{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/machinery/door/airlock/command/gold{
+	req_access = list(207);
+	name = "Control Center";
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "elyran_corvette_cic_lockdown"
+	},
+/turf/simulated/floor/tiled/full,
+/area/ship/elyran_corvette/cic)
 "PT" = (
 /obj/structure/closet/cabinet{
 	anchored = 1;
@@ -7595,7 +7679,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
 "Qu" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -7640,7 +7724,7 @@
 	master_tag = "airlock_elyran_corvette_dock_port";
 	name = "airlock_elyran_corvette_dock_port"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "QJ" = (
 /obj/structure/table/rack,
@@ -7712,7 +7796,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "Re" = (
 /obj/structure/closet/firecloset,
@@ -7786,7 +7870,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardhallway)
 "Rr" = (
 /obj/structure/bed/stool/chair,
@@ -7830,7 +7914,7 @@
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "RG" = (
 /obj/effect/floor_decal/industrial/warning,
@@ -7897,7 +7981,7 @@
 /area/ship/elyran_corvette/captain)
 "RT" = (
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "RU" = (
 /obj/effect/decal/cleanable/blood/drip/oil,
@@ -7919,7 +8003,7 @@
 	dir = 6
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/portthrust)
 "RZ" = (
 /obj/machinery/power/apc/north{
@@ -7966,7 +8050,7 @@
 /area/ship/elyran_corvette/medbay)
 "Sn" = (
 /obj/machinery/space_heater,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "Sq" = (
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -7979,7 +8063,7 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/cic)
 "St" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -8049,7 +8133,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/porthallway)
 "SI" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -8068,7 +8152,7 @@
 	dir = 4
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "SO" = (
 /turf/simulated/wall/shuttle/space_ship,
@@ -8089,7 +8173,7 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "SR" = (
 /obj/effect/floor_decal/corner/beige{
@@ -8119,7 +8203,7 @@
 	req_one_access = list(207);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "SX" = (
 /obj/structure/bed/stool/padded/red{
@@ -8183,7 +8267,12 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/elyran_corvette/hangar)
 "TB" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_corvette_captain_viewing"
 	},
@@ -8330,7 +8419,7 @@
 	pixel_y = 32;
 	pixel_x = -2
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "Uo" = (
 /obj/effect/floor_decal/corner/beige{
@@ -8397,7 +8486,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/porthallway)
 "UN" = (
 /obj/machinery/chemical_dispenser/full{
@@ -8459,7 +8548,7 @@
 	req_one_access = list(207);
 	shuttle_tag = "Elyran Naval Shuttle"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/shuttle/elyran_shuttle)
 "Vj" = (
 /obj/effect/floor_decal/corner/brown/full{
@@ -8497,7 +8586,7 @@
 	master_tag = "airlock_elyra_corvette_starboard_2";
 	name = "airlock_elyra_corvette_starboard_2"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "VG" = (
 /obj/effect/floor_decal/corner_wide/green{
@@ -8530,7 +8619,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/porthallway)
 "VP" = (
 /obj/structure/sign/nosmoking_1{
@@ -8567,7 +8656,9 @@
 /obj/machinery/door/window/northright{
 	dir = 4
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /obj/effect/floor_decal/spline/plain/beige{
 	dir = 1
 	},
@@ -8667,7 +8758,9 @@
 	dir = 4;
 	pixel_x = 14
 	},
-/obj/machinery/door/firedoor/noid,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/messhall)
 "WH" = (
@@ -8752,7 +8845,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/mainhallway)
 "WW" = (
 /obj/structure/sign/poster{
@@ -8806,7 +8899,7 @@
 /obj/structure/sign/crush{
 	pixel_x = 32
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "Xv" = (
 /obj/structure/sign/poster{
@@ -8839,7 +8932,12 @@
 /turf/simulated/floor/tiled/white,
 /area/ship/elyran_corvette/messhall)
 "Xz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/obj/effect/map_effect/window_spawner/full/shuttle{
+	spawn_firedoor = 1;
+	spawn_grille = 1;
+	color = "#BDB6AE";
+	frame_color = "#BDB6AE"
+	},
 /obj/machinery/door/blast/regular/open{
 	id = "elyran_corvette_kitchen_viewing"
 	},
@@ -8979,7 +9077,7 @@
 /area/ship/elyran_corvette/starboardthrust)
 "XW" = (
 /obj/item/clothing/head/cone,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/hangar)
 "XX" = (
 /obj/effect/floor_decal/corner/beige{
@@ -9073,7 +9171,7 @@
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/engineering)
 "YF" = (
 /obj/effect/floor_decal/spline/fancy/cee{
@@ -9236,11 +9334,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/cic)
 "ZR" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
-/turf/simulated/floor,
+/turf/simulated/floor/plating,
 /area/ship/elyran_corvette/starboardthrust)
 "ZY" = (
 /obj/effect/landmark/entry_point/port{
@@ -42003,7 +42101,7 @@ dV
 tK
 cI
 XW
-aM
+ES
 mW
 oW
 Vr
@@ -42258,9 +42356,9 @@ NO
 PJ
 Zx
 QX
-ES
-Vr
-Vr
+Gw
+lu
+BR
 Vr
 TZ
 CS
@@ -42515,7 +42613,7 @@ xk
 Lp
 av
 jV
-mz
+Gw
 NG
 ag
 lP
@@ -43029,8 +43127,8 @@ qq
 Lp
 gV
 Gw
-lu
-BR
+Gw
+NG
 ap
 pd
 nt
@@ -43286,9 +43384,9 @@ wT
 TE
 No
 Gw
-YZ
-Vr
-Vr
+Gw
+mz
+zP
 Vr
 TZ
 Jh
@@ -43545,7 +43643,7 @@ ze
 Gw
 cI
 kf
-zP
+YZ
 gh
 zg
 Vr
@@ -43784,7 +43882,7 @@ bm
 Nf
 Nf
 Nf
-nM
+PS
 Nf
 Nf
 Nf

@@ -154,7 +154,7 @@
 	icon = owner.button_icon
 	icon_state = owner.background_icon_state
 
-	cut_overlays()
+	ClearOverlays()
 	var/image/img
 	if(owner.action_type == AB_ITEM && owner.target)
 		var/obj/item/I = owner.target
@@ -165,7 +165,7 @@
 	img.pixel_y = 0
 	if(owner.button_icon_color)
 		img.color = owner.button_icon_color
-	add_overlay(img)
+	AddOverlays(img)
 
 	if(!owner.IsAvailable())
 		color = rgb(128,0,0,128)
@@ -200,8 +200,8 @@
 	return
 
 /obj/screen/movable/action_button/hide_toggle/update_icon()
-	cut_overlays()
-	add_overlay(hidden ? "show" : "hide")
+	ClearOverlays()
+	AddOverlays(hidden ? "show" : "hide")
 
 //This is the proc used to update all the action buttons. Properly defined in /mob/living/
 /mob/proc/update_action_buttons()

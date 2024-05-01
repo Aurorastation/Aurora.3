@@ -92,10 +92,10 @@
 	update_icon()
 
 /obj/item/pen/crayon/augment/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/crayon_tip = image('icons/obj/crayons.dmi', "crayonaugment_tip")
 	crayon_tip.color = colour
-	add_overlay(crayon_tip)
+	AddOverlays(crayon_tip)
 
 /obj/item/pen/crayon/augment/throw_at(atom/target, range, speed, mob/user)
 	user.drop_from_inventory(src)

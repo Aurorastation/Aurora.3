@@ -9,6 +9,8 @@
 	prefix = "konyang/abandoned/"
 	suffixes = list("factory_robotics.dmm")
 
+	unit_test_groups = list(2)
+
 /area/konyang/robotics_factory
 	name = "Robotics Assembly Plant"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED | AREA_FLAG_INDESTRUCTIBLE_TURFS

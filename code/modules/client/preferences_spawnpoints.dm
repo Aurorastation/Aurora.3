@@ -31,12 +31,10 @@
 	display_name = "Cryogenic Storage"
 	msg = "has completed cryogenic revival"
 	disallow_job = list("Cyborg", "Merchant")
-	var/list/command_turfs = list()
 
 /datum/spawnpoint/cryo/New()
 	..()
 	turfs = GLOB.latejoin_cryo
-	command_turfs = GLOB.latejoin_cryo_command
 
 /datum/spawnpoint/cryo/after_join(mob/victim)
 	if(!istype(victim))

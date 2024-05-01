@@ -42,6 +42,6 @@
 
 /datum/uplink_item/item/grenades/napalm
 	name = "3x Napalm Grenades"
-	telecrystal_cost = 5
+	telecrystal_cost = 8
 	path = /obj/item/storage/box/grenades/napalm
 	desc = "A box of three grenades that deploy napalm in the thrown area, and ignite it."

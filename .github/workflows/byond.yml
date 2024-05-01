@@ -951,7 +951,7 @@ jobs:
     strategy:
       matrix:
         map: [runtime]
-        pod: [ruins]
+        pod: [ruins-1, ruins-2, ruins-3]
       fail-fast: false
 
     steps:

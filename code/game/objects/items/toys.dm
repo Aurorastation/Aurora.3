@@ -256,9 +256,9 @@
 	..()
 	if(status == BALLOON_BURST)
 		worn_overlay = null
-	cut_overlay()
+	CutOverlays()
 	if(worn_overlay)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_[worn_overlay]", flags=RESET_COLOR))
 
 #undef BALLOON_NORMAL
 #undef BALLOON_BLOW

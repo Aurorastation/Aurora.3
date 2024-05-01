@@ -76,16 +76,16 @@
 	update_icon()
 
 /obj/structure/extinguisher_cabinet/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(has_extinguisher)
 		if(istype(has_extinguisher, /obj/item/extinguisher/mini))
-			add_overlay("extinguisher_mini")
+			AddOverlays("extinguisher_mini")
 		else
-			add_overlay("extinguisher_full")
+			AddOverlays("extinguisher_full")
 	if(opened)
-		add_overlay("cabinet_door_open")
+		AddOverlays("cabinet_door_open")
 	else
-		add_overlay("cabinet_door_closed")
+		AddOverlays("cabinet_door_closed")
 
 /obj/structure/extinguisher_cabinet/do_simple_ranged_interaction(var/mob/user)
 	if(has_extinguisher)

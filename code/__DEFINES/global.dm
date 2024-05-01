@@ -66,16 +66,12 @@ GLOBAL_DATUM(lobby_mobs_location, /turf)
 
 //Spawnpoints.
 GLOBAL_LIST_EMPTY(latejoin)
-GLOBAL_LIST_EMPTY(latejoin_gateway)
 GLOBAL_LIST_EMPTY(latejoin_cryo)
-GLOBAL_LIST_EMPTY(latejoin_cryo_command)
 GLOBAL_LIST_EMPTY(latejoin_cyborg)
-GLOBAL_LIST_EMPTY(latejoin_merchant)
 GLOBAL_LIST_EMPTY(latejoin_living_quarters_lift)
 GLOBAL_LIST_EMPTY(kickoffsloc)
 GLOBAL_LIST_EMPTY(virtual_reality_spawn)
 
-GLOBAL_LIST_EMPTY(asteroid_spawn) // Asteroid "Dungeons" spawn at these.
 GLOBAL_LIST_EMPTY(tdome1)
 GLOBAL_LIST_EMPTY(tdome2)
 GLOBAL_LIST_EMPTY(tdomeobserve)

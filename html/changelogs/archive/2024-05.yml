@@ -1,0 +1,13 @@
+2024-05-01:
+  Ben10083:
+  - bugfix: Portable Turrets now work outside of areas with a turret controller, spawning
+      a panel for itself as intended.
+  FluffyGhost:
+  - bugfix: Fixed some latejoin spawnpoints that were not working (eg. borgs).
+  - rscadd: Runtime map now uses proper spawnpoints instead of forced ones.
+  - code_imp: Moved and DMDoc'd force spawnpoints.
+  ReadThisNamePlz:
+  - bugfix: Fixes the freebooter ships power network
+  Sparky_hotdog:
+  - bugfix: Entering a blank OOC message will now cancel the message, rather than
+      sending nothing to chat.

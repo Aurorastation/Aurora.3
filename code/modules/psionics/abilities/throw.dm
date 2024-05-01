@@ -24,7 +24,7 @@
 		owner.drop_item(attacking_item)
 		attacking_item.forceMove(src)
 		to_chat(user, SPAN_NOTICE("You imbue [attacking_item] with psionic energy!"))
-		add_overlay("controlled")
+		AddOverlays("controlled")
 		item_to_throw = attacking_item
 
 /obj/item/spell/projectile/throw_item/Destroy()
@@ -38,7 +38,7 @@
 	if(item_to_throw)
 		owner.put_in_hands(item_to_throw)
 		item_to_throw = null
-		cut_overlays()
+		ClearOverlays()
 
 /obj/item/spell/projectile/throw_item/on_ranged_cast(atom/hit_atom, mob/living/user, atom/pb_target)
 	if(!item_to_throw)
@@ -46,7 +46,7 @@
 		return
 	. = ..()
 	item_to_throw = null
-	cut_overlays()
+	ClearOverlays()
 
 /obj/item/spell/projectile/throw_item/make_projectile(obj/item/projectile/projectile_type, mob/living/user)
 	var/obj/item/projectile/psionic_throw/P = ..()

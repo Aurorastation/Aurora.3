@@ -30,7 +30,7 @@
 	eye_overlay = image(icon, "[icon_state]-eyes_emag")
 	eye_overlay.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	eye_overlay.appearance_flags = KEEP_APART
-	add_overlay(eye_overlay)
+	AddOverlays(eye_overlay)
 
 /mob/living/simple_animal/hostile/rogue_drone/CanPass(atom/movable/mover, turf/target, height, air_group)
 	. = ..()

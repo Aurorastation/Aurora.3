@@ -3792,6 +3792,27 @@
 	required_reagents = list(/singleton/reagent/drink/tea = 2, /singleton/reagent/drink/toothpaste = 1)
 	result_amount = 3
 
+/datum/chemical_reaction/drink/mouthgarita
+	name = "Mouthgarita"
+	id = "mouthgarita"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/mouthgarita
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 2, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/caprician_sunrise
+	name = "Caprician Sunrise"
+	id = "caprician_sunrise"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/caprician_sunrise
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 2, /singleton/reagent/drink/orangejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/flagsdale_mule
+	name = "Flagsdale Mule"
+	id = "flagsdale_mule"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/flagsdale_mule
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 1, /singleton/reagent/drink/toothpaste = 1, /singleton/reagent/drink/mintsyrup = 1)
+	result_amount = 3
+
 /datum/chemical_reaction/drink/thewake
 	name = "The Wake"
 	id = "thewake"
