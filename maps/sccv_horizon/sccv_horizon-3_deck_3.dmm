@@ -6220,6 +6220,10 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - CIC Foyer";
+	dir = 4
+	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
 "eEz" = (
