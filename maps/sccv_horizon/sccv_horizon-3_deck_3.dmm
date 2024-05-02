@@ -10056,6 +10056,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "hcg" = (
@@ -14152,6 +14153,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "jKD" = (
@@ -15311,7 +15313,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
 "kxi" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -23282,6 +23284,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "pNE" = (
@@ -26343,6 +26346,7 @@
 "rRK" = (
 /obj/machinery/porta_turret,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "rRN" = (
@@ -28056,6 +28060,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Restricted Area";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/selfdestruct)
@@ -35182,6 +35190,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - Upload Airlock"
 	},
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)
