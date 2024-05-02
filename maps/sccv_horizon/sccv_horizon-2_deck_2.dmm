@@ -28623,9 +28623,6 @@
 /turf/simulated/floor/tiled/full,
 /area/hallway/primary/central_two)
 "mZX" = (
-/obj/effect/floor_decal/corner/mauve{
-	dir = 9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
