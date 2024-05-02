@@ -449,9 +449,41 @@ pixel_x = 8;
 		AddOverlays("intercom_scanline")
 		set_light(1.4, 1.3, COLOR_CYAN)
 		if(broadcasting)
-			AddOverlays("intercom_b")
+			var/mutable_appearance/screen_broadcasting = overlay_image(icon, "intercom_b")
+			var/mutable_appearance/screen_broadcasting_hologram = overlay_image(icon, "intercom_b")
+			screen_broadcasting_hologram.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			screen_broadcasting.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			screen_broadcasting_hologram.blend_mode = BLEND_MULTIPLY
+			screen_broadcasting.blend_mode = BLEND_ADD
+			AddOverlays(list(screen_broadcasting_hologram, screen_broadcasting))
 		if(listening)
-			AddOverlays("intercom_l")
+			var/mutable_appearance/screen_listening = overlay_image(icon, "intercom_l")
+			var/mutable_appearance/screen_listening_hologram = overlay_image(icon, "intercom_l")
+			screen_listening_hologram.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			screen_listening.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			screen_listening_hologram.blend_mode = BLEND_MULTIPLY
+			screen_listening.blend_mode = BLEND_ADD
+			AddOverlays(list(screen_listening_hologram, screen_listening))
 
 /obj/item/device/radio/intercom/broadcasting/Initialize()
 	SHOULD_CALL_PARENT(FALSE)
