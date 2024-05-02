@@ -9,7 +9,7 @@
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "peoples_station"
-	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang)
+	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang, /datum/shuttle/autodock/overmap/peoples_station_transport)
 
 	unit_test_groups = list(1)
 
@@ -35,11 +35,13 @@
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
 		"nav_peoples_station_ship_1",
-		"nav_peoples_station_ship_3"
+		"nav_peoples_station_ship_3",
+		"nav_peoples_station_ship_4",
+		"nav_peoples_station_fore_dock",
+		"nav_peoples_station_port_dock"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),
-		"Intrepid" = list("nav_peoples_station_dockintrepid")
+		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang")
 	)
 	comms_support = TRUE
 	comms_name = "people's station"
@@ -76,6 +78,7 @@
 	shuttle = "Orbital Fleet Fang"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
+	colors = list("#8C8A81")
 	max_speed = 1/(1 SECONDS)
 	burn_delay = 1 SECONDS
 	vessel_mass = 3000
@@ -104,15 +107,35 @@
 	logging_home_tag = "nav_hangar_peoples_station_fang"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/peoples_station_fang/hangar
-	name = "People's Station Fang Hangar"
-	landmark_tag = "nav_hangar_peoples_station_fang"
-	docking_controller = "peoples_station_fang_dock"
-	base_area = /area/peoples_station/fang
-	base_turf = /turf/simulated/floor/plating
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+//transport shuttle
 
-/obj/effect/shuttle_landmark/peoples_station_fang/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_peoples_station_fang"
-	base_turf = /turf/space/transit/north
+/obj/effect/overmap/visitable/ship/landable/peoples_station_transport
+	name = "Unmarked Adhomian Shuttle"
+	class = "Unmarked"
+	designation = "Civilian Shuttle"
+	desc = "A shuttle without any kind of identification."
+	shuttle = "Unmarked Adhomian Shuttle"
+	icon_state = "shuttle"
+	moving_state = "shuttle_moving"
+	colors = list("#8C8A81")
+	max_speed = 1/(3 SECONDS)
+	burn_delay = 2 SECONDS
+	vessel_mass = 3000 //very inefficient pod
+	fore_dir = NORTH
+	vessel_size = SHIP_SIZE_TINY
+
+/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport
+	name = "shuttle control console"
+	shuttle_tag = "People's Station Transport Shuttle"
+
+/datum/shuttle/autodock/overmap/peoples_station_transport
+	name = "People's Station Transport Shuttle"
+	move_time = 20
+	shuttle_area = list(/area/shuttle/peoples_station_transport)
+	current_location = "nav_hangar_peoples_station_transport"
+	landmark_transition = "nav_transit_peoples_station_transport"
+	range = 1
+	fuel_consumption = 2
+	logging_home_tag = "nav_hangar_peoples_station_transport"
+	dock_target = "peoples_station_transport"
+	defer_initialisation = TRUE

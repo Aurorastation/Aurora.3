@@ -164,7 +164,7 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "aW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -173,7 +173,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "aX" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/dark{
@@ -247,7 +247,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "bj" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -329,7 +329,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "bB" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -544,7 +544,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "cw" = (
 /obj/structure/closet/emcloset,
 /turf/simulated/floor/plating{
@@ -658,7 +658,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "cX" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/green{
@@ -669,7 +669,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "cZ" = (
 /obj/machinery/firealarm/south,
 /obj/structure/cable/green{
@@ -712,7 +712,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/peoples_station/transport_hangar)
 "dh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -851,7 +851,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "dI" = (
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/wood{
@@ -956,7 +956,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "ed" = (
 /obj/effect/floor_decal/corner/red/full,
 /obj/machinery/alarm/cold/south{
@@ -1039,7 +1039,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "eu" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -1055,7 +1055,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "eB" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -1116,7 +1116,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "eO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1140,7 +1140,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "eQ" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -1175,7 +1175,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "eT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 10
@@ -1183,7 +1183,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "eX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -1355,7 +1355,7 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "fz" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Hangar";
@@ -1436,13 +1436,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "fK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "fM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -1464,13 +1464,13 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "fS" = (
 /obj/machinery/door/blast/regular{
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/peoples_station/transport_hangar)
 "fY" = (
 /obj/machinery/light{
 	dir = 1
@@ -1527,7 +1527,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "gd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
@@ -1548,13 +1548,13 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "gi" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 9
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "gl" = (
 /obj/machinery/light,
 /turf/simulated/floor/reinforced{
@@ -1571,7 +1571,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "gn" = (
 /obj/structure/toilet,
 /obj/machinery/light/small{
@@ -1630,7 +1630,7 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/peoples_station/transport_hangar)
 "gJ" = (
 /obj/machinery/light{
 	dir = 8
@@ -1663,7 +1663,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "gU" = (
 /obj/machinery/door/airlock/glass_security{
 	name = "Firing Range";
@@ -1699,7 +1699,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "gW" = (
 /obj/structure/sign/painting_frame/hadii{
 	pixel_y = 32
@@ -1719,7 +1719,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "gY" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -1754,7 +1754,7 @@
 	name = "Air Supply Meter"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "hc" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
@@ -1829,7 +1829,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "hn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/plating{
@@ -1978,7 +1978,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "id" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -1992,7 +1992,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "ig" = (
 /obj/machinery/bodyscanner{
 	dir = 4
@@ -2191,13 +2191,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "jj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "jl" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Station Hatch";
@@ -2221,7 +2221,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "js" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -2416,13 +2416,13 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "kh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "kk" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2500,7 +2500,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "ku" = (
 /obj/structure/viewport,
 /obj/machinery/door/blast/regular{
@@ -2538,7 +2538,7 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "kC" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2612,7 +2612,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "kO" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2650,7 +2650,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "kT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2694,7 +2694,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "kX" = (
 /obj/machinery/light{
 	dir = 4
@@ -2721,7 +2721,7 @@
 	name = "fore, fang bridge"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "lf" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced{
@@ -2771,13 +2771,13 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "ll" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "lq" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
@@ -2839,7 +2839,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "lw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer{
@@ -3019,7 +3019,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "ml" = (
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/button/remote/blast_door{
@@ -3122,7 +3122,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "mH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3160,7 +3160,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "mN" = (
 /obj/structure/foamedmetal,
 /turf/simulated/floor/plating{
@@ -3176,7 +3176,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "mR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -3331,7 +3331,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "nL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -3367,7 +3367,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "nO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3454,7 +3454,7 @@
 	name = "starboard, crew compartment"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "oc" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3471,7 +3471,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "oe" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -3548,7 +3548,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "ox" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -3653,7 +3653,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "oT" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
@@ -3672,7 +3672,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "oW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3710,7 +3710,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "pi" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
@@ -3751,7 +3751,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "pv" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -3829,7 +3829,7 @@
 	name = "Shuttle Safety Shutters"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "pA" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -3849,7 +3849,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "pH" = (
 /obj/structure/window/reinforced,
 /obj/machinery/light,
@@ -4088,7 +4088,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "qJ" = (
 /obj/machinery/light{
 	dir = 4
@@ -4096,7 +4096,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "qK" = (
 /obj/machinery/light/small{
 	brightness_color = "#FA8282";
@@ -4245,7 +4245,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "rw" = (
 /turf/simulated/floor/wood{
 	temperature = 278.15
@@ -4506,7 +4506,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/peoples_station/transport_hangar)
 "ss" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Hangar";
@@ -4557,7 +4557,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "sx" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8;
@@ -4567,7 +4567,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "sA" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/bridge)
@@ -4834,7 +4834,7 @@
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "tw" = (
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/toxin,
@@ -4903,7 +4903,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "tH" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/floor_decal/industrial/outline/engineering,
@@ -4911,7 +4911,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/space)
+/area/peoples_station/transport_hangar)
 "tI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light,
@@ -5027,7 +5027,7 @@
 	layer = 2.71
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "uw" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -5087,7 +5087,7 @@
 	dir = 1
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "uJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -5105,7 +5105,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "uK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -5270,7 +5270,7 @@
 	name = "Scrubbers to Waste"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "vx" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
@@ -5318,7 +5318,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "vF" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/barracks)
@@ -5340,6 +5340,9 @@
 	temperature = 278.15
 	},
 /area/peoples_station/mess_hall)
+"vM" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/fang)
 "vR" = (
 /obj/structure/cable{
 	icon_state = "1-2";
@@ -5367,7 +5370,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "vV" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5515,7 +5518,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "wI" = (
 /obj/structure/closet/crate/trashcart,
 /obj/item/storage/bag/trash,
@@ -5541,14 +5544,14 @@
 	dir = 10
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "wQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "wT" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -5619,13 +5622,13 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "xh" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "xi" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -5721,7 +5724,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "xA" = (
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/adv{
@@ -5773,7 +5776,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "xF" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -6097,7 +6100,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "ze" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -6234,7 +6237,7 @@
 	},
 /obj/effect/overmap/visitable/ship/landable/headmaster_shuttle,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "zB" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6385,7 +6388,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Ai" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6430,7 +6433,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Au" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -6472,7 +6475,7 @@
 "AB" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/full,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "AD" = (
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 8;
@@ -6483,7 +6486,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "AL" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -6727,7 +6730,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "BO" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -6765,7 +6768,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "BY" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 4
@@ -6808,7 +6811,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "Ch" = (
 /obj/structure/window/reinforced,
 /obj/machinery/door/window{
@@ -6850,7 +6853,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Cw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6920,7 +6923,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/peoples_station/transport_hangar)
 "CH" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -6942,7 +6945,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "CN" = (
 /obj/machinery/light/small/red{
 	dir = 4
@@ -7011,7 +7014,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "CX" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -7036,7 +7039,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "Dc" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "aft, firing range"
@@ -7114,7 +7117,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Dr" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light,
@@ -7167,7 +7170,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Dz" = (
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/corner/orange/full,
@@ -7192,7 +7195,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "DF" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7515,7 +7518,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "EX" = (
 /turf/simulated/floor/reinforced{
 	temperature = 278.15
@@ -7561,7 +7564,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Fo" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -7623,7 +7626,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "FA" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -7723,7 +7726,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "FZ" = (
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -7761,7 +7764,7 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/reinforced,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "Gf" = (
 /obj/structure/bed/stool/chair/sofa/red{
 	dir = 4
@@ -7788,7 +7791,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Gj" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7838,7 +7841,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Gq" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
@@ -7944,7 +7947,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "GT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7993,7 +7996,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Hc" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
@@ -8129,7 +8132,7 @@
 "HD" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "HE" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -8184,7 +8187,7 @@
 	name = "port, hangar"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "HT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/carpet/art,
@@ -8216,7 +8219,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Ig" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8;
@@ -8351,7 +8354,7 @@
 /obj/machinery/alarm/cold/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "IM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -8368,7 +8371,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "IU" = (
 /obj/machinery/light{
 	dir = 8
@@ -8401,7 +8404,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Je" = (
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
@@ -8475,7 +8478,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Jx" = (
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
@@ -8691,7 +8694,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "KC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -8699,7 +8702,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "KF" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Ammunition";
@@ -8829,7 +8832,7 @@
 /area/peoples_station)
 "Lk" = (
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Lp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -8838,7 +8841,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Lq" = (
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
@@ -8859,7 +8862,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Lt" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -8916,7 +8919,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "LE" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -8935,7 +8938,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "LH" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating{
@@ -8969,7 +8972,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "LT" = (
 /obj/structure/ship_weapon_dummy{
 	is_barrel = 1
@@ -9057,7 +9060,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Mp" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
@@ -9236,7 +9239,7 @@
 	},
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "MX" = (
 /obj/effect/floor_decal/corner/white{
 	dir = 10
@@ -9410,7 +9413,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "NK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark{
@@ -9675,14 +9678,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "OV" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "OW" = (
 /obj/machinery/light/small/red{
 	dir = 1
@@ -9701,7 +9704,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "OY" = (
 /obj/structure/sink/kitchen{
 	name = "sink";
@@ -9717,7 +9720,7 @@
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Pb" = (
 /obj/machinery/body_scanconsole{
 	dir = 8
@@ -9804,7 +9807,7 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "Pp" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -9953,7 +9956,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "PR" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -9978,7 +9981,7 @@
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "PV" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -10171,7 +10174,7 @@
 	id = "elyran_shuttle_shutters"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "QX" = (
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
@@ -10236,7 +10239,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Rk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
@@ -10308,7 +10311,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Rx" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
@@ -10334,7 +10337,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/peoples_station/transport_hangar)
 "RB" = (
 /obj/machinery/light{
 	dir = 8
@@ -10492,7 +10495,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Sl" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -10524,7 +10527,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Ss" = (
 /obj/structure/bed/stool/bar/padded/red,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -10727,7 +10730,7 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Th" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/turretid/lethal{
@@ -10833,13 +10836,13 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "TB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "TC" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
@@ -10882,7 +10885,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "TH" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -11013,7 +11016,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Ud" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, defenses"
@@ -11062,7 +11065,7 @@
 	name = "port, crew compartment"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Um" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/captain_quarters)
@@ -11094,7 +11097,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Uy" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/defenses)
@@ -11162,7 +11165,7 @@
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/spline/plain/cee/grey,
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "UP" = (
 /obj/effect/overmap/visitable/sector/peoples_station,
 /turf/simulated/floor/tiled/dark{
@@ -11248,7 +11251,7 @@
 "Vb" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "Vc" = (
 /obj/structure/reagent_dispensers/cookingoil,
 /turf/simulated/floor/tiled/freezer{
@@ -11345,7 +11348,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "VQ" = (
 /obj/structure/table/steel,
 /obj/machinery/door/window/brigdoor/westright,
@@ -11387,7 +11390,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "VV" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -11572,7 +11575,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "WP" = (
 /obj/machinery/shipsensors/strong,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -11610,7 +11613,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Xa" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/closet/lasertag/blue,
@@ -11665,7 +11668,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "Xp" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
@@ -11712,7 +11715,7 @@
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
-/area/peoples_station/fang)
+/area/shuttle/fang)
 "XD" = (
 /obj/structure/closet/cabinet,
 /obj/item/clothing/shoes/jackboots/tajara,
@@ -11779,7 +11782,7 @@
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
-/area/space)
+/area/peoples_station/transport_hangar)
 "XQ" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
@@ -12158,7 +12161,7 @@
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/peoples_station/transport_hangar)
 "Zp" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Preparation";
@@ -12312,7 +12315,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/space)
+/area/peoples_station/transport_hangar)
 "ZU" = (
 /obj/structure/table/glass,
 /obj/item/storage/box/bodybags,
@@ -43848,10 +43851,10 @@ eu
 GJ
 Vb
 Po
-hz
-hz
-hz
-hz
+vM
+vM
+vM
+vM
 AB
 AB
 AB
@@ -44113,7 +44116,7 @@ DC
 Xy
 AB
 AB
-hz
+vM
 wZ
 NU
 WF
@@ -44876,10 +44879,10 @@ eu
 dC
 Vb
 mM
-hz
-hz
-hz
-hz
+vM
+vM
+vM
+vM
 AB
 AB
 AB

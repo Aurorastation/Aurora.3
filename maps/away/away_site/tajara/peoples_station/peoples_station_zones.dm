@@ -99,3 +99,8 @@
 	name = "People's Station Fang"
 	icon_state = "bridge_stairs"
 	requires_power = TRUE
+
+/area/shuttle/peoples_station_transport
+	name = "People's Station Transport"
+	icon_state = "bridge_stairs"
+	requires_power = TRUE
