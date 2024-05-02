@@ -112,10 +112,10 @@
 
 /obj/effect/overmap/visitable/ship/landable/peoples_station_transport
 	name = "People's Station Transport Shuttle"
-	class = "Unmarked"
-	designation = "Civilian Shuttle"
+	class = "PRAMV"
+	designation = "Yve'kha"
 	desc = "A shuttle without any kind of identification."
-	shuttle = "Unmarked Adhomian Shuttle"
+	shuttle = "People's Station Transport Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
 	colors = list("#8C8A81")

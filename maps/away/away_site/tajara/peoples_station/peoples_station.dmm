@@ -1022,6 +1022,14 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"eq" = (
+/obj/structure/cable/green{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "er" = (
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1916,6 +1924,16 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"hG" = (
+/obj/structure/cable/green{
+	d1 = 1;
+	d2 = 8;
+	icon_state = "1-8"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "hH" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/binary/pump/on{
@@ -5035,6 +5053,17 @@
 	},
 /turf/simulated/floor/plating/cooled,
 /area/peoples_station/transport_hangar)
+"uv" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/peoples_station/transport_hangar)
 "uw" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -5506,17 +5535,6 @@
 /obj/item/clothing/accessory/storage/bayonet,
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/armory)
-"wB" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating/cooled,
-/area/peoples_station/transport_hangar)
 "wC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -5744,16 +5762,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/transport_hangar)
-"xy" = (
-/obj/structure/cable/green{
-	d1 = 2;
-	d2 = 4;
-	icon_state = "2-4"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/transport_hangar)
 "xA" = (
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/adv{
@@ -5893,6 +5901,17 @@
 	temperature = 278.15
 	},
 /area/peoples_station/hangar)
+"xY" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 9
+	},
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/turf/simulated/floor/plating/cooled,
+/area/peoples_station/transport_hangar)
 "xZ" = (
 /obj/effect/floor_decal/corner/dark_blue/full,
 /obj/structure/closet/crate,
@@ -8038,16 +8057,6 @@
 	},
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
-"Hd" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 8;
-	icon_state = "1-8"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/transport_hangar)
 "He" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -8946,14 +8955,6 @@
 	temperature = 278.15
 	},
 /area/peoples_station/restroom)
-"Lz" = (
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating{
-	temperature = 278.15
-	},
-/area/peoples_station/transport_hangar)
 "LA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -11733,6 +11734,16 @@
 /obj/item/device/flashlight/lamp,
 /turf/simulated/floor/carpet/art,
 /area/peoples_station/commissar_quarters)
+"Xq" = (
+/obj/structure/cable/green{
+	d1 = 2;
+	d2 = 4;
+	icon_state = "2-4"
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "Xs" = (
 /obj/structure/closet/crate/freezer,
 /obj/item/storage/field_ration,
@@ -11837,6 +11848,10 @@
 	d1 = 2;
 	d2 = 8;
 	icon_state = "2-8"
+	},
+/obj/machinery/embedded_controller/radio/docking_port_multi{
+	id_tag = "peoples_station_transport";
+	pixel_y = 24
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -12197,17 +12212,6 @@
 "Zj" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/commissar_quarters)
-"Zk" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 9
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating/cooled,
-/area/peoples_station/transport_hangar)
 "Zn" = (
 /obj/structure/bed/handrail{
 	dir = 8
@@ -56993,12 +56997,12 @@ Kn
 Lk
 mh
 Cu
-xy
-Lz
-Lz
-Lz
-Lz
-Hd
+Xq
+eq
+eq
+eq
+eq
+hG
 Cu
 Cu
 Cu
@@ -57507,7 +57511,7 @@ Kn
 Lk
 mh
 Cu
-Zk
+xY
 GY
 dL
 dL
@@ -57764,7 +57768,7 @@ Kn
 Lk
 OX
 Cu
-wB
+uv
 TB
 OZ
 lv
