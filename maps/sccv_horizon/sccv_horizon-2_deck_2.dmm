@@ -4723,9 +4723,6 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/landmark/start{
-	name = "Xenoarchaeologist"
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 6
 	},
@@ -4734,6 +4731,9 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
+	},
+/obj/effect/landmark/start{
+	name = "Scientist"
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
@@ -4931,7 +4931,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/disposalpipe/segment{
@@ -6558,11 +6557,11 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 4
 	},
-/obj/effect/landmark/start{
-	name = "Scientist"
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Xenoarchaeologist"
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
@@ -10537,7 +10536,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
@@ -17294,7 +17292,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/machinery/door/airlock/glass_research{
@@ -21104,7 +21101,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/table/standard,
@@ -28683,7 +28679,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/effect/floor_decal/corner/mauve{
@@ -29628,7 +29623,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/disposalpipe/segment{
@@ -31085,7 +31079,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/machinery/door/airlock/glass_research{
@@ -36290,7 +36283,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /turf/simulated/wall/r_wall,
@@ -37084,7 +37076,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start{
-	name = "Lab Assistant"
+	name = "Research Understudy"
 	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 8
@@ -40376,7 +40368,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /turf/simulated/wall/r_wall,
@@ -40423,6 +40414,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/zat)
+"sHi" = (
+/obj/structure/bed/stool/chair/office/light{
+	dir = 4
+	},
+/obj/effect/floor_decal/spline/fancy/wood{
+	dir = 8
+	},
+/obj/effect/landmark/start{
+	name = "Xenobiologist"
+	},
+/turf/simulated/floor/wood,
+/area/rnd/conference)
 "sHm" = (
 /obj/machinery/photocopier/faxmachine{
 	department = "Head of Security's Office"
@@ -41972,7 +41975,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/structure/disposalpipe/segment{
@@ -47514,6 +47516,12 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
+/obj/structure/bed/stool/chair/office/light{
+	dir = 1
+	},
+/obj/effect/landmark/start{
+	name = "Scientist"
+	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/conference)
 "vWt" = (
@@ -50671,7 +50679,6 @@
 	},
 /obj/merge_conflict_marker{
 	name = "---Merge Conflict Marker---";
-	
 	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
 	},
 /obj/effect/floor_decal/corner/mauve/full{
@@ -52467,11 +52474,11 @@
 /obj/structure/bed/stool/chair/office/light{
 	dir = 8
 	},
-/obj/effect/landmark/start{
-	name = "Xenobiologist"
-	},
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 4
+	},
+/obj/effect/landmark/start{
+	name = "Research Understudy"
 	},
 /turf/simulated/floor/wood,
 /area/rnd/conference)
@@ -78563,7 +78570,7 @@ dOi
 biU
 qEJ
 qZO
-cRO
+sHi
 cRO
 hkj
 nAj
