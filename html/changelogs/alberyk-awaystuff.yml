@@ -3,5 +3,6 @@ author: Alberyk
 delete-after: True
 
 changes:
-  - qol: "The Intrepid can now land inside the People's Station."
+  - qol: "The People's Station should spawn closer to Adhomai now."
+  - qol: "The Intrepid can now dock with the People's Station."
   - qol: "Tweaked some adhomian ruins anda away sites to take in consideration newer features like weather."
