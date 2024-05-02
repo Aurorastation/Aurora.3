@@ -87,12 +87,12 @@
 	sector_hud_arrow = "menu_arrow"
 
 	lore_radio_stations = list(
-		"34.2 The Voice of the Tajaran People" = "config/lore_radio/adhomai/34.2_The_Voice_of_the_Tajaran_People.txt",
-		"14.6 Northern Harr'masir Radio" = "config/lore_radio/adhomai//14.6_Northern_Harrmasir_Radio.txt",
-		"72.9 Crevus Radio Center 27" = "config/lore_radio/adhomai/72.9_Crevus_Radio_Center_27.txt",
-		"51.2 Radio Free Adhomai" = "config/lore_radio/adhomai/51.2_Radio_Free_Adhomai.txt",
-		"83.1 The Crown Herald" = "config/lore_radio/adhomai/83.1_The_Crown_Herald.txt",
-		"11.7 KGTW-11" = "config/lore_radio/adhomai/11.7_KGTW-11.txt"
+		"34.2 The Voice of the Tajaran People" = 'texts/lore_radio/adhomai/34.2_The_Voice_of_the_Tajaran_People.txt',
+		"14.6 Northern Harr'masir Radio" = 'texts/lore_radio/adhomai//14.6_Northern_Harrmasir_Radio.txt',
+		"72.9 Crevus Radio Center 27" = 'texts/lore_radio/adhomai/72.9_Crevus_Radio_Center_27.txt',
+		"51.2 Radio Free Adhomai" = 'texts/lore_radio/adhomai/51.2_Radio_Free_Adhomai.txt',
+		"83.1 The Crown Herald" = 'texts/lore_radio/adhomai/83.1_The_Crown_Herald.txt',
+		"11.7 KGTW-11" = 'texts/lore_radio/adhomai/11.7_KGTW-11.txt'
 	)
 
 	lobby_tracks = list(
