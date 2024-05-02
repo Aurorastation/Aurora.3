@@ -23,12 +23,13 @@
 
 // ---- transport
 
-/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport
-	name = "People's Station Transport Shuttle"
-	shuttle_tag = "People's Station Transport Shuttle"
-	master_tag = "peoples_station_transport"
+/obj/effect/shuttle_landmark/peoples_station_transport/hangar
+	name = "People's Station Transport Hangar"
+	landmark_tag = "nav_peoples_station_transport"
+	docking_controller = "peoples_station_transport_dock"
 	base_area = /area/peoples_station/transport_hangar
 	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
 
 /obj/effect/shuttle_landmark/peoples_station_transport/transit
 	name = "In transit"

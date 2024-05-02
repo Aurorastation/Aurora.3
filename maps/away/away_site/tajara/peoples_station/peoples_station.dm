@@ -31,6 +31,7 @@
 	volume = "101 meters length, 115 meters beam/width, 32 meters vertical height"
 	weapons = "Dual extruding starboard-mounted medium and small caliber ballistic armament, two port obscured flight craft bays"
 	sizeclass = "Armed military surveillance and waypoint station"
+	place_near_main = list(2, 2)
 
 	initial_generic_waypoints = list(
 		"nav_peoples_station_ship_1",
@@ -110,7 +111,7 @@
 //transport shuttle
 
 /obj/effect/overmap/visitable/ship/landable/peoples_station_transport
-	name = "Unmarked Adhomian Shuttle"
+	name = "People's Station Transport Shuttle"
 	class = "Unmarked"
 	designation = "Civilian Shuttle"
 	desc = "A shuttle without any kind of identification."

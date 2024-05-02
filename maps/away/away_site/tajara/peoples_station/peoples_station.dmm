@@ -54,6 +54,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -145,6 +146,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
 /turf/space,
 /area/peoples_station/hangar)
 "aQ" = (
@@ -164,7 +166,7 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "aW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/universal,
 /obj/machinery/atmospherics/binary/pump/high_power{
@@ -219,7 +221,7 @@
 	pixel_y = 28;
 	pixel_x = 6
 	},
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
@@ -325,11 +327,12 @@
 /area/peoples_station/training)
 "bA" = (
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "peoples_station_transport_blast";
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "bB" = (
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -669,7 +672,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "cZ" = (
 /obj/machinery/firealarm/south,
 /obj/structure/cable/green{
@@ -707,12 +710,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/reinforced,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "dh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -870,6 +873,9 @@
 	temperature = 278.15
 	},
 /area/peoples_station)
+"dL" = (
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/peoples_station_transport)
 "dN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1039,23 +1045,18 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "eu" = (
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
 "ey" = (
-/obj/effect/decal/cleanable/generic{
-	layer = 2.81
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating{
+	temperature = 278.15
 	},
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating/cooled,
-/area/peoples_station/transport_hangar)
+/area/peoples_station/fang)
 "eB" = (
 /obj/structure/table/wood,
 /obj/item/material/ashtray/bronze,
@@ -1112,7 +1113,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/headmaster_shuttle/hangar{
+/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
@@ -1427,6 +1428,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
 /turf/space,
 /area/peoples_station/hangar)
 "fH" = (
@@ -1436,13 +1438,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "fK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "fM" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -1522,12 +1524,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "gd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/plating{
@@ -1630,7 +1632,13 @@
 	},
 /obj/structure/railing/mapped,
 /turf/simulated/floor/reinforced,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
+"gH" = (
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, fang hull"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/fang)
 "gJ" = (
 /obj/machinery/light{
 	dir = 8
@@ -1719,7 +1727,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "gY" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -1754,7 +1762,7 @@
 	name = "Air Supply Meter"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "hc" = (
 /obj/structure/closet/secure_closet/kitchen_cabinet/standard{
 	req_access = null
@@ -1992,7 +2000,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "ig" = (
 /obj/machinery/bodyscanner{
 	dir = 4
@@ -2187,11 +2195,11 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle{
+/obj/machinery/computer/shuttle_control/explore/terminal/peoples_station_transport{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "jj" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -2435,7 +2443,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/hangar)
 "kn" = (
@@ -2538,7 +2546,7 @@
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "kC" = (
 /obj/structure/cable/green{
 	d1 = 4;
@@ -2650,7 +2658,7 @@
 	},
 /obj/structure/window/reinforced,
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "kT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2805,6 +2813,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -2834,12 +2843,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "lw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/freezer{
@@ -3362,12 +3371,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "nO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -3454,7 +3463,7 @@
 	name = "starboard, crew compartment"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "oc" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3466,12 +3475,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "oe" = (
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 8
@@ -3519,6 +3528,7 @@
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -3543,12 +3553,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "ox" = (
 /obj/structure/window/reinforced,
 /obj/structure/window/reinforced{
@@ -3818,18 +3828,16 @@
 	},
 /obj/machinery/embedded_controller/radio/docking_port_multi{
 	pixel_x = 24;
-	id_tag = "headmaster_shuttle";
-	child_names_txt = "Orbital Fleet Shuttle Airlock";
-	child_tags_txt = "headmaster_shuttle";
+	id_tag = "peoples_station_transport";
 	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
-	id = "elyran_shuttle_shutters";
+	id = "peoples_station_transport_blast";
 	name = "Shuttle Safety Shutters"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "pA" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 6
@@ -4074,21 +4082,16 @@
 	},
 /area/peoples_station/medbay)
 "qI" = (
-/obj/effect/map_effect/window_spawner/full/shuttle{
-	spawn_firedoor = 1;
-	spawn_grille = 1;
-	color = "#6C7364";
-	frame_color = "#6C7364"
-	},
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters";
+	id = "peoples_station_transport_blast";
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "qJ" = (
 /obj/machinery/light{
 	dir = 4
@@ -4506,7 +4509,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "ss" = (
 /obj/machinery/door/airlock/glass_engineering{
 	name = "Hangar";
@@ -4567,7 +4570,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "sA" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/bridge)
@@ -4607,7 +4610,7 @@
 /area/peoples_station/captain_quarters)
 "sH" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
@@ -4634,6 +4637,10 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
+/obj/effect/shuttle_landmark/nav_peoples_station/port_dock{
+	dir = 1
+	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -4834,7 +4841,7 @@
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "tw" = (
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/toxin,
@@ -4911,7 +4918,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/reinforced/airless,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "tI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light,
@@ -5103,9 +5110,8 @@
 	pixel_y = 6
 	},
 /obj/structure/window/reinforced,
-/obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "uK" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -5188,7 +5194,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small/emergency,
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
@@ -5252,7 +5258,7 @@
 	pixel_y = 28;
 	pixel_x = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 4
 	},
@@ -5270,7 +5276,7 @@
 	name = "Scrubbers to Waste"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "vx" = (
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
@@ -5365,12 +5371,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "vV" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -5701,6 +5707,12 @@
 	temperature = 278.15
 	},
 /area/peoples_station/robotics_bay)
+"xr" = (
+/obj/effect/landmark/entry_point/port{
+	name = "port, fang hull"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/fang)
 "xu" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -6100,7 +6112,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "ze" = (
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
@@ -6235,9 +6247,8 @@
 /obj/effect/floor_decal/spline/plain/grey{
 	dir = 4
 	},
-/obj/effect/overmap/visitable/ship/landable/headmaster_shuttle,
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "zB" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 9
@@ -6383,12 +6394,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Ai" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6428,12 +6439,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Au" = (
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -6486,7 +6497,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "AL" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -6923,7 +6934,7 @@
 /obj/structure/railing/mapped,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/reinforced,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "CH" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -7117,7 +7128,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Dr" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/light,
@@ -7170,7 +7181,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Dz" = (
 /obj/machinery/vending/tool,
 /obj/effect/floor_decal/corner/orange/full,
@@ -7744,6 +7755,10 @@
 	temperature = 278.15
 	},
 /area/peoples_station/fang)
+"Ga" = (
+/obj/effect/shuttle_landmark/peoples_station_transport/transit,
+/turf/space/transit/north,
+/area/space)
 "Gd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -7791,7 +7806,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Gj" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7841,7 +7856,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Gq" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Hangar";
@@ -7988,7 +8003,7 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
@@ -7996,7 +8011,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/reinforced,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Hc" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
@@ -8354,7 +8369,7 @@
 /obj/machinery/alarm/cold/east,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "IM" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
@@ -8478,7 +8493,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Jx" = (
 /obj/machinery/alarm/cold/north{
 	req_one_access = list(209)
@@ -8600,6 +8615,10 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"JR" = (
+/obj/effect/shuttle_landmark/nav_peoples_station/nav4,
+/turf/template_noop,
+/area/space)
 "JS" = (
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/tiled/dark{
@@ -8774,6 +8793,7 @@
 	dir = 4
 	},
 /obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -8841,7 +8861,7 @@
 	req_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Lq" = (
 /obj/structure/bed/stool/chair/sofa/left/red{
 	dir = 4
@@ -8929,7 +8949,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/hangar)
 "LF" = (
@@ -9673,12 +9693,8 @@
 	},
 /area/peoples_station/medbay)
 "OU" = (
-/obj/effect/decal/cleanable/blood/oil,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/plating/cooled,
-/area/peoples_station/transport_hangar)
+/turf/space,
+/area/space)
 "OV" = (
 /obj/structure/reagent_dispensers/fueltank,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -9720,7 +9736,7 @@
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Pb" = (
 /obj/machinery/body_scanconsole{
 	dir = 8
@@ -9862,6 +9878,7 @@
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
 /turf/simulated/floor/plating{
 	temperature = 278.15
 	},
@@ -9981,7 +9998,7 @@
 	icon_state = "map"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "PV" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -10171,10 +10188,11 @@
 /area/peoples_station/armory)
 "QR" = (
 /obj/machinery/door/blast/regular/open{
-	id = "elyran_shuttle_shutters"
+	id = "peoples_station_transport_blast"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/tiled/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "QX" = (
 /obj/structure/sign/flag/pra/large/north{
 	pixel_y = 32
@@ -10331,13 +10349,9 @@
 	},
 /area/peoples_station/hangar)
 "RA" = (
-/obj/effect/decal/cleanable/liquid_fuel,
-/obj/item/clothing/head/cone,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/turf/simulated/floor/plating/cooled,
-/area/peoples_station/transport_hangar)
+/obj/effect/shuttle_landmark/nav_peoples_station/nav2,
+/turf/template_noop,
+/area/space)
 "RB" = (
 /obj/machinery/light{
 	dir = 8
@@ -10490,12 +10504,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Sl" = (
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -10730,7 +10744,7 @@
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Th" = (
 /obj/structure/bed/stool/chair/office/dark,
 /obj/machinery/turretid/lethal{
@@ -10842,7 +10856,7 @@
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "TC" = (
 /obj/structure/reagent_dispensers/watertank,
 /obj/item/reagent_containers/glass/bucket,
@@ -11065,7 +11079,7 @@
 	name = "port, crew compartment"
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Um" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/captain_quarters)
@@ -11097,7 +11111,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Uy" = (
 /turf/simulated/wall/shuttle/raider,
 /area/peoples_station/defenses)
@@ -11164,8 +11178,9 @@
 "UO" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/spline/plain/cee/grey,
+/obj/effect/overmap/visitable/ship/landable/peoples_station_transport,
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "UP" = (
 /obj/effect/overmap/visitable/sector/peoples_station,
 /turf/simulated/floor/tiled/dark{
@@ -11226,7 +11241,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/hangar)
 "UZ" = (
@@ -11396,6 +11411,10 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"VX" = (
+/obj/effect/shuttle_landmark/nav_peoples_station/nav1,
+/turf/template_noop,
+/area/space)
 "Wf" = (
 /obj/machinery/light,
 /obj/structure/table/standard,
@@ -11571,6 +11590,9 @@
 	d1 = 1;
 	d2 = 2;
 	icon_state = "1-2"
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
 	},
 /turf/simulated/floor/plating{
 	temperature = 278.15
@@ -12156,12 +12178,12 @@
 /obj/effect/map_effect/marker/airlock/shuttle{
 	cycle_to_external_air = 1;
 	master_tag = "headmaster_shuttle";
-	name = "headmaster_shuttle";
+	name = "peoples_station_transport";
 	req_one_access = list(209);
 	shuttle_tag = "Orbital Fleet Shuttle"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "Zp" = (
 /obj/machinery/door/airlock/engineering{
 	name = "Fang Preparation";
@@ -12193,7 +12215,7 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/effect/floor_decal/industrial/warning/cee,
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/port,
+/obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/port,
 /turf/simulated/floor/tiled/dark,
 /area/peoples_station/hangar)
 "Zr" = (
@@ -12315,7 +12337,7 @@
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/raider,
-/area/peoples_station/transport_hangar)
+/area/shuttle/peoples_station_transport)
 "ZU" = (
 /obj/structure/table/glass,
 /obj/item/storage/box/bodybags,
@@ -15376,31 +15398,31 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
+bS
+bS
+bS
+rr
+rr
+bS
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+bS
 rl
 rl
 rl
@@ -15633,6 +15655,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -15656,8 +15679,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -15890,6 +15912,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -15913,8 +15936,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -16147,6 +16169,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -16170,8 +16193,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -16404,6 +16426,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -16427,8 +16450,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -16661,6 +16683,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -16684,8 +16707,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -16918,6 +16940,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -16941,8 +16964,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -17175,6 +17197,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -17186,6 +17209,7 @@ rl
 rl
 rl
 rl
+Ga
 rl
 rl
 rl
@@ -17197,9 +17221,7 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -17432,6 +17454,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -17455,8 +17478,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -17689,6 +17711,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -17712,8 +17735,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -17946,6 +17968,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -17969,8 +17992,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -18203,6 +18225,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -18226,8 +18249,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -18460,6 +18482,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -18483,8 +18506,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -18717,6 +18739,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -18740,8 +18763,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -18974,6 +18996,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -18997,8 +19020,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -19231,6 +19253,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -19254,8 +19277,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -19488,31 +19510,31 @@ rl
 rl
 rl
 rl
-bS
-bS
-bS
 rr
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
-bS
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-bS
 rl
 rl
 rl
@@ -20259,7 +20281,7 @@ rl
 rl
 rl
 rl
-rr
+bS
 rl
 rl
 rl
@@ -20283,7 +20305,7 @@ rl
 rl
 rl
 rl
-rr
+bS
 rl
 rl
 rl
@@ -20517,29 +20539,29 @@ rl
 rl
 rl
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
 rr
 rl
 rl
@@ -20773,31 +20795,31 @@ rl
 rl
 rl
 rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
 rl
 rl
 rl
@@ -21030,31 +21052,31 @@ rl
 rl
 rl
 rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
 rl
 rl
 rl
@@ -21287,31 +21309,31 @@ rl
 rl
 rl
 rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-eh
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
 rl
 rl
 rl
@@ -21544,31 +21566,31 @@ rl
 rl
 rl
 rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
 rl
 rl
 rl
@@ -21801,31 +21823,31 @@ rl
 rl
 rl
 rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
 rl
 rl
 rl
@@ -22058,31 +22080,31 @@ rl
 rl
 rl
 rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
 rl
 rl
 rl
@@ -22315,31 +22337,31 @@ rl
 rl
 rl
 rl
-rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rr
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
+OU
 rl
 rl
 rl
@@ -22572,31 +22594,31 @@ rl
 rl
 rl
 rl
+bS
+bS
+bS
 rr
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
 rr
+bS
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+bS
 rl
 rl
 rl
@@ -24371,7 +24393,7 @@ rl
 rl
 rl
 rl
-bS
+rr
 rl
 rl
 rl
@@ -24383,6 +24405,7 @@ rl
 rl
 rl
 rl
+eh
 rl
 rl
 rl
@@ -24394,8 +24417,7 @@ rl
 rl
 rl
 rl
-rl
-bS
+rr
 rl
 rl
 rl
@@ -24629,29 +24651,29 @@ rl
 rl
 rl
 rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
-rr
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
+rl
 rr
 rl
 rl
@@ -24885,6 +24907,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -24908,8 +24931,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -25142,6 +25164,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -25165,8 +25188,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -25399,6 +25421,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -25422,8 +25445,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -25656,6 +25678,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -25679,8 +25702,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -25913,6 +25935,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -25936,8 +25959,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -26170,6 +26192,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -26193,8 +26216,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -26427,6 +26449,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -26450,8 +26473,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -26684,6 +26706,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -26707,8 +26730,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -26941,6 +26963,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -26964,8 +26987,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -27198,6 +27220,7 @@ rl
 rl
 rl
 rl
+rr
 rl
 rl
 rl
@@ -27221,8 +27244,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+rr
 rl
 rl
 rl
@@ -27455,6 +27477,7 @@ rl
 rl
 rl
 rl
+bS
 rl
 rl
 rl
@@ -27478,8 +27501,7 @@ rl
 rl
 rl
 rl
-rl
-rl
+bS
 rl
 rl
 rl
@@ -27712,31 +27734,31 @@ rl
 rl
 rl
 rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
-rl
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
+rr
 rl
 rl
 rl
@@ -43598,7 +43620,7 @@ eu
 eu
 eu
 eu
-eu
+ey
 eu
 eu
 eu
@@ -43853,7 +43875,7 @@ Vb
 Po
 vM
 vM
-vM
+gH
 vM
 AB
 AB
@@ -44654,7 +44676,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+RA
 Kn
 Kn
 Kn
@@ -44881,7 +44903,7 @@ Vb
 mM
 vM
 vM
-vM
+xr
 vM
 AB
 AB
@@ -54290,7 +54312,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+VX
 Kn
 Kn
 Kn
@@ -57183,13 +57205,13 @@ Cu
 Cu
 gi
 jo
-OU
+jo
 sr
 kB
-Lk
+dL
 oa
-Lk
-Lk
+dL
+dL
 CB
 jo
 GQ
@@ -57439,17 +57461,17 @@ mh
 Cu
 gi
 GY
-Lk
-Lk
-Lk
+dL
+dL
+dL
 Tf
 cX
 et
 Dy
-Lk
-Lk
-Lk
-Lk
+dL
+dL
+dL
+dL
 uu
 Cu
 ll
@@ -58467,17 +58489,17 @@ mh
 Cu
 xh
 dg
-Lk
-Lk
-Lk
+dL
+dL
+dL
 Tf
 AD
 IL
 zc
-Lk
-Lk
-Lk
-Lk
+dL
+dL
+dL
+dL
 uu
 Cu
 ll
@@ -58724,14 +58746,14 @@ mh
 Cu
 Cu
 xh
-RA
-ey
+kh
+kh
 tH
 fK
-Lk
+dL
 Ul
-Lk
-Lk
+dL
+dL
 gD
 kh
 Ri
@@ -64595,7 +64617,7 @@ Kn
 Kn
 Kn
 Kn
-Kn
+JR
 Kn
 Kn
 Kn
