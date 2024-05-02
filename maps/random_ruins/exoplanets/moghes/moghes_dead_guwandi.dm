@@ -36,13 +36,7 @@
 	A blade with no hilt,<BR>\
 	A song with no voice,<BR>\
 	Still, it is mine."
-
-/obj/item/paper/fluff/guwandi/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=p\]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
+	language = LANGUAGE_AZAZIBA
 
 /obj/effect/landmark/corpse/moghes_dead_raider
 	name = "Wasteland Raider"
