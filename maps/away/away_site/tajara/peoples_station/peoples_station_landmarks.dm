@@ -36,6 +36,11 @@
 	landmark_tag = "nav_transit_peoples_station_transport"
 	base_turf = /turf/space/transit/north
 
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport
+	name = "People's Station Transport Shuttle"
+	shuttle_tag = "People's Station Transport Shuttle"
+	master_tag = "peoples_station_transport"
+
 // --------------------- docks
 
 // ----

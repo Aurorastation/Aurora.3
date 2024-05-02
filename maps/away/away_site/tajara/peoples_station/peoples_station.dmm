@@ -147,7 +147,9 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
-/turf/space,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/peoples_station/hangar)
 "aQ" = (
 /obj/machinery/light/small{
@@ -708,12 +710,8 @@
 	dir = 10
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/peoples_station_transport)
@@ -1118,9 +1116,6 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
-	dir = 1
-	},
 /obj/structure/cable/green{
 	d1 = 2;
 	d2 = 8;
@@ -1439,7 +1434,9 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/effect/map_effect/marker/airlock/docking/peoples_station/dock/fore,
-/turf/space,
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
 /area/peoples_station/hangar)
 "fH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2858,12 +2855,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -3316,6 +3309,14 @@
 	temperature = 278.15
 	},
 /area/peoples_station/armory)
+"ns" = (
+/obj/effect/shuttle_landmark/peoples_station_transport/hangar{
+	dir = 1
+	},
+/turf/simulated/floor/plating{
+	temperature = 278.15
+	},
+/area/peoples_station/transport_hangar)
 "nz" = (
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
@@ -3383,15 +3384,11 @@
 	pixel_y = -4
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -3487,15 +3484,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -3568,12 +3561,8 @@
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -3843,11 +3832,6 @@
 /obj/item/device/binoculars{
 	pixel_y = 8;
 	pixel_x = -6
-	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	pixel_x = 24;
-	id_tag = "peoples_station_transport";
-	dir = 8
 	},
 /obj/machinery/button/remote/blast_door{
 	pixel_x = -5;
@@ -5390,15 +5374,11 @@
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -6424,15 +6404,11 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/lattice/catwalk/indoor,
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -6469,15 +6445,11 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
-	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor,
 /area/shuttle/peoples_station_transport)
@@ -8035,15 +8007,11 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/peoples_station_transport)
@@ -10538,12 +10506,8 @@
 	layer = 2.71
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -11849,9 +11813,10 @@
 	d2 = 8;
 	icon_state = "2-8"
 	},
-/obj/machinery/embedded_controller/radio/docking_port_multi{
-	id_tag = "peoples_station_transport";
-	pixel_y = 24
+/obj/machinery/embedded_controller/radio/simple_docking_controller{
+	frequency = 1380;
+	id_tag = "peoples_station_transport_dock";
+	pixel_y = 25
 	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
@@ -12227,12 +12192,8 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	cycle_to_external_air = 1;
-	master_tag = "headmaster_shuttle";
-	name = "peoples_station_transport";
-	req_one_access = list(209);
-	shuttle_tag = "Orbital Fleet Shuttle"
+/obj/effect/map_effect/marker/airlock/shuttle/peoples_station_transport{
+	req_one_access = list(209)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/peoples_station_transport)
@@ -58024,7 +57985,7 @@ Kn
 Kn
 Lk
 mh
-Cu
+ns
 eN
 Ao
 vR

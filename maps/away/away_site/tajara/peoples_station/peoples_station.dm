@@ -42,7 +42,8 @@
 		"nav_peoples_station_port_dock"
 	)
 	initial_restricted_waypoints = list(
-		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang")
+		"Orbital Fleet Fang" = list("nav_hangar_peoples_station_fang"),
+		"People's Station Transport Shuttle" = list("nav_hangar_peoples_station_transport")
 	)
 	comms_support = TRUE
 	comms_name = "people's station"
@@ -114,7 +115,7 @@
 	name = "People's Station Transport Shuttle"
 	class = "PRAMV"
 	designation = "Yve'kha"
-	desc = "A shuttle without any kind of identification."
+	desc = "A simple and reliable shuttle design used by the Orbital Fleet."
 	shuttle = "People's Station Transport Shuttle"
 	icon_state = "shuttle"
 	moving_state = "shuttle_moving"
@@ -133,10 +134,23 @@
 	name = "People's Station Transport Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/peoples_station_transport)
-	current_location = "nav_hangar_peoples_station_transport"
+	current_location = "nav_peoples_station_transport"
 	landmark_transition = "nav_transit_peoples_station_transport"
+	dock_target = "peoples_station_transport"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "nav_hangar_peoples_station_transport"
-	dock_target = "peoples_station_transport"
+	logging_home_tag = "nav_peoples_station_transport"
 	defer_initialisation = TRUE
+
+/obj/effect/shuttle_landmark/peoples_station_transport/hangar
+	name = "People's Station Transport Shuttle"
+	landmark_tag = "nav_peoples_station_transport"
+	docking_controller = "peoples_station_transport_dock"
+	base_area = /area/peoples_station/transport_hangar
+	base_turf = /turf/simulated/floor/plating
+	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+
+/obj/effect/shuttle_landmark/peoples_station_transport/transit
+	name = "In transit"
+	landmark_tag = "nav_transit_peoples_station_transport"
+	base_turf = /turf/space/transit/north
