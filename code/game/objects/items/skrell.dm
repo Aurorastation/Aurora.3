@@ -61,7 +61,7 @@
 	. = ..()
 	if(!glow_state)
 		glow_state = make_screen_overlay(icon, icon_state)
-	add_overlay(glow_state)
+	AddOverlays(glow_state)
 
 /obj/effect/temp_visual/constellation/attackby(obj/item/attacking_item, mob/user)
 	visible_message("<span class='notice'>\The [src] vanishes!</span>")
@@ -151,10 +151,10 @@
 	update_icon()
 
 /obj/item/skrell_projector/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(working)
 		var/image/overlay = overlay_image(icon, "projector_light", light_color, RESET_COLOR)
-		add_overlay(overlay)
+		AddOverlays(overlay)
 
 /obj/item/skrell_projector/process()
 	if(!selected_world)

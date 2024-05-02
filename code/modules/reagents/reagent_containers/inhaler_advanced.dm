@@ -24,13 +24,13 @@
 	return
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
 
 	if(reagents.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[initial(icon_state)][rounded_vol]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -109,14 +109,14 @@
 		. += "<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>"
 
 /obj/item/personal_inhaler/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stored_cartridge)
-		add_overlay(stored_cartridge.icon_state)
+		AddOverlays(stored_cartridge.icon_state)
 		if(stored_cartridge.reagents.total_volume)
 			var/rounded_vol = round(stored_cartridge.reagents.total_volume, round(stored_cartridge.reagents.maximum_volume / (stored_cartridge.volume / 5)))
 			var/image/filling = image(icon, "[stored_cartridge.icon_state][rounded_vol]")
 			filling.color = stored_cartridge.reagents.get_color()
-			add_overlay(filling)
+			AddOverlays(filling)
 
 /obj/item/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)

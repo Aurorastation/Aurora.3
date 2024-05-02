@@ -52,12 +52,12 @@
 	update_icon()
 
 /obj/machinery/mecha_part_fabricator/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "fab-base"
 	if(busy)
-		add_overlay("fab-active")
+		AddOverlays("fab-active")
 	if(panel_open)
-		add_overlay("fab-panel")
+		AddOverlays("fab-panel")
 
 /obj/machinery/mecha_part_fabricator/dismantle()
 	for(var/f in materials)
@@ -174,7 +174,7 @@
 			var/count = 0
 			var/icon/load = icon(icon, "load")
 			load.Blend(M.material.icon_colour,ICON_MULTIPLY)
-			add_overlay(load)
+			AddOverlays(load)
 			CUT_OVERLAY_IN(load, 6)
 
 			while(materials[M.material.name] + M.perunit <= res_max_amount && M.amount >= 1)

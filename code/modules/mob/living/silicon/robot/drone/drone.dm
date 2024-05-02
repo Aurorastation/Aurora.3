@@ -302,9 +302,9 @@
 		"emag" = image(icon, "[icon_state]-eyes_emag")
 	)
 	if(eye_overlay)
-		cut_overlay(eye_overlay)
+		CutOverlays(eye_overlay)
 	eye_overlay = cached_eye_overlays[a_intent]
-	add_overlay(eye_overlay)
+	AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/drone/setup_panel_cache()
 	cached_panel_overlays = list(
@@ -316,10 +316,10 @@
 
 /mob/living/silicon/robot/drone/set_intent(var/set_intent)
 	a_intent = set_intent
-	cut_overlay(eye_overlay)
+	CutOverlays(eye_overlay)
 	if(!stat)
 		eye_overlay = cached_eye_overlays[emagged ? "emag" : set_intent]
-		add_overlay(eye_overlay)
+		AddOverlays(eye_overlay)
 
 /mob/living/silicon/robot/drone/choose_icon()
 	return
@@ -333,7 +333,7 @@
 	hat = new_hat
 	new_hat.forceMove(src)
 	hat_overlay = get_hat_icon(hat, hat_x_offset, hat_y_offset)
-	add_overlay(hat_overlay)
+	AddOverlays(hat_overlay)
 
 //Drones cannot be upgraded with borg modules so we need to catch some items before they get used in ..().
 /mob/living/silicon/robot/drone/attackby(obj/item/attacking_item, mob/user)

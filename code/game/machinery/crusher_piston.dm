@@ -132,7 +132,7 @@
 		right.queue_icon_update()
 
 /obj/machinery/crusher_base/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
 
@@ -163,7 +163,7 @@
 		else
 			holographic_overlay(src, icon, "[asmtype]-overlay-green")
 	if(panel_open)
-		add_overlay("[asmtype]-hatch")
+		AddOverlays("[asmtype]-hatch")
 	update_above()
 
 /obj/machinery/crusher_base/power_change()

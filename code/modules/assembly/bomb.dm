@@ -20,8 +20,8 @@
 	if(bombtank)
 		icon_state = bombtank.icon_state
 	if(bombassembly)
-		add_overlay(bombassembly)
-		add_overlay("bomb_assembly")
+		AddOverlays(bombassembly)
+		AddOverlays("bomb_assembly")
 
 /obj/item/device/onetankbomb/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/device/analyzer))

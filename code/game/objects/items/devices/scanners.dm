@@ -472,10 +472,10 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
 /obj/item/device/mass_spectrometer/adv/clear_blood_overlay()
-	cut_overlays()
+	ClearOverlays()
 
 /obj/item/device/mass_spectrometer/adv/add_blood_overlay(var/image/I)
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"

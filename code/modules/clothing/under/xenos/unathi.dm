@@ -154,3 +154,9 @@
 	desc = "A set of gray cloth wrappings, used in traditional Sinta'Mador burials. Remarkably well preserved with age."
 	icon_state = "mador_wrappings"
 	item_state = "mador_wrappings"
+
+/obj/item/clothing/under/unathi/siakh
+	name = "\improper Si'akh priest robes"
+	desc = "Ascetic brown robes, favored by Flame Priests of the Si'akh Church."
+	icon_state = "siakh"
+	item_state = "siakh"

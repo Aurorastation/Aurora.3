@@ -183,11 +183,11 @@
 	other.roof_flags = roof_flags
 	other.roof_type = roof_type
 
-	if (our_overlays)
-		other.our_overlays = our_overlays
+	if (atom_overlay_cache)
+		other.atom_overlay_cache = atom_overlay_cache
 
-	if (priority_overlays)
-		other.priority_overlays = priority_overlays
+	if (atom_protected_overlay_cache)
+		other.atom_protected_overlay_cache = atom_protected_overlay_cache
 
 	other.overlays = overlays.Copy()
 

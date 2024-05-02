@@ -14,12 +14,12 @@
 	)
 
 /obj/machinery/power/tesla_coil/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
-		add_overlay("[icon_state]+bolts")
+		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
 		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(lights_image)
+		AddOverlays(lights_image)
 
 /obj/machinery/power/tesla_coil/RefreshParts()
 	var/power_multiplier = 0
@@ -75,12 +75,12 @@
 	)
 
 /obj/machinery/power/grounding_rod/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
-		add_overlay("[icon_state]+bolts")
+		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
 		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(lights_image)
+		AddOverlays(lights_image)
 
 /obj/machinery/power/grounding_rod/attackby(obj/item/attacking_item, mob/user)
 	if(default_deconstruction_screwdriver(user, attacking_item))

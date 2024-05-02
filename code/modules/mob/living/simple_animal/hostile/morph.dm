@@ -169,7 +169,7 @@
 	name = initial(name)
 	icon = initial(icon)
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 	overlays = null
 
 	//Baseline stats

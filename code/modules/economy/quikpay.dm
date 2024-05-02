@@ -45,7 +45,7 @@
 	R.offset_y += 0
 	R.ico += "paper_stamp-cent"
 	R.stamped += /obj/item/stamp
-	R.add_overlay(stampoverlay)
+	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Executive Officer's desk.</i>"
 
 /obj/item/device/quikpay/AltClick(var/mob/user)
@@ -66,7 +66,7 @@
 	if(!R.stamped)
 		R.stamped = new
 	R.stamped += /obj/item/stamp
-	R.add_overlay(stampoverlay)
+	R.AddOverlays(stampoverlay)
 	R.stamps += "<HR><i>This paper has been stamped by the Quik-Pay device.</i>"
 
 /obj/item/device/quikpay/attackby(obj/item/attacking_item, mob/user)
