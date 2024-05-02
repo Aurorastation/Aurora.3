@@ -2930,7 +2930,9 @@
 	req_access = list(209);
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
 /area/peoples_station/fang)
 "lG" = (
 /obj/machinery/door/firedoor,
@@ -7870,7 +7872,9 @@
 	req_access = list(209);
 	dir = 1
 	},
-/turf/simulated/wall/shuttle/raider,
+/turf/simulated/floor/tiled/dark{
+	temperature = 278.15
+	},
 /area/peoples_station/fang)
 "Gw" = (
 /obj/machinery/firealarm/south,
