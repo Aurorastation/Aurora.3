@@ -28627,10 +28627,6 @@
 	dir = 9
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/camera/network/research{
-	c_tag = "Research - Meeting Room";
-	dir = 4
-	},
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
