@@ -87,6 +87,83 @@
 /obj/item/flamethrower/isFlameSource()
 	return lit
 
+/obj/item/flamethrower/resolve_attackby(atom/A, mob/user, click_parameters)
+	if(istype(A, /obj/machinery/atmospherics/unary/))
+		INVOKE_ASYNC(src, PROC_REF(pipes_blast), A, user)
+
+	else
+		. = ..()
+
+/**
+ * Called when the flamethrower is attacking an atmos machine (eg. scrubbers or vents)
+ *
+ * This sends fire damage to anyone inside the pipe network or the atmos machines connected to it
+ *
+ * This procs should be called asyncronously, as it TICK_CHECKs
+ *
+ * * atmos_machine_being_attacked - The atmos machine being attacked, a `/obj/machinery/atmospherics/unary/`
+ * * user - The user that is attacking the atmos machine
+ */
+/obj/item/flamethrower/proc/pipes_blast(obj/machinery/atmospherics/unary/atmos_machine_being_attacked, mob/user)
+	if(!istype(atmos_machine_being_attacked))
+		stack_trace("Attempted to call pipes_blast() on a non-atmos machine")
+		return
+
+	//Have to be near the machine
+	if(get_dist(user, get_turf(atmos_machine_being_attacked)) > 1)
+		to_chat(user, SPAN_WARNING("You have to get closer!"))
+		return
+
+	//Checks that the flamethrower is on and the igniter is secured
+	if(!lit)
+		to_chat(user, SPAN_WARNING("You can't do that while the flamethrower is off!"))
+		return
+	if(!secured)
+		to_chat(user, SPAN_WARNING("You need to secure the igniter first!"))
+		return
+
+	//Some delay and fancy messages about the action
+	user.visible_message(SPAN_DANGER("[user] starts to slot \the [src] into \the [atmos_machine_being_attacked]!"),
+							SPAN_DANGER("You start to slot \the [src] into \the [atmos_machine_being_attacked]!"))
+
+	if(!do_after(user, 5 SECONDS, atmos_machine_being_attacked))
+		return
+
+	user.visible_message(SPAN_DANGER("[user] has slotted \the [src] into \the [atmos_machine_being_attacked], and pulls the trigger!"))
+
+
+	//For every atmos machine in the network, apply the fuel to it, and ignite it
+	for(var/obj/machinery/atmospherics/network_normal_member as anything in atmos_machine_being_attacked.network.normal_members)
+		var/turf/T = get_turf(network_normal_member)
+		if(!T)
+			continue
+
+		var/datum/gas_mixture/air_transfer = gas_tank.air_contents.remove_ratio(0.02 * (throw_amount / 100))
+		if(!air_transfer)
+			to_chat(user, SPAN_WARNING("The flamethrower is out of fuel!"))
+			return
+
+		//Apply the fuel to the exit turf, and ignite it
+		new /obj/effect/decal/cleanable/liquid_fuel/flamethrower_fuel(T, air_transfer.get_by_flag(XGM_GAS_FUEL) * 15, get_dir(user, T))
+		T.hotspot_expose((gas_tank.air_contents.temperature*2) + 400, 500)
+
+		//Living mobs inside, take damage
+		var/mob/living/M = locate() in network_normal_member
+		if(M)
+			M.apply_damage(20, DAMAGE_BURN)
+			M.IgniteMob(1)
+
+	CHECK_TICK
+
+	for(var/datum/pipeline/network_line_members as anything in atmos_machine_being_attacked.network.line_members)
+		for(var/obj/machinery/atmospherics/pipe/pipe_in_the_network as anything in (network_line_members.members + network_line_members.edges))
+			var/mob/living/M = locate() in pipe_in_the_network
+			if(M)
+				M.apply_damage(20, DAMAGE_BURN)
+				M.IgniteMob(1)
+
+			CHECK_TICK
+
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
 	if(proximity)
 		return
