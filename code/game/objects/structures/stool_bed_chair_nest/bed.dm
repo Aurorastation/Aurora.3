@@ -667,13 +667,13 @@
 
 /obj/structure/roller_rack/update_icon()
 	. = ..()
-	cut_overlays()
+	CutOverlays()
 	var/beds = 0
 	for(var/obj/item/roller/RB in held)
 		var/image/I = overlay_image(icon, "[icon_state]_bed_[RB.base_icon]")
 		I.pixel_x = (5 * beds)
 		beds++
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/structure/roller_rack/examine(mob/user)
 	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
