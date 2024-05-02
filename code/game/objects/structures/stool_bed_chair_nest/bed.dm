@@ -641,23 +641,19 @@
 	desc = "A rack for holding collapsed roller beds."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "holder"
-	var/list/held
-	var/initial_beds = 4
+	var/list/obj/item/roller/held = list() // The roller beds being held by the rack
+	var/initial_beds = 4 // The number of beds the rack will spawn with
 
 /obj/structure/roller_rack/Initialize()
 	. = ..()
-	LAZYINITLIST(held)
-	var/i
-	for(i=1, i<=initial_beds, i++)
+	for(var/_ in 1 to initial_beds)
 		var/obj/item/roller/RB = new /obj/item/roller(src)
-		LAZYADD(held, RB)
+		held += RB
 	update_icon()
 
 /obj/structure/roller_rack/Destroy()
 	. = ..()
-	for(var/obj/O in held)
-		qdel(O)
-	LAZYCLEARLIST(held)
+	QDEL_LIST(held)
 
 /obj/structure/roller_rack/two
 	initial_beds = 2
@@ -667,7 +663,7 @@
 
 /obj/structure/roller_rack/update_icon()
 	. = ..()
-	CutOverlays()
+	ClearOverlays()
 	var/beds = 0
 	for(var/obj/item/roller/RB in held)
 		var/image/I = overlay_image(icon, "[icon_state]_bed_[RB.base_icon]")
@@ -686,23 +682,23 @@
 
 	var/obj/item/roller/RB = held[LAZYLEN(held)]
 	user.put_in_hands(RB)
-	LAZYREMOVE(held, RB)
+	held -= RB
 	to_chat(user, SPAN_NOTICE("You retrieve \the [RB] from the rack."))
 	update_icon()
 
-/obj/structure/roller_rack/attackby(W, mob/user)
-	if(iswrench(W))
+/obj/structure/roller_rack/attackby(obj/item/attacking_item, mob/user)
+	if(iswrench(attacking_item))
 		anchored = !anchored
 		to_chat(user, SPAN_NOTICE("You [anchored ? "bolt" : "unbolt"] \the [src] [anchored ? "to" : "from"] the ground."))
 
-	if(istype(W, /obj/item/roller))
-		var/obj/item/roller/RB = W
+	if(istype(attacking_item, /obj/item/roller))
+		var/obj/item/roller/RB = attacking_item
 
 		if(LAZYLEN(held) >= 4)
 			to_chat(user, SPAN_NOTICE("The rack has no space for \the [RB]"))
 			return
 
 		user.drop_from_inventory(RB, src)
-		LAZYADD(held, RB)
+		held += RB
 		to_chat(user, SPAN_NOTICE("You place \the [RB] on the rack."))
 		update_icon()
