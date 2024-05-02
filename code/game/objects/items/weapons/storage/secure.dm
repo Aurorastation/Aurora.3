@@ -105,15 +105,15 @@
 				src.l_set = 1
 			else if ((src.code == src.l_code) && (src.emagged == 0) && (src.l_set == 1))
 				src.locked = 0
-				cut_overlays()
-				add_overlay(icon_opened)
+				ClearOverlays()
+				AddOverlays(icon_opened)
 				src.code = null
 			else
 				src.code = "ERROR"
 		else
 			if ((href_list["type"] == "R") && (src.emagged == 0) && (!src.l_setshort))
 				src.locked = 1
-				cut_overlays()
+				ClearOverlays()
 				src.code = null
 				src.close(usr)
 			else
@@ -130,10 +130,10 @@
 /obj/item/storage/secure/emag_act(var/remaining_charges, var/mob/user, var/feedback)
 	if(!emagged)
 		emagged = 1
-		add_overlay(icon_sparking)
+		AddOverlays(icon_sparking)
 		sleep(6)
-		cut_overlays()
-		add_overlay(icon_locking)
+		ClearOverlays()
+		AddOverlays(icon_locking)
 		locked = 0
 		to_chat(user, (feedback ? feedback : "You short out the lock of \the [src]."))
 		return 1

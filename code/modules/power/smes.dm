@@ -162,27 +162,27 @@
 	return 0
 
 /obj/machinery/power/smes/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!can_function())
 		return
 
 	if(inputting == 2)
-		add_overlay("[icon_state]-oc2")
+		AddOverlays("[icon_state]-oc2")
 	else if (inputting == 1)
-		add_overlay("[icon_state]-oc1")
+		AddOverlays("[icon_state]-oc1")
 	else if (input_attempt)
-		add_overlay("[icon_state]-oc0")
+		AddOverlays("[icon_state]-oc0")
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		add_overlay("[icon_state]-og[clevel]")
+		AddOverlays("[icon_state]-og[clevel]")
 
 	if(outputting == 2)
-		add_overlay("[icon_state]-op2")
+		AddOverlays("[icon_state]-op2")
 	else if (outputting == 1)
-		add_overlay("[icon_state]-op1")
+		AddOverlays("[icon_state]-op1")
 	else
-		add_overlay("[icon_state]-op0")
+		AddOverlays("[icon_state]-op0")
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))

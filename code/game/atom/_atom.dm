@@ -56,6 +56,12 @@
 	/// How this atom should react to having its astar blocking checked
 	var/can_astar_pass = CANASTARPASS_DENSITY
 
+	/// This atom's cache of non-protected overlays, used for normal icon additions. Do not manipulate directly- See SSoverlays.
+	var/list/atom_overlay_cache
+
+	/// This atom's cache of overlays that can only be removed explicitly, like C4. Do not manipulate directly- See SSoverlays.
+	var/list/atom_protected_overlay_cache
+
 /atom/Destroy(force)
 	if(opacity)
 		updateVisibility(src)
@@ -80,11 +86,11 @@
 	if(icon_update_queued)
 		SSicon_update.remove_from_queue(src)
 
-	if(length(our_overlays))
-		LAZYCLEARLIST(our_overlays)
+	if(length(atom_overlay_cache))
+		LAZYCLEARLIST(atom_overlay_cache)
 
-	if(length(priority_overlays))
-		LAZYCLEARLIST(priority_overlays)
+	if(length(atom_protected_overlay_cache))
+		LAZYCLEARLIST(atom_protected_overlay_cache)
 
 	if(orbiters)
 		for(var/thing in orbiters)

@@ -472,18 +472,18 @@
 
 
 /obj/structure/cult/pylon/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(pylonmode == PYLON_TURRET)
 		anchored = TRUE
 		if(empowered)
-			add_overlay("crystal_overcharge")
+			AddOverlays("crystal_overcharge")
 			set_light(7, 3, l_color = "#a160bf")
 		else
 			set_light(6, 3, l_color = "#3e0000")
-			add_overlay("crystal_turret")
+			AddOverlays("crystal_turret")
 	else if(!isbroken)
 		set_light(5, 2, l_color = "#3e0000")
-		add_overlay("crystal_idle")
+		AddOverlays("crystal_idle")
 		if(pylonmode == PYLON_AWAITING_SACRIFICE)
 			anchored = TRUE
 		else

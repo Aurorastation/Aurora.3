@@ -2635,7 +2635,7 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "ajY" = (
-/obj/effect/rune/convert,
+/obj/effect/rune/ethereal,
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
 "ajZ" = (
@@ -7228,15 +7228,12 @@
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "aLu" = (
-/obj/item/book/tome{
-	pixel_y = 9;
-	pixel_x = 4
-	},
 /obj/effect/decal/cleanable/blood,
 /obj/item/material/knife/ritual/bloody{
 	pixel_x = 11;
-	pixel_y = -5
+	pixel_y = -10
 	},
+/obj/effect/decal/cleanable/blood/gibs/core,
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "aLx" = (
@@ -7829,7 +7826,7 @@
 /turf/simulated/floor/cult,
 /area/cult_base/crew_quarters)
 "aOB" = (
-/obj/effect/rune/convert,
+/obj/effect/rune/convert/no_equip,
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "aOC" = (
@@ -12417,7 +12414,7 @@
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "sqe" = (
-/obj/effect/rune/convert,
+/obj/effect/rune/convert/no_equip,
 /turf/simulated/floor/cult,
 /area/cult_base/asteroid)
 "srR" = (
