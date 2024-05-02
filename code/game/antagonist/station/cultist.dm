@@ -84,8 +84,8 @@ var/datum/antagonist/cultist/cult
 	remove_verb(player.current, /datum/cultist/proc/forget_rune)
 	remove_verb(player.current, /datum/cultist/proc/scribe_rune)
 
-/datum/antagonist/cultist/add_antagonist(var/datum/mind/player)
-	. = ..()
+/datum/antagonist/cultist/add_antagonist(var/datum/mind/player, var/do_not_equip)
+	. = ..(player, do_not_equip=do_not_equip)
 	if(.)
 		to_chat(player, "You catch a glimpse of the Realm of Nar-Sie, the Geometer of Blood. You now see how flimsy the world is, you see that it should be open to the knowledge of That Which Waits. Assist your new compatriots in their dark dealings. Their goals are yours, and yours are theirs. You serve the Dark One above all else. Bring It back.")
 		if(player.current && !istype(player.current, /mob/living/simple_animal/construct))

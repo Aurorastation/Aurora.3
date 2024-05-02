@@ -21,7 +21,7 @@
 
 /area/hailstorm_ship/gun_deck/second
 	name = "Hailstorm Ship Secondary Gun Deck"
-	icon_state = "zta"
+	icon_state = "zat"
 
 /area/hailstorm_ship/eva
 	name = "Hailstorm Ship EVA Storage"
