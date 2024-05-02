@@ -26756,9 +26756,7 @@
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/firealarm/east,
-/obj/structure/roller_rack/three{
-	pixel_y = 10
-	},
+/obj/structure/roller_rack/three,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "mrB" = (
