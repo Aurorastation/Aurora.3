@@ -78,7 +78,7 @@
 	generate_strings()
 	// Prep icon.
 	icon_state = ""
-	cut_overlays()
+	ClearOverlays()
 	// Base icon.
 
 	generate_overlay_cache(material) //Generate base icon cache
@@ -105,7 +105,7 @@
 			else if(overlay_material.icon_colour) // Either that, or just fall back on the regular material color.
 				I.color = overlay_material.icon_colour
 		furniture_cache[cache_key] = I
-	add_overlay(furniture_cache[cache_key]) // Use image from cache key!
+	AddOverlays(furniture_cache[cache_key]) // Use image from cache key!
 
 /obj/structure/bed/proc/generate_strings()
 	if(material_alteration & MATERIAL_ALTERATION_NAME)
@@ -390,7 +390,7 @@
 	return ..()
 
 /obj/structure/bed/roller/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	vis_contents = list()
 	if(density)
 		if(anchored)
@@ -404,15 +404,15 @@
 		var/percentage = round((beaker.reagents.total_volume / beaker.volume) * 100, 25)
 		var/image/filling = image(icon, "iv_filling[percentage]")
 		filling.color = beaker.reagents.get_color()
-		iv.add_overlay(filling)
+		iv.AddOverlays(filling)
 		if(percentage < 25)
-			iv.add_overlay(image(icon, "light_low"))
+			iv.AddOverlays(image(icon, "light_low"))
 		if(density)
 			iv.pixel_y = 7
-		add_overlay(iv)
+		AddOverlays(iv)
 		if(has_iv_light)
 			var/image/light = image(icon, "iv[iv_attached]_l")
-			add_overlay(light)
+			AddOverlays(light)
 	if(vitals)
 		vitals.update_monitor()
 		add_vis_contents(vitals)

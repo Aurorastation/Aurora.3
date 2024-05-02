@@ -2,14 +2,14 @@
 	return
 
 /obj/item/organ/external/proc/compile_icon()
-	cut_overlays()
+	ClearOverlays()
 	// This is a kludge, only one icon has more than one generation of children though.
 	for(var/obj/item/organ/external/organ in contents)
 		if(organ.children && organ.children.len)
 			for(var/obj/item/organ/external/child in organ.children)
-				add_overlay(child.mob_icon)
+				AddOverlays(child.mob_icon)
 
-		add_overlay(organ.mob_icon)
+		AddOverlays(organ.mob_icon)
 
 /obj/item/organ/external/proc/sync_colour_to_human(var/mob/living/carbon/human/human)
 	s_tone = null
@@ -50,7 +50,7 @@
 
 /obj/item/organ/external/head/get_icon()
 	..()
-	cut_overlays()
+	ClearOverlays()
 	if(!owner || !owner.species)
 		return
 	var/is_frenzied = FALSE
@@ -78,7 +78,7 @@
 				SSicon_cache.human_eye_cache[cache_key] = eyes_icon
 
 			mob_icon.Blend(eyes_icon, ICON_OVERLAY)
-			add_overlay(eyes_icon)
+			AddOverlays(eyes_icon)
 
 	if(owner.lipstick_color && (species && (species.appearance_flags & HAS_LIPS)))
 		var/icon/lip_icon = SSicon_cache.human_lip_cache["[owner.lipstick_color]"]
@@ -87,16 +87,16 @@
 			lip_icon.Blend(owner.lipstick_color, species.eyes_icon_blend)
 			SSicon_cache.human_lip_cache["[owner.lipstick_color]"] = lip_icon
 
-		add_overlay(lip_icon)
+		AddOverlays(lip_icon)
 		mob_icon.Blend(lip_icon, ICON_OVERLAY)
 
 	apply_markings()
 
 	get_internal_organs_overlay()
 
-	add_overlay(owner.generate_hair_icon())
+	AddOverlays(owner.generate_hair_icon())
 
-	compile_overlays()
+	UpdateOverlays()
 
 	return mob_icon
 
@@ -130,7 +130,7 @@
 				finished_icon.Blend(m_color, mark_style.icon_blend_mode)
 				SSicon_cache.markings_cache[cache_key] = finished_icon
 
-			add_overlay(finished_icon) //So when it's not on your body, it has icons
+			AddOverlays(finished_icon) //So when it's not on your body, it has icons
 			mob_icon.Blend(finished_icon, ICON_OVERLAY) //So when it's on your body, it has icons
 
 /obj/item/organ/external/proc/get_internal_organs_overlay()
@@ -147,7 +147,7 @@
 				organ_icon = new /icon(internal_organ_icon, O.item_state || O.icon_state)
 				SSicon_cache.internal_organ_cache[cache_key] = organ_icon
 
-			add_overlay(organ_icon)
+			AddOverlays(organ_icon)
 			mob_icon.Blend(organ_icon, ICON_OVERLAY)
 
 /obj/item/organ/external/var/icon_cache_key
@@ -230,7 +230,7 @@
 
 /obj/item/organ/external/proc/cut_additional_images(var/mob/living/carbon/human/H)
 	if(LAZYLEN(additional_images))
-		H.cut_overlay(additional_images, TRUE)
+		H.CutOverlays(additional_images, ATOM_ICON_CACHE_PROTECTED)
 		LAZYCLEARLIST(additional_images)
 
 // new damage icon system

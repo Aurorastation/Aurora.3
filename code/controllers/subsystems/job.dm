@@ -54,6 +54,9 @@ SUBSYSTEM_DEF(jobs)
 			continue
 		occupations += job
 		name_occupations[job.title] = job
+		if(LAZYLEN(job.alt_titles))
+			for(var/alt_title in job.alt_titles)
+				name_occupations[alt_title] = job
 		type_occupations[J] = job
 		if(!length(bitflag_to_job["[job.department_flag]"]))
 			bitflag_to_job["[job.department_flag]"] = list()

@@ -60,8 +60,8 @@
 	update_icon()
 
 /obj/machinery/power/radial_floodlight/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(on)
 		var/image/light = image(icon, src, "[icon_state]-light")
 		light.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(light)
+		AddOverlays(light)

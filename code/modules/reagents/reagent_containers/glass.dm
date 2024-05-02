@@ -132,22 +132,22 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/beaker/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 	if(!is_open_container())
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
-		add_overlay(lid)
+		AddOverlays(lid)
 
 	if(label_text)
 		var/label_icon = "label_[icon_state]"
 		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
-		add_overlay(label)
+		AddOverlays(label)
 
 /obj/item/reagent_containers/glass/beaker/large
 	name = "large beaker"
@@ -283,11 +283,11 @@
 		return ..()
 
 /obj/item/reagent_containers/glass/bucket/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents.total_volume > 0)
-		add_overlay("water_[initial(icon_state)]")
+		AddOverlays("water_[initial(icon_state)]")
 	if(!is_open_container())
-		add_overlay("lid_[initial(icon_state)]")
+		AddOverlays("lid_[initial(icon_state)]")
 
 /obj/item/reagent_containers/glass/bucket/on_reagent_change()
 	update_icon()

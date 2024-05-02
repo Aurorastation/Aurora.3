@@ -52,6 +52,8 @@ var/list/mimic_defines = list(
 /// If a dense atom like a platform does not allow movement through it like a window pane BUT allows pickup.
 #define ATOM_FLAG_ALWAYS_ALLOW_PICKUP FLAG(7)
 
+#define ATOM_AWAITING_OVERLAY_UPDATE FLAG(10)
+
 // Movable flags.
 
 /// Does this object require proximity checking in Enter()?

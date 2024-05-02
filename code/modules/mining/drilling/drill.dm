@@ -122,7 +122,7 @@
 		while(length(resource_field) && !harvesting.resources)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
-			harvesting.cut_overlay(harvesting.resource_indicator)
+			harvesting.CutOverlays(harvesting.resource_indicator)
 			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 			if(length(resource_field))
@@ -169,7 +169,7 @@
 		if(!found_resource)
 			harvesting.has_resources = FALSE
 			harvesting.resources = null
-			harvesting.cut_overlay(harvesting.resource_indicator)
+			harvesting.CutOverlays(harvesting.resource_indicator)
 			QDEL_NULL(harvesting.resource_indicator)
 			resource_field -= harvesting
 	else

@@ -175,7 +175,7 @@
 	return ..()
 
 /obj/item/device/suit_cooling_unit/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(cover_open)
 		if(cell)
 			icon_state = "suitcooler1"
@@ -202,7 +202,7 @@
 			if(-INFINITY to 17)
 				battery_level = 5
 
-		add_overlay("battery-[battery_level]")
+		AddOverlays("battery-[battery_level]")
 		item_state = "coolingpack[battery_level]"
 
 	if(ismob(loc))

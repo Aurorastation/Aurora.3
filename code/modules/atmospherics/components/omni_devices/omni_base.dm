@@ -46,7 +46,7 @@
 	. = ..()
 
 /obj/machinery/atmospherics/omni/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/to_add = list(base_icon)
 	if(stat & NOPOWER)
 		to_add += off_states
@@ -58,7 +58,7 @@
 	else
 		to_add += off_states
 
-	add_overlay(to_add)
+	AddOverlays(to_add)
 
 	underlays = underlays_current
 

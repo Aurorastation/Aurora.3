@@ -1122,7 +1122,7 @@ BLIND     // can't see anything
 	if(mob_overlay && ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
-			H.cut_overlay(mob_overlay, TRUE)
+			H.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 	mob_overlay = image('icons/obj/clothing/glasses.dmi', "[icon_state]_eye")
 	mob_overlay.appearance_flags = RESET_COLOR
 	mob_overlay.color = eye_color
@@ -1130,7 +1130,7 @@ BLIND     // can't see anything
 	if(active && ishuman(loc))
 		var/mob/living/carbon/human/H = loc
 		if(H.glasses == src)
-			H.add_overlay(mob_overlay, TRUE)
+			H.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 	update_icon()
 
 /obj/item/clothing/glasses/eyepatch/hud/Initialize()
@@ -1139,14 +1139,14 @@ BLIND     // can't see anything
 
 /obj/item/clothing/glasses/eyepatch/hud/equipped(mob/user, slot)
 	if(active && slot == slot_glasses)
-		user.add_overlay(mob_overlay, TRUE)
+		user.AddOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 	else
-		user.cut_overlay(mob_overlay, TRUE)
+		user.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 	return ..()
 
 /obj/item/clothing/glasses/eyepatch/hud/Destroy()
 	if (ishuman(loc))
-		loc.cut_overlay(mob_overlay, TRUE)
+		loc.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 	QDEL_NULL(mob_overlay)
 	return ..()
 
@@ -1155,12 +1155,12 @@ BLIND     // can't see anything
 	handle_mob_overlay()
 
 /obj/item/clothing/glasses/eyepatch/hud/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(active)
 		var/image/eye = image('icons/obj/clothing/glasses.dmi', "[icon_state]_ovr")
 		eye.appearance_flags = RESET_COLOR
 		eye.color = eye_color
-		add_overlay(eye)
+		AddOverlays(eye)
 
 /obj/item/clothing/glasses/eyepatch/hud/forceMove(atom/newloc)
 	if (!ishuman(loc))
@@ -1169,7 +1169,7 @@ BLIND     // can't see anything
 	var/mob/M = loc
 	. = ..()
 	if (loc !=M)
-		M.cut_overlay(mob_overlay, TRUE)
+		M.CutOverlays(mob_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 /obj/item/clothing/glasses/eyepatch/hud/security
 	name = "HUDpatch"

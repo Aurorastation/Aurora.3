@@ -50,7 +50,7 @@
 	if(ispath(src.trash))
 		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 	if(illustration)
-		add_overlay(illustration)
+		AddOverlays(illustration)
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity

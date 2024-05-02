@@ -129,7 +129,7 @@
 /obj/item/reagent_containers/food/snacks/grown/update_icon()
 	if(!seed || !SSplants || !SSplants.plant_icon_cache)
 		return
-	cut_overlays()
+	ClearOverlays()
 	var/image/plant_icon
 	var/icon_key = "fruit-[seed.get_trait(TRAIT_PRODUCT_ICON)]-[seed.get_trait(TRAIT_PRODUCT_COLOUR)]-[seed.get_trait(TRAIT_PLANT_COLOUR)]"
 	if(SSplants.plant_icon_cache[icon_key])
@@ -144,7 +144,7 @@
 			fruit_leaves.color = "[seed.get_trait(TRAIT_PLANT_COLOUR)]"
 			plant_icon.overlays |= fruit_leaves
 		SSplants.plant_icon_cache[icon_key] = plant_icon
-	add_overlay(plant_icon)
+	AddOverlays(plant_icon)
 
 /obj/item/reagent_containers/food/snacks/grown/Crossed(var/mob/living/M)
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
@@ -377,12 +377,12 @@ var/list/fruit_icon_cache = list()
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
 		fruit_icon_cache["rind-[rind_colour]"] = I
-	add_overlay(fruit_icon_cache["rind-[rind_colour]"])
+	AddOverlays(fruit_icon_cache["rind-[rind_colour]"])
 	if(!fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
 		fruit_icon_cache["slice-[rind_colour]"] = I
-	add_overlay(fruit_icon_cache["slice-[rind_colour]"])
+	AddOverlays(fruit_icon_cache["slice-[rind_colour]"])
 
 /obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	name = "sencha leaves"

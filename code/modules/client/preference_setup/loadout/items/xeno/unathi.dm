@@ -464,7 +464,7 @@
 	cost = 1
 	whitelisted = list(SPECIES_UNATHI)
 	sort_category = "Xenowear - Unathi"
-	allowed_roles = list("Chaplain")
+	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/uniform/unathi/skakh/New()
@@ -475,3 +475,12 @@
 	robes["Sk'akh healer's robes"] = /obj/item/clothing/under/unathi/skakh/healer
 	robes["Sk'akh warrior's robes"] = /obj/item/clothing/under/unathi/skakh/warrior
 	gear_tweaks += new /datum/gear_tweak/path(robes)
+
+/datum/gear/uniform/unathi/siakh
+	display_name = "Siakh robes"
+	path = /obj/item/clothing/under/unathi/siakh
+	cost = 1
+	whitelisted = list(SPECIES_UNATHI)
+	sort_category = "Xenowear - Unathi"
+	allowed_roles = list("Chaplain", "Off-Duty Crew Member")
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION

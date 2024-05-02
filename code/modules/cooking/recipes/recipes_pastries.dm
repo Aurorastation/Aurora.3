@@ -8,22 +8,76 @@
 	reagent_mix = RECIPE_REAGENT_REPLACE
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
+		/obj/item/reagent_containers/food/snacks/dough,
 	)
 	result = /obj/item/reagent_containers/food/snacks/muffin
 	result_quantity = 6
 
-/singleton/recipe/berrymuffin
-	appliance = OVEN
-	reagents = list(/singleton/reagent/drink/milk = 20, /singleton/reagent/sugar = 20)
-	reagent_mix = RECIPE_REAGENT_REPLACE
+/singleton/recipe/muffin/berry
+	fruit = list("berries" = 2)
+	result = /obj/item/reagent_containers/food/snacks/muffin/berry
+
+/singleton/recipe/muffin/chocolate
 	items = list(
 		/obj/item/reagent_containers/food/snacks/dough,
-		/obj/item/reagent_containers/food/snacks/dough
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/chocolatebar,
 	)
-	fruit = list("berries" = 2)
-	result = /obj/item/reagent_containers/food/snacks/berrymuffin
-	result_quantity = 6
+	result = /obj/item/reagent_containers/food/snacks/muffin/chocolate
+
+/singleton/recipe/muffin/whitechocolate
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/whitechocolate,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/whitechocolate
+
+/singleton/recipe/muffin/cheese
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesewedge,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/cheese
+
+/singleton/recipe/muffin/cheese/honkers
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/cheesiehonkers,
+	)
+
+/singleton/recipe/muffin/butter
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/spreads/butter,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/butter
+
+/singleton/recipe/muffin/raisin
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/no_raisin,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/raisin
+
+/singleton/recipe/muffin/meat
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/meat,
+	)
+	result = /obj/item/reagent_containers/food/snacks/muffin/meat
+
+/singleton/recipe/muffin/meat/meatsnack
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/dough,
+		/obj/item/reagent_containers/food/snacks/meatsnack,
+	)
 
 ////////////////////////////////////////////PANCAKES////////////////////////////////////////////
 

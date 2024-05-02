@@ -14,6 +14,17 @@
 	level = 2
 	obj_flags = OBJ_FLAG_ROTATABLE
 
+/obj/item/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	var/pipe_color_check = color || PIPE_COLOR_GREY
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.pipe_colors)
+		var/color_value = GLOB.pipe_colors[color_name]
+		if(pipe_color_check == color_value)
+			found_color_name = color_name
+			break
+	. += "This pipe is: <span style='color:[pipe_color_check == PIPE_COLOR_GREY ? COLOR_GRAY : pipe_color_check]'>[capitalize(found_color_name)]</span>"
+
 /obj/item/pipe/New(var/loc, var/pipe_type, var/dir, var/obj/machinery/atmospherics/make_from)
 	..()
 	if (make_from)

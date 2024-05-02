@@ -66,7 +66,7 @@
 
 /obj/machinery/appliance/cooker/grill/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	if(!stat)
 		icon_state = on_icon
 	else
@@ -77,7 +77,7 @@
 		var/datum/cooking_item/CI = cooking_objs[1]
 		var/obj/item/reagent_containers/cooking_container/grill_grate/G = CI.container
 		if(G)
-			add_overlay(image('icons/obj/machinery/cooking_machines.dmi', "grill"))
+			AddOverlays(image('icons/obj/machinery/cooking_machines.dmi', "grill"))
 			var/counter = 1
 			for(var/thing in G.contents)
 				if(istype(thing, /obj/item/reagent_containers/food/snacks/meat))
@@ -90,7 +90,7 @@
 					var/matrix/M = matrix()
 					M.Scale(0.5)
 					food.transform = M
-					add_overlay(food)
+					AddOverlays(food)
 				else if(istype(thing, /obj/item/reagent_containers/food/snacks/xenomeat))
 					var/image/food = overlay_image('icons/obj/machinery/cooking_machines.dmi', "xenomeat")
 					switch(counter)
@@ -101,5 +101,5 @@
 					var/matrix/M = matrix()
 					M.Scale(0.5)
 					food.transform = M
-					add_overlay(food)
+					AddOverlays(food)
 				counter++
