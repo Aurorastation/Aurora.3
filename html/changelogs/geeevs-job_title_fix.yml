@@ -1,6 +1,0 @@
-author: Geeves
-
-delete-after: True
-
-changes:
-  - bugfix: "Changing the ID of someone with an alt-title will no longer boot them to the Misc section of the manifest."
