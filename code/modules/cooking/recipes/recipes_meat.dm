@@ -123,9 +123,9 @@
 
 /singleton/recipe/schnitzel
 	appliance = SKILLET
+	reagents = list(/singleton/reagent/nutriment/flour = 5)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/meat,
-		/obj/item/reagent_containers/food/snacks/breadslice
+		/obj/item/reagent_containers/food/snacks/meat
 	)
 	result = /obj/item/reagent_containers/food/snacks/schnitzel
 	reagent_mix = RECIPE_REAGENT_REPLACE
