@@ -648,8 +648,16 @@
 	desc = "A rack for holding collapsed roller beds."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "holder"
-	var/list/obj/item/roller/held = list() // The roller beds being held by the rack
-	var/initial_beds = 4 // The number of beds the rack will spawn with
+
+	/**
+	 * List of held roller bed items.
+	 */
+	var/list/obj/item/roller/held = list()
+
+	/**
+	 * The number of beds the rack spawns with
+	 */
+	var/initial_beds = 4
 
 /obj/structure/roller_rack/Initialize()
 	. = ..()
