@@ -636,6 +636,13 @@
 	qdel(held)
 	held = null
 
+/**
+ * # Roller Rack
+ *
+ * A rack structure that can hold up to four roller bed items (Or subtypes i.e. Hoverbeds), stored in the `held` list.
+ *
+ * The `initial_beds` variable controls the number of beds the rack will spawn with.
+*/
 /obj/structure/roller_rack
 	name = "roller bed rack"
 	desc = "A rack for holding collapsed roller beds."
@@ -652,14 +659,8 @@
 	update_icon()
 
 /obj/structure/roller_rack/Destroy()
-	. = ..()
 	QDEL_LIST(held)
-
-/obj/structure/roller_rack/two
-	initial_beds = 2
-
-/obj/structure/roller_rack/three
-	initial_beds = 3
+	return ..()
 
 /obj/structure/roller_rack/update_icon()
 	. = ..()
@@ -702,3 +703,9 @@
 		held += RB
 		to_chat(user, SPAN_NOTICE("You place \the [RB] on the rack."))
 		update_icon()
+
+/obj/structure/roller_rack/two
+	initial_beds = 2
+
+/obj/structure/roller_rack/three
+	initial_beds = 3
