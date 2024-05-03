@@ -855,9 +855,6 @@
 /turf/simulated/floor/lino,
 /area/city/mendell/interior)
 "en" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /turf/simulated/floor/lino,
 /area/city/mendell)
 "et" = (
@@ -981,9 +978,6 @@
 /turf/simulated/floor/reinforced,
 /area/city/mendell)
 "eU" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/decal/fake_object{
 	desc = "It's used to monitor rooms.";
 	icon = 'icons/obj/monitors.dmi';
@@ -1952,9 +1946,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "jS" = (
@@ -1992,9 +1984,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/black,
 /area/city/mendell)
 "kj" = (
@@ -2015,9 +2005,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "kt" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
@@ -2197,9 +2185,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "lx" = (
@@ -2363,9 +2349,7 @@
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 8
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/simulated/floor/shuttle/dark_blue,
 /area/city/mendell)
 "mv" = (
@@ -2414,9 +2398,7 @@
 	},
 /area/city/mendell)
 "mK" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 4
 	},
@@ -4671,9 +4653,7 @@
 	},
 /area/city/mendell)
 "Aa" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},
@@ -4972,9 +4952,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/city/mendell)
 "Cc" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which declares the door to be one way! Don't get trapped.";
 	name = "\improper ONE WAY DOOR";
@@ -6680,12 +6658,12 @@
 /area/city/mendell/interior)
 "Mj" = (
 /obj/structure/table/rack,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
 /turf/simulated/floor/tiled/white,
 /area/city/mendell/interior)
 "Mm" = (

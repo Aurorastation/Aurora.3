@@ -149,13 +149,13 @@
 	ammo_picture.pixel_x = rand(-6, 6)
 	ammo_picture.pixel_y = rand(-6, 6)
 	ammo_overlay[bullet] = ammo_picture
-	add_overlay(ammo_overlay[bullet])
+	AddOverlays(ammo_overlay[bullet])
 
 /obj/item/ammo_pile/proc/remove_ammo(var/atom/target)
 	var/obj/bullet = ammo[1]
 	if(target)
 		bullet.forceMove(target)
-	cut_overlay(ammo_overlay[bullet])
+	CutOverlays(ammo_overlay[bullet])
 	ammo -= bullet
 	check_ammo()
 

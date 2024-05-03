@@ -48,15 +48,15 @@
 	var/muted = FALSE
 
 /obj/item/gamehelm/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(open)
 		icon_state = "open_[case_color]"
-		add_overlay("buttons_open")
+		AddOverlays("buttons_open")
 	else
 		icon_state = "closed_[case_color]"
-		add_overlay("buttons_closed")
+		AddOverlays("buttons_closed")
 	if(current_screen_state)
-		add_overlay(current_screen_state)
+		AddOverlays(current_screen_state)
 
 /obj/item/gamehelm/process()
 	if(world.time < next_action_time)

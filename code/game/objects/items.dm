@@ -270,11 +270,11 @@
 /obj/item/update_icon()
 	. = ..()
 	if(build_from_parts || has_accents)
-		cut_overlays()
+		ClearOverlays()
 	if(build_from_parts)
-		add_overlay(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		AddOverlays(overlay_image(icon,"[icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	if(has_accents)
-		add_overlay(overlay_image(icon, "[icon_state]_acc", accent_color, accent_flags))
+		AddOverlays(overlay_image(icon, "[icon_state]_acc", accent_color, accent_flags))
 
 /obj/item/device
 	icon = 'icons/obj/device.dmi'
@@ -784,7 +784,7 @@ var/list/global/slot_flags_enumeration = list(
 /obj/item/clean_blood()
 	. = ..()
 	if(blood_overlay)
-		cut_overlay(blood_overlay, TRUE)
+		CutOverlays(blood_overlay, TRUE)
 	if(istype(src, /obj/item/clothing/gloves))
 		var/obj/item/clothing/gloves/G = src
 		G.transfer_blood = 0
@@ -815,7 +815,7 @@ var/list/global/slot_flags_enumeration = list(
 	//apply the blood-splatter overlay if it isn't already in there
 	if(!blood_DNA.len)
 		blood_overlay.color = blood_color
-		add_overlay(blood_overlay, TRUE)	// Priority overlay so we don't lose it somehow.
+		AddOverlays(blood_overlay, TRUE)	// Priority overlay so we don't lose it somehow.
 
 	//if this blood isn't already in the list, add it
 	if(istype(M))

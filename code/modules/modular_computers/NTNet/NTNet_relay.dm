@@ -36,17 +36,17 @@
 
 /obj/machinery/ntnet_relay/update_icon()
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 	if(panel_open)
 		icon_state += "_o"
 	if(!operable())
 		icon_state += "_off"
 	else if(dos_failure)
-		add_overlay("ntnet_o_problem")
+		AddOverlays("ntnet_o_problem")
 	else if(!enabled)
-		add_overlay("ntnet_o_error")
+		AddOverlays("ntnet_o_error")
 	else
-		add_overlay("ntnet_o_ok")
+		AddOverlays("ntnet_o_ok")
 
 /obj/machinery/ntnet_relay/process()
 	if(operable())

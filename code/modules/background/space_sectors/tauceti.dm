@@ -15,15 +15,15 @@
 	starlight_range = 2
 
 	lore_radio_stations = list(
-		"87.5 Mendell City Bugle Radio" = "config/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt",
-		"90.7 Hi-Fi Sports FM" = "config/lore_radio/tauceti/90.7_Hi_Fi_Sports.txt",
-		"93.1 Phoenix FM" = "config/lore_radio/tauceti/93.1_PhoenixFM.txt",
-		"17.9 Adhomai Ceti-Connection" = "config/lore_radio/tauceti/17.9_Adhomai_Ceti-Connection.txt",
-		"28.1 D6 Citizen Radio" = "config/lore_radio/tauceti/28.1_D6_Citizen_Radio.txt",
-		"95.3 QRCC" = "config/lore_radio/tauceti/95.3_QRCC.txt",
-		"93.8 Biesellian Song Broadcast" = "config/lore_radio/tauceti/93.8_Biesellian_Song_Broadcast.txt",
-		"113.7 ZOTH-FM Vaurca Radio Station" = "config/lore_radio/tauceti/113.7_ZOTH_F_Vaurca_Radio_Station.txt",
-		"52.4 Raging Tides" = "config/lore_radio/tauceti/52.4_Raging_Tides.txt"
+		"87.5 Mendell City Bugle Radio" = 'texts/lore_radio/tauceti/87.5_Mendell_City_Bugle.txt',
+		"90.7 Hi-Fi Sports FM" = 'texts/lore_radio/tauceti/90.7_Hi_Fi_Sports.txt',
+		"93.1 Phoenix FM" = 'texts/lore_radio/tauceti/93.1_PhoenixFM.txt',
+		"17.9 Adhomai Ceti-Connection" = 'texts/lore_radio/tauceti/17.9_Adhomai_Ceti-Connection.txt',
+		"28.1 D6 Citizen Radio" = 'texts/lore_radio/tauceti/28.1_D6_Citizen_Radio.txt',
+		"95.3 QRCC" = 'texts/lore_radio/tauceti/95.3_QRCC.txt',
+		"93.8 Biesellian Song Broadcast" = 'texts/lore_radio/tauceti/93.8_Biesellian_Song_Broadcast.txt',
+		"113.7 ZOTH-FM Vaurca Radio Station" = 'texts/lore_radio/tauceti/113.7_ZOTH_F_Vaurca_Radio_Station.txt',
+		"52.4 Raging Tides" = 'texts/lore_radio/tauceti/52.4_Raging_Tides.txt'
 	)
 
 /datum/space_sector/romanovich

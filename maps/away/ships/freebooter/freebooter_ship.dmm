@@ -2350,11 +2350,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod1)
 "fdV" = (
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
 	},
@@ -2370,6 +2365,9 @@
 	pixel_y = -24;
 	pixel_x = -7;
 	dir = 1
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/thruster2)
@@ -4378,8 +4376,6 @@
 /area/ship/freebooter_ship/bridge)
 "kuj" = (
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -5412,8 +5408,6 @@
 /area/ship/freebooter_ship/gunnery)
 "mwO" = (
 /obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/warning{
@@ -5551,9 +5545,8 @@
 	dir = 1
 	},
 /obj/structure/cable/green{
-	dir = 1
+	icon_state = "0-2"
 	},
-/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
 /area/ship/freebooter_ship/thruster2)
 "mON" = (
@@ -9715,7 +9708,6 @@
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/power/portgen/basic/fusion,
 /obj/structure/cable/green{
-	d2 = 8;
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/greengrid,

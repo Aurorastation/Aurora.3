@@ -167,15 +167,15 @@
 				if (WT.use(2, user))
 					user.visible_message(SPAN_NOTICE("[user] starts welding the metal shell of [src]."), SPAN_NOTICE("You start [hacked ? "repairing" : "welding open"] the metal covering of [src]."))
 					playsound(loc, 'sound/items/Welder.ogg', 50, 1)
-					add_overlay("overlay_welding")
+					AddOverlays("overlay_welding")
 					if(WT.use_tool(src, user, 25, volume = 50))
 						to_chat(user, SPAN_NOTICE("You are able to [hacked ? "repair" : "weld through"] the metal shell of [src]."))
 						if (hacked) locked = 1
 						else locked = 0
 						hacked = !hacked
-						cut_overlay("overlay_welding")
+						CutOverlays("overlay_welding")
 					else
-						cut_overlay("overlay_welding")
+						CutOverlays("overlay_welding")
 					update_icon()
 				return TRUE
 
@@ -402,7 +402,7 @@
 	update_overlays()
 
 /obj/item/device/magnetic_lock/proc/update_overlays()
-	cut_overlays()
+	ClearOverlays()
 	switch (status)
 		if (STATUS_BROKEN)
 			icon_state = "broken"
@@ -410,16 +410,16 @@
 
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
 			if (hacked)
-				add_overlay("overlay_hacked")
+				AddOverlays("overlay_hacked")
 			else if (locked)
-				add_overlay("overlay_locked")
+				AddOverlays("overlay_locked")
 			else
-				add_overlay("overlay_unlocked")
+				AddOverlays("overlay_unlocked")
 			switch (constructionstate)
 				if (0)
 					return
 				if (1 to 4)
-					add_overlay("overlay_deconstruct_[constructionstate]")
+					AddOverlays("overlay_deconstruct_[constructionstate]")
 
 /obj/item/device/magnetic_lock/proc/takedamage(var/damage)
 	if(invincible)
@@ -453,7 +453,7 @@
 	switch (status)
 		if (STATUS_INACTIVE to STATUS_ACTIVE)
 			if(istype(src, /obj/item/device/magnetic_lock/keypad))
-				add_overlay("overlay_keypad")
+				AddOverlays("overlay_keypad")
 
 /obj/item/device/magnetic_lock/keypad/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)

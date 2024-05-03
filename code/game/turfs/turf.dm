@@ -292,10 +292,10 @@ var/const/enterloopsanity = 100
 					if(!S.blood_overlay)
 						S.generate_blood_overlay()
 					if(S.blood_overlay?.color != footprint_color)
-						S.cut_overlay(S.blood_overlay, TRUE)
+						S.CutOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 
 					S.blood_overlay.color = footprint_color
-					S.add_overlay(S.blood_overlay, TRUE)
+					S.AddOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 			else
 				H.footprint_color = footprint_color
 				H.track_footprint = max(track_distance, H.track_footprint)

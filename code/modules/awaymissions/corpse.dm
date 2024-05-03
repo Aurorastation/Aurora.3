@@ -41,7 +41,10 @@
 	var/corpseidicon = null //For setting it to be a gold, silver, centcomm etc ID
 
 /obj/effect/landmark/corpse/Initialize()
-	. = ..()
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/corpse/LateInitialize()
 	createCorpse()
 
 /obj/effect/landmark/corpse/proc/createCorpse() //Creates a mob and checks for gear in each slot before attempting to equip it.

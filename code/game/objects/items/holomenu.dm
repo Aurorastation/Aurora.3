@@ -34,7 +34,7 @@
 	update_icon()
 
 /obj/item/holomenu/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
 		set_light(2)
 		if(rave_mode)
@@ -46,11 +46,11 @@
 			holo_lights.color = null
 			holo_text.color = null
 			holo_border.color = null
-		add_overlay(holo_lights)
+		AddOverlays(holo_lights)
 		if(length(menu_text))
-			add_overlay(holo_text)
+			AddOverlays(holo_text)
 		if(border_on)
-			add_overlay(holo_border)
+			AddOverlays(holo_border)
 	else
 		set_light(0)
 
