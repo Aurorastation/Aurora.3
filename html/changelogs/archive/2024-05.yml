@@ -57,3 +57,10 @@
       than its planet type.
   Sparky_hotdog:
   - bugfix: Bar stools can be properly rotated.
+2024-05-03:
+  Evandorf:
+  - bugfix: Removed access requirements on airlocks; set to null. Removed the ID altogether,
+      per request.
+  nauticall:
+  - code_imp: Consolidates the game's TXT files to be under single 'texts' folder.
+      Should help with centralization and config problems.
