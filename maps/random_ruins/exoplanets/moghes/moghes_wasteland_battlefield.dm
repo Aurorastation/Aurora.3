@@ -20,18 +20,8 @@
 /obj/effect/landmark/corpse/hegemony_soldier/do_extra_customization(var/mob/living/carbon/human/M)
 	M.gender = MALE
 	M.ChangeToSkeleton()
-	if(prob(25))
-		M.equip_to_slot_or_del(new /obj/item/gun/energy/pistol/hegemony(M), slot_belt)
-	if(prob(25))
+	if(prob(15))
 		M.equip_to_slot_or_del(new /obj/item/melee/energy/sword/hegemony(M), slot_r_store)
-	if(prob(25))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/automatic/tempestsmg(M), slot_back)
-	if(prob(10))
-		M.equip_to_slot_or_del(new /obj/item/gun/energy/rifle/hegemony(M), slot_back)
-	if(prob(5))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/shotgun/wallgun(M), slot_belt)
-	if(prob(1))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/heavysniper/unathi(M), slot_back)
 
 /obj/effect/landmark/corpse/trad_soldier
 	name = "Traditionalist Soldier"
@@ -45,9 +35,5 @@
 /obj/effect/landmark/corpse/trad_soldier/do_extra_customization(mob/living/carbon/human/M)
 	M.gender = MALE
 	M.ChangeToSkeleton()
-	if(prob(25))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/pistol/spitter(M), slot_belt)
-	if(prob(10))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle(M), slot_back)
-	if(prob(1))
-		M.equip_to_slot_or_del(new /obj/item/gun/projectile/automatic/rifle/hook_mg(M), slot_back)
+	if(prob(15))
+		M.equip_to_slot_or_del(new /obj/item/material/sword/longsword(M), slot_belt)

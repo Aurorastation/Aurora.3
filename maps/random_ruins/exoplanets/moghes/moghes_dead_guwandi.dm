@@ -53,7 +53,3 @@
 		M.w_uniform.color = uniform_color
 	if(M?.wear_suit)
 		M.wear_suit.color = uniform_color
-	if(prob(10))
-		M.equip_to_slot_or_del(new /obj/random/civgun(M), slot_belt)
-	if(prob(5))
-		M.equip_to_slot_or_del(new /obj/random/civgun/rifle, slot_back)

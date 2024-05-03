@@ -23,6 +23,13 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"i" = (
+/obj/effect/landmark/corpse/trad_soldier,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "k" = (
 /obj/structure/sign/flag/hegemony,
 /turf/simulated/floor/exoplanet/desert{
@@ -32,6 +39,13 @@
 "p" = (
 /obj/structure/flora/grass/desert,
 /obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"q" = (
+/obj/effect/landmark/corpse/trad_soldier,
+/obj/item/gun/projectile/pistol/spitter,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -48,8 +62,22 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"x" = (
+/obj/effect/landmark/corpse/hegemony_soldier,
+/obj/item/gun/projectile/pistol/spitter,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "F" = (
 /obj/effect/landmark/corpse/trad_soldier,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"H" = (
+/obj/effect/landmark/corpse/trad_soldier,
+/obj/item/gun/projectile/automatic/rifle/hook_mg,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -71,6 +99,12 @@
 	temperature = 315.15
 	},
 /area/exoplanet/moghes)
+"N" = (
+/obj/item/gun/projectile/automatic/tempestsmg,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
 "O" = (
 /obj/structure/flora/tree/desert/tiny,
 /turf/simulated/floor/exoplanet/desert{
@@ -79,6 +113,12 @@
 /area/exoplanet/moghes)
 "S" = (
 /obj/item/material/twohanded/pike/flag/hegemony,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/exoplanet/moghes)
+"X" = (
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
 /turf/simulated/floor/exoplanet/desert{
 	temperature = 315.15
 	},
@@ -225,7 +265,7 @@ I
 I
 I
 I
-F
+q
 I
 I
 I
@@ -257,7 +297,7 @@ I
 I
 I
 I
-I
+N
 I
 I
 I
@@ -339,7 +379,7 @@ I
 I
 I
 I
-g
+x
 I
 I
 I
@@ -522,7 +562,7 @@ I
 I
 I
 I
-F
+H
 I
 I
 I
@@ -530,14 +570,14 @@ I
 u
 I
 I
-F
+i
 I
 I
 I
 I
 I
 I
-g
+x
 u
 f
 I
@@ -578,7 +618,7 @@ K
 I
 I
 I
-F
+q
 I
 I
 I
@@ -616,7 +656,7 @@ I
 f
 u
 I
-I
+X
 I
 L
 I
@@ -629,7 +669,7 @@ I
 I
 I
 I
-a
+I
 I
 I
 I
