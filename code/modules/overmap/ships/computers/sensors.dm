@@ -641,15 +641,24 @@
 		/obj/item/stack/cable_coil = 30
 	)
 
-/obj/machinery/shipsensors/strong/venator/relay
-	name = "beacon sensor array"
-	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a tremendous range befitting of its rugged design and large size."
+/obj/machinery/shipsensors/strong/relay
+	name = "\improper S-24 Beacon sensor array"
+	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity."
 	icon = 'icons/obj/machinery/sensors_relay.dmi'
 	density = 1
+	layer = ABOVE_HUMAN_LAYER
 	sensor_strength = 3
-	heat_reduction = 11 //can sustain range 10
-	max_range = 24
+	heat_reduction = 6.1
 	deep_scan_range = 0
-	component_types = list()
+	component_types = list(
+		/obj/item/circuitboard/shipsensors/relay,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/subspace/analyzer,
+		/obj/item/stock_parts/manipulator = 6,
+		/obj/item/stock_parts/scanning_module = 3,
+		/obj/item/stack/cable_coil = 30
+	)
 	pixel_x = -32
 	pixel_y = -16

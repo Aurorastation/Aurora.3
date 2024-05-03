@@ -1227,12 +1227,6 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/item/toy/comic/azmarian/issue_2{
-	pixel_y = 8
-	},
-/obj/item/toy/comic/azmarian/issue_1{
-	pixel_y = 4
-	},
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "alh" = (
@@ -1370,7 +1364,7 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/structure/sign/poster{
+/obj/structure/sign/flag/sol/old/large/north{
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled,
@@ -1498,6 +1492,7 @@
 /obj/structure/sign/poster{
 	pixel_x = -32
 	},
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "aqB" = (
@@ -1604,10 +1599,6 @@
 /obj/machinery/seed_storage/garden,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/hydroponics)
-"asv" = (
-/obj/machinery/shipsensors/strong/venator/relay,
-/turf/simulated/floor/airless,
-/area/sensor_relay)
 "asy" = (
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
@@ -1842,10 +1833,10 @@
 /obj/structure/closet,
 /obj/random/bandana,
 /obj/item/gun/energy/blaster,
-/obj/item/clothing/under/color/brown,
-/obj/item/clothing/under/color/brown,
 /obj/item/device/personal_shield,
 /obj/item/inflatable/wall,
+/obj/item/clothing/under/service_overalls,
+/obj/item/clothing/under/service_overalls,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "ayf" = (
@@ -1856,15 +1847,17 @@
 	pixel_x = 10;
 	pixel_y = 1
 	},
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/monitoring)
 "ayE" = (
 /obj/structure/bed/stool/chair/sofa/left/beige,
 /obj/random/dirt_75,
-/obj/structure/sign/poster{
+/obj/random/junk,
+/obj/structure/sign/flag/sol/old{
+	stand_icon = "banner";
 	pixel_y = 32
 	},
-/obj/random/junk,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "ayL" = (
@@ -1973,6 +1966,7 @@
 	pixel_y = 2;
 	pixel_x = -5
 	},
+/obj/item/flame/lighter/zippo/sol,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/monitoring)
 "aAf" = (
@@ -2424,6 +2418,10 @@
 	pixel_y = 5
 	},
 /obj/random/dirt_75,
+/obj/item/material/ashtray/plastic{
+	pixel_y = -11;
+	pixel_x = -5
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay/monitoring)
 "aIl" = (
@@ -2706,8 +2704,8 @@
 	pixel_y = 8
 	},
 /obj/effect/floor_decal/corner/mauve/diagonal,
-/obj/random/smokable,
 /obj/random/dirt_75,
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/janitor)
 "aOC" = (
@@ -2943,7 +2941,6 @@
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
-/obj/machinery/alarm/north,
 /obj/item/lore_radio{
 	pixel_y = 9
 	},
@@ -2954,6 +2951,10 @@
 /obj/item/folder/purple{
 	pixel_y = -11;
 	pixel_x = 1
+	},
+/obj/structure/sign/flag/sol/old{
+	stand_icon = "banner";
+	pixel_y = 32
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay/monitoring)
@@ -2982,8 +2983,12 @@
 	},
 /obj/machinery/power/apc/empty/east,
 /obj/item/device/radio/hailing{
-	pixel_y = 6;
-	pixel_x = -8
+	pixel_y = 4;
+	pixel_x = -10
+	},
+/obj/item/storage/box/fancy/cigarettes/dromedaryco{
+	pixel_y = 13;
+	pixel_x = 2
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/sensor_relay/monitoring)
@@ -3430,6 +3435,10 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
+"jdc" = (
+/obj/machinery/shipsensors/strong/relay,
+/turf/simulated/floor/airless,
+/area/sensor_relay)
 "jhT" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -3460,7 +3469,6 @@
 	icon_state = "1-2"
 	},
 /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel,
-/obj/random/weapon_and_ammo,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/dining)
 "kmb" = (
@@ -35524,7 +35532,7 @@ aer
 sWe
 aEA
 deH
-asv
+jdc
 pta
 aEA
 deH
