@@ -9301,6 +9301,7 @@
 /obj/machinery/power/apc/low/north,
 /obj/machinery/alarm/west,
 /obj/structure/closet/secure_closet/operations_manager,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/tiled,
 /area/operations/qm)
 "epN" = (
@@ -20985,7 +20986,17 @@
 	c_tag = "Second Deck - Commissary Backroom";
 	dir = 1
 	},
-/obj/item/folder/yellow,
+/obj/item/folder/yellow{
+	pixel_y = 3
+	},
+/obj/item/device/price_scanner{
+	pixel_y = 4;
+	pixel_x = -16
+	},
+/obj/item/device/quikpay{
+	destinationact = "Operations";
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/commissary)
 "jAo" = (
@@ -26967,6 +26978,7 @@
 /obj/structure/table/rack,
 /obj/item/towel,
 /obj/random/soap,
+/obj/item/bikehorn/rubberducky,
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "muQ" = (
@@ -32021,6 +32033,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/item/storage/bag/trash,
+/obj/item/storage/bag/trash{
+	pixel_x = -9;
+	pixel_y = 2
+	},
+/obj/item/storage/bag/trash{
+	pixel_x = -4;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
@@ -37546,6 +37567,7 @@
 	pixel_y = 5
 	},
 /obj/item/pen/black,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "rqS" = (
@@ -40542,7 +40564,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "sSZ" = (
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer";
