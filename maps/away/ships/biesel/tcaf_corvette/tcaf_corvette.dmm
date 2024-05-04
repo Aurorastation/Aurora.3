@@ -1236,6 +1236,9 @@
 "jj" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 35
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
 "jk" = (
@@ -1308,7 +1311,7 @@
 "jE" = (
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/plating,
-/area/tcaf_corvette/hangar)
+/area/shuttle/tcaf)
 "jI" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -3460,13 +3463,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/security)
 "CJ" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
 /obj/machinery/alarm/east{
 	req_one_access = list(204)
 	},
 /obj/machinery/light,
+/obj/machinery/computer/ship/targeting{
+	dir = 8
+	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "CL" = (
@@ -3609,10 +3612,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
 "El" = (
-/obj/structure/table/rack,
 /obj/machinery/light,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -24
+/obj/machinery/computer/ship/engines{
+	dir = 4
 	},
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
@@ -4798,6 +4800,7 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "NH" = (
@@ -5083,9 +5086,6 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
 /obj/machinery/power/apc/super/east{
 	req_access = list(204)
 	},
@@ -5369,6 +5369,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "SC" = (
