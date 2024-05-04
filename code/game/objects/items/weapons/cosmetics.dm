@@ -16,14 +16,14 @@
 	pickup_sound = 'sound/items/pickup/screwdriver.ogg'
 
 /obj/item/lipstick/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(open)
 		worn_overlay = "open_overlay"
 		worn_overlay_color = lipstick_color
 		icon_state = "[initial(icon_state)]_open"
 		var/image/stick_overlay = image('icons/obj/cosmetics.dmi', null, "[initial(icon_state)]_open_overlay")
 		stick_overlay.color = lipstick_color
-		add_overlay(stick_overlay)
+		AddOverlays(stick_overlay)
 	else
 		icon_state = initial(icon_state)
 		worn_overlay = initial(worn_overlay)

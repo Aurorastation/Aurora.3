@@ -252,8 +252,8 @@ Deployable Kits
 		return 1
 
 /obj/machinery/deployable/barrier/legion
-	name = "legion barrier"
-	desc = "A deployable barrier, bearing the marks of the Tau Ceti Foreign Legion. Swipe your ID card to lock/unlock it."
+	name = "\improper TCAF barrier"
+	desc = "A deployable barrier, bearing the marks of the Tau Ceti Armed Forces. Swipe your ID card to lock/unlock it."
 	icon_state = "barrier_legion"
 	req_access = null
 	req_one_access = list(ACCESS_TCAF_SHIPS, ACCESS_LEGION)
@@ -283,8 +283,8 @@ Deployable Kits
 	A.add_fingerprint(user)
 
 /obj/item/deployable_kit/legion_barrier
-	name = "legion barrier kit"
-	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Foreign Legion."
+	name = "\improper TCAF barrier kit"
+	desc = "A quick assembly kit for deploying id-lockable barriers in the field. This one has the mark of the Tau Ceti Armed Forces."
 	icon = 'icons/obj/storage/briefcase.dmi'
 	icon_state = "barrier_kit"
 	item_state = "barrier_kit"

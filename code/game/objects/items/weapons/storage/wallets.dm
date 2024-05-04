@@ -79,7 +79,7 @@
 			update_icon()
 
 /obj/item/storage/wallet/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	worn_overlay = "fasteners"
 	if(front_id)
 		if(("[icon_state]-open") in icon_states(icon))
@@ -89,10 +89,10 @@
 		if(("[initial(icon_state)]-[front_id.icon_state]") in icon_states(icon))
 			tiny_state = "[initial(icon_state)]-[front_id.icon_state]"
 		var/image/tiny_image = overlay_image(icon, icon_state = tiny_state, flags = RESET_COLOR)
-		add_overlay(tiny_image)
+		AddOverlays(tiny_image)
 		if(("[initial(icon_state)]-film") in icon_states(icon))
 			var/image/film_image = overlay_image(icon, "[initial(icon_state)]-film", flags = RESET_COLOR)
-			add_overlay(film_image)
+			AddOverlays(film_image)
 	else
 		icon_state = "[initial(icon_state)]"
 		. = ..()
@@ -205,16 +205,16 @@
 	. = ..()
 	if(("[initial(icon_state)]-film") in icon_states(icon))
 		var/image/film_image = overlay_image(icon, "[initial(icon_state)]-film", flags = RESET_COLOR)
-		add_overlay(film_image)
+		AddOverlays(film_image)
 
 /obj/item/storage/wallet/lanyard/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
 	if(front_id)
-		I.add_overlay(image('icons/mob/lanyard_overlays.dmi', icon_state = "lanyard-[front_id_overlay_state]"))
+		I.AddOverlays(image('icons/mob/lanyard_overlays.dmi', icon_state = "lanyard-[front_id_overlay_state]"))
 	else
 		if(!plastic_film)
 			plastic_film = image('icons/mob/lanyard_overlays.dmi', icon_state = "[plastic_film_overlay_state]")
-		I.add_overlay(plastic_film)
+		I.AddOverlays(plastic_film)
 	return I
 
 // wallet subtypes

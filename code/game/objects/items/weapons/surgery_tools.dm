@@ -226,7 +226,7 @@
 	)
 
 /obj/item/storage/box/fancy/tray/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	var/list/types_and_overlays = list(
 		/obj/item/surgery/bonesetter = "tray_bonesetter",
@@ -248,7 +248,7 @@
 	)
 	for (var/obj/item/W in contents)
 		if (types_and_overlays[W.type])
-			add_overlay(types_and_overlays[W.type])
+			AddOverlays(types_and_overlays[W.type])
 			types_and_overlays -= W.type
 
 /obj/item/storage/box/fancy/tray/fill()

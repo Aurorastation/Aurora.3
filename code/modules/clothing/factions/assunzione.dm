@@ -32,7 +32,7 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/robe_backing = image(mob_icon, null, "[initial_icon_state]_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(robe_backing)
+		I.AddOverlays(robe_backing)
 	return I
 
 /obj/item/clothing/head/winterhood/assunzione_robe

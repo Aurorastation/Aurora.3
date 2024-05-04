@@ -34,7 +34,7 @@
 
 /obj/item/device/paicard/Initialize()
 	. = ..()
-	add_overlay("pai_off")
+	AddOverlays("pai_off")
 	SSpai.all_pai_devices += src
 	update_light()
 
@@ -389,19 +389,19 @@
 
 /obj/item/device/paicard/proc/setPersonality(mob/living/silicon/pai/personality)
 	src.pai = personality
-	add_overlay("pai-happy")
+	AddOverlays("pai-happy")
 	playsound(src, 'sound/effects/pai/pai_restore.ogg', 75)
 
 /obj/item/device/paicard/proc/removePersonality()
 	src.pai = null
-	cut_overlays()
-	add_overlay("pai-off")
+	ClearOverlays()
+	AddOverlays("pai-off")
 
 /obj/item/device/paicard
 	var/current_emotion = 1
 /obj/item/device/paicard/proc/setEmotion(var/emotion)
 	if(pai)
-		cut_overlays()
+		ClearOverlays()
 		var/new_state
 		switch(emotion)
 			if(1) new_state = "pai-happy"
@@ -420,7 +420,7 @@
 			if(14) new_state = "pai-exclamation"
 			if(15) new_state = "pai-question"
 		if (new_state)
-			add_overlay(new_state)
+			AddOverlays(new_state)
 		current_emotion = emotion
 
 /obj/item/device/paicard/proc/alertUpdate()

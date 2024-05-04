@@ -219,12 +219,12 @@
 	return
 
 /obj/machinery/smartfridge/drying_rack/update_overlays()
-	cut_overlays()
+	ClearOverlays()
 	if(length(contents))
-		add_overlay("drying_rack_drying")
+		AddOverlays("drying_rack_drying")
 	var/list/shown_contents = contents - component_parts
 	if(shown_contents.len)
-		add_overlay("drying_rack_filled")
+		AddOverlays("drying_rack_filled")
 
 /obj/machinery/smartfridge/process()
 	if(stat & (BROKEN|NOPOWER))
@@ -267,9 +267,9 @@
 	update_overlays()
 
 /obj/machinery/smartfridge/proc/update_overlays()
-	cut_overlays()
+	ClearOverlays()
 	if(panel_open)
-		add_overlay("[initial(icon_state)]-panel")
+		AddOverlays("[initial(icon_state)]-panel")
 	var/list/shown_contents = contents - component_parts
 	if(contents_path && shown_contents.len > 0)
 		var/contents_icon_state
@@ -280,8 +280,8 @@
 				contents_icon_state = "-2"
 			if(50 to INFINITY)
 				contents_icon_state = "-3"
-		add_overlay("[initial(icon_state)][contents_path][contents_icon_state]")
-	add_overlay("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
+		AddOverlays("[initial(icon_state)][contents_path][contents_icon_state]")
+	AddOverlays("[initial(icon_state)]-glass[(stat & BROKEN) ? "-broken" : ""]")
 
 /*******************
 *   Item Adding

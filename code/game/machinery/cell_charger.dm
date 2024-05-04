@@ -24,20 +24,20 @@
 		charge_level = new_level
 
 /obj/machinery/cell_charger/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(charging)
 		charging.update_icon()
-		add_overlay(charging.icon_state)
-		add_overlay("ccharger-on")
+		AddOverlays(charging.icon_state)
+		AddOverlays("ccharger-on")
 		if(stat & (NOPOWER|BROKEN))
-			add_overlay(charging.overlays)
+			AddOverlays(charging.overlays)
 
 	if(INOPERABLE(src) || !charging)
 		return
 
 	update_charge_level()
-	add_overlay("cell-o2")
-	add_overlay("[icon_state]-o[charge_level]")
+	AddOverlays("cell-o2")
+	AddOverlays("[icon_state]-o[charge_level]")
 
 /obj/machinery/cell_charger/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

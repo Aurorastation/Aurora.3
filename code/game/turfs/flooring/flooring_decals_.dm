@@ -47,7 +47,7 @@
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
-		T.add_overlay(floor_decals[cache_key])
+		T.AddOverlays(floor_decals[cache_key])
 		if(desc)
 			T.desc += "<br>There is \a [src] on it with the following inscription:<br><i>[desc]</i>"
 

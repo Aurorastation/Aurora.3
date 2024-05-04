@@ -40,7 +40,7 @@
 	. = ..()
 
 /obj/item/reagent_containers/food/drinks/cans/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(fuselength)
 		var/image/fuseoverlay = image('icons/obj/fuses.dmi', icon_state = "fuse_short")
 		switch(fuselength)
@@ -50,10 +50,10 @@
 			fuseoverlay.icon_state = "lit_fuse"
 		fuseoverlay.pixel_x = can_size_overrides["x"]
 		fuseoverlay.pixel_y = can_size_overrides["y"]
-		add_overlay(fuseoverlay)
+		AddOverlays(fuseoverlay)
 	if(bombcasing > BOMBCASING_EMPTY)
 		var/image/casingoverlay = image('icons/obj/fuses.dmi', icon_state = "pipe_bomb")
-		add_overlay(casingoverlay)
+		AddOverlays(casingoverlay)
 
 /obj/item/reagent_containers/food/drinks/cans/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/grenade/chem_grenade/large))

@@ -546,21 +546,21 @@
 
 /obj/structure/closet/update_icon()
 	if(!door_underlay)
-		cut_overlays()
+		ClearOverlays()
 
 	if(!opened)
 		layer = OBJ_LAYER
 		if(welded)
-			add_overlay("[icon_door_overlay]welded")
+			AddOverlays("[icon_door_overlay]welded")
 		if(!is_animating_door)
 			if(icon_door)
-				add_overlay("[icon_door]_door")
+				AddOverlays("[icon_door]_door")
 				if(double_doors)
-					add_overlay("[icon_door]_door_alt")
+					AddOverlays("[icon_door]_door_alt")
 			if(!icon_door)
-				add_overlay("[icon_state]_door")
+				AddOverlays("[icon_state]_door")
 				if(double_doors)
-					add_overlay("[icon_state]_door_alt")
+					AddOverlays("[icon_state]_door_alt")
 			if(secure)
 				update_secure_overlays()
 		if(secure && secure_lights)
@@ -568,18 +568,18 @@
 	else if(opened)
 		layer = BELOW_OBJ_LAYER
 		if(!is_animating_door)
-			add_overlay("[icon_door_override ? icon_door : icon_state]_open")
+			AddOverlays("[icon_door_override ? icon_door : icon_state]_open")
 		if(secure && secure_lights)
 			update_secure_overlays()
 
 /obj/structure/closet/proc/update_secure_overlays()
 	if(broken)
-		add_overlay("[icon_door_overlay]emag")
+		AddOverlays("[icon_door_overlay]emag")
 	else
 		if(locked)
-			add_overlay("[icon_door_overlay]locked")
+			AddOverlays("[icon_door_overlay]locked")
 		else
-			add_overlay("[icon_door_overlay]unlocked")
+			AddOverlays("[icon_door_overlay]unlocked")
 
 /obj/structure/closet/proc/animate_door(var/closing = FALSE)
 	if(!door_anim_time)
@@ -610,7 +610,7 @@
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
 	remove_vis_contents(door_obj)
 	update_icon()
-	compile_overlays(src)
+	UpdateOverlays(src)
 
 /obj/structure/closet/proc/animate_door_alt(var/closing = FALSE)
 	if(!door_anim_time)
@@ -641,7 +641,7 @@
 	is_animating_door = FALSE // comment this out and the line below to manually tweak the animation end state by fiddling with the door_anim vars to match the open door icon
 	remove_vis_contents(door_obj_alt)
 	update_icon()
-	compile_overlays(src)
+	UpdateOverlays(src)
 
 /obj/structure/closet/proc/get_door_transform(angle, var/inverse_hinge = FALSE)
 	var/matrix/M = matrix()

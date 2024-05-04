@@ -254,7 +254,7 @@
 	if(!cable_color)
 		cable_color = COLOR_RED
 	I.color = cable_color
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/melee/baton/stunrod
 	name = "stunrod"

@@ -121,7 +121,7 @@
 			if(tracking_apc)
 				START_PROCESSING(SSprocessing, src)
 				apc_indicator = mutable_appearance(icon, "lost")
-				add_overlay(apc_indicator)
+				AddOverlays(apc_indicator)
 			else
 				STOP_PROCESSING(SSprocessing, src)
 				QDEL_NULL(apc_indicator)
@@ -169,7 +169,7 @@
 				apc_indicator.icon_state = "medium"
 			if(16 to INFINITY)
 				apc_indicator.icon_state = "far"
-	set_overlays(apc_indicator)
+	SetOverlays(apc_indicator)
 
 /obj/item/device/multitool/proc/wire(datum/integrated_io/io, mob/user)
 	if(!io.holder.assembly)

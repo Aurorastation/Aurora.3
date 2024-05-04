@@ -36,6 +36,8 @@
 	name = "Dock, Starboard"
 	landmark_tag = "nav_yacht_civ_dock_starboard"
 	master_tag = "airlock_yacht_civ_dock_starboard"
+	req_one_access = null
+	req_access = null
 
 // ----
 
@@ -48,6 +50,8 @@
 	name = "Dock, Port"
 	landmark_tag = "nav_yacht_civ_dock_port"
 	master_tag = "airlock_yacht_civ_dock_port"
+	req_one_access = null
+	req_access = null
 
 // ----
 
@@ -60,6 +64,8 @@
 	name = "Dock, Aft"
 	landmark_tag = "nav_yacht_civ_dock_aft"
 	master_tag = "airlock_yacht_civ_dock_aft"
+	req_one_access = null
+	req_access = null
 
 // ----
 
@@ -72,6 +78,8 @@
 	name = "Dock, Fore"
 	landmark_tag = "nav_yacht_civ_dock_fore"
 	master_tag = "airlock_yacht_civ_dock_fore"
+	req_one_access = null
+	req_access = null
 
 // --------------------- space
 
