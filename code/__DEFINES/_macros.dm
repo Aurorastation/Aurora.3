@@ -152,6 +152,7 @@
 #define isdatum(target) istype(target, /datum)
 #define isitem(D) istype(D, /obj/item)
 #define islist(D) istype(D, /list)
+#define isimage(D) istype(D, /image)
 
 /// Semantic define for a 0 int intended for use as a bitfield
 #define EMPTY_BITFIELD 0

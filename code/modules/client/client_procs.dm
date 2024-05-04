@@ -900,3 +900,8 @@ var/list/localhost_addresses = list(
 	if(stat_panel.is_ready())
 		return
 	to_chat(src, SPAN_DANGER("Statpanel failed to load, click <a href='?src=[ref(src)];reload_statbrowser=1'>here</a> to reload the panel "))
+
+/client/proc/open_filter_editor(atom/movable/in_atom)
+	if(holder)
+		holder.filteriffic = new /datum/filter_editor(in_atom)
+		holder.filteriffic.ui_interact(mob)

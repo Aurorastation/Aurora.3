@@ -18,6 +18,8 @@ var/list/admin_datums = list()
 
 	var/list/watched_processes	// Processes marked to be shown in Status instead of just Processes.
 
+	var/datum/filter_editor/filteriffic
+
 /datum/admins/vv_edit_var(var_name, var_value)
 	if(var_name == NAMEOF(src, rights))
 		return FALSE
