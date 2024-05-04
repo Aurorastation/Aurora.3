@@ -4021,9 +4021,6 @@
 /area/engineering/drone_fabrication)
 "aib" = (
 /obj/machinery/alarm/north,
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
 "aic" = (
@@ -6060,9 +6057,6 @@
 "amp" = (
 /obj/structure/sign/nosmoking_2{
 	pixel_y = -32
-	},
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
 	},
 /turf/simulated/floor/plating,
 /area/engineering/drone_fabrication)
@@ -27271,9 +27265,6 @@
 	dir = 4;
 	icon_state = "tube_empty"
 	},
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
 /turf/simulated/floor/tiled,
 /area/bridge/ailobby)
 "aVY" = (
@@ -28915,9 +28906,6 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 28
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryoCommand"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "aYQ" = (
@@ -29643,9 +29631,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "bai" = (
-/obj/effect/landmark{
-	name = "JoinLateCryoCommand"
-	},
 /turf/simulated/floor/tiled/dark,
 /area/crew_quarters/heads/cryo)
 "baj" = (
@@ -37622,9 +37607,6 @@
 /turf/simulated/floor/tiled,
 /area/assembly/chargebay)
 "bpn" = (
-/obj/effect/landmark{
-	name = "JoinLateCyborg"
-	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
 	},
@@ -44654,22 +44636,14 @@
 /turf/simulated/floor/plating,
 /area/crew_quarters/sleep/main)
 "bEG" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
+/obj/effect/landmark/latejoincryo,
+/obj/effect/landmark/latejoincryo,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bEH" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
+/obj/effect/landmark/latejoincryo,
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
+/obj/effect/landmark/latejoincryo,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/main)
 "bEI" = (
@@ -49545,7 +49519,6 @@
 	},
 /area/crew_quarters/kitchen/freezer)
 "bRi" = (
-/obj/effect/landmark/costume/chicken,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood{
 	pixel_x = -2;
@@ -61824,7 +61797,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay)
 "kQn" = (
-/obj/effect/landmark/costume/commie,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
@@ -63469,7 +63441,6 @@
 /area/engineering/engineering_hallway_main)
 "nXe" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/landmark/costume/gladiator,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,
 /area/maintenance/bar)
@@ -64046,7 +64017,6 @@
 /turf/simulated/floor/tiled/white,
 /area/medical/pharmacy)
 "oZN" = (
-/obj/effect/landmark/costume/pirate,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/wood{
 	pixel_x = -2;
@@ -66054,7 +66024,6 @@
 /turf/simulated/floor/reinforced,
 /area/security/nuke_storage)
 "szC" = (
-/obj/effect/landmark/costume/elpresidente,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/cabinet,
 /turf/simulated/floor/wood,

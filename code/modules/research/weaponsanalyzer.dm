@@ -112,7 +112,7 @@
 
 /obj/machinery/weapons_analyzer/update_icon()
 	icon_state = initial(icon_state)
-	cut_overlays()
+	ClearOverlays()
 
 	var/icon/Icon_used
 
@@ -131,7 +131,7 @@
 		var/image/gun_overlay = image(Icon_used)
 		gun_overlay.pixel_x += 7
 		gun_overlay.pixel_y += 8
-		add_overlay(gun_overlay)
+		AddOverlays(gun_overlay)
 
 /obj/machinery/weapons_analyzer/ui_data(mob/user)
 	var/list/data = list()

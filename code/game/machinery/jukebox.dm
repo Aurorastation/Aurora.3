@@ -50,7 +50,7 @@
 	update_icon()
 
 /obj/machinery/media/jukebox/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & (NOPOWER|BROKEN) || !anchored)
 		if(stat & BROKEN)
 			icon_state = "[state_base]-broken"
@@ -60,9 +60,9 @@
 	icon_state = state_base
 	if(playing)
 		if(emagged)
-			add_overlay("[state_base]-emagged")
+			AddOverlays("[state_base]-emagged")
 		else
-			add_overlay("[state_base]-running")
+			AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/Topic(href, href_list)
 	if(..() || !(Adjacent(usr) || istype(usr, /mob/living/silicon)))
@@ -219,10 +219,10 @@
 	)
 
 /obj/machinery/media/jukebox/phonograph/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = state_base
 	if(playing)
-		add_overlay("[state_base]-running")
+		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole
 	name = "audioconsole"
@@ -245,10 +245,10 @@
 	)
 
 /obj/machinery/media/jukebox/audioconsole/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = state_base
 	if(playing)
-		add_overlay("[state_base]-running")
+		AddOverlays("[state_base]-running")
 
 /obj/machinery/media/jukebox/audioconsole/wall
 	icon = 'icons/obj/audioconsole_wall.dmi'
@@ -271,7 +271,7 @@
 	)
 
 /obj/machinery/media/jukebox/gramophone/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = state_base
 	if(playing)
-		add_overlay("[state_base]-running")
+		AddOverlays("[state_base]-running")

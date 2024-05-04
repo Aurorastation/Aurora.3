@@ -284,12 +284,12 @@
 
 /obj/item/storage/overloader/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	var/obj/item/ipc_overloader/overloader = locate() in contents
 	if(overloader)
-		add_overlay(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
+		AddOverlays(image(overloader.icon, null, overloader.icon_state, sealed ? layer - 0.01 : layer + 0.01))
 		if(!sealed)
-			add_overlay(image(icon, null, "box-overlay", layer + 0.02))
+			AddOverlays(image(icon, null, "box-overlay", layer + 0.02))
 	if(!sealed)
 		icon_state = "box-open"
 

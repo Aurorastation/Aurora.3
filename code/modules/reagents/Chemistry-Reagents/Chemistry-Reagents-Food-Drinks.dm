@@ -4475,10 +4475,10 @@
 
 /singleton/reagent/alcohol/daiquiri
 	name = "Daiquiri"
-	description = "Exotically blue, fruity drink, distilled from oranges."
+	description = "A splendid looking cocktail."
 	color = "#efd08d"
 	strength = 15
-	taste_description = "oranges"
+	taste_description = "lime and sugar"
 
 	glass_icon_state = "daiquiri"
 	glass_name = "glass of Daiquiri"

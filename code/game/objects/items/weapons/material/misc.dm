@@ -102,7 +102,7 @@
 	if(build_from_parts)
 		var/image/I = image(icon, icon_state = "machete_handle")
 		I.color = pick(COLOR_BLUE, COLOR_RED, COLOR_CYAN, COLOR_BLACK, COLOR_AMBER, COLOR_GREEN, COLOR_OLIVE, COLOR_GUNMETAL, COLOR_DARK_BLUE_GRAY)
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/item/material/hatchet/machete/unbreakable
 	unbreakable = TRUE

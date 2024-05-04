@@ -49,7 +49,7 @@
 	worth = 0
 
 /obj/item/spacecash/bundle/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/ovr = list()
 	var/sum = src.worth
 	var/num = 0
@@ -71,8 +71,8 @@
 		banknote.transform = M
 		ovr += banknote
 
-	add_overlay(ovr)
-	compile_overlays()	// The delay looks weird, so we force an update immediately.
+	AddOverlays(ovr)
+	UpdateOverlays()	// The delay looks weird, so we force an update immediately.
 	src.desc = "A bundle of Biesel Standard Credit chips. Combined, this is worth [worth] credits."
 
 /obj/item/spacecash/bundle/attack_self(mob/user as mob)

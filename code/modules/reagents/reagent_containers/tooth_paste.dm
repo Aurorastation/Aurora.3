@@ -36,10 +36,10 @@
 	update_icon()
 
 /obj/item/reagent_containers/toothbrush/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents.has_reagent(/singleton/reagent/drink/toothpaste))
-		add_overlay("toothpaste_overlay")
+		AddOverlays("toothpaste_overlay")
 
 /obj/item/reagent_containers/toothbrush/attack_self(mob/user as mob)
 	if(!reagents.total_volume)

@@ -21,20 +21,20 @@
 		src.target = locate(/obj/machinery/atmospherics/pipe) in loc
 
 /obj/machinery/meter/process()
-	cut_overlays()
+	ClearOverlays()
 	if(!target)
-		add_overlay("pressure_off")
-		add_overlay("buttons-x")
+		AddOverlays("pressure_off")
+		AddOverlays("buttons-x")
 		return FALSE
 
 	if(stat & (BROKEN|NOPOWER))
-		add_overlay("pressure_off")
+		AddOverlays("pressure_off")
 		return FALSE
 
 	var/datum/gas_mixture/environment = target.return_air()
 	if(!environment)
-		add_overlay("buttons_x")
-		add_overlay("pressure0")
+		AddOverlays("buttons_x")
+		AddOverlays("pressure0")
 		return FALSE
 
 	var/button_overlay_name
@@ -88,8 +88,8 @@
 	if(atmos_overlay.color != temp_color)
 		atmos_overlay.color = temp_color
 
-	add_overlay(button_overlay)
-	add_overlay(atmos_overlay)
+	AddOverlays(button_overlay)
+	AddOverlays(atmos_overlay)
 
 	if(frequency)
 		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)

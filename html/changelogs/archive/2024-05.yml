@@ -1,0 +1,69 @@
+2024-05-01:
+  Ben10083:
+  - bugfix: Portable Turrets now work outside of areas with a turret controller, spawning
+      a panel for itself as intended.
+  FluffyGhost:
+  - bugfix: Fixed some latejoin spawnpoints that were not working (eg. borgs).
+  - rscadd: Runtime map now uses proper spawnpoints instead of forced ones.
+  - code_imp: Moved and DMDoc'd force spawnpoints.
+  ReadThisNamePlz:
+  - bugfix: Fixes the freebooter ships power network
+  Sparky_hotdog:
+  - bugfix: Entering a blank OOC message will now cancel the message, rather than
+      sending nothing to chat.
+2024-05-02:
+  Ben10083:
+  - spellcheck: Holy sun rosette now specified as being used for the Kin of S'rendarr.
+      New extended desc added to replace the old one that didn't fit the rosette.
+  - rscadd: Merchants now can state specific greeting based on general species.
+  - rscadd: Merchants now can have biases against different species, upcharging or
+      discounting their prices, or even refusing service.
+  - qol: Skrell pet store owner will now be racist against machines.
+  - code_imp: Functionality for merchants to check for subspecies greeting, and later
+      general species greeting if none is found.
+  - code_imp: New lists that cover all subspecies of each species added (IE ALL_IPCS).
+  Crosarius:
+  - imageadd: Added sprites for Si'akh Priest robes
+  - rscadd: Added Si'akh Priest robes to the Unathi xeno loadout.
+  - qol: Allows Si'akh Priest robes and Sk'akh Priest robes to be taken by Off Duty
+      & Visitor crewmember roles.
+  DreamySkrell:
+  - rscadd: More muffins.
+  FluffyGhost:
+  - balance: Hivebot beacons scale with the currently playing player count, if they
+      spawn on the main map (the Horizon, most likely).
+  - refactor: Refactored the hivebot code slightly, mostly in terms of DMDoc and reordering.
+  - code_imp: Turned various icons into static paths.
+  Geeves:
+  - rscadd: Examining a pipe or cable will now display its color as text.
+  - bugfix: Changing the ID of someone with an alt-title will no longer boot them
+      to the Misc section of the manifest.
+  - rscadd: Added a new type of hair gradient, short highlights, suited to shorter
+      hairstyles. There are upshifted and downshift variants to cater for different
+      lengths of hair.
+  GeneralCamo:
+  - refactor: Ports SSOverlays from baystation12.
+  LynxSolstice:
+  - qol: Swaps the sensors console to the WSO in the Canary, the Engine controls to
+      the pilot, and moves the fuel pump for the fuel can to the thrusters, internally.
+  ReadThisNamePlz:
+  - rscadd: Remapped the entirety of the science department.
+  - rscadd: Relocated the AI core to a more secure location.
+  - rscadd: Gave exploratory chemistry a syringe gun.
+  - rscadd: Added individual cell controls to xenobiology.
+  RustingWithYou:
+  - bugfix: Outpost blueprints will now work properly.
+  - qol: Outpost blueprints will now only display a planet's generated name rather
+      than its planet type.
+  Sparky_hotdog:
+  - bugfix: Bar stools can be properly rotated.
+2024-05-03:
+  Evandorf:
+  - bugfix: Removed access requirements on airlocks; set to null. Removed the ID altogether,
+      per request.
+  nauticall:
+  - code_imp: Consolidates the game's TXT files to be under single 'texts' folder.
+      Should help with centralization and config problems.
+2024-05-04:
+  Hollyhock:
+  - bugfix: Gives daiquiris their own flavor. Wow!
