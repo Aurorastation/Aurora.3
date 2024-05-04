@@ -157,7 +157,7 @@
 	if(!istype(I))
 		qdel(src)
 		return
-	cut_overlays()
+	ClearOverlays()
 	var/mutable_appearance/MA = new(I)
 	MA.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	MA.appearance_flags = RESET_ALPHA
@@ -202,6 +202,6 @@
 	if(!istype(P))
 		qdel(src)
 		return
-	cut_overlays()
+	ClearOverlays()
 	if(P.info)
 		icon_state = "text[rand(1,3)]"

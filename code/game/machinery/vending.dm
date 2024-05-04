@@ -167,7 +167,7 @@
 			screen_overlays["[icon_state]-screen"] = make_screen_overlay(icon, "[icon_state]-screen")
 		if ("[icon_state]-deny" in states)
 			screen_overlays["[icon_state]-deny"] = make_screen_overlay(icon, "[icon_state]-deny")
-	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
+	AddOverlays(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
 	reset_light()
 
 /**
@@ -295,10 +295,10 @@
 	else if(attacking_item.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
-		cut_overlays()
+		ClearOverlays()
 		add_screen_overlay()
 		if(src.panel_open)
-			add_overlay("[initial(icon_state)]-panel")
+			AddOverlays("[initial(icon_state)]-panel")
 		return TRUE
 	else if(attacking_item.ismultitool()||attacking_item.iswirecutter())
 		if(src.panel_open)
@@ -618,10 +618,10 @@
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course
 				if(exclusive_screen)
-					cut_overlays()
+					ClearOverlays()
 					addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
 				add_screen_overlay(deny = TRUE)
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, CutOverlays), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
 				set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 				addtimer(CALLBACK(src, PROC_REF(reset_light)), deny_time ? deny_time : 15)
 				addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
@@ -676,10 +676,10 @@
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
 		if(exclusive_screen)
-			cut_overlays()
+			ClearOverlays()
 			addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
 		add_screen_overlay(deny = TRUE)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, CutOverlays), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
 		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
 		addtimer(CALLBACK(src, PROC_REF(reset_light)), deny_time ? deny_time : 15)
 		return
@@ -798,14 +798,14 @@
 		stat |= NOPOWER
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
-		cut_overlays()
+		ClearOverlays()
 		set_light(0)
 	else if(!(stat & NOPOWER))
 		icon_state = initial(icon_state)
 		add_screen_overlay()
 	else
 		icon_state = "[initial(icon_state)]-off"
-		cut_overlays()
+		ClearOverlays()
 		set_light(0)
 
 //Oh no we're malfunctioning!  Dump out some product and break.

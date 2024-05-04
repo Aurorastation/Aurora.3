@@ -46,8 +46,8 @@
 		for(var/obj/item/thing in hold.contents)
 			var/icon_type = hold.helmet_storage_types[thing.type]
 			var/thing_state = icon_type == HELMET_GARB_PASS_ICON ? initial(thing.icon_state) : icon_type
-			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
-			I.add_overlay(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
+			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
+			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, thing_state))
 	return I
 
 /obj/item/clothing/head/helmet/attack_hand(mob/user)

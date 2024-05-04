@@ -173,7 +173,7 @@
 
 /obj/item/device/lightreplacer/update_icon()
 	if(emagged)
-		add_overlay("emagged")
+		AddOverlays("emagged")
 
 
 /obj/item/device/lightreplacer/proc/Use(var/mob/user)

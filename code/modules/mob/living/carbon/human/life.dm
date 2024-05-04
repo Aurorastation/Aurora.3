@@ -1491,11 +1491,11 @@
 		new_oxy = "oxydamageoverlay[severity]"
 
 		if(new_oxy != last_oxy_overlay)
-			damageoverlay.cut_overlay(last_oxy_overlay)
-			damageoverlay.add_overlay(new_oxy)
+			damageoverlay.CutOverlays(last_oxy_overlay)
+			damageoverlay.AddOverlays(new_oxy)
 			last_oxy_overlay = new_oxy
 	else if (last_oxy_overlay)
-		damageoverlay.cut_overlay(last_oxy_overlay)
+		damageoverlay.CutOverlays(last_oxy_overlay)
 		last_oxy_overlay = null
 
 //Fevers

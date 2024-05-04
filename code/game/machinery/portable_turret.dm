@@ -170,7 +170,7 @@
 
 
 /obj/machinery/porta_turret/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	underlays.Cut()
 
 	if(stat & BROKEN)
@@ -246,7 +246,7 @@
 /obj/machinery/porta_turret/ui_interact(mob/user, var/datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
 	if(!ui)
-		ui = new(user, src, "TurretControl", "Defense Systems Control Panel", 375, 725)
+		ui = new(user, src, "TurretControlPorta", "Defense Systems Control Panel", 375, 425)
 		ui.open()
 
 /obj/machinery/porta_turret/proc/HasController()
@@ -916,7 +916,7 @@
 					installation = attacking_item //installation becomes I.type
 					build_step = 4
 					icon_state = "turret_frame_4_[case_sprite_set]"
-					add_overlay("turret_[E.turret_sprite_set]_off")
+					AddOverlays("turret_[E.turret_sprite_set]_off")
 				return TRUE
 
 			else if(attacking_item.iswrench())
@@ -944,8 +944,8 @@
 				build_step = 6
 				to_chat(user, "<span class='notice'>You close the access hatch.</span>")
 				icon_state = "turret_frame_5a_[case_sprite_set]"
-				add_overlay("turret_[E.turret_sprite_set]_off")
-				add_overlay("turret_frame_5b_[case_sprite_set]")
+				AddOverlays("turret_[E.turret_sprite_set]_off")
+				AddOverlays("turret_frame_5b_[case_sprite_set]")
 				return TRUE
 
 			//attack_hand() removes the prox sensor
@@ -955,10 +955,10 @@
 				var/obj/item/stack/M = attacking_item
 				if(M.use(2))
 					to_chat(user, "<span class='notice'>You add some metal armor to the exterior frame.</span>")
-					cut_overlays()
+					ClearOverlays()
 					icon_state = "turret_frame_5a_[case_sprite_set]"
-					add_overlay("turret_[E.turret_sprite_set]_off")
-					add_overlay("turret_frame_5c_[case_sprite_set]")
+					AddOverlays("turret_[E.turret_sprite_set]_off")
+					AddOverlays("turret_frame_5c_[case_sprite_set]")
 					build_step = 7
 				else
 					to_chat(user, "<span class='warning'>You need two sheets of metal to continue construction.</span>")
@@ -968,9 +968,9 @@
 				attacking_item.play_tool_sound(get_turf(src), 100)
 				build_step = 5
 				to_chat(user, "<span class='notice'>You open the access hatch.</span>")
-				cut_overlays()
+				ClearOverlays()
 				icon_state = "turret_frame_4_[case_sprite_set]"
-				add_overlay("turret_[E.turret_sprite_set]_off")
+				AddOverlays("turret_[E.turret_sprite_set]_off")
 				return TRUE
 
 		if(7)
@@ -1025,10 +1025,10 @@
 				to_chat(user, "<span class='notice'>You pry off the turret's exterior armor.</span>")
 				new /obj/item/stack/material/steel(loc, 2)
 				build_step = 6
-				cut_overlays()
+				ClearOverlays()
 				icon_state = "turret_frame_5a_[case_sprite_set]"
-				add_overlay("turret_[E.turret_sprite_set]_off")
-				add_overlay("turret_frame_5c_[case_sprite_set]")
+				AddOverlays("turret_[E.turret_sprite_set]_off")
+				AddOverlays("turret_frame_5c_[case_sprite_set]")
 				return TRUE
 
 	if(attacking_item.ispen())	//you can rename turrets like bots!
@@ -1047,7 +1047,7 @@
 			build_step = 3
 			E.forceMove(src.loc)
 			installation = null
-			cut_overlays()
+			ClearOverlays()
 			icon_state = "turret_frame_3_[case_sprite_set]"
 			to_chat(user, "<span class='notice'>You remove [E.name] from the turret frame.</span>")
 
@@ -1198,7 +1198,7 @@
 	check_records = 0
 	check_access = 1
 	ailock = 1
-	req_one_access = list(ACCESS_LEGION)
+	req_one_access = list(ACCESS_LEGION, ACCESS_TCAF_SHIPS)
 
 #undef TURRET_PRIORITY_TARGET
 #undef TURRET_SECONDARY_TARGET

@@ -28,6 +28,6 @@
 	var/image/I = ..()
 	if(slot == slot_head_str)
 		var/image/hat_backing = image(mob_icon, null, "nonla_backing", human ? human.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(hat_backing)
+		I.AddOverlays(hat_backing)
 	return I
 

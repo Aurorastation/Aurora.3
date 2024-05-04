@@ -23,10 +23,10 @@
 		I.appearance_flags = RESET_COLOR
 		I.color = get_random_colour(0, 150, 255)
 		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(I)
+		AddOverlays(I)
 		set_light(0.3, 0.1, 2, l_color = I.color)
 
 	var/turf/simulated/floor/exoplanet/T = get_turf(src)
 	if(istype(T))
 		var/image/I = overlay_image(icon, "dugin", T.dirt_color, RESET_COLOR)
-		add_overlay(I)
+		AddOverlays(I)

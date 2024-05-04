@@ -448,7 +448,7 @@
 
 // update the icon & overlays to reflect mode & status
 /obj/machinery/disposal/proc/update()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & BROKEN)
 		icon_state = "[icon_state]-broken"
 		mode = 0
@@ -457,7 +457,7 @@
 
 	// flush handle
 	if(flush)
-		add_overlay("[icon_state]-handle")
+		AddOverlays("[icon_state]-handle")
 
 	// only handle is shown if no power
 	if(stat & NOPOWER || mode == -1)
@@ -465,13 +465,13 @@
 
 	// 	check for items in disposal - occupied light
 	if(contents.len > 0)
-		add_overlay("[icon_state]-full")
+		AddOverlays("[icon_state]-full")
 
 	// charging and ready light
 	if(mode == 1)
-		add_overlay("[icon_state]-charge")
+		AddOverlays("[icon_state]-charge")
 	else if(mode == 2)
-		add_overlay("[icon_state]-ready")
+		AddOverlays("[icon_state]-ready")
 
 // timed process
 // charge the gas reservoir and perform flush if ready

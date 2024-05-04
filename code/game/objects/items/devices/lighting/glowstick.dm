@@ -34,7 +34,7 @@
 	else if(on)
 		var/image/I = overlay_image(icon, "glowstick-overlay", color)
 		I.blend_mode = BLEND_ADD
-		add_overlay(I)
+		AddOverlays(I)
 		icon_state = "[initial(icon_state)]-on"
 		item_state = "[initial(icon_state)]-on"
 		set_light(brightness_on, flashlight_power, light_color)

@@ -263,7 +263,7 @@
 				resource_indicator.alpha = rand(30, 60)
 				gen_turf.resource_indicator = resource_indicator
 				if(!gen_turf.density)
-					gen_turf.add_overlay(resource_indicator)
+					gen_turf.AddOverlays(resource_indicator)
 				for(var/OT in ground_ore_levels[ground_resources_roll])
 					var/rand_vals = ground_ore_levels[ground_resources_roll][OT]
 					gen_turf.resources[OT] = rand(rand_vals[1], rand_vals[2])

@@ -155,7 +155,7 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/old/Initialize()
 	. = ..()
-	add_overlay("rust")
+	AddOverlays("rust")
 
 /obj/structure/lattice/catwalk/indoor/grate/damaged
 	icon_state = "grate_dark_dam0"
@@ -173,7 +173,7 @@
 
 /obj/structure/lattice/catwalk/indoor/grate/light/old/Initialize()
 	. = ..()
-	add_overlay("rust")
+	AddOverlays("rust")
 
 /obj/structure/lattice/catwalk/indoor/grate/light/damaged
 	icon_state = "grate_light_dam0"

@@ -12,12 +12,12 @@
 	if(labelled)
 		name += " ([labelled])"
 
-	cut_overlays()
+	ClearOverlays()
 	// Updates the plant overlay.
 	if(!isnull(seed))
 
 		if(mechanical && health <= (seed.get_trait(TRAIT_ENDURANCE) / 2))
-			add_overlay("over_lowhealth3")
+			AddOverlays("over_lowhealth3")
 
 		if(dead)
 			var/ikey = "[seed.get_trait(TRAIT_PLANT_ICON)]-dead"
@@ -25,7 +25,7 @@
 			if(!dead_overlay)
 				dead_overlay = image('icons/obj/hydroponics_growing.dmi', "[ikey]")
 				dead_overlay.color = DEAD_PLANT_COLOUR
-			add_overlay(dead_overlay)
+			AddOverlays(dead_overlay)
 		else
 			if(!seed.growth_stages)
 				seed.update_growth_stages()
@@ -41,7 +41,7 @@
 					maturation = 1
 				overlay_stage = maturation ? max(1,round(age/maturation)) : 1
 			var/image/plant_overlay = seed.get_icon(overlay_stage)
-			add_overlay(plant_overlay)
+			AddOverlays(plant_overlay)
 
 			if(harvest && overlay_stage == seed.growth_stages)
 				var/ikey = "[seed.get_trait(TRAIT_PRODUCT_ICON)]"
@@ -50,22 +50,22 @@
 					harvest_overlay = image('icons/obj/hydroponics_products.dmi', "[ikey]")
 					harvest_overlay.color = seed.get_trait(TRAIT_PRODUCT_COLOUR)
 					SSplants.plant_icon_cache["product-[ikey]-[seed.get_trait(TRAIT_PRODUCT_COLOUR)]"] = harvest_overlay
-				add_overlay(harvest_overlay)
+				AddOverlays(harvest_overlay)
 
 	//Draw the cover.
 	if(closed_system)
-		add_overlay("hydrocover")
+		AddOverlays("hydrocover")
 
 	//Updated the various alert icons.
 	if(mechanical)
 		if(waterlevel <= 10)
-			add_overlay("over_lowwater3")
+			AddOverlays("over_lowwater3")
 		if(nutrilevel <= 2)
-			add_overlay("over_lownutri3")
+			AddOverlays("over_lownutri3")
 		if(pestlevel >= 5 || toxins >= 40) // Hydroponics trays no longer face issues with weeds. GET OUTTA HERE.
-			add_overlay("over_alert3")
+			AddOverlays("over_alert3")
 		if(harvest)
-			add_overlay("over_harvest3")
+			AddOverlays("over_harvest3")
 
 	if(seed && seed.get_trait(TRAIT_LARGE))
 		density = TRUE

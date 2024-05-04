@@ -62,8 +62,13 @@
 	icon_state = "blueprints2"
 
 /obj/item/blueprints/outpost/attack_self(mob/user)
-	var/obj/effect/overmap/visitable/sector/S = GLOB.map_sectors["[GET_Z(user)]"]
-	area_prefix = S.name
+	if(!length(valid_z_levels) || !valid_z_levels) //Outpost blueprints can initialize before exoplanets, so put this in here to doublecheck it.
+		set_valid_z_levels()
+	var/obj/effect/overmap/visitable/sector/exoplanet/E = GLOB.map_sectors["[GET_Z(user)]"]
+	if(E.generated_name) //Prevent the prefix from being super long with the planet type appended
+		area_prefix = E.planet_name
+	else
+		area_prefix = E.name
 	. = ..()
 
 /obj/item/blueprints/outpost/set_valid_z_levels()

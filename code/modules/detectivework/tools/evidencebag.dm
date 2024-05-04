@@ -69,7 +69,7 @@
 	MA.pixel_x = 0
 	MA.pixel_y = 0
 	MA.layer = FLOAT_LAYER
-	add_overlay(list(MA, "evidence"))
+	AddOverlays(list(MA, "evidence"))
 
 	desc = "A plastic bag containing [I]."
 	I.forceMove(src)
@@ -82,7 +82,7 @@
 		var/obj/item/I = contents[1]
 		user.visible_message("<b>[user]</b> takes \the [I] out of \the [src].", SPAN_NOTICE("You take \the [I] out of \the [src]."),\
 		"You hear someone rustle around in a plastic bag, and remove something.")
-		cut_overlays()	//remove the overlays
+		ClearOverlays()	//remove the overlays
 
 		user.put_in_hands(I)
 		stored_item = null

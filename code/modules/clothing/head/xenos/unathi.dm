@@ -61,7 +61,7 @@
 		var/mutable_appearance/M = mutable_appearance(mob_icon, "[item_state]_translate")
 		M.appearance_flags = RESET_COLOR|RESET_ALPHA
 		M.pixel_y = 12
-		I.add_overlay(M)
+		I.AddOverlays(M)
 	return I
 
 /obj/item/clothing/head/helmet/unathi/ancient
