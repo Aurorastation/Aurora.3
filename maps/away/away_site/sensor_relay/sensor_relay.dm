@@ -30,6 +30,8 @@
 	else
 		icon_state = initial(icon_state)
 
+
+//Areas
 /area/sensor_relay
 	icon = 'maps/away/away_site/sensor_relay/sensor_relay_sprites.dmi'
 	name = "Sensor Relay"
@@ -70,3 +72,33 @@
 /area/sensor_relay/airlocks
 	name = "Sensor Relay - Airlocks"
 	icon_state = "sensor_red"
+
+//Landmarks
+
+/obj/effect/shuttle_landmark/sensor_relay
+	base_area = /area/space
+	base_turf = /turf/space
+
+/obj/effect/shuttle_landmark/sensor_relay/north_docking
+	name = "Sensor Relay - North External Dock"
+	landmark_tag = "relay_n"
+
+/obj/effect/shuttle_landmark/sensor_relay/south_docking
+	name = "Sensor Relay - South External Dock"
+	landmark_tag = "relay_s"
+
+/obj/effect/shuttle_landmark/sensor_relay/northwest
+	name = "Sensor Relay - Space, Northwest"
+	landmark_tag = "relay_nw"
+
+/obj/effect/shuttle_landmark/sensor_relay/northeast
+	name = "Sensor Relay - Space, Northeast"
+	landmark_tag = "relay_ne"
+
+/obj/effect/shuttle_landmark/sensor_relay/southwest
+	name = "Sensor Relay - Space, Southwest"
+	landmark_tag = "relay_sw"
+
+/obj/effect/shuttle_landmark/sensor_relay/southeast
+	name = "Sensor Relay - Space, Southeast"
+	landmark_tag = "relay_se"

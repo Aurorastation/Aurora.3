@@ -657,7 +657,7 @@
 	density = 1
 	layer = ABOVE_HUMAN_LAYER
 	sensor_strength = 3
-	heat_reduction = 6.1
+	heat_reduction = 7.1 //can sustain up to range 8
 	deep_scan_range = 0
 	component_types = list(
 		/obj/item/circuitboard/shipsensors/relay,

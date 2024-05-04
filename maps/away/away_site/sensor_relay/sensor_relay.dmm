@@ -675,7 +675,7 @@
 /area/sensor_relay/airlocks)
 "adM" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/shuttle_landmark/automatic{
+/obj/effect/shuttle_landmark/sensor_relay/south_docking{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
@@ -1123,7 +1123,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
-/area/sensor_relay)
+/area/sensor_relay/airlocks)
 "ajn" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -1429,8 +1429,9 @@
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/quarters)
 "aoW" = (
+/obj/machinery/shipsensors/strong/relay,
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "apv" = (
 /obj/structure/sink{
 	pixel_y = 28
@@ -1512,7 +1513,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aqP" = (
 /obj/structure/closet/secure_closet/freezer,
 /obj/effect/floor_decal/corner/black/diagonal,
@@ -1558,7 +1559,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/sensor_relay)
+/area/sensor_relay/airlocks)
 "arG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1640,9 +1641,6 @@
 	pixel_x = 8;
 	pixel_y = 5
 	},
-/obj/item/gamehelm/weathered{
-	pixel_y = -9
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -1675,7 +1673,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "atR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 1
@@ -1771,7 +1769,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "awr" = (
 /obj/structure/table/steel,
 /obj/item/rfd/construction{
@@ -1902,7 +1900,7 @@
 /area/sensor_relay/airlocks)
 "aza" = (
 /obj/structure/bed/padded,
-/obj/item/bedsheet/random,
+/obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
 /obj/random/plushie,
 /turf/simulated/floor/carpet/green,
@@ -2052,7 +2050,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/sensor_relay/workshop)
 "aBm" = (
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/sensor_relay/northeast,
 /turf/template_noop,
 /area/space)
 "aBF" = (
@@ -2095,7 +2093,7 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aDh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -2136,7 +2134,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aDq" = (
 /obj/machinery/door/airlock/generic{
 	dir = 1;
@@ -2168,7 +2166,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aDE" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 4
@@ -2264,7 +2262,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/sensor_relay)
 "aEA" = (
 /obj/structure/lattice,
 /turf/space/dynamic,
@@ -2580,7 +2578,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aLP" = (
 /obj/structure/bed/stool/chair/office/dark{
 	dir = 8
@@ -2729,7 +2727,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aOO" = (
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 1
@@ -2776,7 +2774,7 @@
 /turf/simulated/floor/airless{
 	icon_state = "solarpanel"
 	},
-/area/space)
+/area/sensor_relay)
 "aQU" = (
 /obj/machinery/light/colored/decayed{
 	dir = 4
@@ -2805,13 +2803,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/obj/item/toy/comic/inspector,
 /obj/machinery/light/colored/decayed{
 	dir = 8
 	},
 /obj/random/dirt_75,
 /obj/random/junk,
-/obj/item/device/paicard,
+/obj/item/toy/comic{
+	pixel_y = 16
+	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "aRK" = (
@@ -2848,7 +2847,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aSe" = (
 /obj/structure/table/steel,
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -3018,7 +3017,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/sensor_relay)
 "aVZ" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -3435,10 +3434,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
-"jdc" = (
-/obj/machinery/shipsensors/strong/relay,
-/turf/simulated/floor/airless,
-/area/sensor_relay)
 "jhT" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 4
@@ -3539,7 +3534,7 @@
 /area/sensor_relay)
 "lxf" = (
 /obj/structure/bed/padded,
-/obj/item/bedsheet/random,
+/obj/item/bedsheet/dorms,
 /obj/random/junk,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
@@ -3569,7 +3564,7 @@
 /area/sensor_relay/hydroponics)
 "myA" = (
 /obj/structure/lattice/catwalk/indoor,
-/obj/effect/shuttle_landmark/automatic,
+/obj/effect/shuttle_landmark/sensor_relay/north_docking,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -3591,6 +3586,10 @@
 /obj/structure/inflatable/wall,
 /turf/simulated/floor/plating,
 /area/sensor_relay/dining)
+"mWz" = (
+/obj/effect/shuttle_landmark/sensor_relay/southwest,
+/turf/template_noop,
+/area/space)
 "nBw" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -3611,7 +3610,7 @@
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/bed/handrail,
 /turf/simulated/floor/airless,
-/area/sensor_relay)
+/area/sensor_relay/airlocks)
 "oCA" = (
 /obj/structure/bed/stool/chair/folding{
 	dir = 4
@@ -3772,6 +3771,10 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/sensor_relay/hydroponics)
+"sHu" = (
+/obj/effect/shuttle_landmark/sensor_relay/northwest,
+/turf/template_noop,
+/area/space)
 "sMu" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
@@ -4054,6 +4057,10 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/sensor_relay/airlocks)
+"yif" = (
+/obj/effect/shuttle_landmark/sensor_relay/southeast,
+/turf/template_noop,
+/area/space)
 
 (1,1,1) = {"
 anw
@@ -30876,7 +30883,7 @@ anw
 anw
 anw
 anw
-aBm
+sHu
 anw
 anw
 anw
@@ -31673,23 +31680,23 @@ anw
 anw
 aht
 aht
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
 aht
 aht
 anw
@@ -31930,7 +31937,7 @@ anw
 anw
 aht
 aht
-aoW
+aZQ
 act
 act
 act
@@ -31946,7 +31953,7 @@ act
 act
 act
 act
-aoW
+aZQ
 aht
 aht
 anw
@@ -31974,7 +31981,7 @@ anw
 anw
 anw
 anw
-aBm
+mWz
 anw
 anw
 anw
@@ -35532,7 +35539,7 @@ aer
 sWe
 aEA
 deH
-jdc
+aoW
 pta
 aEA
 deH
@@ -39126,7 +39133,7 @@ anw
 anw
 aht
 aht
-aoW
+aZQ
 act
 act
 act
@@ -39142,7 +39149,7 @@ act
 act
 act
 act
-aoW
+aZQ
 aht
 aht
 anw
@@ -39383,23 +39390,23 @@ anw
 anw
 aht
 aht
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
-aoW
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
+aZQ
 aht
 aht
 anw
@@ -40706,7 +40713,7 @@ anw
 anw
 anw
 anw
-aBm
+yif
 anw
 anw
 anw
