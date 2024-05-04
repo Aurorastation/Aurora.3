@@ -19,6 +19,12 @@
 	desc = "A gas giant. Its planetary ring is home to several mining stations, hidden smuggler outposts, and tourist platforms."
 	icon_state = "globe3"
 	color = "#cf5b02"
+	initial_generic_waypoints = list(
+		"nav_omgolo_tourist_fore",
+		"nav_omgolo_tourist_aft",
+		"nav_omgolo_tourist_port",
+		"nav_omgolo_tourist_starboard"
+	)
 
 /obj/effect/overmap/visitable/sector/omgolo_tourist/get_skybox_representation()
 	var/image/skybox_image = image('icons/skybox/planet.dmi', "")
@@ -100,3 +106,45 @@
 /area/omgolo_tourist/roomhallway
 	name = "Abandoned Tourism Platform - Guest Rooms"
 	icon_state = "hallS"
+
+
+//Shuttle landmarks
+/obj/effect/shuttle_landmark/omgolo_tourist/fore
+	name = "Fore Docking Port"
+	landmark_tag = "nav_omgolo_tourist_fore"
+	docking_controller = "airlock_omgolo_tourist_fore"
+
+/obj/effect/map_effect/marker/airlock/docking/omgolo_tourist/fore
+	name = "Fore Docking Port"
+	landmark_tag = "nav_omgolo_tourist_fore"
+	master_tag = "airlock_omgolo_tourist_fore"
+
+/obj/effect/shuttle_landmark/omgolo_tourist/aft
+	name = "Aft Docking Port"
+	landmark_tag = "nav_omgolo_tourist_aft"
+	docking_controller = "airlock_omgolo_tourist_aft"
+
+/obj/effect/map_effect/marker/airlock/docking/omgolo_tourist/aft
+	name = "Aft Docking Port"
+	landmark_tag = "nav_omgolo_tourist_aft"
+	master_tag = "airlock_omgolo_tourist_aft"
+
+/obj/effect/shuttle_landmark/omgolo_tourist/port
+	name = "Port Docking Port"
+	landmark_tag = "nav_omgolo_tourist_port"
+	docking_controller = "airlock_omgolo_tourist_port"
+
+/obj/effect/map_effect/marker/airlock/docking/omgolo_tourist/port
+	name = "Port Docking Port"
+	landmark_tag = "nav_omgolo_tourist_port"
+	master_tag = "airlock_omgolo_tourist_port"
+
+/obj/effect/shuttle_landmark/omgolo_tourist/starboard
+	name = "Starboard Docking Port"
+	landmark_tag = "nav_omgolo_tourist_starboard"
+	docking_controller = "airlock_omgolo_tourist_starboard"
+
+/obj/effect/map_effect/marker/airlock/docking/omgolo_tourist/starboard
+	name = "Starboard Docking Port"
+	landmark_tag = "nav_omgolo_tourist_starboard"
+	master_tag = "airlock_omgolo_tourist_starboard"
