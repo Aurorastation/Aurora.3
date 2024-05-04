@@ -29,8 +29,3 @@
 	wrist = list(/obj/item/clothing/wrists/watch/silver, /obj/item/clothing/wrists/watch/gold)
 	l_ear = /obj/item/device/radio/headset/ship
 	l_pocket = /obj/item/storage/wallet/sol_rich
-	id = /obj/item/card/id/yacht_civ
-
-/obj/item/card/id/yacht_civ
-	name = "\improper Civilian yacht identification card"
-	access = list(ACCESS_EXTERNAL_AIRLOCKS)

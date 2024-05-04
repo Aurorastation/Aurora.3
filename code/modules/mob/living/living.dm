@@ -1000,7 +1000,7 @@ default behaviour is:
 	for(var/aura in auras)
 		var/obj/aura/A = aura
 		var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
-		add_overlay(aura_overlay)
+		AddOverlays(aura_overlay)
 
 /mob/living/proc/add_aura(var/obj/aura/aura)
 	LAZYDISTINCTADD(auras, aura)

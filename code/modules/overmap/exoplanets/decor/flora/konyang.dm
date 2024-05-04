@@ -15,7 +15,7 @@
 
 /obj/structure/flora/tree/konyang/spring/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/konyang_tree
 	icon_state = "beet_tree[rand(1, 3)]"
 	return
@@ -26,7 +26,7 @@
 
 /obj/structure/flora/tree/konyang/blossom/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/konyang_tree
 	icon_state = "blossom_beet_tree[rand(1, 3)]"
 	return
@@ -37,7 +37,7 @@
 
 /obj/structure/flora/tree/konyang/fall/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/konyang_tree
 	icon_state = "fall_beet_tree[rand(1, 3)]"
 	return

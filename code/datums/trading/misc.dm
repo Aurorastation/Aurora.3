@@ -7,6 +7,8 @@
 	speech = list(
 		"hail_generic"         = "Welcome to my xeno-pet shop! Here you will find many wonderful companions. Some a bit more... aggressive than others. But companions none the less. I also buy pets, or trade them.",
 		"hail_Skrell"          = "Ah! A fellow Skrell. How wonderful, I may have a few pets imported from back home. Take a look.",
+		"hail_IPC"         	   = "Oh. A Canner... Do your business quickly.",
+		"hail_silicon"         = "A simple Canner? Yeah, no. There is NO way you can take care of these!",
 		"hail_deny"            = "I no longer wish to speak to you.",
 		"trade_complete"       = "Remember to give them attention and food. They are living beings, and you should treat them like so.",
 		"trade_blacklist"      = "Legally I can't do that. Morally, I refuse to do that.",
@@ -20,6 +22,11 @@
 		"insult_bad"           = "My interactions with you are becoming less than fruitful.",
 		"bribe_refusal"        = "I'm not going to do that. I have places to be.",
 		"bribe_accept"         = "Hm. It'll be good for the animals, so sure."
+	)
+	species_bias = list(
+		ALL_SKRELL_SPECIES = TRADER_BIAS_DISCOUNT,
+		ALL_IPC_SPECIES = TRADER_BIAS_UPCHARGE,
+		"Silicon" = TRADER_BIAS_DENY
 	)
 
 	possible_wanted_items = list(
@@ -102,6 +109,9 @@
 		/obj/item/clothing/mask/luchador                        = TRADER_ALL,
 		/obj/item/gun/bang                               = TRADER_SUBTYPES_ONLY
 	)
+	species_bias = list(
+		ALL_DIONA_SPECIES = TRADER_BIAS_DISCOUNT
+	)
 
 /datum/trader/ship/replica_shop
 	name = "Replica Store Owner"
@@ -123,6 +133,9 @@
 		"insult_bad"        = "Well, I'll never!",
 		"bribe_refusal"     = "Well. I'd love to stay, but I've got an Unathi client somewhere else, and they are not known for patience.",
 		"bribe_accept"      = "Sure, I'll stay a bit longer. Just for you, though."
+	)
+	species_bias = list(
+		SPECIES_UNATHI = TRADER_BIAS_DISCOUNT
 	)
 
 	possible_trading_items = list(
@@ -199,6 +212,9 @@
 		"bribe_refusal"     = "Do not try to dissshonor me again.",
 		"bribe_accept"      = "Very well. I will ssstay for a bit longer."
 	)
+	species_bias = list(
+		SPECIES_UNATHI = TRADER_BIAS_DISCOUNT
+	)
 
 /datum/trader/ship/vaurca
 	origin = "The Hive Shop"
@@ -244,7 +260,6 @@
 	trade_flags = TRADER_MONEY
 
 	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_TAU_CETI, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_SRANDMARR)
-
 
 	possible_trading_items = list(
 		/obj/item/clothing/suit/storage/toggle/tajaran            = TRADER_THIS_TYPE,
@@ -298,6 +313,9 @@
 		"bribe_refusal"      = "That is not even enough to pay theirr valuable fuel.",
 		"bribe_accept"       = "They can worrrk with that, yes."
 	)
+	species_bias = list(
+		ALL_TAJARA_SPECIES = TRADER_BIAS_DISCOUNT
+	)
 
 /datum/trader/ship/golden_deep
 	name = "Ultra-Maz Trade Vessel 'Mutual Bounty'"
@@ -331,7 +349,7 @@
 
 	speech = list(
 		"hail_generic"       = "Greetings! May our exchange today bring us both great profits.",
-		"hail_Baseline Frame" = "An independent synthetic trader... Have you considered joining the Deep yourself?",
+		"hail_IPC" 			 = "An independent synthetic trader... Have you considered joining the Deep yourself?",
 		"hail_deny"          = "I'm truly sorry, but you've been deemed non-profitable and bad for business.",
 		"trade_complete"     = "I'm glad we could satisfy both our selfish interests! An excellent deal.",
 		"trade_blacklist"    = "This is hardly a mutually beneficial deal, I must refuse.",

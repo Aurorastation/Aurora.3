@@ -151,9 +151,9 @@
 /obj/machinery/suspension_gen/update_icon()
 	icon_state = "suspension_[anchored ? (suspension_field ? "on" : "wrenched") : "loose"]"
 	if(!screwed)
-		add_overlay("suspension_panel")
+		AddOverlays("suspension_panel")
 	else
-		cut_overlay("suspension_panel")
+		CutOverlays("suspension_panel")
 
 /obj/machinery/suspension_gen/get_cell()
 	return cell

@@ -118,27 +118,27 @@ mob
 		underlays += image(icon='old_or_unused.dmi',icon_state="red", pixel_x = -32)
 
 		// Testing image overlays
-		add_overlay(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = -32))
-		add_overlay(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = 32))
-		add_overlay(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = -32, pixel_y = -32))
+		AddOverlays(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = -32))
+		AddOverlays(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = 32, pixel_y = 32))
+		AddOverlays(image(icon='old_or_unused.dmi',icon_state="green", pixel_x = -32, pixel_y = -32))
 
 		// Testing icon file overlays (defaults to mob's state)
-		add_overlay('_flat_demoIcons2.dmi')
+		AddOverlays('_flat_demoIcons2.dmi')
 
 		// Testing icon_state overlays (defaults to mob's icon)
-		add_overlay("white")
+		AddOverlays("white")
 
 		// Testing dynamic icon overlays
 		var/icon/I = icon('old_or_unused.dmi', icon_state="aqua")
 		I.Shift(NORTH,16,1)
-		add_overlay(I)
+		AddOverlays(I)
 
 		// Testing dynamic image overlays
 		I=image(icon=I,pixel_x = -32, pixel_y = 32)
-		add_overlay(I)
+		AddOverlays(I)
 
 		// Testing object types (and layers)
-		add_overlay(/obj/effect/overlay_test)
+		AddOverlays(/obj/effect/overlay_test)
 
 		loc = locate (10,10,1)
 	verb
@@ -166,9 +166,9 @@ mob
 			// Update the label to show it
 			winset(src,"imageLabel","image='[REF(I)]'");
 
-		Add_Overlay()
+		AddOverlays()
 			set name = "4. Add Overlay"
-			add_overlay(image(icon='old_or_unused.dmi',icon_state="yellow",pixel_x = rand(-64,32), pixel_y = rand(-64,32))
+			AddOverlays(image(icon='old_or_unused.dmi',icon_state="yellow",pixel_x = rand(-64,32), pixel_y = rand(-64,32))
 
 		Stress_Test()
 			set name = "5. Stress Test"
@@ -176,7 +176,7 @@ mob
 				// The third parameter forces it to generate a new one, even if it's already cached
 				getFlatIcon(src,0,2)
 				if(prob(5))
-					Add_Overlay()
+					AddOverlays()
 			Browse_Icon()
 
 		Cache_Test()
@@ -793,7 +793,7 @@ world
 				camo_image.pixel_y--
 			if(5)
 				camo_image.pixel_y++
-		add_overlay(camo_image)//And finally add the overlay.
+		AddOverlays(camo_image)//And finally add the overlay.
 
 /proc/build_disappear_icon(atom/A)
 	var/icon/disappear_icon = new(getFlatIcon(A))
@@ -988,14 +988,14 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 /// so if the given object is associated with an icon that was in the rsc when the game was compiled, this returns a path. otherwise it returns ""
 /proc/get_icon_dmi_path(icon/icon)
 	/// the dmi file path we attempt to return if the given object argument is associated with a stringifiable icon
-	/// if successful, this looks like "icons/path/to/dmi_file.dmi"
+	/// if successful, this looks like 'icons/path/to/dmi_file.dmi'
 	var/icon_path = ""
 
 	if(isatom(icon) || istype(icon, /image) || istype(icon, /mutable_appearance))
 		var/atom/atom_icon = icon
 		icon = atom_icon.icon
 		//atom icons compiled in from 'icons/path/to/dmi_file.dmi' are weird and not really icon objects that you generate with icon().
-		//if theyre unchanged dmi's then they're stringifiable to "icons/path/to/dmi_file.dmi"
+		//if theyre unchanged dmi's then they're stringifiable to 'icons/path/to/dmi_file.dmi'
 
 	if(isicon(icon) && isfile(icon))
 		//icons compiled in from 'icons/path/to/dmi_file.dmi' at compile time are weird and arent really /icon objects,
@@ -1008,7 +1008,7 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	else if(isicon(icon) && "[icon]" == "/icon")
 		// icon objects generated from icon() at runtime are icons, but they ARENT files themselves, they represent icon files.
 		// if the files they represent are compile time dmi files in the rsc, then
-		// the rsc reference returned by fcopy_rsc() will be stringifiable to "icons/path/to/dmi_file.dmi"
+		// the rsc reference returned by fcopy_rsc() will be stringifiable to 'icons/path/to/dmi_file.dmi'
 		var/rsc_ref = fcopy_rsc(icon)
 
 		var/icon_ref = text_ref(rsc_ref)
@@ -1205,9 +1205,9 @@ lighting determines lighting capturing (optional), suppress_errors suppreses err
 	set waitfor = FALSE
 	if(!overlay_image)
 		return
-	add_overlay(overlay_image)
+	AddOverlays(overlay_image)
 	sleep(duration)
-	cut_overlay(overlay_image)
+	CutOverlays(overlay_image)
 
 /// Perform a shake on an atom, resets its position afterwards
 /atom/proc/Shake(pixelshiftx = 2, pixelshifty = 2, duration = 2.5 SECONDS, shake_interval = 0.02 SECONDS)

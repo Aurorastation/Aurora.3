@@ -66,7 +66,7 @@
 
 /obj/outfit/admin/tcaf_crewman/nco
 	accessory = /obj/item/clothing/accessory/legion
-	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/clothing/accessory/tcaf_prefect_pauldron = 1)
+	backpack_contents = list(/obj/item/storage/box/survival = 1, /obj/item/melee/energy/sword/knife = 1, /obj/item/shield/energy/legion = 1, /obj/item/clothing/accessory/tcaf_prefect_pauldron = 1)
 
 /datum/ghostspawner/human/tcaf_crewman/officer
 	name = "Republican Fleet Officer"

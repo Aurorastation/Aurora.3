@@ -1,248 +1,307 @@
+/// SSoverlays. Target the normal overlay cache.
+var/global/const/ATOM_ICON_CACHE_NORMAL = FLAG(0)
+
+/// SSoverlays. Target the protected overlay cache.
+var/global/const/ATOM_ICON_CACHE_PROTECTED = FLAG(1)
+
+/// SSoverlays. Target both normal and protected overlay caches.
+var/global/const/ATOM_ICON_CACHE_ALL = (ATOM_ICON_CACHE_NORMAL | ATOM_ICON_CACHE_PROTECTED)
+
+
 SUBSYSTEM_DEF(overlays)
-	name = "Overlay"
+	name = "Overlays"
 	flags = SS_TICKER
-	runlevels = RUNLEVELS_DEFAULT | RUNLEVEL_LOBBY
-	wait = 1
+	wait = 1 // ticks
 	priority = SS_PRIORITY_OVERLAY
 	init_order = INIT_ORDER_OVERLAY
 
-	var/list/processing = list()
+	/// The queue of atoms that need under/overlay updates.
+	var/static/list/atom/queue = list()
 
-	var/idex = 1
-	var/list/overlay_icon_state_caches = list()
-	var/list/overlay_icon_cache = list()
+	/// A list([icon] = list([state] = [appearance], ...), ...) cache of appearances.
+	var/static/list/state_cache = list()
+
+	/// A list([icon] = [appearance], ...) cache of appearances.
+	var/static/list/icon_cache = list()
+
+	/// The number of appearances currently cached.
+	var/static/cache_size = 0
+
 	initialized = FALSE
 
-/datum/controller/subsystem/overlays/stat_entry(msg)
-	msg = "Ov:[processing.len - (idex - 1)]"
-	return ..()
+/datum/controller/subsystem/overlays/Recover()
+	LIST_RESIZE(queue, 0)
+	LIST_RESIZE(state_cache, 0)
+	LIST_RESIZE(icon_cache, 0)
+	cache_size = 0
+	var/count = 0
+	for (var/atom/atom)
+		atom.atom_flags &= ~ATOM_AWAITING_OVERLAY_UPDATE
+		if (++count % 500)
+			continue
+		CHECK_TICK
 
-/datum/controller/subsystem/overlays/Initialize()
+/datum/controller/subsystem/overlays/Initialize(start_uptime)
 	initialized = TRUE
-	Flush()
+	fire(FALSE, TRUE)
 
 	return SS_INIT_SUCCESS
 
-/datum/controller/subsystem/overlays/Recover()
-	overlay_icon_state_caches = SSoverlays.overlay_icon_state_caches
-	overlay_icon_cache = SSoverlays.overlay_icon_cache
-	processing = SSoverlays.processing
+/datum/controller/subsystem/overlays/stat_entry(msg)
+	msg = "Queued Atoms: [length(queue)], Cache Size: [cache_size]"
+	return ..()
 
-/datum/controller/subsystem/overlays/fire(resumed = FALSE, mc_check = TRUE)
-	var/list/processing = src.processing
-	while(idex <= processing.len)
-		var/atom/thing = processing[idex++]
+/datum/controller/subsystem/overlays/fire(resumed, no_mc_tick)
+	var/queue_length = length(queue)
+	if (queue_length)
+		var/atom/atom
+		for (var/i = 1 to queue_length)
+			atom = queue[i]
+			if (QDELETED(atom))
+				continue
+			if (atom.atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)
+				atom.UpdateOverlays()
+			if (no_mc_tick)
+				if (i % 1000)
+					continue
+				CHECK_TICK
+			else if (MC_TICK_CHECK)
+				queue.Cut(1, i + 1)
+				return
+		queue.Cut(1, queue_length + 1)
 
-		if(!QDELETED(thing) && thing.overlay_queued)	// Don't double-process if something already forced a compile.
-			thing.compile_overlays()
+/datum/controller/subsystem/overlays/proc/GetStateAppearance(icon, state)
+	var/list/subcache = state_cache[icon]
+	if (!subcache)
+		subcache = list()
+		state_cache[icon] = subcache
+	if (!subcache[state])
+		var/image/image = image(icon, null, state)
+		subcache[state] = image.appearance
+		++cache_size
+	return subcache[state]
 
-		if(mc_check)
-			if(MC_TICK_CHECK)
-				break
+
+/datum/controller/subsystem/overlays/proc/GetIconAppearance(icon)
+	if (!icon_cache[icon])
+		var/image/image = image(icon)
+		icon_cache[icon] = image.appearance
+		++cache_size
+	return icon_cache[icon]
+
+
+/datum/controller/subsystem/overlays/proc/GetAppearanceList(atom/subject, list/sources)
+	if (!sources)
+		return list()
+	if (!islist(sources))
+		sources = list(sources)
+	var/list/result = list()
+	var/icon/icon = subject.icon
+	var/atom/entry
+	for (var/i = 1 to length(sources))
+		entry = sources[i]
+		if (!entry)
+			continue
+		else if (istext(entry))
+			result += GetStateAppearance(icon, entry)
+		else if (isicon(entry))
+			result += GetIconAppearance(entry)
 		else
-			CHECK_TICK
+			if (isloc(entry))
+				if (entry.atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)
+					entry.UpdateOverlays()
+			if (!ispath(entry))
+				result += entry.appearance
+			else
+				var/image/image = entry
+				result += image.appearance
+	return result
 
-	if (idex > 1)
-		processing.Cut(1, idex)
-		idex = 1
 
-/datum/controller/subsystem/overlays/proc/Flush()
-	if(processing.len)
-		log_subsystem("overlays", "Flushing [processing.len] overlays.")
-		fire(mc_check = FALSE)
+/// Immediately runs an overlay update.
+/atom/proc/ImmediateOverlayUpdate()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	UpdateOverlays()
 
-/atom/proc/compile_overlays()
-	var/list/oo = our_overlays
-	var/list/po = priority_overlays
-	if(LAZYLEN(po) && LAZYLEN(oo))
-		overlays = oo + po
-	else if(LAZYLEN(oo))
-		overlays = oo
-	else if(LAZYLEN(po))
-		overlays = po
-	else
-		overlays.Cut()
-
-	overlay_queued = FALSE
-
-/atom/movable/compile_overlays()
-	..()
-	UPDATE_OO_IF_PRESENT
-
-/turf/compile_overlays()
-	..()
-	if (istype(above))
-		update_above()
-
-/proc/iconstate2appearance(icon, iconstate)
-	var/static/image/stringbro = new()
-	var/list/icon_states_cache = SSoverlays.overlay_icon_state_caches
-	var/list/cached_icon = icon_states_cache[icon]
-	if (cached_icon)
-		var/cached_appearance = cached_icon["[iconstate]"]
-		if (cached_appearance)
-			return cached_appearance
-	stringbro.icon = icon
-	stringbro.icon_state = iconstate
-	if (!cached_icon) //not using the macro to save an associated lookup
-		cached_icon = list()
-		icon_states_cache[icon] = cached_icon
-	var/cached_appearance = stringbro.appearance
-	cached_icon["[iconstate]"] = cached_appearance
-	return cached_appearance
-
-/proc/icon2appearance(icon)
-	var/static/image/iconbro = new()
-	var/list/icon_cache = SSoverlays.overlay_icon_cache
-	. = icon_cache[icon]
-	if (!.)
-		iconbro.icon = icon
-		. = iconbro.appearance
-		icon_cache[icon] = .
-
-#define APPEARANCEIFY(origin, target) \
-	if (istext(origin)) { \
-		target = iconstate2appearance(icon, origin); \
-	} \
-	else if (isicon(origin)) { \
-		target = icon2appearance(origin); \
-	} \
-	else { \
-		appearance_bro.appearance = origin; \
-		if (!ispath(origin)) { \
-			appearance_bro.dir = origin.dir; \
-		} \
-		target = appearance_bro.appearance; \
-	}
-
-/atom/proc/build_appearance_list(atom/new_overlays)
-	var/static/image/appearance_bro = new
-	if (islist(new_overlays))
-		listclearnulls(new_overlays)
-		for (var/i in 1 to length(new_overlays))
-			var/image/cached_overlay = new_overlays[i]
-			APPEARANCEIFY(cached_overlay, new_overlays[i])
-		return new_overlays
-	else
-		APPEARANCEIFY(new_overlays, .)
-
-#undef APPEARANCEIFY
-#define NOT_QUEUED_ALREADY (!(overlay_queued))
-#define QUEUE_FOR_COMPILE overlay_queued = TRUE; SSoverlays.processing += src;
-
-/atom/proc/cut_overlays(priority = FALSE, force_compile = FALSE)
-	var/list/cached_overlays = our_overlays
-	var/list/cached_priority = priority_overlays
-
-	var/need_compile = FALSE
-
-	if(LAZYLEN(cached_overlays)) //don't queue empty lists, don't cut priority overlays
-		cached_overlays.Cut()  //clear regular overlays
-		need_compile = TRUE
-
-	if(priority && LAZYLEN(cached_priority))
-		cached_priority.Cut()
-		need_compile = TRUE
-
-	if(need_compile)
-		if(!SS_IS_RUNNING(SSoverlays))
-			compile_overlays()
-		else if(NOT_QUEUED_ALREADY)
-			QUEUE_FOR_COMPILE
-
-/atom/proc/cut_overlay(list/overlays, priority = FALSE, force_compile = FALSE)
-	if(!overlays)
+/**
+* Shared behavior for ClearOverlays & CutUnderlays. Do not use directly.
+* null: nothing changed, do nothing
+* FALSE: update should be queued
+* TRUE: update should be queued, cache should be nulled
+*/
+/atom/proc/CutCacheBehavior(sources, cache)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	var/initial_length = length(cache)
+	if (!initial_length)
 		return
+	cache -= sources
+	var/after_length = length(cache)
+	if (!after_length)
+		return TRUE
+	if (initial_length > after_length)
+		return FALSE
 
-	overlays = build_appearance_list(overlays)
 
-	var/list/cached_overlays = our_overlays	//sanic
-	var/list/cached_priority = priority_overlays
-	var/init_o_len = LAZYLEN(cached_overlays)
-	var/init_p_len = LAZYLEN(cached_priority)  //starter pokemon
-
-	LAZYREMOVE(cached_overlays, overlays)
-	if(priority)
-		LAZYREMOVE(cached_priority, overlays)
-
-	if(force_compile && !SS_IS_RUNNING(SSoverlays))
-		compile_overlays()
-	else if(NOT_QUEUED_ALREADY && ((init_o_len != LAZYLEN(cached_priority)) || (init_p_len != LAZYLEN(cached_overlays))))
-		QUEUE_FOR_COMPILE
-
-/atom/proc/add_overlay(list/overlays, priority = FALSE, force_compile = FALSE)
-	if(!overlays)
+/// Enqueues the atom for an overlay update if not already queued
+/atom/proc/QueueOverlayUpdate()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if (atom_flags & ATOM_AWAITING_OVERLAY_UPDATE)
 		return
+	atom_flags |= ATOM_AWAITING_OVERLAY_UPDATE
+	SSoverlays.queue += src
 
-	overlays = build_appearance_list(overlays)
 
-	if (!overlays || (islist(overlays) && !overlays.len))
-		// No point trying to compile if we don't have any overlays.
+/// Builds the atom's overlay state from caches
+/atom/proc/UpdateOverlays()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	atom_flags &= ~ATOM_AWAITING_OVERLAY_UPDATE
+	if (QDELING(src))
+		LIST_RESIZE(overlays, 0)
 		return
-
-	if(priority)
-		LAZYADD(priority_overlays, overlays)
-	else
-		LAZYADD(our_overlays, overlays)
-
-	if(force_compile && !SS_IS_RUNNING(SSoverlays))
-		compile_overlays()
-	else if(NOT_QUEUED_ALREADY)
-		QUEUE_FOR_COMPILE
-
-/atom/proc/set_overlays(list/overlays, priority = FALSE, force_compile = FALSE)	// Sets overlays to a list, equivalent to cut_overlays() + add_overlays().
-	if (!overlays)
-		return
-
-	overlays = build_appearance_list(overlays)
-
-	if (priority)
-		LAZYCLEARLIST(priority_overlays)
-		if (overlays)
-			LAZYADD(priority_overlays, overlays)
-	else
-		LAZYCLEARLIST(our_overlays)
-		if (overlays)
-			LAZYADD(our_overlays, overlays)
-
-	if(force_compile && !SS_IS_RUNNING(SSoverlays))
-		compile_overlays()
-	else if (NOT_QUEUED_ALREADY)
-		QUEUE_FOR_COMPILE
-
-/atom/proc/copy_overlays(atom/other, cut_old = FALSE, force_compile = FALSE)	//copys our_overlays from another atom
-	if(!other)
-		if(cut_old)
-			cut_overlays()
-		return
-
-	var/list/cached_other = other.our_overlays
-	if(cached_other)
-		if(cut_old)
-			our_overlays = cached_other.Copy()
+	if (length(atom_protected_overlay_cache))
+		if (length(atom_overlay_cache))
+			overlays = atom_protected_overlay_cache + atom_overlay_cache
 		else
-			our_overlays |= cached_other
-		if(force_compile && !SS_IS_RUNNING(SSoverlays))
-			compile_overlays()
-		else if(NOT_QUEUED_ALREADY)
-			QUEUE_FOR_COMPILE
-	else if(cut_old)
-		cut_overlays()
+			overlays = atom_protected_overlay_cache
+	else if (length(atom_overlay_cache))
+		overlays = atom_overlay_cache
+	else
+		LIST_RESIZE(overlays, 0)
 
-#undef NOT_QUEUED_ALREADY
-#undef QUEUE_FOR_COMPILE
 
-//TODO: Better solution for these?
-/image/proc/add_overlay(x)
-	overlays += x
+/// Clears the atom's overlay cache(s) and queues an update if needed. Use CLEAR_TARGET_* flags.
+/atom/proc/ClearOverlays(cache_target = ATOM_ICON_CACHE_NORMAL)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if (cache_target & ATOM_ICON_CACHE_PROTECTED)
+		if (!atom_protected_overlay_cache)
+			return
+		LAZYCLEARLIST(atom_protected_overlay_cache)
+		QueueOverlayUpdate()
+	if (cache_target & ATOM_ICON_CACHE_NORMAL)
+		if (!atom_overlay_cache)
+			return
+		LAZYCLEARLIST(atom_overlay_cache)
+		QueueOverlayUpdate()
 
-/image/proc/cut_overlay(x)
-	overlays -= x
 
-/image/proc/cut_overlays(x)
-	overlays.Cut()
+/**
+ * Adds specific overlay(s) to the atom.
+ * It is designed so any of the types allowed to be added to /atom/overlays can be added here too. More details below.
+ *
+ * @param sources The overlay(s) to add. These may be
+ *	- A string: In which case it is treated as an icon_state of the atom's icon.
+ *	- An icon: It is treated as an icon.
+ *	- An atom: Its own overlays are compiled and then it's appearance is added. (Meaning its current apperance is frozen).
+ *	- An image: Image's apperance is added (i.e. subsequently editing the image will not edit the overlay)
+ *	- A type path: Added to overlays as is.  Does whatever it is BYOND does when you add paths to overlays.
+ *	- Or a list containing any of the above.
+ * @param cache_target If ATOM_ICON_CACHE_PROTECTED, add to the protected cache instead of normal.
+ */
+/atom/proc/AddOverlays(sources, cache_target = ATOM_ICON_CACHE_NORMAL)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if (!sources)
+		return
+	sources = SSoverlays.GetAppearanceList(src, sources)
+	if (!length(sources))
+		return
+	if (cache_target & ATOM_ICON_CACHE_PROTECTED)
+		if (atom_protected_overlay_cache)
+			atom_protected_overlay_cache += sources
+		else
+			atom_protected_overlay_cache = sources
+	else if (atom_overlay_cache)
+		atom_overlay_cache += sources
+	else
+		atom_overlay_cache = sources
+	QueueOverlayUpdate()
 
-/atom
-	var/tmp/list/our_overlays	//our local copy of (non-priority) overlays without byond magic. Use procs in SSoverlays to manipulate
-	var/tmp/list/priority_overlays	//overlays that should remain on top and not normally removed when using cut_overlay functions, like c4.
-	var/tmp/overlay_queued
+
+/**
+ * Removes specific overlay(s) from the atom's normal or protected overlay cache and queue an update.
+ *
+ * @param overlays The overlays to removed. See AddOverlays for legal source types.
+ * @param cache_target A mask of ICON_CACHE_TARGET_*.
+ */
+/atom/proc/CutOverlays(sources, cache_target = ATOM_ICON_CACHE_NORMAL)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if (!sources)
+		return
+	sources = SSoverlays.GetAppearanceList(src, sources)
+	if (!length(sources))
+		return
+	var/update
+	if (cache_target & ATOM_ICON_CACHE_PROTECTED)
+		var/outcome = CutCacheBehavior(sources, atom_protected_overlay_cache)
+		if (!isnull(outcome))
+			update = TRUE
+			if (outcome == TRUE)
+				atom_protected_overlay_cache = null
+	if (cache_target & ATOM_ICON_CACHE_NORMAL)
+		var/outcome = CutCacheBehavior(sources, atom_overlay_cache)
+		if (!isnull(outcome))
+			update = TRUE
+			if (outcome == TRUE)
+				atom_overlay_cache = null
+	if (update)
+		QueueOverlayUpdate()
+
+
+/// AddOverlays with ClearOverlays first. See AddOverlays for behavior.
+/atom/proc/SetOverlays(sources, cache_target = ATOM_ICON_CACHE_NORMAL)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	ClearOverlays(cache_target)
+	AddOverlays(sources, cache_target)
+
+
+/**
+ * Copy the overlays from another atom.
+ *
+ * @param other The atom to copy overlays from.
+ * @param clear If TRUE, clear before adding other's overlays.
+ * @param cache_target A mask of ICON_CACHE_TARGET_* indicating what to copy.
+ */
+/atom/proc/CopyOverlays(atom/other, clear, cache_target = ATOM_ICON_CACHE_NORMAL)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if (clear)
+		ClearOverlays(cache_target)
+	if (!istype(other))
+		return
+	if (cache_target & ATOM_ICON_CACHE_PROTECTED)
+		AddOverlays(other.atom_protected_overlay_cache, ATOM_ICON_CACHE_PROTECTED)
+	if (cache_target & ATOM_ICON_CACHE_NORMAL)
+		AddOverlays(other.atom_overlay_cache, ATOM_ICON_CACHE_NORMAL)
+
+
+// Skin-deep API parity for images.
+// Reference <https://www.byond.com/docs/ref/#/atom/var/overlays> for permitted types.
+
+/// Adds sources to the image's overlays.
+/image/proc/AddOverlays(sources)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	overlays |= sources
+
+
+/// Removes sources from the image's overlays.
+/image/proc/CutOverlays(sources)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	overlays -= sources
+
+
+/// Removes all of the image's overlays.
+/image/proc/ClearOverlays()
+	SHOULD_NOT_OVERRIDE(TRUE)
+	LIST_RESIZE(overlays, 0)
+
+
+/// Copies the overlays from the atom other, clearing first if set, and using the caches indicated.
+/image/proc/CopyOverlays(atom/other, clear, cache_target = ATOM_ICON_CACHE_ALL)
+	SHOULD_NOT_OVERRIDE(TRUE)
+	if (clear)
+		LIST_RESIZE(overlays, 0)
+	if (!istype(other))
+		return
+	if (cache_target & ATOM_ICON_CACHE_PROTECTED)
+		overlays |= other.atom_protected_overlay_cache
+	if (cache_target & ATOM_ICON_CACHE_NORMAL)
+		overlays |= other.atom_overlay_cache
+

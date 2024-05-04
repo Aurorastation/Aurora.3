@@ -46,19 +46,19 @@
 	update_icon()
 
 /obj/structure/fireaxecabinet/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(fireaxe)
-		add_overlay("axe")
+		AddOverlays("axe")
 	if(shattered)
-		add_overlay("glass4")
+		AddOverlays("glass4")
 	if(unlocked)
-		add_overlay("unlocked")
+		AddOverlays("unlocked")
 	else
-		add_overlay("locked")
+		AddOverlays("locked")
 	if(open)
-		add_overlay("glass_raised")
+		AddOverlays("glass_raised")
 	else
-		add_overlay("glass")
+		AddOverlays("glass")
 
 
 /obj/structure/fireaxecabinet/New()

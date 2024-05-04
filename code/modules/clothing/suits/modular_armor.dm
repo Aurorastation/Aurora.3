@@ -481,7 +481,7 @@
 	if(shading_state)
 		shading_icon = new(icon, shading_state)
 		flagpatch_icon.Blend(shading_icon, ICON_MULTIPLY)
-		add_overlay(flagpatch_icon)
+		AddOverlays(flagpatch_icon)
 
 /obj/item/clothing/accessory/flagpatch/rectangular
 	shading_state = null

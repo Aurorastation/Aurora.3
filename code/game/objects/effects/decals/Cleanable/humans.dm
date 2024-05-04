@@ -106,11 +106,11 @@
 				if(!S.blood_DNA)
 					S.blood_DNA = list()
 					S.blood_overlay.color = basecolor
-					S.add_overlay(S.blood_overlay)
+					S.AddOverlays(S.blood_overlay)
 				if(S.blood_overlay && S.blood_overlay.color != basecolor)
-					S.cut_overlay(S.blood_overlay, TRUE)
+					S.CutOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 					S.blood_overlay.color = basecolor
-					S.add_overlay(S.blood_overlay, TRUE)
+					S.AddOverlays(S.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 				if(blood_DNA)
 					S.blood_DNA |= blood_DNA.Copy()
 
@@ -217,8 +217,8 @@
 	blood.Blend(basecolor,ICON_MULTIPLY)
 
 	icon = blood
-	cut_overlays()
-	add_overlay(giblets)
+	ClearOverlays()
+	AddOverlays(giblets)
 
 /obj/effect/decal/cleanable/blood/gibs/up
 	random_icon_states = list("gib1", "gib2", "gib3", "gib4", "gib5", "gibup1","gibup1","gibup1")

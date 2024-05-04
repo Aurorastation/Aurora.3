@@ -63,7 +63,7 @@
 			icon_state = "[initial(icon_state)][src.opened]"
 			..()
 	else
-		cut_overlays()
+		ClearOverlays()
 		icon_state = "[initial(icon_state)]" // closed
 	..()
 
@@ -102,10 +102,10 @@
 /obj/item/storage/box/fancy/donut/update_icon() // One of the few unique update_icon()s, due to having to store both regular and sprinkled donuts.
 	. = ..()
 	if(opened)
-		cut_overlays()
+		ClearOverlays()
 		var/i = 0
 		for(var/obj/item/reagent_containers/food/snacks/donut/D in contents)
-			add_overlay("[i][D.overlay_state]")
+			AddOverlays("[i][D.overlay_state]")
 			i++
 
 /obj/item/storage/box/fancy/donut/empty
@@ -221,10 +221,10 @@
 
 /obj/item/storage/box/fancy/crayons/update_icon()
 	. = ..()
-	cut_overlays()
-	add_overlay("crayonbox")
+	ClearOverlays()
+	AddOverlays("crayonbox")
 	for(var/obj/item/pen/crayon/crayon in contents)
-		add_overlay("[crayon.colourName]")
+		AddOverlays("[crayon.colourName]")
 
 /obj/item/storage/box/fancy/crayons/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/pen/crayon))
@@ -467,13 +467,13 @@
 	. = ..()
 	var/total_contents = src.contents.len - itemremoved
 	src.icon_state = "vialbox[total_contents]"
-	cut_overlays()
+	ClearOverlays()
 	if (!broken)
-		add_overlay("led[locked]")
+		AddOverlays("led[locked]")
 		if(locked)
-			add_overlay("cover")
+			AddOverlays("cover")
 	else
-		add_overlay("ledb")
+		AddOverlays("ledb")
 
 /obj/item/storage/lockbox/vials/attackby(attacking_item, mob/user)
 	..()
@@ -527,7 +527,7 @@
 	update_icon()
 
 /obj/item/pizzabox/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	// Set appropriate description
 	if( open && pizza )
@@ -555,7 +555,7 @@
 		if( pizza )
 			var/image/pizzaimg = image(pizza.icon, pizza.icon_state)
 			pizzaimg.pixel_y = -2
-			add_overlay(pizzaimg)
+			AddOverlays(pizzaimg)
 
 		return
 	else
@@ -572,7 +572,7 @@
 		if( doimgtag )
 			var/image/tagimg = image(icon, icon_state = "pizzabox_tag")
 			tagimg.pixel_y = boxes.len * 3
-			add_overlay(tagimg)
+			AddOverlays(tagimg)
 
 	icon_state = "pizzabox[boxes.len+1]"
 

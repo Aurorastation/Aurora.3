@@ -149,8 +149,8 @@
 			if(i.color)
 				radial_button.color = i.color
 			if(i.build_from_parts && i.worn_overlay)
-				radial_button.cut_overlays()
-				radial_button.add_overlay(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
+				radial_button.ClearOverlays()
+				radial_button.AddOverlays(overlay_image(i.icon, "[i.icon_state]_[i.worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		A = show_radial_menu(M, M, options, radius = 42, tooltips = TRUE)
 	else

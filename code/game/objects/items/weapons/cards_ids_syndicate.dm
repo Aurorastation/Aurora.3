@@ -112,10 +112,10 @@
 	check_obfuscation()
 
 /obj/item/card/id/syndicate/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(electronic_warfare)
 		var/mutable_appearance/electro_overlay = mutable_appearance(icon, "electronic_warfare")
-		add_overlay(electro_overlay)
+		AddOverlays(electro_overlay)
 
 /obj/item/card/id/syndicate/proc/check_obfuscation()
 	if(electronic_warfare)

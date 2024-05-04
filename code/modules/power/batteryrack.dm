@@ -88,8 +88,8 @@
 /obj/machinery/power/smes/batteryrack/makeshift/update_icon()
 	.=..()
 	if(overcharge_percent > 100)
-		cut_overlays()
-		add_overlay("smes-crit")
+		ClearOverlays()
+		AddOverlays("smes-crit")
 
 //This mess of if-elses and magic numbers handles what happens if the engies don't pay attention and let it eat too much charge
 //What happens depends on how much capacity has the ghetto smes and how much it is overcharged.

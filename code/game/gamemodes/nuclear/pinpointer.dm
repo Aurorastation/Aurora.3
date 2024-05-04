@@ -81,7 +81,7 @@
 	else
 		active = 0
 		icon_state = "pinoff"
-		cut_overlays()
+		ClearOverlays()
 		to_chat(usr, "<span class='notice'>You deactivate the pinpointer</span>")
 
 /obj/item/pinpointer/advpinpointer/process()
@@ -113,12 +113,12 @@
 			icon_state = "pinonfar"
 
 /obj/item/pinpointer/advpinpointer/proc/set_z_overlays(var/atom/target)
-	cut_overlays()
+	ClearOverlays()
 	if(AreConnectedZLevels(src.loc.z, target.z))
 		if(src.loc.z > target.z)
-			add_overlay("pinzdown")
+			AddOverlays("pinzdown")
 		else if(src.loc.z < target.z)
-			add_overlay("pinzup")
+			AddOverlays("pinzup")
 	else
 		active = 0
 		if(ismob(loc))

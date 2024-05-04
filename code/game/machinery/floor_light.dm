@@ -123,7 +123,7 @@ var/list/floor_light_cache = list()
 	update_icon()
 
 /obj/machinery/floor_light/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/floor_light_cache = SSicon_cache.floor_light_cache
 	if(use_power && !broken())
 		if(damaged == null)
@@ -133,7 +133,7 @@ var/list/floor_light_cache = list()
 				I.color = default_light_colour
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
-			add_overlay(floor_light_cache[cache_key])
+			AddOverlays(floor_light_cache[cache_key])
 		else
 			if(damaged == 0) //Needs init.
 				damaged = rand(1,4)
@@ -143,7 +143,7 @@ var/list/floor_light_cache = list()
 				I.color = default_light_colour
 				I.layer = layer+0.001
 				floor_light_cache[cache_key] = I
-			add_overlay(floor_light_cache[cache_key])
+			AddOverlays(floor_light_cache[cache_key])
 	if(stat & BROKEN)
 		icon_state = "broken"
 	else

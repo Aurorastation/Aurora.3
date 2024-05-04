@@ -88,7 +88,7 @@
 		..()
 
 /mob/living/simple_animal/corgi/regenerate_icons()
-	cut_overlays()
+	ClearOverlays()
 
 	if(inventory_head)
 		var/head_icon_state = inventory_head.icon_state
@@ -97,7 +97,7 @@
 
 		var/icon/head_icon = image('icons/mob/corgi_head.dmi',head_icon_state)
 		if(head_icon)
-			add_overlay(head_icon)
+			AddOverlays(head_icon)
 
 	if(inventory_back)
 		var/back_icon_state = inventory_back.icon_state
@@ -106,7 +106,7 @@
 
 		var/icon/back_icon = image('icons/mob/corgi_back.dmi',back_icon_state)
 		if(back_icon)
-			add_overlay(back_icon)
+			AddOverlays(back_icon)
 
 /mob/living/simple_animal/corgi/puppy
 	name = "corgi puppy"

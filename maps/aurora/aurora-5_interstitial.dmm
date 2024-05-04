@@ -7886,7 +7886,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/medbay_virology)
 "FK" = (
-/obj/effect/landmark/dungeon_spawn,
 /turf/unsimulated/chasm_mask,
 /area/mine/unexplored)
 "FP" = (

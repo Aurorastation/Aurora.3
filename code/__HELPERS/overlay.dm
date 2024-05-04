@@ -39,7 +39,7 @@
 		overlay.blend_mode = BLEND_ADD
 		a_cache_icon[icon_state] = overlay
 
-	target.add_overlay(list(multiply, overlay))
+	target.AddOverlays(list(multiply, overlay))
 
 /proc/make_screen_overlay(icon, icon_state, brightness_factor = null, glow_radius = 1)
 	var/image/overlay = image(icon, icon_state)
