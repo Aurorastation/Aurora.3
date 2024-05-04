@@ -23,6 +23,14 @@
 	desc = "A ring-shaped installation with a powerful sensor suite. These stations were originally built during the pre-Interstellar War era by the Solarian Alliance’s Department of Colonization as a method of making interstellar travel safer. Thousands of these “beacon stations” were built by the Alliance and many were abandoned during the Interstellar War and its aftermath. While they have been mostly replaced in more developed sectors, such as Liberty’s Cradle and the Jewel Worlds, beacon stations are still a common sight in less developed sectors of the Orion Spur such as the Badlands and Weeping Stars."
 	comms_support = TRUE
 	comms_name = "Sensor Relay"
+	initial_generic_waypoints = list(
+		"relay_n",
+		"relay_nw",
+		"relay_ne",
+		"relay_s",
+		"relay_sw",
+		"relay_se",
+	)
 
 /obj/effect/overmap/visitable/sector/sensor_relay/handle_sensor_state_change(var/on)
 	if(on)
