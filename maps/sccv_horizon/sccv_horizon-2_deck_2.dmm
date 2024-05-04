@@ -46921,10 +46921,6 @@
 	pixel_x = 8;
 	pixel_y = 3
 	},
-/obj/item/bananapeel{
-	pixel_x = -7;
-	pixel_y = 1
-	},
 /turf/simulated/floor/carpet,
 /area/horizon/bar/backroom)
 "vNQ" = (
