@@ -1,0 +1,9 @@
+
+author: DreamySkrell
+
+delete-after: True
+
+changes:
+  - rscadd: "Abandoned Industrial Station: docks and shuttle landmarks updated to new standards."
+  - rscadd: "Abandoned Industrial Station: minor mapping tweaks."
+  - rscadd: "Abandoned Industrial Station: removed sector blacklist so it can spawn anywhere."
