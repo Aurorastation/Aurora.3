@@ -1053,3 +1053,11 @@
 	center_of_mass = list("x"=16, "y"=8)
 
 	reagents_to_add = list(/singleton/reagent/alcohol/bottle/skrellwineylpha = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/nemiik
+	name = "vrozka farms ne'miik"
+	desc = "A bottle of Ne'miik under the label 'Vrozka Farms' from Caprice. It has labels in Basic boasting 'rich in minerals!' and warning that 'consumption by Humans or Tajara may cause negative effects', whatever that means."
+	icon_state = "vrozka_nemiik"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
+	empty_icon_state = "vrozka_empty"
