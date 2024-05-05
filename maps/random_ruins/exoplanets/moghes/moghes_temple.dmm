@@ -1,213 +1,278 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/moghes_temple)
 "b" = (
 /obj/structure/flora/tree/jungle/random,
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/moghes_temple)
 "c" = (
 /obj/structure/unathi_pillar,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/moghes_temple)
 "d" = (
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/moghes_temple)
 "e" = (
 /obj/effect/floor_decal/carpet{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "f" = (
 /obj/structure/platform_deco{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "g" = (
 /obj/item/stack/material/sandstone,
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/moghes_temple)
 "h" = (
 /obj/structure/bed/chair,
 /obj/item/bedsheet/black,
 /obj/structure/curtain/open/bed,
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "i" = (
 /obj/structure/flora/grass/junglegrass/random,
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/moghes_temple)
 "j" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 8
 	},
-/area/space)
+/area/moghes_temple)
 "k" = (
 /obj/structure/platform{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "l" = (
 /obj/structure/platform,
 /obj/effect/floor_decal/carpet{
 	dir = 10
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "m" = (
+/obj/item/nullrod/shaman,
 /turf/simulated/floor/carpet,
-/area/space)
+/area/moghes_temple)
 "n" = (
 /obj/structure/simple_door/sandstone,
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "o" = (
 /obj/structure/platform{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
+"p" = (
+/obj/structure/closet/cabinet,
+/obj/item/material/sword/axe,
+/turf/simulated/floor/exoplanet/wood/walnut,
+/area/moghes_temple)
 "q" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 10
 	},
-/area/space)
+/area/moghes_temple)
+"r" = (
+/turf/simulated/floor/carpet,
+/area/moghes_temple)
 "s" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 1
 	},
-/area/space)
+/area/moghes_temple)
 "t" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "corner";
 	dir = 4
 	},
-/area/space)
+/area/moghes_temple)
 "u" = (
 /obj/structure/bed/stool/chair/sofa/pew/left{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "v" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 4
 	},
-/area/space)
+/area/moghes_temple)
 "w" = (
 /obj/structure/bed/stool/chair/sofa/pew{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "x" = (
 /obj/structure/platform_stairs{
 	dir = 4
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "y" = (
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "z" = (
 /obj/structure/platform,
 /obj/effect/floor_decal/carpet,
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "A" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "corner"
 	},
-/area/space)
+/area/moghes_temple)
+"B" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/carpet,
+/area/moghes_temple)
+"C" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_temple)
+"D" = (
+/obj/structure/flora/stump/log,
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_temple)
 "E" = (
 /turf/simulated/floor/exoplanet/water/shallow/moghes,
-/area/space)
+/area/moghes_temple)
 "F" = (
 /obj/structure/unathi_pillar,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 5
 	},
-/area/space)
+/area/moghes_temple)
+"G" = (
+/obj/structure/bonfire,
+/turf/simulated/floor/exoplanet/wood/walnut,
+/area/moghes_temple)
+"H" = (
+/obj/effect/decal/cleanable/blood/drip,
+/turf/simulated/floor/exoplanet/grass/moghes/dirt,
+/area/moghes_temple)
+"I" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/mob/living/simple_animal/hostile/biglizard,
+/turf/simulated/floor/exoplanet/wood/walnut,
+/area/moghes_temple)
 "J" = (
 /obj/item/stack/material/sandstone,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken3,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken2,
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/moghes_temple)
 "K" = (
 /obj/structure/platform,
 /obj/effect/floor_decal/carpet{
 	dir = 6
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "L" = (
 /obj/structure/platform_stairs{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "M" = (
 /obj/structure/table/wood/walnut,
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
+"N" = (
+/obj/effect/landmark/corpse/moghes_priest_unknown,
+/obj/effect/decal/cleanable/blood,
+/turf/simulated/floor/carpet,
+/area/moghes_temple)
 "O" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 5
 	},
-/area/space)
+/area/moghes_temple)
 "P" = (
 /obj/structure/platform_deco{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
+"Q" = (
+/obj/structure/table/wood/walnut,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/obj/item/device/flashlight/flare/torch,
+/turf/simulated/floor/exoplanet/wood/walnut,
+/area/moghes_temple)
 "R" = (
 /obj/effect/floor_decal/carpet{
 	dir = 8
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
 "S" = (
 /turf/simulated/wall/sandstone,
-/area/space)
+/area/moghes_temple)
 "T" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 9
 	},
-/area/space)
+/area/moghes_temple)
 "U" = (
 /obj/item/stack/material/sandstone,
 /obj/effect/decal/cleanable/floor_damage/tiled_broken1,
 /turf/simulated/floor/exoplanet/grass/moghes/dirt,
-/area/space)
+/area/moghes_temple)
 "V" = (
 /obj/structure/flora/grass/junglegrass/random,
 /obj/structure/flora/tree/jungle/random,
 /turf/simulated/floor/exoplanet/grass/moghes,
-/area/space)
+/area/moghes_temple)
 "W" = (
 /turf/simulated/floor/exoplanet/grass/moghes/dirt{
 	icon_state = "edge";
 	dir = 6
 	},
-/area/space)
+/area/moghes_temple)
+"X" = (
+/obj/structure/flora/tree/jungle/small{
+	desc = "A pile of unassuming rocks.";
+	icon = 'icons/obj/flora/largejungleflora.dmi';
+	icon_state = "rocks3";
+	layer = 2.5;
+	name = "rocks";
+	pixel_x = -16;
+	pixel_y = -16
+	},
+/turf/simulated/floor/exoplanet/grass/moghes,
+/area/moghes_temple)
 "Y" = (
 /obj/structure/bed/stool/chair/sofa/pew/right{
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/wood/walnut,
-/area/space)
+/area/moghes_temple)
+"Z" = (
+/obj/structure/table/wood/walnut,
+/obj/item/stack/material/wood/log/full,
+/turf/simulated/floor/exoplanet/wood/walnut,
+/area/moghes_temple)
 
 (1,1,1) = {"
 d
@@ -390,10 +455,10 @@ d
 d
 d
 S
-y
-y
-y
-y
+Q
+M
+Z
+M
 S
 d
 d
@@ -427,7 +492,7 @@ S
 y
 y
 y
-y
+M
 S
 d
 d
@@ -461,7 +526,7 @@ S
 y
 y
 y
-y
+M
 S
 d
 d
@@ -589,7 +654,7 @@ S
 S
 S
 S
-y
+G
 y
 y
 u
@@ -726,20 +791,20 @@ y
 y
 M
 z
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
+r
+N
+r
+B
+r
+r
+r
+B
+r
+r
+r
 n
 a
-a
+H
 a
 a
 a
@@ -747,7 +812,7 @@ a
 a
 a
 W
-a
+H
 a
 s
 d
@@ -760,23 +825,23 @@ y
 y
 M
 z
+r
+r
 m
-m
-m
-m
-m
-m
-m
-m
-m
-m
-m
+r
+r
+B
+r
+r
+r
+B
+r
 n
 a
 a
 a
 a
-a
+H
 a
 a
 a
@@ -784,7 +849,7 @@ j
 q
 a
 t
-d
+C
 d
 "}
 (18,1,1) = {"
@@ -797,7 +862,7 @@ l
 R
 R
 R
-R
+I
 R
 R
 R
@@ -895,7 +960,7 @@ S
 S
 S
 S
-y
+G
 y
 y
 Y
@@ -978,7 +1043,7 @@ S
 S
 d
 i
-d
+D
 d
 d
 d
@@ -1005,7 +1070,7 @@ S
 y
 y
 y
-y
+p
 S
 d
 d
@@ -1078,7 +1143,7 @@ g
 d
 d
 d
-d
+X
 d
 d
 d
