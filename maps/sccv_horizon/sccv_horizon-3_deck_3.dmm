@@ -1446,27 +1446,7 @@
 /area/horizon/security/interrogation)
 "aYW" = (
 /obj/structure/table/steel,
-/obj/item/aiModule/robocop{
-	pixel_x = -7
-	},
-/obj/item/aiModule/paladin{
-	pixel_x = -1
-	},
-/obj/item/aiModule/corp{
-	pixel_x = 5
-	},
-/obj/item/aiModule/purge{
-	pixel_y = 9;
-	pixel_x = -7
-	},
-/obj/item/aiModule/reset{
-	pixel_y = 9;
-	pixel_x = -1
-	},
-/obj/item/aiModule/quarantine{
-	pixel_x = 5;
-	pixel_y = 9
-	},
+/obj/item/aiModule/reset,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
@@ -2729,6 +2709,27 @@
 	name = "High Risk Modules";
 	desc = "Warning: Experimental modules designed to be used in extreme situations. Exercise extreme caution when utilizing.";
 	req_access = list(20)
+	},
+/obj/item/aiModule/robocop{
+	pixel_x = -7
+	},
+/obj/item/aiModule/paladin{
+	pixel_x = -1
+	},
+/obj/item/aiModule/corp{
+	pixel_x = 5
+	},
+/obj/item/aiModule/purge{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/obj/item/aiModule/quarantine{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/item/aiModule/nanotrasen{
+	pixel_x = -1;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload)
