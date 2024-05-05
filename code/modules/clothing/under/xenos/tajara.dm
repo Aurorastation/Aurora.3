@@ -166,17 +166,17 @@
 	item_state = "longdress"
 
 /obj/item/clothing/under/dress/tajaran/long/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/buttons = image(icon, null, "longdress_buttons")
 	buttons.appearance_flags = RESET_COLOR
-	add_overlay(buttons)
+	AddOverlays(buttons)
 
 /obj/item/clothing/under/dress/tajaran/long/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/buttons = image(mob_icon, null, "longdress_un_buttons")
 		buttons.appearance_flags = RESET_COLOR
-		I.add_overlay(buttons)
+		I.AddOverlays(buttons)
 	return I
 
 /obj/item/clothing/under/dress/tajaran/formal
@@ -288,17 +288,17 @@
 	item_state = "nka_noble_uniform"
 
 /obj/item/clothing/under/tajaran/nka_noble/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/lining = image(icon, null, "nka_noble_uniform_lining")
 	lining.appearance_flags = RESET_COLOR
-	add_overlay(lining)
+	AddOverlays(lining)
 
 /obj/item/clothing/under/tajaran/nka_noble/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
 	if(slot == slot_w_uniform_str)
 		var/image/lining = image(mob_icon, null, "nka_noble_uniform_un_lining")
 		lining.appearance_flags = RESET_COLOR
-		I.add_overlay(lining)
+		I.AddOverlays(lining)
 	return I
 
 /obj/item/clothing/under/tajaran/nka_merchant_navy

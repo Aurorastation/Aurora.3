@@ -141,7 +141,7 @@
 	random_count = 3
 	wanted_types = list(/obj/item/reagent_containers/food/snacks/muffin,
 			/obj/item/reagent_containers/food/snacks/burger/nt_muffin,
-			/obj/item/reagent_containers/food/snacks/berrymuffin)
+			/obj/item/reagent_containers/food/snacks/muffin/berry)
 
 /datum/bounty/item/chef/chawanmush
 	name = "Chawanmushi"

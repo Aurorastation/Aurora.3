@@ -40,7 +40,7 @@
 		stored_alpha.Cut()
 	if(reset_objects.len)
 		for(var/obj/item/I in reset_objects)
-			I.cut_overlay(I.blood_overlay, TRUE)
+			I.CutOverlays(I.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 			if(I.fluorescent == 2) I.fluorescent = 1
 		reset_objects.Cut()
 
@@ -64,5 +64,5 @@
 					if(istype(A, /obj/item))
 						var/obj/item/O = A
 						if(O.was_bloodied && !(O.blood_overlay in O.overlays))
-							O.add_overlay(O.blood_overlay, TRUE)
+							O.AddOverlays(O.blood_overlay, ATOM_ICON_CACHE_PROTECTED)
 							reset_objects |= O

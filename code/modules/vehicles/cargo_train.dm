@@ -57,7 +57,7 @@
 	if(ispath(key_type))
 		key = new key_type(src)
 	var/image/I = new(icon = icon, icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
-	add_overlay(I)
+	AddOverlays(I)
 	turn_off()
 
 /obj/vehicle/train/cargo/engine/attack_hand(mob/user)
@@ -354,7 +354,7 @@
 		MA.pixel_y += load_offset_y
 		MA.layer = VEHICLE_LOAD_LAYER
 
-		add_overlay(MA)
+		AddOverlays(MA)
 
 /obj/vehicle/train/cargo/trolley/unload(var/mob/user, var/direction)
 	if(istype(load, /datum/vehicle_dummy_load))
@@ -362,7 +362,7 @@
 		load = dummy_load.actual_load
 		dummy_load.actual_load = null
 		qdel(dummy_load)
-		cut_overlays()
+		ClearOverlays()
 	..()
 
 //-------------------------------------------------------

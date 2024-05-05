@@ -156,30 +156,30 @@ var/list/obj/machinery/newscaster/allCasters = list()
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
-			cut_overlays()
-			add_overlay(screen_overlays["crack3"])
+			ClearOverlays()
+			AddOverlays(screen_overlays["crack3"])
 		return
 
-	cut_overlays() //reset overlays
+	ClearOverlays() //reset overlays
 
-	add_overlay(screen_overlays["newscaster-screen"])
+	AddOverlays(screen_overlays["newscaster-screen"])
 	set_light(1.4, 1.3, COLOR_CYAN)
 
 	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
-		add_overlay(screen_overlays["newscaster-title"])
+		AddOverlays(screen_overlays["newscaster-title"])
 
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		add_overlay(screen_overlays["newscaster-wanted"])
+		AddOverlays(screen_overlays["newscaster-wanted"])
 		return
 
 	if(alert) //new message alert overlay
-		add_overlay(screen_overlays["newscaster-alert"])
+		AddOverlays(screen_overlays["newscaster-alert"])
 
 	if(hitstaken == 0)
-		add_overlay(screen_overlays["newscaster-scanline"])
+		AddOverlays(screen_overlays["newscaster-scanline"])
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		add_overlay(screen_overlays["crack[hitstaken]"])
+		AddOverlays(screen_overlays["crack[hitstaken]"])
 
 	icon_state = initial(icon_state)
 	return

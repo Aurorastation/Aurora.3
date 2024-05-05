@@ -104,10 +104,10 @@
 			. = TRUE
 
 /obj/item/aicard/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(carded_ai)
 		if (!carded_ai.control_disabled)
-			add_overlay("aicard-on")
+			AddOverlays("aicard-on")
 		if(carded_ai.stat)
 			icon_state = "aicard-404"
 		else

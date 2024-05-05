@@ -31,7 +31,7 @@
 		H.put_in_hands(hat)
 		H.visible_message(SPAN_WARNING("\The [H] removes \the [src]'s [hat]."))
 		hat = null
-		cut_overlay(hat_overlay)
+		CutOverlays(hat_overlay)
 		QDEL_NULL(hat_overlay)
 		update_icon()
 	else

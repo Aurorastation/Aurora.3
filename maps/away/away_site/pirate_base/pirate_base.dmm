@@ -234,7 +234,7 @@
 /obj/item/reagent_containers/bowl/plate{
 	pixel_x = 2
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
+/obj/item/reagent_containers/food/snacks/muffin/berry{
 	pixel_x = 3;
 	pixel_y = 4
 	},

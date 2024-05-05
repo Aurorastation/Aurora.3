@@ -531,3 +531,46 @@
   - qol: Hopefully fixes docking issues with the independent freighter shuttle.
   nauticall:
   - bugfix: Fixed the New Horizons drink not having a sprite.
+2024-04-28:
+  Alberyk:
+  - rscadd: Added lore radio stations to Tau Ceti.
+  DreamySkrell:
+  - rscadd: 'Disables ships that do not follow current standards: EE, TCFL, FSF.'
+  - rscadd: Cult Base cultists spawn without cult books, so they can only use the
+      runes mapped into the map, and can't make more.
+  - rscadd: Conversion rune added that does not give the new cultist the cult book.
+  - rscadd: Cult Base mapping and ghostspawner tweaks.
+  FluffyGhost:
+  - server: Updated tracy to our v27042024, now supports 515.1636.
+2024-04-29:
+  Ben10083:
+  - rscadd: TCAF Corvette now has emergency shutters.
+  - qol: TCAF Corvette had some items added to compensate for high ghost role count.
+  - bugfix: Legion deployable turret now useable by TCAF Ghostroles.
+  - bugfix: Wiring fixes to TCAF Corvette.
+  - spellcheck: Legion ballistic shield renamed to TCAF Ballistic Shield, description
+      changed as well.
+  - spellcheck: Retro hardsuit rig now referrences TCAF instead of TCFL, and added
+      TCAF ship access (was meant to be added in the past).
+  - spellcheck: The Conglomerate has discovered that the ZAT was incorrectly labeled
+      as ZTA in various documents and markings. The issue has been resolved and those
+      responsible have been let go.
+  FluffyGhost:
+  - bugfix: Fixed some landmarks harddels.
+  - refactor: Refactored various landmarks in their own subtype instead of using a
+      name-based switch system.
+  Furrycactus:
+  - rscadd: Fixes the accidentally removed access lists to the maintenance airlocks
+      above ammo storage.
+  Geeves:
+  - bugfix: Fixed sofa armrests being the wrong colour.
+  Lavillastrangiato:
+  - bugfix: Added IFF and sensor suite to Kataphract main ship, and fixes access on
+      medical vendors.
+  - bugfix: Fixes problematic docking controllers and airlocks on several offships.
+  - qol: Adds CO2 tanks to the Cyclops and the Ranger Gunboat.
+  - qol: Adds several aesthetic features to several offships, like matching window
+      colours.
+2024-04-30:
+  FluffyGhost:
+  - bugfix: Hopefully fixed Tracy not starting on Linux.

@@ -7601,6 +7601,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/scc_scout_ship/bridge)
+"VT" = (
+/obj/effect/landmark{
+	name = "carpspawn"
+	},
+/turf/template_noop,
+/area/space)
 "VU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -25718,7 +25724,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj
@@ -27467,7 +27473,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj
@@ -32068,7 +32074,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj
@@ -41825,7 +41831,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj
@@ -41945,7 +41951,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj
@@ -52118,7 +52124,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj
@@ -54530,7 +54536,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj
@@ -59358,7 +59364,7 @@ Xj
 Xj
 Xj
 Xj
-Xj
+VT
 Xj
 Xj
 Xj

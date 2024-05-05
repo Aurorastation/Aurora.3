@@ -82,13 +82,13 @@
 	return
 
 /obj/item/device/assembly/prox_sensor/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	attached_overlays = list()
 	if(timing)
-		add_overlay("prox_timing")
+		AddOverlays("prox_timing")
 		attached_overlays += "prox_timing"
 	if(scanning)
-		add_overlay("prox_scanning")
+		AddOverlays("prox_scanning")
 		attached_overlays += "prox_scanning"
 	if(holder)
 		holder.update_icon()

@@ -153,7 +153,7 @@
 
 /obj/screen/new_player/selection/MouseEntered(location, control, params)
 	if(hud_arrow)
-		add_overlay(hud_arrow, force_compile = TRUE)
+		AddOverlays(hud_arrow)
 	else
 		var/matrix/M = matrix()
 		M.Scale(1.1, 1)
@@ -162,7 +162,7 @@
 
 /obj/screen/new_player/selection/MouseExited(location,control,params)
 	if(hud_arrow)
-		cut_overlays(force_compile = TRUE)
+		ClearOverlays()
 	else
 		animate(src, color = null, transform = null, time = 3, easing = CUBIC_EASING)
 	return ..()

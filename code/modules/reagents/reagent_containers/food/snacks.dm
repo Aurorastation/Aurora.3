@@ -199,11 +199,11 @@
 				to_chat(user, SPAN_NOTICE("You scoop up some of \the [src] with \the [U]."))
 
 				bitecount++
-				U.cut_overlays()
+				U.ClearOverlays()
 				U.loaded = src.name
 				var/image/I = new(U.icon, "loadedfood")
 				I.color = src.filling_color
-				U.add_overlay(I)
+				U.AddOverlays(I)
 
 				reagents.trans_to_obj(U, min(reagents.total_volume,U.transfer_amt))
 				if(is_liquid)
@@ -326,7 +326,7 @@
 	J.alpha = 200
 	J.blend_mode = BLEND_OVERLAY
 	J.tag = "coating"
-	add_overlay(J)
+	AddOverlays(J)
 
 	if (user)
 		user.visible_message(SPAN_NOTICE("[user] dips [src] into \the [applied_coating_reagent.name]"), SPAN_NOTICE("You dip [src] into \the [applied_coating_reagent.name]"))
@@ -357,7 +357,7 @@
 		var/image/J = image(I)
 		J.alpha = 200
 		J.tag = "coating"
-		add_overlay(J)
+		AddOverlays(J)
 
 		if (do_coating_prefix == 1)
 			name = "[our_coating.coated_adj] [name]"

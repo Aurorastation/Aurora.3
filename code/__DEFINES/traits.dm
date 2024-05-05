@@ -179,6 +179,11 @@
 
 // DISABILITY TRAITS
 
+/// Causes the mob to take twice as long to clot their wounds
+#define TRAIT_DISABILITY_HEMOPHILIA "disability_hemophilia"
+
+/// Causes the mob to never clot their wounds
+#define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
 
 // ALLERGIES
 
