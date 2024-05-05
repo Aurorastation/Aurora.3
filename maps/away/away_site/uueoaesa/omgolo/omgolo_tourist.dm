@@ -148,3 +148,10 @@
 	name = "Starboard Docking Port"
 	landmark_tag = "nav_omgolo_tourist_starboard"
 	master_tag = "airlock_omgolo_tourist_starboard"
+
+//Items
+/obj/item/paper/fluff/omgolo_tourist
+	name = "Notice of Dismissal"
+	info = "Due to insolvency of Merchants' Guild assets at this time, all employees of Relaxation Platform #71 are suspended without pay until platform operations can recommence. A transport shuttle will arrive within the next business day to transport all on-platform staff to Skalamar spaceport. The Guild will not cover further employee transport costs. Platform is to be placed in standby mode until we can return to normal operations, estimated by the end of the month.<br>\
+	Message sent 07/27/2465, 17:41"
+	language = LANGUAGE_UNATHI

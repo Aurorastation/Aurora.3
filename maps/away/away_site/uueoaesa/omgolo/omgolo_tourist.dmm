@@ -21,6 +21,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "aac" = (
@@ -31,6 +32,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "aad" = (
@@ -129,6 +131,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aam" = (
@@ -141,7 +144,8 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "aan" = (
 /obj/structure/cable{
@@ -153,7 +157,9 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "aao" = (
 /obj/structure/cable{
@@ -257,12 +263,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aaQ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room2)
 "aaX" = (
@@ -280,6 +288,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "abb" = (
@@ -290,6 +299,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "abc" = (
@@ -306,6 +316,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "abe" = (
@@ -412,6 +423,7 @@
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
+/obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "acr" = (
@@ -445,12 +457,13 @@
 /area/omgolo_tourist/atmos)
 "adc" = (
 /obj/structure/table/steel,
-/obj/machinery/chemical_dispenser/bar_alc/full{
-	dir = 8
-	},
 /obj/machinery/light{
 	dir = 4;
 	status = 2
+	},
+/obj/effect/decal/cleanable/cobweb2,
+/obj/machinery/chemical_dispenser/bar_alc{
+	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/omgolo_tourist/dining)
@@ -467,12 +480,15 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "ado" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "adt" = (
@@ -505,6 +521,7 @@
 /obj/structure/cable{
 	icon_state = "0-8"
 	},
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "adN" = (
@@ -518,13 +535,15 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aeu" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/material/kitchen/rollingpin,
-/obj/item/material/kitchen/rollingpin,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/junk,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aev" = (
@@ -541,7 +560,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/engineering)
 "aeU" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -551,6 +571,8 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aeZ" = (
@@ -610,7 +632,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "agv" = (
 /obj/machinery/door/airlock/freezer{
@@ -652,6 +675,8 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "agU" = (
@@ -700,7 +725,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/engineering)
 "ahU" = (
 /obj/structure/cable{
@@ -748,6 +774,7 @@
 /obj/item/reagent_containers/food/condiment/shaker/salt,
 /obj/item/reagent_containers/food/condiment/shaker/peppermill,
 /obj/item/reagent_containers/food/condiment/shaker/spacespice,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aiE" = (
@@ -765,6 +792,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room1)
 "aiT" = (
@@ -786,6 +814,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
 "aiZ" = (
@@ -891,7 +920,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "alM" = (
 /turf/simulated/floor/tiled/ramp{
@@ -902,6 +932,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "amd" = (
@@ -929,6 +960,7 @@
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/orange/full,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "ang" = (
@@ -948,7 +980,8 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/engineering)
 "anx" = (
 /obj/structure/cable{
@@ -1032,6 +1065,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "apq" = (
@@ -1051,7 +1085,8 @@
 	dir = 2
 	},
 /obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/engineering)
 "apy" = (
 /turf/simulated/floor/tiled/ramp,
@@ -1109,12 +1144,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aqk" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/board/bowl,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aqo" = (
@@ -1143,7 +1180,7 @@
 /area/omgolo_tourist/atmos)
 "arh" = (
 /obj/structure/closet,
-/obj/item/reagent_containers/food/snacks/candy/koko,
+/obj/item/trash/kokobar,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "ark" = (
@@ -1234,6 +1271,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "aus" = (
@@ -1284,6 +1322,7 @@
 	dir = 5
 	},
 /obj/machinery/vending/engivend,
+/obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "avo" = (
@@ -1342,12 +1381,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room2)
 "awj" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room1)
 "awk" = (
@@ -1400,7 +1441,6 @@
 /area/omgolo_tourist/atmos)
 "awN" = (
 /obj/structure/table/wood,
-/obj/random/highvalue/cash,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room1)
 "axm" = (
@@ -1442,10 +1482,16 @@
 	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
+"aza" = (
+/obj/structure/table/wood,
+/obj/item/trash/plate,
+/turf/simulated/floor/carpet/purple,
+/area/omgolo_tourist/dining)
 "azk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 10
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "azq" = (
@@ -1489,6 +1535,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/food/drinks/bottle/sarezhiwine,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "azP" = (
@@ -1564,6 +1611,7 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room2)
 "aBv" = (
@@ -1603,6 +1651,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aBR" = (
@@ -1616,11 +1666,14 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aBS" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/alarm/north,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aBV" = (
@@ -1630,7 +1683,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "aBW" = (
 /obj/machinery/power/apc/empty/south,
@@ -1662,6 +1716,8 @@
 /area/omgolo_tourist/hallway)
 "aCH" = (
 /obj/structure/kitchenspike,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/freezer,
 /area/omgolo_tourist/freezer)
 "aCQ" = (
@@ -1669,12 +1725,14 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aCX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/blue{
 	dir = 9
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "aDF" = (
@@ -1741,6 +1799,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room2)
 "aEA" = (
@@ -1791,10 +1850,12 @@
 	dir = 2
 	},
 /obj/structure/disposalpipe/junction,
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "aFn" = (
 /obj/machinery/alarm/north,
+/obj/random/junk,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "aFK" = (
@@ -1812,6 +1873,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
 "aFP" = (
@@ -1845,7 +1907,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "aGg" = (
 /obj/machinery/atmospherics/binary/pump/on{
@@ -1995,6 +2058,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/lino,
 /area/omgolo_tourist/dining)
 "aIf" = (
@@ -2099,6 +2163,7 @@
 "aKI" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/light,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aKM" = (
@@ -2151,6 +2216,10 @@
 	},
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
+"aLL" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "aLR" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -2169,6 +2238,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "aMx" = (
@@ -2181,7 +2251,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "aNc" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -2191,6 +2263,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aNp" = (
@@ -2260,6 +2333,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/material/hatchet/butch,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aOG" = (
@@ -2336,6 +2410,7 @@
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/stone/marble,
 /obj/item/reagent_containers/cooking_container/saucepan,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aPC" = (
@@ -2379,6 +2454,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aPX" = (
@@ -2410,11 +2486,13 @@
 /area/omgolo_tourist/room2)
 "aQM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "aQR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/oven,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aRc" = (
@@ -2444,6 +2522,7 @@
 "aRx" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aRz" = (
@@ -2492,6 +2571,7 @@
 /area/omgolo_tourist/hallway)
 "aSd" = (
 /obj/structure/closet,
+/obj/item/paper/fluff/omgolo_tourist,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "aSg" = (
@@ -2538,7 +2618,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "aTc" = (
 /obj/machinery/light{
@@ -2590,6 +2671,7 @@
 /obj/machinery/atmospherics/pipe/tank/air{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "aTT" = (
@@ -2620,6 +2702,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aUz" = (
@@ -2632,11 +2715,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
 "aUG" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/stove,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aUH" = (
@@ -2656,6 +2741,7 @@
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
 "aVf" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/atmos)
 "aVn" = (
@@ -2677,6 +2763,7 @@
 	dir = 8;
 	level = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
 "aVC" = (
@@ -2696,6 +2783,7 @@
 "aVX" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/grill,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aVY" = (
@@ -2715,6 +2803,7 @@
 "aWo" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/machinery/appliance/cooker/fryer,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aWr" = (
@@ -2739,6 +2828,7 @@
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room2)
 "aXd" = (
@@ -2764,6 +2854,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/empty/east,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/engineering)
 "aXl" = (
@@ -2771,6 +2862,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "aXs" = (
@@ -2867,6 +2959,7 @@
 /area/omgolo_tourist/dining)
 "aZf" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "aZl" = (
@@ -2891,6 +2984,10 @@
 /obj/item/device/flashlight/lamp/green,
 /turf/simulated/floor/carpet/red,
 /area/omgolo_tourist/room3)
+"baC" = (
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/turf/simulated/floor/carpet/purple,
+/area/omgolo_tourist/dining)
 "boQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
@@ -2902,11 +2999,28 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"caZ" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"cbl" = (
+/obj/structure/bed/stool/chair/sofa/yellow{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"cbM" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
 "ciX" = (
 /obj/machinery/alarm/north,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
 "csv" = (
@@ -2932,6 +3046,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"cRh" = (
+/obj/machinery/vending/boozeomat/abandoned,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"cWx" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"cZR" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/fryer,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "dhW" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -2948,6 +3077,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"ecN" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"eed" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/junk,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "erp" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -2963,6 +3108,20 @@
 	},
 /turf/simulated/floor/lino,
 /area/omgolo_tourist/dining)
+"esZ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/disposalpipe/segment,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "ewj" = (
 /obj/machinery/light,
 /obj/structure/disposalpipe/segment{
@@ -2970,6 +3129,27 @@
 	},
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
+"eRq" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"eVe" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"foc" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"foT" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"fHT" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "fSO" = (
 /obj/machinery/airlock_sensor{
 	pixel_x = 6;
@@ -2999,8 +3179,28 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"gDa" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"hjp" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/cobweb2,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"hjT" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
 "hIl" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -3019,11 +3219,40 @@
 	},
 /turf/simulated/floor/wood,
 /area/omgolo_tourist/roomhallway)
+"hKp" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"hUh" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"iwK" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"iGI" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"iVs" = (
+/obj/structure/kitchenspike,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "iYf" = (
 /obj/machinery/disposal/small/north,
 /obj/structure/disposalpipe/trunk{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "iYA" = (
@@ -3042,6 +3271,45 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
+"jfp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"jvg" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"jyx" = (
+/obj/structure/bed/stool/chair/sofa/yellow{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"jCp" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
+/area/omgolo_tourist/hallway)
+"jKX" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
 "jQC" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3058,6 +3326,41 @@
 "jRS" = (
 /turf/simulated/wall/r_wall,
 /area/omgolo_tourist/room2)
+"jXp" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room2)
+"kcc" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/ramp,
+/area/omgolo_tourist/dining)
+"kgO" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"kif" = (
+/obj/machinery/light,
+/obj/effect/decal/cleanable/floor_damage/random_carpet_broken,
+/turf/simulated/floor/carpet/purple,
+/area/omgolo_tourist/dining)
+"kxs" = (
+/obj/structure/table/stone/marble,
+/obj/random/dirt_75,
+/turf/simulated/floor/lino,
+/area/omgolo_tourist/dining)
+"kMk" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/light,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "lKK" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -3075,21 +3378,129 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
+"mbh" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room3)
+"mmy" = (
+/obj/structure/disposalpipe/segment,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"mmT" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"mBq" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"nbK" = (
+/obj/machinery/light{
+	dir = 4;
+	status = 2
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
+"nmY" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"nwf" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"nAH" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"nBM" = (
+/obj/structure/bed/stool/chair/sofa/yellow{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"nKE" = (
+/obj/effect/decal/cleanable/cobweb,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"nUC" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "nVa" = (
 /obj/effect/map_effect/marker/airlock/docking/omgolo_tourist/fore,
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"ocq" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "onR" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/disposalpipe/segment,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
+"oEC" = (
+/obj/effect/floor_decal/spline/fancy/wood,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/dining)
+"oYC" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/structure/table/stone/marble,
+/obj/item/reagent_containers/food/condiment/shaker/salt,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/junk,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
+"peX" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/carpet/red,
+/area/omgolo_tourist/room1)
 "pmN" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
+"pnS" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"poV" = (
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "pTn" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -3100,11 +3511,33 @@
 /obj/effect/map_effect/marker/airlock/docking/omgolo_tourist/fore,
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"pTr" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
+"qoL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
+/obj/random/dirt_75,
+/obj/item/trash/meatsnack,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
+"qDB" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "qQM" = (
 /obj/structure/disposalpipe/segment{
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
 "rnR" = (
@@ -3153,6 +3586,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
+"saF" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/hallway)
 "sdy" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux,
 /obj/machinery/door/airlock/external{
@@ -3162,10 +3602,31 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"sxr" = (
+/obj/random/junk,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "sNl" = (
 /obj/machinery/light,
+/obj/effect/decal/cleanable/floor_damage/rust,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
+"tac" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
 "tjn" = (
 /obj/machinery/disposal/small/south,
 /obj/structure/disposalpipe/trunk,
@@ -3177,6 +3638,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/hallway)
+"uqg" = (
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
+/turf/simulated/floor/wood/ebony,
+/area/omgolo_tourist/dining)
+"uEk" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
+	dir = 8
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "uNx" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -3190,6 +3662,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"uVa" = (
+/obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"uXm" = (
+/obj/item/trash/kokobar,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
+"var" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/random/junk,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/atmos)
 "vbN" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3212,8 +3699,16 @@
 	dir = 9;
 	pixel_y = 0
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/omgolo_tourist/crew)
+"vyV" = (
+/obj/effect/floor_decal/corner/grey/diagonal,
+/obj/machinery/appliance/cooker/grill,
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/white,
+/area/omgolo_tourist/kitchen)
 "vHC" = (
 /obj/structure/cable{
 	icon_state = "2-4"
@@ -3224,13 +3719,30 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"vMq" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/engineering)
+"vOX" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/freezer,
+/area/omgolo_tourist/freezer)
+"vSt" = (
+/obj/effect/decal/cleanable/floor_damage/rust,
+/turf/simulated/floor/tiled/dark,
+/area/omgolo_tourist/crew)
 "xgh" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4;
 	icon_state = "pipe-c"
 	},
+/obj/effect/decal/cleanable/floor_damage/random_wood_broken,
 /turf/simulated/floor/wood/ebony,
 /area/omgolo_tourist/dining)
 "xuz" = (
@@ -3246,7 +3758,8 @@
 	dir = 2;
 	icon_state = "pipe-j2"
 	},
-/turf/simulated/floor/tiled/dark,
+/obj/structure/lattice/catwalk/indoor/grate/dark,
+/turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
 "xKj" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
@@ -3254,6 +3767,8 @@
 /obj/structure/disposalpipe/trunk{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/floor_damage/rust,
+/obj/random/junk,
 /turf/simulated/floor/tiled/white,
 /area/omgolo_tourist/kitchen)
 "xMQ" = (
@@ -3264,6 +3779,11 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/omgolo_tourist/hallway)
+"xRk" = (
+/obj/random/dirt_75,
+/obj/random/junk,
+/turf/simulated/floor/wood,
+/area/omgolo_tourist/roomhallway)
 "yfI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
@@ -28579,13 +29099,13 @@ aHT
 agV
 axy
 aTq
-ajh
+pnS
 amH
 lKK
 aYZ
 aqL
 aXe
-aXe
+uVa
 aIf
 aYZ
 aKl
@@ -28825,24 +29345,24 @@ aqt
 aAA
 jRS
 akr
-aEA
+jXp
 aEA
 avR
 aiZ
 adN
 aXd
-aHT
+peX
 aHT
 atD
 aSJ
 aTq
-acr
+saF
 ajh
-ajh
+eVe
 aYZ
 afe
 aXe
-aXe
+vSt
 aYZ
 aYZ
 aKl
@@ -29076,30 +29596,30 @@ aKl
 aKl
 afd
 aFO
-agX
+mbh
 aoz
 aLE
 agX
 jRS
 aVT
-aEA
+jXp
 avU
 avl
 aEA
 adN
 aBE
-aHT
+peX
 abY
 aEV
 aHT
 aTq
 ajh
-ajh
+eVe
 ajh
 aYZ
 abM
 aXe
-aXe
+vSt
 aIf
 aYZ
 aKl
@@ -29612,7 +30132,7 @@ aBV
 agh
 aYZ
 aOG
-aXe
+aLL
 aXe
 aIf
 aYZ
@@ -29864,13 +30384,13 @@ aGN
 adN
 adN
 aTq
-ajh
+eVe
 aSX
 ajh
 aYZ
 aSd
-aXe
-aXe
+hKp
+aLL
 aYZ
 aYZ
 aKl
@@ -30109,8 +30629,8 @@ avJ
 aRA
 aah
 aae
-aae
-aae
+mmT
+mmT
 adt
 aag
 aag
@@ -30121,13 +30641,13 @@ acf
 aHd
 aHd
 aTq
-acr
+iGI
 vHC
 aVC
 aap
 aPa
 aab
-aXe
+uXm
 aIf
 aYZ
 aKl
@@ -30361,7 +30881,7 @@ aIk
 aDF
 anR
 aHd
-aHd
+fHT
 aaf
 csv
 iYA
@@ -30369,18 +30889,18 @@ aaq
 aaq
 aaq
 anx
-aHd
-aHd
-aHd
+mBq
+fHT
+fHT
 arp
 aVy
-aHd
+fHT
 aHd
 aHd
 aTq
-ajh
+pnS
 aMx
-ajh
+ecN
 aYZ
 aau
 apo
@@ -30620,22 +31140,22 @@ aHd
 aHd
 aHd
 apK
-aHd
-aHd
-aHd
+fHT
+fHT
+fHT
 apK
 aWE
 aES
 aOI
 aVZ
-apK
+nbK
 aHd
 aHd
-aHd
-apK
-aHd
+fHT
+nbK
+xRk
 aTq
-ajh
+pnS
 aMx
 ajh
 aYZ
@@ -30892,13 +31412,13 @@ aLi
 aLi
 aLi
 aTq
-ajh
-aMx
+pnS
+jCp
 ajh
 aYZ
 ciX
-aXe
-aXe
+aLL
+poV
 aYZ
 aYZ
 aKl
@@ -31130,9 +31650,9 @@ aKl
 aKl
 aKl
 acl
-aKh
+nKE
 atw
-asg
+hjT
 aee
 afy
 aTr
@@ -31141,21 +31661,21 @@ afy
 aee
 aaa
 afy
-aee
-aee
+foT
+foT
 afy
 aee
 aee
 afy
 aee
 aTq
-ajh
+pnS
 aMx
-ajh
+eVe
 aYZ
 adB
 aXl
-aXe
+aLL
 aIf
 aYZ
 aKl
@@ -31387,28 +31907,28 @@ aKl
 aKl
 aKl
 acl
-aKh
-aKh
+cWx
+cbM
 asg
 aee
 aee
 aee
 aee
-aee
+uqg
 aee
 azr
 aus
-aus
-aus
-aus
+esZ
+esZ
+esZ
 aus
 aAQ
 aee
-aee
+uqg
 aTq
 ajh
 adn
-ajh
+eVe
 aqo
 aqo
 aqo
@@ -31644,26 +32164,26 @@ aKl
 aKl
 aKl
 acl
-aKh
-aKh
-asg
+cWx
+cbM
+caZ
+aee
+aee
+aee
+uqg
 aee
 aee
 aee
 aee
 aee
 aee
-aee
-aee
-aee
-aee
-aee
+foT
 aee
 aaa
 aee
 aee
 aTq
-ajh
+ecN
 gAL
 qQM
 aqo
@@ -31671,7 +32191,7 @@ acp
 aXs
 atX
 anD
-anD
+pTr
 aTO
 aVr
 aNy
@@ -31902,7 +32422,7 @@ aKl
 aKl
 acl
 aKh
-aKh
+cbM
 asg
 aee
 aee
@@ -31920,7 +32440,7 @@ aak
 aHz
 aTk
 aTq
-acr
+iGI
 aMx
 aav
 aqo
@@ -32159,8 +32679,8 @@ aKl
 aKl
 acl
 aKh
-aKh
-asg
+cbM
+oEC
 aee
 aJl
 aBD
@@ -32175,16 +32695,16 @@ aBD
 apy
 aao
 aNY
-aee
+sxr
 aTq
-ajh
+eVe
 aMx
 aav
 aqo
 abP
 aPn
 aQM
-aPn
+ocq
 aPs
 amd
 aCX
@@ -32416,8 +32936,8 @@ aKl
 aKl
 acl
 aKh
-aKh
-asg
+foc
+oEC
 aee
 aJl
 aIU
@@ -32426,7 +32946,7 @@ aJo
 aBD
 aoU
 aBD
-aIU
+kif
 aOM
 aJo
 apy
@@ -32441,7 +32961,7 @@ aFK
 aJF
 arB
 aaX
-arB
+uEk
 aPs
 aGg
 awH
@@ -32685,14 +33205,14 @@ aVn
 aVn
 aBD
 aSW
-aBD
+baC
 apy
 aaa
-aee
+foT
 aee
 aTq
 ajh
-aMx
+jCp
 aav
 aqo
 aoB
@@ -32929,7 +33449,7 @@ aKl
 aKl
 aKl
 acl
-aKh
+eRq
 aIp
 asg
 aee
@@ -32939,14 +33459,14 @@ aBD
 axm
 aVn
 aVn
-aVn
+aza
 akN
 aBD
 aBD
 apy
 aaa
-aee
-aee
+foT
+foT
 aTq
 aUe
 aan
@@ -32956,7 +33476,7 @@ aHr
 abg
 aDI
 ara
-ara
+var
 aqc
 aot
 aXz
@@ -33188,7 +33708,7 @@ aKl
 acl
 aKh
 awl
-asg
+oEC
 aee
 aJl
 aBD
@@ -33199,13 +33719,13 @@ auz
 aVn
 aBD
 aBD
-aBD
+baC
 apy
 aaa
 aee
 iYf
 aTq
-ajh
+eVe
 aMx
 aav
 aqo
@@ -33443,15 +33963,15 @@ aKl
 aKl
 aKl
 acl
-aKh
-awl
-asg
+cWx
+cbl
+oEC
 aee
 aJl
 aBD
-aBD
+baC
 axm
-aVn
+aza
 aVn
 aVn
 akN
@@ -33460,11 +33980,11 @@ aBD
 apy
 aaa
 aee
-abc
+hUh
 aTq
 ajh
-aMx
-aav
+jCp
+jvg
 aZC
 ahV
 aRc
@@ -33700,8 +34220,8 @@ aKl
 aKl
 aKl
 acl
-aKh
-awl
+cWx
+cbl
 asg
 aee
 aJl
@@ -33720,13 +34240,13 @@ aee
 ewj
 aTq
 acr
-aMx
-aav
+jCp
+jvg
 aZC
 aLB
 agn
 agn
-aFR
+gDa
 agn
 aFP
 avo
@@ -33957,8 +34477,8 @@ aKl
 aKl
 aKl
 acl
-aKh
-awl
+foc
+jyx
 asg
 aee
 aJl
@@ -33978,12 +34498,12 @@ abc
 aTq
 aCF
 aGf
-aav
+jvg
 aZC
 asJ
+iwK
 agn
-agn
-aFR
+gDa
 agn
 aYh
 aLR
@@ -34215,7 +34735,7 @@ aKl
 aKl
 acl
 aKh
-awl
+nBM
 asg
 aee
 aJl
@@ -34234,14 +34754,14 @@ aee
 agM
 aTq
 ajh
-aMx
+jCp
 aav
 aZC
 aAU
 agn
 akg
 aFR
-agn
+iwK
 agn
 agn
 aiT
@@ -34473,7 +34993,7 @@ aKl
 acl
 aKh
 aZl
-asg
+oEC
 aee
 aJl
 aBD
@@ -34481,13 +35001,13 @@ aBD
 axm
 aVn
 aVn
-aVn
+aza
 akN
 aBD
 aBD
 apy
 awk
-aus
+esZ
 aad
 acW
 aJQ
@@ -34744,7 +35264,7 @@ aBD
 aBD
 apy
 aaa
-aee
+foT
 aee
 ajh
 ajh
@@ -34752,7 +35272,7 @@ alL
 ajh
 aZC
 aac
-agn
+iwK
 aSg
 agn
 agn
@@ -34987,7 +35507,7 @@ aKl
 acl
 aKh
 aKh
-asg
+oEC
 aee
 aJl
 aBD
@@ -35008,14 +35528,14 @@ ajh
 alL
 ajh
 aZC
-aAU
+nwf
 agn
 aFR
 agn
 agn
 agn
-agn
-aFP
+iwK
+vMq
 aZC
 aKl
 aKl
@@ -35243,8 +35763,8 @@ aKl
 aKl
 acl
 aKh
-aKh
-asg
+cbM
+oEC
 aee
 aJl
 aBD
@@ -35272,7 +35792,7 @@ agn
 agn
 agn
 agn
-aFP
+nAH
 aZC
 aKl
 aKl
@@ -35500,7 +36020,7 @@ aKl
 aKl
 acl
 aKh
-aKh
+cbM
 asg
 aee
 aJl
@@ -35509,16 +36029,16 @@ aOM
 aJo
 aBD
 aZc
-aBD
+baC
 aIU
 aOM
 aJo
-apy
-aaa
+kcc
+tac
 aee
 aee
 aTq
-ajh
+ecN
 alL
 ajh
 aZC
@@ -35756,8 +36276,8 @@ aKl
 aKl
 aKl
 acl
-aKh
-aKh
+cbM
+cbM
 asg
 aee
 aJl
@@ -35770,8 +36290,8 @@ aBD
 aBD
 aSW
 aBD
-apy
-aaa
+kcc
+tac
 aee
 aTk
 aTq
@@ -36013,7 +36533,7 @@ aKl
 aKl
 aKl
 acl
-aKh
+cbM
 aKh
 asg
 aee
@@ -36027,7 +36547,7 @@ alM
 alM
 alM
 alM
-aee
+foT
 aao
 aNY
 aee
@@ -36035,12 +36555,12 @@ aTq
 aUe
 ago
 agh
+eVe
 ajh
-ajh
-ajh
-ajh
-ajh
-ajh
+pnS
+pnS
+pnS
+pnS
 aai
 pTn
 nVa
@@ -36270,7 +36790,7 @@ aKl
 aKl
 aKl
 acl
-aKh
+cbM
 aKh
 asg
 aee
@@ -36283,8 +36803,8 @@ aee
 aee
 aee
 aee
-aee
-aee
+foT
+foT
 aak
 aHz
 aee
@@ -36292,12 +36812,12 @@ aTq
 ajh
 aAv
 ali
-ali
-ali
+jfp
+jfp
 yfI
-ali
+qoL
 pmN
-ali
+jfp
 aNA
 aSc
 nVa
@@ -36527,20 +37047,20 @@ aKl
 aKl
 aKl
 acl
-aKh
-aKh
+cWx
+eRq
 asg
 aee
 aee
 aee
-aee
-aee
+foT
+foT
 aee
 aee
 xgh
 vmg
 vmg
-vmg
+mmy
 aXI
 ayT
 aee
@@ -36548,7 +37068,7 @@ aLi
 aTq
 ajh
 aGW
-ajh
+ecN
 aTq
 aTq
 aTq
@@ -36784,20 +37304,20 @@ aKl
 aKl
 aKl
 acl
-aKh
+cWx
 awq
-asg
+hjT
 aee
 aee
 aee
 aee
-aee
+foT
 aee
 aee
 abc
 aee
 aee
-aee
+foT
 aSD
 aee
 aGo
@@ -37053,8 +37573,8 @@ azP
 awm
 rFs
 awm
-awm
-awm
+kxs
+kxs
 aTv
 aLi
 aLi
@@ -37820,7 +38340,7 @@ aLi
 adc
 aYt
 ayH
-aRU
+cRh
 aBv
 erp
 aQn
@@ -38339,8 +38859,8 @@ aqe
 aPU
 onR
 xKj
-aZf
-aZf
+nUC
+nUC
 aXg
 aKl
 aKl
@@ -38589,14 +39109,14 @@ aKl
 aKl
 aXg
 aBS
-aef
+nmY
 aQR
 aZf
 aNc
 aZf
 aZf
-aZf
-aWo
+nUC
+cZR
 aZf
 aXg
 aKl
@@ -38852,7 +39372,7 @@ aZf
 aNc
 aVX
 aZf
-aZf
+nUC
 aOp
 aZf
 aXg
@@ -39099,7 +39619,7 @@ aKl
 aKl
 aaj
 aCa
-aQb
+jKX
 aDK
 aXg
 aZf
@@ -39617,7 +40137,7 @@ aQb
 aCa
 aXg
 aZf
-aef
+kgO
 aQR
 aZf
 aNc
@@ -39875,10 +40395,10 @@ abC
 aXg
 aUx
 aef
-aiC
+oYC
 aZf
 aNc
-aVX
+vyV
 aZf
 aZf
 aqk
@@ -40135,7 +40655,7 @@ aef
 aQR
 aZf
 aNc
-aZf
+nUC
 aZf
 aZf
 aWo
@@ -40383,16 +40903,16 @@ aKl
 aKl
 aKl
 aaj
-aQb
-aQb
+vOX
+vOX
 aQb
 aXg
 aZf
 aef
 aiC
 aZf
-aNc
-aZf
+eed
+nUC
 aZf
 aZf
 azt
@@ -40640,18 +41160,18 @@ aKl
 aKl
 aKl
 aaj
-aCH
-aQb
-aQb
+iVs
+vOX
+jKX
 aXg
 aZf
-aef
+nmY
 aZf
 aZf
 aNc
 aZf
-aZf
-aZf
+nUC
+qDB
 aZf
 aZf
 aXg
@@ -40897,20 +41417,20 @@ aKl
 aKl
 aKl
 aaj
-aCH
+iVs
 aQb
 aQb
 aXg
 aUx
-aef
-aZf
+nmY
+nUC
 aZf
 aNc
 aZf
+nUC
 aZf
 aZf
-aZf
-aZf
+nUC
 aXg
 aKl
 aKl
@@ -41154,20 +41674,20 @@ aKl
 aKl
 aKl
 aaj
-aCH
-aQb
+iVs
+vOX
 aKM
 aXg
 aZf
 aef
-aZf
+nUC
 aRx
 aay
 aCQ
 aZf
 aZf
 aZf
-aZf
+nUC
 aXg
 aKl
 aKl
@@ -41411,7 +41931,7 @@ aKl
 aKl
 aKl
 aaj
-aCH
+iVs
 aQb
 aUf
 agv
@@ -41423,8 +41943,8 @@ abd
 aZf
 aZf
 aZf
-aZf
-aKI
+nUC
+kMk
 aXg
 aKl
 aKl
@@ -41672,7 +42192,7 @@ aCH
 aQb
 awD
 aXg
-aZf
+hjp
 aZf
 aqk
 aUG
@@ -41680,7 +42200,7 @@ aqk
 aUG
 aPz
 aUG
-aZf
+nUC
 aZf
 aXg
 aKl
