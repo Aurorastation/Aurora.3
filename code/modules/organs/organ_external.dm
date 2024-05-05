@@ -940,8 +940,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				cut_dam += W.damage
 
 		if(!(status & ORGAN_ROBOT) && W.bleeding() && (H && !(H.species.flags & NO_BLOOD)))
-			W.bleed_timer--
-			status |= ORGAN_BLEEDING
+			W.handle_bleeding(H, src)
 
 		clamped |= W.clamped
 

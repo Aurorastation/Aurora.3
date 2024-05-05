@@ -119,6 +119,7 @@
 // common trait sources
 #define TRAIT_GENERIC "generic"
 #define GENERIC_ITEM_TRAIT "generic_item"
+#define DISABILITY_TRAIT "disability"
 
 /// cannot be removed without admin intervention
 #define ROUNDSTART_TRAIT "roundstart"
@@ -174,3 +175,12 @@
 
 /// Traits given by psionics.
 #define TRAIT_SOURCE_PSIONICS "psionics"
+
+
+// DISABILITY TRAITS
+
+/// Causes the mob to take twice as long to clot their wounds
+#define TRAIT_DISABILITY_HEMOPHILIA "disability_hemophilia"
+
+/// Causes the mob to never clot their wounds
+#define TRAIT_DISABILITY_HEMOPHILIA_MAJOR "disability_hemophilia_major"
