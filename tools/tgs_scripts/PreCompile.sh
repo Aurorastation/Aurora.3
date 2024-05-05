@@ -31,6 +31,13 @@ env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --target=i686-un
 mv target/i686-unknown-linux-gnu/release/librust_g.so "$1/librust_g.so"
 cd ..
 
+echo "Deploying BAPI..."
+cd $1/rust/bapi
+env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --features all --target=i686-unknown-linux-gnu
+mv target/i686-unknown-linux-gnu/release/bapi.so "$1/bapi.so"
+cd ..
+cd ..
+
 # compile tgui
 echo "Compiling tgui..."
 cd "$1"

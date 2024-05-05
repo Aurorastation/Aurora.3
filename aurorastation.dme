@@ -106,6 +106,7 @@
 #include "code\__DEFINES\research.dm"
 #include "code\__DEFINES\robopen.dm"
 #include "code\__DEFINES\ruin_tags.dm"
+#include "code\__DEFINES\rust_bapi.dm"
 #include "code\__DEFINES\rust_g.dm"
 #include "code\__DEFINES\rust_g_debug.dm"
 #include "code\__DEFINES\rust_g_overrides.dm"
