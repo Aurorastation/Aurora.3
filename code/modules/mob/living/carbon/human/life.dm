@@ -1537,8 +1537,8 @@
 	return germs
 
 /mob/living/carbon/human/proc/do_fever_effects(var/fever)
-	if(prob(20/3)) // every 30 seconds, roughly
-		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
+	var/list/fever_messages = list("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")
+	notify_message(SPAN_WARNING(pick(fever_messages)), 30 SECONDS, key = "fever_effect_message")
 	if(prob(25)) // once every 8 seconds, roughly
 		drowsiness += 5
 	if(prob(20))

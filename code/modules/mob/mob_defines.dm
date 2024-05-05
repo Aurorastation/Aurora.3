@@ -258,3 +258,6 @@
 	var/atom/movable/typing_indicator/typing_indicator
 	/// User is thinking in character. Used to revert to thinking state after stop_typing
 	var/thinking_IC = FALSE
+
+	/// A assoc lazylist of to_chat notifications, key = string message, value = world time integer
+	var/list/message_notifications

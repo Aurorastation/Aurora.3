@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - refactor: "Tweaked some messages to be based on time since last message, instead of being based on probability. This includes low blood messages, infected liver messages, fever messages, and some drug messages."
