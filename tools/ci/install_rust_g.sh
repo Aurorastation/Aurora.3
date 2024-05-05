@@ -10,8 +10,8 @@ chmod +x ~/.byond/bin/librust_g.so
 ldd ~/.byond/bin/librust_g.so
 
 echo "Compiling bapi"
-cd $1/rust/bapi
+cd ./rust/bapi
 env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --features all --target=i686-unknown-linux-gnu
-mv target/i686-unknown-linux-gnu/release/bapi.so "$1/bapi.so"
+mv target/i686-unknown-linux-gnu/release/bapi.so ../../bapi.so
 cd ..
 cd ..
