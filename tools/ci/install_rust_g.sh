@@ -11,6 +11,7 @@ ldd ~/.byond/bin/librust_g.so
 
 echo "Compiling bapi"
 cd ./rust/bapi
+rustup target add i686-unknown-linux-gnu
 env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --target=i686-unknown-linux-gnu
 mv target/i686-unknown-linux-gnu/release/libbapi.so ../../libbapi.so
 cd ..
