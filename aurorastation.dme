@@ -1258,6 +1258,7 @@
 #include "code\game\objects\items\weapons\implants\implants\emp.dm"
 #include "code\game\objects\items\weapons\implants\implants\explosive.dm"
 #include "code\game\objects\items\weapons\implants\implants\freedom.dm"
+#include "code\game\objects\items\weapons\implants\implants\galatean.dm"
 #include "code\game\objects\items\weapons\implants\implants\health_tracker.dm"
 #include "code\game\objects\items\weapons\implants\implants\loyalty.dm"
 #include "code\game\objects\items\weapons\implants\implants\mindshield.dm"
