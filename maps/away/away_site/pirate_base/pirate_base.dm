@@ -18,12 +18,7 @@
 
 /obj/effect/overmap/visitable/sector/pirate
 	name = "asteroid lair"
-	desc = "\
-		Scans reveal that there is a unregistered structure within this asteroid, \
-		as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. \
-		Further examination reveals it is wanted in the Coalition of Colonies and that its crew have a bounty on them for piracy and kidnapping. \
-		Extreme caution is advised.\
-		"
+	desc = "Scans reveal that there is a unregistered structure within this asteroid, as well as an unpowered vessel docked in a makeshift hangar on the south outer layer. Scans of the vessel indicate that it was reported as stolen several months ago."
 	icon_state = "object"
 	initial_generic_waypoints = list(
 		"nav_pirate_1",
@@ -74,7 +69,6 @@
 	move_time = 20
 	shuttle_area = list(/area/shuttle/pirate_shuttle/bridge, /area/shuttle/pirate_shuttle/storage, /area/shuttle/pirate_shuttle/med,
 						/area/shuttle/pirate_shuttle/starboard, /area/shuttle/pirate_shuttle/port, /area/shuttle/pirate_shuttle/living)
-	dock_target = "pirate_ship"
 	current_location = "nav_hangar_pirate_ship"
 	landmark_transition = "nav_transit_pirate_ship"
 	range = 1

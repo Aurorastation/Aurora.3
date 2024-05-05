@@ -87,6 +87,9 @@
 		if(occupant)
 			occupant.examine(arglist(args))
 
+	if(panel_open)
+		. += "The maintenance hatch is open."
+
 /obj/machinery/atmospherics/unary/cryo_cell/proc/generate_overlays(force = FALSE)
 	if(LAZYLEN(screen_overlays) && !force)
 		return
@@ -274,6 +277,14 @@
 			if(put_mob(L))
 				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
 				qdel(attacking_item)
+
+	else if(default_deconstruction_screwdriver(user, attacking_item))
+		return TRUE
+	else if(default_deconstruction_crowbar(user, attacking_item))
+		return TRUE
+	else if(default_part_replacement(user, attacking_item))
+		return TRUE
+
 	return TRUE
 
 /obj/machinery/atmospherics/unary/cryo_cell/MouseDrop_T(atom/dropping, mob/user)
@@ -308,29 +319,29 @@
 					user.pulling = null
 
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "pod[on]"
 	var/image/I
 
 	if(panel_open)
-		add_overlay("pod_panel")
+		AddOverlays("pod_panel")
 
 	I = image(icon, "pod[on]_top")
 	I.pixel_z = 32
-	add_overlay(I)
+	AddOverlays(I)
 
 	if(occupant)
 		var/image/pickle = image(occupant.icon, occupant.icon_state)
 		pickle.overlays = occupant.overlays
 		pickle.pixel_z = 11
-		add_overlay(pickle)
+		AddOverlays(pickle)
 
 	I = image(icon, "lid[on]")
-	add_overlay(I)
+	AddOverlays(I)
 
 	I = image(icon, "lid[on]_top")
 	I.pixel_z = 32
-	add_overlay(I)
+	AddOverlays(I)
 
 	if(powered())
 		var/warn_state = "off"
@@ -340,10 +351,10 @@
 				warn_state = "danger"
 			else if(air_contents.temperature >= temperature_warning_threshold)
 				warn_state = "warn"
-		add_overlay(screen_overlays["cryo-[warn_state]"])
+		AddOverlays(screen_overlays["cryo-[warn_state]"])
 		I = screen_overlays["cryo-[warn_state]-top"]
 		I.pixel_z = 32
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/process_occupant()
 	if(air_contents.total_moles < 10)
@@ -464,21 +475,6 @@
 	//draws from the cryo tube's environment, instead of the cold internal air.
 	if(loc)
 		return loc.return_air()
-
-/obj/machinery/atmospherics/unary/cryo_cell/attackby(obj/item/attacking_item, mob/user)
-	if(default_deconstruction_screwdriver(user, attacking_item))
-		return TRUE
-	if(default_deconstruction_crowbar(user, attacking_item))
-		return TRUE
-	if(default_part_replacement(user, attacking_item))
-		return TRUE
-
-	return ..()
-
-/obj/machinery/atmospherics/unary/cryo_cell/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
-	. = ..()
-	if(panel_open)
-		. += "The maintenance hatch is open."
 
 /obj/machinery/atmospherics/unary/cryo_cell/RefreshParts()
 	..()

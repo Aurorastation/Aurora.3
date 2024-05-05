@@ -805,7 +805,7 @@ var/global/list/golem_types = list(
 
 	meat_type = /obj/item/reagent_containers/food/snacks/meat
 
-	blood_color = "#5C4831"
+	blood_color = COLOR_LEATHER
 	flesh_color = "#FFC896"
 
 	death_message = "collapses into a pile of flesh!"

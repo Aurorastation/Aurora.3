@@ -200,6 +200,10 @@
 
 /obj/item/rig/attack_hand(var/mob/user)
 
+	var/obj/item/rig_module/storage/storage = locate() in installed_modules
+	if(storage && !storage.pockets.handle_attack_hand(user))
+		return
+
 	if(electrified != 0)
 		if(shock(user)) //Handles removing charge from the cell, as well. No need to do that here.
 			return

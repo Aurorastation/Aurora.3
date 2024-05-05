@@ -13,16 +13,47 @@
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 3, "muffin" = 3))
 	bitesize = 2
 
-/obj/item/reagent_containers/food/snacks/berrymuffin
+/obj/item/reagent_containers/food/snacks/muffin/berry
 	name = "berry muffin"
 	desc = "A delicious and spongy little cake, with berries."
-	icon = 'icons/obj/item/reagent_containers/food/pastries.dmi'
-	icon_state = "berrymuffin"
-	filling_color = "#E0CF9B"
-
-	reagents_to_add = list(/singleton/reagent/nutriment = 5)
+	icon_state = "muffin_berry"
 	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "berries" = 2))
-	bitesize = 2
+
+/obj/item/reagent_containers/food/snacks/muffin/chocolate
+	name = "berry muffin"
+	desc = "A delicious and spongy little cake, with chocolate chips."
+	icon_state = "muffin_chocolate"
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "chocolate" = 2))
+
+/obj/item/reagent_containers/food/snacks/muffin/whitechocolate
+	name = "chocolate muffin"
+	desc = "A delicious and spongy little cake, with white chocolate chips."
+	icon_state = "muffin_whitechocolate"
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "white chocolate" = 2))
+
+/obj/item/reagent_containers/food/snacks/muffin/cheese
+	name = "cheese muffin"
+	desc = "A delicious and spongy little cake, with cheese."
+	icon_state = "muffin_cheese"
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "cheese" = 2))
+
+/obj/item/reagent_containers/food/snacks/muffin/butter
+	name = "butter muffin"
+	desc = "A delicious, buttery and soft little cake."
+	icon_state = "muffin_butter"
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "butter" = 2))
+
+/obj/item/reagent_containers/food/snacks/muffin/raisin
+	name = "raisin muffin"
+	desc = "A delicious and spongy little cake, with raisins."
+	icon_state = "muffin_raisin"
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "raisins" = 2))
+
+/obj/item/reagent_containers/food/snacks/muffin/meat
+	name = "meat muffin"
+	desc = "A delicious and spongy little cake, with meat."
+	icon_state = "muffin_meat"
+	reagent_data = list(/singleton/reagent/nutriment = list("sweetness" = 1, "muffin" = 2, "meat" = 2))
 
 ////////////////////////////////////////////PANCAKES////////////////////////////////////////////
 

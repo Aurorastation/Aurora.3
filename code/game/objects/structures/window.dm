@@ -104,12 +104,12 @@
 		updateSilicate()
 
 /obj/structure/window/proc/updateSilicate()
-	cut_overlays()
+	ClearOverlays()
 
 	var/image/img = image(icon, icon_state)
 	img.color = "#ffffff"
 	img.alpha = silicate * 255 / 100
-	add_overlay(img)
+	AddOverlays(img)
 
 /obj/structure/window/proc/shatter(var/display_message = 1)
 	playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
@@ -376,17 +376,33 @@
 	update_nearby_tiles()
 	var/turf/location = loc
 	loc = null
+
 	for(var/obj/structure/window/W in orange(location, 1))
 		W.update_icon()
+
+	for(var/obj/structure/table/T in view(location, 1))
+		T.update_connections()
+		T.update_icon()
+
 	loc = location
+
 	return ..()
 
 /obj/structure/window/Move()
 	var/ini_dir = dir
+	var/oldloc = loc
+
 	update_nearby_tiles(need_rebuild=1)
+
 	..()
+
 	set_dir(ini_dir)
 	update_nearby_tiles(need_rebuild=1)
+
+	if(loc != oldloc)
+		for(var/obj/structure/table/T in view(oldloc, 1) | view(loc, 1))
+			T.update_connections()
+			T.update_icon()
 
 /obj/structure/window/proc/is_fulltile() // Checks if this window is a full-tile one.
 	if(dir & (dir - 1))

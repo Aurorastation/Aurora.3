@@ -226,9 +226,9 @@
 		return
 
 	last_gauge_pressure = gauge_pressure
-	cut_overlays()
+	ClearOverlays()
 	// SSoverlay will handle icon caching.
-	add_overlay("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
+	AddOverlays("[gauge_icon][(gauge_pressure == -1) ? "overload" : gauge_pressure]")
 
 /obj/item/tank/proc/percent()
 	var/gauge_pressure = 0

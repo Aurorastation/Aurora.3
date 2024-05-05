@@ -159,7 +159,7 @@
 	C.transforming = TRUE
 	C.canmove = FALSE
 	C.icon = null
-	C.cut_overlays()
+	C.ClearOverlays()
 	C.set_invisibility(101)
 	var/atom/movable/overlay/animation = new /atom/movable/overlay(C.loc)
 	animation.icon_state = "blank"
@@ -689,13 +689,6 @@
 		changeling.using_thermals = TRUE
 		H.stop_sight_update = TRUE
 		to_chat(H, SPAN_NOTICE("We have turned on our heat receptors."))
-
-/mob/living/carbon/human/get_flash_protection(ignore_inherent = FALSE)
-	var/datum/changeling/changeling = changeling_power(0, 0, 0)
-	if(changeling && changeling.using_thermals)
-		return FLASH_PROTECTION_REDUCED
-	else
-		. = ..()
 
 /mob/proc/changeling_electric_lockpick()
 	set category = "Changeling"

@@ -89,6 +89,7 @@
 	speech = list(
 		"hail_generic"      = "Grrreetings, comrrrade! Sergei hopes they can enjoy his selection of goods, nothing herrre was smuggled!",
 		"hail_Tajara"       = "Welcome, comrrrade. He has the best prrrices forr them!",
+		"hail_Zhan-Khazan Tajara" = "Welcome, comrrrade. He rrreminds them that these goods must be purrrchased firrrst!",
 		"hail_deny"         = "The shop is closed, comrrrade!",
 		"trade_complete"    = "Many thanks, comrrrade, enjoy it!",
 		"trade_blacklist"   = "No, no, nothing of this in his shop!",
@@ -99,6 +100,11 @@
 		"compliment_accept" = "Pourrr one out for Al'marrri. His gun was on stun, bless his hearrrt.",
 		"insult_good"       = "Good one, comrrrade!",
 		"insult_bad"        = "Rrrracist!"
+	)
+	species_bias = list( //Zhan don't get discount
+		SPECIES_TAJARA = TRADER_BIAS_DISCOUNT,
+		SPECIES_TAJARA_MSAI = TRADER_BIAS_DISCOUNT,
+		SPECIES_TAJARA_TESLA_BODY = TRADER_BIAS_DISCOUNT
 	)
 
 	allowed_space_sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS, SECTOR_NEW_ANKARA, SECTOR_AEMAQ, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL, SECTOR_GAKAL, SECTOR_UUEOAESA)

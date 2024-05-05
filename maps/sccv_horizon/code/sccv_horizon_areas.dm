@@ -848,10 +848,10 @@
 	ambience = AMBIENCE_FOREBODING
 	holomap_color = HOLOMAP_AREACOLOR_OPERATIONS
 
-// ZTA
-/area/horizon/zta
-	name = "Horizon - ZTA Weapon System"
-	icon_state = "zta"
+// ZAT
+/area/horizon/zat
+	name = "Horizon - ZAT Weapon System"
+	icon_state = "zat"
 	sound_environment = SOUND_AREA_LARGE_ENCLOSED
 	ambience = AMBIENCE_SINGULARITY
 	area_blurb = "A gargantuan machine dominates the room, covered in components and moving parts. Its name is befitting of its size."

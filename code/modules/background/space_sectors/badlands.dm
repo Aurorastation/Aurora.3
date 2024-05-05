@@ -86,6 +86,23 @@
 	sector_hud_menu_sound = 'sound/effects/menu_click_heavy.ogg'
 	sector_hud_arrow = "menu_arrow"
 
+	lore_radio_stations = list(
+		"34.2 The Voice of the Tajaran People" = 'texts/lore_radio/adhomai/34.2_The_Voice_of_the_Tajaran_People.txt',
+		"14.6 Northern Harr'masir Radio" = 'texts/lore_radio/adhomai//14.6_Northern_Harrmasir_Radio.txt',
+		"72.9 Crevus Radio Center 27" = 'texts/lore_radio/adhomai/72.9_Crevus_Radio_Center_27.txt',
+		"51.2 Radio Free Adhomai" = 'texts/lore_radio/adhomai/51.2_Radio_Free_Adhomai.txt',
+		"83.1 The Crown Herald" = 'texts/lore_radio/adhomai/83.1_The_Crown_Herald.txt',
+		"11.7 KGTW-11" = 'texts/lore_radio/adhomai/11.7_KGTW-11.txt'
+	)
+
+	lobby_tracks = list(
+		'sound/music/lobby/adhomai/adhomai-1.ogg',
+		'sound/music/lobby/adhomai/adhomai-2.ogg',
+		'sound/music/lobby/adhomai/adhomai-3.ogg',
+		'sound/music/lobby/adhomai/adhomai-4.ogg'
+	)
+
+
 /datum/space_sector/nrrahrahul
 	name = SECTOR_NRRAHRAHUL
 	description = "Hro'zamal is the second planet in the Nrrahrahul system. Formerly named Nrrahrahul Two, it was given the name Hro'zamal after the establishment of a permanent civilian \
@@ -109,7 +126,29 @@
 	name = SECTOR_UUEOAESA
 	description = "The home of the Unathi race, Uueoa-Esa is a solar system with 4 rocky planets and 1 gas giant. Moghes is the homeworld of the Unathi species and third from its mother star. \
 	It is similar in density and composition to Earth and held host to varied and complex environments and local fauna and flora. It's surface area of salt water is much lower than most other habitable planets. \
-	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430's."
-	starlight_color = COLOR_WHITE
-	starlight_power = 5
-	starlight_range = 1
+	Moghes is currently experiencing immense environmental degradation following a global nuclear war in the 2430s."
+	skybox_icon = "uueoaesa"
+	starlight_color = "#f8711e"
+	starlight_power = 2
+	starlight_range = 4
+	cargo_price_coef = list("nt" = 1.5, "hpi" = 0.5, "zhu" = 1.5, "een" = 1.5, "get" = 1.2, "arz" = 0.5, "blm" = 1.2, "iac" = 1.0, "zsc" = 0.9, "vfc" = 1.2, "bis" = 1.5, "xmg" = 0.6, "npi" = 1.5)
+	sector_welcome_message = 'sound/AI/welcome_hegemony.ogg'
+	scheduled_port_visits = list("Thursday", "Sunday")
+	ports_of_call = list("the city of Skalamar")
+
+	possible_exoplanets = list(
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/omzoli,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/pid,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/chanterel,
+		/obj/effect/overmap/visitable/sector/exoplanet/barren/asteroid/ytizi,
+		/obj/effect/overmap/visitable/sector/exoplanet/ouerea,
+		/obj/effect/overmap/visitable/sector/exoplanet/moghes
+
+	)
+
+	lore_radio_stations = list(
+		"72.4 Radio Free Ouerea" = 'texts/lore_radio/uueoaesa/72.4_Radio_Free_Ouerea.txt',
+		"83.3 Canyon City Radio" = 'texts/lore_radio/uueoaesa/83.3_Canyon_City_Radio.txt',
+		"132.6 SkaldFM" = 'texts/lore_radio/uueoaesa/132.6_Skald_FM.txt',
+		"166.8 Discontinued Emergency Broadcast" = 'texts/lore_radio/uueoaesa/166.8_Azarak_Emergency_Broadcast.txt'
+	)

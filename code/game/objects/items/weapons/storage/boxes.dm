@@ -50,7 +50,7 @@
 	if(ispath(src.trash))
 		desc_info += "This can be crumpled up into a trash item when empty, or forcibly crumpled on harm intent. "
 	if(illustration)
-		add_overlay(illustration)
+		AddOverlays(illustration)
 
 /obj/item/storage/box/proc/damage(var/severity)
 	health -= severity
@@ -958,18 +958,26 @@
 
 /obj/item/storage/box/toothpaste
 	can_hold = list(/obj/item/reagent_containers/toothpaste,
-					/obj/item/reagent_containers/toothbrush)
+					/obj/item/reagent_containers/toothbrush,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash,
+					)
 
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush = 1)
+					/obj/item/reagent_containers/toothbrush = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/green
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-					/obj/item/reagent_containers/toothbrush/green = 1)
+					/obj/item/reagent_containers/toothbrush/green = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/toothpaste/red
 	starts_with = list(/obj/item/reagent_containers/toothpaste = 1,
-				/obj/item/reagent_containers/toothbrush/red = 1)
+				/obj/item/reagent_containers/toothbrush/red = 1,
+					/obj/item/reagent_containers/food/drinks/flask/vacuumflask/mouthwash = 1,
+					)
 
 /obj/item/storage/box/holobadge
 	name = "holobadge box"
@@ -1243,10 +1251,6 @@
 		/obj/item/reagent_containers/glass/bottle/syrup/vanilla = 1,
 		/obj/item/reagent_containers/glass/bottle/syrup/caramel = 1,
 	)
-
-/obj/item/storage/box/produce/fill()
-	. = ..()
-	make_exact_fit()
 
 /obj/item/storage/box/cleaner_tablets
 	name = "\improper Idris cleaner tablets box"

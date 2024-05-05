@@ -173,7 +173,6 @@ SUBSYSTEM_DEF(atlas)
 		world.map_panic("Selected map does not exist!")
 
 	load_map_meta()
-	setup_spawnpoints()
 
 	world.update_status()
 
@@ -211,6 +210,8 @@ SUBSYSTEM_DEF(atlas)
 		current_sector = selected_sector
 
 	current_sector.setup_current_sector()
+
+	setup_spawnpoints()
 
 	return SS_INIT_SUCCESS
 

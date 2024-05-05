@@ -62,7 +62,7 @@
 
 	if(prob(75))
 		var/image/web_overlay = image(icon, icon_state = "[initial(icon_state)]-overlay[pick(1, 2, 3)]", layer = ABOVE_HUMAN_LAYER)
-		add_overlay(web_overlay)
+		AddOverlays(web_overlay)
 
 /obj/effect/spider/stickyweb/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
 	if(air_group || height == 0)

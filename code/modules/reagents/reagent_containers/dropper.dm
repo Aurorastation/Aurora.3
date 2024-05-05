@@ -93,10 +93,10 @@
 	update_icon()
 
 /obj/item/reagent_containers/dropper/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(reagents.total_volume)
 		worn_overlay = "filling"
-		add_overlay(overlay_image(icon, "dropper-[get_filling_state()]", color = reagents.get_color()))
+		AddOverlays(overlay_image(icon, "dropper-[get_filling_state()]", color = reagents.get_color()))
 		worn_overlay_color = reagents.get_color() // handles inhands
 	else
 		worn_overlay = null

@@ -160,13 +160,6 @@
 		return FALSE
 	return TRUE
 
-/mob/living/silicon/ai/emote(var/act, var/type, var/message)
-	var/obj/machinery/hologram/holopad/T = src.holo
-	if(T?.active_holograms[src]) //Is the AI using a holopad?
-		src.holopad_emote(message)
-	else //Emote normally, then.
-		..()
-
 #undef IS_AI
 #undef IS_ROBOT
 #undef IS_PAI

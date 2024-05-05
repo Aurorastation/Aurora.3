@@ -177,7 +177,7 @@
 			var/mutable_appearance/MA = new(attacking_item)
 			MA.pixel_x += 1
 			MA.pixel_y += 6
-			add_overlay(MA)
+			AddOverlays(MA)
 
 	return ..()
 

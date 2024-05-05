@@ -120,13 +120,13 @@
 		..()
 
 /mob/living/simple_animal/construct/proc/add_glow()
-	cut_overlays()
+	ClearOverlays()
 	var/overlay_plane = EFFECTS_ABOVE_LIGHTING_PLANE
 
 	var/image/glow = image(icon, "glow-[icon_state]")
 	glow.plane = overlay_plane
 
-	add_overlay(glow)
+	AddOverlays(glow)
 	set_light(2, -2, l_color = COLOR_WHITE)
 
 /mob/living/simple_animal/construct/Life()

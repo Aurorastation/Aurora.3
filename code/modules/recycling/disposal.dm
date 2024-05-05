@@ -448,7 +448,7 @@
 
 // update the icon & overlays to reflect mode & status
 /obj/machinery/disposal/proc/update()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & BROKEN)
 		icon_state = "[icon_state]-broken"
 		mode = 0
@@ -457,7 +457,7 @@
 
 	// flush handle
 	if(flush)
-		add_overlay("[icon_state]-handle")
+		AddOverlays("[icon_state]-handle")
 
 	// only handle is shown if no power
 	if(stat & NOPOWER || mode == -1)
@@ -465,13 +465,13 @@
 
 	// 	check for items in disposal - occupied light
 	if(contents.len > 0)
-		add_overlay("[icon_state]-full")
+		AddOverlays("[icon_state]-full")
 
 	// charging and ready light
 	if(mode == 1)
-		add_overlay("[icon_state]-charge")
+		AddOverlays("[icon_state]-charge")
 	else if(mode == 2)
-		add_overlay("[icon_state]-ready")
+		AddOverlays("[icon_state]-ready")
 
 // timed process
 // charge the gas reservoir and perform flush if ready
@@ -797,7 +797,7 @@
 	if(mapload)
 		var/turf/T = loc
 		var/image/I = image(icon, T, icon_state, dir, pixel_x, pixel_y)
-		I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
+		I.layer = ABOVE_TILE_LAYER
 		I.alpha = 125
 		LAZYADD(T.blueprints, I)
 
@@ -842,7 +842,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1034,30 +1034,6 @@
 
 	qdel(src)
 
-// pipe is deleted
-// ensure if holder is present, it is expelled
-/obj/structure/disposalpipe/Destroy()
-	var/obj/disposalholder/H = locate() in src
-	if(H)
-		// holder was present
-		STOP_PROCESSING(SSdisposals, H)
-		var/turf/T = src.loc
-		if(T.density)
-			// deleting pipe is inside a dense turf (wall)
-			// this is unlikely, but just dump out everything into the turf in case
-
-			for(var/atom/movable/AM in H)
-				AM.forceMove(T)
-				AM.pipe_eject(0)
-			qdel(H)
-
-			return ..()
-
-		// otherwise, do normal expel from turf
-		if(H)
-			expel(H, T, 0)
-	return ..()
-
 /obj/structure/disposalpipe/hides_under_flooring()
 	return 1
 
@@ -1119,7 +1095,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1168,7 +1144,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)
@@ -1363,7 +1339,7 @@
 	if(P)
 		// find other holder in next loc, if inactive merge it with current
 		var/obj/disposalholder/H2 = locate() in P
-		if(H2 && !H2.isprocessing)
+		if(H2 && !(H2.datum_flags & DF_ISPROCESSING))
 			H.merge(H2)
 
 		H.forceMove(P)

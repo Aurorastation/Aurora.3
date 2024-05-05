@@ -211,3 +211,14 @@
 	. = ..()
 	charge = 0
 	update_icon()
+
+/obj/item/cell/hydrogen
+	name = "hydrogen blaster canister"
+	desc = "An industrial-grade hydrogen power cell, used in various blaster weapons- or blaster-adjacent power tools- in place of expensive phoron."
+	icon_state = "hycell"
+	maxcharge = 10000 // hydrogen is actually used today in electric cars
+	matter = list(DEFAULT_WALL_MATERIAL = 700, MATERIAL_GLASS = 70)
+	w_class = ITEMSIZE_SMALL
+	drop_sound = 'sound/items/drop/gascan.ogg'
+	pickup_sound = 'sound/items/pickup/gascan.ogg'
+	origin_tech = list(TECH_POWER = 4)

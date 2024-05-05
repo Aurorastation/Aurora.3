@@ -215,7 +215,7 @@
 	holster.icon_state = null
 	holster.on_attached(src)	//its inside a suit, we set  this so it can be drawn from
 	QDEL_NULL(pockets)	//Tactical armor has internal holster instead of pockets, so we null this out
-	cut_overlays()	// Remove the holster's overlay.
+	ClearOverlays()	// Remove the holster's overlay.
 
 /obj/item/clothing/suit/armor/tactical/attackby(obj/item/attacking_item, mob/user)
 	..()

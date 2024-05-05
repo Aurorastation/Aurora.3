@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_raskariim_hideout.dmm")
 
+	unit_test_groups = list(2)
+
 /area/adhomai_raskariim_hideout
 	name = "Abandoned House"
 	icon_state = "bluenew"

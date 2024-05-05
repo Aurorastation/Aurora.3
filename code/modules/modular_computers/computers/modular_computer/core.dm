@@ -165,19 +165,19 @@
 /obj/item/modular_computer/update_icon()
 	icon_state = icon_state_unpowered
 
-	cut_overlays()
+	ClearOverlays()
 	if(damage >= broken_damage)
 		icon_state = icon_state_broken
-		add_overlay("broken")
+		AddOverlays("broken")
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
-				add_overlay(icon_state_screensaver)
+				AddOverlays(icon_state_screensaver)
 		if(icon_state_screensaver_key && working)
-			add_overlay(icon_state_screensaver_key)
+			AddOverlays(icon_state_screensaver_key)
 
 		if (screensaver_light_range && working && !flashlight)
 			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -190,16 +190,16 @@
 		if (is_holographic)
 			holographic_overlay(src, src.icon, state)
 		else
-			add_overlay(state)
-		add_overlay(state_key)
+			AddOverlays(state)
+		AddOverlays(state_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
 	else
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_state_menu)
 		else
-			add_overlay(icon_state_menu)
-		add_overlay(icon_state_menu_key)
+			AddOverlays(icon_state_menu)
+		AddOverlays(icon_state_menu_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = menu_light_color)
 

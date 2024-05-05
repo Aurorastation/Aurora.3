@@ -9,6 +9,8 @@
 	prefix = "haneunim/"
 	suffixes = list("haneunim_mining.dmm")
 
+	unit_test_groups = list(3)
+
 /area/haneunim_mining
 	name = "Haneunim Mining Outpost"
 	icon_state = "bluenew"
