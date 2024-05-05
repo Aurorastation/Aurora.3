@@ -36,4 +36,4 @@
 // -----------------------------------------------------------------------
 // -----------------------------------------------------------------------
 
-#define bapi_hello_world(arg) BAPI_CALL("hello_world", arg)
+#define bapi_hello_world(arg) BAPI_CALL(hello_world, arg)

@@ -254,7 +254,6 @@ GLOBAL_REAL(Master, /datum/controller/master)
 	var/time = (REALTIMEOFDAY - start_timeofday) / 10
 
 	var/bapi = bapi_hello_world(null)
-	var/foo = bapi
 	to_chat(world, SPAN_HIGHDANGER("[bapi]"))
 
 	var/msg = "Initializations complete within [time] second[time == 1 ? "" : "s"]!"
