@@ -742,6 +742,10 @@
 /obj/structure/window/reinforced{
 	dir = 1
 	},
+/obj/structure/window/reinforced{
+	dir = 4;
+	icon_state = "rwindow"
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "cR" = (
@@ -1280,9 +1284,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
 /obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -1293,6 +1294,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "eH" = (
@@ -1389,25 +1391,12 @@
 /area/kataphract_chapter/brig)
 "fc" = (
 /obj/structure/lattice/catwalk/indoor/grate,
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
-	},
 /obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle,
-/obj/machinery/embedded_controller/radio/airlock/docking_port{
-	dir = 8;
-	pixel_y = 6;
-	pixel_x = 20
-	},
-/obj/machinery/airlock_sensor{
-	pixel_x = 20;
-	dir = 8;
-	pixel_y = -6
-	},
-/obj/machinery/light/small/emergency{
-	dir = 8
-	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -1553,16 +1542,16 @@
 /area/kataphract_chapter/engineering)
 "fC" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
-	dir = 8
+	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
+	dir = 6
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "fD" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -4531,6 +4520,13 @@
 /obj/effect/decal/cleanable/cobweb2,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/atmospherics)
+"tP" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "tS" = (
 /obj/structure/lattice/catwalk,
 /turf/space,
@@ -4806,6 +4802,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/armoury)
+"xE" = (
+/obj/structure/fuel_port/hydrogen{
+	pixel_x = -32
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "xK" = (
 /obj/effect/floor_decal/spline/plain/yellow{
 	dir = 4
@@ -5374,6 +5376,10 @@
 /obj/machinery/light,
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/mess)
+"Dl" = (
+/obj/machinery/atmospherics/pipe/simple/visible/fuel,
+/turf/simulated/wall/shuttle/space_ship/mercenary,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "Dx" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -5401,6 +5407,18 @@
 /obj/effect/decal/cleanable/blood/drip,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
+"DQ" = (
+/obj/machinery/light/small/emergency{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "DT" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -6159,7 +6177,7 @@
 "Mh" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/fuel,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
+	dir = 10
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/kataphract_shuttle/main_compartment)
@@ -6916,9 +6934,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 6
 	},
-/obj/structure/fuel_port/hydrogen{
-	pixel_x = -32
-	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Td" = (
@@ -7381,6 +7396,24 @@
 	},
 /turf/simulated/floor/wood,
 /area/kataphract_chapter/office)
+"Yz" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/effect/map_effect/marker/airlock/shuttle/kataphract_shuttle,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "YP" = (
 /obj/structure/table/standard,
 /obj/structure/closet/walllocker/medical/secure{
@@ -35762,10 +35795,10 @@ bO
 yh
 Bi
 Bi
+Bi
 fd
 RO
 CH
-iB
 iB
 lo
 lo
@@ -36014,10 +36047,10 @@ dk
 dL
 ZX
 eE
-fe
+xE
 fC
+tP
 eD
-iB
 iB
 lo
 Pr
@@ -36268,7 +36301,7 @@ JZ
 cl
 Tb
 Mh
-Bi
+DQ
 Bi
 lo
 lo
@@ -36772,7 +36805,7 @@ lQ
 cl
 cQ
 gA
-Bi
+Yz
 Bi
 lo
 lo
@@ -37021,11 +37054,11 @@ dN
 dN
 dN
 Bv
+cl
 lB
-fd
 fD
+Dl
 eD
-iB
 iB
 lo
 bb
@@ -37274,9 +37307,9 @@ bO
 IU
 Bi
 Bi
+Bi
 fe
 eD
-iB
 iB
 iB
 lo
