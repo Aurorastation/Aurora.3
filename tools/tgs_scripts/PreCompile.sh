@@ -34,7 +34,7 @@ cd ..
 echo "Deploying BAPI..."
 cd $1/rust/bapi
 env PKG_CONFIG_ALLOW_CROSS=1 ~/.cargo/bin/cargo build --release --features all --target=i686-unknown-linux-gnu
-mv target/i686-unknown-linux-gnu/release/bapi.so "$1/bapi.so"
+mv target/i686-unknown-linux-gnu/release/libbapi.so "$1/libbapi.so"
 cd ..
 cd ..
 
