@@ -24,6 +24,9 @@
 
 	msg = sanitize(msg)
 
+	if(!msg)
+		return
+
 	if(!holder)
 		if(!GLOB.config.ooc_allowed)
 			to_chat(src, "<span class='danger'>OOC is globally muted.</span>")

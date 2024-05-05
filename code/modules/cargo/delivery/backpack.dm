@@ -69,7 +69,7 @@
 		var/image/north_overlay = get_mob_overlay(courier, mob_icon, mob_state + "_over", slot, FALSE)
 		north_overlay.layer = courier.layer + 0.01 // we want the tall backpack to render over hair and helmets
 		north_overlay.appearance_flags |= KEEP_APART
-		mob_overlay.add_overlay(north_overlay)
+		mob_overlay.AddOverlays(north_overlay)
 	return mob_overlay
 
 /obj/item/cargo_backpack/attack_hand(mob/living/carbon/human/user)

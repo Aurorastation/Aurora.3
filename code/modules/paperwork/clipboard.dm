@@ -38,7 +38,7 @@
 			return
 
 /obj/item/clipboard/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/to_add = list()
 	if(toppaper)
 		to_add += toppaper.icon_state
@@ -48,7 +48,7 @@
 	if(haspen)
 		to_add += "clipboard_pen"
 	to_add += "clipboard_over"
-	add_overlay(to_add)
+	AddOverlays(to_add)
 
 /obj/item/clipboard/attackby(obj/item/attacking_item, mob/user)
 

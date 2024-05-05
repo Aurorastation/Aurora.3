@@ -39,7 +39,7 @@
 
 
 /obj/machinery/portable_atmospherics/powered/scrubber/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(on && cell && cell.charge)
 		icon_state = "pscrubber:1"
@@ -47,10 +47,10 @@
 		icon_state = "pscrubber:0"
 
 	if(holding)
-		add_overlay("scrubber-open")
+		AddOverlays("scrubber-open")
 
 	if(connected_port)
-		add_overlay("scrubber-connector")
+		AddOverlays("scrubber-connector")
 
 	return
 

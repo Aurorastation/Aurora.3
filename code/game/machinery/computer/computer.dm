@@ -77,7 +77,7 @@
 			layer = ABOVE_HUMAN_LAYER
 		if(WEST)
 			layer = ABOVE_HUMAN_LAYER
-	cut_overlays()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return
@@ -104,23 +104,23 @@
 	if(stat & BROKEN)
 		icon_state = "[icon_state]-broken"
 		if (overlay_layer != layer)
-			add_overlay(image(icon, icon_broken, overlay_layer))
+			AddOverlays(image(icon, icon_broken, overlay_layer))
 		else
-			add_overlay(icon_broken)
+			AddOverlays(icon_broken)
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)
 		if (icon_scanline)
-			add_overlay(icon_scanline)
+			AddOverlays(icon_scanline)
 		if (icon_keyboard)
 			if((stat & NOPOWER) && has_off_keyboards)
-				add_overlay("[icon_keyboard]_off")
+				AddOverlays("[icon_keyboard]_off")
 			else
-				add_overlay(icon_keyboard)
+				AddOverlays(icon_keyboard)
 		else if (overlay_layer != layer)
-			add_overlay(image(icon, icon_screen, overlay_layer))
+			AddOverlays(image(icon, icon_screen, overlay_layer))
 		else
-			add_overlay(icon_screen)
+			AddOverlays(icon_screen)
 
 /obj/machinery/computer/power_change()
 	..()

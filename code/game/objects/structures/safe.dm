@@ -97,12 +97,12 @@ FLOOR SAFES
 		else
 			icon_state = initial(icon_state)
 
-	cut_overlay(drill_overlay)
+	CutOverlays(drill_overlay)
 	if(istype(drill, /obj/item/thermal_drill))
 		var/drill_icon = istype(drill, /obj/item/thermal_drill/diamond_drill) ? "d" : "h"
 		var/state = "[initial(icon_state)]_[drill_icon]-drill-[(datum_flags & DF_ISPROCESSING) ? "on" : "off"]"
 		drill_overlay = image(icon = 'icons/effects/drill.dmi', icon_state = state, pixel_x = drill_x_offset, pixel_y = drill_y_offset)
-		add_overlay(drill_overlay)
+		AddOverlays(drill_overlay)
 
 /obj/structure/safe/attack_hand(mob/user as mob)
 	if(drill)

@@ -43,11 +43,16 @@ export type ChangerData = {
   owner_hair_style: string;
   valid_hair_styles: string[];
 
+  change_gradient: BooleanLike;
+  owner_gradient_style: string;
+  valid_gradient_styles: string[];
+
   change_facial_hair: BooleanLike;
   owner_facial_hair_style: string;
   valid_facial_hair_styles: string[];
 
   change_hair_color: BooleanLike;
+  change_gradient_color: BooleanLike;
   change_facial_hair_color: BooleanLike;
 
   change_prosthetics: BooleanLike;
@@ -256,6 +261,14 @@ export const ColorsWindow = (props, context) => {
       ) : (
         ''
       )}
+      {data.change_gradient_color ? (
+        <Button
+          content="Hair Gradient Color"
+          onClick={() => act('gradient_color')}
+        />
+      ) : (
+        ''
+      )}
       {data.change_facial_hair_color ? (
         <Button
           content="Facial Hair Color"
@@ -280,6 +293,16 @@ export const HairWindow = (props, context) => {
             content={new_hair_style}
             selected={data.owner_hair_style === new_hair_style}
             onClick={() => act('hair', { hair: new_hair_style })}
+          />
+        ))}
+      </Collapsible>
+      <Collapsible content="Gradient Styles">
+        {data.valid_gradient_styles.map((new_gradient_style) => (
+          <Button
+            key={new_gradient_style}
+            content={new_gradient_style}
+            selected={data.owner_gradient_style === new_gradient_style}
+            onClick={() => act('gradient', { gradient: new_gradient_style })}
           />
         ))}
       </Collapsible>

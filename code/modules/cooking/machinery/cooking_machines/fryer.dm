@@ -78,7 +78,7 @@
 		icon_state = on_icon
 	else
 		icon_state = off_icon
-	cut_overlays()
+	ClearOverlays()
 	var/list/pans = list()
 	for(var/obj/item/reagent_containers/cooking_container/CC in contents)
 		var/image/pan_overlay
@@ -88,7 +88,7 @@
 		pans += pan_overlay
 	if(isemptylist(pans))
 		return
-	add_overlay(pans)
+	AddOverlays(pans)
 	..()
 
 //Fryer gradually infuses any cooked food with oil. Moar calories

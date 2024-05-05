@@ -48,6 +48,24 @@
 	update_hair()
 	return 1
 
+/**
+ * Sets gradient style and updates hair overlay
+ */
+/mob/living/carbon/human/proc/change_gradient(var/gradient)
+	if(!gradient)
+		return
+
+	if(g_style == gradient)
+		return
+
+	if(!(gradient in GLOB.hair_gradient_styles_list))
+		return
+
+	g_style = gradient
+
+	update_hair()
+	return TRUE
+
 /mob/living/carbon/human/proc/change_facial_hair(var/facial_hair_style)
 	if(!facial_hair_style)
 		return
@@ -94,7 +112,7 @@
 	return 1
 
 /mob/living/carbon/human/proc/change_hair_color(var/red, var/green, var/blue)
-	if(red == r_eyes && green == g_eyes && blue == b_eyes)
+	if(red == r_hair && green == g_hair && blue == b_hair)
 		return
 
 	r_hair = red
@@ -105,6 +123,22 @@
 	update_body()
 	update_hair()
 	return 1
+
+/**
+ * Sets gradient colour and updates sprite
+ */
+/mob/living/carbon/human/proc/change_gradient_color(var/red, var/green, var/blue)
+	if(red == r_grad && green == g_grad && blue == b_grad)
+		return
+
+	r_grad = red
+	g_grad = green
+	b_grad = blue
+
+	force_update_limbs()
+	update_body()
+	update_hair()
+	return TRUE
 
 /mob/living/carbon/human/proc/change_facial_hair_color(var/red, var/green, var/blue)
 	if(red == r_facial && green == g_facial && blue == b_facial)
@@ -235,6 +269,22 @@
 		valid_hairstyles += hairstyle
 
 	return valid_hairstyles
+
+/**
+ * Returns a list of all valid gradient styles for this mob
+ */
+/mob/living/carbon/human/proc/generate_valid_gradients()
+	var/list/valid_gradient_styles = list()
+	if(species.bald)
+		return valid_gradient_styles
+	for(var/gradient in GLOB.hair_gradient_styles_list)
+		var/datum/sprite_accessory/S = GLOB.hair_gradient_styles_list[gradient]
+
+		if(!(species.type in S.species_allowed))
+			continue
+
+		valid_gradient_styles += gradient
+	return valid_gradient_styles
 
 /mob/living/carbon/human/proc/generate_valid_facial_hairstyles()
 	var/list/valid_facial_hairstyles = new()

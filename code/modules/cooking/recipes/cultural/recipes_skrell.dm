@@ -100,3 +100,14 @@
 	result = /obj/item/reagent_containers/food/snacks/qlguabi
 	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
 	result = /obj/item/reagent_containers/food/snacks/qlguabi
+
+/singleton/recipe/konaqu
+	appliance = FRYER
+	fruit = list("q'lort" = 1, "ylpha" = 1)
+	reagents = list(/singleton/reagent/sugar = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/dough
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/konaqu
+	result_quantity = 2

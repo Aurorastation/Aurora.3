@@ -13,11 +13,11 @@
 		handle_regular_hud_updates()
 		update_items()
 	if(stat)
-		cut_overlay(eye_overlay)
+		CutOverlays(eye_overlay)
 		has_cut_eye_overlay = TRUE
 	else if(has_cut_eye_overlay)
 		eye_overlay = cached_eye_overlays[a_intent]
-		add_overlay(eye_overlay)
+		AddOverlays(eye_overlay)
 		has_cut_eye_overlay = null
 	if(stat != DEAD) //still using power
 		use_power()
@@ -322,12 +322,12 @@
 	return TRUE
 
 /mob/living/silicon/robot/update_fire()
-	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
-	cut_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+	CutOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+	CutOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
 	if(on_fire)
-		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
-		add_overlay(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
+		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
+		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
 /mob/living/silicon/robot/fire_act()
 	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.

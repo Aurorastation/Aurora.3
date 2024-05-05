@@ -167,7 +167,7 @@
 	if(build_from_parts) //random colors!
 		if(!color)
 			color = pick(COLOR_RED, COLOR_BLUE, COLOR_LIME, COLOR_ORANGE, COLOR_WHITE, COLOR_PINK, COLOR_YELLOW, COLOR_CYAN)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_end", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_end", flags=RESET_COLOR))
 
 /obj/item/handcuffs/cable/attack_self(mob/user)
 	legcuff = !legcuff
