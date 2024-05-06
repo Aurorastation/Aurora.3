@@ -60,18 +60,18 @@ jobs:
           cd rust/bapi
 
           # Get dependencies.
-          # rustup target add i686-unknown-linux-gnu
+          rustup target add i686-unknown-linux-gnu
           rustup target add i686-pc-windows-gnu
           sudo dpkg --add-architecture i386
           sudo apt-get update
           sudo apt-get install zlib1g-dev:i386 lib32gcc-11-dev mingw-w64 mingw-w64-i686-dev
 
           # Build it.
-          # cargo build --release --target i686-unknown-linux-gnu
+          cargo build --release --target i686-unknown-linux-gnu
           cargo build --release --target i686-pc-windows-gnu
 
           # Copy the built targets to their checked-in locations.
-          # cp target/i686-unknown-linux-gnu/release/libbapi.so ../tools/ci/libbapi_ci.so
+          cp target/i686-unknown-linux-gnu/release/libbapi.so ../../tools/ci/libbapi_ci.so
           cp target/i686-pc-windows-gnu/release/bapi.dll ../../bapi.dll
 
           # Check if a workflow file would be modified by the merge (permissions prevent pushes if so)
