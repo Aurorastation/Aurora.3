@@ -67,3 +67,62 @@
 2024-05-04:
   Hollyhock:
   - bugfix: Gives daiquiris their own flavor. Wow!
+2024-05-06:
+  Alberyk:
+  - rscadd: Added radios stations to Adhomai.
+  - rscadd: Added unique lobby music to Adhomai's system.
+  Ben10083:
+  - bugfix: The TCAF Shuttle now have engine control panel and targeting console.
+  - rscdel: Most of the AI Law boards beside law upload console in AI Upload have
+      been moved to AI Secure Storage.
+  Crosarius:
+  - qol: Greatly reduces the rate the liver clears alcohol intoxication
+  - qol: Increases applied intoxication coefficient from alcohol (Alcohol is more
+      potent)
+  - qol: Halves the rate that alcohol and butanol are metabolised by the body (You
+      get drunk slower)
+  - qol: Increases butanol metabolism coefficient for Unathi (Unathi metabolise alcohol
+      at a rate roughly equivalent to Humans and Alcohol)
+  - qol: Greatly reduced frequency of vomiting while moderately inebriated.
+  - qol: Changes liver damage from drunkeness to occur when you black out or fall
+      unconscious, rather than when you vomit.
+  - qol: Causes the liver to stop regenerating when BAC rises to dangerous levels.
+  DreamySkrell:
+  - rscadd: 'Abandoned Industrial Station: docks and shuttle landmarks updated to
+      new standards.'
+  - rscadd: 'Abandoned Industrial Station: minor mapping tweaks.'
+  - rscadd: 'Abandoned Industrial Station: removed sector blacklist so it can spawn
+      anywhere.'
+  FluffyGhost:
+  - server: Updated tracy to our v05052024, should fix linux loading.
+  - code_imp: Tweaked gravity check proc to be more inline with TG's version.
+  - code_imp: Added signals for gravity check, that allows atoms to perform anti-gravity.
+  - bugfix: Fixed roller beds thinking they have no gravity and thus not emitting
+      the rolling sound.
+  Geeves:
+  - rscadd: Added hemophilia and major hemophilia to the disabilities list. The former
+      will cause wounds to bleed for twice as long, while the latter will cause wounds
+      to bleed forever.
+  Llywelwyn:
+  - rscadd: Added gradient style/colour selection to the appearance changer.
+  - bugfix: Fixed hair colour being unable to be the same as eye colour.
+  ReadThisNamePlz:
+  - rscadd: Added two additional cameras to the AI area.
+  - rscadd: Added a camera to the CIC Foyer.
+  - rscadd: Added holopads to the AI core.
+  - rscadd: Added a guideline map to help with wiring.
+  TheDanseMacabre:
+  - refactor: Reworks the SFA ghostroles and the SFA corvette to reflect a state of
+      further decay.
+  Tomixcomics:
+  - rscadd: Added 14 new food dishes and food combinations
+  - rscadd: Added Ne'miik (Vaurcan milk) drink
+  crunchypretzels:
+  - rscadd: Added several new Coalition weapons, along with the necessary equipment
+      to use them.
+  nauticall:
+  - rscadd: Revamped the sensor relay to be up to modern standards; it is also more
+      decrepit.
+  - rscadd: Added a new sensor suite sprite for the relay's own sensor array.
+  - rscadd: The new sensor suite reaches farther than the Horizon's sensor suite in
+      exchange for being slower to scan and unable to perform deep scans.
