@@ -1,7 +1,7 @@
 name: Build BAPI
 on:
   issue_comment:
-    types: created
+    types: [created]
 
 jobs:
   build-bapi:
