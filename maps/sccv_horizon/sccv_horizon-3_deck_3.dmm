@@ -1446,27 +1446,7 @@
 /area/horizon/security/interrogation)
 "aYW" = (
 /obj/structure/table/steel,
-/obj/item/aiModule/robocop{
-	pixel_x = -7
-	},
-/obj/item/aiModule/paladin{
-	pixel_x = -1
-	},
-/obj/item/aiModule/corp{
-	pixel_x = 5
-	},
-/obj/item/aiModule/purge{
-	pixel_y = 9;
-	pixel_x = -7
-	},
-/obj/item/aiModule/reset{
-	pixel_y = 9;
-	pixel_x = -1
-	},
-/obj/item/aiModule/quarantine{
-	pixel_x = 5;
-	pixel_y = 9
-	},
+/obj/item/aiModule/reset,
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 1
 	},
@@ -2729,6 +2709,27 @@
 	name = "High Risk Modules";
 	desc = "Warning: Experimental modules designed to be used in extreme situations. Exercise extreme caution when utilizing.";
 	req_access = list(20)
+	},
+/obj/item/aiModule/robocop{
+	pixel_x = -7
+	},
+/obj/item/aiModule/paladin{
+	pixel_x = -1
+	},
+/obj/item/aiModule/corp{
+	pixel_x = 5
+	},
+/obj/item/aiModule/purge{
+	pixel_y = 9;
+	pixel_x = -7
+	},
+/obj/item/aiModule/quarantine{
+	pixel_x = 5;
+	pixel_y = 9
+	},
+/obj/item/aiModule/nanotrasen{
+	pixel_x = -1;
+	pixel_y = 9
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/turret_protected/ai_upload)
@@ -6219,6 +6220,10 @@
 	},
 /obj/machinery/light/small/emergency{
 	dir = 8
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - CIC Foyer";
+	dir = 4
 	},
 /turf/simulated/floor,
 /area/maintenance/security_starboard)
@@ -10056,6 +10061,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/hologram/holopad,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "hcg" = (
@@ -14152,6 +14158,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled/dark,
 /area/bridge/aibunker)
 "jKD" = (
@@ -15311,7 +15318,7 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
-/turf/simulated/floor,
+/turf/simulated/floor/reinforced,
 /area/bridge/selfdestruct)
 "kxi" = (
 /obj/effect/landmark/entry_point/starboard{
@@ -23282,6 +23289,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
 	},
+/obj/machinery/hologram/holopad/long_range,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "pNE" = (
@@ -26343,6 +26351,7 @@
 "rRK" = (
 /obj/machinery/porta_turret,
 /obj/effect/floor_decal/industrial/warning/full,
+/obj/item/device/radio/intercom/south,
 /turf/simulated/floor/tiled/dark,
 /area/turret_protected/ai_upload_foyer)
 "rRN" = (
@@ -28056,6 +28065,10 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "Bridge - Restricted Area";
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/bridge/selfdestruct)
@@ -35182,6 +35195,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "0-8"
+	},
+/obj/machinery/camera/network/command{
+	c_tag = "AI Core - Upload Airlock"
 	},
 /turf/simulated/floor,
 /area/turret_protected/ai_upload_foyer)

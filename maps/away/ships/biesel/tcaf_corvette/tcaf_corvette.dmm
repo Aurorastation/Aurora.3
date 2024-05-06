@@ -1182,7 +1182,7 @@
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "iU" = (
-/obj/machinery/computer/shuttle_control/explore/tcaf_shuttle,
+/obj/machinery/computer/ship/targeting,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "iV" = (
@@ -1236,6 +1236,9 @@
 "jj" = (
 /obj/effect/floor_decal/industrial/outline/blue,
 /obj/structure/table/rack,
+/obj/machinery/recharger/wallcharger{
+	pixel_x = 34
+	},
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
 "jk" = (
@@ -2148,6 +2151,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/machinery/computer/ship/engines,
 /turf/simulated/floor/shuttle/black,
 /area/shuttle/tcaf)
 "rH" = (
@@ -3609,11 +3613,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/storage)
 "El" = (
-/obj/structure/table/rack,
-/obj/machinery/light,
-/obj/machinery/recharger/wallcharger{
-	pixel_x = -24
+/obj/machinery/computer/shuttle_control/explore/tcaf_shuttle{
+	dir = 4
 	},
+/obj/machinery/light,
 /turf/simulated/floor/shuttle/tan,
 /area/shuttle/tcaf)
 "Eo" = (
@@ -5362,7 +5365,8 @@
 /obj/random/mre,
 /obj/random/mre,
 /obj/random/mre,
-/obj/random/mre,
+/obj/item/storage/box/fancy/mre/menu12,
+/obj/item/storage/box/fancy/mre/menu12,
 /turf/simulated/floor/tiled/dark,
 /area/tcaf_corvette/messhall)
 "Sz" = (

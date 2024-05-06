@@ -113,6 +113,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/saintjacques = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/nemiik = 2,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
