@@ -60,7 +60,7 @@ jobs:
           cd rust/bapi
 
           # Get dependencies.
-          rustup target add i686-unknown-linux-gnu
+          # rustup target add i686-unknown-linux-gnu
           rustup target add i686-pc-windows-gnu
           sudo dpkg --add-architecture i386
           sudo apt-get update
