@@ -1,7 +1,7 @@
 /datum/filter_editor
 	var/atom/movable/target
 
-/datum/filter_editor/New(atom/target)
+/datum/filter_editor/New(atom/movable/target)
 	src.target = target
 
 /datum/filter_editor/ui_state(mob/user)

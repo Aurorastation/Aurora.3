@@ -518,8 +518,9 @@
 			debug_variables_open(DAT, href_list["search"])
 
 	if(href_list["edit_filters"])
+		var/atom/movable/A = locate(href_list["edit_filters"])
 		if(!check_rights(R_VAREDIT))
 			return
-		usr.client?.open_filter_editor(src)
+		usr.client?.open_filter_editor(A)
 
 	return
