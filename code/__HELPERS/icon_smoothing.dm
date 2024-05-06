@@ -295,7 +295,7 @@
 			var/turf/T = get_step(src, reverse_ndir(adjacency))
 			if(is_type_in_list(T, can_blend_with))
 				if(attach_overlay)
-					add_overlay("[reverse_ndir(adjacency)]_[attach_overlay]", overlay_layer)
+					AddOverlays("[reverse_ndir(adjacency)]_[attach_overlay]", overlay_layer)
 				walls_found |= adjacency
 				dir_mods["[adjacency]"] = "-[blend_overlay]"
 	for(var/adjacency in list(N_NORTH, N_SOUTH))
@@ -307,7 +307,7 @@
 			if(((adjacencies & adjacency) && (adjacencies && diagonal)) && (has_adjacency || has_diagonal))
 				dir_mods["[adjacency][diagonal]"] = "-[prefix][walls_found & adjacency ? "wall" : "win"]-[suffix][walls_found & diagonal ? "wall" : "win"]"
 				if(attach_overlay)
-					add_overlay("[prefix][suffix]_[attach_overlay]", overlay_layer)
+					AddOverlays("[prefix][suffix]_[attach_overlay]", overlay_layer)
 	return dir_mods
 
 /proc/ndir_to_initial(var/ndir)
@@ -409,10 +409,10 @@
 			LAZYADD(New, se)
 
 	if(Old)
-		cut_overlay(Old)
+		CutOverlays(Old)
 
 	if(New)
-		add_overlay(New)
+		AddOverlays(New)
 
 	if (icon_state && !(smoothing_flags & SMOOTH_NO_CLEAR_ICON))
 		icon_state = null
@@ -558,7 +558,7 @@
 /atom/proc/clear_smooth_overlays()
 	SHOULD_NOT_SLEEP(TRUE)
 
-	cut_overlay(list(top_left_corner, top_right_corner, bottom_left_corner, bottom_right_corner))
+	CutOverlays(list(top_left_corner, top_right_corner, bottom_left_corner, bottom_right_corner))
 	top_left_corner = null
 	top_right_corner = null
 	bottom_right_corner = null
@@ -577,7 +577,7 @@
 	O += sw
 	bottom_right_corner = se
 	O += se
-	add_overlay(O)
+	AddOverlays(O)
 
 /proc/reverse_ndir(ndir)
 	SHOULD_NOT_SLEEP(TRUE)

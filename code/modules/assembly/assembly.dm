@@ -37,7 +37,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 	holder = null
-	cut_overlays()
+	ClearOverlays()
 	attached_overlays = null
 
 	. = ..()

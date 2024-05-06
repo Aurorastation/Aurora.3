@@ -34,9 +34,9 @@
 	icon_state = "folder_purple"
 
 /obj/item/folder/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(contents.len)
-		add_overlay("folder_paper")
+		AddOverlays("folder_paper")
 	return
 
 /obj/item/folder/attackby(obj/item/attacking_item, mob/user)

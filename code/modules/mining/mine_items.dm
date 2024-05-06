@@ -557,7 +557,7 @@
 	cell = new /obj/item/cell/high(src)
 	key = new /obj/item/key/minecarts(src)
 	var/image/I = new(icon = 'icons/obj/vehicles.dmi', icon_state = "[icon_state]_overlay", layer = src.layer + 0.2) //over mobs
-	add_overlay(I)
+	AddOverlays(I)
 	turn_off()
 
 /obj/vehicle/train/cargo/engine/mining/attackby(obj/item/attacking_item, mob/user)
@@ -794,15 +794,15 @@
 		update_icon()
 
 /obj/item/lazarus_injector/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(loaded)
 		var/mutable_appearance/filling = mutable_appearance(icon, "lazarus_filling")
 		filling.color = mask_color
-		add_overlay(filling)
+		AddOverlays(filling)
 		if(malfunctioning || emagged)
 			var/mutable_appearance/static_fill = mutable_appearance(icon, "lazarus_static")
 			static_fill.color = mask_color
-			add_overlay(static_fill)
+			AddOverlays(static_fill)
 	icon_state = "lazarus_[loaded ? "loaded" : "spent"]"
 	item_state = icon_state
 	update_held_icon()
@@ -1373,7 +1373,7 @@ var/list/total_extraction_beacons = list()
 		user.forceMove(src.loc)
 		var/image/W = image('icons/obj/mining.dmi',"fitnessweight-w")
 		W.layer = 5.1
-		add_overlay(W)
+		AddOverlays(W)
 		var/bragmessage = pick("pushing it to the limit","going into overdrive","burning with determination","rising up to the challenge", "getting strong now","getting ripped")
 		user.visible_message(SPAN_NOTICE("<B>[user] is [bragmessage]!</B>"))
 		var/reps = 0
@@ -1396,7 +1396,7 @@ var/list/total_extraction_beacons = list()
 		animate(user, pixel_y = 0, time = 3)
 		var/finishmessage = pick("You feel stronger!","You feel like you can take on the world!","You feel robust!","You feel indestructible!")
 		icon_state = "fitnessweight"
-		cut_overlay(W)
+		CutOverlays(W)
 		to_chat(user, SPAN_NOTICE("[finishmessage]"))
 		user.adjustNutritionLoss(5)
 		user.adjustHydrationLoss(5)

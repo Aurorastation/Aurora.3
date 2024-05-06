@@ -55,16 +55,16 @@
 		w_class = ITEMSIZE_SMALL
 
 /obj/item/reagent_containers/blood/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(blood_type)
-		add_overlay(image('icons/obj/bloodpack.dmi', "[blood_type]"))
+		AddOverlays(image('icons/obj/bloodpack.dmi', "[blood_type]"))
 
 	if(attached_mob)
-		add_overlay(image('icons/obj/bloodpack.dmi', "dongle"))
+		AddOverlays(image('icons/obj/bloodpack.dmi', "dongle"))
 
 	if(reagents && reagents.total_volume)
-		add_overlay(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
+		AddOverlays(overlay_image('icons/obj/bloodpack.dmi', "[icon_state][get_filling_state()]", color = reagents.get_color()))
 
 /obj/item/reagent_containers/blood/attack(mob/living/carbon/human/M as mob, mob/living/carbon/human/user as mob, var/target_zone)
 	if(user == M && (MODE_VAMPIRE in user.mind?.antag_datums))

@@ -67,7 +67,7 @@
 	..()
 	ion = new ion_type(src)
 	turn_off()
-	add_overlay(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
+	AddOverlays(image(icon, "[icon_state]_off_overlay", MOB_LAYER + 1))
 	icon_state = "[bike_icon]_off"
 	if(storage_type)
 		storage_compartment = new storage_type(src)
@@ -256,13 +256,13 @@
 	..()
 
 /obj/vehicle/bike/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(on)
-		add_overlay(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
+		AddOverlays(image(icon, "[bike_icon]_on_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_on"
 	else
-		add_overlay(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
+		AddOverlays(image(icon, "[bike_icon]_off_overlay", MOB_LAYER + 1))
 		icon_state = "[bike_icon]_off"
 
 	..()

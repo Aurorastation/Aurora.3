@@ -31,10 +31,10 @@
 	var/image/plasticflaps_overlay = overlay_image(icon, "plasticflaps_overlay", null, RESET_COLOR)
 	if(dir == WEST || dir == EAST)
 		plasticflaps_overlay.pixel_y = -13
-	add_overlay(plasticflaps_overlay)
+	AddOverlays(plasticflaps_overlay)
 
 /obj/structure/plasticflaps/Destroy()
-	cut_overlays()
+	ClearOverlays()
 	if(airtight)
 		clear_airtight()
 	. = ..()

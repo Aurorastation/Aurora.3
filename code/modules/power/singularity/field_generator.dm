@@ -35,26 +35,26 @@ field_generator power level display
 
 
 /obj/machinery/field_generator/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!active)
 		if(warming_up)
-			add_overlay("+a[warming_up]")
+			AddOverlays("+a[warming_up]")
 	if(fields.len)
-		add_overlay("+on")
+		AddOverlays("+on")
 	// Power level indicator
 	// Scale % power to % num_power_levels and truncate value
 	var/level = round(num_power_levels * power / field_generator_max_power)
 	// Clamp between 0 and num_power_levels for out of range power values
 	level = between(0, level, num_power_levels)
 	if(level)
-		add_overlay("+p[level]")
+		AddOverlays("+p[level]")
 	if(anchored)
-		add_overlay("+bolts")
+		AddOverlays("+bolts")
 		if(state == 2)
-			add_overlay("+welding")
+			AddOverlays("+welding")
 			var/image/lights_image = image(icon, null, "+lights")
 			lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-			add_overlay(lights_image)
+			AddOverlays(lights_image)
 
 /obj/machinery/field_generator/process()
 	if(Varedit_start == 1)

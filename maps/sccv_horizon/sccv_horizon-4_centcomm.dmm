@@ -14048,9 +14048,7 @@
 /area/centcom/suppy)
 "aNS" = (
 /obj/structure/bed/stool/chair,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -14059,9 +14057,7 @@
 /area/tdome/tdomeobserve)
 "aNT" = (
 /obj/structure/bed/stool/chair,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -14176,6 +14172,7 @@
 /turf/unsimulated/floor,
 /area/centcom/spawning)
 "aOg" = (
+/obj/effect/landmark/newplayer_start,
 /turf/unsimulated/floor,
 /area/centcom/start)
 "aOi" = (
@@ -14344,9 +14341,7 @@
 "aOJ" = (
 /obj/structure/bed/stool/chair,
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -14864,9 +14859,7 @@
 /turf/simulated/floor,
 /area/tdome/tdome2)
 "aPV" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -14874,9 +14867,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/tdome/tdome2)
 "aPW" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -14906,9 +14897,7 @@
 /turf/simulated/floor,
 /area/tdome/tdome1)
 "aQb" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -14916,9 +14905,7 @@
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/tdome/tdome1)
 "aQc" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -15024,9 +15011,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -15036,9 +15021,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -15222,9 +15205,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/supply/dock)
 "aQM" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/machinery/camera/network/thunder{
 	c_tag = "Thunderdome - Red Team";
 	invisibility = 101
@@ -15245,9 +15226,7 @@
 /turf/simulated/floor/bluegrid,
 /area/tdome)
 "aQP" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/machinery/camera/network/thunder{
 	c_tag = "Green Team";
 	invisibility = 101
@@ -15306,12 +15285,6 @@
 	},
 /turf/unsimulated/floor,
 /area/centcom/spawning)
-"aQX" = (
-/obj/effect/landmark{
-	name = "start"
-	},
-/turf/unsimulated/floor,
-/area/centcom/start)
 "aQY" = (
 /obj/structure/grille,
 /obj/structure/window/shuttle/scc_space_ship/cardinal,
@@ -15581,9 +15554,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -15594,9 +15565,7 @@
 /obj/structure/bed/stool/chair{
 	dir = 1
 	},
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -15614,9 +15583,7 @@
 	dir = 1
 	},
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /turf/unsimulated/floor{
@@ -19623,7 +19590,6 @@
 	name = "external airlock";
 	opacity = 0;
 	permit_ao = 0;
-	dir = 2;
 	pixel_x = -16;
 	pixel_y = -16
 	},
@@ -21374,9 +21340,7 @@
 /turf/unsimulated/floor,
 /area/centcom/legion/hangar5)
 "bep" = (
-/obj/structure/closet/secure_closet/kitchen_cabinet/standard{
-	req_access = null
-	},
+/obj/structure/closet/secure_closet/kitchen_cabinet/standard,
 /obj/structure/sign/poster{
 	pixel_y = 32
 	},
@@ -32079,7 +32043,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "blue";
-	layer = 2.03;
 	name = "blue lights";
 	pixel_x = -8;
 	pixel_y = 11
@@ -32556,7 +32519,6 @@
 /turf/simulated/floor/holofloor/wood,
 /area/horizon/holodeck/source_sauna)
 "bIP" = (
-/obj/effect/landmark/costume,
 /obj/structure/table/rack/holorack,
 /obj/effect/floor_decal/spline/fancy/wood/cee,
 /turf/simulated/floor/holofloor/wood,
@@ -33697,9 +33659,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 10
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "bNa" = (
@@ -33735,9 +33695,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 9
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/effect/floor_decal/spline/plain/corner,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -34207,7 +34165,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "blink";
-	layer = 2.03;
 	name = "flashing lights";
 	pixel_x = 7;
 	pixel_y = 14
@@ -34722,9 +34679,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 6
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -35007,9 +34962,7 @@
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 8
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/effect/floor_decal/spline/plain/corner,
 /obj/structure/flora/ausbushes/lavendergrass,
 /turf/simulated/floor/exoplanet/grass/grove,
@@ -36294,9 +36247,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
 "kAM" = (
@@ -36554,9 +36505,7 @@
 /area/template_noop)
 "lok" = (
 /obj/effect/floor_decal/spline/plain/cee,
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -37050,7 +36999,6 @@
 	desc = "The distant cityscape of Mendell City.";
 	icon = 'icons/effects/props/holodeck/biesel/32x32.dmi';
 	icon_state = "red";
-	layer = 2.03;
 	name = "red lights";
 	pixel_x = 7;
 	pixel_y = 14
@@ -37233,7 +37181,6 @@
 	name = "external airlock";
 	opacity = 0;
 	permit_ao = 0;
-	dir = 2;
 	pixel_x = -16;
 	pixel_y = -16
 	},
@@ -38104,7 +38051,6 @@
 /turf/simulated/floor/bluegrid,
 /area/horizon/holodeck/source_trinary)
 "qHU" = (
-/obj/effect/landmark/costume,
 /obj/structure/table/rack/holorack,
 /obj/effect/floor_decal/spline/fancy/wood/cee{
 	dir = 1
@@ -39605,9 +39551,7 @@
 /obj/effect/floor_decal/spline/plain{
 	dir = 5
 	},
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
+/obj/effect/landmark/skrell_srom,
 /obj/structure/flora/ausbushes/ppflowers,
 /turf/simulated/floor/exoplanet/grass/grove,
 /area/centcom/shared_dream)
@@ -40480,17 +40424,17 @@ aaa
 aNQ
 aNQ
 aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aNQ
 aNQ
 aNQ
@@ -40737,21 +40681,21 @@ aaa
 aNQ
 cst
 aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aNQ
+aNQ
+aNQ
+aNQ
 aNQ
 "}
 (3,1,1) = {"
@@ -40994,21 +40938,21 @@ aaa
 aNQ
 aNQ
 aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aNQ
+aNQ
 aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aNQ
 aNQ
 "}
 (4,1,1) = {"
@@ -41250,22 +41194,22 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aNQ
+aNQ
+aNQ
 aNQ
 "}
 (5,1,1) = {"
@@ -41507,22 +41451,22 @@ aaa
 aaa
 aaa
 aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
+aNQ
+aNQ
+aNQ
 aNQ
 "}
 (6,1,1) = {"
@@ -41764,23 +41708,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (7,1,1) = {"
 aab
@@ -42021,23 +41965,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (8,1,1) = {"
 aab
@@ -42278,23 +42222,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (9,1,1) = {"
 aab
@@ -42535,23 +42479,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aQX
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (10,1,1) = {"
 aab
@@ -42792,23 +42736,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (11,1,1) = {"
 aab
@@ -43049,23 +42993,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (12,1,1) = {"
 aab
@@ -43306,23 +43250,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (13,1,1) = {"
 aab
@@ -43563,23 +43507,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (14,1,1) = {"
 aab
@@ -43820,23 +43764,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (15,1,1) = {"
 aab
@@ -44077,23 +44021,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (16,1,1) = {"
 aab
@@ -44334,23 +44278,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aOg
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (17,1,1) = {"
 aab
@@ -44591,23 +44535,23 @@ aaa
 aaa
 aaa
 aaa
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
-aNQ
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
+aaa
 "}
 (18,1,1) = {"
 aab

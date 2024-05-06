@@ -729,7 +729,6 @@
 /turf/simulated/floor/holofloor/grass,
 /area/holodeck/source_picnicarea)
 "abC" = (
-/obj/effect/landmark/costume,
 /obj/structure/table/rack/holorack,
 /turf/simulated/floor/holofloor/tiled/dark,
 /area/holodeck/source_theatre)
@@ -5364,9 +5363,7 @@
 	name = "adjusted light fixture";
 	pixel_y = -16
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -9009,9 +9006,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/skipjack)
 "cik" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -9382,9 +9377,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -10682,9 +10675,6 @@
 	},
 /area/shuttle/skipjack)
 "dnS" = (
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
 /turf/simulated/floor/exoplanet/barren,
 /area/centcom/shared_dream)
 "dob" = (
@@ -12645,9 +12635,7 @@
 /area/centcom/bar)
 "ePj" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/bed/stool/chair/folding{
@@ -13180,9 +13168,7 @@
 /area/antag/ninja)
 "fgI" = (
 /obj/structure/bed/stool/chair/folding,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /turf/unsimulated/floor{
 	icon_state = "white"
@@ -15292,9 +15278,7 @@
 /obj/machinery/recharger{
 	pixel_y = 4
 	},
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -16882,9 +16866,7 @@
 /area/centcom/control)
 "hJZ" = (
 /obj/structure/disposalpipe/segment,
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/bed/stool/chair/folding,
@@ -21471,9 +21453,7 @@
 	icon_state = "door_open";
 	name = "elevator door"
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -21909,9 +21889,7 @@
 /turf/unsimulated/floor/plating,
 /area/tdome/tdomeobserve)
 "lvy" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -23184,9 +23162,7 @@
 /turf/simulated/floor/plating,
 /area/shuttle/merchant)
 "mks" = (
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/bed/stool/chair/folding{
@@ -24756,9 +24732,6 @@
 	},
 /area/centcom/legion/hangar5)
 "nkX" = (
-/obj/effect/landmark{
-	name = "start"
-	},
 /turf/simulated/floor/holofloor/space,
 /area/centcom/start)
 "nli" = (
@@ -25520,9 +25493,7 @@
 	name = "elevator Button";
 	pixel_y = 31
 	},
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -26036,9 +26007,6 @@
 /turf/simulated/floor/plating,
 /area/merchant_station/warehouse)
 "nXw" = (
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
 /turf/simulated/floor/grass,
 /area/centcom/shared_dream)
 "nXL" = (
@@ -26301,9 +26269,7 @@
 /turf/unsimulated/floor,
 /area/antag/mercenary)
 "ohC" = (
-/obj/effect/landmark{
-	name = "tdomeadmin"
-	},
+/obj/effect/landmark/thunderdomeadmin,
 /obj/effect/floor_decal/corner/orange/diagonal,
 /obj/structure/bed/stool/chair/folding{
 	dir = 1
@@ -29688,9 +29654,7 @@
 	},
 /area/antag/raider)
 "qKr" = (
-/obj/effect/landmark{
-	name = "tdome2"
-	},
+/obj/effect/landmark/thunderdome2,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},
@@ -33464,9 +33428,7 @@
 /turf/unsimulated/floor,
 /area/centcom/control)
 "tBQ" = (
-/obj/effect/landmark{
-	name = "JoinLate"
-	},
+/obj/effect/landmark/latejoin,
 /turf/unsimulated/floor{
 	icon_state = "dark_preview"
 	},
@@ -36144,9 +36106,6 @@
 	},
 /area/centcom/control)
 "vxP" = (
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
 /turf/simulated/floor/beach/water/pool{
 	icon_state = "seashallow";
 	name = "ocean"
@@ -37008,9 +36967,7 @@
 	},
 /area/antag/mercenary)
 "vZo" = (
-/obj/effect/landmark{
-	name = "tdomeobserve"
-	},
+/obj/effect/landmark/thunderdomeobserve,
 /obj/effect/floor_decal/corner/blue/diagonal,
 /obj/effect/decal/fake_object/light_source/invisible,
 /obj/structure/bed/stool/chair/folding,
@@ -38178,9 +38135,6 @@
 	},
 /area/antag/mercenary)
 "wGy" = (
-/obj/effect/landmark{
-	name = "skrell_entry"
-	},
 /turf/simulated/floor/snow,
 /area/centcom/shared_dream)
 "wGA" = (
@@ -38209,9 +38163,7 @@
 /turf/simulated/floor/shuttle/dark_blue,
 /area/shuttle/escape)
 "wGT" = (
-/obj/effect/landmark{
-	name = "tdome1"
-	},
+/obj/effect/landmark/thunderdome1,
 /obj/effect/floor_decal/corner/grey/diagonal{
 	dir = 4
 	},

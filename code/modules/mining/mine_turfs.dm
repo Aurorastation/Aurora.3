@@ -418,7 +418,7 @@ var/list/mineral_can_smooth_with = list(
 	new_turf.resources = old_resources
 	new_turf.resource_indicator = old_resource_indicator
 	if(new_turf.resource_indicator)
-		new_turf.add_overlay(new_turf.resource_indicator)
+		new_turf.AddOverlays(new_turf.resource_indicator)
 
 	return new_turf
 
@@ -899,7 +899,7 @@ var/list/asteroid_floor_smooth = list(
 	return
 
 /turf/unsimulated/floor/asteroid/proc/gets_dug(mob/user)
-	add_overlay("asteroid_dug", TRUE)
+	AddOverlays("asteroid_dug", TRUE)
 
 	if(prob(75))
 		new /obj/item/ore/glass(src)
@@ -953,7 +953,7 @@ var/list/asteroid_floor_smooth = list(
 
 	if(dug <= 10)
 		dug += 1
-		add_overlay("asteroid_dug", TRUE)
+		AddOverlays("asteroid_dug", TRUE)
 	else
 		var/turf/below = GetBelow(src)
 		if(below)

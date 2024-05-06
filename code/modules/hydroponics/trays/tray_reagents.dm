@@ -70,10 +70,10 @@
 		drop_sound = 'sound/weapons/jug_empty_impact.ogg'
 
 /obj/item/reagent_containers/glass/fertilizer/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(!is_open_container())
-		add_overlay("lid_jug")
+		AddOverlays("lid_jug")
 
 /obj/item/reagent_containers/glass/fertilizer/ez
 	name = "jug of E-Z-Nutrient"

@@ -39,12 +39,12 @@
 	else
 		src.visible_message("<span class='danger'>A flag pops out of the barrel of \the [src.name]'s barrel!</span>")
 	playsound(src, fire_sound, 20, 1)
-	src.add_overlay(bang_flag)
+	src.AddOverlays(bang_flag)
 	fired_gun = 1
 
 /obj/item/gun/bang/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src && fired_gun)
-		src.cut_overlay(bang_flag)
+		src.CutOverlays(bang_flag)
 		user.visible_message("<span class='notice'>\The [user] pushes the flag back into the barrel of \the [src.name].</span>", "<span class='notice'>You push the flag back into the barrel of \the [src.name].</span>")
 		playsound(src.loc, 'sound/weapons/TargetOff.ogg', 50,1)
 		fired_gun = 0
