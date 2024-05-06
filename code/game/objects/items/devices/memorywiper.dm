@@ -35,13 +35,13 @@
 	update_icon()
 
 /obj/item/device/memorywiper/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
 		icon_state = "[initial(icon_state)]_opened"
 		if(attached)
-			add_overlay("wireout")
+			AddOverlays("wireout")
 		if(wiping)
-			add_overlay("screen")
+			AddOverlays("screen")
 	else
 		icon_state = initial(icon_state)
 

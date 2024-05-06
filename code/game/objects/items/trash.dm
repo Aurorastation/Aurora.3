@@ -400,3 +400,9 @@
 /obj/item/trash/papad/apple
 	icon_state = "papadapple_trash"
 
+/obj/item/trash/bowl_small
+	name = "small bowl"
+	desc = "A side dish used to live here, but then it moved out."
+	icon_state = "small_bowl"
+	drop_sound = 'sound/items/drop/glass.ogg'
+	pickup_sound = 'sound/items/pickup/glass.ogg'

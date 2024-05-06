@@ -133,12 +133,12 @@
 
 /obj/item/reagent_containers/food/drinks/bottle/update_icon()
 	underlays.Cut()
-	cut_overlays()
+	ClearOverlays()
 	if("[icon_state]-[get_filling_state()]" in icon)
 		if(reagents?.total_volume)
 			var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 			filling.color = reagents.get_color()
-			add_overlay(filling)
+			AddOverlays(filling)
 	set_light(0)
 	if(rag)
 		var/underlay_image = image(icon='icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', icon_state=rag.on_fire? "[rag_underlay]_lit" : rag_underlay)
@@ -220,7 +220,7 @@
 	var/mutable_appearance/froth = mutable_appearance('icons/obj/item/reagent_containers/food/drinks/drink_effects.dmi', "froth_bottle_[intensity_state]")
 	froth.pixel_x = offset_x
 	froth.pixel_y = offset_y
-	add_overlay(froth)
+	AddOverlays(froth)
 	CUT_OVERLAY_IN(froth, 2 SECONDS)
 
 //Keeping this here for now, I'll ask if I should keep it here.
@@ -1053,3 +1053,11 @@
 	center_of_mass = list("x"=16, "y"=8)
 
 	reagents_to_add = list(/singleton/reagent/alcohol/bottle/skrellwineylpha = 100)
+
+/obj/item/reagent_containers/food/drinks/bottle/nemiik
+	name = "vrozka farms ne'miik"
+	desc = "A bottle of Ne'miik under the label 'Vrozka Farms' from Caprice. It has labels in Basic boasting 'rich in minerals!' and warning that 'consumption by Humans or Tajara may cause negative effects', whatever that means."
+	icon_state = "vrozka_nemiik"
+	center_of_mass = list("x"=16, "y"=11)
+	reagents_to_add = list(/singleton/reagent/drink/milk/nemiik = 80)
+	empty_icon_state = "vrozka_empty"

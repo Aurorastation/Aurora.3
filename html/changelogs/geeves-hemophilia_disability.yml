@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added hemophilia and major hemophilia to the disabilities list. The former will cause wounds to bleed for twice as long, while the latter will cause wounds to bleed forever."

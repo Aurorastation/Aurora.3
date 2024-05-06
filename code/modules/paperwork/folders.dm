@@ -34,9 +34,9 @@
 	icon_state = "folder_purple"
 
 /obj/item/folder/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(contents.len)
-		add_overlay("folder_paper")
+		AddOverlays("folder_paper")
 	return
 
 /obj/item/folder/attackby(obj/item/attacking_item, mob/user)
@@ -191,11 +191,11 @@
 	else
 		..()
 
-/obj/item/folder/envelope/zta
+/obj/item/folder/envelope/zat
 	name = "leviathan zero-point artillery instructions"
 	desc = "A small envelope with \"SCC CONFIDENTIAL\" written in bold text on the front."
 
-/obj/item/folder/envelope/zta/Initialize()
+/obj/item/folder/envelope/zat/Initialize()
 	. = ..()
 	var/obj/item/paper/R = new(src)
 	R.set_content("leviathan zero-point artillery instructions", "<table><cell><hr><small><center><img src=scclogo.png><br><b>Stellar Corporate Conglomerate<br> \

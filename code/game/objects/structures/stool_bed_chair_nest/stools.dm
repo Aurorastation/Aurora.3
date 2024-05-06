@@ -87,6 +87,7 @@
 	item_state = "bar_stool"
 	base_icon = "bar_stool"
 	held_item = /obj/item/material/stool/bar
+	obj_flags = OBJ_FLAG_ROTATABLE_ANCHORED
 
 /obj/structure/bed/stool/bar/wood/New(var/newloc)
 	..(newloc, MATERIAL_WOOD)
@@ -243,7 +244,7 @@
 
 /obj/item/material/stool/update_icon()
 	icon_state = "[base_icon]_item"
-	cut_overlays()
+	ClearOverlays()
 	if(padding_material)	// Handles padding overlay and inhand overlays.
 		var/image/padding_overlay = image(icon, "[base_icon]_item_padding")
 		padding_overlay.appearance_flags = RESET_COLOR
@@ -255,7 +256,7 @@
 		else if(padding_material.icon_colour)
 			padding_overlay.color = padding_material.icon_colour
 			worn_overlay_color = padding_material.icon_colour
-		add_overlay(padding_overlay)
+		AddOverlays(padding_overlay)
 	else
 		build_from_parts = FALSE
 	update_held_icon()

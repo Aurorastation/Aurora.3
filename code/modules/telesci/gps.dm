@@ -73,13 +73,13 @@ GLOBAL_LIST_EMPTY(gps_list)
 	return ..()
 
 /obj/item/device/gps/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(emped)
-		add_overlay("emp")
+		AddOverlays("emp")
 	else if(held_by || implanted_into)
-		add_overlay("working")
+		AddOverlays("working")
 	else
-		add_overlay("confused")
+		AddOverlays("confused")
 
 /obj/item/device/gps/pickup(var/mob/user)
 	..()

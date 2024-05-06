@@ -26,6 +26,17 @@
 	desc_info += "<br>Most pipes and atmospheric devices can be connected or disconnected with a wrench.  The pipe's pressure must not be too high, \
 	or if it is a device, it must be turned off first."
 
+/obj/machinery/atmospherics/pipe/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	var/pipe_color_check = pipe_color || PIPE_COLOR_GREY
+	var/found_color_name = "Unknown"
+	for(var/color_name in GLOB.pipe_colors)
+		var/color_value = GLOB.pipe_colors[color_name]
+		if(pipe_color_check == color_value)
+			found_color_name = color_name
+			break
+	. += "This pipe is: <span style='color:[pipe_color_check == PIPE_COLOR_GREY ? COLOR_GRAY : pipe_color_check]'>[capitalize(found_color_name)]</span>"
+
 /obj/machinery/atmospherics/pipe/hides_under_flooring()
 	return level != 2
 
@@ -274,7 +285,7 @@
 
 	alpha = 255
 
-	cut_overlays()
+	ClearOverlays()
 
 	if(!node1 && !node2)
 		var/turf/T = get_turf(src)
@@ -285,9 +296,9 @@
 				qdel(meter)
 		qdel(src)
 	else if(node1 && node2)
-		add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]intact[icon_connect_type]"))
+		AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]intact[icon_connect_type]"))
 	else
-		add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]exposed[node1?1:0][node2?1:0][icon_connect_type]"))
+		AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "[pipe_icon]exposed[node1?1:0][node2?1:0][icon_connect_type]"))
 
 /obj/machinery/atmospherics/pipe/simple/update_underlays()
 	return
@@ -588,9 +599,9 @@
 				qdel(meter)
 		qdel(src)
 	else
-		cut_overlays()
-		add_overlay(icon_manager.get_atmos_icon("manifold", , pipe_color, "core" + icon_connect_type))
-		add_overlay(icon_manager.get_atmos_icon("manifold", , , "clamps" + icon_connect_type))
+		ClearOverlays()
+		AddOverlays(icon_manager.get_atmos_icon("manifold", , pipe_color, "core" + icon_connect_type))
+		AddOverlays(icon_manager.get_atmos_icon("manifold", , , "clamps" + icon_connect_type))
 
 		// Can't handle underlays with SSoverlay.
 		underlays.Cut()
@@ -904,9 +915,9 @@
 				qdel(meter)
 		qdel(src)
 	else
-		cut_overlays()
-		add_overlay(icon_manager.get_atmos_icon("manifold", , pipe_color, "4way" + icon_connect_type))
-		add_overlay(icon_manager.get_atmos_icon("manifold", , , "clamps_4way" + icon_connect_type))
+		ClearOverlays()
+		AddOverlays(icon_manager.get_atmos_icon("manifold", , pipe_color, "4way" + icon_connect_type))
+		AddOverlays(icon_manager.get_atmos_icon("manifold", , , "clamps_4way" + icon_connect_type))
 
 		underlays.Cut()
 
@@ -1181,8 +1192,8 @@
 
 	alpha = 255
 
-	cut_overlays()
-	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "cap"))
+	ClearOverlays()
+	AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "cap"))
 
 /obj/machinery/atmospherics/pipe/cap/atmos_init()
 	for(var/obj/machinery/atmospherics/target in get_step(src, dir))
@@ -1462,8 +1473,8 @@
 
 	alpha = 255
 
-	cut_overlays()
-	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
+	ClearOverlays()
+	AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
 	underlays.Cut()
 
 	if (node1)
@@ -1499,8 +1510,8 @@
 
 	alpha = 255
 
-	cut_overlays()
-	add_overlay(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
+	ClearOverlays()
+	AddOverlays(icon_manager.get_atmos_icon("pipe", , pipe_color, "universal"))
 
 	underlays.Cut()
 

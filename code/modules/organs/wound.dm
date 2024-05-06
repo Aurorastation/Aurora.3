@@ -3,45 +3,51 @@
 					WOUNDS
 ****************************************************/
 /datum/wound
-	// number representing the current stage
+	/// number representing the current stage
 	var/current_stage = 0
 
-	// description of the wound
+	/// description of the wound
 	var/desc = "wound" //default in case something borks
 
-	// amount of damage this wound causes
+	/// amount of damage this wound causes
 	var/damage = 0
-	// ticks of bleeding left.
+
+	/// how many times we've tried to lower the bleed timer, used to determine whether hemophilia should let bleed timer lower
+	var/bleed_timer_increment = 0
+
+	/// ticks of bleeding left.
 	var/bleed_timer = 0
-	// Above this amount wounds you will need to treat the wound to stop bleeding, regardless of bleed_timer
+
+	/// Above this amount wounds you will need to treat the wound to stop bleeding, regardless of bleed_timer
 	var/bleed_threshold = 30
-	// amount of damage the current wound type requires(less means we need to apply the next healing stage)
+
+	/// amount of damage the current wound type requires(less means we need to apply the next healing stage)
 	var/min_damage = 0
 
-	// is the wound bandaged?
+	/// is the wound bandaged?
 	var/bandaged = 0
-	// Similar to bandaged, but works differently
+	/// Similar to bandaged, but works differently
 	var/clamped = 0
-	// is the wound salved?
+	/// is the wound salved?
 	var/salved = 0
-	// is the wound disinfected?
+	/// is the wound disinfected?
 	var/disinfected = 0
 	var/created = 0
-	// number of wounds of this type
+	/// number of wounds of this type
 	var/amount = 1
-	// amount of germs in the wound
+	/// amount of germs in the wound
 	var/germ_level = 0
 
 	/*  These are defined by the wound type and should not be changed */
 
-	// stages such as "cut", "deep cut", etc.
+	/// stages such as "cut", "deep cut", etc.
 	var/list/stages
-	// maximum stage at which bleeding should still happen. Beyond this stage bleeding is prevented.
+	/// maximum stage at which bleeding should still happen. Beyond this stage bleeding is prevented.
 	var/max_bleeding_stage = 0
-	// one of CUT, BRUISE, PIERCE, BURN
+	/// one of CUT, BRUISE, PIERCE, BURN
 	var/damage_type = CUT
-	// whether this wound needs a bandage/salve to heal at all
-	// the maximum amount of damage that this wound can have and still autoheal
+	/// whether this wound needs a bandage/salve to heal at all
+	/// the maximum amount of damage that this wound can have and still autoheal
 	var/autoheal_cutoff = 15
 
 
@@ -112,6 +118,7 @@
 	src.damage += other.damage
 	src.amount += other.amount
 	src.bleed_timer += other.bleed_timer
+	src.bleed_timer_increment += other.bleed_timer_increment
 	src.germ_level = (src.germ_level + other.germ_level)/2
 	src.created = max(src.created, other.created)	//take the newer created time
 
@@ -207,6 +214,20 @@
 		return 0	//Bleed timer has run out. Once a wound is big enough though, you'll need a bandage to stop it
 
 	return 1
+
+/// Called in organ_external.dm update_damages, this will update the limb's status to bleeding, and lowers the bleed_timer if applicable
+/datum/wound/proc/handle_bleeding(var/mob/victim, var/obj/item/organ/external/limb)
+	limb.status |= ORGAN_BLEEDING
+
+	var/can_lower_bleed = TRUE
+	if(HAS_TRAIT(victim, TRAIT_DISABILITY_HEMOPHILIA_MAJOR)) // major will NEVER lower
+		can_lower_bleed = FALSE
+	else if(HAS_TRAIT(victim, TRAIT_DISABILITY_HEMOPHILIA) && bleed_timer_increment % 2 != 0) // basic will lower half as fast
+		can_lower_bleed = FALSE
+
+	if(can_lower_bleed)
+		bleed_timer--
+	bleed_timer_increment++
 
 /** WOUND DEFINITIONS **/
 

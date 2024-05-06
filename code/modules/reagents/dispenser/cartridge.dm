@@ -32,17 +32,17 @@
 			setLabel(R.name)
 
 /obj/item/reagent_containers/chem_disp_cartridge/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 	if(!is_open_container())
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
-		add_overlay(lid)
+		AddOverlays(lid)
 
 /obj/item/reagent_containers/chem_disp_cartridge/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

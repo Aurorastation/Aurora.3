@@ -194,10 +194,10 @@ var/global/area/overmap/map_overmap // Global object used to locate the overmap 
 	if(has_called_distress_beacon)
 		var/image/distress_overlay = image('icons/obj/overmap/overmap_effects.dmi', "distress")
 		applied_distress_overlay = distress_overlay
-		add_overlay(applied_distress_overlay)
+		AddOverlays(applied_distress_overlay)
 		filters = filter(type = "outline", size = 2, color = COLOR_RED)
 	else
-		cut_overlay(applied_distress_overlay)
+		CutOverlays(applied_distress_overlay)
 		filters = null
 
 /obj/effect/overmap/visitable/proc/update_name()

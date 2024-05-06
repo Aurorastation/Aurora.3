@@ -2704,9 +2704,6 @@
 	},
 /area/cruise/aft_p)
 "bVv" = (
-/obj/effect/landmark{
-	name = "start"
-	},
 /obj/effect/decal/fake_object{
 	desc = "A multidimensional translocation portal meant to fling idiots very far across stellar distances. That can not mean you, surely.";
 	icon = 'icons/effects/224x224.dmi';
@@ -14028,9 +14025,7 @@
 	},
 /area/cruise/fore_s)
 "liU" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /obj/structure/sign/securearea{
 	desc = "A warning sign which declares the door to be one way! Don't get trapped.";
 	name = "\improper ONE WAY DOOR";
@@ -21014,12 +21009,12 @@
 /area/cruise/jungle)
 "qSo" = (
 /obj/structure/table/rack,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
-/obj/item/reagent_containers/food/snacks/berrymuffin,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
+/obj/item/reagent_containers/food/snacks/muffin/berry,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
@@ -22342,9 +22337,7 @@
 	},
 /area/cruise/pool)
 "scE" = (
-/obj/effect/landmark{
-	name = "virtual_reality_spawn"
-	},
+/obj/effect/landmark/virtual_reality_spawn,
 /turf/unsimulated/floor{
 	icon_state = "wood_preview"
 	},

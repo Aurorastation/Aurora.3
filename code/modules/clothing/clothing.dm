@@ -506,7 +506,7 @@
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, "bloodyhands")
 		bloodsies.color = blood_color
-		I.add_overlay(bloodsies)
+		I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/gloves/emp_act(severity)
@@ -658,7 +658,7 @@
 			if(alert("You are already wearing a [D.hat]. Swap with [src]?",,"Yes","No") == "Yes")
 				D.hat.forceMove(get_turf(src))
 				D.hat = null
-				D.cut_overlay(D.hat_overlay)
+				D.CutOverlays(D.hat_overlay)
 				success = WEAR_HAT
 			else
 				success = ALREADY_WEARING_HAT
@@ -697,7 +697,7 @@
 	return our_image
 
 /obj/item/clothing/head/update_icon(var/mob/user)
-	cut_overlays()
+	ClearOverlays()
 	var/mob/living/carbon/human/H
 	if(istype(user,/mob/living/carbon/human))
 		H = user
@@ -706,7 +706,7 @@
 		// Generate object icon.
 		if(!SSicon_cache.light_overlay_cache["[light_overlay]_icon"])
 			SSicon_cache.light_overlay_cache["[light_overlay]_icon"] = image("icon" = 'icons/obj/light_overlays.dmi', "icon_state" = "[light_overlay]")
-		add_overlay(SSicon_cache.light_overlay_cache["[light_overlay]_icon"])
+		AddOverlays(SSicon_cache.light_overlay_cache["[light_overlay]_icon"])
 
 		// Generate and cache the on-mob icon, which is used in update_inv_head().
 		var/cache_key = "[light_overlay][H ? "_[H.species.get_bodytype()]" : ""]"
@@ -723,17 +723,17 @@
 	var/image/I = ..()
 	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
-			A.accessory_mob_overlay.cut_overlays()
+			A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
-			I.add_overlay(accessory_image)
+			I.AddOverlays(accessory_image)
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(H.species.blood_mask, icon_state = "helmetblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
-		I.add_overlay(bloodsies)
+		I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/head/build_shifted_additional_parts(mob/living/carbon/human/H, mob_icon, slot, var/icon/canvas, var/list/facing_list, use_dir)
@@ -749,7 +749,7 @@
 		I = image(null)
 	var/cache_key = "[light_overlay]_[H.cached_bodytype || (H.cached_bodytype = H.species.get_bodytype())]"
 	if(on && SSicon_cache.light_overlay_cache[cache_key] && slot == slot_head_str)
-		I.add_overlay(SSicon_cache.light_overlay_cache[cache_key])
+		I.AddOverlays(SSicon_cache.light_overlay_cache[cache_key])
 	return I
 
 /obj/item/clothing/head/update_clothing_icon()
@@ -810,7 +810,7 @@
 		var/image/bloodsies = image(H.species.blood_mask, "maskblood")
 		bloodsies.color = blood_color
 		bloodsies.appearance_flags = RESET_ALPHA
-		I.add_overlay(bloodsies)
+		I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/mask/proc/filter_air(datum/gas_mixture/air)
@@ -956,9 +956,9 @@
 	update_clothing_icon()
 
 /obj/item/clothing/shoes/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(holding)
-		add_overlay(overlay_image(icon, "[initial(icon_state)]_knife", flags=RESET_COLOR))
+		AddOverlays(overlay_image(icon, "[initial(icon_state)]_knife", flags=RESET_COLOR))
 	if(ismob(usr))
 		var/mob/M = usr
 		M.update_inv_shoes()
@@ -973,7 +973,7 @@
 				var/image/bloodsies = image(H.species.blood_mask, "shoeblood_[E.limb_name]")
 				bloodsies.color = blood_color
 				bloodsies.appearance_flags = RESET_ALPHA
-				I.add_overlay(bloodsies)
+				I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/shoes/proc/handle_movement(var/turf/walking, var/running)
@@ -1064,16 +1064,16 @@
 	var/image/I = ..()
 	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
-			A.accessory_mob_overlay.cut_overlays()
+			A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
-			I.add_overlay(accessory_image)
+			I.AddOverlays(accessory_image)
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "[blood_overlay_type]blood")
 		bloodsies.color = blood_color
-		I.add_overlay(bloodsies)
+		I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/suit/update_clothing_icon()
@@ -1168,16 +1168,16 @@
 	var/image/I = ..()
 	if(slot == slot_l_hand_str | slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
-			A.accessory_mob_overlay.cut_overlays()
+			A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
-			I.add_overlay(accessory_image)
+			I.AddOverlays(accessory_image)
 
 	if(blood_DNA && slot != slot_l_hand_str && slot != slot_r_hand_str)
 		var/image/bloodsies = image(icon = H.species.blood_mask, icon_state = "uniformblood")
 		bloodsies.color = blood_color
-		I.add_overlay(bloodsies)
+		I.AddOverlays(bloodsies)
 	return I
 
 /obj/item/clothing/under/proc/update_rolldown_status()
