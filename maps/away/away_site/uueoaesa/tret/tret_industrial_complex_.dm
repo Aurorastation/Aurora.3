@@ -9,6 +9,7 @@
 	id = "tret_industrial_complex"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
 	unit_test_groups = list(3)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/tret_industrial_complex
 	map = "Tret Industrial Complex"
