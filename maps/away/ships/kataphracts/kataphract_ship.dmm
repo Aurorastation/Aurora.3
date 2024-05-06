@@ -4238,7 +4238,8 @@
 	dir = 1;
 	pixel_y = -21;
 	name = "Kataphract Shuttle docking port controller";
-	docking_controller = "kataphract_dock"
+	docking_controller = "kataphract_dock";
+	frequency = 1380
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -4788,6 +4789,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/atmospherics)
+"wR" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "wT" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/folder/red,
@@ -6954,12 +6961,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
-"SU" = (
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "SV" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 4
@@ -37079,7 +37080,7 @@ dN
 dN
 dN
 Bv
-SU
+wR
 lB
 fD
 wU

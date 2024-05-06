@@ -25,7 +25,8 @@
 /area/overgrown_mining_station)
 "ae" = (
 /turf/simulated/floor/tiled/asteroid/airless,
-/turf/unsimulated/floor/asteroid/ash)
+/turf/unsimulated/floor/asteroid/ash,
+/area/overgrown_mining_station)
 "af" = (
 /obj/machinery/door/airlock/mining{
 	dir = 1
@@ -39735,7 +39736,7 @@ SZ
 SZ
 SZ
 gV
-SZ
+gV
 gV
 gV
 gV
