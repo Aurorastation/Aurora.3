@@ -1,13 +1,18 @@
-import { map } from 'common/collections';
 import { toFixed } from 'common/math';
 import { numberOfDecimalDigits } from 'common/math';
 import { useBackend, useLocalState } from '../backend';
 import { Box, Button, Collapsible, ColorBox, Dropdown, Input, LabeledList, NoticeBox, NumberInput, Section } from '../components';
 import { Window } from '../layouts';
 
-const FilterIntegerEntry = (props) => {
+export type FilterifficData = {
+  target_name: string;
+  target_filter_data: any;
+  filter_info: any;
+};
+
+const FilterIntegerEntry = (props, context) => {
   const { value, name, filterName } = props;
-  const { act } = useBackend();
+  const { act } = useBackend(context);
   return (
     <NumberInput
       value={value}
@@ -28,10 +33,10 @@ const FilterIntegerEntry = (props) => {
   );
 };
 
-const FilterFloatEntry = (props) => {
+const FilterFloatEntry = (props, context) => {
   const { value, name, filterName } = props;
-  const { act } = useBackend();
-  const [step, setStep] = useLocalState(0.01);
+  const { act } = useBackend(context);
+  const [step, setStep] = useLocalState<number>(context, 'step', 0.01);
 
   return (
     <>
@@ -66,9 +71,9 @@ const FilterFloatEntry = (props) => {
   );
 };
 
-const FilterTextEntry = (props) => {
+const FilterTextEntry = (props, context) => {
   const { value, name, filterName } = props;
-  const { act } = useBackend();
+  const { act } = useBackend(context);
 
   return (
     <Input
@@ -86,9 +91,9 @@ const FilterTextEntry = (props) => {
   );
 };
 
-const FilterColorEntry = (props) => {
+const FilterColorEntry = (props, context) => {
   const { value, filterName, name } = props;
-  const { act } = useBackend();
+  const { act } = useBackend(context);
   return (
     <>
       <Button
@@ -116,9 +121,9 @@ const FilterColorEntry = (props) => {
   );
 };
 
-const FilterIconEntry = (props) => {
+const FilterIconEntry = (props, context) => {
   const { value, filterName } = props;
-  const { act } = useBackend();
+  const { act } = useBackend(context);
   return (
     <>
       <Button
@@ -136,27 +141,31 @@ const FilterIconEntry = (props) => {
   );
 };
 
-const FilterFlagsEntry = (props) => {
+const FilterFlagsEntry = (props, context) => {
   const { name, value, filterName, filterType } = props;
-  const { act, data } = useBackend();
+  const { act, data } = useBackend<FilterifficData>(context);
 
   const filterInfo = data.filter_info;
   const flags = filterInfo[filterType]['flags'];
-  return map(flags, (bitField, flagName) => (
-    <Button.Checkbox
-      checked={value & bitField}
-      onClick={() =>
-        act('modify_filter_value', {
-          name: filterName,
-          new_data: {
-            [name]: value ^ bitField,
-          },
-        })
-      }
-      key={flagName}>
-      {flagName}
-    </Button.Checkbox>
-  ));
+  return (
+    <>
+      {flags.map((bitField, flagName) => (
+        <Button.Checkbox
+          checked={value & bitField}
+          onClick={() =>
+            act('modify_filter_value', {
+              name: filterName,
+              new_data: {
+                [name]: value ^ bitField,
+              },
+            })
+          }
+          key={flagName}>
+          {flagName}
+        </Button.Checkbox>
+      ))}
+    </>
+  );
 };
 
 const FilterDataEntry = (props) => {
@@ -200,8 +209,8 @@ const FilterDataEntry = (props) => {
   );
 };
 
-const FilterEntry = (props) => {
-  const { act, data } = useBackend();
+const FilterEntry = (props, context) => {
+  const { act, data } = useBackend<FilterifficData>(context);
   const { name, filterDataEntry } = props;
   const { type, priority, ...restOfProps } = filterDataEntry;
 
@@ -245,7 +254,7 @@ const FilterEntry = (props) => {
           />
         </>
       }>
-      <Section level={2}>
+      <Section>
         <LabeledList>
           {targetFilterPossibleKeys.map((entryName) => {
             const defaults = filterDefaults[type]['defaults'];
@@ -268,14 +277,22 @@ const FilterEntry = (props) => {
   );
 };
 
-export const Filteriffic = (props) => {
-  const { act, data } = useBackend();
+export const Filteriffic = (props, context) => {
+  const { act, data } = useBackend<FilterifficData>(context);
   const name = data.target_name || 'Unknown Object';
   const filters = data.target_filter_data || {};
   const hasFilters = Object.keys(filters).length !== 0;
   const filterDefaults = data['filter_info'];
-  const [massApplyPath, setMassApplyPath] = useLocalState('');
-  const [hiddenSecret, setHiddenSecret] = useLocalState(false);
+  const [massApplyPath, setMassApplyPath] = useLocalState(
+    context,
+    'massApplyPath',
+    ''
+  );
+  const [hiddenSecret, setHiddenSecret] = useLocalState(
+    context,
+    'hiddenSecret',
+    false
+  );
 
   return (
     <Window title="Filteriffic" width={500} height={500}>
@@ -326,7 +343,7 @@ export const Filteriffic = (props) => {
           {!hasFilters ? (
             <Box>No filters</Box>
           ) : (
-            map(filters, (entry, key) => (
+            filters.map((entry, key) => (
               <FilterEntry filterDataEntry={entry} name={key} key={key} />
             ))
           )}
