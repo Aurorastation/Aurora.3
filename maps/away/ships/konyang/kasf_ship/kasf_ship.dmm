@@ -4348,6 +4348,8 @@
 	pixel_x = 9;
 	pixel_y = -4
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/ship/kasf_corvette/medbay)
 "zk" = (

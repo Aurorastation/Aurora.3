@@ -3838,6 +3838,8 @@
 "DU" = (
 /obj/structure/table/glass,
 /obj/item/storage/firstaid/large/adv,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/heph_security_ship/medbay)
 "DW" = (

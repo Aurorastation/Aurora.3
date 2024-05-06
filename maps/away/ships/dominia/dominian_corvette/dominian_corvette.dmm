@@ -3791,6 +3791,8 @@
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 5
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/ship/dominian_corvette/infirmary)
 "mRY" = (

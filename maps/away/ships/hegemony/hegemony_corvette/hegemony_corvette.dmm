@@ -7390,6 +7390,8 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/hegemony_ship/medbay)
 "Qh" = (
