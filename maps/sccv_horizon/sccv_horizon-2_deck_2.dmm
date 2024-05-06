@@ -6994,7 +6994,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "din" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "bar"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar/backroom)
 "dit" = (
@@ -17447,7 +17449,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "hSU" = (
@@ -31224,10 +31226,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "oqB" = (
-/obj/machinery/light_switch{
-	pixel_x = 9;
-	pixel_y = -19
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -40143,10 +40141,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "sGq" = (
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Deck 2 - Bar Backroom";
-	dir = 1
-	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "sGR" = (
@@ -43396,9 +43391,6 @@
 /area/medical/cryo)
 "uhw" = (
 /obj/structure/table/wood,
-/obj/machinery/alarm/north{
-	req_one_access = list(24,11,55)
-	},
 /obj/item/storage/box/lights/colored/blue{
 	pixel_x = 6;
 	pixel_y = 10
@@ -43422,6 +43414,17 @@
 /obj/item/storage/box/lights/colored/yellow{
 	pixel_x = -6;
 	pixel_y = 2
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	id = "bar";
+	pixel_y = 30;
+	pixel_x = 5
+	},
+/obj/machinery/light_switch{
+	pixel_x = -5;
+	pixel_y = 30;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
@@ -45297,6 +45300,10 @@
 /area/horizon/exterior)
 "uZh" = (
 /obj/structure/closet/secure_closet/cabinet/beer/horizon,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Deck 2 - Bar Backroom";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (
@@ -46918,12 +46925,8 @@
 	},
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
-	pixel_x = 8;
+	pixel_x = 1;
 	pixel_y = 3
-	},
-/obj/item/bananapeel{
-	pixel_x = -7;
-	pixel_y = 1
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/bar/backroom)
