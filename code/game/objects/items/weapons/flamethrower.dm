@@ -94,6 +94,8 @@
 	else
 		. = ..()
 
+
+#define MAX_PIPES_BLAST_DISTANCE world.view * 2
 /**
  * Called when the flamethrower is attacking an atmos machine (eg. scrubbers or vents)
  *
@@ -138,6 +140,10 @@
 		if(!T)
 			continue
 
+		//If it's too far away, skip it
+		if((atmos_machine_being_attacked.z != T.z) || (get_dist(atmos_machine_being_attacked, T) > MAX_PIPES_BLAST_DISTANCE))
+			continue
+
 		var/datum/gas_mixture/air_transfer = gas_tank.air_contents.remove_ratio(0.02 * (throw_amount / 100))
 		if(!air_transfer)
 			to_chat(user, SPAN_WARNING("The flamethrower is out of fuel!"))
@@ -157,12 +163,24 @@
 
 	for(var/datum/pipeline/network_line_members as anything in atmos_machine_being_attacked.network.line_members)
 		for(var/obj/machinery/atmospherics/pipe/pipe_in_the_network as anything in (network_line_members.members + network_line_members.edges))
+
+			//Get the turf this pipe is on
+			var/turf/T = get_turf(pipe_in_the_network)
+			if(!T)
+				continue
+
+			//If it's too far away, skip it
+			if((atmos_machine_being_attacked.z != T.z) || (get_dist(atmos_machine_being_attacked, T) > MAX_PIPES_BLAST_DISTANCE))
+				continue
+
 			var/mob/living/M = locate() in pipe_in_the_network
 			if(M)
 				M.apply_damage(20, DAMAGE_BURN)
 				M.IgniteMob(1)
 
 			CHECK_TICK
+
+#undef MAX_PIPES_BLAST_DISTANCE
 
 /obj/item/flamethrower/afterattack(atom/target, mob/user, proximity)
 	if(proximity)
