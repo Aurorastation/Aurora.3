@@ -46,9 +46,9 @@ var/list/mob_icon_icon_states = list()
 		I = overlay_image(mob_overlay_icon, color = color, flags = RESET_COLOR|RESET_ALPHA)
 	var/image/additional_parts = build_additional_parts(H, mob_icon, slot)
 	if(additional_parts)
-		I.add_overlay(additional_parts)
+		I.AddOverlays(additional_parts)
 	if(has_accents)
-		I.add_overlay(overlay_image(icon, "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_acc", accent_color, accent_flags))
+		I.AddOverlays(overlay_image(icon, "[UNDERSCORE_OR_NULL(src.icon_species_tag)][item_state][contained_sprite ? slot_str_to_contained_flag(slot) : ""]_acc", accent_color, accent_flags))
 	var/offset_x = worn_x_dimension
 	var/offset_y = worn_y_dimension
 	center_image(I, offset_x, offset_y)

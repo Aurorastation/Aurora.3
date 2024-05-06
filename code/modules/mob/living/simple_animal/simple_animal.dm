@@ -190,7 +190,7 @@
 		death()
 
 /mob/living/simple_animal/Destroy()
-	cut_overlay(blood_overlay)
+	CutOverlays(blood_overlay)
 	movement_target = null
 	QDEL_NULL(udder)
 
@@ -404,7 +404,7 @@
 
 	if(force_reset || current_blood_state != blood_state)
 		if(blood_overlay)
-			cut_overlay(blood_overlay)
+			CutOverlays(blood_overlay)
 		if(blood_state == BLOOD_NONE)
 			return
 		var/blood_overlay_name = get_blood_overlay_name()
@@ -412,7 +412,7 @@
 		I.color = blood_type
 		I.blend_mode = BLEND_INSET_OVERLAY
 		blood_overlay = I
-		add_overlay(blood_overlay)
+		AddOverlays(blood_overlay)
 
 /mob/living/simple_animal/proc/get_blood_overlay_name()
 	return "blood_overlay"

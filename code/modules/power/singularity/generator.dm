@@ -11,12 +11,12 @@
 	var/creation_type = /obj/singularity
 
 /obj/machinery/the_singularitygen/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(anchored)
-		add_overlay("[icon_state]+bolts")
+		AddOverlays("[icon_state]+bolts")
 		var/image/lights_image = image(icon, null, "[icon_state]+lights")
 		lights_image.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(lights_image)
+		AddOverlays(lights_image)
 
 /obj/machinery/the_singularitygen/process()
 	var/turf/T = get_turf(src)

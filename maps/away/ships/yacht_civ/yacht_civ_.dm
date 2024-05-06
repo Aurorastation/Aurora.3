@@ -128,3 +128,5 @@
 	name = "Civilian Yacht Shuttle"
 	shuttle_tag = "Civilian Yacht Shuttle"
 	master_tag = "airlock_yacht_civ_shuttle"
+	req_one_access = null
+	req_access = null

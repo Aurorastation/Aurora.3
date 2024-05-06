@@ -76,6 +76,8 @@
 
 	var/list/mobs_to_tolerate = list()
 	var/generated_name = TRUE
+	///The random name generated for the planet by generate_planet_name()
+	var/planet_name
 	var/ring_chance = 20 //the chance of this exoplanet spawning with a ring on its sprite
 
 	///A list of groups, as strings, that this exoplanet belongs to. When adding new map templates, try to keep this balanced on the CI execution time, or consider adding a new one
@@ -137,7 +139,8 @@
 	planetary_area = new planetary_area()
 
 	if(generated_name)
-		name = "[generate_planet_name()], \a [name]"
+		planet_name = generate_planet_name()
+		name = "[planet_name], \a [name]"
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))

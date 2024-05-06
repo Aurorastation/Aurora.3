@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added roller bed racks, which can store 4 roller beds at a time. Replaced the previous stacks of roller beds in medical with racks."

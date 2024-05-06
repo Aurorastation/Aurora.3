@@ -59,14 +59,14 @@
 	)
 
 	speech = list(
-		"hail_generic"         = "Look, you can't afford the stuff I sell. You'll go get me valuable things from that station nearby, and I'll trade you my stuff. And you better do it fast, I think I might be tracked.",
+		"hail_generic"         = "Look, you can't afford the stuff I sell. You'll go get me valuable things from that ship nearby, and I'll trade you my stuff. And you better do it fast, I think I might be tracked.",
 		"hail_deny"            = "This is not worth my time.",
 		"trade_complete"       = "Oooh, the commander will LOVE this!",
 		"trade_no_money"       = "Don't waste my time!",
 		"trade_not_enough"     = "Get me the good stuff I need or I'm gone!",
 		"trade_found_unwanted" = "I need high value things, not this garbage!",
 		"how_much"             = "I need VALUABLE things, and I need them FAST.",
-		"what_want"            = "There's a station near you, go there, get some high value and classified things. Or crystals.",
+		"what_want"            = "There's a ship near you, go there, get some high value and classified things. Or crystals.",
 		"compliment_deny"      = "Shove your compliments, I'm busy!",
 		"compliment_accept"    = "I might just recommend you to my employers...",
 		"insult_good"          = "Heh, you got style.",

@@ -35,22 +35,22 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/bottle/update_icon() // You know, bottles should be a subtype of beakers. But not gonna change a million and one paths today. - Wezzy.
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 	if(!is_open_container())
 		var/lid_icon = "lid_[icon_state]"
 		var/mutable_appearance/lid = mutable_appearance(icon, lid_icon)
-		add_overlay(lid)
+		AddOverlays(lid)
 
 	if(label_text)
 		var/label_icon = "label_[icon_state]"
 		var/mutable_appearance/label = mutable_appearance(icon, label_icon)
-		add_overlay(label)
+		AddOverlays(label)
 
 /obj/item/reagent_containers/glass/bottle/inaprovaline
 	name = "inaprovaline bottle"

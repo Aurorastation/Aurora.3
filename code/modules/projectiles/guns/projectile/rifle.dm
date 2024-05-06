@@ -248,13 +248,13 @@
 		if(open_bolt && has_clip)
 			if(has_clip.stored_ammo.len > 0)
 				load_ammo(has_clip, user)
-				src.cut_overlays()
+				src.ClearOverlays()
 				if(!has_clip.stored_ammo.len)
-					add_overlay("springfield-clip-empty")
+					AddOverlays("springfield-clip-empty")
 				else if(has_clip.stored_ammo.len <= 3)
-					add_overlay("springfield-clip-half")
+					AddOverlays("springfield-clip-half")
 				else
-					add_overlay("springfield-clip-full")
+					AddOverlays("springfield-clip-full")
 			else
 				to_chat(user, "<span class='warning'>There is no ammo in \the [has_clip.name]!</span>")
 		else if(!open_bolt)
@@ -278,7 +278,7 @@
 	if(has_clip)
 		has_clip.forceMove(get_turf(src))
 		has_clip = null
-		cut_overlays()
+		ClearOverlays()
 
 
 	if(chambered)//We have a shell in the chamber
@@ -302,11 +302,11 @@
 			has_clip = attacking_item
 			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
 			if(!has_clip.stored_ammo.len)
-				add_overlay("springfield-clip-empty")
+				AddOverlays("springfield-clip-empty")
 			else if(has_clip.stored_ammo.len <= 3)
-				add_overlay("springfield-clip-half")
+				AddOverlays("springfield-clip-half")
 			else
-				add_overlay("springfield-clip-full")
+				AddOverlays("springfield-clip-full")
 		else
 			to_chat(user, "<span class='notice'>There's already a clip in \the [src].</span>")
 

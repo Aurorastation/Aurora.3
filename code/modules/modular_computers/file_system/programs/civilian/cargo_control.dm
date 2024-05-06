@@ -219,7 +219,7 @@
 					if(!P.stamped)
 						P.stamped = new
 					P.stamped += /obj/item/stamp
-					P.add_overlay(stampoverlay)
+					P.AddOverlays(stampoverlay)
 					P.stamps += "<HR><i>This paper has been stamped by the Shipping Server.</i>"
 					computer.visible_message(SPAN_NOTICE("\The [computer] prints out paper."))
 		if("bounty_print")

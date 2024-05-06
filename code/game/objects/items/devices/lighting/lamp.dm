@@ -52,10 +52,10 @@
 		set_light(brightness_on, flashlight_power, light_color)
 	else
 		set_light(0)
-	cut_overlays()
+	ClearOverlays()
 	var/image/I = image(icon = icon, icon_state = "lavalamp-[on ? "on" : "off"]")
 	I.color = light_color
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/device/flashlight/lamp/lava/red
 	light_color = COLOR_RED

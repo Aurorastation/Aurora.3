@@ -16,12 +16,12 @@
 	update_icon()
 
 /obj/item/implanter/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "implanter-[imp ? "1" : "0"]"
 	if (imp)
 		var/mutable_appearance/overlay_implant_icon = mutable_appearance(icon, "implanter-overlay")
 		overlay_implant_icon.color = imp.implant_color
-		add_overlay(overlay_implant_icon)
+		AddOverlays(overlay_implant_icon)
 
 /obj/item/implanter/attackby(obj/item/attacking_item, mob/user)
 	if(!imp && istype(attacking_item, /obj/item/implant) && user.unEquip(attacking_item, src))

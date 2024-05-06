@@ -28,7 +28,7 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/aethemir/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>High concentrations of silicate detected"
 
 // --------------------------------- Az'Mar
 
@@ -65,7 +65,7 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/azmar/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>No notable concentration of valuable minerals detected in the mantle"
 
 // --------------------------------- Sahul
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul
@@ -83,7 +83,7 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/lava/sahul/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>Molten metals detected in the crust"
 
 // --------------------------------- Raskara
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara
@@ -119,7 +119,10 @@
 	skybox_image.pixel_y = rand(128,256)
 
 /obj/effect/overmap/visitable/sector/exoplanet/barren/raskara/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	if(prob(1))
+		ground_survey_result = "<br>Unidentified anomalous readings detected in the inner core"
+	else
+		ground_survey_result = "<br>High concretation of dense metal in the mantle"
 
 // --------------------------------- Adhomai
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai
@@ -220,4 +223,4 @@
 	return
 
 /obj/effect/overmap/visitable/sector/exoplanet/adhomai/generate_ground_survey_result()
-	ground_survey_result = "" // so it does not get randomly generated survey results
+	ground_survey_result = "<br>High quality minerals detected in the crust and mantle"

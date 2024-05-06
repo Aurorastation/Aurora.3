@@ -3,4 +3,4 @@
 	if(species)
 		species.handle_logout_special(src)
 	if(mind && mind.active && stat != DEAD)
-		add_overlay(image('icons/effects/effects.dmi', icon_state = "zzz_glow"))
+		AddOverlays(image('icons/effects/effects.dmi', icon_state = "zzz_glow"))

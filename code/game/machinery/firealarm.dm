@@ -28,31 +28,31 @@
 	. += "The current alert level is [get_security_level()]."
 
 /obj/machinery/firealarm/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(wiresexposed)
 		switch(buildstage)
 			if(2)
-				add_overlay("fire_b2")
+				AddOverlays("fire_b2")
 			if(1)
-				add_overlay("fire_b1")
+				AddOverlays("fire_b1")
 			if(0)
-				add_overlay("fire_b0")
+				AddOverlays("fire_b0")
 		return
 
 	if(stat & BROKEN)
-		add_overlay("firex")
+		AddOverlays("firex")
 		set_light(0)
 	else if(stat & NOPOWER)
-		add_overlay("firep")
+		AddOverlays("firep")
 		set_light(0)
 	else
 		var/area/A = get_area(src)
 		if(A.fire)
-			add_overlay("fire1")
+			AddOverlays("fire1")
 			set_light(l_range = L_WALLMOUNT_HI_RANGE, l_power = L_WALLMOUNT_HI_POWER, l_color = COLOR_RED)
 		else
-			add_overlay("fire0")
+			AddOverlays("fire0")
 			set_light(0)
 
 /obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
