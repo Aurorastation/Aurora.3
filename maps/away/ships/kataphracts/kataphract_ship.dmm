@@ -2731,6 +2731,8 @@
 /obj/effect/floor_decal/corner/green/full{
 	dir = 1
 	},
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "ki" = (

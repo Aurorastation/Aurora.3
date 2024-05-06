@@ -1085,14 +1085,12 @@
 /area/ship/sfa_patrol_ship/Suit_Storage)
 "dnC" = (
 /obj/structure/table/standard,
-/obj/item/storage/box/gloves,
-/obj/item/storage/box/masks{
-	pixel_x = 4;
-	pixel_y = 4
-	},
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/material/knife,
+/obj/item/stack/cable_coil,
+/obj/item/wirecutters,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2988,6 +2986,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
+/obj/item/wrench,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -5478,7 +5477,14 @@
 /area/ship/sfa_patrol_ship)
 "rgK" = (
 /obj/structure/table/standard,
-/obj/item/storage/firstaid/surgery,
+/obj/item/storage/box/masks{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/storage/box/gloves,
+/obj/item/crowbar,
+/obj/item/weldingtool,
+/obj/item/tape_roll,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15

@@ -7519,6 +7519,8 @@
 	pixel_y = 9
 	},
 /obj/item/reagent_containers/spray/cleaner,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/ship/ssmd_corvette/medbay)
 "wiX" = (

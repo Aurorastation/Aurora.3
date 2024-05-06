@@ -2339,6 +2339,8 @@
 "aXh" = (
 /obj/structure/table/standard,
 /obj/item/storage/firstaid/surgery,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white,
 /area/hiskyn_ship/medbay)
 "aYq" = (

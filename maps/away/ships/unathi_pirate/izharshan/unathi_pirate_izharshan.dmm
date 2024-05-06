@@ -1383,6 +1383,8 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "UF" = (
 /obj/structure/table/wood/gamblingtable,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Vb" = (
