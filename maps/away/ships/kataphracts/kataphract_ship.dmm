@@ -1277,6 +1277,9 @@
 /area/shuttle/kataphract_shuttle/main_compartment)
 "eE" = (
 /obj/structure/extinguisher_cabinet/west,
+/obj/structure/bed/stool/chair/shuttle{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "eF" = (
@@ -2689,9 +2692,9 @@
 "kf" = (
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
-/obj/item/reagent_containers/hypospray,
 /obj/item/storage/belt/medical/first_responder,
 /obj/item/storage/belt/medical,
+/obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/effect/floor_decal/corner/green{
@@ -5731,6 +5734,9 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "GS" = (
@@ -6543,6 +6549,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
 	},
+/obj/structure/bed/handrail{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/kataphract_shuttle/main_compartment)
 "Pr" = (
@@ -6862,6 +6871,9 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/structure/bed/handrail{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/kataphract_chapter/medical)
 "St" = (
@@ -6942,6 +6954,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/sparring_chamber)
+"SU" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "SV" = (
 /obj/effect/floor_decal/corner_wide/dark_blue{
 	dir = 4
@@ -7437,6 +7455,8 @@
 /obj/item/bodybag/cryobag,
 /obj/item/bodybag/cryobag,
 /obj/effect/floor_decal/corner/green/full,
+/obj/item/reagent_containers/inhaler/pneumalin,
+/obj/item/reagent_containers/inhaler/pneumalin,
 /turf/simulated/floor/tiled/white{
 	temperature = 278.15
 	},
@@ -37059,7 +37079,7 @@ dN
 dN
 dN
 Bv
-cl
+SU
 lB
 fD
 wU
