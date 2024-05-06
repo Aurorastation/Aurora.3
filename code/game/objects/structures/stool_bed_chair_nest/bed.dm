@@ -570,6 +570,7 @@
 	desc = "A collapsed roller bed that can be carried around."
 	icon = 'icons/obj/rollerbed.dmi'
 	icon_state = "standard_folded"
+	base_icon = "standard"
 	item_state = "rbed"
 	contained_sprite = TRUE
 	drop_sound = 'sound/items/drop/axe.ogg'
@@ -582,6 +583,7 @@
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
 	icon_state = "hover_folded"
+	base_icon = "hover"
 	item_state = "rbed_hover"
 	origin_type = /obj/structure/bed/roller/hover
 
@@ -633,3 +635,85 @@
 	R.add_fingerprint(user)
 	qdel(held)
 	held = null
+
+/**
+ * # Roller Rack
+ *
+ * A rack structure that can hold up to four roller bed items (Or subtypes i.e. Hoverbeds), stored in the `held` list.
+ *
+ * The `initial_beds` variable controls the number of beds the rack will spawn with.
+*/
+/obj/structure/roller_rack
+	name = "roller bed rack"
+	desc = "A rack for holding collapsed roller beds."
+	icon = 'icons/obj/rollerbed.dmi'
+	icon_state = "holder"
+
+	/**
+	 * List of held roller bed items.
+	 */
+	var/list/obj/item/roller/held = list()
+
+	/**
+	 * The number of beds the rack spawns with
+	 */
+	var/initial_beds = 4
+
+/obj/structure/roller_rack/Initialize()
+	. = ..()
+	for(var/_ in 1 to initial_beds)
+		var/obj/item/roller/RB = new /obj/item/roller(src)
+		held += RB
+	update_icon()
+
+/obj/structure/roller_rack/Destroy()
+	QDEL_LIST(held)
+	return ..()
+
+/obj/structure/roller_rack/update_icon()
+	. = ..()
+	ClearOverlays()
+	var/beds = 0
+	for(var/obj/item/roller/RB in held)
+		var/image/I = overlay_image(icon, "[icon_state]_bed_[RB.base_icon]")
+		I.pixel_x = (5 * beds)
+		beds++
+		AddOverlays(I)
+
+/obj/structure/roller_rack/examine(mob/user)
+	desc = "[initial(desc)] \nIt is holding [LAZYLEN(held)] beds."
+	. = ..()
+
+/obj/structure/roller_rack/attack_hand(mob/user)
+	if(!LAZYLEN(held))
+		to_chat(user, SPAN_NOTICE("The rack is empty."))
+		return
+
+	var/obj/item/roller/RB = held[LAZYLEN(held)]
+	user.put_in_hands(RB)
+	held -= RB
+	to_chat(user, SPAN_NOTICE("You retrieve \the [RB] from the rack."))
+	update_icon()
+
+/obj/structure/roller_rack/attackby(obj/item/attacking_item, mob/user)
+	if(iswrench(attacking_item))
+		anchored = !anchored
+		to_chat(user, SPAN_NOTICE("You [anchored ? "bolt" : "unbolt"] \the [src] [anchored ? "to" : "from"] the ground."))
+
+	if(istype(attacking_item, /obj/item/roller))
+		var/obj/item/roller/RB = attacking_item
+
+		if(LAZYLEN(held) >= 4)
+			to_chat(user, SPAN_NOTICE("The rack has no space for \the [RB]"))
+			return
+
+		user.drop_from_inventory(RB, src)
+		held += RB
+		to_chat(user, SPAN_NOTICE("You place \the [RB] on the rack."))
+		update_icon()
+
+/obj/structure/roller_rack/two
+	initial_beds = 2
+
+/obj/structure/roller_rack/three
+	initial_beds = 3
