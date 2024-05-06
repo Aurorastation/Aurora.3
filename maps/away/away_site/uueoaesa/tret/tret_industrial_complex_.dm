@@ -3,11 +3,12 @@
 	description = "An industrial complex on Tret. Wow."
 	prefix = "away_site/uueoaesa/tret/"
 	suffixes = list("tret_industrial_complex.dmm")
-	sectors = list(SECTOR_UUEOAESA)
+	sectors = list(SECTOR_UUEOAESA, ALL_POSSIBLE_SECTORS)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "tret_industrial_complex"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
+	theme = /datum/exoplanet_theme/volcanic
 	unit_test_groups = list(3)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 

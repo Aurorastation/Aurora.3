@@ -42,7 +42,7 @@
 	height = bounds[MAP_MAXY] - bounds[MAP_MINX] + 1
 	return bounds
 
-/datum/map_template/proc/load_new_z(var/no_changeturf = TRUE)
+/datum/map_template/proc/load_new_z(var/no_changeturf = TRUE, var/datum/exoplanet_theme/theme = null)
 	RETURN_TYPE(/turf)
 
 	var/x = round((world.maxx - width)/2)
@@ -76,6 +76,10 @@
 
 	smooth_zlevel(world.maxz)
 	resort_all_areas()
+
+	//exoplanet???
+	if(istype(theme))
+		theme.generate_map(null, initial_z, 1, 1, 254, 254)
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)

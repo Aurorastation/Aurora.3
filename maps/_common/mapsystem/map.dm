@@ -305,7 +305,14 @@
 	log_admin("Finished selecting away sites ([english_list(selected)]) for [totalbudget - (points + shippoints)] cost of [totalbudget] budget.")
 
 	for (var/datum/map_template/template in selected)
-		if (template.load_new_z())
+		// get the theme if any
+		var/datum/exoplanet_theme/theme = null
+		var/datum/map_template/ruin/away_site/away_site = template
+		if(istype(away_site) && away_site.theme)
+			theme = new away_site.theme()
+
+		// actually load it
+		if (template.load_new_z(theme=theme))
 			log_admin("Loaded away site [template]!")
 		else
 			log_admin("Failed loading away site [template]!")
