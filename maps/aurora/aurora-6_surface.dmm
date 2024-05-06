@@ -2333,9 +2333,6 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -2745,9 +2742,6 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/entry/dock)
 "cgw" = (
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -3119,7 +3113,7 @@
 /area/tcommsat/chamber)
 "cwm" = (
 /obj/machinery/atmospherics/pipe/tank/air{
-	dir = 8;
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -3353,8 +3347,7 @@
 	req_access = null;
 	dir = 1
 	},
-/obj/effect/spider/stickyweb{
-	},
+/obj/effect/spider/stickyweb,
 /obj/machinery/door/blast/shutters{
 	id = "commissary_counter";
 	name = "Shutter"
@@ -4824,10 +4817,6 @@
 /obj/item/stock_parts/subspace/crystal,
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
-"elM" = (
-/obj/effect/shuttle_landmark/admin/green,
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/explored)
 "elP" = (
 /obj/machinery/door/airlock/glass{
 	name = "Kitchen";
@@ -8006,9 +7995,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -9572,9 +9558,6 @@
 	d2 = 2;
 	icon_state = "0-2"
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/machinery/camera/network/civilian_surface{
 	c_tag = "Surface - Cryogenic Storage";
 	pixel_x = -4
@@ -10256,9 +10239,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -10815,9 +10795,6 @@
 "jFv" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
-	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
 	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -11885,8 +11862,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
-/obj/item/storage/firstaid/fire{
-	},
+/obj/item/storage/firstaid/fire,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/research)
 "kAm" = (
@@ -12931,8 +12907,7 @@
 /turf/simulated/floor/tiled,
 /area/quartermaster/loading)
 "lvK" = (
-/obj/structure/closet/cabinet{
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/booze,
 /obj/effect/decal/cleanable/cobweb2,
@@ -14601,9 +14576,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -16844,8 +16816,7 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor,
-/obj/machinery/status_display{
-	},
+/obj/machinery/status_display,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "oQX" = (
@@ -17397,8 +17368,7 @@
 /turf/simulated/floor/tiled,
 /area/hallway/secondary/exit)
 "pqk" = (
-/obj/structure/closet/cabinet{
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/random/random_flag,
 /obj/random/random_flag,
@@ -22133,9 +22103,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/landmark{
-	name = "KickoffLocation"
-	},
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
@@ -23974,9 +23941,6 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -24315,10 +24279,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/turret_protected/tcomsat)
-"vgQ" = (
-/obj/effect/shuttle_landmark/admin/command,
-/turf/unsimulated/floor/asteroid/ash,
-/area/mine/explored)
 "vhb" = (
 /obj/structure/grille,
 /obj/structure/window/reinforced,
@@ -25223,9 +25183,6 @@
 /obj/machinery/computer/cryopod{
 	pixel_y = 32
 	},
-/obj/effect/landmark{
-	name = "JoinLateCryo"
-	},
 /obj/effect/floor_decal/corner/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/crew_quarters/sleep/cryo)
@@ -25570,8 +25527,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/machinery/status_display{
-	},
+/obj/machinery/status_display,
 /turf/simulated/floor/plating,
 /area/hallway/secondary/exit)
 "wlt" = (
@@ -27620,8 +27576,7 @@
 /turf/simulated/floor/carpet,
 /area/security/vacantoffice)
 "yav" = (
-/obj/structure/closet/cabinet{
-	},
+/obj/structure/closet/cabinet,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/stool/padded/red,
 /obj/structure/bed/stool/padded/red,
@@ -48326,7 +48281,7 @@ fdu
 fdu
 fdu
 fdu
-elM
+kKF
 fdu
 fdu
 fdu
@@ -77871,7 +77826,7 @@ fdu
 fdu
 fdu
 fdu
-vgQ
+kKF
 fdu
 fdu
 fdu

@@ -129,7 +129,7 @@
 /obj/item/reagent_containers/food/snacks/grown/update_icon()
 	if(!seed || !SSplants || !SSplants.plant_icon_cache)
 		return
-	cut_overlays()
+	ClearOverlays()
 	var/image/plant_icon
 	var/icon_key = "fruit-[seed.get_trait(TRAIT_PRODUCT_ICON)]-[seed.get_trait(TRAIT_PRODUCT_COLOUR)]-[seed.get_trait(TRAIT_PLANT_COLOUR)]"
 	if(SSplants.plant_icon_cache[icon_key])
@@ -144,7 +144,7 @@
 			fruit_leaves.color = "[seed.get_trait(TRAIT_PLANT_COLOUR)]"
 			plant_icon.overlays |= fruit_leaves
 		SSplants.plant_icon_cache[icon_key] = plant_icon
-	add_overlay(plant_icon)
+	AddOverlays(plant_icon)
 
 /obj/item/reagent_containers/food/snacks/grown/Crossed(var/mob/living/M)
 	if(seed && seed.get_trait(TRAIT_JUICY) == 2)
@@ -173,6 +173,22 @@
 	..()
 
 /obj/item/reagent_containers/food/snacks/grown/attackby(obj/item/attacking_item, mob/user)
+
+	if(istype(attacking_item, /obj/item/paper))
+		if(!dry)
+			to_chat(user, SPAN_WARNING("You need to dry \the [src] first!"))
+			return
+		if(user.unEquip(attacking_item))
+			var/obj/item/clothing/mask/smokable/cigarette/rolled/R = new(get_turf(src))
+			R.chem_volume = reagents.total_volume
+			reagents.trans_to_holder(R.reagents, R.chem_volume)
+			user.visible_message(SPAN_NOTICE("[user] rolls a cigarette in their hands with \the [attacking_item] and [src]."),
+								SPAN_NOTICE("You roll a cigarette in your hands with \the [attacking_item] and [src]."))
+			playsound(src, 'sound/bureaucracy/paperfold.ogg', 25, 1)
+			user.put_in_active_hand(R)
+			qdel(attacking_item)
+			qdel(src)
+			return
 
 	if(seed)
 		if(seed.get_trait(TRAIT_PRODUCES_POWER) && attacking_item.iscoil())
@@ -361,12 +377,12 @@ var/list/fruit_icon_cache = list()
 		var/image/I = image(icon,"fruit_rind")
 		I.color = rind_colour
 		fruit_icon_cache["rind-[rind_colour]"] = I
-	add_overlay(fruit_icon_cache["rind-[rind_colour]"])
+	AddOverlays(fruit_icon_cache["rind-[rind_colour]"])
 	if(!fruit_icon_cache["slice-[rind_colour]"])
 		var/image/I = image(icon,"fruit_slice")
 		I.color = flesh_colour
 		fruit_icon_cache["slice-[rind_colour]"] = I
-	add_overlay(fruit_icon_cache["slice-[rind_colour]"])
+	AddOverlays(fruit_icon_cache["slice-[rind_colour]"])
 
 /obj/item/reagent_containers/food/snacks/grown/konyang_tea
 	name = "sencha leaves"

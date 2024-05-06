@@ -10,6 +10,8 @@
 	prefix = "konyang/abandoned/"
 	suffixes = list("landing_zone.dmm")
 
+	unit_test_groups = list(2)
+
 /area/konyang_landing_zone/command_center_abandoned//Need to differentiate from the normal landing zone area, otherwise this messes stuff up
 	name = "SCC Expedition Command Center"
 	requires_power = TRUE

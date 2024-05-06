@@ -267,9 +267,9 @@
 	else if(attacking_item.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
-		cut_overlays()
+		ClearOverlays()
 		if(src.panel_open)
-			add_overlay("[initial(icon_state)]-o")
+			AddOverlays("[initial(icon_state)]-o")
 		return TRUE
 	else if(default_part_replacement(user, attacking_item))
 		return TRUE

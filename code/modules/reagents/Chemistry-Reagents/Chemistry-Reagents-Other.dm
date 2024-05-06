@@ -286,7 +286,7 @@
 		if(istype(T, /turf/simulated/wall))
 			var/turf/simulated/wall/W = T
 			W.thermite = 1
-			W.add_overlay(image('icons/effects/effects.dmi',icon_state = "#673910"))
+			W.AddOverlays(image('icons/effects/effects.dmi',icon_state = "#673910"))
 			remove_self(5, holder)
 	return
 

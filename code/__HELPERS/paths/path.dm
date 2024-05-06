@@ -336,7 +336,7 @@
 		src.thrown = !!construct_from.throwing
 
 		src.anchored = construct_from.anchored
-	src.has_gravity = has_gravity(construct_from)
+	src.has_gravity = construct_from.has_gravity()
 	if(ismob(construct_from))
 		var/mob/living/mob_construct = construct_from
 		src.incapacitated = mob_construct.incapacitated()

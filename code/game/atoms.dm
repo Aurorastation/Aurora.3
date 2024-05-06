@@ -59,6 +59,7 @@
 	return
 
 /atom/proc/additional_sight_flags()
+	SHOULD_BE_PURE(TRUE)
 	return 0
 
 /atom/proc/additional_see_invisible()
@@ -527,7 +528,7 @@
 		blood_DNA = list()
 
 	was_bloodied = 1
-	blood_color = "#A10808"
+	blood_color = COLOR_HUMAN_BLOOD
 	if(istype(M))
 		if (!istype(M.dna, /datum/dna))
 			M.dna = new /datum/dna(null)

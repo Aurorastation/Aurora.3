@@ -7,6 +7,8 @@
 	suffixes = list("pid_crashed_shuttle.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
+	unit_test_groups = list(2)
+
 /obj/effect/landmark/corpse/hegemony_shuttle
 	name = "Hegemony Shuttle Pilot"
 	corpseuniform = /obj/item/clothing/under/unathi/izweski
@@ -28,6 +30,9 @@
 		if("black")
 			M.change_skin_color(28, 28, 28)
 
+/obj/item/paper/fluff/pid_shuttle
+	language = LANGUAGE_UNATHI
+
 /obj/item/paper/fluff/pid_shuttle/entry1
 	name = "pilot's log #1"
 	info = "Those Izharshan scum blew out our thrusters. We've been leaking CO2 halfway across the system, and our distress beacon's not responding. I'm going to put us down on Pid. It's a long shot, but I know those Vaurca have been setting something up there. Maybe we can contact them. It'll be a rough landing, though. Spirits guide us."
@@ -47,11 +52,3 @@
 /obj/item/paper/fluff/pid_shuttle/entry5
 	name = "pilot's log #5"
 	info = "The others won't go without me, and they won't make it with me. Our air is running out too fast. Kssighriss, Vharek, Ikhla. When you find this, take the remaining supplies and go after the signal. Tell my clan that I chose to go to my death with honor, for all of our sakes. Three Heads guide you all, my friends."
-
-/obj/item/paper/fluff/pid_shuttle/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=o\]"
-	languagetext += info
-	languagetext += "\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"

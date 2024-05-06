@@ -639,6 +639,8 @@
 
 		sprint_speed_factor = species.sprint_speed_factor
 		max_stamina = species.stamina
+		if(HAS_TRAIT(src, TRAIT_ORIGIN_STAMINA_BONUS))
+			max_stamina *= 1.1
 		stamina_recovery = species.stamina_recovery
 		sprint_cost_factor = species.sprint_cost_factor
 		move_delay_mod = 0
@@ -1489,11 +1491,11 @@
 		new_oxy = "oxydamageoverlay[severity]"
 
 		if(new_oxy != last_oxy_overlay)
-			damageoverlay.cut_overlay(last_oxy_overlay)
-			damageoverlay.add_overlay(new_oxy)
+			damageoverlay.CutOverlays(last_oxy_overlay)
+			damageoverlay.AddOverlays(new_oxy)
 			last_oxy_overlay = new_oxy
 	else if (last_oxy_overlay)
-		damageoverlay.cut_overlay(last_oxy_overlay)
+		damageoverlay.CutOverlays(last_oxy_overlay)
 		last_oxy_overlay = null
 
 //Fevers

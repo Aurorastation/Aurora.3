@@ -940,8 +940,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				cut_dam += W.damage
 
 		if(!(status & ORGAN_ROBOT) && W.bleeding() && (H && !(H.species.flags & NO_BLOOD)))
-			W.bleed_timer--
-			status |= ORGAN_BLEEDING
+			W.handle_bleeding(H, src)
 
 		clamped |= W.clamped
 
@@ -960,15 +959,6 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/limb_loss_threshold = max_damage
 	brute_ratio = brute_dam / (limb_loss_threshold * 2)
 	burn_ratio = burn_dam / (limb_loss_threshold * 2)
-
-// new damage icon system
-// adjusted to set damage_state to brute/burn code only (without r_name0 as before)
-/obj/item/organ/external/update_icon()
-	var/n_is = damage_state_text()
-	if (n_is != damage_state)
-		damage_state = n_is
-		return 1
-	return 0
 
 // new damage icon system
 // returns just the brute/burn damage code
@@ -1571,6 +1561,8 @@ Note that amputating the affected organ does in fact remove the infection from t
 	var/last_pain = pain
 	if(owner)
 		amount *= owner.species.pain_mod
+		if(HAS_TRAIT(owner, TRAIT_ORIGIN_PAIN_RESISTANCE))
+			amount = max(amount-1, 1)
 		amount -= (owner.chem_effects[CE_PAINKILLER]/3)
 		if(amount <= 0)
 			return

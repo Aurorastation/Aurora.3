@@ -331,30 +331,30 @@
 	updateUsrDialog()
 
 /obj/structure/janitorialcart/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	has_items = 0
 	if(mybucket)
-		add_overlay("cart_bucket")
+		AddOverlays("cart_bucket")
 		has_items = 1
 		if(mybucket.reagents.total_volume > 0)
-			add_overlay("cart_water")
+			AddOverlays("cart_water")
 	if(mybag)
-		add_overlay("cart_garbage")
+		AddOverlays("cart_garbage")
 		has_items = 1
 	if(mymop)
-		add_overlay("cart_mop")
+		AddOverlays("cart_mop")
 		has_items = 1
 	if(myspray)
-		add_overlay("cart_spray")
+		AddOverlays("cart_spray")
 		has_items = 1
 	if(myreplacer)
 		if (istype(myreplacer, /obj/item/device/lightreplacer/advanced))
-			add_overlay("cart_adv_lightreplacer")
+			AddOverlays("cart_adv_lightreplacer")
 		else
-			add_overlay("cart_replacer")
+			AddOverlays("cart_replacer")
 		has_items = 1
 	if(signs)
-		add_overlay("cart_sign[signs]")
+		AddOverlays("cart_sign[signs]")
 		has_items = 1
 
 //Shamelessly copied from wheelchair code

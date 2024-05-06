@@ -66,7 +66,7 @@
 
 /obj/structure/utility_pole/street/on/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/street_light
 	return
 
@@ -82,7 +82,7 @@
 
 /obj/structure/utility_pole/street/classic/on/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/street_light/classic
 	return
 
@@ -99,7 +99,7 @@
 
 /obj/structure/utility_pole/street/crosswalk/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/street_light/crosswalk
 	return
 
@@ -119,13 +119,13 @@
 
 /obj/structure/utility_pole/street/traffic/base/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/street_light/traffic
 	return
 
 /obj/structure/utility_pole/street/traffic/inverted/Initialize(mapload)
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	overlays += /obj/effect/overlay/street_light/traffic/inverted
 	return
 

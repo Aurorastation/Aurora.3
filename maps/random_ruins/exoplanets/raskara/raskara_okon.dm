@@ -9,6 +9,8 @@
 	prefix = "raskara/"
 	suffixes = list("raskara_okon.dmm")
 
+	unit_test_groups = list(1)
+
 /area/raskara_okon
 	name = "Okon 011"
 	icon_state = "bluenew"

@@ -1107,10 +1107,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.visible_message("<b>[usr]</b> turns \the [src] [on ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [on ? "on" : "off"]."))
 	if(on)
 		playsound(loc, 'sound/machines/synth_yes.ogg', 50)
-		add_overlay(screen)
+		AddOverlays(screen)
 	else
 		playsound(loc, 'sound/machines/synth_no.ogg', 50)
-		cut_overlay(screen)
+		CutOverlays(screen)
 	update_icon()
 
 /obj/item/fluff/holoconsole/proc/remove_left()
@@ -1845,14 +1845,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	third_card = null
 
 	icon_state = "ielia_tarot_on"
-	cut_overlays()
+	ClearOverlays()
 
 	usr.visible_message("\The [usr] activates the [src].")
 	flick ("card_spawn",src)
 	activated = TRUE
 
 	icon_state = "card_spin"
-	add_overlay("card_spin_fx")
+	AddOverlays("card_spin_fx")
 	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
 /obj/item/fluff/ielia_tarot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -1862,7 +1862,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			. += "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card]."
 
 /obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
-	cut_overlays()
+	ClearOverlays()
 	flick("card_spin_stop",src)
 	icon_state = "ielia_tarot_on"
 	for(var/i = 1 to 3)
@@ -1874,25 +1874,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 		else if(first_card && second_card)
 			third_card = P
 
-	cut_overlays()
-	add_overlay("card_display_fx")
-	add_overlay("card_display")
+	ClearOverlays()
+	AddOverlays("card_display_fx")
+	AddOverlays("card_display")
 
 	var/image/first_card_overlay = image(icon, src, first_card)
 	first_card_overlay.pixel_x = -8
-	add_overlay(first_card_overlay)
+	AddOverlays(first_card_overlay)
 
 	var/image/second_card_overlay = image(icon, src, second_card)
-	add_overlay(second_card_overlay)
+	AddOverlays(second_card_overlay)
 
 	var/image/third_card_overlay = image(icon, src, third_card)
 	third_card_overlay.pixel_x = 8
-	add_overlay(third_card_overlay)
+	AddOverlays(third_card_overlay)
 
 /obj/item/fluff/ielia_tarot/proc/reset_starfinder()
 	if(!activated)
 		return
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "ielia_tarot"
 	activated = FALSE
 
@@ -2026,3 +2026,13 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "ashkii_cloak"
 	contained_sprite = TRUE
 
+/obj/item/device/versebook/fluff/guilty_men
+	name = "Guilty Men"
+	desc = "A leather bound book bearing a burning Coalition of Colonies flag. \"Guilty Men\" and \"How the Coalition of Colonies and its leaders failed the Frontier\" are engraved on golden plaques on either side of the flag. A controversial book published several years ago, \"Guilty Men\" is acclaimed by some as a scathing rebuke of failed Coalition policies, and their intolerable results, and condemned by others as a radical break from traditional Coalition attitudes and values. This example is worn, with its pages dog-eared and torn in numerous places, while the leather binding has begun to crack and discolor under frequent handling."
+	icon = 'icons/obj/custom_items/imogen_items.dmi'
+	icon_state = "Guilty_Men"
+	item_state = "book"
+
+/obj/item/device/versebook/fluff/guilty_men/Initialize()
+	. = ..()
+	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")

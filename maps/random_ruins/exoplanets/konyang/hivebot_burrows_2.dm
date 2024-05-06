@@ -11,6 +11,8 @@
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/hivebot_burrows_1)
 
+	unit_test_groups = list(2)
+
 /area/hivebot_burrows_2
 	name = "Derelict Archaelogy Outpost"
 	icon_state = "bluenew"

@@ -806,12 +806,9 @@
 	var/disabledAi = 0 // Atlantis: Used to manually disable AI's integrated radio via intellicard menu.
 
 /obj/item/device/radio/headset/heads/ai_integrated/Destroy()
+	myAi = null
 	. = ..()
 	GC_TEMPORARY_HARDDEL
 
 /obj/item/device/radio/headset/heads/ai_integrated/can_receive(input_frequency, level)
 	return ..(input_frequency, level, !disabledAi)
-
-/obj/item/device/radio/headset/heads/ai_integrated/Destroy()
-	myAi = null
-	return ..()

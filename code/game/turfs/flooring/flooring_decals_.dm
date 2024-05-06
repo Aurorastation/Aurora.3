@@ -47,7 +47,7 @@
 			floor_decals[cache_key] = I
 		if(!T.decals) T.decals = list()
 		T.decals |= floor_decals[cache_key]
-		T.add_overlay(floor_decals[cache_key])
+		T.AddOverlays(floor_decals[cache_key])
 		if(desc)
 			T.desc += "<br>There is \a [src] on it with the following inscription:<br><i>[desc]</i>"
 
@@ -102,6 +102,7 @@
 	color = COLOR_GRAY20
 
 /obj/effect/floor_decal/corner/black/diagonal
+	icon_state = "preview_diagonal"
 	blend_state = "diagonal"
 
 /obj/effect/floor_decal/corner/black/full
@@ -305,11 +306,12 @@
 	color = "#00fbff"
 
 /obj/effect/floor_decal/corner/teal/diagonal
-	icon_state = "corner_white_diagonal"
+	icon_state = "preview_diagonal"
+	blend_state = "diagonal"
 
 /obj/effect/floor_decal/corner/teal/full
-	icon_state = "corner_white_full"
-
+	icon_state = "preview_threethirds"
+	blend_state = "threethirds"
 
 //Wide Corners// - Works better with some kinds of floors when you want the line of corner decals to connect
 

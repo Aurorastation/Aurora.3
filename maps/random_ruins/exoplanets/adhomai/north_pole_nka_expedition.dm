@@ -9,6 +9,8 @@
 	prefix = "adhomai/"
 	suffixes = list("north_pole_nka_expedition.dmm")
 
+	unit_test_groups = list(2)
+
 //ghost roles
 
 /datum/ghostspawner/human/nka_polar_explorer

@@ -6,7 +6,7 @@
 	suffixes = list("tcfl_peacekeeper_ship.dmm")
 
 	sectors = list(ALL_TAU_CETI_SECTORS, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	spawn_weight = 1
+	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
 	ship_cost = 1
 	id = "tcfl_peacekeeper_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tcfl_shuttle)

@@ -290,21 +290,21 @@
 
 /obj/item/gun/custom_ka/update_icon()
 	. = ..()
-	cut_overlays()
+	ClearOverlays()
 	var/name_list = list("","","","")
 
 	name_list[3] = src.build_name
 
 	if(installed_upgrade_chip)
-		add_overlay(installed_upgrade_chip.icon_state)
+		AddOverlays(installed_upgrade_chip.icon_state)
 		name_list[4] = installed_upgrade_chip.build_name
 
 	if(installed_cell)
-		add_overlay(installed_cell.icon_state)
+		AddOverlays(installed_cell.icon_state)
 		name_list[1] = installed_cell.build_name
 
 	if(installed_barrel)
-		add_overlay(installed_barrel.icon_state)
+		AddOverlays(installed_barrel.icon_state)
 		name_list[2] = installed_barrel.build_name
 
 	official_name = sanitize(jointext(name_list," "))
