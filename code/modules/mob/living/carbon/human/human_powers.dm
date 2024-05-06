@@ -1614,7 +1614,7 @@
 			to_chat(target, SPAN_NOTICE("You feel [src]'s restriction on your implant lifted, allowing you to transmit over the Hivenet once more."))
 			return
 		to_chat(src, SPAN_NOTICE("You extend your will, disabling [target]'s Hivenet implant."))
-		to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your implant's transmission function. Though you can still recieve Hivenet broadcasts, you are incapable of transmitting."))
+		to_chat(target, SPAN_WARNING("You feel [src]'s will enter your mind, disabling your implant's transmission function. Though you can still receive Hivenet broadcasts, you are incapable of transmitting."))
 		V.muted = TRUE
 		host.last_action = world.time + 5 MINUTES
 		return
