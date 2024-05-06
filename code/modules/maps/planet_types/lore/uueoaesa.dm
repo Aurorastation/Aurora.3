@@ -133,6 +133,7 @@
 	features_budget = 8
 	flora_diversity = 0
 	has_trees = FALSE
+	initial_weather_state = /singleton/state/weather/calm/jungle_planet
 	small_flora_types = list(/datum/seed/xuizi, /datum/seed/gukhe, /datum/seed/sarezhi, /datum/seed/flower/serkiflower, /datum/seed/sthberry)
 	surface_color = "#e8faff"
 	generated_name = FALSE
@@ -171,6 +172,7 @@
 		if("Wasteland")
 			possible_themes = list(/datum/exoplanet_theme/desert/wasteland) //nuked theme
 			surface_color = "#faeac5"
+			set_weather(/singleton/state/weather/calm/desert_planet)
 			//Wasteland ruins
 			ruin_type_whitelist = list(
 				/datum/map_template/ruin/exoplanet/moghes_guwandi,
