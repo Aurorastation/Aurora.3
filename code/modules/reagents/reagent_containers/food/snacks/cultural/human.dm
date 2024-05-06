@@ -565,6 +565,7 @@
 	desc = "These Eridanian dumplings are made from plantains, and while dense, they are not typically supposed to be served on their own, but rather as a side dish for various Eridanian soups."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
 	icon_state = "fufubowl"
+	unitname = "fufu dumpling"
 	filling_color = "#eee0b1"
 	vendingobject = /obj/item/reagent_containers/food/snacks/fufu
 	bitesize = 3
@@ -585,6 +586,35 @@
 	icon_state = "fufuone"
 	bitesize = 2
 	filling_color = "#eee0b1"
+
+/obj/item/reagent_containers/food/snacks/bowl/alfajores
+	name = "alfajores"
+	desc = "A plate of delicious vanilla sandwich cookies filled with dulche de leche and covered in coconut shavings. A sweet South American treat!"
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "alfajores_full"
+	filling_color = "#c48c4c"
+	unitname = "alfajor"
+	vendingobject = /obj/item/reagent_containers/food/snacks/alfajor
+	trash = /obj/item/trash/plate
+	reagents_to_add = list(/singleton/reagent/nutriment = 12)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("dulce de leche" = 5, "vanilla cookie" = 5, "coconut" = 2))
+
+/obj/item/reagent_containers/food/snacks/bowl/alfajores/update_icon()
+	switch(reagents.total_volume)
+		if(1 to 3)
+			icon_state = "alfajores_one"
+		if(4 to 6)
+			icon_state = "alfajores_half"
+		if(7 to INFINITY)
+			icon_state = "alfajores_full"
+
+/obj/item/reagent_containers/food/snacks/alfajor
+	name = "alfajor"
+	desc = "A plump south american sandwich cookie made out of two crumbly vanilla cookies, dulche de leche filling, and a coating of coconut shavings."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "alfajor"
+	filling_color = "#dab166"
 
 //Silversun
 
@@ -752,3 +782,24 @@
 	reagents_to_add = list(/singleton/reagent/nutriment = 6, /singleton/reagent/nutriment/protein = 4)
 	bitesize = 3
 	reagent_data = list(/singleton/reagent/nutriment = list("mustard" = 2, "french fries" = 2, "coleslaw" = 2))
+
+//Gadpathur
+
+/obj/item/reagent_containers/food/snacks/paneer_gadpathur //Made to commemorate the most amazing dish from a place that closed down, RIP Captain Curry!
+	name = "paneer gadpathur"
+	desc = "A moderately spicy Gadpathurian curry made with large cubes of Paneer cheese, rice, sour cream, lentil daal and spicy sauces. Unlike Indian Paneer cheese, Gadpathurian Paneer is chewy, having an almost chicken-like texture. Traditionally the dish was made with a local plant called agnadi gola, but as it was rendered nearly extinct in the devestation from the interstellar war, the dish is now more commonly made with a mixture of hot peppers, tomato sauce and turmeric."
+	icon = 'icons/obj/item/reagent_containers/food/cultural/human.dmi'
+	icon_state = "paneer"
+	trash = /obj/item/trash/snack_bowl
+	filling_color = "#d47d2b"
+	reagents_to_add = list(/singleton/reagent/nutriment = 10)
+	bitesize = 2
+	reagent_data = list(/singleton/reagent/nutriment = list("paneer cheese" = 5, "rice" = 5, "spices" = 5, "sour cream" = 3))
+
+/obj/item/reagent_containers/food/snacks/paneer_gadpathur/update_icon()
+	var/percent_lasagna_meat_slice = round((reagents.total_volume / 10) * 100)
+	switch(percent_lasagna_meat_slice)
+		if(0 to 69)
+			icon_state = "paneer_half"
+		if(70 to INFINITY)
+			icon_state = "paneer"
