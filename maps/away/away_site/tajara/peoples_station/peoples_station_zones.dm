@@ -56,6 +56,10 @@
 	name = "People's Space Station Fang Hangar"
 	icon_state = "away1"
 
+/area/peoples_station/transport_hangar
+	name = "People's Space Station Transport Hangar"
+	icon_state = "away"
+
 /area/peoples_station/captain_quarters
 	name = "People's Space Station Captain Quarters"
 	icon_state = "captain"
@@ -92,12 +96,11 @@
 
 //Shuttle
 /area/shuttle/fang
+	name = "People's Station Fang"
+	icon_state = "bridge_stairs"
 	requires_power = TRUE
 
-/area/shuttle/fang/bridge
-	name = "People's Station Fang Bridge"
+/area/shuttle/peoples_station_transport
+	name = "People's Station Transport"
 	icon_state = "bridge_stairs"
-
-/area/shuttle/fang/engine
-	name = "People's Station Fang Engine"
-	icon_state = "substation"
+	requires_power = TRUE
