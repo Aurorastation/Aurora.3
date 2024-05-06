@@ -4,4 +4,4 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "Lower Badlands spawn weight of some CoC ships."
+  - balance: "Lower Badlands spawn weight of some CoC ships."
