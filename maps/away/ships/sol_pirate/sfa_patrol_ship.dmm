@@ -2657,6 +2657,7 @@
 /turf/template_noop,
 /area/space)
 "ijY" = (
+/obj/item/storage/firstaid/adv,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -2744,8 +2745,8 @@
 /area/ship/sfa_patrol_ship/Officer)
 "iuv" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/item/tank/oxygen,
 /obj/item/clothing/mask/breath/medical,
+/obj/item/tank/anesthetic,
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
