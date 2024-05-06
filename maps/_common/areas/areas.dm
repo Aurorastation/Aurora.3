@@ -39,6 +39,7 @@ Generally you don't want to put your areas in here; if the area is only used in 
 	base_turf = /turf/space
 	is_outside = OUTSIDE_YES
 	area_flags = AREA_FLAG_IS_BACKGROUND
+	nevergravity = TRUE //There's no gravity in space
 
 /area/space/atmosalert()
 	return
