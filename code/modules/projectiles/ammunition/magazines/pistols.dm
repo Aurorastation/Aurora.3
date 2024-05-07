@@ -1,22 +1,22 @@
-//SOLARIAN CIVILIAN
+//SOLARIAN CIVILIAN (50 steel, 20 lead)
 /obj/item/ammo_magazine/mc9mm
 	name = "magazine (9mm)"
 	icon_state = "9x19p"
 	origin_tech = list(TECH_COMBAT = 2)
 	mag_type = MAGAZINE
-	matter = list(DEFAULT_WALL_MATERIAL = 600)
+	matter = list(MATERIAL_STEEL = 600, MATERIAL_LEAD = 240)
 	caliber = "9mm"
 	ammo_type = /obj/item/ammo_casing/c9mm
 	max_ammo = 12
 	multiple_sprites = 1
 
-// COALITION CIVILIAN
+// COALITION CIVILIAN (65 steel, 25 lead)
 /obj/item/ammo_magazine/c10m
 	name = "magazine (10mm)"
 	icon_state = "45x"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/p10mm
-	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	matter = list(MATERIAL_STEEL = 750, MATERIAL_LEAD = 250)
 	caliber = CALIBER_PISTOL_COC
 	max_ammo = 10
 	multiple_sprites = TRUE
@@ -26,7 +26,7 @@
 	icon_state = "machine_pistol"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/p10mm
-	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	matter = list(MATERIAL_STEEL = 1190, MATERIAL_LEAD = 400) //+150 steel for extended mag
 	caliber = CALIBER_PISTOL_COC
 	max_ammo = 16
 	multiple_sprites = TRUE
@@ -36,21 +36,25 @@
 	icon_state = "smg"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/p10mm
-	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	matter = list(MATERIAL_STEEL = 1190, MATERIAL_LEAD = 400)
 	caliber = CALIBER_PISTOL_COC
 	max_ammo = 16
 	multiple_sprites = TRUE
 
-// SOLARIAN SERVICE
+// SOLARIAN SERVICE (75 steel, 20 lead)
 /obj/item/ammo_magazine/c57m
 	name = "magazine (5.7mm)"
 	icon_state = "45"
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/p57mm
-	matter = list(DEFAULT_WALL_MATERIAL = 525) //metal costs are very roughly based around 1 .45 casing = 75 metal
+	matter = list(MATERIAL_STEEL = 725, MATERIAL_LEAD = 180)
 	caliber = CALIBER_SERVICE_PISTOL_SOL
 	max_ammo = 9
 	multiple_sprites = TRUE
+
+/obj/item/ammo_magazine/c57m/rubber
+	ammo_type = /obj/item/ammo_casing/p57mm/rubber
+	matter = list(MATERIAL_STEEL = 725, MATERIAL_PLASTIC = 90)
 
 /obj/item/ammo_magazine/c57m/extended
 	name = "extended-capacity magazine (5.7mm)"
@@ -110,3 +114,14 @@
 	mag_type = MAGAZINE
 	ammo_type = /obj/item/ammo_casing/moghes_pistol
 	max_ammo = 8
+
+/obj/item/ammo_magazine/c50m
+	name = "magazine (.50)"
+	icon_state = "50ae"
+	origin_tech = list(TECH_COMBAT = 2)
+	mag_type = MAGAZINE
+	caliber = CALIBER_FRONTIER_DEAGLE
+	matter = list(DEFAULT_WALL_MATERIAL = 1260)
+	ammo_type = /obj/item/ammo_casing/a50
+	max_ammo = 7
+	multiple_sprites = TRUE

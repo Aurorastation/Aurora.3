@@ -24,7 +24,7 @@
 		icon_state = "colt-e"
 
 /obj/item/gun/projectile/colt/detective
-//	magazine_type = /obj/item/ammo_magazine/c57m/rubber
+	magazine_type = /obj/item/ammo_magazine/c57m/rubber
 
 /obj/item/gun/projectile/colt/detective/verb/rename_gun()
 	set name = "Name Gun"
@@ -235,8 +235,8 @@
 	accuracy = 1
 	caliber = CALIBER_FRONTIER_DEAGLE
 	load_method = MAGAZINE
-	magazine_type = /obj/item/ammo_magazine/a50
-	allowed_magazines = list(/obj/item/ammo_magazine/a50)
+	magazine_type = /obj/item/ammo_magazine/c50m
+	allowed_magazines = list(/obj/item/ammo_magazine/c50m)
 	auto_eject = 1
 	auto_eject_sound = 'sound/weapons/smg_empty_alarm.ogg'
 	fire_delay = ROF_RIFLE
@@ -269,7 +269,7 @@
 	caliber = "75"
 	fire_sound = 'sound/effects/Explosion1.ogg'
 	origin_tech = list(TECH_COMBAT = 3)
-	ammo_type = "/obj/item/ammo_casing/a75"
+	ammo_type = /obj/item/ammo_casing/a75
 	load_method = MAGAZINE
 	magazine_type = /obj/item/ammo_magazine/a75
 	allowed_magazines = list(/obj/item/ammo_magazine/a75)

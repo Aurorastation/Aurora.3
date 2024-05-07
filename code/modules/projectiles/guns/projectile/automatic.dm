@@ -103,7 +103,7 @@
 	icon = 'icons/obj/guns/xanu_smg.dmi'
 	icon_state = "xanu_smg"
 	item_state = "xanu_smg"
-	caliber = CALIBER_SERVICE_PISTOL_COC
+	caliber = CALIBER_SERVICE_PISTOL_CASELESS_COC
 	origin_tech = list(TECH_COMBAT = 4, TECH_MATERIAL = 2)
 	fire_sound = 'sound/weapons/gunshot/gunshot_light.ogg'
 	load_method = MAGAZINE

@@ -104,3 +104,11 @@
 	is_caseless = TRUE
 	icon_state = "caseless"
 	projectile_type = /obj/item/projectile/bullet/pistol/military/coc/caseless
+
+/obj/item/ammo_casing/moghes_pistol
+	desc = "A Moghesian pistol casing."
+	icon_state = "moghes_casing_p"
+	spent_icon = "moghes_casing_p_spent"
+	caliber = CALIBER_HEGEMONY_PISTOL
+	projectile_type = /obj/item/projectile/bullet/pistol/medium/ap
+	max_stack = 15
