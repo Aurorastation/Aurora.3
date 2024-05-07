@@ -4789,12 +4789,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/atmospherics)
-"wR" = (
-/obj/structure/bed/handrail{
-	dir = 8
-	},
-/turf/simulated/floor/tiled,
-/area/shuttle/kataphract_shuttle/main_compartment)
 "wT" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/folder/red,
@@ -6663,6 +6657,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/main_ring)
+"QD" = (
+/obj/structure/bed/handrail{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/shuttle/kataphract_shuttle/main_compartment)
 "QS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -37080,7 +37080,7 @@ dN
 dN
 dN
 Bv
-wR
+QD
 lB
 fD
 wU
