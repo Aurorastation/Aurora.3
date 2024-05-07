@@ -12,17 +12,20 @@
 			return __bapi = "tools/ci/libbapi_ci.so"
 #endif
 		// First check if it's built in the usual place.
-		if(fexists("./bapi/target/i686-unknown-linux-gnu/release/libbapi.so"))
-			return __bapi = "./bapi/target/i686-unknown-linux-gnu/release/libbapi.so"
+		if(fexists("./rust/bapi/target/i686-unknown-linux-gnu/release/libbapi.so"))
+			return __bapi = "./rust/bapi/target/i686-unknown-linux-gnu/release/libbapi.so"
 		// Then check in the current directory.
 		if(fexists("./libbapi.so"))
 			return __bapi = "./libbapi.so"
 		// And elsewhere.
 		return __bapi = "libbapi.so"
 	else
-		// First check if it's built in the usual place.
+		// First check if it's built in the usual place when working on it locally.
 		if(fexists("./rust/bapi/target/i686-pc-windows-msvc/release/bapi.dll"))
 			return __bapi = "./rust/bapi/target/i686-pc-windows-msvc/release/bapi.dll"
+		// Also check the debug location if compiled without optimizations.
+		if(fexists("./rust/bapi/target/i686-pc-windows-msvc/debug/bapi.dll"))
+			return __bapi = "./rust/bapi/target/i686-pc-windows-msvc/debug/bapi.dll"
 		// Then check in the current directory.
 		if(fexists("./bapi.dll"))
 			return __bapi = "./bapi.dll"
@@ -37,3 +40,5 @@
 // -----------------------------------------------------------------------
 
 #define bapi_hello_world(arg) BAPI_CALL(hello_world, arg)
+
+#define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file, arg)
