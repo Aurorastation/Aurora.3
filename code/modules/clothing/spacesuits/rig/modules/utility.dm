@@ -342,7 +342,7 @@
 	charges = list(
 		list("dexalin",			"dexalin",			/singleton/reagent/dexalin,			5),
 		list("inaprovaline",	"inaprovaline",		/singleton/reagent/inaprovaline,	5),
-		list("RMT supplement",	"RMT supplement",	/singleton/reagent/rmt,				20),
+		list("RMT supplement",	"RMT supplement",	/singleton/reagent/rmt,				25),
 		)
 
 	interface_name = "chem dispenser"
