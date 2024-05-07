@@ -952,7 +952,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/exoplanet/snow/cold,
-/area/pra_base)
+/area/exoplanet/adhomai)
 "Lm" = (
 /obj/effect/floor_decal/concrete,
 /obj/effect/floor_decal/concrete{
@@ -977,10 +977,6 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
-"LI" = (
-/obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow/cold,
 /area/pra_base)
 "Md" = (
 /turf/simulated/floor/tiled/freezer{
@@ -1503,8 +1499,8 @@ vi
 "}
 (4,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 gU
 gU
@@ -1537,8 +1533,8 @@ vi
 "}
 (5,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 fq
 Go
@@ -1571,8 +1567,8 @@ vi
 "}
 (6,1,1) = {"
 hT
-wB
-wB
+vi
+vi
 gU
 St
 bR
@@ -1605,7 +1601,7 @@ vi
 "}
 (7,1,1) = {"
 vi
-wB
+vi
 Lb
 gU
 Xb
@@ -1639,8 +1635,8 @@ vi
 "}
 (8,1,1) = {"
 mN
-Lu
-Lu
+mN
+mN
 rt
 Lu
 Lu
@@ -1673,8 +1669,8 @@ vi
 "}
 (9,1,1) = {"
 Fo
-Sr
-Sr
+Fo
+Fo
 oA
 Sr
 Sr
@@ -1707,8 +1703,8 @@ vi
 "}
 (10,1,1) = {"
 HY
-EJ
-EJ
+HY
+HY
 Yb
 EJ
 EJ
@@ -1741,7 +1737,7 @@ hT
 "}
 (11,1,1) = {"
 vi
-wB
+vi
 Lb
 gU
 EK
@@ -1775,8 +1771,8 @@ vi
 "}
 (12,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 UF
 DL
@@ -1809,8 +1805,8 @@ vi
 "}
 (13,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 rq
 tc
@@ -1843,8 +1839,8 @@ vi
 "}
 (14,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 gU
 gU
@@ -1877,8 +1873,8 @@ vi
 "}
 (15,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -1911,8 +1907,8 @@ vi
 "}
 (16,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -1945,8 +1941,8 @@ vi
 "}
 (17,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -1979,8 +1975,8 @@ vi
 "}
 (18,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2013,8 +2009,8 @@ vi
 "}
 (19,1,1) = {"
 vi
-LI
-wB
+hT
+vi
 gU
 wB
 wB
@@ -2047,8 +2043,8 @@ vi
 "}
 (20,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2081,8 +2077,8 @@ vi
 "}
 (21,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2115,8 +2111,8 @@ vi
 "}
 (22,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2149,8 +2145,8 @@ vi
 "}
 (23,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2183,8 +2179,8 @@ vi
 "}
 (24,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2217,8 +2213,8 @@ vi
 "}
 (25,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2251,8 +2247,8 @@ vi
 "}
 (26,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2285,8 +2281,8 @@ vi
 "}
 (27,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2319,8 +2315,8 @@ vi
 "}
 (28,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2353,8 +2349,8 @@ hT
 "}
 (29,1,1) = {"
 vi
-LI
-wB
+hT
+vi
 gU
 wB
 wB
@@ -2387,8 +2383,8 @@ vi
 "}
 (30,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2421,8 +2417,8 @@ vi
 "}
 (31,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2455,8 +2451,8 @@ vi
 "}
 (32,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2489,8 +2485,8 @@ vi
 "}
 (33,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 wB
 wB
@@ -2523,8 +2519,8 @@ vi
 "}
 (34,1,1) = {"
 vi
-wB
-wB
+vi
+vi
 gU
 gU
 gU
