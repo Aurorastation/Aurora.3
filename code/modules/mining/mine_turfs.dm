@@ -676,7 +676,12 @@ var/list/mineral_can_smooth_with = list(
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
 
 /turf/simulated/mineral/lava
+	color = "#444444"
 	mined_turf = /turf/simulated/floor/exoplanet/basalt
+
+/turf/simulated/mineral/lava/tret
+	color = "#444455"
+	mined_turf = /turf/simulated/floor/exoplanet/basalt/tret
 
 /**********************Asteroid**************************/
 

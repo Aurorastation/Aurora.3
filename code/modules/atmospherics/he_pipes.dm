@@ -60,6 +60,8 @@
 		var/datum/gas_mixture/pipe_air = return_air()
 		if(istype(loc, /turf/space) || (isopenturf(loc) && (istype(GetBelow(loc), /turf/space) || istype(GetAbove(loc), /turf/space))))
 			parent.radiate_heat_to_space(surface, 1)
+		if(istype(loc, /turf/simulated/lava))
+			parent.air.add_thermal_energy(100 KILO WATTS)
 		else if(istype(loc, /turf/simulated/))
 			var/environment_temperature = 0
 			if(loc:blocks_air)
