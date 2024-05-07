@@ -723,6 +723,11 @@
 	id = ACCESS_HOUSE_VOLVALAAD_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
+#define ACCESS_OZEUOI 227
+/datum/access/moghes_wasteland_ozeuoi
+	id = ACCESS_OZEUOI
+	access_type = ACCESS_TYPE_CENTCOM
+
 #define ACCESS_AUTAKH 228
 /datum/access/autakh
 	id = ACCESS_AUTAKH

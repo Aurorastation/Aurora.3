@@ -178,8 +178,6 @@
 
 /obj/structure/gravemarker/random/proc/generate(var/species)
 	icon_state = pick("wood","cross")
-
-
 	var/nam = random_name(pick(MALE,FEMALE), species)
 	message = "Here lies [nam]."
 
