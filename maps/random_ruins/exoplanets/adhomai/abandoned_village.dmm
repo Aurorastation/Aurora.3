@@ -105,11 +105,6 @@
 /obj/item/reagent_containers/bowl/plate,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
-"kO" = (
-/obj/structure/window/basic,
-/obj/structure/curtain/black,
-/turf/simulated/floor/exoplanet/wood,
-/area/exoplanet/adhomai)
 "mf" = (
 /obj/item/trash/cigbutt,
 /turf/simulated/floor/exoplanet/wood,
@@ -177,13 +172,6 @@
 /area/exoplanet/adhomai)
 "zf" = (
 /obj/item/bedsheet/black,
-/turf/simulated/floor/exoplanet/wood,
-/area/exoplanet/adhomai)
-"zh" = (
-/obj/structure/window/basic{
-	dir = 1
-	},
-/obj/structure/curtain/black,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "zA" = (
@@ -323,9 +311,7 @@
 /area/exoplanet/adhomai)
 "TD" = (
 /obj/structure/curtain/black,
-/obj/structure/window/basic{
-	dir = 4
-	},
+/obj/effect/map_effect/window_spawner/full/wood,
 /turf/simulated/floor/exoplanet/wood,
 /area/exoplanet/adhomai)
 "TQ" = (
@@ -478,7 +464,7 @@ nR
 Gu
 Ic
 WK
-fq
+Qe
 Gu
 nR
 nR
@@ -513,7 +499,7 @@ Gu
 WK
 WK
 Cc
-kO
+TD
 nR
 nR
 nR
@@ -531,7 +517,7 @@ nR
 "}
 (5,1,1) = {"
 nR
-zh
+TD
 Rw
 WK
 WK
@@ -546,7 +532,7 @@ Gu
 Oa
 WK
 wx
-Qe
+fq
 Gu
 nR
 nR
@@ -1177,7 +1163,7 @@ nR
 "}
 (24,1,1) = {"
 nR
-zh
+TD
 WK
 WK
 WK
@@ -1211,7 +1197,7 @@ nR
 "}
 (25,1,1) = {"
 nR
-zh
+TD
 WK
 WK
 WK

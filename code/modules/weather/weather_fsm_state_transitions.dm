@@ -72,3 +72,12 @@
 
 /singleton/state_transition/weather/hail/arctic_planet
 	target = /singleton/state/weather/rain/hail/arctic_planet
+
+//desert planets
+
+/singleton/state_transition/weather/calm/desert_planet
+	target = /singleton/state/weather/calm/desert_planet
+
+/singleton/state_transition/weather/sandstorm/desert_planet
+	target = /singleton/state/weather/sandstorm/desert_planet
+	likelihood_weighting = 20
