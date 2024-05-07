@@ -211,6 +211,33 @@
 	w_class = ITEMSIZE_NORMAL
 	force = 11
 
+/obj/item/gun/projectile/shotgun/doublebarrel/nitro
+	name = "gauss express rifle"
+	desc = "A Galatean nitro express rifle. Loaded with tungsten slugs."
+	desc_extended = "While Galatea almost universally uses lasers for their weapons, gauss weapons see some use in the hands of expeditionary forces and military specialist units. The Pattern Nine is a single-barrel, double-shot \
+	rifle designed for intermediate range anti-infantry specialists just as much as it is for Tsukuyomian game wardens."
+	icon = 'icons/obj/guns/galatea_nitro.dmi'
+	icon_state = "nitrorifle"
+	item_state = "nitrorifle"
+	//SPEEDLOADER because rapid unloading.
+	//In principle someone could make a speedloader for it, so it makes sense.
+	load_method = SINGLE_CASING|SPEEDLOADER
+	handle_casings = CYCLE_CASINGS
+	max_shells = 2
+	w_class = ITEMSIZE_LARGE
+	force = 10
+	obj_flags = OBJ_FLAG_CONDUCTABLE
+	is_wieldable = TRUE
+	has_wield_state = TRUE
+	slot_flags = SLOT_BACK
+	caliber = "gauss"
+	origin_tech = list(TECH_COMBAT = 3, TECH_MATERIAL = 1)
+	ammo_type = /obj/item/ammo_casing/gauss
+	fire_sound = /singleton/sound_category/gauss_fire_sound
+	fire_delay = ROF_INTERMEDIATE
+
+	can_sawoff = FALSE
+
 /obj/item/gun/projectile/shotgun/foldable
 	name = "foldable shotgun"
 	desc = "A single-shot shotgun that can be folded for easy concealment."

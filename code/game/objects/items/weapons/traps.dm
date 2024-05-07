@@ -785,7 +785,7 @@
 			if(isvaurca(L) && prob(50))
 				return
 
-			organ.germ_level += INFECTION_LEVEL_THREE
+			organ.germ_level += INFECTION_LEVEL_TWO
 
 /obj/item/trap/punji/proc/reveal_message(mob/living/victim)
 	if(!message)

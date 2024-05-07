@@ -277,6 +277,27 @@
 	color = "#EDB91F"
 	taste_description = "cheese"
 
+/singleton/reagent/nakarka
+	name = "Nakarka Cheese"
+	color = "#5bbd22"
+	taste_description = "sharp tangy cheese"
+	reagent_state = SOLID
+	taste_mult = 3
+
+/singleton/reagent/nakarka/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA, IS_UNATHI)))
+			var/list/nemiik_messages = list(
+				"Your stomache feels a bit unsettled...",
+				"Your throat tingles slightly...",
+				"You feel like you may need the restroom soon...",
+				"Your stomach hurts a little bit...",
+				"You feel the need to burp."
+			)
+			to_chat(H, SPAN_WARNING(pick(nemiik_messages)))
+
 //Fats
 //=========================
 /singleton/reagent/nutriment/triglyceride
@@ -1460,6 +1481,29 @@
 		if(H.can_feel_pain())
 			H.custom_pain("You feel a stinging pain in your abdomen!")
 			H.Stun(3)
+
+/singleton/reagent/drink/milk/nemiik
+	name = "Ne'miik"
+	description = "A thick, pus-like substance extracted from the Sky'au creatures native to Sedantis. It is largely believed the louder and more horrifying the Sky'au's screams are as it is being milked, the tastier the ne'miik is. It is full of minerals! It's safe for Vaurcae and Skrell to drink, but generally causes some discomfort in other species."
+	taste_description = "tangy sweet ooze"
+	color = "#71fa21"
+	glass_name = "glass of ne'miik"
+	glass_desc = "A thick, pus-like substance extracted from the Sky'au creatures native to Sedantis. It is largely believed the louder and more horrifying the Sky'au's screams are as it is being milked, the tastier the ne'miik is. It is full of minerals! It's safe for Vaurcae and Skrell to drink, but generally causes some discomfort in other species."
+	glass_icon_state = "nemiik"
+
+/singleton/reagent/drink/milk/nemiik/affect_ingest(var/mob/living/carbon/M, var/alien, var/removed, var/datum/reagents/holder)
+	..()
+	if(ishuman(M))
+		var/mob/living/carbon/human/H = M
+		if(prob(10) && !(alien in list(IS_VAURCA, IS_SKRELL, IS_DIONA, IS_UNATHI)))
+			var/list/nemiik_messages = list(
+				"Your stomache feels a bit unsettled...",
+				"Your throat tingles slightly...",
+				"Your stomach hurts a little bit...",
+				"You feel like you may need the restroom soon...",
+				"You feel the need to burp."
+			)
+			to_chat(H, SPAN_WARNING(pick(nemiik_messages)))
 
 /singleton/reagent/drink/tea
 	name = "Tea"
@@ -4475,10 +4519,10 @@
 
 /singleton/reagent/alcohol/daiquiri
 	name = "Daiquiri"
-	description = "Exotically blue, fruity drink, distilled from oranges."
+	description = "A splendid looking cocktail."
 	color = "#efd08d"
 	strength = 15
-	taste_description = "oranges"
+	taste_description = "lime and sugar"
 
 	glass_icon_state = "daiquiri"
 	glass_name = "glass of Daiquiri"
