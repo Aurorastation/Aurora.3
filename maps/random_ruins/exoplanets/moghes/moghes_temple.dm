@@ -4,7 +4,7 @@
 	description = "A seemingly abandoned temple within the Untouched Lands"
 
 	spawn_weight = 1
-	spawn_cost = 0.5
+	spawn_cost = 1
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 	sectors = list(SECTOR_UUEOAESA)
 	prefix = "moghes/"
@@ -14,7 +14,6 @@
 /area/moghes_temple
 	name = "Moghes - Abandoned Temple"
 	icon_state = "bluenew"
-	requires_power = FALSE
 	dynamic_lighting = TRUE
 	no_light_control = FALSE
 	base_turf = /turf/simulated/floor/exoplanet/grass/moghes/dirt
