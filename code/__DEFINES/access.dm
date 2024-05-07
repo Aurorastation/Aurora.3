@@ -728,7 +728,7 @@
 	id = ACCESS_OZEUOI
 	access_type = ACCESS_TYPE_CENTCOM
 
-#define ACCESS_HAMMERTAILS 227
+#define ACCESS_HAMMERTAILS 229
 /datum/access/hammertails
 	id = ACCESS_HAMMERTAILS
 	access_type = ACCESS_TYPE_CENTCOM

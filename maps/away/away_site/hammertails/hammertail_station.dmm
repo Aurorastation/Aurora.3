@@ -29,7 +29,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -121,7 +121,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Bathroom"
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -129,7 +129,7 @@
 "aal" = (
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -142,7 +142,7 @@
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/fuelbay)
@@ -202,7 +202,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Living Quarters"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -213,7 +213,7 @@
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/range)
@@ -270,7 +270,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/glass_command{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Overseer's Office";
 	dir = 4
 	},
@@ -282,7 +282,7 @@
 "aax" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/rig/merc/empty{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/screwdriver,
 /turf/simulated/floor/tiled/dark,
@@ -360,7 +360,7 @@
 /area/hammertail_station/crew_quarters)
 "aba" = (
 /obj/machinery/alarm/freezer/east{
-	req_access = list(227);
+	req_access = list(229);
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/freezer{
@@ -379,7 +379,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Cryogenics"
 	},
 /turf/simulated/floor/tiled/freezer,
@@ -403,14 +403,14 @@
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/cryo)
 "abe" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -422,7 +422,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/range)
@@ -457,7 +457,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 8;
 	name = "Hangar"
 	},
@@ -500,7 +500,7 @@
 "abm" = (
 /obj/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -513,7 +513,7 @@
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
 	name = "airlock_hammertail_main";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/machinery/light{
 	dir = 4
@@ -575,7 +575,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engihall)
@@ -602,7 +602,7 @@
 /area/hammertail_station/mainhall)
 "abv" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/gloves/yellow/specialu,
@@ -621,7 +621,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
@@ -670,7 +670,7 @@
 "abJ" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/eastleft{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/clothing/ears/earmuffs,
 /turf/simulated/floor/tiled/dark,
@@ -694,7 +694,7 @@
 	frequency = 1996;
 	master_tag = "airlock_hammertail_solars";
 	name = "airlock_hammertail_solars";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -738,7 +738,7 @@
 "acc" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -764,7 +764,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -815,7 +815,7 @@
 /area/hammertail_station/hangar)
 "ack" = (
 /obj/machinery/door/airlock/multi_tile{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 2;
 	name = "Infirmary"
 	},
@@ -895,7 +895,7 @@
 /area/hammertail_station/warehouse)
 "act" = (
 /obj/machinery/door/airlock/multi_tile/glass{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 2;
 	name = "Manufactory"
 	},
@@ -907,13 +907,13 @@
 "acu" = (
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/eva)
 "acv" = (
 /obj/machinery/door/airlock/multi_tile{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 2;
 	name = "Mining"
 	},
@@ -938,7 +938,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Armory";
-	req_access = list(227);
+	req_access = list(229);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -947,7 +947,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/warehouse)
@@ -995,7 +995,7 @@
 /obj/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Warehouse";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
@@ -1004,7 +1004,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/high/north{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
@@ -1076,7 +1076,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 2;
 	name = "Research Wing"
 	},
@@ -1107,7 +1107,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1117,7 +1117,7 @@
 "ado" = (
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/carpet/red,
 /area/hammertail_station/overseer)
@@ -1174,7 +1174,7 @@
 /area/hammertail_station/hangar)
 "adt" = (
 /obj/machinery/power/apc/high/east{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
@@ -1198,7 +1198,7 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 1;
 	name = "Engineering"
 	},
@@ -1217,7 +1217,7 @@
 	frequency = 1998;
 	master_tag = "airlock_hammertail_escape";
 	name = "airlock_hammertail_escape";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -1251,7 +1251,7 @@
 	dir = 2
 	},
 /obj/machinery/door/airlock/medical{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Operating Room"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1282,14 +1282,14 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/east{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
 "adO" = (
 /obj/structure/closet/secure_closet/medical2{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
@@ -1377,7 +1377,7 @@
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -1386,7 +1386,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/bathroom)
@@ -1419,7 +1419,7 @@
 "aek" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -1495,7 +1495,7 @@
 /obj/machinery/door/airlock/mining{
 	dir = 4;
 	name = "EVA Storage";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/mainhall)
@@ -1510,7 +1510,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 8;
 	name = "Workshop"
 	},
@@ -1542,7 +1542,7 @@
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/workshop)
@@ -1552,7 +1552,7 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/workshop)
@@ -1599,7 +1599,7 @@
 	density = 0;
 	pixel_y = 16;
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -1617,7 +1617,7 @@
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/door/airlock{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Chemistry"
 	},
 /turf/simulated/floor/tiled/white,
@@ -1627,7 +1627,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/high/east{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -1702,7 +1702,7 @@
 	},
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
@@ -1855,7 +1855,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/east{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/brown/diagonal,
 /turf/simulated/floor/tiled/dark,
@@ -1883,14 +1883,14 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/high/north{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/fuelbay)
 "aiq" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/secure/weapon/alt{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/random/civgun/rifle,
 /obj/random/civgun/rifle,
@@ -1925,7 +1925,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/serverroom)
@@ -1945,7 +1945,7 @@
 "aja" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/secure/weapon{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/random/civgun,
 /obj/random/civgun,
@@ -1984,7 +1984,7 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/door/airlock{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Testing Range";
 	dir = 4
 	},
@@ -2017,7 +2017,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/north{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -2291,7 +2291,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/bathroom)
@@ -2358,7 +2358,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Server Room";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/hammertail_station/scihall)
@@ -2484,7 +2484,7 @@
 /area/hammertail_station/airlock)
 "aoK" = (
 /obj/machinery/vending/boozeomat{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/lino,
 /area/hammertail_station/crew_quarters)
@@ -2499,7 +2499,7 @@
 	frequency = 1998;
 	master_tag = "airlock_hammertail_escape";
 	name = "airlock_hammertail_escape";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/structure/cable/green{
 	icon_state = "1-2"
@@ -2539,7 +2539,7 @@
 "apj" = (
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -2640,7 +2640,7 @@
 	},
 /obj/machinery/door/airlock/highsecurity{
 	name = "Reactor";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/reinforced,
 /area/hammertail_station/engineering)
@@ -2715,7 +2715,7 @@
 /area/shuttle/hammertail)
 "arf" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /obj/item/clothing/mask/gas/alt,
@@ -2806,7 +2806,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/east{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/machinery/light{
 	dir = 1
@@ -2880,13 +2880,13 @@
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/solars)
 "asU" = (
 /obj/machinery/door/window/southleft{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/range)
@@ -2929,7 +2929,7 @@
 "atv" = (
 /obj/machinery/computer/rdconsole/robotics{
 	dir = 8;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/spline/plain/white,
 /turf/simulated/floor/carpet/rubber,
@@ -2941,7 +2941,7 @@
 "atA" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -2959,7 +2959,7 @@
 	dir = 2
 	},
 /obj/machinery/door/airlock/atmos{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Fuel Bay"
 	},
 /turf/simulated/floor/tiled/dark,
@@ -2993,7 +2993,7 @@
 	frequency = 1996;
 	master_tag = "airlock_hammertail_solars";
 	name = "airlock_hammertail_solars";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -3061,7 +3061,7 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/freezer,
 /area/hammertail_station/cryo)
@@ -3111,7 +3111,7 @@
 	frequency = 1998;
 	master_tag = "airlock_hammertail_escape";
 	name = "airlock_hammertail_escape";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/machinery/light/small/emergency{
 	dir = 4
@@ -3216,7 +3216,7 @@
 /area/hammertail_station/engineering)
 "ayc" = (
 /obj/structure/closet/secure_closet{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/clothing/gloves/yellow/specialu,
@@ -3264,7 +3264,7 @@
 	},
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -3354,7 +3354,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_x = 32;
 	name = "O- Blood Locker";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
@@ -3456,7 +3456,7 @@
 "aBz" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/vending/engivend{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
@@ -3520,7 +3520,7 @@
 	density = 0;
 	pixel_x = -1;
 	pixel_y = 32;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3543,7 +3543,7 @@
 "aCG" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/eastleft{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/device/healthanalyzer,
 /turf/simulated/floor/tiled/dark,
@@ -3583,7 +3583,7 @@
 /obj/item/clothing/under/syndicate/hammertail,
 /obj/item/clothing/shoes/workboots/toeless/brown,
 /obj/structure/closet/secure_closet/cabinet{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/melee/energy/sword/red,
 /obj/item/gun/projectile/pistol/super_heavy,
@@ -3594,7 +3594,7 @@
 "aDI" = (
 /obj/machinery/mecha_part_fabricator{
 	dir = 4;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/railing/mapped{
 	dir = 4
@@ -3606,7 +3606,7 @@
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
 	name = "airlock_hammertail_main";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /turf/simulated/floor/plating,
 /area/hammertail_station/airlock)
@@ -3671,7 +3671,7 @@
 	},
 /obj/machinery/mecha_part_fabricator{
 	dir = 4;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/workshop)
@@ -3975,7 +3975,7 @@
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/white,
 /area/hammertail_station/medical)
@@ -4105,7 +4105,7 @@
 "aJH" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/secure/legion{
-	req_access = list(227);
+	req_access = list(229);
 	name = "republican fleet supply crate"
 	},
 /obj/item/clothing/suit/armor/carrier/tcaf/tcaf_light,
@@ -4186,7 +4186,7 @@
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
 	name = "airlock_hammertail_main";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -4402,7 +4402,7 @@
 	},
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/hammertail_station/serverroom)
@@ -4424,7 +4424,7 @@
 /obj/structure/closet/walllocker/medical/secure{
 	pixel_y = -30;
 	name = "Stabilization Kit";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/clothing/mask/breath/medical,
 /obj/item/clothing/mask/breath/medical,
@@ -4460,7 +4460,7 @@
 "aOU" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/secure/weapon/alt{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/gun/projectile/automatic/tempestsmg,
 /obj/item/ammo_magazine/tempestsmg,
@@ -4538,7 +4538,7 @@
 /area/hammertail_station/bathroom)
 "aQc" = (
 /obj/machinery/computer/rdconsole/core{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -4623,7 +4623,7 @@
 "aQy" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/machinery/vending/engineering{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled/dark,
@@ -4641,7 +4641,7 @@
 /obj/machinery/door/airlock/command{
 	dir = 4;
 	name = "Overseer's Quarters";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -4702,7 +4702,7 @@
 /area/hammertail_station/mining)
 "aRQ" = (
 /obj/machinery/r_n_d/server/advanced/core{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/bluegrid/server,
 /area/hammertail_station/serverroom)
@@ -4739,7 +4739,7 @@
 	frequency = 1996;
 	master_tag = "airlock_hammertail_solars";
 	name = "airlock_hammertail_solars";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -4851,7 +4851,7 @@
 	},
 /obj/machinery/alarm/server/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/bluegrid/server,
 /area/hammertail_station/serverroom)
@@ -4873,7 +4873,7 @@
 	},
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/wood,
 /area/hammertail_station/overseer)
@@ -4939,7 +4939,7 @@
 	},
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -4995,7 +4995,7 @@
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
 	name = "airlock_hammertail_main";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
@@ -5025,7 +5025,7 @@
 "aWC" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/secure/weapon{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/clothing/suit/armor/unathi,
 /obj/item/clothing/suit/armor/unathi,
@@ -5074,7 +5074,7 @@
 "aXf" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/machinery/light{
 	dir = 8
@@ -5116,7 +5116,7 @@
 "aXy" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window/desk/eastleft{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/clothing/glasses/safety/goggles,
 /obj/item/paper/fluff/hammertail_range,
@@ -5192,7 +5192,7 @@
 "aYB" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/structure/closet/crate/secure/weapon{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/item/melee/energy/sword/red,
 /obj/item/melee/energy/sword/red,
@@ -5216,7 +5216,7 @@
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/high/south{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
@@ -5288,7 +5288,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Solars";
-	req_access = list(227);
+	req_access = list(229);
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
@@ -5316,7 +5316,7 @@
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
 	name = "airlock_hammertail_main";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -5428,7 +5428,7 @@
 "bSq" = (
 /obj/structure/cable/green,
 /obj/machinery/power/apc/high/south{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 10
@@ -5633,7 +5633,7 @@
 	icon_state = "0-4"
 	},
 /obj/machinery/power/apc/high/north{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -5666,11 +5666,11 @@
 /obj/machinery/atmospherics/portables_connector/supply,
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/power/apc/high/east{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/cable/green{
 	icon_state = "0-2"
@@ -5694,7 +5694,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Blaster";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
@@ -5794,7 +5794,7 @@
 "fuF" = (
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
@@ -5850,7 +5850,7 @@
 	frequency = 1380;
 	id_tag = "hammertail_dock";
 	name = "\improper shuttle docking port controller";
-	req_one_access = list(227);
+	req_one_access = list(229);
 	dir = 2;
 	pixel_y = 27
 	},
@@ -5982,7 +5982,7 @@
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
 	name = "airlock_hammertail_main";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /turf/simulated/floor/plating,
 /area/hammertail_station/airlock)
@@ -6048,7 +6048,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(227);
+	req_access = list(229);
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -6073,7 +6073,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/east{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 6
@@ -6091,7 +6091,7 @@
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
 	name = "Telecomms";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/hammertail)
@@ -6156,7 +6156,7 @@
 /obj/machinery/door/airlock/mining{
 	dir = 4;
 	name = "Cargo Bay";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -6175,7 +6175,7 @@
 "jhA" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -6232,7 +6232,7 @@
 	},
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
@@ -6388,7 +6388,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/structure/closet/walllocker/secure{
 	name = "emergency supplies";
-	req_access = list(227);
+	req_access = list(229);
 	pixel_x = -32
 	},
 /obj/item/clothing/mask/breath,
@@ -6442,7 +6442,7 @@
 	},
 /obj/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/engineering)
@@ -6459,7 +6459,7 @@
 	name = "Door Bolt Control";
 	pixel_x = 22;
 	pixel_y = 1;
-	req_access = list(227);
+	req_access = list(229);
 	specialfunctions = 4
 	},
 /turf/simulated/floor/shuttle/dark_red,
@@ -6489,7 +6489,7 @@
 /area/shuttle/hammertail_pod)
 "nbe" = (
 /obj/machinery/door/airlock/multi_tile{
-	req_access = list(227);
+	req_access = list(229);
 	dir = 2;
 	name = "Living Quarters"
 	},
@@ -6598,7 +6598,7 @@
 /obj/structure/bed/stool/chair/office/light,
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/effect/floor_decal/corner/red/diagonal,
@@ -6623,7 +6623,7 @@
 "oLw" = (
 /obj/effect/floor_decal/corner/red/diagonal,
 /obj/machinery/vending/wallmed2{
-	req_access = list(227);
+	req_access = list(229);
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled/dark,
@@ -6682,7 +6682,7 @@
 "prL" = (
 /obj/machinery/alarm/east{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/distress{
@@ -6721,7 +6721,7 @@
 "pBs" = (
 /obj/machinery/alarm/north{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -6733,7 +6733,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/command{
 	name = "Cockpit";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/hammertail)
@@ -6756,7 +6756,7 @@
 "pON" = (
 /obj/machinery/alarm/west{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/armory)
@@ -6810,7 +6810,7 @@
 	frequency = 1882;
 	master_tag = "airlock_hammertail_main";
 	name = "airlock_hammertail_main";
-	req_one_access = list(227)
+	req_one_access = list(229)
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
@@ -6925,7 +6925,7 @@
 	},
 /obj/machinery/door/airlock/engineering{
 	name = "Engineering";
-	req_access = list(227);
+	req_access = list(229);
 	dir = 4
 	},
 /turf/simulated/floor/plating,
@@ -6991,7 +6991,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/airlock/hatch{
 	name = "Propulsion";
-	req_access = list(227);
+	req_access = list(229);
 	dir = 1
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -7043,7 +7043,7 @@
 /area/hammertail_station/crew_quarters)
 "tvB" = (
 /obj/machinery/door/airlock{
-	req_access = list(227);
+	req_access = list(229);
 	name = "Custodial Closet";
 	dir = 4
 	},
@@ -7160,7 +7160,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/north{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red{
 	dir = 5
@@ -7267,7 +7267,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/door/airlock/highsecurity{
 	name = "Francisca";
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -7314,7 +7314,7 @@
 	icon_state = "0-2"
 	},
 /obj/machinery/power/apc/high/west{
-	req_access = list(227)
+	req_access = list(229)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/hammertail_station/armory)
@@ -7365,7 +7365,7 @@
 "xPn" = (
 /obj/machinery/alarm/south{
 	req_one_access = null;
-	req_access = list(227)
+	req_access = list(229)
 	},
 /obj/effect/floor_decal/corner/red/diagonal,
 /turf/simulated/floor/tiled/dark,
