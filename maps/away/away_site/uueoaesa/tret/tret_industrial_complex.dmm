@@ -101,6 +101,10 @@
 	pixel_y = 32;
 	pixel_x = 32
 	},
+/obj/machinery/button/distress{
+	pixel_y = 9;
+	pixel_x = 8
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "aO" = (
@@ -526,6 +530,14 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/space)
+"dS" = (
+/obj/structure/table/reinforced/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/slate,
+/area/space)
 "dW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden{
 	dir = 8
@@ -656,6 +668,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"eB" = (
+/obj/structure/closet/wardrobe,
+/obj/item/storage/backpack/duffel,
+/obj/item/storage/backpack/duffel,
+/obj/item/storage/backpack/industrial,
+/obj/item/storage/backpack/rucksack/tan,
+/obj/item/storage/backpack/satchel,
+/obj/item/storage/backpack/satchel,
+/obj/item/storage/belt/mining/full,
+/obj/item/storage/belt/mining/full,
+/obj/item/storage/belt/mining/full,
+/turf/simulated/floor/tiled/dark,
+/area/space)
 "eE" = (
 /obj/machinery/alarm/west{
 	req_one_access = null
@@ -668,6 +693,14 @@
 "eF" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/template_noop,
+/area/space)
+"eK" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = 2;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/slate,
 /area/space)
 "eL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1308,6 +1341,18 @@
 /area/tret_industrial/engineering)
 "jc" = (
 /obj/structure/table/steel,
+/obj/item/storage/wallet/lanyard{
+	pixel_x = 20;
+	pixel_y = 1
+	},
+/obj/machinery/recharger{
+	pixel_x = -7;
+	pixel_y = 1
+	},
+/obj/machinery/recharger{
+	pixel_x = 3;
+	pixel_y = 1
+	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "jg" = (
@@ -2928,6 +2973,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial)
+"tP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/space)
 "tR" = (
 /obj/structure/closet/secure_closet/freezer/kois/spores,
 /turf/simulated/floor/tiled/slate,
@@ -3354,6 +3406,13 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/space)
+"wS" = (
+/obj/effect/decal/cleanable/cobweb2,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
 "wT" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -3386,6 +3445,13 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/canteen)
+"xe" = (
+/obj/effect/spider/stickyweb,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
 "xj" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
@@ -3717,6 +3783,12 @@
 /obj/structure/bed/handrail,
 /turf/simulated/floor/plating/tret,
 /area/shuttle/tret_industrial)
+"zr" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/structure/girder,
+/turf/simulated/floor/plating,
+/area/space)
 "zt" = (
 /obj/structure/flora/pottedplant/subterranean,
 /turf/simulated/floor/tiled/dark,
@@ -3810,9 +3882,16 @@
 /area/tret_industrial/engineering)
 "Aj" = (
 /obj/structure/table/reinforced/steel,
-/obj/structure/sign/flag/klax{
-	pixel_y = -32;
-	pixel_x = -32
+/obj/item/paper_bin{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/pen/multi{
+	pixel_x = 2
+	},
+/obj/item/pen/fountain/black{
+	pixel_x = 7;
+	pixel_y = 4
 	},
 /turf/simulated/floor/tiled/slate,
 /area/space)
@@ -4266,6 +4345,8 @@
 /obj/structure/closet/cabinet,
 /obj/item/clothing/gloves/fingerless,
 /obj/item/clothing/gloves/fingerless,
+/obj/item/storage/backpack/cloak,
+/obj/item/storage/backpack/cloak/sedantis,
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "CX" = (
@@ -4310,10 +4391,21 @@
 /area/tret_industrial/secure)
 "Dp" = (
 /obj/structure/table/reinforced/steel,
+/obj/item/modular_computer/laptop/preset/civilian{
+	pixel_x = -7;
+	pixel_y = 9
+	},
 /turf/simulated/floor/tiled/slate,
 /area/space)
 "Du" = (
 /obj/structure/table/standard,
+/obj/item/storage/firstaid/adv{
+	pixel_x = 12;
+	pixel_y = 4
+	},
+/obj/random/medical{
+	pixel_y = 7
+	},
 /turf/simulated/floor/tiled/white,
 /area/space)
 "Dv" = (
@@ -4571,6 +4663,11 @@
 /obj/structure/flora/pottedplant/subterranean,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/space)
+"Fd" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
+/turf/simulated/floor/tiled/white,
+/area/space)
 "Fh" = (
 /obj/machinery/atmospherics/pipe/manifold/visible{
 	dir = 4
@@ -4725,6 +4822,19 @@
 	dir = 5
 	},
 /turf/simulated/floor/plating/tret,
+/area/space)
+"GC" = (
+/obj/structure/table/steel,
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/random/medical{
+	pixel_y = 7
+	},
+/turf/simulated/floor/tiled/slate,
 /area/space)
 "GG" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -5357,6 +5467,9 @@
 	pixel_y = 32;
 	pixel_x = -32
 	},
+/obj/item/folder/yellow{
+	pixel_y = 2
+	},
 /turf/simulated/floor/tiled/slate,
 /area/space)
 "Lb" = (
@@ -5534,36 +5647,9 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/space)
 "Mu" = (
-/obj/item/clothing/mask/gas/vaurca/filter,
-/obj/item/clothing/mask/gas/vaurca/filter,
-/obj/item/clothing/mask/gas/vaurca/filter,
-/obj/item/clothing/mask/gas/vaurca/filter,
-/obj/item/clothing/mask/gas/vaurca/filter,
-/obj/item/clothing/under/vaurca/gearharness/black,
-/obj/item/clothing/under/vaurca/gearharness/black,
-/obj/item/clothing/under/vaurca/gearharness/black,
-/obj/item/clothing/under/vaurca/gearharness/black,
-/obj/item/clothing/under/vaurca/gearharness/black,
-/obj/item/clothing/shoes/vaurca,
-/obj/item/clothing/shoes/vaurca,
-/obj/item/clothing/shoes/vaurca,
-/obj/item/clothing/shoes/vaurca,
-/obj/item/clothing/shoes/vaurca,
-/obj/item/clothing/under/vaurca,
-/obj/item/clothing/under/vaurca,
-/obj/item/clothing/under/vaurca,
-/obj/item/clothing/under/vaurca,
-/obj/item/clothing/suit/vaurca/brown,
-/obj/item/clothing/suit/vaurca/brown,
-/obj/structure/closet/wardrobe,
-/obj/effect/floor_decal/corner/blue,
-/obj/effect/floor_decal/corner/green{
-	dir = 9
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
 /area/space)
 "Mx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -5638,6 +5724,22 @@
 	identifier = "tret_industrial"
 	},
 /turf/simulated/floor/vaurca,
+/area/space)
+"Na" = (
+/obj/structure/table/steel,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis{
+	pixel_x = 5;
+	pixel_y = 14
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
+	pixel_x = -5;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal/sedantis{
+	pixel_x = 8;
+	pixel_y = 2
+	},
+/turf/simulated/floor/tiled/slate,
 /area/space)
 "Nc" = (
 /obj/machinery/atmospherics/portables_connector{
@@ -6131,6 +6233,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/storage)
+"Rb" = (
+/obj/effect/decal/cleanable/cobweb,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
 "Rd" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black,
 /turf/simulated/floor/plating,
@@ -6311,6 +6419,14 @@
 "Sg" = (
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/engineering)
+"Si" = (
+/obj/item/modular_computer/handheld/pda/civilian{
+	pixel_y = 7;
+	pixel_x = -3
+	},
+/obj/structure/table/steel,
+/turf/simulated/floor/tiled/gunmetal,
+/area/space)
 "Sr" = (
 /obj/machinery/conveyor{
 	id = "tret_mining";
@@ -6427,6 +6543,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/tret_industrial/canteen)
+"SU" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/space)
 "SW" = (
 /obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
@@ -6874,6 +6996,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/space)
+"VN" = (
+/obj/structure/table/standard,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/hegemony{
+	pixel_x = -5;
+	pixel_y = 9
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/space)
 "VP" = (
 /obj/machinery/atmospherics/binary/pump{
 	dir = 8
@@ -6944,6 +7074,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/space)
+"Wq" = (
+/obj/structure/table/reinforced/steel,
+/obj/machinery/button/distress{
+	pixel_y = 7;
+	pixel_x = 6
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/space)
 "WB" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 1737;
@@ -6957,9 +7095,8 @@
 /turf/simulated/floor/reinforced/carbon_dioxide,
 /area/space)
 "WC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 9
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
+/obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/plating,
 /area/space)
 "WD" = (
@@ -37543,7 +37680,7 @@ Vy
 Vy
 Qh
 Qh
-Ji
+Wq
 Vy
 Ha
 Vy
@@ -38601,7 +38738,7 @@ UW
 KG
 JC
 QN
-QN
+lM
 UW
 kn
 rD
@@ -41666,7 +41803,7 @@ Dp
 qu
 qu
 qu
-Dp
+dS
 UW
 Fy
 Fy
@@ -42691,7 +42828,7 @@ EH
 UW
 UW
 aF
-jc
+Si
 wF
 wF
 PQ
@@ -44764,7 +44901,7 @@ Fy
 UW
 qu
 qu
-mZ
+GC
 UW
 rD
 rD
@@ -45013,7 +45150,7 @@ Fy
 SD
 UW
 UW
-UW
+Sb
 UW
 UW
 uE
@@ -45269,9 +45406,9 @@ UW
 Fy
 SD
 UW
-kn
-kn
-kn
+Rb
+Mu
+Mu
 UW
 UW
 UW
@@ -45527,9 +45664,9 @@ Fy
 SD
 UW
 UW
-kn
-kn
-kn
+zr
+Mu
+Mu
 UW
 zk
 OD
@@ -45784,9 +45921,9 @@ Fy
 SD
 SD
 UW
-kn
-kn
-kn
+UW
+SU
+SU
 UW
 XB
 OD
@@ -46029,7 +46166,7 @@ UW
 UW
 UW
 UW
-UW
+kv
 UW
 UW
 UW
@@ -46041,9 +46178,9 @@ Fy
 Fy
 SD
 UW
-kn
-kn
-kn
+xe
+wS
+tP
 UW
 Ze
 OT
@@ -46285,10 +46422,10 @@ kn
 UW
 BX
 Tc
-Du
 hu
+Fd
 mZ
-mZ
+Na
 UW
 Fy
 JU
@@ -46543,9 +46680,9 @@ UW
 hR
 OD
 OD
-OD
+Fd
 qu
-mZ
+eK
 UW
 Fy
 JU
@@ -46555,7 +46692,7 @@ UW
 sX
 tC
 bm
-vL
+VN
 UW
 MV
 UW
@@ -48359,7 +48496,7 @@ UW
 Ax
 RQ
 JY
-JU
+eB
 UW
 UW
 UW
@@ -49382,7 +49519,7 @@ UW
 rD
 rD
 rD
-Mu
+rD
 rD
 rD
 rD
@@ -50879,7 +51016,7 @@ Bn
 Bn
 Bn
 Bn
-kn
+Bn
 kn
 kn
 kn
@@ -51394,7 +51531,7 @@ Bn
 Bn
 Bn
 Bn
-kn
+Bn
 kn
 kn
 kn
@@ -51651,8 +51788,8 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
+Bn
+Bn
 kn
 kn
 kn
@@ -51908,8 +52045,8 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
+Bn
+Bn
 kn
 kn
 kn
@@ -52166,8 +52303,8 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
+Bn
+Bn
 kn
 kn
 kn
@@ -52423,9 +52560,9 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -52680,9 +52817,9 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -52937,9 +53074,9 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -53194,9 +53331,9 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -53451,10 +53588,10 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -53708,10 +53845,10 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -53964,11 +54101,11 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -54221,10 +54358,10 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -54478,10 +54615,10 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -54735,10 +54872,10 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -54990,11 +55127,11 @@ Bn
 Bn
 Bn
 Bn
-kn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -55243,14 +55380,14 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -55504,8 +55641,8 @@ kn
 kn
 kn
 kn
-kn
-kn
+Bn
+Bn
 kn
 kn
 kn
@@ -56536,9 +56673,9 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
+rD
+rD
+rD
 kn
 kn
 kn
@@ -56792,11 +56929,11 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
+rD
+rD
+rD
+Bn
+Bn
 kn
 kn
 kn
@@ -57048,12 +57185,12 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
+rD
+rD
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -57305,12 +57442,12 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
+rD
+Bn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -57562,13 +57699,13 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
+rD
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -57819,13 +57956,13 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
 rD
-rD
-rD
-kn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 kn
 kn
 kn
@@ -58075,12 +58212,12 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
 rD
-rD
-rD
+Bn
+Bn
+Bn
+Bn
+Bn
 Bn
 Bn
 kn
@@ -58332,10 +58469,10 @@ kn
 kn
 kn
 kn
-kn
-kn
 rD
-rD
+Bn
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -58588,10 +58725,10 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
 rD
+rD
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -58839,16 +58976,16 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
+Bn
 kn
 kn
 rD
+rD
+rD
+rD
+Bn
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -59096,16 +59233,16 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-rD
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -59353,15 +59490,15 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-rD
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -59609,16 +59746,16 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-rD
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -59865,17 +60002,17 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-kn
-rD
-rD
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -60123,15 +60260,15 @@ kn
 kn
 kn
 kn
-kn
-kn
-kn
-kn
-kn
-rD
-rD
-rD
-rD
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
+Bn
 Bn
 Bn
 Bn
@@ -60381,7 +60518,7 @@ kn
 kn
 kn
 kn
-kn
+Bn
 Bn
 Bn
 Bn
@@ -60639,7 +60776,7 @@ kn
 kn
 kn
 kn
-kn
+Bn
 Bn
 Bn
 Bn

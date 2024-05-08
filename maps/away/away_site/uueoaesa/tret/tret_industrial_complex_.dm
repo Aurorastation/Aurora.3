@@ -26,7 +26,7 @@
 		"Tret Mining Shuttle" = list("tret_industrial_navhangar")
 	)
 
-/turf/simulated/floor/exoplanet/basalt/tret //this isn't a real planet, so the atmos has to be done manually. Doesn't matter that much what it is bc bugs
+/turf/simulated/floor/exoplanet/basalt/tret
 	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
 
 /turf/simulated/lava/tret
