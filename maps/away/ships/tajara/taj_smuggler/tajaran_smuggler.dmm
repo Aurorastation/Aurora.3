@@ -615,9 +615,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -758,14 +755,6 @@
 	temperature = 278.15
 	},
 /area/tajaran_smuggler/atmos)
-"dQy" = (
-/obj/structure/cable/green{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/tajaran_smuggler/engine)
 "dQZ" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -1227,16 +1216,6 @@
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tajaran_smuggler)
-"fUw" = (
-/obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/tajaran_smuggler/engine)
 "fVv" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /obj/machinery/airlock_sensor{
@@ -1476,9 +1455,6 @@
 "hgE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/firealarm/east,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -3745,9 +3721,6 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/door/firedoor,
-/obj/structure/cable/green{
-	icon_state = "1-2"
-	},
 /turf/simulated/floor{
 	temperature = 278.15
 	},
@@ -4210,21 +4183,6 @@
 	temperature = 278.15
 	},
 /area/shuttle/tajaran_smuggler_cargo)
-"wmb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	d2 = 2;
-	icon_state = "0-2"
-	},
-/obj/machinery/power/apc/north{
-	req_access = null
-	},
-/turf/simulated/floor{
-	temperature = 278.15
-	},
-/area/tajaran_smuggler/engine)
 "wmx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 9
@@ -35402,8 +35360,8 @@ xRX
 xRX
 xRX
 cQX
-wmb
-fUw
+rgA
+dCR
 kJl
 mLa
 kgm
@@ -35660,7 +35618,7 @@ xRX
 xRX
 cQX
 rgA
-ePD
+mIz
 kJl
 qcp
 nsN
@@ -35917,7 +35875,7 @@ xRX
 xRX
 cQX
 nZg
-dQy
+dCR
 ttC
 hgE
 cCV
