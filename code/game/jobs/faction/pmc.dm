@@ -44,7 +44,7 @@
 		"Pharmacist" = /obj/outfit/job/pharmacist/pmc,
 		"Psychiatrist" = /obj/outfit/job/psychiatrist/pmc,
 		"Psychologist" = /obj/outfit/job/psychiatrist/pmc,
-		"First Responder" = /obj/outfit/job/med_tech/pmc,
+		"Paramedic" = /obj/outfit/job/med_tech/pmc,
 		"Medical Intern" = /obj/outfit/job/intern_med/pmc,
 		"Corporate Reporter" = /obj/outfit/job/journalist/pmc,
 		"Corporate Liaison" = /obj/outfit/job/representative/pmc,
@@ -168,7 +168,7 @@
 	messengerbag_faction = /obj/item/storage/backpack/messenger/pmcg
 
 /obj/outfit/job/med_tech/pmc
-	name = "First Responder - PMC"
+	name = "Paramedic - PMC"
 
 	head = /obj/item/clothing/head/softcap/pmc
 	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc

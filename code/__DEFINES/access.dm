@@ -418,7 +418,7 @@
 #define ACCESS_FIRST_RESPONDER 67
 /datum/access/first_responder
 	id = ACCESS_FIRST_RESPONDER
-	desc = "First Responder Equipment"
+	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
 
 // free_access_id = 68

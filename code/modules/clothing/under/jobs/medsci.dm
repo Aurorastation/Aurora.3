@@ -185,11 +185,11 @@
 	icon_state = "pmc_alt_intern"
 	item_state = "pmc_alt_intern"
 
-// First Responder
+// Paramedic
 
 /obj/item/clothing/under/rank/medical/first_responder
-	name = "first responder jumpsuit"
-	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for first responders."
+	name = "Paramedic jumpsuit"
+	desc = "It's made of a special fiber that provides minor protection against biohazards. It's a special jumpsuit made for Paramedics."
 	icon_state = "nt_emt"
 	item_state = "nt_emt"
 

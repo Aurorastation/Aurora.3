@@ -252,7 +252,7 @@
 	jobtype = /datum/job/psychiatrist
 
 /datum/job/med_tech
-	title = "First Responder"
+	title = "Paramedic"
 	flag = MED_TECH
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
@@ -276,8 +276,8 @@
 	blacklisted_species = list(SPECIES_DIONA, SPECIES_DIONA_COEUS, SPECIES_IPC_G2, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/med_tech
-	name = "First Responder"
-	base_name = "First Responder"
+	name = "Paramedic"
+	base_name = "Paramedic"
 	jobtype = /datum/job/med_tech
 
 	head = /obj/item/clothing/head/softcap/nt
@@ -314,8 +314,8 @@
 	departments = SIMPLEDEPT(DEPARTMENT_MEDICAL)
 	department_flag = MEDSCI
 	faction = "Station"
-	alt_titles = list("First Responder Trainee", "Pharmacy Intern", "Resident Physician", "Resident Surgeon", "Resident Psychiatrist")
-	alt_outfits = list("First Responder Trainee" = /obj/outfit/job/intern_med/medtech, "Pharmacy Intern" = /obj/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /obj/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /obj/outfit/job/intern_med/psychiatrist)
+	alt_titles = list("Paramedic Trainee", "Pharmacy Intern", "Resident Physician", "Resident Surgeon", "Resident Psychiatrist")
+	alt_outfits = list("Paramedic Trainee" = /obj/outfit/job/intern_med/medtech, "Pharmacy Intern" = /obj/outfit/job/intern_med/pharmacist, "Resident Surgeon" = /obj/outfit/job/intern_med/surgeon, "Resident Psychiatrist" = /obj/outfit/job/intern_med/psychiatrist)
 	alt_ages = list("Pharmacy Intern" = list(
 		SPECIES_HUMAN = 25,
 		SPECIES_SKRELL = 58,
@@ -375,7 +375,7 @@
 	tablet = /obj/item/modular_computer/handheld/preset/medical
 
 /obj/outfit/job/intern_med/medtech
-	name = "First Responder Trainee"
+	name = "Paramedic Trainee"
 
 	head = /obj/item/clothing/head/softcap/nt
 	shoes = /obj/item/clothing/shoes/jackboots
