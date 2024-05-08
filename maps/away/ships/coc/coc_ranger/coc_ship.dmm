@@ -3330,6 +3330,11 @@
 	shuttle_tag = "Ranger Shuttle";
 	req_one_access = null
 	},
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
 /area/shuttle/ranger_shuttle)
 "nQz" = (
