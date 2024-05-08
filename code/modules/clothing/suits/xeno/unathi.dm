@@ -78,3 +78,18 @@
 	desc = "An ancient set of interlocking bronze plates, designed to reach to the knees of an Unathi. Those familiar with Moghresian archaeology might recognise this set as being a Sinta'Mador relic."
 	icon_state = "mador_armor"
 	item_state = "mador_armor"
+
+/obj/item/clothing/suit/armor/unathi/scrap_breacher
+	name = "scrap breacher chestpiece"
+	desc = "Once was a signiture piece of technology used by Hegemony has been worn down with many of it's internal components stripped, armour taken apart and put back together. Best you can use it now as is a chestplate."
+	icon = 'icons/obj/scrap_breacher.dmi'
+	icon_state = "scrap_beacher_ch"
+	item_state = "scrap_beacher_chest"
+	armor = list( //far weaker than normal breacher armour
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR)

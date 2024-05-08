@@ -105,3 +105,18 @@
 	icon = 'icons/obj/unathi_ruins.dmi'
 	icon_state = "mador_headwrappings"
 	item_state = "mador_headwrappings"
+
+/obj/item/clothing/head/helmet/unathi/scrap_breacher
+	name = "scrap breacher helmet"
+	desc = "Whilst normally seen as part of a hardsuit, this helmet of a breacher has had parts swapped out, broken with age or battle. Only thing you could use it as now is a helmet."
+	icon = 'icons/obj/scrap_breacher.dmi'
+	icon_state = "scrap_beacher_he"
+	item_state = "scrap_beacher_helmet"
+	armor = list( //far weaker than normal breacher armour
+		melee = ARMOR_MELEE_MAJOR,
+		bullet = ARMOR_BALLISTIC_MAJOR,
+		laser = ARMOR_LASER_PISTOL,
+		energy = ARMOR_ENERGY_RESISTANT,
+		bomb = ARMOR_BOMB_RESISTANT,
+		bio = ARMOR_BIO_SHIELDED,
+		rad = ARMOR_RAD_MINOR)
