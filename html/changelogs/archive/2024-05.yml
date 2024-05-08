@@ -147,3 +147,6 @@
   Sparky_hotdog:
   - rscadd: Added roller bed racks, which can store 4 roller beds at a time. Replaced
       the previous stacks of roller beds in medical with racks.
+2024-05-08:
+  DreamySkrell:
+  - rscadd: Adds BAPI - byondapi.
