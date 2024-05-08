@@ -903,7 +903,7 @@
 /obj/structure/closet/secure_closet/medical_fr,
 /obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "auo" = (
 /obj/structure/table/wood,
 /obj/item/toy/desk/newtoncradle,
@@ -933,7 +933,7 @@
 	pixel_x = -32
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "avb" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/maintenance_hatch{
@@ -983,7 +983,7 @@
 	pixel_y = -11
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "avs" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1132,7 +1132,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "axW" = (
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/porta_turret,
@@ -1617,7 +1617,7 @@
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/item/storage/pill_bottle/dexalin,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "aIH" = (
 /obj/machinery/camera/network/prison{
 	c_tag = "Security - Brig Communal Fore";
@@ -1759,7 +1759,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "aML" = (
 /obj/structure/cable/green{
 	icon_state = "1-4"
@@ -1837,7 +1837,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "aOz" = (
 /obj/machinery/light{
 	dir = 8
@@ -1915,7 +1915,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "aQR" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/industrial/hatch/yellow,
@@ -2069,7 +2069,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "aTp" = (
 /obj/machinery/light/floor{
 	dir = 1
@@ -2100,7 +2100,7 @@
 	pixel_x = 13
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "aTI" = (
 /obj/structure/table/rack,
 /obj/item/storage/lockbox/anti_augment{
@@ -2430,7 +2430,7 @@
 /obj/structure/table/standard,
 /obj/structure/roller_rack/two,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "ban" = (
 /obj/effect/floor_decal/spline/plain/corner{
 	dir = 1
@@ -2548,8 +2548,8 @@
 "bdy" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/storage/belt/medical/first_responder,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
+/obj/item/storage/belt/medical/paramedic,
 /obj/machinery/alarm/south,
 /obj/item/device/radio{
 	pixel_x = -6;
@@ -2580,7 +2580,7 @@
 	department = "First Responder Bay"
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "beJ" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/effect/floor_decal/industrial/warning{
@@ -8262,7 +8262,7 @@
 /obj/effect/floor_decal/corner_wide/green/full{
 	dir = 1
 	},
-/obj/effect/floor_decal/sign/first_responder,
+/obj/effect/floor_decal/sign/paramedic,
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
@@ -11037,7 +11037,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /obj/item/reagent_containers/hypospray/autoinjector/coagzolug,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "fdF" = (
 /turf/simulated/wall,
 /area/maintenance/aux_atmospherics/deck_2/starboard)
@@ -30790,7 +30790,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "ohQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -30953,7 +30953,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/dark/full,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "okP" = (
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
@@ -32347,7 +32347,7 @@
 /area/horizon/hydroponics)
 "oUt" = (
 /turf/simulated/wall,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "oUu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -32451,7 +32451,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "oXi" = (
 /obj/structure/table/standard,
 /obj/item/gun/energy/mousegun/xenofauna,
@@ -36867,7 +36867,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "raA" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8;
@@ -38071,7 +38071,7 @@
 "rEY" = (
 /obj/machinery/suit_cycler/medical,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "rFn" = (
 /turf/simulated/wall/r_wall,
 /area/rnd/xenobiology/xenoflora)
@@ -38924,7 +38924,7 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /obj/machinery/mech_recharger,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "rXD" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/floor_decal/corner/brown{
@@ -44802,7 +44802,7 @@
 	opacity = 0
 	},
 /turf/simulated/floor/tiled/full,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "uMT" = (
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 10
@@ -45188,7 +45188,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "uVi" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -50914,7 +50914,7 @@
 /obj/structure/closet/secure_closet/medical_fr,
 /obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "xBU" = (
 /obj/effect/floor_decal/industrial/outline/engineering,
 /obj/structure/closet/secure_closet/atmos_personal,
@@ -51831,7 +51831,7 @@
 	},
 /obj/machinery/door/window/southleft,
 /turf/simulated/floor/tiled,
-/area/medical/first_responder)
+/area/medical/paramedic)
 "xWb" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/door/blast/shutters/open{

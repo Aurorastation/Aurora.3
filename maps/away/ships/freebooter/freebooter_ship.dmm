@@ -720,7 +720,7 @@
 /obj/random/civgun,
 /obj/item/melee/energy/sword/knife,
 /obj/item/clothing/suit/armor/material/makeshift,
-/obj/item/clothing/head/hardhat/first_responder,
+/obj/item/clothing/head/hardhat/paramedic,
 /turf/simulated/floor/tiled/dark,
 /area/ship/freebooter_ship/pod4)
 "bdI" = (

@@ -20821,22 +20821,22 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
 /obj/item/clothing/accessory/stethoscope,

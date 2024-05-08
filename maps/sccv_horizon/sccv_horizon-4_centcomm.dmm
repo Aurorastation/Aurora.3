@@ -21575,12 +21575,12 @@
 /area/centcom/legion/hangar5)
 "beT" = (
 /obj/structure/table/rack,
-/obj/item/storage/belt/medical/first_responder/combat/full{
+/obj/item/storage/belt/medical/paramedic/combat/full{
 	pixel_x = 5;
 	pixel_y = -5
 	},
-/obj/item/storage/belt/medical/first_responder/combat/full,
-/obj/item/storage/belt/medical/first_responder/combat/full{
+/obj/item/storage/belt/medical/paramedic/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full{
 	pixel_x = -4;
 	pixel_y = 5
 	},
@@ -27800,7 +27800,7 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder/combat,
+/obj/item/storage/belt/medical/paramedic
 /obj/item/storage/belt/medical,
 /obj/structure/sink{
 	dir = 4;

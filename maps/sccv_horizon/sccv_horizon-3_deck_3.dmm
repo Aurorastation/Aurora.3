@@ -19784,10 +19784,10 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/central)
 "nrw" = (
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
 /obj/item/storage/belt/medical{

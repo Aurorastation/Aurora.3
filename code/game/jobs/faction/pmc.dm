@@ -171,7 +171,7 @@
 	name = "Paramedic - PMC"
 
 	head = /obj/item/clothing/head/softcap/pmc
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/pmc
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/pmc
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
 	id = /obj/item/card/id/pmc
 

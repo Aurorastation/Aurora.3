@@ -2701,7 +2701,7 @@
 /obj/structure/table/standard,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,
 /obj/item/reagent_containers/hypospray,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/storage/belt/medical,
 /obj/item/reagent_containers/hypospray,
 /obj/item/reagent_containers/glass/bottle/inaprovaline,

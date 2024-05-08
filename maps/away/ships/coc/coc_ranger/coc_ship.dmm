@@ -4873,7 +4873,7 @@
 /obj/item/storage/belt/utility/full,
 /obj/item/storage/belt/utility/very_full,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,
 /obj/item/clothing/accessory/flagpatch/coalition,

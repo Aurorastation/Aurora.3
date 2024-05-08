@@ -362,7 +362,7 @@
 	back = /obj/item/storage/backpack/satchel/med
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	glasses = /obj/item/clothing/glasses/hud/health
-	belt = /obj/item/storage/belt/medical/first_responder/combat/full
+	belt = /obj/item/storage/belt/medical/paramedic/combat/full
 	backpack_contents = list(
 		/obj/item/storage/box/survival = 1,
 		/obj/item/storage/firstaid/adv = 1,
@@ -457,10 +457,10 @@
 	outfit = /obj/outfit/admin/corporate_solutions/medic
 
 /obj/outfit/admin/corporate_solutions/medic
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
 	gloves = /obj/item/clothing/gloves/latex/nitrile
 	glasses = /obj/item/clothing/glasses/hud/health
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 	backpack = /obj/item/storage/backpack/satchel/zeng
 	belt_contents = list(
 		/obj/item/reagent_containers/hypospray/cmo = 1,

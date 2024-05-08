@@ -4197,10 +4197,10 @@
 /obj/item/storage/belt/medical{
 	pixel_y = -4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
-/obj/item/storage/belt/medical/first_responder{
+/obj/item/storage/belt/medical/paramedic{
 	pixel_y = 4
 	},
 /obj/machinery/alarm/north{
@@ -6332,7 +6332,7 @@
 /obj/item/clothing/head/softcap/iac,
 /obj/item/clothing/accessory/storage/white_vest,
 /obj/item/clothing/accessory/storage/pouches/white,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/storage/belt/medical,
 /obj/item/clothing/accessory/stethoscope,
 /obj/item/clothing/accessory/poncho/roles/iac,
@@ -8164,7 +8164,7 @@
 /obj/item/clothing/accessory/storage/pouches/white,
 /obj/item/reagent_containers/hypospray,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/clothing/accessory/stethoscope,
 /turf/simulated/floor/tiled/white,
 /area/ship/iac_rescue_ship/pharmacy)

@@ -119,7 +119,7 @@
 	name = "Paramedic - Zeng-Hu"
 
 	head = /obj/item/clothing/head/softcap/zeng
-	uniform = /obj/item/clothing/under/rank/medical/first_responder/zeng
+	uniform = /obj/item/clothing/under/rank/medical/paramedic/zeng
 	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
 	id = /obj/item/card/id/zeng_hu
 

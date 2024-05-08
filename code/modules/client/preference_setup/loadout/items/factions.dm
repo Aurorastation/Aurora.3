@@ -426,7 +426,7 @@
 
 /datum/gear/faction/epmc_uniform_fr_med
 	display_name = "PMCG/EPMC Paramedic uniform"
-	path = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
+	path = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Paramedic", "Medical Personnel")
@@ -434,10 +434,10 @@
 /datum/gear/faction/epmc_uniform_fr_med/New()
 	..()
 	var/list/epmc_uniform_fr_med = list()
-	epmc_uniform_fr_med["EPMC Paramedic uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/epmc
-	epmc_uniform_fr_med["PMCG Paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/alt
-	epmc_uniform_fr_med["Sekhmet Intergalactic Paramedic uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/sekh
-	epmc_uniform_fr_med["Ve'katak Phalanx Paramedic uniform"] = /obj/item/clothing/under/rank/medical/first_responder/pmc/vekatak_phalanx
+	epmc_uniform_fr_med["EPMC Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
+	epmc_uniform_fr_med["PMCG Paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
+	epmc_uniform_fr_med["Sekhmet Intergalactic Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
+	epmc_uniform_fr_med["Ve'katak Phalanx Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
 	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
 
 /datum/gear/faction/wildlands_flagpatches

@@ -6519,7 +6519,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/heph_security_ship/grauwolf)
 "ZM" = (
-/obj/item/storage/belt/medical/first_responder,
+/obj/item/storage/belt/medical/paramedic,
 /obj/item/reagent_containers/hypospray,
 /obj/structure/closet/secure_closet/medical3{
 	req_access = null

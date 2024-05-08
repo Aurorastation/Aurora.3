@@ -104,7 +104,7 @@
 
 	glasses = /obj/item/clothing/glasses/hud/health
 
-	belt = /obj/item/storage/belt/medical/first_responder/combat
+	belt = /obj/item/storage/belt/medical/paramedic/combat
 
 	back = /obj/item/storage/backpack/satchel/leather
 

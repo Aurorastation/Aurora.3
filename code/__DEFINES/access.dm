@@ -415,9 +415,9 @@
 	desc = "Medical Equipment"
 	region = ACCESS_REGION_MEDBAY
 
-#define ACCESS_FIRST_RESPONDER 67
-/datum/access/first_responder
-	id = ACCESS_FIRST_RESPONDER
+#define ACCESS_PARAMEDIC 67
+/datum/access/paramedic
+	id = ACCESS_PARAMEDIC
 	desc = "Paramedic Equipment"
 	region = ACCESS_REGION_MEDBAY
 

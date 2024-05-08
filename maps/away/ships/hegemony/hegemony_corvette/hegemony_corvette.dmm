@@ -5802,7 +5802,7 @@
 /obj/item/device/healthanalyzer,
 /obj/item/device/breath_analyzer,
 /obj/item/clothing/mask/surgical,
-/obj/item/storage/belt/medical/first_responder/combat/full,
+/obj/item/storage/belt/medical/paramedic/combat/full,
 /obj/item/clothing/gloves/latex/nitrile/unathi,
 /obj/item/clothing/glasses/hud/health,
 /obj/item/clothing/accessory/storage/pouches/white,

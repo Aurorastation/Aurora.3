@@ -78,26 +78,26 @@
 /obj/structure/closet/secure_closet/medical_fr
 	name = "Paramedic's locker"
 	desc = "An immobile, card-locked storage unit containing all the necessary equipment for a Paramedic."
-	req_access = list(ACCESS_FIRST_RESPONDER)
+	req_access = list(ACCESS_PARAMEDIC)
 	icon_state = "med"
 
 /obj/structure/closet/secure_closet/medical_fr/fill()
 	..()
 	new /obj/item/storage/backpack/satchel/med(src)
 	new /obj/item/storage/backpack/duffel/med(src)
-	new /obj/item/clothing/head/hardhat/first_responder(src)
+	new /obj/item/clothing/head/hardhat/paramedic(src)
 	new /obj/item/device/radio/headset/headset_med(src)
 	new /obj/item/clothing/glasses/hud/health(src)
 	new /obj/item/storage/backpack/medic(src)
 	new /obj/item/clothing/accessory/storage/white_vest(src)
 	new /obj/item/clothing/suit/storage/medical_chest_rig(src)
-	new /obj/item/clothing/under/rank/medical/first_responder(src)
-	new /obj/item/clothing/under/rank/medical/first_responder/zeng(src)
-	new /obj/item/clothing/under/rank/medical/first_responder/pmc(src)
+	new /obj/item/clothing/under/rank/medical/paramedic(src)
+	new /obj/item/clothing/under/rank/medical/paramedic/zeng(src)
+	new /obj/item/clothing/under/rank/medical/paramedic/pmc(src)
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/device/flashlight/pen(src)
 	new /obj/item/clothing/accessory/stethoscope(src)
-	new /obj/item/storage/belt/medical/first_responder(src)
+	new /obj/item/storage/belt/medical/paramedic(src)
 	new /obj/item/device/gps/medical(src)
 	new /obj/item/reagent_containers/hypospray(src)
 	new /obj/item/taperoll/medical(src)
