@@ -27800,7 +27800,6 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/belt/medical,
-/obj/item/storage/belt/medical/paramedic/combat/full
 /obj/item/storage/belt/medical,
 /obj/structure/sink{
 	dir = 4;
