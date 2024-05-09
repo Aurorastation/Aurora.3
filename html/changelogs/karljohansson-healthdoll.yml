@@ -1,0 +1,6 @@
+author: Karl Johansson
+
+delete-after: True
+
+changes:
+  - rscadd: "Added wounds and bandages to the health doll."
