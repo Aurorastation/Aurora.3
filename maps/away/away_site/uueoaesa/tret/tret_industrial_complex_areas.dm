@@ -11,10 +11,18 @@
 
 // ------------------------- outside
 
-/area/tret_industrial/outside/surface
-	name = "Tret Surface"
-	base_turf = /turf/unsimulated/floor/asteroid/basalt
+/area/tret_industrial/outside
 	area_blurb = "The planet Tret, home of the K'lax Hive. Beneath you, the ground vibrates slightly - vast machinery deep below carrying out its work."
+
+
+/area/tret_industrial/outside/landing
+	name = "Tret - Landing Pad"
+
+/area/tret_industrial/outside/surface
+	name = "Tret - Surface"
+
+/area/tret_industrial/outside/caves
+	name = "Tret - Caves"
 
 // ------------------------- inside
 
@@ -107,8 +115,10 @@
 
 // ------------------------- shuttle
 
-/area/shuttle/tret_industrial
-	name = "Tret Mining Shuttle"
-	name = "Tret Mining Shuttle"
+/area/shuttle/tret_industrial/propulsion
+	name = "Tret Mining Shuttle - Propulsion"
+
+/area/shuttle/tret_industrial/main
+	name = "Tret Mining Shuttle - Main"
 
 // ------------------------- fin
