@@ -7,25 +7,31 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "ae" = (
 /obj/effect/shuttle_landmark/coc_survey_ship/nav3,
 /turf/template_noop,
 /area/space)
+"ah" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/mess_hall)
 "ak" = (
 /obj/structure/fuel_port/hydrogen{
 	pixel_x = 30
 	},
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "am" = (
 /obj/structure/sign/flag/coalition,
 /turf/simulated/wall,
-/area/space)
+/area/coc_survey_ship/bridge)
+"ap" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/hangar)
 "at" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "aA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -39,7 +45,13 @@
 	name = "Starboard Thrusters"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
+"aB" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/coc_survey_ship/hangar)
 "aE" = (
 /obj/machinery/alarm/west,
 /turf/simulated/floor/reinforced,
@@ -58,7 +70,7 @@
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "aN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -73,12 +85,12 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "aP" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/chemical_dispenser/full,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "aS" = (
 /obj/item/reagent_containers/glass/bucket{
 	pixel_x = -11;
@@ -88,7 +100,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/research)
 "aV" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_coc_surveyor_dock_starboard";
@@ -101,7 +113,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "aW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/freezer,
@@ -130,13 +142,13 @@
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /obj/item/reagent_containers/food/drinks/waterbottle,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "bb" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "bm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -146,18 +158,18 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "bs" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "bv" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "bx" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner/lime/diagonal,
@@ -173,7 +185,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/cryo)
 "bB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -181,7 +193,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "bD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
@@ -191,7 +203,7 @@
 	name = "Engineering"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/atmos)
 "bE" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -216,13 +228,13 @@
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "bF" = (
 /obj/structure/table/stone/marble,
 /obj/item/toy/comic/outlandish_tales,
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "bG" = (
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/mass_driver{
@@ -231,11 +243,20 @@
 	_wifi_id = "pirate_core_driver"
 	},
 /turf/simulated/floor/greengrid,
-/area/space)
+/area/coc_survey_ship/engineering)
+"bK" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/coc_survey_ship/miningeva)
+"bL" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/bridge)
 "bM" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "bN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -248,13 +269,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "bU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "bV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -271,8 +292,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "cn" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/alarm/west,
@@ -280,10 +302,10 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "cr" = (
 /turf/simulated/wall/r_wall,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "cv" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/bodyscanner,
@@ -291,7 +313,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "cx" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -301,19 +323,19 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "cA" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/multi_tile/flipped{
 	name = "Mining"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "cF" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "cG" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -331,7 +353,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/coc_survey_ship/cargo)
 "cL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -345,13 +367,13 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "cM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "cP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -364,7 +386,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "cS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -379,7 +401,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "cY" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -388,7 +410,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "dc" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
@@ -401,13 +423,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "df" = (
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 5
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "dq" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /turf/simulated/floor/tiled,
@@ -418,7 +440,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "dJ" = (
 /obj/machinery/conveyor_switch/oneway{
 	id = "Coallit_Mining_1"
@@ -427,11 +449,11 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "dL" = (
 /obj/effect/floor_decal/industrial/outline/research,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "dM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 4
@@ -440,7 +462,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "dP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
@@ -452,7 +474,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "dS" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
@@ -464,18 +486,18 @@
 	dir = 9
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "dT" = (
 /obj/machinery/appliance/cooker/oven,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "dV" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "dW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -487,7 +509,18 @@
 	dir = 9
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
+"dY" = (
+/obj/effect/floor_decal/corner_wide/paleblue{
+	dir = 10
+	},
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/hangar)
+"dZ" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/docking,
+/turf/simulated/floor,
+/area/coc_survey_ship/hangar)
 "eb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/reinforced,
@@ -511,7 +544,7 @@
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/atmos)
 "ee" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -521,7 +554,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
+"eh" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/anomaly)
+"ek" = (
+/obj/effect/floor_decal/corner/purple/diagonal,
+/turf/simulated/floor/tiled/white,
+/area/coc_survey_ship/research)
 "em" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -533,7 +573,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "en" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -552,14 +592,14 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "eo" = (
 /obj/machinery/air_sensor{
 	frequency = 451;
 	id_tag = "survey_sensor_starboard"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "eq" = (
 /obj/item/clothing/under/suit_jacket/burgundy,
 /obj/item/clothing/under/suit_jacket/burgundy,
@@ -612,7 +652,7 @@
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace,
 /obj/item/clothing/accessory/offworlder/bracer/neckbrace,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "et" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 4
@@ -625,14 +665,14 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "ev" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "ew" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -654,7 +694,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "eN" = (
 /obj/structure/bed/handrail{
 	buckle_dir = 4;
@@ -663,7 +703,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "eO" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -674,20 +714,20 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "eZ" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "fc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "fd" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -696,7 +736,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "fe" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -707,7 +747,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "fo" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -724,7 +764,7 @@
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "fp" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	frequency = 451;
@@ -735,18 +775,22 @@
 	input_tag = "survey_in_starboard"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "fr" = (
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "fu" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
+"fy" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/hangar)
 "fB" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -761,27 +805,30 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "fG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
 	icon_state = "intact"
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "fH" = (
 /obj/machinery/mineral/unloading_machine{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "fK" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "fL" = (
 /obj/structure/table/steel,
 /obj/machinery/cell_charger,
@@ -793,41 +840,41 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "fU" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "fX" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "fY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "gm" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "gr" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "gu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "gw" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -836,7 +883,7 @@
 	pixel_y = -32
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "gx" = (
 /obj/machinery/atmospherics/unary/outlet_injector{
 	dir = 8;
@@ -844,7 +891,7 @@
 	id = "survey_sensor_in_starboard"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "gC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/door/firedoor,
@@ -855,13 +902,17 @@
 	name = "Artifact Storage"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/research)
 "gD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/power/apc/west,
 /obj/structure/cable,
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
+"gG" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/hangar)
 "gK" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_coc_surveyor_dock_port";
@@ -879,13 +930,13 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/coc_survey_ship/atmos)
 "gO" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "gQ" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -893,11 +944,14 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "gX" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "hw" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -915,7 +969,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "hF" = (
 /obj/structure/cable/green{
 	d2 = 2;
@@ -925,7 +979,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "hH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -938,12 +992,12 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "hI" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "hL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -958,7 +1012,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "hM" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -971,20 +1025,20 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "hR" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/research)
 "hS" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "hU" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -993,11 +1047,11 @@
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "hX" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "hZ" = (
 /obj/machinery/alarm/west,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1011,7 +1065,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "ia" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Port Thrusters"
@@ -1023,7 +1077,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/engineering)
 "ib" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -1032,7 +1086,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "id" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -1042,19 +1096,25 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/cryo)
 "ie" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "ig" = (
 /obj/structure/table/stone/marble,
 /obj/item/toy/comic/inspector,
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
+"ii" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark/full,
+/area/coc_survey_ship/cargo)
 "ij" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 8
@@ -1078,8 +1138,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "iu" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1091,8 +1152,9 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "iB" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/steel,
@@ -1104,7 +1166,7 @@
 	pixel_x = -4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "iC" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -1119,7 +1181,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "iD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
@@ -1128,20 +1190,23 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
+"iJ" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/cargo)
 "iR" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "iY" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/visible{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "jf" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -1151,7 +1216,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "jj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1162,7 +1227,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "jk" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1178,7 +1243,7 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "jn" = (
 /obj/structure/reagent_dispensers/coolanttank{
 	pixel_x = 5
@@ -1189,7 +1254,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/emergency_closet,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "jo" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
@@ -1200,7 +1265,7 @@
 /obj/structure/closet/excavation,
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "jt" = (
 /obj/structure/table/stone/marble,
 /obj/item/material/knife/butterfly{
@@ -1209,7 +1274,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "jz" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1224,7 +1289,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "jC" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1239,7 +1304,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "jE" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/closet/walllocker/medical{
@@ -1252,7 +1317,7 @@
 /obj/item/reagent_containers/blood/OMinus,
 /obj/item/reagent_containers/blood/OMinus,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "jI" = (
 /obj/effect/floor_decal/corner_wide/white{
 	dir = 8
@@ -1268,7 +1333,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "jL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1284,7 +1349,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "jN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 10
@@ -1298,7 +1363,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "jR" = (
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -1308,6 +1373,13 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red,
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 9
 	},
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -1328,14 +1400,19 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "jZ" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
+"ka" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/kitchen)
 "ke" = (
 /obj/machinery/light{
 	brightness_power = 0.5;
@@ -1348,13 +1425,16 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/hangar)
+"kg" = (
+/turf/simulated/floor/reinforced,
+/area/coc_survey_ship/grauwolf)
 "kj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "kn" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
@@ -1363,12 +1443,12 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "kt" = (
 /obj/machinery/mineral/rigpress,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "ku" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1379,8 +1459,12 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/hatch,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"kx" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/miningeva)
 "ky" = (
 /obj/structure/bed/handrail,
 /obj/effect/floor_decal/industrial/warning,
@@ -1388,7 +1472,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "kA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1400,7 +1484,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "kD" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_coc_surveyor_dock_starboard";
@@ -1409,24 +1493,24 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "kG" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "kH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "kL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "kN" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -1438,7 +1522,7 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "kO" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/body_scanconsole{
@@ -1447,7 +1531,7 @@
 	pixel_y = 6
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "kS" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -1462,7 +1546,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "kT" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/sink{
@@ -1473,7 +1557,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "lb" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -1485,7 +1569,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "lc" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1499,7 +1583,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "le" = (
 /obj/machinery/atmospherics/binary/pump/scrubber/on{
 	dir = 8
@@ -1508,7 +1592,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "lh" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1518,11 +1602,11 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "lm" = (
 /obj/effect/floor_decal/corner_wide/orange,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "lo" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -1539,7 +1623,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "lr" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 4
@@ -1547,7 +1631,12 @@
 /obj/structure/bed/handrail,
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"lv" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/portable_atmospherics/powered/pump/filled,
+/turf/simulated/floor,
+/area/coc_survey_ship/starboard_propulsion)
 "lx" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/structure/bed/stool/bar/padded/brown,
@@ -1555,7 +1644,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "ly" = (
 /obj/machinery/alarm/east,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -1575,7 +1664,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "lE" = (
 /obj/machinery/portable_atmospherics/canister/empty{
 	name = "waste canister"
@@ -1594,7 +1683,13 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"lH" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/starboard_propulsion)
 "lK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -1609,7 +1704,7 @@
 	pixel_x = 32
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "lO" = (
 /obj/effect/floor_decal/corner_wide/red/full{
 	dir = 1
@@ -1622,7 +1717,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "lY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -1633,21 +1728,36 @@
 /obj/structure/cable{
 	icon_state = "2-4"
 	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_segment/red{
+	dir = 6
+	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "lZ" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
+"mc" = (
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 8
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/starboard_propulsion)
 "md" = (
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "me" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -1659,7 +1769,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "mg" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1672,7 +1782,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "mi" = (
 /obj/machinery/optable,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
@@ -1684,7 +1794,7 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "mo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1696,7 +1806,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "mt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -1705,7 +1815,7 @@
 /obj/machinery/hologram/holopad/long_range,
 /obj/effect/overmap/visitable/ship/coc_surveyor,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "my" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/large/stab{
@@ -1715,7 +1825,7 @@
 /obj/item/tank/oxygen,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "mB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -1736,17 +1846,19 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "mG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 1
+/obj/machinery/atmospherics/binary/pump/high_power{
+	dir = 1;
+	layer = 2.8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "mK" = (
 /obj/machinery/shipsensors/weak,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -1755,7 +1867,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "mL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/effect/floor_decal/industrial/loading/yellow,
@@ -1763,7 +1875,7 @@
 	name = "DANGER - FLAMMABLE"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "mM" = (
 /obj/structure/table/stone/marble,
 /obj/item/modular_computer/laptop/preset/civilian{
@@ -1780,32 +1892,38 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "mV" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/yellow{
 	icon_state = "0-4"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "mX" = (
 /obj/machinery/door/window{
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/research)
+"mY" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 4
+	},
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/hangar)
 "ni" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/structure/bed/stool/bar/padded/brown{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "no" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "nr" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 4
@@ -1814,7 +1932,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "nv" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
@@ -1837,7 +1955,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "nB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1849,13 +1967,13 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "nI" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port aft wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/atmos)
 "nN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -1869,7 +1987,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "nQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -1887,7 +2005,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "nS" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -1904,13 +2022,13 @@
 	pixel_y = 21
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "nX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "od" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -1922,7 +2040,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "ok" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1930,7 +2048,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "ol" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -1941,15 +2059,20 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "oo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"op" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden,
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/starboard_propulsion)
 "oq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 1
@@ -1967,7 +2090,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "oz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -1980,14 +2103,18 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/grauwolf)
+"oB" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full,
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/grauwolf)
 "oF" = (
 /obj/machinery/light,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "oH" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -1998,7 +2125,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "oJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2016,7 +2143,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "oK" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2024,7 +2151,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "oL" = (
 /obj/machinery/light{
 	brightness_power = 0.5;
@@ -2037,13 +2164,13 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "oQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 5
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "oS" = (
 /obj/item/clothing/shoes/workboots/dark,
 /obj/item/clothing/shoes/workboots/dark,
@@ -2061,16 +2188,16 @@
 	name = "Boots"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "oX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "oY" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "pa" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/ship_ammunition/grauwolf_bundle/ap,
@@ -2091,7 +2218,7 @@
 	name = "Dorms"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/quarters)
 "po" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -2109,8 +2236,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "pp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -2127,14 +2255,11 @@
 	name = "Medical"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/medical)
 "ps" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/mining/brace{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "pt" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_coc_surveyor_dock_port";
@@ -2156,14 +2281,14 @@
 	pixel_x = 6
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/atmos)
 "pw" = (
 /obj/machinery/meter,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "pA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2181,18 +2306,18 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "pJ" = (
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "pK" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "pV" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -2212,7 +2337,7 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "qc" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
@@ -2222,7 +2347,7 @@
 	pixel_y = 28
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "qe" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/curtain/open/medical,
@@ -2230,26 +2355,33 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
+"ql" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/kitchen)
 "qm" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1;
 	layer = 2.8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "qn" = (
 /obj/machinery/ammunition_loader/grauwolf{
 	weapon_id = "Survey Ship Flak Cannon"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "qp" = (
 /obj/structure/bed/stool/chair/office/bridge/pilot{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"qx" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/shuttle/coc_survey_shuttle)
 "qy" = (
 /obj/structure/ship_weapon_dummy,
 /obj/machinery/ship_weapon/grauwolf{
@@ -2258,7 +2390,7 @@
 	weapon_id = "Survey Ship Flak Cannon"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "qA" = (
 /obj/machinery/conveyor{
 	dir = 10;
@@ -2267,7 +2399,7 @@
 	reversed = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "qB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -2280,7 +2412,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "qD" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/structure/cable{
@@ -2293,7 +2425,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/cryo)
 "qE" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -2307,7 +2439,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "qK" = (
 /obj/machinery/computer/ship/helm{
 	req_access = list(203);
@@ -2320,10 +2452,16 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "qR" = (
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
+"qV" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/coc_survey_ship/grauwolf)
 "qY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2331,13 +2469,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
-/obj/structure/bed/handrail{
-	buckle_dir = 4;
-	dir = 4;
-	pixel_x = -5
-	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "ra" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -2354,7 +2487,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/quarters)
 "rb" = (
 /obj/machinery/mineral/processing_unit_console{
 	id = "coalition_miner";
@@ -2365,7 +2498,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "rd" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/table/steel,
@@ -2377,7 +2510,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "ri" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -2390,7 +2523,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "rk" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -2399,7 +2532,7 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "rn" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -2423,7 +2556,7 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "rp" = (
 /obj/item/clothing/under/color/aqua,
 /obj/item/clothing/under/color/black,
@@ -2446,7 +2579,7 @@
 /obj/random/colored_jumpsuit,
 /obj/random/colored_jumpsuit,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "rq" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/laptop/preset/civilian{
@@ -2460,11 +2593,11 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "rt" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "rG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -2478,14 +2611,14 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "rR" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "rS" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 4
@@ -2495,17 +2628,17 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "rX" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "sc" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "sd" = (
 /obj/machinery/power/apc/south,
 /obj/structure/cable,
@@ -2524,8 +2657,11 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/machinery/door/airlock/hatch{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "sh" = (
 /obj/machinery/light{
 	brightness_power = 0.5;
@@ -2536,7 +2672,7 @@
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "sn" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -2555,7 +2691,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "so" = (
 /turf/simulated/floor/reinforced,
 /area/space)
@@ -2572,7 +2708,7 @@
 /obj/item/storage/box/gloves,
 /obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "sx" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -2583,7 +2719,7 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "sz" = (
 /obj/machinery/artifact_analyser{
 	pixel_y = 5
@@ -2591,7 +2727,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/machinery/door/window,
 /turf/simulated/floor/bluegrid,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "sH" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/computer/cryopod{
@@ -2601,12 +2737,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/cryo)
 "sI" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "sK" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 8
@@ -2614,7 +2750,7 @@
 /obj/effect/floor_decal/corner_wide/yellow,
 /obj/machinery/vending/tool,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "sL" = (
 /obj/effect/floor_decal/industrial/outline/red,
 /obj/machinery/power/portgen/basic/fusion,
@@ -2623,11 +2759,11 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/greengrid,
-/area/space)
+/area/coc_survey_ship/engineering)
 "sQ" = (
 /obj/machinery/atmospherics/unary/engine,
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "sT" = (
 /obj/machinery/light{
 	brightness_power = 0.5;
@@ -2640,11 +2776,14 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/hangar)
 "sV" = (
 /obj/machinery/vending/cigarette/merchant,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
+"tb" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/captain)
 "te" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -2661,8 +2800,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "th" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
@@ -2702,22 +2842,22 @@
 	identifier = "coc_surveyor"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/quarters)
 "ti" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/curtain/open/medical,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "tm" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "tr" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "tt" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -2727,7 +2867,7 @@
 /obj/structure/closet/radiation,
 /obj/machinery/light,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "ty" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -2736,13 +2876,13 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "tI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 10
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "tK" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -2752,13 +2892,19 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "tR" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/reinforced/steel,
 /obj/item/paper_bin,
 /obj/item/pen,
 /turf/simulated/floor/tiled/white,
+/area/coc_survey_ship/research)
+"tW" = (
+/obj/item/hullbeacon/green{
+	pixel_y = 28
+	},
+/turf/template_noop,
 /area/space)
 "tY" = (
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -2772,12 +2918,10 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "ug" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/mining/drill,
-/turf/simulated/floor/tiled/dark,
-/area/space)
+/turf/simulated/wall,
+/area/coc_survey_ship/bridge)
 "ui" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10;
@@ -2797,13 +2941,16 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"uk" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/mess_hall)
 "ul" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "uq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -2816,20 +2963,20 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "ut" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "uv" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "ux" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "uC" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -2837,7 +2984,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "uF" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 5
@@ -2855,7 +3002,7 @@
 /obj/item/clothing/accessory/storage/pouches/black,
 /obj/item/clothing/accessory/storage/pouches/black,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "uK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -2866,7 +3013,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "uQ" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -2877,7 +3024,7 @@
 	pixel_x = -5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "uR" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 1
@@ -2890,20 +3037,20 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "uU" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "starboard wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/cargo)
 "uV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "uW" = (
 /obj/structure/sign/flag/himeo{
 	pixel_y = -32
@@ -2912,14 +3059,14 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "uX" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "vd" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -2937,7 +3084,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "vk" = (
 /obj/machinery/door/airlock/command{
 	name = "Bridge"
@@ -2949,7 +3096,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/bridge)
 "vp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -2959,7 +3106,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "vs" = (
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -2976,7 +3123,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "vy" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/light{
@@ -2987,7 +3134,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "vI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9;
@@ -3002,7 +3149,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "vM" = (
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -3022,7 +3169,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "vR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
@@ -3037,21 +3184,21 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "vU" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "vX" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "vZ" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -3061,7 +3208,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "wd" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3071,7 +3218,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "wn" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/light{
@@ -3084,7 +3231,7 @@
 /obj/structure/closet/excavation,
 /obj/item/clothing/suit/storage/toggle/labcoat,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "wB" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -3101,7 +3248,7 @@
 	name = "Cyrogenic Storage"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/cryo)
 "wF" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -3109,7 +3256,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue,
 /obj/machinery/computer/ship/engines,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "wH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3118,7 +3265,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "wK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -3127,7 +3274,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
+"wL" = (
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/full,
+/area/coc_survey_ship/miningeva)
 "wM" = (
 /obj/effect/floor_decal/corner_wide/yellow/full,
 /obj/effect/floor_decal/corner_wide/white{
@@ -3138,7 +3291,10 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
+"wN" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/engineering)
 "wQ" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 6
@@ -3153,7 +3309,7 @@
 	start_pressure = 8000
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "wS" = (
 /obj/item/bedsheet,
 /obj/structure/bed/padded,
@@ -3163,13 +3319,13 @@
 	identifier = "coc_surveyor_captain"
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "wT" = (
 /obj/structure/cable{
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "wU" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -3183,7 +3339,7 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "wV" = (
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
 /area/space)
@@ -3199,7 +3355,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "xe" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -3208,13 +3364,16 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
+"xi" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/cargo)
 "xj" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "xs" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -3225,7 +3384,7 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "xu" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -3244,12 +3403,12 @@
 	layer = 2.81
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "xw" = (
 /obj/machinery/telecomms/allinone/ship,
 /obj/effect/decal/cleanable/cobweb,
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/coc_survey_ship/engineering)
 "xB" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -3269,6 +3428,15 @@
 	name = "adjusted light fixture";
 	pixel_y = 19
 	},
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/ship_ammunition/grauwolf_probe,
 /turf/simulated/floor/reinforced,
 /area/space)
 "xC" = (
@@ -3291,7 +3459,10 @@
 	dir = 4
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
+"xH" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/atmos)
 "xI" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -3305,14 +3476,10 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "xQ" = (
-/obj/effect/floor_decal/industrial/outline/research,
-/obj/machinery/mining/brace{
-	dir = 8
-	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "xS" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/reinforced,
@@ -3321,7 +3488,7 @@
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "xX" = (
 /obj/effect/landmark/entry_point/aft{
 	name = "starboard"
@@ -3338,7 +3505,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "yn" = (
 /obj/structure/cable{
 	icon_state = "1-8"
@@ -3349,14 +3516,14 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "yv" = (
 /obj/item/reagent_containers/food/snacks/monkeycube/wrapped{
 	name = "garn cube";
 	desc = "add a monkey named garnascus. a monkey cube if it has to be subtle -geeves "
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/engineering)
 "yw" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/effect/floor_decal/corner_wide/paleblue{
@@ -3364,14 +3531,17 @@
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "yA" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
+"yF" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/medical)
 "yI" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -3392,7 +3562,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "yK" = (
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide{
 	start_pressure = 8000.63
@@ -3401,7 +3571,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "yQ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 1
@@ -3418,12 +3588,12 @@
 	},
 /obj/structure/cable/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "yV" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/effect/floor_decal/industrial/loading/yellow,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "yW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -3433,7 +3603,7 @@
 	},
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "yX" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/power/apc/east,
@@ -3441,7 +3611,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "yY" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/light{
@@ -3453,29 +3623,30 @@
 	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "yZ" = (
 /obj/structure/sign/flag/assunzione,
 /turf/simulated/wall,
-/area/space)
+/area/coc_survey_ship/bridge)
 "za" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/docking,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "zc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 4
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "zf" = (
 /obj/structure/bed/roller,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "zg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3488,13 +3659,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "zj" = (
 /obj/structure/bed/stool/chair/padded/black{
 	dir = 1
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "zo" = (
 /obj/structure/closet/cabinet,
 /obj/item/gun/energy/plasmacutter,
@@ -3529,7 +3700,7 @@
 /obj/random/spacecash,
 /obj/random/spacecash,
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "zr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 1
@@ -3537,6 +3708,12 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/meter,
 /turf/simulated/floor,
+/area/coc_survey_ship/port_propulsion)
+"zs" = (
+/obj/item/hullbeacon/red{
+	pixel_y = 28
+	},
+/turf/template_noop,
 /area/space)
 "zx" = (
 /obj/machinery/light{
@@ -3550,7 +3727,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "zA" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/mechanical{
@@ -3559,7 +3736,7 @@
 /obj/item/storage/belt/utility,
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "zF" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/table/rack,
@@ -3570,6 +3747,15 @@
 /obj/item/ship_ammunition/grauwolf_probe{
 	pixel_x = 4;
 	pixel_y = 4
+	},
+/obj/item/ship_ammunition/grauwolf_probe,
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_x = 4;
+	pixel_y = 4
+	},
+/obj/item/ship_ammunition/grauwolf_probe{
+	pixel_y = -4;
+	pixel_x = -4
 	},
 /obj/item/ship_ammunition/grauwolf_probe,
 /turf/simulated/floor/reinforced,
@@ -3588,7 +3774,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "zM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -3603,26 +3789,26 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "zP" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/meter,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "zS" = (
 /obj/machinery/door/blast/regular{
 	id = "pirate_core_shunt"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Ac" = (
 /obj/machinery/cryopod{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/cryo)
 "Ag" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -3632,7 +3818,7 @@
 "Ai" = (
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Ak" = (
 /obj/effect/floor_decal/corner_wide/black/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -3655,7 +3841,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Am" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/storage/toolbox/mechanical,
@@ -3664,13 +3850,16 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"An" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/cryo)
 "Ap" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 9
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Aw" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 4
@@ -3680,7 +3869,7 @@
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "Ax" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -3691,7 +3880,7 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "AG" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = null
@@ -3718,7 +3907,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "AO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -3733,7 +3922,7 @@
 	layer = 2.81
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "AY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3745,25 +3934,28 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
+"Bd" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/research)
 "Bi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "Bm" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Bn" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
 /obj/effect/floor_decal/corner_wide/paleblue,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Bo" = (
 /turf/space/transit/east,
 /area/space)
@@ -3779,14 +3971,14 @@
 	},
 /obj/effect/floor_decal/corner_wide/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Bv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "BC" = (
 /obj/machinery/atmospherics/portables_connector,
 /obj/effect/floor_decal/corner_wide/yellow{
@@ -3807,7 +3999,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "BJ" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -3820,15 +4012,15 @@
 	pixel_y = 1
 	},
 /turf/simulated/floor/bluegrid,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "BK" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "BM" = (
 /obj/machinery/recharge_station,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "BR" = (
 /obj/effect/floor_decal/corner_wide/yellow,
 /obj/effect/floor_decal/corner_wide/white{
@@ -3847,7 +4039,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "BS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -3858,13 +4050,13 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "BU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "BV" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 4
@@ -3874,7 +4066,7 @@
 	},
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "BW" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /obj/machinery/light{
@@ -3885,7 +4077,7 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "BX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -3900,11 +4092,11 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "Ca" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/cryo)
 "Cd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -3913,21 +4105,14 @@
 	pixel_y = -8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Ch" = (
-/obj/machinery/power/apc/north,
-/obj/structure/cable{
-	icon_state = "0-8"
-	},
-/obj/effect/floor_decal/corner_wide/paleblue{
-	dir = 5
-	},
-/turf/simulated/floor/tiled,
-/area/space)
+/turf/simulated/wall,
+/area/coc_survey_ship/quarters)
 "Cm" = (
 /obj/machinery/computer/ship/helm/terminal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Cn" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3942,19 +4127,22 @@
 	},
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
+"Ct" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/research)
 "Cx" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/floodlight{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "CA" = (
 /obj/structure/ship_weapon_dummy,
 /obj/structure/ship_weapon_dummy/barrel,
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "CC" = (
 /obj/effect/floor_decal/corner_wide/yellow,
 /obj/effect/floor_decal/corner_wide/white{
@@ -3970,11 +4158,18 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "CF" = (
 /obj/machinery/radiocarbon_spectrometer,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/research)
+"CG" = (
+/obj/effect/floor_decal/industrial/outline/research,
+/obj/machinery/mining/brace{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "CL" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_coc_surveyor_dock_port";
@@ -3987,7 +4182,7 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/atmos)
 "CQ" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_coc_surveyor_dock_port";
@@ -3999,7 +4194,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/atmos)
 "CS" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -4011,7 +4206,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "CT" = (
 /obj/item/clothing/head/vysoka/blue,
 /obj/item/clothing/head/vysoka/blue,
@@ -4050,7 +4245,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "CW" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/power/apc/north,
@@ -4058,11 +4253,14 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "CZ" = (
 /obj/effect/shuttle_landmark/coc_survey_ship/nav4,
 /turf/template_noop,
 /area/space)
+"Da" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/starboard_propulsion)
 "Df" = (
 /obj/item/reagent_containers/food/snacks/meat,
 /obj/item/reagent_containers/food/snacks/meat,
@@ -4085,13 +4283,13 @@
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
 /obj/item/reagent_containers/food/drinks/carton/soymilk,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "Dh" = (
 /obj/structure/railing/mapped{
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "Di" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 451;
@@ -4099,20 +4297,20 @@
 	dir = 8
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Dp" = (
 /obj/machinery/door/firedoor,
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "Ds" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Dy" = (
 /obj/machinery/power/apc/east,
 /obj/effect/decal/cleanable/generic{
@@ -4122,42 +4320,46 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Dz" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light,
 /obj/structure/anomaly_container,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "DB" = (
 /obj/effect/floor_decal/corner_wide/orange/full,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "DD" = (
 /obj/structure/table/steel,
 /obj/item/rig/light/offworlder,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "DE" = (
 /obj/machinery/portable_atmospherics/canister/hydrogen,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "DH" = (
 /obj/structure/table/stone/marble,
 /obj/machinery/door/firedoor,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/kitchen)
+"DL" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/miningeva)
 "DN" = (
 /obj/structure/table/steel,
 /obj/machinery/recharger,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "DO" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "DR" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
@@ -4170,7 +4372,7 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "DT" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -4180,7 +4382,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/cryo)
 "Ea" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -4196,7 +4398,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Eb" = (
 /obj/item/hullbeacon/green,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -4205,11 +4407,11 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Ef" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "Eo" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Power"
@@ -4226,7 +4428,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Es" = (
 /obj/structure/cable{
 	icon_state = "4-8"
@@ -4254,7 +4456,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "EF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4269,12 +4471,12 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "EI" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "EJ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -4283,7 +4485,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/quarters)
 "EN" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -4292,7 +4494,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "ER" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -4300,21 +4502,22 @@
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "EU" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "EX" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "starboard thrusters"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Fd" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -4353,14 +4556,17 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
+"Fp" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/grauwolf)
 "Fr" = (
 /obj/machinery/vending/cola{
 	name = "hacked Robust Softdrinks";
 	prices = list()
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Fs" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -4375,14 +4581,15 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Fw" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
 	},
+/obj/structure/cable{
+	icon_state = "0-8"
+	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled,
 /area/space)
 "FB" = (
@@ -4400,14 +4607,14 @@
 /obj/item/storage/box/gloves,
 /obj/item/clothing/glasses/science,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "FC" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "FJ" = (
 /obj/structure/cable{
 	icon_state = "1-4"
@@ -4422,26 +4629,26 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "FK" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "FM" = (
 /obj/machinery/atmospherics/unary/engine,
 /obj/effect/landmark/entry_point/aft{
 	name = "port thrusters"
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "FO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/red{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "FU" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -4453,7 +4660,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "FZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 8
@@ -4462,14 +4669,14 @@
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Ga" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /obj/machinery/power/apc/east,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "Gc" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/east,
@@ -4483,7 +4690,7 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Gn" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -4492,7 +4699,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/coc_survey_ship/cargo)
 "GG" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate/loot,
@@ -4504,19 +4711,20 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "GH" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/mop,
 /obj/structure/janitorialcart/full,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "GI" = (
 /obj/structure/cable/yellow{
 	icon_state = "1-4"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "GL" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -4538,7 +4746,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "GR" = (
 /obj/structure/bed/handrail{
 	buckle_dir = 8;
@@ -4547,7 +4755,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "GS" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -4558,25 +4766,23 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "GU" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "GY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/obj/structure/bed/handrail{
-	buckle_dir = 4;
-	dir = 4;
-	pixel_x = -5
-	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Hp" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -4586,32 +4792,35 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "Ht" = (
 /obj/machinery/vending/dinnerware,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "Hx" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Hy" = (
 /obj/structure/bed/stool/bar/padded/brown{
 	dir = 1
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
+"HC" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/medical)
 "HF" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/computer/ship/sensors{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "HG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -4620,11 +4829,11 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "HH" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "HI" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_coc_surveyor_dock_starboard";
@@ -4646,7 +4855,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "HL" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -4658,7 +4867,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "HN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/purple/diagonal,
@@ -4669,7 +4878,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "HP" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/mech_recharger,
@@ -4679,13 +4888,25 @@
 "HS" = (
 /obj/structure/closet/toolcloset,
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"HT" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 8
+	},
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/hangar)
 "Id" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"Ig" = (
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/full,
+/area/coc_survey_ship/hangar)
 "Ih" = (
 /obj/effect/landmark/entry_point/port{
 	name = "port cheek"
@@ -4699,7 +4920,7 @@
 	name = "Reactor Room"
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Iv" = (
 /obj/structure/bed/roller,
 /obj/structure/bed/handrail,
@@ -4713,7 +4934,7 @@
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Iy" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 9
@@ -4725,7 +4946,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "IA" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -4735,7 +4956,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "IC" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -4761,7 +4982,7 @@
 /obj/item/stack/material/plastic/full,
 /obj/item/gun/energy/plasmacutter,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "ID" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4773,7 +4994,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "IG" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector/aux{
@@ -4787,11 +5008,11 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "IN" = (
 /obj/structure/sign/flag/konyang,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/bridge)
 "IP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
@@ -4806,15 +5027,16 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "IR" = (
 /obj/machinery/sleeper{
 	dir = 8
 	},
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "IS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -4832,14 +5054,19 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"IX" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor/airless,
+/area/coc_survey_ship/port_propulsion)
 "Jg" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Jl" = (
 /obj/machinery/computer/general_air_control/large_tank_control{
 	frequency = 451;
@@ -4855,13 +5082,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Jm" = (
 /obj/structure/table/steel,
 /obj/item/storage/bag/sheetsnatcher,
 /obj/item/storage/bag/sheetsnatcher,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Jt" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 5
@@ -4884,16 +5111,16 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "JD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "JI" = (
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "JK" = (
 /obj/machinery/atmospherics/portables_connector{
 	dir = 8;
@@ -4903,11 +5130,11 @@
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "JM" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "JN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4922,12 +5149,12 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "JP" = (
 /obj/machinery/iv_drip,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "JR" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
@@ -4944,7 +5171,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/cargo)
 "JW" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -4960,7 +5187,7 @@
 	icon_state = "2-8"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Kc" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 10
@@ -4980,7 +5207,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Kf" = (
 /obj/effect/shuttle_landmark/coc_survey_ship/nav2,
 /turf/template_noop,
@@ -5005,7 +5232,7 @@
 	},
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "Ku" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -5015,14 +5242,15 @@
 	pixel_y = 0
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "KC" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "port wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/quarters)
 "KD" = (
 /obj/item/bedsheet/black,
 /obj/item/bedsheet/black{
@@ -5062,7 +5290,7 @@
 	identifier = "coc_surveyor"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/quarters)
 "KH" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 1
@@ -5078,7 +5306,7 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "KL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5095,7 +5323,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "KO" = (
 /obj/item/hullbeacon/red,
 /obj/effect/floor_decal/industrial/warning/dust{
@@ -5104,7 +5332,7 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/airless,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "KQ" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5114,7 +5342,7 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "KT" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -5124,7 +5352,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "KX" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_coc_surveyor_dock_port";
@@ -5144,7 +5372,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/coc_survey_ship/atmos)
 "KZ" = (
 /obj/structure/cable/green{
 	icon_state = "4-8"
@@ -5160,14 +5388,25 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Lk" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/closet/crate{
 	name = "DANGER - FLAMMABLE"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
+"Lm" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/structure/lattice/catwalk/indoor/grate,
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "Ln" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -5179,27 +5418,27 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "Lo" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Lq" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
 /mob/living/heavy_vehicle/premade/miner,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Lr" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Lu" = (
 /obj/machinery/atmospherics/binary/pump/high_power{
 	dir = 1
@@ -5211,7 +5450,10 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
+"Lv" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/engineering)
 "Lx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -5224,17 +5466,17 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "LE" = (
 /obj/structure/ship_weapon_dummy,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "LG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "LL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -5250,17 +5492,17 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "LM" = (
 /obj/structure/sign/flag/vysoka,
 /turf/simulated/wall,
-/area/space)
+/area/coc_survey_ship/bridge)
 "LQ" = (
 /obj/machinery/computer/ship/engines{
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "LR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5271,12 +5513,12 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "LX" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full,
 /obj/structure/table/reinforced/steel,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Mj" = (
 /obj/machinery/conveyor{
 	id = "Coallit_Mining_1";
@@ -5284,26 +5526,26 @@
 	},
 /obj/structure/plasticflaps/mining,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Mn" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "Ms" = (
 /obj/machinery/power/apc/east,
 /obj/structure/cable/yellow{
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Mt" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /obj/effect/landmark/entry_point/fore,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Mx" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 9
@@ -5316,11 +5558,10 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "My" = (
-/obj/item/hullbeacon/red,
-/turf/simulated/floor/airless,
-/area/space)
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/atmos)
 "MD" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5331,7 +5572,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "MF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -5358,10 +5599,10 @@
 	pixel_y = -5
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "MH" = (
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "MJ" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -5372,7 +5613,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "MR" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5382,7 +5623,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "MY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -5409,7 +5650,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/hangar)
 "Nc" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -5425,7 +5666,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "Nf" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -5440,7 +5681,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Nk" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/table/reinforced/steel,
@@ -5456,7 +5697,7 @@
 /obj/item/storage/box/beakers,
 /obj/item/stack/nanopaste,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "Nq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -5468,13 +5709,13 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "Nr" = (
 /obj/effect/floor_decal/corner_wide/paleblue/full{
 	dir = 4
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "Ny" = (
 /obj/machinery/power/apc/south,
 /obj/structure/cable{
@@ -5482,17 +5723,23 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "Nz" = (
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
+"NJ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 9
+	},
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/port_propulsion)
 "NL" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "NO" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
@@ -5500,7 +5747,7 @@
 	pixel_y = 18
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "NR" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/machinery/atmospherics/portables_connector/supply{
@@ -5511,18 +5758,20 @@
 	icon_state = "warning"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "NT" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 8
 	},
 /obj/machinery/mineral/equipment_vendor,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
+"NV" = (
+/turf/simulated/floor,
+/area/coc_survey_ship/starboard_propulsion)
 "NZ" = (
-/obj/item/hullbeacon/green,
-/turf/simulated/floor/airless,
-/area/space)
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/grauwolf)
 "Oa" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
@@ -5537,13 +5786,13 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Oi" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/hangar)
 "Ol" = (
 /obj/machinery/computer/ship/navigation{
 	dir = 1
@@ -5555,7 +5804,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Os" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -5565,7 +5814,7 @@
 	req_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Oz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5578,7 +5827,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "OE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -5590,14 +5839,14 @@
 	name = "Mess Room"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "OH" = (
 /obj/structure/viewport,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore flak"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "OL" = (
 /obj/effect/floor_decal/industrial/loading/yellow{
 	dir = 8
@@ -5606,7 +5855,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "ON" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "fore"
@@ -5628,7 +5877,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "OX" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5645,7 +5894,7 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "OY" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5654,7 +5903,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Pa" = (
 /obj/machinery/power/smes/buildable/horizon_shuttle{
 	name = "SMES"
@@ -5664,7 +5913,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Pd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -5677,7 +5926,7 @@
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "Pf" = (
 /obj/structure/table/rack,
 /obj/item/clothing/shoes/magboots,
@@ -5695,7 +5944,7 @@
 	},
 /obj/item/device/suit_cooling_unit,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Pg" = (
 /obj/effect/floor_decal/corner_wide/orange/full{
 	dir = 1
@@ -5705,7 +5954,7 @@
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Pk" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 1
@@ -5718,7 +5967,7 @@
 	icon_state = "0-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Pq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -5730,7 +5979,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Pr" = (
 /obj/effect/shuttle_landmark/coc_survey_ship/nav1,
 /turf/template_noop,
@@ -5752,13 +6001,13 @@
 	pixel_x = 7
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "Pt" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "PG" = (
 /turf/template_noop,
 /area/space)
@@ -5778,20 +6027,21 @@
 	},
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "PV" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
 	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "PX" = (
 /obj/structure/cable/yellow{
 	icon_state = "2-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "PZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -5800,7 +6050,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Qa" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
@@ -5814,7 +6064,7 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "Qc" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 5
@@ -5824,7 +6074,7 @@
 	pixel_y = 32
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Qe" = (
 /obj/machinery/mech_recharger,
 /obj/structure/bed/handrail{
@@ -5833,7 +6083,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Qh" = (
 /obj/structure/table/steel,
 /obj/item/storage/firstaid/fire{
@@ -5854,20 +6104,20 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "Ql" = (
 /obj/machinery/mineral/stacking_machine{
 	id = "coalit_stacker_1"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Qt" = (
 /obj/structure/sign/radiation{
 	pixel_x = 32;
 	pixel_y = -32
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Qu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -5877,7 +6127,7 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "Qv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -5888,8 +6138,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "1-2"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Qx" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_coc_surveyor_dock_port";
@@ -5906,7 +6157,7 @@
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/atmos)
 "QI" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers{
 	dir = 8
@@ -5918,10 +6169,10 @@
 	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "QJ" = (
 /turf/simulated/floor/tiled/ridged,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "QK" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -5940,7 +6191,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "QL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -5955,7 +6206,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "QP" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
@@ -5965,7 +6216,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "QT" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	master_tag = "airlock_coc_surveyor_dock_port";
@@ -5974,7 +6225,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/atmos)
 "QU" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
@@ -5982,10 +6233,10 @@
 	name = "Starboard Interstitial"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "QV" = (
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "QY" = (
 /obj/effect/floor_decal/corner_wide/red/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5998,13 +6249,13 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Rh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Rm" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable{
@@ -6032,7 +6283,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "Rv" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "port"
@@ -6049,11 +6300,11 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "RJ" = (
 /obj/structure/table/steel,
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "RM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6062,14 +6313,18 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "RP" = (
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"RS" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/bridge)
 "RT" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/power/apc/west,
@@ -6078,7 +6333,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "RV" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -6091,7 +6346,7 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/black,
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "RW" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -6112,7 +6367,7 @@
 /obj/item/device/multitool,
 /obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "RY" = (
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/hatch{
@@ -6120,7 +6375,7 @@
 	name = "Starboard Interstitial"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "RZ" = (
 /obj/machinery/light{
 	brightness_power = 0.5;
@@ -6152,21 +6407,21 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Sl" = (
 /obj/machinery/atmospherics/binary/passive_gate/supply{
 	target_pressure = 250;
 	dir = 4
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Sn" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/cryo)
 "Sq" = (
 /obj/machinery/conveyor{
 	dir = 8;
@@ -6174,11 +6429,11 @@
 	layer = 2.9
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Sy" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Sz" = (
 /obj/machinery/shipsensors/strong,
 /obj/structure/railing/mapped,
@@ -6186,14 +6441,14 @@
 	dir = 8
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/bridge)
 "SC" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/computer/ship/targeting{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "SE" = (
 /obj/machinery/door/airlock/hatch{
 	dir = 4;
@@ -6210,14 +6465,14 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/quarters)
 "SH" = (
 /obj/structure/plasticflaps/airtight{
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/plating/cooled,
-/area/space)
+/area/coc_survey_ship/engineering)
 "SJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/yellow{
 	dir = 6
@@ -6226,7 +6481,7 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "SK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6238,14 +6493,14 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "SO" = (
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "ST" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -6258,7 +6513,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "SU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6268,7 +6523,7 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "SW" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/machinery/light{
@@ -6280,7 +6535,7 @@
 	},
 /obj/structure/closet/crate,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "SZ" = (
 /obj/effect/floor_decal/corner_wide/red/full,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6297,13 +6552,13 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Tb" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Tc" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 10
@@ -6318,7 +6573,7 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Tf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -6332,7 +6587,10 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
+"Ti" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/anomaly)
 "Tj" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/structure/cable{
@@ -6340,7 +6598,11 @@
 	},
 /obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
+"Tm" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/captain)
 "To" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -6353,7 +6615,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Tp" = (
 /obj/structure/table/stone/marble,
 /obj/effect/floor_decal/corner_wide/paleblue/full{
@@ -6367,7 +6629,7 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Tq" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -6379,7 +6641,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "TF" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering";
@@ -6396,20 +6658,20 @@
 	},
 /obj/machinery/door/firedoor,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/coc_survey_ship/atmos)
 "TI" = (
 /obj/machinery/mineral/equipment_vendor,
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "TJ" = (
 /obj/structure/cable{
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "TL" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor,
@@ -6422,7 +6684,7 @@
 	},
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Ud" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6;
@@ -6436,8 +6698,9 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Uf" = (
 /obj/structure/table/steel,
 /obj/item/clothing/under/rank/medical/surgeon,
@@ -6445,9 +6708,11 @@
 /obj/item/clothing/mask/surgical,
 /obj/item/storage/firstaid/surgery,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
-/obj/item/storage/firstaid/surgery,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
+"Uj" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/kitchen)
 "Uk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6463,7 +6728,7 @@
 	layer = 2.9
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Un" = (
 /obj/machinery/power/apc/south,
 /obj/structure/cable{
@@ -6471,7 +6736,7 @@
 	icon_state = "0-4"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Uv" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /obj/structure/bed/handrail{
@@ -6480,7 +6745,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Uw" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -6490,18 +6755,18 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Uy" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
 	},
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "UA" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden,
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "UD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6511,7 +6776,7 @@
 	},
 /obj/effect/floor_decal/corner/purple/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "UF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -6520,16 +6785,19 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "UI" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "UL" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /obj/machinery/recharge_station,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "UM" = (
 /obj/effect/landmark/entry_point/fore{
 	name = "fore cheek"
@@ -6569,12 +6837,12 @@
 	name = "Passcards"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "UR" = (
 /obj/machinery/appliance/cooker/stove,
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "US" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 4
@@ -6592,13 +6860,13 @@
 	dir = 6
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "UW" = (
 /obj/structure/table/steel,
 /obj/item/mining_scanner,
 /obj/item/device/hand_labeler,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "UY" = (
 /obj/structure/dispenser/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6609,7 +6877,7 @@
 	name = "Oxygen Supplies Access"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Va" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -6627,11 +6895,11 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "Vr" = (
 /obj/effect/floor_decal/corner/lime/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Vy" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -6645,7 +6913,7 @@
 	name = "Oxygen Supplies Access"
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "VA" = (
 /obj/machinery/light{
 	name = "adjusted light fixture"
@@ -6654,20 +6922,20 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "VI" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/portable_atmospherics/powered/pump/filled,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "VM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/structure/ore_box,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/cargo)
 "VP" = (
 /turf/simulated/wall/shuttle/dark/cardinal/coalition,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "VX" = (
 /obj/machinery/air_sensor{
 	frequency = 451;
@@ -6679,13 +6947,13 @@
 	id = "survey_sensor_in_port"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Wb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Wd" = (
 /obj/structure/bed/handrail{
 	buckle_dir = 8;
@@ -6693,7 +6961,7 @@
 	pixel_x = 5
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "We" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -6701,7 +6969,7 @@
 	},
 /obj/machinery/atmospherics/binary/passive_gate/supply,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Wg" = (
 /obj/structure/table/wood,
 /obj/machinery/media/jukebox/audioconsole{
@@ -6711,12 +6979,12 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Wn" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/red,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Wo" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
@@ -6726,7 +6994,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "Wq" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -6742,7 +7010,10 @@
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
+"Wt" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/captain)
 "Wv" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -6760,7 +7031,18 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"Ww" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/turf/simulated/floor,
+/area/coc_survey_ship/cargo)
 "WC" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 6
@@ -6769,7 +7051,12 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
+"WJ" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/machinery/mining/drill,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "WM" = (
 /obj/effect/map_effect/marker/airlock/docking{
 	name = "airlock_coc_surveyor_dock_starboard";
@@ -6781,17 +7068,23 @@
 	dir = 1
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
 "WO" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"WP" = (
+/obj/effect/floor_decal/corner_wide/paleblue/full{
+	dir = 1
+	},
+/turf/simulated/floor/tiled,
+/area/coc_survey_ship/grauwolf)
 "WR" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard aft wing"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/cargo)
 "WW" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
@@ -6813,7 +7106,7 @@
 	dir = 8
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "WY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -6831,14 +7124,14 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/hangar)
 "WZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/siphon/on/atmos{
 	frequency = 451;
 	id_tag = "survey_co2_out_port"
 	},
 /turf/simulated/floor/reinforced/carbon_dioxide,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Xc" = (
 /obj/machinery/light{
 	brightness_power = 0.5;
@@ -6852,7 +7145,7 @@
 	start_pressure = 8000.63
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "Xh" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -6861,8 +7154,11 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/docking,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/hangar)
 "Xj" = (
 /obj/machinery/computer/ship/sensors{
 	dir = 1
@@ -6874,7 +7170,7 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "Xl" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/machinery/light{
@@ -6885,7 +7181,7 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/research)
 "Xo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
@@ -6899,7 +7195,10 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/cargo)
+"Xp" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/quarters)
 "Xq" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -6909,14 +7208,14 @@
 	dir = 9
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
 "Xu" = (
 /obj/machinery/power/apc/north,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
 /turf/simulated/floor/carpet/rubber,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Xx" = (
 /obj/structure/table/rack,
 /obj/item/rig/industrial/himeo,
@@ -6931,7 +7230,7 @@
 	req_one_access = null
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "XC" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/structure/sink{
@@ -6949,14 +7248,14 @@
 	pixel_x = -10
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "XD" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6;
 	pixel_y = 0
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "XK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -6969,11 +7268,11 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/port_propulsion)
 "XL" = (
 /obj/machinery/computer/ship/sensors/terminal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "XO" = (
 /obj/machinery/iff_beacon/name_change,
 /obj/structure/railing/mapped,
@@ -6981,7 +7280,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/coc_survey_ship/bridge)
 "XP" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9;
@@ -6996,7 +7295,7 @@
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/bed/stool/chair/office/bridge/pilot,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
 "XU" = (
 /obj/effect/floor_decal/corner_wide/paleblue{
 	dir = 10
@@ -7008,24 +7307,28 @@
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/bridge)
+"XW" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
+/turf/simulated/floor,
+/area/coc_survey_ship/mess_hall)
 "Yd" = (
 /obj/structure/bed/stool/chair/shuttle{
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Yf" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /obj/machinery/door/airlock/external,
 /turf/simulated/floor/tiled/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Yg" = (
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard flak"
 	},
 /turf/simulated/wall/shuttle/dark/cardinal/blue,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "Ym" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -7038,7 +7341,14 @@
 	pixel_x = 10
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
+"Yn" = (
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/mining/brace{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "Yq" = (
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/effect/map_effect/marker/airlock/docking{
@@ -7058,11 +7368,11 @@
 	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
-/area/space)
+/area/coc_survey_ship/cargo)
 "Yv" = (
 /obj/effect/floor_decal/corner_wide/white/diagonal,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/coc_survey_ship/mess_hall)
 "Yw" = (
 /obj/effect/landmark/entry_point/port{
 	name = "engines"
@@ -7075,21 +7385,27 @@
 	id = "coalition_miner"
 	},
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
+"Yy" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/ship/landable/coc_survey_shuttle,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "YA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "YB" = (
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /obj/machinery/power/apc/west,
 /obj/structure/table/stone/marble,
 /obj/structure/cable,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/kitchen)
 "YC" = (
 /obj/structure/ore_box,
 /obj/effect/floor_decal/industrial/outline/yellow,
@@ -7101,21 +7417,24 @@
 	pixel_y = 19
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "YJ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/carpet/lightblue,
-/area/space)
+/area/coc_survey_ship/captain)
 "YR" = (
 /obj/effect/floor_decal/corner/purple/diagonal,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/research)
+"YS" = (
+/turf/simulated/wall,
+/area/coc_survey_ship/starboard_propulsion)
 "YT" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
 /obj/item/ship_ammunition/grauwolf_bundle,
@@ -7138,7 +7457,7 @@
 	dir = 2
 	},
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "YW" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
@@ -7146,14 +7465,14 @@
 /obj/machinery/power/apc/east,
 /obj/structure/cable,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/grauwolf)
 "Zb" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "Zc" = (
 /obj/effect/shuttle_landmark/coc_survey_shuttle/hangar{
 	dir = 4
@@ -7163,7 +7482,7 @@
 "Zd" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/reinforced,
-/area/space)
+/area/coc_survey_ship/engineering)
 "Zg" = (
 /obj/item/clothing/accessory/flagpatch/konyang,
 /obj/item/clothing/accessory/flagpatch/konyang,
@@ -7189,7 +7508,7 @@
 	name = "Flagpatches"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/quarters)
 "Zh" = (
 /obj/item/storage/firstaid/adv{
 	pixel_x = 4
@@ -7205,7 +7524,7 @@
 /obj/item/reagent_containers/hypospray/autoinjector/hyronalin,
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "Zj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
@@ -7214,15 +7533,16 @@
 	dir = 10;
 	pixel_y = 0
 	},
+/obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Zk" = (
 /obj/machinery/door/window{
 	dir = 4
 	},
 /obj/machinery/artifact_scanpad,
 /turf/simulated/floor/bluegrid,
-/area/space)
+/area/coc_survey_ship/anomaly)
 "Zn" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -7233,7 +7553,7 @@
 	},
 /obj/machinery/meter,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "Zo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -7242,7 +7562,7 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Zp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5
@@ -7254,11 +7574,14 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
+"Zq" = (
+/turf/simulated/wall/shuttle/dark/cardinal/blue,
+/area/coc_survey_ship/port_propulsion)
 "Zw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "Zy" = (
 /obj/effect/floor_decal/corner_wide/orange{
 	dir = 10
@@ -7267,14 +7590,14 @@
 	dir = 5
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/miningeva)
 "Zz" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
 	},
 /obj/structure/bed/handrail,
 /turf/simulated/floor/tiled/dark,
-/area/space)
+/area/shuttle/coc_survey_shuttle)
 "ZB" = (
 /obj/effect/floor_decal/corner_wide/paleblue/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7288,7 +7611,7 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/tiled/white,
-/area/space)
+/area/coc_survey_ship/medical)
 "ZL" = (
 /obj/effect/shuttle_landmark/coc_survey_shuttle/transit{
 	dir = 4
@@ -7306,7 +7629,7 @@
 /obj/item/tank/hydrogen/shuttle,
 /obj/item/tank/hydrogen/shuttle,
 /turf/simulated/floor,
-/area/space)
+/area/coc_survey_ship/starboard_propulsion)
 "ZP" = (
 /obj/effect/floor_decal/corner_wide/yellow{
 	dir = 9
@@ -7320,7 +7643,7 @@
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 "ZZ" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -7337,7 +7660,7 @@
 	icon_state = "1-8"
 	},
 /turf/simulated/floor/tiled,
-/area/space)
+/area/coc_survey_ship/atmos)
 
 (1,1,1) = {"
 PG
@@ -14544,10 +14867,10 @@ PG
 PG
 PG
 PG
-wV
+xi
 vs
 vM
-wV
+xi
 PG
 PG
 PG
@@ -14682,25 +15005,25 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
-wV
-wV
+Da
+Da
+Da
+Da
+Da
+Da
+Da
 PG
 PG
 PG
 PG
 PG
-wV
-wV
-wV
+xi
+xi
+xi
 WM
 kD
-wV
-wV
+xi
+xi
 PG
 PG
 PG
@@ -14831,31 +15154,31 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
-wV
+Da
+Da
+Da
+Da
+Da
+Da
 yK
 ZM
 DE
-wV
-wV
-wV
+Da
+Da
+xi
 WR
-wV
-wV
-wV
+xi
+xi
+xi
 rS
-wV
+xi
 HI
 aV
-wV
-wV
-wV
-wV
-wV
+xi
+xi
+xi
+xi
+xi
 PG
 PG
 PG
@@ -14984,26 +15307,26 @@ PG
 PG
 PG
 sQ
-fc
-VI
+lH
+lv
 LQ
 cn
-XR
-gO
-UI
+YS
+mc
+NV
 ie
 Un
-XR
+YS
 Lk
 kH
 rt
 rt
 VM
 Bi
-wV
+xi
 Yq
 cG
-wV
+xi
 oX
 GG
 uv
@@ -15136,7 +15459,7 @@ PG
 PG
 PG
 EX
-UA
+op
 zP
 qm
 rG
@@ -15148,7 +15471,7 @@ lc
 Tf
 mo
 Vh
-LR
+Lm
 uK
 uK
 jN
@@ -15159,7 +15482,7 @@ bm
 Pd
 QV
 uv
-wV
+xi
 PG
 PG
 PG
@@ -15292,14 +15615,14 @@ Ap
 SO
 hX
 Wb
-XR
+YS
 Xc
 df
 Ds
 oF
-XR
+YS
 Gn
-Tb
+ii
 ux
 QV
 QV
@@ -15311,8 +15634,8 @@ QV
 SK
 QV
 Dz
-wV
-wV
+xi
+xi
 PG
 PG
 PG
@@ -15439,17 +15762,17 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
-wV
+Da
+Da
+Da
+Da
+Da
+Da
 xj
 Hx
 fp
 fY
-XR
+YS
 SW
 rt
 kH
@@ -15464,8 +15787,8 @@ AM
 QV
 QV
 uv
-wV
-wV
+xi
+xi
 PG
 PG
 PG
@@ -15595,33 +15918,33 @@ PG
 PG
 PG
 PG
-wV
-wV
+Da
+Da
 cr
 iY
 bM
 FC
-XR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
+YS
+iJ
+iJ
+iJ
+iJ
+iJ
+iJ
+iJ
+iJ
+iJ
+iJ
 bN
 QV
 ux
 QV
 GH
-wV
-wV
-wV
-wV
-wV
+eh
+eh
+eh
+eh
+eh
 PG
 PG
 PG
@@ -15748,33 +16071,33 @@ PG
 PG
 PG
 PG
-wV
-wV
+Da
+Da
 gx
 eo
 Di
-XR
+YS
 mi
 RT
 ti
 Uf
 Qh
 Zh
-XR
+An
 Ac
 Ac
-XR
+An
 bN
 VM
 ux
 QV
 ux
-XR
+Ti
 pJ
 sz
 oY
-wV
-wV
+eh
+Ct
 PG
 PG
 PG
@@ -15901,18 +16224,18 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
+Da
+Da
+Da
+Da
+Da
 JP
 kT
 qe
 Mn
 Zb
 gr
-XR
+An
 id
 Sn
 Ca
@@ -15921,13 +16244,13 @@ QV
 VM
 QV
 Ny
-XR
+Ti
 Zk
 BJ
 oY
 iB
-wV
-wV
+Ct
+Ct
 PG
 PG
 PG
@@ -16057,40 +16380,40 @@ PG
 PG
 PG
 PG
-wV
-wV
-XR
+yF
+yF
+HC
 cv
 kO
 eE
 jE
-XR
+An
 sH
 DT
 Ca
 GQ
 Nc
-jj
-jj
+Ww
+Ww
 Xo
 cL
 HN
 Aw
 kL
 MF
-XR
-wV
-wV
-wV
-wV
-Yg
-wV
-wV
-wV
-wV
-wV
+Bd
+Ct
+Ct
 NZ
-PG
+NZ
+Yg
+NZ
+NZ
+NZ
+NZ
+NZ
+NZ
+tW
 PG
 PG
 PG
@@ -16209,34 +16532,34 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
+yF
+yF
+yF
 zf
 yY
 ZB
 rd
-XR
+An
 bx
 qD
-XR
+An
 ux
 SK
 AO
 aW
 oX
-XR
+Ti
 yX
 lh
 sh
 UD
-XR
+Bd
 Xl
 CF
-XR
+Fp
 Ef
 Ef
-so
+kg
 LE
 LE
 bs
@@ -16363,31 +16686,31 @@ PG
 PG
 PG
 PG
-wV
-wV
-XR
+yF
+yF
+HC
 pp
-XR
-XR
-XR
+HC
+An
+An
 wB
-XR
-XR
+An
+iJ
 JR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
+iJ
+iJ
+iJ
+Ti
+Ti
+Ti
+Ti
 xI
-XR
+Bd
 aS
 mX
-XR
+Fp
 xs
-so
+kg
 qy
 LE
 LE
@@ -16516,8 +16839,8 @@ PG
 PG
 PG
 PG
-wV
-ij
+ap
+HT
 zM
 jZ
 jZ
@@ -16531,15 +16854,15 @@ jZ
 jZ
 Dp
 jZ
-dq
-XR
+fy
+Bd
 Hp
 uC
 kN
 Cn
-XR
+Fp
 rX
-so
+kg
 ut
 LE
 LE
@@ -16668,7 +16991,7 @@ PG
 PG
 PG
 PG
-wV
+ap
 oL
 lB
 LR
@@ -16686,10 +17009,10 @@ FJ
 wd
 gC
 Xq
-oY
+ek
 EI
 su
-XR
+Fp
 ib
 JD
 qn
@@ -16820,33 +17143,33 @@ PG
 PG
 PG
 PG
-wV
-wV
-TL
-TL
-TL
-wV
-wV
-wV
-wV
-TL
-TL
-TL
-wV
-wV
+ap
+ap
+gG
+gG
+gG
+ap
+ap
+ap
+ap
+gG
+gG
+gG
+ap
+ap
 WY
 fd
 hR
 YR
 fu
-oY
+ek
 FB
-XR
+Fp
 lY
 YW
 wX
 Dh
-wV
+NZ
 PG
 PG
 PG
@@ -16985,20 +17308,20 @@ PG
 PG
 PG
 PG
-wV
+ap
 zg
-Kq
-XR
+dY
+Bd
 wn
 vX
 fX
 jo
-XR
+Fp
 OX
-XR
-XR
-XR
-wV
+Fp
+Fp
+Fp
+NZ
 PG
 PG
 PG
@@ -17137,10 +17460,10 @@ VP
 PG
 PG
 PG
-TL
+gG
 zg
 VA
-XR
+Bd
 CW
 Wo
 kn
@@ -17149,19 +17472,19 @@ zJ
 fB
 Qu
 KT
-dq
+oB
+NZ
 wV
 wV
-wV
-wV
+uk
 PG
 PG
 PG
 PG
 PG
-wV
-wV
-wV
+bL
+bL
+bL
 Sz
 PG
 PG
@@ -17289,33 +17612,33 @@ ul
 PG
 PG
 PG
-TL
+gG
 zg
-Kq
-XR
+dY
+Bd
 aP
 NL
 Nk
 tR
-XR
-Si
-Ag
+Fp
+WP
+qV
 oz
 Nr
 QU
 ij
 dq
-wV
-wV
+uk
+uk
 PG
 PG
 PG
 PG
-wV
+bL
 Tp
 BK
-TL
-TL
+RS
+RS
 PG
 PG
 PG
@@ -17441,34 +17764,34 @@ ul
 PG
 PG
 PG
-wV
+ap
 jC
-Kq
-XR
-XR
-XR
-XR
-XR
-XR
+dY
+Bd
+Bd
+Bd
+Bd
+Bd
+Fp
 RY
-XR
-XR
-XR
-XR
+Fp
+Fp
+Fp
+Fp
 Fd
 Kq
-XR
-wV
-TL
-TL
-wV
-wV
-wV
+ah
+uk
+XW
+XW
+uk
+uk
+bL
 Qc
 at
 LX
-TL
-TL
+RS
+RS
 PG
 PG
 PG
@@ -17578,9 +17901,9 @@ KO
 VP
 VP
 Ai
-QV
-QV
-QV
+xQ
+xQ
+xQ
 IP
 iu
 bB
@@ -17592,11 +17915,11 @@ VP
 VP
 PG
 PG
-wV
-wV
+ap
+ap
 jC
-Kq
-XR
+dY
+DL
 qA
 Ul
 Ql
@@ -17609,18 +17932,18 @@ DB
 XR
 RZ
 Va
-XR
+ah
 Tj
 Yv
 uX
 RH
 UL
-XR
+ug
 em
 Lo
 HF
 LX
-TL
+RS
 PG
 PG
 PG
@@ -17729,7 +18052,7 @@ PG
 ty
 VP
 fr
-QV
+xQ
 Wd
 Qe
 Ms
@@ -17744,15 +18067,15 @@ VP
 lr
 PG
 PG
-wV
+ap
 fU
 oJ
-Pt
-XR
+aB
+DL
 Sq
 JM
 JM
-XR
+DL
 qc
 XD
 Bv
@@ -17772,7 +18095,7 @@ nB
 vp
 XT
 XU
-TL
+RS
 PG
 PG
 PG
@@ -17877,8 +18200,8 @@ PG
 PG
 PG
 PG
-TL
-TL
+qx
+qx
 VP
 VP
 VP
@@ -17890,41 +18213,41 @@ RP
 VP
 VP
 VP
-TL
+qx
 VP
 VP
 kj
 oQ
-wV
-wV
-wV
+ap
+ap
+ap
 Rn
-Kq
-XR
+dY
+DL
 Yx
 JM
 NT
 EU
 lZ
 FK
-Ag
+bK
 od
 Uy
 XR
 Fw
 Ag
-XR
+ah
 Kr
 Hy
 vU
 hH
 sI
-XR
+ug
 nS
 gu
 at
 CS
-wV
+bL
 PG
 PG
 PG
@@ -18029,14 +18352,14 @@ PG
 PG
 PG
 PG
-TL
+qx
 XL
-QV
+xQ
 Yd
 Sk
 Yd
 BM
-QV
+xQ
 hL
 wT
 jk
@@ -18051,21 +18374,21 @@ GU
 za
 Xh
 sn
-Kq
-XR
+dY
+DL
 Sq
 JM
 TI
 JI
 JI
-XR
+DL
 Pf
 uq
 uW
 XR
-Fw
+Fd
 Kq
-XR
+XW
 jt
 Hy
 Yv
@@ -18076,7 +18399,19 @@ yw
 gu
 at
 Ol
-TL
+RS
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
 PG
 PG
 PG
@@ -18089,18 +18424,6 @@ PG
 PG
 PG
 CZ
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
 PG
 PG
 PG
@@ -18158,17 +18481,6 @@ PG
 PG
 PG
 PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
-PG
 ae
 PG
 PG
@@ -18181,10 +18493,21 @@ PG
 PG
 PG
 PG
-TL
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+PG
+qx
 Cm
 qp
-QV
+Yy
 Zj
 YA
 YA
@@ -18200,30 +18523,30 @@ Cd
 Zw
 Wn
 UI
-Zw
+dZ
 gX
 KL
 VA
-XR
+DL
 fH
 JM
 DR
 JI
 kt
-XR
+DL
 sx
 uq
 sc
-XR
-Ch
+TL
+Fd
 Kq
-XR
+ah
 bF
 Hy
 vy
 hH
 ig
-XR
+ug
 wF
 mt
 cF
@@ -18333,54 +18656,54 @@ PG
 PG
 PG
 PG
-TL
+qx
 YU
-QV
+xQ
 Id
 Ym
 Id
 Id
-QV
+xQ
 te
-QV
+xQ
 Tb
-QV
+xQ
 Wd
-QV
+xQ
 dH
 oH
 Uv
 Wn
 UI
-Zw
+dZ
 fG
 zg
-Kq
-XR
+dY
+DL
 yA
-XR
+DL
 rb
 JI
 zA
-XR
+DL
 Fr
 uq
 sc
-XR
+TL
 Fd
 Kq
-XR
+Uj
 DH
 DH
-XR
+Uj
 lo
-XR
+Uj
 yZ
 yw
 gu
 at
 Xj
-TL
+RS
 PG
 PG
 PG
@@ -18485,8 +18808,8 @@ PG
 PG
 PG
 PG
-TL
-TL
+qx
+qx
 VP
 VP
 VP
@@ -18494,45 +18817,45 @@ VP
 VP
 ev
 mB
-rt
-rt
+Yn
+ps
 ps
 VP
-TL
+qx
 VP
 VP
 FO
 bb
-wV
-wV
-wV
+ap
+ap
+ap
 zg
-Kq
-XR
+dY
+DL
 OL
 dJ
 lZ
 Jm
 DD
-XR
+DL
 sx
 uq
 sc
-XR
+TL
 Fd
 Kq
-XR
+Uj
 UR
 HH
 XC
 ri
 YB
-XR
+ug
 wU
 gu
 at
 CS
-wV
+bL
 PG
 PG
 PG
@@ -18644,11 +18967,11 @@ my
 Vr
 eN
 Vr
-QV
+xQ
 IS
-Sy
+WJ
 dL
-ug
+Sy
 VP
 dV
 IG
@@ -18657,23 +18980,23 @@ ky
 PG
 PG
 PG
-wV
+ap
 OT
 Oi
-XR
+DL
 DR
 JI
 JI
-XR
-XR
-XR
+DL
+DL
+DL
 Pf
 uq
 sc
-XR
+TL
 Fd
 Kq
-XR
+ka
 dT
 HH
 tr
@@ -18684,7 +19007,7 @@ Bn
 gu
 XT
 lb
-TL
+RS
 PG
 PG
 PG
@@ -18796,11 +19119,11 @@ VP
 Iv
 Vr
 Vr
-QV
-im
-dL
-Sy
 xQ
+im
+CG
+Sy
+dL
 VP
 Zz
 rR
@@ -18809,9 +19132,9 @@ VP
 PG
 PG
 PG
-wV
+ap
 jC
-Kq
+dY
 cA
 hS
 JI
@@ -18825,18 +19148,18 @@ gw
 XR
 Fd
 Kq
-XR
+Uj
 NO
 hI
 Df
 tm
 Ht
-XR
+ug
 cx
 uV
 SC
 BV
-TL
+RS
 PG
 PG
 PG
@@ -18948,10 +19271,10 @@ VP
 no
 GR
 Vr
-QV
+xQ
 jV
-rt
-rt
+ps
+ps
 Cx
 VP
 OY
@@ -18961,7 +19284,7 @@ ul
 PG
 PG
 PG
-TL
+gG
 oq
 Ax
 RM
@@ -18977,18 +19300,18 @@ Uy
 XR
 RZ
 Kq
-XR
-wV
-TL
-TL
-wV
-wV
+Uj
+ql
+ka
+ka
+ql
+ql
 IN
 Bn
 at
 BV
-TL
-TL
+RS
+RS
 PG
 PG
 PG
@@ -19100,7 +19423,7 @@ VP
 VP
 VP
 IR
-QV
+xQ
 bV
 Qv
 po
@@ -19113,10 +19436,10 @@ ul
 PG
 PG
 PG
-TL
+gG
 zg
-Kq
-XR
+dY
+DL
 xU
 ID
 Pt
@@ -19129,17 +19452,17 @@ sc
 nv
 Si
 ly
-wV
-wV
+ql
+ql
 PG
 PG
 PG
 PG
-wV
+bL
 mM
-TL
-TL
-TL
+RS
+RS
+RS
 PG
 PG
 PG
@@ -19265,13 +19588,13 @@ VP
 PG
 PG
 PG
-wV
+ap
 zg
 VA
-XR
+DL
 xU
 Oz
-Oi
+wL
 lm
 Vy
 UY
@@ -19281,15 +19604,15 @@ kG
 wV
 wV
 wV
-wV
+ql
 PG
 PG
 PG
 PG
 PG
-wV
-wV
-wV
+bL
+bL
+bL
 XO
 PG
 PG
@@ -19417,10 +19740,10 @@ PG
 PG
 PG
 PG
-wV
+ap
 zg
-Kq
-XR
+dY
+DL
 Lq
 Uw
 JI
@@ -19556,23 +19879,23 @@ PG
 PG
 PG
 PG
-wV
-wV
-TL
-TL
-TL
-wV
-wV
-wV
-wV
-TL
-TL
-TL
-wV
-wV
+ap
+ap
+gG
+gG
+gG
+ap
+ap
+ap
+ap
+gG
+gG
+gG
+ap
+ap
 jC
-Kq
-XR
+dY
+DL
 xU
 HG
 JI
@@ -19708,7 +20031,7 @@ PG
 PG
 PG
 PG
-wV
+ap
 WW
 jj
 jj
@@ -19723,8 +20046,8 @@ wH
 wH
 pA
 vR
-Kq
-XR
+dY
+DL
 YC
 iD
 LG
@@ -19860,13 +20183,13 @@ PG
 PG
 PG
 PG
-wV
+ap
 BX
 iR
 iR
 iR
 ke
-Ag
+Ig
 iR
 zx
 EF
@@ -19875,8 +20198,8 @@ iR
 iR
 iR
 iR
-Nr
-XR
+mY
+DL
 Pg
 aa
 lM
@@ -20011,27 +20334,27 @@ PG
 PG
 PG
 PG
-wV
-wV
+My
+My
 TF
-XR
-XR
-XR
-XR
-XR
-XR
-XR
+xH
+xH
+xH
+xH
+xH
+xH
+Ch
 SE
-XR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
-XR
+Ch
+Ch
+Ch
+tb
+tb
+tb
+DL
+DL
+DL
+DL
 me
 XR
 zF
@@ -20161,9 +20484,9 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
+Lv
+Lv
+My
 sK
 QK
 ZP
@@ -20171,7 +20494,7 @@ rn
 HL
 qE
 wM
-XR
+xH
 KD
 hw
 Iy
@@ -20183,7 +20506,7 @@ Qa
 gD
 cM
 RJ
-XR
+DL
 Ak
 XR
 xB
@@ -20313,9 +20636,9 @@ PG
 PG
 PG
 PG
-wV
+Lv
 yv
-XR
+xH
 tY
 Ea
 eO
@@ -20323,20 +20646,20 @@ ee
 KQ
 rk
 fo
-XR
+xH
 uF
 dc
 QP
 Kc
-XR
+Ch
 Xx
 MH
 MH
 MH
 nX
 RJ
-wV
-wV
+Wt
+kx
 wV
 wV
 Ih
@@ -20345,8 +20668,8 @@ wV
 wV
 wV
 wV
-My
-PG
+wV
+zs
 PG
 PG
 PG
@@ -20461,13 +20784,13 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
-XR
-XR
+Lv
+Lv
+Lv
+Lv
+Lv
+wN
+xH
 pV
 Ea
 vZ
@@ -20475,19 +20798,19 @@ fK
 tK
 Tq
 bE
-XR
+xH
 Wg
 QY
 lx
 xu
-XR
+Ch
 rq
 zj
 MH
 MH
 zo
-wV
-wV
+Wt
+Wt
 PG
 PG
 PG
@@ -20612,14 +20935,14 @@ PG
 PG
 PG
 PG
-wV
-wV
+Lv
+Lv
 Pa
 hF
 hU
 yj
 tt
-XR
+xH
 en
 Ea
 tK
@@ -20632,13 +20955,13 @@ lO
 Fs
 Lr
 th
-XR
+Ch
 wS
 MH
 MH
 MH
-wV
-wV
+Wt
+Wt
 PG
 PG
 PG
@@ -20763,8 +21086,8 @@ PG
 PG
 PG
 PG
-wV
-wV
+Zq
+Lv
 BW
 JW
 jL
@@ -20779,17 +21102,17 @@ nx
 MD
 gQ
 IC
-XR
-XR
+xH
+Ch
 ra
-XR
-XR
-XR
-wV
-TL
-TL
-TL
-wV
+Ch
+Ch
+Ch
+Wt
+Tm
+Tm
+Tm
+Wt
 PG
 PG
 PG
@@ -20911,19 +21234,19 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
-wV
+Zq
+Zq
+Zq
+Zq
+Zq
+Lv
 Xu
 JN
 TJ
 Qt
 et
 cY
-XR
+xH
 Pk
 wQ
 jf
@@ -20931,13 +21254,13 @@ BR
 MR
 fK
 RW
-XR
+xH
 eq
 AY
 CT
-XR
-wV
-wV
+Ch
+Xp
+Wt
 PG
 PG
 PG
@@ -21063,32 +21386,32 @@ PG
 PG
 PG
 PG
-sQ
+IX
 fc
 gm
 md
 VI
-XR
+wN
 xe
 xE
 qR
 jn
-XR
+wN
 TY
-XR
-XR
-XR
+xH
+xH
+xH
 Jl
 CC
 IA
 fK
 Nf
-XR
+xH
 oS
 Pq
 UN
-wV
-wV
+Xp
+Xp
 PG
 PG
 PG
@@ -21227,7 +21550,7 @@ qR
 yV
 Ii
 sL
-XR
+xH
 WZ
 Bm
 Bq
@@ -21235,11 +21558,11 @@ jI
 BC
 cP
 Zp
-XR
+xH
 rp
 EJ
 Zg
-wV
+Xp
 PG
 PG
 PG
@@ -21367,27 +21690,27 @@ PG
 PG
 PG
 PG
-sQ
-Ap
+IX
+NJ
 eZ
 XK
 Ga
-XR
+wN
 SH
-XR
+wN
 qR
 PU
 Zd
 bG
-XR
+xH
 VX
 Nz
 Lu
 uR
-wV
+My
 KX
 gK
-wV
+My
 Ff
 Dy
 sV
@@ -21519,31 +21842,31 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
-wV
+Zq
+Zq
+Zq
+Zq
+Zq
+Lv
 xw
-XR
+wN
 qR
-wV
-wV
+Lv
+Lv
 zS
 nI
-wV
-wV
-wV
-wV
-wV
+My
+My
+My
+My
+My
 pt
 CL
-wV
-wV
-wV
-wV
-wV
+My
+Xp
+Xp
+Xp
+Xp
 PG
 PG
 PG
@@ -21674,13 +21997,13 @@ PG
 PG
 PG
 PG
-wV
-wV
-wV
-wV
-wV
-wV
-wV
+Zq
+Zq
+Lv
+Lv
+Lv
+Lv
+Lv
 PG
 PG
 PG
@@ -21688,11 +22011,11 @@ PG
 PG
 PG
 PG
-wV
+My
 CQ
 QT
-wV
-wV
+My
+My
 PG
 PG
 PG
@@ -21840,10 +22163,10 @@ PG
 PG
 PG
 PG
-wV
+My
 ec
 Qx
-wV
+My
 PG
 PG
 PG
