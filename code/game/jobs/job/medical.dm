@@ -77,7 +77,7 @@
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /obj/outfit/job/doctor
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /datum/job/surgeon
 	title = "Surgeon"
@@ -101,7 +101,7 @@
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS, ACCESS_EVA)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_GENETICS, ACCESS_EVA)
 	outfit = /obj/outfit/job/doctor/surgeon
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/doctor
 	name = "Physician"
@@ -165,7 +165,7 @@
 	access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_MORGUE, ACCESS_SURGERY, ACCESS_PHARMACY, ACCESS_VIROLOGY, ACCESS_GENETICS)
 	minimal_access = list(ACCESS_MEDICAL, ACCESS_MEDICAL_EQUIP, ACCESS_PHARMACY, ACCESS_VIROLOGY)
 	outfit = /obj/outfit/job/pharmacist
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/pharmacist
 	name = "Pharmacist"
@@ -217,7 +217,7 @@
 	alt_titles = list("Psychologist")
 	outfit = /obj/outfit/job/psychiatrist
 	alt_outfits = list("Psychologist" = /obj/outfit/job/psychiatrist/psycho)
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/psychiatrist
 	name = "Psychiatrist"
@@ -348,7 +348,7 @@
 		SPECIES_SKRELL_AXIORI = 50
 	)
 	outfit = /obj/outfit/job/intern_med
-	blacklisted_species = list(SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_BREEDER)
+	blacklisted_species = list(SPECIES_VAURCA_BREEDER)
 
 /obj/outfit/job/intern_med
 	name = "Medical Intern"
