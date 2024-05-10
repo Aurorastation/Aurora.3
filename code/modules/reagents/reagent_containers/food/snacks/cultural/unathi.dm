@@ -150,8 +150,8 @@
 	desc = "While this dish appears to be noodles at a glance, it is in fact thin strips of meat coated in an egg based sauce, topped with sliced limes. An authentic variant of this is commonly eaten in and around Razir."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "razirnoodles"
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein/seafood = 8, /singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/hyperzine = 5, /singleton/reagent/acid/polyacid = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("molten heat" = 3, "slippery noodles" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/nutriment/protein/egg = 3)
+	reagent_data = list(/singleton/reagent/nutriment = list("molten heat" = 3, "meaty noodles" = 3))
 	bitesize = 10
 	trash = /obj/item/trash/plate
 
@@ -166,10 +166,10 @@
 
 /obj/item/reagent_containers/food/snacks/stokkebab
 	name = "stok skewers"
-	desc = "Two hearty skewers of seared meat, glazed in a tangy spice. A popular Skalamar street food - despite the name, it can be made with just about any meat."
+	desc = "Two hearty skewers of seared Moghean meat, glazed in a tangy spice. A popular Skalamar street food."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "stok-skewers"
-	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 2, /singleton/reagent/capsaicin = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/capsaicin = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("tangy and gamey meat" = 3))
 	bitesize = 3
 
@@ -197,7 +197,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "eyebowl"
 	trash = /obj/item/trash/custard_bowl
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 12, /singleton/reagent/blackpepper = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 12, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/blackpepper = 2)
 	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "zesty tomatoes" = 5))
 	bitesize = 5
 	drop_sound = 'sound/items/drop/glass.ogg'
