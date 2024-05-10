@@ -150,3 +150,29 @@
 2024-05-08:
   DreamySkrell:
   - rscadd: Adds BAPI - byondapi.
+2024-05-10:
+  CactusMouth:
+  - rscadd: Changed the Listening Outpost's tiles to airfull, so that the hostile
+      mobs there (Grems) do not immediately die.
+  CourierBravo:
+  - bugfix: fixed the off color marble prep-counter in the kitchen. This isn't visble
+      in game, but it is visible in strong.
+  FluffyGhost:
+  - bugfix: Hopefully fix the engine sound volume for the last time.
+  - code_imp: Various DMdocs to the protolathe code.
+  - balance: Increased power draw of the protolathe.
+  - balance: Made the protolathe realtime-constant.
+  - code_imp: Adding materials to the protolathe now uses TGUI input.
+  - code_imp: Removed a basically useless processing, uses a timer / queue handler
+      proc now.
+  - code_imp: DMDoc'd other parts of the code, including corrections between ticks
+      and deciseconds.
+  GeneralCamo:
+  - imageadd: Added sprites for assisted organs.
+  - rscadd: Added assisted brains.
+  Jasorn:
+  - bugfix: Allows ghosts to examine ore box contents.
+  Peppermint96:
+  - rscdel: Removed punpun's banana peel to prevent noise complaints.
+  RustingWithYou:
+  - rscadd: Adds several Ouerea ruins.
