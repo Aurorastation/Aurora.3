@@ -2,6 +2,7 @@
 	does_footprint = FALSE
 	footstep_sound = /singleton/sound_category/water_footstep
 	movement_cost = 4
+	has_resources = FALSE
 	///How many objects are currently on this turf? Used to stop empty water turfs from processing.
 	var/numobjects = 0
 	///Is this water deep enough to drown in?
@@ -60,8 +61,6 @@
 /turf/simulated/floor/exoplanet/water/Entered(atom/movable/AM, atom/oldloc)
 	if(!(SSATOMS_IS_PROBABLY_DONE))
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
-	clean(src)
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
 		return
@@ -79,8 +78,6 @@
 /turf/simulated/floor/exoplanet/water/Exited(atom/movable/AM, atom/newloc)
 	if(!SSATOMS_IS_PROBABLY_DONE)
 		return
-	reagents.add_reagent(/singleton/reagent/water, 2)
-	clean(src)
 	var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
 	if(lattice)
 		return
@@ -95,7 +92,6 @@
 	..()
 
 /turf/simulated/floor/exoplanet/water/process()
-	reagents.add_reagent(/singleton/reagent/water, 2)
 	clean(src)
 	for(var/mob/living/L in src)
 		var/obj/structure/lattice/lattice = locate(/obj/structure/lattice, src)
@@ -170,12 +166,11 @@
 						W.germ_level = INFECTION_LEVEL_ONE
 					W.germ_level += rand(10, 50)
 
-/turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O)
+/turf/simulated/floor/exoplanet/water/shallow/moghes
+	icon = 'icons/turf/flooring/exoplanet/moghes.dmi'
+	icon_state = "water"
 
-	var/obj/effect/effect/water/W = new(O)
-	W.create_reagents(100)
-	W.reagents.add_reagent(/singleton/reagent/water, 100)
-	W.set_up(O, 100)
+/turf/simulated/floor/exoplanet/water/proc/wash(atom/movable/O)
 
 	if(ishuman(O))
 		var/mob/living/carbon/human/H = O

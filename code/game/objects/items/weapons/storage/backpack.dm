@@ -946,8 +946,8 @@
 
 /obj/item/storage/backpack/cloak/get_mob_overlay(var/mob/living/carbon/human/human, var/mob_icon, var/mob_state, var/slot)
 	var/image/I = ..()
-	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", BELOW_MOB_LAYER)
-	I.add_overlay(cape_backing)
+	var/image/cape_backing = image(mob_icon, null, "[icon_state]_backing", MOB_SHADOW_LAYER)
+	I.AddOverlays(cape_backing)
 	return I
 
 /obj/item/storage/backpack/cloak/sedantis

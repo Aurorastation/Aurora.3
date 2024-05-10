@@ -35,6 +35,7 @@
 	icon_state = "base"
 
 	req_access = list(ACCESS_CAPTAIN, ACCESS_HEADS)
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/active = FALSE		// PLEASE HOLD.
 	var/safeties = TRUE		// The cycler won't start with a living thing inside it unless safeties are off.
@@ -96,40 +97,40 @@
 	return ..()
 
 /obj/machinery/suit_cycler/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(helmet)
 		//copied straight from the human update_icons thing
 		var/image/helmet_image = helmet.return_own_image()
 		if(helmet_image)
-			add_overlay(helmet_image)
+			AddOverlays(helmet_image)
 	if(suit)
 		var/image/suit_image = suit.return_own_image()
 		if(suit_image)
-			add_overlay(suit_image)
+			AddOverlays(suit_image)
 	if(occupant)
 		var/image/occupant_image = image(occupant.icon, occupant.icon_state)
 		occupant_image.overlays = occupant.overlays
-		add_overlay(occupant_image)
-	var/image/overbase = image(icon, "overbase", layer = ABOVE_ALL_MOB_LAYER)
-	add_overlay(overbase)
+		AddOverlays(occupant_image)
+	var/image/overbase = image(icon, "overbase", layer = ABOVE_HUMAN_LAYER)
+	AddOverlays(overbase)
 	if(locked || active)
-		var/image/closed = image(icon, "closed", layer = ABOVE_ALL_MOB_LAYER)
-		add_overlay(closed)
+		var/image/closed = image(icon, "closed", layer = ABOVE_HUMAN_LAYER)
+		AddOverlays(closed)
 	else
-		var/image/open = image(icon, "open", layer = ABOVE_ALL_MOB_LAYER)
-		add_overlay(open)
+		var/image/open = image(icon, "open", layer = ABOVE_HUMAN_LAYER)
+		AddOverlays(open)
 	if(panel_open)
-		var/image/panel = image(icon, "panel", layer = ABOVE_ALL_MOB_LAYER)
-		add_overlay(panel)
+		var/image/panel = image(icon, "panel", layer = ABOVE_HUMAN_LAYER)
+		AddOverlays(panel)
 
 	if(irradiating)
 		var/image/irradiating_lights = make_screen_overlay(icon, "light_radiation")
-		add_overlay(irradiating_lights)
+		AddOverlays(irradiating_lights)
 		set_light(3, 0.8, COLOR_RED_LIGHT)
 	else if(active)
 		var/image/active_lights = make_screen_overlay(icon, "light_active")
-		add_overlay(active_lights)
+		AddOverlays(active_lights)
 		set_light(3, 0.8, COLOR_YELLOW)
 	else
 		set_light(0)

@@ -7,8 +7,8 @@
 
 /obj/structure/undies_wardrobe/Initialize(mapload)
 	. = ..()
-	add_overlay("cabinet_door")
-	add_overlay("cabinet_door_alt")
+	AddOverlays("cabinet_door")
+	AddOverlays("cabinet_door_alt")
 
 /obj/structure/undies_wardrobe/attack_hand(var/mob/user)
 	if(!human_who_can_use_underwear(user))

@@ -1,7 +1,10 @@
 /datum/map_template/ruin/away_site/hiskyn
 	name = "Hiskyn Revanchists Ship"
 	description = "Ship with pirate lizards."
-	suffixes = list("ships/unathi_pirate/hiskyn/unathi_pirate_hiskyn.dmm")
+
+	prefix = "ships/unathi_pirate/hiskyn/"
+	suffixes = list("unathi_pirate_hiskyn.dmm")
+
 	sectors = list(SECTOR_BADLANDS, SECTOR_GAKAL)
 	spawn_weight = 1
 	ship_cost = 1
@@ -141,10 +144,4 @@
 /obj/item/paper/fluff/hiskyn
 	name = "KEEP OUT!"
 	info = "How many times I gotta warn you tailwags about going through a man's stash! Next time I'm putting a landmine in this damned thing!"
-
-/obj/item/paper/fluff/hiskyn/Initialize()
-	. = ..()
-	var/languagetext = "\[lang=o\]"
-	languagetext += "[info]\[/lang\]"
-	info = parsepencode(languagetext)
-	icon_state = "paper_words"
+	language = LANGUAGE_UNATHI

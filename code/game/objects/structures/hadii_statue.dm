@@ -5,7 +5,7 @@
 	icon_state = "bronze"
 	density = TRUE
 	anchored = TRUE
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	var/toppled = FALSE
 	var/outside = FALSE
 	var/already_toppled = FALSE
@@ -22,12 +22,12 @@
 		topple()
 
 /obj/structure/hadii_statue/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(toppled)
 		icon_state = "[initial(icon_state)]_toppled"
 		return
 	if(outside)
-		add_overlay("snow")
+		AddOverlays("snow")
 
 /obj/structure/hadii_statue/ex_act(severity)
 	switch(severity)

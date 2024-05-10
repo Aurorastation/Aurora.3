@@ -132,10 +132,10 @@
 	. = ..()
 
 /obj/item/reagent_containers/inhaler/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!is_open_container())
 		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinhaler_secured")
-		add_overlay(backing_overlay)
+		AddOverlays(backing_overlay)
 
 	icon_state = "[initial(icon_state)][spent]"
 	item_state = "[initial(item_state)][spent]"
@@ -143,7 +143,7 @@
 	if(reagents.total_volume)
 		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinhaler_reagents")
 		reagent_overlay.color = reagents.get_color()
-		add_overlay(reagent_overlay)
+		AddOverlays(reagent_overlay)
 	update_held_icon()
 
 /obj/item/reagent_containers/inhaler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

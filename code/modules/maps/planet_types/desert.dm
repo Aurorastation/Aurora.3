@@ -6,6 +6,7 @@
 	geology = "Non-existent tectonic activity, minimal geothermal signature"
 	weather = "Global full-atmosphere geothermal weather system. Barely-habitable ambient high temperatures. Slow-moving, stagnant meteorological activity prone to unpredictable upset in wind condition"
 	planetary_area = /area/exoplanet/desert
+	initial_weather_state = /singleton/state/weather/calm/desert_planet
 	rock_colors = list(COLOR_BEIGE, COLOR_PALE_YELLOW, COLOR_GRAY80, COLOR_BROWN)
 	plant_colors = list("#efdd6f","#7b4a12","#e49135","#ba6222","#5c755e","#420d22")
 	possible_themes = list(/datum/exoplanet_theme/desert)
@@ -132,7 +133,7 @@
 	if(buckled)
 		overlays += buckled
 		var/image/I = image(icon,icon_state="overlay")
-		I.layer = ABOVE_MOB_LAYER
+		I.layer = ABOVE_HUMAN_LAYER
 		overlays += I
 
 /obj/structure/quicksand/proc/expose()

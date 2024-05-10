@@ -90,17 +90,17 @@
 	name = "\proper space"
 	icon_state = "0"
 	footstep_sound = null
-	plane = PLANE_SPACE_BACKGROUND
+	plane = SPACE_PLANE
 	dynamic_lighting = 0
 
 /turf/simulated/floor/holofloor/space/Initialize()
 	. = ..()
 	icon_state = "[((x + y) ^ ~(x * y) + z) % 25]"
 	var/image/I = image('icons/turf/space_parallax1.dmi',"[icon_state]")
-	I.plane = PLANE_SPACE_DUST
+	I.plane = DUST_PLANE
 	I.alpha = 80
 	I.blend_mode = BLEND_ADD
-	add_overlay(I)
+	AddOverlays(I)
 
 /turf/simulated/floor/holofloor/beach
 	desc = "Uncomfortably gritty for a hologram."
@@ -143,7 +143,7 @@
 /turf/simulated/floor/holofloor/desert/Initialize()
 	. = ..()
 	if(prob(10))
-		add_overlay("asteroid[rand(0,9)]")
+		AddOverlays("asteroid[rand(0,9)]")
 
 /obj/structure/holostool
 	name = "stool"

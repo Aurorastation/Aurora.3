@@ -63,6 +63,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		)
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	z_flags = ZMM_MANGLE_PLANES
 
 	///The list of all departments on the station (Determined from this variable on each unit) Set this to the same thing if you want several consoles in one department
 	var/department = "Unknown"
@@ -147,26 +148,26 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	update_icon()
 
 /obj/machinery/requests_console/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 	else
 		switch(newmessagepriority)
 			if(0)
-				add_overlay(screen_overlays["req_comp-idle"])
+				AddOverlays(screen_overlays["req_comp-idle"])
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(1)
-				add_overlay(screen_overlays["req_comp-alert"])
+				AddOverlays(screen_overlays["req_comp-alert"])
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(2)
-				add_overlay(screen_overlays["req_comp-redalert"])
+				AddOverlays(screen_overlays["req_comp-redalert"])
 				set_light(1.4, 1.3, COLOR_ORANGE)
 			if(3)
-				add_overlay(screen_overlays["req_comp-yellowalert"])
+				AddOverlays(screen_overlays["req_comp-yellowalert"])
 				set_light(1.4, 1.3, COLOR_ORANGE)
 
-		add_overlay(screen_overlays["req_comp-scanline"])
+		AddOverlays(screen_overlays["req_comp-scanline"])
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()

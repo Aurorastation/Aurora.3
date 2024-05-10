@@ -165,19 +165,19 @@
 /obj/item/modular_computer/update_icon()
 	icon_state = icon_state_unpowered
 
-	cut_overlays()
+	ClearOverlays()
 	if(damage >= broken_damage)
 		icon_state = icon_state_broken
-		add_overlay("broken")
+		AddOverlays("broken")
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
 			if (is_holographic)
 				holographic_overlay(src, src.icon, icon_state_screensaver)
 			else
-				add_overlay(icon_state_screensaver)
+				AddOverlays(icon_state_screensaver)
 		if(icon_state_screensaver_key && working)
-			add_overlay(icon_state_screensaver_key)
+			AddOverlays(icon_state_screensaver_key)
 
 		if (screensaver_light_range && working && !flashlight)
 			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -190,16 +190,16 @@
 		if (is_holographic)
 			holographic_overlay(src, src.icon, state)
 		else
-			add_overlay(state)
-		add_overlay(state_key)
+			AddOverlays(state)
+		AddOverlays(state_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
 	else
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_state_menu)
 		else
-			add_overlay(icon_state_menu)
-		add_overlay(icon_state_menu_key)
+			AddOverlays(icon_state_menu)
+		AddOverlays(icon_state_menu_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = menu_light_color)
 
@@ -233,8 +233,8 @@
 	else
 		return FALSE
 	var/mob/user = usr
-	if(user && istype(user) && !forced)
-		ui_interact(user) // Re-open the UI on this computer. It should show the main screen now.
+	if(user && istype(user) && !forced && !QDELETED(src))
+		INVOKE_ASYNC(src, TYPE_PROC_REF(/datum, ui_interact), user) // Re-open the UI on this computer. It should show the main screen now.
 	update_icon()
 
 /**
@@ -516,7 +516,7 @@
 			P.event_registered()
 
 	output_notice("Registration successful!")
-	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, 0)
+	playsound(get_turf(src), 'sound/machines/ping.ogg', 10, falloff_distance = SHORT_RANGE_SOUND_EXTRARANGE, ignore_walls = FALSE)
 	return registered_id
 
 /obj/item/modular_computer/proc/unregister_account()

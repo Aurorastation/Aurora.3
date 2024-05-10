@@ -5,7 +5,7 @@
 	icon_state = "plasticflaps_preview"
 	density = 0
 	anchored = 1
-	layer = 4
+	layer = ABOVE_HUMAN_LAYER
 	explosion_resistance = 5
 	build_amt = 4
 	color = COLOR_GRAY20 // ideally this would get_step() the material color from nearby walls but this works for now.
@@ -31,10 +31,10 @@
 	var/image/plasticflaps_overlay = overlay_image(icon, "plasticflaps_overlay", null, RESET_COLOR)
 	if(dir == WEST || dir == EAST)
 		plasticflaps_overlay.pixel_y = -13
-	add_overlay(plasticflaps_overlay)
+	AddOverlays(plasticflaps_overlay)
 
 /obj/structure/plasticflaps/Destroy()
-	cut_overlays()
+	ClearOverlays()
 	if(airtight)
 		clear_airtight()
 	. = ..()
@@ -118,7 +118,6 @@
 /obj/structure/plasticflaps/airtight
 	name = "airtight plastic flaps"
 	desc = "Heavy duty, airtight, plastic flaps."
-	layer = 3
 	airtight = TRUE
 
 /obj/structure/plasticflaps/airtight/Initialize()

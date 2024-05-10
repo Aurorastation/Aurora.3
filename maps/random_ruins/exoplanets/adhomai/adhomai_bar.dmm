@@ -5,11 +5,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "am" = (
-/obj/structure/simple_door/wood{
-	name = "room five";
-	initial_lock_value = "room_five"
-	},
-/turf/simulated/floor/carpet/brown,
+/obj/item/storage/altar/rredouane,
+/turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "aK" = (
 /obj/structure/closet/crate/hydroponics,
@@ -29,34 +26,7 @@
 "bm" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/table/wood,
-/obj/item/key{
-	name = "key - room one";
-	key_data = "room_one"
-	},
-/obj/item/key{
-	name = "key - room two";
-	key_data = "room_two"
-	},
-/obj/item/key{
-	name = "key - room three";
-	key_data = "room_three"
-	},
-/obj/item/key{
-	name = "key - room four";
-	key_data = "room_four"
-	},
-/obj/item/key{
-	name = "key - room five";
-	key_data = "room_five"
-	},
-/obj/item/key{
-	name = "key - room six";
-	key_data = "room_six"
-	},
-/obj/item/key{
-	name = "key - storeroom";
-	key_data = "storeroom"
-	},
+/obj/item/key/door_key,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/adhomai_bar)
 "cs" = (
@@ -86,17 +56,8 @@
 /obj/item/trash/can/adhomian_can,
 /obj/item/storage/bag/trash,
 /obj/item/storage/bag/trash,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
-"eu" = (
-/obj/structure/simple_door/wood{
-	name = "room one";
-	initial_lock_value = "room_one"
-	},
-/turf/simulated/floor/carpet/brown,
-/area/adhomai_bar)
 "ev" = (
 /obj/structure/bed/stool/chair/wood{
 	dir = 1
@@ -214,7 +175,6 @@
 /area/adhomai_bar)
 "lk" = (
 /obj/item/storage/box/produce{
-	layer = 2.99;
 	pixel_x = 3;
 	pixel_y = -5
 	},
@@ -223,7 +183,6 @@
 	pixel_y = 10
 	},
 /obj/item/material/knife{
-	layer = 2.99;
 	pixel_x = -9
 	},
 /obj/structure/table/wood,
@@ -266,17 +225,8 @@
 	temperature = 253.15
 	},
 /area/adhomai_bar)
-"ng" = (
-/obj/structure/simple_door/wood{
-	name = "room four";
-	initial_lock_value = "room_four"
-	},
-/turf/simulated/floor/carpet/brown,
-/area/adhomai_bar)
 "nR" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "oq" = (
 /obj/structure/coatrack,
@@ -306,9 +256,7 @@
 	pixel_y = 32;
 	desc = "An ancient icon representing Adhomai's suns."
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "pr" = (
 /obj/machinery/light/small{
@@ -387,6 +335,7 @@
 "sE" = (
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp,
+/obj/item/key/door_key,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "tf" = (
@@ -556,13 +505,6 @@
 /obj/item/material/minihoe,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
-"Eg" = (
-/obj/structure/simple_door/wood{
-	name = "room six";
-	initial_lock_value = "room_six"
-	},
-/turf/simulated/floor/carpet/brown,
-/area/adhomai_bar)
 "Ez" = (
 /obj/structure/bed/stool/bar/padded/red,
 /turf/simulated/floor/exoplanet/wood,
@@ -595,9 +537,7 @@
 /area/adhomai_bar)
 "FM" = (
 /obj/structure/flora/grass/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "FS" = (
 /obj/structure/bed/stool/chair/wood{
@@ -609,7 +549,9 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Gf" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/freezer{
 	name = "cooled tiles";
 	temperature = 253.15
@@ -638,13 +580,6 @@
 	name = "cooled tiles";
 	temperature = 253.15
 	},
-/area/adhomai_bar)
-"HX" = (
-/obj/structure/simple_door/wood{
-	name = "room two";
-	initial_lock_value = "room_two"
-	},
-/turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
 "In" = (
 /turf/simulated/floor/exoplanet/barren{
@@ -736,9 +671,7 @@
 /area/adhomai_bar)
 "NM" = (
 /obj/structure/flora/tree/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Ow" = (
 /obj/structure/table/wood/gamblingtable,
@@ -772,9 +705,8 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Qw" = (
-/obj/structure/simple_door/wood{
-	name = "room three";
-	initial_lock_value = "room_three"
+/obj/machinery/door/urban{
+	dir = 8
 	},
 /turf/simulated/floor/carpet/brown,
 /area/adhomai_bar)
@@ -877,10 +809,7 @@
 	},
 /area/adhomai_bar)
 "TB" = (
-/obj/structure/simple_door/wood{
-	name = "storeroom";
-	initial_lock_value = "storeroom"
-	},
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "TJ" = (
@@ -951,7 +880,9 @@
 /turf/simulated/floor/exoplanet/lino/diamond,
 /area/adhomai_bar)
 "Wk" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Wm" = (
@@ -1017,9 +948,7 @@
 /area/adhomai_bar)
 "XG" = (
 /obj/structure/closet/outhouse,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "Yn" = (
 /obj/structure/bed/stool/chair/wood{
@@ -1046,9 +975,7 @@
 /area/adhomai_bar)
 "YP" = (
 /obj/structure/flora/bush/adhomai,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "YY" = (
 /obj/structure/table/rack,
@@ -1092,7 +1019,7 @@
 /turf/simulated/floor/exoplanet/wood,
 /area/adhomai_bar)
 "Zw" = (
-/obj/structure/simple_door/wood,
+/obj/machinery/door/urban,
 /turf/simulated/floor/exoplanet/tiled/white,
 /area/adhomai_bar)
 "ZT" = (
@@ -1399,7 +1326,7 @@ xn
 DC
 xn
 xn
-Wk
+TB
 Jy
 gm
 gm
@@ -1822,11 +1749,11 @@ Qw
 Xv
 Xv
 Xv
-HX
+Qw
 Xv
 Xv
 Xv
-eu
+Qw
 Xv
 Xv
 JZ
@@ -1906,7 +1833,7 @@ JZ
 JZ
 JZ
 JZ
-Wk
+TB
 JZ
 JZ
 JZ
@@ -1935,15 +1862,15 @@ oq
 ah
 Xv
 Xv
-Eg
+Qw
 Xv
 Xv
 Xv
-am
+Qw
 Xv
 Xv
 Xv
-ng
+Qw
 Xv
 Xv
 JZ
@@ -1961,7 +1888,7 @@ JZ
 JZ
 JZ
 JZ
-Wk
+TB
 Rh
 Rh
 "}
@@ -2295,7 +2222,7 @@ Xv
 Xv
 Xv
 Xv
-Xv
+am
 Xv
 Xv
 Xv
@@ -2333,9 +2260,9 @@ nR
 nR
 nR
 nR
-nR
-nR
-nR
+Xv
+Xv
+Xv
 nR
 nR
 nR

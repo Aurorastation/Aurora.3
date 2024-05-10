@@ -37,7 +37,7 @@
 	STOP_PROCESSING(SSprocessing, src)
 
 	holder = null
-	cut_overlays()
+	ClearOverlays()
 	attached_overlays = null
 
 	. = ..()
@@ -132,3 +132,5 @@
 	// Sets the UI host to the transfer valve if its mounted on a transfer_valve
 	if(istype(loc,/obj/item/device/transfer_valve))
 		return loc
+
+	return holder || .

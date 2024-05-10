@@ -1,8 +1,11 @@
 /datum/map_template/ruin/away_site/militia_ship
 	name = "Militia Ship"
 	description = "An unarmed and extremely prolific design of large, self-sufficient shuttle, prized for its modularity. Found all throughout the spur, the Yak-class shuttle can be configured to conceivably serve in any role, though it is only rarely armed with ship-to-ship weapons. Manufactured by Hephaestus."
-	suffixes = list("ships/wildlands_milita/militia_ship.dmm")
-	sectors = list(SECTOR_TAU_CETI, SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
+
+	prefix = "ships/wildlands_militia/"
+	suffixes = list("militia_ship.dmm")
+
+	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
 	spawn_weight = 1
 	ship_cost = 1
 	id = "militia_ship"

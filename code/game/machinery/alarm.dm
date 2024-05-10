@@ -110,6 +110,7 @@ pixel_x = 10;
 	clicksound = /singleton/sound_category/button_sound
 	clickvol = 30
 	obj_flags = OBJ_FLAG_MOVES_UNSUPPORTED
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/alarm_id = null
 	var/breach_detection = 1 // Whether to use automatic breach detection or not
@@ -494,14 +495,14 @@ pixel_x = 10;
 	return 0
 
 /obj/machinery/alarm/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "alarmp"
 
 	if(wiresexposed)
 		icon_state = "alarmx"
 
 	if((stat & (NOPOWER|BROKEN)) || shorted)
-		add_overlay("alarm_fan_off")
+		AddOverlays("alarm_fan_off")
 		set_light(0)
 		return
 
@@ -510,7 +511,7 @@ pixel_x = 10;
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
 
 	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
-	add_overlay(alarm_overlay)
+	AddOverlays(alarm_overlay)
 
 	var/new_color = null
 	switch(icon_level)
@@ -524,9 +525,9 @@ pixel_x = 10;
 	set_light(l_range = L_WALLMOUNT_RANGE, l_power = L_WALLMOUNT_POWER, l_color = new_color)
 
 	if(regulating_temperature)
-		add_overlay("alarm_fan_on")
+		AddOverlays("alarm_fan_on")
 	else
-		add_overlay("alarm_fan_off")
+		AddOverlays("alarm_fan_off")
 
 /obj/machinery/alarm/proc/refresh_all()
 	for(var/id_tag in alarm_area.air_vent_names)

@@ -82,9 +82,6 @@
 		var/obj/item/clothing/shoes/magboots/hegemony/boots = new(H)
 		H.equip_to_slot_if_possible(boots, slot_shoes)
 
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-	A.replaced(H, affected)
 	H.update_body()
 
 /obj/outfit/admin/ert/izweski/leader

@@ -16,3 +16,5 @@
 	#define COMPONENT_ATOM_BLOCK_EXIT (1<<0)
 ///from base of atom/Exited(): (atom/movable/gone, direction)
 #define COMSIG_ATOM_EXITED "atom_exited"
+///from base of atom/has_gravity(): (turf/location, list/forced_gravities)
+#define COMSIG_ATOM_HAS_GRAVITY "atom_has_gravity"

@@ -1168,9 +1168,6 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/structure/window/reinforced{
-	dir = 4
-	},
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /obj/machinery/light/small/emergency{
 	dir = 1
@@ -3491,6 +3488,9 @@
 /obj/structure/table/steel,
 /obj/item/stack/material/steel/full,
 /obj/item/stack/material/glass/full,
+/obj/item/stack/material/lead/full,
+/obj/item/stack/material/aluminium/full,
+/obj/item/stack/material/plastic/full,
 /turf/simulated/floor,
 /area/ship/orion/engie)
 "oIu" = (

@@ -7,6 +7,7 @@
 	icon_state = "base"
 	initialize_directions = 0
 	level = 1
+	layer = ABOVE_CATWALK_LAYER
 
 	var/configuring = 0
 	//var/target_pressure = ONE_ATMOSPHERE	//a base type as abstract as this should NOT be making these kinds of assumptions
@@ -45,7 +46,7 @@
 	. = ..()
 
 /obj/machinery/atmospherics/omni/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/list/to_add = list(base_icon)
 	if(stat & NOPOWER)
 		to_add += off_states
@@ -57,7 +58,7 @@
 	else
 		to_add += off_states
 
-	add_overlay(to_add)
+	AddOverlays(to_add)
 
 	underlays = underlays_current
 

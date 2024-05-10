@@ -14,9 +14,6 @@ SUBSYSTEM_DEF(icon_update)
 	///Deferred list, contains atoms that were not ready to be processed in the previous run
 	VAR_PRIVATE/list/deferred = list()
 
-/datum/controller/subsystem/icon_update/New()
-	NEW_SS_GLOBAL(SSicon_update)
-
 /datum/controller/subsystem/icon_update/stat_entry(msg)
 	msg = "QU:[icon_update_queue.len]"
 	return ..()

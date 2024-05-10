@@ -177,7 +177,7 @@
 			var/mutable_appearance/MA = new(attacking_item)
 			MA.pixel_x += 1
 			MA.pixel_y += 6
-			add_overlay(MA)
+			AddOverlays(MA)
 
 	return ..()
 
@@ -227,6 +227,14 @@
 /obj/structure/reagent_dispensers/fueltank/tesla_act()
 	..()
 	ex_act(2.0)
+
+//Fertilizer tank
+/obj/structure/reagent_dispensers/fertilizer
+	name = "fertilizer tank"
+	desc = "A tank filled with nutrients for plant growth"
+	icon_state = "lubetank"
+	amount_per_transfer_from_this = 30
+	reagents_to_add = list(/singleton/reagent/toxin/fertilizer = 1000)
 
 //Wall Dispensers
 
@@ -419,11 +427,8 @@
 
 	if(src.loc)
 		var/datum/gas_mixture/env = src.loc.return_air()
-		if(env)
-			if (reagents.total_volume > 750)
-				env.temperature = 0
-			else if (reagents.total_volume > 500)
-				env.temperature -= 100
+		if(env && reagents.total_volume)
+			env.temperature = max(173, env.temperature - (reagents.total_volume/10))
 
 	QDEL_IN(src, 10)
 

@@ -113,6 +113,7 @@
 		/obj/item/reagent_containers/food/drinks/bottle/twentytwoseventyfive = 3,
 		/obj/item/reagent_containers/food/drinks/bottle/saintjacques = 1,
 		/obj/item/reagent_containers/food/drinks/bottle/hooch = 1,
+		/obj/item/reagent_containers/food/drinks/bottle/nemiik = 2,
 		/obj/item/reagent_containers/food/drinks/cans/grape_juice = 6,
 		/obj/item/reagent_containers/food/drinks/cans/beetle_milk = 2,
 		/obj/item/reagent_containers/food/drinks/cans/sodawater = 15,
@@ -1374,7 +1375,12 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 5,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 5,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 5
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/mixedberry = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 5,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 5
 	)
 	contraband = list(
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/hozm = 5
@@ -1389,7 +1395,12 @@
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/cthur = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/venomgrass = 29,
 		/obj/item/reagent_containers/food/drinks/cans/zorasoda/kois = 29,
-		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 29
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/drone = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/mixedberry = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/lemonlime = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/xuizi = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/dyn = 29,
+		/obj/item/reagent_containers/food/drinks/cans/zorasoda/buzz = 29
 	)
 	idle_power_usage = 211
 	temperature_setting = -1

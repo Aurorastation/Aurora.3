@@ -5,10 +5,14 @@
 
 	sectors = list(ALL_COALITION_SECTORS)
 	sectors_blacklist = list(SECTOR_HANEUNIM)
-	suffixes = list("asteroid/abandoned_prison/abandoned_prison.dmm")
+
+	prefix = "asteroid/abandoned_prison/"
+	suffixes = list("abandoned_prison.dmm")
 
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP
+
+	unit_test_groups = list(1)
 
 /area/abandoned_prison
 	name = "abandoned prison"

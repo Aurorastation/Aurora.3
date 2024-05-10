@@ -28,6 +28,17 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	if(drink_flags & IS_GLASS)
 		unacidable = TRUE
 
+/obj/item/reagent_containers/food/drinks/update_icon()
+	..()
+	if(!reagents.total_volume)
+		if(("[initial(icon_state)]_empty") in icon_states(icon)) // if there's an empty icon state, use it
+			icon_state = "[initial(icon_state)]_empty"
+		else if (empty_icon_state)
+			icon_state = empty_icon_state
+	else
+		icon = initial(icon)	//Necessary for refilling empty drinks
+		icon_state = initial(icon_state)
+
 /obj/item/reagent_containers/food/drinks/on_reagent_change()
 	update_icon()
 
@@ -231,12 +242,12 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	reagents_to_add = list(/singleton/reagent/water = 30)
 
 /obj/item/reagent_containers/food/drinks/waterbottle/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance(icon, "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 //heehoo bottle flipping
 /obj/item/reagent_containers/food/drinks/waterbottle/throw_impact()
@@ -322,7 +333,7 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/shaker/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(top)
 		icon_state = "shakertop"
 		item_state = "shakertop"
@@ -332,9 +343,9 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 		if(reagents.total_volume)
 			var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
 			filling.color = reagents.get_color()
-			add_overlay(filling)
+			AddOverlays(filling)
 	if(cap)
-		add_overlay("shaker_cap")
+		AddOverlays("shaker_cap")
 	update_held_icon()
 
 /obj/item/reagent_containers/food/drinks/shaker/AltClick(mob/user)
@@ -461,12 +472,12 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	center_of_mass = list("x" = 16, "y" = 16)
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(reagents?.total_volume)
 		var/mutable_appearance/filling = mutable_appearance('icons/obj/shaker.dmi', "[icon_state]-[get_filling_state()]")
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/food/drinks/shaker_cup/AltClick(mob/user)
 	set_APTFT()

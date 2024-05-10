@@ -1,5 +1,5 @@
 /atom/movable
-	layer = 3
+	layer = OBJ_LAYER
 	glide_size = 6
 	animate_movement = SLIDE_STEPS
 
@@ -37,7 +37,6 @@
 
 	var/can_hold_mob = FALSE
 	var/list/contained_mobs
-	appearance_flags = DEFAULT_APPEARANCE_FLAGS | TILE_BOUND
 
 	///Holds information about any movement loops currently running/waiting to run on the movable. Lazy, will be null if nothing's going on
 	var/datum/movement_packet/move_packet
@@ -54,10 +53,17 @@
 	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
 	var/spatial_grid_key
 
-/atom/movable/Destroy()
+/atom/movable/Destroy(force)
+	if (orbiting)
+		stop_orbit()
+
 	GLOB.moved_event.unregister_all_movement(loc, src)
 
-	. = ..()
+	//Recalculate opacity
+	var/turf/T = loc
+	if(opacity && istype(T))
+		T.recalc_atom_opacity()
+		T.reconsider_lights()
 
 	if(move_packet)
 		if(!QDELETED(move_packet))
@@ -67,10 +73,12 @@
 	if(spatial_grid_key)
 		SSspatial_grid.force_remove_from_grid(src)
 
+	QDEL_LAZYLIST(contained_mobs)
+
+	. = ..()
+
 	for(var/movable_content in contents)
 		qdel(movable_content)
-
-	QDEL_LAZYLIST(contained_mobs)
 
 	//Pretend this is moveToNullspace()
 	moveToNullspace()
@@ -80,6 +88,13 @@
 	//We rely on Entered and Exited to manage this list, and the copy of this list that is on any /atom/movable "Containers"
 	//If we clear this before the nullspace move, a ref to this object will be hung in any of its movable containers
 	LAZYNULL(important_recursive_contents)
+
+
+	vis_locs = null //clears this atom out of all viscontents
+
+	// Checking length(vis_contents) before cutting has significant speed benefits
+	if (length(vis_contents))
+		vis_contents.Cut()
 
 	screen_loc = null
 	if(ismob(pulledby))
@@ -281,6 +296,10 @@
 	verbs.Cut()
 	..()
 
+/atom/movable/overlay/Destroy(force)
+	master = null
+	. = ..()
+
 /atom/movable/overlay/attackby(a, b)
 	if (src.master)
 		return src.master.attackby(a, b)
@@ -378,6 +397,27 @@
 	loc = destination
 	loc.Entered(src, old_loc)
 	Moved(old_loc, TRUE)
+
+	//Zmimic
+	if(bound_overlay)
+		// The overlay will handle cleaning itself up on non-openspace turfs.
+		if (isturf(destination))
+			bound_overlay.forceMove(get_step(src, UP))
+			if (dir != bound_overlay.dir)
+				bound_overlay.set_dir(dir)
+		else	// Not a turf, so we need to destroy immediately instead of waiting for the destruction timer to proc.
+			qdel(bound_overlay)
+
+	if(opacity)
+		updateVisibility(src)
+
+	//Lighting recalculation
+	var/datum/light_source/L
+	var/thing
+	for (thing in light_sources)
+		L = thing
+		L.source_atom.update_light()
+
 	return TRUE
 
 /atom/movable/proc/Moved(atom/old_loc, forced)
@@ -409,46 +449,55 @@
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
 
-	if(!LAZYLEN(gone.important_recursive_contents))
-		return
-	var/list/nested_locs = get_nested_locs(src) + src
-	for(var/channel in gone.important_recursive_contents)
-		for(var/atom/movable/location as anything in nested_locs)
-			LAZYINITLIST(location.important_recursive_contents)
-			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
-			LAZYINITLIST(recursive_contents[channel])
-			recursive_contents[channel] -= gone.important_recursive_contents[channel]
-			switch(channel)
-				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-					if(!length(recursive_contents[channel]))
-						// This relies on a nice property of the linked recursive and gridmap types
-						// They're defined in relation to each other, so they have the same value
-						SSspatial_grid.remove_grid_awareness(location, channel)
-			ASSOC_UNSETEMPTY(recursive_contents, channel)
-			UNSETEMPTY(location.important_recursive_contents)
+	if(LAZYLEN(gone.important_recursive_contents))
+		var/list/nested_locs = get_nested_locs(src) + src
+		for(var/channel in gone.important_recursive_contents)
+			for(var/atom/movable/location as anything in nested_locs)
+				LAZYINITLIST(location.important_recursive_contents)
+				var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+				LAZYINITLIST(recursive_contents[channel])
+				recursive_contents[channel] -= gone.important_recursive_contents[channel]
+				switch(channel)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+						if(!length(recursive_contents[channel]))
+							// This relies on a nice property of the linked recursive and gridmap types
+							// They're defined in relation to each other, so they have the same value
+							SSspatial_grid.remove_grid_awareness(location, channel)
+				ASSOC_UNSETEMPTY(recursive_contents, channel)
+				UNSETEMPTY(location.important_recursive_contents)
 
 	if(LAZYLEN(gone.stored_chat_text))
 		return_floating_text(gone)
 
+	if(GLOB.moved_event.is_listening(src, gone, TYPE_PROC_REF(/atom/movable, recursive_move)))
+		GLOB.moved_event.unregister(src, gone)
+
+	GLOB.dir_set_event.unregister(src, gone, TYPE_PROC_REF(/atom, recursive_dir_set))
+
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
 	. = ..()
 
-	if(!LAZYLEN(arrived.important_recursive_contents))
-		return
-	var/list/nested_locs = get_nested_locs(src) + src
-	for(var/channel in arrived.important_recursive_contents)
-		for(var/atom/movable/location as anything in nested_locs)
-			LAZYINITLIST(location.important_recursive_contents)
-			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
-			LAZYINITLIST(recursive_contents[channel])
-			switch(channel)
-				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
-					if(!length(recursive_contents[channel]))
-						SSspatial_grid.add_grid_awareness(location, channel)
-			recursive_contents[channel] |= arrived.important_recursive_contents[channel]
+	if(LAZYLEN(arrived.important_recursive_contents))
+		var/list/nested_locs = get_nested_locs(src) + src
+		for(var/channel in arrived.important_recursive_contents)
+			for(var/atom/movable/location as anything in nested_locs)
+				LAZYINITLIST(location.important_recursive_contents)
+				var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+				LAZYINITLIST(recursive_contents[channel])
+				switch(channel)
+					if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+						if(!length(recursive_contents[channel]))
+							SSspatial_grid.add_grid_awareness(location, channel)
+				recursive_contents[channel] |= arrived.important_recursive_contents[channel]
 
 	if (LAZYLEN(arrived.stored_chat_text))
 		give_floating_text(arrived)
+
+	if(GLOB.moved_event.has_listeners(arrived) && !GLOB.moved_event.is_listening(src, arrived))
+		GLOB.moved_event.register(src, arrived, TYPE_PROC_REF(/atom/movable, recursive_move))
+
+	if(GLOB.dir_set_event.has_listeners(arrived))
+		GLOB.dir_set_event.register(src, arrived, TYPE_PROC_REF(/atom, recursive_dir_set))
 
 ///allows this movable to hear and adds itself to the important_recursive_contents list of itself and every movable loc its in
 /atom/movable/proc/become_hearing_sensitive(trait_source = TRAIT_GENERIC)

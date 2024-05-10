@@ -102,7 +102,7 @@
 		return INITIALIZE_HINT_QDEL
 
 	if(known)
-		layer = EFFECTS_ABOVE_LIGHTING_LAYER
+		plane = EFFECTS_ABOVE_LIGHTING_PLANE
 		for(var/obj/machinery/computer/ship/helm/H in SSmachinery.machinery)
 			H.get_known_sectors()
 	update_icon()
@@ -177,7 +177,7 @@
 		C.targeting = FALSE
 		targeting = O
 		O.targeted_overlay = icon('icons/obj/overmap/overmap_effects.dmi', "lock")
-		O.add_overlay(O.targeted_overlay)
+		O.AddOverlays(O.targeted_overlay)
 		if(designation && class && !obfuscated)
 			if(!O.maptext)
 				O.maptext = SMALL_FONTS(6, "[class] [designation]")
@@ -207,6 +207,6 @@
 	if(C)
 		playsound(C, 'sound/items/rfd_interrupt.ogg', 70)
 	if(O)
-		O.cut_overlay(O.targeted_overlay)
+		O.CutOverlays(O.targeted_overlay)
 		O.maptext = null
 	targeting = null

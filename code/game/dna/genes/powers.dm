@@ -15,9 +15,6 @@
 	activation_messages=list("Your mind expands.")
 	mutation=mRemote
 
-/datum/dna/gene/basic/nobreath/New()
-	block = REMOTEVIEWBLOCK
-
 /datum/dna/gene/basic/nobreath/activate(var/mob/M, var/connected, var/flags)
 	..(M,connected,flags)
 	add_verb(M, /mob/living/carbon/human/proc/remoteobserve)

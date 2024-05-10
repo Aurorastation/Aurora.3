@@ -7,7 +7,7 @@
 	unacidable = TRUE
 	simulated = 0
 	invisibility = 101
-	layer = ABOVE_ALL_MOB_LAYER
+	layer = ABOVE_HUMAN_LAYER
 	pixel_x = -32
 	pixel_y = -32
 
@@ -28,6 +28,11 @@
 
 	/// Effects that show where the shuttle will land, to prevent unfair squishing
 	var/list/landing_indicators
+
+	/// List of ghostspawners to activate on shuttle arrival.
+	/// Arrival, means any shuttle that arrives and calls `shuttle_arrived()`.
+	/// Ghostspawners, means their `short_name` vars.
+	var/list/ghostspawners_to_activate_on_shuttle_arrival
 
 /obj/effect/shuttle_landmark/Initialize()
 	. = ..()
@@ -92,8 +97,17 @@
 /obj/effect/shuttle_landmark/proc/cannot_depart(datum/shuttle/shuttle)
 	return FALSE
 
+/obj/effect/shuttle_landmark/proc/activate_ghostroles()
+	if(!islist(ghostspawners_to_activate_on_shuttle_arrival))
+		return
+	for(var/spawner_name in ghostspawners_to_activate_on_shuttle_arrival)
+		var/datum/ghostspawner/spawner = SSghostroles.spawners[spawner_name]
+		if(istype(spawner))
+			spawner.enable()
+
 /obj/effect/shuttle_landmark/proc/shuttle_arrived(datum/shuttle/shuttle)
 	clear_landing_indicators()
+	activate_ghostroles()
 
 /proc/check_collision(area/target_area, list/target_turfs)
 	for(var/target_turf in target_turfs)

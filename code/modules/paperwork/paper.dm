@@ -16,7 +16,7 @@
 	w_class = ITEMSIZE_TINY
 	throw_range = 1
 	throw_speed = 1
-	layer = 4
+	layer = ABOVE_OBJ_LAYER
 	slot_flags = SLOT_HEAD
 	body_parts_covered = HEAD
 	attack_verb = list("bapped")
@@ -178,7 +178,7 @@
 		throw_range = 8
 		old_name = name
 		name = "paper plane"
-		cut_overlays() //Removes stamp icons
+		ClearOverlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_DISARM && icon_state != "scrap" && can_fold)
@@ -191,7 +191,7 @@
 		icon_state = "paper_swan"
 		old_name = name
 		name = "origami swan"
-		cut_overlays() //Removes stamp icons
+		ClearOverlays() //Removes stamp icons
 		return
 
 	if (user.a_intent == I_HELP && old_name && (icon_state == "paper_plane" || icon_state == "paper_swan"))
@@ -285,7 +285,7 @@
 	stamps = null
 	free_space = MAX_PAPER_MESSAGE_LEN
 	stamped = list()
-	cut_overlays()
+	ClearOverlays()
 	updateinfolinks()
 	update_icon()
 
@@ -420,7 +420,7 @@
 		var/image/S = image('icons/obj/bureaucracy.dmi', ico[i])
 		S.pixel_x = offset_x[i]
 		S.pixel_y = offset_y[i]
-		add_overlay(S)
+		AddOverlays(S)
 /**
  * Takes the paper's info variable, a user, and parses language markers that exist
  * in it. It returns an HTML string which represents the languages properly.
@@ -610,13 +610,13 @@
 			else if (h_user.l_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.l_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.r_store == src)
 				h_user.drop_from_inventory(src)
 				B.forceMove(h_user)
-				B.layer = SCREEN_LAYER+0.01
+				B.hud_layerise()
 				h_user.r_store = B
 				h_user.update_inv_pockets()
 			else if (h_user.head == src)
@@ -677,7 +677,7 @@
 		if(!stamped)
 			stamped = new
 		stamped += attacking_item.type
-		add_overlay(stampoverlay)
+		AddOverlays(stampoverlay)
 
 		playsound(src, 'sound/bureaucracy/stamp.ogg', 50, 1)
 		to_chat(user, SPAN_NOTICE("You stamp the paper with \the [attacking_item]."))
@@ -765,6 +765,19 @@
 /obj/item/paper/fluff
 	name = "fluff paper"
 	desc = "You aren't supposed to see this."
+	///The language to translate the paper into. Set to the name of the language.
+	var/language
+
+/obj/item/paper/fluff/Initialize()
+	. = ..()
+	if(language)
+		var/datum/language/L = GLOB.all_languages[language]
+		if(istype(L) && L.written_style) //Don't want to try and write in Hivenet or something
+			var/key = L.key
+			var/languagetext = "\[lang=[key]]"
+			languagetext += "[info]\[/lang]"
+			info = parsepencode(languagetext)
+			update_icon()
 
 // Used in the deck 3 cafe on the SCCV Horizon.
 /obj/item/paper/fluff/microwave

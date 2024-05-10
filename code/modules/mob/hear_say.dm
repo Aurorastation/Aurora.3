@@ -51,7 +51,7 @@
 		if(speaker_name != speaker.real_name && speaker.real_name)
 			speaker_name = "[speaker.real_name] ([speaker_name])"
 		track = "[ghost_follow_link(speaker, src)] "
-		if((client.prefs.toggles & CHAT_GHOSTEARS) && (speaker in view(src)))
+		if((client.prefs.toggles & CHAT_GHOSTEARS) && (get_turf(speaker) in view(src)))
 			message = "<b>[message]</b>"
 
 	if(isdeaf(src))

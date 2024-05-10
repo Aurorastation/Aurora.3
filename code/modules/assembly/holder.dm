@@ -64,15 +64,15 @@
 		return FALSE
 
 /obj/item/device/assembly_holder/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(a_left)
-		add_overlay("[a_left.icon_state]_left")
+		AddOverlays("[a_left.icon_state]_left")
 		for(var/O in a_left.attached_overlays)
-			add_overlay("[O]_l")
+			AddOverlays("[O]_l")
 	if(a_right)
-		add_overlay("[a_right.icon_state]_right")
+		AddOverlays("[a_right.icon_state]_right")
 		for(var/O in a_right.attached_overlays)
-			add_overlay("[O]_r")
+			AddOverlays("[O]_r")
 	if(master)
 		master.update_icon()
 
@@ -164,13 +164,18 @@
 		var/turf/T = get_turf(src)
 		if(!T)
 			return FALSE
+
 		if(a_left)
 			a_left.holder = null
 			a_left.forceMove(T)
+			a_left = null
+
 		if(a_right)
 			a_right.holder = null
 			a_right.forceMove(T)
-		QDEL_IN(src, 1)
+			a_right = null
+
+		qdel(src)
 
 
 /obj/item/device/assembly_holder/proc/process_activation(var/obj/D, var/normal = 1, var/special = 1)

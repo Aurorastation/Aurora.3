@@ -99,7 +99,7 @@ SUBSYSTEM_DEF(icon_cache)
 /datum/controller/subsystem/icon_cache/proc/build_dust_cache()
 	for (var/i in 0 to 25)
 		var/image/im = image('icons/turf/space_parallax1.dmi',"[i]")
-		im.plane = PLANE_SPACE_DUST
+		im.plane = DUST_PLANE
 		im.alpha = 80
 		im.blend_mode = BLEND_ADD
 		space_dust_cache["[i]"] = im

@@ -22,7 +22,6 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen/robot.dmi'
 	using.icon_state = "radio"
 	using.screen_loc = ui_movi
-	using.layer = SCREEN_LAYER
 	src.adding += using
 
 //Module select
@@ -48,7 +47,6 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen/robot.dmi'
 	using.icon_state = mymob.a_intent
 	using.screen_loc = ui_acti
-	using.layer = SCREEN_LAYER
 	src.adding += using
 	action_intent = using
 
@@ -94,7 +92,6 @@ var/obj/screen/robot_inventory
 	using.icon = 'icons/mob/screen/robot.dmi'
 	using.icon_state = "panel"
 	using.screen_loc = ui_borg_panel
-	using.layer = SCREEN_LAYER
 	src.adding += using
 
 //Store
@@ -121,13 +118,12 @@ var/obj/screen/robot_inventory
 
 	mymob.zone_sel = new /obj/screen/zone_sel()
 	mymob.zone_sel.icon = 'icons/mob/screen/robot.dmi'
-	mymob.zone_sel.cut_overlays()
-	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
+	mymob.zone_sel.ClearOverlays()
+	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 
 	// Computer device hud
 	if(r.computer)
 		r.computer.screen_loc = ui_oxygen
-		r.computer.layer = SCREEN_LAYER
 
 
 	//Handle the gun settings buttons
@@ -225,8 +221,7 @@ var/obj/screen/robot_inventory
 					A.screen_loc = "CENTER[x]:16,SOUTH+[y]:7"
 				else
 					A.screen_loc = "CENTER+[x]:16,SOUTH+[y]:7"
-				A.layer = SCREEN_LAYER
-
+				A.hud_layerise()
 				x++
 				if(x == 4)
 					x = -4

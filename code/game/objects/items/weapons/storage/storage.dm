@@ -10,7 +10,7 @@
 #define STORAGE_SPACE_CAP 200
 
 /obj/storage_bullshit
-	layer = SCREEN_LAYER
+	layer = HUD_BASE_LAYER
 
 /obj/item/storage
 	name = "storage"
@@ -343,7 +343,7 @@
 	src.boxes.screen_loc = "[tx]:,[ty] to [mx],[my]"
 	for(var/obj/O in src.contents)
 		O.screen_loc = "[cx],[cy]"
-		O.layer = SCREEN_LAYER+0.01
+		O.hud_layerise()
 		cx++
 		if (cx > mx)
 			cx = tx
@@ -361,14 +361,14 @@
 		for(var/datum/numbered_display/ND in display_contents)
 			ND.sample_object.screen_loc = "[cx]:16,[cy]:16"
 			ND.sample_object.maptext = SMALL_FONTS(7, "[(ND.number > 1)? "[ND.number]" : ""]")
-			ND.sample_object.layer = SCREEN_LAYER+0.01
+			ND.sample_object.hud_layerise()
 			if(display_contents_initials)
-				ND.sample_object.cut_overlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
+				ND.sample_object.ClearOverlays() // a limitation of this code is that overlays get blasted off the item, since we need to add one to add the second maptext. woe is me
 				var/object_initials = handle_name_initials(ND.sample_object.name)
 				var/image/name_overlay = image(null)
 				name_overlay.maptext = SMALL_FONTS(7, object_initials)
 				name_overlay.maptext_x = 22 - ((length(object_initials) - 1) * 6)
-				ND.sample_object.add_overlay(name_overlay)
+				ND.sample_object.AddOverlays(name_overlay)
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -377,7 +377,7 @@
 		for(var/obj/O in contents)
 			O.screen_loc = "[cx]:16,[cy]:16"
 			O.maptext = ""
-			O.layer = SCREEN_LAYER+0.01
+			O.hud_layerise()
 			cx++
 			if (cx > (4+cols))
 				cx = 4
@@ -398,7 +398,7 @@
 	var/stored_cap_width = 4 //length of sprite for start and end of the box representing the stored item
 	var/storage_width = min( round( 224 * max_storage_space/baseline_max_storage_space ,1) ,284) //length of sprite for the box representing total storage space
 
-	storage_start.cut_overlays()
+	storage_start.ClearOverlays()
 
 	var/matrix/M = matrix()
 	M.Scale((storage_width-storage_cap_width*2+3)/32,1)
@@ -439,10 +439,10 @@
 
 		O.screen_loc = "4:[round((startpoint+endpoint)/2)+2],2:16"
 		O.maptext = ""
-		O.layer = SCREEN_LAYER+0.02
+		O.hud_layerise()
 
 	if (!defer_overlays)
-		storage_start.compile_overlays()
+		storage_start.UpdateOverlays()
 
 	closer.screen_loc = "4:[storage_width+19],2:16"
 	return
@@ -643,9 +643,9 @@
 		if(ismob(loc))
 			W.dropped(usr)
 		if(ismob(new_location))
-			W.layer = SCREEN_LAYER + 0.01
+			W.hud_layerise()
 		else
-			W.layer = initial(W.layer)
+			W.reset_plane_and_layer()
 		W.forceMove(new_location)
 	else
 		W.forceMove(get_turf(src))
@@ -657,7 +657,7 @@
 	if(W.maptext)
 		W.maptext = ""
 	if(display_contents_initials)
-		W.cut_overlays()
+		W.ClearOverlays()
 	W.on_exit_storage(src)
 	update_icon()
 	return TRUE
@@ -676,9 +676,9 @@
 		if(ismob(loc))
 			W.dropped(user)
 		if(ismob(new_location))
-			W.layer = SCREEN_LAYER + 0.01
+			W.hud_layerise()
 		else
-			W.layer = initial(W.layer)
+			W.reset_plane_and_layer()
 		W.forceMove(new_location)
 	else
 		W.forceMove(get_turf(src))
@@ -847,18 +847,21 @@
 
 	storage_start = new /obj/screen/storage{icon_state = "storage_start"}
 	storage_start.master = src
+	storage_start.layer = HUD_BASE_LAYER
 
 	storage_continue = new /obj/screen/storage{icon_state = "storage_continue"}
 	storage_continue.master = src
+	storage_continue.layer = HUD_BASE_LAYER
 
 	storage_end = new /obj/screen/storage{icon_state = "storage_end"}
 	storage_end.master = src
+	storage_end.layer = HUD_BASE_LAYER
 
 	closer = new /obj/screen/close{
 		icon_state = "x";
-		layer = SCREEN_LAYER
 	}
 	closer.master = src
+	closer.layer = HUD_BASE_LAYER
 	orient2hud(null, mapload)
 
 	if (defer_shrinkwrap)	// Caller wants to defer shrinkwrapping until after the current callstack; probably putting something in.

@@ -7,6 +7,7 @@
 	idle_power_usage = 300
 	active_power_usage = 300
 	clicksound = /singleton/sound_category/keyboard_sound
+	z_flags = ZMM_MANGLE_PLANES
 
 	var/circuit = null //The path to the circuit board type. If circuit==null, the computer can't be disassembled.
 	var/processing = 0
@@ -69,14 +70,14 @@
 /obj/machinery/computer/update_icon()
 	switch(dir)
 		if(NORTH)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(SOUTH)
-			layer = initial(layer)
+			reset_plane_and_layer()
 		if(EAST)
-			layer = ABOVE_MOB_LAYER
+			layer = ABOVE_HUMAN_LAYER
 		if(WEST)
-			layer = ABOVE_MOB_LAYER
-	cut_overlays()
+			layer = ABOVE_HUMAN_LAYER
+	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return
@@ -103,23 +104,23 @@
 	if(stat & BROKEN)
 		icon_state = "[icon_state]-broken"
 		if (overlay_layer != layer)
-			add_overlay(image(icon, icon_broken, overlay_layer))
+			AddOverlays(image(icon, icon_broken, overlay_layer))
 		else
-			add_overlay(icon_broken)
+			AddOverlays(icon_broken)
 	else if (icon_screen)
 		if (is_holographic)
 			holographic_overlay(src, src.icon, icon_screen)
 		if (icon_scanline)
-			add_overlay(icon_scanline)
+			AddOverlays(icon_scanline)
 		if (icon_keyboard)
 			if((stat & NOPOWER) && has_off_keyboards)
-				add_overlay("[icon_keyboard]_off")
+				AddOverlays("[icon_keyboard]_off")
 			else
-				add_overlay(icon_keyboard)
+				AddOverlays(icon_keyboard)
 		else if (overlay_layer != layer)
-			add_overlay(image(icon, icon_screen, overlay_layer))
+			AddOverlays(image(icon, icon_screen, overlay_layer))
 		else
-			add_overlay(icon_screen)
+			AddOverlays(icon_screen)
 
 /obj/machinery/computer/power_change()
 	..()

@@ -261,27 +261,23 @@ GLOBAL_LIST_EMPTY(frozen_crew)
 	disallow_occupant_types = list(/mob/living/silicon/robot)
 
 /obj/machinery/cryopod/living_quarters/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/image/I = image(icon, "pod_top")
-	I.layer = 5.021
-	add_overlay(I)
+	AddOverlays(I)
 
 
 	if(occupant)
 		I = image(icon, "pod_back")
-		I.layer = 5
-		add_overlay(I)
+		AddOverlays(I)
 
 		name = "[name] ([occupant])"
 		I = image(occupant.icon, occupant.icon_state, dir = SOUTH)
 		I.overlays = occupant.overlays
-		I.layer = 5
 		I.pixel_z = 11
-		add_overlay(I)
+		AddOverlays(I)
 
 		I = image(icon, "pod_door")
-		I.layer = 5
-		add_overlay(I)
+		AddOverlays(I)
 	else
 		name = initial(name)
 

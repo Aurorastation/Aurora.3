@@ -196,11 +196,11 @@
 	name = "Tech Support - Idris"
 	jobtype = /datum/job/librarian
 
-	l_pocket = /obj/item/modular_computer/handheld/preset
+	l_pocket = /obj/item/modular_computer/handheld/preset/generic
 	r_pocket = /obj/item/card/tech_support
 	r_hand = /obj/item/storage/bag/circuits/basic
-	l_hand = /obj/item/modular_computer/laptop/preset
-	gloves = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
+	l_hand = /obj/item/device/debugger
+	wrist = /obj/item/modular_computer/handheld/wristbound/preset/advanced/civilian
 
 /obj/outfit/job/chaplain/idris
 	name = "Chaplain - Idris"

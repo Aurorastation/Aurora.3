@@ -24,7 +24,7 @@ var/global/list/area_blurb_stated_to = list()
 	name = "Unknown"
 	icon = 'icons/turf/areas.dmi'
 	icon_state = "unknown"
-	layer = 10
+	layer = AREA_LAYER
 	luminosity = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
@@ -48,9 +48,14 @@ var/global/list/area_blurb_stated_to = list()
 	var/oneoff_light 	= 0
 	var/oneoff_environ 	= 0
 
+	///Boolean, if this area has gravity
 	var/has_gravity = TRUE
-	var/alwaysgravity = 0
-	var/nevergravity = 0
+
+	///Boolean, if this area always has gravity
+	var/alwaysgravity = FALSE
+
+	///Boolean, if this area never has gravity
+	var/nevergravity = FALSE
 
 	var/list/all_doors = list() //Added by Strumpetplaya - Alarm Change - Contains a list of doors adjacent to this area
 	var/air_doors_activated = FALSE
@@ -89,7 +94,6 @@ var/global/list/area_blurb_stated_to = list()
 
 /area/Initialize(mapload)
 	icon_state = "white"
-	layer = 10
 
 	blend_mode = BLEND_MULTIPLY
 
@@ -119,6 +123,13 @@ var/global/list/area_blurb_stated_to = list()
 		power_change()		// All machines set to current power level.
 
 	. = ..()
+
+	if(dynamic_lighting)
+		luminosity = FALSE
+
+	if (mapload && turf_initializer)
+		for(var/turf/T in src)
+			turf_initializer.initialize(T)
 
 /area/proc/is_prison()
 	return area_flags & AREA_FLAG_PRISON
@@ -384,23 +395,12 @@ var/list/mob/living/forced_ambiance_list = new
 	for(var/obj/machinery/door/window/temp_windoor in src)
 		temp_windoor.open()
 
-/area/proc/has_gravity()
+/area/has_gravity(turf/gravity_turf)
 	if(alwaysgravity)
 		return TRUE
 	if(nevergravity)
 		return FALSE
 	return has_gravity
-
-/area/space/has_gravity()
-	return 0
-
-/proc/has_gravity(atom/AT, turf/T)
-	if(!T)
-		T = get_turf(AT)
-	var/area/A = get_area(T)
-	if(A && A.has_gravity())
-		return 1
-	return 0
 
 //A useful proc for events.
 //This returns a random area of the station which is meaningful. Ie, a room somewhere

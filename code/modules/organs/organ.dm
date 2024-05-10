@@ -374,6 +374,13 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(robotic_name)
 		name = robotic_name
 
+/obj/item/organ/proc/derobotize() //Turn a robot organ back into a flesh one. Used for appearance changers, etc.
+	robotic = initial(robotic)
+	status = initial(status)
+	drop_sound = initial(drop_sound)
+	pickup_sound = initial(pickup_sound)
+	name = initial(name)
+
 /obj/item/organ/proc/mechassist() //Used to add things like pacemakers, etc
 	status = ORGAN_ASSISTED
 	robotic = ROBOTIC_ASSISTED
@@ -382,6 +389,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			name = "pacemaker-assisted [initial(name)]"
 		if(BP_EYES)
 			name = "retinal overlayed [initial(name)]"
+		if(BP_BRAIN)
+			name = "positronic-implanted [initial(name)]"
 		else
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
@@ -394,7 +403,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	var/organ_fragility = 0.5
 
-	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assited ones only suffer half of it
+	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assisted ones only suffer half of it
 		organ_fragility = 1
 
 	switch (severity)

@@ -12,9 +12,7 @@
 /turf/simulated/floor/concrete,
 /area/adhomai_silo)
 "c" = (
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/exoplanet/adhomai)
 "d" = (
 /obj/effect/floor_decal/concrete{
@@ -89,7 +87,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "p" = (
 /obj/effect/floor_decal/concrete{
 	dir = 4
@@ -100,9 +98,7 @@
 /obj/structure/blocker/steel/fence{
 	dir = 4
 	},
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_silo)
 "t" = (
 /obj/machinery/light{
@@ -147,7 +143,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "C" = (
 /obj/structure/window/reinforced{
 	dir = 1;
@@ -169,7 +165,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "E" = (
 /obj/machinery/light{
 	dir = 4
@@ -197,7 +193,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "G" = (
 /obj/effect/floor_decal/concrete/large/cee{
 	dir = 1
@@ -220,7 +216,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "M" = (
 /obj/effect/decal/fake_object{
 	icon = 'icons/effects/missile_silo.dmi';
@@ -254,7 +250,7 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "S" = (
 /obj/effect/floor_decal/concrete/large{
 	dir = 4
@@ -262,13 +258,13 @@
 /turf/simulated/floor/concrete{
 	temperature = 268.15
 	},
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "T" = (
 /turf/simulated/wall/concrete,
 /area/adhomai_silo)
 "U" = (
 /turf/simulated/wall/concrete,
-/area/pra_base)
+/area/adhomai_silo/cabin)
 "W" = (
 /obj/machinery/light{
 	dir = 4
@@ -277,9 +273,7 @@
 /area/adhomai_silo)
 "Y" = (
 /obj/structure/blocker/steel/fence,
-/turf/simulated/floor/exoplanet/snow{
-	temperature = 268.15
-	},
+/turf/simulated/floor/exoplanet/snow/cold,
 /area/adhomai_silo)
 
 (1,1,1) = {"

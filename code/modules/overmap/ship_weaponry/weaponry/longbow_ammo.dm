@@ -40,14 +40,14 @@
 		primer = P
 		P.forceMove(src)
 		var/image/OL = image(P.icon, P.primer_state, layer = layer - 0.01)
-		add_overlay(OL)
+		AddOverlays(OL)
 	update_status()
 
 /obj/item/ship_ammunition/longbow/proc/add_warhead(var/obj/item/warhead/W)
 	if(W && !QDELETED(W))
 		warhead = W
 		W.forceMove(src)
-		add_overlay(W.warhead_state)
+		AddOverlays(W.warhead_state)
 		impact_type = W.warhead_type
 		ammunition_flags = initial(ammunition_flags)
 		ammunition_flags |= SHIP_AMMO_FLAG_VERY_FRAGILE
@@ -147,7 +147,9 @@
 
 /obj/item/warhead/longbow/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
-	if(attacking_item.force > 10)
+	if(istype(attacking_item, /obj/item/mecha_equipment/clamp)) //loading a warhead into a mech shouldn't explode it
+		return
+	if(attacking_item.force > 10 && user.a_intent == I_HURT) //presumably you need to hit it pretty hard to actually set the thing off
 		cookoff(FALSE)
 
 /obj/item/warhead/longbow/ex_act(severity)

@@ -21,6 +21,7 @@ pixel_x = 8;
 	icon_state = "bell"
 	anchored = TRUE
 	appearance_flags = TILE_BOUND // prevents people from viewing the overlay through a wall
+	z_flags = ZMM_MANGLE_PLANES
 
 	req_access = list() //what access it needs to link your pda
 
@@ -87,21 +88,21 @@ pixel_x = 8;
 	screen_overlays["bell-standby"] = make_screen_overlay(icon, "bell-standby")
 
 /obj/machinery/ringer/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!on || stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 		return
 	if(rings_pdas || rings_pdas.len)
-		add_overlay(screen_overlays["bell-active"])
+		AddOverlays(screen_overlays["bell-active"])
 		set_light(1.4, 1, COLOR_CYAN)
 	if(pinged)
-		add_overlay(screen_overlays["bell-alert"])
+		AddOverlays(screen_overlays["bell-alert"])
 		set_light(1.4, 1, COLOR_CYAN)
 	if(on)
-		add_overlay(screen_overlays["bell-scanline"])
+		AddOverlays(screen_overlays["bell-scanline"])
 	else
-		add_overlay(screen_overlays["bell-standby"])
+		AddOverlays(screen_overlays["bell-standby"])
 		set_light(1.4, 1, COLOR_CYAN)
 
 /obj/machinery/ringer/attackby(obj/item/attacking_item, mob/user)
