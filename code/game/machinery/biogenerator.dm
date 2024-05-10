@@ -97,6 +97,7 @@
 /singleton/biorecipe/food/blood
 	name = "Synthetic Blood (50u)"
 	object = /obj/item/reagent_containers/food/condiment/blood
+	cost = 100
 
 /*
 FERTILIZER
