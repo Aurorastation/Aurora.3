@@ -4,4 +4,4 @@ author: DreamySkrell
 delete-after: True
 
 changes:
-  - rscadd: "Disables ships that do not follow current standards: Wildlands Militia, Diona Serz, Diona Rokz."
+  - rscadd: "Disables ships that do not follow current standards: Wildlands Militia, Taj Migrant, Diona Serz, Diona Rokz."
