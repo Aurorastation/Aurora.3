@@ -1,0 +1,829 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"c" = (
+/obj/structure/table/standard,
+/obj/item/gun/projectile/colt,
+/obj/item/paper/fluff/ouerea_corpse,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"e" = (
+/turf/simulated/wall/concrete,
+/area/exoplanet/ouerea)
+"g" = (
+/obj/structure/barricade/metal/wired{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"k" = (
+/obj/effect/landmark/scorcher,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"m" = (
+/obj/structure/gravemarker/ouerea_5,
+/obj/structure/pit/closed/grave{
+	marker = 0
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"p" = (
+/turf/simulated/floor/exoplanet/water/shallow{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"q" = (
+/obj/structure/gravemarker/ouerea_3,
+/obj/structure/pit/closed/grave{
+	marker = 0
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"r" = (
+/obj/structure/gravemarker/ouerea_4,
+/obj/structure/pit/closed/grave{
+	marker = 0
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"t" = (
+/obj/structure/gravemarker/ouerea_2,
+/obj/structure/pit/closed/grave{
+	marker = 0
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"v" = (
+/obj/item/stack/material/wood/branch,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"A" = (
+/obj/structure/mech_wreckage,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"E" = (
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"G" = (
+/obj/effect/landmark/corpse/ouerea_revolutionary,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"L" = (
+/obj/item/gun/projectile/automatic/rifle/carbine,
+/obj/structure/table/rack,
+/obj/item/gun/projectile/automatic/rifle/carbine,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"N" = (
+/obj/item/grenade/frag,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Q" = (
+/obj/structure/sign/flag/ouerea/large/north,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"T" = (
+/obj/item/shovel,
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"U" = (
+/obj/structure/gravemarker/ouerea_1,
+/obj/structure/pit/closed/grave{
+	marker = 0
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"V" = (
+/obj/item/gun/energy/rifle/laser,
+/obj/structure/table/rack,
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"W" = (
+/obj/structure/barricade/metal/wired{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/concrete/square{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+"Y" = (
+/obj/structure/barricade/wooden{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/grass{
+	temperature = 298.15
+	},
+/area/exoplanet/ouerea)
+
+(1,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(2,1,1) = {"
+a
+e
+e
+W
+W
+e
+e
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(3,1,1) = {"
+a
+e
+Q
+E
+E
+L
+e
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(4,1,1) = {"
+a
+e
+G
+E
+E
+E
+E
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(5,1,1) = {"
+a
+e
+c
+E
+E
+V
+e
+a
+a
+a
+a
+a
+a
+a
+T
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(6,1,1) = {"
+a
+e
+e
+g
+g
+e
+e
+a
+a
+U
+t
+q
+r
+m
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(7,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+p
+p
+a
+Y
+v
+Y
+Y
+a
+a
+a
+"}
+(8,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+p
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+a
+Y
+Y
+Y
+Y
+v
+a
+a
+a
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(11,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+p
+p
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(12,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+p
+p
+p
+p
+p
+p
+p
+p
+a
+a
+A
+a
+a
+a
+a
+a
+a
+a
+"}
+(13,1,1) = {"
+a
+a
+a
+v
+v
+a
+a
+a
+p
+p
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(14,1,1) = {"
+a
+a
+a
+a
+a
+a
+v
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(15,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(16,1,1) = {"
+a
+a
+a
+a
+k
+a
+a
+a
+p
+p
+p
+p
+p
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(17,1,1) = {"
+a
+a
+a
+a
+a
+a
+N
+a
+p
+a
+p
+a
+p
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(18,1,1) = {"
+a
+a
+a
+a
+A
+a
+a
+a
+a
+a
+a
+a
+a
+p
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(19,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+k
+a
+a
+a
+a
+a
+a
+a
+"}
+(20,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(21,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+k
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(22,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(23,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(24,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
+(25,1,1) = {"
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+a
+"}
