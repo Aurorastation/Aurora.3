@@ -294,7 +294,7 @@
 	var/bodyfall_sound = /singleton/sound_category/bodyfall_sound //default, can be used for species specific falling sounds
 	var/footsound = /singleton/sound_category/blank_footsteps //same as above but for footsteps without shoes
 
-	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
+	var/list/alterable_internal_organs = list(BP_HEART, BP_EYES, BP_LUNGS, BP_LIVER, BP_BRAIN, BP_KIDNEYS, BP_STOMACH, BP_APPENDIX) //what internal organs can be changed in character setup
 	var/list/possible_external_organs_modifications = list("Normal","Amputated","Prosthesis")
 	/// These are the prefixes of the icon states in talk.dmi.
 	var/list/possible_speech_bubble_types = list("default")

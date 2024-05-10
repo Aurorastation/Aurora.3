@@ -1,0 +1,1231 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"b" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"c" = (
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"d" = (
+/obj/structure/railing/fence,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"e" = (
+/obj/structure/flora/grass/desert,
+/mob/living/simple_animal/hostile/retaliate/hegeranzi,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"f" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"g" = (
+/obj/structure/closet/crate,
+/obj/item/material/twohanded/pike/halberd,
+/obj/item/material/twohanded/pike/halberd,
+/obj/random/sword,
+/obj/random/sword,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/clothing/suit/armor/unathi,
+/obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/crackrifle,
+/obj/item/gun/projectile/shotgun/wallgun,
+/obj/item/storage/box/wallgunammo,
+/obj/item/gun/projectile/automatic/tempestsmg,
+/obj/item/ammo_magazine/tempestsmg,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"h" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"k" = (
+/turf/simulated/wall/cloth,
+/area/moghes_queendom)
+"m" = (
+/obj/structure/railing/fence,
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"n" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"o" = (
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"p" = (
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"q" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"r" = (
+/obj/item/bedsheet/brown,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"u" = (
+/obj/structure/flora/log_bench,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"w" = (
+/obj/machinery/light/small{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"x" = (
+/obj/item/bedsheet/brown,
+/obj/effect/ghostspawpoint{
+	name = "igs - moghes_queendom";
+	identifier = "moghes_queendom"
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"y" = (
+/mob/living/simple_animal/threshbeast,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"z" = (
+/obj/structure/railing/fence{
+	dir = 4
+	},
+/obj/structure/sink/puddle,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"C" = (
+/obj/structure/closet/crate,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/flashlight/lantern,
+/obj/item/device/radio,
+/obj/item/torch,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/obj/item/device/geiger,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"E" = (
+/obj/structure/closet/crate/freezer,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/snacks/fish/fishfillet,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/item/reagent_containers/food/drinks/waterbottle,
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"J" = (
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"M" = (
+/obj/structure/curtain,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"O" = (
+/obj/structure/closet/crate,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/item/saddle,
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/material/hatchet/lumber,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"P" = (
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid/radiation,
+/obj/item/storage/firstaid,
+/obj/item/storage/firstaid,
+/obj/random/firstaid,
+/obj/structure/closet/crate,
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"R" = (
+/obj/structure/railing/fence,
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/obj/structure/flora/grass/desert,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"T" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"W" = (
+/obj/machinery/light/small{
+	dir = 4
+	},
+/turf/simulated/floor/exoplanet/carpet/rubber{
+	temperature = 303.15
+	},
+/area/moghes_queendom)
+"X" = (
+/obj/structure/railing/fence{
+	dir = 1
+	},
+/obj/structure/railing/fence{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+"Z" = (
+/obj/structure/bonfire/light_up,
+/turf/simulated/floor/exoplanet/desert{
+	temperature = 315.15
+	},
+/area/moghes_queendom)
+
+(1,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(2,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(3,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(4,1,1) = {"
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(5,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(6,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(7,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+a
+p
+p
+p
+p
+p
+"}
+(8,1,1) = {"
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(9,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+a
+p
+p
+p
+a
+p
+p
+p
+p
+p
+"}
+(10,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(11,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(12,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+k
+k
+k
+k
+k
+k
+k
+k
+k
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(13,1,1) = {"
+p
+p
+p
+p
+p
+p
+k
+k
+r
+o
+J
+J
+J
+E
+q
+k
+k
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(14,1,1) = {"
+p
+p
+p
+p
+p
+p
+k
+x
+J
+J
+J
+J
+J
+J
+J
+J
+k
+w
+u
+p
+p
+p
+u
+p
+p
+p
+p
+p
+p
+p
+"}
+(15,1,1) = {"
+p
+p
+p
+p
+p
+p
+k
+x
+J
+J
+J
+J
+J
+J
+J
+J
+M
+p
+u
+p
+Z
+p
+u
+p
+p
+p
+p
+p
+a
+p
+"}
+(16,1,1) = {"
+p
+p
+p
+p
+p
+p
+k
+x
+J
+J
+J
+J
+J
+J
+J
+J
+k
+w
+u
+p
+p
+p
+u
+p
+p
+p
+p
+p
+p
+p
+"}
+(17,1,1) = {"
+p
+p
+p
+p
+p
+p
+k
+k
+x
+W
+J
+P
+C
+O
+g
+k
+k
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(18,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+k
+k
+k
+k
+k
+k
+k
+k
+k
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(19,1,1) = {"
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+X
+c
+p
+c
+R
+p
+p
+p
+p
+p
+p
+"}
+(20,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+T
+a
+p
+p
+d
+p
+p
+p
+p
+p
+p
+"}
+(21,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+T
+y
+a
+e
+d
+p
+p
+p
+p
+p
+p
+"}
+(22,1,1) = {"
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+T
+a
+p
+p
+d
+p
+p
+p
+a
+p
+p
+"}
+(23,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+T
+y
+y
+p
+m
+p
+p
+p
+p
+p
+p
+"}
+(24,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+b
+z
+f
+h
+n
+p
+p
+p
+p
+p
+p
+"}
+(25,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+"}
+(26,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(27,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+p
+p
+p
+"}
+(28,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}
+(29,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+a
+p
+p
+"}
+(30,1,1) = {"
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+p
+"}

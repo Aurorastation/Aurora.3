@@ -73,9 +73,6 @@
 
 /obj/structure/ore_box/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	// Borgs can now check contents too.
-	if(!ishuman(user) && !isrobot(user))
-		return
 	if(!is_adjacent) //Can only check the contents of ore boxes if you can physically reach them.
 		return
 
