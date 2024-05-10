@@ -4,6 +4,6 @@ delete-after: True
 
 changes:
   - rscadd: "Adds Moghresian Meat, obtainable by butchering Moghresian animals (otztek, threshbeast, etc)"
-  - rscadd: "Adds "synthetic blood" to the biogenerator, for use in food/drink recipies that require blood."
+  - rscadd: "Adds 'synthetic blood' to the biogenerator, for use in food/drink recipies that require blood."
   - qol: "Fixes reagent values for many Unathi foods, which had far fewer reagents than their component ingredients"
   - qol: "Changes some Unathi cultural foods to use Moghresian Meat instead of normal meat"
