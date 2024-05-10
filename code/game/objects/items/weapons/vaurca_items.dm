@@ -280,25 +280,6 @@
 
 	action_button_name = "Toggle the magclaws"
 
-/obj/item/clothing/shoes/magboots/vaurca/aug
-	name = "integrated mag-claws"
-	desc = "A magnetic-grip system similar to a set of magboots integrated into a Vaurca's leg chitin."
-	magpulse = 1
-	slowdown = 3
-	action_button_name = null
-	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT|ITEM_FLAG_NO_SLIP
-	canremove = FALSE
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/throw_at()
-	usr.drop_from_inventory(src)
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/dropped()
-	. = ..()
-	qdel(src)
-
-/obj/item/clothing/shoes/magboots/vaurca/aug/negates_gravity()
-	return TRUE
-
 /obj/item/clothing/suit/space/void/scout
 	name = "scout armor"
 	contained_sprite = 1
