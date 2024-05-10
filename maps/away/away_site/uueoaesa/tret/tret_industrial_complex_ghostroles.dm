@@ -1,3 +1,6 @@
+
+// ---------------------- spawners
+
 /datum/ghostspawner/human/tret_industrial
 	name = "Tret Industrial Worker"
 	short_name = "tret_industrial"
@@ -44,6 +47,37 @@
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
 	welcome_message = "You are a Vaurca Warrior of the Hive K'lax, assigned to protect an industrial facility on Tret. Your primary duty is to keep the Workers of the facility safe from any threats."
+
+// ---------------------- corpses
+
+/obj/effect/landmark/corpse/cult_base_cultist
+	name = "Cult Base Cultist Corpse"
+	species = list(SPECIES_HUMAN, SPECIES_HUMAN, SPECIES_HUMAN_OFFWORLD, SPECIES_TAJARA, SPECIES_UNATHI)
+	outfit = list(
+		/obj/outfit/admin/cult_base_cultist_corpse,
+		/obj/outfit/admin/generic,
+		/obj/outfit/admin/generic/engineer,
+		/obj/outfit/admin/generic/security,
+		/obj/outfit/admin/generic/medical,
+	)
+
+/obj/effect/landmark/corpse/cult_base_cultist/do_extra_customization(var/mob/living/carbon/human/human)
+	// turn to random dir
+	human.dir = pick(NORTH, SOUTH, EAST, WEST)
+
+	// slit throat
+	var/obj/item/organ/external/head = human.get_organ(BP_HEAD)
+	if(head)
+		head.sever_artery()
+	human.take_overall_damage(150, 100)
+
+	// add blood
+	human.w_uniform?.add_blood(human)
+	human.wear_suit?.add_blood(human)
+	human.gloves?.add_blood(human)
+	human.shoes?.add_blood(human)
+
+// ---------------------- outfits
 
 /obj/outfit/admin/tret_industrial
 	uniform = /obj/item/clothing/under/vaurca

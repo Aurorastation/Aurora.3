@@ -14,15 +14,11 @@
 /area/tret_industrial/outside
 	area_blurb = "The planet Tret, home of the K'lax Hive. Beneath you, the ground vibrates slightly - vast machinery deep below carrying out its work."
 
-
 /area/tret_industrial/outside/landing
 	name = "Tret - Landing Pad"
 
 /area/tret_industrial/outside/surface
 	name = "Tret - Surface"
-
-/area/tret_industrial/outside/caves
-	name = "Tret - Caves"
 
 // ------------------------- inside
 
