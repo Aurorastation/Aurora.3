@@ -351,12 +351,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
 "fv" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/blast/regular/open{
-	id = "scarab_hangar_port";
+	id = "scarab_hangar";
 	name = "Safety Blast Doors"
 	},
 /turf/simulated/floor/plating,
@@ -519,18 +519,18 @@
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "hY" = (
-/obj/machinery/button/remote/blast_door{
-	name = "Port Blast Shutters";
-	id = "scarab_hangar_port";
-	dir = 1;
-	pixel_y = 28
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/item/towel_flat{
 	name = "magnetic rug";
 	accent_color = "#724e6f";
 	color = "#724e6f";
 	desc = "An ornate rug. Magnetic strips have been fitted onto the bottom."
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Hangar Bay Blast Shutters";
+	id = "scarab_hangar_starboard";
+	dir = 1;
+	pixel_y = 28
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
@@ -569,7 +569,7 @@
 "iM" = (
 /obj/structure/table/reinforced/steel,
 /obj/machinery/button/remote/blast_door{
-	name = "Starboard Blast Shutters";
+	name = "Hangar Bay Blast Shutters";
 	id = "scarab_hangar_starboard";
 	dir = 1;
 	pixel_y = 28
@@ -587,15 +587,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
 "jz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/port{
 	name = "port, hangar port"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/blast/regular/open{
-	id = "scarab_hangar_port";
+	id = "scarab_hangar";
 	name = "Safety Blast Doors"
 	},
 /turf/simulated/floor/plating,
@@ -847,15 +847,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/central)
 "nY" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, hangar starboard"
 	},
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /obj/machinery/door/blast/regular/open{
-	id = "scarab_hangar_starboard";
+	id = "scarab_hangar";
 	name = "Safety Blast Doors"
 	},
 /turf/simulated/floor/plating,
@@ -896,12 +896,11 @@
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "pa" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
 /obj/machinery/door/blast/regular/open{
-	id = "scarab_hangar_starboard";
+	id = "scarab_hangar";
 	name = "Safety Blast Doors"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -916,6 +915,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/hangar)
 "pr" = (
