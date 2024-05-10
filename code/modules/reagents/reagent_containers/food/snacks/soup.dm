@@ -250,7 +250,7 @@
 	trash = /obj/item/trash/snack_bowl
 	filling_color = "#FF3C00"
 	center_of_mass = list("x"=15, "y"=9)
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment = 3, /singleton/reagent/capsaicin = 3, /singleton/reagent/drink/tomatojuice = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/capsaicin = 3, /singleton/reagent/drink/tomatojuice = 2)
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/coldchili

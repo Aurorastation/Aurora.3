@@ -173,7 +173,8 @@
 	fruit = list("aghrassh nut" = 1)
 	reagents = list(/singleton/reagent/sodiumchloride = 3, /singleton/reagent/blackpepper = 3, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/spacespice = 1)
 	items = list(
-		/obj/item/reagent_containers/food/snacks/egg
+		/obj/item/reagent_containers/food/snacks/egg,
+		/obj/item/reagent_containers/food/snacks/meat/moghes
 	)
 	result = /obj/item/reagent_containers/food/snacks/aghrasshcake
 

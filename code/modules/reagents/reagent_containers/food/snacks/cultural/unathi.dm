@@ -4,7 +4,15 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "chilied_eggs"
 	trash = /obj/item/trash/snack_bowl
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/nutriment/protein = 2)
+	reagents_to_add = list(
+		/singleton/reagent/nutriment/protein/egg = 6,
+		/singleton/reagent/nutriment/protein = 6,
+		/singleton/reagent/nutriment/triglyceride = 2,
+		/singleton/reagent/nutriment = 5,
+		/singleton/reagent/drink/tomatojuice = 2,
+		/singleton/reagent/capsaicin = 3
+	)
+	reagent_data = list(/singleton/reagent/nutriment = list("tomatoes" = 3), /singleton/reagent/nutriment/protein = list("meaty chili" = 6))
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/hatchling_suprise
@@ -13,16 +21,18 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "hatchling_suprise"
 	trash = /obj/item/trash/snack_bowl
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 2, /singleton/reagent/nutriment/protein = 4)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 3, /singleton/reagent/nutriment/protein = 4)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("bacon" = 4))
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/red_sun_special
 	name = "red sun special"
-	desc = "One lousey piece of sausage sitting on melted cheese curds. A cheap meal for the Unathi peasants of Moghes."
+	desc = "A sausage floating in a bowl of melted cheese. A cheap meal for the Unathi peasants of Moghes."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "red_sun_special"
 	trash = /obj/item/trash/plate
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/protein/cheese = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("sausage" = 6))
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/riztizkzi_sea
@@ -31,7 +41,8 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "riztizkzi_sea"
 	trash = /obj/item/trash/snack_bowl
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 4)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 9, /singleton/reagent/nutriment/protein = 6)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("blood" = 6))
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/father_breakfast
@@ -40,7 +51,15 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "father_breakfast"
 	trash = /obj/item/trash/plate
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/egg = 4, /singleton/reagent/nutriment/protein = 6)
+	reagents_to_add = list(
+		/singleton/reagent/nutriment/protein/egg = 6,
+		/singleton/reagent/nutriment/protein/cheese = 5,
+		/singleton/reagent/nutriment/protein = 12,
+		/singleton/reagent/nutriment/triglyceride = 2,
+		/singleton/reagent/sodiumchloride = 1,
+		/singleton/reagent/blackpepper
+	)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("sausage" = 6, "steak" = 6))
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/stuffed_meatball
@@ -48,7 +67,8 @@
 	desc = "A meatball loaded with cheese."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "stuffed_meatball"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 4)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/cheese = 3, /singleton/reagent/nutriment/protein = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("smashed meat" = 3))
 	filling_color = "#FC5647"
 
 /obj/item/reagent_containers/food/snacks/egg_pancake
@@ -57,7 +77,8 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "egg_pancake"
 	trash = /obj/item/trash/tray
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/protein/egg = 2)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 9, /singleton/reagent/nutriment/protein/egg = 6, /singleton/reagent/nutriment/protein/cheese = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("smashed meat" = 9))
 	filling_color = "#FFFA6b"
 
 /obj/item/reagent_containers/food/snacks/sliceable/grilled_carp
@@ -70,7 +91,8 @@
 	trash = /obj/item/trash/snacktray
 	filling_color = "#FFA8E5"
 
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 12)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 18, /singleton/reagent/spacespice = 1, /singleton/reagent/nutriment = 15)
+	reagent_data = list(/singleton/reagent/nutriment = list("cabbage" = 3, "lime" = 3), /singleton/reagent/nutriment/protein = list("tangy grilled fish" = 18))
 
 /obj/item/reagent_containers/food/snacks/grilled_carp_slice
 	name = "korlaaskak slice"
@@ -89,7 +111,8 @@
 	slices_num = 3
 	filling_color = "#525252"
 
-	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/nutriment = 12)
+	reagent_data = list(/singleton/reagent/nutriment = list("rice" = 3, "cabbage" = 3))
 
 /obj/item/reagent_containers/food/snacks/sushi_serve
 	name = "ouerean fish cake"
@@ -103,7 +126,8 @@
 	desc = "A bacon wrapped boiled egg, conviently skewered on a wooden stick."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "bacon_stick"
-	reagents_to_add = list(/singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment/protein/egg = 1)
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment/protein/egg = 3)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("bacon" = 3))
 	filling_color = "#FFFEE8"
 
 /obj/item/reagent_containers/food/snacks/batwings
@@ -112,6 +136,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "batwings"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 3, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/capsaicin = 5)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("decadent wing meat" = 3))
 	bitesize = 4
 	trash = /obj/item/trash/plate
 
@@ -151,7 +176,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "razirnoodles"
 	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/nutriment/protein/egg = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("molten heat" = 3, "meaty noodles" = 3))
+	reagent_data = list(/singleton/reagent/nutriment = list("molten heat" = 3), /singleton/reagent/nutriment/protein = list("meaty noodles" = 3))
 	bitesize = 10
 	trash = /obj/item/trash/plate
 
@@ -160,8 +185,8 @@
 	desc = "Reddish, and extremely smooth, chocolate pudding, rich in iron!"
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "sintapudding"
-	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 1, /singleton/reagent/blood = 6, /singleton/reagent/nutriment/coco = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("iron" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment = 15, /singleton/reagent/nutriment/protein = 8)
+	reagent_data = list(/singleton/reagent/nutriment = list("rich chocolate" = 15), /singleton/reagent/nutriment/protein = list("blood" = 8))
 	bitesize = 6
 
 /obj/item/reagent_containers/food/snacks/stokkebab
@@ -169,8 +194,8 @@
 	desc = "Two hearty skewers of seared Moghean meat, glazed in a tangy spice. A popular Skalamar street food."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "stok-skewers"
-	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/capsaicin = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("tangy and gamey meat" = 3))
+	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/capsaicin = 2)
+	reagent_data = list(/singleton/reagent/nutriment/protein = list("tangy and gamey meat" = 6))
 	bitesize = 3
 
 /obj/item/reagent_containers/food/snacks/gukhefish
@@ -179,7 +204,7 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "gukhe-fish"
 	reagents_to_add = list(/singleton/reagent/nutriment = 1, /singleton/reagent/nutriment/protein/seafood = 6, /singleton/reagent/capsaicin = 2, /singleton/reagent/sodiumchloride = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("tangy fish" = 3, "bitter gukhe" = 3))
+	reagent_data = list(/singleton/reagent/nutriment = list("bitter gukhe" = 3), /singleton/reagent/nutriment/protein/seafood = list("tangy fish" = 6))
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/aghrasshcake
@@ -187,8 +212,14 @@
 	desc = "A dense, calorie-packed puck of aghrassh paste, spices, and ground meat, usually eaten as an Unathi field ration. This one has an egg cracked over it to make it a bit more palatable."
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "aghrassh-cake"
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 8, /singleton/reagent/nutriment/coco = 3, /singleton/reagent/blackpepper = 3)
-	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "mealy paste" = 3))
+	reagents_to_add = list(
+		/singleton/reagent/nutriment = 3,
+		/singleton/reagent/nutriment/protein = 8,
+		/singleton/reagent/nutriment/triglyceride = 2,
+		/singleton/reagent/nutriment/coco = 3,
+		/singleton/reagent/blackpepper = 3
+	)
+	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "mealy paste" = 3), /singleton/reagent/nutriment/protein = list("ground meat" = 8))
 	bitesize = 5
 
 /obj/item/reagent_containers/food/snacks/sliceable/eyebowl
@@ -197,8 +228,14 @@
 	icon = 'icons/obj/item/reagent_containers/food/cultural/unathi.dmi'
 	icon_state = "eyebowl"
 	trash = /obj/item/trash/custard_bowl
-	reagents_to_add = list(/singleton/reagent/nutriment = 3, /singleton/reagent/nutriment/protein = 12, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/blackpepper = 2)
-	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "zesty tomatoes" = 5))
+	reagents_to_add = list(
+		/singleton/reagent/nutriment = 3,
+		/singleton/reagent/nutriment/protein = 12,
+		/singleton/reagent/nutriment/protein/egg = 3,
+		/singleton/reagent/nutriment/triglyceride = 2,
+		/singleton/reagent/blackpepper = 2
+	)
+	reagent_data = list(/singleton/reagent/nutriment = list("aghrassh nuts" = 3, "zesty tomatoes" = 5), /singleton/reagent/nutriment/protein = list("zesty ground meat" = 12))
 	bitesize = 5
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
