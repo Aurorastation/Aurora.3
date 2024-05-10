@@ -226,22 +226,6 @@
 /area/tret_industrial/inside/crew)
 "abU" = (
 /obj/structure/table/standard,
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = 7;
-	pixel_y = 1
-	},
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = 7;
-	pixel_y = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/medical)
 "abZ" = (
@@ -816,6 +800,9 @@
 /obj/structure/cable{
 	icon_state = "1-4"
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "aeo" = (
@@ -852,6 +839,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
@@ -924,9 +914,6 @@
 /obj/item/storage/belt/mining/full,
 /obj/item/storage/belt/mining/full,
 /obj/item/storage/belt/mining/full,
-/obj/item/clothing/accessory/poncho/unathimantle/mountain,
-/obj/item/clothing/accessory/poncho/unathimantle/mountain,
-/obj/item/clothing/accessory/poncho/unathimantle,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/brown,
 /obj/item/clothing/accessory/storage/pouches/brown,
@@ -960,6 +947,9 @@
 "aeL" = (
 /obj/machinery/alarm/west{
 	req_one_access = null
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -1247,6 +1237,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "2-4"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
@@ -1697,6 +1690,9 @@
 /area/tret_industrial/inside/hallway_smelting)
 "aiC" = (
 /obj/structure/flora/pottedplant/subterranean,
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
 "aiH" = (
@@ -3043,6 +3039,9 @@
 /obj/structure/cable{
 	icon_state = "0-4"
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "awQ" = (
@@ -3289,6 +3288,10 @@
 /obj/item/organ/internal/kidneys/vaurca,
 /obj/item/organ/internal/heart/vaurca,
 /obj/item/organ/internal/heart/vaurca,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
+/obj/item/clothing/mask/gas/vaurca/filter,
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/medical)
 "azr" = (
@@ -3310,18 +3313,26 @@
 /area/tret_industrial/inside/engineering)
 "azz" = (
 /obj/structure/table/standard,
-/obj/item/roller{
-	pixel_x = -6;
-	pixel_y = 3
+/obj/item/storage/firstaid/adv{
+	pixel_x = 4;
+	pixel_y = 9
 	},
 /obj/item/roller{
-	pixel_x = -6;
+	pixel_x = -19;
 	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/medical)
 "azG" = (
 /obj/structure/table/steel,
+/obj/item/reagent_containers/food/snacks/koisbar_clean{
+	pixel_x = 5;
+	pixel_y = 4
+	},
+/obj/item/reagent_containers/food/snacks/koisbar{
+	pixel_x = -3;
+	pixel_y = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "azH" = (
@@ -3397,21 +3408,8 @@
 /area/tret_industrial/inside/hallway_docks)
 "aAx" = (
 /obj/structure/table/steel,
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = -2;
-	pixel_y = 5
-	},
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = 4;
-	pixel_y = -1
-	},
-/obj/item/clothing/mask/gas/vaurca/filter{
-	pixel_x = 4;
-	pixel_y = -1
+/obj/item/stack/rods{
+	pixel_y = 3
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
@@ -3692,11 +3690,12 @@
 	},
 /obj/item/storage/backpack/cloak/sedantis,
 /obj/item/storage/backpack/cloak/sedantis,
-/obj/item/storage/backpack/cloak/klax,
 /obj/item/clothing/under/unathi/zazali{
 	color = "#373C0E"
 	},
+/obj/item/clothing/accessory/poncho,
 /obj/item/clothing/suit/unathi/robe/beige,
+/obj/item/storage/backpack/cloak/klax,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
 "aCX" = (
@@ -3734,10 +3733,28 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "aDu" = (
-/obj/structure/table/standard,
-/obj/item/storage/firstaid/adv{
-	pixel_x = 12;
-	pixel_y = 4
+/obj/structure/closet/crate/medical,
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/item/storage/firstaid/regular,
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/random/medical{
+	pixel_y = 7
+	},
+/obj/random/medical{
+	pixel_y = 7
 	},
 /obj/random/medical{
 	pixel_y = 7
@@ -3875,6 +3892,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
 	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "aEx" = (
@@ -3952,6 +3972,9 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-8"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
@@ -4420,6 +4443,9 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
 	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
 "aJU" = (
@@ -4679,6 +4705,9 @@
 /area/tret_industrial/inside/engi_storage)
 "aMQ" = (
 /obj/structure/table/standard,
+/obj/random/plushie{
+	pixel_y = 13
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
 "aMS" = (
@@ -4728,6 +4757,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
@@ -4832,13 +4864,16 @@
 /area/tret_industrial/inside/hallway_smelting)
 "aOT" = (
 /obj/structure/table/standard,
-/obj/item/clothing/gloves/latex/nitrile/vaurca{
-	pixel_y = 14
+/obj/item/clothing/gloves/latex/vaurca{
+	pixel_x = 3;
+	pixel_y = 6
 	},
 /obj/item/clothing/gloves/latex/nitrile/vaurca{
 	pixel_y = 14
 	},
-/obj/item/clothing/gloves/latex/vaurca,
+/obj/item/clothing/gloves/latex/nitrile/vaurca{
+	pixel_y = 14
+	},
 /obj/item/stack/nanopaste{
 	pixel_x = 8;
 	pixel_y = 9
@@ -5437,6 +5472,9 @@
 /area/tret_industrial/outside/surface)
 "aUK" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/effect/floor_decal/corner/yellow{
 	dir = 8
 	},
 /turf/simulated/floor/tiled/slate,
@@ -6087,6 +6125,15 @@
 /obj/item/stack/rods,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"cYt" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/canteen)
 "cYy" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/plating,
@@ -6109,6 +6156,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"dle" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "dol" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
@@ -6396,6 +6449,18 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
+"gsf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "gtP" = (
 /obj/machinery/mining/brace{
 	dir = 8
@@ -6462,6 +6527,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_medical)
+"gXo" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/canteen)
 "gYu" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -6776,6 +6847,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
+"joA" = (
+/obj/structure/closet/toolcloset,
+/obj/item/clothing/suit/storage/hazardvest/red,
+/obj/item/clothing/suit/storage/hazardvest/green,
+/obj/item/stack/cable_coil,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_medical)
 "jsY" = (
 /obj/machinery/door/blast/shutters,
 /obj/effect/floor_decal/industrial/hatch_door/red{
@@ -6868,6 +6946,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/comms)
+"jUl" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/canteen)
 "jUr" = (
 /obj/machinery/power/terminal{
 	dir = 1
@@ -7003,6 +7096,12 @@
 "lsW" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_smelting)
+"lww" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/canteen)
 "lxh" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -7059,6 +7158,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/engi_storage)
+"mbH" = (
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "mid" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/basalt/tret,
@@ -7144,6 +7252,12 @@
 /obj/random/highvalue/cash,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"ndo" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "nhu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
@@ -7417,6 +7531,15 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"pqO" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/botany)
 "psW" = (
 /obj/machinery/atmospherics/portables_connector/supply{
 	dir = 2
@@ -7574,6 +7697,12 @@
 /obj/structure/closet/crate/miningcart,
 /turf/simulated/floor/plating,
 /area/tret_industrial/outside/surface)
+"qSZ" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "qTC" = (
 /obj/machinery/mineral/unloading_machine,
 /turf/simulated/floor/plating,
@@ -7590,6 +7719,12 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/eva)
+"qZJ" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "rah" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -7745,6 +7880,19 @@
 "rHE" = (
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_east)
+"rLt" = (
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/botany)
 "rNO" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/item/reagent_containers/glass/bucket{
@@ -7822,7 +7970,7 @@
 /obj/structure/closet/toolcloset,
 /obj/item/storage/belt/utility/full,
 /obj/item/stack/cable_coil,
-/obj/item/clothing/suit/storage/hazardvest/white,
+/obj/item/clothing/suit/storage/hazardvest/green,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engineering)
 "stO" = (
@@ -8126,6 +8274,17 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"vDt" = (
+/obj/structure/closet/toolcloset,
+/obj/item/weldingtool/largetank{
+	pixel_x = -6;
+	pixel_y = 4
+	},
+/obj/item/clothing/glasses/welding{
+	pixel_y = 2
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_medical)
 "vMH" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/plating,
@@ -8223,6 +8382,18 @@
 /obj/effect/landmark/corpse/tret_industrial_sinta,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"wFr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "wFs" = (
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/eva)
@@ -8250,6 +8421,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"wPH" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "wQx" = (
 /obj/structure/table/steel,
 /obj/item/storage/toolbox/lunchbox/sedantis{
@@ -8263,6 +8440,9 @@
 /obj/item/storage/toolbox/lunchbox/sedantis{
 	pixel_y = -4;
 	pixel_x = -1
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
@@ -37005,7 +37185,7 @@ wVC
 wVC
 axl
 aHh
-oxk
+qSZ
 awP
 aeL
 oxk
@@ -43938,10 +44118,10 @@ erF
 eJp
 wDc
 erF
-rtG
+joA
 rfR
 rtG
-rtG
+vDt
 erF
 aYU
 aen
@@ -44187,7 +44367,7 @@ nLp
 nLp
 ajT
 aep
-aOM
+wPH
 aOM
 aKa
 mNt
@@ -44444,7 +44624,7 @@ fZa
 nLp
 aIk
 aex
-xeq
+wFr
 xeq
 afc
 afd
@@ -44699,9 +44879,9 @@ afh
 rFn
 afi
 lxh
-aOM
-ycv
-aOM
+ndo
+gsf
+qZJ
 aOM
 aOM
 aOM
@@ -47525,7 +47705,7 @@ ahR
 aOD
 aOD
 aAz
-avv
+lww
 aeK
 gGH
 jGg
@@ -47782,7 +47962,7 @@ aWU
 aOD
 aOD
 aWi
-avv
+lww
 avv
 aUt
 utB
@@ -48039,7 +48219,7 @@ aMh
 aPB
 aht
 aFx
-avv
+lww
 avv
 bsI
 utB
@@ -48292,12 +48472,12 @@ abu
 udQ
 udQ
 aLL
-avv
+gXo
 aJK
 aUK
-aic
-avv
-avv
+jUl
+cYt
+gXo
 gGH
 aWO
 utB
@@ -49831,8 +50011,8 @@ vNh
 aHf
 kMb
 agr
-xxY
-xxY
+pqO
+pqO
 avK
 xxY
 aix
@@ -50089,7 +50269,7 @@ aPv
 aYT
 aFh
 aNf
-ajh
+rLt
 aqM
 ajh
 ayG
@@ -50870,7 +51050,7 @@ vNh
 vNh
 vNh
 vNh
-arv
+mbH
 ajk
 aPT
 gEM
@@ -51127,7 +51307,7 @@ akn
 gEM
 otq
 otq
-utB
+dle
 arX
 aCt
 gEM

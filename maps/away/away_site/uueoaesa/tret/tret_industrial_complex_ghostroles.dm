@@ -9,7 +9,7 @@
 	spawnpoints = list("tret_industrial")
 	max_count = 4
 
-	outfit = /obj/outfit/admin/tret_industrial
+	outfit = /obj/outfit/admin/tret_industrial/vaurca
 	possible_species = list(SPECIES_VAURCA_WORKER)
 	uses_species_whitelist = FALSE
 	assigned_role = "Tret Industrial Worker"
@@ -43,7 +43,7 @@
 	max_count = 2
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	uses_species_whitelist = TRUE
-	outfit = /obj/outfit/admin/tret_industrial/warrior
+	outfit = /obj/outfit/admin/tret_industrial/vaurca/warrior
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
 	welcome_message = "You are a Vaurca Warrior of the Hive K'lax, assigned to protect an industrial facility on Tret. Your primary duty is to keep the Workers of the facility safe from any threats."
@@ -53,13 +53,7 @@
 /obj/effect/landmark/corpse/tret_industrial_sinta
 	name = "Cult Base Cultist Corpse"
 	species = list(SPECIES_UNATHI)
-	outfit = list(
-		/obj/outfit/admin/cult_base_cultist_corpse,
-		/obj/outfit/admin/generic,
-		/obj/outfit/admin/generic/engineer,
-		/obj/outfit/admin/generic/security,
-		/obj/outfit/admin/generic/medical,
-	)
+	outfit = list(/obj/outfit/admin/tret_industrial/sinta)
 
 /obj/effect/landmark/corpse/tret_industrial_sinta/do_extra_customization(var/mob/living/carbon/human/human)
 	human.dir = pick(NORTH, SOUTH, EAST, WEST)
@@ -99,7 +93,7 @@
 	shoes = /obj/item/clothing/shoes/footwraps
 	back = /obj/item/storage/backpack/satchel/pocketbook
 	suit = /obj/item/clothing/suit/space
-	// /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
+	accessory = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
 
 /obj/outfit/admin/tret_industrial/sinta/post_equip(mob/living/carbon/human/human, visualsOnly = FALSE)
 	. = ..()
@@ -127,12 +121,13 @@
 
 /obj/item/paper/fluff/tret_industrial/inspection_report
 	name = "inspection report"
-	desc = "A written, unfinished situation report. The handwritting is very bad, barely readable."
+	desc = "A written inspection report."
+	language = LANGUAGE_UNATHI
 	info = "\
 		TO: KLAUS MITFFOCH <br>\
 		FROM: BOZENA JANERKA <br>\
 		SUBJECT: SITUATION REPORT <br>\
-		DATE: 204#-0&-23<br>\
+		INDEX: 2137<br>\
 		<br>\
 		<br>\
 		We have established this outpost months ago, and while we have not dug up any archeological finds among these asteroids, \

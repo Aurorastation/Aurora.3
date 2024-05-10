@@ -74,23 +74,23 @@
 	logging_home_tag = "tret_industrial_navhangar"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/tret_industrial
-	base_area = /area/exoplanet/lava/tret
-	base_turf = /turf/simulated/floor/plating/tret
+// /obj/effect/shuttle_landmark/tret_industrial
+// 	base_area = /area/exoplanet/lava/tret
+// 	base_turf = /turf/simulated/floor/plating/tret
 
-/obj/effect/shuttle_landmark/tret_industrial/hangar
-	name = "Tret Industrial Complex - Landing Pad 1"
-	landmark_tag = "tret_industrial_navhangar"
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-	docking_controller = "airlock_tret_dock1"
+// /obj/effect/shuttle_landmark/tret_industrial/hangar
+// 	name = "Tret Industrial Complex - Landing Pad 1"
+// 	landmark_tag = "tret_industrial_navhangar"
+// 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+// 	docking_controller = "airlock_tret_dock1"
 
-/obj/effect/shuttle_landmark/tret_industrial/transit
-	name = "In transit"
-	landmark_tag = "tret_industrial_navtransit"
-	base_turf = /turf/space/transit/north
-	base_area = /area/space
+// /obj/effect/shuttle_landmark/tret_industrial/transit
+// 	name = "In transit"
+// 	landmark_tag = "tret_industrial_navtransit"
+// 	base_turf = /turf/space/transit/north
+// 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/tret_industrial/dock
-	name = "Tret Industrial Complex - Landing Pad"
-	landmark_tag = "tret_industrial_dock"
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
+// /obj/effect/shuttle_landmark/tret_industrial/dock
+// 	name = "Tret Industrial Complex - Landing Pad"
+// 	landmark_tag = "tret_industrial_dock"
+// 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
