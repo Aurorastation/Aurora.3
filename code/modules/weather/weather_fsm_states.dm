@@ -190,6 +190,21 @@
 	cosmetic_span_class = "warning"
 	cosmetic_messages = list("Drifts of ash fall from the sky.")
 
+/singleton/state/weather/sandstorm
+	name = "Sandstorm"
+	icon_state = "sandstorm"
+	descriptor = "A sandstorm is raging."
+	cosmetic_span_class = "warning"
+	cosmetic_messages = list(
+		"The wind howls around you.",
+		"Swirling sand obscures your vision."
+	)
+	protected_messages = list("Stinging sand blows against $ITEM$.")
+	ambient_sounds = list('sound/effects/weather/sandstorm.ogg')
+
+/singleton/state/weather/sandstorm/handle_exposure_effects(mob/living/M, obj/abstract/weather_system/weather)
+	to_chat(M, SPAN_DANGER("You are blasted by a gust of stinging sand!"))
+	M.adjustBruteLoss(rand(1,5))
 
 //planet weathers
 
@@ -242,3 +257,11 @@
 
 /singleton/state/weather/rain/hail/arctic_planet
 	transitions = list(/singleton/state_transition/weather/calm/arctic_planet)
+
+//desert planet - only calm or sandstorm
+
+/singleton/state/weather/calm/desert_planet
+	transitions = list(/singleton/state_transition/weather/sandstorm/desert_planet)
+
+/singleton/state/weather/sandstorm/desert_planet
+	transitions = list(/singleton/state_transition/weather/calm/desert_planet)
