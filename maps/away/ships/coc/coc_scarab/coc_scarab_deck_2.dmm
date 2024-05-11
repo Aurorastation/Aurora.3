@@ -3151,12 +3151,18 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/atmospherics)
 "qC" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -7;
+	pixel_y = 7
 	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/ship/coc_scarab/exterior)
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/mess)
 "qI" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
@@ -3305,7 +3311,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/porthallway)
 "rA" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -4599,19 +4604,6 @@
 /obj/structure/disposalpipe/segment,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/forehallway)
-"xT" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -8;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/coc_scarab/mess)
 "xU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7768,6 +7760,13 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/engistorage)
+"NU" = (
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/coc_scarab/exterior)
 "NV" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9553,7 +9552,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/bridge)
 "WA" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -34890,16 +34888,16 @@ cW
 Af
 cW
 FC
-qC
-qC
-qC
-qC
+NU
+NU
+NU
+NU
 NN
 NN
-qC
-qC
-qC
-qC
+NU
+NU
+NU
+NU
 Sw
 cW
 Af
@@ -36944,7 +36942,7 @@ cW
 cW
 cW
 oQ
-qC
+NU
 NN
 Al
 pr
@@ -36957,8 +36955,8 @@ UG
 HP
 Al
 NN
-qC
-qC
+NU
+NU
 cW
 cW
 cW
@@ -39288,16 +39286,16 @@ cW
 cW
 cW
 wp
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
+NU
+NU
+NU
+NU
+NU
+NU
+NU
+NU
+NU
+NU
 UK
 cW
 cW
@@ -39541,9 +39539,9 @@ cW
 wp
 ci
 En
-qC
-qC
-qC
+NU
+NU
+NU
 NN
 Az
 Ea
@@ -39556,7 +39554,7 @@ Ea
 Ea
 EX
 NN
-qC
+NU
 UK
 cW
 cW
@@ -40025,11 +40023,11 @@ cW
 cW
 wp
 WA
-qC
-qC
-qC
-qC
-qC
+NU
+NU
+NU
+NU
+NU
 NN
 qB
 qB
@@ -40042,15 +40040,15 @@ qB
 jL
 rc
 FN
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
-qC
+NU
+NU
+NU
+NU
+NU
+NU
+NU
+NU
+NU
 NN
 NN
 SR
@@ -41615,7 +41613,7 @@ xE
 xe
 Ug
 Ug
-qC
+NU
 Sw
 cW
 cW
@@ -43917,7 +43915,7 @@ GB
 Jg
 cu
 pk
-xT
+qC
 FZ
 yy
 jY
@@ -46712,7 +46710,7 @@ cW
 Af
 cW
 FC
-qC
+NU
 NN
 NN
 BZ
@@ -48766,7 +48764,7 @@ cW
 cW
 cW
 tK
-qC
+NU
 NN
 Al
 Zz
@@ -48779,8 +48777,8 @@ OD
 vn
 Al
 NN
-qC
-qC
+NU
+NU
 cW
 cW
 cW

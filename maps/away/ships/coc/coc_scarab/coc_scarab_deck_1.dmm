@@ -53,18 +53,7 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
-"aR" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/empty/nitrogen,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/coc_scarab/central)
-"aX" = (
+"aG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
 	},
@@ -80,6 +69,17 @@
 /obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
+"aR" = (
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/empty/nitrogen,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/coc_scarab/central)
 "bb" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4;
@@ -766,7 +766,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/coc_scarab/central)
 "lF" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
 /obj/structure/railing/mapped{
 	dir = 4
@@ -2537,7 +2536,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/central)
 "Rw" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -33167,7 +33165,7 @@ Eo
 Eo
 Eo
 Eo
-aX
+aG
 Eo
 Eo
 Eo
@@ -33424,7 +33422,7 @@ Eo
 Eo
 Eo
 Eo
-aX
+aG
 Eo
 Eo
 Eo
