@@ -64,6 +64,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
+"aX" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/coc_scarab/exterior)
 "bb" = (
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4;
@@ -228,7 +244,6 @@
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
 "dz" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -247,13 +262,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
 "dT" = (
-/obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
 /obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "eb" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -264,7 +277,6 @@
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "eq" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
@@ -958,7 +970,6 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/hangar)
 "qn" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/ladder/up{
 	pixel_y = 10
 	},
@@ -1099,7 +1110,6 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/turbolift/coc_scarab/scarab_lift)
 "sS" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/ladder/up{
 	pixel_y = 10
 	},
@@ -2306,7 +2316,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
 "NO" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -2333,7 +2342,6 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/hangar)
 "Ol" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -2657,7 +2665,6 @@
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
 "UN" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
@@ -2916,22 +2923,6 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
-"YF" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/ship/coc_scarab/exterior)
 "YG" = (
 /obj/structure/railing/mapped{
 	dir = 4
@@ -33176,7 +33167,7 @@ Eo
 Eo
 Eo
 Eo
-YF
+aX
 Eo
 Eo
 Eo
@@ -33433,7 +33424,7 @@ Eo
 Eo
 Eo
 Eo
-YF
+aX
 Eo
 Eo
 Eo
