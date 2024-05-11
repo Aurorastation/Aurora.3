@@ -90,7 +90,6 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 10
 	},
@@ -98,6 +97,7 @@
 	dir = 2;
 	icon_state = "pipe-c"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "bO" = (
@@ -340,11 +340,11 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/coc_scarab/central)
 "eY" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "fi" = (
@@ -763,7 +763,7 @@
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "lW" = (
-/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "mq" = (
@@ -965,8 +965,8 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "qr" = (
@@ -1106,8 +1106,8 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "sZ" = (
@@ -1207,10 +1207,10 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/hangar)
 "uC" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "uN" = (
@@ -1473,21 +1473,21 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/central)
 "zc" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "Ar" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "AD" = (
@@ -1646,10 +1646,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hangar)
 "Cm" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "Cy" = (
@@ -1686,8 +1686,8 @@
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
 "DK" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "DP" = (
@@ -1819,10 +1819,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/starboard)
 "Gw" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "Gx" = (
@@ -1833,9 +1833,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment,
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "GJ" = (
@@ -2179,7 +2179,6 @@
 	d2 = 4;
 	icon_state = "1-4"
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
 	},
@@ -2187,6 +2186,7 @@
 	dir = 1;
 	icon_state = "pipe-c"
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "Mj" = (
@@ -2447,10 +2447,10 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/obj/structure/lattice/catwalk/indoor,
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "Pv" = (
@@ -2731,22 +2731,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/central)
-"VT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 8
-	},
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/ship/coc_scarab/exterior)
 "Wa" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -2932,14 +2916,30 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
+"YF" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/coc_scarab/exterior)
 "YG" = (
-/obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped{
 	dir = 4
 	},
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "Za" = (
@@ -2976,7 +2976,7 @@
 /obj/structure/ladder/up{
 	pixel_y = 10
 	},
-/obj/structure/lattice/catwalk,
+/obj/structure/lattice/catwalk/indoor,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "ZU" = (
@@ -33176,7 +33176,7 @@ Eo
 Eo
 Eo
 Eo
-VT
+YF
 Eo
 Eo
 Eo
@@ -33433,7 +33433,7 @@ Eo
 Eo
 Eo
 Eo
-VT
+YF
 Eo
 Eo
 Eo
