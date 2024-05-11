@@ -66417,7 +66417,7 @@
 /area/crew_quarters/kitchen/freezer)
 "tiv" = (
 /obj/effect/floor_decal/corner/white/diagonal,
-/obj/structure/closet/secure_closet/medical_fr,
+/obj/structure/closet/secure_closet/medical_para,
 /turf/simulated/floor/tiled,
 /area/medical/paramedic)
 "tjb" = (

@@ -900,7 +900,7 @@
 /obj/machinery/camera/network/medbay{
 	c_tag = "Medical - First Responder Room"
 	},
-/obj/structure/closet/secure_closet/medical_fr,
+/obj/structure/closet/secure_closet/medical_para,
 /obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
 /area/medical/paramedic)
@@ -50911,7 +50911,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/medical_fr,
+/obj/structure/closet/secure_closet/medical_para,
 /obj/item/defibrillator/compact/loaded,
 /turf/simulated/floor/tiled,
 /area/medical/paramedic)
