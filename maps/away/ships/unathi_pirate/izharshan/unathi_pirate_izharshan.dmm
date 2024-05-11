@@ -67,19 +67,6 @@
 /obj/item/storage/bag/inflatable/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"bt" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/dorms)
-"bJ" = (
-/obj/effect/floor_decal/corner_wide/dark_green{
-	dir = 10
-	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "bQ" = (
 /obj/structure/table/wood/gamblingtable,
 /obj/item/storage/pill_bottle/dice{
@@ -101,26 +88,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
-"ce" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/dark_green{
-	dir = 6
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "cg" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
@@ -223,22 +190,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"eX" = (
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 4
+"fi" = (
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
-	dir = 8;
-	start_pressure = 4000
+/obj/structure/sign/flag/izharshan{
+	pixel_y = 28
 	},
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/operations)
-"fl" = (
-/obj/structure/ship_weapon_dummy,
-/turf/simulated/floor/reinforced,
-/area/shuttle/unathi_pirate_izharshan/operations)
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "fx" = (
 /obj/structure/cable/green{
 	d1 = 1;
@@ -269,42 +229,14 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"fB" = (
-/obj/machinery/access_button{
-	command = "cycle_exterior";
-	frequency = 1380;
-	master_tag = "unathi_pirate_izharshan_shuttle";
-	name = "exterior access button";
-	pixel_x = 26;
-	pixel_y = 10
-	},
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	id_tag = "unathi_pirate_izharshan_outer";
-	name = "Ship External Access";
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "unathi_pirate_izharshan";
-	master_tag = "unathi_pirate_izharshan";
-	shuttle_tag = "Scarab Shuttle"
-	},
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/helm)
-"fJ" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning/cee{
-	dir = 1
-	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/unathi_pirate_izharshan/operations)
 "fR" = (
 /obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
 	dir = 4
+	},
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 8
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/unathi_pirate_izharshan/operations)
@@ -314,13 +246,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
-"go" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/unathi_pirate_izharshan/dorms)
 "gq" = (
-/turf/simulated/floor/carpet/rubber,
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port engines"
+	},
+/turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "gE" = (
 /obj/machinery/light/small{
@@ -405,13 +336,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"iw" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard engines"
-	},
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/operations)
 "iE" = (
 /obj/machinery/vending/cigarette/hacked,
 /obj/effect/floor_decal/corner_wide/dark_green/full{
@@ -431,6 +355,16 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"jq" = (
+/turf/simulated/floor/carpet/rubber,
+/area/shuttle/unathi_pirate_izharshan/dorms)
+"jr" = (
+/obj/machinery/atmospherics/unary/engine,
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard engines"
+	},
+/turf/simulated/floor,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "jv" = (
 /obj/machinery/vending/boozeomat/unathi_pirate,
 /obj/effect/floor_decal/corner_wide/dark_green{
@@ -442,28 +376,34 @@
 /obj/structure/sink{
 	pixel_y = 18
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
+/obj/machinery/atmospherics/unary/vent_pump/on{
+	dir = 8;
+	level = 2
+	},
+/obj/structure/mirror{
+	pixel_y = 33
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"ll" = (
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/obj/effect/floor_decal/carpet{
+"kG" = (
+/obj/effect/floor_decal/industrial/warning{
 	dir = 1
 	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/unathi_pirate_izharshan/dorms)
+"ll" = (
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/unathi_pirate_izharshan/helm)
+"ln" = (
+/obj/structure/bed/stool/bar/padded/orange,
 /obj/effect/floor_decal/carpet{
-	dir = 5
+	dir = 8
 	},
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"ln" = (
-/obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/unathi_pirate_izharshan/dorms)
 "lr" = (
 /obj/effect/floor_decal/corner_wide/dark_green{
 	dir = 10
@@ -498,6 +438,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
+"lL" = (
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning/cee{
+	dir = 1
+	},
+/turf/simulated/floor/reinforced,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "lQ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden,
 /turf/simulated/floor/tiled/dark,
@@ -524,6 +471,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"mn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/unathi_pirate_izharshan/dorms)
+"mu" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "mF" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -544,13 +500,20 @@
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "mT" = (
-/obj/machinery/shower{
-	dir = 1
-	},
-/obj/structure/curtain/open/shower,
+/obj/structure/table/rack,
 /obj/item/soap/orange_soap,
+/obj/machinery/light/small{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/unathi_pirate_izharshan/dorms)
+"nh" = (
+/obj/structure/bed/stool/bar/padded/orange,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/turf/simulated/floor/carpet,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "ns" = (
 /obj/machinery/computer/ship/helm{
 	dir = 1
@@ -604,7 +567,16 @@
 /turf/simulated/floor/reinforced,
 /area/shuttle/unathi_pirate_izharshan/operations)
 "pg" = (
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/carpet{
+	dir = 4
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 5
+	},
+/turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "pz" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
@@ -617,15 +589,26 @@
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"pP" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 5
+"qp" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 5
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "unathi_pirate_izharshan";
+	master_tag = "unathi_pirate_izharshan";
+	shuttle_tag = "Scarab Shuttle"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/unathi_pirate_izharshan/helm)
+"qV" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 1
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "re" = (
 /obj/machinery/power/apc/high/south{
@@ -640,6 +623,12 @@
 	dir = 10
 	},
 /turf/simulated/floor/tiled/dark,
+/area/shuttle/unathi_pirate_izharshan/helm)
+"rp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 10
+	},
+/turf/simulated/wall/shuttle/raider,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "rL" = (
 /obj/machinery/light{
@@ -760,28 +749,6 @@
 	},
 /turf/space/transit/north,
 /area/space)
-"th" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "unathi_pirate_izharshan";
-	master_tag = "unathi_pirate_izharshan";
-	shuttle_tag = "Scarab Shuttle"
-	},
-/turf/simulated/floor/airless,
-/area/shuttle/unathi_pirate_izharshan/helm)
-"tx" = (
-/obj/structure/bed/stool/bar/padded/orange,
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/turf/simulated/floor/carpet,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "tB" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -826,6 +793,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"uB" = (
+/obj/structure/bed/stool/chair/shuttle,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "uE" = (
 /obj/structure/bed/roller,
 /obj/machinery/vending/wallmed1{
@@ -835,15 +806,6 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"uH" = (
-/obj/effect/floor_decal/corner_wide/dark_green{
-	dir = 5
-	},
-/obj/structure/sign/flag/izharshan{
-	pixel_y = 28
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "uK" = (
 /obj/machinery/alarm/west{
 	req_one_access = list(210)
@@ -954,18 +916,6 @@
 "yN" = (
 /turf/template_noop,
 /area/space)
-"zn" = (
-/obj/effect/floor_decal/corner_wide/dark_green/full,
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = 6;
-	pixel_y = 1
-	},
-/obj/structure/filingcabinet/filingcabinet{
-	pixel_x = -9;
-	pixel_y = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "zr" = (
 /obj/structure/grille,
 /obj/structure/lattice,
@@ -1038,6 +988,11 @@
 	},
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"AD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden,
+/obj/machinery/atmospherics/unary/vent_pump/on,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/unathi_pirate_izharshan/dorms)
 "AK" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/clothing/ears/earmuffs,
@@ -1185,18 +1140,34 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"Df" = (
+"Di" = (
+/obj/structure/ship_weapon_dummy,
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
+	layer = 2.71;
+	dir = 4
 	},
-/obj/structure/bed/handrail{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
+/turf/simulated/floor/reinforced,
 /area/shuttle/unathi_pirate_izharshan/operations)
+"Dp" = (
+/obj/effect/floor_decal/corner_wide/dark_green/full,
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = 6;
+	pixel_y = 1
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -9;
+	pixel_y = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "DI" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/simulated/floor/tiled/dark/full,
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 10
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "DY" = (
 /obj/structure/lattice,
@@ -1204,11 +1175,13 @@
 /turf/simulated/floor/airless,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "El" = (
-/obj/structure/mirror{
-	pixel_y = 1
+/obj/structure/ship_weapon_dummy,
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
+	dir = 10
 	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/unathi_pirate_izharshan/dorms)
+/turf/simulated/floor/reinforced,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "Et" = (
 /obj/machinery/light{
 	dir = 8
@@ -1219,13 +1192,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"Ew" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 5;
-	icon_state = "intact"
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "EC" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/pipe/simple/visible{
@@ -1235,28 +1201,25 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "ED" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 1
+	dir = 4
 	},
-/turf/simulated/wall/shuttle/raider,
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"ER" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 8
-	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/unathi_pirate_izharshan/operations)
 "EY" = (
-/obj/machinery/atmospherics/unary/vent_pump/on{
-	dir = 8;
-	level = 2
-	},
-/obj/machinery/light/small{
-	dir = 4
+/obj/structure/curtain/open/shower,
+/obj/machinery/shower{
+	pixel_y = 12
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/unathi_pirate_izharshan/dorms)
@@ -1264,7 +1227,7 @@
 /obj/machinery/door/airlock/hatch{
 	req_access = list(210);
 	dir = 4;
-	name = "Engineering"
+	name = "Crew Dormitories"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
@@ -1301,12 +1264,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"Ga" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/unathi_pirate_izharshan/helm)
+"FV" = (
+/obj/structure/ship_weapon_dummy,
+/turf/simulated/floor/reinforced,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "Gb" = (
 /obj/structure/cable{
 	d1 = 1;
@@ -1362,13 +1323,6 @@
 	},
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
-"Hr" = (
-/obj/structure/bed/stool/bar/padded/orange,
-/obj/effect/floor_decal/carpet{
-	dir = 4
-	},
-/turf/simulated/floor/carpet,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "HZ" = (
 /obj/machinery/iff_beacon,
 /obj/effect/floor_decal/industrial/warning/full,
@@ -1388,6 +1342,12 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "Ih" = (
 /obj/structure/bed/stool/chair/shuttle,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "IM" = (
@@ -1397,12 +1357,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/unathi_pirate_izharshan/helm)
-"Jt" = (
-/obj/machinery/hologram/holopad/long_range,
-/obj/effect/floor_decal/industrial/outline/custodial,
-/obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "JF" = (
@@ -1446,12 +1400,40 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"KH" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/structure/bed/handrail{
+	dir = 1
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "KL" = (
 /obj/effect/landmark/entry_point/east{
 	name = "east, gunnery"
 	},
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/unathi_pirate_izharshan/operations)
+"KO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	frequency = 1380;
+	id_tag = "unathi_pirate_izharshan_sensor";
+	pixel_x = -25;
+	pixel_y = 9;
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "unathi_pirate_izharshan";
+	master_tag = "unathi_pirate_izharshan";
+	shuttle_tag = "Scarab Shuttle"
+	},
+/turf/simulated/floor/airless,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "KZ" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/machinery/vending/engivend{
@@ -1516,14 +1498,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"Ml" = (
-/obj/structure/ship_weapon_dummy,
-/obj/effect/floor_decal/industrial/warning{
-	layer = 2.71;
-	dir = 10
-	},
-/turf/simulated/floor/reinforced,
-/area/shuttle/unathi_pirate_izharshan/operations)
 "My" = (
 /obj/machinery/power/apc/high/east{
 	req_access = list(210)
@@ -1583,6 +1557,10 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/shuttle/unathi_pirate_izharshan/operations)
+"Nt" = (
+/obj/machinery/atmospherics/unary/engine,
+/turf/simulated/floor,
+/area/shuttle/unathi_pirate_izharshan/dorms)
 "NR" = (
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /obj/machinery/atmospherics/portables_connector{
@@ -1594,22 +1572,6 @@
 /obj/effect/floor_decal/industrial/outline/engineering,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"NY" = (
-/obj/effect/floor_decal/carpet{
-	dir = 8
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 1
-	},
-/obj/effect/floor_decal/carpet{
-	dir = 9
-	},
-/turf/simulated/floor/carpet,
-/area/shuttle/unathi_pirate_izharshan/helm)
-"Oj" = (
-/obj/machinery/atmospherics/unary/engine,
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/operations)
 "Ol" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 5;
@@ -1620,33 +1582,35 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"OK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
+"On" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/simulated/floor/tiled/dark/full,
+/area/shuttle/unathi_pirate_izharshan/helm)
+"Pa" = (
+/obj/machinery/door/airlock/hatch{
+	req_access = list(210);
+	dir = 4;
+	name = "Engineering"
 	},
-/obj/structure/bed/handrail{
-	dir = 1
-	},
-/turf/simulated/floor/airless,
-/area/shuttle/unathi_pirate_izharshan/dorms)
-"Pp" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/airlock_sensor{
-	frequency = 1380;
-	id_tag = "unathi_pirate_izharshan_sensor";
-	pixel_x = -25;
-	pixel_y = 9;
+/obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "unathi_pirate_izharshan";
-	master_tag = "unathi_pirate_izharshan";
-	shuttle_tag = "Scarab Shuttle"
+/obj/structure/cable/green{
+	d1 = 4;
+	d2 = 8;
+	icon_state = "4-8"
 	},
-/turf/simulated/floor/airless,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Pq" = (
 /obj/effect/decal/cleanable/dirt{
@@ -1707,11 +1671,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
-/obj/machinery/atmospherics/unary/vent_scrubber/on{
-	dir = 8
-	},
 /obj/machinery/alarm/north{
 	req_one_access = list(210)
+	},
+/obj/machinery/atmospherics/unary/vent_scrubber/on{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/white,
 /area/shuttle/unathi_pirate_izharshan/dorms)
@@ -1748,13 +1712,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
-"QR" = (
-/obj/machinery/atmospherics/unary/engine,
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port engines"
-	},
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/dorms)
 "Rf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -1799,6 +1756,13 @@
 /obj/effect/floor_decal/industrial/outline/medical,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/unathi_pirate_izharshan/dorms)
+"Sc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden{
+	dir = 5;
+	icon_state = "intact"
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "Sl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
@@ -1814,21 +1778,7 @@
 /obj/machinery/meter,
 /turf/simulated/floor,
 /area/shuttle/unathi_pirate_izharshan/operations)
-"SS" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 5
-	},
-/obj/effect/floor_decal/industrial/outline/engineering,
-/obj/item/reagent_containers/glass/bucket,
-/obj/structure/reagent_dispensers/coolanttank,
-/turf/simulated/floor,
-/area/shuttle/unathi_pirate_izharshan/operations)
-"Td" = (
-/obj/machinery/door/airlock/hatch{
-	req_access = list(210);
-	dir = 4;
-	name = "Crew Dormitories"
-	},
+"Sy" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -1843,12 +1793,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/machinery/door/firedoor/noid{
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/unathi_pirate_izharshan/helm)
+"SS" = (
+/obj/effect/floor_decal/industrial/warning{
+	layer = 2.71;
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/unathi_pirate_izharshan/helm)
+/obj/machinery/atmospherics/pipe/tank/carbon_dioxide{
+	dir = 8;
+	start_pressure = 4000
+	},
+/obj/effect/floor_decal/industrial/outline/grey,
+/turf/simulated/floor,
+/area/shuttle/unathi_pirate_izharshan/operations)
 "Ti" = (
 /obj/effect/shuttle_landmark/ship/unathi_pirate_izharshan{
 	dir = 1
@@ -1881,6 +1842,7 @@
 	req_access = list(210);
 	dir = 4;
 	name = "Washroom";
+	id_tag = "izharshan_washroom";
 	id = "izharshan_washroom"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -1914,9 +1876,34 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/operations)
+"UB" = (
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	id_tag = "unathi_pirate_izharshan_outer";
+	name = "Ship External Access";
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, airlock"
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "unathi_pirate_izharshan";
+	master_tag = "unathi_pirate_izharshan";
+	shuttle_tag = "Scarab Shuttle"
+	},
+/turf/simulated/floor,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "UF" = (
 /obj/structure/table/wood/gamblingtable,
 /turf/simulated/floor/carpet,
+/area/shuttle/unathi_pirate_izharshan/helm)
+"UK" = (
+/obj/machinery/hologram/holopad/long_range,
+/obj/effect/floor_decal/industrial/outline/custodial,
+/obj/effect/overmap/visitable/ship/landable/unathi_pirate_izharshan,
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Vb" = (
 /obj/machinery/light{
@@ -1959,26 +1946,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"Vs" = (
-/obj/machinery/atmospherics/pipe/simple/hidden{
-	dir = 4
-	},
-/obj/structure/cable/green{
-	d1 = 4;
-	d2 = 8;
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/corner_wide/dark_green{
-	dir = 9
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/unathi_pirate_izharshan/helm)
 "VS" = (
 /obj/structure/bed/stool/bar/padded/orange,
 /obj/effect/floor_decal/carpet{
@@ -2034,7 +2001,7 @@
 /area/shuttle/unathi_pirate_izharshan/operations)
 "WN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden,
-/obj/machinery/atmospherics/unary/vent_pump/on,
+/obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "WY" = (
@@ -2066,6 +2033,30 @@
 	},
 /turf/simulated/floor/carpet,
 /area/shuttle/unathi_pirate_izharshan/helm)
+"Xw" = (
+/obj/machinery/access_button{
+	command = "cycle_exterior";
+	frequency = 1380;
+	master_tag = "unathi_pirate_izharshan_shuttle";
+	name = "exterior access button";
+	pixel_x = 26;
+	pixel_y = 10
+	},
+/obj/machinery/door/airlock/external{
+	frequency = 1380;
+	id_tag = "unathi_pirate_izharshan_outer";
+	name = "Ship External Access";
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/hatch/red,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	name = "unathi_pirate_izharshan";
+	master_tag = "unathi_pirate_izharshan";
+	shuttle_tag = "Scarab Shuttle"
+	},
+/turf/simulated/floor,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "Xz" = (
 /obj/structure/closet/secure_closet/guncabinet{
 	req_access = list(210)
@@ -2094,8 +2085,19 @@
 /obj/effect/floor_decal/industrial/outline/security,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/dorms)
+"XD" = (
+/obj/effect/floor_decal/carpet{
+	dir = 8
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 1
+	},
+/obj/effect/floor_decal/carpet{
+	dir = 9
+	},
+/turf/simulated/floor/carpet,
+/area/shuttle/unathi_pirate_izharshan/helm)
 "XV" = (
-/obj/structure/mopbucket,
 /obj/item/mop,
 /obj/item/reagent_containers/glass/bucket,
 /obj/machinery/button/remote/airlock{
@@ -2104,14 +2106,26 @@
 	name = "Washroom Bolt Control";
 	pixel_x = -24;
 	pixel_y = 4;
-	specialfunctions = 4
+	specialfunctions = 4;
+	req_access = list(210)
 	},
+/obj/structure/table/rack,
 /turf/simulated/floor/tiled/white,
 /area/shuttle/unathi_pirate_izharshan/dorms)
 "Yf" = (
 /obj/structure/lattice,
 /obj/structure/grille,
 /turf/simulated/floor/airless,
+/area/shuttle/unathi_pirate_izharshan/helm)
+"Yr" = (
+/obj/structure/bed/stool/chair/shuttle,
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 5
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 5
+	},
+/turf/simulated/floor/tiled/dark/full,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "YA" = (
 /obj/structure/closet,
@@ -2163,7 +2177,16 @@
 /obj/effect/floor_decal/industrial/outline/service,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/unathi_pirate_izharshan/dorms)
-"YL" = (
+"YV" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/effect/floor_decal/industrial/outline/engineering,
+/obj/item/reagent_containers/glass/bucket,
+/obj/structure/reagent_dispensers/coolanttank,
+/turf/simulated/floor,
+/area/shuttle/unathi_pirate_izharshan/operations)
+"Zf" = (
 /obj/machinery/atmospherics/pipe/simple/hidden{
 	dir = 4
 	},
@@ -2178,26 +2201,10 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/unathi_pirate_izharshan/helm)
-"YX" = (
-/obj/machinery/door/airlock/external{
-	frequency = 1380;
-	id_tag = "unathi_pirate_izharshan_outer";
-	name = "Ship External Access";
-	dir = 1
+/obj/effect/floor_decal/corner_wide/dark_green{
+	dir = 9
 	},
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, airlock"
-	},
-/obj/effect/floor_decal/industrial/hatch/red,
-/obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/effect/map_effect/marker/airlock/shuttle{
-	name = "unathi_pirate_izharshan";
-	master_tag = "unathi_pirate_izharshan";
-	shuttle_tag = "Scarab Shuttle"
-	},
-/turf/simulated/floor,
+/turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
 "Zi" = (
 /obj/structure/table/reinforced/steel,
@@ -2208,7 +2215,8 @@
 	name = "Cockpit Blast Shutters";
 	id = "izharshan_cockpit";
 	pixel_y = 8;
-	pixel_x = -5
+	pixel_x = -5;
+	req_access = list(210)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/unathi_pirate_izharshan/helm)
@@ -2288,16 +2296,6 @@
 "ZU" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/unathi_pirate_izharshan/operations)
-"ZW" = (
-/obj/structure/bed/stool/chair/shuttle,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark/full,
-/area/shuttle/unathi_pirate_izharshan/helm)
 
 (1,1,1) = {"
 yN
@@ -31730,7 +31728,7 @@ ZU
 pz
 AK
 AS
-Ml
+El
 ZU
 ZU
 ZU
@@ -31972,7 +31970,7 @@ yN
 yN
 yN
 yN
-Oj
+mu
 Kt
 Qs
 rL
@@ -31986,10 +31984,10 @@ fx
 Rm
 sq
 sS
-fl
+FV
 MH
-fJ
-ER
+lL
+fR
 Ai
 yN
 yN
@@ -32229,7 +32227,7 @@ yN
 yN
 yN
 yN
-iw
+jr
 Kt
 Cj
 Hd
@@ -32243,7 +32241,7 @@ Wc
 ZU
 xg
 Ni
-fR
+Di
 pb
 yo
 yo
@@ -32496,7 +32494,7 @@ xF
 xF
 xF
 xF
-Fg
+Pa
 xF
 xF
 iW
@@ -32743,18 +32741,18 @@ yN
 yN
 yN
 yN
-Df
+KH
 ZU
 wz
 Ib
-eX
+SS
 ou
 xF
 iE
 tR
 jv
-Vs
-zn
+Zf
+Dp
 xF
 xM
 uK
@@ -33000,21 +32998,21 @@ yN
 yN
 yN
 yN
-th
+qp
 ZU
-SS
+YV
 xp
 xF
 xF
 xF
-uH
-pg
-pg
-YL
+fi
+ll
+ll
+ED
 se
 xF
 us
-Ih
+uB
 ns
 JT
 dr
@@ -33257,21 +33255,21 @@ yN
 yN
 yN
 yN
-Ga
-ED
-Ew
+rp
+qV
+Sc
 xF
 xF
 NR
 Et
-NY
-tx
-tx
+XD
+ln
+ln
 VT
-bJ
+DI
 xF
 ak
-Jt
+UK
 eD
 JT
 dr
@@ -33514,13 +33512,13 @@ yN
 yN
 yN
 yN
-YX
+UB
 LL
 Tt
 ZO
 oZ
 lQ
-DI
+On
 VS
 AC
 UF
@@ -33528,7 +33526,7 @@ mF
 lr
 wK
 BH
-Ih
+uB
 Zi
 xF
 Yf
@@ -33771,13 +33769,13 @@ yN
 yN
 yN
 Ti
-fB
+Xw
 rY
 gE
 Zs
 eu
 nB
-pg
+ll
 VS
 bQ
 xX
@@ -33785,7 +33783,7 @@ By
 Db
 Sl
 is
-pP
+Yr
 QF
 xF
 Yf
@@ -34035,9 +34033,9 @@ xF
 xF
 hq
 eV
-ll
-Hr
-Hr
+pg
+nh
+nh
 WY
 re
 xF
@@ -34285,7 +34283,7 @@ yN
 yN
 yN
 yN
-Pp
+KO
 zZ
 QD
 zZ
@@ -34293,13 +34291,13 @@ xF
 xF
 xF
 uP
-pg
-pg
-YL
+ll
+ll
+ED
 se
 xF
 KE
-ZW
+Ih
 Qj
 JT
 dr
@@ -34542,7 +34540,7 @@ yN
 yN
 yN
 yN
-OK
+kG
 zZ
 Pq
 zZ
@@ -34552,7 +34550,7 @@ xF
 Px
 lu
 GG
-ce
+Sy
 ai
 xF
 bs
@@ -34804,12 +34802,12 @@ zZ
 sI
 zZ
 Fv
-gq
+jq
 xF
 xF
 xF
 xF
-Td
+Fg
 xF
 xF
 xF
@@ -35056,7 +35054,7 @@ yN
 yN
 yN
 yN
-QR
+gq
 Mi
 Ol
 Fj
@@ -35313,20 +35311,20 @@ yN
 yN
 yN
 yN
-bt
+Nt
 Mi
 CJ
 Xz
-go
+mn
+AD
 WN
-ln
-ln
-ln
+WN
+WN
 bl
 Lz
-gq
+jq
 Ay
-El
+zZ
 jX
 zu
 zZ

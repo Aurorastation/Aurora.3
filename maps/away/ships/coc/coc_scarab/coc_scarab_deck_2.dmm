@@ -2943,8 +2943,8 @@
 	dir = 8;
 	pixel_x = 22
 	},
-/obj/machinery/alarm/east{
-	req_one_access = null
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 4
 	},
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
@@ -3151,18 +3151,12 @@
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/atmospherics)
 "qC" = (
-/obj/structure/table/steel,
-/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -7;
-	pixel_y = 7
+/obj/structure/railing/mapped{
+	dir = 8
 	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -8;
-	pixel_y = -3
-	},
-/turf/simulated/floor/tiled/dark,
-/area/ship/coc_scarab/mess)
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/coc_scarab/exterior)
 "qI" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /obj/structure/lattice,
@@ -5418,7 +5412,7 @@
 /obj/machinery/door/airlock/hatch{
 	name = "Washroom";
 	dir = 4;
-	id = "scarab_washroom"
+	id_tag = "scarab_combustion"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -7761,12 +7755,18 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/engistorage)
 "NU" = (
-/obj/structure/railing/mapped{
-	dir = 8
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -7;
+	pixel_y = 7
 	},
-/obj/structure/lattice/catwalk/indoor,
-/turf/space/dynamic,
-/area/ship/coc_scarab/exterior)
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/mess)
 "NV" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -9097,6 +9097,9 @@
 /obj/effect/floor_decal/spline/plain/black,
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/small/west,
+/obj/machinery/alarm/east{
+	req_one_access = null
+	},
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
 "Ut" = (
@@ -34888,16 +34891,16 @@ cW
 Af
 cW
 FC
-NU
-NU
-NU
-NU
+qC
+qC
+qC
+qC
 NN
 NN
-NU
-NU
-NU
-NU
+qC
+qC
+qC
+qC
 Sw
 cW
 Af
@@ -36942,7 +36945,7 @@ cW
 cW
 cW
 oQ
-NU
+qC
 NN
 Al
 pr
@@ -36955,8 +36958,8 @@ UG
 HP
 Al
 NN
-NU
-NU
+qC
+qC
 cW
 cW
 cW
@@ -39286,16 +39289,16 @@ cW
 cW
 cW
 wp
-NU
-NU
-NU
-NU
-NU
-NU
-NU
-NU
-NU
-NU
+qC
+qC
+qC
+qC
+qC
+qC
+qC
+qC
+qC
+qC
 UK
 cW
 cW
@@ -39539,9 +39542,9 @@ cW
 wp
 ci
 En
-NU
-NU
-NU
+qC
+qC
+qC
 NN
 Az
 Ea
@@ -39554,7 +39557,7 @@ Ea
 Ea
 EX
 NN
-NU
+qC
 UK
 cW
 cW
@@ -40023,11 +40026,11 @@ cW
 cW
 wp
 WA
-NU
-NU
-NU
-NU
-NU
+qC
+qC
+qC
+qC
+qC
 NN
 qB
 qB
@@ -40040,15 +40043,15 @@ qB
 jL
 rc
 FN
-NU
-NU
-NU
-NU
-NU
-NU
-NU
-NU
-NU
+qC
+qC
+qC
+qC
+qC
+qC
+qC
+qC
+qC
 NN
 NN
 SR
@@ -41613,7 +41616,7 @@ xE
 xe
 Ug
 Ug
-NU
+qC
 Sw
 cW
 cW
@@ -43915,7 +43918,7 @@ GB
 Jg
 cu
 pk
-qC
+NU
 FZ
 yy
 jY
@@ -46710,7 +46713,7 @@ cW
 Af
 cW
 FC
-NU
+qC
 NN
 NN
 BZ
@@ -48764,7 +48767,7 @@ cW
 cW
 cW
 tK
-NU
+qC
 NN
 Al
 Zz
@@ -48777,8 +48780,8 @@ OD
 vn
 Al
 NN
-NU
-NU
+qC
+qC
 cW
 cW
 cW
