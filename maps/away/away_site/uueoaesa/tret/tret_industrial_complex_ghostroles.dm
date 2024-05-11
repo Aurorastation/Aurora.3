@@ -121,19 +121,26 @@
 
 /obj/item/paper/fluff/tret_industrial/inspection_report
 	name = "inspection report"
-	desc = "A written inspection report."
+	desc = "A written, unfinished inspection report."
 	language = LANGUAGE_UNATHI
 	info = "\
-		TO: KLAUS MITFFOCH <br>\
-		FROM: BOZENA JANERKA <br>\
-		SUBJECT: SITUATION REPORT <br>\
+		TO: REGION COMMAND<br>\
+		FROM:<br>\
+		INSPECTOR ID: 3526071-39352<br>\
+		SUBJECT: INSPECTION REPORT<br>\
+		LOCATION: OUTPOST 200-14D, 124KM NORTH OF SOTERIA<br>\
 		INDEX: 2137<br>\
 		<br>\
 		<br>\
-		We have established this outpost months ago, and while we have not dug up any archeological finds among these asteroids, \
-		we have found a crashed shuttle instead, with some, what we think are, well, 'curiosities'. <br>\
-		Perhaps this could turn our luck around, we are still trying to make sense out of those, a book and a ornamental knife. <br>\
+		YARD NOT FREE OF DEBRIS<br>\
+		ROOF IS CRACKED<br>\
+		EXTERIOR DOORS NOT SECURE<br>\
+		CO2 CANISTER LEAKY<br>\
+		CRACKS IN FOUNDATION<br>\
+		CRACKS IN EXTERIOR WALL<br>\
+		COMPUTER SYSTEM OUT OF DATE<br>\
+		DOCKING CODES NOT SET<br>\
+		UNAUTHORIZED GARDEN EXPANSION<br>\
+		UNAPPROVED KOIS GROWING<br>\
 		<br>\
-		But, simply put, we need more funds. Your patronage was very generous so far, but we need more time to provide good results. <br>\
-		I am aware this operation has been taking some time now, but I assure you th\
 		"

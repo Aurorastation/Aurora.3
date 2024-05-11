@@ -5309,9 +5309,9 @@
 /obj/machinery/alarm/west{
 	req_one_access = null
 	},
-/obj/item/material/knife/bloody{
-	pixel_x = 8;
-	pixel_y = 12
+/obj/item/material/knife{
+	pixel_x = 9;
+	pixel_y = 11
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/canteen)
