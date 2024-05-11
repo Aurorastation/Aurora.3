@@ -348,11 +348,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/forehallway)
-"ce" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
-/turf/simulated/open/airless,
-/area/ship/coc_scarab/exterior)
 "ci" = (
 /obj/structure/ladder{
 	pixel_y = 16
@@ -402,12 +397,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/hydroponics)
 "cu" = (
-/obj/structure/bed/handrail{
-	dir = 1;
-	pixel_y = -2;
-	name = "table handrail";
-	buckle_dir = 2
-	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 8
@@ -605,13 +594,6 @@
 "dG" = (
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/ship/coc_scarab/armory)
-"dH" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
-	dir = 6
-	},
-/turf/simulated/open/airless,
-/area/ship/coc_scarab/exterior)
 "dI" = (
 /obj/machinery/door/airlock/external{
 	dir = 8
@@ -1227,6 +1209,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust2)
+"ga" = (
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
+	dir = 10
+	},
+/turf/simulated/floor/airless,
+/area/ship/coc_scarab/exterior)
 "gc" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 1
@@ -1332,6 +1322,9 @@
 /obj/item/reagent_containers/food/condiment/shaker/spacespice{
 	pixel_y = 14;
 	pixel_x = 3
+	},
+/obj/machinery/light/colored/decayed/dimmed{
+	dir = 8
 	},
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
@@ -1471,11 +1464,6 @@
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
-	},
-/obj/structure/bed/handrail{
-	pixel_y = 7;
-	name = "table handrail";
-	buckle_dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
@@ -2026,6 +2014,9 @@
 	name = "Mess Hall";
 	door_color = "#1F4B65"
 	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/mess)
 "ki" = (
@@ -2380,37 +2371,25 @@
 	},
 /obj/effect/floor_decal/industrial/outline/service,
 /obj/structure/table/standard,
-/obj/item/storage/box/lights/mixed{
-	pixel_x = -7
-	},
 /obj/item/paper_bin{
 	pixel_x = 6;
 	pixel_y = 5
-	},
-/obj/item/storage/box/lights/mixed{
-	pixel_x = -7
 	},
 /obj/item/pen/black{
 	pixel_x = 6;
 	pixel_y = 5
 	},
+/obj/item/storage/box/lights/colored/yellow{
+	pixel_x = -5
+	},
+/obj/item/storage/box/lights/colored/yellow{
+	pixel_x = -5
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/recycling)
 "mu" = (
 /obj/structure/lattice,
-/obj/item/wrench{
-	name = "lost lucky wrench";
-	desc = "This wrench was very lucky. Whoever was holding on to it, maybe not so much.";
-	pixel_y = -11;
-	pixel_x = -14
-	},
-/obj/item/ore/iron{
-	pixel_x = -6
-	},
-/obj/item/ore/iron{
-	pixel_y = -18;
-	pixel_x = 5
-	},
+/obj/structure/ship_weapon_dummy,
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "my" = (
@@ -2515,6 +2494,23 @@
 /area/ship/coc_scarab/hydroponics)
 "ne" = (
 /obj/structure/grille,
+/turf/space/dynamic,
+/area/ship/coc_scarab/exterior)
+"nk" = (
+/obj/structure/lattice,
+/obj/item/wrench{
+	name = "lost lucky wrench";
+	desc = "This wrench was very lucky. Whoever was holding on to it, maybe not so much.";
+	pixel_y = -11;
+	pixel_x = -14
+	},
+/obj/item/ore/iron{
+	pixel_y = -18;
+	pixel_x = 5
+	},
+/obj/item/ore/iron{
+	pixel_x = -6
+	},
 /turf/space/dynamic,
 /area/ship/coc_scarab/exterior)
 "nl" = (
@@ -2860,16 +2856,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/engine)
 "pk" = (
-/obj/structure/table/steel,
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -7;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
-	pixel_x = -8;
-	pixel_y = -3
-	},
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/structure/bed/handrail{
+	dir = 1;
+	pixel_y = -2;
+	name = "table handrail";
+	buckle_dir = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/mess)
 "pl" = (
@@ -2926,6 +2919,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/grauwolf)
+"pF" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction,
+/turf/simulated/open/airless,
+/area/ship/coc_scarab/exterior)
 "pJ" = (
 /obj/structure/window/reinforced{
 	dir = 8
@@ -3442,6 +3440,11 @@
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/blast_door{
+	name = "Atmospherics Blast Shutters";
+	id = "scarab_atmospherics";
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/atmospherics)
 "sb" = (
@@ -3601,9 +3604,6 @@
 	},
 /obj/item/storage/box/fancy/egg_box,
 /obj/item/storage/box/fancy/egg_box,
-/obj/machinery/light/colored/decayed/dimmed{
-	dir = 1
-	},
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/flour,
 /obj/item/reagent_containers/food/condiment/sugar,
@@ -3616,6 +3616,17 @@
 /obj/item/reagent_containers/food/drinks/carton/milk,
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
+"sy" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "scarab_atmospherics";
+	name = "Safety Blast Doors"
+	},
+/turf/simulated/floor/plating,
+/area/ship/coc_scarab/atmospherics)
 "sA" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/railing/mapped{
@@ -3890,6 +3901,9 @@
 "un" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/item/storage/bag/circuits/basic{
+	pixel_x = -10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
 "up" = (
@@ -4337,14 +4351,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
-"wH" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/effect/floor_decal/industrial/warning,
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 10
-	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/exterior)
 "wI" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
@@ -4431,11 +4437,14 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/forehallway)
 "xe" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 10
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/black{
 	dir = 5
 	},
-/obj/structure/lattice,
-/turf/simulated/open/airless,
+/turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "xm" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/black{
@@ -4550,6 +4559,9 @@
 	icon_state = "4-8"
 	},
 /obj/effect/floor_decal/industrial/hatch/grey,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/mess)
 "xJ" = (
@@ -4653,12 +4665,6 @@
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/thrust2)
-"yf" = (
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging,
-/obj/structure/lattice,
-/obj/effect/floor_decal/industrial/hatch/grey,
-/turf/space/dynamic,
-/area/ship/coc_scarab/exterior)
 "yu" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/mapped,
@@ -4788,6 +4794,11 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/button/remote/blast_door{
+	name = "Recycling Blast Shutters";
+	id = "scarab_recycling";
+	pixel_y = -22
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/recycling)
 "zc" = (
@@ -5405,7 +5416,8 @@
 "BG" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Washroom";
-	dir = 4
+	dir = 4;
+	id = "scarab_washroom"
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -5418,6 +5430,9 @@
 	d1 = 4;
 	d2 = 8;
 	icon_state = "4-8"
+	},
+/obj/machinery/door/firedoor/noid{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/washroom)
@@ -5622,6 +5637,13 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/ship/coc_scarab/grauwolf)
+"CB" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
+	dir = 8
+	},
+/turf/simulated/open/airless,
+/area/ship/coc_scarab/exterior)
 "CE" = (
 /obj/effect/floor_decal/corner/grey/diagonal,
 /obj/structure/mirror{
@@ -5664,7 +5686,15 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, atmospherics"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "scarab_atmospherics";
+	name = "Safety Blast Doors"
+	},
+/turf/simulated/floor/plating,
 /area/ship/coc_scarab/atmospherics)
 "CT" = (
 /obj/effect/floor_decal/industrial/warning{
@@ -5842,7 +5872,15 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, recycling"
 	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "scarab_recycling";
+	name = "Safety Blast Doors"
+	},
+/turf/simulated/floor/plating,
 /area/ship/coc_scarab/recycling)
 "DR" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
@@ -6193,15 +6231,15 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/engine)
 "FI" = (
-/obj/machinery/computer/ship/engines/terminal{
-	dir = 8
-	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = null;
 	cell_type = /obj/item/cell/super
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 8
 	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/bridge)
@@ -6269,6 +6307,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bridge)
+"FW" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid,
+/turf/simulated/floor/plating,
+/area/ship/coc_scarab/mess)
 "FX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/floor_decal/corner/brown,
@@ -7029,9 +7072,6 @@
 /obj/item/clothing/accessory/holster/hip{
 	pixel_x = 7
 	},
-/obj/item/clothing/accessory/holster/armpit{
-	pixel_x = 7
-	},
 /obj/item/clothing/suit/armor/carrier/generic{
 	pixel_y = 4;
 	pixel_x = -6
@@ -7126,9 +7166,10 @@
 /area/ship/coc_scarab/forehallway)
 "KJ" = (
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/structure/table/steel,
-/obj/item/storage/bag/circuits/basic{
-	pixel_x = -10
+/obj/structure/bed/handrail{
+	pixel_y = 7;
+	name = "table handrail";
+	buckle_dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
@@ -7207,7 +7248,9 @@
 /obj/structure/sign/flag/scarab/large/west{
 	pixel_x = -32
 	},
-/obj/item/gun/energy/retro,
+/obj/item/gun/projectile/automatic/mini_uzi,
+/obj/item/ammo_magazine/c45uzi,
+/obj/item/ammo_magazine/c45uzi,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/armory)
 "Li" = (
@@ -7305,12 +7348,6 @@
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
-	},
-/obj/structure/bed/handrail{
-	dir = 8;
-	name = "table handrail";
-	pixel_x = 2;
-	buckle_dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /turf/simulated/floor/tiled/dark,
@@ -7474,20 +7511,7 @@
 /obj/structure/closet/crate/secure,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/porthallway)
-"MT" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 10
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/black{
-	dir = 5
-	},
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/exterior)
 "MU" = (
-/obj/structure/sign/flag/scarab/large/north{
-	pixel_y = 32
-	},
 /obj/machinery/appliance/cooker/stove,
 /turf/simulated/floor/lino,
 /area/ship/coc_scarab/mess)
@@ -7884,13 +7908,6 @@
 	icon_state = "0-2"
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
-/turf/simulated/floor/airless,
-/area/ship/coc_scarab/exterior)
-"OK" = (
-/obj/effect/floor_decal/industrial/hatch/grey,
-/obj/effect/floor_decal/industrial/warning{
-	dir = 6
-	},
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "ON" = (
@@ -8465,13 +8482,13 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/porthallway)
 "RA" = (
-/obj/machinery/computer/ship/navigation/terminal{
-	dir = 4
-	},
 /obj/machinery/alarm/north{
 	req_one_access = list()
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/computer/ship/engines/terminal{
+	dir = 4
+	},
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/bridge)
 "RE" = (
@@ -8540,11 +8557,6 @@
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/machinery/light/floor/decayed{
 	dir = 8
-	},
-/obj/structure/bed/handrail{
-	pixel_y = 7;
-	name = "table handrail";
-	buckle_dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
@@ -8796,6 +8808,19 @@
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/mess)
+"SN" = (
+/obj/structure/table/steel,
+/obj/effect/floor_decal/corner_wide/dark_green/diagonal,
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -7;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/food/drinks/drinkingglass/newglass/coffeecup/metal{
+	pixel_x = -8;
+	pixel_y = -3
+	},
+/turf/simulated/floor/tiled/dark,
+/area/ship/coc_scarab/mess)
 "SO" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 10
@@ -8816,12 +8841,6 @@
 /area/ship/coc_scarab/exterior)
 "SW" = (
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
-/obj/structure/bed/handrail{
-	dir = 4;
-	name = "table handrail";
-	pixel_x = -2;
-	buckle_dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/structure/disposalpipe/segment{
 	dir = 1;
@@ -9021,11 +9040,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/equipment)
 "Ue" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/railing/mapped{
-	dir = 1
+/obj/effect/floor_decal/industrial/hatch/grey,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 6
 	},
-/turf/simulated/open/airless,
+/turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "Ug" = (
 /obj/structure/lattice/catwalk,
@@ -9241,13 +9260,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/porthallway)
-"US" = (
-/obj/structure/lattice,
-/obj/machinery/atmospherics/pipe/simple/heat_exchanging/junction{
-	dir = 8
-	},
-/turf/simulated/open/airless,
-/area/ship/coc_scarab/exterior)
 "UT" = (
 /obj/structure/railing/mapped{
 	dir = 1
@@ -9661,6 +9673,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/forehallway)
+"Xi" = (
+/obj/structure/lattice,
+/obj/machinery/atmospherics/pipe/simple/heat_exchanging{
+	dir = 6
+	},
+/turf/simulated/open/airless,
+/area/ship/coc_scarab/exterior)
 "Xj" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -9726,13 +9745,33 @@
 	pixel_x = -6
 	},
 /obj/structure/table/reinforced/steel,
-/obj/machinery/light/small{
-	dir = 4
+/obj/machinery/button/remote/blast_door{
+	name = "Hangar Bay Blast Shutters";
+	id = "scarab_hangar_starboard";
+	dir = 1;
+	pixel_y = 10;
+	pixel_x = -6
 	},
 /obj/item/device/binoculars{
 	pixel_y = 10;
 	pixel_x = -8
 	},
+/obj/machinery/button/remote/blast_door{
+	name = "Atmospherics Blast Shutters";
+	id = "scarab_atmospherics";
+	pixel_y = -22;
+	pixel_x = -6
+	},
+/obj/machinery/button/remote/blast_door{
+	name = "Recycling Blast Shutters";
+	id = "scarab_recycling";
+	pixel_y = -22;
+	pixel_x = 7
+	},
+/obj/machinery/light/small{
+	dir = 4
+	},
+/obj/item/device/radio/intercom/expedition/hailing/east,
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/bridge)
 "Xp" = (
@@ -9801,7 +9840,14 @@
 /obj/effect/floor_decal/corner_wide/dark_green/diagonal,
 /obj/structure/cable/green,
 /obj/machinery/power/apc/west,
-/obj/structure/table/steel,
+/obj/structure/bed/handrail{
+	pixel_y = 7;
+	name = "table handrail";
+	buckle_dir = 1
+	},
+/obj/machinery/computer/ship/navigation/terminal{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/coc_scarab/bunks)
 "XI" = (
@@ -9884,6 +9930,17 @@
 /obj/machinery/alarm/south,
 /turf/simulated/floor/tiled/dark/full,
 /area/ship/coc_scarab/cargobay)
+"Yh" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/mercenary,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/blast/regular/open{
+	id = "scarab_recycling";
+	name = "Safety Blast Doors"
+	},
+/turf/simulated/floor/plating,
+/area/ship/coc_scarab/recycling)
 "Ym" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/simulated/floor/tiled/dark/full,
@@ -34584,9 +34641,9 @@ cW
 cW
 cW
 cW
-Al
-Al
-Al
+cW
+cW
+cW
 ne
 ne
 ne
@@ -34595,9 +34652,9 @@ nr
 ne
 ne
 ne
-Al
-Al
-Al
+cW
+cW
+cW
 cW
 cW
 cW
@@ -34841,7 +34898,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 FC
 NU
 NU
@@ -34854,7 +34911,7 @@ NU
 NU
 NU
 Sw
-Al
+cW
 Af
 cW
 cW
@@ -35098,7 +35155,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 Al
@@ -35111,7 +35168,7 @@ Al
 Al
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -35355,7 +35412,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 pr
@@ -35368,7 +35425,7 @@ UG
 HP
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -35612,7 +35669,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 Cz
 Al
 pr
@@ -35625,7 +35682,7 @@ UG
 HP
 Al
 nr
-Al
+cW
 Af
 cW
 cW
@@ -35869,7 +35926,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 pr
@@ -35882,7 +35939,7 @@ UG
 HP
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -38182,7 +38239,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 pr
@@ -38195,7 +38252,7 @@ UG
 HP
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -38439,7 +38496,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 Cz
 Al
 pr
@@ -38452,7 +38509,7 @@ UG
 HP
 Al
 nr
-Al
+cW
 Af
 cW
 cW
@@ -38696,7 +38753,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 pr
@@ -38709,7 +38766,7 @@ UG
 HP
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -38953,7 +39010,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 Al
@@ -38966,7 +39023,7 @@ Al
 Al
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -39210,7 +39267,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 nG
 jw
 xT
@@ -39223,7 +39280,7 @@ jx
 mh
 Uw
 Cf
-Al
+cW
 Af
 cW
 cW
@@ -39467,7 +39524,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 ne
 ne
 Cz
@@ -39480,7 +39537,7 @@ Al
 Al
 Al
 Cf
-Al
+cW
 cW
 cW
 cW
@@ -39737,21 +39794,21 @@ dy
 dy
 op
 Cf
-Al
-Al
-Al
+cW
+cW
+cW
 ne
 ne
 ne
-Al
-Al
 ne
 ne
-Al
-Ue
+ne
+ne
+ne
+Cz
 Ug
 Ug
-SR
+Az
 gB
 gB
 gB
@@ -39986,10 +40043,10 @@ NU
 xT
 qB
 qB
-qB
-qB
+sy
+sy
 CQ
-qB
+sy
 qB
 qB
 jL
@@ -40005,10 +40062,10 @@ NU
 NU
 NU
 xT
-Ug
+xT
 SR
 qI
-au
+iq
 VF
 VF
 Ra
@@ -40021,8 +40078,8 @@ mD
 wP
 CA
 sH
-Al
-Al
+mu
+mu
 DR
 xT
 cW
@@ -40262,7 +40319,7 @@ Ea
 Ea
 Ea
 Ea
-qI
+Ea
 au
 aP
 Hs
@@ -40278,8 +40335,8 @@ Dy
 Qa
 JJ
 sH
-Al
-Al
+mu
+mu
 DR
 xT
 cW
@@ -40535,8 +40592,8 @@ Dy
 JJ
 JJ
 sH
-Al
-Al
+mu
+mu
 DR
 xT
 cW
@@ -41307,7 +41364,7 @@ dG
 dG
 dG
 hf
-US
+CB
 jm
 ze
 yu
@@ -41565,7 +41622,7 @@ Rw
 Lg
 hf
 xE
-MT
+xe
 Ug
 Ug
 NU
@@ -41822,8 +41879,8 @@ Em
 Xj
 hf
 Sv
-wH
-ce
+ga
+pF
 qI
 Be
 xT
@@ -43864,13 +43921,13 @@ vC
 aP
 yI
 Lz
-iQ
+FW
 sq
 GB
 Jg
 cu
 pk
-FZ
+SN
 FZ
 yy
 jY
@@ -44121,12 +44178,12 @@ Bm
 aP
 gc
 IP
-iQ
+FW
 MU
 sQ
 dV
 cu
-FZ
+pk
 FZ
 zK
 NB
@@ -44378,7 +44435,7 @@ nM
 BW
 EO
 xJ
-iQ
+FW
 rL
 sQ
 WL
@@ -44392,8 +44449,8 @@ QE
 QV
 hf
 nA
-OK
-dH
+Ue
+Xi
 sM
 ta
 xT
@@ -45659,7 +45716,7 @@ Ea
 Ea
 Ea
 Ea
-qI
+Ea
 vs
 aP
 vA
@@ -45897,10 +45954,10 @@ jw
 xT
 qA
 qA
-qA
-qA
+Yh
+Yh
 DN
-qA
+Yh
 qA
 qA
 EN
@@ -45916,10 +45973,10 @@ jw
 jw
 jw
 jw
-Ug
+xT
 XN
 qI
-xe
+Be
 Rk
 Rk
 Rk
@@ -46162,21 +46219,21 @@ jx
 jx
 Gb
 Cf
-Al
-Al
-Al
+cW
+cW
+cW
 ne
 ne
 ne
-Al
-Al
 ne
 ne
 ne
-Ue
+ne
+ne
+Cz
 Ug
 Ug
-XN
+rn
 Ea
 Ea
 Ea
@@ -46406,7 +46463,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 ne
 ne
 Cz
@@ -46419,7 +46476,7 @@ Al
 Al
 Al
 Cf
-Al
+cW
 cW
 cW
 cW
@@ -46445,7 +46502,7 @@ Ea
 Ea
 Ea
 Ea
-yf
+Ea
 iq
 nr
 cW
@@ -46663,7 +46720,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 FC
 NU
 xT
@@ -46676,7 +46733,7 @@ jx
 mh
 Uw
 Cf
-Al
+cW
 Af
 cW
 cW
@@ -46920,7 +46977,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 Al
@@ -46933,7 +46990,7 @@ Al
 Al
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -47177,7 +47234,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 Zz
@@ -47190,7 +47247,7 @@ OD
 vn
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -47434,7 +47491,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 Cz
 Al
 Zz
@@ -47447,7 +47504,7 @@ OD
 vn
 Al
 nr
-Al
+cW
 Af
 cW
 cW
@@ -47691,7 +47748,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 Zz
@@ -47704,7 +47761,7 @@ OD
 vn
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -50004,7 +50061,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 Zz
@@ -50017,7 +50074,7 @@ OD
 vn
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -50261,7 +50318,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 Cz
 Al
 Zz
@@ -50274,7 +50331,7 @@ OD
 vn
 Al
 nr
-Al
+cW
 Af
 cW
 cW
@@ -50518,7 +50575,7 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
 Al
 Zz
@@ -50531,7 +50588,7 @@ OD
 vn
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -50775,9 +50832,9 @@ cW
 cW
 cW
 cW
-Al
+cW
 Cz
-Al
+nk
 Al
 Al
 Al
@@ -50788,7 +50845,7 @@ Al
 Al
 Al
 nr
-Al
+cW
 cW
 cW
 cW
@@ -51032,7 +51089,7 @@ cW
 cW
 cW
 Af
-Al
+cW
 ur
 jw
 jw
@@ -51045,7 +51102,7 @@ jw
 jw
 jw
 Uj
-Al
+cW
 Af
 cW
 cW
@@ -51289,9 +51346,9 @@ cW
 cW
 cW
 cW
-mu
-Al
-Al
+cW
+cW
+cW
 ne
 ne
 ne
@@ -51300,9 +51357,9 @@ nr
 ne
 ne
 ne
-Al
-Al
-Al
+cW
+cW
+cW
 cW
 cW
 cW

@@ -1,14 +1,23 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "au" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate/freezer/rations,
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
-/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/structure/closet/crate,
+/obj/item/stack/material/steel/full,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/item/pickaxe,
+/obj/item/pickaxe,
+/obj/item/ore_detector,
+/obj/item/mining_scanner,
+/obj/item/pickaxe/drill,
+/obj/item/pickaxe/drill,
+/obj/item/storage/bag/ore,
+/obj/item/storage/bag/ore,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/coc_scarab/central)
 "ay" = (
@@ -25,13 +34,13 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/hangar)
 "aC" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid,
 /obj/machinery/door/blast/regular/open{
 	id = "scarab_shuttle_cockpit";
 	name = "Cockpit Blast Doors";
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "aE" = (
@@ -75,9 +84,6 @@
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/central)
 "bB" = (
-/obj/structure/railing/mapped{
-	dir = 8
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
 	},
@@ -227,6 +233,7 @@
 	dir = 8
 	},
 /obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "dL" = (
@@ -242,6 +249,7 @@
 "dT" = (
 /obj/structure/lattice/catwalk,
 /obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "eb" = (
@@ -252,6 +260,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "eq" = (
@@ -263,6 +272,7 @@
 	dir = 1
 	},
 /obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "es" = (
@@ -391,7 +401,6 @@
 /turf/simulated/floor/airless,
 /area/shuttle/coc_scarab/starboard)
 "gz" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/effect/landmark/entry_point/fore{
 	name = "fore, cockpit"
 	},
@@ -401,6 +410,7 @@
 	name = "Cockpit Blast Doors";
 	dir = 4
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "gA" = (
@@ -494,10 +504,14 @@
 /area/space)
 "hM" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/machinery/portable_atmospherics/canister/oxygen,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/item/reagent_containers/food/drinks/cans/beetle_milk,
+/obj/structure/closet/crate/freezer/rations,
 /turf/simulated/floor/carpet/rubber,
 /area/shuttle/coc_scarab/central)
 "hN" = (
@@ -615,7 +629,6 @@
 /obj/effect/landmark/entry_point/starboard{
 	name = "starboard, fore"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -623,6 +636,7 @@
 	id = "scarab_shuttle_starboard";
 	name = "Safety Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "kg" = (
@@ -745,6 +759,7 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "lW" = (
@@ -950,6 +965,8 @@
 /obj/structure/railing/mapped{
 	dir = 8
 	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "qr" = (
@@ -1089,6 +1106,8 @@
 /obj/structure/railing/mapped{
 	dir = 4
 	},
+/obj/structure/lattice/catwalk/indoor,
+/obj/item/hullbeacon/red,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "sZ" = (
@@ -1140,7 +1159,6 @@
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/coc_scarab/central)
 "un" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -1151,6 +1169,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/purple{
 	dir = 6
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "ur" = (
@@ -1362,7 +1381,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/purple{
 	dir = 8
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -1370,6 +1388,7 @@
 	id = "scarab_shuttle_port";
 	name = "Safety Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "ya" = (
@@ -1560,7 +1579,6 @@
 /obj/effect/landmark/entry_point/port{
 	name = "port, fore"
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -1568,6 +1586,7 @@
 	id = "scarab_shuttle_port";
 	name = "Safety Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "BN" = (
@@ -1597,7 +1616,6 @@
 /turf/simulated/floor/carpet/rubber,
 /area/ship/coc_scarab/hangar)
 "BZ" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -1605,6 +1623,7 @@
 	id = "scarab_shuttle_cockpit";
 	name = "Cockpit Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "Cd" = (
@@ -1920,20 +1939,6 @@
 /area/ship/coc_scarab/hangar)
 "IO" = (
 /obj/effect/floor_decal/industrial/outline/yellow,
-/obj/structure/closet/crate,
-/obj/item/storage/bag/ore,
-/obj/item/storage/bag/ore,
-/obj/item/pickaxe/drill,
-/obj/item/pickaxe/drill,
-/obj/item/mining_scanner,
-/obj/item/ore_detector,
-/obj/item/pickaxe,
-/obj/item/pickaxe,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/gun/custom_ka/frame01/prebuilt,
-/obj/item/stack/material/steel/full,
 /obj/structure/cable/green{
 	icon_state = "1-2"
 	},
@@ -2283,6 +2288,7 @@
 	dir = 9
 	},
 /obj/effect/floor_decal/industrial/outline/yellow,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
 "NJ" = (
@@ -2305,6 +2311,7 @@
 	dir = 4
 	},
 /obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "NV" = (
@@ -2334,6 +2341,7 @@
 	dir = 1
 	},
 /obj/item/hullbeacon/red,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "Oq" = (
@@ -2424,7 +2432,6 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/hangar)
 "Pt" = (
-/obj/structure/lattice,
 /obj/machinery/atmospherics/pipe/zpipe/up/scrubbers{
 	dir = 4
 	},
@@ -2440,7 +2447,11 @@
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
-/turf/space/dynamic,
+/obj/structure/lattice/catwalk/indoor,
+/obj/structure/railing/mapped{
+	dir = 8
+	},
+/turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "Pv" = (
 /obj/structure/disposalpipe/segment,
@@ -2471,7 +2482,6 @@
 /turf/simulated/floor/plating,
 /area/ship/coc_scarab/hangar)
 "Qj" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/atmospherics/pipe/simple/hidden/green{
 	dir = 9
 	},
@@ -2482,6 +2492,7 @@
 	id = "scarab_shuttle_cockpit";
 	name = "Cockpit Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "QG" = (
@@ -2523,6 +2534,7 @@
 	dir = 8
 	},
 /obj/structure/railing/mapped,
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "RF" = (
@@ -2652,6 +2664,7 @@
 /obj/structure/railing/mapped{
 	dir = 1
 	},
+/obj/structure/lattice/catwalk/indoor,
 /turf/simulated/floor/airless,
 /area/ship/coc_scarab/exterior)
 "Vq" = (
@@ -2718,6 +2731,22 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/central)
+"VT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 8
+	},
+/obj/structure/cable/green{
+	icon_state = "4-8"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/structure/lattice/catwalk/indoor,
+/turf/space/dynamic,
+/area/ship/coc_scarab/exterior)
 "Wa" = (
 /obj/effect/floor_decal/corner_wide/red{
 	dir = 6
@@ -2795,10 +2824,10 @@
 /obj/structure/cable/green{
 	icon_state = "2-8"
 	},
-/obj/machinery/pipedispenser,
 /obj/machinery/atmospherics/pipe/simple/hidden/universal{
 	dir = 4
 	},
+/obj/structure/table/reinforced/steel,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "Wt" = (
@@ -2835,6 +2864,7 @@
 /obj/structure/table/reinforced/steel,
 /obj/item/stack/material/steel/full,
 /obj/item/storage/bag/inflatable,
+/obj/machinery/cell_charger,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/coc_scarab/port)
 "WW" = (
@@ -2932,7 +2962,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/purple{
 	dir = 4
 	},
-/obj/effect/map_effect/window_spawner/full/reinforced/grille,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
 	},
@@ -2940,6 +2969,7 @@
 	id = "scarab_shuttle_starboard";
 	name = "Safety Blast Doors"
 	},
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/coc_scarab/central)
 "Zz" = (
@@ -32127,7 +32157,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 qn
 Rw
 Eo
@@ -32384,10 +32414,10 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -32641,10 +32671,10 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -32898,10 +32928,10 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -33145,9 +33175,8 @@ Eo
 Eo
 Eo
 Eo
-WW
-kg
-WW
+Eo
+VT
 Eo
 Eo
 Eo
@@ -33155,10 +33184,11 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -33401,24 +33431,24 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
-kg
-WW
-WW
-WW
-WW
-WW
-WW
-WW
-WW
-WW
+Eo
+Eo
+VT
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
 uC
 DK
-WW
-WW
-WW
-WW
+Eo
+Eo
+Eo
+Eo
 Eo
 Eo
 Eo
@@ -33655,10 +33685,10 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
-WW
-WW
+Eo
+Eo
+Eo
+Eo
 eq
 bB
 Gx
@@ -33911,8 +33941,8 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
+Eo
+Eo
 Ar
 Gw
 Gw
@@ -34168,7 +34198,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 Ar
 dT
 WW
@@ -34423,9 +34453,9 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
-WW
+Eo
+Eo
+Eo
 uC
 WW
 WW
@@ -34680,7 +34710,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 Ar
 Gw
 lW
@@ -34936,8 +34966,8 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
+Eo
+Eo
 uC
 WW
 WW
@@ -35193,7 +35223,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 eb
 lW
 WW
@@ -35450,7 +35480,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 lW
 lW
@@ -35707,7 +35737,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 lW
 lW
@@ -35964,7 +35994,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 UN
 lW
 WW
@@ -36221,8 +36251,8 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
+Eo
+Eo
 uC
 WW
 WW
@@ -36479,7 +36509,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 YG
 Cm
 lW
@@ -36736,9 +36766,9 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
-WW
+Eo
+Eo
+Eo
 uC
 WW
 WW
@@ -36995,7 +37025,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 YG
 dT
 WW
@@ -37252,8 +37282,8 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
+Eo
+Eo
 YG
 Cm
 Cm
@@ -37510,12 +37540,12 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
-WW
-WW
+Eo
+Eo
+Eo
+Eo
 Ol
-Cm
+lW
 Cm
 Cm
 Cm
@@ -37770,24 +37800,24 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
-WW
-WW
-WW
-WW
-WW
-WW
-WW
-WW
-WW
-WW
+Eo
+Eo
+lW
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
+Eo
 uC
 DK
-WW
-WW
-WW
-WW
+Eo
+Eo
+Eo
+Eo
 Eo
 Eo
 Eo
@@ -38028,9 +38058,8 @@ Eo
 Eo
 Eo
 Eo
-WW
-WW
-WW
+Eo
+lW
 Eo
 Eo
 Eo
@@ -38038,10 +38067,11 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -38286,7 +38316,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Cm
 Eo
 Eo
 Eo
@@ -38295,10 +38325,10 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -38552,10 +38582,10 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -38809,10 +38839,10 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 uC
 DK
-WW
+Eo
 Eo
 Eo
 Eo
@@ -39066,7 +39096,7 @@ Eo
 Eo
 Eo
 Eo
-WW
+Eo
 sS
 lF
 Eo
