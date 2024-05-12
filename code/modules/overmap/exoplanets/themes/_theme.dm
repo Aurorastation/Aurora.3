@@ -27,6 +27,8 @@
 	/// Biome force-picked if height is over [mountain_threshold]. Set to null to disable.
 	var/mountain_biome = /singleton/biome/mountain
 	/// Height threshold for mountain generation; all turfs with a calculated height above this value will generate inside [mountain_biome]
+	/// Value calculated from noise is in range of 0.0 to 1.0.
+	/// Higher threshold means less mountains, lower means more.
 	var/mountain_threshold = 0.85
 
 	/* Assoc list of heat level defines to heat thresholds. Heat is taken as the inverse of height modified by distance from the equator (see get_heat)

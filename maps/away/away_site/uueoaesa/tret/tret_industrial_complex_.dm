@@ -26,18 +26,6 @@
 		"Tret Mining Shuttle" = list("tret_industrial_navhangar")
 	)
 
-/turf/simulated/floor/exoplanet/basalt/tret
-	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
-
-/turf/simulated/lava/tret
-	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
-	icon = 'icons/turf/flooring/lava.dmi'
-	icon_state = "lava"
-
-/turf/simulated/floor/plating/tret
-	name = "plating"
-	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
-
 //Shuttle stuff
 /obj/effect/overmap/visitable/ship/landable/tret_industrial
 	name = "Tret Mining Shuttle"

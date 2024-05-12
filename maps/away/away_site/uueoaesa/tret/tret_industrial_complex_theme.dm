@@ -1,3 +1,6 @@
+
+// ----------------- themes
+
 /datum/exoplanet_theme/volcanic/tret
 	name = "Tret"
 
@@ -8,6 +11,8 @@
 	)
 
 	perlin_zoom = 21
+
+	mountain_biome = /singleton/biome/mountain/basalt/tret
 	mountain_threshold = 0.6
 
 	heat_levels = list(
@@ -28,6 +33,14 @@
 		)
 	)
 
+/datum/exoplanet_theme/volcanic/tret/rock_only
+	mountain_threshold = 0.0
+
+// ----------------- biomes
+
+/singleton/biome/mountain/basalt/tret
+	turf_type = /turf/simulated/mineral/lava/tret
+
 /singleton/biome/barren/asteroid/basalt/tret
 	turf_type = /turf/simulated/floor/exoplanet/basalt/tret
 
@@ -46,3 +59,19 @@
 			/obj/structure/flora/rock/pile/random = 2
 		)
 	)
+
+// ----------------- some turf defs
+
+/turf/simulated/floor/exoplanet/basalt/tret
+	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
+
+/turf/simulated/lava/tret
+	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
+	icon = 'icons/turf/flooring/lava.dmi'
+	icon_state = "lava"
+
+/turf/simulated/floor/plating/tret
+	name = "plating"
+	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
+
+// ----------------- fin
