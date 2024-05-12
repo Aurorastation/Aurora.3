@@ -510,8 +510,11 @@ pixel_x = 10;
 	if(alarm_area?.atmosalm)
 		icon_level = max(icon_level, 1)	//if there's an atmos alarm but everything is okay locally, no need to go past yellow
 
-	alarm_overlay = make_screen_overlay(icon, "alarm[icon_level]")
+	alarm_overlay = image(icon, "alarm[icon_level]")
 	AddOverlays(alarm_overlay)
+
+	var/emissive_overlay = emissive_appearance(icon, "alarm[icon_level]")
+	AddOverlays(emissive_overlay)
 
 	var/new_color = null
 	switch(icon_level)

@@ -4,6 +4,7 @@
 	name = "telecommunications traffic control"
 	icon_screen = "computer_generic"
 	icon_keyboard = "green_key"
+	icon_keyboard_emis = "green_key_mask"
 	light_color = LIGHT_COLOR_GREEN
 	req_access = list(ACCESS_TCOMSAT)
 

@@ -53,10 +53,20 @@
 	/// We do it like this to prevent people trying to mutate them and to save memory on holding the lists ourselves
 	var/spatial_grid_key
 
-/atom/movable/Destroy(force)
-	if (orbiting)
-		stop_orbit()
+	/// Either [EMISSIVE_BLOCK_NONE], [EMISSIVE_BLOCK_GENERIC], or [EMISSIVE_BLOCK_UNIQUE]
+	var/blocks_emissive = EMISSIVE_BLOCK_NONE
+	///Internal holder for emissive blocker object, DO NOT USE DIRECTLY. Use blocks_emissive
+	var/mutable_appearance/em_block
 
+/atom/movable/Initialize(mapload, ...)
+	. = ..()
+	update_emissive_blocker()
+	if (em_block)
+		AddOverlays(em_block)
+
+/atom/movable/Destroy(force)
+	if(orbiting)
+		stop_orbit()
 	GLOB.moved_event.unregister_all_movement(loc, src)
 
 	//Recalculate opacity
@@ -105,6 +115,9 @@
 
 	if (bound_overlay)
 		QDEL_NULL(bound_overlay)
+
+	if(em_block)
+		QDEL_NULL(em_block)
 
 /atom/movable/proc/moveToNullspace()
 	. = TRUE
@@ -286,6 +299,31 @@
 	if(!include_own_turf)
 		turfs -= get_turf(src)
 	src.throw_at(pick(turfs), maxrange, speed)
+
+/atom/movable/proc/update_emissive_blocker()
+	switch (blocks_emissive)
+		if (EMISSIVE_BLOCK_GENERIC)
+			em_block = fast_emissive_blocker(src)
+		if (EMISSIVE_BLOCK_UNIQUE)
+			if (!em_block && !QDELING(src))
+				appearance_flags |= KEEP_TOGETHER
+				render_target = ref(src)
+				em_block = emissive_blocker(
+					icon = icon,
+					icon_state = icon_state,
+					appearance_flags = appearance_flags,
+					source = render_target
+				)
+	return em_block
+
+/atom/movable/update_icon()
+	..()
+	UPDATE_OO_IF_PRESENT
+	if (em_block)
+		CutOverlays(em_block)
+	update_emissive_blocker()
+	if (em_block)
+		AddOverlays(em_block)
 
 //Overlays
 /atom/movable/overlay

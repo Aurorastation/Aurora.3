@@ -200,6 +200,7 @@
 	desc = "Scan DNA."
 	icon_screen = "dna"
 	icon_keyboard = "teal_key"
+	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	density = 1
 	circuit = /obj/item/circuitboard/scan_consolenew
