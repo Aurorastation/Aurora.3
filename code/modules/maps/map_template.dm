@@ -77,9 +77,9 @@
 	smooth_zlevel(world.maxz)
 	resort_all_areas()
 
-	//exoplanet???
+	//exoplanet generation
 	if(istype(theme))
-		theme.generate_map(null, initial_z, 1, 1, 254, 254)
+		theme.generate_map(initial_z, 1, 1, 254, 254, /turf/unsimulated/marker/blue)
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)

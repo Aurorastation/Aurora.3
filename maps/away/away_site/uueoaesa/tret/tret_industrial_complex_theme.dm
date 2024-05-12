@@ -1,6 +1,8 @@
 /datum/exoplanet_theme/volcanic/tret
 	name = "Tret"
 
+	surface_color = "#444444"
+
 	surface_turfs = list(
 		/turf/simulated/mineral/lava/tret
 	)

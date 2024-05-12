@@ -926,7 +926,7 @@
 /area/tret_industrial/inside/crew)
 "aeF" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
-/turf/template_noop,
+/turf/unsimulated/marker/blue,
 /area/tret_industrial/outside/surface)
 "aeK" = (
 /obj/structure/table/steel,
@@ -2585,6 +2585,7 @@
 /area/tret_industrial/inside/smelting_west)
 "ars" = (
 /obj/machinery/hologram/holopad/long_range,
+/obj/effect/overmap/visitable/sector/tret_industrial_complex,
 /turf/simulated/floor/tiled/gunmetal/full,
 /area/tret_industrial/inside/comms)
 "aru" = (
@@ -3500,7 +3501,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_medical)
 "aBn" = (
-/turf/template_noop,
+/turf/unsimulated/marker/blue,
 /area/tret_industrial/outside/surface)
 "aBo" = (
 /obj/structure/table/standard,
