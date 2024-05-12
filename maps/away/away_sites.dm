@@ -4,10 +4,11 @@
 	var/list/generate_mining_by_z
 	prefix = "maps/away/"
 
-	/// If set, away site spawning includes partial exoplanet generation,
-	/// where noop (?) turfs are replaced as if generated on a exoplanet.
-	/// Other turfs are untouched.
-	var/datum/exoplanet_theme/exoplanet_theme = null
+	/// If null, ignored, and exoplanet generation is not used.
+	/// If set, away site spawning includes partial exoplanet generation.
+	/// Should be assoc map of `/turf/unsimulated/marker/...` path to `/datum/exoplanet_theme/...` path,
+	/// where exoplanet generation with the map value is applied only on marker turfs of the applicable map key.
+	var/datum/exoplanet_theme/exoplanet_themes = null
 
 /datum/map_template/ruin/away_site/New(var/list/paths = null, rename = null)
 

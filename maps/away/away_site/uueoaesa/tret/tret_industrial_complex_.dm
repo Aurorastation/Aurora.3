@@ -8,7 +8,10 @@
 	spawn_cost = 1
 	id = "tret_industrial_complex"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
-	exoplanet_theme = /datum/exoplanet_theme/volcanic/tret/mountain
+	exoplanet_themes = list(
+		/turf/unsimulated/marker/blue = /datum/exoplanet_theme/volcanic/tret,
+		/turf/unsimulated/marker/red  = /datum/exoplanet_theme/volcanic/tret/mountain
+	)
 	unit_test_groups = list(3)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 

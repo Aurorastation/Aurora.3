@@ -306,13 +306,13 @@
 
 	for (var/datum/map_template/template in selected)
 		// get the theme if any
-		var/datum/exoplanet_theme/theme = null
+		var/list/exoplanet_themes = null
 		var/datum/map_template/ruin/away_site/away_site = template
-		if(istype(away_site) && away_site.exoplanet_theme)
-			theme = new away_site.exoplanet_theme()
+		if(istype(away_site) && away_site.exoplanet_themes)
+			exoplanet_themes = away_site.exoplanet_themes
 
 		// actually load it
-		if (template.load_new_z(theme=theme))
+		if (template.load_new_z(themes=exoplanet_themes))
 			log_admin("Loaded away site [template]!")
 		else
 			log_admin("Failed loading away site [template]!")

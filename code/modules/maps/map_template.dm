@@ -42,7 +42,10 @@
 	height = bounds[MAP_MAXY] - bounds[MAP_MINX] + 1
 	return bounds
 
-/datum/map_template/proc/load_new_z(var/no_changeturf = TRUE, var/datum/exoplanet_theme/theme = null)
+/// `themes` should be assoc map of `/turf/unsimulated/marker/...` path to `/datum/exoplanet_theme/...` path.
+/// Exoplanet generation is not used if `themes` is null.
+/// See docs of `/datum/map_template/ruin/away_site`.
+/datum/map_template/proc/load_new_z(var/no_changeturf = TRUE, var/list/themes = null)
 	RETURN_TYPE(/turf)
 
 	var/x = round((world.maxx - width)/2)
@@ -78,8 +81,11 @@
 	resort_all_areas()
 
 	//exoplanet generation
-	if(istype(theme))
-		theme.generate_map(initial_z, 1, 1, 254, 254, /turf/unsimulated/marker/blue)
+	if(themes)
+		for(var/marker_turf_type in themes)
+			var/datum/exoplanet_theme/exoplanet_theme_type = themes[marker_turf_type]
+			var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+			exoplanet_theme.generate_map(initial_z, 1, 1, 254, 254, marker_turf_type)
 
 	//initialize things that are normally initialized after map load
 	init_atoms(atoms_to_initialise)
