@@ -91,6 +91,10 @@
 
 			robotize_type = company
 
+/obj/item/organ/internal/mechassist()
+	..()
+	icon_state = "[initial(icon_state)]-assisted"
+
 /obj/item/organ/internal/proc/getToxLoss()
 	if(BP_IS_ROBOTIC(src))
 		return damage * 0.5

@@ -220,7 +220,16 @@
 	if(!removed)
 		return 0
 	. = calculate_thrust(removed)
-	playsound(loc, 'sound/machines/thruster.ogg', 50 * thrust_limit * power_modifier, FALSE, world.view * 4, 0.1)
+
+	var/volume_adjustment = 1
+
+	var/obj/effect/overmap/visitable/ship/my_ship = GLOB.map_sectors["[z]"]
+	if(!my_ship)
+		stack_trace("No ship found for gas thruster at z-level [z].")
+	else
+		volume_adjustment = length(my_ship.engines)
+
+	playsound(loc, 'sound/machines/thruster.ogg', ((50 * thrust_limit * power_modifier) / volume_adjustment ), FALSE, world.view * 4, 0.1)
 	if(network)
 		network.update = 1
 
