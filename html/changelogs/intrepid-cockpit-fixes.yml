@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bugfix: "Fixed an issue where you couldn't access either of the Intrepid copilot chairs without climbing over them."
