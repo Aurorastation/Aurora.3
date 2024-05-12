@@ -33,7 +33,7 @@
 		)
 	)
 
-/datum/exoplanet_theme/volcanic/tret/rock_only
+/datum/exoplanet_theme/volcanic/tret/mountain
 	mountain_threshold = 0.0
 
 // ----------------- biomes

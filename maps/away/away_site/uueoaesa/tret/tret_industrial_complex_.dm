@@ -1,6 +1,6 @@
 /datum/map_template/ruin/away_site/tret_industrial_complex
 	name = "Tret Industrial Complex"
-	description = "An industrial complex on Tret. Wow."
+	description = "An industrial complex on Tret."
 	prefix = "away_site/uueoaesa/tret/"
 	suffixes = list("tret_industrial_complex.dmm")
 	sectors = list(SECTOR_UUEOAESA, ALL_POSSIBLE_SECTORS)
@@ -8,13 +8,13 @@
 	spawn_cost = 1
 	id = "tret_industrial_complex"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tret_industrial)
-	theme = /datum/exoplanet_theme/volcanic/tret
+	exoplanet_theme = /datum/exoplanet_theme/volcanic/tret/mountain
 	unit_test_groups = list(3)
 	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/tret_industrial_complex
 	map = "Tret Industrial Complex"
-	descriptor = "An industrial complex on Tret. Wow."
+	descriptor = "An industrial complex on Tret."
 
 /obj/effect/overmap/visitable/sector/tret_industrial_complex
 	name = "Tret"

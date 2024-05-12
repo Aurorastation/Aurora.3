@@ -308,8 +308,8 @@
 		// get the theme if any
 		var/datum/exoplanet_theme/theme = null
 		var/datum/map_template/ruin/away_site/away_site = template
-		if(istype(away_site) && away_site.theme)
-			theme = new away_site.theme()
+		if(istype(away_site) && away_site.exoplanet_theme)
+			theme = new away_site.exoplanet_theme()
 
 		// actually load it
 		if (template.load_new_z(theme=theme))

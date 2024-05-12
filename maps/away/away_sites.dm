@@ -7,7 +7,7 @@
 	/// If set, away site spawning includes partial exoplanet generation,
 	/// where noop (?) turfs are replaced as if generated on a exoplanet.
 	/// Other turfs are untouched.
-	var/datum/exoplanet_theme/theme = null
+	var/datum/exoplanet_theme/exoplanet_theme = null
 
 /datum/map_template/ruin/away_site/New(var/list/paths = null, rename = null)
 
