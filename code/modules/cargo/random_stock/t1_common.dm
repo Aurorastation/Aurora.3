@@ -220,6 +220,7 @@ STOCK_ITEM_COMMON(gloves, 3.3)
 	exclusion += typesof(/obj/item/clothing/wrists/watch)
 	exclusion += typesof(/obj/item/clothing/gloves/fluff)
 	exclusion += typesof(/obj/item/clothing/gloves/ballistic)
+	exclusion += typesof(/obj/item/clothing/gloves/unathi/ancient)
 	allgloves -= exclusion
 
 	for (var/i in 1 to rand(1, 3))

@@ -23,11 +23,11 @@
 		update_icon()
 
 /obj/item/clothing/mask/chewable/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(wrapped)
 		var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_wrapper")
 		base_overlay.appearance_flags = RESET_COLOR
-		add_overlay(base_overlay)
+		AddOverlays(base_overlay)
 
 /obj/item/clothing/mask/chewable/Initialize()
 	create_reagents(chem_volume) // making the cigarrete a chemical holder with a maximum volume of 15
@@ -236,12 +236,12 @@
 		spitout(0)
 
 /obj/item/clothing/mask/chewable/candy/lolli/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/mutable_appearance/base_overlay = mutable_appearance(icon, "[initial(icon_state)]_stick")
 	base_overlay.appearance_flags = RESET_COLOR
-	add_overlay(base_overlay)
+	AddOverlays(base_overlay)
 	if(wrapped)
-		add_overlay("[initial(icon_state)]_wrapper")
+		AddOverlays("[initial(icon_state)]_wrapper")
 
 /obj/item/clothing/mask/chewable/candy/lolli/Initialize()
 	. = ..()

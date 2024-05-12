@@ -30,7 +30,7 @@
 	update_icon()
 
 /obj/machinery/light_switch/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!(stat & NOPOWER))
 		holographic_overlay(src, icon, "light[on]-overlay")
 		if (!light_range || light_color != on ? "#82ff4c" : "#f86060")

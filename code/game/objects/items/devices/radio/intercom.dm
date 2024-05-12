@@ -431,19 +431,19 @@ pixel_x = 8;
 	..(dest)
 
 /obj/item/device/radio/intercom/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!on)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 		return
 	else
-		add_overlay(screen_overlays["intercom_screen"])
-		add_overlay(screen_overlays["intercom_scanline"])
+		AddOverlays(screen_overlays["intercom_screen"])
+		AddOverlays(screen_overlays["intercom_scanline"])
 		set_light(1.4, 1.3, COLOR_CYAN)
 		if(broadcasting)
-			add_overlay(screen_overlays["intercom_b"])
+			AddOverlays(screen_overlays["intercom_b"])
 		if(listening)
-			add_overlay(screen_overlays["intercom_l"])
+			AddOverlays(screen_overlays["intercom_l"])
 
 /obj/item/device/radio/intercom/broadcasting/Initialize()
 	SHOULD_CALL_PARENT(FALSE)

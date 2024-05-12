@@ -112,12 +112,12 @@ There are several things that need to be remembered:
 		return	// No point.
 
 	update_hud()		//TODO: remove the need for this
-	cut_overlays()
+	ClearOverlays()
 
 	if(cloaked)
 		icon = 'icons/mob/human.dmi'
 		icon_state = "body_cloaked"
-		add_overlay(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
+		AddOverlays(list(overlays_raw[L_HAND_LAYER], overlays_raw[R_HAND_LAYER]))
 
 	else if (icon_update)
 		if (icon != stand_icon)
@@ -137,7 +137,7 @@ There are several things that need to be remembered:
 			var/icon/aura_overlay = icon(A.icon, icon_state = A.icon_state)
 			ovr += aura_overlay
 
-		add_overlay(ovr)
+		AddOverlays(ovr)
 
 	if (((lying_prev != lying) || forceDirUpdate || size_multiplier != 1) && forceDirUpdate != UPDATE_ICON_IGNORE_DIRECTION_UPDATE)
 		if(lying && !species.prone_icon) //Only rotate them if we're not drawing a specific icon for being prone.
@@ -166,7 +166,7 @@ There are several things that need to be remembered:
 			M.Translate(0, 16*(size_multiplier-1))
 			animate(src, transform = M, time = ANIM_LYING_TIME)
 
-	compile_overlays()
+	UpdateOverlays()
 	lying_prev = lying
 
 /mob/living/carbon/human/proc/HeldObjectDirTransform(var/hand = slot_l_hand, var/direction)
@@ -402,8 +402,8 @@ There are several things that need to be remembered:
 		part.cut_additional_images(src)
 		var/list/add_images = part.get_additional_images(src)
 		if(add_images)
-			add_overlay(add_images, TRUE)
-	compile_overlays()
+			AddOverlays(add_images, ATOM_ICON_CACHE_PROTECTED)
+	UpdateOverlays()
 
 	//END CACHED ICON GENERATION.
 	stand_icon.Blend(base_icon,ICON_OVERLAY)
@@ -1252,7 +1252,10 @@ There are several things that need to be remembered:
 	if (QDELETED(src))
 		return
 
-	overlays_raw[WRISTS_LAYER] = null
+	overlays_raw[WRISTS_LAYER_UNDER] = null
+	overlays_raw[WRISTS_LAYER_UNIFORM] = null
+	overlays_raw[WRISTS_LAYER_OVER] = null
+
 	if(check_draw_wrists())
 		var/mob_icon
 		var/mob_state = wrists.item_state || wrists.icon_state
@@ -1280,20 +1283,12 @@ There are several things that need to be remembered:
 
 		var/image/wrists_overlay = wrists.get_mob_overlay(src, mob_icon, mob_state, slot_wrists_str)
 
-		var/normal_layer = TRUE
+		var/wrist_layer = WRISTS_LAYER_OVER
 		if(istype(wrists, /obj/item/clothing/wrists) || istype(wrists, /obj/item/device/radio/headset/wrist))
 			var/obj/item/clothing/wrists/W = wrists
-			normal_layer = W.normal_layer
+			wrist_layer = W.mob_wear_layer
 
-		if(normal_layer)
-			overlays_raw[WRISTS_LAYER] = wrists_overlay
-			overlays_raw[WRISTS_LAYER_ALT] = null
-		else
-			overlays_raw[WRISTS_LAYER] = null
-			overlays_raw[WRISTS_LAYER_ALT] = wrists_overlay
-	else
-		overlays_raw[WRISTS_LAYER] = null
-		overlays_raw[WRISTS_LAYER_ALT] = null
+		overlays_raw[wrist_layer] = wrists_overlay
 
 	if(update_icons)
 		update_icon()

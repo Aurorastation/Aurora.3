@@ -492,15 +492,15 @@
 	return contains_body
 
 /obj/structure/closet/airbubble/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(ripped)
 		name = "ripped air bubble"
 		icon_state = "[icon_state]_ripped"
 	else
 		icon_state = "[initial(icon_state)][opened ? "_open" : ""]"
 	if(zipped)
-		add_overlay("[icon_state]_restrained")
-	add_overlay("pressure_[(use_internal_tank) ?("on") : ("off") ]")
+		AddOverlays("[icon_state]_restrained")
+	AddOverlays("pressure_[(use_internal_tank) ?("on") : ("off") ]")
 
 // Process transfer of air from the tank. Handle if it is ripped open.
 /obj/structure/closet/airbubble/proc/process_tank_give_air()

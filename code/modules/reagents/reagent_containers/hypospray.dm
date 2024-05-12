@@ -63,7 +63,7 @@
 			inject(M, user, M.Adjacent(user))
 
 /obj/item/reagent_containers/hypospray/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	var/rounded_vol = round(reagents.total_volume, round(reagents.maximum_volume / (volume / 5)))
 	icon_state = "[initial(icon_state)]_[rounded_vol]"
@@ -74,7 +74,7 @@
 		filling.icon_state = "[initial(icon_state)][rounded_vol]"
 
 		filling.color = reagents.get_color()
-		add_overlay(filling)
+		AddOverlays(filling)
 
 /obj/item/reagent_containers/hypospray/proc/inject(var/mob/M, var/mob/user, proximity)
 	if(!proximity || !istype(M))
@@ -173,10 +173,10 @@
 	. = ..()
 
 /obj/item/reagent_containers/hypospray/autoinjector/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(!is_open_container())
 		var/mutable_appearance/backing_overlay = mutable_appearance(icon, "autoinjector_secured")
-		add_overlay(backing_overlay)
+		AddOverlays(backing_overlay)
 
 	icon_state = "[initial(icon_state)][spent]"
 	item_state = "[initial(item_state)][spent]"
@@ -184,7 +184,7 @@
 	if(reagents.total_volume)
 		var/mutable_appearance/reagent_overlay = mutable_appearance(icon, "autoinjector_reagents")
 		reagent_overlay.color = reagents.get_color()
-		add_overlay(reagent_overlay)
+		AddOverlays(reagent_overlay)
 	update_held_icon()
 
 /obj/item/reagent_containers/hypospray/autoinjector/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)

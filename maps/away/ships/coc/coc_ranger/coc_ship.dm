@@ -166,11 +166,11 @@
 	shuttle_area = list(/area/shuttle/ranger_shuttle)
 	current_location = "nav_hangar_ranger"
 	landmark_transition = "nav_transit_ranger_shuttle"
+	dock_target = "ranger_shuttle_dock2"
 	range = 1
 	fuel_consumption = 2
 	logging_home_tag = "nav_hangar_ranger"
 	// defer_initialisation = TRUE
-	dock_target = "ranger_shuttle_dock2"
 
 /obj/effect/shuttle_landmark/ranger_shuttle/hangar
 	name = "Ranger Shuttle Hangar"

@@ -127,7 +127,7 @@
 		update_icon()
 
 /obj/effect/decal/cleanable/blood/tracks/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	color = "#FFFFFF"
 	var/truedir = 0
 
@@ -157,7 +157,7 @@
 		track.fresh = 0
 		track.overlay = I
 		stack[stack_idx] = track
-		add_overlay(I)
+		AddOverlays(I)
 
 /obj/effect/decal/cleanable/blood/tracks/footprints
 	name = "wet footprints"

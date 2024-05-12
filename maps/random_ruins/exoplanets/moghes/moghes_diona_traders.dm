@@ -10,6 +10,8 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_diona_traders.dmm")
 
+	unit_test_groups = list(2)
+
 /area/moghes_diona_traders
 	name = "Diona Trader Office"
 	icon_state = "bluenew"

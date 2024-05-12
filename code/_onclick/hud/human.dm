@@ -341,8 +341,8 @@
 	mymob.zone_sel.icon = ui_style
 	mymob.zone_sel.color = ui_color
 	mymob.zone_sel.alpha = ui_alpha
-	mymob.zone_sel.cut_overlays()
-	mymob.zone_sel.add_overlay(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
+	mymob.zone_sel.ClearOverlays()
+	mymob.zone_sel.AddOverlays(image('icons/mob/zone_sel.dmi', "[mymob.zone_sel.selecting]"))
 	hud_elements |= mymob.zone_sel
 
 	//Handle the gun settings buttons
@@ -531,7 +531,7 @@
 	icon = set_icon
 	var/image/status_overlay = image('icons/mob/screen/hud_status.dmi', null, set_overlay)
 	status_overlay.appearance_flags = RESET_COLOR
-	add_overlay(status_overlay)
+	AddOverlays(status_overlay)
 	status_message = set_status_message
 	return ..()
 

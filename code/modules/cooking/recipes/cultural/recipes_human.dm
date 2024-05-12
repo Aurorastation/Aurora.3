@@ -171,11 +171,20 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/hash_browns
 
+/singleton/recipe/alfajores
+	appliance = OVEN
+	reagents = list(/singleton/reagent/sugar = 15, /singleton/reagent/nutriment/flour = 10, /singleton/reagent/drink/milk = 10)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/spreads/butter
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE //Simplify end product
+	result = /obj/item/reagent_containers/food/snacks/bowl/alfajores
+
 // Konyang
 
 /singleton/recipe/mossbowl
 	appliance = SAUCEPAN | POT
-	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/protein/egg = 3)
+	reagents = list(/singleton/reagent/water = 5, /singleton/reagent/nutriment/flour = 10)
 	fruit = list("moss" = 2)
 	result = /obj/item/reagent_containers/food/snacks/mossbowl
 
@@ -460,3 +469,15 @@
 	)
 	result = /obj/item/reagent_containers/food/snacks/steelworkersandwich
 	reagent_mix = RECIPE_REAGENT_REPLACE
+
+//Gadpathur
+/singleton/recipe/paneer_gadpathur
+	appliance = SAUCEPAN | POT
+	result = /obj/item/reagent_containers/food/snacks/paneer_gadpathur
+	fruit = list ("tomato" = 1, "chili" = 1)
+	reagents = list(/singleton/reagent/drink/milk/cream = 5, /singleton/reagent/nutriment/rice = 5)
+	items = list(
+		/obj/item/reagent_containers/food/snacks/cheesewedge
+	)
+	reagent_mix = RECIPE_REAGENT_REPLACE
+	result = /obj/item/reagent_containers/food/snacks/paneer_gadpathur

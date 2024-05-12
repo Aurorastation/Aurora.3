@@ -91,11 +91,11 @@
 
 /obj/machinery/power/solar/update_icon()
 	..()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & BROKEN)
-		add_overlay("solar_panel-b")
+		AddOverlays("solar_panel-b")
 	else
-		add_overlay("solar_panel")
+		AddOverlays("solar_panel")
 		set_angle(adir)
 	return
 
@@ -526,7 +526,7 @@
 	set_panels(cdir)
 
 /obj/machinery/power/solar_control/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if(stat & NOPOWER)
 		set_light(0)
 		return
@@ -538,10 +538,10 @@
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
 		holographic_overlay(src, src.icon, "broken")
-		add_overlay("red_key")
+		AddOverlays("red_key")
 	else
 		holographic_overlay(src, src.icon, "solar")
-		add_overlay("yellow_key")
+		AddOverlays("yellow_key")
 
 //
 // MISC

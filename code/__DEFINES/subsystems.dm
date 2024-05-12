@@ -98,8 +98,8 @@
 
 
 // -- SSoverlays --
-#define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
-#define ATOM_USING_SSOVERLAY(atom) (atom.our_overlays || atom.priority_overlays)
+#define CUT_OVERLAY_IN(ovr, time) addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, CutOverlays), ovr), time, TIMER_STOPPABLE | TIMER_CLIENT_TIME)
+#define ATOM_USING_SSOVERLAY(atom) (atom.atom_overlay_cache || atom.atom_protected_overlay_cache)
 
 // -- SSticker --
 #define ROUND_IS_STARTED (SSticker.current_state >= GAME_STATE_PLAYING)

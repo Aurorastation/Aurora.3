@@ -58,7 +58,7 @@
 	if (owner.intoxication > 0)
 		var/bac = owner.get_blood_alcohol()
 		var/res = owner.species ? owner.species.ethanol_resistance : 1
-		if(bac >= INTOX_MUSCLEIMP * res) //Excessive blood alcohol, difficult to filter
+		if(bac >= INTOX_BLACKOUT * res) //Excessive blood alcohol, difficult to filter
 			owner.intoxication -= min(owner.intoxication, filter_strength/2)
 		else
 			owner.intoxication -= min(owner.intoxication, filter_strength)
@@ -71,7 +71,7 @@
 
 /obj/item/organ/internal/liver/handle_regeneration()
 	if(..())
-		if(!owner.total_radiation && damage > 0)
+		if(!owner.total_radiation && damage > 0 && !(owner.get_blood_alcohol() > INTOX_BLACKOUT))
 			if(damage < min_broken_damage)
 				heal_damage(0.2)
 			if(damage < min_bruised_damage)

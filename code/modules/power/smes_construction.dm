@@ -368,9 +368,9 @@
 // Description: Allows us to use special icon overlay for critical SMESs
 /obj/machinery/power/smes/buildable/update_icon()
 	if(failing)
-		cut_overlays()
-		add_overlay("smes-crit")
-		add_overlay("smes-crit_screen")
+		ClearOverlays()
+		AddOverlays("smes-crit")
+		AddOverlays("smes-crit_screen")
 	else
 		..()
 

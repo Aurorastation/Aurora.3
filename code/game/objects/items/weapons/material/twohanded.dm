@@ -277,7 +277,7 @@
 		usr.drop_from_inventory(attacking_item, HS)
 		var/mutable_appearance/MA = new(attacking_item)
 		MA.layer = FLOAT_LAYER
-		HS.add_overlay(MA)
+		HS.AddOverlays(MA)
 		HS.name = "[attacking_item.name] on a spear"
 		HS.material = material.name
 		qdel(src)

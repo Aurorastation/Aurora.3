@@ -33,7 +33,7 @@
 	src.air_contents.adjust_multi(GAS_OXYGEN, air_mix[GAS_OXYGEN], GAS_NITROGEN, air_mix[GAS_NITROGEN])
 
 /obj/machinery/portable_atmospherics/powered/pump/update_icon()
-	cut_overlays()
+	ClearOverlays()
 
 	if(on && cell && cell.charge)
 		icon_state = "psiphon:1"
@@ -41,10 +41,10 @@
 		icon_state = "psiphon:0"
 
 	if(holding)
-		add_overlay("siphon-open")
+		AddOverlays("siphon-open")
 
 	if(connected_port)
-		add_overlay("siphon-connector")
+		AddOverlays("siphon-connector")
 
 	return
 
