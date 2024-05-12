@@ -9,6 +9,8 @@
 	spawn_cost = 2
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/miners_guild_outpost)
 
+	unit_test_groups = list(3)
+
 /area/heph_mining_station
 	name = "Hephaestus Mining Station"
 	icon_state = "bluenew"
@@ -80,47 +82,3 @@
 	possible_species = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_BULWARK)
 	outfit = /obj/outfit/admin/moghes_heph_miner/klax
 	uses_species_whitelist = TRUE
-
-/obj/outfit/admin/moghes_heph_miner
-	name = "Moghes Hephaestus Miner"
-
-	uniform = /obj/item/clothing/under/rank/miner/heph
-	shoes = /obj/item/clothing/shoes/workboots/toeless
-	back = /obj/item/storage/backpack/satchel/heph
-	head = /obj/item/clothing/head/hardhat/green
-	suit = /obj/item/clothing/accessory/poncho/unathimantle/hephaestus
-
-	id = /obj/item/card/id/hephaestus
-
-	backpack_contents = list(/obj/item/storage/wallet/random = 1)
-
-/obj/outfit/admin/moghes_heph_miner/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.wear_suit)
-		H.wear_suit.color = "#2a2b2e"
-
-/obj/outfit/admin/moghes_heph_miner/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
-
-/obj/outfit/admin/moghes_heph_miner/klax
-	name = "Moghes Hephaestus Miner - K'lax"
-
-	shoes = /obj/item/clothing/shoes/vaurca
-	head = null
-	mask = /obj/item/clothing/mask/gas/vaurca/filter
-	back = /obj/item/storage/backpack/cloak/cargo
-	backpack_contents = list(/obj/item/storage/wallet/random = 1, /obj/item/reagent_containers/food/snacks/koisbar_clean = 3)
-
-/obj/outfit/admin/moghes_heph_miner/klax/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
-		var/obj/item/organ/internal/vaurca/preserve/preserve = H.internal_organs_by_name[BP_PHORON_RESERVE]
-		H.internal = preserve
-		H.internals.icon_state = "internal1"
-	if(H?.wear_suit)
-		H.wear_suit.color = "#2a2b2e"
-	var/obj/item/organ/A = new /obj/item/organ/internal/augment/language/klax(H)
-	var/obj/item/organ/external/affected = H.get_organ(A.parent_organ)
-	A.replaced(H, affected)
-	var/obj/item/organ/B = new /obj/item/organ/internal/augment/tool/drill(H)
-	var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
-	B.replaced(H, affectedB)
-	H.update_body()

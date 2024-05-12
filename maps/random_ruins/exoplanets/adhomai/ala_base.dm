@@ -11,6 +11,8 @@
 	prefix = "adhomai/"
 	suffixes = list("ala_base.dmm")
 
+	unit_test_groups = list(2)
+
 /area/ala_base
 	name = "ALA Military Outpost"
 	icon_state = "bluenew"

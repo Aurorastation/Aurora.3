@@ -765,6 +765,19 @@
 /obj/item/paper/fluff
 	name = "fluff paper"
 	desc = "You aren't supposed to see this."
+	///The language to translate the paper into. Set to the name of the language.
+	var/language
+
+/obj/item/paper/fluff/Initialize()
+	. = ..()
+	if(language)
+		var/datum/language/L = GLOB.all_languages[language]
+		if(istype(L) && L.written_style) //Don't want to try and write in Hivenet or something
+			var/key = L.key
+			var/languagetext = "\[lang=[key]]"
+			languagetext += "[info]\[/lang]"
+			info = parsepencode(languagetext)
+			update_icon()
 
 // Used in the deck 3 cafe on the SCCV Horizon.
 /obj/item/paper/fluff/microwave

@@ -7,14 +7,13 @@
 	suffixes = list("izweski_probe.dmm")
 	template_flags = TEMPLATE_FLAG_NO_RUINS|TEMPLATE_FLAG_RUIN_STARTS_DISALLOWED
 
+	unit_test_groups = list(2)
+
 /obj/structure/survey_probe/hegemony/old
 	name = "\improper Hegemony space probe"
 	desc = "An unmanned probe, clearly a very old and unsophisticated design. The flag of the Izweski Hegemony is displayed on the side, and a fading screen displays a readout in Sinta'Unathi"
 	desc_extended = "This model of survey probe seems to be very old. A plaque on the side bears some words in Sinta'Unathi beneath the seal of the Izweski Hegemony."
-	anchored = TRUE
-	density = TRUE
-	icon = 'icons/obj/xenoarchaeology.dmi'
-	icon_state = "surveying_probe_deployed"
+	start_deployed = TRUE
 
 /obj/structure/survey_probe/hegemony/old/examine(mob/user)
 	. = ..()

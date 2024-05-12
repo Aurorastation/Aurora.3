@@ -9,6 +9,8 @@
 	prefix = "konyang/"
 	suffixes = list("landing_zone.dmm")
 
+	unit_test_groups = list(1)
+
 /area/konyang_landing_zone
 	name = "SCC Expedition Command Center"
 	icon_state = "bluenew"

@@ -41,12 +41,6 @@
 			return
 	..()
 
-/mob/living/CtrlClickOn(atom/A)
-	if(client && client.hardsuit_click_mode == HARDSUIT_MODE_CTRL_CLICK)
-		if(HardsuitClickOn(A))
-			return
-	..()
-
 /mob/living/proc/can_use_rig()
 	return 0
 

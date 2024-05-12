@@ -9,6 +9,8 @@
 	prefix = "konyang/abandoned/"
 	suffixes = list("rural_clinic.dmm")
 
+	unit_test_groups = list(1)
+
 /area/konyang/rural_clinic
 	name = "Konyang Rural Clinic"
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP | AREA_FLAG_RAD_SHIELDED

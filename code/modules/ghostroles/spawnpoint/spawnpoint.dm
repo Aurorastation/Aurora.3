@@ -6,8 +6,8 @@
 /obj/effect/ghostspawpoint
 	name = "invisible ghost spawner - single"
 	desc = "A Invisible ghost spawner"
-	icon = 'icons/mob/screen/generic.dmi'
-	icon_state = "x2"
+	icon = 'icons/effects/map_effects.dmi'
+	icon_state = "ghostspawpoint"
 
 	anchored = 1
 	unacidable = 1
@@ -97,7 +97,7 @@
 	return UI_INTERACTIVE
 
 /obj/effect/ghostspawpoint/proc/is_available()
-	return TRUE
+	return state == STATE_AVAILABLE
 
 /obj/effect/ghostspawpoint/proc/set_spawned()
 	if(recharge_time) //If we are available again after a certain time -> being processing

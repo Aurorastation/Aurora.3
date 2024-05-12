@@ -13,6 +13,8 @@
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_abandoned_outpost)
 
+	unit_test_groups = list(1)
+
 /area/konyang_telecomms_outpost
 	name = "Konyang Telecomms Outpost"
 	icon_state = "bluenew"

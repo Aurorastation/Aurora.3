@@ -9,6 +9,8 @@
 	prefix = "konyang/"
 	suffixes = list("swamp_4.dmm")
 
+	unit_test_groups = list(3)
+
 /area/konyang_swamp_4
 	name = "Swamp Grill"
 	icon_state = "bluenew"

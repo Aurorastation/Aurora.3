@@ -21,6 +21,7 @@
 	listeningTo = null
 
 	linked_box = null
+	linked_beacon = FALSE
 	. = ..()
 
 /obj/item/storage/bag/ore/equipped(mob/user, slot)
@@ -58,11 +59,6 @@
 // An ore satchel that starts with an attached warp pack
 /obj/item/storage/bag/ore/bluespace
 	linked_beacon = TRUE
-
-/obj/item/storage/bag/ore/Destroy()
-	linked_box = null
-	linked_beacon = FALSE
-	return ..()
 
 /obj/item/storage/bag/ore/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/extraction_pack))
