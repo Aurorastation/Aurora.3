@@ -176,3 +176,13 @@
   - rscdel: Removed punpun's banana peel to prevent noise complaints.
   RustingWithYou:
   - rscadd: Adds several Ouerea ruins.
+2024-05-12:
+  FluffyGhost:
+  - server: Updated CI to use Rust 3.1.0-a1
+  - bugfix: Ore satchel won't spam failed pickups anymore unless the user does an
+      explicit pickup request (clicking on a turf/item).
+  Jasorn:
+  - bugfix: Fixes the 9mm pistol becoming invisible when removing the magazine.
+  SimpleMaroon:
+  - qol: Changed the name of the Hivenet Voiding verb to Untethering, by request of
+      Vaurca lore.
