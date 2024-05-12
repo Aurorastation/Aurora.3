@@ -887,6 +887,7 @@
 #include "code\game\machinery\gumball.dm"
 #include "code\game\machinery\hologram.dm"
 #include "code\game\machinery\holosign.dm"
+#include "code\game\machinery\howitzer.dm"
 #include "code\game\machinery\igniter.dm"
 #include "code\game\machinery\iv_drip.dm"
 #include "code\game\machinery\jukebox.dm"
