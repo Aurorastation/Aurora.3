@@ -10,6 +10,7 @@
 	prefix = "moghes/"
 	suffixes = list("moghes_temple.dmm")
 
+unit_test_group = list(1)
 
 /area/moghes_temple
 	name = "Moghes - Abandoned Temple"
