@@ -30,6 +30,9 @@
 	special_role = "SCC Scout Ship Captain"
 	respawn_flag = null
 
+	idris_account_min = 1200
+	idris_account_max = 2500
+
 /datum/ghostspawner/human/scc_scout_ship_crew_orion
 	short_name = "scc_scout_ship_orion"
 	name = "SCC Scout Ship Orion Express Crew"
