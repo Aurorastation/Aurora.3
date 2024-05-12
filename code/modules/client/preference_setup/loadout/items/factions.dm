@@ -424,21 +424,21 @@
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Medical Intern", "Medical Personnel")
 
-/datum/gear/faction/epmc_uniform_fr_med
+/datum/gear/faction/epmc_uniform_para_med
 	display_name = "PMCG/EPMC Paramedic uniform"
 	path = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
 	slot = slot_w_uniform
 	faction = "Private Military Contracting Group"
 	allowed_roles = list("Paramedic", "Medical Personnel")
 
-/datum/gear/faction/epmc_uniform_fr_med/New()
+/datum/gear/faction/epmc_uniform_para_med/New()
 	..()
-	var/list/epmc_uniform_fr_med = list()
-	epmc_uniform_fr_med["EPMC Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
-	epmc_uniform_fr_med["PMCG Paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
-	epmc_uniform_fr_med["Sekhmet Intergalactic Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
-	epmc_uniform_fr_med["Ve'katak Phalanx Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
-	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_fr_med)
+	var/list/epmc_uniform_para_med = list()
+	epmc_uniform_para_med["EPMC Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/epmc
+	epmc_uniform_para_med["PMCG Paramedic uniform, alt"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/alt
+	epmc_uniform_para_med["Sekhmet Intergalactic Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/sekh
+	epmc_uniform_para_med["Ve'katak Phalanx Paramedic uniform"] = /obj/item/clothing/under/rank/medical/paramedic/pmc/vekatak_phalanx
+	gear_tweaks += new /datum/gear_tweak/path(epmc_uniform_para_med)
 
 /datum/gear/faction/wildlands_flagpatches
 	display_name = "wildlands flagpatch selection"
@@ -508,7 +508,7 @@
 	zenghu_labcoats["zeng-hu letterman labcoat, alt"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt
 	zenghu_labcoats["zeng-hu letterman labcoat, classic"] = /obj/item/clothing/suit/storage/toggle/labcoat/zeng/letterman/alt2
 	zenghu_labcoats["zeng-hu labcoat, long"] = /obj/item/clothing/suit/storage/toggle/longcoat/zeng
-	zenghu_labcoats["zeng-hu Paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+	zenghu_labcoats["zeng-hu Paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket/zeng
 	zenghu_labcoats["zeng-hu corporate jacket"] = /obj/item/clothing/suit/storage/toggle/corp/zeng
 	zenghu_labcoats["zeng-hu corporate jacket, alt"] = /obj/item/clothing/suit/storage/toggle/corp/zeng/alt
 	zenghu_labcoats["zeng-hu winter coat"] = /obj/item/clothing/suit/storage/hooded/wintercoat/zeng

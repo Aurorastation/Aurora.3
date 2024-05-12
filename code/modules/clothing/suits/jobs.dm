@@ -238,7 +238,7 @@
 	item_state = "longblazer"
 
 //Medical
-/obj/item/clothing/suit/storage/toggle/fr_jacket
+/obj/item/clothing/suit/storage/toggle/para_jacket
 	name = "Paramedic jacket"
 	desc = "A high-visibility jacket worn by medical Paramedics."
 	icon = 'icons/obj/item/clothing/department_uniforms/medical.dmi'
@@ -250,17 +250,17 @@
 	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/paramedic)
 	body_parts_covered = UPPER_TORSO|ARMS
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/zeng
+/obj/item/clothing/suit/storage/toggle/para_jacket/zeng
 	desc = "A Paramedic jacket in the classic white and purple of Zeng-Hu Pharmaceuticals."
 	icon_state = "zeng_emt_jacket"
 	item_state = "zeng_emt_jacket"
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
+/obj/item/clothing/suit/storage/toggle/para_jacket/pmc
 	desc = "A Paramedic jacket in the classic black and blue of the PMCG."
 	icon_state = "pmc_emt_jacket"
 	item_state = "pmc_emt_jacket"
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/pmc/alt
+/obj/item/clothing/suit/storage/toggle/para_jacket/pmc/alt
 	icon_state = "pmc_alt_emt_jacket"
 	item_state = "pmc_alt_emt_jacket"
 

@@ -172,7 +172,7 @@
 
 	head = /obj/item/clothing/head/softcap/pmc
 	uniform = /obj/item/clothing/under/rank/medical/paramedic/pmc
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc
+	suit = /obj/item/clothing/suit/storage/toggle/para_jacket/pmc
 	id = /obj/item/card/id/pmc
 
 	backpack_faction = /obj/item/storage/backpack/pmcg

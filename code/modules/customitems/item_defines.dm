@@ -659,7 +659,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	item_state = "likho_labcoat"
 
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - sampletex
+/obj/item/clothing/suit/storage/toggle/para_jacket/fluff/ramit_jacket //Winter Paramedic Jacket - Ra'mit Ma'zaira - sampletex
 	name = "winter paramedic jacket"
 	desc = "A custom made Paramedic coat. Inside is a warm fabric with the name \"Ra'Mit Ma'zaira\" sewn in by the collar."
 	icon = 'icons/obj/custom_items/ramit_jacket.dmi'
@@ -996,7 +996,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	contained_sprite = TRUE
 	species_restricted = list(BODYTYPE_TAJARA)
 
-/obj/item/clothing/suit/storage/toggle/fr_jacket/fluff/akila_jacket //Reflective Paramedic Jacket - Akila Aksha'Shalwariran - shestrying
+/obj/item/clothing/suit/storage/toggle/para_jacket/fluff/akila_jacket //Reflective Paramedic Jacket - Akila Aksha'Shalwariran - shestrying
 	name = "reflective Paramedic jacket"
 	desc = "A jacket in an eye-blinding yellow, with flourescent green, light-reflective striping along the cuffs and bottom edge. A bright red cross rests on the front, over the heart."
 	icon = 'icons/obj/custom_items/akila_jacket.dmi'

@@ -282,7 +282,7 @@
 
 	head = /obj/item/clothing/head/softcap/nt
 	uniform = /obj/item/clothing/under/rank/medical/paramedic
-	suit = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	suit = /obj/item/clothing/suit/storage/toggle/para_jacket
 	shoes = /obj/item/clothing/shoes/jackboots
 	id = /obj/item/card/id/white
 

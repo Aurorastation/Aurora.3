@@ -126,14 +126,14 @@
 
 /datum/gear/suit/medical_outerwear
 	display_name = "medical outerwear (jackets, vests, rigs)"
-	path = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	path = /obj/item/clothing/suit/storage/toggle/para_jacket
 	allowed_roles = list("Chief Medical Officer", "Physician", "Surgeon", "Pharmacist", "Paramedic", "Medical Intern", "Medical Personnel")
 
 /datum/gear/suit/medical_outerwear/New()
 	..()
 	var/list/medical_outerwear = list()
 	medical_outerwear["medical chest-rig"] = /obj/item/clothing/suit/storage/medical_chest_rig
-	medical_outerwear["Paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/fr_jacket
+	medical_outerwear["Paramedic jacket"] = /obj/item/clothing/suit/storage/toggle/para_jacket
 	gear_tweaks += new /datum/gear_tweak/path(medical_outerwear)
 
 /datum/gear/suit/iac_outerwear

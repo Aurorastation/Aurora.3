@@ -107,9 +107,9 @@
 	new /obj/item/clothing/mask/gas/alt(src)
 	new /obj/item/clothing/mask/gas/half(src)
 	new /obj/item/auto_cpr(src)
-	new /obj/item/clothing/suit/storage/toggle/fr_jacket(src)
-	new /obj/item/clothing/suit/storage/toggle/fr_jacket/zeng(src)
-	new /obj/item/clothing/suit/storage/toggle/fr_jacket/pmc(src)
+	new /obj/item/clothing/suit/storage/toggle/para_jacket(src)
+	new /obj/item/clothing/suit/storage/toggle/para_jacket/zeng(src)
+	new /obj/item/clothing/suit/storage/toggle/para_jacket/pmc(src)
 
 /obj/structure/closet/secure_closet/CMO
 	name = "chief medical officer's locker"
