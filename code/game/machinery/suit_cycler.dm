@@ -620,12 +620,12 @@
 				suit.icon_state = "syndie"
 		if("Research")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 				helmet.name = "research voidsuit helmet"
 				helmet.icon_state = "research_helm"
 				helmet.item_state = "research_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				suit.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 				suit.name = "research voidsuit"
 				suit.item_state = "research"
 				suit.icon_state = "research"

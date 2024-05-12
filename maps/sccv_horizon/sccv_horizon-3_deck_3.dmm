@@ -29904,9 +29904,6 @@
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
 	},
-/obj/machinery/light/floor{
-	dir = 1
-	},
 /obj/machinery/door/airlock/glass{
 	dir = 4
 	},

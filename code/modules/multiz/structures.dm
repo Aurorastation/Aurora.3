@@ -275,6 +275,11 @@
 				playsound(src, 'sound/effects/stairs_step.ogg', 50)
 				playsound(target, 'sound/effects/stairs_step.ogg', 50)
 
+/obj/structure/stairs/Crossed(obj/O)
+	if(istype(O))
+		O.stair_act()
+	return ..()
+
 /obj/structure/stairs/proc/upperStep(var/turf/T)
 	return (T == loc)
 
@@ -371,6 +376,11 @@
 	anchored = TRUE
 	icon = 'icons/obj/structure/stairs.dmi'
 	icon_state = "np_stair"
+
+/obj/structure/platform_stairs/Crossed(obj/O)
+	if(istype(O))
+		O.stair_act()
+	return ..()
 
 /obj/structure/platform_stairs/south_north_solo
 	icon_state = "p_stair_sn_solo_cap"
