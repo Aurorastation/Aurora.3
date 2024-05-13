@@ -67,11 +67,8 @@
 
 /turf/simulated/lava/tret
 	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
-	icon = 'icons/turf/flooring/lava.dmi'
-	icon_state = "lava"
 
-/turf/simulated/floor/plating/tret
-	name = "plating"
+/turf/simulated/floor/exoplanet/plating/tret
 	initial_gas = list("sulfur dioxide" = MOLES_O2STANDARD)
 
 // ----------------- fin

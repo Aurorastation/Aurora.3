@@ -5,3 +5,4 @@ delete-after: True
 
 changes:
   - rscadd: "Tret Industrial Facility away site."
+  - rscadd: "Away site exoplanet generation."
