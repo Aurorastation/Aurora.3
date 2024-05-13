@@ -172,13 +172,13 @@
 
 	prefs.toggles_secondary ^= SEE_ITEM_OUTLINES
 	prefs.save_preferences()
-	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & SEE_ITEM_OUTLINESS ? "enabled" : "disabled"]."))
+	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & SEE_ITEM_OUTLINES ? "enabled" : "disabled"]."))
 
-/client/verb/toggle_item_outlines()
+/client/verb/toggle_item_tooltips()
 	set name = "Toggle Item Tooltips"
 	set desc = "Toggles tooltips appearing on items in your inventory."
 	set category = "Preferences"
 
 	prefs.toggles_secondary ^= HIDE_ITEM_TOOLTIPS
 	prefs.save_preferences()
-	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & SEE_ITEM_OUTLINESS ? "disabled" : "enabled"]."))
+	to_chat(src, SPAN_NOTICE("Item outlines are now [prefs.toggles_secondary & HIDE_ITEM_TOOLTIPS ? "disabled" : "enabled"]."))

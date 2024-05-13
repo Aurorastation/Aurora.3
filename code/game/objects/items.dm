@@ -1254,8 +1254,8 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			return
 		if(!(user.client.prefs.toggles_secondary & SEE_ITEM_OUTLINES))
 			return
-		var/mob/living/L = usr = user
-		if(istype(L) && L.incapacitated)
+		var/mob/living/L = user
+		if(istype(L) && L.incapacitated())
 			apply_outline(L, COLOR_RED_GRAY) //if they're dead or handcuffed, let's show the outline as red to indicate that they can't interact with that right now
 		else
 			apply_outline(L) //if the player's alive and well we send the command with no color set, so it uses the theme's color
