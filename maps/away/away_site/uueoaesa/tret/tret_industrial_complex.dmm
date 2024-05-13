@@ -2155,11 +2155,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
-"amX" = (
-/obj/structure/lattice/catwalk/indoor,
-/obj/structure/lattice/catwalk/indoor,
-/turf/simulated/lava/tret,
-/area/tret_industrial/outside/surface)
 "amZ" = (
 /obj/structure/table/steel,
 /obj/item/trash/plate/steak{
@@ -44162,7 +44157,7 @@ aQb
 aVb
 aVb
 aVb
-amX
+aVb
 aEL
 ajW
 ajW
