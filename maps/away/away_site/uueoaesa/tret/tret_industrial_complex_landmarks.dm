@@ -5,52 +5,102 @@
 	base_area = /area/tret_industrial/outside/landing
 	base_turf = /turf/simulated/floor/exoplanet/basalt/tret
 
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock
+	req_one_access = null
+	req_access = null
+
 // --------------------- shuttle
 
 /obj/effect/shuttle_landmark/tret_industrial/transit
 	name = "In transit"
-	landmark_tag = "tret_industrial_navtransit"
+	landmark_tag = "nav_tret_industrial_shuttle_transit"
 	base_turf = /turf/space/transit/north
 	base_area = /area/space
 
-// ----
-
-/obj/effect/shuttle_landmark/tret_industrial/hangar
-	name = "Tret Industrial Complex - Landing Pad 1"
-	landmark_tag = "tret_industrial_navhangar"
-	docking_controller = "airlock_tret_dock1"
-
-/obj/effect/map_effect/marker/airlock/docking/tret_industrial/hangar
-	name = "Shuttle Hangar"
-	landmark_tag = "nav_yacht_civ_shuttle_dock"
-	master_tag = "airlock_yacht_civ_shuttle_dock"
-
 // --------------------- docks
 
-/obj/effect/shuttle_landmark/yacht_civ/dock/starboard
-	name = "Dock, Starboard"
-	landmark_tag = "nav_yacht_civ_dock_starboard"
-	docking_controller = "airlock_yacht_civ_dock_starboard"
+/obj/effect/shuttle_landmark/tret_industrial/dock/outpost_1
+	name = "Dock, Landing Pad 1"
+	landmark_tag = "nav_tret_industrial_dock_outpost_1"
+	docking_controller = "airlock_tret_industrial_dock_outpost_1"
 
-/obj/effect/map_effect/marker/airlock/docking/yacht_civ/dock/starboard
-	name = "Dock, Starboard"
-	landmark_tag = "nav_yacht_civ_dock_starboard"
-	master_tag = "airlock_yacht_civ_dock_starboard"
-	req_one_access = null
-	req_access = null
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1
+	name = "Dock, Landing Pad 1"
+	landmark_tag = "nav_tret_industrial_dock_outpost_1"
+	master_tag = "airlock_tret_industrial_dock_outpost_1"
 
 // ----
 
-// ----
+/obj/effect/shuttle_landmark/tret_industrial/dock/outpost_2
+	name = "Dock, Landing Pad 2"
+	landmark_tag = "nav_tret_industrial_dock_outpost_2"
+	docking_controller = "airlock_tret_industrial_dock_outpost_2"
+
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2
+	name = "Dock, Landing Pad 2"
+	landmark_tag = "nav_tret_industrial_dock_outpost_2"
+	master_tag = "airlock_tret_industrial_dock_outpost_2"
 
 // ----
 
-// ----
+/obj/effect/shuttle_landmark/tret_industrial/dock/outpost_3
+	name = "Dock, Landing Pad 3"
+	landmark_tag = "nav_tret_industrial_dock_outpost_3"
+	docking_controller = "airlock_tret_industrial_dock_outpost_3"
+
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3
+	name = "Dock, Landing Pad 3"
+	landmark_tag = "nav_tret_industrial_dock_outpost_3"
+	master_tag = "airlock_tret_industrial_dock_outpost_3"
 
 // ----
 
+/obj/effect/shuttle_landmark/tret_industrial/dock/outpost_4
+	name = "Dock, Landing Pad 4"
+	landmark_tag = "nav_tret_industrial_dock_outpost_4"
+	docking_controller = "airlock_tret_industrial_dock_outpost_4"
+
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4
+	name = "Dock, Landing Pad 4"
+	landmark_tag = "nav_tret_industrial_dock_outpost_4"
+	master_tag = "airlock_tret_industrial_dock_outpost_4"
+
 // ----
 
-// --------------------- space
+/obj/effect/shuttle_landmark/tret_industrial/dock/outpost_5
+	name = "Dock, Landing Pad 5"
+	landmark_tag = "nav_tret_industrial_dock_outpost_5"
+	docking_controller = "airlock_tret_industrial_dock_outpost_5"
+
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5
+	name = "Dock, Landing Pad 5"
+	landmark_tag = "nav_tret_industrial_dock_outpost_5"
+	master_tag = "airlock_tret_industrial_dock_outpost_5"
+
+// --------------------- surface
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/outpost_1
+	name = "Surface, Landing Pad 1"
+	landmark_tag = "nav_tret_industrial_surface_outpost_1"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/outpost_2
+	name = "Surface, Landing Pad 2"
+	landmark_tag = "nav_tret_industrial_surface_outpost_2"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/outpost_3
+	name = "Surface, Landing Pad 3"
+	landmark_tag = "nav_tret_industrial_surface_outpost_3"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/outpost_4
+	name = "Surface, Landing Pad 4"
+	landmark_tag = "nav_tret_industrial_surface_outpost_4"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/outpost_5
+	name = "Surface, Landing Pad 5"
+	landmark_tag = "nav_tret_industrial_surface_outpost_5"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/far
+	name = "Surface, Far"
+	landmark_tag = "nav_tret_industrial_surface_far"
 
 // --------------------- fin

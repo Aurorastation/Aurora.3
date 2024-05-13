@@ -29,9 +29,12 @@
 	desc = "A large and inhospitable planet, now covered in mines, forges and factories - the new homeworld of the K'lax Hive."
 	icon_state = "globe3"
 	color = "#d69200"
-	initial_generic_waypoints = list("tret_industrial_dock")
-	initial_restricted_waypoints = list(
-		"Tret Mining Shuttle" = list("tret_industrial_navhangar")
+	initial_generic_waypoints = list(
+		"nav_tret_industrial_dock_outpost_1",
+		"nav_tret_industrial_dock_outpost_2",
+		"nav_tret_industrial_dock_outpost_3",
+		"nav_tret_industrial_dock_outpost_4",
+		"nav_tret_industrial_dock_outpost_5",
 	)
 
 // --------------------------------------------------- shuttle
@@ -71,9 +74,17 @@
 	name = "Tret Mining Shuttle"
 	move_time = 20
 	shuttle_area = list(/area/shuttle/tret_industrial)
-	current_location = "tret_industrial_navhangar"
-	landmark_transition = "tret_industrial_navtransit"
+	dock_target = "airlock_tret_industrial_shuttle"
+	current_location = "nav_tret_industrial_dock_outpost_1"
+	logging_home_tag = "nav_tret_industrial_dock_outpost_1"
+	landmark_transition = "nav_tret_industrial_shuttle_transit"
 	range = 1
 	fuel_consumption = 2
-	logging_home_tag = "tret_industrial_navhangar"
 	defer_initialisation = TRUE
+
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle
+	name = "Tret Mining Shuttle"
+	shuttle_tag = "Tret Mining Shuttle"
+	master_tag = "airlock_tret_industrial_shuttle"
+	req_one_access = null
+	req_access = null
