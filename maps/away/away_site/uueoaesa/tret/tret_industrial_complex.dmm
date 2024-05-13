@@ -1,9 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aaa" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 1
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "aac" = (
@@ -19,11 +19,27 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_5";
+	name = "airlock_tret_industrial_outpost_east_5";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aaf" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
@@ -207,6 +223,15 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "abE" = (
@@ -322,14 +347,18 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "acr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "act" = (
@@ -419,6 +448,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_1";
+	name = "airlock_tret_industrial_outpost_east_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "acY" = (
@@ -463,7 +499,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "adf" = (
@@ -874,6 +909,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "aex" = (
@@ -1303,7 +1340,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "agX" = (
@@ -1842,6 +1881,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "ajp" = (
@@ -1887,10 +1932,8 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "ajM" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "ajR" = (
@@ -2514,6 +2557,18 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "aqW" = (
@@ -2534,6 +2589,7 @@
 	icon_state = "2-8"
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "ara" = (
@@ -2627,8 +2683,10 @@
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
 "arO" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "arR" = (
@@ -2743,6 +2801,7 @@
 	icon_state = "1-4"
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "atq" = (
@@ -3037,6 +3096,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "awD" = (
@@ -3436,6 +3496,12 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aAz" = (
@@ -3598,6 +3664,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_5";
+	name = "airlock_tret_industrial_outpost_east_5";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aCn" = (
@@ -3641,6 +3713,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "aCB" = (
@@ -3675,6 +3749,12 @@
 /area/tret_industrial/inside/crew)
 "aCQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "aCU" = (
@@ -3832,6 +3912,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aDG" = (
@@ -3900,6 +3987,12 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_1";
+	name = "airlock_tret_industrial_outpost_east_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aEq" = (
@@ -3929,6 +4022,13 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_1";
+	name = "airlock_tret_industrial_outpost_east_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aEL" = (
@@ -3958,7 +4058,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "aFb" = (
@@ -4203,6 +4305,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_5";
+	name = "airlock_tret_industrial_outpost_east_5";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aHw" = (
@@ -4239,6 +4348,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
 	dir = 8
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "aHP" = (
@@ -4277,6 +4387,13 @@
 /area/tret_industrial/outside/surface)
 "aIb" = (
 /obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aIf" = (
@@ -4418,6 +4535,12 @@
 /area/tret_industrial/inside/botany)
 "aJq" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_5";
+	name = "airlock_tret_industrial_outpost_east_5";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aJr" = (
@@ -4866,6 +4989,7 @@
 /area/tret_industrial/inside/hallway_comms)
 "aON" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/green,
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "aOS" = (
@@ -5153,8 +5277,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 10
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "aRP" = (
@@ -5418,6 +5545,13 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_5";
+	name = "airlock_tret_industrial_outpost_east_5";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aUf" = (
@@ -5940,6 +6074,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "aZQ" = (
@@ -5975,10 +6110,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 2
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "beI" = (
@@ -5992,12 +6128,18 @@
 	},
 /obj/effect/shuttle_landmark/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bkk" = (
 /obj/effect/shuttle_landmark/tret_industrial/surface/outpost_4,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"bpP" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "brN" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -6009,6 +6151,21 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/canteen)
+"btn" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "bul" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/trash_pile,
@@ -6046,10 +6203,8 @@
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "bGx" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bGE" = (
@@ -6058,6 +6213,29 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
+"bHQ" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_1";
+	name = "airlock_tret_industrial_outpost_west_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
+"bJS" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_2";
+	name = "airlock_tret_industrial_outpost_west_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "bMf" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -6096,11 +6274,23 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_1";
+	name = "airlock_tret_industrial_outpost_east_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "cgU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_1";
+	name = "airlock_tret_industrial_outpost_west_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -6121,6 +6311,10 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "cqb" = (
@@ -6201,6 +6395,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
+"cZg" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "dey" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
@@ -6236,6 +6440,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "dBl" = (
@@ -6292,6 +6503,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_4";
+	name = "airlock_tret_industrial_outpost_east_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "efU" = (
@@ -6317,6 +6535,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
+"eiK" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/storage_smelting)
 "eiW" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -6361,6 +6592,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "eNY" = (
@@ -6381,6 +6613,11 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/tret_industrial/outside/surface)
+"eUm" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_botany)
 "eUv" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -6405,6 +6642,17 @@
 /obj/structure/window_frame/empty,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"flS" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_comms)
 "fmr" = (
 /obj/machinery/power/smes/buildable/third_party_shuttle,
 /obj/structure/cable/yellow{
@@ -6452,6 +6700,19 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
+"fQl" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "fQw" = (
 /obj/random/junk,
 /turf/simulated/floor/plating,
@@ -6460,7 +6721,19 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
-/turf/simulated/floor/exoplanet/basalt/tret,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
+/turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "fRW" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
@@ -6480,10 +6753,8 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
 "fXB" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "fZa" = (
@@ -6501,6 +6772,25 @@
 /obj/structure/shuttle/engine/heater,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"gdv" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_botany)
+"gdY" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/storage_smelting)
 "gej" = (
 /obj/machinery/shower{
 	pixel_y = 15
@@ -6517,6 +6807,19 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
+"gkp" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_1";
+	name = "airlock_tret_industrial_outpost_west_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "gkr" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 2
@@ -6537,7 +6840,23 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_4";
+	name = "airlock_tret_industrial_outpost_east_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
+"gqH" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_4";
+	name = "airlock_tret_industrial_outpost_east_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
 "gqY" = (
 /obj/structure/table/rack,
@@ -6626,6 +6945,7 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "gXo" = (
@@ -6709,6 +7029,8 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "hnt" = (
@@ -6737,6 +7059,11 @@
 "hrv" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/eva)
+"huL" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "hyJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
@@ -6798,6 +7125,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_2";
+	name = "airlock_tret_industrial_outpost_west_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "iee" = (
@@ -6845,6 +7179,13 @@
 /turf/simulated/wall,
 /area/tret_industrial/outside/surface)
 "iCP" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "iGo" = (
@@ -6873,6 +7214,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "iXD" = (
@@ -6977,6 +7319,17 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "juf" = (
@@ -7000,6 +7353,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
+"jBP" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/item/hullbeacon/green,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/outside/surface)
 "jFL" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil{
 	color = "#777777"
@@ -7025,6 +7383,7 @@
 	dir = 1
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "jNu" = (
@@ -7039,6 +7398,13 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_4";
+	name = "airlock_tret_industrial_outpost_east_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "jOS" = (
@@ -7116,11 +7482,33 @@
 	},
 /turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/shuttle/tret_industrial/propulsion)
+"krp" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_smelting)
 "kvB" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
+"kAW" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/storage_smelting)
 "kBb" = (
 /obj/structure/shuttle/engine/heater,
 /turf/simulated/floor/plating,
@@ -7159,10 +7547,10 @@
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
 "kUC" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 9
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "kYo" = (
@@ -7170,11 +7558,21 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "kZK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_1";
+	name = "airlock_tret_industrial_outpost_west_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -7306,6 +7704,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
+"mgd" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_smelting)
 "mid" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/basalt/tret,
@@ -7325,6 +7728,14 @@
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"mvH" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "mxy" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -7366,6 +7777,10 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"mSA" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_botany)
 "mUU" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -7430,6 +7845,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"nmL" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "nno" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
@@ -7453,6 +7877,18 @@
 /obj/structure/girder/displaced,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"nDQ" = (
+/obj/effect/map_effect/map_helper/ruler_tiles_3,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/storage_smelting)
 "nGj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -7508,6 +7944,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "nTc" = (
@@ -7553,6 +7995,15 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_east)
+"odS" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_comms)
 "ojt" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7647,6 +8098,7 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "oYA" = (
@@ -7661,6 +8113,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"oYS" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "pci" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/vaurca,
@@ -7685,6 +8145,7 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "pqO" = (
@@ -7720,6 +8181,14 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/medical)
+"pLo" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "pLt" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -7739,6 +8208,21 @@
 "pTg" = (
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/eva)
+"pTh" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
+"pUL" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "pVO" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil{
 	color = "#777777"
@@ -7746,6 +8230,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/vaurca,
 /area/tret_industrial/inside/botany)
+"pWc" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_2";
+	name = "airlock_tret_industrial_outpost_west_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "qcy" = (
 /obj/machinery/atmospherics/portables_connector/fuel,
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
@@ -7756,6 +8252,16 @@
 	dir = 9
 	},
 /turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
+"qhF" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_1";
+	name = "airlock_tret_industrial_outpost_west_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
 "qhU" = (
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/green,
@@ -7795,6 +8301,16 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"quT" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_2";
+	name = "airlock_tret_industrial_outpost_west_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "qwY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -7810,6 +8326,19 @@
 /obj/machinery/door/airlock/multi_tile/glass,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
+"qyX" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_2";
+	name = "airlock_tret_industrial_outpost_west_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "qDq" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
@@ -7834,10 +8363,31 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"qNt" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_1";
+	name = "airlock_tret_industrial_outpost_east_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_comms)
 "qPl" = (
 /obj/structure/reagent_dispensers/fueltank,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
+"qPU" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/random/dirt_75,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_botany)
 "qQk" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 2
@@ -7906,6 +8456,8 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/shuttle/tret_industrial/main)
 "rmF" = (
@@ -7953,6 +8505,7 @@
 	},
 /obj/effect/shuttle_landmark/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "rzF" = (
@@ -8031,7 +8584,13 @@
 /area/tret_industrial/inside/hallway_medical)
 "rHp" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -8101,11 +8660,34 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "scQ" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"sex" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_4";
+	name = "airlock_tret_industrial_outpost_west_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 4;
+	pixel_y = 6;
+	pixel_x = -20
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/storage_smelting)
 "siE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
@@ -8119,12 +8701,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/eva)
 "sjT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_docks)
+/area/tret_industrial/inside/hallway_smelting)
 "snM" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -8153,6 +8739,7 @@
 	dir = 4
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "suH" = (
@@ -8168,6 +8755,12 @@
 "szG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
@@ -8225,6 +8818,7 @@
 	dir = 2
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "tmj" = (
@@ -8379,10 +8973,8 @@
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/landing)
 "uKc" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 8
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "uQM" = (
@@ -8395,6 +8987,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
+"uVh" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "uZh" = (
 /obj/structure/closet/crate,
 /obj/item/storage/box/fancy/yoke/energy/zorakois,
@@ -8447,6 +9054,13 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_1";
+	name = "airlock_tret_industrial_outpost_west_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "vAt" = (
@@ -8460,6 +9074,16 @@
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_medical)
+"vGD" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_4";
+	name = "airlock_tret_industrial_outpost_east_4";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "vMH" = (
 /obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/exoplanet/plating/tret,
@@ -8482,6 +9106,14 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
+"vTB" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "vUg" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/engi_storage)
@@ -8496,6 +9128,12 @@
 "vUX" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -8515,16 +9153,16 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
 "waQ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "wbs" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "wch" = (
@@ -8546,6 +9184,16 @@
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/shuttle/tret_industrial/main)
+"wny" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_1";
+	name = "airlock_tret_industrial_outpost_east_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_comms)
 "wDc" = (
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
@@ -8553,10 +9201,11 @@
 /obj/machinery/door/airlock/external{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "wEi" = (
@@ -8584,12 +9233,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/eva)
 "wFU" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
+/obj/machinery/door/airlock/external{
+	dir = 2
 	},
-/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_docks)
+/area/tret_industrial/inside/hallway_smelting)
 "wGD" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/exoplanet/plating/tret,
@@ -8605,6 +9255,17 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"wKu" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_comms)
 "wNd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -8612,6 +9273,8 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "wPH" = (
@@ -8645,6 +9308,19 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
+"xdG" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "xeq" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -8657,6 +9333,26 @@
 "xfA" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/crew)
+"xnV" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
+"xoH" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_5";
+	name = "airlock_tret_industrial_outpost_east_5";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/engineering)
 "xuD" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -28901,7 +29597,7 @@ arD
 arD
 ajw
 fwF
-ckA
+pLo
 stO
 fwF
 ajw
@@ -29158,10 +29854,10 @@ acg
 arD
 arD
 fwF
-sjT
+waQ
 waQ
 fwF
-arD
+huL
 arD
 acg
 arD
@@ -29416,9 +30112,9 @@ arD
 arD
 fwF
 aaa
-waQ
+aaa
 fwF
-aEN
+huL
 arD
 arD
 uIp
@@ -29932,9 +30628,9 @@ fwF
 aAt
 ruN
 fwF
-rHp
-vUX
-arD
+bJS
+qyX
+quT
 uIp
 mIJ
 mIJ
@@ -30189,7 +30885,7 @@ gMI
 aAt
 asr
 hZW
-qgR
+pWc
 fwF
 arD
 mIJ
@@ -31731,7 +32427,7 @@ bdX
 wav
 abw
 ruN
-tfJ
+oYS
 fXB
 tfJ
 rPv
@@ -31981,9 +32677,9 @@ vtt
 vtt
 vtt
 rPv
-kYo
-wFU
-wFU
+mvH
+bGx
+uKc
 kYo
 aAt
 abw
@@ -32496,14 +33192,14 @@ rPv
 vtt
 rPv
 aMD
-arD
+bpP
 fwF
 aQa
 aAt
 abw
 aAt
 fwF
-arD
+pTh
 aMD
 mIJ
 mIJ
@@ -32753,14 +33449,14 @@ rPv
 mIJ
 mIJ
 arD
-arD
+bpP
 fwF
 aQa
 aAt
 abw
 aAt
 fwF
-arD
+pTh
 arD
 uIp
 uIp
@@ -34808,9 +35504,9 @@ arD
 arD
 arD
 arD
-arD
-vUX
-aWI
+qhF
+bHQ
+gkp
 cgU
 fwF
 nno
@@ -35072,11 +35768,11 @@ kZK
 fwF
 afP
 akr
-vUX
+btn
 rHp
-rHp
+xnV
 vUX
-arD
+pUL
 arD
 uIp
 uIp
@@ -35329,11 +36025,11 @@ fwF
 fwF
 xLL
 aqU
-hZW
-hyJ
-qgR
+uVh
+rHp
+xnV
 vUX
-arD
+pUL
 awc
 uIp
 uIp
@@ -36618,7 +37314,7 @@ aCq
 aER
 aNc
 efU
-arD
+mgd
 arD
 uIp
 uIp
@@ -36875,7 +37571,7 @@ aCq
 acp
 aNc
 lsW
-arD
+mgd
 aMD
 mIJ
 uIp
@@ -37107,7 +37803,7 @@ wch
 oYA
 lFu
 inI
-oBE
+vTB
 inI
 inI
 jeE
@@ -37371,7 +38067,7 @@ ryk
 atn
 rSw
 rSw
-gWd
+wFU
 lUc
 wVC
 wVC
@@ -37387,8 +38083,8 @@ oxk
 ayN
 oxk
 agS
-oYs
-ajM
+sjT
+arO
 ajM
 oYs
 rPv
@@ -37646,7 +38342,7 @@ add
 ade
 aRO
 arO
-arO
+ajM
 eLL
 mIJ
 rPv
@@ -37885,7 +38581,7 @@ lsW
 lsW
 ljD
 ljD
-gWd
+wFU
 lrl
 aFu
 aFu
@@ -38138,7 +38834,7 @@ inI
 inI
 inI
 uIp
-aMD
+jBP
 mPu
 mPu
 mPu
@@ -38395,8 +39091,8 @@ cWG
 khD
 oQV
 uIp
-arD
-arD
+hMu
+krp
 mPu
 dkD
 asP
@@ -38652,8 +39348,8 @@ gcj
 adj
 oQV
 uIp
-arD
-arD
+hMu
+krp
 mPu
 lli
 gQH
@@ -38673,9 +39369,9 @@ wfx
 adm
 dBl
 jtL
-jtL
+sex
 dBl
-arD
+kAW
 uIp
 uIp
 uIp
@@ -38932,7 +39628,7 @@ aqV
 aaf
 aby
 fRP
-awc
+nDQ
 uIp
 uIp
 uIp
@@ -39186,10 +39882,10 @@ wfx
 wfx
 wfx
 dBl
-wfx
-wfx
+gdY
+gdY
 dBl
-arD
+eiK
 uIp
 uIp
 uIp
@@ -42021,7 +42717,7 @@ ajW
 arD
 aEN
 aQb
-aQb
+xoH
 aQb
 aEN
 arD
@@ -43784,7 +44480,7 @@ arD
 arD
 arD
 arD
-arD
+qNt
 arD
 xRJ
 ajc
@@ -44297,7 +44993,7 @@ arD
 arD
 arD
 nLp
-iCP
+wny
 bXX
 aEo
 xRJ
@@ -45063,7 +45759,7 @@ arD
 arD
 lSw
 lSw
-lSw
+flS
 aIb
 szG
 aAy
@@ -45320,11 +46016,11 @@ arD
 lfy
 lfy
 arD
-lSw
+flS
 aIb
-iCP
-iCP
-aIb
+odS
+odS
+wKu
 nsn
 aOM
 aOM
@@ -52018,7 +52714,7 @@ tTg
 utB
 hRk
 gEM
-jGg
+vGD
 gEM
 arD
 arD
@@ -52272,7 +52968,7 @@ gEM
 gEM
 gEM
 dxi
-jOd
+xdG
 gEM
 gEM
 jOd
@@ -52529,10 +53225,10 @@ akn
 gEM
 aCQ
 ajo
-jGg
-jGg
+nmL
+cZg
 gEM
-arD
+gqH
 aEN
 arD
 arD
@@ -52786,8 +53482,8 @@ akn
 gEM
 aCQ
 nPf
-jGg
-jGg
+nmL
+cZg
 gEM
 arD
 arD
@@ -53042,8 +53738,8 @@ akn
 akn
 gEM
 gEM
-jOd
-jOd
+fQl
+fQl
 gEM
 gEM
 arD
@@ -53298,9 +53994,9 @@ hct
 akn
 akn
 akn
-aEN
-lfy
-lSw
+qPU
+eUm
+mSA
 aEN
 arD
 arD
@@ -53555,9 +54251,9 @@ vNh
 akn
 akn
 akn
-arD
-lfy
-hQu
+qPU
+eUm
+gdv
 arD
 arD
 arD
@@ -53812,9 +54508,9 @@ vNh
 akn
 akn
 akn
-akn
-arD
-hQu
+gEM
+eUm
+gdv
 hQu
 lSw
 lSw

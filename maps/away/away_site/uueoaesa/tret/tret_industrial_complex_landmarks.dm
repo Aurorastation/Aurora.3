@@ -6,6 +6,7 @@
 	base_turf = /turf/simulated/floor/exoplanet/basalt/tret
 
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock
+	cycle_to_external_air = TRUE
 	req_one_access = null
 	req_access = null
 
