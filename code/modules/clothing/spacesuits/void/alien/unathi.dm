@@ -138,7 +138,7 @@
 	icon = 'icons/obj/clothing/voidsuit/hegemony.dmi'
 	icon_state = "hegemony-voidsuit"
 	item_state = "hegemony-voidsuit"
-
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_NORMAL
 	armor = list(
 		melee = ARMOR_MELEE_VERY_HIGH,
