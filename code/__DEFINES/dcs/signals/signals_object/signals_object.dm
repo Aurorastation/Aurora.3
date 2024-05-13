@@ -7,3 +7,5 @@
 
 ///from base of obj/item/dropped(): (mob/user)
 #define COMSIG_ITEM_DROPPED "item_drop"
+///from base of obj/item/pickup(): (mob/user)
+#define COMSIG_ITEM_PICKUP "item_pickup"
