@@ -296,7 +296,7 @@
 	species_restricted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BREEDER, SPECIES_VAURCA_BULWARK, SPECIES_VAURCA_WARFORM)
 
 /obj/item/organ/internal/augment/vaurca_mag/attack_self(mob/user)
-	if(!owner)
+	if(use_check_and_message(owner))
 		return
 	if(HAS_TRAIT(owner, TRAIT_SHOE_GRIP))
 		to_chat(owner, SPAN_NOTICE("You deactivate \the [src]."))
