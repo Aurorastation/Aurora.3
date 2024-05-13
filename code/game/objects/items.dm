@@ -554,6 +554,7 @@
 	equip_slot = slot
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
+	in_inventory = TRUE
 	if(slot == slot_l_hand || slot == slot_r_hand)
 		playsound(src, pickup_sound, PICKUP_SOUND_VOLUME)
 	else if(slot_flags && slot)
@@ -1187,6 +1188,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 
 /obj/item/throw_at()
 	..()
+	in_inventory = FALSE
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
 

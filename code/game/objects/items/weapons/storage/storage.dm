@@ -203,6 +203,7 @@
 		. += "It contains: [counting_english_list(contents)]"
 
 /obj/item/storage/MouseDrop(obj/over_object)
+	. = ..()
 	if(!canremove)
 		return
 	if(!over_object || over_object == src)
