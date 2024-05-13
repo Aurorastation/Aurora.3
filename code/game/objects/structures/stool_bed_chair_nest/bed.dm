@@ -586,6 +586,7 @@
 
 /obj/structure/bed/roller/hover/zeng
 	name = "zeng-hu hoverbed"
+	desc = "A medical hoverbed, designed by Zeng-Hu Pharmaceuticals in conjunction with the Nralakk Federation."
 	icon_state = "zeng_down"
 	base_icon = "zeng"
 	held_item = /obj/item/roller/zeng
@@ -615,7 +616,7 @@
 
 /obj/item/roller/zeng
 	name = "zeng-hu hoverbed"
-	desc = "A collapsed zeng-hu hoverbed that can be carried around."
+	desc = "A collapsed zeng-hu hoverbed that can be carried around. Designed by Zeng-Hu Pharmaceuticals in conjunction with the Nralakk Federation."
 	icon_state = "zeng_folded"
 	base_icon = "zeng"
 	item_state = "rbed_zeng"
