@@ -1,3 +1,6 @@
+
+// --------------------------------------------------- template
+
 /datum/map_template/ruin/away_site/tret_industrial_complex
 	name = "Tret Industrial Complex"
 	description = "An industrial complex on Tret."
@@ -19,6 +22,8 @@
 	map = "Tret Industrial Complex"
 	descriptor = "An industrial complex on Tret."
 
+// --------------------------------------------------- sector
+
 /obj/effect/overmap/visitable/sector/tret_industrial_complex
 	name = "Tret"
 	desc = "A large and inhospitable planet, now covered in mines, forges and factories - the new homeworld of the K'lax Hive."
@@ -29,12 +34,16 @@
 		"Tret Mining Shuttle" = list("tret_industrial_navhangar")
 	)
 
-//Shuttle stuff
+// --------------------------------------------------- shuttle
+
 /obj/effect/overmap/visitable/ship/landable/tret_industrial
 	name = "Tret Mining Shuttle"
 	class = "IHCV" //Izweski Hegemony Civilian Vessel
-	desc = "Commonly used by the Miners’ Guild, Glizkin-class shuttles are short-range mining vessels, designed for persistent mining of celestial bodies. \
-	They are viewed by their crews as small, yet reliable and enduring - much like the Tza Prairie folk hero for which they are named. They are usually found attached to larger stations or mining vessels."
+	desc = "\
+		Commonly used by the Miners' Guild, Glizkin-class shuttles are short-range mining vessels, designed for persistent mining of celestial bodies. \
+		They are viewed by their crews as small, yet reliable and enduring - much like the Tza Prairie folk hero for which they are named. \
+		They are usually found attached to larger stations or mining vessels.\
+		"
 	designation = "Xk'tiik"
 	shuttle = "Tret Mining Shuttle"
 	icon_state = "shuttle"
@@ -46,11 +55,15 @@
 	shiptype = "Short-term industrial prospecting, raw goods transport"
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
-	vessel_mass = 3000 //very inefficient pod
+	vessel_mass = 3000
 	fore_dir = NORTH
 	vessel_size = SHIP_SIZE_TINY
 
-/obj/machinery/computer/shuttle_control/explore/tret_industrial
+/obj/effect/overmap/visitable/ship/landable/tret_industrial/New()
+	designation = pick("Xk'tiik")//, "", "", "", "", "", "")
+	..()
+
+/obj/machinery/computer/shuttle_control/explore/terminal/tret_industrial
 	name = "shuttle control console"
 	shuttle_tag = "Tret Mining Shuttle"
 
@@ -64,24 +77,3 @@
 	fuel_consumption = 2
 	logging_home_tag = "tret_industrial_navhangar"
 	defer_initialisation = TRUE
-
-// /obj/effect/shuttle_landmark/tret_industrial
-// 	base_area = /area/exoplanet/lava/tret
-// 	base_turf = /turf/simulated/floor/plating/tret
-
-// /obj/effect/shuttle_landmark/tret_industrial/hangar
-// 	name = "Tret Industrial Complex - Landing Pad 1"
-// 	landmark_tag = "tret_industrial_navhangar"
-// 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-// 	docking_controller = "airlock_tret_dock1"
-
-// /obj/effect/shuttle_landmark/tret_industrial/transit
-// 	name = "In transit"
-// 	landmark_tag = "tret_industrial_navtransit"
-// 	base_turf = /turf/space/transit/north
-// 	base_area = /area/space
-
-// /obj/effect/shuttle_landmark/tret_industrial/dock
-// 	name = "Tret Industrial Complex - Landing Pad"
-// 	landmark_tag = "tret_industrial_dock"
-// 	movable_flags = MOVABLE_FLAG_EFFECTMOVE
