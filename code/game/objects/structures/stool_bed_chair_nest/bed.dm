@@ -575,13 +575,21 @@
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
 	has_iv_light = FALSE
+	var/hover_color = LIGHT_COLOR_CYAN
 
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
-	set_light(2,1,LIGHT_COLOR_CYAN)
+	set_light(2,1,hover_color)
 
 /obj/structure/bed/roller/hover/stair_act()
 	return
+
+/obj/structure/bed/roller/hover/zeng
+	name = "zeng-hu hoverbed"
+	icon_state = "zeng_down"
+	base_icon = "zeng"
+	held_item = /obj/item/roller/zeng
+	hover_color = LIGHT_COLOR_VIOLET
 
 /obj/item/roller
 	name = "roller bed"
@@ -604,6 +612,14 @@
 	base_icon = "hover"
 	item_state = "rbed_hover"
 	origin_type = /obj/structure/bed/roller/hover
+
+/obj/item/roller/zeng
+	name = "zeng-hu hoverbed"
+	desc = "A collapsed zeng-hu hoverbed that can be carried around."
+	icon_state = "zeng_folded"
+	base_icon = "zeng"
+	item_state = "rbed_zeng"
+	origin_type = /obj/structure/bed/roller/hover/zeng
 
 /obj/item/roller/attack_self(mob/user)
 	..()
@@ -677,10 +693,15 @@
 	 */
 	var/initial_beds = 4
 
+	/**
+	 * The type path of the beds to spawn initially
+	 */
+	var/initial_bed_type = /obj/item/roller
+
 /obj/structure/roller_rack/Initialize()
 	. = ..()
 	for(var/_ in 1 to initial_beds)
-		var/obj/item/roller/RB = new /obj/item/roller(src)
+		var/obj/item/roller/RB = new initial_bed_type(src)
 		held += RB
 	update_icon()
 
@@ -735,3 +756,9 @@
 
 /obj/structure/roller_rack/three
 	initial_beds = 3
+
+/obj/structure/roller_rack/zeng
+	initial_bed_type = /obj/item/roller/zeng
+
+/obj/structure/roller_rack/zeng/two
+	initial_beds = 2

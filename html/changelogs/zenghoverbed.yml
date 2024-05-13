@@ -1,0 +1,7 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a Zeng-Hu hoverbed variant, able to be produced by R&D."
+  - rscadd: "The roller bed rack in the First Responders' Quarters now starts with two Zeng-Hu hoverbeds, rather than normal rollerbeds."

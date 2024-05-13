@@ -96,6 +96,13 @@
 	materials = list(DEFAULT_WALL_MATERIAL = 3000, MATERIAL_PHORON = 3000, MATERIAL_DIAMOND = 500)
 	build_path = /obj/item/reagent_containers/personal_inhaler_cartridge/bluespace
 
+/datum/design/item/medical/zeng_roller
+	name = "Zeng-Hu Hoverbed"
+	desc = "A medical hoverbed, designed by Zeng-Hu Pharmaceuticals in conjunction with the Nralakk Federation."
+	req_tech = list(TECH_MAGNET = 5, TECH_BIO = 5)
+	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 2000)
+	build_path = /obj/item/roller/zeng
+
 /datum/design/item/beaker
 	p_category = "Advanced Beaker Design"
 
