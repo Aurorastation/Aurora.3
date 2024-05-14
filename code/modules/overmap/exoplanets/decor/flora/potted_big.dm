@@ -24,7 +24,7 @@
 	death()
 	return ..()
 
-/obj/structure/flora/pottedplant/fire_act()
+/obj/structure/flora/pottedplant/fire_act(exposed_temperature, exposed_volume)
 	death()
 	return ..()
 

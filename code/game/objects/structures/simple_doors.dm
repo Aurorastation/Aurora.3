@@ -15,7 +15,9 @@
 	var/health = 100
 	var/maxhealth = 100
 
-/obj/structure/simple_door/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/structure/simple_door/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	TemperatureAct(exposed_temperature)
 
 /obj/structure/simple_door/proc/TemperatureAct(temperature)

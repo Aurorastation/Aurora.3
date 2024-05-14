@@ -944,7 +944,9 @@
 			to_chat(user, SPAN_WARNING("The cell isn't charged!"))
 		return TRUE
 
-/obj/item/steelwool/fire_act()
+/obj/item/steelwool/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	ignite()
 
 /obj/item/steelwool/proc/ignite(var/L, mob/user)

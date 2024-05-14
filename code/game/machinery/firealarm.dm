@@ -55,11 +55,12 @@
 			AddOverlays("fire0")
 			set_light(0)
 
-/obj/machinery/firealarm/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/machinery/firealarm/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(src.detecting)
-		if(temperature > T0C+200)
+		if(exposed_temperature > T0C+200)
 			src.alarm()			// added check of detector status here
-	return
 
 /obj/machinery/firealarm/bullet_act()
 	return src.alarm()
