@@ -66,10 +66,10 @@
 			wifi_receiver = new(_wifi_id, src)
 
 /obj/machinery/power/emitter/update_icon()
+	ClearOverlays()
 	if(active && powernet && avail(active_power_usage))
-		icon_state = "emitter_+a"
-	else
-		icon_state = "emitter"
+		AddOverlays(emissive_appearance(icon, "[icon_state]_lights"))
+		AddOverlays("[icon_state]_lights")
 
 /obj/machinery/power/emitter/attack_hand(mob/user)
 	add_fingerprint(user)

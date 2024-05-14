@@ -2,6 +2,7 @@
 	name = "sensors console"
 	icon_screen = "sensors"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
 	var/obj/machinery/iff_beacon/identification
@@ -40,6 +41,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
+	icon_keyboard_emis = "teleport_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

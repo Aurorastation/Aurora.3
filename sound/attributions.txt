@@ -95,9 +95,15 @@ sound/effects/zombies/zombie_1.ogg to zombie_4_ogg - Mazellmi @ Youtube
 sound/effects/rock_break.ogg - "Rock destroy". Obtained from https://freesound.org/people/Bertsz/sounds/524312/
 ATTRIBUTIONS SECTION END
 
+
 ATTRIBUTIONS SECTOR START
 sound/music/lobby/adhomai/adhomai-1.ogg - "OKB – 456" by Cybervoid, licensed under CC BY-SA 3.0 DEED. Obtained from https://cybervoid.bandcamp.com/track/okb-456-2
 sound/music/lobby/adhomai/adhomai-2.ogg - "Semyorka" by Cybervoid, licensed under CC BY-SA 3.0 DEED. Obtained from https://cybervoid.bandcamp.com/track/semyorka-2
 sound/music/lobby/adhomai/adhomai-3.ogg - "Der Wanderer I" by Eija Risen, licensed under CC BY-SA 3.0 DEED. Obtained from https://eijarisen.bandcamp.com/track/der-wanderer-i
 sound/music/lobby/adhomai/adhomai-4.ogg - "П​л​а​н​е​т​а R32" by Project Lazarus, licensed under CC BY-SA 3.0 DEED. Obtained from https://projectlazarus.bandcamp.com/track/r32
+ATTRIBUTIONS SECTION END
+
+ATTRIBUTIONS SECTOR START
+sound/machines/clanking.ogg - https://freesound.org/people/simone_ds/sounds/366084/
+sound/machines/howitzer/fire.ogg - https://freesound.org/people/qubodup/sounds/161341/
 ATTRIBUTIONS SECTION END

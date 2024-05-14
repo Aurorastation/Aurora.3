@@ -5,6 +5,7 @@
 	name = "helm control console"
 	icon_screen = "helm"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	var/autopilot = 0
 	var/list/known_sectors = list()
@@ -29,6 +30,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -311,6 +313,7 @@
 	name = "navigation console"
 	icon_screen = "nav"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	circuit = /obj/item/circuitboard/ship/navigation
 
@@ -327,6 +330,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "nav"
 	icon_keyboard = "generic_key"
+	icon_keyboard_emis = "generic_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

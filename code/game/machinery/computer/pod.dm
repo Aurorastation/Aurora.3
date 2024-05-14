@@ -5,6 +5,7 @@
 	desc = "A control console for launching pods. Some people prefer firing Mechas."
 	icon_screen = "command"
 	icon_keyboard = "green_key"
+	icon_keyboard_emis = "green_key_mask"
 	light_color = LIGHT_COLOR_GREEN
 	circuit = /obj/item/circuitboard/pod
 	var/id = 1.0

@@ -7,6 +7,7 @@
 	anchored = TRUE
 	icon_screen = "crew"
 	icon_keyboard = "teal_key"
+	icon_keyboard_emis = "teal_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/operating
 
@@ -121,6 +122,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "med_comp"
 	icon_keyboard = "med_key"
+	icon_keyboard_emis = "med_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
