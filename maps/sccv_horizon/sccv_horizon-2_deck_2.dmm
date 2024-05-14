@@ -657,7 +657,6 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/platform,
 /obj/machinery/light{
 	dir = 1
 	},
@@ -3082,16 +3081,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/tiled/dark,
 /area/engineering/engine_waste)
-"boX" = (
-/obj/structure/cable/green{
-	icon_state = "4-8"
-	},
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
-/obj/structure/platform/cutout,
-/turf/simulated/floor/tiled,
-/area/hallway/engineering)
 "bpa" = (
 /turf/simulated/floor/plating,
 /area/maintenance/research_port)
@@ -3105,9 +3094,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-4"
-	},
-/obj/structure/platform_deco{
-	dir = 4
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -4395,25 +4381,6 @@
 	},
 /turf/simulated/floor/wood,
 /area/maintenance/wing/starboard)
-"bPS" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 1
-	},
-/obj/structure/platform,
-/turf/simulated/floor/tiled/full,
-/area/hallway/engineering)
 "bQd" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 10
@@ -7899,7 +7866,6 @@
 	icon_state = "4-8"
 	},
 /obj/machinery/firealarm/north,
-/obj/structure/platform,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "dHt" = (
@@ -14748,9 +14714,6 @@
 /obj/effect/floor_decal/corner/mauve{
 	dir = 10
 	},
-/obj/structure/platform_stairs{
-	dir = 1
-	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
 "gFx" = (
@@ -15980,7 +15943,6 @@
 	},
 /obj/machinery/alarm/north,
 /obj/machinery/atmospherics/unary/vent_scrubber/on,
-/obj/structure/platform,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "hiY" = (
@@ -17149,10 +17111,6 @@
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway/secondary)
-"hIq" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/turf/simulated/floor/tiled/dark,
-/area/horizon/crew_quarters/lounge/bar)
 "hIz" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -18182,13 +18140,10 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "ikB" = (
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
-/obj/structure/platform/cutout,
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/structure/platform,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist/surgicalbay)
 "ikT" = (
@@ -20804,9 +20759,6 @@
 	},
 /obj/effect/floor_decal/industrial/outline/medical,
 /obj/item/storage/firstaid/regular,
-/obj/structure/platform_deco{
-	dir = 8
-	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "juh" = (
@@ -22051,7 +22003,6 @@
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/supply,
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/scrubbers,
-/obj/structure/platform,
 /turf/simulated/floor/tiled/full,
 /area/hallway/engineering)
 "jWF" = (
@@ -26378,7 +26329,9 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/structure/railing/mapped,
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
+	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "mgu" = (
@@ -27926,12 +27879,6 @@
 /obj/machinery/computer/arcade,
 /turf/simulated/floor/wood,
 /area/horizon/bar)
-"mOH" = (
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/horizon/crew_quarters/lounge/bar)
 "mOI" = (
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark/full,
@@ -32931,25 +32878,6 @@
 	},
 /turf/simulated/floor/reinforced,
 /area/chapel/office)
-"pgj" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/platform_stairs/full/east_west_cap/half{
-	dir = 8
-	},
-/obj/structure/platform,
-/turf/simulated/floor/tiled/full,
-/area/hallway/engineering)
 "pgD" = (
 /obj/effect/floor_decal/corner/black{
 	dir = 5
@@ -39907,10 +39835,7 @@
 /turf/simulated/floor/wood,
 /area/rnd/hallway)
 "syj" = (
-/obj/structure/platform/cutout{
-	dir = 8
-	},
-/obj/structure/platform_stairs/full/east_west_cap,
+/obj/structure/platform,
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
 "sym" = (
@@ -41211,9 +41136,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/platform_stairs/full/east_west_cap,
-/obj/structure/platform/cutout{
-	dir = 8
+/obj/effect/floor_decal/corner_wide/yellow{
+	dir = 5
 	},
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
@@ -41702,13 +41626,10 @@
 	},
 /area/horizon/kitchen/freezer)
 "tvl" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/obj/structure/platform/cutout{
-	dir = 8
-	},
 /obj/structure/platform{
 	dir = 1
 	},
+/obj/structure/platform,
 /turf/simulated/floor/wood,
 /area/rnd/hallway/secondary)
 "tvM" = (
@@ -41920,13 +41841,6 @@
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
 /area/hallway/engineering)
-"tAM" = (
-/obj/structure/platform_stairs,
-/obj/machinery/atmospherics/pipe/simple/hidden/supply,
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
-/obj/structure/disposalpipe/segment,
-/turf/simulated/floor/tiled/dark,
-/area/rnd/lab)
 "tAN" = (
 /obj/machinery/atmospherics/binary/pump/on{
 	dir = 8;
@@ -44097,7 +44011,6 @@
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_two/fore)
 "utF" = (
-/obj/structure/platform_stairs,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/cable/green{
@@ -44711,9 +44624,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/maintenance/wing/starboard)
 "uKB" = (
-/obj/structure/platform_stairs/full{
-	dir = 8
-	},
 /obj/structure/platform{
 	dir = 1
 	},
@@ -50369,9 +50279,6 @@
 /area/hallway/medical)
 "xlV" = (
 /obj/machinery/door/firedoor,
-/obj/structure/platform_stairs/full{
-	dir = 4
-	},
 /obj/structure/platform{
 	dir = 1
 	},
@@ -50708,10 +50615,7 @@
 	dir = 4
 	},
 /obj/machinery/door/firedoor,
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
-/obj/structure/platform/cutout,
+/obj/structure/platform,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
 "xxa" = (
@@ -68318,7 +68222,7 @@ jaR
 uSj
 gWf
 tht
-bPS
+dWZ
 cJu
 jvV
 eZh
@@ -68721,8 +68625,8 @@ nPu
 jaR
 oca
 gWf
-boX
-pgj
+tht
+dWZ
 vAh
 jvV
 gCj
@@ -73022,8 +72926,8 @@ sKJ
 nCX
 oNv
 xtu
-hIq
-mOH
+oRn
+oRn
 oCG
 ucY
 bTz
@@ -77615,7 +77519,7 @@ drB
 dAu
 jnF
 rlX
-tAM
+rlX
 dmF
 nac
 pnY

@@ -2305,9 +2305,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
 /obj/effect/floor_decal/corner/dark_blue/full,
-/obj/structure/platform_stairs/full{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "bMa" = (
@@ -8866,9 +8863,6 @@
 /obj/effect/floor_decal/corner/dark_blue/full{
 	dir = 4
 	},
-/obj/structure/platform_stairs/full{
-	dir = 1
-	},
 /turf/simulated/floor/tiled,
 /area/bridge)
 "gmx" = (
@@ -11455,15 +11449,12 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/structure/platform_stairs/full{
-	dir = 4
-	},
-/obj/structure/platform/cutout,
 /obj/structure/platform{
 	dir = 1
 	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
+/obj/structure/platform,
 /turf/simulated/floor/tiled,
 /area/bridge/upperdeck)
 "hRV" = (

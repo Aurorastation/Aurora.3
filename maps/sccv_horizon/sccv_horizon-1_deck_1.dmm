@@ -25274,9 +25274,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "rpa" = (
-/obj/structure/platform_stairs/full/east_west_cap{
-	dir = 8
-	},
 /obj/structure/platform{
 	dir = 1
 	},
@@ -27388,20 +27385,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/maintenance/operations)
-"sRe" = (
-/obj/structure/platform_stairs/full/east_west_cap,
-/obj/structure/platform{
-	dir = 1
-	},
-/obj/structure/railing/mapped,
-/obj/effect/floor_decal/corner/lime{
-	dir = 5
-	},
-/turf/simulated/floor/tiled/white{
-	name = "cooled white floor";
-	temperature = 278.15
-	},
-/area/medical/morgue/lower)
 "sRs" = (
 /obj/structure/stairs/south,
 /obj/structure/stairs_railing{
@@ -35017,10 +35000,6 @@
 /obj/machinery/light,
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
-"xRv" = (
-/obj/structure/platform_stairs/full,
-/turf/simulated/floor/plating,
-/area/hangar/auxiliary)
 "xRF" = (
 /obj/machinery/shower{
 	dir = 4
@@ -49711,7 +49690,7 @@ lIg
 svg
 svg
 dUP
-sRe
+rpa
 qEk
 lIg
 rFO
@@ -62722,7 +62701,7 @@ fIp
 xtK
 rrR
 ows
-xRv
+bJa
 bJa
 bJa
 bJa
@@ -62925,7 +62904,7 @@ shb
 xtK
 kIz
 ows
-xRv
+bJa
 bJa
 bJa
 bJa
