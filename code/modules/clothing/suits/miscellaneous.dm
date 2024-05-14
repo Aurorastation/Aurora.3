@@ -401,6 +401,8 @@
 	icon = 'icons/clothing/kit/highvis.dmi'
 	icon_state = "jacket_highvis"
 	item_state = "jacket_highvis"
+	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
@@ -417,6 +419,8 @@
 	icon = 'icons/clothing/kit/highvis.dmi'
 	icon_state = "jacket_highvis_alt"
 	item_state = "jacket_highvis_alt"
+	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
+	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder)
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
