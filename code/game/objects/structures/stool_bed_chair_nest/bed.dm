@@ -575,6 +575,10 @@
 	makes_rolling_sound = FALSE
 	held_item = /obj/item/roller/hover
 	has_iv_light = FALSE
+
+	/**
+	 * The color of light the hoverbed emits
+	 */
 	var/hover_color = LIGHT_COLOR_CYAN
 
 /obj/structure/bed/roller/hover/Initialize()
