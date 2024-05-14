@@ -2428,7 +2428,7 @@
 "aZR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/structure/roller_rack/zeng/two,
+/obj/structure/roller_rack/two,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "ban" = (

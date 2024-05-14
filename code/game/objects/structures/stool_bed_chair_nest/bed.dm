@@ -761,9 +761,3 @@
 
 /obj/structure/roller_rack/three
 	initial_beds = 3
-
-/obj/structure/roller_rack/zeng
-	initial_bed_type = /obj/item/roller/zeng
-
-/obj/structure/roller_rack/zeng/two
-	initial_beds = 2
