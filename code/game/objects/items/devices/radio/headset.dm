@@ -222,7 +222,7 @@
 	set src in usr
 
 	if(mob_wear_layer == WRISTS_LAYER_OVER)
-		mob_wear_layer = WRISTS_LAYER_UNDER
+		mob_wear_layer = WRISTS_LAYER_UNIFORM
 	else
 		mob_wear_layer = WRISTS_LAYER_OVER
 	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [mob_wear_layer == WRISTS_LAYER_OVER ? "over" : "under"] your outerwear."))
@@ -264,6 +264,16 @@
 			H.update_inv_l_ear()
 		else if(H.r_ear == src)
 			H.update_inv_r_ear()
+
+/obj/item/device/radio/headset/wrist/clip/get_wrist_examine_text(mob/living/carbon/human/user)
+	if(!istype(user))
+		return ..()
+	return "clipped to [user.get_pronoun("his")] [(mob_wear_layer == WRISTS_LAYER_OVER) && user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
+
+/obj/item/device/radio/headset/wrist/clip/get_ear_examine_text(mob/living/carbon/human/user)
+	if(!istype(user))
+		return ..()
+	return "clipped to [user.get_pronoun("his")] [user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
 
 /*
  * Civillian
