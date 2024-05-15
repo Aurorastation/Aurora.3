@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Added clip-on radios, available in the radio selection. They can be equipped in either ear slot or the wrist slot."
