@@ -14,14 +14,14 @@ Rust functions that do actual things should not end with `_ffi`, and can be nice
 
 # On safety
 
-I recommend reading up on these topics related to Rust: safety, error-handling, panics.
+I recommend reading up on these topics related to Rust: safety, `unsafe {}`, error-handling, panics.
 
 Safety related stuff:
 - Generally, try to call stack trace dm proc on error or panic, so it fails tests and stops debugging (may need to turn on breakpoints on runtime errors).
 - Panics (like `foo().unwrap();`) are caught with a panic handler that calls stack trace proc, and writes to a file.
   Panics are unrecoverable, so this is the best we can do in this case.
   Panics should not really happen though, except in a "fatal error and literally cannot proceed further" situation.
-- Unhandled errors (like `foo()?;`) call stack trace proc and 
+- Unhandled errors (like `foo()?;`) call stack trace proc and return null from the function.
 - 
 
 # Other stuff
