@@ -55,5 +55,5 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - rscadd: "Added telefreedom implants, including a box with (almost) everything you need to make them work for 4 people, and added it to the uplink."
+  - rscadd: "Added telefreedom implants, including a box with (almost) everything you need to make them work for 4 people, and added it to the uplink. The implant allows you to teleport to the linked telepad (you link it by clicking on the telepad with the implent in hand before implanting) one time before melting."
   - bugfix: "Fixed implanters not taking the implant and dropping it to the ground when hit by one (while keeping it referenced)."
