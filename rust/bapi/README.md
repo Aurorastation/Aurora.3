@@ -22,7 +22,8 @@ Safety related stuff:
   Panics are unrecoverable, so this is the best we can do in this case.
   Panics should not really happen though, except in a "fatal error and literally cannot proceed further" situation.
 - Unhandled errors (like `foo()?;`) call stack trace proc and return null from the function.
-- 
+- Some unsafety may be required, like to parse args in `_ffi` functions, but should not be present any where else.
+  And if for whatever reason it is needed, it should be documented well.
 
 # Other stuff
 
