@@ -18,11 +18,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_hangar_kataphract_shuttle";
-	master_tag = "nav_hangar_kataphract_shuttle";
-	name = "Kataphract Shuttle Dock"
-	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "ac" = (
@@ -3879,11 +3875,7 @@
 /obj/machinery/access_button{
 	pixel_y = 27
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_hangar_kataphract_shuttle";
-	master_tag = "nav_hangar_kataphract_shuttle";
-	name = "Kataphract Shuttle Dock"
-	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "nr" = (
@@ -3914,11 +3906,7 @@
 	icon_state = "1-2"
 	},
 /obj/effect/shuttle_landmark/kataphract_transport/hangar,
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_hangar_kataphract_shuttle";
-	master_tag = "nav_hangar_kataphract_shuttle";
-	name = "Kataphract Shuttle Dock"
-	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "nw" = (
@@ -5860,11 +5848,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
-/obj/effect/map_effect/marker/airlock/docking{
-	landmark_tag = "nav_hangar_kataphract_shuttle";
-	master_tag = "nav_hangar_kataphract_shuttle";
-	name = "Kataphract Shuttle Dock"
-	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "Iq" = (

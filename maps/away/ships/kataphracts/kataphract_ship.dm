@@ -146,7 +146,7 @@
 /obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar
 	name = "Shuttle Dock"
 	landmark_tag = "nav_hangar_kataphract_shuttle"
-	master_tag = "airlock_kataphract_ship_shuttle_dock"
+	master_tag = "nav_hangar_kataphract_shuttle"
 
 /obj/effect/shuttle_landmark/kataphract_transport/transit
 	name = "In transit"
