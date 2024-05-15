@@ -4,7 +4,24 @@ use std::fmt;
 // Panic handler that dumps info out to a text file (overwriting) if we crash.
 fn setup_panic_handler() {
     std::panic::set_hook(Box::new(|info| {
+        // write to file
         std::fs::write("./bapi_panic.txt", format!("Panic {:#?}", info)).unwrap();
+
+        // call dm stack trace proc
+        let error_string = ::byondapi::value::ByondValue::try_from({
+            let res = fmt::format(format_args!("{:#?}", info));
+            res
+        })
+        .unwrap();
+        ::byondapi::global_call::call_global_id(
+            {
+                static STRING_ID: ::std::sync::OnceLock<u32> = ::std::sync::OnceLock::new();
+                *STRING_ID
+                    .get_or_init(|| ::byondapi::byond_string::str_id_of("_stack_trace").unwrap())
+            },
+            &[error_string],
+        )
+        .unwrap();
     }))
 }
 
@@ -72,6 +89,7 @@ fn read_dmm_file(path: ByondValue) -> ::eyre::Result<::byondapi::value::ByondVal
     // if !path.ends_with(".dmm") {
     //     return Ok(ByondValue::null());
     // }
+    panic!("kurwa");
     let path: std::path::PathBuf = path.try_into()?;
     let dmm = dmmtools::dmm::Map::from_file(&path)?;
     let str = map_to_string(&dmm).ok_or(byondapi::Error::UnknownByondError)?;
