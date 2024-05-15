@@ -36,7 +36,7 @@ pub unsafe extern "C" fn read_dmm_file_ffi(
     argv: *mut byondapi::value::ByondValue,
 ) -> byondapi::value::ByondValue {
     let args = unsafe { ::byondapi::parse_args(argc, argv) };
-    match read_dmm_file(args.get(0usize).map(ByondValue::clone).unwrap_or_default()) {
+    match read_dmm_file(args.get(0).map(ByondValue::clone).unwrap_or_default()) {
         Ok(val) => val,
         Err(info) => {
             crate::dm_call_stack_trace(format!("RUST BAPI ERROR \n {:#?}", info));
@@ -51,6 +51,7 @@ fn read_dmm_file(path: ByondValue) -> eyre::Result<ByondValue> {
     // if !path.ends_with(".dmm") {
     //     return Ok(ByondValue::null());
     // }
+
     let path: std::path::PathBuf = path.try_into()?;
     let dmm = dmmtools::dmm::Map::from_file(&path)?;
     let str = map_to_string(&dmm)?;
