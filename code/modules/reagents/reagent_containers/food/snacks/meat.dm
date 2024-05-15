@@ -185,6 +185,10 @@
 	day Adhomai needs their resources less thanks to synthetic fabric and more efficient food sources, both the meat and the fur of the nav'twir has become an export of the Adhomai \
 	people. In the olden days, carved nav'twir antlers were used as decoration for pelts and armors."
 
+/obj/item/reagent_containers/food/snacks/meat/moghes
+	name = "moghresian meat"
+	desc = "A slab of meat from an animal native to Moghes."
+
 /obj/item/reagent_containers/food/snacks/meat/rat
 	name = "rat meat"
 	icon_state = "chickenbreast"

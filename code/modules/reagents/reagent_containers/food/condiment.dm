@@ -288,6 +288,11 @@
 	name = "cocoa powder"
 	reagents_to_add = list(/singleton/reagent/nutriment/coco = 50)
 
+/obj/item/reagent_containers/food/condiment/blood
+	fixed_state = TRUE
+	name = "synthetic blood"
+	reagents_to_add = list(/singleton/reagent/blood = 50)
+
 //MRE condiments and drinks.
 
 /obj/item/reagent_containers/food/condiment/small/packet
