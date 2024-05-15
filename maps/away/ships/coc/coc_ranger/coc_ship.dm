@@ -6,7 +6,7 @@
 	suffixes = list("coc_ship.dmm")
 
 	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.1)
+	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
