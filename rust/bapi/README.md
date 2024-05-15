@@ -24,6 +24,7 @@ Safety related stuff:
 - Unhandled errors (like `foo()?;`) call stack trace proc and return null from the function.
 - Some unsafety may be required, like to parse args in `_ffi` functions, but should not be present any where else.
   And if for whatever reason it is needed, it should be documented well.
+- All rust code (generally, outside of `_ffi`) should be nice, safe, and idiomatic.
 
 # Other stuff
 
