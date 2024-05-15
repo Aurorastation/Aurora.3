@@ -1,9 +1,10 @@
 
-// Default automatic .dll/.so detection.
-// Look for it in the build location first, then in `.`, then in standard places.
+// ------------------------------------------- .dll/.so detection
 
+/// Global var set to .dll/.so location.
 /* This comment bypasses grep checks */ /var/__bapi
 
+/// Look for .dll/.so in the build location first, then in `.`, then in standard places.
 /proc/__detect_bapi()
 	if(world.system_type == UNIX)
 #ifdef CIBUILDING
@@ -36,9 +37,8 @@
 
 #define BAPI_CALL(func, args...) call_ext(BAPI, "byond:[#func]_ffi")(args)
 
-// -----------------------------------------------------------------------
-// -----------------------------------------------------------------------
-
-#define bapi_hello_world(arg) BAPI_CALL(hello_world, arg)
+// ------------------------------------------- bapi functions callable from dm
 
 #define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file, arg)
+
+// ------------------------------------------- fin
