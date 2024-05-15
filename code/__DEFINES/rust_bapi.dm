@@ -1,7 +1,7 @@
 
 // ------------------------------------------- .dll/.so detection
 
-/// Global var set to .dll/.so location.
+/// Global var set to bapi .dll/.so location.
 /* This comment bypasses grep checks */ /var/__bapi
 
 /// Look for .dll/.so in the build location first, then in `.`, then in standard places.
@@ -35,10 +35,11 @@
 
 #define BAPI (__bapi || __detect_bapi())
 
-#define BAPI_CALL(func, args...) call_ext(BAPI, "byond:[#func]_ffi")(args)
+#define BAPI_CALL(func, args...) call_ext(BAPI, "byond:[#func]")(args)
 
 // ------------------------------------------- bapi functions callable from dm
+// Should only call functions ending with `_ffi`.
 
-#define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file, arg)
+#define bapi_read_dmm_file(arg) BAPI_CALL(read_dmm_file_ffi, arg)
 
 // ------------------------------------------- fin
