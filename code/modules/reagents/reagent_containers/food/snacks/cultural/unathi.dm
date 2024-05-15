@@ -216,3 +216,10 @@
 	drop_sound = 'sound/items/drop/glass.ogg'
 	pickup_sound = 'sound/items/pickup/glass.ogg'
 
+/obj/item/storage/chewables/tobacco/koko
+	name = "Ha'zana chewing koko"
+	desc = "A tin of preserved and prepared koko reeds."
+	desc_extended = "Cultivated exclusively on the Compact ruled world of Ha'zana. A good pick-me-up for Unathi, but has no effect on other species."
+	icon_state = "chew_koko"
+	item_state = "chew_koko"
+	starts_with = list(/obj/item/clothing/mask/chewable/chewingkoko = 6)
