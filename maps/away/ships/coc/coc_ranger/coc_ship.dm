@@ -5,8 +5,7 @@
 	prefix = "ships/coc/coc_ranger/"
 	suffixes = list("coc_ship.dmm")
 
-	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS)
-	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.5)
+	sectors = list(ALL_COALITION_SECTORS)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
