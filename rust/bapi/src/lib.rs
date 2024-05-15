@@ -1,4 +1,4 @@
-use byondapi::{byond_string, prelude::*};
+use byondapi::prelude::*;
 
 /// Call stack trace dm method with message.
 fn dm_call_stack_trace(msg: String) {
@@ -18,7 +18,7 @@ fn dm_call_stack_trace(msg: String) {
 fn setup_panic_handler() {
     std::panic::set_hook(Box::new(|info| {
         let msg = format!("RUST BAPI PANIC \n {:#?}", info);
-        std::fs::write("./bapi_panic.txt", msg.clone());
+        let _ = std::fs::write("./bapi_panic.txt", msg.clone());
         crate::dm_call_stack_trace(msg);
     }))
 }
