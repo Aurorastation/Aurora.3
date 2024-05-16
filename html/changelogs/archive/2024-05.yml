@@ -251,3 +251,29 @@
   nauticall:
   - rscadd: Added Aayun Kaiser's custom item, a custom offworlder ESS suit.
   - qol: The ESS injector module now comes with RMT.
+2024-05-16:
+  ClemTheDuck:
+  - bugfix: Fixed Hegemony Navy voidsuits not having a sprite
+  Crosarius:
+  - rscadd: Adds Moghresian Meat, obtainable by butchering Moghresian animals (otztek,
+      threshbeast, etc)
+  - rscadd: Adds 'synthetic blood' to the biogenerator, for use in food/drink recipies
+      that require blood.
+  - qol: Some small tweaks to reagents_to_add of some Unathi foods.
+  - qol: Changes some Unathi cultural foods to use Moghresian Meat instead of normal
+      meat
+  - qol: Makes the 'They are absolutely tiny compared to you' and 'they tower over
+      you!' height descriptor messages appear at 50 cm height difference instead of
+      100 cm
+  DreamySkrell:
+  - rscadd: Allows Vaurca FR to take mag-claws.
+  Geeves:
+  - refactor: Tweaked some messages to be based on time since last message, instead
+      of being based on probability. This includes low blood messages, infected liver
+      messages, fever messages, and some drug messages.
+  Llywelwyn:
+  - bugfix: Fixed PDA Chat Client not working properly after a PDA loses charge.
+  LynxSolstice:
+  - qol: Brings the fuel tank of the Tajaran Smuggler vessel into the modern age.
+  - bugfix: Fixes all the un-pixelshifted lights, and adds an airlock where someone
+      forgot to add one again when pulling out the old deprecated airlocks.
