@@ -43,7 +43,7 @@
 	var/damage_to_energy_cost = (damage_to_energy_multiplier * damage_blocked)
 
 	if(!user.technomancer_pay_energy(damage_to_energy_cost))
-		to_chat(user, "<span class='danger'>Your shield fades due to lack of energy!</span>")
+		to_chat(user, SPAN_DANGER("Your shield fades due to lack of energy!"))
 		active = 0
 		update_icon()
 		return 0
@@ -60,7 +60,7 @@
 			P.agony -= agony_blocked
 		P.damage = P.damage - damage_blocked
 
-	user.visible_message("<span class='danger'>\The [user]'s [src] absorbs [attack_text]!</span>")
+	user.visible_message(SPAN_DANGER("\The [user]'s [src] absorbs [attack_text]!"))
 	to_chat(user, SPAN_WARNING("Your shield has absorbed most of \the [damage_source]."))
 
 	spark(src, 5, GLOB.cardinal)

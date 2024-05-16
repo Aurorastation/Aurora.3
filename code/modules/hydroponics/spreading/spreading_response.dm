@@ -77,11 +77,11 @@
 			if(H.Check_Shoegrip(FALSE))
 				can_grab = 0
 		if(can_grab)
-			src.visible_message("<span class='danger'>Tendrils lash out from \the [src] and drag \the [victim] in!</span>")
+			src.visible_message(SPAN_DANGER("Tendrils lash out from \the [src] and drag \the [victim] in!"))
 			victim.forceMove(src.loc)
 
 	//entangling people
 	if(victim.loc == src.loc)
 		buckle(victim)
 		victim.set_dir(pick(GLOB.cardinal))
-		to_chat(victim, "<span class='danger'>Tendrils tighten around you!</span>")
+		to_chat(victim, SPAN_DANGER("Tendrils tighten around you!"))

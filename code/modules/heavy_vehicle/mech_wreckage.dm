@@ -71,7 +71,7 @@
 			to_chat(user, SPAN_WARNING("It's too solid to dismantle. Try cutting through some of the bigger bits."))
 		return 1
 	else if(istype(attacking_item) && attacking_item.force > 20)
-		visible_message("<span class='danger'>\The [src] has been smashed with \the [attacking_item] by \the [user]!</span>")
+		visible_message(SPAN_DANGER("\The [src] has been smashed with \the [attacking_item] by \the [user]!"))
 		if(prob(20))
 			new /obj/item/stack/material/steel(get_turf(src),rand(1,3))
 			qdel(src)

@@ -61,7 +61,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message(SPAN_WARNING("[A] knees [D] in the stomach!"), \
-							"<span class='danger'>[A] winds you with a knee in the stomach!</span>")
+							SPAN_DANGER("[A] winds you with a knee in the stomach!"))
 		D.audible_message("<b>[D]</b> gags!")
 		if (!(D.species.flags & NO_BREATHE))
 			D.losebreath += 3
@@ -75,7 +75,7 @@
 	if(!D.stat && !D.weakened)
 		A.do_attack_animation(D)
 		D.visible_message(SPAN_WARNING("[A] kicks [D] in the head!"), \
-							"<span class='danger'>[A] kicks you in the jaw!</span>")
+							SPAN_DANGER("[A] kicks you in the jaw!"))
 		D.apply_damage(20, DAMAGE_BRUTE, BP_HEAD)
 		D.drop_item()
 		playsound(get_turf(D), "punch", 50, 1, -1)
@@ -87,7 +87,7 @@
 /datum/martial_art/the_sleeping_carp/proc/elbowDrop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	if(D.weakened || D.resting || D.stat)
 		A.do_attack_animation(D)
-		D.visible_message("<span class='danger'>[A] elbow drops [D]!</span>")
+		D.visible_message(SPAN_DANGER("[A] elbow drops [D]!"))
 		if(D.shock_stage >= 60)
 			D.death() //FINISH HIM!
 		D.apply_damage(50, DAMAGE_BRUTE, BP_CHEST)

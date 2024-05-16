@@ -463,7 +463,7 @@
 	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		to_chat(M, SPAN_DANGER("Your hands are full."))
 		return
 
 	if(M.handcuffed)
@@ -474,9 +474,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
-			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque arm blades!</span>",
-								"<span class='danger'>We tear through the [H.wear_suit] with our arm blades!</span>",
-								"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque arm blades!"),
+								SPAN_DANGER("We tear through the [H.wear_suit] with our arm blades!"),
+								SPAN_DANGER("You hear cloth ripping and tearing!"))
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -484,9 +484,9 @@
 	blade.creator = M
 	M.put_in_hands(blade)
 	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
-	src.visible_message("<span class='danger'>A grotesque blade forms around [M]\'s arm!</span>",
-							"<span class='danger'>Our arm twists and mutates, transforming it into a deadly blade.</span>",
-							"<span class='danger'>You hear organic matter ripping and tearing!</span>")
+	src.visible_message(SPAN_DANGER("A grotesque blade forms around [M]\'s arm!"),
+							SPAN_DANGER("Our arm twists and mutates, transforming it into a deadly blade."),
+							SPAN_DANGER("You hear organic matter ripping and tearing!"))
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
@@ -501,7 +501,7 @@
 	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		to_chat(M, SPAN_DANGER("Your hands are full."))
 		return
 
 	if(M.handcuffed)
@@ -512,9 +512,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
-			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque shield!</span>",
-							"<span class='danger'>We tear through the [H.wear_suit] with our newly formed shield!</span>",
-							"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque shield!"),
+							SPAN_DANGER("We tear through the [H.wear_suit] with our newly formed shield!"),
+							SPAN_DANGER("You hear cloth ripping and tearing!"))
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -522,7 +522,7 @@
 	shield.creator = M
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
-	src.visible_message("<span class='danger'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
+	src.visible_message(SPAN_DANGER("The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!"),
 							SPAN_WARNING("We inflate our hand into a robust shield."),
 							SPAN_WARNING("You hear organic matter ripping and tearing!"))
 
@@ -545,14 +545,14 @@
 
 	changeling.use_charges(50)
 
-	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
-						"<span class='danger'>We begin our transformation to our true form!</span>")
+	M.visible_message(SPAN_DANGER("[M] writhes and contorts, their body expanding to inhuman proportions!"), \
+						SPAN_DANGER("We begin our transformation to our true form!"))
 	if(!do_after(src, 6 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
-		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
-							"<span class='danger'>Our transformation has been interrupted!</span>")
+		M.visible_message(SPAN_DANGER("[M]'s transformation abruptly reverts itself!"), \
+							SPAN_DANGER("Our transformation has been interrupted!"))
 		return FALSE
 
-	M.visible_message("<span class='danger'>[M] grows into an abomination and lets out an awful scream!</span>")
+	M.visible_message(SPAN_DANGER("[M] grows into an abomination and lets out an awful scream!"))
 	playsound(loc, 'sound/effects/greaterling.ogg', 100, 1)
 
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))

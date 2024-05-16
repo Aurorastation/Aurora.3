@@ -264,7 +264,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, SPAN_WARNING("You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)"))
-	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is terring it from the inside!</span>")
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is terring it from the inside!"))
 
 	var/time = 360 * breakout_time * 2
 	breakout = TRUE
@@ -275,7 +275,7 @@
 
 	breakout = FALSE
 	to_chat(escapee, SPAN_WARNING("You successfully break out! Tearing the bubble's walls!")) // holy shit this is hilarious
-	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
+	visible_message(SPAN_DANGER("\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!"))
 	var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
 	playsound(loc, sound_to_play, 100, 1)
 	break_open()

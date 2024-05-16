@@ -102,7 +102,7 @@
 	if(!jam_num && jam_chance && get_ammo())
 		if(prob(jam_chance))
 			playsound(src.loc, 'sound/items/trayhit2.ogg', 50, TRUE)
-			to_chat(user, "<span class='danger'>\The [src] jams!</span>")
+			to_chat(user, SPAN_DANGER("\The [src] jams!"))
 			balloon_alert(user, SPAN_RED("JAM"))
 			jam_num = rand(2, 5) // gotta attackself two to five times to unjam
 			return FALSE

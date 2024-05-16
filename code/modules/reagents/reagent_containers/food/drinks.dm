@@ -66,7 +66,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
-	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
+	user.visible_message(SPAN_DANGER("\The [src] explodes all over [user] as they open it!"),
+							SPAN_DANGER("\The [src] explodes all over you as you open it!"),
+							"You can hear a soda can explode.")
+
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER

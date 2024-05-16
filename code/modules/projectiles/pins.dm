@@ -77,7 +77,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 	to_chat(user, fail_message)
 	if(selfdestruct)//sound stolen from the lawgiver. todo, remove this from the lawgiver. there can only be one.
 		user.show_message("<span class='danger'>SELF-DESTRUCTING...</span><br>", 1)
-		visible_message("<span class='danger'>\The [gun] explodes!</span>")
+		visible_message(SPAN_DANGER("\The [gun] explodes!"))
 		playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
 		var/obj/item/organ/external/E = user.organs_by_name[user.hand ? BP_L_HAND : BP_R_HAND]
 		E.droplimb(0,DROPLIMB_BLUNT)

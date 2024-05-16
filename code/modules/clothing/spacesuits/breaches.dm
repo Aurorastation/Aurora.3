@@ -223,7 +223,7 @@ var/global/list/breach_burn_descriptors = list(
 	. = ..()
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
-			. += "<span class='danger'>It has \a [B.descriptor].</span>"
+			. += SPAN_DANGER("It has \a [B.descriptor].")
 
 /obj/item/clothing/suit/space/get_pressure_weakness(pressure)
 	. = ..()

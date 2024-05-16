@@ -41,7 +41,9 @@
 		if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
 			. = ..()
 		else
-			user.visible_message("<span class='danger'>[src] has been hit by [user] with [attacking_item], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [attacking_item], but it bounces off the forcefield.</span>","You hear something bouncing off a forcefield.")
+			user.visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item], but it bounces off the forcefield."),
+									SPAN_DANGER("You hit [src] with [attacking_item], but it bounces off the forcefield."),
+									"You hear something bouncing off a forcefield.")
 			. = TRUE
 	update_icon()
 
@@ -50,7 +52,7 @@
 		//Spam Check
 		if((last_toggle_time + timeout) > world.time)
 			user.visible_message(SPAN_NOTICE("\The [user] presses the button, but nothing happens."),
-									SPAN_NOTICE("<span class='notice'>You press the button, but it is not responding."),
+									SPAN_NOTICE("You press the button, but it is not responding."),
 									"You hear something being pressed.")
 
 			return ..()

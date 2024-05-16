@@ -115,7 +115,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	if(!user)
 		return 0
 	if(owner && user != owner)
-		to_chat(user, "<span class='danger'>\The [src] knows that you're not the original owner, and has locked you out of it!</span>")
+		to_chat(user, SPAN_DANGER("\The [src] knows that you're not the original owner, and has locked you out of it!"))
 		return 0
 	else if(!owner)
 		bind_to_owner(user)
@@ -323,10 +323,10 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 						to_chat(H, SPAN_NOTICE("You have just bought [new_spell.name]."))
 						core.add_spell(new_spell.obj_path, new_spell.name, new_spell.ability_icon_state)
 					else //We already own it.
-						to_chat(H, "<span class='danger'>You already have [new_spell.name]!</span>")
+						to_chat(H, SPAN_DANGER("You already have [new_spell.name]!"))
 						return
 				else //Can't afford.
-					to_chat(H, "<span class='danger'>You can't afford that!</span>")
+					to_chat(H, SPAN_DANGER("You can't afford that!"))
 					return
 
 		// This needs less copypasta.
@@ -345,14 +345,14 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 					technomancer_belongings.Add(O) // Used for the Track spell.
 
 				else //Can't afford.
-					to_chat(H, "<span class='danger'>You can't afford that!</span>")
+					to_chat(H, SPAN_DANGER("You can't afford that!"))
 					return
 
 
 		if(href_list["refund_functions"])
 			var/turf/T = get_turf(H)
 			if(T.z in SSatlas.current_map.player_levels)
-				to_chat(H, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
+				to_chat(H, SPAN_DANGER("You can only refund at your base, it's too late now!"))
 				return
 			var/obj/item/technomancer_core/core = H.get_technomancer_core()
 			if(core)
@@ -367,7 +367,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 /obj/item/technomancer_catalog/attackby(obj/item/attacking_item, mob/user)
 	var/turf/T = get_turf(user)
 	if(T.z in SSatlas.current_map.player_levels)
-		to_chat(user, "<span class='danger'>You can only refund at your base, it's too late now!</span>")
+		to_chat(user, SPAN_DANGER("You can only refund at your base, it's too late now!"))
 		return TRUE
 	for(var/datum/technomancer/equipment/E in equipment_instances + assistance_instances)
 		if(attacking_item.type == E.obj_path) // We got a match.

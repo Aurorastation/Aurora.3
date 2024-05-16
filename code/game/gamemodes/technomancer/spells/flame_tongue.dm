@@ -41,8 +41,8 @@
 	if(isliving(hit_atom) && user.a_intent != I_HELP)
 		var/mob/living/L = hit_atom
 		if(pay_energy(1000))
-			visible_message("<span class='danger'>\The [user] reaches out towards \the [L] with the flaming hand, and they ignite!</span>")
-			to_chat(L, "<span class='danger'>You ignite!</span>")
+			visible_message(SPAN_DANGER("\The [user] reaches out towards \the [L] with the flaming hand, and they ignite!"))
+			to_chat(L, SPAN_DANGER("You ignite!"))
 			L.fire_act()
 			log_and_message_admins("has ignited [L] with [src].")
 			adjust_instability(12)

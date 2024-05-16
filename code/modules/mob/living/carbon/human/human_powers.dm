@@ -121,7 +121,7 @@
 
 	for(var/mob/O in viewers(src, null))
 		if ((O.client && !( O.blinded )))
-			O.show_message(text("<span class='danger'>[] [failed ? "tried to tackle" : "has tackled"] down []!</span>", src, T), 1)
+			O.show_message(SPAN_DANGER("[src] [failed ? "tried to tackle" : "has tackled"] down [T]!"), 1)
 
 /mob/living/carbon/human/proc/leap(mob/living/T as mob in oview(4))
 	set category = "Abilities"
@@ -164,7 +164,9 @@
 
 	status_flags |= LEAPING
 
-	visible_message("<span class='danger'>[src] leaps at [T]!</span>", "<span class='danger'>You leap at [T]!</span>")
+	visible_message(SPAN_DANGER("[src] leaps at [T]!"),
+					SPAN_DANGER("You leap at [T]!"))
+
 	throw_at(get_step(get_turf(T), get_turf(src)), 4, 1, src, do_throw_animation = FALSE)
 
 	sleep(5)
@@ -181,7 +183,7 @@
 	var/use_hand = "left"
 	if(l_hand)
 		if(r_hand)
-			to_chat(src, "<span class='danger'>You need to have one hand free to grab someone.</span>")
+			to_chat(src, SPAN_DANGER("You need to have one hand free to grab someone."))
 			return TRUE
 		else
 			use_hand = "right"
@@ -503,18 +505,18 @@
 			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
 
-		visible_message("<span class='danger'>\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!</span>")
+		visible_message(SPAN_DANGER("\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!"))
 		sleep(10)
 		if(!src.Adjacent(G.affecting))
 			return
-		visible_message("<span class='danger'>\The [src] closes their jaws around \the [H]'s head!</span>")
+		visible_message(SPAN_DANGER("\The [src] closes their jaws around \the [H]'s head!"))
 		playsound(H.loc, 'sound/effects/blobattack.ogg', 50, 1)
 		affecting.droplimb(0, DROPLIMB_BLUNT)
 
 	else
 		var/mob/living/M = G.affecting
 		if(istype(M))
-			visible_message("<span class='danger'>\The [src] rips viciously at \the [M]'s body with its claws!</span>")
+			visible_message(SPAN_DANGER("\The [src] rips viciously at \the [M]'s body with its claws!"))
 			playsound(M.loc, 'sound/effects/blobattack.ogg', 50, 1)
 			M.gib()
 
@@ -530,8 +532,8 @@
 		return
 
 	src.visible_message(
-	"<span class='danger'>\The [src] begins to beep ominously!</span>",
-	"<span class='danger'>WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!</span>"
+	SPAN_DANGER("\The [src] begins to beep ominously!"),
+	SPAN_DANGER("WARNING: SELF-DESTRUCT ENGAGED. Unit termination finalized in three seconds!")
 	)
 	sleep(10)
 	playsound(src, 'sound/items/countdown.ogg', 125, 1)
@@ -549,7 +551,7 @@
 	var/text = null
 
 	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in src.languages))
-		to_chat(src, "<span class='danger'>Your mind is dark, the unity of the hive is torn from you!</span>")
+		to_chat(src, SPAN_DANGER("Your mind is dark, the unity of the hive is torn from you!"))
 		return
 
 	targets += getmobs()
@@ -566,25 +568,25 @@
 	var/mob/M = targets[target]
 
 	if(istype(M, /mob/abstract/observer) || M.stat == DEAD)
-		to_chat(src, "<span class='danger'>[M]'s hivenet implant is inactive!</span>")
+		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 
 	if(!(GLOB.all_languages[LANGUAGE_VAURCA] in M.languages))
-		to_chat(src, "<span class='danger'>[M]'s hivenet implant is inactive!</span>")
+		to_chat(src, SPAN_DANGER("[M]'s hivenet implant is inactive!"))
 		return
 
 	log_say("[key_name(src)] issued a hivenet order to [key_name(M)]: [text]",ckey=key_name(src))
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
-		to_chat(M, "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>")
+		to_chat(M, SPAN_DANGER("You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:"))
 		to_chat(M, SPAN_NOTICE(" [text]"))
 	else
-		to_chat(M, "<span class='danger'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>")
+		to_chat(M, SPAN_DANGER("Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]"))
 		if(istype(M,/mob/living/carbon/human))
 			var/mob/living/carbon/human/H = M
 			if(H.species.name == src.species.name)
 				return
-			to_chat(H, "<span class='danger'>Your nose begins to bleed...</span>")
+			to_chat(H, SPAN_DANGER("Your nose begins to bleed..."))
 			H.drip(1)
 
 /mob/living/carbon/human/proc/quillboar(mob/target as mob in oview())
@@ -593,7 +595,7 @@
 	set category = "Abilities"
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>Your spine still aches!</span>")
+		to_chat(src, SPAN_DANGER("Your spine still aches!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
@@ -626,12 +628,12 @@
 	set desc = "Shatter all lights around yourself."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You're still regaining your strength!</span>")
+		to_chat(src, SPAN_DANGER("You're still regaining your strength!"))
 		return
 
 	last_special = world.time + 50
 
-	visible_message("<span class='danger'>\The [src] shrieks!</span>")
+	visible_message(SPAN_DANGER("\The [src] shrieks!"))
 	playsound(src.loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 	for (var/mob/living/carbon/human/T in hearers(4, src) - src)
 		if(T.get_hearing_protection() >= EAR_PROTECTION_MAJOR)
@@ -651,7 +653,7 @@
 	set desc = "Create a field of darkness around yourself."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You're still regaining your strength!</span>")
+		to_chat(src, SPAN_DANGER("You're still regaining your strength!"))
 		return
 
 	last_special = world.time + 100
@@ -682,7 +684,7 @@
 	set desc = "Travel from place to place using the shadows."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You're still regaining your strength!</span>")
+		to_chat(src, SPAN_DANGER("You're still regaining your strength!"))
 		return
 
 	if (!T || T.density || T.contains_dense_objects())
@@ -703,7 +705,7 @@
 
 	last_special = world.time + 200
 
-	visible_message("<span class='danger'>\The [src] vanishes into the shadows!</span>")
+	visible_message(SPAN_DANGER("\The [src] vanishes into the shadows!"))
 
 	anim(get_turf(loc), loc,'icons/mob/mob.dmi',,"shadow", null ,loc.dir)
 
@@ -721,11 +723,11 @@
 	set desc = "Charge forward, trampling anything in your path until you hit something more stubborn than you are."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='danger'>You are too tired to charge!</span>")
+		to_chat(src, SPAN_DANGER("You are too tired to charge!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
-		to_chat(src, "<span class='danger'>You cannot charge in your current state!</span>")
+		to_chat(src, SPAN_DANGER("You cannot charge in your current state!"))
 		return
 
 	last_special = world.time + 100
@@ -734,7 +736,7 @@
 			SPAN_NOTICE("You take a step backwards and then..."))
 	if(do_after(src,5))
 		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
-		src.visible_message("<span class='danger'>\The [src] charges!</span>")
+		src.visible_message(SPAN_DANGER("\The [src] charges!"))
 		trampling()
 
 
@@ -780,7 +782,7 @@
 		step(src, dir)
 		playsound(src,'sound/mecha/mechstep.ogg',25,1)
 		if (brokesomething)
-			src.visible_message("<span class='danger'>[src.name] breaks through!</span>")
+			src.visible_message(SPAN_DANGER("[src.name] breaks through!"))
 		addtimer(CALLBACK(src, PROC_REF(trampling)), 1)
 
 	else
@@ -803,7 +805,7 @@
 
 	sleep(1)
 	if (A && !(A.gc_destroyed) && A.type == oldtype)
-		src.visible_message("<span class='danger'>[src.name] plows into \the [aname]!</span>")
+		src.visible_message(SPAN_DANGER("[src.name] plows into \the [aname]!"))
 		return 0
 
 	return 1
@@ -875,9 +877,9 @@
 
 	last_special = world.time + 100
 	playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
-	visible_message("<span class='danger'>\The [src] unleashes a torrent of raging flame!</span>",
-			"<span class='danger'>You unleash a gust of fire!</span>",
-			"<span class='danger'>You hear the roar of an inferno!</span>")
+	visible_message(SPAN_DANGER("\The [src] unleashes a torrent of raging flame!"),
+			SPAN_DANGER("You unleash a gust of fire!"),
+			SPAN_DANGER("You hear the roar of an inferno!"))
 
 	var/turf/T  = get_step(get_step(src, dir), dir)
 	var/turf/T1 = get_step(T, dir)
@@ -915,7 +917,7 @@
 		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
-	visible_message("<span class='danger'>\The [src] crackles with energy!</span>")
+	visible_message(SPAN_DANGER("\The [src] crackles with energy!"))
 
 	playsound(src, 'sound/magic/LightningShock.ogg', 75, 1)
 
@@ -939,7 +941,7 @@
 
 	if(istype(O, /obj/item/stack/material))
 		if(O.material.golem == src.species.name)
-			to_chat(src,"<span class='danger'>You incorporate \the [O] into your mass, repairing damage to your structure.</span>")
+			to_chat(src,SPAN_DANGER("You incorporate \the [O] into your mass, repairing damage to your structure."))
 			adjustBruteLoss(-10*O.amount)
 			adjustFireLoss(-10*O.amount)
 			if(!(species.flags & NO_BLOOD))

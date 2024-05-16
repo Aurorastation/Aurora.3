@@ -166,7 +166,7 @@ BREATH ANALYZER
 	var/pulse_result = "normal"
 	if(H.should_have_organ(BP_HEART))
 		if(H.status_flags & FAKEDEATH)
-			pulse_result = "<span class='danger'>0</span>"
+			pulse_result = SPAN_DANGER("0")
 		else
 			pulse_result = H.get_pulse(GETPULSE_TOOL)
 		if(H.pulse() == PULSE_NONE)
@@ -605,10 +605,10 @@ BREATH ANALYZER
 		return
 
 	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(20))
-		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
-		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat(user,SPAN_DANGER("Alert: No breathing detected."))
 		return
 
 	if (!user.IsAdvancedToolUser())
@@ -639,7 +639,7 @@ BREATH ANALYZER
 	to_chat(user,"<b>Breath Sample Results:</b>")
 
 	if(H.stat == DEAD || H.losebreath || !H.breathing)
-		to_chat(user,"<span class='danger'>Alert: No breathing detected.</span>")
+		to_chat(user,SPAN_DANGER("Alert: No breathing detected."))
 		playsound(user.loc, 'sound/items/healthscanner/healthscanner_dead.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
 

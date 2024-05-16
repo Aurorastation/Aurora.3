@@ -387,7 +387,7 @@
 	else if(attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		if (!WT.welding)
-			to_chat(user, "<span class='danger'>\The [WT] must be turned on!</span>")
+			to_chat(user, SPAN_DANGER("\The [WT] must be turned on!"))
 		else if (health == maxhealth)
 			to_chat(user, SPAN_NOTICE("\The [src] is fully repaired."))
 			return

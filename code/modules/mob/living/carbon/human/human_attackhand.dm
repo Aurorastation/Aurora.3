@@ -24,7 +24,7 @@
 
 	..()
 	if ((H.invisibility == INVISIBILITY_LEVEL_TWO) && M.back && (istype(M.back, /obj/item/rig)))
-		to_chat(H, "<span class='danger'>You are now visible.</span>")
+		to_chat(H, SPAN_DANGER("You are now visible."))
 		H.set_invisibility(0)
 
 		anim(get_turf(H), H,'icons/mob/mob.dmi',,"uncloak",,H.dir)
@@ -46,7 +46,7 @@
 				if(M.a_intent == I_HURT)//Stungloves. Any contact will stun the alien.
 					if(G.cell.charge >= 2500)
 						G.cell.use(G.cell.charge)	//So it drains the cell.
-						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
+						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
 						M.attack_log += text("\[[time_stamp()]\] <span class='warning'>Stungloved [src.name] ([src.ckey])</span>")
 						src.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been stungloved by [M.name] ([M.ckey])</font>")
 
@@ -70,7 +70,7 @@
 						return 1
 					else
 						to_chat(M, SPAN_WARNING("Not enough charge!"))
-						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
+						visible_message(SPAN_DANGER("[src] has been touched with the stun gloves by [M]!"))
 					return
 
 
@@ -79,7 +79,7 @@
 			var/damage = rand(0, 9)
 			if(!damage)
 				playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
-				visible_message("<span class='danger'>[H] has attempted to punch [src]!</span>")
+				visible_message(SPAN_DANGER("[H] has attempted to punch [src]!"))
 				return 0
 			var/obj/item/organ/external/affecting = get_organ(ran_zone(H.zone_sel.selecting))
 
@@ -88,11 +88,11 @@
 
 			playsound(loc, /singleton/sound_category/punch_sound, 25, 1, -1)
 
-			visible_message("<span class='danger'>[H] has punched [src]!</span>")
+			visible_message(SPAN_DANGER("[H] has punched [src]!"))
 
 			apply_damage(damage, DAMAGE_PAIN, affecting)
 			if(damage >= 9)
-				visible_message("<span class='danger'>[H] has weakened [src]!</span>")
+				visible_message(SPAN_DANGER("[H] has weakened [src]!"))
 				apply_effect(4, WEAKEN)
 
 			return
@@ -173,7 +173,7 @@
 			var/obj/item/organ/external/affecting = get_organ(hit_zone)
 
 			if(!affecting || affecting.is_stump())
-				to_chat(M, "<span class='danger'>They are missing that limb!</span>")
+				to_chat(M, SPAN_DANGER("They are missing that limb!"))
 				return 1
 
 			switch(src.a_intent)
@@ -245,7 +245,7 @@
 			if(!attack_message)
 				attack.show_attack(H, src, hit_zone, rand_damage)
 			else
-				H.visible_message("<span class='danger'>[attack_message]</span>")
+				H.visible_message(SPAN_DANGER("[attack_message]"))
 
 			playsound(loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 			H.attack_log += text("\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [src.name] ([src.ckey])</span>")
@@ -363,11 +363,11 @@
 								turfs += T
 							if(turfs.len)
 								var/turf/target = pick(turfs)
-								visible_message("<span class='danger'>[src]'s [W] goes off during the struggle!</span>")
+								visible_message(SPAN_DANGER("[src]'s [W] goes off during the struggle!"))
 								return W.afterattack(target,src)
 						else
 							if(M.Adjacent(src))
-								visible_message("<span class='danger'>[src] retaliates against [M]'s disarm attempt with [W]!</span>")
+								visible_message(SPAN_DANGER("[src] retaliates against [M]'s disarm attempt with [W]!"))
 								return M.attackby(W,src)
 
 			var/randn = rand(1, 100)
@@ -402,7 +402,7 @@
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					apply_effect(6, WEAKEN)
 					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-					visible_message("<span class='danger'>[M] hurls [src] to the floor!</span>")
+					visible_message(SPAN_DANGER("[M] hurls [src] to the floor!"))
 					step_away(src,M,15)
 					sleep(3)
 					step_away(src,M,15)
@@ -412,7 +412,7 @@
 					var/armor_check = 100 * get_blocked_ratio(affecting, DAMAGE_BRUTE, damage = 20)
 					apply_effect(3, WEAKEN, armor_check)
 					if(armor_check < 100)
-						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
+						visible_message(SPAN_DANGER("[M] has pushed [src]!"))
 						playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					else
 						visible_message(SPAN_WARNING("[M] attempted to push [src]!"))
@@ -422,7 +422,7 @@
 			if(randn <= 60)
 				if(H.gloves && istype(H.gloves,/obj/item/clothing/gloves/force))
 					playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
-					visible_message("<span class='danger'>[M] shoves, sending [src] flying!</span>")
+					visible_message(SPAN_DANGER("[M] shoves, sending [src] flying!"))
 					step_away(src,M,15)
 					sleep(1)
 					step_away(src,M,15)
@@ -450,7 +450,7 @@
 						//No return here is intentional, as it will then try to disarm other items, and/or play a failed disarm message
 
 			playsound(loc, /singleton/sound_category/punchmiss_sound, 25, 1, -1)
-			visible_message("<span class='danger'>[M] attempted to disarm [src]!</span>")
+			visible_message(SPAN_DANGER("[M] attempted to disarm [src]!"))
 	return
 
 /mob/living/carbon/human/proc/cpr(mob/living/carbon/human/H, var/starting = FALSE, var/cpr_mode)
@@ -587,7 +587,7 @@
 	if(do_after(user, 100))
 		organ.dislocate(1)
 		admin_attack_log(user, src, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
-		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		src.visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
 		user.limb_breaking = FALSE
 		return 1
 	user.visible_message(SPAN_WARNING("[user] fails to dislocate [src]'s [organ.joint]!"))
@@ -598,21 +598,21 @@
 /mob/living/carbon/human/proc/break_all_grabs(mob/living/carbon/user)
 	var/success = 0
 	if(pulling)
-		visible_message("<span class='danger'>[user] has broken [src]'s grip on [pulling]!</span>")
+		visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [pulling]!"))
 		success = 1
 		stop_pulling()
 
 	if(istype(l_hand, /obj/item/grab))
 		var/obj/item/grab/lgrab = l_hand
 		if(lgrab.affecting)
-			visible_message("<span class='danger'>[user] has broken [src]'s grip on [lgrab.affecting]!</span>")
+			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [lgrab.affecting]!"))
 			success = 1
 		spawn(1)
 			qdel(lgrab)
 	if(istype(r_hand, /obj/item/grab))
 		var/obj/item/grab/rgrab = r_hand
 		if(rgrab.affecting)
-			visible_message("<span class='danger'>[user] has broken [src]'s grip on [rgrab.affecting]!</span>")
+			visible_message(SPAN_DANGER("[user] has broken [src]'s grip on [rgrab.affecting]!"))
 			success = 1
 		spawn(1)
 			qdel(rgrab)

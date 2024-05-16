@@ -245,7 +245,7 @@
 
 	if(prob(50) && (user.a_intent == I_HURT))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [L] away with \the [src]!"))
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)

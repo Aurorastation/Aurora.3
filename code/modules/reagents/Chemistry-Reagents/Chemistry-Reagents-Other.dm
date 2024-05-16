@@ -600,7 +600,7 @@
 	if(stored_value >= 1)
 		M.visible_message(\
 			SPAN_WARNING("/The [M]'s body shifts and contorts!"),\
-			"<span class='danger'>Your body shifts and contorts!</span>",\
+			SPAN_DANGER("Your body shifts and contorts!"),\
 			SPAN_NOTICE("You hear strange flesh-like noises.")\
 		)
 		scramble(TRUE, M, 100)

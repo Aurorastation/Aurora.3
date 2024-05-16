@@ -622,15 +622,15 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is still recharging!"))
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			to_chat(owner, SPAN_DANGER("You can not use \the [src] in your current state!"))
 			return
 
 		if(is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is too damaged to be used!"))
 			return
 
 		if(is_bruised())
@@ -638,11 +638,11 @@
 
 		var/obj/item/grab/G = owner.get_active_hand()
 		if(!istype(G))
-			to_chat(owner, "<span class='danger'>You must grab someone before trying to use your [src]!</span>")
+			to_chat(owner, SPAN_DANGER("You must grab someone before trying to use your [src]!"))
 			return
 
 		if(owner.nutrition <= 150) //slightly more energy-efficient than aut'akh bc bugs are better at augments
-			to_chat(owner, "<span class='danger'>Your energy reserves are too low to use your [src]!</span>")
+			to_chat(owner, SPAN_DANGER("Your energy reserves are too low to use your [src]!"))
 			return
 
 		if(ishuman(G.affecting))
@@ -658,7 +658,7 @@
 			else
 				H.stun_effect_act(0, 50, target_zone, owner)
 
-			owner.visible_message("<span class='danger'>[H] has been prodded with [src] by [owner]!</span>")
+			owner.visible_message(SPAN_DANGER("[H] has been prodded with [src] by [owner]!"))
 			playsound(get_turf(owner), 'sound/weapons/Egloves.ogg', 50, 1, -1)
 
 /obj/item/organ/external/hand/right/vaurca/medical
@@ -681,15 +681,15 @@
 	if(.)
 
 		if(owner.last_special > world.time)
-			to_chat(owner, "<span class='danger'>\The [src] is still recharging!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is still recharging!"))
 			return
 
 		if(owner.stat || owner.paralysis || owner.stunned || owner.weakened)
-			to_chat(owner, "<span class='danger'>You can not use \the [src] in your current state!</span>")
+			to_chat(owner, SPAN_DANGER("You can not use \the [src] in your current state!"))
 			return
 
 		if(is_broken())
-			to_chat(owner, "<span class='danger'>\The [src] is too damaged to be used!</span>")
+			to_chat(owner, SPAN_DANGER("\The [src] is too damaged to be used!"))
 			return
 
 		if(is_bruised())
@@ -697,7 +697,7 @@
 
 		var/obj/item/grab/G = owner.get_active_hand()
 		if(!istype(G))
-			to_chat(owner, "<span class='danger'>You must grab someone before trying to analyze their health!</span>")
+			to_chat(owner, SPAN_DANGER("You must grab someone before trying to analyze their health!"))
 			return
 
 		owner.last_special = world.time + 50

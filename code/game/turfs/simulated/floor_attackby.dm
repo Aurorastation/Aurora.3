@@ -9,7 +9,7 @@
 				to_chat(user, SPAN_NOTICE("You remove the broken [flooring.descriptor]."))
 				make_plating()
 			else if(flooring.flags & TURF_IS_FRAGILE)
-				to_chat(user, "<span class='danger'>You forcefully pry off the [flooring.descriptor], destroying them in the process.</span>")
+				to_chat(user, SPAN_DANGER("You forcefully pry off the [flooring.descriptor], destroying them in the process."))
 				make_plating()
 			else if(flooring.flags & TURF_REMOVE_CROWBAR)
 				to_chat(user, SPAN_NOTICE("You lever off the [flooring.descriptor]."))
@@ -108,7 +108,7 @@
 					src.ReplaceWithLattice()
 					playsound(src, 'sound/items/Deconstruct.ogg', 80, 1)
 					if(T)
-						T.visible_message("<span class='danger'>The ceiling above has been pried off!</span>")
+						T.visible_message(SPAN_DANGER("The ceiling above has been pried off!"))
 				return
 			return
 		else if(attacking_item.iswelder())

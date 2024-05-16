@@ -478,9 +478,9 @@
 			to_chat(user, SPAN_WARNING("There is nobody inside \the [src]."))
 		else if(!hatch_closed)
 			var/mob/pilot = pick(pilots)
-			user.visible_message("<span class='danger'>\The [user] is trying to pull \the [pilot] out of \the [src]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] is trying to pull \the [pilot] out of \the [src]!"))
 			if(do_after(user, 30) && user.Adjacent(src) && (pilot in pilots) && !hatch_closed)
-				user.visible_message("<span class='danger'>\The [user] drags \the [pilot] out of \the [src]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] drags \the [pilot] out of \the [src]!"))
 				eject(pilot, silent=1)
 
 		return
@@ -554,13 +554,13 @@
 				D.attack_log += "\[[time_stamp()]\]<font color='orange'> Was trampled by [src]</font>"
 				attack_log += text("\[[time_stamp()]\] <span class='warning'>trampled [D.name] ([D.ckey]) with \the [src].</span>")
 				msg_admin_attack("[src] trampled [key_name(D)] at (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[D.x];Y=[D.y];Z=[D.z]'>JMP</a>)" )
-				src.visible_message("<span class='danger'>\The [src] runs over \the [D]!</span>")
+				src.visible_message(SPAN_DANGER("\The [src] runs over \the [D]!"))
 				D.apply_damage(legs.trample_damage, DAMAGE_BRUTE)
 				return TRUE
 
 		else
 			var/mob/living/L = H
-			src.visible_message("<span class='danger'>\The [src] runs over \the [L]!</span>")
+			src.visible_message(SPAN_DANGER("\The [src] runs over \the [L]!"))
 			if(isanimal(L))
 				if(issmall(L) && (L.stat == DEAD))
 					L.gib()

@@ -68,7 +68,7 @@
 			to_chat(user, SPAN_NOTICE("You smack \the [src]'s head with your hand."))
 			H.confused += 10
 			H.stuttering += 5
-			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")
+			to_chat(H, SPAN_DANGER("You suddenly feel as if your head was hit by something!"))
 			playsound(get_turf(H), /singleton/sound_category/punch_sound, 50, 1, -1)
 
 		cooldown = world.time + cooldown_time
@@ -113,7 +113,7 @@
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 			if(H.can_feel_pain())
 				var/obj/item/organ/external/organ = H.get_organ(target_zone)
-				to_chat(H, "<span class='danger'>You feel a stabbing pain in your [organ.name]!</span>")
+				to_chat(H, SPAN_DANGER("You feel a stabbing pain in your [organ.name]!"))
 			return TRUE
 
 /obj/item/poppet/throw_impact(atom/hit_atom)
@@ -150,12 +150,12 @@
 	if(H)
 		H.adjust_fire_stacks(2)
 		H.IgniteMob()
-		to_chat(H, "<span class='danger'>You suddenly burst into flames!!</span>")
+		to_chat(H, SPAN_DANGER("You suddenly burst into flames!!"))
 
 /obj/item/poppet/crush_act()
 	var/mob/living/carbon/human/H = target.resolve()
 	if(H)
-		to_chat(H, "<span class='danger'>You feel an outworldly force crushing you!</span>")
+		to_chat(H, SPAN_DANGER("You feel an outworldly force crushing you!"))
 		H.adjustBruteLoss(35)
 		H.apply_effect(6, WEAKEN)
 	qdel(src)

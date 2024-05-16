@@ -69,9 +69,9 @@
 			if (attacking_item.damtype == DAMAGE_PAIN)
 				damage = 0
 			health -= damage
-			visible_message("<span class='danger'>[src] has been attacked with the [attacking_item] by [user].</span>")
+			visible_message(SPAN_DANGER("[src] has been attacked with the [attacking_item] by [user]."))
 		else
-			visible_message("<span class='danger'>[src] blocks the [attacking_item] with its shield!</span>")
+			visible_message(SPAN_DANGER("[src] blocks the [attacking_item] with its shield!"))
 		//user.do_attack_animation(src)
 	else
 		to_chat(usr, SPAN_WARNING("This weapon is ineffective, it does no damage."))
@@ -83,7 +83,7 @@
 	if(prob(65))
 		src.health -= Proj.damage
 	else
-		visible_message("<span class='danger'>[src] blocks [Proj] with its shield!</span>")
+		visible_message(SPAN_DANGER("[src] blocks [Proj] with its shield!"))
 	return 0
 
 

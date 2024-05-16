@@ -337,7 +337,7 @@ var/list/preferences_datums = list()
 		if(GLOB.config.forumurl)
 			send_link(user, GLOB.config.forumurl)
 		else
-			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
+			to_chat(user, SPAN_DANGER("The forum URL is not set in the server configuration."))
 			return
 	return 1
 

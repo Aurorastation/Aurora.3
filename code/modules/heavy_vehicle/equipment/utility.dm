@@ -442,7 +442,7 @@
 			return
 
 		owner.use_cell_power(active_power_use * CELLRATE)
-		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", SPAN_WARNING("You hear a large drill."))
+		owner.visible_message(SPAN_DANGER("\The [owner] starts to drill \the [target]"), SPAN_WARNING("You hear a large drill."))
 
 		var/T = target.loc
 

@@ -80,7 +80,7 @@
 	. = ..()
 
 	if (status == STATUS_BROKEN)
-		. += "<span class='danger'>It looks broken!</span>"
+		. += SPAN_DANGER("It looks broken!")
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
@@ -113,7 +113,7 @@
 
 /obj/item/device/magnetic_lock/attackby(obj/item/attacking_item, mob/user)
 	if (status == STATUS_BROKEN)
-		to_chat(user, "<span class='danger'>[src] is broken beyond repair!</span>")
+		to_chat(user, SPAN_DANGER("[src] is broken beyond repair!"))
 		return TRUE
 
 	if (istype(attacking_item, /obj/item/card/id))
@@ -131,19 +131,21 @@
 				to_chat(user, SPAN_WARNING("\The [src] buzzes as you swipe your [attacking_item]."))
 				return
 		else
-			to_chat(user, "<span class='danger'>You cannot swipe your [attacking_item] through [src] with it partially dismantled!</span>")
+			to_chat(user, SPAN_DANGER("You cannot swipe your [attacking_item] through [src] with it partially dismantled!"))
 		return TRUE
 
 	if (istype(attacking_item, /obj/item) && user.a_intent == "harm")
 		if (attacking_item.force >= 18)
-			user.visible_message("<span class='danger'>[user] bashes [src] with [attacking_item]!</span>", "<span class='danger'>You strike [src] with [attacking_item], damaging it!</span>")
+			user.visible_message(SPAN_DANGER("[user] bashes [src] with [attacking_item]!"),
+							SPAN_DANGER("You strike [src] with [attacking_item], damaging it!"))
+
 			takedamage(attacking_item.force)
 			var/sound_to_play = pick(list('sound/weapons/genhit1.ogg', 'sound/weapons/genhit2.ogg', 'sound/weapons/genhit3.ogg'))
 			playsound(loc, sound_to_play, attacking_item.force*3, 1)
 			sound_to_play = pick(list('sound/effects/sparks1.ogg', 'sound/effects/sparks2.ogg', 'sound/effects/sparks3.ogg', 'sound/effects/sparks4.ogg'))
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, sound_to_play, 30, 1), 3, TIMER_CLIENT_TIME)
 		else
-			user.visible_message("<span class='danger'>[user] hits [src] with [attacking_item] but fails to damage it.</span>", SPAN_WARNING("You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]"))
+			user.visible_message(SPAN_DANGER("[user] hits [src] with [attacking_item] but fails to damage it."), SPAN_WARNING("You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]"))
 			playsound(loc, 'sound/weapons/Genhit.ogg', attacking_item.force*2.5, 1)
 		return TRUE
 
@@ -154,7 +156,9 @@
 			if (istype(attacking_item, /obj/item/card/emag))
 				var/obj/item/card/emag/emagcard = attacking_item
 				emagcard.uses--
-				visible_message("<span class='danger'>[src] sparks and falls off the door!</span>", "<span class='danger'>You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!</span>")
+				visible_message(SPAN_DANGER("[src] sparks and falls off the door!"),
+								SPAN_DANGER("You emag [src], frying its circuitry[status == STATUS_ACTIVE ? " and making it drop onto the floor" : ""]!"))
+
 
 				status = STATUS_BROKEN
 				if (target)
@@ -432,7 +436,7 @@
 		health = 0
 
 	if (health <= 0)
-		visible_message("<span class='danger'>[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!</span>")
+		visible_message(SPAN_DANGER("[src] sparks[target ? " and falls off of \the [target]!" : "!"] It is now completely unusable!"))
 		detach(0)
 		status = STATUS_BROKEN
 		update_icon()

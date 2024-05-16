@@ -116,7 +116,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] buzzes!"))
 			return
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [target] away with \the [src]!"))
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
 		step_away(target,user,15)
@@ -173,7 +173,7 @@
 			else if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
 				if (target.r_hand && target.r_hand != src)
 					target.drop_r_hand()
-			user.visible_message("<span class='danger'>\The [user] disarms \the [target] with \the [src]!</span>")
+			user.visible_message(SPAN_DANGER("\The [user] disarms \the [target] with \the [src]!"))
 		return
 
 /obj/item/melee/ceremonial_sword

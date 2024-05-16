@@ -252,7 +252,7 @@
 	if(prob(min(25,max(1,seed.get_trait(TRAIT_POTENCY/2)))))
 		if(seed.get_trait(TRAIT_SPOROUS) && !closed_system)
 			seed.create_spores(get_turf(src))
-			visible_message("<span class='danger'>\The [src] releases its spores!</span>")
+			visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 
 //Process reagents being input into the tray.
 /obj/machinery/portable_atmospherics/hydroponics/proc/process_reagents()
@@ -323,7 +323,7 @@
 	// Reset values.
 	if(seed.get_trait(TRAIT_SPOROUS))
 		seed.create_spores(get_turf(src))
-		visible_message("<span class='danger'>\The [src] releases its spores!</span>")
+		visible_message(SPAN_DANGER("\The [src] releases its spores!"))
 	harvest = 0
 	lastproduce = age
 
@@ -454,7 +454,7 @@
 	weedlevel = 0
 
 	update_icon()
-	visible_message("<span class='danger'>The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!</span>")
+	visible_message(SPAN_DANGER("The </span><span class='notice'>[previous_plant]</span><span class='danger'> has suddenly mutated into </span><span class='notice'>[seed.display_name]!"))
 
 	return
 
@@ -556,16 +556,18 @@
 			check_health()
 
 		else
-			to_chat(user, "<span class='danger'>\The [src] already has seeds in it!</span>")
+			to_chat(user, SPAN_DANGER("\The [src] already has seeds in it!"))
 
 	else if (istype(attacking_item, /obj/item/material/minihoe))  // The minihoe
 
 		if(weedlevel > 0)
-			user.visible_message("<span class='danger'>[user] starts uprooting the weeds.</span>", "<span class='danger'>You remove the weeds from the [src].</span>")
+			user.visible_message(SPAN_DANGER("[user] starts uprooting the weeds."),
+									SPAN_DANGER("You remove the weeds from the [src]."))
+
 			weedlevel = 0
 			update_icon()
 		else
-			to_chat(user, "<span class='danger'>This plot is completely devoid of weeds. It doesn't need uprooting.</span>")
+			to_chat(user, SPAN_DANGER("This plot is completely devoid of weeds. It doesn't need uprooting."))
 
 	else if (istype(attacking_item, /obj/item/storage/bag/plants))
 
@@ -601,7 +603,7 @@
 
 	else if(attacking_item.force && seed)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-		user.visible_message("<span class='danger'>\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!</span>")
+		user.visible_message(SPAN_DANGER("\The [seed.display_name] has been attacked by [user] with \the [attacking_item]!"))
 		if(!dead)
 			var/total_damage = attacking_item.force
 			if ((attacking_item.sharp) || (attacking_item.damtype == "fire")) //fire and sharp things are more effective when dealing with plants
@@ -646,7 +648,7 @@
 		. += "\The [src] is <span class='danger'>infested with tiny worms</span>!"
 
 	if(dead)
-		. += "<span class='danger'>The plant is dead.</span>"
+		. += SPAN_DANGER("The plant is dead.")
 	else if(health <= (seed.get_trait(TRAIT_ENDURANCE)/ 2))
 		. += "The plant looks <span class='danger'>unhealthy</span>."
 

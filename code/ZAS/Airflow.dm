@@ -92,7 +92,9 @@ Contains helper procs for airflow, handled in /connection_group.
 
 /mob/airflow_hit(atom/A)
 	for(var/mob/M in hearers(src))
-		M.show_message("<span class='danger'>\The [src] slams into \a [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
+		M.show_message(SPAN_DANGER("\The [src] slams into \a [A]!"),1,
+						SPAN_DANGER("You hear a loud slam!"),2)
+
 	playsound(src.loc, 'sound/weapons/smash.ogg', 25, 1, -1)
 	var/weak_amt = istype(A,/obj/item) ? A:w_class : rand(1,5) //Heheheh
 	Weaken(weak_amt)
@@ -100,7 +102,9 @@ Contains helper procs for airflow, handled in /connection_group.
 
 /obj/airflow_hit(atom/A)
 	for(var/mob/M in hearers(src))
-		M.show_message("<span class='danger'>\The [src] slams into \a [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
+		M.show_message(SPAN_DANGER("\The [src] slams into \a [A]!"),1,
+						SPAN_DANGER("You hear a loud slam!"),2)
+
 	playsound(src.loc, 'sound/weapons/smash.ogg', 25, 1, -1)
 	. = ..()
 
@@ -110,7 +114,7 @@ Contains helper procs for airflow, handled in /connection_group.
 
 /mob/living/carbon/human/airflow_hit(atom/A)
 //	for(var/mob/M in hearers(src))
-//		M.show_message("<span class='danger'>[src] slams into [A]!</span>",1,"<span class='danger'>You hear a loud slam!</span>",2)
+//		M.show_message(SPAN_DANGER("[src] slams into [A]!</span>",1,"<span class='danger'>You hear a loud slam!"),2)
 	playsound(src.loc, /singleton/sound_category/punch_sound, 25, 1, -1)
 	if (prob(33))
 		loc:add_blood(src)

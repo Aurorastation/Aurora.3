@@ -76,7 +76,7 @@
 		else
 			message_admins("[key_name_admin(usr)] detonated [target.name]!")
 			log_game("[key_name(usr)] detonated [target.name]!",ckey=key_name(usr))
-			to_chat(target, "<span class='danger'>Self-destruct command received.</span>")
+			to_chat(target, SPAN_DANGER("Self-destruct command received."))
 			spawn(10)
 				target.self_destruct()
 
@@ -196,7 +196,7 @@
 				continue
 			if(R.emagged)
 				continue
-			to_chat(R, "<span class='danger'>Self-destruct command received.</span>")
+			to_chat(R, SPAN_DANGER("Self-destruct command received."))
 			spawn(10)
 				R.self_destruct()
 

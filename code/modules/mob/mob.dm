@@ -448,13 +448,13 @@
 		return
 
 	if (length(mind.memory) >= MAX_PAPER_MESSAGE_LEN)
-		to_chat(src, "<span class='danger'>You have exceeded the alotted text size for memories.</span>")
+		to_chat(src, SPAN_DANGER("You have exceeded the alotted text size for memories."))
 		return
 
 	msg = sanitize(msg)
 
 	if (length(mind.memory + msg) >= MAX_PAPER_MESSAGE_LEN)
-		to_chat(src, "<span class='danger'>Your input would exceed the alotted text size for memories. Try again with a shorter message.</span>")
+		to_chat(src, SPAN_DANGER("Your input would exceed the alotted text size for memories. Try again with a shorter message."))
 		return
 
 	mind.store_memory(msg)
@@ -765,7 +765,7 @@
 			visible_message(SPAN_WARNING("\The [src] grips \the [H]'s arm."), SPAN_NOTICE("You grip \the [H]'s arm."))
 		playsound(loc, /singleton/sound_category/grab_sound, 25, FALSE, -1) //Quieter than hugging/grabbing but we still want some audio feedback
 		if(H.pull_damage())
-			to_chat(src, "<span class='danger'>Pulling \the [H] in their current condition would probably be a bad idea.</span>")
+			to_chat(src, SPAN_DANGER("Pulling \the [H] in their current condition would probably be a bad idea."))
 
 	//Attempted fix for people flying away through space when cuffed and dragged.
 	if(M)

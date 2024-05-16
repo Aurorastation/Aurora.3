@@ -222,8 +222,8 @@
 		var/mob/living/L = AM
 		if(msg)
 			L.visible_message(
-				"<span class='danger'>[L] enters \the [src], and it snaps shut with a clatter!</span>",
-				"<span class='danger'>You enter \the [src], and it snaps shut with a clatter!</span>",
+				SPAN_DANGER("[L] enters \the [src], and it snaps shut with a clatter!"),
+				SPAN_DANGER("You enter \the [src], and it snaps shut with a clatter!"),
 				"<b>You hear a loud metallic snap!</b>"
 				)
 		if(AM.loc != loc)
@@ -262,7 +262,7 @@
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
 	to_chat(escapee, SPAN_WARNING("You begin to shake and bump the lock of \the [src]. (this will take about [time_to_escape] minutes)."))
-	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is attempting to escape it!</span>")
+	visible_message(SPAN_DANGER("\The [src] begins to shake violently! Something is attempting to escape it!"))
 
 	var/time = 360 * time_to_escape * 2
 	breakout = TRUE
@@ -273,7 +273,7 @@
 
 	breakout = FALSE
 	to_chat(escapee, SPAN_WARNING("You successfully break out!"))
-	visible_message("<span class='danger'>\The [escapee] successfully breaks out of \the [src]!</span>")
+	visible_message(SPAN_DANGER("\The [escapee] successfully breaks out of \the [src]!"))
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 
 	release()

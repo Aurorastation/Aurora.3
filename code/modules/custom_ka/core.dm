@@ -181,13 +181,13 @@
 	else
 		switch(disaster)
 			if("spark")
-				to_chat(user,"<span class='danger'>\The [src] sparks!</span>")
+				to_chat(user,SPAN_DANGER("\The [src] sparks!"))
 				spark(src.loc, 3, GLOB.alldirs)
 			if("overheat")
-				to_chat(user,"<span class='danger'>\The [src] turns red hot!</span>")
+				to_chat(user,SPAN_DANGER("\The [src] turns red hot!"))
 				user.IgniteMob()
 			if("explode")
-				to_chat(user,"<span class='danger'>\The [src] violently explodes!</span>")
+				to_chat(user,SPAN_DANGER("\The [src] violently explodes!"))
 				explosion(get_turf(src.loc), 0, 1, 2, 4)
 				qdel(src)
 

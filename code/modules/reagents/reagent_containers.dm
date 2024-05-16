@@ -165,7 +165,9 @@
 	if(!reagents.total_volume)
 		return
 
-	user.visible_message("<span class='danger'>\The [target] has been splashed with something by \the [user]!</span>", "<span class = 'warning'>You splash the solution onto \the [target].</span>")
+	user.visible_message(SPAN_DANGER("\The [target] has been splashed with something by \the [user]!"),
+							SPAN_WARNING("You splash the solution onto \the [target]."))
+
 	reagents.splash(target, reagents.total_volume)
 	return
 
@@ -192,7 +194,9 @@
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to splash [target.name] ([target.key]). Reagents: [contained] [temperature_text].</span>")
 	msg_admin_attack("[user.name] ([user.ckey]) splashed [target.name] ([target.key]) with [name]. Reagents: [contained] (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(target))
 
-	user.visible_message("<span class='danger'>\The [target] has been splashed with something by \the [user]!</span>", "<span class = 'warning'>You splash the solution onto \the [target].</span>")
+	user.visible_message(SPAN_DANGER("\The [target] has been splashed with something by \the [user]!"),
+							SPAN_WARNING("You splash the solution onto \the [target]."))
+
 	reagents.splash(target, min(120,reagents.total_volume) ) //Splash Limit
 
 	if (istype(target, /mob/living/silicon/robot))

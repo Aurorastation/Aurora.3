@@ -23,7 +23,7 @@
 
 /obj/item/spell/reflect/Destroy()
 	if(owner)
-		to_chat(owner, "<span class='danger'>Your shield expires!</span>")
+		to_chat(owner, SPAN_DANGER("Your shield expires!"))
 	return ..()
 
 /obj/item/spell/reflect/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
@@ -33,7 +33,7 @@
 	var/damage_to_energy_cost = (damage_to_energy_multiplier * damage)
 
 	if(!pay_energy(damage_to_energy_cost))
-		to_chat(owner, "<span class='danger'>Your shield fades due to lack of energy!</span>")
+		to_chat(owner, SPAN_DANGER("Your shield fades due to lack of energy!"))
 		qdel(src)
 		return FALSE
 
@@ -45,7 +45,7 @@
 			var/obj/item/projectile/P = damage_source
 
 			if(P.starting && !P.reflected)
-				visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+				visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
 
 				var/turf/curloc = get_turf(user)
 
@@ -63,7 +63,7 @@
 				if(!reflecting)
 					reflecting = 1
 					spawn(2 SECONDS) //To ensure that most or all of a burst fire cycle is reflected.
-						to_chat(owner, "<span class='danger'>Your shield fades due being used up!</span>")
+						to_chat(owner, SPAN_DANGER("Your shield fades due being used up!"))
 						qdel(src)
 
 				return PROJECTILE_CONTINUE // complete projectile permutation
@@ -83,7 +83,7 @@
 				if(!reflecting)
 					reflecting = 1
 					spawn(2 SECONDS) //To ensure that most or all of a burst fire cycle is reflected.
-						to_chat(owner, "<span class='danger'>Your shield fades due being used up!</span>")
+						to_chat(owner, SPAN_DANGER("Your shield fades due being used up!"))
 						qdel(src)
 		return PROJECTILE_STOPPED
 	return FALSE

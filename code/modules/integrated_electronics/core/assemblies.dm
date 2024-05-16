@@ -92,7 +92,7 @@
 	if(battery)
 		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=\ref[src];remove_cell=1'>Remove</a>"
 	else
-		HTML += "<span class='danger'>No powercell detected!</span>"
+		HTML += SPAN_DANGER("No powercell detected!")
 	HTML += "<br><br>"
 	HTML += "Components:<hr>"
 	HTML += "Built in:<br>"

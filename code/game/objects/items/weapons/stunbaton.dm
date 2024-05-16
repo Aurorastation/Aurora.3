@@ -108,7 +108,7 @@
 	if(!L) return
 
 	if(status && (user.is_clumsy()) && prob(50))
-		to_chat(user, "<span class='danger'>You accidentally hit yourself with the [src]!</span>")
+		to_chat(user, SPAN_DANGER("You accidentally hit yourself with the [src]!"))
 		user.Weaken(30)
 		deductcharge(hitcost)
 		return
@@ -162,7 +162,7 @@
 					L.visible_message(SPAN_WARNING("[L] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off."))
 					return 1
 				else
-					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with \the [src] by [user]!</span>")
+					H.visible_message(SPAN_DANGER("[L] has been prodded in the [affecting.name] with \the [src] by [user]!"))
 					var/intent = "(INTENT: [user? uppertext(user.a_intent) : "N/A"])"
 					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src]")
 					if(!sheathed)
@@ -173,7 +173,7 @@
 				L.visible_message(SPAN_WARNING("[S] has been prodded with \the [src] by [user]. Too bad it was off."))
 				return TRUE
 			else
-				L.visible_message("<span class='danger'>[S] has been prodded with \the [src] by [user]!</span>")
+				L.visible_message(SPAN_DANGER("[S] has been prodded with \the [src] by [user]!"))
 
 			S.discipline++
 			if(prob(1))
@@ -185,7 +185,7 @@
 				L.visible_message(SPAN_WARNING("[L] has been prodded with \the [src] by [user]. Luckily it was off."))
 				return TRUE
 			else
-				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
+				L.visible_message(SPAN_DANGER("[L] has been prodded with \the [src] by [user]!"))
 
 	//stun effects
 	L.stun_effect_act(stun, agony, target_zone, src)

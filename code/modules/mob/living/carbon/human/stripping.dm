@@ -35,22 +35,22 @@
 				to_chat(user, SPAN_NOTICE("The [T] is set to release [T.distribute_pressure] kPA."))
 			return TRUE
 		if("pockets")
-			visible_message("<span class='danger'>\The [user] is trying to empty \the [src]'s pockets!</span>")
+			visible_message(SPAN_DANGER("\The [user] is trying to empty \the [src]'s pockets!"))
 			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				empty_pockets(user)
 			return 1
 		if("splints")
-			visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s splints!</span>")
+			visible_message(SPAN_DANGER("\The [user] is trying to remove \the [src]'s splints!"))
 			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				remove_splints(user)
 			return 1
 		if("sensors")
-			visible_message("<span class='danger'>\The [user] is trying to set \the [src]'s sensors!</span>")
+			visible_message(SPAN_DANGER("\The [user] is trying to set \the [src]'s sensors!"))
 			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				toggle_sensors(user)
 			return 1
 		if("internals")
-			visible_message("<span class='danger'>\The [usr] is trying to set \the [src]'s internals!</span>")
+			visible_message(SPAN_DANGER("\The [usr] is trying to set \the [src]'s internals!"))
 			if(do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				toggle_internals(user)
 			return 1
@@ -70,7 +70,7 @@
 
 			if(!istype(A))
 				return 0
-			visible_message("<span class='danger'>\The [usr] is trying to remove \the [src]'s [A.name]!</span>")
+			visible_message(SPAN_DANGER("\The [usr] is trying to remove \the [src]'s [A.name]!"))
 
 			if(!do_after(user, HUMAN_STRIP_DELAY, src, do_flags = DO_EQUIP))
 				return 0
@@ -79,7 +79,7 @@
 				return 0
 
 			if(istype(A, /obj/item/clothing/accessory/badge) || istype(A, /obj/item/clothing/accessory/medal))
-				user.visible_message("<span class='danger'>\The [user] tears off \the [A] from [src]'s [suit.name]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] tears off \the [A] from [src]'s [suit.name]!"))
 			attack_log += "\[[time_stamp()]\] <font color='orange'>Has had \the [A] removed by [user.name] ([user.ckey])</font>"
 			user.attack_log += "\[[time_stamp()]\] <span class='warning'>Attempted to remove [name]'s ([ckey]) [A.name]</span>"
 			suit.remove_accessory(user, A)
@@ -94,9 +94,9 @@
 			to_chat(user, SPAN_WARNING("You cannot remove \the [src]'s [target_slot.name]."))
 			return 0
 		else
-			visible_message("<span class='danger'>\The [user] is trying to remove \the [src]'s [target_slot.name]!</span>")
+			visible_message(SPAN_DANGER("\The [user] is trying to remove \the [src]'s [target_slot.name]!"))
 	else
-		visible_message("<span class='danger'>\The [user] is trying to put \a [held] on \the [src]!</span>")
+		visible_message(SPAN_DANGER("\The [user] is trying to put \a [held] on \the [src]!"))
 	if(!do_mob(user,src,HUMAN_STRIP_DELAY))
 		return 0
 	if(!stripping && held != user.get_active_hand())
@@ -123,7 +123,7 @@
 		unEquip(r_store)
 	if(l_store)
 		unEquip(l_store)
-	visible_message("<span class='danger'>\The [user] empties \the [src]'s pockets!</span>")
+	visible_message(SPAN_DANGER("\The [user] empties \the [src]'s pockets!"))
 
 // Modify the current target sensor level.
 /mob/living/carbon/human/proc/toggle_sensors(var/mob/living/user)
@@ -158,7 +158,7 @@
 				W.add_fingerprint(user)
 				removed_splint = 1
 		if(removed_splint)
-			visible_message("<span class='danger'>\The [user] removes \the [src]'s splints!</span>")
+			visible_message(SPAN_DANGER("\The [user] removes \the [src]'s splints!"))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] has no splints to remove."))
 
@@ -187,4 +187,4 @@
 		if (internals)
 			internals.icon_state = "internal1"
 	else
-		visible_message("<span class='danger'>\The [user] disables \the [src]'s internals!</span>")
+		visible_message(SPAN_DANGER("\The [user] disables \the [src]'s internals!"))

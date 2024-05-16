@@ -44,7 +44,7 @@
 		return
 
 	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
-		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
 		if(!H.eyes_protected(src, FALSE))
 			eyestab(H,user)
 		if(H.reagents)

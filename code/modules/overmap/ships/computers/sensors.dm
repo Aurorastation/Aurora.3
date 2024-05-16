@@ -497,9 +497,9 @@
 	if(health <= 0)
 		. += "\The [src] is wrecked."
 	else if(health < max_health * 0.25)
-		. += "<span class='danger'>\The [src] looks like it's about to break!</span>"
+		. += SPAN_DANGER("\The [src] looks like it's about to break!")
 	else if(health < max_health * 0.5)
-		. += "<span class='danger'>\The [src] looks seriously damaged!</span>"
+		. += SPAN_DANGER("\The [src] looks seriously damaged!")
 	else if(health < max_health * 0.75)
 		. += "\The [src] shows signs of damage!"
 
@@ -529,7 +529,7 @@
 		if(desired_range-range <= -max_range/2)
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
-			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
+			src.visible_message(SPAN_DANGER("\The [src] violently spews out sparks!"))
 			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()

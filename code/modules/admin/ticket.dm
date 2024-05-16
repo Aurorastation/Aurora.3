@@ -104,7 +104,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		SSdiscord.send_to_admins("[key_name(owner_client)]'s request for help has been taken by [key_name(assigned_admin)].")
 		owner_client.adminhelped = ADMINHELPED
 
-	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
+	message_admins(SPAN_DANGER("<b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket."))
 	to_chat(owner_client, SPAN_NOTICE("<b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b>"))
 	to_chat(assigned_admin, get_options_bar(owner_client, 2, 1, 1))
 
@@ -123,11 +123,11 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		var/client/C = client_by_ckey(ckey)
 		if (C)
 			admin_found = TRUE
-			to_chat(C, "<span class='danger'><b>You have yet to close [owner]'s ticket!</b></span>")
+			to_chat(C, SPAN_DANGER("<b>You have yet to close [owner]'s ticket!</b>"))
 			sound_to(C, 'sound/effects/adminhelp.ogg')
 
 	if (!admin_found)
-		message_admins("<span class='danger'><b>[owner]'s ticket has yet to be closed!</b></span>")
+		message_admins(SPAN_DANGER("<b>[owner]'s ticket has yet to be closed!</b>"))
 		for(var/s in GLOB.staff)
 			var/client/C = s
 			if((C.holder.rights & (R_ADMIN|R_MOD)) && (C.prefs.toggles & SOUND_ADMINHELP))

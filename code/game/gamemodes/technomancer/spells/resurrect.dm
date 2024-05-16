@@ -27,7 +27,7 @@
 			return 0
 		if(pay_energy(5000))
 			if(L.tod > world.time + 30 MINUTES)
-				to_chat(user, "<span class='danger'>\The [L]'s been dead for too long, even this function cannot replace cloning at this point.</span>")
+				to_chat(user, SPAN_DANGER("\The [L]'s been dead for too long, even this function cannot replace cloning at this point."))
 				return 0
 			to_chat(user, SPAN_NOTICE("You stab \the [L] with a hidden integrated hypo, attempting to bring them back..."))
 			if(istype(L, /mob/living/simple_animal))
@@ -51,7 +51,7 @@
 					H.adjustBruteLoss(-40)
 					H.adjustFireLoss(-40)
 					L.basic_revival() //Restores your boy's brain to half health and makes them conscious. Doesn't touch anything internal: they'll immediately have a heart attack, good luck!
-					visible_message("<span class='danger'>\The [H]'s eyes open!</span>")
+					visible_message(SPAN_DANGER("\The [H]'s eyes open!"))
 					to_chat(user, SPAN_NOTICE("It's alive!"))
 					adjust_instability(50)
 					log_and_message_admins("has resurrected [H].")

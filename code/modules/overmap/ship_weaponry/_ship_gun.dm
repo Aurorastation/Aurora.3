@@ -84,7 +84,7 @@
 			. = "<span class='danger'>It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
 				pass inspection.</span>"
 		if(90 to 100)
-			. = "<span class='danger'>It's falling apart! Just touching it might make the whole thing collapse!</span>"
+			. = SPAN_DANGER("It's falling apart! Just touching it might make the whole thing collapse!")
 		else //At roundstart, weapons start with 0 damage, so it'd be 0 / 1000 * 100 -> 0
 			return "It looks to be in tip top shape and not damaged at all."
 

@@ -37,12 +37,12 @@
 		return
 
 	if(world.time < player.rev_cooldown)
-		to_chat(antag, "<span class='danger'>You must wait five seconds between attempts.</span>")
+		to_chat(antag, SPAN_DANGER("You must wait five seconds between attempts."))
 		return
 
-	to_chat(antag, "<span class='danger'>You are attempting to convert \the [player.current]...</span>")
+	to_chat(antag, SPAN_DANGER("You are attempting to convert \the [player.current]..."))
 	log_admin("[antag.mob]([antag.ckey]) attempted to convert [player.current].",ckey=antag.ckey,ckey_target=key_name(player.current))
-	message_admins("<span class='danger'>[antag.mob]([antag.ckey]) attempted to convert [player.current].</span>")
+	message_admins(SPAN_DANGER("[antag.mob]([antag.ckey]) attempted to convert [player.current]."))
 
 	player.rev_cooldown = world.time+100
 	var/choice = alert(player.current,"Asked by [antag.mob]: Do you want to join the [faction.faction_descriptor]?","Join the [faction.faction_descriptor]?","No!","Yes!")
@@ -50,8 +50,8 @@
 		to_chat(antag, SPAN_NOTICE("\The [player.current] joins the [faction.faction_descriptor]!"))
 		return
 	if(choice == "No!")
-		to_chat(player, "<span class='danger'>You reject this subversive cause!</span>")
-	to_chat(antag, "<span class='danger'>\The [player.current] does not support the [faction.faction_descriptor]!</span>")
+		to_chat(player, SPAN_DANGER("You reject this subversive cause!"))
+	to_chat(antag, SPAN_DANGER("\The [player.current] does not support the [faction.faction_descriptor]!"))
 
 /mob/living/proc/convert_to_loyalist()
 	set name = "Invite to the Loyalists"

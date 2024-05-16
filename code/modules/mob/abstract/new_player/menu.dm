@@ -326,7 +326,7 @@
 		to_chat(src, SPAN_NOTICE("Now teleporting."))
 		observer.forceMove(O.loc)
 	else
-		to_chat(src, "<span class='danger'>Could not locate an observer spawn point. Use the Teleport verb to jump to the station map.</span>")
+		to_chat(src, SPAN_DANGER("Could not locate an observer spawn point. Use the Teleport verb to jump to the station map."))
 	observer.timeofdeath = world.time // Set the time of death so that the respawn timer works correctly.
 
 	announce_ghost_joinleave(src)

@@ -92,7 +92,7 @@
 		grown_reagents = H.reagents
 
 	if(!grown_seed)
-		to_chat(user, "<span class='danger'>[src] can tell you nothing about \the [target].</span>")
+		to_chat(user, SPAN_DANGER("[src] can tell you nothing about \the [target]."))
 		return
 
 	form_title = "[grown_seed.seed_name] (#[grown_seed.uid])"

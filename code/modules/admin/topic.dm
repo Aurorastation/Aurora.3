@@ -297,9 +297,9 @@
 				return
 			var/reason = sanitize(input("Please enter reason"))
 			if(!reason)
-				to_chat_immediate(M, "<span class='danger'>You have been kicked from the server</span>")
+				to_chat_immediate(M, SPAN_DANGER("You have been kicked from the server"))
 			else
-				to_chat_immediate(M, "<span class='danger'>You have been kicked from the server: [reason]</span>")
+				to_chat_immediate(M, SPAN_DANGER("You have been kicked from the server: [reason]"))
 			log_admin("[key_name(usr)] booted [key_name(M)].",admin_key=key_name(usr),ckey=key_name(M))
 			message_admins(SPAN_NOTICE("[key_name_admin(usr)] booted [key_name_admin(M)]."), 1)
 			//M.client = null
@@ -339,8 +339,8 @@
 					notes_add(M.ckey,"[usr.client.ckey] has banned [M.ckey]. - Reason: [reason] - This will be removed in [mins] minutes.",usr)
 				else
 					notes_add_sql(M.ckey, "[usr.client.ckey] has banned [M.ckey]. - Reason: [reason] - This will be removed in [mins] minutes.", usr, M.lastKnownIP, M.computer_id)
-				to_chat_immediate(M, "<span class='danger'><BIG>You have been banned by [usr.client.ckey].\nReason: [reason].</BIG></span>")
-				to_chat_immediate(M, "<span class='danger'>This is a temporary ban, it will be removed in [mins] minutes.</span>")
+				to_chat_immediate(M, SPAN_DANGER("<BIG>You have been banned by [usr.client.ckey].\nReason: [reason].</BIG>"))
+				to_chat_immediate(M, SPAN_DANGER("This is a temporary ban, it will be removed in [mins] minutes."))
 				feedback_inc("ban_tmp",1)
 				DB_ban_record(BANTYPE_TEMP, M, mins, reason)
 				feedback_inc("ban_tmp_mins",mins)
@@ -365,7 +365,7 @@
 						AddBan(M.ckey, M.computer_id, reason, usr.ckey, 0, 0, M.lastKnownIP)
 					if("No")
 						AddBan(M.ckey, M.computer_id, reason, usr.ckey, 0, 0)
-				to_chat(M, "<span class='danger'><BIG>You have been banned by [usr.client.ckey].\nReason: [reason].</BIG></span>")
+				to_chat(M, SPAN_DANGER("<BIG>You have been banned by [usr.client.ckey].\nReason: [reason].</BIG>"))
 				to_chat(M, SPAN_WARNING("This is a permanent ban."))
 				if(GLOB.config.banappeals)
 					to_chat(M, SPAN_WARNING("To try to resolve this matter head to [GLOB.config.banappeals]"))
@@ -655,7 +655,7 @@
 
 		if(GLOB.config.allow_admin_rev)
 			L.revive()
-			message_admins("<span class='danger'>Admin [key_name_admin(usr)] healed / revived [key_name_admin(L)]!</span>", 1)
+			message_admins(SPAN_DANGER("Admin [key_name_admin(usr)] healed / revived [key_name_admin(L)]!"), 1)
 			log_admin("[key_name(usr)] healed / Revived [key_name(L)]",admin_key=key_name(usr),ckey=key_name(L))
 		else
 			to_chat(usr, "Admin Rejuvinates have been disabled")
@@ -669,7 +669,7 @@
 			to_chat(usr, "This can only be used on instances of type /mob/living/carbon/human")
 			return
 
-		message_admins("<span class='danger'>Admin [key_name_admin(usr)] AIized [key_name_admin(H)]!</span>", 1)
+		message_admins(SPAN_DANGER("Admin [key_name_admin(usr)] AIized [key_name_admin(H)]!"), 1)
 		log_admin("[key_name(usr)] AIized [key_name(H)]",admin_key=key_name(usr),ckey=key_name(H))
 		H.AIize()
 

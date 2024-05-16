@@ -69,9 +69,9 @@
 	corpse_to_raise.visible_message(SPAN_WARNING("[corpse_to_raise]'s eyes glow with a faint red as [corpse_to_raise.get_pronoun("he")] stands up, slowly starting to breathe again."), \
 	SPAN_WARNING("Life... I'm alive again..."), \
 	SPAN_WARNING("You hear a faint, slightly familiar whisper."))
-	body_to_maim.visible_message("<span class='danger'>[body_to_maim] is torn apart, a black smoke swiftly dissipating from [body_to_maim.get_pronoun("his")] wounds!</span>", \
-	"<span class='danger'>You feel as your blood boils, tearing you apart.</span>", \
-	"<span class='danger'>You hear a thousand voices, all crying in pain.</span>")
+	body_to_maim.visible_message(SPAN_DANGER("[body_to_maim] is torn apart, a black smoke swiftly dissipating from [body_to_maim.get_pronoun("his")] wounds!"), \
+	SPAN_DANGER("You feel as your blood boils, tearing you apart."), \
+	SPAN_DANGER("You hear a thousand voices, all crying in pain."))
 
 	var/list/obj/item/organ/external/possible_limbs = list()
 	var/limbs_to_drop = round(rand(1, 3))

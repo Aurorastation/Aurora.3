@@ -349,7 +349,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	var/mob/abstract/observer/M = src
 	if(jobban_isbanned(M, "AntagHUD"))
-		to_chat(src, "<span class='danger'>You have been banned from using this feature</span>")
+		to_chat(src, SPAN_DANGER("You have been banned from using this feature"))
 		return
 	if(GLOB.config.antag_hud_restricted && !M.has_enabled_antagHUD && (!client.holder || aux_staff))
 		var/response = alert(src, "If you turn this on, you will not be able to take any part in the round.","Are you sure you want to turn this feature on?","Yes","No")
@@ -695,7 +695,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 			return
 		return 1
 	else
-		to_chat(src, "<span class='danger'>You have not been pulled past the veil!</span>")
+		to_chat(src, SPAN_DANGER("You have not been pulled past the veil!"))
 
 /mob/abstract/observer/proc/move_item()
 	set category = "Ghost"
@@ -850,7 +850,7 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	set name = "Ghost Spawner"
 
 	if(!ROUND_IS_STARTED)
-		to_chat(usr, "<span class='danger'>The round hasn't started yet!</span>")
+		to_chat(usr, SPAN_DANGER("The round hasn't started yet!"))
 		return
 
 	SSghostroles.ui_interact(usr)

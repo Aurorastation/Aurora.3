@@ -146,7 +146,7 @@
 			adjustCloneLoss(2)
 			if(!heard_dying_message)
 				heard_dying_message = 1
-				to_chat(src, "<span class='danger'>You feel yourself begin to fade away!</span>")
+				to_chat(src, SPAN_DANGER("You feel yourself begin to fade away!"))
 	..()
 
 /mob/living/simple_animal/shade/bluespace/Life()
@@ -159,14 +159,14 @@
 	if(L.stat == DEAD)
 		adjustCloneLoss(2)
 		if(!heard_dying_message)
-			to_chat(src, "<span class='danger'>You feel yourself unable to sustain yourself on your host, and begin to fade away!</span>")
+			to_chat(src, SPAN_DANGER("You feel yourself unable to sustain yourself on your host, and begin to fade away!"))
 			heard_dying_message = 1
 
 	else if(L.sleeping)
 		adjustCloneLoss(2)
 		possession_heard_message = 0
 		if(!heard_dying_message)
-			to_chat(src, "<span class='danger'>Your host's lifestream is obfuscated in their dreams as they sleep, and you begin to fade away!</span>")
+			to_chat(src, SPAN_DANGER("Your host's lifestream is obfuscated in their dreams as they sleep, and you begin to fade away!"))
 			heard_dying_message = 1
 
 	else
@@ -182,7 +182,7 @@
 			var/list/nagging_doubts = list("You feel empowered by the ancestors!","You feel ancestral might flowing through your veins!","You feel the power of your forebears!", \
 											"You feel the blood of the warrior!", "You feel the glory of a warrior's death!", "You feel mighty!","You feel the strength of the spirits!")
 			if(prob(5) || !possession_heard_message)
-				to_chat(H, "<span class='danger'>[pick(nagging_doubts)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(nagging_doubts)]"))
 				possession_heard_message = 1
 
 		else
@@ -285,7 +285,7 @@
 		return
 
 	if(!original_body)
-		to_chat(src, "<span class='danger'>You feel an immeasurable hollowness as you realize that the original cradle of your soul is no more.</span>")
+		to_chat(src, SPAN_DANGER("You feel an immeasurable hollowness as you realize that the original cradle of your soul is no more."))
 		return
 
 

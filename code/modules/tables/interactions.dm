@@ -197,7 +197,7 @@
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
-				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
+				to_chat(user, SPAN_DANGER("There's \a [occupied] in the way."))
 				return
 			if(!user.Adjacent(M))
 				return
@@ -207,7 +207,7 @@
 					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
 					M.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
-					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
+					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
 					else
@@ -216,8 +216,8 @@
 					var/sanity_counter = 0
 					for(var/obj/item/material/shard/S in get_turf(src))
 						if(prob(50))
-							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
-												"<span class='danger'>\The [S] slices your face messily!</span>")
+							M.visible_message(SPAN_DANGER("\The [S] slices [M]'s face messily!"),
+												SPAN_DANGER("\The [S] slices your face messily!"))
 							M.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
@@ -226,7 +226,7 @@
 				else
 					G.affecting.forceMove(src.loc)
 					G.affecting.Weaken(rand(2,4))
-					visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
+					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
 					qdel(attacking_item)
 				return
 			else
@@ -309,7 +309,7 @@
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
-		user.visible_message("<span class='danger'>\The [src] was sliced apart by [user]!</span>")
+		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"))
 		break_to_parts()
 		return
 

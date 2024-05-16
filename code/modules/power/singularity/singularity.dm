@@ -227,7 +227,7 @@
 			if(chained)
 				overlays = "chain_s9"
 			if(growing)
-				visible_message("<span class='danger'><font size='2'>The singularity has grown out of control!</font></span>")
+				visible_message(SPAN_DANGER("<font size='2'>The singularity has grown out of control!</font>"))
 			else
 				visible_message(SPAN_WARNING("The singularity miraculously reduces in size and loses its supermatter properties."))
 		if(STAGE_SUPER)//SUPERSINGULO
@@ -244,7 +244,7 @@
 			event_chance = 25 //Events will fire off more often.
 			if(chained)
 				overlays = "chain_s9"
-			visible_message("<span class='danger'><font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font></span>")
+			visible_message(SPAN_DANGER("<font size='3'>You witness the creation of a destructive force that cannot possibly be stopped by human hands.</font>"))
 
 	if (current_size == allowed_size)
 		investigate_log(SPAN_WARNING("grew to size [current_size]."), I_SINGULO)
@@ -313,13 +313,13 @@
 	if(target && prob(60))
 		movement_dir = get_dir(src,target) //moves to a singulo beacon, if there is one
 		if(target.z < z)
-			visible_message("<span class='danger'>\The [src] gravitates downwards.</span>")
+			visible_message(SPAN_DANGER("\The [src] gravitates downwards."))
 			zMove(DOWN)
-			visible_message("<span class='danger'>\The [src] appears from above.</span>")
+			visible_message(SPAN_DANGER("\The [src] appears from above."))
 		else if(target.z > z)
-			visible_message("<span class='danger'>\The [src] gravitates upwards.</span>")
+			visible_message(SPAN_DANGER("\The [src] gravitates upwards."))
 			zMove(UP)
-			visible_message("<span class='danger'>\The [src] appears from below.</span>")
+			visible_message(SPAN_DANGER("\The [src] appears from below."))
 
 	if(current_size >= 9)//The superlarge one does not care about things in its way
 		spawn(0)
@@ -446,14 +446,14 @@
 			if (istype(M,/mob/living/carbon/human))
 				var/mob/living/carbon/human/H = M
 				if(istype(H.glasses,/obj/item/clothing/glasses/safety) && current_size != 11)
-					to_chat(H, "<span class=\"notice\">You look directly into The [src.name], good thing you had your protective eyewear on!</span>")
+					to_chat(H, SPAN_NOTICE("You look directly into The [src.name], good thing you had your protective eyewear on!"))
 					return
 				else
-					to_chat(H, "<span class=\"warning\">You look directly into The [src.name], but your eyewear does absolutely nothing to protect you from it!</span>")
-		to_chat(M, "<span class='danger'>You look directly into The [src.name] and feel [current_size == 11 ? "helpless" : "weak"].</span>")
+					to_chat(H, SPAN_WARNING("You look directly into The [src.name], but your eyewear does absolutely nothing to protect you from it!"))
+		to_chat(M, SPAN_DANGER("You look directly into The [src.name] and feel [current_size == 11 ? "helpless" : "weak"]."))
 		M.apply_effect(3, STUN)
 		for(var/mob/O in viewers(M, null))
-			O.show_message(text("<span class='danger'>[] stares blankly at The []!</span>", M, src), 1)
+			O.show_message(SPAN_DANGER("[M] stares blankly at The [src]!"), 1)
 
 /obj/singularity/proc/emp_area()
 	if(current_size != 11)
@@ -464,11 +464,11 @@
 /obj/singularity/proc/smwave()
 	for(var/mob/living/M in view(10, src.loc))
 		if(prob(67))
-			to_chat(M, "<span class=\"warning\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
-			to_chat(M, "<span class=\"notice\">Miraculously, it fails to kill you.</span>")
+			to_chat(M, SPAN_WARNING("You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat."))
+			to_chat(M, SPAN_NOTICE("Miraculously, it fails to kill you."))
 		else
-			to_chat(M, "<span class=\"danger\">You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat.</span>")
-			to_chat(M, "<span class=\"danger\">You don't even have a moment to react as you are reduced to ashes by the intense radiation.</span>")
+			to_chat(M, SPAN_DANGER("You hear an uneartly ringing, then what sounds like a shrilling kettle as you are washed with a wave of heat."))
+			to_chat(M, SPAN_DANGER("You don't even have a moment to react as you are reduced to ashes by the intense radiation."))
 			M.dust()
 	SSradiation.radiate(src, rand(energy))
 	return

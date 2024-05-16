@@ -33,10 +33,10 @@
 				qdel(L)
 		else if(istype(L, /mob/living/simple_animal/construct))
 			var/mob/living/simple_animal/construct/evil = L
-			to_chat(evil, "<span class='danger'>\The [user]'s abjuration purges your form!</span>")
+			to_chat(evil, SPAN_DANGER("\The [user]'s abjuration purges your form!"))
 			evil.purge = 3
 		adjust_instability(5)
 	// In case NarNar comes back someday.
 	if(istype(hit_atom, /obj/singularity/narsie))
-		to_chat(user, "<span class='danger'>One does not simply abjurate Nar'sie away.</span>")
+		to_chat(user, SPAN_DANGER("One does not simply abjurate Nar'sie away."))
 		adjust_instability(200)

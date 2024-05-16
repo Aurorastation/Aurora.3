@@ -5,7 +5,7 @@
 	if(!check_rights(R_DEV))
 		return
 	if(!establish_db_connection(GLOB.dbcon))
-		to_chat(src,"<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src,SPAN_DANGER("Failed to establish database connection."))
 		return
 	var/polltype = input("Choose poll type.","Poll Type") in list("Single Option","Text Reply","Rating","Multiple Choice")
 	var/choice_amount = 0

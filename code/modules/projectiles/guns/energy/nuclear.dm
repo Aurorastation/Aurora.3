@@ -82,7 +82,7 @@
 	return
 
 /obj/item/gun/energy/gun/nuclear/critical_fail(var/mob/user)
-	to_chat(user, "<span class='danger'>Your gun's reactor overloads!</span>")
+	to_chat(user, SPAN_DANGER("Your gun's reactor overloads!"))
 	for (var/mob/living/M in range(rand(1,4),src))
 		to_chat(M, SPAN_WARNING("You feel a wave of heat wash over you."))
 	SSradiation.radiate(src, rand(3, 80))

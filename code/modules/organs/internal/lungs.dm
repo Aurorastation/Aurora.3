@@ -62,7 +62,7 @@
 		if(prob(4))
 			owner.visible_message(
 				"<B>\The [owner]</B> gasps for air!",
-				"<span class='danger'>You can't breathe!</span>",
+				SPAN_DANGER("You can't breathe!"),
 				"You hear someone gasp for air!",
 			)
 			owner.losebreath = max(round(damage / 2), owner.losebreath)
@@ -207,7 +207,7 @@
 		if(exhaled_pp > safe_exhaled_max)
 			if (!owner.co2_alert|| prob(15))
 				var/word = pick("extremely dizzy","short of breath","faint","confused")
-				to_chat(owner, "<span class='danger'>You feel [word].</span>")
+				to_chat(owner, SPAN_DANGER("You feel [word]."))
 
 			owner.co2_alert = 1
 			failed_exhale = 1
@@ -290,10 +290,10 @@
 
 		if(breath.temperature <= owner.species.cold_level_1)
 			if(prob(20))
-				to_chat(owner, "<span class='danger'>You feel your face freezing and icicles forming in your lungs!</span>")
+				to_chat(owner, SPAN_DANGER("You feel your face freezing and icicles forming in your lungs!"))
 		else if(breath.temperature >= owner.species.heat_level_1)
 			if(prob(20))
-				to_chat(owner, "<span class='danger'>You feel your face burning and a searing heat in your lungs!</span>")
+				to_chat(owner, SPAN_DANGER("You feel your face burning and a searing heat in your lungs!"))
 
 		if(breath.temperature >= owner.species.heat_level_1)
 			if(breath.temperature < owner.species.heat_level_2)

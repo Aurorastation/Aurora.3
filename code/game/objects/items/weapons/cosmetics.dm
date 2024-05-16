@@ -181,7 +181,7 @@
 	var/obj/item/organ/external/E = H.get_organ(target_zone)
 
 	if(!E || E.is_stump())
-		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
+		to_chat(user, SPAN_DANGER("They are missing that limb!"))
 		return FALSE
 
 	if(!ishuman_species(H) && !istajara(H))	//you can only shave humans and tajara for obvious reasons

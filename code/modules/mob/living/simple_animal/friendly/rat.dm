@@ -192,7 +192,7 @@
 	set category = "Abilities"
 
 	if (usr.client.prefs.muted & MUTE_IC)
-		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
+		to_chat(usr, SPAN_DANGER("You are muted from IC emotes."))
 		return
 
 	squeak_loud(1)
@@ -202,7 +202,7 @@
 	set category = "Abilities"
 
 	if (usr.client.prefs.muted & MUTE_IC)
-		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
+		to_chat(usr, SPAN_DANGER("You are muted from IC emotes."))
 		return
 
 	squeak_soft(1)
@@ -212,7 +212,7 @@
 	set category = "Abilities"
 
 	if (usr.client.prefs.muted & MUTE_IC)
-		to_chat(usr, "<span class='danger'>You are muted from IC emotes.</span>")
+		to_chat(usr, SPAN_DANGER("You are muted from IC emotes."))
 		return
 
 	squeak(1)

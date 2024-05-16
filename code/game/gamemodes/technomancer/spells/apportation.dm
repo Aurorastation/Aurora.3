@@ -36,7 +36,7 @@
 
 			spark(I, 5, GLOB.cardinal)
 			spark(user, 5, GLOB.cardinal)
-			I.visible_message("<span class='danger'>\The [I] vanishes into thin air!</span>")
+			I.visible_message(SPAN_DANGER("\The [I] vanishes into thin air!"))
 			I.forceMove(get_turf(user))
 			user.drop_item(src)
 			src.loc = null
@@ -47,7 +47,7 @@
 		//Now let's try to teleport a living mob.
 		else if(isliving(hit_atom))
 			var/mob/living/L = hit_atom
-			to_chat(L, "<span class='danger'>You are teleported towards \the [user]!</span>")
+			to_chat(L, SPAN_DANGER("You are teleported towards \the [user]!"))
 			spark(L, 5, GLOB.cardinal)
 			spark(user, 5, GLOB.cardinal)
 			L.throw_at(get_step(get_turf(src), get_dir(src, L)), 4, 1, src)

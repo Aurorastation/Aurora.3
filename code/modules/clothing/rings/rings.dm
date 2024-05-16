@@ -27,7 +27,7 @@
 	if(istype(H) && H.gloves==src)
 
 		if(reagents.total_volume)
-			to_chat(H, "<span class='danger'>You feel a prick as you slip on \the [src].</span>")
+			to_chat(H, SPAN_DANGER("You feel a prick as you slip on \the [src]."))
 			if(H.reagents)
 				var/contained_reagents = reagents.get_reagents()
 				var/trans = reagents.trans_to_mob(H, 15, CHEM_BLOOD)

@@ -143,7 +143,7 @@
 		return
 
 	if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
-		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
 		if(M.eyes_protected(src, FALSE))
 			eyestab(M,user)
 		user.visible_message(SPAN_NOTICE("[user] accidentally sticks \the [src] in [M]'s eye!"),

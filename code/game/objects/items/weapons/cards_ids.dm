@@ -256,7 +256,7 @@ var/const/NO_EMAG_ACT = -50
 					return 1
 
 				if(user != H && H.a_intent != "help" && !H.lying)
-					user.visible_message("<span class='danger'>\The [user] tries to take prints from \the [H], but they move away.</span>")
+					user.visible_message(SPAN_DANGER("\The [user] tries to take prints from \the [H], but they move away."))
 					return 1
 
 				var/has_hand

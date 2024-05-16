@@ -227,13 +227,13 @@
 		to_chat(usr, SPAN_WARNING("We can only devour the dead!"))
 		return
 
-	usr.visible_message("<span class='danger'>\The [usr] swarms the body of \the [target], ripping flesh from bone!</span>" )
+	usr.visible_message(SPAN_DANGER("\The [usr] swarms the body of \the [target], ripping flesh from bone!") )
 
 	if(!do_after(usr,200))
 		to_chat(src, SPAN_WARNING("You need to wait longer to consume the body of [target]!"))
 		return 0
 
-	src.visible_message("<span class='danger'>\The [usr] consumed the body of \the [target]!</span>")
+	src.visible_message(SPAN_DANGER("\The [usr] consumed the body of \the [target]!"))
 	target.gib()
 	rejuvenate()
 	updatehealth()

@@ -88,7 +88,7 @@
 		parent = newparent
 
 	if(!SSplants)
-		to_world("<span class='danger'>Plant controller does not exist and [src] requires it. Aborting.</span>")
+		to_world(SPAN_DANGER("Plant controller does not exist and [src] requires it. Aborting."))
 		qdel(src)
 		return
 
@@ -253,7 +253,7 @@
 			to_chat(user, SPAN_WARNING("There is nothing to take a sample from."))
 			return
 		if(sampled)
-			to_chat(user, "<span class='danger'>You cannot take another sample from \the [src].</span>")
+			to_chat(user, SPAN_DANGER("You cannot take another sample from \the [src]."))
 			return
 		if(prob(70))
 			sampled = 1

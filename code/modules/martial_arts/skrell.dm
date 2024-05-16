@@ -47,7 +47,7 @@
 			return 0
 		organ.dislocate(1)
 		A.visible_message(SPAN_WARNING("[A] strikes [D]'s [organ.name] with their closed fist!"))
-		D.visible_message("<span class='danger'>[D]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		D.visible_message(SPAN_DANGER("[D]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
 		admin_attack_log(A, D, "dislocated [organ.joint].", "had his [organ.joint] dislocated.", "dislocated [organ.joint] of")
 		playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
 		return 1

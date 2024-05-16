@@ -170,11 +170,11 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(I.damtype == DAMAGE_BRUTE || I.damtype == DAMAGE_BURN)
 			if(I.force < 10)
-				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [I] with no visible effect.</span>")
+				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [I] with no visible effect."))
 			else
 				user.do_attack_animation(src)
 				shake_animation()
-				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [I]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [I]!"))
 				playsound(src.loc, material.hitsound, attacking_item.get_clamped_volume(), 1)
 				src.health -= attacking_item.force * 1
 				CheckHealth()

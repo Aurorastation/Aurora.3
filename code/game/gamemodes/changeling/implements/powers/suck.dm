@@ -49,8 +49,8 @@
 				playsound(get_turf(src), 'sound/effects/lingextends.ogg', 50, 1)
 			if(3)
 				to_chat(src, SPAN_NOTICE("We stab [T] with the proboscis."))
-				src.visible_message("<span class='danger'>[src] stabs [T] with the proboscis!</span>")
-				to_chat(T, "<span class='danger'>You feel a sharp stabbing pain!</span>")
+				src.visible_message(SPAN_DANGER("[src] stabs [T] with the proboscis!"))
+				to_chat(T, SPAN_DANGER("You feel a sharp stabbing pain!"))
 				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
 				var/obj/item/organ/external/affecting = T.get_organ(src.zone_sel.selecting)
 				if(affecting.take_damage(40, 0, damage_flags = DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, used_weapon = "massive puncture wound"))
@@ -63,8 +63,8 @@
 			return
 
 	to_chat(src, SPAN_NOTICE("We have absorbed [T]!"))
-	src.visible_message("<span class='danger'>[src] sucks the fluids from [T]!</span>")
-	to_chat(T, "<span class='danger'>You have been absorbed by the changeling!</span>")
+	src.visible_message(SPAN_DANGER("[src] sucks the fluids from [T]!"))
+	to_chat(T, SPAN_DANGER("You have been absorbed by the changeling!"))
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)
 
 	changeling.chem_charges += 50

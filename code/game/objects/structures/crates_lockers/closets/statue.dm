@@ -146,7 +146,7 @@
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	health -= attacking_item.force
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] strikes [src] with [attacking_item].</span>")
+	visible_message(SPAN_DANGER("[user] strikes [src] with [attacking_item]."))
 	check_health()
 
 /obj/structure/closet/statue/MouseDrop_T()

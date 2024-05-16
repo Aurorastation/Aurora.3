@@ -27,7 +27,7 @@
 					to_chat(H, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
 				return
 			else
-				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
+				to_chat(src, SPAN_DANGER("Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended."))
 	if (isrobot(A))
 		var/mob/living/silicon/robot/R = A
 		var/datum/robot_component/surge/C = R.components["surge"]
@@ -41,7 +41,7 @@
 					to_chat(R, SPAN_NOTICE("Surge module has [C.surge_left] preventions left!"))
 				else
 					C.destroy()
-					to_chat(R, "<span class='danger'>Module is entirely fried, replacement is recommended.</span>")
+					to_chat(R, SPAN_DANGER("Module is entirely fried, replacement is recommended."))
 				return
 			else
 				to_chat(src, SPAN_NOTICE("Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement"))

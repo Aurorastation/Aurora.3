@@ -66,12 +66,12 @@ var/list/floor_light_cache = list()
 
 	if(user.a_intent == I_HURT && !issmall(user))
 		if(!isnull(damaged) && !(stat & BROKEN))
-			visible_message("<span class='danger'>\The [user] smashes \the [src]!</span>")
+			visible_message(SPAN_DANGER("\The [user] smashes \the [src]!"))
 			playsound(src, /singleton/sound_category/glass_break_sound, 70, 1)
 			update_icon()
 			stat |= BROKEN
 		else
-			visible_message("<span class='danger'>\The [user] attacks \the [src]!</span>")
+			visible_message(SPAN_DANGER("\The [user] attacks \the [src]!"))
 			playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
 			if(isnull(damaged)) damaged = 0
 		update_brightness()

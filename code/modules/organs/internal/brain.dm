@@ -171,19 +171,19 @@
 		to_chat(owner, SPAN_WARNING("It becomes hard to see for some reason."))
 		owner.eye_blurry = 10
 	if(damage >= 0.5*max_damage && prob(1) && owner.get_active_hand())
-		to_chat(owner, "<span class='danger'>Your hand won't respond properly, and you drop what you are holding!</span>")
+		to_chat(owner, SPAN_DANGER("Your hand won't respond properly, and you drop what you are holding!"))
 		owner.drop_item()
 	if(damage >= 0.6*max_damage)
 		owner.stuttering = max(owner.slurring, 2)
 	if(is_broken())
 		if(!owner.lying && prob(5))
-			to_chat(owner, "<span class='danger'>You black out!</span>")
+			to_chat(owner, SPAN_DANGER("You black out!"))
 			owner.Paralyse(10)
 
 /obj/item/organ/internal/brain/surgical_fix(mob/user)
 	var/blood_volume = owner.get_blood_oxygenation()
 	if(blood_volume < BLOOD_VOLUME_BAD)
-		to_chat(user, "<span class='danger'>Parts of [src] didn't survive the procedure due to lack of air supply!</span>")
+		to_chat(user, SPAN_DANGER("Parts of [src] didn't survive the procedure due to lack of air supply!"))
 		set_max_damage(FLOOR(max_damage - 0.25*damage, 1))
 	heal_damage(damage)
 

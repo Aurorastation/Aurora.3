@@ -137,7 +137,7 @@
 
 /obj/item/gun/projectile/automatic/rifle/minigun/special_check(var/mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='danger'>You cannot fire this weapon with just one hand!</span>")
+		to_chat(user, SPAN_DANGER("You cannot fire this weapon with just one hand!"))
 		return FALSE
 
 	if (user.back!= source)

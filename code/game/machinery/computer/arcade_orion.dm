@@ -425,7 +425,7 @@
 					to_chat(usr, SPAN_WARNING("You hear battle shouts. The tramping of boots on cold metal. Screams of agony. The rush of venting air. Are you going insane?"))
 					M.hallucination += 50
 				else
-					to_chat(usr, "<span class='danger'>Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there...</span>")
+					to_chat(usr, SPAN_DANGER("Something strikes you from behind! It hurts like hell and feel like a blunt weapon, but nothing is there..."))
 					M.take_organ_damage(10)
 			else
 				to_chat(usr, SPAN_WARNING("The sounds of battle fill your ears..."))
@@ -437,7 +437,7 @@
 			else
 				to_chat(usr, SPAN_WARNING("You feel ill."))
 		if(ORION_TRAIL_CARP)
-			to_chat(usr, "<span class='danger'>Something bit you!</span>")
+			to_chat(usr, SPAN_DANGER("Something bit you!"))
 			var/mob/living/M = usr
 			M.adjustBruteLoss(10)
 		if(ORION_TRAIL_FLUX)
@@ -458,11 +458,11 @@
 			if(prob(90) && !supplies["2"])
 				var/turf/simulated/floor/F = src.loc
 				F.ChangeTurf(/turf/space)
-				src.visible_message("<span class='danger'>Something slams into the floor around \the [src], exposing it to space!</span>", "You hear something crack and break.")
+				src.visible_message(SPAN_DANGER("Something slams into the floor around \the [src], exposing it to space!"), "You hear something crack and break.")
 			else
 				src.visible_message("Something slams into the floor around \the [src] - luckily, it didn't get through!", "You hear something crack.")
 		if(ORION_TRAIL_GAMEOVER)
-			to_chat(usr, "<span class='danger'><font size=3>You're never going to make it to Orion...</font></span>")
+			to_chat(usr, SPAN_DANGER("<font size=3>You're never going to make it to Orion...</font>"))
 			var/mob/living/M = usr
 			M.visible_message("\The [M] starts rapidly deteriorating.")
 			show_browser(M, null, "window=arcade")
@@ -521,7 +521,7 @@
 	sleep(30)
 	src.audible_message("<b>[src]</b> says, 'Oh, God! Code Eight! CODE EIGHT! IT'S GONNA BL-'")
 	sleep(3.6)
-	src.visible_message("<span class='danger'>[src] explodes!</span>")
+	src.visible_message(SPAN_DANGER("[src] explodes!"))
 	explosion(src.loc, 1,2,4)
 	qdel(src)
 

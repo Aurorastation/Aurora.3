@@ -131,11 +131,11 @@
 			else
 				to_chat(user, SPAN_WARNING("\The [src] is undamaged!"))
 		else
-			to_chat(user, "<span class='danger'>You need more welding fuel for this task!</span>")
+			to_chat(user, SPAN_DANGER("You need more welding fuel for this task!"))
 			return
 	else if(attacking_item.GetID())
 		if (!mmi)
-			to_chat(user, "<span class='danger'>There's no reason to swipe your ID - \the [src] has no brain.</span>")
+			to_chat(user, SPAN_DANGER("There's no reason to swipe your ID - \the [src] has no brain."))
 			return 0
 
 		var/obj/item/card/id/id_card = attacking_item.GetID()
@@ -159,7 +159,7 @@
 						held_item = null
 					return 1
 				else
-					to_chat(user, "<span class='danger'>You swipe your card with no effect.</span>")
+					to_chat(user, SPAN_DANGER("You swipe your card with no effect."))
 					return 0
 			if("Sync")
 				if(use_check_and_message(user))
@@ -179,8 +179,8 @@
 		return 0
 	else
 		to_chat(user, SPAN_NOTICE("You short out the security protocols and overload [src]'s cell, priming it to explode in a short time."))
-		spawn(100)	to_chat(src, "<span class='danger'>Your cell seems to be outputting a lot of power...</span>")
-		spawn(200)	to_chat(src, "<span class='danger'>Internal heat sensors are spiking! Something is badly wrong with your cell!</span>")
+		spawn(100)	to_chat(src, SPAN_DANGER("Your cell seems to be outputting a lot of power..."))
+		spawn(200)	to_chat(src, SPAN_DANGER("Internal heat sensors are spiking! Something is badly wrong with your cell!"))
 		spawn(300)	src.explode()
 
 /mob/living/simple_animal/spiderbot/proc/transfer_personality(var/obj/item/device/mmi/M as obj)
@@ -191,7 +191,7 @@
 	src.voice_name = src.name
 
 /mob/living/simple_animal/spiderbot/proc/explode() //When emagged.
-	src.visible_message("<span class='danger'>\The [src] makes an odd warbling noise, fizzles, and explodes!</span>")
+	src.visible_message(SPAN_DANGER("\The [src] makes an odd warbling noise, fizzles, and explodes!"))
 	explosion(get_turf(loc), -1, -1, 3, 5)
 	eject_brain()
 	death()
@@ -256,8 +256,8 @@
 		return 0
 
 	if(istype(held_item, /obj/item/grenade))
-		visible_message("<span class='danger'>\The [src] launches \the [held_item]!</span>", \
-			"<span class='danger'>You launch \the [held_item]!</span>", \
+		visible_message(SPAN_DANGER("\The [src] launches \the [held_item]!"), \
+			SPAN_DANGER("You launch \the [held_item]!"), \
 			"You hear a skittering noise and a thump!")
 		var/obj/item/grenade/G = held_item
 		G.forceMove(src.loc)

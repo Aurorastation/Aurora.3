@@ -52,8 +52,8 @@
 	..()
 	// Out body was probs gibbed or somefin
 	if(!istype(body))
-		show_message("<span class='danger'>[src] suddenly pops from the Srom.</span>")
-		to_chat(src, "<span class='danger'>Your body was destroyed!</span>")
+		show_message(SPAN_DANGER("[src] suddenly pops from the Srom."))
+		to_chat(src, SPAN_DANGER("Your body was destroyed!"))
 		qdel(src)
 		return
 

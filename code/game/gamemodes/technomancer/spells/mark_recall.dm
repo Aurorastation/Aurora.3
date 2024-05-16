@@ -67,7 +67,7 @@
 	. = ..()
 	if(pay_energy(3000))
 		if(!mark_spell_ref)
-			to_chat(user, "<span class='danger'>There's no Mark!</span>")
+			to_chat(user, SPAN_DANGER("There's no Mark!"))
 			return 0
 		else
 			if(!allowed_to_teleport())
@@ -81,7 +81,7 @@
 			while(time_left)
 				if(user.incapacitated())
 					visible_message(SPAN_NOTICE("\The [user]'s glow fades."))
-					to_chat(user, "<span class='danger'>You cannot Recall while incapacitated!</span>")
+					to_chat(user, SPAN_DANGER("You cannot Recall while incapacitated!"))
 					return 0
 				light_intensity++
 				set_light(light_intensity, light_intensity, l_color = "#006AFF")

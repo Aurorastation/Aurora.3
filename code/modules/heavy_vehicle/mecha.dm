@@ -170,7 +170,7 @@
 			if(3)
 				damage_string = SPAN_WARNING("badly damaged")
 			if(4)
-				damage_string = "<span class='danger'>destroyed</span>"
+				damage_string = SPAN_DANGER("destroyed")
 		. += "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])

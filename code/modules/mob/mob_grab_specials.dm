@@ -54,10 +54,10 @@
 	if(!organ || organ.dislocated == -1)
 		return
 
-	attacker.visible_message("<span class='danger'>[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!</span>")
+	attacker.visible_message(SPAN_DANGER("[attacker] [pick("bent", "twisted")] [target]'s [organ.name] into a jointlock!"))
 	var/armor = 100 * affecting.get_blocked_ratio(target, DAMAGE_BRUTE, damage = 30)
 	if(armor < 70)
-		to_chat(target, "<span class='danger'>You feel extreme pain!</span>")
+		to_chat(target, SPAN_DANGER("You feel extreme pain!"))
 		affecting.adjustHalLoss(Clamp(0, 60 - affecting.getHalLoss(), 30)) //up to 60 halloss
 
 /obj/item/grab/proc/attack_eye(mob/living/carbon/human/target, mob/living/carbon/human/attacker)
@@ -73,13 +73,13 @@
 		return
 	for(var/obj/item/protection in list(target.head, target.wear_mask, target.glasses))
 		if(protection && (protection.body_parts_covered & EYES))
-			to_chat(attacker, "<span class='danger'>You're going to need to remove the eye covering first.</span>")
+			to_chat(attacker, SPAN_DANGER("You're going to need to remove the eye covering first."))
 			return
 	if(!target.has_eyes())
-		to_chat(attacker, "<span class='danger'>You cannot locate any eyes on [target]!</span>")
+		to_chat(attacker, SPAN_DANGER("You cannot locate any eyes on [target]!"))
 		return
 	if(isipc(target))
-		to_chat(attacker, "<span class='danger'>You cannot damage [target]'s optics with your bare hands!</span>")
+		to_chat(attacker, SPAN_DANGER("You cannot damage [target]'s optics with your bare hands!"))
 		return
 
 	admin_attack_log(attacker, target, "attacked [target.name]'s eyes using a grab.", "had eyes attacked by [attacker.name]'s grab.", "used a grab to attack eyes of")
@@ -91,7 +91,7 @@
 		return
 	if(target.lying)
 		return
-	attacker.visible_message("<span class='danger'>[attacker] thrusts [attacker.get_pronoun("his")] head into [target]'s skull!</span>")
+	attacker.visible_message(SPAN_DANGER("[attacker] thrusts [attacker.get_pronoun("his")] head into [target]'s skull!"))
 
 	var/damage = 15
 	if(attacker.mob_size >= 10)
@@ -109,7 +109,7 @@
 
 	if(armor < 25 && target.headcheck(BP_HEAD) && prob(damage))
 		target.apply_effect(20, PARALYZE)
-		target.visible_message("<span class='danger'>[target] [target.species.knockout_message]</span>")
+		target.visible_message(SPAN_DANGER("[target] [target.species.knockout_message]"))
 
 	playsound(attacker.loc, /singleton/sound_category/swing_hit_sound, 25, 1, -1)
 	attacker.attack_log += text("\[[time_stamp()]\] <span class='warning'>Headbutted [target.name] ([target.ckey])</span>")
@@ -134,10 +134,10 @@
 	if(force_down)
 		to_chat(attacker, SPAN_WARNING("You are already pinning [target] to the ground."))
 
-	attacker.visible_message("<span class='danger'>[attacker] starts forcing [target] to the ground!</span>")
+	attacker.visible_message(SPAN_DANGER("[attacker] starts forcing [target] to the ground!"))
 	if(do_after(attacker, 20) && target)
 		last_action = world.time
-		attacker.visible_message("<span class='danger'>[attacker] forces [target] to the ground!</span>")
+		attacker.visible_message(SPAN_DANGER("[attacker] forces [target] to the ground!"))
 		apply_pinning(target, attacker)
 
 /obj/item/grab/proc/apply_pinning(mob/target, mob/attacker)
@@ -166,38 +166,38 @@
 		if(0)
 			visible_message(SPAN_NOTICE("[assailant] tried to grab [target] but they have no hair!"))
 		if(1)
-			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname] before releasing their grip!</span>")
+			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname] before releasing their grip!"))
 			target.apply_damage(5, DAMAGE_PAIN)
 		if(2)
-			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
+			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname]!"))
 			target.apply_damage(5, DAMAGE_PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(3)
-			visible_message("<span class='danger'>[assailant] tugs [target]'s [hairchatname]!</span>")
+			visible_message(SPAN_DANGER("[assailant] tugs [target]'s [hairchatname]!"))
 			target.apply_damage(10, DAMAGE_PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(4)
-			visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname], ripping out a clump!</span>")
+			visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname], ripping out a clump!"))
 			target.apply_damage(15, DAMAGE_PAIN)
 			src.state = GRAB_PASSIVE
 
 		if(5)
 			if(prob(77))
-				visible_message("<span class='danger'>[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!</span>")
+				visible_message(SPAN_DANGER("[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!"))
 				src.state = GRAB_PASSIVE
 			else
-				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
+				visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname]!"))
 				target.apply_damage(10, DAMAGE_PAIN)
 				src.state = GRAB_AGGRESSIVE
 
 		if(6)
 			if(prob(67))
-				visible_message("<span class='danger'>[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!</span>")
+				visible_message(SPAN_DANGER("[assailant] has [target] grasped by their [hairchatname], however suddenly it slips from  [assailant]'s hand!"))
 				src.state = GRAB_PASSIVE
 				playsound(target.loc, 'sound/misc/slip.ogg', 50, 1, -3)
 			else
-				visible_message("<span class='danger'>[assailant] violently tugs [target]'s [hairchatname]!</span>")
+				visible_message(SPAN_DANGER("[assailant] violently tugs [target]'s [hairchatname]!"))
 				target.apply_damage(15, DAMAGE_PAIN)
 				src.state = GRAB_AGGRESSIVE

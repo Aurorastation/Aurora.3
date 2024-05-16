@@ -109,6 +109,6 @@
 		if ("guest")
 			GLOB.config.guests_allowed = !GLOB.config.guests_allowed
 		else
-			to_chat(usr, "<span class='danger'>Unknown control message sent. Cancelling.</span>")
+			to_chat(usr, SPAN_DANGER("Unknown control message sent. Cancelling."))
 
 	owner.configure_access_control()

@@ -781,7 +781,7 @@ SUBSYSTEM_DEF(jobs)
 				log_loadout("EIS/([H]): placed [thing] in [B].")
 
 		else
-			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
+			to_chat(H, SPAN_DANGER("Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug."))
 			log_loadout("EIS/([H]): unable to equip; no storage.")
 
 	log_loadout("EIS/([H]): Complete.")

@@ -124,8 +124,8 @@
 			var/obj/item/organ/external/RA = H.get_organ(BP_R_ARM)
 			var/active_hand = H.hand
 			playsound(user, 'sound/weapons/lawgiver_idfail.ogg', 40, 1)
-			to_chat(user, "<span class='danger'>You hear a soft beep from the gun and 'ID FAIL' flashes across the screen.</span>")
-			to_chat(user, "<span class='danger'>You feel a tiny prick in your hand!</span>")
+			to_chat(user, SPAN_DANGER("You hear a soft beep from the gun and 'ID FAIL' flashes across the screen."))
+			to_chat(user, SPAN_DANGER("You feel a tiny prick in your hand!"))
 			user.drop_item()
 			//Blow up Unauthorized Users Hand//todo, delet this, as it's duplicate behaviour from Firing pins.
 			sleep(60)

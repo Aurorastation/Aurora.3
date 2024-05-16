@@ -110,7 +110,9 @@ var/global/list/can_enter_vent_with = list(
 		if ("departing")
 			for (var/obj/item/device/assembly/mousetrap/S in location.loc)
 				if (prob(25))
-					visible_message("<span class='danger'>[src] gets caught in the mousetrap while trying to crawl into the vent!</span>", "<span class='danger'>You get caught in the mousetrap while trying to crawl into the vent!</span>")
+					visible_message(SPAN_DANGER("[src] gets caught in the mousetrap while trying to crawl into the vent!"),
+									SPAN_DANGER("You get caught in the mousetrap while trying to crawl into the vent!"))
+
 					S.Crossed(src) // Triggers mousetrap
 					forceMove(location.loc)
 		if ("arriving")
@@ -164,23 +166,23 @@ var/global/list/can_enter_vent_with = list(
 
 						switch(vent_found.air_contents.temperature)
 							if(0 to BODYTEMP_COLD_DAMAGE_LIMIT)
-								to_chat(src, "<span class='danger'>You feel a painful freeze coming from the vent!</span>")
+								to_chat(src, SPAN_DANGER("You feel a painful freeze coming from the vent!"))
 							if(BODYTEMP_COLD_DAMAGE_LIMIT to T0C)
 								to_chat(src, SPAN_WARNING("You feel an icy chill coming from the vent."))
 							if(T0C + 40 to BODYTEMP_HEAT_DAMAGE_LIMIT)
 								to_chat(src, SPAN_WARNING("You feel a hot wash coming from the vent."))
 							if(BODYTEMP_HEAT_DAMAGE_LIMIT to INFINITY)
-								to_chat(src, "<span class='danger'>You feel a searing heat coming from the vent!</span>")
+								to_chat(src, SPAN_DANGER("You feel a searing heat coming from the vent!"))
 
 						switch(vent_found.air_contents.return_pressure())
 							if(0 to HAZARD_LOW_PRESSURE)
-								to_chat(src, "<span class='danger'>You feel a rushing draw pulling you into the vent!</span>")
+								to_chat(src, SPAN_DANGER("You feel a rushing draw pulling you into the vent!"))
 							if(HAZARD_LOW_PRESSURE to WARNING_LOW_PRESSURE)
 								to_chat(src, SPAN_WARNING("You feel a strong drag pulling you into the vent."))
 							if(WARNING_HIGH_PRESSURE to HAZARD_HIGH_PRESSURE)
 								to_chat(src, SPAN_WARNING("You feel a strong current pushing you away from the vent."))
 							if(HAZARD_HIGH_PRESSURE to INFINITY)
-								to_chat(src, "<span class='danger'>You feel a roaring wind pushing you away from the vent!</span>")
+								to_chat(src, SPAN_DANGER("You feel a roaring wind pushing you away from the vent!"))
 
 					if(!do_mob(src, vent_found, mob_size ? size_to_crawldelay(mob_size) : size_to_crawldelay(15), 1, 1))
 						return

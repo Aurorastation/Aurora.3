@@ -277,7 +277,7 @@
 
 /obj/structure/girder/attack_hand(mob/user as mob)
 	if((user.mutations & HULK))
-		visible_message("<span class='danger'>[user] smashes [src] apart!</span>")
+		visible_message(SPAN_DANGER("[user] smashes [src] apart!"))
 		dismantle()
 		return
 	return ..()
@@ -310,7 +310,7 @@
 	if(!damage || !wallbreaker)
 		return FALSE
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] [attack_message] \the [src]!</span>")
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
 	dismantle()
 	return TRUE
 

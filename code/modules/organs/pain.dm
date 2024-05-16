@@ -29,13 +29,13 @@
 		last_pain_message = message
 		if(power >= 110)
 			flash_strong_pain()
-			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
 		else if(power >= 70)
-			to_chat(src, "<span class='danger'><font size=3>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=3>[message]</font>"))
 		else if(power >= 40)
-			to_chat(src, "<span class='danger'><font size=2>[message]</font></span>")
+			to_chat(src, SPAN_DANGER("<font size=2>[message]</font>"))
 		else if(power >= 10)
-			to_chat(src, "<span class='danger'>[message]</span>")
+			to_chat(src, SPAN_DANGER("[message]"))
 		else
 			to_chat(src, SPAN_WARNING("[message]"))
 

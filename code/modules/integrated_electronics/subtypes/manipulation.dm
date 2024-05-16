@@ -336,10 +336,10 @@
 	if(!T.Adjacent(M))
 		return //Can't reach
 	if(shocktime + (5 SECONDS) > world.time)
-		to_chat(M, "<span class='danger'>You feel a light tingle from [src]. Luckily it was charging!</span>")
+		to_chat(M, SPAN_DANGER("You feel a light tingle from [src]. Luckily it was charging!"))
 		return
 	else
-		to_chat(M, "<span class='danger'>You feel a sharp shock from the [src]!</span>")
+		to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 		spark(get_turf(M), 3, 1)
 		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time

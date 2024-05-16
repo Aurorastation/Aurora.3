@@ -66,7 +66,7 @@
 		if(user.a_intent == I_HURT)
 			sound_vol = 50
 			user.visible_message(
-				"<span class='danger'>[user] draws \the [holstered], ready to shoot!</span>",
+				SPAN_DANGER("[user] draws \the [holstered], ready to shoot!"),
 				SPAN_WARNING("You draw \the [holstered], ready to shoot!")
 			)
 		else
