@@ -15,6 +15,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
+"aad" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_docks)
 "aae" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
@@ -52,9 +58,93 @@
 /obj/structure/closet/crate,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"aai" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_docks)
+"aaj" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_docks)
 "aal" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
+"aan" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 2
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_docks)
+"aao" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_docks)
+"aap" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_docks)
+"aar" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_smelting)
+"aas" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_smelting)
+"aat" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_smelting)
+"aau" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_smelting)
+"aav" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 10
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/outside/surface)
+"aaw" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_comms)
+"aax" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
@@ -101,6 +191,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/canteen)
+"aba" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_botany)
 "abb" = (
 /obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/simulated/floor/tiled/dark,
@@ -548,7 +646,9 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "adj" = (
@@ -3210,8 +3310,8 @@
 	dir = 2;
 	use_power = 1
 	},
-/turf/simulated/floor/exoplanet/basalt/tret,
-/area/tret_industrial/outside/surface)
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/atmos)
 "awl" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -4619,7 +4719,9 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aIf" = (
@@ -5841,7 +5943,9 @@
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
 "aTJ" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_smelting)
 "aTQ" = (
@@ -6478,7 +6582,9 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
 "bbq" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
 "bcB" = (
@@ -6515,7 +6621,9 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bje" = (
@@ -6655,7 +6763,9 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bJS" = (
@@ -6750,7 +6860,9 @@
 /area/tret_industrial/inside/atmos)
 "ckw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "ckA" = (
@@ -7110,7 +7222,9 @@
 	pixel_x = 28;
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "eNY" = (
@@ -7256,7 +7370,9 @@
 	pixel_y = -28;
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 9
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "fQw" = (
@@ -7522,7 +7638,9 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "gXo" = (
@@ -7680,7 +7798,9 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
 "hDV" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_docks)
 "hMu" = (
@@ -7908,7 +8028,9 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "jbs" = (
@@ -8051,7 +8173,9 @@
 "jBP" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/item/hullbeacon/green,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
 "jFL" = (
@@ -8084,7 +8208,9 @@
 	pixel_x = 28;
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "jMJ" = (
@@ -8118,7 +8244,9 @@
 	pixel_y = 29;
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "jOS" = (
@@ -8149,7 +8277,9 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "jTV" = (
@@ -8539,7 +8669,9 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "mxy" = (
@@ -8684,7 +8816,9 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "nno" = (
@@ -8838,7 +8972,9 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "ojt" = (
@@ -8946,7 +9082,9 @@
 	pixel_x = -28;
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "oYA" = (
@@ -9055,7 +9193,9 @@
 	pixel_y = 28;
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "pLt" = (
@@ -9260,7 +9400,9 @@
 	pixel_x = -28;
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "qDq" = (
@@ -9483,7 +9625,9 @@
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "rzF" = (
@@ -9634,7 +9778,9 @@
 "rSK" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 2
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
 "rUb" = (
@@ -9752,7 +9898,9 @@
 	pixel_y = -28;
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "suH" = (
@@ -9888,7 +10036,9 @@
 	pixel_x = -28;
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 5
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "tmj" = (
@@ -9961,13 +10111,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
-"tRG" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
-/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/canteen)
 "tSc" = (
 /obj/item/material/shard{
 	icon_state = "small";
@@ -10291,7 +10434,9 @@
 	pixel_x = -28;
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "vXE" = (
@@ -31099,7 +31244,7 @@ arD
 fwF
 ngg
 waQ
-hDV
+aao
 huL
 arD
 acg
@@ -31356,7 +31501,7 @@ arD
 fwF
 qDq
 aaa
-hDV
+aad
 qcy
 arD
 arD
@@ -34177,16 +34322,16 @@ rPv
 vtt
 vtt
 rPv
-hDV
-hDV
+aad
+aai
 hDV
 fwF
 aAt
 abw
 aAt
-hDV
-hDV
-hDV
+aaj
+aai
+aap
 mIJ
 rPv
 rPv
@@ -34436,12 +34581,12 @@ vtt
 rPv
 aMD
 bpP
-hDV
+aan
 aQa
 aAt
 abw
 aAt
-hDV
+aao
 aSb
 aMD
 mIJ
@@ -34693,12 +34838,12 @@ mIJ
 mIJ
 arD
 aDy
-hDV
+aap
 aQa
 aAt
 abw
 aAt
-hDV
+aad
 pTh
 arD
 uIp
@@ -39070,9 +39215,9 @@ ayN
 kvB
 acr
 lsW
-aTJ
-aTJ
-aTJ
+aar
+aas
+aat
 rPv
 vtt
 oDv
@@ -39820,7 +39965,7 @@ inI
 aHL
 inI
 inI
-aTJ
+aau
 lsW
 acf
 ljD
@@ -40591,7 +40736,7 @@ gcj
 adj
 oQV
 uIp
-bbq
+aav
 krp
 mPu
 lli
@@ -47262,7 +47407,7 @@ arD
 aUP
 aIb
 odS
-odS
+aaw
 wKu
 nsn
 kBb
@@ -48029,7 +48174,7 @@ lSw
 lSw
 arD
 arD
-arD
+hMu
 fhO
 aEq
 aVA
@@ -48543,7 +48688,7 @@ arD
 aBn
 akn
 akn
-arD
+hMu
 fhO
 abj
 aMm
@@ -50599,7 +50744,7 @@ aBn
 aBn
 arD
 arD
-tRG
+nTO
 abu
 udQ
 udQ
@@ -54725,7 +54870,7 @@ akn
 gEM
 sSg
 nPf
-nmL
+aax
 cZg
 gEM
 arD
@@ -55495,7 +55640,7 @@ akn
 akn
 akn
 sYN
-rSK
+aba
 gdv
 arD
 arD
