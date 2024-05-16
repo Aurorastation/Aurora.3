@@ -28,7 +28,7 @@
 			src.inserted_battery = attacking_item
 			updateDialog()
 		else
-			to_chat(user, "<span class='warning'>There is already a battery in [src].</span>")
+			to_chat(user, SPAN_WARNING("There is already a battery in [src]."))
 	else
 		return..()
 

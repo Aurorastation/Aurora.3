@@ -133,7 +133,7 @@
 				for(var/singleton/reagent/R in reagents_to_add)
 					reagents.remove_reagent(R,0.5/LAZYLEN(reagents_to_add)) //using crayons reduces crayon dust in it.
 				if(!reagents.has_all_reagents(reagents_to_add))
-					to_chat(user, "<span class='warning'>You used up your crayon!</span>")
+					to_chat(user, SPAN_WARNING("You used up your crayon!"))
 					qdel(src)
 	return
 
@@ -145,7 +145,7 @@
 			user.adjustNutritionLoss(-1)
 			reagents.trans_to_mob(user, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)
-				user.visible_message("<span class='notice'>[user] finished their crayon!</span>", "<span class='warning'>You ate your crayon!</span>")
+				user.visible_message("<span class='notice'>[user] finished their crayon!</span>", SPAN_WARNING("You ate your crayon!"))
 				qdel(src)
 				return TRUE
 	else

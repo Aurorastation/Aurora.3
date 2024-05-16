@@ -363,7 +363,7 @@
 		if(user==pulling)
 			pulling = null
 			user.pulledby = null
-			to_chat(user, "<span class='warning'>You lost your grip!</span>")
+			to_chat(user, SPAN_WARNING("You lost your grip!"))
 		return
 	if(user.pulling && (user == pulling))
 		pulling = null
@@ -375,7 +375,7 @@
 		if(user==pulling)
 			return
 	if(pulling && (get_dir(src.loc, pulling.loc) == direction))
-		to_chat(user, "<span class='warning'>You cannot go there.</span>")
+		to_chat(user, SPAN_WARNING("You cannot go there."))
 		return
 
 	driving = 1
@@ -401,7 +401,7 @@
 	. = ..()
 	if (pulling && (get_dist(src, pulling) > 1))
 		pulling.pulledby = null
-		to_chat(pulling, "<span class='warning'>You lost your grip!</span>")
+		to_chat(pulling, SPAN_WARNING("You lost your grip!"))
 		pulling = null
 
 /obj/structure/janitorialcart/CtrlClick(var/mob/user)

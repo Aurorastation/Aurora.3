@@ -73,7 +73,7 @@
 		to_chat(user, "<span class='notice'>You point \the [src] at \the [target], but nothing happens!</span>")
 		return
 	if (!user.IsAdvancedToolUser())
-		to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	add_fingerprint(user)

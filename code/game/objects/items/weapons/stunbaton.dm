@@ -66,7 +66,7 @@
 	if(bcell)
 		. += "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>"
 	else
-		. += "<span class='warning'>The baton does not have a power source installed.</span>"
+		. += SPAN_WARNING("The baton does not have a power source installed.")
 
 /obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))
@@ -99,9 +99,9 @@
 	else
 		status = 0
 		if(!bcell)
-			to_chat(user, "<span class='warning'>[src] does not have a power source!</span>")
+			to_chat(user, SPAN_WARNING("[src] does not have a power source!"))
 		else
-			to_chat(user, "<span class='warning'>[src] is out of charge.</span>")
+			to_chat(user, SPAN_WARNING("[src] is out of charge."))
 	add_fingerprint(user)
 
 /obj/item/melee/baton/attack(mob/living/L, mob/user, var/hit_zone)
@@ -152,14 +152,14 @@
 				target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, L)
 
 			if(!target_zone)
-				L.visible_message("<span class='warning'>[user] misses [L] with \the [src]!</span>")
+				L.visible_message(SPAN_WARNING("[user] misses [L] with \the [src]!"))
 				return 0
 
 			var/mob/living/carbon/human/H = L
 			var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 			if (affecting)
 				if(!status)
-					L.visible_message("<span class='warning'>[L] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off.</span>")
+					L.visible_message(SPAN_WARNING("[L] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off."))
 					return 1
 				else
 					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with \the [src] by [user]!</span>")
@@ -170,7 +170,7 @@
 		if(isslime(L))
 			var/mob/living/carbon/slime/S =  L
 			if(!status)
-				L.visible_message("<span class='warning'>[S] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
+				L.visible_message(SPAN_WARNING("[S] has been prodded with \the [src] by [user]. Too bad it was off."))
 				return TRUE
 			else
 				L.visible_message("<span class='danger'>[S] has been prodded with \the [src] by [user]!</span>")
@@ -182,7 +182,7 @@
 
 		else
 			if(!status)
-				L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Luckily it was off.</span>")
+				L.visible_message(SPAN_WARNING("[L] has been prodded with \the [src] by [user]. Luckily it was off."))
 				return TRUE
 			else
 				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")

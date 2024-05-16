@@ -638,7 +638,7 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_l_store, slot_r_store)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
@@ -650,11 +650,11 @@ var/list/global/slot_flags_enumeration = list(
 				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a suit before you can attach this [name]."))
 				return 0
 			if(H.wear_suit && !length(H.wear_suit.allowed))
 				if(!disable_warning)
-					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
+					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
 			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
@@ -683,12 +683,12 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_tie)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
-					to_chat(H, "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>")
+					to_chat(H, SPAN_WARNING("You already have an accessory of this type attached to your [uniform]."))
 				return 0
 	return 1
 
@@ -762,14 +762,14 @@ var/list/global/slot_flags_enumeration = list(
 					to_chat(H, "<span class='danger'>Your eyes start to bleed profusely!</span>")
 			if(prob(50))
 				if(H.stat != DEAD)
-					to_chat(H, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
+					to_chat(H, SPAN_WARNING("You drop what you're holding and clutch at your eyes!"))
 					H.drop_item()
 				H.eye_blurry += 10
 				H.Paralyse(1)
 				H.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(H.stat != DEAD)
-					to_chat(H, "<span class='warning'>You go blind!</span>")
+					to_chat(H, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(affecting.take_damage(7, 0, damage_flags(), src))
 			H.UpdateDamageIcon()

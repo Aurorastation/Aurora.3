@@ -107,11 +107,11 @@
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_air.return_pressure()-env_air.return_pressure()) > PRESSURE_EXERTED)
 		if(!istype(attacking_item, /obj/item/pipewrench))
-			to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+			to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 			add_fingerprint(user)
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>You struggle to unwrench \the [src] with your pipe wrench.</span>")
+			to_chat(user, SPAN_WARNING("You struggle to unwrench \the [src] with your pipe wrench."))
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
 	if(attacking_item.use_tool(src, user, istype(attacking_item, /obj/item/pipewrench) ? 80 : 40, volume = 50))
 		user.visible_message( \

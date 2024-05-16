@@ -23,11 +23,11 @@
 		if(!AM.loc) //Don't teleport HUD elements to us.
 			return
 		if(AM.anchored)
-			to_chat(user, "<span class='warning'>\The [hit_atom] is firmly secured and anchored, you can't move it!</span>")
+			to_chat(user, SPAN_WARNING("\The [hit_atom] is firmly secured and anchored, you can't move it!"))
 			return
 
 		if(!within_range(hit_atom) && !check_for_scepter())
-			to_chat(user, "<span class='warning'>\The [hit_atom] is too far away.</span>")
+			to_chat(user, SPAN_WARNING("\The [hit_atom] is too far away."))
 			return
 
 		//Teleporting an item.
@@ -57,12 +57,12 @@
 
 /obj/item/spell/apportation/proc/seize_mob(var/mob/living/L, var/mob/user)
 	if(!user.Adjacent(L))
-		to_chat(user, "<span class='warning'>\The [L] is out of your reach.</span>")
+		to_chat(user, SPAN_WARNING("\The [L] is out of your reach."))
 		qdel(src)
 		return
 
 	L.Weaken(3)
-	user.visible_message("<span class='warning'><b>\The [user]</b> seizes [L]!</span>")
+	user.visible_message(SPAN_WARNING("<b>\The [user]</b> seizes [L]!"))
 
 	var/obj/item/grab/G = new(user, L)
 

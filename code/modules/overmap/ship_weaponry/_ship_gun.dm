@@ -79,7 +79,7 @@
 		if(20 to 40)
 			. = "It has a few holes through which you can see some machinery."
 		if(40 to 60)
-			. = "<span class='warning'>Some fairly important parts are missing... but it should work anyway.</span>"
+			. = SPAN_WARNING("Some fairly important parts are missing... but it should work anyway.")
 		if(60 to 80)
 			. = "<span class='danger'>It needs repairs direly. Both aiming and firing components are missing or broken. It has a lot of holes, too. It definitely wouldn't \
 				pass inspection.</span>"

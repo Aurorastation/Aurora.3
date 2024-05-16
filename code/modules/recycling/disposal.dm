@@ -227,7 +227,7 @@
 					GM.client.eye = src
 				GM.forceMove(src)
 				for (var/mob/C in viewers(src))
-					C.show_message("<span class='warning'>[GM.name] has been placed in the [src] by [user].</span>", 3)
+					C.show_message(SPAN_WARNING("[GM.name] has been placed in the [src] by [user]."), 3)
 				qdel(G)
 				usr.attack_log += text("\[[time_stamp()]\] <span class='warning'>Has placed [GM.name] ([GM.ckey]) in disposals.</span>")
 				GM.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been placed in disposals by [usr.name] ([usr.ckey])</font>")
@@ -341,7 +341,7 @@
 		return
 
 	if(user.loc == src)
-		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
 
 	// Clumsy folks can only flush it.
@@ -397,11 +397,11 @@
 
 /obj/machinery/disposal/Topic(href, href_list)
 	if(usr.loc == src && !issilicon(usr))
-		to_chat(usr, "<span class='warning'>You cannot reach the controls from inside.</span>")
+		to_chat(usr, SPAN_WARNING("You cannot reach the controls from inside."))
 		return
 
 	if(mode==-1 && !href_list["eject"]) // only allow ejecting if mode is -1
-		to_chat(usr, "<span class='warning'>The disposal units power is disabled.</span>")
+		to_chat(usr, SPAN_WARNING("The disposal units power is disabled."))
 		return
 	if(..())
 		return

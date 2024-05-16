@@ -18,11 +18,11 @@
 /obj/machinery/dnaforensics/attackby(obj/item/attacking_item, mob/user)
 
 	if(bloodsamp)
-		to_chat(user, "<span class='warning'>There is already a sample in the machine.</span>")
+		to_chat(user, SPAN_WARNING("There is already a sample in the machine."))
 		return
 
 	if(closed)
-		to_chat(user, "<span class='warning'>Open the cover before inserting the sample.</span>")
+		to_chat(user, SPAN_WARNING("Open the cover before inserting the sample."))
 		return
 
 	var/obj/item/forensics/swab/swab = attacking_item
@@ -32,7 +32,7 @@
 		swab.forceMove(src)
 		to_chat(user, "<span class='notice'>You insert \the [attacking_item] into \the [src].</span>")
 	else
-		to_chat(user, "<span class='warning'>\The [src] only accepts used swabs.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] only accepts used swabs."))
 		return
 
 /obj/machinery/dnaforensics/ui_interact(mob/user, ui_key = "main",var/datum/nanoui/ui = null)
@@ -72,7 +72,7 @@
 				else
 					to_chat(usr, "<span class='notice'>Please close sample lid before initiating scan.</span>")
 			else
-				to_chat(usr, "<span class='warning'>Insert an item to scan.</span>")
+				to_chat(usr, SPAN_WARNING("Insert an item to scan."))
 
 	if(href_list["ejectItem"])
 		if(bloodsamp)
@@ -142,7 +142,7 @@
 		return
 
 	if(scanning)
-		to_chat(usr, "<span class='warning'>You can't do that while [src] is scanning!</span>")
+		to_chat(usr, SPAN_WARNING("You can't do that while [src] is scanning!"))
 		return
 
 	closed = !closed

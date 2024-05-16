@@ -582,13 +582,13 @@ var/list/admin_verbs_cciaa = list(
 			ghost.reenter_corpse()
 			log_admin("[src] reentered their corpose using aghost.",admin_key=key_name(src))
 		else
-			to_chat(ghost, "<span class='warning'>Error: Aghost: Can't reenter corpse.</span>")
+			to_chat(ghost, SPAN_WARNING("Error: Aghost: Can't reenter corpse."))
 			return
 
 		feedback_add_details("admin_verb","P") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 	else if(istype(mob,/mob/abstract/new_player))
-		to_chat(src, "<span class='warning'>Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first.</span>")
+		to_chat(src, SPAN_WARNING("Error: Aghost: Can't admin-ghost whilst in the lobby. Join or Observe first."))
 	else
 		//ghostize
 		var/mob/body = mob
@@ -929,7 +929,7 @@ var/list/admin_verbs_cciaa = list(
 	var/mob/living/carbon/human/M = input("Select mob.", "Edit Appearance") as null|anything in GLOB.human_mob_list
 
 	if(!istype(M, /mob/living/carbon/human))
-		to_chat(usr, "<span class='warning'>You can only do this to humans!</span>")
+		to_chat(usr, SPAN_WARNING("You can only do this to humans!"))
 		return
 	switch(alert("Are you sure you wish to edit this mob's appearance? Skrell, Unathi and Tajaran can result in unintended consequences.",,"Yes","No"))
 		if("No")

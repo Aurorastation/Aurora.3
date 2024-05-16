@@ -61,7 +61,7 @@
 		P.damage = P.damage - damage_blocked
 
 	user.visible_message("<span class='danger'>\The [user]'s [src] absorbs [attack_text]!</span>")
-	to_chat(user, "<span class='warning'>Your shield has absorbed most of \the [damage_source].</span>")
+	to_chat(user, SPAN_WARNING("Your shield has absorbed most of \the [damage_source]."))
 
 	spark(src, 5, GLOB.cardinal)
 	playsound(src, 'sound/weapons/blade.ogg', 50, 1)

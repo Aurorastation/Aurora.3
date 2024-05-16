@@ -184,7 +184,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 	if(!check_interactivity(usr))
 		return
 	if (assembly && !assembly.opened)
-		to_chat(usr, "<span class='warning'>\The [assembly] is not open!</span>")
+		to_chat(usr, SPAN_WARNING("\The [assembly] is not open!"))
 		return
 	if(..())
 		return 1
@@ -248,7 +248,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			if(pin)
 				debugger.write_data(pin, usr)
 		else
-			to_chat(usr, "<span class='warning'>You can't do a whole lot without the proper tools.</span>")
+			to_chat(usr, SPAN_WARNING("You can't do a whole lot without the proper tools."))
 
 	if(href_list["examine"])
 		var/obj/item/integrated_circuit/examined
@@ -275,23 +275,23 @@ a creative player the means to solve many problems.  Circuits are held inside an
 			if(D.accepting_refs)
 				D.afterattack(src, usr, TRUE)
 			else
-				to_chat(usr, "<span class='warning'>The Debugger's 'ref scanner' needs to be on.</span>")
+				to_chat(usr, SPAN_WARNING("The Debugger's 'ref scanner' needs to be on."))
 		else
-			to_chat(usr, "<span class='warning'>You need a multitool/debugger set to 'ref' mode to do that.</span>")
+			to_chat(usr, SPAN_WARNING("You need a multitool/debugger set to 'ref' mode to do that."))
 
 	if(href_list["return"])
 		if(A)
 			update_to_assembly = 1
 			usr << browse(null, "window=circuit-\ref[src]")
 		else
-			to_chat(usr, "<span class='warning'>This circuit is not in an assembly!</span>")
+			to_chat(usr, SPAN_WARNING("This circuit is not in an assembly!"))
 
 	if(href_list["remove"])
 		if(!A)
-			to_chat(usr, "<span class='warning'>This circuit is not in an assembly!</span>")
+			to_chat(usr, SPAN_WARNING("This circuit is not in an assembly!"))
 			return
 		if(!removable)
-			to_chat(usr, "<span class='warning'>\The [src] seems to be permanently attached to the case.</span>")
+			to_chat(usr, SPAN_WARNING("\The [src] seems to be permanently attached to the case."))
 			return
 		var/obj/item/device/electronic_assembly/ea = loc
 		disconnect_all()

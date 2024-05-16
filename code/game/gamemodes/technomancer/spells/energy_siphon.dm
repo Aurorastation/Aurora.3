@@ -33,15 +33,15 @@
 	if(!siphoning)
 		return
 	if(!pay_energy(100))
-		to_chat(owner, "<span class='warning'>You can't afford to maintain the siphon link!</span>")
+		to_chat(owner, SPAN_WARNING("You can't afford to maintain the siphon link!"))
 		stop_siphoning()
 		return
 	if(get_dist(siphoning, get_turf(src)) > 4)
-		to_chat(owner, "<span class='warning'>\The [siphoning] is too far to drain from!</span>")
+		to_chat(owner, SPAN_WARNING("\The [siphoning] is too far to drain from!"))
 		stop_siphoning()
 		return
 	if(!(siphoning in view(owner)))
-		to_chat(owner, "<span class='warning'>\The [siphoning] cannot be seen!</span>")
+		to_chat(owner, SPAN_WARNING("\The [siphoning] cannot be seen!"))
 		stop_siphoning()
 		return
 	siphon(siphoning, owner)
@@ -54,7 +54,7 @@
 		var/atom/movable/AM = hit_atom
 		populate_siphon_list(AM)
 		if(!things_to_siphon.len)
-			to_chat(user, "<span class='warning'>You cannot steal energy from \a [AM].</span>")
+			to_chat(user, SPAN_WARNING("You cannot steal energy from \a [AM]."))
 			return 0
 		siphoning = AM
 		update_icon()
@@ -151,7 +151,7 @@
 	adjust_instability(2)
 
 	if(flow_remaining == flow_rate) // We didn't drain anything.
-		to_chat(user, "<span class='warning'>\The [siphoning] cannot be drained any further.</span>")
+		to_chat(user, SPAN_WARNING("\The [siphoning] cannot be drained any further."))
 		stop_siphoning()
 
 /obj/item/spell/energy_siphon/update_icon()

@@ -31,7 +31,7 @@
 
 /obj/item/gun/energy/rifle/icelance/unique_action(mob/living/user)
 	if(is_charging)
-		to_chat(user, "<span class='warning'>You are already charging \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You are already charging \the [src]."))
 		return
 	if(power_supply.charge < power_supply.maxcharge)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)

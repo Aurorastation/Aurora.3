@@ -42,16 +42,16 @@
 					src.sortTag = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
 			else
-				to_chat(user, "<span class='warning'>The package is already labeled for [O.currTag].</span>")
+				to_chat(user, SPAN_WARNING("The package is already labeled for [O.currTag]."))
 		else
-			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
+			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
 	else if(attacking_item.ispen())
 		switch(alert("What would you like to alter?",,"Title","Description", "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe(input(usr,"Label text?","Set label",""), MAX_NAME_LEN)
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
@@ -66,7 +66,7 @@
 			if("Description")
 				var/str = sanitize(input(usr,"Label text?","Set label",""))
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				if(!examtext && !nameset)
 					examtext = str
@@ -165,16 +165,16 @@
 					src.sortTag = O.currTag
 				playsound(src.loc, 'sound/machines/twobeep.ogg', 50, 1)
 			else
-				to_chat(user, "<span class='warning'>The package is already labeled for [O.currTag].</span>")
+				to_chat(user, SPAN_WARNING("The package is already labeled for [O.currTag]."))
 		else
-			to_chat(user, "<span class='warning'>You need to set a destination first!</span>")
+			to_chat(user, SPAN_WARNING("You need to set a destination first!"))
 
 	else if(attacking_item.ispen())
 		switch(tgui_input_list(user, "What would you like to alter?", null, list("Title", "Description"), "Cancel"))
 			if("Title")
 				var/str = sanitizeSafe( tgui_input_text(usr, "Label text?", "Set label", "", MAX_NAME_LEN), MAX_NAME_LEN )
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
 				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
@@ -190,7 +190,7 @@
 			if("Description")
 				var/str = sanitize(tgui_input_text(usr, "Label text?", "Set label", ""))
 				if(!str || !length(str))
-					to_chat(usr, "<span class='warning'>Invalid text.</span>")
+					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				if(!examtext && !nameset)
 					examtext = str

@@ -21,7 +21,7 @@
 	if(istype(M) && user.a_intent == I_HELP)
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		if(user.on_fire)
-			user.visible_message("<span class='warning'>\The [user] uses \the [src] to pat out \the [M]'s flames with \the [src]!</span>")
+			user.visible_message(SPAN_WARNING("\The [user] uses \the [src] to pat out \the [M]'s flames with \the [src]!"))
 			playsound(M, 'sound/weapons/towelwhip.ogg', 25, 1)
 			M.ExtinguishMob(-1)
 		else

@@ -202,11 +202,11 @@
 /obj/item/spacecash/ewallet/lotto/attack_self(mob/user)
 
 	if(scratches_remaining <= 0)
-		to_chat(user, "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>")
+		to_chat(user, SPAN_WARNING("The card flashes: \"No scratches remaining!\""))
 		return
 
 	if(next_scratch > world.time)
-		to_chat(user, "<span class='warning'>The card flashes: \"Please wait!\"</span>")
+		to_chat(user, SPAN_WARNING("The card flashes: \"Please wait!\""))
 		return
 
 	next_scratch = world.time + 6 SECONDS

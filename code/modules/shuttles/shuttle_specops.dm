@@ -4,7 +4,7 @@
 	req_access = list(ACCESS_CENT_SPECOPS)
 
 /obj/machinery/computer/shuttle_control/specops/attack_ai(user as mob)
-	to_chat(user, "<span class='warning'>Access Denied.</span>")
+	to_chat(user, SPAN_WARNING("Access Denied."))
 	return 1
 
 /datum/shuttle/autodock/ferry/specops
@@ -83,7 +83,7 @@
 	radio_announce("ALERT: LAUNCH SEQUENCE ABORTED")
 	if (istype(in_use, /obj/machinery/computer))
 		var/obj/machinery/computer/C = in_use
-		C.visible_message("<span class='warning'>Launch sequence aborted.</span>")
+		C.visible_message(SPAN_WARNING("Launch sequence aborted."))
 
 	..()
 

@@ -57,7 +57,7 @@
 
 
 	if(light_amount > 0.2)
-		to_chat(M, "<span class='warning'>It's too bright here to use \the [src]!</span>")
+		to_chat(M, SPAN_WARNING("It's too bright here to use \the [src]!"))
 		return 0
 
 	//mobs in range check
@@ -65,12 +65,12 @@
 	for(var/mob/living/L in orange(1,src))
 		if(L.ckey)
 			if(L.stat != CONSCIOUS || L.restrained())
-				to_chat(M, "<span class='warning'>\The [L] does not seem to be paying attention to the [src].</span>")
+				to_chat(M, SPAN_WARNING("\The [L] does not seem to be paying attention to the [src]."))
 			else
 				users_in_range++
 
 	if(users_in_range < 2)
-		to_chat(M, "<span class='warning'>There are not enough people to use \the [src]!</span>")
+		to_chat(M, SPAN_WARNING("There are not enough people to use \the [src]!"))
 		return 0
 
 	return 1

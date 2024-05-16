@@ -309,7 +309,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 						usr.client.cmd_admin_pm(admin_client, ticket = ticket)
 						break
 				if(!admin_found)
-					to_chat(usr, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so please be patient!</span>")
+					to_chat(usr, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so please be patient!"))
 			else
 				usr.client.adminhelp(input(usr,"", "adminhelp \"text\"") as text)
 

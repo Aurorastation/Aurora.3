@@ -38,7 +38,7 @@
 /datum/universal_state/bluespace_jump/OnTouchMapEdge(var/atom/A)
 	if((A.z in affected_levels) && (A in bluespaced))
 		if(ismob(A))
-			to_chat(A,"<span class='warning'>You drift away into the shifting expanse, never to be seen again.</span>")
+			to_chat(A,SPAN_WARNING("You drift away into the shifting expanse, never to be seen again."))
 		qdel(A) //lost in bluespace
 		return FALSE
 	return TRUE
@@ -97,7 +97,7 @@
 		else if(reality > 3)
 			to_chat(daddy, "<span class='danger'>Something is definitely wrong. Why do you think YOU are the original?</span>")
 		else
-			to_chat(daddy, "<span class='warning'>You feel a bit less real. Which one of you two was original again?..</span>")
+			to_chat(daddy, SPAN_WARNING("You feel a bit less real. Which one of you two was original again?.."))
 
 /obj/effect/bluegoast/proc/mirror_dir(var/atom/movable/am, var/old_dir, var/new_dir)
 	set_dir(GLOB.reverse_dir[new_dir])

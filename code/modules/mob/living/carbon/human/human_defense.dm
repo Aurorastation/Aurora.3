@@ -320,10 +320,10 @@ emp_act
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.status & ORGAN_ROBOT))
-		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
+		to_chat(user, SPAN_WARNING("That limb isn't robotic."))
 		return -1
 	if(affecting.sabotaged)
-		to_chat(user, "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>")
+		to_chat(user, SPAN_WARNING("[src]'s [affecting.name] is already sabotaged!"))
 		return -1
 	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
 	affecting.sabotaged = 1
@@ -338,7 +338,7 @@ emp_act
 			if(canmove && !restrained())
 				if(isturf(O.loc))
 					put_in_active_hand(O)
-					visible_message("<span class='warning'>[src] catches [O]!</span>")
+					visible_message(SPAN_WARNING("[src] catches [O]!"))
 					throw_mode_off()
 					return
 
@@ -376,7 +376,8 @@ emp_act
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
-		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size=2>You're hit in the [hit_area] by [O]!</font></span>")
+		src.visible_message(SPAN_WARNING("[src] has been hit in the [hit_area] by [O]."),
+							SPAN_WARNING("<font size=2>You're hit in the [hit_area] by [O]!</font>"))
 		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
 		if(ismob(O.thrower))
@@ -415,7 +416,8 @@ emp_act
 		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throw_source, src)
 
-			visible_message("<span class='warning'>[src] staggers under the impact!</span>","<span class='warning'> You stagger under the impact!</span>")
+			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
+							SPAN_WARNING("You stagger under the impact!"))
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
 			if(!O || !src) return
@@ -553,9 +555,9 @@ emp_act
 		G.icon_state = "grabbed1"
 		G.hud.icon_state = "reinforce1"
 		G.last_action = world.time
-		visible_message("<span class='warning'>[user] gets a strong grip on [src]!</span>")
+		visible_message(SPAN_WARNING("[user] gets a strong grip on [src]!"))
 		return 1
-	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
+	visible_message(SPAN_WARNING("[user] has grabbed [src] passively!"))
 	return 1
 
 /mob/living/carbon/human/set_on_fire()

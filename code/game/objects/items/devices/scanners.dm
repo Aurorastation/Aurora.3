@@ -98,13 +98,13 @@ BREATH ANALYZER
 			return
 
 		if(!user.IsAdvancedToolUser())
-			to_chat(user, "<span class='warning'>You don't have the dexterity to do this!</span>")
+			to_chat(user, SPAN_WARNING("You don't have the dexterity to do this!"))
 			return
 
 		user.visible_message("<b>[user]</b> runs a scanner over [M].","<span class='notice'>You run the scanner over [M].</span>")
 
 	if(!istype(M, /mob/living/carbon/human))
-		to_chat(user, "<span class='warning'>This scanner is designed for humanoid patients only.</span>")
+		to_chat(user, SPAN_WARNING("This scanner is designed for humanoid patients only."))
 		if(sound_scan)
 			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
@@ -112,7 +112,7 @@ BREATH ANALYZER
 	var/mob/living/carbon/human/H = M
 
 	if(H.isSynthetic() && !H.isFBP())
-		to_chat(user, "<span class='warning'>This scanner is designed for organic humanoid patients only.</span>")
+		to_chat(user, SPAN_WARNING("This scanner is designed for organic humanoid patients only."))
 		if(sound_scan)
 			playsound(user.loc, 'sound/items/healthscanner/healthscanner_used.ogg', 25, extrarange = SILENCED_SOUND_EXTRARANGE)
 		return
@@ -325,7 +325,7 @@ BREATH ANALYZER
 				dat += reagentdata[d]
 		if(unknown)
 			print_reagent_default_message = FALSE
-			dat += "<span class='warning'>Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.</span>"
+			dat += SPAN_WARNING("Warning: Unknown substance[(unknown>1)?"s":""] detected in subject's blood.")
 
 	var/datum/reagents/ingested = H.get_ingested_reagents()
 	if(ingested && ingested.total_volume)
@@ -339,7 +339,7 @@ BREATH ANALYZER
 				++unknown
 		if(unknown)
 			print_reagent_default_message = FALSE
-			dat +=  "<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.</span>"
+			dat +=  SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's stomach.")
 
 	if(print_reagent_default_message)
 		dat += "No results."
@@ -397,7 +397,7 @@ BREATH ANALYZER
 	if (user.stat)
 		return
 	if (!usr.IsAdvancedToolUser())
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	analyze_gases(src, user)
@@ -598,7 +598,7 @@ BREATH ANALYZER
 /obj/item/device/breath_analyzer/attack(mob/living/carbon/human/H, mob/living/user as mob)
 
 	if (!istype(H))
-		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on [H]!</span>")
+		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on [H]!"))
 		return
 
 	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(20))
@@ -609,7 +609,7 @@ BREATH ANALYZER
 		return
 
 	if (!user.IsAdvancedToolUser())
-		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(user == H && !H.can_eat(src))
@@ -652,13 +652,13 @@ BREATH ANALYZER
 	var/obj/item/organ/internal/L = H.internal_organs_by_name[BP_LUNGS]
 	if(istype(L))
 		if(L.is_bruised())
-			to_chat(user,"<span class='warning'><b>Ruptured lung detected.</b></span>")
+			to_chat(user,SPAN_WARNING("<b>Ruptured lung detected.</b>"))
 		else if(L.is_damaged())
 			to_chat(user,"<b>Damaged lung detected.</b>")
 		else
 			to_chat(user,"Subject lung health nominal.")
 	else
-		to_chat(user,"<span class='warning'>Subject lung health unknown.</span>")
+		to_chat(user,SPAN_WARNING("Subject lung health unknown."))
 
 	var/additional_string = "<font color='green'>\[NORMAL\]</font>"
 	var/bac = H.get_blood_alcohol()
@@ -668,11 +668,11 @@ BREATH ANALYZER
 		if(INTOX_MUSCLEIMP to INTOX_VOMIT)
 			additional_string = "\[MODERATELY INTOXICATED\]"
 		if(INTOX_VOMIT to INTOX_BALANCE)
-			additional_string = "<span class='warning'>\[HEAVILY INTOXICATED\]</span>"
+			additional_string = SPAN_WARNING("\[HEAVILY INTOXICATED\]")
 		if(INTOX_BALANCE to INTOX_DEATH)
-			additional_string = "<span class='warning'>\[ALCOHOL POISONING LIKELY\]</span>"
+			additional_string = SPAN_WARNING("\[ALCOHOL POISONING LIKELY\]")
 		if(INTOX_DEATH to INFINITY)
-			additional_string = "<span class='warning'>\[DEATH IMMINENT\]</span>"
+			additional_string = SPAN_WARNING("\[DEATH IMMINENT\]")
 	to_chat(user,"<span class='normal'>Blood Alcohol Content: [round(bac,0.01)] <b>[additional_string]</b></span>")
 
 	if(H.breathing && H.breathing.total_volume)
@@ -684,7 +684,7 @@ BREATH ANALYZER
 			else
 				++unknown
 		if(unknown)
-			to_chat(user,"<span class='warning'>Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system.</span>")
+			to_chat(user,SPAN_WARNING("Non-medical reagent[(unknown > 1)?"s":""] found in subject's respiratory system."))
 
 
 /obj/item/device/advanced_healthanalyzer

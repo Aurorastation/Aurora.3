@@ -143,7 +143,7 @@
 	if(!istype(H))
 		return
 
-	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
+	user.visible_message(SPAN_WARNING("[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!"))
 
 	if(!do_mob(user, H, 10 SECONDS))
 		return
@@ -154,7 +154,7 @@
 	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 
 	if(response == "Yes")
-		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
+		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), SPAN_DANGER("You fall into a deep slumber!"))
 
 		H.sleeping = max(H.sleeping, 40)
 		H.drowsiness = max(H.drowsiness, 60)

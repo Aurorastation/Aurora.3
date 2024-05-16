@@ -104,7 +104,8 @@
 				if(open)
 					health = min(maxhealth, health+10)
 					user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
-					user.visible_message("<span class='warning'>[user] repairs [src]!</span>","<span class='notice'>You repair [src]!</span>")
+					user.visible_message(SPAN_WARNING("[user] repairs [src]!"),
+											SPAN_NOTICE("<span class='notice'>You repair [src]!"))
 				else
 					to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
 			else
@@ -210,7 +211,7 @@
 		emagged = 1
 		if(locked)
 			locked = 0
-			to_chat(user, "<span class='warning'>You bypass \the [src]'s controls.</span>")
+			to_chat(user, SPAN_WARNING("You bypass \the [src]'s controls."))
 		return 1
 
 /obj/vehicle/proc/explode()

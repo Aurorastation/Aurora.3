@@ -78,7 +78,7 @@ var/const/NO_EMAG_ACT = -50
 		log_and_message_admins("emagged \an [A].")
 
 	if(uses<1)
-		user.visible_message("<span class='warning'>\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent.</span>")
+		user.visible_message(SPAN_WARNING("\The [src] fizzles and sparks - it seems it's been used once too often, and is now spent."))
 		var/obj/item/card/emag_broken/junk = new(user.loc)
 		junk.add_fingerprint(user)
 		user.drop_from_inventory(src,get_turf(junk))
@@ -206,7 +206,7 @@ var/const/NO_EMAG_ACT = -50
 		if (response == "Yes")
 			var/mob/living/carbon/human/H = user
 			if(H.gloves)
-				to_chat(user, "<span class='warning'>You cannot imprint [src] while wearing \the [H.gloves].</span>")
+				to_chat(user, SPAN_WARNING("You cannot imprint [src] while wearing \the [H.gloves]."))
 				return
 			else
 				mob_id = WEAKREF(H)
@@ -246,13 +246,13 @@ var/const/NO_EMAG_ACT = -50
 			if (response == "Yes")
 
 				if (!user.Adjacent(M) || user.restrained() || user.lying || user.stat)
-					to_chat(user, "<span class='warning'>You must remain adjacent to [M] to scan their biometric data.</span>")
+					to_chat(user, SPAN_WARNING("You must remain adjacent to [M] to scan their biometric data."))
 					return
 
 				var/mob/living/carbon/human/H = M
 
 				if(H.gloves)
-					to_chat(user, "<span class='warning'>\The [H] is wearing gloves.</span>")
+					to_chat(user, SPAN_WARNING("\The [H] is wearing gloves."))
 					return 1
 
 				if(user != H && H.a_intent != "help" && !H.lying)
@@ -268,7 +268,7 @@ var/const/NO_EMAG_ACT = -50
 					if(istype(O) && !O.is_stump())
 						has_hand = 1
 				if(!has_hand)
-					to_chat(user, "<span class='warning'>They don't have any hands.</span>")
+					to_chat(user, SPAN_WARNING("They don't have any hands."))
 					return 1
 				user.visible_message("[user] imprints [src] with \the [H]'s biometrics.")
 				mob_id = WEAKREF(H)

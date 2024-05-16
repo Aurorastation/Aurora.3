@@ -113,7 +113,7 @@
 	..()
 	if(prob(trigger_chance))
 		if(!on)
-			to_chat(user, "<span class='warning'>\The [src] buzzes!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] buzzes!"))
 			return
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
 		user.visible_message("<span class='danger'>\The [user] slams \the [target] away with \the [src]!</span>")

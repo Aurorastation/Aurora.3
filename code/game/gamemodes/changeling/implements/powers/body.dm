@@ -8,7 +8,7 @@
 		return
 
 	if(!ishuman(src))
-		to_chat(src, "<span class='warning'>We cannot perform this ability as this form!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability as this form!"))
 		return
 
 	var/list/names = list()
@@ -41,7 +41,7 @@
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		H.visible_message("<span class='warning'>[H] transforms!</span>")
+		H.visible_message(SPAN_WARNING("[H] transforms!"))
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
 		if(mind) //likely transfomration sting on ghosted corpse if no mind
@@ -72,13 +72,13 @@
 		return
 
 	if(src.has_brain_worms()) //why the fuck does brain worms prevent you from turning into a monkey
-		to_chat(src, "<span class='warning'>We cannot perform this ability at the present time!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability at the present time!"))
 		return
 
 	var/mob/living/carbon/human/H = src
 
 	if(!istype(H) || !H.species.primitive_form)
-		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability in this form!"))
 		return
 
 	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
@@ -93,9 +93,9 @@
 		H.buckled_to.unbuckle()
 
 	changeling.use_charges(1)
-	H.visible_message("<span class='warning'>[H] transforms!</span>")
+	H.visible_message(SPAN_WARNING("[H] transforms!"))
 	changeling.geneticdamage = 30
-	to_chat(H, "<span class='warning'>Our genes cry out!</span>")
+	to_chat(H, SPAN_WARNING("Our genes cry out!"))
 
 	var/mob/living/simple_animal/hostile/lesser_changeling/ling = new (get_turf(H))
 
@@ -149,7 +149,7 @@
 
 	changeling.use_charges(1)
 	C.remove_changeling_powers()
-	C.visible_message("<span class='warning'>[C] transforms!</span>")
+	C.visible_message(SPAN_WARNING("[C] transforms!"))
 	C.dna = chosen_dna.Clone()
 
 	var/list/implants = list()
@@ -523,8 +523,8 @@
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	src.visible_message("<span class='danger'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
-							"<span class='warning'>We inflate our hand into a robust shield.</span>",
-							"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+							SPAN_WARNING("We inflate our hand into a robust shield."),
+							SPAN_WARNING("You hear organic matter ripping and tearing!"))
 
 /mob/proc/horror_form()
 	set category = "Changeling"

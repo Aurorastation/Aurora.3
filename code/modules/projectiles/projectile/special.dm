@@ -19,11 +19,12 @@
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 				s.surge_left -= 0.5
 				if(s.surge_left)
-					H.visible_message("<span class='warning'>[H] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left.</span>")
+					H.visible_message(SPAN_WARNING("[H] was not affected by EMP pulse."),
+										SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. There are [s.surge_left] preventions left."))
 				else
 					s.broken = 1
 					s.icon_state = "surge_ipc_broken"
-					to_chat(H, "<span class='warning'>Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended.</span>")
+					to_chat(H, SPAN_WARNING("Warning: EMP detected, integrated surge prevention module activated. The surge prevention module is fried, replacement recommended."))
 				return
 			else
 				to_chat(src, "<span class='danger'>Warning: EMP detected, integrated surge prevention module is fried and unable to protect from EMP. Replacement recommended.</span>")
@@ -34,7 +35,8 @@
 			if(C.surge_left >= 0.5)
 				playsound(src.loc, 'sound/magic/LightningShock.ogg', 25, 1)
 				C.surge_left -= 0.5
-				R.visible_message("<span class='warning'>[R] was not affected by EMP pulse.</span>", "<span class='warning'>Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics.</span>")
+				R.visible_message(SPAN_WARNING("[R] was not affected by EMP pulse."),
+									SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics."))
 				if(C.surge_left)
 					to_chat(R, "<span class='notice'>Surge module has [C.surge_left] preventions left!</span>")
 				else
@@ -157,7 +159,7 @@
 				H.apply_damage(rand(30,80), DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 				M.Weaken(5)
 				for (var/mob/V in viewers(src))
-					V.show_message("<span class='warning'>[M] writhes in pain as [M.get_pronoun("his")] vacuoles boil.</span>", 3, "<span class='warning'>You hear the crunching of leaves.</span>", 2)
+					V.show_message(SPAN_WARNING("[M] writhes in pain as [M.get_pronoun("his")] vacuoles boil."), 3, SPAN_WARNING("You hear the crunching of leaves."), 2)
 			if(prob(35))
 				if(prob(80))
 					randmutb(M)
@@ -167,7 +169,7 @@
 					domutcheck(M,null)
 			else
 				M.adjustFireLoss(rand(5,15))
-				M.show_message("<span class='warning'>The radiation beam singes you!</span>")
+				M.show_message(SPAN_WARNING("The radiation beam singes you!"))
 	else if(iscarbon(target))
 		M.show_message("<span class='notice'>The radiation beam dissipates harmlessly through your body.</span>")
 	else

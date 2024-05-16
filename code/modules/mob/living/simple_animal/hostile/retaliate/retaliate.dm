@@ -43,5 +43,5 @@
 				if(E.rename_species(type, newname))
 					to_chat(usr,"<span class='notice'>This species will be known from now on as '[newname]'.</span>")
 				else
-					to_chat(usr,"<span class='warning'>This species has already been named!</span>")
+					to_chat(usr,SPAN_WARNING("This species has already been named!"))
 			return

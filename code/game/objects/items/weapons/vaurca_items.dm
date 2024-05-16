@@ -490,7 +490,7 @@
 	if(bolt)
 		if(tension < max_tension)
 			if(do_after(M, 5 * tension))
-				to_chat(M, "<span class='warning'>You pump [src], charging the magnetic coils.</span>")
+				to_chat(M, SPAN_WARNING("You pump [src], charging the magnetic coils."))
 				tension++
 		else
 			to_chat(M, "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>")
@@ -502,13 +502,13 @@
 		if(next)
 			belt -= next //Remove grenade from loaded list.
 			bolt = next
-			to_chat(M, "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>")
+			to_chat(M, SPAN_WARNING("You pump [src], loading \a [next] into the chamber."))
 		else
-			to_chat(M, "<span class='warning'>You pump [src], but the magazine is empty.</span>")
+			to_chat(M, SPAN_WARNING("You pump [src], but the magazine is empty."))
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
 	if(belt.len >= belt_size)
-		to_chat(user, "<span class='warning'>[src] is full.</span>")
+		to_chat(user, SPAN_WARNING("[src] is full."))
 		return
 	user.remove_from_mob(W)
 	W.forceMove(src)
@@ -522,7 +522,7 @@
 		user.put_in_hands(R)
 		user.visible_message("[user] removes \a [R] from [src].", "<span class='notice'>You remove \a [R] from [src].</span>")
 	else
-		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+		to_chat(user, SPAN_WARNING("[src] is empty."))
 
 /obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/arrow))

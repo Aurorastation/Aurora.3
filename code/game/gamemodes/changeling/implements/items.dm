@@ -31,7 +31,7 @@
 /obj/item/melee/arm_blade/dropped(mob/user)
 	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their arm blade into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	SPAN_WARNING("You hear organic matter ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -89,7 +89,7 @@
 /obj/item/shield/riot/changeling/dropped(mob/user)
 	. = ..()
 	visible_message("<span class='danger'>With a sickening crunch, [user] reforms their shield into an arm!</span>",
-	"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	SPAN_WARNING("You hear organic matter ripping and tearing!"))
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
 	QDEL_IN(src, 1)
 
@@ -175,7 +175,7 @@
 					door.open() //If we're a windoor, open the windoor.
 					to_chat(user, "<span class='notice'>We've opened \the [door].</span>")
 		else //Probably broken or no power.
-			to_chat(user, "<span class='warning'>The door does not respond to the pulse.</span>")
+			to_chat(user, SPAN_WARNING("The door does not respond to the pulse."))
 		door.add_fingerprint(user)
 		log_and_message_admins("finger-lockpicked \an [door].", user)
 		changeling.use_charges(10)

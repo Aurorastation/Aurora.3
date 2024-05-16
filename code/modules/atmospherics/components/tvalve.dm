@@ -305,7 +305,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	..()
 
@@ -347,7 +347,7 @@
 	if (!attacking_item.iswrench())
 		return ..()
 	if (istype(src, /obj/machinery/atmospherics/tvalve/digital))
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it's too complicated.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it's too complicated."))
 		return TRUE
 	var/datum/gas_mixture/int_air = return_air()
 	if(!loc) return FALSE
@@ -448,7 +448,7 @@
 	if(!powered())
 		return
 	if(!src.allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.</span>")
+		to_chat(user, SPAN_WARNING("Access denied."))
 		return
 	..()
 

@@ -253,7 +253,7 @@
 				return
 			var/obj/item/blocked = H.check_mouth_coverage()
 			if(blocked)
-				to_chat(user, "<span class='warning'>\The [blocked] is in the way!</span>")
+				to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 				return
 
 		if(isanimal(target))

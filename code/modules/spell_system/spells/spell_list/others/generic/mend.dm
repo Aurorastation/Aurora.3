@@ -30,18 +30,18 @@
 			return 0
 
 		if(!ishuman(target))
-			to_chat(user, "<span class='warning'>\The [target]'s body is not complex enough to require healing of this kind.</span>")
+			to_chat(user, SPAN_WARNING("\The [target]'s body is not complex enough to require healing of this kind."))
 			return 0
 
 		var/mob/living/carbon/human/H = target
 		var/obj/item/organ/external/E = H.get_organ(user.zone_sel.selecting)
 
 		if(!E || E.is_stump())
-			to_chat(user, "<span class='warning'>They are missing that limb.</span>")
+			to_chat(user, SPAN_WARNING("They are missing that limb."))
 			return 0
 
 		if(E.robotic >= ORGAN_ROBOT)
-			to_chat(user, "<span class='warning'>That limb is prosthetic.</span>")
+			to_chat(user, SPAN_WARNING("That limb is prosthetic."))
 			return 0
 
 		user.visible_message("<span class='notice'>\The [user] rests a hand on \the [target]'s [E.name].</span>")

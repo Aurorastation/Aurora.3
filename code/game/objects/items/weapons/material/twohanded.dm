@@ -115,13 +115,13 @@
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
-			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
+			to_chat(user, SPAN_WARNING("It's too heavy for you to wield fully."))
 			return
 	else
 		return
 
 	if(!istype(user.get_active_hand(), src))
-		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand.</span>")
+		to_chat(user, SPAN_WARNING("You need to be holding the [name] in your active hand."))
 		return
 
 	if(wielded) //Trying to unwield it
@@ -138,7 +138,7 @@
 		if(offhand_item)
 			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
-			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
+			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
 			return
 		wield()
 		to_chat(user, "<span class='notice'>You grip the [base_name] with both hands.</span>")
@@ -339,7 +339,7 @@
 	anchored = 1
 
 /obj/structure/headspear/attack_hand(mob/living/user)
-	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] kicks over \the [src]!"), "<span class='danger'>You kick down \the [src]!</span>")
 	new /obj/item/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
 		H.forceMove(user.loc)

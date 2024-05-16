@@ -169,7 +169,7 @@
 		user.frozen = FALSE
 		user.dust()
 	dump_contents()
-	visible_message("<span class='warning'>[src] shatters!.</span>")
+	visible_message(SPAN_WARNING("[src] shatters!."))
 	qdel(src)
 
 
@@ -194,5 +194,5 @@
 			L.bodytemperature -= 150
 
 	dump_contents()
-	visible_message("<span class='warning'>\The [src] shatters!</span>")
+	visible_message(SPAN_WARNING("\The [src] shatters!"))
 	qdel(src)

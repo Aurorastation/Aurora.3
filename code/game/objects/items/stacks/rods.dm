@@ -66,7 +66,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 		var/obj/item/weldingtool/WT = attacking_item
 
 		if(get_amount() < 2)
-			to_chat(user, "<span class='warning'>You need at least two rods to do this.</span>")
+			to_chat(user, SPAN_WARNING("You need at least two rods to do this."))
 			return
 
 		if(WT.use(0,user))

@@ -16,7 +16,7 @@
 			set_sign()
 			to_chat(user, "<span class='notice'>You change the sign.</span>")
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	return ..()

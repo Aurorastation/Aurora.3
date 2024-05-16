@@ -19,7 +19,7 @@
 			to_chat(user, "<span class='notice'>You fashion \the [attacking_item] to unlock \the [src]</span>")
 			K.key_data = lock_data
 		else
-			to_chat(user, "<span class='warning'>\The [attacking_item] already unlocks something.</span>")
+			to_chat(user, SPAN_WARNING("\The [attacking_item] already unlocks something."))
 		return
 	..()
 

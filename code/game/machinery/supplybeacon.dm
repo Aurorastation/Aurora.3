@@ -46,7 +46,7 @@
 /obj/machinery/power/supply_beacon/attackby(obj/item/attacking_item, mob/user)
 	if(!use_power && attacking_item.iswrench())
 		if(!anchored && !connect_to_network())
-			to_chat(user, "<span class='warning'>This device must be placed over an exposed cable.</span>")
+			to_chat(user, SPAN_WARNING("This device must be placed over an exposed cable."))
 			return TRUE
 		anchored = !anchored
 		user.visible_message("<span class='notice'>\The [user] [anchored ? "secures" : "unsecures"] \the [src].</span>")
@@ -58,13 +58,13 @@
 
 	if(expended)
 		update_use_power(POWER_USE_OFF)
-		to_chat(user, "<span class='warning'>\The [src] has used up its charge.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] has used up its charge."))
 		return
 
 	if(anchored)
 		return use_power ? deactivate(user) : activate(user)
 	else
-		to_chat(user, "<span class='warning'>You need to secure the beacon with a wrench first!</span>")
+		to_chat(user, SPAN_WARNING("You need to secure the beacon with a wrench first!"))
 		return
 
 /obj/machinery/power/supply_beacon/attack_ai(var/mob/user)

@@ -38,7 +38,7 @@
 /obj/item/integrated_circuit/insert_slot/proc/insert(var/obj/item/O, var/mob/user)
 	if(is_type_in_list(O, allowed_types))
 		if(items_contained.len >= capacity)
-			to_chat(user, "<span class='warning'>\The [src] is too full to add [O].</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is too full to add [O]."))
 			return FALSE
 		items_contained += O
 		user.drop_from_inventory(O,src)

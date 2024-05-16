@@ -599,7 +599,7 @@
 	stored_value += removed
 	if(stored_value >= 1)
 		M.visible_message(\
-			"<span class='warning'>/The [M]'s body shifts and contorts!</span>",\
+			SPAN_WARNING("/The [M]'s body shifts and contorts!"),\
 			"<span class='danger'>Your body shifts and contorts!</span>",\
 			"<span class='notice'>You hear strange flesh-like noises.</span>"\
 		)

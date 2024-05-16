@@ -198,7 +198,7 @@
 			if(antag.add_antagonist(src, 1, 1, 0, 1, 1)) // Ignore equipment and role type for this.
 				log_admin("[key_name_admin(usr)] made [key_name(src, highlight_special = 1)] into a [antag.role_text].",admin_key=key_name(usr),ckey=key_name(src))
 			else
-				to_chat(usr, "<span class='warning'>[src] could not be made into a [antag.role_text]!</span>")
+				to_chat(usr, SPAN_WARNING("[src] could not be made into a [antag.role_text]!"))
 
 	else if(href_list["remove_antagonist"])
 		var/datum/antagonist/antag = GLOB.all_antag_types[href_list["remove_antagonist"]]
@@ -231,7 +231,7 @@
 		if(isnull(new_ambition))
 			return
 		src.ambitions = sanitize(new_ambition)
-		to_chat(src.current, "<span class='warning'>Your ambitions have been changed by higher powers, they are now: [src.ambitions]</span>")
+		to_chat(src.current, SPAN_WARNING("Your ambitions have been changed by higher powers, they are now: [src.ambitions]"))
 
 	else if (href_list["obj_edit"] || href_list["obj_add"])
 		var/datum/objective/objective

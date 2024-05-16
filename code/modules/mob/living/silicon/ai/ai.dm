@@ -474,10 +474,10 @@ var/list/ai_verbs_default = list(
 	if(check_unable(AI_CHECK_WIRELESS))
 		return
 	if(!is_relay_online())
-		to_chat(usr, "<span class='warning'>No Emergency Bluespace Relay detected. Unable to transmit message.</span>")
+		to_chat(usr, SPAN_WARNING("No Emergency Bluespace Relay detected. Unable to transmit message."))
 		return
 	if(emergency_message_cooldown)
-		to_chat(usr, "<span class='warning'>Arrays recycling. Please stand by.</span>")
+		to_chat(usr, SPAN_WARNING("Arrays recycling. Please stand by."))
 		return
 	var/input = sanitize(input(usr, "Please choose a message to transmit to [SSatlas.current_map.boss_short] via quantum entanglement.  Please be aware that this process is very expensive, and abuse will lead to... termination.  Transmission does not guarantee a response. There is a 30 second delay before you may send another message, be clear, full and concise.", "To abort, send an empty message.", ""))
 	if(!input)
@@ -536,7 +536,7 @@ var/list/ai_verbs_default = list(
 		if(target && (!istype(target, /mob/living/carbon/human) || html_decode(href_list["trackname"]) == target:get_face_name()))
 			ai_actual_track(target)
 		else
-			to_chat(src, "<span class='warning'>System error. Cannot locate [html_decode(href_list["trackname"])].</span>")
+			to_chat(src, SPAN_WARNING("System error. Cannot locate [html_decode(href_list["trackname"])]."))
 		return
 	if (href_list["readcapturedpaper"]) //Yep stolen from admin faxes
 		var/entry = text2num(href_list["readcapturedpaper"])
@@ -815,19 +815,19 @@ var/list/ai_verbs_default = list(
 
 /mob/living/silicon/ai/proc/check_unable(var/flags = 0, var/feedback = 1)
 	if(stat == DEAD)
-		if(feedback) to_chat(src, "<span class='warning'>You are dead!</span>")
+		if(feedback) to_chat(src, SPAN_WARNING("You are dead!"))
 		return 1
 
 	if(ai_restore_power_routine)
 		if(feedback)
-			to_chat(src, "<span class='warning'>You lack power!</span>")
+			to_chat(src, SPAN_WARNING("You lack power!"))
 		return 1
 
 	if((flags & AI_CHECK_WIRELESS) && src.control_disabled)
-		if(feedback) to_chat(src, "<span class='warning'>Wireless control is disabled!</span>")
+		if(feedback) to_chat(src, SPAN_WARNING("Wireless control is disabled!"))
 		return 1
 	if((flags & AI_CHECK_RADIO) && src.ai_radio.disabledAi)
-		if(feedback) to_chat(src, "<span class='warning'>System Error - Transceiver Disabled!</span>")
+		if(feedback) to_chat(src, SPAN_WARNING("System Error - Transceiver Disabled!"))
 		return 1
 	return 0
 

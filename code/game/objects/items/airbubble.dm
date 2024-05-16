@@ -22,13 +22,13 @@
 		return
 
 	user.visible_message(
-		"<span class='warning'>[user] begins deploying \the [src].</span>",
+		SPAN_WARNING("[user] begins deploying \the [src]."),
 		"<span class='notice'>You begin deplyoing \the [src].</span>"
 	)
 	if (!do_after(user, 0.45 SECONDS))
 		return
 	user.visible_message(
-		"<span class='warning'>[user] deployed \the [src].</span>" ,
+		SPAN_WARNING("[user] deployed \the [src].") ,
 		"<span class='notice'>You deploy \the [src].</span>"
 	)
 	var/obj/structure/closet/airbubble/R
@@ -91,7 +91,7 @@
 	if (cell)
 		. += "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%."
 	else
-		. += "<span class='warning'>[src] has no power cell installed.</span>"
+		. += SPAN_WARNING("[src] has no power cell installed.")
 
 /obj/structure/closet/airbubble/can_open()
 	if(zipped)
@@ -109,7 +109,7 @@
 	for(var/mob/living/M in T)
 		mob_num += 1
 		if(mob_num > 1)
-			to_chat(user, "<span class='warning'>[src] can only fit one person.</span>")
+			to_chat(user, SPAN_WARNING("[src] can only fit one person."))
 			return 0
 	return 1
 
@@ -191,16 +191,16 @@
 		if(opened)	return 0
 		if(contents.len > 1)	return 0
 		if(cell)
-			to_chat(usr, "<span class='warning'>[src] can not be folded with [cell] attached to it.</span>")
+			to_chat(usr, SPAN_WARNING("[src] can not be folded with [cell] attached to it."))
 			return
 		usr.visible_message(
-		"<span class='warning'>[usr] begins folding up the [src.name].</span>",
+		SPAN_WARNING("[usr] begins folding up the [src.name]."),
 		"<span class='notice'>You begin folding up the [src.name].</span>"
 		)
 		if (!do_after(usr, 0.45 SECONDS))
 			return
 		usr.visible_message(
-		"<span class='warning'>[usr] folds up the [src.name].</span>" ,
+		SPAN_WARNING("[usr] folds up the [src.name].") ,
 		"<span class='notice'>You fold up the [src.name].</span>"
 		)
 		var/obj/item/airbubble/bag
@@ -263,7 +263,7 @@
 
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	to_chat(escapee, "<span class='warning'>You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)</span>")
+	to_chat(escapee, SPAN_WARNING("You lean on the back of \the [src] and start punching internal wall with your legs. (this will take about [breakout_time] minutes)"))
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is terring it from the inside!</span>")
 
 	var/time = 360 * breakout_time * 2
@@ -274,7 +274,7 @@
 		return
 
 	breakout = FALSE
-	to_chat(escapee, "<span class='warning'>You successfully break out! Tearing the bubble's walls!</span>") // holy shit this is hilarious
+	to_chat(escapee, SPAN_WARNING("You successfully break out! Tearing the bubble's walls!")) // holy shit this is hilarious
 	visible_message("<span class='danger'>\the [escapee] successfully broke out of \the [src]! Tearing the bubble's walls!</span>")
 	var/sound_to_play = pick(list('sound/items/rip1.ogg', 'sound/items/rip2.ogg'))
 	playsound(loc, sound_to_play, 100, 1)
@@ -306,18 +306,18 @@
 		return
 
 	if(!ishuman(usr))
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
 		return
 
 	if(!isnull(internal_tank))
 		usr.visible_message(
-		"<span class='warning'>[usr] is setting [src] internals.</span>",
+		SPAN_WARNING("[usr] is setting [src] internals."),
 		"<span class='notice'>You are settting [src] internals.</span>"
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
-		"<span class='warning'>[usr] has set [src] internals.</span>" ,
+		SPAN_WARNING("[usr] has set [src] internals.") ,
 		"<span class='notice'>You set [src] internals.</span>"
 		)
 		if(use_internal_tank)
@@ -339,18 +339,18 @@
 		return
 
 	if(!ishuman(usr))
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
 		return
 
 	if(!isnull(internal_tank))
 		usr.visible_message(
-		"<span class='warning'>[usr] is removing [internal_tank] from [src].</span>",
+		SPAN_WARNING("[usr] is removing [internal_tank] from [src]."),
 		"<span class='notice'>You are removing [internal_tank] from [src].</span>"
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
-		"<span class='warning'>[usr] has removed [internal_tank] from [src].</span>",
+		SPAN_WARNING("[usr] has removed [internal_tank] from [src]."),
 		"<span class='notice'>You removed [internal_tank] from [src].</span>"
 		)
 		for(var/obj/I in src)
@@ -360,7 +360,7 @@
 		update_icon()
 		STOP_PROCESSING(SSfast_process, src)
 	else
-		to_chat(usr, "<span class='warning'>[src] has no tank.</span>")
+		to_chat(usr, SPAN_WARNING("[src] has no tank."))
 
 // Remove tank from bubble
 /obj/structure/closet/airbubble/verb/take_cell()
@@ -372,18 +372,18 @@
 		return
 
 	if(!ishuman(usr))
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
 		return
 
 	if(!isnull(cell))
 		usr.visible_message(
-		"<span class='warning'>[usr] is removing [cell] from [src].</span>",
+		SPAN_WARNING("[usr] is removing [cell] from [src]."),
 		"<span class='notice'>You are removing [cell] from [src].</span>"
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
-		"<span class='warning'>[usr] has removed [cell] from [src].</span>",
+		SPAN_WARNING("[usr] has removed [cell] from [src]."),
 		"<span class='notice'>You removed [cell] from [src].</span>"
 		)
 		cell.forceMove(usr.loc)
@@ -391,20 +391,20 @@
 		cooling = FALSE
 		update_icon()
 	else
-		to_chat(usr, "<span class='warning'>[src] has no power cell.</span>")
+		to_chat(usr, SPAN_WARNING("[src] has no power cell."))
 
 // Handle most of things: restraining, cutting restrains, attaching tank.
 /obj/structure/closet/airbubble/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/tank))
 		if(!isnull(use_internal_tank))
 			user.visible_message(
-			"<span class='warning'>[user] is attaching [attacking_item] to [src].</span>",
+			SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
 			"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
 			)
 			if (!do_after(user, 2 SECONDS, src))
 				return
 			user.visible_message(
-			"<span class='warning'>[user] has attached [attacking_item] to [src].</span>",
+			SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
 			"<span class='notice'>You attached [attacking_item] to [src].</span>"
 			)
 			internal_tank = attacking_item
@@ -412,7 +412,7 @@
 			use_internal_tank = 1
 			START_PROCESSING(SSfast_process, src)
 		else
-			to_chat(user, "<span class='warning'>[src] already has a tank attached.</span>")
+			to_chat(user, SPAN_WARNING("[src] already has a tank attached."))
 		return TRUE
 	if(opened)
 		if(istype(attacking_item, /obj/item/grab))
@@ -425,10 +425,10 @@
 		return TRUE
 	else if(istype(attacking_item, /obj/item/handcuffs/cable))
 		if(zipped)
-			to_chat(user, "<span class='warning'>[src]'s zipper is already restrained.</span>")
+			to_chat(user, SPAN_WARNING("[src]'s zipper is already restrained."))
 			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] begins putting cable restrains on zipper of [src].</span>",
+		SPAN_WARNING("[user] begins putting cable restrains on zipper of [src]."),
 		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
@@ -437,7 +437,7 @@
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
-		"<span class='warning'>[src]'s zipper have been zipped by [user].</span>",
+		SPAN_WARNING("[src]'s zipper have been zipped by [user]."),
 		"<span class='notice'>You put restrains on [src]'s zipper.</span>"
 		)
 
@@ -446,11 +446,11 @@
 		return TRUE
 	else if(attacking_item.iswirecutter())
 		if(!zipped)
-			to_chat(user, "<span class='warning'>[src] has no cables to cut.</span>")
+			to_chat(user, SPAN_WARNING("[src] has no cables to cut."))
 			attack_hand(user)
 			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] begins cutting cable restrains on zipper of [src].</span>",
+		SPAN_WARNING("[user] begins cutting cable restrains on zipper of [src]."),
 		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
 		)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
@@ -459,7 +459,7 @@
 		zipped = !zipped
 		update_icon()
 		user.visible_message(
-		"<span class='warning'>[src] zipper's cable restrains has been cut by [user].</span>",
+		SPAN_WARNING("[src] zipper's cable restrains has been cut by [user]."),
 		"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
 		)
 		new/obj/item/handcuffs/cable(src.loc)
@@ -467,17 +467,17 @@
 		return TRUE
 	else if(istype(attacking_item, /obj/item/cell))
 		if(!isnull(cell))
-			to_chat(user, "<span class='warning'>[src] already has [cell] attached to it.</span>")
+			to_chat(user, SPAN_WARNING("[src] already has [cell] attached to it."))
 			attack_hand(user)
 			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] is attaching [attacking_item] to [src].</span>",
+		SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
 		"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
 		)
 		if (!do_after(user, 2 SECONDS, src))
 			return TRUE
 		user.visible_message(
-		"<span class='warning'>[user] has attached [attacking_item] to [src].</span>",
+		SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
 		"<span class='notice'>You attached [attacking_item] to [src].</span>"
 		)
 		cell = attacking_item
@@ -514,11 +514,11 @@
 			if(tank_air.return_pressure() <= 1)
 				STOP_PROCESSING(SSfast_process, src)
 				use_internal_tank = !use_internal_tank
-				visible_message("<span class='warning'>You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?</span>")
+				visible_message(SPAN_WARNING("You hear last bits of air coming out from [src]'s hole.Maybe the tank run out of air?"))
 				playsound(loc, 'sound/effects/wind/wind_2_1.ogg', 100, 1)
 				return
 			inside_air = get_turf_air()
-			visible_message("<span class='warning'>You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?</span>")
+			visible_message(SPAN_WARNING("You hear air howling from [src]'s hole. Maybe it is good to shut off valve on the internals tank?"))
 			playsound(loc, 'sound/effects/wind/wind_2_2.ogg', 100, 1)
 
 			var/transfer_moles = inside_air.volume/(inside_air.temperature * R_IDEAL_GAS_EQUATION)

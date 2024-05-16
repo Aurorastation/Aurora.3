@@ -18,7 +18,8 @@
 	reagents.add_reagent(/singleton/reagent/bluespace_dust, blink_range)
 
 /obj/item/bluespace_crystal/attack_self(mob/user)
-	user.visible_message("<span class='warning'>[user] crushes [src]!</span>", "<span class='danger'>You crush [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] crushes [src]!"),
+							SPAN_DANGER("You crush [src]!"))
 	single_spark(loc)
 	playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 	blink_mob(user)

@@ -452,9 +452,9 @@
 			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
-			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
+			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
-		user.visible_message("<span class='warning'>[user] begins heating \the [O]...</span>", "<span class='warning'>You start to heat \the [O]!</span>")
+		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), SPAN_WARNING("You start to heat \the [O]!"))
 		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
@@ -555,7 +555,7 @@
 		if(M)
 			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
 		else if(T)
-			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
+			T.visible_message(SPAN_WARNING("\The [src] turns off."))
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE

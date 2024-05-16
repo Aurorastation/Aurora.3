@@ -100,7 +100,7 @@ avoid code duplication. This includes items that may sometimes act as a standard
 		return
 
 	if(force && user.is_pacified())
-		to_chat(user, "<span class='warning'>You don't want to harm other living beings!</span>")
+		to_chat(user, SPAN_WARNING("You don't want to harm other living beings!"))
 		return 0
 
 	if(!force)

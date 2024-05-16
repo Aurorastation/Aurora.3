@@ -226,7 +226,7 @@
 	if (health < maxHealth * 0.5)
 		. += "<span class='danger'>It looks badly wounded.</span>"
 	else if (health < maxHealth)
-		. += "<span class='warning'>It looks wounded.</span>"
+		. += SPAN_WARNING("It looks wounded.")
 
 /mob/living/simple_animal/can_name(var/mob/living/M)
 	if(named)

@@ -55,7 +55,7 @@
 		if(prob(2))
 			owner.visible_message(
 				"<B>\The [owner]</B> coughs up blood!",
-				"<span class='warning'>You cough up blood!</span>",
+				SPAN_WARNING("You cough up blood!"),
 				"You hear someone coughing!",
 				)
 			owner.drip(10)
@@ -215,7 +215,7 @@
 		else if(exhaled_pp > safe_exhaled_max * 0.7)
 			if (!owner.co2_alert || prob(1))
 				var/word = pick("dizzy","short of breath","faint","momentarily confused")
-				to_chat(owner, "<span class='warning'>You feel [word].</span>")
+				to_chat(owner, SPAN_WARNING("You feel [word]."))
 
 			owner.co2_alert = 1
 			failed_exhale = 1
@@ -223,7 +223,7 @@
 		else if(exhaled_pp > safe_exhaled_max * 0.6)
 			if (prob(0.3))
 				var/word = pick("a little dizzy","short of breath")
-				to_chat(owner, "<span class='warning'>You feel [word].</span>")
+				to_chat(owner, SPAN_WARNING("You feel [word]."))
 
 		else
 			owner.co2_alert = 0

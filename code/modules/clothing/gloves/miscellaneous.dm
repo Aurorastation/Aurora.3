@@ -76,7 +76,7 @@
 			to_chat(user, "<span class='notice'>You make a balloon.</span>")
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need one length of cable to finish the balloon!</span>")
+			to_chat(user, SPAN_WARNING("You need one length of cable to finish the balloon!"))
 	. = ..()
 
 /obj/item/clothing/gloves/latex/nitrile

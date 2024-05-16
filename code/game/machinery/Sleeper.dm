@@ -233,7 +233,7 @@
 			user.drop_from_inventory(attacking_item, src)
 			user.visible_message("<span class='notice'>\The [user] adds \a [attacking_item] to \the [src].</span>", "<span class='notice'>You add \a [attacking_item] to \the [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>\The [src] has a beaker already.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has a beaker already."))
 		return TRUE
 	else if(istype(attacking_item, /obj/item/grab))
 
@@ -244,7 +244,7 @@
 			return TRUE
 
 		if(!istype(L))
-			to_chat(user, "<span class='warning'>The machine won't accept that.</span>")
+			to_chat(user, SPAN_WARNING("The machine won't accept that."))
 			return TRUE
 
 		if(display_loading_message)
@@ -252,7 +252,7 @@
 
 		if (do_mob(user, G.affecting, 20, needhand = 0))
 			if(occupant)
-				to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 				return TRUE
 			if(L != G.affecting)//incase it isn't the same mob we started with
 				return TRUE
@@ -330,7 +330,7 @@
 	if(stat & (BROKEN|NOPOWER))
 		return
 	if(occupant)
-		to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 		return
 
 	if(display_loading_message)
@@ -341,7 +341,7 @@
 
 	if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 		if(occupant)
-			to_chat(user, "<span class='warning'>\The [src] is already occupied.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already occupied."))
 			return
 		M.stop_pulling()
 		if(M.client)

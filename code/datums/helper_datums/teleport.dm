@@ -260,7 +260,7 @@
 						qdel(BS)
 
 					else
-						to_chat(BS, "<span class='warning'>You lack the strength of echoes necessary to reattain corporeality in \the [L]!</span>")
+						to_chat(BS, SPAN_WARNING("You lack the strength of echoes necessary to reattain corporeality in \the [L]!"))
 
 					break
 
@@ -322,7 +322,7 @@
 	if(!isemptylist(teleatom.search_contents_for(/obj/item/disk/nuclear)))
 		if(istype(teleatom, /mob/living))
 			var/mob/living/MM = teleatom
-			MM.visible_message("<span class='danger'>\The [MM] bounces off of the portal!</span>","<span class='warning'>Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through.</span>")
+			MM.visible_message("<span class='danger'>\The [MM] bounces off of the portal!</span>",SPAN_WARNING("Something you are carrying seems to be unable to pass through the portal. Better drop it if you want to go through."))
 		else
 			teleatom.visible_message("<span class='danger'>\The [teleatom] bounces off of the portal!</span>")
 		return FALSE

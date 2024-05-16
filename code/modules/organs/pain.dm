@@ -37,7 +37,7 @@
 		else if(power >= 10)
 			to_chat(src, "<span class='danger'>[message]</span>")
 		else
-			to_chat(src, "<span class='warning'>[message]</span>")
+			to_chat(src, SPAN_WARNING("[message]"))
 
 		var/force_emote = species.get_pain_emote(src, power)
 		if(force_emote && prob(power))

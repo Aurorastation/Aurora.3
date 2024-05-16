@@ -156,7 +156,7 @@
 		if(ammo_magazine.stored_ammo && ammo_magazine.stored_ammo.len)
 			dat += "The dart cartridge has [ammo_magazine.stored_ammo.len] shots remaining."
 		else
-			dat += "<span class='warning'>The dart cartridge is empty!</span>"
+			dat += SPAN_WARNING("The dart cartridge is empty!")
 		dat += " \[<A href='?src=\ref[src];eject_cart=1'>Eject</A>\]"
 
 	user << browse(dat, "window=dartgun")

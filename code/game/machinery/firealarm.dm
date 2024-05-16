@@ -108,7 +108,7 @@
 						to_chat(user, "<span class='notice'>You wire \the [src].</span>")
 						buildstage = 2
 					else
-						to_chat(user, "<span class='warning'>You need 5 pieces of cable to wire \the [src].</span>")
+						to_chat(user, SPAN_WARNING("You need 5 pieces of cable to wire \the [src]."))
 					return TRUE
 				else if(attacking_item.iscrowbar())
 					to_chat(user, "You pry out the circuit!")

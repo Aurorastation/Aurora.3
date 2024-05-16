@@ -164,12 +164,12 @@
 		if(!usr || !usr.client)
 			return
 		if(!usr.client.holder)
-			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: You don't have permission to do this.</span>")
+			to_chat(usr, SPAN_WARNING("Error: cmd_admin_mute: You don't have permission to do this."))
 			return
 		if(!M.client)
-			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: This mob doesn't have a client tied to it.</span>")
+			to_chat(usr, SPAN_WARNING("Error: cmd_admin_mute: This mob doesn't have a client tied to it."))
 		if(M.client.holder)
-			to_chat(usr, "<span class='warning'>Error: cmd_admin_mute: You cannot mute an admin/mod.</span>")
+			to_chat(usr, SPAN_WARNING("Error: cmd_admin_mute: You cannot mute an admin/mod."))
 	if(!M.client)		return
 	if(M.client.holder)	return
 
@@ -336,7 +336,7 @@ Ccomp's first proc.
 			if(g.antagHUD)
 				g.antagHUD = 0						// Disable it on those that have it enabled
 				g.has_enabled_antagHUD = 2				// We'll allow them to respawn
-				to_chat(g, "<span class='warning'>The Administrator has disabled AntagHUD.</span> ")
+				to_chat(g, SPAN_WARNING("The Administrator has disabled AntagHUD."))
 		GLOB.config.antag_hud_allowed = 0
 		to_chat(src, "<span class='danger'>AntagHUD usage has been disabled.</span>")
 		action = "disabled"
@@ -405,7 +405,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 			break
 
 	if(!G_found)//If a ghost was not found.
-		to_chat(usr, "<span class='warning'>There is no active key like that in the game or the person is not currently a ghost.</span>")
+		to_chat(usr, SPAN_WARNING("There is no active key like that in the game or the person is not currently a ghost."))
 		return
 
 	var/mob/living/carbon/human/new_character = new(pick(GLOB.latejoin))//The mob being spawned.
@@ -601,7 +601,7 @@ Traitors and the like can also be revived with the previous role mostly intact.
 		if("Yes")
 			command_announcement.Announce("[reportbody]", reporttitle, new_sound = 'sound/AI/commandreport.ogg', msg_sanitized = 1);
 		if("No")
-			to_world("<span class='warning'>New [SSatlas.current_map.company_name] Update available at all communication consoles.</span>")
+			to_world(SPAN_WARNING("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
 			sound_to(world, ('sound/AI/commandreport.ogg'))
 
 	log_admin("[key_name(src)] has created a command report: [reportbody]",admin_key=key_name(usr))

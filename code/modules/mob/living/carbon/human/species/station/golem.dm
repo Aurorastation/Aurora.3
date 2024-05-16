@@ -696,7 +696,7 @@ var/global/list/golem_types = list(
 		return
 
 /datum/species/golem/sand/proc/glassify(var/mob/living/carbon/human/H)
-	H.visible_message("<span class='warning'>\The [H] vitrifies into a glass construct!</span>")
+	H.visible_message(SPAN_WARNING("\The [H] vitrifies into a glass construct!"))
 	H.set_species(SPECIES_GOLEM_GLASS)
 
 /datum/species/golem/plastic

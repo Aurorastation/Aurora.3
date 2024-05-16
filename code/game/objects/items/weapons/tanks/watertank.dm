@@ -36,7 +36,7 @@
 	if(!user)
 		return
 	if (user.back!= src)
-		to_chat(user, "<span class='warning'>The watertank must be worn properly to use!</span>")
+		to_chat(user, SPAN_WARNING("The watertank must be worn properly to use!"))
 		return
 	if(use_check_and_message(user))
 		return
@@ -51,7 +51,7 @@
 		//Detach the nozzle into the user's hands
 		if(!user.put_in_hands(noz))
 			on = FALSE
-			to_chat(user, "<span class='warning'>You need a free hand to hold the mister!</span>")
+			to_chat(user, SPAN_WARNING("You need a free hand to hold the mister!"))
 			return
 		noz.forceMove(user)
 	else

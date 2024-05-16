@@ -84,9 +84,9 @@
 	else
 		if (powercell)
 			var/power = round(powercell.charge / powercell.maxcharge * 100)
-			. += "<span class='notice'>The powercell is at [power]% charge.</span>"
+			. += SPAN_NOTICE("The powercell is at [power]% charge.")
 		else
-			. += "<span class='warning'>It has no powercell to power it!"
+			. += SPAN_WARNING("It has no powercell to power it!")
 
 /obj/item/device/magnetic_lock/attack_hand(var/mob/user)
 	add_fingerprint(user)
@@ -103,7 +103,7 @@
 			detach()
 			return TRUE
 		else
-			to_chat(user, "<span class='warning'>\The [src] is locked in place!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is locked in place!"))
 	else
 		..()
 
@@ -124,7 +124,7 @@
 				var/msg = "[attacking_item] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes [user.get_pronoun("his")] "
 				var/fp_adj = "You swipe your "
-				user.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				user.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), "<span class='notice'>[addtext(fp_adj, msg)]</span>")
 				update_icon()
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
@@ -143,7 +143,7 @@
 			sound_to_play = pick(list('sound/effects/sparks1.ogg', 'sound/effects/sparks2.ogg', 'sound/effects/sparks3.ogg', 'sound/effects/sparks4.ogg'))
 			addtimer(CALLBACK(GLOBAL_PROC, /proc/playsound, loc, sound_to_play, 30, 1), 3, TIMER_CLIENT_TIME)
 		else
-			user.visible_message("<span class='danger'>[user] hits [src] with [attacking_item] but fails to damage it.</span>", "<span class='warning'>You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]</span>")
+			user.visible_message("<span class='danger'>[user] hits [src] with [attacking_item] but fails to damage it.</span>", SPAN_WARNING("You hit [src] with [attacking_item], [attacking_item.force >= 10 ? "and it almost makes a dent!" : "but it appears to have no visible effect."]"))
 			playsound(loc, 'sound/weapons/Genhit.ogg', attacking_item.force*2.5, 1)
 		return TRUE
 
@@ -289,7 +289,7 @@
 
 		if(powercell)
 			if(!powercell.charge)
-				to_chat(user, "<span class='warning'>\The [src] is clearly out of power.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is clearly out of power."))
 				return
 
 		var/direction = get_dir(user, newtarget)
@@ -298,7 +298,7 @@
 			if (check_neighbor_density(get_turf(newtarget.loc), direction))
 				direction = turn(direction, 90)
 				if (check_neighbor_density(get_turf(newtarget.loc), direction))
-					to_chat(user, "<span class='warning'>There is something in the way of \the [newtarget]!</span>")
+					to_chat(user, SPAN_WARNING("There is something in the way of \the [newtarget]!"))
 					return
 
 		if (locate(/obj/machinery/door/airlock) in oview(1, newtarget))
@@ -485,7 +485,7 @@
 				var/msg = "buttons on \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[usr.name] presses "
 				var/fp_adj = "You press "
-				usr.visible_message("<span class='warning'>[addtext(pos_adj, msg)]</span>", "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				usr.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), "<span class='notice'>[addtext(fp_adj, msg)]</span>")
 				update_icon()
 				. = TRUE
 			else

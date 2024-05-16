@@ -89,7 +89,7 @@ var/list/admin_departments
 		if("send")
 			if (get_remaining_cooldown() > 0)
 				// Rate-limit sending faxes
-				to_chat(usr, "<span class='warning'>The fax machine isn't ready, yet!</span>")
+				to_chat(usr, SPAN_WARNING("The fax machine isn't ready, yet!"))
 				return
 
 			if(copy_item && is_authenticated())
@@ -134,7 +134,7 @@ var/list/admin_departments
 		if("linkpda")
 			var/obj/item/modular_computer/pda = usr.get_active_hand()
 			if (!pda || !istype(pda))
-				to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+				to_chat(usr, SPAN_WARNING("You need to be holding a PDA to link it."))
 			else if (pda in alert_pdas)
 				to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
 				//Update the name real quick.

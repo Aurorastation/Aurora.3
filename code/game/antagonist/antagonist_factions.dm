@@ -12,7 +12,7 @@
 		return
 	for (var/obj/item/implant/mindshield/I in M)
 		if (I.implanted)
-			to_chat(src, "<span class='warning'>[M] is too loyal to be subverted!</span>")
+			to_chat(src, SPAN_WARNING("[M] is too loyal to be subverted!"))
 			return
 	convert_to_faction(src, M.mind, revs)
 
@@ -25,15 +25,15 @@
 		return
 
 	if(faction.is_antagonist(player))
-		to_chat(antag, "<span class='warning'>\The [player.current] already serves the [faction.faction_descriptor].</span>")
+		to_chat(antag, SPAN_WARNING("\The [player.current] already serves the [faction.faction_descriptor]."))
 		return
 
 	if(player_is_antag(player))
-		to_chat(antag, "<span class='warning'>\The [player.current]'s loyalties seem to be elsewhere...</span>")
+		to_chat(antag, SPAN_WARNING("\The [player.current]'s loyalties seem to be elsewhere..."))
 		return
 
 	if(!faction.can_become_antag(player) || isanimal(player.current))
-		to_chat(antag, "<span class='warning'>\The [player.current] cannot be \a [faction.faction_role_text]!</span>")
+		to_chat(antag, SPAN_WARNING("\The [player.current] cannot be \a [faction.faction_role_text]!"))
 		return
 
 	if(world.time < player.rev_cooldown)

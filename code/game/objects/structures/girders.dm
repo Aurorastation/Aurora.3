@@ -59,7 +59,7 @@
 /obj/structure/girder/proc/take_damage(var/damage)
 	health -= damage
 	if(health <= 0)
-		visible_message("<span class='warning'>\The [src] falls apart!</span>")
+		visible_message(SPAN_WARNING("\The [src] falls apart!"))
 		dismantle()
 
 /obj/structure/girder/proc/reset_girder()
@@ -190,10 +190,10 @@
 		playsound(src, 'sound/weapons/smash.ogg', 50)
 		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
 			damage_to_deal -= weaken
-			visible_message("<span class='warning'>[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing" : "denting"] a support rod!</span>")
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing" : "denting"] a support rod!"))
 			take_damage(damage_to_deal)
 		else
-			visible_message("<span class='warning'>[user] strikes \the [src] with \the [attacking_item], but it bounces off!</span>")
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return
 

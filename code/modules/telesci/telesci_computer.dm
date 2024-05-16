@@ -52,7 +52,7 @@
 /obj/machinery/computer/telescience/attackby(obj/item/attacking_item, mob/user, params)
 	if(istype(attacking_item, /obj/item/bluespace_crystal))
 		if(crystals.len >= max_crystals)
-			to_chat(user, "<span class='warning'>There are not enough crystal slots.</span>")
+			to_chat(user, SPAN_WARNING("There are not enough crystal slots."))
 			return
 		user.drop_item(src)
 		crystals += attacking_item
@@ -143,7 +143,7 @@
 
 /obj/machinery/computer/telescience/proc/telefail()
 	sparks()
-	visible_message("<span class='warning'>The telepad weakly fizzles.</span>")
+	visible_message(SPAN_WARNING("The telepad weakly fizzles."))
 	return
 
 /obj/machinery/computer/telescience/proc/doteleport(mob/user)

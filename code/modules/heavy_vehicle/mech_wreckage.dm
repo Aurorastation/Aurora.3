@@ -49,7 +49,7 @@
 		if(WT.isOn())
 			cutting = TRUE
 		else
-			to_chat(user, "<span class='warning'>Turn the torch on, first.</span>")
+			to_chat(user, SPAN_WARNING("Turn the torch on, first."))
 			return
 	else if(istype(attacking_item, /obj/item/gun/energy/plasmacutter))
 		cutting = TRUE
@@ -59,7 +59,7 @@
 			prepared = 1
 			to_chat(user, "<span class='notice'>You partially dismantle \the [src].</span>")
 		else
-			to_chat(user, "<span class='warning'>\The [src] has already been weakened.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has already been weakened."))
 		return 1
 
 	else if(attacking_item.iswrench())
@@ -68,7 +68,7 @@
 			new /obj/item/stack/material/steel(get_turf(src),rand(5,10))
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>It's too solid to dismantle. Try cutting through some of the bigger bits.</span>")
+			to_chat(user, SPAN_WARNING("It's too solid to dismantle. Try cutting through some of the bigger bits."))
 		return 1
 	else if(istype(attacking_item) && attacking_item.force > 20)
 		visible_message("<span class='danger'>\The [src] has been smashed with \the [attacking_item] by \the [user]!</span>")

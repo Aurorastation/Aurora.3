@@ -296,7 +296,7 @@
 
 /mob/abstract/new_player/proc/join_game(href, href_list)
 	if(SSticker.current_state <= GAME_STATE_SETTING_UP || SSticker.current_state >= GAME_STATE_FINISHED)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 		return
 	LateChoices() //show the latejoin job selection menu
 

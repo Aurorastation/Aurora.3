@@ -50,7 +50,7 @@
 
 /datum/martial_art/sol_combat/proc/quick_choke(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)//is actually lung punch
 	A.do_attack_animation(D)
-	A.visible_message("<span class='warning'>[A] pounds [D] on the chest!</span>")
+	A.visible_message(SPAN_WARNING("[A] pounds [D] on the chest!"))
 	playsound(get_turf(A), "punch", 50, 1, -1)
 	if(!(D.species.flags & NO_BREATHE))
 		D.losebreath += 5
@@ -59,7 +59,7 @@
 
 /datum/martial_art/sol_combat/proc/neck_chop(var/mob/living/carbon/human/A, var/mob/living/carbon/human/D)
 	A.do_attack_animation(D)
-	A.visible_message("<span class='warning'>[A] karate chops [D]'s neck!</span>")
+	A.visible_message(SPAN_WARNING("[A] karate chops [D]'s neck!"))
 	playsound(get_turf(A), /singleton/sound_category/punch_sound, 50, 1, -1)
 	D.apply_damage(5, DAMAGE_BRUTE)
 	D.silent += 30

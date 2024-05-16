@@ -71,7 +71,7 @@
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.get_amount() < 5)
-					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
+					to_chat(user, SPAN_WARNING("You need five coils of wire to add them to the frame."))
 					return TRUE
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -97,7 +97,7 @@
 			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == MATERIAL_GLASS_REINFORCED)
 				var/obj/item/stack/RG = attacking_item
 				if (RG.get_amount() < 2)
-					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")
+					to_chat(user, SPAN_WARNING("You need two sheets of glass to put in the glass panel."))
 					return
 				to_chat(user, "<span class='notice'>You start to put in the glass panel.</span>")
 				playsound(loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -139,7 +139,7 @@
 				if(!M.ready_for_use(user))
 					return TRUE
 				if(jobban_isbanned(M.brainmob, "AI"))
-					to_chat(user, "<span class='warning'>This [attacking_item] does not seem to fit.</span>")
+					to_chat(user, SPAN_WARNING("This [attacking_item] does not seem to fit."))
 					return TRUE
 
 				if(M.brainmob.mind)

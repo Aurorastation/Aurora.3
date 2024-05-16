@@ -130,7 +130,7 @@
 				switch(rng)
 					if(0)
 						spark(src, 5, 0)
-						visible_message("<span class='warning'>Electrical sparks manifest from nowhere around \the [src]!</span>")
+						visible_message(SPAN_WARNING("Electrical sparks manifest from nowhere around \the [src]!"))
 					if(1)
 						return
 
@@ -147,7 +147,7 @@
 						to_chat(src, "<span class='danger'>Your chassis makes the sound of metal groaning!</span>")
 					if(3)
 						safe_blink(src, range = 6)
-						to_chat(src, "<span class='warning'>You're teleported against your will!</span>")
+						to_chat(src, SPAN_WARNING("You're teleported against your will!"))
 					if(4)
 						emp_act(EMP_LIGHT)
 
@@ -191,7 +191,7 @@
 				switch(rng)
 					if(0)
 						spark(src, 5, 0)
-						visible_message("<span class='warning'>Electrical sparks manifest from nowhere around \the [src]!</span>")
+						visible_message(SPAN_WARNING("Electrical sparks manifest from nowhere around \the [src]!"))
 					if(1)
 						return
 
@@ -221,7 +221,7 @@
 						adjustToxLoss(instability * 0.15) //7.5 tox @ 50 instability
 					if(8)
 						safe_blink(src, range = 6)
-						to_chat(src, "<span class='warning'>You're teleported against your will!</span>")
+						to_chat(src, SPAN_WARNING("You're teleported against your will!"))
 
 			if(50 to 100) //Severe
 				rng = rand(0,8)
@@ -252,7 +252,7 @@
 					if(0)
 						apply_damage(instability, DAMAGE_RADIATION, damage_flags = DAMAGE_FLAG_DISPERSED)
 					if(1)
-						visible_message("<span class='warning'>\The [src] suddenly collapses!</span>",
+						visible_message(SPAN_WARNING("\The [src] suddenly collapses!"),
 						"<span class='danger'>You suddenly feel very light-headed, and faint!</span>")
 						Paralyse(instability * 0.1)
 					if(2)

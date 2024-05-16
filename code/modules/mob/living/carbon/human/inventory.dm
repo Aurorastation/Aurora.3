@@ -28,7 +28,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 			else
 				update_inv_r_hand(0)
 		else
-			to_chat(H, "<span class='warning'>You are unable to equip that.</span>")
+			to_chat(H, SPAN_WARNING("You are unable to equip that."))
 
 /mob/living/carbon/human/proc/equip_in_one_of_slots(obj/item/W, list/slots, del_on_fail = FALSE, disable_warning = FALSE, redraw_mob = TRUE, ignore_blocked = FALSE)
 	for(var/slot in slots)
@@ -405,7 +405,7 @@ This saves us from having to call add_fingerprint() any time something is put in
 			check_flags = FACE //this is to stop regular hats from stopping you from changing your ears stuff, but this should work for closed ones, like space helmets
 
 	if(covering && (covering.body_parts_covered & (I.body_parts_covered|check_flags)))
-		to_chat(user, "<span class='warning'>\The [covering] is in the way.</span>")
+		to_chat(user, SPAN_WARNING("\The [covering] is in the way."))
 		return 0
 	return 1
 

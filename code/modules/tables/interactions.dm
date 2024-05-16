@@ -40,7 +40,7 @@
 		if(prob(chance))
 			health -= P.damage/2
 			if (health > 0)
-				visible_message("<span class='warning'>[P] hits \the [src]!</span>")
+				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
 				return 0
 			else
 				visible_message(SPAN_WARNING("[src] breaks down!"))
@@ -96,8 +96,8 @@
 		return
 
 	user.visible_message(
-	"<span class='warning'>[user] starts climbing onto \the [src]!</span>",
-	"<span class='warning'>You start climbing onto \the [src]!</span>"
+	SPAN_WARNING("[user] starts climbing onto \the [src]!"),
+	SPAN_WARNING("You start climbing onto \the [src]!")
 	)
 	LAZYADD(climbers, user)
 
@@ -113,8 +113,8 @@
 
 	if (get_turf(user) == get_turf(src))
 		user.visible_message(
-		"<span class='warning'>[user] climbs onto \the [src]!</span>",
-		"<span class='warning'>You climb onto \the [src]!</span>"
+		SPAN_WARNING("[user] climbs onto \the [src]!"),
+		SPAN_WARNING("You climb onto \the [src]!")
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -230,7 +230,7 @@
 					qdel(attacking_item)
 				return
 			else
-				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
+				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
 
 	if(!attacking_item.dropsafety())
@@ -261,7 +261,7 @@
 			queue_icon_update()
 			return 1
 		else
-			to_chat(user, "<span class='warning'>You don't have enough carpet!</span>")
+			to_chat(user, SPAN_WARNING("You don't have enough carpet!"))
 
 	if(!reinforced && !carpeted && material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		remove_material(attacking_item, user)
@@ -314,7 +314,7 @@
 		return
 
 	if(can_plate && !material)
-		to_chat(user, "<span class='warning'>There's nothing to put \the [attacking_item] on! Try adding plating to \the [src] first.</span>")
+		to_chat(user, SPAN_WARNING("There's nothing to put \the [attacking_item] on! Try adding plating to \the [src] first."))
 		return
 
 

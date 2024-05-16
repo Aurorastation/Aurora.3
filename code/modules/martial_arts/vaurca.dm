@@ -73,7 +73,7 @@
 	if(istype(A.get_active_hand(),/obj/item/grab))
 		var/obj/item/grab/G = A.get_active_hand()
 		if(G && G.affecting == D)
-			A.visible_message("<span class='warning'>[A] crushes [D] with its mandibles!</span>")
+			A.visible_message(SPAN_WARNING("[A] crushes [D] with its mandibles!"))
 			D.apply_damage(30, DAMAGE_BRUTE)
 			D.apply_effect(6, WEAKEN)
 			qdel(G)

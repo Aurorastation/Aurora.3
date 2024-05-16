@@ -42,7 +42,7 @@
 		return
 
 	if(on_cooldown)
-		to_chat(user, "<span class='warning'>\The [src] was shaken recently, it needs time to settle.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] was shaken recently, it needs time to settle."))
 		return
 
 	var/query = sanitize(input(user,"What is your question?", "Magic eightball") as text|null)

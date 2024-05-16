@@ -38,13 +38,13 @@
 			if(isturf(T) && !!T.is_plating())
 				attached = locate() in T
 				if(!attached)
-					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
+					to_chat(user, SPAN_WARNING("No exposed cable here to attach to."))
 				else
 					anchored = 1
 					mode = 1
 					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
 			else
-				to_chat(user, "<span class='warning'>\The [src] must be placed over an exposed cable to attach to it.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] must be placed over an exposed cable to attach to it."))
 			return TRUE
 		else
 			if (mode == 2)

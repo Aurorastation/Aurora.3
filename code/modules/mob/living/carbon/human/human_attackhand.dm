@@ -57,7 +57,9 @@
 
 						if(prob(15))
 							playsound(src.loc, 'sound/weapons/flash.ogg', 100, 1)
-							M.visible_message("<span class='warning'>The power source on [M]'s stun gloves overloads in a terrific fashion!</span>", "<span class='warning'>Your jury rigged stun gloves malfunction!</span>", "<span class='warning'>You hear a loud sparking.</span>")
+							M.visible_message(SPAN_WARNING("The power source on [M]'s stun gloves overloads in a terrific fashion!"),
+												SPAN_WARNING("Your jury rigged stun gloves malfunction!"),
+												SPAN_WARNING("You hear a loud sparking."))
 
 							if(prob(50))
 								M.apply_damage(rand(1,5), DAMAGE_BURN)
@@ -67,7 +69,7 @@
 
 						return 1
 					else
-						to_chat(M, "<span class='warning'>Not enough charge!</span>")
+						to_chat(M, SPAN_WARNING("Not enough charge!"))
 						visible_message("<span class='danger'>[src] has been touched with the stun gloves by [M]!</span>")
 					return
 
@@ -147,9 +149,9 @@
 				G.icon_state = "grabbed1"
 				G.hud.icon_state = "reinforce1"
 				G.last_action = world.time
-				visible_message("<span class='warning'>[M] gets a strong grip on [src]!</span>")
+				visible_message(SPAN_WARNING("[M] gets a strong grip on [src]!"))
 				return 1
-			visible_message("<span class='warning'>[M] has grabbed [src] passively!</span>")
+			visible_message(SPAN_WARNING("[M] has grabbed [src] passively!"))
 			return 1
 
 		if(I_HURT)
@@ -413,7 +415,7 @@
 						visible_message("<span class='danger'>[M] has pushed [src]!</span>")
 						playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
 					else
-						visible_message("<span class='warning'>[M] attempted to push [src]!</span>")
+						visible_message(SPAN_WARNING("[M] attempted to push [src]!"))
 						playsound(loc, 'sound/weapons/push.ogg', 50, 1, -1)
 					return
 
@@ -580,7 +582,7 @@
 	if(!organ || ORGAN_IS_DISLOCATED(organ) || organ.dislocated == -1)
 		return 0
 
-	user.visible_message("<span class='warning'>[user] begins to dislocate [src]'s [organ.joint]!</span>")
+	user.visible_message(SPAN_WARNING("[user] begins to dislocate [src]'s [organ.joint]!"))
 	user.limb_breaking = TRUE
 	if(do_after(user, 100))
 		organ.dislocate(1)
@@ -588,7 +590,7 @@
 		src.visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
 		user.limb_breaking = FALSE
 		return 1
-	user.visible_message("<span class='warning'>[user] fails to dislocate [src]'s [organ.joint]!</span>")
+	user.visible_message(SPAN_WARNING("[user] fails to dislocate [src]'s [organ.joint]!"))
 	user.limb_breaking = FALSE
 	return 0
 
@@ -623,7 +625,7 @@
 		return 0
 
 	if(organ.applied_pressure)
-		var/message = "<span class='warning'>[ismob(organ.applied_pressure)? "Someone" : "\A [organ.applied_pressure]"] is already applying pressure to [user == src? "your [organ.name]" : "[src]'s [organ.name]"].</span>"
+		var/message = SPAN_WARNING("[ismob(organ.applied_pressure)? "Someone" : "\A [organ.applied_pressure]"] is already applying pressure to [user == src? "your [organ.name]" : "[src]'s [organ.name]"].")
 		to_chat(user, message)
 		return 0
 

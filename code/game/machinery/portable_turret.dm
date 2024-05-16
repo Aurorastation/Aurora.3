@@ -344,17 +344,17 @@
 			return TRUE
 
 		if(enabled || raised)
-			to_chat(user, "<span class='warning'>You cannot unsecure an active turret!</span>")
+			to_chat(user, SPAN_WARNING("You cannot unsecure an active turret!"))
 			return TRUE
 		if(wrenching)
-			to_chat(user, "<span class='warning'>Someone is already [anchored ? "un" : ""]securing the turret!</span>")
+			to_chat(user, SPAN_WARNING("Someone is already [anchored ? "un" : ""]securing the turret!"))
 			return TRUE
 		if(!anchored && isinspace())
-			to_chat(user, "<span class='warning'>Cannot secure turrets in space!</span>")
+			to_chat(user, SPAN_WARNING("Cannot secure turrets in space!"))
 			return TRUE
 
 		user.visible_message( \
-				"<span class='warning'>[user] begins [anchored ? "un" : ""]securing the turret.</span>", \
+				SPAN_WARNING("[user] begins [anchored ? "un" : ""]securing the turret."), \
 				"<span class='notice'>You begin [anchored ? "un" : ""]securing the turret.</span>" \
 			)
 
@@ -402,7 +402,7 @@
 			else
 				to_chat(user, "<span class='notice'>You fail to complete the welding.</span>")
 		else
-			to_chat(user, "<span class='warning'>You need more welding fuel to complete this task.</span>")
+			to_chat(user, SPAN_WARNING("You need more welding fuel to complete this task."))
 		return TRUE
 	else
 		//if the turret was attacked with the intention of harming it:
@@ -421,7 +421,7 @@
 	if(!emagged)
 		//Emagging the turret makes it go bonkers and stun everyone. It also makes
 		//the turret shoot much, much faster.
-		to_chat(user, "<span class='warning'>You short out [src]'s threat assessment circuits.</span>")
+		to_chat(user, SPAN_WARNING("You short out [src]'s threat assessment circuits."))
 		visible_message("[src] hums oddly...")
 		emagged = 1
 		lethal_icon = 1
@@ -863,7 +863,7 @@
 					build_step = 2
 					icon_state = "turret_frame_2_[case_sprite_set]"
 				else
-					to_chat(user, "<span class='warning'>You need two sheets of metal to continue construction.</span>")
+					to_chat(user, SPAN_WARNING("You need two sheets of metal to continue construction."))
 				return TRUE
 
 			else if(attacking_item.iswrench())
@@ -961,7 +961,7 @@
 					AddOverlays("turret_frame_5c_[case_sprite_set]")
 					build_step = 7
 				else
-					to_chat(user, "<span class='warning'>You need two sheets of metal to continue construction.</span>")
+					to_chat(user, SPAN_WARNING("You need two sheets of metal to continue construction."))
 				return TRUE
 
 			else if(attacking_item.isscrewdriver())

@@ -238,17 +238,17 @@
 		if(!holster.holstered)
 			var/obj/item/W = usr.get_active_hand()
 			if(!istype(W, /obj/item))
-				to_chat(usr, "<span class='warning'>You need your gun equiped to holster it.</span>")
+				to_chat(usr, SPAN_WARNING("You need your gun equiped to holster it."))
 				return
 			holster.holster(W, usr)
 		else
-			to_chat(usr, "<span class='warning'>There's already a gun in the holster, you need an empty hand to draw it.</span>")
+			to_chat(usr, SPAN_WARNING("There's already a gun in the holster, you need an empty hand to draw it."))
 			return
 	else
 		if(holster.holstered)
 			holster.unholster(usr)
 		else
-			to_chat(usr, "<span class='warning'>There's no gun in the holster to draw.</span>")
+			to_chat(usr, SPAN_WARNING("There's no gun in the holster to draw."))
 
 
 //Non-hardsuit ERT armor.

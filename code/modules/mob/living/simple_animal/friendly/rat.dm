@@ -183,7 +183,7 @@
 			squeals --
 			log_say("[key_name(src)] squeals! ",ckey=key_name(src))
 		else
-			to_chat(src, "<span class='warning'>Your hoarse rattish throat can't squeal just now, stop and take a breath!</span>")
+			to_chat(src, SPAN_WARNING("Your hoarse rattish throat can't squeal just now, stop and take a breath!"))
 
 
 //Wrapper verbs for the squeak functions
@@ -237,7 +237,7 @@
 		if(!K.health)
 			return
 
-		src.visible_message("<span class='warning'>[src] joins the [K.swarm_name] of \the [K]</span>", \
+		src.visible_message(SPAN_WARNING("[src] joins the [K.swarm_name] of \the [K]"), \
 							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].</span>")
 		K.absorb(src)
 	..()

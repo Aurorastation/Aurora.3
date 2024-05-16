@@ -48,7 +48,7 @@
 			slot_flags &= ~SLOT_BACK
 			slot_flags |= (SLOT_BELT|SLOT_HOLSTER)
 			name = "sawn-off improvised shotgun"
-			to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
+			to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
 	else
 		..()
 

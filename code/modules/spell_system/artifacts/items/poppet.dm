@@ -47,7 +47,7 @@
 
 		if(target_zone == BP_EYES)
 			to_chat(user, "<span class='notice'>You cover \the [src]'s eyes.</span>")
-			to_chat(H, "<span class='warning'>Your vision is covered by a shadow!</span>")
+			to_chat(H, SPAN_WARNING("Your vision is covered by a shadow!"))
 			H.eye_blind = 3
 			H.eye_blurry = 5
 
@@ -89,13 +89,13 @@
 			return TRUE
 
 		if(istype(attacking_item, /obj/item/device/flashlight))
-			to_chat(H, "<span class='warning'>You direct \the [attacking_item] towards \the [src]'s eyes!</span>")
+			to_chat(H, SPAN_WARNING("You direct \the [attacking_item] towards \the [src]'s eyes!"))
 			playsound(get_turf(H), 'sound/items/flashlight.ogg', 50, 1, -1)
 			H.flash_act()
 			return TRUE
 
 		if(attacking_item.iscoil())
-			to_chat(H, "<span class='warning'>You strangle \the [src] with \the [attacking_item]!</span>")
+			to_chat(H, SPAN_WARNING("You strangle \the [src] with \the [attacking_item]!"))
 			H.silent += 10
 			playsound(get_turf(H), 'sound/effects/noosed.ogg', 50, 1, -1)
 			if(!(H.species.flags & NO_BREATHE))
@@ -108,7 +108,7 @@
 			return TRUE
 
 		if(attacking_item.edge)
-			to_chat(H, "<span class='warning'>You stab \the [src] with \the [attacking_item]!</span>")
+			to_chat(H, SPAN_WARNING("You stab \the [src] with \the [attacking_item]!"))
 			H.apply_damage(2, DAMAGE_BRUTE, target_zone, damage_flags = DAMAGE_FLAG_EDGE)
 			playsound(get_turf(H), 'sound/weapons/bladeslice.ogg', 50, 1, -1)
 			if(H.can_feel_pain())

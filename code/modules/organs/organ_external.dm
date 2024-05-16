@@ -112,7 +112,7 @@
 
 	var/list/tendon_msgs = list("tore apart", "ripped away")
 
-	var/damage_msg = "<span class='warning'>You feel an intense pain!</span>"
+	var/damage_msg = SPAN_WARNING("You feel an intense pain!")
 	var/broken_description
 	var/open = 0
 	var/stage = 0
@@ -628,12 +628,12 @@ This function completely restores a damaged organ to perfect condition.
 				W.open_wound(damage)
 				if(prob(25))
 					if(status & ORGAN_ROBOT)
-						owner.visible_message("<span class='warning'>The damage to [owner.name]'s [name] worsens.</span>",\
-						"<span class='warning'>The damage to your [name] worsens.</span>",\
+						owner.visible_message(SPAN_WARNING("The damage to [owner.name]'s [name] worsens."),\
+						SPAN_WARNING("The damage to your [name] worsens."),\
 						"You hear the screech of abused metal.")
 					else
-						owner.visible_message("<span class='warning'>The wound on [owner.name]'s [name] widens with a nasty ripping noise.</span>",\
-						"<span class='warning'>The wound on your [name] widens with a nasty ripping noise.</span>",\
+						owner.visible_message(SPAN_WARNING("The wound on [owner.name]'s [name] widens with a nasty ripping noise."),\
+						SPAN_WARNING("The wound on your [name] widens with a nasty ripping noise."),\
 						"You hear a nasty ripping noise, as if flesh is being torn apart.")
 				return
 
@@ -1180,7 +1180,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 
 	var/message = pick("broke in half", "shattered")
 	owner.visible_message(\
-		"<span class='warning'><font size=2>You hear a loud cracking sound coming from \the [owner]!</font></span>",\
+		SPAN_WARNING("<font size=2>You hear a loud cracking sound coming from \the [owner]!</font>"),\
 		"<span class='danger'><font size=3>Something feels like it [message] in your [name]!</font></span>",\
 		"You hear a sickening crack!")
 	if(owner.species && owner.can_feel_pain())
@@ -1382,13 +1382,13 @@ Note that amputating the affected organ does in fact remove the infection from t
 		return
 	if(owner)
 		if(type == "brute")
-			owner.visible_message("<span class='warning'>You hear a sickening cracking sound coming from \the [owner]'s [name].</span>",	\
+			owner.visible_message(SPAN_WARNING("You hear a sickening cracking sound coming from \the [owner]'s [name]."),	\
 			"<span class='danger'>Your [name] becomes a mangled mess!</span>",	\
-			"<span class='warning'>You hear a sickening crack.</span>")
+			SPAN_WARNING("You hear a sickening crack."))
 		else
-			owner.visible_message("<span class='warning'>\The [owner]'s [name] melts away, turning into a mangled mess!</span>",	\
+			owner.visible_message(SPAN_WARNING("\The [owner]'s [name] melts away, turning into a mangled mess!"),	\
 			"<span class='danger'>Your [name] melts away!</span>",	\
-			"<span class='warning'>You hear a sickening sizzle.</span>")
+			SPAN_WARNING("You hear a sickening sizzle."))
 	disfigured = 1
 
 /obj/item/organ/external/proc/get_wounds_desc()

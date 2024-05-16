@@ -217,7 +217,7 @@
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
 		if(on)
-			to_chat(user, "<span class='warning'>Turn \the [src] off first!</span>")
+			to_chat(user, SPAN_WARNING("Turn \the [src] off first!"))
 			return TRUE
 
 		anchored = !anchored
@@ -242,7 +242,7 @@
 
 /obj/machinery/portable_atmospherics/powered/scrubber/huge/stationary/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		to_chat(user, "<span class='warning'>The bolts are too tight for you to unscrew!</span>")
+		to_chat(user, SPAN_WARNING("The bolts are too tight for you to unscrew!"))
 		return TRUE
 
 	return ..()

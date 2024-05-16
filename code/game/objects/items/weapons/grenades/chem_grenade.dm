@@ -37,7 +37,7 @@
 					user.put_in_hands(B)
 		name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 	if(stage > 1 && !active && clown_check(user))
-		to_chat(user, "<span class='warning'>You prime \the [name]!</span>")
+		to_chat(user, SPAN_WARNING("You prime \the [name]!"))
 
 		msg_admin_attack("[user.name] ([user.ckey]) primed \a [src]. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user))
 
@@ -52,10 +52,10 @@
 	if(istype(attacking_item,/obj/item/device/assembly_holder) && (!stage || stage==1) && path != 2)
 		var/obj/item/device/assembly_holder/det = attacking_item
 		if(istype(det.a_left,det.a_right.type) || (!isigniter(det.a_left) && !isigniter(det.a_right)))
-			to_chat(user, "<span class='warning'>Assembly must contain one igniter.</span>")
+			to_chat(user, SPAN_WARNING("Assembly must contain one igniter."))
 			return
 		if(!det.secured)
-			to_chat(user, "<span class='warning'>Assembly must be secured with screwdriver.</span>")
+			to_chat(user, SPAN_WARNING("Assembly must be secured with screwdriver."))
 			return
 		path = 1
 		to_chat(user, "<span class='notice'>You add [attacking_item] to the metal casing.</span>")
@@ -86,7 +86,7 @@
 			stage = 2
 		else if(stage == 2)
 			if(active && prob(95))
-				to_chat(user, "<span class='warning'>You trigger the assembly!</span>")
+				to_chat(user, SPAN_WARNING("You trigger the assembly!"))
 				prime()
 				return
 			else
@@ -99,7 +99,7 @@
 	else if(is_type_in_list(attacking_item, allowed_containers) && (!stage || stage==1) && path != 2)
 		path = 1
 		if(beakers.len == 2)
-			to_chat(user, "<span class='warning'>The grenade can not hold more containers.</span>")
+			to_chat(user, SPAN_WARNING("The grenade can not hold more containers."))
 			return
 		else
 			if(attacking_item.reagents.total_volume)
@@ -109,7 +109,7 @@
 				stage = 1
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 			else
-				to_chat(user, "<span class='warning'>\The [attacking_item] is empty.</span>")
+				to_chat(user, SPAN_WARNING("\The [attacking_item] is empty."))
 
 /obj/item/grenade/chem_grenade/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

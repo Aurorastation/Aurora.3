@@ -11,7 +11,7 @@
 	if(!do_mob(user,H, 10))
 		to_chat(user, "<span class='notice'>You must stand still to inspect [E] for wounds.</span>")
 	else if(E.wounds.len)
-		to_chat(user, "<span class='warning'>You find [E.get_wounds_desc()]</span>")
+		to_chat(user, SPAN_WARNING("You find [E.get_wounds_desc()]"))
 	else
 		to_chat(user, "<span class='notice'>You find no visible wounds.</span>")
 
@@ -19,7 +19,7 @@
 	if(!do_mob(user, H, 20))
 		to_chat(user, "<span class='notice'>You must stand still to feel [E] for fractures.</span>")
 	else if(E.status & ORGAN_BROKEN)
-		to_chat(user, "<span class='warning'>The [E.encased ? E.encased : "bone in the [E.name]"] moves slightly when you poke it!</span>")
+		to_chat(user, SPAN_WARNING("The [E.encased ? E.encased : "bone in the [E.name]"] moves slightly when you poke it!"))
 		H.custom_pain("Your [E.name] hurts where it's poked.")
 	else
 		to_chat(user, "<span class='notice'>The [E.encased ? E.encased : "bones in the [E.name]"] seem to be fine.</span>")
@@ -30,24 +30,24 @@
 	else
 		var/bad = 0
 		if(H.getToxLoss() >= 40)
-			to_chat(user, "<span class='warning'>[H] has an unhealthy skin discoloration.</span>")
+			to_chat(user, SPAN_WARNING("[H] has an unhealthy skin discoloration."))
 			bad = 1
 		if(H.getOxyLoss() >= 20)
-			to_chat(user, "<span class='warning'>[H]'s skin is unusually pale.</span>")
+			to_chat(user, SPAN_WARNING("[H]'s skin is unusually pale."))
 			bad = 1
 		if(E.is_infected())
 			var/severity = E.germ_level < INFECTION_LEVEL_TWO ? "slightly" : E.germ_level < INFECTION_LEVEL_THREE ? "moderately" : "extremely"
 			to_chat(user, SPAN_WARNING("[H]'s skin is [severity] warm and reddened."))
 			bad = 1
 		if(E.status & ORGAN_DEAD)
-			to_chat(user, "<span class='warning'>[E] is decaying!</span>")
+			to_chat(user, SPAN_WARNING("[E] is decaying!"))
 			bad = 1
 		if(!bad)
 			to_chat(user, "<span class='notice'>[H]'s skin is normal.</span>")
 
 /obj/item/grab/proc/jointlock(mob/living/carbon/human/target, mob/attacker, var/target_zone)
 	if(state < GRAB_AGGRESSIVE)
-		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
+		to_chat(attacker, SPAN_WARNING("You require a better grab to do this."))
 		return
 
 	var/obj/item/organ/external/organ = target.get_organ(check_zone(target_zone))
@@ -69,7 +69,7 @@
 	if(!attack)
 		return
 	if(state < GRAB_NECK)
-		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
+		to_chat(attacker, SPAN_WARNING("You require a better grab to do this."))
 		return
 	for(var/obj/item/protection in list(target.head, target.wear_mask, target.glasses))
 		if(protection && (protection.body_parts_covered & EYES))
@@ -121,7 +121,7 @@
 
 /obj/item/grab/proc/dislocate(mob/living/carbon/human/target, mob/living/attacker, var/target_zone)
 	if(state < GRAB_NECK)
-		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
+		to_chat(attacker, SPAN_WARNING("You require a better grab to do this."))
 		return
 	if(target.grab_joint(attacker, target_zone))
 		playsound(loc, 'sound/weapons/push_connect.ogg', 50, 1, -1)
@@ -129,10 +129,10 @@
 
 /obj/item/grab/proc/pin_down(mob/target, mob/attacker)
 	if(state < GRAB_AGGRESSIVE)
-		to_chat(attacker, "<span class='warning'>You require a better grab to do this.</span>")
+		to_chat(attacker, SPAN_WARNING("You require a better grab to do this."))
 		return
 	if(force_down)
-		to_chat(attacker, "<span class='warning'>You are already pinning [target] to the ground.</span>")
+		to_chat(attacker, SPAN_WARNING("You are already pinning [target] to the ground."))
 
 	attacker.visible_message("<span class='danger'>[attacker] starts forcing [target] to the ground!</span>")
 	if(do_after(attacker, 20) && target)
@@ -160,7 +160,7 @@
 	var/hairchatname = hair_style.chatname
 	for(var/obj/item/protection in list(target.head, target.wear_mask))
 		if(protection && (protection.body_parts_covered & HEAD))
-			to_chat(assailant, "<span class='warning'>You can't tug their hair while something is covering it!.</span>")
+			to_chat(assailant, SPAN_WARNING("You can't tug their hair while something is covering it!."))
 			return
 	switch(hair_style.length)
 		if(0)

@@ -115,7 +115,7 @@
 
 	if(lock && lock.isLocked())
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] is locked!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is locked!"))
 		return
 
 	isSwitchingStates = 1
@@ -151,7 +151,7 @@
 	if(istype(attacking_item, /obj/item/key) && lock)
 		var/obj/item/key/K = attacking_item
 		if(!lock.toggle(attacking_item))
-			to_chat(user, "<span class='warning'>\The [K] does not fit in the lock!</span>")
+			to_chat(user, SPAN_WARNING("\The [K] does not fit in the lock!"))
 		return
 
 	if(lock && lock.pick_lock(attacking_item, user))
@@ -159,7 +159,7 @@
 
 	if(istype(attacking_item, /obj/item/material/lock_construct))
 		if(lock)
-			to_chat(user, "<span class='warning'>\The [src] already has a lock.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has a lock."))
 		else
 			var/obj/item/material/lock_construct/L = attacking_item
 			lock = L.create_lock(src,user)

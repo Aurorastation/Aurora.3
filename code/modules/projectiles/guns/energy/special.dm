@@ -370,7 +370,7 @@
 			icon_state = "megaglaive1"
 			..()
 			return
-		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is far too large for you to pick up."))
 		return
 
 /obj/item/gun/energy/vaurca/typec/dropped(mob/user)

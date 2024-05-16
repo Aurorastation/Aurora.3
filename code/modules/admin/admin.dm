@@ -394,7 +394,7 @@ var/global/enabled_spooking = 0
 					if(FC.is_admin_channel)
 						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A></FONT></B><BR>"
 					else
-						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR></B>"
+						dat+="<B><A href='?src=\ref[src];ac_show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR></B>"
 			dat+={"<BR><HR><A href='?src=\ref[src];ac_refresh=1'>Refresh</A>
 				<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>
 			"}
@@ -481,7 +481,7 @@ var/global/enabled_spooking = 0
 			else
 				for(var/channel in SSnews.network_channels)
 					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR>"
+					dat+="<A href='?src=\ref[src];ac_pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR>"
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+={"
@@ -495,7 +495,7 @@ var/global/enabled_spooking = 0
 			else
 				for(var/channel in SSnews.network_channels)
 					var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR>"
+					dat+="<A href='?src=\ref[src];ac_pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR>"
 
 			dat+="<BR><A href='?src=\ref[src];ac_setScreen=[0]'>Back</A>"
 		if(12)
@@ -818,7 +818,7 @@ var/global/enabled_spooking = 0
 		feedback_add_details("admin_verb","SN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		return 1
 	else
-		to_chat(usr, "<span class='warning'>Error: Start Now: Game has already started.</span>")
+		to_chat(usr, SPAN_WARNING("Error: Start Now: Game has already started."))
 		return 0
 
 /datum/admins/proc/toggleenter()
@@ -1316,14 +1316,14 @@ var/global/enabled_spooking = 0
 	if(check_rights(R_ADMIN|R_MOD, user))
 		if (target.paralysis == 0)
 			msg = "has paralyzed [key_name_admin(target)]."
-			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", "<span class='warning'><b>You have been winded by a member of staff! Please stand by until they contact you!</b></span>")
+			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <span class='warning'>[target] has been winded by a member of staff! Please freeze all roleplay involving their character until the matter is resolved! Adminhelp if you have further questions.</span>", SPAN_WARNING("<b>You have been winded by a member of staff! Please stand by until they contact you!</b>"))
 			target.paralysis = 8000
 		else
 			if (alert(user, "The player is currently winded. Do you want to unwind him?", "Unwind player?", "Yes", "No") == "No")
 				return
 			target.paralysis = 0
 			msg = "has unparalyzed [key_name_admin(target)]."
-			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[target] has been unwinded by a member of staff!</font>", "<span class='warning'><b>You have been unwinded by a member of staff!</b></span>")
+			target.visible_message("<font color='#002eb8'><b>OOC Information:</b></font> <font color='green'>[target] has been unwinded by a member of staff!</font>", SPAN_WARNING("<b>You have been unwinded by a member of staff!</b>"))
 		log_and_message_admins(msg, user)
 		feedback_add_details("admin_verb", "WIND")
 

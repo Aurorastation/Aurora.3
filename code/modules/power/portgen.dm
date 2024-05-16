@@ -522,7 +522,7 @@
 				audible_message("<span class='notice'>[src] blips happily!</span>")
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else
-				audible_message("<span class='warning'>[src] blips in disappointment!</span>")
+				audible_message(SPAN_WARNING("[src] blips in disappointment!"))
 				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
 		return
 	..()

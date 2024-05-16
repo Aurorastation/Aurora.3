@@ -363,7 +363,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	if(href_list["linkpda"])
 		var/obj/item/modular_computer/pda = usr.get_active_hand()
 		if (!pda || !istype(pda))
-			to_chat(usr, "<span class='warning'>You need to be holding a handheld computer to link it.</span>")
+			to_chat(usr, SPAN_WARNING("You need to be holding a handheld computer to link it."))
 		else if (pda in alert_pdas)
 			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
 			//Update the name real quick.
@@ -462,7 +462,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 				announcement.announcer = ID.assignment ? "[ID.assignment] [ID.registered_name]" : ID.registered_name
 			else
 				reset_message()
-				to_chat(user, "<span class='warning'>You are not authorized to send announcements.</span>")
+				to_chat(user, SPAN_WARNING("You are not authorized to send announcements."))
 			updateUsrDialog()
 		return TRUE
 	else if (istype(attacking_item, /obj/item/stamp))

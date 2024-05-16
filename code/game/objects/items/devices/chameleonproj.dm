@@ -107,22 +107,22 @@
 
 /obj/effect/dummy/chameleon/attackby()
 	for(var/mob/M in src)
-		to_chat(M, "<span class='warning'>Your chameleon-projector deactivates.</span>")
+		to_chat(M, SPAN_WARNING("Your chameleon-projector deactivates."))
 	master.disrupt()
 
 /obj/effect/dummy/chameleon/attack_hand()
 	for(var/mob/M in src)
-		to_chat(M, "<span class='warning'>Your chameleon-projector deactivates.</span>")
+		to_chat(M, SPAN_WARNING("Your chameleon-projector deactivates."))
 	master.disrupt()
 
 /obj/effect/dummy/chameleon/ex_act(var/severity = 2.0)
 	for(var/mob/M in src)
-		to_chat(M, "<span class='warning'>Your chameleon-projector deactivates.</span>")
+		to_chat(M, SPAN_WARNING("Your chameleon-projector deactivates."))
 	master.disrupt()
 
 /obj/effect/dummy/chameleon/bullet_act()
 	for(var/mob/M in src)
-		to_chat(M, "<span class='warning'>Your chameleon-projector deactivates.</span>")
+		to_chat(M, SPAN_WARNING("Your chameleon-projector deactivates."))
 	..()
 	master.disrupt()
 

@@ -147,11 +147,11 @@
 	var/list/mirrors = get_ban_mirrors(ban_id)
 
 	if (!mirrors)
-		to_chat(user, "<span class='warning'>Something went horribly wrong.</span>")
+		to_chat(user, SPAN_WARNING("Something went horribly wrong."))
 		return
 
 	if (!mirrors.len)
-		to_chat(user, "<span class='warning'>No mirrors for this ban found.</span>")
+		to_chat(user, SPAN_WARNING("No mirrors for this ban found."))
 		return
 
 	var/output = "<b><center>Ban mirrors for ban #[ban_id]</center></b><br>"
@@ -195,7 +195,7 @@
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		to_chat(user, "<span class='warning'>Database connection failed!</span>")
+		to_chat(user, SPAN_WARNING("Database connection failed!"))
 		return
 
 	var/DBQuery/query = GLOB.dbcon.NewQuery("SELECT extra_info, ban_id FROM ss13_ban_mirrors WHERE id = :id:")
@@ -230,7 +230,7 @@
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		to_chat(user, "<span class='warning'>Database connection failed!</span>")
+		to_chat(user, SPAN_WARNING("Database connection failed!"))
 		return
 
 	var/query_text = inactive ? "UPDATE ss13_ban_mirrors SET deleted_at = NULL WHERE id = :id:" : "UPDATE ss13_ban_mirrors SET deleted_at = NOW() WHERE id = :id:"
@@ -239,7 +239,7 @@
 	query.Execute(list("id" = mirror_id))
 
 	if (query.ErrorMsg())
-		to_chat(user, "<span class='warning'>An error occured while toggling mirror status!</span>")
+		to_chat(user, SPAN_WARNING("An error occured while toggling mirror status!"))
 	else
 		to_chat(user, "<span class='notice'>Mirror set to [inactive ? "ACTIVE" : "INACTIVE"].</span>")
 

@@ -170,7 +170,7 @@
 			if(4)
 				. += "WEST: "
 		if(tile_info[index] == null)
-			. += "<span class='warning'>DATA UNAVAILABLE</span>"
+			. += SPAN_WARNING("DATA UNAVAILABLE")
 			continue
 		var/celsius = convert_k2c(tile_info[index][1])
 		var/pressure = tile_info[index][2]
@@ -199,7 +199,7 @@
 		return//Already doing something.
 
 	if(blocked)
-		to_chat(user, "<span class='warning'>\The [src] is welded solid!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is welded solid!"))
 		return
 
 	var/alarmed = lockdown
@@ -225,7 +225,7 @@
 		return
 
 	if(alarmed && density && lockdown && !allowed(user))
-		to_chat(user, "<span class='warning'>Access denied.  Please wait for authorities to arrive, or for the alert to clear.</span>")
+		to_chat(user, SPAN_WARNING("Access denied.  Please wait for authorities to arrive, or for the alert to clear."))
 		return
 	else if(Adjacent(user))
 		user.visible_message("[user] [density ? "open" : "close"]s \an [src].",\

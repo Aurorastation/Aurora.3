@@ -29,7 +29,7 @@
 /obj/item/spell/mark/on_use_cast(mob/living/user)
 	. = ..()
 	if(!allowed_to_teleport()) // Otherwise you could teleport back to the admin Z-level.
-		to_chat(user, "<span class='warning'>You can't teleport here!</span>")
+		to_chat(user, SPAN_WARNING("You can't teleport here!"))
 		return 0
 	if(pay_energy(1000))
 		if(!mark_spell_ref)
@@ -41,7 +41,7 @@
 		adjust_instability(5)
 		return 1
 	else
-		to_chat(user, "<span class='warning'>You can't afford the energy cost!</span>")
+		to_chat(user, SPAN_WARNING("You can't afford the energy cost!"))
 		return 0
 
 //Recall
@@ -71,9 +71,9 @@
 			return 0
 		else
 			if(!allowed_to_teleport())
-				to_chat(user, "<span class='warning'>Teleportation doesn't seem to work here.</span>")
+				to_chat(user, SPAN_WARNING("Teleportation doesn't seem to work here."))
 				return
-			visible_message("<span class='warning'>\The [user] starts glowing!</span>")
+			visible_message(SPAN_WARNING("\The [user] starts glowing!"))
 			var/light_intensity = 2
 			var/time_left = 3
 			if(check_for_scepter())
@@ -94,7 +94,7 @@
 			for(var/obj/item/grab/G in user.contents) // People the Technomancer is grabbing come along for the ride.
 				if(G.affecting)
 					G.affecting.forceMove(locate( target_turf.x+rand(-1,1), target_turf.y+rand(-1,1), target_turf.z))
-					to_chat(G.affecting, "<span class='warning'>You are teleported along with [user]!</span>")
+					to_chat(G.affecting, SPAN_WARNING("You are teleported along with [user]!"))
 
 			user.forceMove(target_turf)
 			to_chat(user, "<span class='notice'>You are teleported to your Mark.</span>")
@@ -108,6 +108,6 @@
 			qdel(src)
 			return 1
 	else
-		to_chat(user, "<span class='warning'>You can't afford the energy cost!</span>")
+		to_chat(user, SPAN_WARNING("You can't afford the energy cost!"))
 		return 0
 

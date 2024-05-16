@@ -22,7 +22,7 @@
 		if(stack.material.name == DEFAULT_WALL_MATERIAL)
 			var/num = min((max_metal - metal) / metal_per_sheet, stack.amount)
 			if(num < 1)
-				to_chat(user, "<span class='warning'>\The [src] is too full to add more metal.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] is too full to add more metal."))
 				return
 			if(stack.use(num))
 				to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
@@ -38,7 +38,7 @@
 
 	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/advanced))
 		if(upgraded)
-			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
 		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
 		upgraded = TRUE
@@ -46,7 +46,7 @@
 
 	if(istype(attacking_item,/obj/item/disk/integrated_circuit/upgrade/clone))
 		if(can_clone)
-			to_chat(user, "<span class='warning'>\The [src] already has this upgrade. </span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
 		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
 		can_clone = TRUE

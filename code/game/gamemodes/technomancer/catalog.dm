@@ -372,7 +372,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 	for(var/datum/technomancer/equipment/E in equipment_instances + assistance_instances)
 		if(attacking_item.type == E.obj_path) // We got a match.
 			if(budget + E.cost > max_budget)
-				to_chat(user, "<span class='warning'>\The [src] will not allow you to overflow your maximum budget by refunding that.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] will not allow you to overflow your maximum budget by refunding that."))
 				return TRUE
 			else
 				budget = budget + E.cost

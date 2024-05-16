@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(jobs)
 	occupations = list()
 	var/list/all_jobs = SSatlas.current_map.allowed_jobs
 	if(!all_jobs.len)
-		to_world("<span class='warning'>Error setting up jobs, no job datums found!</span>")
+		to_world(SPAN_WARNING("Error setting up jobs, no job datums found!"))
 		return FALSE
 
 	for(var/J in all_jobs)
@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(jobs)
 			return FALSE
 
 		if(!(player.client.prefs.GetPlayerAltTitle(job) in player.client.prefs.GetValidTitles(job)))
-			to_chat(player, "<span class='warning'>Your character is too young!</span>")
+			to_chat(player, SPAN_WARNING("Your character is too young!"))
 			return FALSE
 
 		var/position_limit = job.get_total_positions()
@@ -432,7 +432,7 @@ SUBSYSTEM_DEF(jobs)
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in cryo the whole time!</span>")
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in cryo the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		var/rank= src.mind.assigned_role
@@ -450,7 +450,7 @@ SUBSYSTEM_DEF(jobs)
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in robotic storage the whole time!</span>")
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in robotic storage the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
@@ -610,7 +610,7 @@ SUBSYSTEM_DEF(jobs)
 		// them win or lose based on cryo is silly so we remove the objective.
 		if(O.target == H.mind)
 			if(O.owner && O.owner.current)
-				to_chat(O.owner.current, "<span class='warning'>You get the feeling your target is no longer within your reach...</span>")
+				to_chat(O.owner.current, SPAN_WARNING("You get the feeling your target is no longer within your reach..."))
 			qdel(O)
 
 	//Handle job slot/tater cleanup.

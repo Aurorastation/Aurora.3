@@ -127,7 +127,7 @@
 	if(..())
 		return 1
 	if(!opened)
-		to_chat(usr, "<span class='warning'>\The [src] is not open!</span>")
+		to_chat(usr, SPAN_WARNING("\The [src] is not open!"))
 		return
 
 	if(href_list["rename"])
@@ -135,7 +135,7 @@
 
 	if(href_list["remove_cell"])
 		if(!battery)
-			to_chat(usr, "<span class='warning'>There's no power cell to remove from \the [src].</span>")
+			to_chat(usr, SPAN_WARNING("There's no power cell to remove from \the [src]."))
 		else
 			var/turf/T = get_turf(src)
 			battery.forceMove(T)
@@ -203,21 +203,21 @@
 // Returns true if the circuit made it inside.
 /obj/item/device/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
 	if(!opened)
-		to_chat(user, "<span class='warning'>\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar."))
 		return FALSE
 
 	if(IC.w_class > w_class)
-		to_chat(user, "<span class='warning'>\The [IC] is way too big to fit into \the [src].</span>")
+		to_chat(user, SPAN_WARNING("\The [IC] is way too big to fit into \the [src]."))
 		return FALSE
 
 	var/total_part_size = get_part_size()
 	var/total_complexity = get_part_complexity()
 
 	if((total_part_size + IC.size) > max_components)
-		to_chat(user, "<span class='warning'>You can't seem to add the '[IC.name]', as there's insufficient space.</span>")
+		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', as there's insufficient space."))
 		return FALSE
 	if((total_complexity + IC.complexity) > max_complexity)
-		to_chat(user, "<span class='warning'>You can't seem to add the '[IC.name]', since this setup's too complicated for the case.</span>")
+		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', since this setup's too complicated for the case."))
 		return FALSE
 
 	if(!IC.forceMove(src))
@@ -268,19 +268,20 @@
 		if(opened)
 			interact(user)
 		else
-			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't fiddle with the internal components.  \
-			Try using a crowbar.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] isn't open, so you can't fiddle with the internal components.  \
+			Try using a crowbar."))
+
 		return TRUE
 
 	else if(istype(attacking_item, /obj/item/cell/device))
 		if(!opened)
-			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't put anything inside.  Try using a crowbar.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] isn't open, so you can't put anything inside.  Try using a crowbar."))
 			for(var/obj/item/integrated_circuit/input/S in contents)
 				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE
 
 		if(battery)
-			to_chat(user, "<span class='warning'>\The [src] already has \a [battery] inside.  Remove it first if you want to replace it.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [battery] inside.  Remove it first if you want to replace it."))
 			for(var/obj/item/integrated_circuit/input/S in contents)
 				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE

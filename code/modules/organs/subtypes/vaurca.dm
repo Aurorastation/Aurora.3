@@ -107,7 +107,7 @@
 	if (is_broken())
 		if (GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages)
 			owner.remove_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+			to_chat(owner, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	else
 		if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
@@ -130,7 +130,7 @@
 /obj/item/organ/internal/vaurca/neuralsocket/removed(var/mob/living/carbon/human/target)
 	if(GLOB.all_languages[LANGUAGE_VAURCA] in target.languages)
 		target.remove_language(LANGUAGE_VAURCA)
-		to_chat(target, "<span class='warning'>Your mind suddenly grows dark as the unity of the Hive is torn from you.</span>")
+		to_chat(target, SPAN_WARNING("Your mind suddenly grows dark as the unity of the Hive is torn from you."))
 	remove_verb(owner, all_hive_verbs)
 	..()
 
@@ -362,7 +362,7 @@
 	var/obj/icon = src
 
 	if ((istype(attacking_item, /obj/item/device/analyzer)) && get_dist(user, src) <= 1)
-		user.visible_message("<span class='warning'>[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src].</span>")
+		user.visible_message(SPAN_WARNING("[user] has used [attacking_item] on [icon2html(icon, viewers(get_turf(user)))] [src]."))
 
 		var/pressure = air_contents.return_pressure()
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
@@ -504,7 +504,7 @@
 
 	var/tank_pressure = air_contents.return_pressure()
 	if((tank_pressure < distribute_pressure) && prob(5))
-		to_chat(owner, "<span class='warning'>There is a buzzing in your [parent_organ].</span>")
+		to_chat(owner, SPAN_WARNING("There is a buzzing in your [parent_organ]."))
 
 	var/moles_needed = distribute_pressure*volume_to_return/(R_IDEAL_GAS_EQUATION*air_contents.temperature)
 

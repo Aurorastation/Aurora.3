@@ -118,7 +118,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["late_join"])
 
 		if(SSticker.current_state != GAME_STATE_PLAYING)
-			to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+			to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 			return
 
 		// Cannot join without a saved character, if we're on SQL saves.
@@ -271,7 +271,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(src != usr)
 		return 0
 	if(SSticker.current_state != GAME_STATE_PLAYING)
-		to_chat(usr, "<span class='warning'>The round is either not ready, or has already finished...</span>")
+		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 		return 0
 	if(!GLOB.config.enter_allowed)
 		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")

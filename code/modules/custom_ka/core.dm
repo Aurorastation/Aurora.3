@@ -103,7 +103,7 @@
 	return round(installed_cell.stored_charge / cost_increase)
 
 /obj/item/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
-	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")
+	to_chat(user,SPAN_WARNING("You override the safeties on the [src]..."))
 	is_emagged = 1
 	return 1
 
@@ -116,7 +116,7 @@
 /obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
 	if(require_wield && !wielded)
-		to_chat(user,"<span class='warning'>\The [src] is too heavy to fire with one hand!</span>")
+		to_chat(user,SPAN_WARNING("\The [src] is too heavy to fire with one hand!"))
 		return
 
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
@@ -389,7 +389,7 @@
 	. = ..()
 
 	if(!wielded)
-		to_chat(user,"<span class='warning'>You must be holding \the [src] with two hands to do this!</span>")
+		to_chat(user,SPAN_WARNING("You must be holding \the [src] with two hands to do this!"))
 		return
 
 	if(installed_cell)
@@ -577,7 +577,7 @@
 /obj/item/device/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 
 	user.visible_message(
-		"<span class='warning'>\The [user] scans \the [target] with \the [src].</span>",
+		SPAN_WARNING("\The [user] scans \the [target] with \the [src]."),
 		"<span class='alert'>You scan \the [target] with \the [src].</span>")
 
 	if(istype(target,/obj/item/gun/custom_ka))

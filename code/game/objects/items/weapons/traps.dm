@@ -191,7 +191,7 @@
 		else if(do_after(user, 5 SECONDS))
 			capture(M)
 	else
-		to_chat(user, "<span class='warning'>\The [src] is already full!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is already full!"))
 
 /obj/item/trap/animal/update_icon()
 	icon_state = "[icon_base][deployed]"
@@ -261,7 +261,7 @@
 
 	escapee.next_move = world.time + 100
 	escapee.last_special = world.time + 100
-	to_chat(escapee, "<span class='warning'>You begin to shake and bump the lock of \the [src]. (this will take about [time_to_escape] minutes).</span>")
+	to_chat(escapee, SPAN_WARNING("You begin to shake and bump the lock of \the [src]. (this will take about [time_to_escape] minutes)."))
 	visible_message("<span class='danger'>\The [src] begins to shake violently! Something is attempting to escape it!</span>")
 
 	var/time = 360 * time_to_escape * 2
@@ -272,7 +272,7 @@
 		return
 
 	breakout = FALSE
-	to_chat(escapee, "<span class='warning'>You successfully break out!</span>")
+	to_chat(escapee, SPAN_WARNING("You successfully break out!"))
 	visible_message("<span class='danger'>\The [escapee] successfully breaks out of \the [src]!</span>")
 	playsound(loc, 'sound/effects/grillehit.ogg', 100, 1)
 
@@ -293,7 +293,7 @@
 		return
 
 	if(!ishuman(usr))
-		to_chat(usr, "<span class='warning'>This mob type can't use this verb.</span>")
+		to_chat(usr, SPAN_WARNING("This mob type can't use this verb."))
 		return
 
 	var/datum/M = captured ? captured.resolve() : null
@@ -305,11 +305,11 @@
 			return
 
 		if(!can_use(usr))
-			to_chat(usr, "<span class='warning'>You cannot use \the [src].</span>")
+			to_chat(usr, SPAN_WARNING("You cannot use \the [src]."))
 			return
 
 		if(usr == M)
-			to_chat(usr, "<span class='warning'>You can't open \the [src] from the inside! You'll need to force it open.</span>")
+			to_chat(usr, SPAN_WARNING("You can't open \the [src] from the inside! You'll need to force it open."))
 			return
 
 		var/adj = src.Adjacent(usr)
@@ -364,7 +364,7 @@
 	var/msg
 	if (isliving(L))
 		var/mob/living/ll = L
-		msg = "<span class='warning'>[ll] runs out of \the [src].</span>"
+		msg = SPAN_WARNING("[ll] runs out of \the [src].")
 
 	unbuckle()
 	captured = null
@@ -415,7 +415,7 @@
 	else if(attacking_item.isscrewdriver())
 		var/turf/T = get_turf(src)
 		if(!T)
-			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
+			to_chat(user, SPAN_WARNING("There is nothing to secure [src] to!"))
 			return
 
 		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
@@ -473,8 +473,8 @@
 				)
 			else
 				user.forceMove(loc)
-				user.visible_message("<span class='warning'>[user] accidentally triggers \the [src]!</span>",
-								"<span class='warning'>You accidentally trigger \the [src]!</span>"
+				user.visible_message(SPAN_WARNING("[user] accidentally triggers \the [src]!"),
+								SPAN_WARNING("You accidentally trigger \the [src]!")
 				)
 				capture(user)
 
@@ -497,7 +497,7 @@
 
 /obj/item/trap/animal/attack_self(mob/user)
 	if(!can_use(user))
-		to_chat(user, "<span class='warning'>You cannot use \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You cannot use \the [src]."))
 		return
 
 	if(captured)
@@ -514,8 +514,8 @@
 		var/mob/living/M = target
 		if(is_type_in_list(M, allowed_mobs))
 			user.visible_message(
-							"<span class='warning'>[user] traps [M] inside of \the [src].</span>",
-							"<span class='warning'>You trap [M] inside of the \the [src]!</span>",
+							SPAN_WARNING("[user] traps [M] inside of \the [src]."),
+							SPAN_WARNING("You trap [M] inside of the \the [src]!"),
 							"<b>You hear a loud metallic snap!</b>"
 							)
 			capture(M, msg = 0)
@@ -593,7 +593,7 @@
 	if(attacking_item.iswrench())
 		var/turf/T = get_turf(src)
 		if(!T)
-			to_chat(user, "<span class='warning'>There is nothing to secure [src] to!</span>")
+			to_chat(user, SPAN_WARNING("There is nothing to secure [src] to!"))
 			return
 
 		if(anchored && deployed)
@@ -664,7 +664,7 @@
 			qdel(src)
 			return
 		else
-			to_chat(user, "<span class='warning'>You need at least 12 rods to complete \the [src].</span>")
+			to_chat(user, SPAN_WARNING("You need at least 12 rods to complete \the [src]."))
 	else if(istype(attacking_item, /obj/item/screwdriver))
 		return
 	else

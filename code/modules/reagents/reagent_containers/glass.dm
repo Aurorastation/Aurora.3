@@ -273,7 +273,7 @@
 		return
 	else if(istype(attacking_item, /obj/item/mop))
 		if(reagents.total_volume < 1)
-			to_chat(user, "<span class='warning'>\The [src] is empty!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 		else
 			reagents.trans_to_obj(attacking_item, 5)
 			to_chat(user, "<span class='notice'>You wet \the [attacking_item] in \the [src].</span>")

@@ -39,7 +39,7 @@
 
 /mob/living/simple_animal/shade/death()
 	. = ..()
-	visible_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
+	visible_message(SPAN_WARNING("[src] lets out a contented sigh as their form unwinds."))
 	new residue(loc)
 	qdel(src)
 
@@ -222,7 +222,7 @@
 		message = slur(message,15)
 		..()
 	else
-		to_chat(src, "<span class='warning'>You cannot muster a voice when possessing another!</span>")
+		to_chat(src, SPAN_WARNING("You cannot muster a voice when possessing another!"))
 
 /mob/living/simple_animal/shade/bluespace/verb/show_last_message()
 	set name = "Current Echo"
@@ -237,7 +237,7 @@
 	set desc = "Oh, Nosferatu!"
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
 	visible_message("<span class ='notice'>\The [src] pulses.</span>")
@@ -250,11 +250,11 @@
 	set desc = "Teleport a small item to where you are."
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
 	if(message_countdown < 20)
-		to_chat(src, "<span class='warning'>You are too faded to warp an item through bluespace.</span>")
+		to_chat(src, SPAN_WARNING("You are too faded to warp an item through bluespace."))
 		return
 
 	var/list/obj/item/choices = list()
@@ -263,7 +263,7 @@
 			choices += I
 
 	if(!choices.len)
-		to_chat(src, "<span class='warning'>There are no suitable items nearby.</span>")
+		to_chat(src, SPAN_WARNING("There are no suitable items nearby."))
 		return
 
 	var/obj/item/choice = input(src, "What item would you like to warp?") as null|anything in choices
@@ -281,7 +281,7 @@
 	set desc = "Draw yourself towards the original cradle of your soul."
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
 	if(!original_body)
@@ -293,7 +293,7 @@
 	var/turf/T2 = get_turf(src)
 
 	if(T1.z != T2.z)
-		to_chat(src, "<span class='warning'>The original cradle of your soul is too distant from you, perhaps somewhere above or below?</span>")
+		to_chat(src, SPAN_WARNING("The original cradle of your soul is too distant from you, perhaps somewhere above or below?"))
 		return
 
 	forceMove(get_step(src, get_dir(T2, T1)))
@@ -304,11 +304,11 @@
 	set desc = "Meld into the mind of another, sustaining yourself off of their lifeforce."
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You are already possessing a host!</span>")
+		to_chat(src, SPAN_WARNING("You are already possessing a host!"))
 		return
 
 	if(message_countdown < 50)
-		to_chat(src, "<span class='warning'>You are too faded to squeeze into another's lifestream.</span>")
+		to_chat(src, SPAN_WARNING("You are too faded to squeeze into another's lifestream."))
 		return
 
 	var/list/mob/living/carbon/human/choices = list()
@@ -317,7 +317,7 @@
 			choices += H
 
 	if(!choices.len)
-		to_chat(src, "<span class='warning'>There are no suitable lifestreams nearby.</span>")
+		to_chat(src, SPAN_WARNING("There are no suitable lifestreams nearby."))
 		return
 
 	var/mob/living/carbon/human/H = input(src, "What lifestream would you like to meld with?") as null|anything in choices
@@ -340,7 +340,7 @@
 	set desc = "Seperate yourself from the lifestream of another."
 
 	if(!possessive)
-		to_chat(src, "<span class='warning'>You are not currently possessing a host!</span>")
+		to_chat(src, SPAN_WARNING("You are not currently possessing a host!"))
 		return
 
 	forceMove(get_turf(possessed_body))

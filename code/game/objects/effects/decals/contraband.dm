@@ -33,12 +33,12 @@
 	//must place on a wall and user must not be inside a closet/mecha/whatever
 	var/turf/W = A
 	if (!iswall(W) || !isturf(user.loc))
-		to_chat(user, "<span class='warning'>You can't place this here!</span>")
+		to_chat(user, SPAN_WARNING("You can't place this here!"))
 		return
 
 	var/placement_dir = get_dir(user, W)
 	if (!(placement_dir in GLOB.cardinal))
-		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
+		to_chat(user, SPAN_WARNING("You must stand directly in front of the wall you wish to place that on."))
 		return
 
 	//just check if there is a poster on or adjacent to the wall
@@ -147,7 +147,7 @@
 	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
 		if(ruined || !user.Adjacent(src))
 			return
-		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
+		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!") )
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		ruined = TRUE
 		icon_state = "poster_ripped"

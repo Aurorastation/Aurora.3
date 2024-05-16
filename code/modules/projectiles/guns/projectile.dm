@@ -144,12 +144,12 @@
 	if(istype(A, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/AM = A
 		if(!(load_method & AM.mag_type) || caliber != AM.caliber || (allowed_magazines && !is_type_in_list(A, allowed_magazines)))
-			to_chat(user,"<span class='warning'>[AM] won't load into [src]!</span>")
+			to_chat(user,SPAN_WARNING("[AM] won't load into [src]!"))
 			return
 		switch(AM.mag_type)
 			if(MAGAZINE)
 				if(ammo_magazine)
-					to_chat(user,"<span class='warning'>[src] already has a magazine loaded.</span>") //already a magazine here
+					to_chat(user,SPAN_WARNING("[src] already has a magazine loaded.")) //already a magazine here
 					return
 				user.remove_from_mob(AM)
 				AM.forceMove(src)
@@ -158,7 +158,7 @@
 				playsound(src.loc, AM.insert_sound, 50, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 			if(SPEEDLOADER)
 				if(loaded.len >= max_shells)
-					to_chat(user,"<span class='warning'>[src] is full!</span>")
+					to_chat(user,SPAN_WARNING("[src] is full!"))
 					return
 				var/count = 0
 				for(var/obj/item/ammo_casing/C in AM.stored_ammo)
@@ -176,13 +176,13 @@
 	else if(istype(A, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = A
 		if(!(load_method & SINGLE_CASING))
-			to_chat(user,"<span class='warning'>[src] can not be loaded with single casings.</span>")
+			to_chat(user,SPAN_WARNING("[src] can not be loaded with single casings."))
 			return //incompatible
 		if(caliber != C.caliber)
-			to_chat(user,"<span class='warning'>\The [C] does not fit.</span>")
+			to_chat(user,SPAN_WARNING("\The [C] does not fit."))
 			return //incompatible
 		if(loaded.len >= max_shells)
-			to_chat(user,"<span class='warning'>[src] is full.</span>")
+			to_chat(user,SPAN_WARNING("[src] is full."))
 			return
 
 		user.remove_from_mob(C)
@@ -223,7 +223,7 @@
 			user.put_in_hands(C)
 			user.visible_message("[user] removes \a [C] from [src].", "<span class='notice'>You remove \a [C] from [src].</span>")
 	else
-		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+		to_chat(user, SPAN_WARNING("[src] is empty."))
 	update_maptext()
 	update_icon()
 
@@ -293,7 +293,7 @@
 	if(distance > 1)
 		return
 	if(jam_num)
-		. += "<span class='warning'>It looks jammed.</span>"
+		. += SPAN_WARNING("It looks jammed.")
 	if(ammo_magazine)
 		. += "It has \a [ammo_magazine] loaded."
 	if(suppressed)

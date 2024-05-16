@@ -113,7 +113,7 @@
 
 	if(src.loc == usr)
 		. += "The maintenance panel is [open ? "open" : "closed"]."
-		. += "Hardsuit systems are [offline ? "<span class='warning'>offline</span>" : "<span class='good'>online</span>"]."
+		. += "Hardsuit systems are [offline ? SPAN_WARNING("offline") : SPAN_GOOD("<span class='good'>online")]."
 
 /obj/item/rig/Initialize()
 	. = ..()
@@ -271,7 +271,7 @@
 		if(!instant)
 			wearer.visible_message("<span class='notice'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</span>","<span class='notice'>With a quiet hum, the suit begins running checks and adjusting components.</span>")
 			if(seal_delay && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
-				if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
+				if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
 				playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 				failed_to_seal = 1
 
@@ -293,7 +293,7 @@
 					continue
 
 				if(!istype(wearer) || !istype(piece) || !istype(compare_piece) || !msg_type)
-					if(wearer) to_chat(wearer, "<span class='warning'>You must remain still while the suit is adjusting the components.</span>")
+					if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 					failed_to_seal = 1
 					break
@@ -464,17 +464,17 @@
 	if(!user_is_ai)
 		var/mob/living/carbon/human/H = user
 		if(istype(H) && H.back != src)
-			fail_msg = "<span class='warning'>You must be wearing \the [src] to do this.</span>"
+			fail_msg = SPAN_WARNING("You must be wearing \the [src] to do this.")
 		else if(user.incorporeal_move)
-			fail_msg = "<span class='warning'>You must be solid to do this.</span>"
+			fail_msg = SPAN_WARNING("You must be solid to do this.")
 	if(sealing)
-		fail_msg = "<span class='warning'>The hardsuit is in the process of adjusting seals and cannot be activated.</span>"
+		fail_msg = SPAN_WARNING("The hardsuit is in the process of adjusting seals and cannot be activated.")
 	else if(!fail_msg && ((use_unconcious && user.stat > 1) || (!use_unconcious && user.stat)))
-		fail_msg = "<span class='warning'>You are in no fit state to do that.</span>"
+		fail_msg = SPAN_WARNING("You are in no fit state to do that.")
 	else if(!cell)
-		fail_msg = "<span class='warning'>There is no cell installed in the suit.</span>"
+		fail_msg = SPAN_WARNING("There is no cell installed in the suit.")
 	else if(cost && cell.charge < cost * 10) //TODO: Cellrate?
-		fail_msg = "<span class='warning'>Not enough stored power.</span>"
+		fail_msg = SPAN_WARNING("Not enough stored power.")
 
 	if(fail_msg)
 		to_chat(user, "[fail_msg]")
@@ -890,7 +890,7 @@
 		if(dam_module.damage >= 2)
 			to_chat(wearer, "<span class='danger'>The [source] has disabled your [dam_module.interface_name]!</span>")
 		else
-			to_chat(wearer, "<span class='warning'>The [source] has damaged your [dam_module.interface_name]!</span>")
+			to_chat(wearer, SPAN_WARNING("The [source] has damaged your [dam_module.interface_name]!"))
 	dam_module.deactivate()
 
 /obj/item/rig/proc/malfunction_check(var/mob/living/carbon/human/user)
@@ -922,17 +922,17 @@
 			return 0
 		var/obj/item/rig_module/ai_container/module = user.loc.loc
 		if(!istype(module) || module.damage >= 2)
-			to_chat(user, "<span class='warning'>Your host module is unable to interface with the suit.</span>")
+			to_chat(user, SPAN_WARNING("Your host module is unable to interface with the suit."))
 			return 0
 
 	if(offline || !cell || !cell.charge || locked_down)
-		if(user) to_chat(user, "<span class='warning'>Your host rig is unpowered and unresponsive.</span>")
+		if(user) to_chat(user, SPAN_WARNING("Your host rig is unpowered and unresponsive."))
 		return 0
 	if(!wearer || wearer.back != src)
-		if(user) to_chat(user, "<span class='warning'>Your host rig is not being worn.</span>")
+		if(user) to_chat(user, SPAN_WARNING("Your host rig is not being worn."))
 		return 0
 	if(!wearer.stat && !control_overridden && !ai_override_enabled)
-		if(user) to_chat(user, "<span class='warning'>You are locked out of the suit servo controller.</span>")
+		if(user) to_chat(user, SPAN_WARNING("You are locked out of the suit servo controller."))
 		return 0
 	return 1
 

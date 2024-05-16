@@ -165,7 +165,7 @@
 			spark(src.loc, 5)
 			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
+			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
 		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.

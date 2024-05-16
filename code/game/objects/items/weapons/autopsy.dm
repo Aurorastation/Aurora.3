@@ -114,7 +114,7 @@
 			if(15 to 30)
 				damage_desc = "<font color='orange'>moderate</font>"
 			if(30 to 1000)
-				damage_desc = "<span class='warning'>severe</span>"
+				damage_desc = SPAN_WARNING("severe")
 
 		if(!total_score) total_score = D.organs_scanned.len
 

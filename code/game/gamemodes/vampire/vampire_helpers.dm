@@ -56,13 +56,13 @@
 		LOG_DEBUG("[src] has a vampire power but is not a vampire.")
 		return
 	if (vampire.holder && !ignore_holder)
-		to_chat(src, "<span class='warning'>You cannot use this power while walking through the Veil.</span>")
+		to_chat(src, SPAN_WARNING("You cannot use this power while walking through the Veil."))
 		return
 	if (stat > max_stat)
-		to_chat(src, "<span class='warning'>You are incapacitated.</span>")
+		to_chat(src, SPAN_WARNING("You are incapacitated."))
 		return
 	if (required_blood > vampire.blood_usable)
-		to_chat(src, "<span class='warning'>You do not have enough usable blood. [required_blood] needed.</span>")
+		to_chat(src, SPAN_WARNING("You do not have enough usable blood. [required_blood] needed."))
 		return
 
 	if ((vampire.status & VAMP_HEALING) && disrupt_healing)
@@ -82,13 +82,13 @@
 	if(T.mind)
 		if(T.mind.assigned_role == "Chaplain")
 			if(notify)
-				to_chat(src, "<span class='warning'>Your connection with the Veil is not strong enough to affect a man as devout as them.</span>")
+				to_chat(src, SPAN_WARNING("Your connection with the Veil is not strong enough to affect a man as devout as them."))
 			return FALSE
 		vampire_check = T.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire_check)
 			if(!(vampire_check.status & VAMP_ISTHRALL && ignore_thrall))
 				if(notify)
-					to_chat(src, "<span class='warning'>You lack the power required to affect another creature of the Veil.</span>")
+					to_chat(src, SPAN_WARNING("You lack the power required to affect another creature of the Veil."))
 				return FALSE
 	if(vampire_check)
 		if((vampire.status & VAMP_FULLPOWER) && !(vampire_check.status & VAMP_FULLPOWER))
@@ -99,13 +99,13 @@
 		return FALSE
 	if(is_special_character(T) && (!(vampire_check?.status & VAMP_ISTHRALL)))
 		if (notify)
-			to_chat(src, "<span class='warning'>\The [T]'s mind is too strong to be affected by our powers!</span>")
+			to_chat(src, SPAN_WARNING("\The [T]'s mind is too strong to be affected by our powers!"))
 		return FALSE
 	if (account_loyalty_implant)
 		for (var/obj/item/implant/mindshield/I in T)
 			if (I.implanted)
 				if (notify)
-					to_chat(src, "<span class='warning'>You feel that [T]'s mind is protected from our powers.</span>")
+					to_chat(src, SPAN_WARNING("You feel that [T]'s mind is protected from our powers."))
 				return FALSE
 
 	return TRUE
@@ -163,10 +163,10 @@
 				message = ""
 			if (21 to 40)
 				next_alert = 600
-				message = "<span class='warning'>You feel the power of the Veil bubbling in your veins.</span>"
+				message = SPAN_WARNING("You feel the power of the Veil bubbling in your veins.")
 			if (41 to 60)
 				next_alert = 500
-				message = "<span class='warning'>The corruption within your blood is seeking to take over, you can feel it.</span>"
+				message = SPAN_WARNING("The corruption within your blood is seeking to take over, you can feel it.")
 			if (61 to 80)
 				next_alert = 400
 				message = "<span class='danger'>Your rage is growing ever greater. You are having to actively resist it.</span>"

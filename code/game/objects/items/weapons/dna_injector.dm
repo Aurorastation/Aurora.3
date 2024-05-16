@@ -121,7 +121,7 @@
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
-		to_chat(user, "<span class='warning'>Apparently it didn't work...</span>")
+		to_chat(user, SPAN_WARNING("Apparently it didn't work..."))
 		return
 
 	if(H.species && H.species.flags & NO_SCAN)

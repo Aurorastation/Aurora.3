@@ -97,22 +97,22 @@
 
 /obj/item/gun/launcher/syringe/unique_action(mob/living/user)
 	if(next)
-		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", "<span class='warning'>You unlatch and carefully relax the bolt on [src], unloading the spring.</span>")
+		user.visible_message("[user] unlatches and carefully relaxes the bolt on [src].", SPAN_WARNING("You unlatch and carefully relax the bolt on [src], unloading the spring."))
 		playsound(src.loc, 'sound/weapons/blade_close.ogg', 50, 1)
 		next = null
 	else if(darts.len)
 		playsound(src.loc, 'sound/weapons/blade_open.ogg', 50, 1)
-		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", "<span class='warning'>You draw back the bolt on the [src], loading the spring!</span>")
+		user.visible_message("[user] draws back the bolt on [src], clicking it into place.", SPAN_WARNING("You draw back the bolt on the [src], loading the spring!"))
 		next = darts[1]
 	add_fingerprint(user)
 
 /obj/item/gun/launcher/syringe/attack_hand(mob/living/user as mob)
 	if(user.get_inactive_hand() == src)
 		if(!darts.len)
-			to_chat(user, "<span class='warning'>[src] is empty.</span>")
+			to_chat(user, SPAN_WARNING("[src] is empty."))
 			return
 		if(next)
-			to_chat(user, "<span class='warning'>[src]'s cover is locked shut.</span>")
+			to_chat(user, SPAN_WARNING("[src]'s cover is locked shut."))
 			return
 		var/obj/item/syringe_cartridge/C = darts[1]
 		darts -= C
@@ -125,7 +125,7 @@
 	if(istype(attacking_item, /obj/item/syringe_cartridge))
 		var/obj/item/syringe_cartridge/C = attacking_item
 		if(darts.len >= max_darts)
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			to_chat(user, SPAN_WARNING("[src] is full!"))
 			return
 		user.remove_from_mob(C)
 		C.forceMove(src)

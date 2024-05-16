@@ -21,7 +21,7 @@ var/list/dream_entries = list()
 			bg.client = client
 			ckey = "@[bg.ckey]"
 			to_chat(bg, "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>")
-			to_chat(bg, "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>")
+			to_chat(bg, SPAN_WARNING("Whilst in shared dreaming, you find it difficult to hide your secrets."))
 			if(willfully_sleeping)
 				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
 			if(!srom_pulling && has_psionics())

@@ -20,7 +20,7 @@
 	modifier_duration = 10 SECONDS
 
 /datum/modifier/technomancer/mend_life
-	on_created_text = "<span class='warning'>Sparkles begin to appear around you, and you feel really.. refreshed.</span>"
+	on_created_text = SPAN_WARNING("Sparkles begin to appear around you, and you feel really.. refreshed.")
 	on_expired_text = "<span class='notice'>The sparkles have faded, although you feel healthier than before.</span>"
 
 /datum/modifier/technomancer/mend_life/process()

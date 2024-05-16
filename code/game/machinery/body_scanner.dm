@@ -830,7 +830,7 @@
 		dat += "</table>"
 
 	if(occ["missing_limbs"] != "Nothing")
-		dat += text("<span class='warning'>Missing limbs : [occ["missing_limbs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing limbs : [occ["missing_limbs"]]<BR>")
 
 	dat += "<br><b>Internal Organ Status<HR></b>"
 
@@ -854,7 +854,7 @@
 		dat += "</table>"
 
 	if(occ["missing_organs"] != "Nothing")
-		dat += text("<span class='warning'>Missing organs : [occ["missing_organs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing organs : [occ["missing_organs"]]<BR>")
 
 	dat += "</font></font>"
 

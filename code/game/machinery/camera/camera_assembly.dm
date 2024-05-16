@@ -63,7 +63,7 @@
 					to_chat(user, "<span class='notice'>You add wires to the assembly.</span>")
 					state = 3
 				else
-					to_chat(user, "<span class='warning'>You need 2 coils of wire to wire the assembly.</span>")
+					to_chat(user, SPAN_WARNING("You need 2 coils of wire to wire the assembly."))
 				return TRUE
 
 			else if(attacking_item.iswelder())

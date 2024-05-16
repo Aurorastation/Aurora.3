@@ -412,7 +412,7 @@
 	. = ..()
 	if(.)
 		if(drill_head)
-			owner.visible_message("<span class='warning'>[owner] revs the [drill_head], menacingly.</span>")
+			owner.visible_message(SPAN_WARNING("[owner] revs the [drill_head], menacingly."))
 			playsound(get_turf(src), 'sound/mecha/mechdrill.ogg', 50, 1)
 
 /obj/item/mecha_equipment/drill/get_hardpoint_maptext()
@@ -438,11 +438,11 @@
 			return
 
 		if(drill_head == null)
-			to_chat(user, "<span class='warning'>Your drill doesn't have a head!</span>")
+			to_chat(user, SPAN_WARNING("Your drill doesn't have a head!"))
 			return
 
 		owner.use_cell_power(active_power_use * CELLRATE)
-		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", "<span class='warning'>You hear a large drill.</span>")
+		owner.visible_message("<span class='danger'>\The [owner] starts to drill \the [target]</span>", SPAN_WARNING("You hear a large drill."))
 
 		var/T = target.loc
 
@@ -458,7 +458,7 @@
 				if(istype(target, /turf/simulated/wall))
 					var/turf/simulated/wall/W = target
 					if(max(W.material.hardness, W.reinf_material ? W.reinf_material.hardness : 0) > drill_head.material.hardness)
-						to_chat(user, "<span class='warning'>\The [target] is too hard to drill through with this drill head.</span>")
+						to_chat(user, SPAN_WARNING("\The [target] is too hard to drill through with this drill head."))
 					target.ex_act(2)
 					drill_head.durability -= 1
 					log_and_message_admins("used [src] on the wall [W].", user, owner.loc)

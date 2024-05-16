@@ -19,9 +19,9 @@
 	var/datum/effect_system/sparks/spark_system
 	//Messages - Saves me time if I want to change something.
 	var/noserver = "<span class='alert'>ALERT: No server detected.</span>"
-	var/incorrectkey = "<span class='warning'>ALERT: Incorrect decryption key!</span>"
+	var/incorrectkey = SPAN_WARNING("ALERT: Incorrect decryption key!")
 	var/defaultmsg = "<span class='notice'>Welcome. Please select an option.</span>"
-	var/rebootmsg = "<span class='warning'>%$&(£: Critical %$$@ Error // !RestArting! <lOadiNg backUp iNput ouTput> - ?pLeaSe wAit!</span>"
+	var/rebootmsg = SPAN_WARNING("%$&(£: Critical %$$@ Error // !RestArting! <lOadiNg backUp iNput ouTput> - ?pLeaSe wAit!")
 	//Computer properties
 	var/screen = 0 		// 0 = Main menu, 1 = Message Logs, 2 = Hacked screen, 3 = Custom Message
 	var/hacking = 0		// Is it being hacked into by the AI/Cyborg
@@ -59,7 +59,7 @@
 		return TRUE
 	if(attacking_item.isscrewdriver() && emag)
 		//Stops people from just unscrewing the monitor and putting it back to get the console working again.
-		to_chat(user, "<span class='warning'>It is too hot to mess with!</span>")
+		to_chat(user, SPAN_WARNING("It is too hot to mess with!"))
 		return TRUE
 
 	return ..()
@@ -104,10 +104,10 @@
 
 	if(auth)
 		dat += "<h4><dd><A href='?src=\ref[src];auth=1'>&#09;<font color='green'>\[Authenticated\]</font></a>&#09;/"
-		dat += " Server Power: <A href='?src=\ref[src];active=1'>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</a></h4>"
+		dat += " Server Power: <A href='?src=\ref[src];active=1'>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":SPAN_WARNING("\[Off\]")]</a></h4>"
 	else
 		dat += "<h4><dd><A href='?src=\ref[src];auth=1'>&#09;<span class='warning'>\[Unauthenticated\]</span></a>&#09;/"
-		dat += " Server Power: <u>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":"<span class='warning'>\[Off\]</span>"]</u></h4>"
+		dat += " Server Power: <u>[src.linkedServer && src.linkedServer.use_power ? "<font color='green'>\[On\]</font>":SPAN_WARNING("\[Off\]")]</u></h4>"
 
 	if(hacking || emag)
 		screen = 2
@@ -244,10 +244,10 @@
 
 /obj/machinery/computer/message_monitor/proc/BruteForce(mob/user as mob)
 	if(isnull(linkedServer))
-		to_chat(user, "<span class='warning'>Could not complete brute-force: Linked Server Disconnected!</span>")
+		to_chat(user, SPAN_WARNING("Could not complete brute-force: Linked Server Disconnected!"))
 	else
 		var/currentKey = src.linkedServer.decryptkey
-		to_chat(user, "<span class='warning'>Brute-force completed! The key is '[currentKey]'.</span>")
+		to_chat(user, SPAN_WARNING("Brute-force completed! The key is '[currentKey]'."))
 	src.hacking = 0
 	update_icon()
 	src.screen = 0 // Return the screen back to normal

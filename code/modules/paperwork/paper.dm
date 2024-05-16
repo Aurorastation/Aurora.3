@@ -412,7 +412,7 @@
 		qdel(src)
 
 	else
-		to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
 
 /obj/item/paper/proc/restore_stamps() //Used when unfolding paper from cranes or planes, restores the stamp overlays.

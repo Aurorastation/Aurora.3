@@ -65,14 +65,14 @@ default behaviour is:
 			for(var/mob/living/M in range(tmob, 1))
 				if(tmob.pinned.len || ((M.pulling == tmob && ( tmob.restrained() && !( M.restrained() ) && M.stat == 0)) || locate(/obj/item/grab, tmob.grabbed_by.len)) )
 					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restrained, you cannot push past</span>")
+						to_chat(src, SPAN_WARNING("[tmob] is restrained, you cannot push past"))
 						last_push_notif = world.time
 
 					now_pushing = FALSE
 					return
 				if( tmob.pulling == M && ( M.restrained() && !( tmob.restrained() ) && tmob.stat == 0) )
 					if (last_push_notif + 0.5 SECONDS <= world.time)
-						to_chat(src, "<span class='warning'>[tmob] is restraining [M], you cannot push past</span>")
+						to_chat(src, SPAN_WARNING("[tmob] is restraining [M], you cannot push past"))
 						last_push_notif = world.time
 
 					now_pushing = FALSE
@@ -226,7 +226,7 @@ default behaviour is:
 		adjustBrainLoss(health + maxHealth * 2) // Deal 2x health in BrainLoss damage, as before but variable.
 		to_chat(src, "<span class='notice'>You have given up life and succumbed to death.</span>")
 	else
-		to_chat(src, "<span class='warning'>You are not injured enough to succumb to death!</span>")
+		to_chat(src, SPAN_WARNING("You are not injured enough to succumb to death!"))
 
 
 /mob/living/proc/updatehealth()
@@ -609,7 +609,7 @@ default behaviour is:
 							var/obj/item/grab/G = pick(M.grabbed_by)
 							if (istype(G, /obj/item/grab))
 								for(var/mob/O in viewers(M, null))
-									O.show_message(text("<span class='warning'>[] has been pulled from []'s grip by []</span>", G.affecting, G.assailant, src), 1)
+									O.show_message(SPAN_WARNING("[G.affecting] has been pulled from [G.assailant]'s grip by [src]"), 1)
 								//G = null
 								qdel(G)
 						else
@@ -704,8 +704,8 @@ default behaviour is:
 
 	if(istype(M))
 		M.drop_from_inventory(H)
-		to_chat(M, "<span class='warning'>\The [H] wriggles out of your grip!</span>")
-		to_chat(src, "<span class='warning'>You wriggle out of \the [M]'s grip!</span>")
+		to_chat(M, SPAN_WARNING("\The [H] wriggles out of your grip!"))
+		to_chat(src, SPAN_WARNING("You wriggle out of \the [M]'s grip!"))
 
 		// Update whether or not this mob needs to pass emotes to contents.
 		for(var/atom/A in M.contents)
@@ -717,10 +717,10 @@ default behaviour is:
 		var/obj/item/clothing/accessory/holster/holster = H.loc
 		if(holster.holstered == H)
 			holster.clear_holster()
-		to_chat(src, "<span class='warning'>You extricate yourself from \the [holster].</span>")
+		to_chat(src, SPAN_WARNING("You extricate yourself from \the [holster]."))
 		H.forceMove(get_turf(H))
 	else if(istype(H.loc,/obj/item))
-		to_chat(src, "<span class='warning'>You struggle free of \the [H.loc].</span>")
+		to_chat(src, SPAN_WARNING("You struggle free of \the [H.loc]."))
 		H.forceMove(get_turf(H))
 
 /mob/living/proc/escape_buckle()
@@ -835,7 +835,7 @@ default behaviour is:
 					inertia_dir = 1
 				else if(y >= world.maxy -TRANSITIONEDGE)
 					inertia_dir = 2
-				to_chat(src, "<span class='warning'>Something you are carrying is preventing you from leaving.</span>")
+				to_chat(src, SPAN_WARNING("Something you are carrying is preventing you from leaving."))
 				return
 
 	..()
@@ -872,10 +872,10 @@ default behaviour is:
 	if(!..())
 		return 0
 	if(!possession_candidate)
-		to_chat(possessor, "<span class='warning'>That animal cannot be possessed.</span>")
+		to_chat(possessor, SPAN_WARNING("That animal cannot be possessed."))
 		return 0
 	if(jobban_isbanned(possessor, "Animal"))
-		to_chat(possessor, "<span class='warning'>You are banned from animal roles.</span>")
+		to_chat(possessor, SPAN_WARNING("You are banned from animal roles."))
 		return 0
 	if(!possessor.MayRespawn(1,ANIMAL))
 		return 0
@@ -887,7 +887,7 @@ default behaviour is:
 		return 0
 
 	if(src.ckey || src.client)
-		to_chat(possessor, "<span class='warning'>\The [src] already has a player.</span>")
+		to_chat(possessor, SPAN_WARNING("\The [src] already has a player."))
 		return 0
 
 	message_admins("<span class='adminnotice'>[key_name_admin(possessor)] has taken control of \the [src].</span>")

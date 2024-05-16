@@ -33,7 +33,7 @@ var/list/floor_light_cache = list()
 	else if(attacking_item.iswelder() && (damaged || (stat & BROKEN)))
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(0, user))
-			to_chat(user, "<span class='warning'>\The [src] must be on to complete this task.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be on to complete this task."))
 			return TRUE
 		if(!attacking_item.use_tool(src, user, 20, volume = 50))
 			return TRUE
@@ -49,7 +49,7 @@ var/list/floor_light_cache = list()
 		return attack_hand(user)
 	else if(attacking_item.iscrowbar())
 		if(anchored)
-			to_chat(user, "<span class='warning'>\The [src] must be unfastened from the [loc] first!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be unfastened from the [loc] first!"))
 			return TRUE
 		else
 			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
@@ -79,15 +79,15 @@ var/list/floor_light_cache = list()
 	else
 
 		if(!anchored)
-			to_chat(user, "<span class='warning'>\The [src] must be screwed down first.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be screwed down first."))
 			return
 
 		if(stat & BROKEN)
-			to_chat(user, "<span class='warning'>\The [src] is too damaged to be functional.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is too damaged to be functional."))
 			return
 
 		if(stat & NOPOWER)
-			to_chat(user, "<span class='warning'>\The [src] is unpowered.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is unpowered."))
 			return
 
 		on = !on

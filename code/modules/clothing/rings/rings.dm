@@ -9,7 +9,7 @@
 	if(!proximity)
 		return
 	if(ishuman(A) && user != A)
-		user.visible_message("<span class='warning'>\The [user] gets down on one knee, presenting \the [src] to [A].</span>","<span class='warning'>You get down on one knee, presenting \the [src] to [A].</span>")
+		user.visible_message(SPAN_WARNING("\The [user] gets down on one knee, presenting \the [src] to [A]."), SPAN_WARNING("You get down on one knee, presenting \the [src] to [A]."))
 
 //Reagent Rings
 

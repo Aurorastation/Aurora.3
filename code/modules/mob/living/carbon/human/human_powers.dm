@@ -136,11 +136,11 @@
 		return FALSE
 
 	if (status_flags & LEAPING)
-		to_chat(src, "<span class='warning'>You're already leaping!</span>")
+		to_chat(src, SPAN_WARNING("You're already leaping!"))
 		return FALSE
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
-		to_chat(src, "<span class='warning'>You cannot leap in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot leap in your current state."))
 		return FALSE
 
 	if (!T || issilicon(T)) // Silicon targets require us to rebuild the list.
@@ -156,7 +156,7 @@
 		return FALSE
 
 	if(get_dist(get_turf(T), get_turf(src)) > max_range)
-		to_chat(src, "<span class='warning'>[T] is too far away!</span>")
+		to_chat(src, SPAN_WARNING("[T] is too far away!"))
 		return FALSE
 
 	if (restrict_special)
@@ -173,7 +173,7 @@
 		status_flags &= ~LEAPING
 
 	if(!src.Adjacent(T))
-		to_chat(src, "<span class='warning'>You miss!</span>")
+		to_chat(src, SPAN_WARNING("You miss!"))
 		return FALSE
 
 	T.Weaken(3)
@@ -186,7 +186,8 @@
 		else
 			use_hand = "right"
 
-	visible_message("<span class='warning'><b>[src]</b> seizes [T] aggressively!</span>", "<span class='warning'>You aggressively seize [T]!</span>")
+	visible_message(SPAN_WARNING("<b>[src]</b> seizes [T] aggressively!"),
+					SPAN_WARNING("You aggressively seize [T]!"))
 
 	var/obj/item/grab/G = new(src,T)
 	if(use_hand == "left")
@@ -209,21 +210,21 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
 	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, "<span class='warning'>You must have an aggressive grab to gut your prey!</span>")
+		to_chat(src, SPAN_WARNING("You must have an aggressive grab to gut your prey!"))
 		return
 
 	last_special = world.time + 50
 
-	visible_message("<span class='warning'><b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!</span>")
+	visible_message(SPAN_WARNING("<b>[src]</b> rips viciously at \the [G.affecting]'s body with its claws!"))
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
@@ -258,16 +259,16 @@
 	var/obj/item/organ/external/rhand = src.get_organ(BP_R_HAND)
 	var/obj/item/organ/external/lhand = src.get_organ(BP_L_HAND)
 	if((!rhand || !rhand.is_usable()) && (!lhand || !lhand.is_usable()))
-		to_chat(src,"<span class='warning'>You can't communicate without the ability to use your hands!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate without the ability to use your hands!"))
 		return
 	if((lhand.is_stump()) && (rhand.is_stump()))
-		to_chat(src,"<span class='warning'>You can't communicate without functioning hands!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate without functioning hands!"))
 		return
 	if(src.r_hand != null && src.l_hand != null)
-		to_chat(src,"<span class='warning'>You can't communicate while your hands are full!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate while your hands are full!"))
 		return
 	if(stat || paralysis || stunned || weakened ||  restrained())
-		to_chat(src,"<span class='warning'>You can't communicate while unable to move your hands to your head!</span>")
+		to_chat(src,SPAN_WARNING("You can't communicate while unable to move your hands to your head!"))
 		return
 	if(last_special > world.time)
 		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
@@ -300,7 +301,7 @@
 		return
 
 	if (target.isSynthetic())
-		to_chat(src,"<span class='warning'>This can only be used on living organisms.</span>")
+		to_chat(src,SPAN_WARNING("This can only be used on living organisms."))
 		return
 
 	if (target.is_diona())
@@ -312,7 +313,7 @@
 		return
 
 	if(!(target in view(client.view, client.eye)))
-		to_chat(src,"<span class='warning'>[target] is too far for your mind to grasp!</span>")
+		to_chat(src,SPAN_WARNING("[target] is too far for your mind to grasp!"))
 		return
 
 	log_say("[key_name(src)] communed to [key_name(target)]: [text]",ckey=key_name(src))
@@ -334,12 +335,12 @@
 			if (target.has_psionics())
 				return
 			if(prob(10) && !(H.species.flags & NO_BLOOD))
-				to_chat(H,"<span class='warning'>Your nose begins to bleed...</span>")
+				to_chat(H,SPAN_WARNING("Your nose begins to bleed..."))
 				H.drip(3)
 			else if(prob(25) && (H.can_feel_pain()))
-				to_chat(H,"<span class='warning'>Your head hurts...</span>")
+				to_chat(H,SPAN_WARNING("Your head hurts..."))
 			else if(prob(50))
-				to_chat(H,"<span class='warning'>Your mind buzzes...</span>")
+				to_chat(H,SPAN_WARNING("Your mind buzzes..."))
 
 /mob/living/carbon/human/proc/psychic_whisper(mob/M as mob in oview())
 	set name = "Psychic Whisper"
@@ -413,7 +414,7 @@
 	set desc = "Detonate all explosive flechettes in a range of seven meters."
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	for(var/mob/living/M in range(7, src))
@@ -439,7 +440,7 @@
 	set desc = "State your laws aloud."
 
 	if(stat)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	if(last_special > world.time)
@@ -458,11 +459,11 @@
 
 	var/obj/item/grab/G = locate() in src
 	if(!G || !istype(G))
-		to_chat(src, "<span class='warning'>You are not grabbing anyone.</span>")
+		to_chat(src, SPAN_WARNING("You are not grabbing anyone."))
 		return
 
 	if(G.state < GRAB_AGGRESSIVE)
-		to_chat(src, "<span class='warning'>You must have an aggressive grab to do this!</span>")
+		to_chat(src, SPAN_WARNING("You must have an aggressive grab to do this!"))
 		return
 
 	return G
@@ -473,33 +474,33 @@
 	set desc = "While grabbing someone aggressively, bite their head off."
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>Your mandibles still ache!</span>")
+		to_chat(src, SPAN_WARNING("Your mandibles still ache!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 
 	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
-		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to devour their head.</span>")
+		to_chat(src, SPAN_WARNING("We must be grabbing a creature in our active hand to devour their head."))
 		return
 
 	if(G.state != GRAB_KILL)
-		to_chat(src, "<span class='warning'>We must have a tighter grip to devour their head.</span>")
+		to_chat(src, SPAN_WARNING("We must have a tighter grip to devour their head."))
 		return
 
 	if(istype(G.affecting,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = G.affecting
 
 		if(!H.species.has_limbs[BP_HEAD])
-			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
+			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
 
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(!istype(affecting) || affecting.is_stump())
-			to_chat(src, "<span class='warning'>\The [H] does not have a head!</span>")
+			to_chat(src, SPAN_WARNING("\The [H] does not have a head!"))
 			return
 
 		visible_message("<span class='danger'>\The [src] pulls \the [H] close, sticking \the [H]'s head into its maw!</span>")
@@ -525,7 +526,7 @@
 	set desc = "When all else has failed, bite the bullet."
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src, "<span class='warning'>You cannot do that in your current state.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that in your current state."))
 		return
 
 	src.visible_message(
@@ -601,7 +602,7 @@
 
 	last_special = world.time + 30
 
-	visible_message("<span class='warning'><b>[src]</b> launches a spine-quill at [target]!</span>")
+	visible_message(SPAN_WARNING("<b>[src]</b> launches a spine-quill at [target]!"))
 
 	src.apply_damage(10,DAMAGE_BRUTE)
 	playsound(src.loc, 'sound/weapons/bladeslice.ogg', 50, 1)
@@ -685,19 +686,19 @@
 		return
 
 	if (!T || T.density || T.contains_dense_objects())
-		to_chat(src, "<span class='warning'>You cannot do that.</span>")
+		to_chat(src, SPAN_WARNING("You cannot do that."))
 		return
 
 	if(!isturf(loc))
-		to_chat(src, "<span class='warning'>You cannot teleport out of your current location.</span>")
+		to_chat(src, SPAN_WARNING("You cannot teleport out of your current location."))
 		return
 
 	if (T.z != src.z || get_dist(T, get_turf(src)) > world.view)
-		to_chat(src, "<span class='warning'>Your powers are not capable of taking you that far.</span>")
+		to_chat(src, SPAN_WARNING("Your powers are not capable of taking you that far."))
 		return
 
 	if (T.get_lumcount() > 0.1)
-		to_chat(src, "<span class='warning'>The destination is too bright.</span>")
+		to_chat(src, SPAN_WARNING("The destination is too bright."))
 		return
 
 	last_special = world.time + 200
@@ -729,7 +730,7 @@
 
 	last_special = world.time + 100
 
-	src.visible_message("<span class='warning'>\The [src] takes a step backwards and rears up.</span>",
+	src.visible_message(SPAN_WARNING("\The [src] takes a step backwards and rears up."),
 			"<span class='notice'>You take a step backwards and then...</span>")
 	if(do_after(src,5))
 		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
@@ -911,7 +912,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
 	visible_message("<span class='danger'>\The [src] crackles with energy!</span>")
@@ -931,7 +932,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
 	var/obj/item/stack/material/O = src.get_active_hand()
@@ -955,7 +956,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying)
-		to_chat(src,"<span class='warning'>You cannot do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You cannot do that in your current state!"))
 		return
 
 	var/obj/item/organ/internal/brain/golem/O = src.get_active_hand()
@@ -963,15 +964,15 @@
 	if(istype(O))
 
 		if(O.health <= 0)
-			to_chat(src,"<span class='warning'>The spark of life already left \the [O]!</span>")
+			to_chat(src,SPAN_WARNING("The spark of life already left \the [O]!"))
 			return
 
 		if(!O.brainmob)
-			to_chat(src,"<span class='warning'>\The [O] remains silent.</span>")
+			to_chat(src,SPAN_WARNING("\The [O] remains silent."))
 			return
 
 		if(!O.dna)
-			to_chat(src,"<span class='warning'>\The [O] is blank, you can not bring it back to life.</span>")
+			to_chat(src,SPAN_WARNING("\The [O] is blank, you can not bring it back to life."))
 
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
@@ -989,29 +990,29 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained())
-		to_chat(src,"<span class='warning'>You can not do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You can not do that in your current state!"))
 		return
 
 	var/obj/item/organ/external/E = get_organ(zone_sel.selecting)
 
 	if(!E)
-		to_chat(src,"<span class='warning'>You are missing that limb.</span>")
+		to_chat(src,SPAN_WARNING("You are missing that limb."))
 		return
 
 	if(!E.robotic)
-		to_chat(src,"<span class='warning'>You can only detach robotic limbs.</span>")
+		to_chat(src,SPAN_WARNING("You can only detach robotic limbs."))
 		return
 
 	if(E.robotize_type != PROSTHETIC_AUTAKH)
-		to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
+		to_chat(src,SPAN_WARNING("Your body fails to interface with this alien technology."))
 		return
 
 	if(E.is_stump() || (E.status & ORGAN_DESTROYED) || E.is_broken())
-		to_chat(src,"<span class='warning'>The limb is too damaged to be removed manually!</span>")
+		to_chat(src,SPAN_WARNING("The limb is too damaged to be removed manually!"))
 		return
 
 	if(E.vital && !E.sabotaged)
-		to_chat(src,"<span class='warning'>Your safety system stops you from removing \the [E].</span>")
+		to_chat(src,SPAN_WARNING("Your safety system stops you from removing \the [E]."))
 		return
 
 	last_special = world.time + 20
@@ -1035,7 +1036,7 @@
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained())
-		to_chat(src,"<span class='warning'>You can not do that in your current state!</span>")
+		to_chat(src,SPAN_WARNING("You can not do that in your current state!"))
 		return
 
 	var/obj/item/organ/external/O = src.get_active_hand()
@@ -1043,19 +1044,19 @@
 	if(istype(O))
 
 		if(!O.robotic)
-			to_chat(src,"<span class='warning'>You are unable to interface with organic matter.</span>")
+			to_chat(src,SPAN_WARNING("You are unable to interface with organic matter."))
 			return
 
 		if(O.robotize_type != PROSTHETIC_AUTAKH)
-			to_chat(src,"<span class='warning'>Your body fails to interface with this alien technology.</span>")
+			to_chat(src,SPAN_WARNING("Your body fails to interface with this alien technology."))
 			return
 
 		if(organs_by_name[O.limb_name])
-			to_chat(src,"<span class='warning'>You already have a limb of this type.</span>")
+			to_chat(src,SPAN_WARNING("You already have a limb of this type."))
 			return
 
 		if(!organs_by_name[O.parent_organ])
-			to_chat(src,"<span class='warning'>You are unable to find a place to attach \the [O] to your body.</span>")
+			to_chat(src,SPAN_WARNING("You are unable to find a place to attach \the [O] to your body."))
 			return
 
 		last_special = world.time + 20
@@ -1135,7 +1136,7 @@
 	set category = "Abilities"
 
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You need to recover before you can use this ability.</span>")
+		to_chat(src, SPAN_WARNING("You need to recover before you can use this ability."))
 		return
 	if(last_special > world.time)
 		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")

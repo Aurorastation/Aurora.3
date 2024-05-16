@@ -40,7 +40,7 @@
 		return
 
 	if(!reagents.total_volume)
-		to_chat(user,"<span class='warning'>\The [src] is empty.</span>")
+		to_chat(user,SPAN_WARNING("\The [src] is empty."))
 		return
 
 	if ( ((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
@@ -59,7 +59,7 @@
 		return
 
 	if (!user.IsAdvancedToolUser())
-		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(user == H)
@@ -75,7 +75,8 @@
 	if(user == H)
 		user.visible_message("<span class='notice'>\The [user] injects themselves with \the [src]</span>","<span class='notice'>You stick the \the [src] in your mouth and press the injection button.</span>")
 	else
-		user.visible_message("<span class='warning'>\The [user] attempts to administer \the [src] to \the [H]...</span>","<span class='notice'>You attempt to administer \the [src] to \the [H]...</span>")
+		user.visible_message(SPAN_WARNING("\The [user] attempts to administer \the [src] to \the [H]..."),
+								SPAN_NOTICE("You attempt to administer \the [src] to \the [H]..."))
 		if (!do_after(user, 1 SECONDS, H))
 			to_chat(user,"<span class='notice'>You and the target need to be standing still in order to inject \the [src].</span>")
 			return

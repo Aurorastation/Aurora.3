@@ -102,7 +102,7 @@ var/list/localhost_addresses = list(
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
-			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>")
+			to_chat(usr, SPAN_WARNING("You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you"))
 			return
 		if(mute_discord)
 			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on Discord</span>")
@@ -145,7 +145,7 @@ var/list/localhost_addresses = list(
 		var/request_id = text2num(href_list["linkingrequest"])
 
 		if (!establish_db_connection(GLOB.dbcon))
-			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
+			to_chat(src, SPAN_WARNING("Action failed! Database link could not be established!"))
 			return
 
 
@@ -153,11 +153,11 @@ var/list/localhost_addresses = list(
 		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
-			to_chat(src, "<span class='warning'>No request found!</span>")
+			to_chat(src, SPAN_WARNING("No request found!"))
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			to_chat(src, "<span class='warning'>Request authentication failed!</span>")
+			to_chat(src, SPAN_WARNING("Request authentication failed!"))
 			return
 
 		var/query_contents = ""
@@ -175,9 +175,9 @@ var/list/localhost_addresses = list(
 				query_details["new_status"] = "rejected"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='warning'><b>Link request rejected!</b></span>"
+				feedback_message = SPAN_WARNING("<b>Link request rejected!</b>")
 			else
-				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
+				to_chat(src, SPAN_WARNING("Invalid command sent."))
 				return
 
 		var/DBQuery/update_query = GLOB.dbcon.NewQuery(query_contents)
@@ -308,7 +308,7 @@ var/list/localhost_addresses = list(
 	. = FALSE
 
 	if (prefs.muted & mute_type)
-		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
+		to_chat(src, SPAN_WARNING("You are muted and cannot send messages."))
 		. = TRUE
 	else if (GLOB.config.automute_on && !holder && length(message))
 		. = . || automute_by_time(mute_type)
@@ -321,13 +321,13 @@ var/list/localhost_addresses = list(
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB."))
 		return 0
 /*	//Don't need this at the moment. But it's here if it's needed later.
 	//Helps prevent multiple files being uploaded at once. Or right after eachother.
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds."))
 		return 0
 	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1

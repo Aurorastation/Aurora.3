@@ -127,7 +127,7 @@
 			H.lipstick_color = lipstick_color
 			H.update_body()
 		else
-			user.visible_message("<span class='warning'>[user] begins to do [H]'s lips with \the [src].</span>", \
+			user.visible_message(SPAN_WARNING("[user] begins to do [H]'s lips with \the [src]."), \
 									"<span class='notice'>You begin to apply \the [src].</span>")
 			if(do_after(user, 4 SECONDS, H, do_flags = DO_DEFAULT & ~DO_SHOW_PROGRESS & ~DO_BOTH_CAN_TURN))
 				user.visible_message("<span class='notice'>[user] does [H]'s lips with \the [src].</span>", \
@@ -190,11 +190,11 @@
 
 	if(target_zone == BP_HEAD)
 		if(H.head && (H.head.body_parts_covered & HEAD))
-			to_chat(user, "<span class='warning'>\The [H.head] is in the way!</span>")
+			to_chat(user, SPAN_WARNING("\The [H.head] is in the way!"))
 			return FALSE
 
 		if(H.h_style == "Bald" || H.h_style == "Balding Hair" || H.h_style == "Skinhead" || H.h_style == "Tajaran Ears")
-			to_chat(user, "<span class='warning'>There is not enough hair left to shave!</span>")
+			to_chat(user, SPAN_WARNING("There is not enough hair left to shave!"))
 			return FALSE
 
 		if(H == user) //shaving yourself
@@ -208,10 +208,10 @@
 			return TRUE
 
 		else
-			user.visible_message("<span class='warning'>\The [user] tries to shave \the [H]'s head with \the [src]!</span>", \
+			user.visible_message(SPAN_WARNING("\The [user] tries to shave \the [H]'s head with \the [src]!"), \
 									"<span class='notice'>You start shaving [H]'s head.</span>")
 			if(do_mob(user, H, 20))
-				user.visible_message("<span class='warning'>\The [user] shaves \the [H]'s head bald with \the [src]!</span>", \
+				user.visible_message(SPAN_WARNING("\The [user] shaves \the [H]'s head bald with \the [src]!"), \
 										"<span class='notice'>You shave \the [H]'s head bald.</span>")
 				shave(H, target_zone)
 
@@ -220,32 +220,32 @@
 	else if(target_zone == BP_MOUTH)
 
 		if(H.head && (H.head.body_parts_covered & FACE))
-			to_chat(user, "<span class='warning'>\The [H.head] is in the way!</span>")
+			to_chat(user, SPAN_WARNING("\The [H.head] is in the way!"))
 			return FALSE
 
 		if(H.wear_mask && (H.wear_mask.body_parts_covered & FACE))
-			to_chat(user, "<span class='warning'>\The [H.wear_mask] is in the way!</span>")
+			to_chat(user, SPAN_WARNING("\The [H.wear_mask] is in the way!"))
 			return FALSE
 
 		if(H.f_style == "Shaved")
-			to_chat(user, "<span class='warning'>There is not enough facial hair left to shave!</span>")
+			to_chat(user, SPAN_WARNING("There is not enough facial hair left to shave!"))
 			return	FALSE
 
 		if(H == user) //shaving yourself
-			user.visible_message("<span class='warning'>\The [user] starts to shave [user.get_pronoun("his")] facial hair with \the [src].</span>", \
+			user.visible_message(SPAN_WARNING("\The [user] starts to shave [user.get_pronoun("his")] facial hair with \the [src]."), \
 									"<span class='notice'>You take a moment to shave your facial hair with \the [src].</span>")
 			if(do_mob(user, user, 20))
-				user.visible_message("<span class='warning'>\The [user] shaves [user.get_pronoun("his")] facial hair clean with \the [src].</span>", \
+				user.visible_message(SPAN_WARNING("\The [user] shaves [user.get_pronoun("his")] facial hair clean with \the [src]."), \
 										"<span class='notice'>You finish shaving with \the [src].</span>")
 				shave(H, target_zone)
 
 			return TRUE
 
 		else
-			user.visible_message("<span class='warning'>\The [user] tries to shave \the [H]'s facial hair with \the [src].</span>", \
+			user.visible_message(SPAN_WARNING("\The [user] tries to shave \the [H]'s facial hair with \the [src]."), \
 									"<span class='notice'>You start shaving [H]'s facial hair.</span>")
 			if(do_mob(user, H, 20))
-				user.visible_message("<span class='warning'>\The [user] shaves off \the [H]'s facial hair with \the [src].</span>", \
+				user.visible_message(SPAN_WARNING("\The [user] shaves off \the [H]'s facial hair with \the [src]."), \
 										"<span class='notice'>You shave [H]'s facial hair clean off.</span>")
 				shave(H, target_zone)
 
@@ -253,7 +253,7 @@
 
 
 	else
-		to_chat(user, "<span class='warning'>You need to target the mouth or head to shave \the [H]!</span>")
+		to_chat(user, SPAN_WARNING("You need to target the mouth or head to shave \the [H]!"))
 		return
 
 

@@ -126,23 +126,23 @@
 
 /mob/proc/may_climb_ladders(var/ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 
 /mob/living/silicon/may_climb_ladders(ladder)
-	to_chat(src, "<span class='warning'>You're too heavy to climb [ladder]!</span>")
+	to_chat(src, SPAN_WARNING("You're too heavy to climb [ladder]!"))
 	return FALSE
 
 /mob/living/silicon/robot/drone/may_climb_ladders(ladder)
 	if(!Adjacent(ladder))
-		to_chat(src, "<span class='warning'>You need to be next to \the [ladder] to start climbing.</span>")
+		to_chat(src, SPAN_WARNING("You need to be next to \the [ladder] to start climbing."))
 		return FALSE
 	if(incapacitated())
-		to_chat(src, "<span class='warning'>You are physically unable to climb \the [ladder].</span>")
+		to_chat(src, SPAN_WARNING("You are physically unable to climb \the [ladder]."))
 		return FALSE
 	return TRUE
 

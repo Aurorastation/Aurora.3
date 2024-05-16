@@ -92,7 +92,7 @@
 	if(!loc) return FALSE
 	var/datum/gas_mixture/env_air = loc.return_air()
 	if ((int_pressure - env_air.return_pressure()) > PRESSURE_EXERTED)
-		to_chat(user, "<span class='warning'>You cannot unwrench \the [src], it is too exerted due to internal pressure.</span>")
+		to_chat(user, SPAN_WARNING("You cannot unwrench \the [src], it is too exerted due to internal pressure."))
 		add_fingerprint(user)
 		return TRUE
 	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")

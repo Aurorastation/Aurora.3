@@ -8,33 +8,33 @@
 
 	var/obj/item/grab/G = src.get_active_hand()
 	if(!istype(G))
-		to_chat(src, "<span class='warning'>We must be grabbing a creature in our active hand to absorb them.</span>")
+		to_chat(src, SPAN_WARNING("We must be grabbing a creature in our active hand to absorb them."))
 		return
 	if(!src.get_pressure_weakness())
-		to_chat(src, "<span class='warning'>We cannot absorb this creature from inside a sealed environment.</span>")
+		to_chat(src, SPAN_WARNING("We cannot absorb this creature from inside a sealed environment."))
 		return
 	var/mob/living/carbon/human/T = G.affecting
 	if(!istype(T))
-		to_chat(src, "<span class='warning'>[T] is not compatible with our biology.</span>")
+		to_chat(src, SPAN_WARNING("[T] is not compatible with our biology."))
 		return
 	if(T.species.flags & NO_SCAN)
-		to_chat(src, "<span class='warning'>We do not know how to parse this creature's DNA!</span>")
+		to_chat(src, SPAN_WARNING("We do not know how to parse this creature's DNA!"))
 		return
 	if(islesserform(T))
-		to_chat(src, "<span class='warning'>This creature's DNA is not compatible with our form!</span>")
+		to_chat(src, SPAN_WARNING("This creature's DNA is not compatible with our form!"))
 		return
 	if((T.mutations & HUSK))
-		to_chat(src, "<span class='warning'>This creature's DNA is ruined beyond useability!</span>")
+		to_chat(src, SPAN_WARNING("This creature's DNA is ruined beyond useability!"))
 		return
 	if(G.state != GRAB_KILL)
-		to_chat(src, "<span class='warning'>We must have a tighter grip to absorb this creature.</span>")
+		to_chat(src, SPAN_WARNING("We must have a tighter grip to absorb this creature."))
 		return
 	for(var/datum/absorbed_dna/D in changeling.absorbed_dna)
 		if(D.dna == T.dna)
-			to_chat(src, "<span class='warning'>We have already collected this creature's DNA!</span>")
+			to_chat(src, SPAN_WARNING("We have already collected this creature's DNA!"))
 			return
 	if(changeling.isabsorbing)
-		to_chat(src, "<span class='warning'>We are already absorbing!</span>")
+		to_chat(src, SPAN_WARNING("We are already absorbing!"))
 		return
 
 	changeling.isabsorbing = TRUE
@@ -42,10 +42,10 @@
 		switch(stage)
 			if(1)
 				to_chat(src, "<span class='notice'>This creature is compatible. We must hold still..</span>")
-				src.visible_message("<span class='warning'>[src]'s skin begins to shift and squirm!</span>")
+				src.visible_message(SPAN_WARNING("[src]'s skin begins to shift and squirm!"))
 			if(2)
 				to_chat(src, "<span class='notice'>We extend a proboscis.</span>")
-				src.visible_message("<span class='warning'>[src] extends a proboscis!</span>")
+				src.visible_message(SPAN_WARNING("[src] extends a proboscis!"))
 				playsound(get_turf(src), 'sound/effects/lingextends.ogg', 50, 1)
 			if(3)
 				to_chat(src, "<span class='notice'>We stab [T] with the proboscis.</span>")
@@ -58,7 +58,7 @@
 
 		feedback_add_details("changeling_powers","A[stage]")
 		if(!do_mob(src, T, 150))
-			to_chat(src, "<span class='warning'>Our absorption of [T] has been interrupted!</span>")
+			to_chat(src, SPAN_WARNING("Our absorption of [T] has been interrupted!"))
 			changeling.isabsorbing = FALSE
 			return
 

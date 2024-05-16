@@ -246,7 +246,7 @@
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
+			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	//To lay cable.
 	if(attacking_item.iscoil())

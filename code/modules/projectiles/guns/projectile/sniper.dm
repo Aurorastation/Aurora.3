@@ -66,10 +66,10 @@
 
 /obj/item/gun/projectile/heavysniper/special_check(mob/user)
 	if(bolt_open)
-		to_chat(user, "<span class='warning'>You can't fire [src] while the bolt is open!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire [src] while the bolt is open!"))
 		return 0
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing the rifle!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing the rifle!"))
 		return 0
 	return ..()
 
@@ -95,7 +95,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/heavysniper/unathi
 	name = "hegemony slugger"
@@ -213,7 +213,7 @@
 
 /obj/item/gun/projectile/dragunov/special_check(mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing the rifle!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing the rifle!"))
 		return 0
 	return ..()
 
@@ -225,7 +225,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/projectile/automatic/rifle/w556
 	name = "scout rifle"
@@ -275,4 +275,4 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))

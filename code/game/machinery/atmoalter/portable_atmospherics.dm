@@ -178,7 +178,7 @@
 
 	if(attacking_item.isscrewdriver())
 		if(!cell)
-			to_chat(user, "<span class='warning'>There is no power cell installed.</span>")
+			to_chat(user, SPAN_WARNING("There is no power cell installed."))
 			return TRUE
 
 		user.visible_message("<span class='notice'>[user] opens the panel on [src] and removes [cell].</span>", "<span class='notice'>You open the panel on [src] and remove [cell].</span>")

@@ -89,7 +89,7 @@
 				qdel(src)
 
 			else
-				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
 /obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

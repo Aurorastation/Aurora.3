@@ -46,7 +46,7 @@
 			body.sleeping = max(body.sleeping - 5, 0)
 			to_chat(src, "<span class='notice'>You release your concentration on sleep, allowing yourself to wake up.</span>")
 	else
-		to_chat(src, "<span class='warning'>You've already released concentration. Wait to wake up naturally.</span>")
+		to_chat(src, SPAN_WARNING("You've already released concentration. Wait to wake up naturally."))
 
 /mob/living/brain_ghost/Life()
 	..()

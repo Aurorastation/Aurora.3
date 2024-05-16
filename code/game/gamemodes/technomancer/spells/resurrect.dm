@@ -20,10 +20,10 @@
 	if(isliving(hit_atom))
 		var/mob/living/L = hit_atom
 		if(L == user)
-			to_chat(user, "<span class='warning'>Clever as you may seem, this won't work on yourself while alive.</span>")
+			to_chat(user, SPAN_WARNING("Clever as you may seem, this won't work on yourself while alive."))
 			return 0
 		if(L.stat != DEAD)
-			to_chat(user, "<span class='warning'>\The [L] isn't dead!</span>")
+			to_chat(user, SPAN_WARNING("\The [L] isn't dead!"))
 			return 0
 		if(pay_energy(5000))
 			if(L.tod > world.time + 30 MINUTES)
@@ -56,5 +56,5 @@
 					adjust_instability(50)
 					log_and_message_admins("has resurrected [H].")
 				else
-					to_chat(user, "<span class='warning'>The body of \the [H] doesn't seem to respond, perhaps you could try again?</span>")
+					to_chat(user, SPAN_WARNING("The body of \the [H] doesn't seem to respond, perhaps you could try again?"))
 					adjust_instability(10)

@@ -348,7 +348,7 @@
 
 /mob/living/carbon/human/LaserEyes(atom/A, params)
 	if(nutrition <= 0)
-		to_chat(src, "<span class='warning'>You're out of energy!  You need food!</span>")
+		to_chat(src, SPAN_WARNING("You're out of energy!  You need food!"))
 		return
 	..()
 	adjustNutritionLoss(rand(1,5))

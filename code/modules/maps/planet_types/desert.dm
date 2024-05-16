@@ -106,7 +106,7 @@
 			busy = 0
 			if(user == buckled)
 				if(prob(80))
-					to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
+					to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 					return
 				user.visible_message("<span class='notice'>\The [buckled] pulls himself out of \the [src].</span>")
 			else
@@ -114,7 +114,7 @@
 			unbuckle()
 		else
 			busy = 0
-			to_chat(user, "<span class='warning'>You slip and fail to get out!</span>")
+			to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 			return
 
 /obj/structure/quicksand/unbuckle()
@@ -139,7 +139,7 @@
 /obj/structure/quicksand/proc/expose()
 	if(exposed)
 		return
-	visible_message("<span class='warning'>The upper crust breaks, exposing treacherous quicksands underneath!</span>")
+	visible_message(SPAN_WARNING("The upper crust breaks, exposing treacherous quicksands underneath!"))
 	name = "quicksand"
 	desc = "There is no candy at the bottom."
 	exposed = 1

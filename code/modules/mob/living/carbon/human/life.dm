@@ -175,7 +175,7 @@
 
 	if (disabilities & EPILEPSY)
 		if ((prob(1) && paralysis < 1))
-			to_chat(src, "<span class='warning'>You have a seizure!</span>")
+			to_chat(src, SPAN_WARNING("You have a seizure!"))
 			for(var/mob/O in viewers(src, null))
 				if(O == src)
 					continue
@@ -230,13 +230,13 @@
 				total_radiation -= 1 * RADIATION_SPEED_COEFFICIENT
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT))
 					src.apply_radiation(-5 * RADIATION_SPEED_COEFFICIENT)
-					to_chat(src, "<span class='warning'>You feel weak.</span>")
+					to_chat(src, SPAN_WARNING("You feel weak."))
 					Weaken(3)
 					if(!lying)
 						emote("collapse")
 				if(prob(5) && prob(100 * RADIATION_SPEED_COEFFICIENT) && species.name == SPECIES_HUMAN) //apes go bald
 					if((h_style != "Bald" || f_style != "Shaved" ))
-						to_chat(src, "<span class='warning'>Your hair falls out.</span>")
+						to_chat(src, SPAN_WARNING("Your hair falls out."))
 						h_style = "Bald"
 						f_style = "Shaved"
 						update_hair()
@@ -246,9 +246,9 @@
 				damage = 7
 				if(prob(5))
 					take_overall_damage(0, 10 * RADIATION_SPEED_COEFFICIENT, used_weapon = "Radiation Burns")
-					to_chat(src, "<span class='warning'>You feel a burning sensation!</span>")
+					to_chat(src, SPAN_WARNING("You feel a burning sensation!"))
 				if(prob(1))
-					to_chat(src, "<span class='warning'>You feel strange!</span>")
+					to_chat(src, SPAN_WARNING("You feel strange!"))
 					adjustCloneLoss(5 * RADIATION_SPEED_COEFFICIENT)
 					emote("gasp")
 				hallucination = max(hallucination, 20) //At this level, you're in a constant state of low-level hallucinations. As if you didn't have enough problems.
@@ -630,7 +630,7 @@
 				set_see_invisible(SEE_INVISIBLE_CULT)
 				make_jittery(5)
 				if(prob(5))
-					visible_message("<b>[src]</b> trembles uncontrollably.", "<span class='warning'>You tremble uncontrollably.</span>")
+					visible_message("<b>[src]</b> trembles uncontrollably.", SPAN_WARNING("You tremble uncontrollably."))
 					to_chat(src, SPAN_CULT(pick("You feel fingers tracing up your back.", "You hear the distant wailing and sobbing of a departed loved one.", "You feel like you are being closely watched.", "You hear the hysterical laughter of a departed loved one.", "You no longer feel the reassuring presence of a departed loved one.", "You feel a hand taking hold of yours, digging its nails into you as it clings on.")))
 			if(haunted >= 10)
 				if(prob(5))
@@ -752,7 +752,7 @@
 
 		if(get_shock() >= species.total_health)
 			if(!stat && !paralysis)
-				to_chat(src, "<span class='warning'>[species.halloss_message_self]</span>")
+				to_chat(src, SPAN_WARNING("[species.halloss_message_self]"))
 				src.visible_message("<B>[src]</B> [species.halloss_message]")
 			Paralyse(10)
 

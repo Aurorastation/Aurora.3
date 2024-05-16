@@ -37,7 +37,7 @@
 
 /obj/item/gun/launcher/harpoon/special_check(mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return FALSE
 	return ..()
 
@@ -49,7 +49,7 @@
 			to_chat(user, "<span class='notice'>You load \the [attacking_item] in \the [src].</span>")
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>\The [src] is already loaded.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already loaded."))
 
 
 /obj/item/gun/launcher/harpoon/attack_hand(mob/user)

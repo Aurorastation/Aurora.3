@@ -156,7 +156,7 @@
 	if (istype(AM, /obj))
 		var/obj/O = AM
 		if (O.throwforce >= src.toughness)
-			visible_message("<span class='warning'><B>[src] was hit by [O].</B></span>")
+			visible_message(SPAN_WARNING("<B>[src] was hit by [O].</B>"))
 		take_damage(O.throwforce)
 
 /obj/machinery/camera/proc/setViewRange(var/num = 7)
@@ -171,7 +171,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		set_status(0)
 		user.do_attack_animation(src)
-		visible_message("<span class='warning'>\The [user] slashes at [src]!</span>")
+		visible_message(SPAN_WARNING("\The [user] slashes at [src]!"))
 		playsound(src.loc, 'sound/weapons/slash.ogg', 100, 1)
 		add_hiddenprint(user)
 		destroy()
@@ -183,7 +183,7 @@
 		//to_chat(user, "<span class='notice'>You start to [panel_open ? "close" : "open"] the camera's panel.</span>")
 		//if(toggle_panel(user)) // No delay because no one likes screwdrivers trying to be hip and have a duration cooldown
 		panel_open = !panel_open
-		user.visible_message("<span class='warning'>[user] screws the camera's panel [panel_open ? "open" : "closed"]!</span>",
+		user.visible_message(SPAN_WARNING("[user] screws the camera's panel [panel_open ? "open" : "closed"]!"),
 		"<span class='notice'>You screw the camera's panel [panel_open ? "open" : "closed"].</span>")
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
@@ -242,7 +242,7 @@
 
 	else if (istype(attacking_item, /obj/item/camera_bug))
 		if (!src.can_use())
-			to_chat(user, "<span class='warning'>Camera non-functional.</span>")
+			to_chat(user, SPAN_WARNING("Camera non-functional."))
 		else if (src.bugged)
 			to_chat(user, "<span class='notice'>Camera bug removed.</span>")
 			src.bugged = 0
@@ -441,7 +441,7 @@
 		return
 
 	if(stat & BROKEN)
-		to_chat(user, "<span class='warning'>\The [src] is broken.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is broken."))
 		return
 
 	user.set_machine(src)

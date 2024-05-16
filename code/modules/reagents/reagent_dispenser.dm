@@ -69,8 +69,8 @@
 			to_chat(user, SPAN_WARNING("A strange force prevents you from doing this.")) //there is no way to justify this icly
 			return
 		if(can_tamper && user.a_intent == I_HURT)
-			user.visible_message("<span class='warning'>\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"].</span>",
-									"<span class='warning'>You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]</span>")
+			user.visible_message(SPAN_WARNING("\The [user] wrenches \the [src]'s faucet [is_leaking ? "closed" : "open"]."),
+									SPAN_WARNING("You wrench \the [src]'s faucet [is_leaking ? "closed" : "open"]"))
 			is_leaking = !is_leaking
 			if (is_leaking)
 				message_admins("[key_name_admin(user)] wrench opened \the [src] at [loc.loc.name] ([loc.x],[loc.y],[loc.z]), leaking reagents. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[loc.x];Y=[loc.y];Z=[loc.z]'>JMP</a>)")
@@ -136,7 +136,7 @@
 	if(distance > 2)
 		return
 	if (is_leaking)
-		. += "<span class='warning'>Fuel faucet is wrenched open, leaking the fuel!</span>"
+		. += SPAN_WARNING("Fuel faucet is wrenched open, leaking the fuel!")
 	if(rig)
 		. += "<span class='notice'>There is some kind of device rigged to the tank.</span>"
 
@@ -161,7 +161,7 @@
 		overlays = new/list()
 	if (istype(attacking_item,/obj/item/device/assembly_holder))
 		if (rig)
-			to_chat(user, "<span class='warning'>There is another device in the way.</span>")
+			to_chat(user, SPAN_WARNING("There is another device in the way."))
 			return ..()
 		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", "You begin rigging [attacking_item] to \the [src]")
 		if(do_after(user, 20))

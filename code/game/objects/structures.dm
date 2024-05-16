@@ -50,7 +50,7 @@
 				attack_generic(user,1,"slices")
 
 	if(LAZYLEN(climbers) && !(user in climbers))
-		user.visible_message("<span class='warning'>[user] shakes \the [src].</span>", \
+		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
 					"<span class='notice'>You shake \the [src].</span>")
 		structure_shaken()
 
@@ -156,7 +156,7 @@
 		if(user.loc == TT)
 			TT = get_turf(src)
 
-	user.visible_message("<span class='warning'>[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!"))
 	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 

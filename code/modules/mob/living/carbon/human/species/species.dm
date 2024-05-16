@@ -444,7 +444,7 @@
 		target.fire_stacks += 1
 		target.IgniteMob()
 		H.visible_message("<span class='danger'>[H] taps [target], setting [target.get_pronoun("his")] ablaze!</span>", \
-						"<span class='warning'>You tap [target], setting [target.get_pronoun("him")] ablaze!</span>")
+						SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
 		H.visible_message("<span class='notice'>[H] taps [target] to get [target.get_pronoun("his")] attention!</span>", \

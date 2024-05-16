@@ -143,7 +143,7 @@ SUBSYSTEM_DEF(atlas)
 /datum/controller/subsystem/atlas/Initialize(timeofday)
 	// Quick sanity check.
 	if (world.maxx != WORLD_MIN_SIZE || world.maxy != WORLD_MIN_SIZE || world.maxz != 1)
-		to_world("<span class='warning'>WARNING: Suspected pre-compiled map: things may break horribly!</span>")
+		to_world(SPAN_WARNING("WARNING: Suspected pre-compiled map: things may break horribly!"))
 		log_subsystem_atlas("-- WARNING: Suspected pre-compiled map! --")
 
 	maploader = new

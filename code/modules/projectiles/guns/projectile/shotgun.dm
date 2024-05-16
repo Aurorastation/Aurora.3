@@ -196,7 +196,7 @@
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
 	name = "sawn-off shotgun"
 	desc = "Omar's coming!"
-	to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
+	to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
 
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 	name = "sawn-off shotgun"

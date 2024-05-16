@@ -244,13 +244,13 @@
 
 	if(attacking_item.iswirecutter() || istype(attacking_item, /obj/item/surgery/scalpel))
 		if(sampled)
-			to_chat(user, "<span class='warning'>\The [src] has already been sampled recently.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has already been sampled recently."))
 			return
 		if(!is_mature())
-			to_chat(user, "<span class='warning'>\The [src] is not mature enough to yield a sample yet.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is not mature enough to yield a sample yet."))
 			return
 		if(!seed)
-			to_chat(user, "<span class='warning'>There is nothing to take a sample from.</span>")
+			to_chat(user, SPAN_WARNING("There is nothing to take a sample from."))
 			return
 		if(sampled)
 			to_chat(user, "<span class='danger'>You cannot take another sample from \the [src].</span>")

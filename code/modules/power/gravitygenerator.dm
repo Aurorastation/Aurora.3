@@ -284,7 +284,7 @@
 
 	if(href_list["gentoggle"])
 		breaker = !breaker
-		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : "<span class='warning'>OFF</span>"] by [usr.key].", "gravity")
+		investigate_log("was toggled [breaker ? "<font color='green'>ON</font>" : SPAN_WARNING("OFF")] by [usr.key].", "gravity")
 		set_power()
 		src.updateUsrDialog()
 	else if(href_list["eshutoff"])

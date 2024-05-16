@@ -335,7 +335,7 @@
 
 	if(repairing && attacking_item.iswelder())
 		if(!density)
-			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
 			return TRUE
 
 		var/obj/item/weldingtool/welder = attacking_item

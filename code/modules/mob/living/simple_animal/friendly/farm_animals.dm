@@ -105,7 +105,9 @@
 
 /mob/living/simple_animal/cow/attack_hand(mob/living/carbon/M as mob)
 	if(!stat && M.a_intent == I_DISARM && icon_state != icon_dead)
-		M.visible_message("<span class='warning'>[M] tips over [src].</span>","<span class='notice'>You tip over [src].</span>")
+		M.visible_message(SPAN_WARNING("[M] tips over [src]."),
+							SPAN_NOTICE("You tip over [src]."))
+							
 		Weaken(30)
 		icon_state = icon_dead
 		spawn(rand(20,50))

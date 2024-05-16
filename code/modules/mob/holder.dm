@@ -197,10 +197,10 @@ var/list/holder_mob_icon_cache = list()
 
 	if (user == src)
 		if (grabber.r_hand && grabber.l_hand)
-			to_chat(user, "<span class='warning'>They have no free hands!</span>")
+			to_chat(user, SPAN_WARNING("They have no free hands!"))
 			return
 	else if ((grabber.hand == 0 && grabber.r_hand) || (grabber.hand == 1 && grabber.l_hand))//Checking if the hand is full
-		to_chat(grabber, "<span class='warning'>Your hand is full!</span>")
+		to_chat(grabber, SPAN_WARNING("Your hand is full!"))
 		return
 
 	add_verb(src,  /mob/living/proc/get_holder_location) //This has to be before we move the mob into the holder

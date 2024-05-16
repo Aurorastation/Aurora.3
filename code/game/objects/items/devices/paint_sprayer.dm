@@ -87,7 +87,7 @@
 
 	var/mob/living/heavy_vehicle/ES = A
 	if(istype(ES))
-		to_chat(user, "<span class='warning'>You can't paint an active exosuit. Dismantle it first.</span>")
+		to_chat(user, SPAN_WARNING("You can't paint an active exosuit. Dismantle it first."))
 		return
 
 	var/obj/structure/heavy_vehicle_frame/EF = A
@@ -135,11 +135,11 @@
 			config_error = 1
 
 	if(config_error)
-		to_chat(user, "<span class='warning'>\The [src] flashes an error light. You might need to reconfigure it.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] flashes an error light. You might need to reconfigure it."))
 		return
 
 	if(F.decals && F.decals.len > 5 && painting_decal != /obj/effect/floor_decal/reset)
-		to_chat(user, "<span class='warning'>\The [F] has been painted too much; you need to clear it off.</span>")
+		to_chat(user, SPAN_WARNING("\The [F] has been painted too much; you need to clear it off."))
 		return
 
 	var/painting_dir = 0

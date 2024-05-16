@@ -700,7 +700,7 @@ var/list/preferences_datums = list()
 	// Create a new character.
 	new_setup(1)
 
-	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")
+	to_chat(C, SPAN_WARNING("Character successfully deleted! Please make a new one or load an existing setup."))
 
 /datum/preferences/proc/get_species_datum()
 	if (species)

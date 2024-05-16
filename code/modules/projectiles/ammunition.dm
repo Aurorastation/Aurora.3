@@ -49,7 +49,7 @@
 		var/tmp_label = ""
 		var/label_text = sanitizeSafe( tgui_input_text(user, "Inscribe some text into \the [initial(BB.name)]", "Inscription", tmp_label, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(label_text) > 20)
-			to_chat(user, "<span class='warning'>The inscription can be at most 20 characters long.</span>")
+			to_chat(user, SPAN_WARNING("The inscription can be at most 20 characters long."))
 		else if(!label_text)
 			to_chat(user, "<span class='notice'>You scratch the inscription off of [initial(BB)].</span>")
 			BB.name = initial(BB.name)
@@ -143,10 +143,10 @@
 	if(istype(attacking_item, /obj/item/ammo_casing))
 		var/obj/item/ammo_casing/C = attacking_item
 		if(C.caliber != caliber)
-			to_chat(user, "<span class='warning'>[C] does not fit into [src].</span>")
+			to_chat(user, SPAN_WARNING("[C] does not fit into [src]."))
 			return
 		if(stored_ammo.len >= max_ammo)
-			to_chat(user, "<span class='warning'>[src] is full!</span>")
+			to_chat(user, SPAN_WARNING("[src] is full!"))
 			return
 		user.remove_from_mob(C)
 		C.forceMove(src)

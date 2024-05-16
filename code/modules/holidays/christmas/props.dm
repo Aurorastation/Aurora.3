@@ -65,7 +65,7 @@
 		user.put_in_hands(gift)
 		src.gift.add_fingerprint(user)
 	else
-		to_chat(user, "<span class='warning'>The gift was empty!</span>")
+		to_chat(user, SPAN_WARNING("The gift was empty!"))
 	qdel(src)
 	return
 
@@ -76,13 +76,13 @@
 /obj/effect/spresent/relaymove(mob/user as mob)
 	if (user.stat)
 		return
-	to_chat(user, "<span class='warning'>You can't move.</span>")
+	to_chat(user, SPAN_WARNING("You can't move."))
 
 /obj/effect/spresent/attackby(obj/item/attacking_item, mob/user)
 	..()
 
 	if (!attacking_item.iswirecutter())
-		to_chat(user, "<span class='warning'>I need wirecutters for that.</span>")
+		to_chat(user, SPAN_WARNING("I need wirecutters for that."))
 		return
 
 	to_chat(user, "<span class='notice'>You cut open the present.</span>")

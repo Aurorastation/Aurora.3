@@ -6,7 +6,7 @@
 				if(M.enter(src))
 					return
 			else
-				to_chat(usr, "<span class='warning'>You cannot pilot a mech of this size.</span>")
+				to_chat(usr, SPAN_WARNING("You cannot pilot a mech of this size."))
 				return
 	return ..()
 
@@ -54,12 +54,12 @@
 		return
 
 	if(!arms)
-		to_chat(user, "<span class='warning'>\The [src] has no manipulators!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] has no manipulators!"))
 		setClickCooldown(3)
 		return
 
 	if(!arms.motivator || !arms.motivator.is_functional())
-		to_chat(user, "<span class='warning'>Your motivators are damaged! You can't use your manipulators!</span>")
+		to_chat(user, SPAN_WARNING("Your motivators are damaged! You can't use your manipulators!"))
 		setClickCooldown(15)
 		return
 
@@ -77,7 +77,7 @@
 	// You may attack the target with your exosuit FIST if you're malfunctioning.
 	var/failed = FALSE
 	if(emp_damage > EMP_ATTACK_DISRUPT && prob(emp_damage*2))
-		to_chat(user, "<span class='warning'>The wiring sparks as you attempt to control the exosuit!</span>")
+		to_chat(user, SPAN_WARNING("The wiring sparks as you attempt to control the exosuit!"))
 		failed = TRUE
 
 	if(!failed)
@@ -201,13 +201,13 @@
 	if(!user.Adjacent(src))
 		return
 	if(hatch_locked)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return
 	if(hatch_closed)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is closed.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is closed."))
 		return
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
-		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is occupied."))
 		return
 	if(!instant)
 		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
@@ -216,13 +216,13 @@
 	if(!user || user.incapacitated())
 		return
 	if(hatch_locked)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return
 	if(hatch_closed)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is closed.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is closed."))
 		return
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
-		to_chat(user, "<span class='warning'>\The [src] is occupied.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is occupied."))
 		return
 	to_chat(user, "<span class='notice'>You climb into \the [src].</span>")
 	user.forceMove(src)
@@ -240,7 +240,7 @@
 		return
 	if(hatch_closed)
 		if(hatch_locked)
-			if(!silent) to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+			if(!silent) to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 			return
 		hud_open.toggled(FALSE)
 		if(!silent)
@@ -321,7 +321,7 @@
 /mob/living/heavy_vehicle/attackby(obj/item/attacking_item, mob/user)
 	if(user.a_intent != I_HURT && istype(attacking_item, /obj/item/mecha_equipment))
 		if(hardpoints_locked)
-			to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
+			to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
 			return
 
 		var/obj/item/mecha_equipment/realThing = attacking_item
@@ -335,7 +335,7 @@
 		var/to_place = tgui_input_list(user, "Where would you like to install it?", "Install Hardpoint", (realThing.restricted_hardpoints & free_hardpoints))
 		if(install_system(attacking_item, to_place, user))
 			return
-		to_chat(user, "<span class='warning'>\The [attacking_item] could not be installed in that hardpoint.</span>")
+		to_chat(user, SPAN_WARNING("\The [attacking_item] could not be installed in that hardpoint."))
 		return
 
 	else
@@ -365,7 +365,7 @@
 					qdel(attacking_item)
 			else if(attacking_item.ismultitool())
 				if(hardpoints_locked)
-					to_chat(user, "<span class='warning'>Hardpoint system access is disabled.</span>")
+					to_chat(user, SPAN_WARNING("Hardpoint system access is disabled."))
 					return
 
 				var/list/parts = list()
@@ -377,7 +377,7 @@
 
 				if(remove_system_interact(to_remove, user))
 					return
-				to_chat(user, "<span class='warning'>\The [src] has no hardpoint systems to remove.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] has no hardpoint systems to remove."))
 				return
 
 			else if(attacking_item.iswrench())
@@ -430,10 +430,10 @@
 				return
 			else if(attacking_item.iscrowbar())
 				if(!maintenance_protocols)
-					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
+					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return
 				if(!body || !body.cell)
-					to_chat(user, "<span class='warning'>There is no cell here for you to remove!</span>")
+					to_chat(user, SPAN_WARNING("There is no cell here for you to remove!"))
 					return
 				var/delay = 10
 				if(!do_after(user, delay) || !maintenance_protocols || !body || !body.cell)
@@ -449,10 +449,10 @@
 				return
 			else if(istype(attacking_item, /obj/item/cell))
 				if(!maintenance_protocols)
-					to_chat(user, "<span class='warning'>The cell compartment remains locked while maintenance protocols are disabled.</span>")
+					to_chat(user, SPAN_WARNING("The cell compartment remains locked while maintenance protocols are disabled."))
 					return
 				if(!body || body.cell)
-					to_chat(user, "<span class='warning'>There is already a cell in there!</span>")
+					to_chat(user, SPAN_WARNING("There is already a cell in there!"))
 					return
 
 				if(user.unEquip(attacking_item))
@@ -475,7 +475,7 @@
 	// Drag the pilot out if possible.
 	if(user.a_intent == I_GRAB)
 		if(!LAZYLEN(pilots))
-			to_chat(user, "<span class='warning'>There is nobody inside \the [src].</span>")
+			to_chat(user, SPAN_WARNING("There is nobody inside \the [src]."))
 		else if(!hatch_closed)
 			var/mob/pilot = pick(pilots)
 			user.visible_message("<span class='danger'>\The [user] is trying to pull \the [pilot] out of \the [src]!</span>")
@@ -491,7 +491,7 @@
 
 	// Otherwise toggle the hatch.
 	if(hatch_locked)
-		to_chat(user, "<span class='warning'>The [body.hatch_descriptor] is locked.</span>")
+		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return
 	hatch_closed = !hatch_closed
 	to_chat(user, "<span class='notice'>You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor].</span>")
@@ -571,9 +571,9 @@
 /mob/living/heavy_vehicle/proc/ToggleLockdown()
 	lockdown = !lockdown
 	if(lockdown)
-		src.visible_message("<span class='warning'>\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!</span>")
+		src.visible_message(SPAN_WARNING("\The [src] beeps loudly as its servos sieze up, and it enters lockdown mode!"))
 	else
-		src.visible_message("<span class='warning'>\The [src] hums with life as it is released from its lockdown mode!</span>")
+		src.visible_message(SPAN_WARNING("\The [src] hums with life as it is released from its lockdown mode!"))
 
 /mob/living/heavy_vehicle/get_floating_chat_x_offset()
 	return -offset_x // reverse the offset

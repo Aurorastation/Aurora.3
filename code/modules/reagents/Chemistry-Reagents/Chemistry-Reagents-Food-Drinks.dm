@@ -932,11 +932,11 @@
 	var/message = null
 	if(eyes_covered)
 		if (!mouth_covered && (eyes_covered & EYES_PROTECTED))
-			message = "<span class='warning'>Your [eye_protection] protects your eyes from the pepperspray!</span>"
+			message = SPAN_WARNING("Your [eye_protection] protects your eyes from the pepperspray!")
 		else if (eyes_covered & EYES_MECH)
-			message = "<span class='warning'>Your mechanical eyes are invulnerable to pepperspray!</span>"
+			message = SPAN_WARNING("Your mechanical eyes are invulnerable to pepperspray!")
 	else
-		message = "<span class='warning'>The pepperspray gets in your eyes!</span>"
+		message = SPAN_WARNING("The pepperspray gets in your eyes!")
 		if(mouth_covered)
 			M.eye_blurry = max(M.eye_blurry, 15)
 			M.eye_blind = max(M.eye_blind, 5)
@@ -946,7 +946,7 @@
 
 	if(mouth_covered)
 		if(!message)
-			message = "<span class='warning'>Your [face_protection] protects you from the pepperspray!</span>"
+			message = SPAN_WARNING("Your [face_protection] protects you from the pepperspray!")
 	else if(!no_pain)
 		message = "<span class='danger'>Your face and throat burn!</span>"
 		if(prob(25))
@@ -960,7 +960,8 @@
 			return
 	M.apply_effect(10, DAMAGE_PAIN)
 	if(prob(5))
-		M.visible_message("<span class='warning'>[M] [pick("dry heaves!","coughs!","splutters!")]</span>", "<span class='danger'>You feel like your insides are burning!</span>")
+		M.visible_message(SPAN_WARNING("[M] [pick("dry heaves!","coughs!","splutters!")]"),
+							SPAN_DANGER("You feel like your insides are burning!"))
 	if(istype(M, /mob/living/carbon/slime))
 		M.bodytemperature += rand(15, 30)
 	holder.remove_reagent(/singleton/reagent/frostoil, 5)

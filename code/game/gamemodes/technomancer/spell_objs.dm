@@ -173,7 +173,7 @@
 		if(aspect != ASPECT_PSIONIC)
 			core = owner.get_technomancer_core()
 			if(!core)
-				to_chat(owner, "<span class='warning'>You need a Core to do that.</span>")
+				to_chat(owner, SPAN_WARNING("You need a Core to do that."))
 				return INITIALIZE_HINT_QDEL
 		else
 			if(owner.psi.get_rank() >= PSI_RANK_APEX)
@@ -355,7 +355,7 @@
 			if(l_spell.aspect == ASPECT_CHROMATIC) //Check the other hand too.
 				l_spell.on_combine_cast(S, src)
 		else //Welp
-			to_chat(src, "<span class='warning'>You require a free hand to use this function.</span>")
+			to_chat(src, SPAN_WARNING("You require a free hand to use this function."))
 			return 0
 
 	if(S.run_checks())

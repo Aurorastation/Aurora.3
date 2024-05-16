@@ -172,7 +172,7 @@
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='warning'>You need something to connect to \the [src].</span>")
+					to_chat(usr, SPAN_WARNING("You need something to connect to \the [src]."))
 			. = TRUE
 			update_icon()
 	if(action=="setReleasePressure")

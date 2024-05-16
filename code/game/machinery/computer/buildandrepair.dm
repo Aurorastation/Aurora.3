@@ -46,7 +46,7 @@
 					src.circuit = attacking_item
 					user.drop_from_inventory(attacking_item, src)
 				else
-					to_chat(user, "<span class='warning'>This frame does not accept circuit boards of this type!</span>")
+					to_chat(user, SPAN_WARNING("This frame does not accept circuit boards of this type!"))
 				return TRUE
 			if(attacking_item.isscrewdriver() && circuit)
 				attacking_item.play_tool_sound(get_turf(src), 50)
@@ -72,7 +72,7 @@
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.get_amount() < 5)
-					to_chat(user, "<span class='warning'>You need five coils of wire to add them to the frame.</span>")
+					to_chat(user, SPAN_WARNING("You need five coils of wire to add them to the frame."))
 					return TRUE
 				to_chat(user, "<span class='notice'>You start to add cables to the frame.</span>")
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
@@ -95,7 +95,7 @@
 			if(istype(attacking_item, /obj/item/stack/material) && attacking_item.get_material_name() == "glass")
 				var/obj/item/stack/G = attacking_item
 				if (G.get_amount() < 2)
-					to_chat(user, "<span class='warning'>You need two sheets of glass to put in the glass panel.</span>")
+					to_chat(user, SPAN_WARNING("You need two sheets of glass to put in the glass panel."))
 					return TRUE
 				playsound(src.loc, 'sound/items/Deconstruct.ogg', 50, 1)
 				to_chat(user, "<span class='notice'>You start to put in the glass keyboard.</span>")

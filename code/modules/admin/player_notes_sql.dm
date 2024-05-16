@@ -51,12 +51,12 @@
 		count++
 
 	if (count == 0)
-		to_chat(usr, "<span class='warning'>Database update failed due to a note id not being present in the database.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to a note id not being present in the database."))
 		log_world("ERROR: Database update failed due to a note id not being present in the database.")
 		return
 
 	if (count > 1)
-		to_chat(usr, "<span class='warning'>Database update failed due to multiple notes having the same ID. Contact the database admin.</span>")
+		to_chat(usr, SPAN_WARNING("Database update failed due to multiple notes having the same ID. Contact the database admin."))
 		log_world("ERROR: Database update failed due to multiple notes having the same ID. Contact the database admin.")
 		return
 

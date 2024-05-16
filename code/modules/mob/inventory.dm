@@ -457,7 +457,7 @@ var/list/slot_equipment_priority = list( \
 
 	//actually throw it!
 	if(item)
-		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
+		src.visible_message(SPAN_WARNING("[src] throws \a [item]."))
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))

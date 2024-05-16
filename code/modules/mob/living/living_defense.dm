@@ -38,7 +38,7 @@
 		var/obj/item/device/assembly/signaler/signaler = get_active_hand()
 		if(signaler.deadman && prob(80))
 			log_and_message_admins("has triggered a signaler deadman's switch")
-			src.visible_message("<span class='warning'>[src] triggers their deadman's switch!</span>")
+			src.visible_message(SPAN_WARNING("[src] triggers their deadman's switch!"))
 			signaler.signal()
 
 	//Armor
@@ -184,7 +184,7 @@
 			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 
-		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")
+		src.visible_message(SPAN_WARNING("[src] has been hit by [O]."))
 		apply_damage(throw_damage, dtype, null, damage_flags = O.damage_flags(), used_weapon = O)
 
 		O.throwing = 0		//it hit, so stop moving
@@ -208,7 +208,9 @@
 		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throw_source, src)
 
-			visible_message("<span class='warning'>[src] staggers under the impact!</span>","<span class='warning'>You stagger under the impact!</span>")
+			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
+							SPAN_WARNING("You stagger under the impact!"))
+
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
 			if(!O || !src)
@@ -222,7 +224,9 @@
 
 				if(T)
 					src.forceMove(T)
-					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
+					visible_message(SPAN_WARNING("[src] is pinned to the wall by [O]!"),
+									SPAN_WARNING("You are pinned to the wall by [O]!"))
+
 					src.anchored = 1
 					src.pinned += O
 

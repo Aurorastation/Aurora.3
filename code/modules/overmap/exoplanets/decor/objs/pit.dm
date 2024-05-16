@@ -73,22 +73,22 @@
 		return
 
 	escapee.setClickCooldown(100)
-	to_chat(escapee, "<span class='warning'>You start digging your way out of \the [src] (this will take about [breakout_time] minute\s)</span>")
+	to_chat(escapee, SPAN_WARNING("You start digging your way out of \the [src] (this will take about [breakout_time] minute\s)"))
 	visible_message("<span class='danger'>Something is scratching its way out of \the [src]!</span>")
 
 	for(var/i in 1 to (6*breakout_time * 2)) //minutes * 6 * 5seconds * 2
 		playsound(src.loc, 'sound/weapons/bite.ogg', 100, 1)
 
 		if(!do_after(escapee, 50))
-			to_chat(escapee, "<span class='warning'>You have stopped digging.</span>")
+			to_chat(escapee, SPAN_WARNING("You have stopped digging."))
 			return
 		if(open)
 			return
 
 		if(i == 6*breakout_time)
-			to_chat(escapee, "<span class='warning'>Halfway there...</span>")
+			to_chat(escapee, SPAN_WARNING("Halfway there..."))
 
-	to_chat(escapee, "<span class='warning'>You successfuly dig yourself out!</span>")
+	to_chat(escapee, SPAN_WARNING("You successfuly dig yourself out!"))
 	visible_message("<span class='danger'>\the [escapee] emerges from \the [src]!</span>")
 	playsound(src.loc, 'sound/effects/squelch1.ogg', 100, 1)
 	open()

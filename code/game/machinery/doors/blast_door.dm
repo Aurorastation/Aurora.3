@@ -130,7 +130,7 @@
 			return TRUE
 		var/obj/item/stack/P = attacking_item
 		if(P.amount < amt)
-			to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+			to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 			return TRUE
 		to_chat(usr, "<span class='notice'>You begin repairing [src]...</span>")
 		if(do_after(usr, 3 SECONDS, src, DO_REPAIR_CONSTRUCT))
@@ -138,7 +138,7 @@
 				to_chat(usr, "<span class='notice'>You have repaired \The [src]</span>")
 				src.repair()
 			else
-				to_chat(usr, "<span class='warning'>You don't have enough sheets to repair this! You need at least [amt] sheets.</span>")
+				to_chat(usr, SPAN_WARNING("You don't have enough sheets to repair this! You need at least [amt] sheets."))
 		return TRUE
 
 

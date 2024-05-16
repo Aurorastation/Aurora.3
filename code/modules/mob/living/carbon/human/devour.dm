@@ -87,7 +87,7 @@
 			if(messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim)
 			if(victim.getBruteLoss() >= victim_maxhealth)
-				visible_message("<span class='danger'>[src] finishes devouring [victim].</span>","<span class='warning'>You finish devouring [victim].</span>")
+				visible_message("<span class='danger'>[src] finishes devouring [victim].</span>",SPAN_WARNING("You finish devouring [victim]."))
 				handle_devour_mess(src, victim, TRUE)
 				qdel(victim)
 		else

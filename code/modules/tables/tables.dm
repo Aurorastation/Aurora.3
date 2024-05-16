@@ -111,27 +111,27 @@
 	if(health < maxhealth)
 		switch(health / maxhealth)
 			if(0.0 to 0.5)
-				. += "<span class='warning'>It looks severely damaged!</span>"
+				. += SPAN_WARNING("It looks severely damaged!")
 			if(0.25 to 0.5)
-				. += "<span class='warning'>It looks damaged!</span>"
+				. += SPAN_WARNING("It looks damaged!")
 			if(0.5 to 1.0)
 				. += "<span class='notice'>It has a few scrapes and dents.</span>"
 
 /obj/structure/table/proc/reinforce_table(obj/item/stack/material/S, mob/user)
 	if(reinforced)
-		to_chat(user, "<span class='warning'>\The [src] is already reinforced!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is already reinforced!"))
 		return
 
 	if(!can_reinforce)
-		to_chat(user, "<span class='warning'>\The [src] cannot be reinforced!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] cannot be reinforced!"))
 		return
 
 	if(!material)
-		to_chat(user, "<span class='warning'>Plate \the [src] before reinforcing it!</span>")
+		to_chat(user, SPAN_WARNING("Plate \the [src] before reinforcing it!"))
 		return
 
 	if(flipped)
-		to_chat(user, "<span class='warning'>Put \the [src] back in place before reinforcing it!</span>")
+		to_chat(user, SPAN_WARNING("Put \the [src] back in place before reinforcing it!"))
 		return
 
 	reinforced = common_material_add(S, user, "reinforc")
@@ -158,7 +158,7 @@
 /obj/structure/table/proc/common_material_add(obj/item/stack/material/S, mob/user, verb) // Verb is actually verb without 'e' or 'ing', which is added. Works for 'plate'/'plating' and 'reinforce'/'reinforcing'.
 	var/material/M = S.get_material()
 	if(!istype(M))
-		to_chat(user, "<span class='warning'>You cannot [verb]e \the [src] with \the [S].</span>")
+		to_chat(user, SPAN_WARNING("You cannot [verb]e \the [src] with \the [S]."))
 		return null
 
 	if(manipulating) return M
@@ -174,7 +174,7 @@
 // Returns the material to set the table to.
 /obj/structure/table/proc/common_material_remove(mob/user, material/M, delay, what, type_holding, sound)
 	if(!M.stack_type)
-		to_chat(user, "<span class='warning'>You are unable to remove the [what] from this table!</span>")
+		to_chat(user, SPAN_WARNING("You are unable to remove the [what] from this table!"))
 		return M
 
 	if(manipulating) return M

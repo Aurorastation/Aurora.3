@@ -166,9 +166,9 @@
 			if(1)
 				damage_string = "undamaged"
 			if(2)
-				damage_string = "<span class='warning'>damaged</span>"
+				damage_string = SPAN_WARNING("damaged")
 			if(3)
-				damage_string = "<span class='warning'>badly damaged</span>"
+				damage_string = SPAN_WARNING("badly damaged")
 			if(4)
 				damage_string = "<span class='danger'>destroyed</span>"
 		. += "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
@@ -289,7 +289,7 @@
 		user.set_machine(src)
 		interact(user)
 	else
-		to_chat(user, "<span class='warning'>The radio is too damaged to function.</span>")
+		to_chat(user, SPAN_WARNING("The radio is too damaged to function."))
 
 /obj/item/device/radio/exosuit/CanUseTopic()
 	. = ..()

@@ -19,7 +19,7 @@
 
 /datum/modifier/technomancer/haste
 	on_created_text = "<span class='notice'>You suddenly find it much easier to move.</span>"
-	on_expired_text = "<span class='warning'>You feel slow again.</span>"
+	on_expired_text = SPAN_WARNING("You feel slow again.")
 
 /datum/modifier/technomancer/haste/activate()
 	. = ..()

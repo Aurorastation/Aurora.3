@@ -56,8 +56,8 @@
 	var/datum/gas_mixture/env = T.return_air()
 
 	var/t = "<span class='notice'>Coordinates: [T.x],[T.y],[T.z]\n</span>"
-	t += "<span class='warning'>Temperature: [env.temperature]\n</span>"
-	t += "<span class='warning'>Pressure: [env.return_pressure()]kPa\n</span>"
+	t += SPAN_WARNING("Temperature: [env.temperature]\n")
+	t += SPAN_WARNING("Pressure: [env.return_pressure()]kPa\n")
 	for(var/g in env.gas)
 		t += "<span class='notice'>[g]: [env.gas[g]] / [env.gas[g] * R_IDEAL_GAS_EQUATION * env.temperature / env.volume]kPa\n</span>"
 

@@ -291,7 +291,7 @@
 		var/mob/M = locate(href_list["boot2"])
 		if (ismob(M))
 			if(!check_rights(R_MOD|R_ADMIN, 0))
-				to_chat(usr, "<span class='warning'>You do not have the appropriate permissions to boot users!</span>")
+				to_chat(usr, SPAN_WARNING("You do not have the appropriate permissions to boot users!"))
 				return
 			if(!check_if_greater_rights_than(M.client))
 				return
@@ -307,11 +307,11 @@
 
 	else if(href_list["newban"])
 		if(!check_rights(R_MOD,0) && !check_rights(R_BAN, 0))
-			to_chat(usr, "<span class='warning'>You do not have the appropriate permissions to add bans!</span>")
+			to_chat(usr, SPAN_WARNING("You do not have the appropriate permissions to add bans!"))
 			return
 
 		if(check_rights(R_MOD,0) && !check_rights(R_ADMIN, 0) && !GLOB.config.mods_can_job_tempban) // If mod and tempban disabled
-			to_chat(usr, "<span class='warning'>Mod jobbanning is disabled!</span>")
+			to_chat(usr, SPAN_WARNING("Mod jobbanning is disabled!"))
 			return
 
 		var/mob/M = locate(href_list["newban"])
@@ -327,7 +327,7 @@
 				if(!mins)
 					return
 				if(check_rights(R_MOD, 0) && !check_rights(R_BAN, 0) && mins > GLOB.config.mod_tempban_max)
-					to_chat(usr, "<span class='warning'>Moderators can only job tempban up to [GLOB.config.mod_tempban_max] minutes!</span>")
+					to_chat(usr, SPAN_WARNING("Moderators can only job tempban up to [GLOB.config.mod_tempban_max] minutes!"))
 					return
 				if(mins >= 525600) mins = 525599
 				var/reason = sanitize(input(usr,"Reason?","reason","Griefer") as text|null)
@@ -345,9 +345,9 @@
 				DB_ban_record(BANTYPE_TEMP, M, mins, reason)
 				feedback_inc("ban_tmp_mins",mins)
 				if(GLOB.config.banappeals)
-					to_chat_immediate(M, "<span class='warning'>To try to resolve this matter head to [GLOB.config.banappeals]</span>")
+					to_chat_immediate(M, SPAN_WARNING("To try to resolve this matter head to [GLOB.config.banappeals]"))
 				else
-					to_chat_immediate(M, "<span class='warning'>No ban appeals URL has been set.</span>")
+					to_chat_immediate(M, SPAN_WARNING("No ban appeals URL has been set."))
 				log_admin("[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.",admin_key=key_name(usr),ckey=key_name(M))
 				message_admins("<span class='notice'>[usr.client.ckey] has banned [M.ckey].\nReason: [reason]\nThis will be removed in [mins] minutes.</span>")
 
@@ -366,11 +366,11 @@
 					if("No")
 						AddBan(M.ckey, M.computer_id, reason, usr.ckey, 0, 0)
 				to_chat(M, "<span class='danger'><BIG>You have been banned by [usr.client.ckey].\nReason: [reason].</BIG></span>")
-				to_chat(M, "<span class='warning'>This is a permanent ban.</span>")
+				to_chat(M, SPAN_WARNING("This is a permanent ban."))
 				if(GLOB.config.banappeals)
-					to_chat(M, "<span class='warning'>To try to resolve this matter head to [GLOB.config.banappeals]</span>")
+					to_chat(M, SPAN_WARNING("To try to resolve this matter head to [GLOB.config.banappeals]"))
 				else
-					to_chat(M, "<span class='warning'>No ban appeals URL has been set.</span>")
+					to_chat(M, SPAN_WARNING("No ban appeals URL has been set."))
 				ban_unban_log_save("[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.")
 				if (GLOB.config.ban_legacy_system)
 					notes_add(M.ckey,"[usr.client.ckey] has permabanned [M.ckey]. - Reason: [reason] - This is a permanent ban.",usr)
@@ -526,7 +526,7 @@
 			return
 
 		if(!M.client)
-			to_chat(usr, "<span class='warning'>[M] doesn't seem to have an active client.</span>")
+			to_chat(usr, SPAN_WARNING("[M] doesn't seem to have an active client."))
 			return
 
 		if(alert(usr, "Send [key_name(M)] back to Lobby?", "Message", "Yes", "No") != "Yes")
@@ -799,7 +799,7 @@
 			switch (M.stat)
 				if (0) status = "Alive"
 				if (1) status = "<font color='orange'><b>Unconscious</b></font>"
-				if (2) status = "<span class='warning'><b>Dead</b></span>"
+				if (2) status = SPAN_WARNING("<b>Dead</b>")
 			health_description = "Status: [status]"
 			health_description += "<BR>Oxy: [L.getOxyLoss()] - Tox: [L.getToxLoss()] - Fire: [L.getFireLoss()] - Brute: [L.getBruteLoss()] - Clone: [L.getCloneLoss()] - Brain: [L.getBrainLoss()]"
 		else
@@ -816,7 +816,7 @@
 			if(MALE,FEMALE)
 				gender_description = "[M.gender]"
 			else
-				gender_description = "<span class='warning'><b>[M.gender]</b></span>"
+				gender_description = SPAN_WARNING("<b>[M.gender]</b>")
 
 		var/dat = "<b>Info about [M.name]:</b><br>"
 		dat += "Mob type: [M.type]<br>"
@@ -983,7 +983,7 @@
 
 			usr << browse(data, "window=[B.name]")
 		else
-			to_chat(usr, "<span class='warning'>The faxed item is not viewable. This is probably a bug, and should be reported on the tracker: [fax.type]</span>")
+			to_chat(usr, SPAN_WARNING("The faxed item is not viewable. This is probably a bug, and should be reported on the tracker: [fax.type]"))
 
 	else if (href_list["AdminFaxViewPage"])
 		var/page = text2num(href_list["AdminFaxViewPage"])

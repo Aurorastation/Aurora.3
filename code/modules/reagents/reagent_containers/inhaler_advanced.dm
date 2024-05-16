@@ -121,7 +121,7 @@
 /obj/item/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)
 		user.put_in_hands(stored_cartridge)
-		to_chat(user,"<span class='warning'>You remove \the [stored_cartridge] from \the [src].</span>")
+		to_chat(user,SPAN_WARNING("You remove \the [stored_cartridge] from \the [src]."))
 		stored_cartridge.update_icon()
 		stored_cartridge = null
 	update_icon()
@@ -131,15 +131,15 @@
 	var/mob/living/carbon/human/H = M
 
 	if (!istype(H))
-		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on \the [M]!</span>")
+		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on \the [M]!"))
 		return
 
 	if(!stored_cartridge)
-		to_chat(user,"<span class='warning'>\The [src] has no cartridge installed!</span>")
+		to_chat(user,SPAN_WARNING("\The [src] has no cartridge installed!"))
 		return
 
 	if(!stored_cartridge.reagents || !stored_cartridge.reagents.total_volume)
-		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
+		to_chat(user,SPAN_WARNING("\The [src]'s cartridge is empty!"))
 		return
 
 	if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
@@ -150,7 +150,7 @@
 		return
 
 	if (!user.IsAdvancedToolUser())
-		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(user == H && !H.can_eat(src))
@@ -164,7 +164,8 @@
 	if(user == M)
 		user.visible_message("<span class='notice'>[user] sticks \the [src] in their mouth and presses the injection button.</span>","<span class='notice'>You stick \the [src] in your mouth and press the injection button.</span>")
 	else
-		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
+		user.visible_message(SPAN_WARNING("[user] attempts to administer \the [src] to [M]..."),
+								SPAN_NOTICE("You attempt to administer \the [src] to [M]..."))
 		if (!do_after(user, 1 SECONDS, M))
 			to_chat(user,"<span class='notice'>You and \the [M] need to be standing still in order to inject \the [src].</span>")
 			return
@@ -184,7 +185,7 @@
 			stored_cartridge = null
 			update_icon()
 	else
-		to_chat(user,"<span class='warning'>Nothing happens!</span>")
+		to_chat(user,SPAN_WARNING("Nothing happens!"))
 
 	update_icon()
 	return

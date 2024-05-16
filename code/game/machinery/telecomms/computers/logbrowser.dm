@@ -114,7 +114,7 @@
 	if(href_list["delete"])
 
 		if(!src.allowed(usr) && !emagged)
-			to_chat(usr, "<span class='warning'>ACCESS DENIED.</span>")
+			to_chat(usr, SPAN_WARNING("ACCESS DENIED."))
 			return
 
 		if(SelectedServer)

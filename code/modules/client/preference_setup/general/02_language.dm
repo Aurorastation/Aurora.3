@@ -57,7 +57,7 @@
 
 	if (pref.alternate_languages.len > S.num_alternate_languages)
 		if(pref.client)
-			to_chat(pref.client, "<span class='warning'>You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b></span>")
+			to_chat(pref.client, SPAN_WARNING("You have too many languages saved for [pref.species].<br><b>The list has been reset. Please check your languages in character creation!</b>"))
 		pref.alternate_languages.Cut()
 		return
 
@@ -70,7 +70,7 @@
 	var/list/bad_langs = pref.alternate_languages - langs
 	if (bad_langs.len)
 		if(pref.client)
-			to_chat(pref.client, "<span class='warning'>[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!</span>")
+			to_chat(pref.client, SPAN_WARNING("[bad_langs.len] invalid language\s were found in your character setup! Please save your character again to stop this error from repeating!"))
 
 		for (var/L in bad_langs)
 			if(pref.client)

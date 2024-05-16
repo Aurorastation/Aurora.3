@@ -87,7 +87,7 @@
 				pr_open = 1
 				switch(alert(user, "What would you like to do?", "Lighter", "Press the button.", "Close the lighter."))
 					if("Press the button.")
-						to_chat(user, "<span class='warning'>You press the button.</span>")
+						to_chat(user, SPAN_WARNING("You press the button."))
 						flick("c-4detonator_click", src)
 						if(src.bomb)
 							src.bomb.detonate()

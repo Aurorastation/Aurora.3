@@ -77,7 +77,7 @@
 			return
 		last_act = world.time
 
-		to_chat(user, "<span class='warning'>You start [P.drill_verb] [src].</span>")
+		to_chat(user, SPAN_WARNING("You start [P.drill_verb] [src]."))
 
 
 
@@ -89,8 +89,8 @@
 
 		if(excavation_level > 100)
 			//failure
-			user.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>",\
-			"<span class='warning'>[src] has disintegrated under your onslaught, any secrets it was holding are long gone.</span>")
+			user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
+			SPAN_WARNING("[src] has disintegrated under your onslaught, any secrets it was holding are long gone."))
 			qdel(src)
 			return
 
@@ -103,9 +103,9 @@
 					var/obj/machinery/artifact/X = O
 					if(X.my_effect)
 						X.my_effect.artifact_id = artifact_find.artifact_id
-				src.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>")
+				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"))
 			else
-				user.visible_message("<span class='warning'><b>[src] suddenly crumbles away.</b></span>",\
+				user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
 				"<span class='notice'>[src] has been whittled away under your careful excavation, but there was nothing of interest inside.</span>")
 			qdel(src)
 

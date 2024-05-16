@@ -81,7 +81,7 @@
 
 /obj/item/toy/waterballoon/throw_impact(atom/hit_atom)
 	if(src.reagents.total_volume >= 1)
-		src.visible_message("<span class='warning'>\The [src] bursts!</span>","You hear a pop and a splash.")
+		src.visible_message(SPAN_WARNING("\The [src] bursts!"),"You hear a pop and a splash.")
 		src.reagents.touch_turf(get_turf(hit_atom))
 		for(var/atom/A in get_turf(hit_atom))
 			src.reagents.touch(A)
@@ -117,14 +117,14 @@
 /obj/item/toy/balloon/attack_self(mob/user as mob)
 	user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 	if(user.a_intent == I_HELP)
-		user.visible_message("<span class='notice'><b>\The [user]</b> pokes [src]!</span>","<span class='notice'>You poke [src]!</span>")
+		user.visible_message(SPAN_NOTICE("<b>\The [user]</b> pokes [src]!"), SPAN_NOTICE("You poke [src]!"))
 	else if (user.a_intent == I_HURT)
-		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
 		if(prob(66))
-			user.visible_message("<span class='warning'><b>\The [user]</b> attempts to pop [src]!</span>","<span class='warning'>You attempt to pop [src]!</span>")
+			user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to pop [src]!"), SPAN_WARNING("You attempt to pop [src]!"))
 		else
-			user.visible_message("<span class='warning'><b>\The [user]</b> pops [src]!</span>","<span class='warning'>You pop [src]!</span>")
+			user.visible_message(SPAN_WARNING("<b>\The [user]</b> pops [src]!"), SPAN_WARNING("You pop [src]!"))
 			burst()
 	else
 		user.visible_message("<span class='notice'><b>\The [user]</b> lightly bats the [src].</span>","<span class='notice'>You lightly bat the [src].</span>")
@@ -422,7 +422,7 @@
 			dart_count++
 			to_chat(user, "<span class='notice'>You load the foam dart into \the [src].</span>")
 		else
-			to_chat(usr, "<span class='warning'>\The [src] is already fully loaded.</span>")
+			to_chat(usr, SPAN_WARNING("\The [src] is already fully loaded."))
 
 
 /obj/item/toy/crossbow/afterattack(atom/target, mob/user, flag)
@@ -456,7 +456,7 @@
 						continue
 
 					for(var/mob/O in viewers(world.view, D))
-						O.show_message(text("<span class='warning'>\The [] was hit by the foam dart!</span>", M), 1)
+						O.show_message(SPAN_WARNING("\The [M] was hit by the foam dart!"), 1)
 					new /obj/item/toy/ammo/crossbow(M.loc)
 					qdel(D)
 					return
@@ -485,7 +485,7 @@
 		for(var/mob/O in viewers(M, null))
 			if(O.client)
 				O.show_message(text("<span class='notice'>\The [] casually lines up a shot with []'s head and pulls the trigger.</span>", user, M), 1)
-				O.show_message(text("<span class='warning'>\The [] was hit in the head by the foam dart!</span>", M), 1)
+				O.show_message(SPAN_WARNING("\The [M] was hit in the head by the foam dart!"), 1)
 
 		playsound(src, 'sound/items/syringeproj.ogg', 50, TRUE)
 		new /obj/item/toy/ammo/crossbow(M.loc)
@@ -968,9 +968,9 @@
 	if(user.a_intent == I_HELP)
 		user.visible_message("<span class='notice'><b>\The [user]</b> hugs [src]!</span>","<span class='notice'>You hug [src]!</span>")
 	else if (user.a_intent == I_HURT)
-		user.visible_message("<span class='warning'><b>\The [user]</b> punches [src]!</span>","<span class='warning'>You punch [src]!</span>")
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> punches [src]!"), SPAN_WARNING("You punch [src]!"))
 	else if (user.a_intent == I_GRAB)
-		user.visible_message("<span class='warning'><b>\The [user]</b> attempts to strangle [src]!</span>","<span class='warning'>You attempt to strangle [src]!</span>")
+		user.visible_message(SPAN_WARNING("<b>\The [user]</b> attempts to strangle [src]!"), SPAN_WARNING("You attempt to strangle [src]!"))
 	else
 		user.visible_message("<span class='notice'><b>\The [user]</b> pokes the [src].</span>","<span class='notice'>You poke the [src].</span>")
 		playsound(src, poke_sound, 25, 0)

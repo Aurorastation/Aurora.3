@@ -121,7 +121,7 @@
 		dat+= "<Font color ='black'><B>Maintenance panel controls</B></font><HR>"
 		dat+= "<font color ='grey'>The panel is ridden with controls, button and meters, labeled in strange signs and symbols that <BR>you cannot understand. Probably the manufactoring world's language.<BR> Among other things, a few controls catch your eye.<BR><BR></font>"
 		dat+= text("<font color ='black'>A small dial with a \"ë\" symbol embroidded on it. It's pointing towards a gauge that reads []</font>.<BR> <span class='notice'><A href='?src=\ref[];toggleUV=1'> Turn towards []</A><BR></span>",(src.issuperUV ? "15nm" : "185nm"),src,(src.issuperUV ? "185nm" : "15nm") )
-		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : "<span class='warning'><B>RED</B></span>"),src)
+		dat+= text("<font color ='black'>A thick old-style button, with 2 grimy LED lights next to it. The [] LED is on.</font><BR><font color ='blue'><A href='?src=\ref[];togglesafeties=1'>Press button</a></font>",(src.safetieson? "<font color='green'><B>GREEN</B></font>" : SPAN_WARNING("<B>RED</B>")),src)
 		dat+= text("<HR><BR><A href='?src=\ref[];mach_close=suit_storage_unit'>Close panel</A>", user)
 		//user << browse(dat, "window=ssu_m_panel;size=400x500")
 		//onclose(user, "ssu_m_panel")
@@ -233,7 +233,7 @@
 
 	if(!protected)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
-		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
+		to_chat(user, SPAN_WARNING("You try to touch the controls but you get zapped. There must be a short circuit somewhere."))
 		return*/
 	else  //welp, the guy is protected, we can continue
 		if(src.issuperUV)
@@ -259,7 +259,7 @@
 
 	if(!protected)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 75, 1, -1)
-		to_chat(user, "<span class='warning'>You try to touch the controls but you get zapped. There must be a short circuit somewhere.</span>")
+		to_chat(user, SPAN_WARNING("You try to touch the controls but you get zapped. There must be a short circuit somewhere."))
 		return*/
 	else
 		to_chat(user, "You push the button. The coloured LED next to it changes.")
@@ -311,7 +311,7 @@
 
 /obj/machinery/suit_storage_unit/proc/toggle_open(mob/user as mob)
 	if(src.islocked || src.isUV)
-		to_chat(user, "<span class='warning'>Unable to open unit.</span>")
+		to_chat(user, SPAN_WARNING("Unable to open unit."))
 		return
 	if(src.OCCUPANT)
 		src.eject_occupant(user)
@@ -322,7 +322,7 @@
 
 /obj/machinery/suit_storage_unit/proc/toggle_lock(mob/user as mob)
 	if(src.OCCUPANT && src.safetieson)
-		to_chat(user, "<span class='warning'>The Unit's safety protocols disallow locking when a biological form is detected inside its compartments.</span>")
+		to_chat(user, SPAN_WARNING("The Unit's safety protocols disallow locking when a biological form is detected inside its compartments."))
 		return
 	if(src.isopen)
 		return
@@ -334,10 +334,10 @@
 	if(src.isUV || src.isopen) //I'm bored of all these sanity checks
 		return
 	if(src.OCCUPANT && src.safetieson)
-		to_chat(user, "<span class='warning'><B>WARNING:</B> Biological entity detected in the confines of the Unit's storage. Cannot initiate cycle.</span>")
+		to_chat(user, SPAN_WARNING("<B>WARNING:</B> Biological entity detected in the confines of the Unit's storage. Cannot initiate cycle."))
 		return
 	if(!src.HELMET && !src.MASK && !src.SUIT && !src.OCCUPANT ) //shit's empty yo
-		to_chat(user, "<span class='warning'>Unit storage bays empty. Nothing to disinfect -- Aborting.</span>")
+		to_chat(user, SPAN_WARNING("Unit storage bays empty. Nothing to disinfect -- Aborting."))
 		return
 	to_chat(user, "You start the Unit's cauterisation cycle.")
 	src.cycletime_left = 20
@@ -378,7 +378,7 @@
 					src.SUIT = null
 				if(src.MASK)
 					src.MASK = null
-				visible_message("<span class='warning'>With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber.</span>", range = 3)
+				visible_message(SPAN_WARNING("With a loud whining noise, [src]'s door grinds open. Puffs of ashen smoke come out of its chamber."), range = 3)
 				src.isbroken = 1
 				src.isopen = 1
 				src.islocked = 0
@@ -438,13 +438,13 @@
 	if (usr.stat != 0)
 		return
 	if (!src.isopen)
-		to_chat(usr, "<span class='warning'>The unit's doors are shut.</span>")
+		to_chat(usr, SPAN_WARNING("The unit's doors are shut."))
 		return
 	if (!src.ispowered || src.isbroken)
-		to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
+		to_chat(usr, SPAN_WARNING("The unit is not operational."))
 		return
 	if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) )
-		to_chat(usr, "<span class='warning'>It's too cluttered inside for you to fit in!</span>")
+		to_chat(usr, SPAN_WARNING("It's too cluttered inside for you to fit in!"))
 		return
 	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
 	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
@@ -479,13 +479,13 @@
 		if( !(ismob(G.affecting)) )
 			return TRUE
 		if (!src.isopen)
-			to_chat(usr, "<span class='warning'>The unit's doors are shut.</span>")
+			to_chat(usr, SPAN_WARNING("The unit's doors are shut."))
 			return TRUE
 		if (!src.ispowered || src.isbroken)
-			to_chat(usr, "<span class='warning'>The unit is not operational.</span>")
+			to_chat(usr, SPAN_WARNING("The unit is not operational."))
 			return TRUE
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
-			to_chat(user, "<span class='warning'>The unit's storage area is too cluttered.</span>")
+			to_chat(user, SPAN_WARNING("The unit's storage area is too cluttered."))
 			return TRUE
 		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
 		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))

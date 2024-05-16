@@ -135,7 +135,7 @@ var/global/list/can_enter_vent_with = list(
 					if(!is_type_in_list(vent_found, ventcrawl_machinery) || !vent_found.can_crawl_through())
 						vent_found = null
 				else
-					to_chat(src, "<span class='warning'>Stand next to the selected vent!</span>")
+					to_chat(src, SPAN_WARNING("Stand next to the selected vent!"))
 					return
 
 			if(!vent_found && isnull(clicked_on))
@@ -150,7 +150,7 @@ var/global/list/can_enter_vent_with = list(
 						break
 
 			if(vent_found:is_welded()) // welded check
-				to_chat(src, "<span class='warning'>You can't crawl into a welded vent!</span>")
+				to_chat(src, SPAN_WARNING("You can't crawl into a welded vent!"))
 				return
 
 			vent_trap_check("departing", vent_found)
@@ -158,16 +158,17 @@ var/global/list/can_enter_vent_with = list(
 			if(vent_found)
 				if(vent_found.network && (vent_found.network.normal_members.len || vent_found.network.line_members.len))
 
-					visible_message("<span class='warning'>[src] begins to climb into the ventilation system!</span>","<span class='notice'>You begin climbing into the ventilation system...</span>")
+					visible_message(SPAN_WARNING("[src] begins to climb into the ventilation system!"),
+									SPAN_NOTICE("You begin climbing into the ventilation system..."))
 					if(vent_found.air_contents && !issilicon(src))
 
 						switch(vent_found.air_contents.temperature)
 							if(0 to BODYTEMP_COLD_DAMAGE_LIMIT)
 								to_chat(src, "<span class='danger'>You feel a painful freeze coming from the vent!</span>")
 							if(BODYTEMP_COLD_DAMAGE_LIMIT to T0C)
-								to_chat(src, "<span class='warning'>You feel an icy chill coming from the vent.</span>")
+								to_chat(src, SPAN_WARNING("You feel an icy chill coming from the vent."))
 							if(T0C + 40 to BODYTEMP_HEAT_DAMAGE_LIMIT)
-								to_chat(src, "<span class='warning'>You feel a hot wash coming from the vent.</span>")
+								to_chat(src, SPAN_WARNING("You feel a hot wash coming from the vent."))
 							if(BODYTEMP_HEAT_DAMAGE_LIMIT to INFINITY)
 								to_chat(src, "<span class='danger'>You feel a searing heat coming from the vent!</span>")
 
@@ -175,9 +176,9 @@ var/global/list/can_enter_vent_with = list(
 							if(0 to HAZARD_LOW_PRESSURE)
 								to_chat(src, "<span class='danger'>You feel a rushing draw pulling you into the vent!</span>")
 							if(HAZARD_LOW_PRESSURE to WARNING_LOW_PRESSURE)
-								to_chat(src, "<span class='warning'>You feel a strong drag pulling you into the vent.</span>")
+								to_chat(src, SPAN_WARNING("You feel a strong drag pulling you into the vent."))
 							if(WARNING_HIGH_PRESSURE to HAZARD_HIGH_PRESSURE)
-								to_chat(src, "<span class='warning'>You feel a strong current pushing you away from the vent.</span>")
+								to_chat(src, SPAN_WARNING("You feel a strong current pushing you away from the vent."))
 							if(HAZARD_HIGH_PRESSURE to INFINITY)
 								to_chat(src, "<span class='danger'>You feel a roaring wind pushing you away from the vent!</span>")
 

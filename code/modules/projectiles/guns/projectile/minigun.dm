@@ -53,21 +53,21 @@
 		return
 
 	if (user.back!= src)
-		to_chat(user, "<span class='warning'>\The [src] must be worn to deploy \the [gun]!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] must be worn to deploy \the [gun]!"))
 		return
 
 	if(use_check_and_message(user))
 		return
 
 	if(!gun)
-		to_chat(user, "<span class='warning'>There is no weapon attached the \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("There is no weapon attached the \the [src]!"))
 
 	if(armed)
-		to_chat(user, "<span class='warning'>\The [src] has been already deployed!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] has been already deployed!"))
 
 	else
 		if(!user.put_in_hands(gun))
-			to_chat(user, "<span class='warning'>You need a free hand to hold \the [gun]!</span>")
+			to_chat(user, SPAN_WARNING("You need a free hand to hold \the [gun]!"))
 			return
 
 		armed = TRUE
@@ -141,7 +141,7 @@
 		return FALSE
 
 	if (user.back!= source)
-		to_chat(user, "<span class='warning'>\The [source] must be worn to fire \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("\The [source] must be worn to fire \the [src]!"))
 		return FALSE
 
 	return ..()

@@ -49,7 +49,7 @@
 	if(!gibbed)
 		for (var/mob/living/A in contents)
 			A.forceMove(get_turf(src))
-		visible_message("<span class='warning'>\The [src] vanishes!</span>")
+		visible_message(SPAN_WARNING("\The [src] vanishes!"))
 		dust()
 		return TRUE
 
@@ -68,7 +68,7 @@
 		return
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>You must wait a little while before you can use this ability again!</span>")
+		to_chat(src, SPAN_WARNING("You must wait a little while before you can use this ability again!"))
 		return
 
 	src.visible_message("<span class='danger'>\The [src] starts stuffing \the [target] inside his bag!</span>", \
