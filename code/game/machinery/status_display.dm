@@ -128,11 +128,11 @@
 			overlay = update_message(message2_overlay, LINE2_Y, message2, LINE2_X, line_pair)
 			if(overlay)
 				message2_overlay = overlay
-			return 1
 			if(message1 == "" && message2 == "")
 				return 1
 			else
 				AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
+				return 1
 		if(STATUS_DISPLAY_ALERT)
 			set_picture(picture_state)
 			return 1
