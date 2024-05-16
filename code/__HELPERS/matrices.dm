@@ -119,9 +119,16 @@
 
 	return list(R + x,R,R, G,G + x,G, B,B,B + x)
 
-/**Matrix math
-** Given 2 matrices mxn and nxp (row major) it multiplies their members and return an mxp matrix
-** Do make sure your lists actually have this many elements **/
+#undef LUMR
+#undef LUMG
+#undef LUMB
+
+/**
+  * # Matrix math
+  * Given 2 matrices mxn and nxp (row major) it multiplies their members and return an mxp matrix
+  *
+  * Do make sure your lists actually have this many elements
+  */
 /proc/multiply_matrices(list/A, list/B, m, n, p)
 	var/list/result = list()
 	result.len = m * p
@@ -136,7 +143,3 @@
 				result[(row-1)*p + col] = sum
 
 	return result
-
-#undef LUMR
-#undef LUMG
-#undef LUMB
