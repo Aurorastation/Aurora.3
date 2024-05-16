@@ -2,6 +2,7 @@
 	name = "shuttle control console"
 	icon_screen = "shuttle"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 
 	var/shuttle_tag      // Used to coordinate data in shuttle controller.

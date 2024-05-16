@@ -147,3 +147,107 @@
   Sparky_hotdog:
   - rscadd: Added roller bed racks, which can store 4 roller beds at a time. Replaced
       the previous stacks of roller beds in medical with racks.
+2024-05-08:
+  DreamySkrell:
+  - rscadd: Adds BAPI - byondapi.
+2024-05-10:
+  CactusMouth:
+  - rscadd: Changed the Listening Outpost's tiles to airfull, so that the hostile
+      mobs there (Grems) do not immediately die.
+  CourierBravo:
+  - bugfix: fixed the off color marble prep-counter in the kitchen. This isn't visble
+      in game, but it is visible in strong.
+  FluffyGhost:
+  - bugfix: Hopefully fix the engine sound volume for the last time.
+  - code_imp: Various DMdocs to the protolathe code.
+  - balance: Increased power draw of the protolathe.
+  - balance: Made the protolathe realtime-constant.
+  - code_imp: Adding materials to the protolathe now uses TGUI input.
+  - code_imp: Removed a basically useless processing, uses a timer / queue handler
+      proc now.
+  - code_imp: DMDoc'd other parts of the code, including corrections between ticks
+      and deciseconds.
+  GeneralCamo:
+  - imageadd: Added sprites for assisted organs.
+  - rscadd: Added assisted brains.
+  Jasorn:
+  - bugfix: Allows ghosts to examine ore box contents.
+  Peppermint96:
+  - rscdel: Removed punpun's banana peel to prevent noise complaints.
+  RustingWithYou:
+  - rscadd: Adds several Ouerea ruins.
+2024-05-12:
+  FluffyGhost:
+  - server: Updated CI to use Rust 3.1.0-a1
+  - bugfix: Ore satchel won't spam failed pickups anymore unless the user does an
+      explicit pickup request (clicking on a turf/item).
+  Jasorn:
+  - bugfix: Fixes the 9mm pistol becoming invisible when removing the magazine.
+  SimpleMaroon:
+  - qol: Changed the name of the Hivenet Voiding verb to Untethering, by request of
+      Vaurca lore.
+2024-05-13:
+  4000daniel1:
+  - rscadd: Added instruments to the loadout for use by off-duties and passengers
+      under the general tab. Also ported some in-hand sprites for them from TG.
+  CactusMouth:
+  - rscadd: Added a new awaysite, the Zavod Shuttle.
+  CourierBravo:
+  - qol: Added several pice scanners and an extra quikpay to operations.
+  - qol: Added more trash bags to janitorial.
+  - qol: Doubled the number of bluespace flares, to encourage their use.
+  - bugfix: Replaced an empty first aid kit in teleporter room with an actual first
+      aid kit.
+  - bugfix: Removed a floor light under a door that shouldn't be there.
+  - bugfix: Properly orented the airtight flaps in the fuel bay and the kitchen.
+  - bugfix: Finally added the rubber ducky mentioned in July, 2022.
+  DreamySkrell:
+  - balance: Lower Badlands spawn weight of some CoC ships.
+  - rscadd: 'Disables ships that do not follow current standards: Wildlands Militia,
+      Taj Migrant, Diona Serz, Diona Rokz.'
+  Evandorf:
+  - rscadd: Adds a new civilian unathi ship, intended to fly into shoals to harvest
+      carp.
+  FluffyGhost:
+  - code_imp: DMDoc'd the vars of /datum/bounty/item.
+  - bugfix: All the two types of gas grenades are now allowed for the gas grenade
+      bounty.
+  - server: Updated the rustg dll to our 3.1.0+a1 version.
+  - rscadd: Added an initial implementation of field howitzers.
+  Geeves:
+  - rscadd: Crates, closets, rollerbeds and wheelchairs now cannot safely traverse
+      stairs.
+  - rscadd: The majority of ghost roles now spawn with an Idris account and some funds.
+  GeneralCamo:
+  - rscadd: Added emissives, objects that can alpha mask the lighting plane while
+      being blocked by blockers.
+  - refactor: Converted all screen overlays and holographic overlays to the new system.
+  - rscdel: Removed bloom.
+  - imageadd: Restored the intended scrubber animation.
+  Hollyhock:
+  - rscadd: 'Gives chaplains a new alternate title, meant for Preimminent chaplains:
+      Shaper.'
+  Karl Johansson:
+  - rscadd: Added wounds and bandages to the health doll.
+  Lavillastrangiato:
+  - qol: Adds many quality of life features to various offships.
+  - bugfix: Adds missing buttons, bad tiles, and other missing things.
+  - qol: Gives the xenoarchaeology belt one extra slot. Adds miscellaneous investigation
+      items to the security belt.
+  MattAtlas:
+  - bugfix: Fixed command announcement encoding.
+  - qol: Made some command console inputs into TGUIs like the rest of the console.
+  SimpleMaroon:
+  - qol: Allows Vaurcae wearing shaper helmets to consume food or drink without having
+      to remove the helmet.
+  - bugfix: Research voidsuit suit cyclers no longer make the voidsuit inside invisible
+      when applying species customization routines.
+  Sparky_hotdog:
+  - bugfix: Fixed an issue where you couldn't access either of the Intrepid copilot
+      chairs without climbing over them.
+  hazelmouse:
+  - rscadd: Adds tinted windows to the bar backroom, so you can have your shady dealings
+      in private.
+  nauticall:
+  - rscadd: Added Aayun Kaiser's custom item, a custom offworlder ESS suit.
+  - qol: The ESS injector module now comes with RMT.

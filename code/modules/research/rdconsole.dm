@@ -32,6 +32,7 @@ won't update every console in existence) but it's more of a hassle to do. Also, 
 
 	icon_screen = "rdcomp"
 	icon_keyboard = "purple_key"
+	icon_keyboard_emis = "purple_key_mask"
 	light_color = LIGHT_COLOR_PURPLE
 
 	circuit = /obj/item/circuitboard/rdconsole
