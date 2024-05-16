@@ -239,8 +239,8 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /obj/machinery/mass_driver{
 	dir = 4;
-	id = "pirate_core_driver";
-	_wifi_id = "pirate_core_driver"
+	id = "coc_core_driver";
+	_wifi_id = "coc_core_driver"
 	},
 /turf/simulated/floor/greengrid,
 /area/coc_survey_ship/engineering)
@@ -998,6 +998,22 @@
 /obj/effect/floor_decal/corner_wide/grey/diagonal,
 /turf/simulated/floor/tiled/white,
 /area/coc_survey_ship/kitchen)
+"hK" = (
+/obj/machinery/button/remote/driver{
+	pixel_y = 28;
+	id = "coc_core_driver";
+	_wifi_id = "coc_core_driver";
+	pixel_x = -2
+	},
+/obj/machinery/button{
+	pixel_y = 28;
+	id = "coc_core_shunt";
+	_wifi_id = "coc_core_shunt";
+	pixel_x = 7;
+	name = "blast door button"
+	},
+/turf/simulated/floor/carpet/rubber,
+/area/coc_survey_ship/engineering)
 "hL" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 8
@@ -3798,7 +3814,8 @@
 /area/coc_survey_ship/starboard_propulsion)
 "zS" = (
 /obj/machinery/door/blast/regular{
-	id = "pirate_core_shunt"
+	id = "coc_core_shunt";
+	_wifi_id = "coc_core_shunt"
 	},
 /turf/simulated/floor/reinforced,
 /area/coc_survey_ship/engineering)
@@ -21698,7 +21715,7 @@ Ga
 wN
 SH
 wN
-qR
+hK
 PU
 Zd
 bG
