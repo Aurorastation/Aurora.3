@@ -42,7 +42,7 @@
 
 	if (!(vampire.status & VAMP_FULLPOWER) && vampire.blood_total >= 650)
 		vampire.status |= VAMP_FULLPOWER
-		to_chat(src, "<span class='notice'>You've gained full power. Some abilities now have bonus functionality, or work faster.</span>")
+		to_chat(src, SPAN_NOTICE("You've gained full power. Some abilities now have bonus functionality, or work faster."))
 
 // Runs the checks for whether or not we can use a power.
 /mob/proc/vampire_power(var/required_blood = 0, var/max_stat = 0, var/ignore_holder = 0, var/disrupt_healing = 1, var/required_vampire_blood = 0)

@@ -27,7 +27,7 @@ var/list/floor_light_cache = list()
 /obj/machinery/floor_light/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		anchored = !anchored
-		visible_message("<span class='notice'>\The [user] has [anchored ? "attached" : "detached"] \the [src].</span>")
+		visible_message(SPAN_NOTICE("\The [user] has [anchored ? "attached" : "detached"] \the [src]."))
 		playsound(src.loc, 'sound/items/Screwdriver.ogg', 100, 1)
 		return TRUE
 	else if(attacking_item.iswelder() && (damaged || (stat & BROKEN)))
@@ -39,7 +39,7 @@ var/list/floor_light_cache = list()
 			return TRUE
 		if(!src || !WT.isOn())
 			return TRUE
-		visible_message("<span class='notice'>\The [user] has repaired \the [src].</span>")
+		visible_message(SPAN_NOTICE("\The [user] has repaired \the [src]."))
 		update_icon()
 		stat &= ~BROKEN
 		damaged = null
@@ -52,7 +52,7 @@ var/list/floor_light_cache = list()
 			to_chat(user, SPAN_WARNING("\The [src] must be unfastened from the [loc] first!"))
 			return TRUE
 		else
-			to_chat(user, "<span class='notice'>You lever off the [name].</span>")
+			to_chat(user, SPAN_NOTICE("You lever off the [name]."))
 			playsound(src.loc, 'sound/items/crowbar_tile.ogg', 100, TRUE)
 			if(stat & BROKEN)
 				qdel(src)
@@ -93,7 +93,7 @@ var/list/floor_light_cache = list()
 		on = !on
 		if(on)
 			update_use_power(POWER_USE_ACTIVE)
-		visible_message("<span class='notice'>\The [user] turns \the [src] [on ? "on" : "off"].</span>")
+		visible_message(SPAN_NOTICE("\The [user] turns \the [src] [on ? "on" : "off"]."))
 		update_brightness()
 		return
 

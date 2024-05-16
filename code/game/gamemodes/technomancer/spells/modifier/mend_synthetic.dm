@@ -21,7 +21,7 @@
 
 /datum/modifier/technomancer/mend_synthetic
 	on_created_text = SPAN_WARNING("Sparkles begin to appear around you, and your systems report integrity rising.")
-	on_expired_text = "<span class='notice'>The sparkles have faded, although your systems seem to be better than before.</span>"
+	on_expired_text = SPAN_NOTICE("The sparkles have faded, although your systems seem to be better than before.")
 
 /datum/modifier/technomancer/mend_synthetic/process()
 	. = ..()

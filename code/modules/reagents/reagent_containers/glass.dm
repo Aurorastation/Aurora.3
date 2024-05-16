@@ -80,9 +80,9 @@
 	if(attacking_item.ispen() || istype(attacking_item, /obj/item/device/flashlight/pen))
 		var/tmp_label = sanitizeSafe( tgui_input_text(user, "Enter a label for [name]", "Label", label_text, MAX_NAME_LEN), MAX_NAME_LEN )
 		if(length(tmp_label) > 15)
-			to_chat(user, "<span class='notice'>The label can be at most 15 characters long.</span>")
+			to_chat(user, SPAN_NOTICE("The label can be at most 15 characters long."))
 		else
-			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
+			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
 			update_name_label()
 			update_icon()
@@ -267,7 +267,7 @@
 		qdel(src)
 		return
 	else if(attacking_item.iswirecutter())
-		to_chat(user, "<span class='notice'>You cut a big hole in \the [src] with \the [attacking_item].</span>")
+		to_chat(user, SPAN_NOTICE("You cut a big hole in \the [src] with \the [attacking_item]."))
 		user.put_in_hands(new helmet_type)
 		qdel(src)
 		return
@@ -276,7 +276,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is empty!"))
 		else
 			reagents.trans_to_obj(attacking_item, 5)
-			to_chat(user, "<span class='notice'>You wet \the [attacking_item] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You wet \the [attacking_item] in \the [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return
 	else
@@ -293,7 +293,7 @@
 	update_icon()
 
 /obj/item/reagent_containers/glass/bucket/self_feed_message(var/mob/user)
-	to_chat(user, "<span class='notice'>You drink heavily from \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You drink heavily from \the [src]."))
 
 /obj/item/reagent_containers/glass/bucket/wood
 	name = "wooden bucket"

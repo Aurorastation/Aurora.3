@@ -202,11 +202,11 @@
 	query.Execute(list("id" = mirror_id))
 
 	if (!query.NextRow())
-		to_chat(user, "<span class='notice'>Unable to locate mirror with ID #[mirror_id].</span>")
+		to_chat(user, SPAN_NOTICE("Unable to locate mirror with ID #[mirror_id]."))
 		return
 
 	if (!query.item[1] || !length(query.item[1]))
-		to_chat(user, "<span class='notice'>No attached ckeys were found.</span>")
+		to_chat(user, SPAN_NOTICE("No attached ckeys were found."))
 		return
 
 	var/output = "<a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a><br><br>"
@@ -214,12 +214,12 @@
 		var/list/ckeys = json_decode(query.item[1])
 
 		if (!ckeys.len)
-			to_chat(user, "<span class='notice'>No alternate ckeys to report.</span>")
+			to_chat(user, SPAN_NOTICE("No alternate ckeys to report."))
 			return
 
 		output += ckeys.Join("<br>")
 	catch()
-		to_chat(user, "<span class='notice'>Maligned data found. Please alert the system administrator.</span>")
+		to_chat(user, SPAN_NOTICE("Maligned data found. Please alert the system administrator."))
 		return
 
 	output += "<br><br><a href='?_src_=holder;dbbanmirrors=[query.item[2]];'>Back</a>"
@@ -241,7 +241,7 @@
 	if (query.ErrorMsg())
 		to_chat(user, SPAN_WARNING("An error occured while toggling mirror status!"))
 	else
-		to_chat(user, "<span class='notice'>Mirror set to [inactive ? "ACTIVE" : "INACTIVE"].</span>")
+		to_chat(user, SPAN_NOTICE("Mirror set to [inactive ? "ACTIVE" : "INACTIVE"]."))
 
 /proc/handle_connection_info(var/client/C, var/data)
 	if (!C)

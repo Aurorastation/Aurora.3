@@ -67,7 +67,7 @@
 		playsound(src.loc, hitsound, 60, 1)
 		take_damage(damage)
 	else
-		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
 		playsound(src.loc, hitsound_light, 8, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	user.do_attack_animation(src)
 
@@ -340,9 +340,9 @@
 
 		var/obj/item/weldingtool/welder = attacking_item
 		if(welder.use(0,user))
-			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
+			to_chat(user, SPAN_NOTICE("You start to fix dents and weld \the [repairing] into place."))
 			if(welder.use_tool(src, user, 5 * repairing.amount, volume = 50) && welder && welder.isOn())
-				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You finish repairing the damage to \the [src]."))
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
 				update_icon()
 				qdel(repairing)
@@ -350,7 +350,7 @@
 		return TRUE
 
 	if(repairing && attacking_item.iscrowbar())
-		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
+		to_chat(user, SPAN_NOTICE("You remove \the [repairing]."))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		repairing.forceMove(user.loc)
 		repairing = null

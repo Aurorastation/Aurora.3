@@ -151,7 +151,7 @@
 					to_chat(R, "<span class='danger'>Law Notice</span>")
 					R.laws.show_laws(R)
 			if(usr != owner)
-				to_chat(usr, "<span class='notice'>Laws displayed.</span>")
+				to_chat(usr, SPAN_NOTICE("Laws displayed."))
 			return TRUE
 
 /datum/tgui_module/admin/law_manager/ui_data(mob/user)

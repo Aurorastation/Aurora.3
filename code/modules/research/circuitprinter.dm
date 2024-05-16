@@ -51,7 +51,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 		update_icon()
 	else
 		if(busy)
-			visible_message("<span class='notice'>[icon2html(src, viewers(get_turf(src)))] flashes: insufficient materials: [getLackingMaterials(D)].</span>")
+			visible_message(SPAN_NOTICE("[icon2html(src, viewers(get_turf(src)))] flashes: insufficient materials: [getLackingMaterials(D)]."))
 			busy = 0
 			update_icon()
 
@@ -106,7 +106,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 
 /obj/machinery/r_n_d/circuit_imprinter/attackby(obj/item/attacking_item, mob/user)
 	if(busy)
-		to_chat(user, "<span class='notice'>\The [src] is busy. Please wait for completion of previous operation.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is busy. Please wait for completion of previous operation."))
 		return 1
 	if(default_deconstruction_screwdriver(user, attacking_item))
 		if(linked_console)
@@ -118,7 +118,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(default_part_replacement(user, attacking_item))
 		return
 	if(panel_open)
-		to_chat(user, "<span class='notice'>You can't load \the [src] while it's opened.</span>")
+		to_chat(user, SPAN_NOTICE("You can't load \the [src] while it's opened."))
 		return 1
 	if(!linked_console)
 		to_chat(user, "\The [src] must be linked to an R&D console first.")
@@ -126,13 +126,13 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(attacking_item.is_open_container())
 		return 0
 	if(!istype(attacking_item, /obj/item/stack/material))
-		to_chat(user, "<span class='notice'>You cannot insert this item into \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You cannot insert this item into \the [src]!"))
 		return 1
 	if(stat)
 		return 1
 
 	if(TotalMaterials() + SHEET_MATERIAL_AMOUNT > max_material_storage)
-		to_chat(user, "<span class='notice'>\The [src]'s material bin is full. Please remove material before adding more.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src]'s material bin is full. Please remove material before adding more."))
 		return 1
 
 	var/obj/item/stack/material/stack = attacking_item
@@ -143,7 +143,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	if(!attacking_item)
 		return
 	if(!Adjacent(user))
-		to_chat(user, "<span class='notice'>\The [src] is too far away for you to insert this.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is too far away for you to insert this."))
 		return
 	if(amount <= 0)//No negative numbers
 		return
@@ -156,7 +156,7 @@ using metal and glass, it uses glass and reagents (usually sulphuric acid).
 	use_power_oneoff(max(1000, (SHEET_MATERIAL_AMOUNT * amount / 10)))
 	if(do_after(user, 16))
 		if(stack.use(amount))
-			to_chat(user, "<span class='notice'>You add [amount] sheets to \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You add [amount] sheets to \the [src]."))
 			materials[stack.default_type] += amount * SHEET_MATERIAL_AMOUNT
 	busy = 0
 	updateUsrDialog()

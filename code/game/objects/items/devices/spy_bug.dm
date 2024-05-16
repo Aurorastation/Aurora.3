@@ -95,10 +95,10 @@
 
 /obj/item/device/spy_monitor/proc/pair(var/obj/item/device/spy_bug/SB, var/mob/living/user)
 	if(SB.camera in cameras)
-		to_chat(user, "<span class='notice'>\The [SB] has been unpaired from \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [SB] has been unpaired from \the [src]."))
 		cameras -= SB.camera
 	else
-		to_chat(user, "<span class='notice'>\The [SB] has been paired with \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("\The [SB] has been paired with \the [src]."))
 		cameras += SB.camera
 
 /obj/item/device/spy_monitor/proc/view_cameras(mob/user)
@@ -121,7 +121,7 @@
 			if(!T || !is_on_same_plane_or_station(T.z, user.z) || !selected_camera.can_use())
 				user.unset_machine()
 				user.reset_view(null)
-				to_chat(user, "<span class='notice'>[selected_camera] unavailable.</span>")
+				to_chat(user, SPAN_NOTICE("[selected_camera] unavailable."))
 				sleep(90)
 			else
 				user.set_machine(selected_camera)

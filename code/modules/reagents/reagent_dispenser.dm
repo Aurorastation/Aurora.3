@@ -25,7 +25,7 @@
 	. = ..()
 	if(distance > 2)
 		return
-	. += "<span class='notice'>It contains [reagents.total_volume] units of reagents.</span>"
+	. += SPAN_NOTICE("It contains [reagents.total_volume] units of reagents.")
 
 /obj/structure/reagent_dispensers/verb/set_APTFT() //set amount_per_transfer_from_this
 	set name = "Set transfer amount"
@@ -61,7 +61,7 @@
 				if(is_open_container())
 					RG.standard_pour_into(user,src)
 				else
-					to_chat(user,"<span class='notice'>The inlet cap on \the [src] is wrenched on tight!</span>")
+					to_chat(user,SPAN_NOTICE("The inlet cap on \the [src] is wrenched on tight!"))
 		return
 
 	if (attacking_item.iswrench())
@@ -138,13 +138,15 @@
 	if (is_leaking)
 		. += SPAN_WARNING("Fuel faucet is wrenched open, leaking the fuel!")
 	if(rig)
-		. += "<span class='notice'>There is some kind of device rigged to the tank.</span>"
+		. += SPAN_NOTICE("There is some kind of device rigged to the tank.")
 
 /obj/structure/reagent_dispensers/fueltank/attack_hand(mob/user)
 	if (rig)
 		user.visible_message("[user] begins to detach [rig] from \the [src].", "You begin to detach [rig] from \the [src]")
 		if(do_after(user, 20))
-			user.visible_message("<span class='notice'>[user] detaches [rig] from \the [src].</span>", "<span class='notice'>You detach [rig] from \the [src]</span>")
+			user.visible_message(SPAN_NOTICE("[user] detaches [rig] from \the [src]."),
+									SPAN_NOTICE("You detach [rig] from \the [src]"))
+
 			rig.forceMove(get_turf(user))
 			rig = null
 			overlays = new/list()
@@ -165,7 +167,8 @@
 			return ..()
 		user.visible_message("[user] begins rigging [attacking_item] to \the [src].", "You begin rigging [attacking_item] to \the [src]")
 		if(do_after(user, 20))
-			user.visible_message("<span class='notice'>[user] rigs [attacking_item] to \the [src].</span>", "<span class='notice'>You rig [attacking_item] to \the [src]</span>")
+			user.visible_message(SPAN_NOTICE("[user] rigs [attacking_item] to \the [src]."),
+									SPAN_NOTICE("You rig [attacking_item] to \the [src]"))
 
 			var/obj/item/device/assembly_holder/H = attacking_item
 			if (istype(H.a_left,/obj/item/device/assembly/igniter) || istype(H.a_right,/obj/item/device/assembly/igniter))

@@ -37,7 +37,7 @@
 		user.drop_from_inventory(gun,src)
 		installed_gun = gun
 		size += gun.w_class
-		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("You slide \the [gun] into the firing mechanism."))
 		playsound(src.loc, /singleton/sound_category/crowbar_sound, 50, 1)
 	else
 		..()
@@ -45,12 +45,12 @@
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
 		installed_gun.forceMove(get_turf(src))
-		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("You slide \the [installed_gun] out of the firing mechanism."))
 		size = initial(size)
 		playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
 		installed_gun = null
 	else
-		to_chat(user, "<span class='notice'>There's no weapon to remove from the mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("There's no weapon to remove from the mechanism."))
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/do_work()
 	if(!installed_gun)

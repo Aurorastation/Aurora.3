@@ -63,10 +63,10 @@
 		H.Robotize()
 	else
 		playsound(src.loc, 'sound/machines/buzz-sigh.ogg', 50, 0)
-		visible_message("<span class='notice'>The machine displays an error message reading it is still making the required parts.</span>")
+		visible_message(SPAN_NOTICE("The machine displays an error message reading it is still making the required parts."))
 		return
 
 /obj/machinery/transformer/proc/rearm()
-	src.visible_message("<span class='notice'>\The [src] pings!</span>")
+	src.visible_message(SPAN_NOTICE("\The [src] pings!"))
 	playsound(src.loc, 'sound/machines/ping.ogg', 50, 0)
 	canuse = TRUE

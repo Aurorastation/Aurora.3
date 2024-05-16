@@ -462,12 +462,18 @@ SUBSYSTEM_DEF(jobs)
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
 		GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[SSatlas.current_map.dock_name] Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [SSatlas.current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
+
+		H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s cryostorage, and departs."),
+							SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart."), range = 3)
+
 		DespawnMob(H)
 	else
 		if(!isDrone(H))
 			GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[SSatlas.current_map.dock_name] Robotic Oversight")
-			H.visible_message("<span class='notice'>[H.name] makes their way to the [SSatlas.current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
+
+			H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s robotic storage, and departs."),
+								SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart."), range = 3)
+
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/LoadJobs(jobsfile)
@@ -763,7 +769,7 @@ SUBSYSTEM_DEF(jobs)
 		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
-				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
+				to_chat(H, SPAN_NOTICE("Placing \the [thing] in your [B.name]!"))
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata
 				var/list/gear_test = prefs.gear[G.display_name]

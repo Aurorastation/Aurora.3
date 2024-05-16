@@ -116,7 +116,7 @@
 			if(M == src || anchored)
 				return 0
 			if(M.is_pacified())
-				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				to_chat(M, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 				return 0
 
 			if(attacker_style && attacker_style.grab_act(H, src))
@@ -124,7 +124,7 @@
 
 			for(var/obj/item/grab/G in src.grabbed_by)
 				if(G.assailant == M)
-					to_chat(M, "<span class='notice'>You already grabbed [src].</span>")
+					to_chat(M, SPAN_NOTICE("You already grabbed [src]."))
 					return
 
 			if (!attempt_grab(M))
@@ -135,7 +135,7 @@
 
 			var/obj/item/grab/G = new /obj/item/grab(M, M, src)
 			if(buckled_to)
-				to_chat(M, "<span class='notice'>You cannot grab [src], [src.get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
+				to_chat(M, SPAN_NOTICE("You cannot grab [src], [src.get_pronoun("he")] [get_pronoun("is")] buckled in!"))
 			if(!G)	//the grab will delete itself in New if affecting is anchored
 				return
 			M.put_in_active_hand(G)
@@ -156,7 +156,7 @@
 
 		if(I_HURT)
 			if(M.is_pacified())
-				to_chat(M, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+				to_chat(M, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 				return 0
 
 			if(attacker_style && attacker_style.harm_act(H, src))
@@ -630,9 +630,11 @@
 		return 0
 
 	if(user == src)
-		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!</span>", "<span class='notice'>You start applying pressure to your [organ.name]!</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!"), 
+								SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
 	else
-		user.visible_message("<span class='notice'>\The [user] starts applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You start applying pressure to [src]'s [organ.name]!</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [src]'s [organ.name]!"), 
+								SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
 	spawn(0)
 		organ.applied_pressure = user
 
@@ -642,9 +644,11 @@
 		organ.applied_pressure = null
 
 		if(user == src)
-			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [user.get_pronoun("his")] [organ.name]!</span>", "<span class='notice'>You stop applying pressure to your [organ.name]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [user.get_pronoun("his")] [organ.name]!"),
+									SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
 		else
-			user.visible_message("<span class='notice'>\The [user] stops applying pressure to [src]'s [organ.name]!</span>", "<span class='notice'>You stop applying pressure to [src]'s [organ.name]!</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [src]'s [organ.name]!"), 
+									SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
 
 	return 1
 

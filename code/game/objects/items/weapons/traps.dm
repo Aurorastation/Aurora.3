@@ -353,7 +353,7 @@
 	if(!target)
 		target = src.loc
 	if(user)
-		visible_message("<span class='notice'>[user] opens \the [src].</span>")
+		visible_message(SPAN_NOTICE("[user] opens \the [src]."))
 
 	var/datum/L = captured ? captured.resolve() : null
 	if (!L)
@@ -383,7 +383,8 @@
 			to_chat(user, SPAN_NOTICE("You need a better grip on \the [M]!"))
 			return
 
-		user.visible_message("<span class='notice'>[user] starts putting [M] into \the [src].</span>", "<span class='notice'>You start putting [M] into \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("[user] starts putting [M] into \the [src]."),
+								SPAN_NOTICE("You start putting [M] into \the [src]."))
 
 		if (!is_type_in_list(M, allowed_mobs))
 			to_chat(user, SPAN_WARNING("[M] won't fit in there!"))
@@ -399,13 +400,13 @@
 		if(!WT.isOn())
 			to_chat(user, SPAN_WARNING("\The [WT] is off!"))
 			return
-		user.visible_message("<span class='notice'>[user] is trying to slice \the [src] open!</span>",
-								"<span class='notice'>You are trying to slice \the [src] open!</span>")
+		user.visible_message(SPAN_NOTICE("[user] is trying to slice \the [src] open!"),
+								SPAN_NOTICE("You are trying to slice \the [src] open!"))
 
 		if(WT.use_tool(src, user, 60, volume = 50))
 			if(WT.use(2, user))
-				user.visible_message("<span class='notice'>[user] slices \the [src] open!</span>",
-									"<span class='notice'>You slice \the [src] open!</span>")
+				user.visible_message(SPAN_NOTICE("[user] slices \the [src] open!"),
+									SPAN_NOTICE("You slice \the [src] open!"))
 				new /obj/item/stack/rods(src.loc, resources["rods"])
 				if(resources.len == 2)
 					new /obj/item/stack/material/steel(src.loc, resources["metal"])
@@ -418,16 +419,16 @@
 			to_chat(user, SPAN_WARNING("There is nothing to secure [src] to!"))
 			return
 
-		user.visible_message("<span class='notice'>[user] is trying to [anchored ? "un" : "" ]secure \the [src]!</span>",
-								"<span class='notice'>You are trying to [anchored ? "un" : "" ]secure \the [src]!</span>")
+		user.visible_message(SPAN_NOTICE("[user] is trying to [anchored ? "un" : "" ]secure \the [src]!"),
+								SPAN_NOTICE("You are trying to [anchored ? "un" : "" ]secure \the [src]!"))
 		var/sound_to_play = pick(list('sound/items/Screwdriver.ogg', 'sound/items/Screwdriver2.ogg'))
 		playsound(src.loc, sound_to_play, 50, 1)
 
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			density = !density
 			anchored = !anchored
-			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
-									"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
+			user.visible_message(SPAN_NOTICE("[user] [anchored ? "" : "un" ]secures \the [src]!"),
+									SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
 	else
 		..()
 
@@ -458,18 +459,18 @@
 /obj/item/trap/animal/proc/pass_without_trace(mob/user, pct = 100)
 	if(!is_type_in_list(user, allowed_mobs))
 		user.forceMove(loc)
-		user.visible_message("<span class='notice'>[user] passes over \the [src] without triggering it.</span>",
-						"<span class='notice'>You pass over \the [src] without triggering it.</span>"
+		user.visible_message(SPAN_NOTICE("[user] passes over \the [src] without triggering it."),
+						SPAN_NOTICE("You pass over \the [src] without triggering it.")
 		)
 	else
-		user.visible_message("<span class='notice'>[user] attempts to pass through \the [src] without triggering it.</span>",
-							"<span class='notice'>You attempt to pass through \the [src] without triggering it. </span>"
+		user.visible_message(SPAN_NOTICE("[user] attempts to pass through \the [src] without triggering it."),
+							SPAN_NOTICE("You attempt to pass through \the [src] without triggering it. ")
 		)
 		if(do_after(user, 2 SECONDS, src))
 			if(prob(pct))
 				user.forceMove(loc)
-				user.visible_message("<span class='notice'>[user] passes through \the [src] without triggering it.</span>",
-								"<span class='notice'>You pass through \the [src] without triggering it.</span>"
+				user.visible_message(SPAN_NOTICE("[user] passes through \the [src] without triggering it."),
+								SPAN_NOTICE("You pass through \the [src] without triggering it.")
 				)
 			else
 				user.forceMove(loc)
@@ -600,13 +601,13 @@
 			to_chat(user, SPAN_WARNING("You can't do that while \the [src] is deployed! Undeploy it first."))
 			return
 
-		user.visible_message("<span class='notice'>[user] begins [anchored ? "un" : "" ]securing \the [src]!</span>",
-								"<span class='notice'>You begin [anchored ? "un" : "" ]securing \the [src]!</span>")
+		user.visible_message(SPAN_NOTICE("[user] begins [anchored ? "un" : "" ]securing \the [src]!"),
+								SPAN_NOTICE("You begin [anchored ? "un" : "" ]securing \the [src]!"))
 
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			anchored = !anchored
-			user.visible_message("<span class='notice'>[user] [anchored ? "" : "un" ]secures \the [src]!</span>",
-								"<span class='notice'>You [anchored ? "" : "un" ]secure \the [src]!</span>")
+			user.visible_message(SPAN_NOTICE("[user] [anchored ? "" : "un" ]secures \the [src]!"),
+								SPAN_NOTICE("You [anchored ? "" : "un" ]secure \the [src]!"))
 
 	else if(attacking_item.isscrewdriver())
 		// Unlike smaller traps, screwdriver shouldn't work on this.
@@ -653,12 +654,12 @@
 		var/obj/item/stack/rods/O = attacking_item
 		if(O.get_amount() >= 12)
 
-			to_chat(user, "<span class='notice'>You are trying to add metal bars to \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You are trying to add metal bars to \the [src]."))
 
 			if (!do_after(user, 2 SECONDS, src))
 				return
 
-			to_chat(user, "<span class='notice'>You add metal bars to \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You add metal bars to \the [src]."))
 			O.use(12)
 			new /obj/item/trap/animal/large(src.loc)
 			qdel(src)

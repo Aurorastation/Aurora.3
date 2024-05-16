@@ -512,7 +512,7 @@
 
 	to_chat(usr, "You can respawn now, enjoy your new life!")
 	log_game("[usr.name]/[usr.key] used abandon mob.", ckey=key_name(usr))
-	to_chat(usr, "<span class='notice'><B>Make sure to play a different character, and please roleplay correctly!</B></span>")
+	to_chat(usr, SPAN_NOTICE("<B>Make sure to play a different character, and please roleplay correctly!</B>"))
 
 	client?.screen.Cut()
 	if(!client)
@@ -554,7 +554,7 @@
 	if(client.holder && (client.holder.rights & R_ADMIN))
 		is_admin = 1
 	else if(stat != DEAD || istype(src, /mob/abstract/new_player))
-		to_chat(usr, "<span class='notice'>You must be observing to use this!</span>")
+		to_chat(usr, SPAN_NOTICE("You must be observing to use this!"))
 		return
 
 	if(is_admin && stat == DEAD)

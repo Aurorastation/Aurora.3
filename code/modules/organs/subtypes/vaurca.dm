@@ -111,7 +111,7 @@
 	else
 		if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 			owner.add_language(LANGUAGE_VAURCA)
-			to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+			to_chat(owner, SPAN_NOTICE(" Your mind expands, and your thoughts join the unity of the Hivenet."))
 	if(disrupted)
 		if(disrupttime > world.time)
 			disrupttime--
@@ -123,7 +123,7 @@
 	owner = target
 	if (!(GLOB.all_languages[LANGUAGE_VAURCA] in owner.languages) && !banned)
 		owner.add_language(LANGUAGE_VAURCA)
-		to_chat(owner, "<span class='notice'> Your mind expands, and your thoughts join the unity of the Hivenet.</span>")
+		to_chat(owner, SPAN_NOTICE(" Your mind expands, and your thoughts join the unity of the Hivenet."))
 	add_verb(owner, granted_verbs)
 	..()
 
@@ -355,7 +355,7 @@
 				descriptive = "room temperature"
 			else
 				descriptive = "cold"
-		. += "<span class='notice'>\The [src] feels [descriptive].</span>"
+		. += SPAN_NOTICE("\The [src] feels [descriptive].")
 
 /obj/item/organ/internal/vaurca/preserve/attackby(obj/item/attacking_item, mob/user)
 	..()
@@ -368,14 +368,14 @@
 		manipulated_by = user.real_name			//This person is aware of the contents of the tank.
 		var/total_moles = air_contents.total_moles
 
-		to_chat(user, "<span class='notice'>Results of analysis of [icon2html(icon, user)]</span>")
+		to_chat(user, SPAN_NOTICE("Results of analysis of [icon2html(icon, user)]"))
 		if (total_moles>0)
-			to_chat(user, "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>")
+			to_chat(user, SPAN_NOTICE("Pressure: [round(pressure,0.1)] kPa"))
 			for(var/g in air_contents.gas)
-				to_chat(user, "<span class='notice'>[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%</span>")
-			to_chat(user, "<span class='notice'>Temperature: [round(air_contents.temperature-T0C)]&deg;C</span>")
+				to_chat(user, SPAN_NOTICE("[gas_data.name[g]]: [(round(air_contents.gas[g] / total_moles) * 100)]%"))
+			to_chat(user, SPAN_NOTICE("Temperature: [round(air_contents.temperature-T0C)]&deg;C"))
 		else
-			to_chat(user, "<span class='notice'>Tank is empty!</span>")
+			to_chat(user, SPAN_NOTICE("Tank is empty!"))
 		src.add_fingerprint(user)
 	else if (istype(attacking_item, /obj/item/toy/balloon))
 		var/obj/item/toy/balloon/B = attacking_item
@@ -461,7 +461,7 @@
 			if(location.internal == src)
 				location.internal = null
 				location.internals.icon_state = "internal0"
-				to_chat(usr, "<span class='notice'>You close the tank release valve.</span>")
+				to_chat(usr, SPAN_NOTICE("You close the tank release valve."))
 				if (location.internals)
 					location.internals.icon_state = "internal0"
 			else
@@ -476,11 +476,11 @@
 
 				if(can_open_valve)
 					location.internal = src
-					to_chat(usr, "<span class='notice'>You open \the [src] valve.</span>")
+					to_chat(usr, SPAN_NOTICE("You open \the [src] valve."))
 					if (location.internals)
 						location.internals.icon_state = "internal1"
 				else
-					to_chat(usr, "<span class='notice'>You need something to connect to \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You need something to connect to \the [src]."))
 
 	src.add_fingerprint(usr)
 	return 1

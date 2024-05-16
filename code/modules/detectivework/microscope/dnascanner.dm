@@ -30,7 +30,7 @@
 		user.unEquip(attacking_item)
 		src.bloodsamp = swab
 		swab.forceMove(src)
-		to_chat(user, "<span class='notice'>You insert \the [attacking_item] into \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 	else
 		to_chat(user, SPAN_WARNING("\The [src] only accepts used swabs."))
 		return
@@ -67,10 +67,10 @@
 				if(closed == 1)
 					scanner_progress = 0
 					scanning = 1
-					to_chat(usr, "<span class='notice'>Scan initiated.</span>")
+					to_chat(usr, SPAN_NOTICE("Scan initiated."))
 					update_icon()
 				else
-					to_chat(usr, "<span class='notice'>Please close sample lid before initiating scan.</span>")
+					to_chat(usr, SPAN_NOTICE("Please close sample lid before initiating scan."))
 			else
 				to_chat(usr, SPAN_WARNING("Insert an item to scan."))
 

@@ -206,9 +206,9 @@
 				L.forceMove(src)
 
 			if (count)
-				to_chat(user, "<span class='notice'>You empty [count] broken bulbs into the disposal.</span>")
+				to_chat(user, SPAN_NOTICE("You empty [count] broken bulbs into the disposal."))
 			else
-				to_chat(user, "<span class='notice'>There are no broken bulbs to empty out.</span>")
+				to_chat(user, SPAN_NOTICE("There are no broken bulbs to empty out."))
 			update()
 			return TRUE
 
@@ -1237,7 +1237,7 @@
 		if(O.currTag)// Tag set
 			sort_tag = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>Changed tag to '[sort_tag]'.</span>")
+			to_chat(user, SPAN_NOTICE("Changed tag to '[sort_tag]'."))
 			updatename()
 			updatedesc()
 
@@ -1308,7 +1308,7 @@
 		if(O.currTag)// Tag set
 			sortType = O.currTag
 			playsound(src.loc, 'sound/machines/twobeep.ogg', 100, 1)
-			to_chat(user, "<span class='notice'>Changed filter to '[sortType]'.</span>")
+			to_chat(user, SPAN_NOTICE("Changed filter to '[sortType]'."))
 			updatename()
 			updatedesc()
 

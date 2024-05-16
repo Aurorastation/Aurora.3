@@ -94,12 +94,12 @@
 		if ("radio")
 			carded_ai.ai_radio.disabledAi = text2num(params["radio"])
 			to_chat(carded_ai, SPAN_WARNING("Your Subspace Transceiver has been [carded_ai.ai_radio.disabledAi ? "disabled" : "enabled"]!"))
-			to_chat(usr, "<span class='notice'>You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver.</span>")
+			to_chat(usr, SPAN_NOTICE("You [carded_ai.ai_radio.disabledAi ? "disable" : "enable"] the AI's Subspace Transceiver."))
 			. = TRUE
 		if ("wireless")
 			carded_ai.control_disabled = text2num(params["wireless"])
 			to_chat(carded_ai, SPAN_WARNING("Your wireless interface has been [carded_ai.control_disabled ? "disabled" : "enabled"]!"))
-			to_chat(usr, "<span class='notice'>You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface.</span>")
+			to_chat(usr, SPAN_NOTICE("You [carded_ai.control_disabled ? "disable" : "enable"] the AI's wireless interface."))
 			update_icon()
 			. = TRUE
 

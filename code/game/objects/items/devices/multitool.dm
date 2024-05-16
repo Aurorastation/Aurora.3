@@ -191,13 +191,13 @@
 		selected_io.linked |= io
 		io.linked |= selected_io
 
-		to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s '[selected_io.name]' pin to \the [io.holder]'s '[io.name]' pin.</span>")
+		to_chat(user, SPAN_NOTICE("You connect \the [selected_io.holder]'s '[selected_io.name]' pin to \the [io.holder]'s '[io.name]' pin."))
 		selected_io.holder.interact(user) // This is to update the UI.
 		selected_io = null
 
 	else
 		selected_io = io
-		to_chat(user, "<span class='notice'>You link \the multitool to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
+		to_chat(user, SPAN_NOTICE("You link \the multitool to \the [selected_io.holder]'s [selected_io.name] data channel."))
 
 	update_icon()
 

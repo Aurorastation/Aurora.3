@@ -44,7 +44,7 @@
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
 				if(prob(10))
-					to_chat(C, "<span class='notice'>You feel a soothing energy radiating from something nearby.</span>")
+					to_chat(C, SPAN_NOTICE("You feel a soothing energy radiating from something nearby."))
 				C.adjustBruteLoss(-1 * weakness)
 				C.adjustFireLoss(-1 * weakness)
 				C.adjustToxLoss(-1 * weakness)
@@ -61,7 +61,7 @@
 				continue
 			var/weakness = GetAnomalySusceptibility(C)
 			if(prob(weakness * 100))
-				to_chat(C, "<span class='notice'>A wave of energy invigorates you.</span>")
+				to_chat(C, SPAN_NOTICE("A wave of energy invigorates you."))
 				C.adjustBruteLoss(-5 * weakness)
 				C.adjustFireLoss(-5 * weakness)
 				C.adjustToxLoss(-5 * weakness)
@@ -224,7 +224,10 @@
 		if(!toucher.isSynthetic())
 			if(ishuman(toucher) && prob(weakness * 100))
 				var/mob/living/carbon/human/H = toucher
-				to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))
+				to_chat(H, pick(SPAN_NOTICE("You feel like taking a nap."),
+								SPAN_NOTICE("You feel a yawn coming on."),
+								SPAN_NOTICE("You feel a little tired.")))
+
 				H.drowsiness = min(H.drowsiness + rand(5,25) * weakness, 50 * weakness)
 				H.eye_blurry = min(H.eye_blurry + rand(1,3) * weakness, 50 * weakness)
 		else
@@ -243,7 +246,10 @@
 				var/weakness = GetAnomalySusceptibility(H)
 				if(prob(weakness * 100))
 					if(prob(10))
-						to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))
+						to_chat(H, pick(SPAN_NOTICE("You feel like taking a nap."),
+										SPAN_NOTICE("You feel a yawn coming on."),
+										SPAN_NOTICE("You feel a little tired.")))
+
 					H.drowsiness = min(H.drowsiness + 1 * weakness, 25 * weakness)
 					H.eye_blurry = min(H.eye_blurry + 1 * weakness, 25 * weakness)
 		return TRUE
@@ -259,7 +265,10 @@
 				var/mob/living/carbon/human/H = L
 				var/weakness = GetAnomalySusceptibility(H)
 				if(prob(weakness * 100))
-					to_chat(H, pick("<span class='notice'>You feel like taking a nap.</span>","<span class='notice'>You feel a yawn coming on.</span>","<span class='notice'>You feel a little tired.</span>"))
+					to_chat(H, pick(SPAN_NOTICE("You feel like taking a nap."),
+									SPAN_NOTICE("<span class='notice'>You feel a yawn coming on."),
+									SPAN_NOTICE("You feel a little tired.")))
+
 					H.drowsiness = min(H.drowsiness + rand(5,15) * weakness, 50 * weakness)
 					H.eye_blurry = min(H.eye_blurry + rand(5,15) * weakness, 50 * weakness)
 

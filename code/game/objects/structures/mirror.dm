@@ -38,7 +38,7 @@
 	if(user.mind)
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
-			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
@@ -181,7 +181,7 @@
 	if(user.mind)
 		var/datum/vampire/vampire = user.mind.antag_datums[MODE_VAMPIRE]
 		if(vampire && !(vampire.status & VAMP_ISTHRALL))
-			to_chat(user, "<span class='notice'>Your reflection appears distorted on the surface of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("Your reflection appears distorted on the surface of \the [src]."))
 
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user

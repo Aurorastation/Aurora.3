@@ -132,7 +132,7 @@
 		if(mix_message)
 			var/list/seen = viewers(4, T)
 			for(var/mob/M in seen)
-				M.show_message("<span class='notice'>[icon2html(container, viewers(get_turf(src)))] [mix_message]</span>", 1)
+				M.show_message(SPAN_NOTICE("[icon2html(container, viewers(get_turf(src)))] [mix_message]"), 1)
 		if(reaction_sound)
 			playsound(T, reaction_sound, 80, 1)
 

@@ -27,7 +27,7 @@
 	switch (mode)
 		if (WIRE)
 			selected_io = io
-			to_chat(user, "<span class='notice'>You attach a data wire to \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
+			to_chat(user, SPAN_NOTICE("You attach a data wire to \the [selected_io.holder]'s [selected_io.name] data channel."))
 			mode = WIRING
 			update_icon()
 
@@ -46,7 +46,7 @@
 			selected_io.linked |= io
 			io.linked |= selected_io
 
-			to_chat(user, "<span class='notice'>You connect \the [selected_io.holder]'s [selected_io.name] to \the [io.holder]'s [io.name].</span>")
+			to_chat(user, SPAN_NOTICE("You connect \the [selected_io.holder]'s [selected_io.name] to \the [io.holder]'s [io.name]."))
 			mode = WIRE
 			update_icon()
 			selected_io.holder.interact(user) // This is to update the UI.
@@ -58,7 +58,7 @@
 				to_chat(user, SPAN_WARNING("There is nothing connected to \the [selected_io] data channel."))
 				selected_io = null
 				return
-			to_chat(user, "<span class='notice'>You prepare to detach a data wire from \the [selected_io.holder]'s [selected_io.name] data channel.</span>")
+			to_chat(user, SPAN_NOTICE("You prepare to detach a data wire from \the [selected_io.holder]'s [selected_io.name] data channel."))
 			mode = UNWIRING
 			update_icon()
 
@@ -88,18 +88,18 @@
 			mode = UNWIRE
 		if(WIRING)
 			if(selected_io)
-				to_chat(user, "<span class='notice'>You decide not to wire the data channel.</span>")
+				to_chat(user, SPAN_NOTICE("You decide not to wire the data channel."))
 			selected_io = null
 			mode = WIRE
 		if(UNWIRE)
 			mode = WIRE
 		if(UNWIRING)
 			if(selected_io)
-				to_chat(user, "<span class='notice'>You decide not to disconnect the data channel.</span>")
+				to_chat(user, SPAN_NOTICE("You decide not to disconnect the data channel."))
 			selected_io = null
 			mode = UNWIRE
 	update_icon()
-	to_chat(user, "<span class='notice'>You set \the [src] to [mode].</span>")
+	to_chat(user, SPAN_NOTICE("You set \the [src] to [mode]."))
 
 #undef WIRE
 #undef WIRING
@@ -130,25 +130,25 @@
 			new_data = sanitize(input("Now type in a string.","[src] string writing") as null|text, MAX_MESSAGE_LEN, 1, 0, 1)
 			if(istext(new_data) && CanInteract(user, GLOB.physical_state))
 				data_to_write = new_data
-				to_chat(user, "<span class='notice'>You set \the [src]'s memory to \"[new_data]\".</span>")
+				to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to \"[new_data]\"."))
 		if("number")
 			accepting_refs = 0
 			new_data = input("Now type in a number.","[src] number writing") as null|num
 			if(isnum(new_data) && CanInteract(user, GLOB.physical_state))
 				data_to_write = new_data
-				to_chat(user, "<span class='notice'>You set \the [src]'s memory to [new_data].</span>")
+				to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to [new_data]."))
 		if("ref")
 			accepting_refs = 1
 			to_chat(user, "<span class='notice'>You turn \the [src]'s ref scanner on.  Slide it across \
 			an object for a ref of that object to save it in memory.</span>")
 		if("null")
 			data_to_write = null
-			to_chat(user, "<span class='notice'>You set \the [src]'s memory to absolutely nothing.</span>")
+			to_chat(user, SPAN_NOTICE("You set \the [src]'s memory to absolutely nothing."))
 
 /obj/item/device/integrated_electronics/debugger/afterattack(atom/target, mob/living/user, proximity)
 	if(accepting_refs && proximity)
 		data_to_write = WEAKREF(target)
-		visible_message("<span class='notice'>[user] slides [src]'s ref scanner over \the [target].</span>")
+		visible_message(SPAN_NOTICE("[user] slides [src]'s ref scanner over \the [target]."))
 		to_chat(user, "<span class='notice'>You set \the [src]'s memory to a reference to [target.name] \[Ref\].  The ref scanner is \
 		now off.</span>")
 		accepting_refs = 0
@@ -162,10 +162,10 @@
 				var/datum/weakref/w = data_to_write
 				var/atom/A = w.resolve()
 				data_to_show = A.name
-			to_chat(user, "<span class='notice'>You write '[data_to_write ? data_to_show : "NULL"]' to the '[io]' pin of \the [io.holder].</span>")
+			to_chat(user, SPAN_NOTICE("You write '[data_to_write ? data_to_show : "NULL"]' to the '[io]' pin of \the [io.holder]."))
 		if (PULSE_CHANNEL)
 			io.holder.check_then_do_work(ignore_power = TRUE)
-			to_chat(user, "<span class='notice'>You pulse \the [io.holder]'s '[io]' pin.</span>")
+			to_chat(user, SPAN_NOTICE("You pulse \the [io.holder]'s '[io]' pin."))
 
 	io.holder.interact(user) // This is to update the UI.
 

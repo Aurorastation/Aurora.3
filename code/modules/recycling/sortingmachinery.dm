@@ -34,7 +34,7 @@
 		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
-				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
+				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
 				if(!src.sortTag)
 					src.sortTag = O.currTag
 					update_icon()
@@ -54,7 +54,7 @@
 					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
-				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
+				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
@@ -74,7 +74,7 @@
 				else
 					examtext = str
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
-				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
+				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
@@ -112,9 +112,9 @@
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
 		if(examtext)
-			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
 
 /obj/item/smallDelivery
 	desc = "A small wrapped package."
@@ -157,7 +157,7 @@
 		var/obj/item/device/destTagger/O = attacking_item
 		if(O.currTag)
 			if(src.sortTag != O.currTag)
-				to_chat(user, "<span class='notice'>You have labeled the destination as [O.currTag].</span>")
+				to_chat(user, SPAN_NOTICE("You have labeled the destination as [O.currTag]."))
 				if(!src.sortTag)
 					src.sortTag = O.currTag
 					update_icon()
@@ -177,7 +177,7 @@
 					to_chat(usr, SPAN_WARNING("Invalid text."))
 					return
 				user.visible_message("\The [user] titles \the [src] with \a [attacking_item], marking down: \"[str]\"",\
-				"<span class='notice'>You title \the [src]: \"[str]\"</span>",\
+				SPAN_NOTICE("You title \the [src]: \"[str]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 				name = "[name] ([str])"
@@ -198,7 +198,7 @@
 				else
 					examtext = str
 				user.visible_message("\The [user] labels \the [src] with \a [attacking_item], scribbling down: \"[examtext]\"",\
-				"<span class='notice'>You label \the [src]: \"[examtext]\"</span>",\
+				SPAN_NOTICE("You label \the [src]: \"[examtext]\""),\
 				"You hear someone scribbling a note.")
 				playsound(src, pick('sound/bureaucracy/pen1.ogg','sound/bureaucracy/pen2.ogg'), 20)
 	return
@@ -232,9 +232,9 @@
 	. = ..()
 	if(distance <= 4)
 		if(sortTag)
-			. += "<span class='notice'>It is labeled \"[sortTag]\".</span>"
+			. += SPAN_NOTICE("It is labeled \"[sortTag]\".")
 		if(examtext)
-			. += "<span class='notice'>It has a note attached which reads, \"[examtext]\".</span>"
+			. += SPAN_NOTICE("It has a note attached which reads, \"[examtext]\".")
 
 /obj/structure/bigDelivery/Destroy()
 	if(wrapped) //sometimes items can disappear. For example, bombs. --rastaf0

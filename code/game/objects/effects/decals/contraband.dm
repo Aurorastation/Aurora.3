@@ -54,10 +54,10 @@
 			break
 
 	if (stuff_on_wall)
-		to_chat(user, "<span class='notice'>There is already a poster there!</span>")
+		to_chat(user, SPAN_NOTICE("There is already a poster there!"))
 		return
 
-	to_chat(user, "<span class='notice'>You start placing the poster on the wall...</span>") //Looks like it's uncluttered enough. Place the poster.)
+	to_chat(user, SPAN_NOTICE("You start placing the poster on the wall...")) //Looks like it's uncluttered enough. Place the poster.)
 
 	var/obj/structure/sign/poster/P = new(user.loc, get_dir(user, W), serial_number)
 
@@ -71,7 +71,7 @@
 		return
 
 	if (iswall(W) && !QDELETED(user) && P.loc == user.loc)
-		to_chat(user, "<span class='notice'>You place the poster!</span>")
+		to_chat(user, SPAN_NOTICE("You place the poster!"))
 	else
 		P.roll_and_drop(P.loc)
 
@@ -130,10 +130,10 @@
 	if(attacking_item.iswirecutter())
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
-			to_chat(user, "<span class='notice'>You remove the remnants of the poster.</span>")
+			to_chat(user, SPAN_NOTICE("You remove the remnants of the poster."))
 			qdel(src)
 		else
-			to_chat(user, "<span class='notice'>You carefully remove the poster from the wall.</span>")
+			to_chat(user, SPAN_NOTICE("You carefully remove the poster from the wall."))
 			roll_and_drop(user.loc)
 		return TRUE
 

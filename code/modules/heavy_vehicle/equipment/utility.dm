@@ -299,7 +299,7 @@
 	. = ..()
 	if(.)
 		mode = mode == CATAPULT_SINGLE ? CATAPULT_AREA : CATAPULT_SINGLE
-		to_chat(user, "<span class='notice'>You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode.</span>")
+		to_chat(user, SPAN_NOTICE("You set \the [src] to [mode == CATAPULT_SINGLE ? "single" : "multi"]-target mode."))
 		update_icon()
 
 /obj/item/mecha_equipment/catapult/afterattack(var/atom/target, var/mob/living/user, var/inrange, var/params)
@@ -430,11 +430,11 @@
 		if(istype(target,/obj/item/material/drill_head))
 			var/obj/item/material/drill_head/DH = target
 			if(drill_head)
-				owner.visible_message("<span class='notice'>\The [owner] detaches the [drill_head] mounted on the [src].</span>")
+				owner.visible_message(SPAN_NOTICE("\The [owner] detaches the [drill_head] mounted on the [src]."))
 				drill_head.forceMove(owner.loc)
 			DH.forceMove(src)
 			drill_head = DH
-			owner.visible_message("<span class='notice'>\The [owner] mounts the [drill_head] on the [src].</span>")
+			owner.visible_message(SPAN_NOTICE("\The [owner] mounts the [drill_head] on the [src]."))
 			return
 
 		if(drill_head == null)

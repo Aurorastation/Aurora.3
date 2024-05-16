@@ -156,7 +156,7 @@
 	//Airlocks require an ugly block of code, but we don't want to just call emag_act(), since we don't want to break airlocks forever.
 	if(istype(target, /obj/machinery/door))
 		var/obj/machinery/door/door = target
-		to_chat(user, "<span class='notice'>We send an electrical pulse up our finger, and into \the [target], attempting to open it.</span>")
+		to_chat(user, SPAN_NOTICE("We send an electrical pulse up our finger, and into \the [target], attempting to open it."))
 
 		if(door.density && door.operable())
 			door.do_animate("spark")
@@ -167,13 +167,13 @@
 
 					if(airlock.locked) //Check if we're bolted.
 						airlock.unlock()
-						to_chat(user, "<span class='notice'>We've unlocked \the [airlock].  Another pulse is requried to open it.</span>")
+						to_chat(user, SPAN_NOTICE("We've unlocked \the [airlock].  Another pulse is requried to open it."))
 					else	//We're not bolted, so open the door already.
 						airlock.open()
-						to_chat(user, "<span class='notice'>We've opened \the [airlock].</span>")
+						to_chat(user, SPAN_NOTICE("We've opened \the [airlock]."))
 				else
 					door.open() //If we're a windoor, open the windoor.
-					to_chat(user, "<span class='notice'>We've opened \the [door].</span>")
+					to_chat(user, SPAN_NOTICE("We've opened \the [door]."))
 		else //Probably broken or no power.
 			to_chat(user, SPAN_WARNING("The door does not respond to the pulse."))
 		door.add_fingerprint(user)

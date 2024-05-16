@@ -944,7 +944,7 @@ pixel_x = 10;
 		if(2)
 			if(attacking_item.isscrewdriver())  // Opening that Air Alarm up.
 				wiresexposed = !wiresexposed
-				to_chat(user, "<span class='notice'>You [wiresexposed ? "open" : "close"] the maintenance panel.</span>")
+				to_chat(user, SPAN_NOTICE("You [wiresexposed ? "open" : "close"] the maintenance panel."))
 				update_icon()
 				return TRUE
 
@@ -958,12 +958,12 @@ pixel_x = 10;
 
 			if (attacking_item.GetID())// trying to unlock the interface with an ID card
 				if(stat & (NOPOWER|BROKEN))
-					to_chat(user, "<span class='notice'>Nothing happens.</span>")
+					to_chat(user, SPAN_NOTICE("Nothing happens."))
 					return TRUE
 				else
 					if(allowed(usr) && !wires.is_cut(WIRE_IDSCAN))
 						locked = !locked
-						to_chat(user, "<span class='notice'>You [ locked ? "lock" : "unlock"] the Air Alarm interface.</span>")
+						to_chat(user, SPAN_NOTICE("You [ locked ? "lock" : "unlock"] the Air Alarm interface."))
 					else
 						to_chat(user, SPAN_WARNING("Access denied."))
 				return TRUE
@@ -972,7 +972,7 @@ pixel_x = 10;
 			if(attacking_item.iscoil())
 				var/obj/item/stack/cable_coil/C = attacking_item
 				if (C.use(5))
-					to_chat(user, "<span class='notice'>You wire \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 					buildstage = 2
 					update_icon()
 					first_run()

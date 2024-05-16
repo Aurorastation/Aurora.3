@@ -107,9 +107,9 @@
 	// Basic intro text.
 	to_chat(player.current, "<span class='danger'><font size=3>You are a [role_text]!</font></span>")
 	if(leader_welcome_text && player == leader)
-		to_chat(player.current, "<span class='notice'>[leader_welcome_text]</span>")
+		to_chat(player.current, SPAN_NOTICE("[leader_welcome_text]"))
 	else
-		to_chat(player.current, "<span class='notice'>[welcome_text]</span>")
+		to_chat(player.current, SPAN_NOTICE("[welcome_text]"))
 
 	if(antag_sound)
 		player.current.playsound_local(get_turf(src), sound(antag_sound), 50, FALSE)

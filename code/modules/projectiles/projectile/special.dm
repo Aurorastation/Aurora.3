@@ -38,13 +38,13 @@
 				R.visible_message(SPAN_WARNING("[R] was not affected by EMP pulse."),
 									SPAN_WARNING("Warning: Power surge detected, source - EMP. Surge prevention module re-routed surge to prevent damage to vital electronics."))
 				if(C.surge_left)
-					to_chat(R, "<span class='notice'>Surge module has [C.surge_left] preventions left!</span>")
+					to_chat(R, SPAN_NOTICE("Surge module has [C.surge_left] preventions left!"))
 				else
 					C.destroy()
 					to_chat(R, "<span class='danger'>Module is entirely fried, replacement is recommended.</span>")
 				return
 			else
-				to_chat(src, "<span class='notice'>Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement</span>")
+				to_chat(src, SPAN_NOTICE("Warning: Power surge detected, source - EMP. Surge prevention module is depleted and requires replacement"))
 
 		R.emp_act(EMP_LIGHT) // Borgs emp_act is 1-2
 	else
@@ -171,7 +171,7 @@
 				M.adjustFireLoss(rand(5,15))
 				M.show_message(SPAN_WARNING("The radiation beam singes you!"))
 	else if(iscarbon(target))
-		M.show_message("<span class='notice'>The radiation beam dissipates harmlessly through your body.</span>")
+		M.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
 	else
 		return 1
 
@@ -190,7 +190,7 @@
 		if((H.species.flags & IS_PLANT) && (M.nutrition < 500))
 			M.adjustNutritionLoss(-30)
 	else if (istype(target, /mob/living/carbon/))
-		M.show_message("<span class='notice'>The radiation beam dissipates harmlessly through your body.</span>")
+		M.show_message(SPAN_NOTICE("The radiation beam dissipates harmlessly through your body."))
 	else
 		return 1
 

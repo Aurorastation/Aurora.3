@@ -596,8 +596,8 @@
 		Software Version: [ka.mod_limit_increase].[ka.mod_limit_increase*32 % 10].[ka.mod_limit_increase*64 % 324]<br>\
 		Available Power Flow: [ka.capacity_increase*10]kW<br>"
 
-		to_chat(user,"<span class='notice'>[total_message]</span>")
+		to_chat(user,SPAN_NOTICE("[total_message]"))
 	else
-		to_chat(user,"<span class='notice'>Nothing happens.</span>")
+		to_chat(user,SPAN_NOTICE("Nothing happens."))
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)

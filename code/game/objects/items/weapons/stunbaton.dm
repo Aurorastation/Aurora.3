@@ -64,7 +64,7 @@
 	if(!distance <= 1)
 		return
 	if(bcell)
-		. += "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>"
+		. += SPAN_NOTICE("The baton is [round(bcell.percent())]% charged.")
 	else
 		. += SPAN_WARNING("The baton does not have a power source installed.")
 
@@ -73,17 +73,17 @@
 		if(!bcell)
 			user.drop_from_inventory(attacking_item, src)
 			bcell = attacking_item
-			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You install a cell in [src]."))
 			update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has a cell."))
 
 	else if(attacking_item.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.forceMove(get_turf(src))
 			bcell = null
-			to_chat(user, "<span class='notice'>You remove the cell from the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove the cell from the [src]."))
 			status = 0
 			update_icon()
 			return
@@ -93,7 +93,7 @@
 /obj/item/melee/baton/attack_self(mob/user)
 	if(bcell && bcell.charge > hitcost)
 		status = !status
-		to_chat(user, "<span class='notice'>[src] is now [status ? "on" : "off"].</span>")
+		to_chat(user, SPAN_NOTICE("[src] is now [status ? "on" : "off"]."))
 		playsound(loc, /singleton/sound_category/spark_sound, 75, 1, -1)
 		update_icon()
 	else
@@ -121,7 +121,7 @@
 	var/stun = stunforce
 
 	if(user.is_pacified())
-		to_chat(user, "<span class='notice'>You don't want to risk hurting [L]!</span>")
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [L]!"))
 		return 0
 
 	var/target_zone = check_zone(hit_zone)

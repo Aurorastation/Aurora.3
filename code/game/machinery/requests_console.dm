@@ -365,20 +365,20 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if (!pda || !istype(pda))
 			to_chat(usr, SPAN_WARNING("You need to be holding a handheld computer to link it."))
 		else if (pda in alert_pdas)
-			to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+			to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 			//Update the name real quick.
 			alert_pdas[pda] = pda.name
 		else
 			alert_pdas += pda
 			alert_pdas[pda] = pda.name
-			to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine.</span>")
+			to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a request to this machine."))
 
 	// Unlink a PDA.
 	if(href_list["unlink"])
 		var/obj/item/modular_computer/pda = locate(href_list["unlink"])
 		if (pda && istype(pda))
 			if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new requests.</span>")
+				to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new requests."))
 				alert_pdas -= pda
 
 	// Sort the forms.
@@ -442,7 +442,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 	// Toggle the paper bin lid.
 	if(href_list["setLid"])
 		lid = !lid
-		to_chat(usr, "<span class='notice'>You [lid ? "open" : "close"] the lid.</span>")
+		to_chat(usr, SPAN_NOTICE("You [lid ? "open" : "close"] the lid."))
 
 	updateUsrDialog()
 	return
@@ -469,7 +469,7 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		if(inoperable(MAINT)) return
 		if(screen == RCS_MESSAUTH)
 			var/obj/item/stamp/T = attacking_item
-			msgStamped = text("<span class='notice'><b>Stamped with the [T.name]</b></span>")
+			msgStamped = SPAN_NOTICE("<b>Stamped with the [T.name]</b>")
 			updateUsrDialog()
 		return TRUE
 	else if (istype(attacking_item, /obj/item/paper_bundle))

@@ -15,7 +15,7 @@
 	if (isopenturf(A))         //Place into open space
 		var/turf/below_loc = GetBelow(A)
 		if (!below_loc || (istype(/turf/space, below_loc)))
-			to_chat(user, "<span class='notice'>Why would you do that?! There is only infinite space there...</span>")
+			to_chat(user, SPAN_NOTICE("Why would you do that?! There is only infinite space there..."))
 			return
 		user.visible_message(SPAN_WARNING("[user] begins to lower \the [src] into \the [A]."),
 			SPAN_WARNING("You begin to lower \the [src] into \the [A]."))
@@ -34,7 +34,7 @@
 	else if (istype(A, /turf/simulated/floor) || istype(A, /turf/unsimulated/floor))	//Place onto Floor
 		var/turf/upper_loc = GetAbove(A)
 		if (!upper_loc || !isopenturf(upper_loc))
-			to_chat(user, "<span class='notice'>There is something above. You can't deploy!</span>")
+			to_chat(user, SPAN_NOTICE("There is something above. You can't deploy!"))
 			return
 		user.visible_message(SPAN_WARNING("[user] begins deploying \the [src] on \the [A]."),
 			SPAN_WARNING("You begin to deploy \the [src] on \the [A]."))

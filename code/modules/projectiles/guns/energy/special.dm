@@ -366,7 +366,7 @@
 		if(H.mob_size >= 30)
 			playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
 			anchored = 1
-			to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 			icon_state = "megaglaive1"
 			..()
 			return

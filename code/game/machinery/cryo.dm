@@ -252,14 +252,18 @@
 		if(!bucklestatus)
 			return TRUE
 
-		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."),
+								SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
+
 		if(do_mob(user, L, 30, needhand = 0))
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
 					return TRUE
 			if(put_mob(L))
-				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
+										SPAN_NOTICE("You put [L] into [src]."), range = 3)
+
 				qdel(attacking_item)
 
 	else if(default_deconstruction_screwdriver(user, attacking_item))
@@ -287,18 +291,26 @@
 		return
 
 	if(L == user)
-		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts climbing into [src]."),
+								SPAN_NOTICE("<span class='notice'>You start climbing into [src]."), range = 3)
+
 	else
-		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into the cryopod."),
+								SPAN_NOTICE("<span class='notice'>You start putting [L] into [src]."), range = 3)
+
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled_to
 			LB.user_unbuckle(user)
 		if(put_mob(L))
 			if(L == user)
-				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] climbs into [src]."),
+										SPAN_NOTICE("<span class='notice'>You climb into [src]."), range = 3)
+
 			else
-				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
+										SPAN_NOTICE("<span class='notice'>You put [L] into [src]."), range = 3)
+
 				if(user.pulling == L)
 					user.pulling = null
 
@@ -414,7 +426,7 @@
 	M.forceMove(src)
 	M.ExtinguishMob()
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
-		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
+		to_chat(M, SPAN_NOTICE("<b>You feel a cold liquid surround you. Your skin starts to freeze up.</b>"))
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
 	update_use_power(POWER_USE_ACTIVE)
@@ -430,7 +442,7 @@
 	if(usr == occupant)//If the user is inside the tube...
 		if (usr.stat == 2)//and he's not dead....
 			return
-		to_chat(usr, "<span class='notice'>Release sequence activated. This will take two minutes.</span>")
+		to_chat(usr, SPAN_NOTICE("Release sequence activated. This will take two minutes."))
 		sleep(1200)
 		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed him already
 			return
@@ -452,7 +464,9 @@
 			return
 	if (usr.stat != 0)
 		return
-	usr.visible_message("<span class='notice'>[usr] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
+	usr.visible_message(SPAN_NOTICE("[usr] climbs into [src]."),
+						SPAN_NOTICE("You climb into [src]."), range = 3)
+
 	put_mob(usr)
 	return
 

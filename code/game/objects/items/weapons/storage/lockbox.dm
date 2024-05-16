@@ -28,12 +28,12 @@
 			if(src.locked)
 				src.icon_state = src.icon_locked
 				item_state = icon_state
-				to_chat(user, "<span class='notice'>You lock \the [src]!</span>")
+				to_chat(user, SPAN_NOTICE("You lock \the [src]!"))
 				return
 			else
 				src.icon_state = src.icon_closed
 				item_state = icon_state
-				to_chat(user, "<span class='notice'>You unlock \the [src]!</span>")
+				to_chat(user, SPAN_NOTICE("You unlock \the [src]!"))
 				return
 		else
 			to_chat(user, SPAN_WARNING("Access Denied"))

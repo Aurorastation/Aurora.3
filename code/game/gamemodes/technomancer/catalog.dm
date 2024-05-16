@@ -320,7 +320,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				if(new_spell.cost <= budget)
 					if(!core.has_spell(new_spell))
 						budget -= new_spell.cost
-						to_chat(H, "<span class='notice'>You have just bought [new_spell.name].</span>")
+						to_chat(H, SPAN_NOTICE("You have just bought [new_spell.name]."))
 						core.add_spell(new_spell.obj_path, new_spell.name, new_spell.ability_icon_state)
 					else //We already own it.
 						to_chat(H, "<span class='danger'>You already have [new_spell.name]!</span>")
@@ -340,7 +340,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 			if(desired_object)
 				if(desired_object.cost <= budget)
 					budget -= desired_object.cost
-					to_chat(H, "<span class='notice'>You have just bought \a [desired_object.name].</span>")
+					to_chat(H, SPAN_NOTICE("You have just bought \a [desired_object.name]."))
 					var/obj/O = new desired_object.obj_path(get_turf(H))
 					technomancer_belongings.Add(O) // Used for the Track spell.
 
@@ -376,7 +376,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 				return TRUE
 			else
 				budget = budget + E.cost
-				to_chat(user, "<span class='notice'>You've refunded \the [attacking_item].</span>")
+				to_chat(user, SPAN_NOTICE("You've refunded \the [attacking_item]."))
 
 				// We sadly need to do special stuff here or else people who refund cores with spells will lose points permanently.
 				if(istype(attacking_item, /obj/item/technomancer_core))
@@ -385,7 +385,7 @@ var/list/all_technomancer_assistance = typesof(/datum/technomancer/assistance) -
 						for(var/datum/technomancer/spell/spell_datum in spell_instances)
 							if(spell_datum.obj_path == spell.spellpath)
 								budget += spell_datum.cost
-								to_chat(user, "<span class='notice'>[spell.name] was inside \the [core], and was refunded.</span>")
+								to_chat(user, SPAN_NOTICE("[spell.name] was inside \the [core], and was refunded."))
 								core.remove_spell(spell)
 								break
 				qdel(attacking_item)

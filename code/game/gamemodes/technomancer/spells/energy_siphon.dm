@@ -137,7 +137,7 @@
 	// Now we can actually fill up the core.
 	if(core.energy < core.max_energy)
 		give_energy(charge_to_give)
-		to_chat(user, "<span class='notice'>Stolen [charge_to_give * CELLRATE] kJ and converted to [charge_to_give] Core energy.</span>")
+		to_chat(user, SPAN_NOTICE("Stolen [charge_to_give * CELLRATE] kJ and converted to [charge_to_give] Core energy."))
 		if((core.max_energy - core.energy) < charge_to_give ) // We have some overflow, if this is true.
 			if(user.isSynthetic() && ishuman(user)) // Let's do something with it, if we're a robot.
 				var/mob/living/carbon/human/H = user
@@ -145,9 +145,9 @@
 				var/obj/item/organ/internal/cell/C = H.internal_organs_by_name[BP_CELL]
 				var/obj/item/cell/potato = C.get_cell()
 				potato.give(charge_to_give)
-				to_chat(user, "<span class='notice'>Redirected energy to internal microcell.</span>")
+				to_chat(user, SPAN_NOTICE("Redirected energy to internal microcell."))
 	else
-		to_chat(user, "<span class='notice'>Stolen [charge_to_give * CELLRATE] kJ.</span>")
+		to_chat(user, SPAN_NOTICE("Stolen [charge_to_give * CELLRATE] kJ."))
 	adjust_instability(2)
 
 	if(flow_remaining == flow_rate) // We didn't drain anything.

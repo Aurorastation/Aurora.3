@@ -192,7 +192,7 @@
 				var/list/nagging_doubts = list("You feel a nagging doubt in the back of your head.","You feel a vacancy in your thoughts.","You feel momentarily forgetful.", \
 												"You feel temporarily occupied.", "You feel a little worried.", "You feel a hostile presence.","You feel watched.")
 				if(prob(5) || !possession_heard_message)
-					to_chat(L, "<span class='notice'>[pick(nagging_doubts)]</span>")
+					to_chat(L, SPAN_NOTICE("[pick(nagging_doubts)]"))
 					possession_heard_message = 1
 
 /mob/living/simple_animal/shade/bluespace/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
@@ -203,7 +203,7 @@
 		adjustCloneLoss(-2)
 		if(heard_dying_message)
 			heard_dying_message = 0
-			to_chat(src, "<span class='notice'>The soothing echoes of life reinvigorate you.</span>")
+			to_chat(src, SPAN_NOTICE("The soothing echoes of life reinvigorate you."))
 
 /mob/living/simple_animal/shade/bluespace/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(!possessive)
@@ -229,7 +229,7 @@
 	set category = "Bluespace Echo"
 	set desc = "Privately display the last message you heard."
 
-	to_chat(src, "<span class='notice'><b>[last_message_heard]</b></span>")
+	to_chat(src, SPAN_NOTICE("<b>[last_message_heard]</b>"))
 
 /mob/living/simple_animal/shade/bluespace/verb/flicker()
 	set name = "Flicker Lights"

@@ -214,7 +214,7 @@
 		if(PROJECTILE_FORCE_MISS)
 			if(!point_blank)
 				if(!suppressed)
-					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+					target_mob.visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
 					playsound(target_mob, /singleton/sound_category/bulletflyby_sound, 50, 1)
 				return FALSE
 		if(PROJECTILE_DODGED)

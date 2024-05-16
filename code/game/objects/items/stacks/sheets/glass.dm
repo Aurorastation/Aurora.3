@@ -130,14 +130,14 @@
 		if (M.use(1))
 			var/obj/item/L = new /obj/item/stack/tile/light
 			user.drop_from_inventory(L, get_turf(src))
-			to_chat(user, "<span class='notice'>You make a light tile.</span>")
+			to_chat(user, SPAN_NOTICE("You make a light tile."))
 			use(1)
 		else
 			to_chat(user, SPAN_WARNING("You need one metal sheet to finish the light tile!"))
 
 	else if(attacking_item.iswirecutter())
 		user.drop_from_inventory(attacking_item, get_turf(src))
-		to_chat(user, "<span class='notice'>You detach the wire from the [name].</span>")
+		to_chat(user, SPAN_NOTICE("You detach the wire from the [name]."))
 		playsound(src.loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		new /obj/item/stack/cable_coil(user.loc, 5)
 		new /obj/item/stack/material/glass(user.loc)

@@ -23,7 +23,7 @@
 		return ..()
 	to_chat(user, SPAN_WARNING("You begin repairing \the [src]."))
 	if(do_after(user, 20) && repair_module(attacking_item))
-		to_chat(user, "<span class='notice'>You repair \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You repair \the [src]."))
 	else
 		to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))
 
@@ -196,7 +196,7 @@
 
 	else
 		return ..()
-	to_chat(user, "<span class='notice'>You insert \the [A] into the assembly.</span>")
+	to_chat(user, SPAN_NOTICE("You insert \the [A] into the assembly."))
 	update_icon()
 	if(check_completion())
 		success = 2 // meaning complete

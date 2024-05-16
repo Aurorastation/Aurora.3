@@ -38,7 +38,7 @@
 	body_color = "gray"
 
 	say_dead_direct("An heir to the rat throne has risen, all rejoice and celebrate.")
-	announceToRodents("<span class='notice'>The rat king has risen! Go at once and join his kingdom, long live the king!</span>")
+	announceToRodents(SPAN_NOTICE("The rat king has risen! Go at once and join his kingdom, long live the king!"))
 
 /mob/living/simple_animal/rat/king/death()
 	while(rats.len)
@@ -165,7 +165,7 @@
 	set name = "Decree"
 
 	if( !health )
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	var/input = sanitize(input(usr, "Please enter the [lowertext( announce_name )] for your whole kingdom.", "What?", "") as message|null, extra = 0)
@@ -183,7 +183,7 @@
 	set name = "Mighty Roar"
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
@@ -212,7 +212,7 @@
 		return
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	if(!canEatCorpse())

@@ -304,7 +304,7 @@
 		user.drop_from_inventory(attacking_item,src)
 		coin = attacking_item
 		categories |= CAT_COIN
-		to_chat(user, "<span class='notice'>You insert \the [attacking_item] into \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert \the [attacking_item] into \the [src]."))
 		SStgui.update_uis(src)
 		return TRUE
 	else if(attacking_item.iswrench())
@@ -315,7 +315,7 @@
 		user.visible_message("<b>[user]</b> begins [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor.", SPAN_NOTICE("You start [anchored? "un" : ""]securing \the [src] [anchored? "from" : "to"] the floor."))
 		if(attacking_item.use_tool(src, user, 20, volume = 50))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You [anchored? "un" : ""]secured \the [src]!</span>")
+			to_chat(user, SPAN_NOTICE("You [anchored? "un" : ""]secured \the [src]!"))
 			anchored = !anchored
 			power_change()
 		return TRUE
@@ -326,7 +326,7 @@
 			if(VR.charges)
 				if(VR.vend_id == vend_id)
 					VR.restock_inventory(src)
-					to_chat(user, "<span class='notice'>You restock \the [src] with \the [VR]!</span>")
+					to_chat(user, SPAN_NOTICE("You restock \the [src] with \the [VR]!"))
 					if(!VR.charges)
 						to_chat(user, SPAN_WARNING("\The [VR] is depleted!"))
 				else
@@ -741,7 +741,7 @@
 
 /obj/machinery/vending/proc/stock(var/datum/data/vending_product/R, var/mob/user)
 
-	to_chat(user, "<span class='notice'>You insert \the [R.product_name] in the product receptor.</span>")
+	to_chat(user, SPAN_NOTICE("You insert \the [R.product_name] in the product receptor."))
 	R.amount++
 
 	SStgui.update_uis(src)

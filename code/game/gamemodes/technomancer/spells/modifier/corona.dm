@@ -21,4 +21,4 @@
 
 /datum/modifier/technomancer/corona
 	on_created_text = SPAN_WARNING("You start to glow very brightly!")
-	on_expired_text = "<span class='notice'>Your glow has ended.</span>"
+	on_expired_text = SPAN_NOTICE("Your glow has ended.")

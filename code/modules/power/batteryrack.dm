@@ -62,7 +62,7 @@
 					user.drop_from_inventory(attacking_item,src)
 					component_parts += attacking_item
 					RefreshParts()
-					to_chat(user, "<span class='notice'>You upgrade the [src] with [attacking_item.name].</span>")
+					to_chat(user, SPAN_NOTICE("You upgrade the [src] with [attacking_item.name]."))
 				else
 					to_chat(user, SPAN_WARNING("Turn off the [src] before dismantling it."))
 			else

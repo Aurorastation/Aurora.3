@@ -12,13 +12,13 @@
 
 /obj/item/poppet/Destroy()
 	if(target)
-		to_chat(target, "<span class='notice'>The strange presence vanishes away...</span>")
+		to_chat(target, SPAN_NOTICE("The strange presence vanishes away..."))
 	return ..()
 
 /obj/item/poppet/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(countenance)
-		. += "<span class='notice'>It is modeled after a [countenance].</span>"
+		. += SPAN_NOTICE("It is modeled after a [countenance].")
 
 /obj/item/poppet/afterattack(var/atom/A, var/mob/user, var/proximity)
 
@@ -46,26 +46,26 @@
 			log_and_message_admins("forced [H] to say [voice] with a poppet", user)
 
 		if(target_zone == BP_EYES)
-			to_chat(user, "<span class='notice'>You cover \the [src]'s eyes.</span>")
+			to_chat(user, SPAN_NOTICE("You cover \the [src]'s eyes."))
 			to_chat(H, SPAN_WARNING("Your vision is covered by a shadow!"))
 			H.eye_blind = 3
 			H.eye_blurry = 5
 
 		if(target_zone == BP_R_LEG || target_zone == BP_L_LEG)
-			to_chat(user, "<span class='notice'>You move \the [src]'s legs around.</span>")
+			to_chat(user, SPAN_NOTICE("You move \the [src]'s legs around."))
 			if(H.canmove && !H.restrained() && !(istype(H.loc, /turf/space)))
 				step(H, pick(GLOB.cardinal))
 
 		if(target_zone == BP_L_HAND || target_zone == BP_L_ARM)
-			to_chat(user, "<span class='notice'>You twist \the [src]'s left arm.</span>")
+			to_chat(user, SPAN_NOTICE("You twist \the [src]'s left arm."))
 			H.drop_l_hand()
 
 		if(target_zone == BP_R_HAND || target_zone == BP_R_ARM)
-			to_chat(user, "<span class='notice'>You twist \the [src]'s right arm..</span>")
+			to_chat(user, SPAN_NOTICE("You twist \the [src]'s right arm.."))
 			H.drop_r_hand()
 
 		if(target_zone == BP_HEAD)
-			to_chat(user, "<span class='notice'>You smack \the [src]'s head with your hand.</span>")
+			to_chat(user, SPAN_NOTICE("You smack \the [src]'s head with your hand."))
 			H.confused += 10
 			H.stuttering += 5
 			to_chat(H, "<span class='danger'>You suddenly feel as if your head was hit by something!</span>")

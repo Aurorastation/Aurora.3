@@ -601,7 +601,7 @@
 		M.visible_message(\
 			SPAN_WARNING("/The [M]'s body shifts and contorts!"),\
 			"<span class='danger'>Your body shifts and contorts!</span>",\
-			"<span class='notice'>You hear strange flesh-like noises.</span>"\
+			SPAN_NOTICE("You hear strange flesh-like noises.")\
 		)
 		scramble(TRUE, M, 100)
 		M.adjustHalLoss(25)

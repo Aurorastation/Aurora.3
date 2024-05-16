@@ -41,14 +41,14 @@
 	for(var/stage = 1, stage <= 3, stage++)
 		switch(stage)
 			if(1)
-				to_chat(src, "<span class='notice'>This creature is compatible. We must hold still..</span>")
+				to_chat(src, SPAN_NOTICE("This creature is compatible. We must hold still.."))
 				src.visible_message(SPAN_WARNING("[src]'s skin begins to shift and squirm!"))
 			if(2)
-				to_chat(src, "<span class='notice'>We extend a proboscis.</span>")
+				to_chat(src, SPAN_NOTICE("We extend a proboscis."))
 				src.visible_message(SPAN_WARNING("[src] extends a proboscis!"))
 				playsound(get_turf(src), 'sound/effects/lingextends.ogg', 50, 1)
 			if(3)
-				to_chat(src, "<span class='notice'>We stab [T] with the proboscis.</span>")
+				to_chat(src, SPAN_NOTICE("We stab [T] with the proboscis."))
 				src.visible_message("<span class='danger'>[src] stabs [T] with the proboscis!</span>")
 				to_chat(T, "<span class='danger'>You feel a sharp stabbing pain!</span>")
 				playsound(get_turf(src), 'sound/effects/lingstabs.ogg', 50, 1)
@@ -62,7 +62,7 @@
 			changeling.isabsorbing = FALSE
 			return
 
-	to_chat(src, "<span class='notice'>We have absorbed [T]!</span>")
+	to_chat(src, SPAN_NOTICE("We have absorbed [T]!"))
 	src.visible_message("<span class='danger'>[src] sucks the fluids from [T]!</span>")
 	to_chat(T, "<span class='danger'>You have been absorbed by the changeling!</span>")
 	playsound(get_turf(src), 'sound/effects/lingabsorbs.ogg', 50, 1)

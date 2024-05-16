@@ -126,7 +126,7 @@
 
 	if(wielded) //Trying to unwield it
 		unwield()
-		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
+		to_chat(user, SPAN_NOTICE("You are now carrying the [name] with one hand."))
 
 		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
@@ -141,7 +141,7 @@
 			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
 			return
 		wield()
-		to_chat(user, "<span class='notice'>You grip the [base_name] with both hands.</span>")
+		to_chat(user, SPAN_NOTICE("You grip the [base_name] with both hands."))
 
 		var/obj/item/material/twohanded/offhand/O = new /obj/item/material/twohanded/offhand(user) ////Let's reserve his other hand~
 		O.name = "[base_name] - offhand"
@@ -270,7 +270,7 @@
 
 /obj/item/material/twohanded/spear/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/organ/external/head))
-		to_chat(user, "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>")
+		to_chat(user, SPAN_NOTICE("You stick the head onto the spear and stand it upright on the ground."))
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
 		attacking_item.transform = M
@@ -284,7 +284,7 @@
 		return
 
 	if(istype(attacking_item, /obj/item/grenade))
-		to_chat(user, "<span class='notice'>You strap \the [attacking_item] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You strap \the [attacking_item] to \the [src]."))
 		user.unEquip(attacking_item)
 		attacking_item.forceMove(src)
 		explosive = attacking_item

@@ -66,7 +66,7 @@
 	timer -= 2
 
 	if (timer == 10)
-		visible_message("<span class='notice'>\The [src]'s surface begins cracking and dissolving!</span>")
+		visible_message(SPAN_NOTICE("\The [src]'s surface begins cracking and dissolving!"))
 
 	if (timer <= 0)
 		dump_contents()

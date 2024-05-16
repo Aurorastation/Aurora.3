@@ -20,7 +20,7 @@
 		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))
 	if(is_type_in_typecache(attacking_item, barrel_cutting_tools) && w_class != 3)
-		to_chat(user, "<span class='notice'>You begin to [sawnoff_workmsg] of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You begin to [sawnoff_workmsg] of \the [src]."))
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
@@ -38,7 +38,7 @@
 
 // called on a SUCCESSFUL saw-off.
 /obj/item/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
-	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
+	to_chat(user, SPAN_NOTICE("You attempt to cut [src]'s barrel with [tool], but nothing happens."))
 	LOG_DEBUG("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
 /obj/item/gun/projectile/shotgun/pump

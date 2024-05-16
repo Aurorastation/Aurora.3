@@ -899,7 +899,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 						O.show_message("[user.name] forcefully slams the [src.name] with the [attacking_item.name]!" )
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
-			to_chat(user, "<span class='notice'>This does nothing.</span>")
+			to_chat(user, SPAN_NOTICE("This does nothing."))
 	src.update_icon()
 
 /datum/news_photo
@@ -1097,7 +1097,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 									SPAN_NOTICE("You unroll \the [src] to write on it."))
 			rolled()
 		if(src.scribble_page == src.curr_page)
-			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
+			to_chat(user, SPAN_NOTICE("There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?"))
 		else
 			var/s = sanitize( tgui_input_text(user, "Write something", "Newspaper", "") )
 			if (!s)

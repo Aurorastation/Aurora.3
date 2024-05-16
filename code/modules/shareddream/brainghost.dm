@@ -41,10 +41,10 @@
 		body.willfully_sleeping = FALSE
 		if(force_awaken)
 			body.sleeping = 0
-			to_chat(src, "<span class='notice'>You suddenly feel like your connection to the dream is breaking up by the outside force.</span>")
+			to_chat(src, SPAN_NOTICE("You suddenly feel like your connection to the dream is breaking up by the outside force."))
 		else
 			body.sleeping = max(body.sleeping - 5, 0)
-			to_chat(src, "<span class='notice'>You release your concentration on sleep, allowing yourself to wake up.</span>")
+			to_chat(src, SPAN_NOTICE("You release your concentration on sleep, allowing yourself to wake up."))
 	else
 		to_chat(src, SPAN_WARNING("You've already released concentration. Wait to wake up naturally."))
 

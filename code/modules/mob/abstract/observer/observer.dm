@@ -183,7 +183,7 @@ Works together with spawning an observer, noted above.
 	//Teleport them back to the ghost spawn
 	var/obj/O = locate("landmark*Observer-Start")
 	if(istype(O))
-		to_chat(src, "<span class='notice'>[message]</span>")
+		to_chat(src, SPAN_NOTICE("[message]"))
 		forceMove(O.loc)
 
 //Teleports the observer away from z-levels they shouldnt be on, if needed.
@@ -315,10 +315,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		return
 	if(medHUD)
 		medHUD = 0
-		to_chat(src, "<span class='notice'><B>Medical HUD Disabled</B></span>")
+		to_chat(src, SPAN_NOTICE("<B>Medical HUD Disabled</B>"))
 	else
 		medHUD = 1
-		to_chat(src, "<span class='notice'><B>Medical HUD Enabled</B></span>")
+		to_chat(src, SPAN_NOTICE("<B>Medical HUD Enabled</B>"))
 
 /mob/abstract/observer/verb/scan_target()
 	set category = "Ghost"
@@ -359,10 +359,10 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 		M.has_enabled_antagHUD = 1
 	if(M.antagHUD)
 		M.antagHUD = 0
-		to_chat(src, "<span class='notice'><B>AntagHUD Disabled</B></span>")
+		to_chat(src, SPAN_NOTICE("<B>AntagHUD Disabled</B>"))
 	else
 		M.antagHUD = 1
-		to_chat(src, "<span class='notice'><B>AntagHUD Enabled</B></span>")
+		to_chat(src, SPAN_NOTICE("<B>AntagHUD Enabled</B>"))
 
 /mob/abstract/observer/proc/dead_tele(A in GLOB.ghostteleportlocs)
 	set category = "Ghost"
@@ -498,16 +498,16 @@ This is the proc mobs get to turn into a ghost. Forked from ghostize due to comp
 	var/pressure = environment.return_pressure()
 	var/total_moles = environment.total_moles
 
-	to_chat(src, "<span class='notice'><B>Results:</B></span>")
+	to_chat(src, SPAN_NOTICE("<B>Results:</B>"))
 	if(abs(pressure - ONE_ATMOSPHERE) < 10)
-		to_chat(src, "<span class='notice'>Pressure: [round(pressure,0.1)] kPa</span>")
+		to_chat(src, SPAN_NOTICE("Pressure: [round(pressure,0.1)] kPa"))
 	else
 		to_chat(src, SPAN_WARNING("Pressure: [round(pressure,0.1)] kPa"))
 	if(total_moles)
 		for(var/g in environment.gas)
-			to_chat(src, "<span class='notice'>[gas_data.name[g]]: [round((environment.gas[g] / total_moles) * 100)]% ([round(environment.gas[g], 0.01)] moles)</span>")
-		to_chat(src, "<span class='notice'>Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)</span>")
-		to_chat(src, "<span class='notice'>Heat Capacity: [round(environment.heat_capacity(),0.1)]</span>")
+			to_chat(src, SPAN_NOTICE("[gas_data.name[g]]: [round((environment.gas[g] / total_moles) * 100)]% ([round(environment.gas[g], 0.01)] moles)"))
+		to_chat(src, SPAN_NOTICE("Temperature: [round(environment.temperature-T0C,0.1)]&deg;C ([round(environment.temperature,0.1)]K)"))
+		to_chat(src, SPAN_NOTICE("Heat Capacity: [round(environment.heat_capacity(),0.1)]"))
 
 /mob/abstract/observer/verb/view_manifest()
 	set name = "Show Crew Manifest"

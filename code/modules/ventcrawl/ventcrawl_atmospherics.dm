@@ -32,7 +32,7 @@
 	if(target_move)
 		if(is_type_in_list(target_move, ventcrawl_machinery) && target_move.can_crawl_through())
 			if(target_move:is_welded())
-				user.visible_message(SPAN_WARNING("You hear something banging on \the [target_move.name]!"), "<span class='notice'>You can't escape from a welded vent.</span>")
+				user.visible_message(SPAN_WARNING("You hear something banging on \the [target_move.name]!"), SPAN_NOTICE("You can't escape from a welded vent."))
 			else
 				user.remove_ventcrawl()
 				user.forceMove(target_move.loc) //handles entering and so on

@@ -98,7 +98,7 @@
 		return 0
 
 	if(!health)
-		to_chat(src, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		to_chat(src, SPAN_NOTICE("We are dead, we cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
@@ -233,7 +233,7 @@
 	set category = "Changeling"
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("We are dead, we cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)

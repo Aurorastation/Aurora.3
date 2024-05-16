@@ -25,12 +25,12 @@
 				to_chat(user, SPAN_WARNING("\The [src] is too full to add more metal."))
 				return
 			if(stack.use(num))
-				to_chat(user, "<span class='notice'>You add [num] sheet\s to \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You add [num] sheet\s to \the [src]."))
 				metal += num * metal_per_sheet
 				return TRUE
 
 	if(istype(attacking_item,/obj/item/integrated_circuit))
-		to_chat(user, "<span class='notice'>You insert the circuit into \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You insert the circuit into \the [src]. "))
 		user.unEquip(attacking_item)
 		metal = min(metal + attacking_item.w_class, max_metal)
 		qdel(attacking_item)
@@ -40,7 +40,7 @@
 		if(upgraded)
 			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into  \the [src]. "))
 		upgraded = TRUE
 		return TRUE
 
@@ -48,7 +48,7 @@
 		if(can_clone)
 			to_chat(user, SPAN_WARNING("\The [src] already has this upgrade. "))
 			return TRUE
-		to_chat(user, "<span class='notice'>You install \the [attacking_item] into  \the [src]. </span>")
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] into  \the [src]. "))
 		can_clone = TRUE
 		return TRUE
 

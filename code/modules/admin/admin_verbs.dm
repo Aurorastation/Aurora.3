@@ -612,7 +612,7 @@ var/list/admin_verbs_cciaa = list(
 			mob.alpha = max(mob.alpha + 100, 255)
 		else
 			mob.set_invisibility(INVISIBILITY_OBSERVER)
-			to_chat(mob, "<span class='notice'><b>Invisimin on. You are now as invisible as a ghost.</b></span>")
+			to_chat(mob, SPAN_NOTICE("<b>Invisimin on. You are now as invisible as a ghost.</b>"))
 			mob.alpha = max(mob.alpha - 100, 0)
 
 /client/proc/player_panel_modern()
@@ -725,7 +725,7 @@ var/list/admin_verbs_cciaa = list(
 			var/light_impact_range = tgui_input_number(usr, "Set the light impact range (in tiles).", "Light")
 			var/flash_range = tgui_input_number(usr, "Set the flash range (in tiles).", "Flash")
 			explosion(epicenter, devastation_range, heavy_impact_range, light_impact_range, flash_range)
-	message_admins("<span class='notice'>[ckey] creating an admin explosion at [epicenter.loc].</span>")
+	message_admins(SPAN_NOTICE("[ckey] creating an admin explosion at [epicenter.loc]."))
 	feedback_add_details("admin_verb","DB") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /client/proc/make_sound(var/obj/O in range(world.view)) // -- TLE
@@ -739,7 +739,7 @@ var/list/admin_verbs_cciaa = list(
 		for (var/mob/V in hearers(O))
 			V.show_message(message, 2)
 		log_admin("[key_name(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound",admin_key=key_name(usr))
-		message_admins("<span class='notice'>[key_name_admin(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound</span>", 1)
+		message_admins(SPAN_NOTICE("[key_name_admin(usr)] made [O] at [O.x], [O.y], [O.z]. make a sound"), 1)
 		feedback_add_details("admin_verb","MS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 
@@ -781,7 +781,7 @@ var/list/admin_verbs_cciaa = list(
 		to_chat(usr, "<b>Disabled air processing.</b>")
 	feedback_add_details("admin_verb","KA") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] used 'kill air'.",admin_key=key_name(usr))
-	message_admins("<span class='notice'>[key_name_admin(usr)] used 'kill air'.</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] used 'kill air'."), 1)
 
 /client/proc/readmin_self()
 	set name = "Re-Admin self"
@@ -817,10 +817,10 @@ var/list/admin_verbs_cciaa = list(
 
 	if(holder)
 		if (toggle_aooc_holder_check() == FALSE)
-			to_chat(src, "<span class='notice'>AOOC is now muted.</span>")
+			to_chat(src, SPAN_NOTICE("AOOC is now muted."))
 			remove_verb(src, /client/proc/aooc)
 		else
-			to_chat(src, "<span class='notice'>AOOC is now unmuted.</span>")
+			to_chat(src, SPAN_NOTICE("AOOC is now unmuted."))
 			add_verb(src, /client/proc/aooc)
 
 	feedback_add_details("admin_verb","TAOOC") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -1075,11 +1075,11 @@ var/list/admin_verbs_cciaa = list(
 	set name = "Man Up"
 	set desc = "Tells mob to man up and deal with it."
 
-	to_chat(T, "<span class='notice'><b><font size=3>Man up and deal with it.</font></b></span>")
-	to_chat(T, "<span class='notice'>Move on.</span>")
+	to_chat(T, SPAN_NOTICE("<b><font size=3>Man up and deal with it.</font></b>"))
+	to_chat(T, SPAN_NOTICE("Move on."))
 
 	log_admin("[key_name(usr)] told [key_name(T)] to man up and deal with it.", admin_key=key_name(usr), ckey=key_name(T))
-	message_admins("<span class='notice'>[key_name_admin(usr)] told [key_name(T)] to man up and deal with it.</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told [key_name(T)] to man up and deal with it."), 1)
 
 /client/proc/global_man_up()
 	set category = "Fun"
@@ -1091,7 +1091,7 @@ var/list/admin_verbs_cciaa = list(
 		sound_to(T, 'sound/voice/ManUp1.ogg')
 
 	log_admin("[key_name(usr)] told everyone to man up and deal with it.",admin_key=key_name(usr))
-	message_admins("<span class='notice'>[key_name_admin(usr)] told everyone to man up and deal with it.</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] told everyone to man up and deal with it."), 1)
 
 /client/proc/give_spell(mob/T as mob in GLOB.mob_list) // -- Urist
 	set category = "Fun"
@@ -1102,7 +1102,7 @@ var/list/admin_verbs_cciaa = list(
 	T.add_spell(new S)
 	feedback_add_details("admin_verb","GS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	log_admin("[key_name(usr)] gave [key_name(T)] the spell [S].",admin_key=key_name(usr),ckey=key_name(T))
-	message_admins("<span class='notice'>[key_name_admin(usr)] gave [key_name(T)] the spell [S].</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] gave [key_name(T)] the spell [S]."), 1)
 
 /client/proc/toggle_recursive_explosions()
 	set category = "Server"
@@ -1115,7 +1115,7 @@ var/list/admin_verbs_cciaa = list(
 	var/ans = alert(src, "This will force explosions to run in the [GLOB.config.use_spreading_explosions ? "old manner (circular)" : "new, realistic manner (spreading)"]. Do you want to proceed?", "Switch explosion type", "Yes", "Cancel")
 
 	if (!ans || ans == "Cancel")
-		to_chat(src, "<span class='notice'>Cancelled.</span>")
+		to_chat(src, SPAN_NOTICE("Cancelled."))
 		return
 
 	GLOB.config.use_spreading_explosions = !GLOB.config.use_spreading_explosions
@@ -1247,7 +1247,7 @@ var/list/admin_verbs_cciaa = list(
 		sortTim(C.client_colors, GLOBAL_PROC_REF(cmp_clientcolor_priority))
 		C.update_client_color()
 
-	log_and_message_admins("<span class='notice'>gave [key_name(C)] a new client color.</span>")
+	log_and_message_admins(SPAN_NOTICE("gave [key_name(C)] a new client color."))
 	feedback_add_details("admin_verb","CR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 #ifdef ENABLE_SUNLIGHT

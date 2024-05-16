@@ -155,7 +155,7 @@
 /obj/item/gun/projectile/automatic/rifle/minigun/dropped(mob/user)
 	..()
 	if(source)
-		to_chat(user, "<span class='notice'>\The [src] snaps back onto \the [source].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] snaps back onto \the [source]."))
 		INVOKE_ASYNC(source, TYPE_PROC_REF(/obj/item/minigunpack, remove_gun))
 		source.update_icon()
 		user.update_inv_back()

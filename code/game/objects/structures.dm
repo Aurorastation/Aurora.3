@@ -51,7 +51,7 @@
 
 	if(LAZYLEN(climbers) && !(user in climbers))
 		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
-					"<span class='notice'>You shake \the [src].</span>")
+					SPAN_NOTICE("You shake \the [src]."))
 		structure_shaken()
 
 	return ..()
@@ -214,12 +214,12 @@
 	if(!Adjacent(user))
 		return 0
 	if (user.restrained() || user.buckled_to)
-		to_chat(user, "<span class='notice'>You need your hands and legs free for this.</span>")
+		to_chat(user, SPAN_NOTICE("You need your hands and legs free for this."))
 		return 0
 	if (user.stat || user.paralysis || user.sleeping || user.lying || user.weakened)
 		return 0
 	if (issilicon(user))
-		to_chat(user, "<span class='notice'>You need hands for this.</span>")
+		to_chat(user, SPAN_NOTICE("You need hands for this."))
 		return 0
 	return 1
 

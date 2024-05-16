@@ -23,7 +23,7 @@
 		return
 
 	layer = ABOVE_TILE_LAYER
-	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
+	to_chat(usr, SPAN_NOTICE("You hide \the [src]."))
 
 
 /obj/item/landmine/attack_self(mob/user)

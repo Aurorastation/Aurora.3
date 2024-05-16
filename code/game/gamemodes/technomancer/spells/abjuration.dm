@@ -29,7 +29,7 @@
 				to_chat(L, SPAN_WARNING("\The [user] tried to teleport you far away, but failed."))
 				return 0
 			else
-				visible_message("<span class='notice'>\The [L] vanishes!</span>")
+				visible_message(SPAN_NOTICE("\The [L] vanishes!"))
 				qdel(L)
 		else if(istype(L, /mob/living/simple_animal/construct))
 			var/mob/living/simple_animal/construct/evil = L

@@ -46,7 +46,7 @@
 		if(harpoons.len < max_harpoons)
 			user.drop_from_inventory(attacking_item, src)
 			harpoons += attacking_item
-			to_chat(user, "<span class='notice'>You load \the [attacking_item] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You load \the [attacking_item] in \the [src]."))
 			update_icon()
 		else
 			to_chat(user, SPAN_WARNING("\The [src] is already loaded."))

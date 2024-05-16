@@ -209,7 +209,7 @@
 		power_supply.forceMove(get_turf(src.loc))
 		user.visible_message(
 			"[power_supply] pops out of the cell mount!",
-			"<span class='notice'>[power_supply] pops out of \the [src] and clatters on the floor!</span>"
+			SPAN_NOTICE("[power_supply] pops out of \the [src] and clatters on the floor!")
 			)
 		power_supply.update_icon()
 		power_supply = null

@@ -23,13 +23,13 @@
 
 	user.visible_message(
 		SPAN_WARNING("[user] begins deploying \the [src]."),
-		"<span class='notice'>You begin deplyoing \the [src].</span>"
+		SPAN_NOTICE("You begin deplyoing \the [src].")
 	)
 	if (!do_after(user, 0.45 SECONDS))
 		return
 	user.visible_message(
 		SPAN_WARNING("[user] deployed \the [src].") ,
-		"<span class='notice'>You deploy \the [src].</span>"
+		SPAN_NOTICE("You deploy \the [src].")
 	)
 	var/obj/structure/closet/airbubble/R
 	if(syndie)
@@ -85,9 +85,9 @@
 /obj/structure/closet/airbubble/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(!isnull(internal_tank))
-		. += "<span class='notice'>\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.</span>"
+		. += SPAN_NOTICE("\The [src] has [internal_tank] attached, that displays [round(internal_tank.air_contents.return_pressure() ? internal_tank.air_contents.return_pressure() : 0)] KPa.")
 	else
-		. += "<span class='notice'>\The [src] has no tank attached.</span>"
+		. += SPAN_NOTICE("\The [src] has no tank attached.")
 	if (cell)
 		. += "\The [src] has [cell] attached, the charge meter reads [round(cell.percent())]%."
 	else
@@ -141,7 +141,7 @@
 
 /obj/structure/closet/airbubble/toggle(mob/user as mob)
 	if(!(opened ? close(user) : open(user)))
-		to_chat(user, "<span class='notice'>It won't budge!</span>")
+		to_chat(user, SPAN_NOTICE("It won't budge!"))
 		return
 	update_icon()
 	return 1
@@ -195,13 +195,13 @@
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] begins folding up the [src.name]."),
-		"<span class='notice'>You begin folding up the [src.name].</span>"
+		SPAN_NOTICE("You begin folding up the [src.name].")
 		)
 		if (!do_after(usr, 0.45 SECONDS))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] folds up the [src.name].") ,
-		"<span class='notice'>You fold up the [src.name].</span>"
+		SPAN_NOTICE("You fold up the [src.name].")
 		)
 		var/obj/item/airbubble/bag
 		if(syndie)
@@ -312,13 +312,13 @@
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is setting [src] internals."),
-		"<span class='notice'>You are settting [src] internals.</span>"
+		SPAN_NOTICE("You are settting [src] internals.")
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has set [src] internals.") ,
-		"<span class='notice'>You set [src] internals.</span>"
+		SPAN_NOTICE("You set [src] internals.")
 		)
 		if(use_internal_tank)
 			STOP_PROCESSING(SSfast_process, src)
@@ -327,7 +327,7 @@
 		use_internal_tank = !use_internal_tank
 		update_icon()
 	else
-		to_chat(usr, "<span class='notice'>[src] has no internal tank.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] has no internal tank."))
 
 // Remove tank from bubble
 /obj/structure/closet/airbubble/verb/take_tank()
@@ -345,13 +345,13 @@
 	if(!isnull(internal_tank))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is removing [internal_tank] from [src]."),
-		"<span class='notice'>You are removing [internal_tank] from [src].</span>"
+		SPAN_NOTICE("You are removing [internal_tank] from [src].")
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has removed [internal_tank] from [src]."),
-		"<span class='notice'>You removed [internal_tank] from [src].</span>"
+		SPAN_NOTICE("You removed [internal_tank] from [src].")
 		)
 		for(var/obj/I in src)
 			I.forceMove(usr.loc)
@@ -378,13 +378,13 @@
 	if(!isnull(cell))
 		usr.visible_message(
 		SPAN_WARNING("[usr] is removing [cell] from [src]."),
-		"<span class='notice'>You are removing [cell] from [src].</span>"
+		SPAN_NOTICE("You are removing [cell] from [src].")
 		)
 		if (!do_after(usr, 2 SECONDS, src))
 			return
 		usr.visible_message(
 		SPAN_WARNING("[usr] has removed [cell] from [src]."),
-		"<span class='notice'>You removed [cell] from [src].</span>"
+		SPAN_NOTICE("You removed [cell] from [src].")
 		)
 		cell.forceMove(usr.loc)
 		cell = null
@@ -399,13 +399,13 @@
 		if(!isnull(use_internal_tank))
 			user.visible_message(
 			SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
-			"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
+			SPAN_NOTICE("You are attaching [attacking_item] to [src].")
 			)
 			if (!do_after(user, 2 SECONDS, src))
 				return
 			user.visible_message(
 			SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
-			"<span class='notice'>You attached [attacking_item] to [src].</span>"
+			SPAN_NOTICE("You attached [attacking_item] to [src].")
 			)
 			internal_tank = attacking_item
 			user.drop_from_inventory(attacking_item, src)
@@ -429,7 +429,7 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] begins putting cable restrains on zipper of [src]."),
-		"<span class='notice'>You begin putting cable restrains on zipper of [src].</span>"
+		SPAN_NOTICE("You begin putting cable restrains on zipper of [src].")
 		)
 		playsound(loc, 'sound/weapons/cablecuff.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
@@ -438,7 +438,7 @@
 		update_icon()
 		user.visible_message(
 		SPAN_WARNING("[src]'s zipper have been zipped by [user]."),
-		"<span class='notice'>You put restrains on [src]'s zipper.</span>"
+		SPAN_NOTICE("You put restrains on [src]'s zipper.")
 		)
 
 		qdel(attacking_item)
@@ -451,7 +451,7 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] begins cutting cable restrains on zipper of [src]."),
-		"<span class='notice'>You begin cutting cable restrains on zipper of [src].</span>"
+		SPAN_NOTICE("You begin cutting cable restrains on zipper of [src].")
 		)
 		playsound(loc, 'sound/items/Wirecutter.ogg', 50, 1)
 		if (!do_after(user, 3 SECONDS, src, extra_checks = CALLBACK(src, PROC_REF(is_closed))))
@@ -460,7 +460,7 @@
 		update_icon()
 		user.visible_message(
 		SPAN_WARNING("[src] zipper's cable restrains has been cut by [user]."),
-		"<span class='notice'>You cut cable restrains on [src]'s zipper.</span>"
+		SPAN_NOTICE("You cut cable restrains on [src]'s zipper.")
 		)
 		new/obj/item/handcuffs/cable(src.loc)
 		update_icon()
@@ -472,13 +472,13 @@
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] is attaching [attacking_item] to [src]."),
-		"<span class='notice'>You are attaching [attacking_item] to [src].</span>"
+		SPAN_NOTICE("You are attaching [attacking_item] to [src].")
 		)
 		if (!do_after(user, 2 SECONDS, src))
 			return TRUE
 		user.visible_message(
 		SPAN_WARNING("[user] has attached [attacking_item] to [src]."),
-		"<span class='notice'>You attached [attacking_item] to [src].</span>"
+		SPAN_NOTICE("You attached [attacking_item] to [src].")
 		)
 		cell = attacking_item
 		cooling = TRUE

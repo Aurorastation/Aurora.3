@@ -320,7 +320,7 @@
 		if(!tempLoc.is_plating())
 			to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			return 1
-	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You start adding cable to the [src]."))
 	if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
@@ -352,15 +352,15 @@
 				return
 			open_hatch = 1
 			user.visible_message(\
-				"<span class='notice'>\The [user] opens the maintenance hatch of \the [src].</span>",\
-				"<span class='notice'>You open the maintenance hatch of \the [src].</span>",\
+				SPAN_NOTICE("\The [user] opens the maintenance hatch of \the [src]."),\
+				SPAN_NOTICE("You open the maintenance hatch of \the [src]."),\
 				range = 4)
 			return 0
 		else
 			open_hatch = 0
 			user.visible_message(\
-				"<span class='notice'>\The [user] closes the maintenance hatch of \the [src].</span>",\
-				"<span class='notice'>You close the maintenance hatch of \the [src].</span>",\
+				SPAN_NOTICE("\The [user] closes the maintenance hatch of \the [src]."),\
+				SPAN_NOTICE("You close the maintenance hatch of \the [src]."),\
 				range = 4)
 			return 0
 
@@ -381,8 +381,8 @@
 		building_terminal = 0
 		CC.use(10)
 		user.visible_message(\
-			"<span class='notice'>[user.name] has added cables to the [src].</span>",\
-			"<span class='notice'>You added cables to the [src].</span>")
+			SPAN_NOTICE("[user.name] has added cables to the [src]."),\
+			SPAN_NOTICE("You added cables to the [src]."))
 		terminal.connect_to_network()
 		stat = 0
 		return 0
@@ -394,7 +394,7 @@
 			if(!tempTDir.is_plating())
 				to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			else
-				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
+				to_chat(user, SPAN_NOTICE("You begin to cut the cables..."))
 				if(attacking_item.use_tool(src, user, 50, volume = 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
@@ -403,8 +403,8 @@
 							return 0
 					new /obj/item/stack/cable_coil(loc,10)
 					user.visible_message(\
-						"<span class='notice'>[user.name] cut the cables and dismantled the power terminal.</span>",\
-						"<span class='notice'>You cut the cables and dismantle the power terminal.</span>")
+						SPAN_NOTICE("[user.name] cut the cables and dismantled the power terminal."),\
+						SPAN_NOTICE("You cut the cables and dismantle the power terminal."))
 					qdel(terminal)
 		building_terminal = 0
 		return 0

@@ -81,8 +81,8 @@
 
 	if (user && anything_moved)
 		user.visible_message(
-		"<span class='notice'>[user] kicks everything off [src].</span>",
-		"<span class='notice'>You kick everything off [src].</span>"
+		SPAN_NOTICE("[user] kicks everything off [src]."),
+		SPAN_NOTICE("You kick everything off [src].")
 		)
 
 
@@ -245,8 +245,8 @@
 		return 1
 
 	if(carpeted && attacking_item.iscrowbar())
-		user.visible_message("<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
-								"<span class='notice'>You remove the carpet from \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
+								SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
 		queue_icon_update()
@@ -255,8 +255,8 @@
 	if(!carpeted && material && istype(attacking_item, /obj/item/stack/tile/carpet))
 		var/obj/item/stack/tile/carpet/C = attacking_item
 		if(C.use(1))
-			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
-									"<span class='notice'>You add \the [C] to \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] adds \the [C] to \the [src]."),
+									SPAN_NOTICE("You add \the [C] to \the [src]."))
 			carpeted = 1
 			queue_icon_update()
 			return 1
@@ -281,11 +281,11 @@
 	if(health < maxhealth && attacking_item.iswelder())
 		var/obj/item/weldingtool/F = attacking_item
 		if(F.welding)
-			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You begin reparing damage to \the [src]."))
 			if(!attacking_item.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
 				return
-			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
-									"<span class='notice'>You repair some damage to \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),
+									SPAN_NOTICE("You repair some damage to \the [src]."))
 			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
 			return 1
 

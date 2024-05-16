@@ -407,7 +407,7 @@
 			var/newtag = input(user, "Enter new RCON tag. Use \"NO_TAG\" to disable RCON or leave empty to cancel.", "SMES RCON system") as text
 			if(newtag)
 				RCon_tag = newtag
-				to_chat(user, "<span class='notice'>You changed the RCON tag to: [newtag]</span>")
+				to_chat(user, SPAN_NOTICE("You changed the RCON tag to: [newtag]"))
 				if(RCon_tag != "NO_TAG")
 					SSmachinery.build_rcon_lists()
 			return

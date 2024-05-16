@@ -13,7 +13,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 
 	var/charge_max = 100 //recharge time in deciseconds if charge_type = Sp_RECHARGE or starting charges if charge_type = Sp_CHARGES
 	var/charge_counter = 0 //can only cast spells if it equals recharge, ++ each decisecond if charge_type = Sp_RECHARGE or -- each cast if charge_type = Sp_CHARGES
-	var/still_recharging_msg = "<span class='notice'>The spell is still recharging.</span>"
+	var/still_recharging_msg = SPAN_NOTICE("The spell is still recharging.")
 
 	var/silenced = 0 //not a binary - the length of time we can't cast this for
 	var/processing = 0 //are we processing already? Mainly used so that silencing a spell doesn't call process() again. (and inadvertedly making it run twice as fast)
@@ -63,7 +63,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 /spell/New()
 	..()
 
-	//still_recharging_msg = "<span class='notice'>[name] is still recharging.</span>"
+	//still_recharging_msg = SPAN_NOTICE("[name] is still recharging.")
 	charge_counter = charge_max
 
 /spell/process()
@@ -242,7 +242,7 @@ var/list/spells = typesof(/spell) //needed for the badmin verb for now
 					return 0
 			if(Sp_CHARGES)
 				if(!charge_counter)
-					to_chat(user, "<span class='notice'>[name] has no charges left.</span>")
+					to_chat(user, SPAN_NOTICE("[name] has no charges left."))
 					return 0
 	return 1
 

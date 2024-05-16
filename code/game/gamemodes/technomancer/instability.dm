@@ -114,8 +114,8 @@
 				L.buckled_to.unbuckle()
 		spark(AM, 5, 2)
 		AM.forceMove(destination)
-		AM.visible_message("<span class='notice'>\The [AM] vanishes!</span>")
-		to_chat(AM, "<span class='notice'>You suddenly appear somewhere else!</span>")
+		AM.visible_message(SPAN_NOTICE("\The [AM] vanishes!"))
+		to_chat(AM, SPAN_NOTICE("You suddenly appear somewhere else!"))
 	return
 
 /mob/living/silicon/instability_effects()

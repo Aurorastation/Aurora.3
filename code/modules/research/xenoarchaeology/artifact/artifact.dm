@@ -65,9 +65,11 @@
 
 	if (istype(attacking_item, /obj/item/device/measuring_tape))
 		var/obj/item/device/measuring_tape/P = attacking_item
-		user.visible_message("<span class='notice'>[user] extends [P] towards [src].</span>","<span class='notice'>You extend [P] towards [src].</span>")
+		user.visible_message(SPAN_NOTICE("[user] extends [P] towards [src]."),
+								SPAN_NOTICE("You extend [P] towards [src]."))
+
 		if(do_after(user,40))
-			to_chat(user, "<span class='notice'>[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm.</span>")
+			to_chat(user, SPAN_NOTICE("[icon2html(P, user)] [src] has been excavated to a depth of [2*src.excavation_level]cm."))
 		return
 
 	if (istype(attacking_item, /obj/item/pickaxe))
@@ -84,7 +86,7 @@
 		if(!do_after(user,P.digspeed))
 			return
 
-		to_chat(user, "<span class='notice'>You finish [P.drill_verb] [src].</span>")
+		to_chat(user, SPAN_NOTICE("You finish [P.drill_verb] [src]."))
 		excavation_level += P.excavation_amount
 
 		if(excavation_level > 100)
@@ -106,7 +108,7 @@
 				src.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"))
 			else
 				user.visible_message(SPAN_WARNING("<b>[src] suddenly crumbles away.</b>"),\
-				"<span class='notice'>[src] has been whittled away under your careful excavation, but there was nothing of interest inside.</span>")
+				SPAN_NOTICE("[src] has been whittled away under your careful excavation, but there was nothing of interest inside."))
 			qdel(src)
 
 /obj/structure/boulder/CollidedWith(AM)

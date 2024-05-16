@@ -111,7 +111,7 @@
 	else
 		src.dna = user.dna.unique_enzymes
 		src.owner_name = user.real_name
-		to_chat(user, "<span class='notice'>You feel your palm heat up as the gun reads your DNA profile.</span>")
+		to_chat(user, SPAN_NOTICE("You feel your palm heat up as the gun reads your DNA profile."))
 		desc += "<br>Linked to: [user.real_name]"
 		return
 

@@ -1520,7 +1520,7 @@
 	attacking_item.play_tool_sound(get_turf(src), 50)
 	user.visible_message( \
 		"[user] fastens the [src].", \
-		"<span class='notice'>You have fastened the [src].</span>", \
+		SPAN_NOTICE("You have fastened the [src]."), \
 		"You hear ratchet.")
 	qdel(src)	// remove the pipe item
 
@@ -1546,7 +1546,7 @@
 			return 1
 		new/obj/machinery/meter( src.loc )
 		attacking_item.play_tool_sound(get_turf(src), 50)
-		to_chat(user, "<span class='notice'>You have fastened the meter to the pipe</span>")
+		to_chat(user, SPAN_NOTICE("You have fastened the meter to the pipe"))
 		qdel(src)
 		return TRUE
 	return ..()

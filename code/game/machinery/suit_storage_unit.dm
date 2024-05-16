@@ -402,9 +402,9 @@
 
 	if (src.OCCUPANT.client)
 		if(user != OCCUPANT)
-			to_chat(OCCUPANT, "<span class='notice'>The machine kicks you out!</span>")
+			to_chat(OCCUPANT, SPAN_NOTICE("The machine kicks you out!"))
 		if(user.loc != src.loc)
-			to_chat(OCCUPANT, "<span class='notice'>You leave the not-so-cozy confines of the SSU.</span>")
+			to_chat(OCCUPANT, SPAN_NOTICE("You leave the not-so-cozy confines of the SSU."))
 
 		src.OCCUPANT.client.eye = src.OCCUPANT.client.mob
 		src.OCCUPANT.client.perspective = MOB_PERSPECTIVE
@@ -446,7 +446,9 @@
 	if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) )
 		to_chat(usr, SPAN_WARNING("It's too cluttered inside for you to fit in!"))
 		return
-	usr.visible_message("<span class='notice'>[usr] starts squeezing into [src]!</span>", "<span class='notice'>You start squeezing into [src]!</span>", range = 3)
+	usr.visible_message(SPAN_NOTICE("[usr] starts squeezing into [src]!"),
+						SPAN_NOTICE("You start squeezing into [src]!"), range = 3)
+
 	if(do_after(usr, 1 SECOND, src, DO_UNIQUE))
 		usr.stop_pulling()
 		usr.client.perspective = EYE_PERSPECTIVE
@@ -470,7 +472,7 @@
 	if(attacking_item.isscrewdriver())
 		src.panelopen = !src.panelopen
 		attacking_item.play_tool_sound(get_turf(src), 100)
-		to_chat(user, text("<span class='notice'>You [] the unit's maintenance panel.</span>",(src.panelopen ? "open up" : "close") ))
+		to_chat(user, SPAN_NOTICE("You [src.panelopen ? "open up" : "close"] the unit's maintenance panel."))
 		update_icon()
 		src.updateUsrDialog()
 		return TRUE
@@ -487,7 +489,10 @@
 		if ( (src.OCCUPANT) || (src.HELMET) || (src.SUIT) ) //Unit needs to be absolutely empty
 			to_chat(user, SPAN_WARNING("The unit's storage area is too cluttered."))
 			return TRUE
-		user.visible_message("<span class='notice'>[user] starts putting [G.affecting] into [src].</span>", "<span class='notice'>You start putting [G.affecting] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [G.affecting] into [src]."),
+								SPAN_NOTICE("You start putting [G.affecting] into [src]."),
+								range = 3)
+
 		if(do_after(user, 2 SECONDS, src, DO_UNIQUE))
 			if(!G || !G.affecting) return TRUE //derpcheck
 			var/mob/M = G.affecting
@@ -508,7 +513,7 @@
 			return TRUE
 		var/obj/item/clothing/suit/space/S = attacking_item
 		if(src.SUIT)
-			to_chat(user, "<span class='notice'>The unit already contains a suit.</span>")
+			to_chat(user, SPAN_NOTICE("The unit already contains a suit."))
 			return TRUE
 		to_chat(user, "You load the [S.name] into the storage compartment.")
 		user.drop_from_inventory(S,src)
@@ -521,7 +526,7 @@
 			return TRUE
 		var/obj/item/clothing/head/helmet/H = attacking_item
 		if(src.HELMET)
-			to_chat(user, "<span class='notice'>The unit already contains a helmet.</span>")
+			to_chat(user, SPAN_NOTICE("The unit already contains a helmet."))
 			return TRUE
 		to_chat(user, "You load the [H.name] into the storage compartment.")
 		user.drop_from_inventory(H,src)
@@ -534,7 +539,7 @@
 			return TRUE
 		var/obj/item/clothing/mask/M = attacking_item
 		if(src.MASK)
-			to_chat(user, "<span class='notice'>The unit already contains a mask.</span>")
+			to_chat(user, SPAN_NOTICE("The unit already contains a mask."))
 			return TRUE
 		to_chat(user, "You load the [M.name] into the storage compartment.")
 		user.drop_from_inventory(M,src)

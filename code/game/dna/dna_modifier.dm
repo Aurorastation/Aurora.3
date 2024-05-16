@@ -90,7 +90,7 @@
 	if (usr.stat != 0)
 		return
 	if (!ishuman(usr) && !issmall(usr)) //Make sure they're a mob that has dna
-		to_chat(usr, "<span class='notice'>Try as you might, you can not climb up into the scanner.</span>")
+		to_chat(usr, SPAN_NOTICE("Try as you might, you can not climb up into the scanner."))
 		return
 	if (src.occupant)
 		to_chat(usr, SPAN_WARNING("The scanner is already occupied!"))

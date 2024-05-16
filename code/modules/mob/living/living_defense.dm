@@ -30,7 +30,7 @@
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icon()
-		to_chat(src, "<span class='notice'>Your [C.name] was disrupted!</span>")
+		to_chat(src, SPAN_NOTICE("Your [C.name] was disrupted!"))
 		Stun(2)
 
 	//Being hit while using a deadman switch
@@ -180,7 +180,7 @@
 			miss_chance = max(15*(distance-2), 0)
 
 		if (prob(miss_chance))
-			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
 			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 

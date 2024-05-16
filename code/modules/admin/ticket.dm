@@ -60,8 +60,8 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 
 	broadcast_closure(key_name(closed_by))
 
-	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closed_by].</b></span>")
-	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>.</span>")
+	to_chat(client_by_ckey(src.owner), SPAN_NOTICE("<b>Your ticket has been closed by [closed_by].</b>"))
+	message_admins(SPAN_NOTICE("<b>[src.owner]</b>'s ticket has been closed by <b>[key_name(closed_by)]</b>."))
 
 	set_to_closed(closed_by.ckey)
 
@@ -76,8 +76,8 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 
 	broadcast_closure("[closing_user] (Remotely)")
 
-	to_chat(client_by_ckey(src.owner), "<span class='notice'><b>Your ticket has been closed by [closing_user] (remotely).</b></span>")
-	message_admins("<span class='notice'><b>[src.owner]</b>'s ticket has been closed by <b>[closing_user] (remotely)</b>.</span>")
+	to_chat(client_by_ckey(src.owner), SPAN_NOTICE("<b>Your ticket has been closed by [closing_user] (remotely).</b>"))
+	message_admins(SPAN_NOTICE("<b>[src.owner]</b>'s ticket has been closed by <b>[closing_user] (remotely)</b>."))
 
 	set_to_closed(closing_user)
 
@@ -105,7 +105,7 @@ GLOBAL_LIST_EMPTY(ticket_panels)
 		owner_client.adminhelped = ADMINHELPED
 
 	message_admins("<span class='danger'><b>[key_name(assigned_admin)]</b> has assigned themself to <b>[src.owner]'s</b> ticket.</span>")
-	to_chat(owner_client, "<span class='notice'><b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b></span>")
+	to_chat(owner_client, SPAN_NOTICE("<b>[assigned_admin] has added themself to your ticket and should respond shortly. Thanks for your patience!</b>"))
 	to_chat(assigned_admin, get_options_bar(owner_client, 2, 1, 1))
 
 	update_ticket_panels()

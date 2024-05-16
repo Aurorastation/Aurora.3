@@ -56,7 +56,7 @@ Firing pins as a rule can't be removed without replacing them, blame a really sh
 /obj/item/device/firing_pin/emag_act()
 	if(!emagged)
 		emagged = TRUE
-		to_chat(get_holding_mob(src), "<span class='notice'>You override the authentication mechanism.</span>")
+		to_chat(get_holding_mob(src), SPAN_NOTICE("You override the authentication mechanism."))
 
 /obj/item/device/firing_pin/proc/gun_insert(mob/living/user, obj/item/gun/G)
 	gun = G
@@ -164,7 +164,7 @@ Pins Below.
 		var/mob/living/carbon/M = target
 		if(M.dna && M.dna.unique_enzymes)
 			unique_enzymes = M.dna.unique_enzymes
-			to_chat(user, "<span class='notice'>DNA-LOCK SET.</span>")
+			to_chat(user, SPAN_NOTICE("DNA-LOCK SET."))
 
 /obj/item/device/firing_pin/dna/pin_auth(mob/living/carbon/user)
 	if(istype(user) && user.dna && user.dna.unique_enzymes)
@@ -177,7 +177,7 @@ Pins Below.
 	if(!unique_enzymes)
 		if(istype(user) && user.dna && user.dna.unique_enzymes)
 			unique_enzymes = user.dna.unique_enzymes
-			to_chat(user, "<span class='notice'>DNA-LOCK SET.</span>")
+			to_chat(user, SPAN_NOTICE("DNA-LOCK SET."))
 	else
 		..()
 

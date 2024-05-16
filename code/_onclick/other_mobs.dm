@@ -96,7 +96,9 @@
 	if(istype(M))
 		switch(src.a_intent)
 			if (I_HELP) // We just poke the other
-				M.visible_message("<span class='notice'>[src] gently pokes [M]!</span>", "<span class='notice'>[src] gently pokes you!</span>")
+				M.visible_message(SPAN_NOTICE("[src] gently pokes [M]!"),
+									SPAN_NOTICE("[src] gently pokes you!"))
+
 			if (I_DISARM) // We stun the target, with the intention to feed
 				var/stunprob = 1
 				var/power = max(0, min(10, (powerlevel + rand(0, 3))))

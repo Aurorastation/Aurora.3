@@ -269,7 +269,9 @@
 
 	if(!failed_to_seal)
 		if(!instant)
-			wearer.visible_message("<span class='notice'>[wearer]'s suit emits a quiet hum as it begins to adjust its seals.</span>","<span class='notice'>With a quiet hum, the suit begins running checks and adjusting components.</span>")
+			wearer.visible_message(SPAN_NOTICE("[wearer]'s suit emits a quiet hum as it begins to adjust its seals."),
+									SPAN_NOTICE("With a quiet hum, the suit begins running checks and adjusting components."))
+
 			if(seal_delay && !do_after(wearer, seal_delay, src, do_flags = DO_DEFAULT & ~DO_USER_SAME_HAND))
 				if(wearer) to_chat(wearer, SPAN_WARNING("You must remain still while the suit is adjusting the components."))
 				playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
@@ -307,13 +309,13 @@
 					piece.item_state = "[initial(icon_state)][!seal_target ? "_sealed" : ""]"
 					switch(msg_type)
 						if("boots")
-							to_chat(wearer, "<span class='notice'>\The [piece] [!seal_target ? "seal around your feet" : "relax their grip on your legs"].</span>")
+							to_chat(wearer, SPAN_NOTICE("\The [piece] [!seal_target ? "seal around your feet" : "relax their grip on your legs"]."))
 							wearer.update_inv_shoes()
 						if("gloves")
-							to_chat(wearer, "<span class='notice'>\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"].</span>")
+							to_chat(wearer, SPAN_NOTICE("\The [piece] [!seal_target ? "tighten around your fingers and wrists" : "become loose around your fingers"]."))
 							wearer.update_inv_gloves()
 						if("chest")
-							to_chat(wearer, "<span class='notice'>\The [piece] [!seal_target ? "cinches your chest tightly" : "releases your chest"].</span>")
+							to_chat(wearer, SPAN_NOTICE("\The [piece] [!seal_target ? "cinches your chest tightly" : "releases your chest"]."))
 							if(has_hidden_jumpsuit)
 								if(!seal_target)
 									piece.flags_inv |= HIDEJUMPSUIT
@@ -321,7 +323,7 @@
 									piece.flags_inv &= ~HIDEJUMPSUIT
 							wearer.update_inv_wear_suit()
 						if("helmet")
-							to_chat(wearer, "<span class='notice'>\The [piece] hisses [!seal_target ? "closed" : "open"].</span>")
+							to_chat(wearer, SPAN_NOTICE("\The [piece] hisses [!seal_target ? "closed" : "open"]."))
 							wearer.update_inv_head()
 							if(helmet)
 								helmet.update_light(wearer)
@@ -355,7 +357,7 @@
 
 	// Success!
 	canremove = seal_target
-	to_chat(wearer, "<span class='notice'><b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b></span>")
+	to_chat(wearer, SPAN_NOTICE("<b>Your entire suit [canremove ? "loosens as the components relax" : "tightens around you as the components lock into place"].</b>"))
 	playsound(src, 'sound/items/rped.ogg', 20, FALSE)
 	if (has_sealed_state)
 		icon_state = canremove ? initial(icon_state) : "[initial(icon_state)]_sealed"
@@ -365,7 +367,7 @@
 			crushing = TRUE
 
 	if(wearer != initiator)
-		to_chat(initiator, "<span class='notice'>Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"].</span>")
+		to_chat(initiator, SPAN_NOTICE("Suit adjustment complete. Suit is now [canremove ? "unsealed" : "sealed"]."))
 
 	if(canremove)
 		for(var/obj/item/rig_module/module in installed_modules)
@@ -751,7 +753,7 @@
 					playsound(src, 'sound/items/rfd_empty.ogg', 20, FALSE)
 					return
 			else
-				to_chat(wearer, "<span class='notice'>Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly.</span>")
+				to_chat(wearer, SPAN_NOTICE("Your [use_obj.name] [use_obj.gender == PLURAL ? "deploy" : "deploys"] swiftly."))
 				playsound(src, 'sound/machines/rig/rig_deploy.ogg', 20, FALSE)
 
 	if(piece == "helmet" && helmet)
@@ -940,7 +942,7 @@
 	if(!ai_can_move_suit(user, check_user_module = 1))
 		return
 	wearer.lay_down()
-	to_chat(user, "<span class='notice'>\The [wearer] is now [wearer.resting ? "resting" : "getting up"].</span>")
+	to_chat(user, SPAN_NOTICE("\The [wearer] is now [wearer.resting ? "resting" : "getting up"]."))
 
 /obj/item/rig/proc/forced_move(var/direction, var/mob/user)
 	// Why is all this shit in client/Move()? Who knows?
@@ -982,7 +984,7 @@
 			for(var/mob/M in range(wearer, 1))
 				if(M.pulling == wearer)
 					if(!M.restrained() && M.stat == 0 && M.canmove && wearer.Adjacent(M))
-						to_chat(user, "<span class='notice'>Your host is restrained! They can't move!</span>")
+						to_chat(user, SPAN_NOTICE("Your host is restrained! They can't move!"))
 						return 0
 					else
 						M.stop_pulling()

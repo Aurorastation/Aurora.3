@@ -47,7 +47,7 @@
 			user.drop_item()
 	else if(attacking_item.GetID())
 		if(user.loc == src)
-			to_chat(user, "<span class='notice'>You can't reach the lock from inside.</span>")
+			to_chat(user, SPAN_NOTICE("You can't reach the lock from inside."))
 			return
 		var/obj/item/card/id/I = attacking_item.GetID()
 

@@ -10,28 +10,28 @@
 
 /obj/structure/pit/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/shovel))
-		visible_message("<span class='notice'>\The [user] starts [open ? "filling" : "digging open"] \the [src]</span>")
+		visible_message(SPAN_NOTICE("\The [user] starts [open ? "filling" : "digging open"] \the [src]"))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
-			visible_message("<span class='notice'>\The [user] [open ? "fills" : "digs open"] \the [src]!</span>")
+			visible_message(SPAN_NOTICE("\The [user] [open ? "fills" : "digs open"] \the [src]!"))
 			if(open)
 				close(user)
 			else
 				open()
 		else
-			to_chat(user, "<span class='notice'>You stop shoveling.</span>")
+			to_chat(user, SPAN_NOTICE("You stop shoveling."))
 		return
 	if (!open && istype(attacking_item, /obj/item/stack/material/wood))
 		if(locate(/obj/structure/gravemarker) in src.loc)
-			to_chat(user, "<span class='notice'>There's already a grave marker here.</span>")
+			to_chat(user, SPAN_NOTICE("There's already a grave marker here."))
 		else
-			visible_message("<span class='notice'>\The [user] starts making a grave marker on top of \the [src]</span>")
+			visible_message(SPAN_NOTICE("\The [user] starts making a grave marker on top of \the [src]"))
 			if( do_after(user, 50) )
-				visible_message("<span class='notice'>\The [user] finishes the grave marker</span>")
+				visible_message(SPAN_NOTICE("\The [user] finishes the grave marker"))
 				var/obj/item/stack/material/wood/plank = attacking_item
 				plank.use(1)
 				new/obj/structure/gravemarker(src.loc)
 			else
-				to_chat(user, "<span class='notice'>You stop making a grave marker.</span>")
+				to_chat(user, SPAN_NOTICE("You stop making a grave marker."))
 		return
 	..()
 

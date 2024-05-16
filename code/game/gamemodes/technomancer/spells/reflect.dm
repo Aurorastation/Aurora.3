@@ -18,7 +18,7 @@
 /obj/item/spell/reflect/Initialize()
 	. = ..()
 	set_light(3, 2, l_color = "#006AFF")
-	to_chat(owner, "<span class='notice'>Your shield will expire in 5 seconds!</span>")
+	to_chat(owner, SPAN_NOTICE("Your shield will expire in 5 seconds!"))
 	QDEL_IN(src, 5 SECONDS)
 
 /obj/item/spell/reflect/Destroy()

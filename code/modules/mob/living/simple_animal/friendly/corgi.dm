@@ -75,7 +75,7 @@
 	if(istype(attacking_item, /obj/item/newspaper))
 		if(!stat)
 			visible_message(
-				"<span class='notice'>[user] baps [src] on the nose with the rolled up [attacking_item.name].</span>",
+				SPAN_NOTICE("[user] baps [src] on the nose with the rolled up [attacking_item.name]."),
 				"<span class='alert'>[user] baps you on the nose with the rolled up [attacking_item.name]!</span>"
 			)
 			scan_interval = max_scan_interval

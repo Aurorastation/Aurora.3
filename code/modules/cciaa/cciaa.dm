@@ -53,7 +53,7 @@
 	if(fax.receivefax(P))
 		if(announce == 1)
 			command_announcement.Announce("A fax has been sent to the [department] fax machine.", "Fax Sent")
-		to_chat(usr, "<span class='notice'>Message transmitted successfully.</span>")
+		to_chat(usr, SPAN_NOTICE("Message transmitted successfully."))
 		log_and_message_admins("sent a fax message to the [department] fax machine. (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[fax.x];Y=[fax.y];Z=[fax.z]'>JMP</a>)")
 
 		sent_faxes += P

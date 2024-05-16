@@ -106,7 +106,7 @@
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/dropped(mob/user)
 	..()
-	to_chat(user, "<span class='notice'>The mister snaps back onto the watertank.</span>")
+	to_chat(user, SPAN_NOTICE("The mister snaps back onto the watertank."))
 	tank.on = 0
 	forceMove(tank)
 
@@ -144,4 +144,4 @@
 
 /obj/item/reagent_containers/spray/chemsprayer/mister/janitor/attack_self(var/mob/user)
 	amount_per_transfer_from_this = (amount_per_transfer_from_this == 10 ? 5 : 10)
-	to_chat(user, "<span class='notice'>You [amount_per_transfer_from_this == 10 ? "remove" : "fix"] the nozzle. You'll now use [amount_per_transfer_from_this] units per spray.</span>")
+	to_chat(user, SPAN_NOTICE("You [amount_per_transfer_from_this == 10 ? "remove" : "fix"] the nozzle. You'll now use [amount_per_transfer_from_this] units per spray."))

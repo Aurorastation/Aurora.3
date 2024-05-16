@@ -41,7 +41,7 @@
 			user.drop_item(src)
 			src.loc = null
 			user.put_in_hands(I)
-			user.visible_message("<span class='notice'>\A [I] appears in \the [user]'s hand!</span>")
+			user.visible_message(SPAN_NOTICE("\A [I] appears in \the [user]'s hand!"))
 			log_and_message_admins("has stolen [I] with [src].")
 			qdel(src)
 		//Now let's try to teleport a living mob.

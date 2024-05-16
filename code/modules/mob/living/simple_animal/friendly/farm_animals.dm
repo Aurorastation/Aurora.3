@@ -54,7 +54,7 @@
 	if(enemies.len && prob(10))
 		enemies = list()
 		LoseTarget()
-		src.visible_message("<span class='notice'>[src] calms down.</span>")
+		src.visible_message(SPAN_NOTICE("[src] calms down."))
 
 	if(!pulledby)
 		var/obj/effect/plant/food = locate(/obj/effect/plant) in oview(5,loc)

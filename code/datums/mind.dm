@@ -376,7 +376,7 @@
 						if(I in organs.implants)
 							qdel(I)
 							break
-				to_chat(H, "<span class='notice'><font size =3><B>Your loyalty implant has been deactivated.</B></font></span>")
+				to_chat(H, SPAN_NOTICE("<font size =3><B>Your loyalty implant has been deactivated.</B></font>"))
 				log_admin("[key_name_admin(usr)] has de-loyalty implanted [current].",admin_key=key_name(usr),ckey=key_name(usr))
 			if("add")
 				to_chat(H, "<span class='danger'><font size =3>You somehow have become the recipient of a loyalty transplant, and it just activated!</font></span>")
@@ -445,7 +445,7 @@
 
 	else if (href_list["obj_announce"])
 		var/obj_count = 1
-		to_chat(current, "<span class='notice'>Your current objectives:</span>")
+		to_chat(current, SPAN_NOTICE("Your current objectives:"))
 		for(var/datum/objective/objective in objectives)
 			to_chat(current, "<B>Objective #[obj_count]</B>: [objective.explanation_text]")
 			obj_count++

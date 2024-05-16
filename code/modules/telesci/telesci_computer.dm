@@ -57,14 +57,14 @@
 		user.drop_item(src)
 		crystals += attacking_item
 		attacking_item.forceMove(null)
-		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", "<span class='notice'>You insert [attacking_item] into \the [src]'s crystal slot.</span>")
+		user.visible_message("[user] inserts [attacking_item] into \the [src]'s crystal slot.", SPAN_NOTICE("You insert [attacking_item] into \the [src]'s crystal slot."))
 		updateDialog()
 	else if(istype(attacking_item, /obj/item/device/gps))
 		if(!inserted_gps)
 			inserted_gps = attacking_item
 			user.unEquip(attacking_item)
 			attacking_item.forceMove(src)
-			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.", "<span class='notice'>You insert [attacking_item] into \the [src]'s GPS device slot.</span>")
+			user.visible_message("[user] inserts [attacking_item] into \the [src]'s GPS device slot.", SPAN_NOTICE("You insert [attacking_item] into \the [src]'s GPS device slot."))
 	else if(attacking_item.ismultitool())
 		var/obj/item/device/multitool/M = attacking_item
 		if(M.buffer && istype(M.buffer, /obj/machinery/telepad))

@@ -25,7 +25,7 @@
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
-			visible_message("<span class='notice'>[src] pauses a moment to style their hair.</span>")
+			visible_message(SPAN_NOTICE("[src] pauses a moment to style their hair."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
@@ -50,7 +50,7 @@
 		if(selected_string && h_style != selected_string)
 			h_style = selected_string
 			regenerate_icons()
-			visible_message("<span class='notice'>[src] adjusts [src.get_pronoun("his")] headtails.</span>")
+			visible_message(SPAN_NOTICE("[src] adjusts [src.get_pronoun("his")] headtails."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that style.</span>")
 
@@ -71,7 +71,7 @@
 		if(selected_string && f_style != selected_string)
 			f_style = selected_string
 			regenerate_icons()
-			visible_message("<span class='notice'>[src]'s screen switches to a different display.</span>")
+			visible_message(SPAN_NOTICE("[src]'s screen switches to a different display."))
 		else
 			to_chat(src, "<span class ='notice'>You're already using that screen.</span>")
 
@@ -132,7 +132,7 @@
 
 /mob/living/carbon/human/proc/do_leap(mob/living/T, max_range = 4, restrict_special = TRUE)
 	if(restrict_special && last_special > world.time)
-		to_chat(src, "<span class='notice'>You're too tired to leap!</span>")
+		to_chat(src, SPAN_NOTICE("You're too tired to leap!"))
 		return FALSE
 
 	if (status_flags & LEAPING)
@@ -271,12 +271,12 @@
 		to_chat(src,SPAN_WARNING("You can't communicate while unable to move your hands to your head!"))
 		return
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
+		to_chat(src,SPAN_NOTICE("Your mind requires rest!"))
 		return
 
 	last_special = world.time + 100
 
-	visible_message("<span class='notice'>[src] touches their fingers to their temple.</span>")
+	visible_message(SPAN_NOTICE("[src] touches their fingers to their temple."))
 
 	var/list/targets = list()
 	for(var/mob/living/M in view(client.view, client.eye))
@@ -577,7 +577,7 @@
 
 	if(istype(M, /mob/living/carbon/human) && isvaurca(M))
 		to_chat(M, "<span class='danger'>You feel a buzzing in the back of your head, and your mind fills with the authority of [src.real_name], your ruler:</span>")
-		to_chat(M, "<span class='notice'> [text]</span>")
+		to_chat(M, SPAN_NOTICE(" [text]"))
 	else
 		to_chat(M, "<span class='danger'>Like lead slabs crashing into the ocean, alien thoughts drop into your mind: [text]</span>")
 		if(istype(M,/mob/living/carbon/human))
@@ -668,12 +668,12 @@
 	set desc = "Toggle between seeing shadows or not."
 
 	if (!stop_sight_update)
-		to_chat(src, "<span class='notice'>Your eyes shift around, allowing you to see in the dark.</span>")
+		to_chat(src, SPAN_NOTICE("Your eyes shift around, allowing you to see in the dark."))
 		src.stop_sight_update = 1
 		src.see_invisible = SEE_INVISIBLE_NOLIGHTING
 
 	else
-		to_chat(src, "<span class='notice'>You return your vision to normal.</span>")
+		to_chat(src, SPAN_NOTICE("You return your vision to normal."))
 		src.stop_sight_update = 0
 
 /mob/living/carbon/human/proc/shadow_step(var/turf/T in world)
@@ -731,7 +731,7 @@
 	last_special = world.time + 100
 
 	src.visible_message(SPAN_WARNING("\The [src] takes a step backwards and rears up."),
-			"<span class='notice'>You take a step backwards and then...</span>")
+			SPAN_NOTICE("You take a step backwards and then..."))
 	if(do_after(src,5))
 		playsound(loc, 'sound/species/revenant/grue_screech.ogg', 100, 1)
 		src.visible_message("<span class='danger'>\The [src] charges!</span>")
@@ -866,11 +866,11 @@
 	set desc = "Spew a cone of ignited napalm in front of you"
 
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice'>You are too tired to spray napalm!</span>")
+		to_chat(src,SPAN_NOTICE("You are too tired to spray napalm!"))
 		return
 
 	if(stat || paralysis || stunned || weakened || lying || restrained() || buckled_to)
-		to_chat(src,"<span class='notice'>You cannot spray napalm in your current state.</span>")
+		to_chat(src,SPAN_NOTICE("You cannot spray napalm in your current state."))
 		return
 
 	last_special = world.time + 100
@@ -977,7 +977,7 @@
 		var/mob/living/carbon/human/G = new(src.loc)
 		G.key = O.brainmob.key
 		INVOKE_ASYNC(G, TYPE_PROC_REF(/mob/living/carbon/human, set_species), O.dna.species)
-		to_chat(src,"<span class='notice'>You blow life back in \the [O], returning its past owner to life!</span>")
+		to_chat(src,SPAN_NOTICE("You blow life back in \the [O], returning its past owner to life!"))
 		qdel(O)
 		last_special = world.time + 200
 
@@ -1024,8 +1024,8 @@
 	updatehealth()
 	UpdateDamageIcon()
 
-	visible_message("<span class='notice'>\The [src] detaches [get_pronoun("his")] [E]!</span>",
-			"<span class='notice'>You detach your [E]!</span>")
+	visible_message(SPAN_NOTICE("\The [src] detaches [get_pronoun("his")] [E]!"),
+			SPAN_NOTICE("You detach your [E]!"))
 
 /mob/living/carbon/human/proc/attach_limb()
 	set category = "Abilities"
@@ -1071,8 +1071,8 @@
 		updatehealth()
 		UpdateDamageIcon()
 
-		visible_message("<span class='notice'>\The [src] attaches \the [O] to [get_pronoun("his")] body!</span>",
-				"<span class='notice'>You attach \the [O] to your body!</span>")
+		visible_message(SPAN_NOTICE("\The [src] attaches \the [O] to [get_pronoun("his")] body!"),
+				SPAN_NOTICE("You attach \the [O] to your body!"))
 
 /mob/living/carbon/human/proc/self_diagnostics()
 	set name = "Self-Diagnostics"
@@ -1081,9 +1081,9 @@
 
 	if(stat == DEAD) return
 
-	to_chat(src, "<span class='notice'>Performing self-diagnostic, please wait...</span>")
+	to_chat(src, SPAN_NOTICE("Performing self-diagnostic, please wait..."))
 	if (do_after(src, 10))
-		var/output = "<span class='notice'>Self-Diagnostic Results:\n</span>"
+		var/output = SPAN_NOTICE("Self-Diagnostic Results:\n")
 
 		output += "Internal Temperature: [convert_k2c(bodytemperature)] Degrees Celsius\n"
 
@@ -1139,12 +1139,12 @@
 		to_chat(src, SPAN_WARNING("You need to recover before you can use this ability."))
 		return
 	if(last_special > world.time)
-		to_chat(src,"<span class='notice'>Your mind requires rest!</span>")
+		to_chat(src,SPAN_NOTICE("Your mind requires rest!"))
 		return
 
 	last_special = world.time + 25
 
-	to_chat(src, "<span class='notice'>You take a moment to tune into the local Nlom...</span>")
+	to_chat(src, SPAN_NOTICE("You take a moment to tune into the local Nlom..."))
 	var/list/dirs = list()
 	for(var/mob/living/L in range(20))
 		var/turf/T = get_turf(L)
@@ -1365,8 +1365,8 @@
 
 	say(",9!an enormous surge of encrypted data, surging out into the wider Hivenet.")
 
-	var/ccia_msg = "<span class='notice'><b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]</span>"
-	var/admin_msg = "<span class='notice'><b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[src]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]</span>"
+	var/ccia_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]")
+	var/admin_msg = SPAN_NOTICE("<b><font color=orange>[uppertext(selected_hive)]: </font>[key_name(src, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[src]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[src]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[src]'>SM</A>) ([admin_jump_link(src)]) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<A HREF='?_src_=holder;BlueSpaceArtillery=\ref[src]'>BSA</A>) (<A HREF='?_src_=holder;CentcommHiveReply=\ref[src]'>RPLY</A>):</b> [msg]")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0

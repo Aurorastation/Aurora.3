@@ -39,7 +39,7 @@
 
 	lastuser = M.ckey
 
-	visible_message("<span class='notice'>The planchette slowly moves... and stops at the letter \"[planchette]\".</span>")
+	visible_message(SPAN_NOTICE("The planchette slowly moves... and stops at the letter \"[planchette]\"."))
 
 /obj/item/spirit_board/proc/spirit_board_checks(mob/M)
 	//cooldown

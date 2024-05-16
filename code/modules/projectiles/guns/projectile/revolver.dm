@@ -114,7 +114,7 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Investigator")
-		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		to_chat(M, SPAN_NOTICE("You don't feel cool enough to name this gun, chump."))
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
@@ -156,7 +156,7 @@
 /obj/item/gun/projectile/revolver/capgun/attackby(obj/item/attacking_item, mob/user)
 	if(!attacking_item.iswirecutter() || icon_state == "revolver")
 		return ..()
-	to_chat(user, "<span class='notice'>You snip off the toy markings off the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You snip off the toy markings off the [src]."))
 	icon = 'icons/obj/guns/revolver.dmi'
 	name = "revolver"
 	icon_state = "revolver"
@@ -201,7 +201,7 @@
 	. = ..()
 
 /obj/item/gun/projectile/revolver/lemat/unique_action(mob/living/user)
-	to_chat(user, "<span class='notice'>You change the firing mode on \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You change the firing mode on \the [src]."))
 	if(!flipped_firing)
 		if(max_shells && secondary_max_shells)
 			max_shells = secondary_max_shells
@@ -244,7 +244,7 @@
 
 	chamber_offset = 0
 	visible_message(SPAN_WARNING("\The [usr] spins the cylinder of \the [src]!"), \
-	"<span class='notice'>You hear something metallic spin and click.</span>")
+	SPAN_NOTICE("You hear something metallic spin and click."))
 	playsound(src.loc, 'sound/weapons/revolver_spin.ogg', 100, 1)
 	if(!flipped_firing)
 		loaded = shuffle(loaded)

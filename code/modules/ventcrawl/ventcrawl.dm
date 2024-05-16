@@ -74,7 +74,7 @@ var/global/list/can_enter_vent_with = list(
 		if(is_type_in_list(U,ventcrawl_machinery) && Adjacent(U))
 			pipes |= U
 	if(!pipes || !pipes.len)
-		to_chat(usr, "<span class='notice'>There are no pipes that you can ventcrawl into within range!</span>")
+		to_chat(usr, SPAN_NOTICE("There are no pipes that you can ventcrawl into within range!"))
 		return
 	if(pipes.len == 1)
 		pipe = pipes[1]
@@ -198,16 +198,16 @@ var/global/list/can_enter_vent_with = list(
 					sight = (SEE_TURFS|BLIND)
 
 				else
-					to_chat(src, "<span class='notice'>This vent is not connected to anything.</span>")
+					to_chat(src, SPAN_NOTICE("This vent is not connected to anything."))
 
 			else
-				to_chat(src, "<span class='notice'>You must be standing on or beside an air vent to enter it.</span>")
+				to_chat(src, SPAN_NOTICE("You must be standing on or beside an air vent to enter it."))
 
 		else
-			to_chat(src, "<span class='notice'>You can't vent crawl while you're stunned!</span>")
+			to_chat(src, SPAN_NOTICE("You can't vent crawl while you're stunned!"))
 
 	else
-		to_chat(src, "<span class='notice'>You must be conscious to do this!</span>")
+		to_chat(src, SPAN_NOTICE("You must be conscious to do this!"))
 	return
 
 /mob/living/proc/add_ventcrawl(obj/machinery/atmospherics/starting_machine)

@@ -210,7 +210,7 @@
 		to_chat(user, SPAN_WARNING("\The [src] is occupied."))
 		return
 	if(!instant)
-		to_chat(user, "<span class='notice'>You start climbing into \the [src]...</span>")
+		to_chat(user, SPAN_NOTICE("You start climbing into \the [src]..."))
 		if(!do_after(user, entry_speed))
 			return
 	if(!user || user.incapacitated())
@@ -224,7 +224,7 @@
 	if(LAZYLEN(pilots) >= LAZYLEN(body.pilot_positions))
 		to_chat(user, SPAN_WARNING("\The [src] is occupied."))
 		return
-	to_chat(user, "<span class='notice'>You climb into \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You climb into \the [src]."))
 	user.forceMove(src)
 	LAZYDISTINCTADD(pilots, user)
 	RegisterSignal(user, COMSIG_MOB_FACEDIR, PROC_REF(handle_user_turn))
@@ -244,10 +244,10 @@
 			return
 		hud_open.toggled(FALSE)
 		if(!silent)
-			to_chat(user, "<span class='notice'>You open the hatch and climb out of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You open the hatch and climb out of \the [src]."))
 	else
 		if(!silent)
-			to_chat(user, "<span class='notice'>You climb out of \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You climb out of \the [src]."))
 
 	user.forceMove(get_turf(src))
 	LAZYREMOVE(user.additional_vision_handlers, src)
@@ -440,9 +440,9 @@
 					return
 
 				user.put_in_hands(body.cell)
-				to_chat(user, "<span class='notice'>You remove \the [body.cell] from \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You remove \the [body.cell] from \the [src]."))
 				attacking_item.play_tool_sound(get_turf(src), 50)
-				visible_message("<span class='notice'>\The [user] pries out \the [body.cell] using the \the [attacking_item].</span>")
+				visible_message(SPAN_NOTICE("\The [user] pries out \the [body.cell] using the \the [attacking_item]."))
 				power = MECH_POWER_OFF
 				hud_power_control.update_icon()
 				body.cell = null
@@ -458,9 +458,9 @@
 				if(user.unEquip(attacking_item))
 					attacking_item.forceMove(body)
 					body.cell = attacking_item
-					to_chat(user, "<span class='notice'>You install \the [body.cell] into \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You install \the [body.cell] into \the [src]."))
 					playsound(user.loc, 'sound/items/Screwdriver.ogg', 50, 1)
-					visible_message("<span class='notice'>\The [user] installs \the [body.cell] into \the [src].</span>")
+					visible_message(SPAN_NOTICE("\The [user] installs \the [body.cell] into \the [src]."))
 				return
 			else if(istype(attacking_item, /obj/item/device/robotanalyzer))
 				to_chat(user, SPAN_NOTICE("Diagnostic Report for \the [src]:"))
@@ -494,7 +494,7 @@
 		to_chat(user, SPAN_WARNING("The [body.hatch_descriptor] is locked."))
 		return
 	hatch_closed = !hatch_closed
-	to_chat(user, "<span class='notice'>You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor].</span>")
+	to_chat(user, SPAN_NOTICE("You [hatch_closed ? "close" : "open"] the [body.hatch_descriptor]."))
 	hud_open.update_icon()
 	update_icon()
 	return
@@ -539,7 +539,7 @@
 	if(!new_name || new_name == name || (user != src && !(user in pilots)))
 		return
 	name = new_name
-	to_chat(user, "<span class='notice'>You have redesignated this exosuit as \the [name].</span>")
+	to_chat(user, SPAN_NOTICE("You have redesignated this exosuit as \the [name]."))
 
 /mob/living/heavy_vehicle/proc/trample(var/mob/living/H)
 	if(!LAZYLEN(pilots))

@@ -58,7 +58,7 @@
 			to_chat(user, SPAN_WARNING("Assembly must be secured with screwdriver."))
 			return
 		path = 1
-		to_chat(user, "<span class='notice'>You add [attacking_item] to the metal casing.</span>")
+		to_chat(user, SPAN_NOTICE("You add [attacking_item] to the metal casing."))
 		playsound(src.loc, attacking_item.usesound, 25, -3)
 		user.remove_from_mob(det)
 		det.forceMove(src)
@@ -76,10 +76,10 @@
 		if(stage == 1)
 			path = 1
 			if(beakers.len)
-				to_chat(user, "<span class='notice'>You lock the assembly.</span>")
+				to_chat(user, SPAN_NOTICE("You lock the assembly."))
 				name = "grenade"
 			else
-				to_chat(user, "<span class='notice'>You lock the empty assembly.</span>")
+				to_chat(user, SPAN_NOTICE("You lock the empty assembly."))
 				name = "fake grenade"
 			playsound(src.loc, attacking_item.usesound, 25, -3)
 			icon_state = initial(icon_state) +"_locked"
@@ -90,7 +90,7 @@
 				prime()
 				return
 			else
-				to_chat(user, "<span class='notice'>You unlock the assembly.</span>")
+				to_chat(user, SPAN_NOTICE("You unlock the assembly."))
 				playsound(src.loc, attacking_item.usesound, 25, -3)
 				name = "unsecured grenade with [beakers.len] containers[detonator?" and detonator":""]"
 				icon_state = initial(icon_state) + (detonator?"_ass":"")
@@ -103,7 +103,7 @@
 			return
 		else
 			if(attacking_item.reagents.total_volume)
-				to_chat(user, "<span class='notice'>You add \the [attacking_item] to the assembly.</span>")
+				to_chat(user, SPAN_NOTICE("You add \the [attacking_item] to the assembly."))
 				user.drop_from_inventory(attacking_item,src)
 				beakers += attacking_item
 				stage = 1

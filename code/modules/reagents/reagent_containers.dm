@@ -146,15 +146,15 @@
 		return 0
 
 	if(!target.reagents || !target.reagents.total_volume)
-		to_chat(user, "<span class='notice'>[target] is empty.</span>")
+		to_chat(user, SPAN_NOTICE("[target] is empty."))
 		return 1
 
 	if(!REAGENTS_FREE_SPACE(reagents))
-		to_chat(user, "<span class='notice'>[src] is full.</span>")
+		to_chat(user, SPAN_NOTICE("[src] is full."))
 		return 1
 
 	var/trans = target.reagents.trans_to_obj(src, target.amount_per_transfer_from_this)
-	to_chat(user, "<span class='notice'>You fill [src] with [trans] units of the contents of [target].</span>")
+	to_chat(user, SPAN_NOTICE("You fill [src] with [trans] units of the contents of [target]."))
 	return 1
 
 /obj/item/reagent_containers/proc/standard_splash_obj(var/mob/user, var/target)
@@ -178,11 +178,11 @@
 		return 0
 
 	if(!reagents.total_volume)
-		to_chat(user, "<span class='notice'>[src] is empty.</span>")
+		to_chat(user, SPAN_NOTICE("[src] is empty."))
 		return 1
 
 	if(target.reagents && !REAGENTS_FREE_SPACE(target.reagents))
-		to_chat(user, "<span class='notice'>[target] is full.</span>")
+		to_chat(user, SPAN_NOTICE("[target] is full."))
 		return 1
 
 	var/contained = reagentlist()
@@ -222,7 +222,7 @@
 		return 0
 
 	if(!reagents.total_volume)
-		to_chat(user, "<span class='notice'>\The [src] is empty.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is empty."))
 		return 1
 
 	if(target.isSynthetic() && !isipc(target))
@@ -324,7 +324,7 @@
 
 	// Ensure we don't splash beakers and similar containers.
 	if(!target.is_open_container() && istype(target, /obj/item/reagent_containers))
-		to_chat(user, "<span class='notice'>\The [target] is closed.</span>")
+		to_chat(user, SPAN_NOTICE("\The [target] is closed."))
 		return 1
 	// Otherwise don't care about splashing.
 	else if(!target.is_open_container())
@@ -333,15 +333,15 @@
 	if(!reagents.total_volume)
 		if(force) // bash people!
 			return 0
-		to_chat(user, "<span class='notice'>[src] is empty.</span>")
+		to_chat(user, SPAN_NOTICE("[src] is empty."))
 		return 1
 
 	if(!REAGENTS_FREE_SPACE(target.reagents))
-		to_chat(user, "<span class='notice'>[target] is full.</span>")
+		to_chat(user, SPAN_NOTICE("[target] is full."))
 		return 1
 
 	var/trans = reagents.trans_to(target, amount_per_transfer_from_this)
-	to_chat(user, "<span class='notice'>You transfer [trans] units of the solution to [target].</span>")
+	to_chat(user, SPAN_NOTICE("You transfer [trans] units of the solution to [target]."))
 	on_pour()
 	return 1
 

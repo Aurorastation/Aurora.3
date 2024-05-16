@@ -203,7 +203,7 @@
 		return
 	playsound(src.loc, 'sound/machines/click.ogg', 75, 1)
 	user.visible_message("\The [user] attaches \the [src] to the wall.",
-		"<span class='notice'>You attach \the [src] to the wall.</span>",
+		SPAN_NOTICE("You attach \the [src] to the wall."),
 		"<span class='italics'>You hear clicking.</span>")
 	if(isrobot(user)) //Robots cannot unequip/drop items, for Safety Reasons.
 		forceMove(T)

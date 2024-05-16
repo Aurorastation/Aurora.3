@@ -752,7 +752,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 					notes_add(ckey, "Banned from [msg] - [reason]", usr)
 				else
 					notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
-				message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg] for [mins] minutes.</span>", 1)
+				message_admins(SPAN_NOTICE("[key_name_admin(usr)] banned [ckey] from [msg] for [mins] minutes."), 1)
 				if (ismob(tgt_ref))
 					var/mob/M = tgt_ref
 					to_chat(M, "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>")
@@ -781,7 +781,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 						notes_add(ckey, "Banned  from [msg] - [reason]", usr)
 					else
 						notes_add_sql(ckey, "Banned from [msg] - [reason]", usr)
-					message_admins("<span class='notice'>[key_name_admin(usr)] banned [ckey] from [msg]</span>", 1)
+					message_admins(SPAN_NOTICE("[key_name_admin(usr)] banned [ckey] from [msg]"), 1)
 					if (ismob(tgt_ref))
 						var/mob/M = tgt_ref
 						to_chat(M, "<span class='danger'><BIG>You have been jobbanned by [usr.client.ckey] from: [msg].</BIG></span>")
@@ -821,7 +821,7 @@ var/list/jobban_keylist = list() // Global jobban list.
 				else
 					continue
 		if (msg)
-			message_admins("<span class='notice'>[key_name_admin(usr)] unbanned [ckey] from [msg]</span>", 1)
+			message_admins(SPAN_NOTICE("[key_name_admin(usr)] unbanned [ckey] from [msg]"), 1)
 			if (ismob(tgt_ref))
 				var/mob/M = tgt_ref
 				to_chat(M, "<span class='danger'><BIG>You have been un-jobbanned by [usr.client.ckey] from [msg].</BIG></span>")

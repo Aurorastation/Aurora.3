@@ -111,7 +111,7 @@
 		var/originaloc = user.loc
 		var/drawtype = input("Choose what you'd like to draw.", "Crayon scribbles") in list("graffiti","rune","letter","arrow")
 		if (user.loc != originaloc)
-			to_chat(user, "<span class='notice'>You moved!</span>")
+			to_chat(user, SPAN_NOTICE("You moved!"))
 			return
 
 		switch(drawtype)
@@ -141,11 +141,13 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.check_has_mouth())
-			user.visible_message("<span class='notice'>[user] takes a bite of their crayon and swallows it.</span>", "<span class='notice'>You take a bite of your crayon and swallow it.</span>")
+			user.visible_message(SPAN_NOTICE("[user] takes a bite of their crayon and swallows it."),
+									SPAN_NOTICE("You take a bite of your crayon and swallow it."))
+
 			user.adjustNutritionLoss(-1)
 			reagents.trans_to_mob(user, 2, CHEM_INGEST)
 			if(reagents.total_volume <= 0)
-				user.visible_message("<span class='notice'>[user] finished their crayon!</span>", SPAN_WARNING("You ate your crayon!"))
+				user.visible_message(SPAN_NOTICE("[user] finished their crayon!"), SPAN_WARNING("You ate your crayon!"))
 				qdel(src)
 				return TRUE
 	else

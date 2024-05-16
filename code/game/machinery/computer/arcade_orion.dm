@@ -513,7 +513,7 @@
 	log_game("[key_name(usr)] primed an explosive Orion ship for detonation.",ckey=key_name(usr))
 	to_chat(user, SPAN_WARNING("You flip the switch on the underside of [src]."))
 	active = 1
-	src.visible_message("<span class='notice'>[src] softly beeps and whirs to life!</span>")
+	src.visible_message(SPAN_NOTICE("[src] softly beeps and whirs to life!"))
 	src.audible_message("<b>[src]</b> says, 'This is ship ID #[rand(1,1000)] to Orion Port Authority. We're coming in for landing, over.'")
 	sleep(20)
 	src.visible_message(SPAN_WARNING("[src] begins to vibrate..."))

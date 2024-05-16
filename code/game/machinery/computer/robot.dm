@@ -165,7 +165,7 @@
 		message_admins("[key_name_admin(usr)] emagged [target.name] using robotic console!")
 		log_game("[key_name(usr)] emagged [target.name] using robotic console!",ckey=key_name(usr))
 		target.emagged = 1
-		to_chat(target, "<span class='notice'>Failsafe protocols overriden. New tools available.</span>")
+		to_chat(target, SPAN_NOTICE("Failsafe protocols overriden. New tools available."))
 
 	// Arms the emergency self-destruct system
 	else if(href_list["arm"])

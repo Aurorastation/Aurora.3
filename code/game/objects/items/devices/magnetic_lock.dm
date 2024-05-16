@@ -124,7 +124,7 @@
 				var/msg = "[attacking_item] through \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[user.name] swipes [user.get_pronoun("his")] "
 				var/fp_adj = "You swipe your "
-				user.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				user.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
 				update_icon()
 			else
 				playsound(src, 'sound/machines/buzz-sigh.ogg', 30, 1)
@@ -281,7 +281,8 @@
 /obj/item/device/magnetic_lock/proc/attachto(var/obj/machinery/door/airlock/newtarget, var/mob/user as mob)
 	if (!check_target(newtarget, user)) return
 
-	user.visible_message("<span class='notice'>[user] starts mounting [src] onto [newtarget].</span>", "<span class='notice'>You begin mounting [src] onto [newtarget].</span>")
+	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."),
+							SPAN_NOTICE("You begin mounting [src] onto [newtarget].")) 
 
 	if (do_after(user, 3.5 SECONDS))
 
@@ -323,7 +324,8 @@
 		set_dir(reverse_direction(direction))
 		status = STATUS_ACTIVE
 		attach(newtarget)
-		user.visible_message("<span class='notice'>[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget].</span>", "<span class='notice'>You attached [src] onto [newtarget] and switched on the magnetic lock.</span>")
+		user.visible_message(SPAN_NOTICE("[user] attached [src] onto [newtarget] and flicks it on. The magnetic lock now seals [newtarget]."),
+								SPAN_NOTICE("You attached [src] onto [newtarget] and switched on the magnetic lock."))
 		return
 
 
@@ -485,7 +487,7 @@
 				var/msg = "buttons on \the [src] and it [locked ? "locks" : "unlocks"] with a beep."
 				var/pos_adj = "[usr.name] presses "
 				var/fp_adj = "You press "
-				usr.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), "<span class='notice'>[addtext(fp_adj, msg)]</span>")
+				usr.visible_message(SPAN_WARNING("[addtext(pos_adj, msg)]"), SPAN_NOTICE("[addtext(fp_adj, msg)]"))
 				update_icon()
 				. = TRUE
 			else

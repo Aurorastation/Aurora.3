@@ -254,7 +254,7 @@
 				if(!L.mind && !isvaurca(L))
 
 					if(BS.message_countdown >= 200)
-						to_chat(BS, "<span class='notice'><b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b></span>")
+						to_chat(BS, SPAN_NOTICE("<b>You feel relief wash over you as your harried spirit fills into \the [L] like water into a vase.</b>"))
 						BS.mind.transfer_to(L)
 						to_chat(L, "<b>You have been restored to a corporeal form. You retain no memories of your time as a bluespace echo, but regardless of your current form the memories of your time before being a bluespace echo are returned.</b>")
 						qdel(BS)

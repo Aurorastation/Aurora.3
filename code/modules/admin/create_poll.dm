@@ -88,7 +88,7 @@
 		pollid = query_get_id.item[1]
 
 	log_admin("[key_name(src)] created the poll with id [pollid].")
-	message_admins("<span class='notice'>[key_name_admin(src)] created the poll with id [pollid].</span>")
+	message_admins(SPAN_NOTICE("[key_name_admin(src)] created the poll with id [pollid]."))
 
 	var/add_option = 1
 	if(polltype == "TEXT")

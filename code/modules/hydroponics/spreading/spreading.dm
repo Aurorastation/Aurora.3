@@ -19,7 +19,7 @@
 		log_and_message_admins("Spacevines spawned at \the [get_area(T)]", location = T)
 		return
 
-	log_and_message_admins("<span class='notice'>Event: Spacevines failed to find a viable turf.</span>")
+	log_and_message_admins(SPAN_NOTICE("Event: Spacevines failed to find a viable turf."))
 
 /obj/effect/dead_plant
 	anchored = 1

@@ -325,7 +325,7 @@ emp_act
 	if(affecting.sabotaged)
 		to_chat(user, SPAN_WARNING("[src]'s [affecting.name] is already sabotaged!"))
 		return -1
-	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
+	to_chat(user, SPAN_NOTICE("You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties."))
 	affecting.sabotaged = 1
 	return 1
 
@@ -367,7 +367,7 @@ emp_act
 				return
 
 		if(!zone)
-			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
@@ -525,12 +525,12 @@ emp_act
 	if(user == src || anchored)
 		return 0
 	if(user.is_pacified())
-		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 		return 0
 
 	for(var/obj/item/grab/G in user.grabbed_by)
 		if(G.assailant == user)
-			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
+			to_chat(user, SPAN_NOTICE("You already grabbed [src]."))
 			return
 
 	if (!attempt_grab(user))
@@ -541,7 +541,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, user, src)
 	if(buckled_to)
-		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
+		to_chat(user, SPAN_NOTICE("You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!"))
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)

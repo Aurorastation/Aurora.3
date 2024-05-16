@@ -57,14 +57,14 @@
 	if(cutting)
 		if(!prepared)
 			prepared = 1
-			to_chat(user, "<span class='notice'>You partially dismantle \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You partially dismantle \the [src]."))
 		else
 			to_chat(user, SPAN_WARNING("\The [src] has already been weakened."))
 		return 1
 
 	else if(attacking_item.iswrench())
 		if(prepared)
-			to_chat(user, "<span class='notice'>You finish dismantling \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You finish dismantling \the [src]."))
 			new /obj/item/stack/material/steel(get_turf(src),rand(5,10))
 			qdel(src)
 		else

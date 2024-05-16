@@ -26,6 +26,6 @@
 			return 0
 		if(pay_energy(500))
 			var/instability_to_drain = min(H.instability, 25)
-			to_chat(user, "<span class='notice'>You draw instability away from \the [H] and towards you.</span>")
+			to_chat(user, SPAN_NOTICE("You draw instability away from \the [H] and towards you."))
 			adjust_instability(instability_to_drain)
 			H.adjust_instability(-calculate_spell_power(instability_to_drain))

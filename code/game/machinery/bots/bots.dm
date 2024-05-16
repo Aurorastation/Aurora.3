@@ -65,18 +65,18 @@
 	if(attacking_item.isscrewdriver())
 		if(!locked)
 			open = !open
-			to_chat(user, "<span class='notice'>Maintenance panel is now [src.open ? "opened" : "closed"].</span>")
+			to_chat(user, SPAN_NOTICE("Maintenance panel is now [src.open ? "opened" : "closed"]."))
 		return TRUE
 	else if(attacking_item.iswelder())
 		if(health < maxhealth)
 			if(open)
 				health = min(maxhealth, health+10)
-				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),"<span class='notice'>You repair [src]!</span>")
+				user.visible_message(SPAN_WARNING("[user] repairs [src]!"),SPAN_NOTICE("You repair [src]!"))
 				user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 			else
-				to_chat(user, "<span class='notice'>Unable to repair with the maintenance panel closed.</span>")
+				to_chat(user, SPAN_NOTICE("Unable to repair with the maintenance panel closed."))
 		else
-			to_chat(user, "<span class='notice'>[src] does not need a repair.</span>")
+			to_chat(user, SPAN_NOTICE("[src] does not need a repair."))
 		return TRUE
 	else
 		if(hasvar(attacking_item,"force") && hasvar(attacking_item,"damtype"))

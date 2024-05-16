@@ -79,19 +79,19 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 
 /obj/item/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
@@ -100,15 +100,15 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	if (distance > 1)
 		return
 	if(!reagents || reagents.total_volume == 0)
-		. += "<span class='notice'>\The [src] is empty!</span>"
+		. += SPAN_NOTICE("\The [src] is empty!")
 	else if (reagents.total_volume <= volume * 0.25)
-		. += "<span class='notice'>\The [src] is almost empty!</span>"
+		. += SPAN_NOTICE("\The [src] is almost empty!")
 	else if (reagents.total_volume <= volume * 0.66)
-		. += "<span class='notice'>\The [src] is half full!</span>"
+		. += SPAN_NOTICE("\The [src] is half full!")
 	else if (reagents.total_volume <= volume * 0.90)
-		. += "<span class='notice'>\The [src] is almost full!</span>"
+		. += SPAN_NOTICE("\The [src] is almost full!")
 	else
-		. += "<span class='notice'>\The [src] is full!</span>"
+		. += SPAN_NOTICE("\The [src] is full!")
 
 
 ////////////////////////////////////////////////////////////////////////////////

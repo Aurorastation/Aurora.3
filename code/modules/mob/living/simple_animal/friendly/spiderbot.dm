@@ -95,7 +95,7 @@
 						ghost_can_reenter = 1
 						break
 			if(!ghost_can_reenter)
-				to_chat(user, "<span class='notice'>[attacking_item] is completely unresponsive; there's no point.</span>")
+				to_chat(user, SPAN_NOTICE("[attacking_item] is completely unresponsive; there's no point."))
 				return
 
 		if(B.brainmob.stat == DEAD)
@@ -106,7 +106,7 @@
 			to_chat(user, SPAN_WARNING("\The [attacking_item] does not seem to fit."))
 			return
 
-		to_chat(user, "<span class='notice'>You install \the [attacking_item] in \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You install \the [attacking_item] in \the [src]!"))
 
 		if(istype(attacking_item, /obj/item/device/mmi/digital))
 			positronic = 1
@@ -127,7 +127,7 @@
 				if(health > maxHealth)
 					health = maxHealth
 				add_fingerprint(user)
-				src.visible_message("<span class='notice'>\The [user] has spot-welded some of the damage to \the [src]!</span>")
+				src.visible_message(SPAN_NOTICE("\The [user] has spot-welded some of the damage to \the [src]!"))
 			else
 				to_chat(user, SPAN_WARNING("\The [src] is undamaged!"))
 		else
@@ -152,7 +152,7 @@
 				if(use_check_and_message(user))
 					return 0
 				if(ACCESS_ROBOTICS in id_card.access)
-					to_chat(user, "<span class='notice'>You swipe your access card and pop the brain out of \the [src].</span>")
+					to_chat(user, SPAN_NOTICE("You swipe your access card and pop the brain out of \the [src]."))
 					eject_brain()
 					if(held_item)
 						held_item.forceMove(src.loc)
@@ -178,7 +178,7 @@
 		to_chat(user, SPAN_WARNING("[src] is already overloaded - better run."))
 		return 0
 	else
-		to_chat(user, "<span class='notice'>You short out the security protocols and overload [src]'s cell, priming it to explode in a short time.</span>")
+		to_chat(user, SPAN_NOTICE("You short out the security protocols and overload [src]'s cell, priming it to explode in a short time."))
 		spawn(100)	to_chat(src, "<span class='danger'>Your cell seems to be outputting a lot of power...</span>")
 		spawn(200)	to_chat(src, "<span class='danger'>Internal heat sensors are spiking! Something is badly wrong with your cell!</span>")
 		spawn(300)	src.explode()
@@ -265,8 +265,8 @@
 		held_item = null
 		return 1
 
-	visible_message("<span class='notice'>\The [src] drops \the [held_item].</span>", \
-		"<span class='notice'>You drop \the [held_item].</span>", \
+	visible_message(SPAN_NOTICE("\The [src] drops \the [held_item]."), \
+		SPAN_NOTICE("You drop \the [held_item]."), \
 		"You hear a skittering noise and a soft thump.")
 
 	held_item.forceMove(src.loc)
@@ -297,8 +297,8 @@
 			if(selection == I)
 				held_item = selection
 				selection.forceMove(src)
-				visible_message("<span class='notice'>\The [src] scoops up \the [held_item].</span>", \
-					"<span class='notice'>You grab \the [held_item].</span>", \
+				visible_message(SPAN_NOTICE("\The [src] scoops up \the [held_item]."), \
+					SPAN_NOTICE("You grab \the [held_item]."), \
 					"You hear a skittering noise and a clink.")
 				return held_item
 		to_chat(src, SPAN_WARNING("\The [selection] is too far away."))

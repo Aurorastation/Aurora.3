@@ -140,7 +140,7 @@
 			var/turf/T = get_turf(src)
 			battery.forceMove(T)
 			playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'>You pull \the [battery] out of \the [src]'s power supply.</span>")
+			to_chat(usr, SPAN_NOTICE("You pull \the [battery] out of \the [src]'s power supply."))
 			battery = null
 
 	interact(usr) // To refresh the UI.
@@ -157,7 +157,7 @@
 
 	var/input = sanitizeSafe(input("What do you want to name this?", "Rename", src.name) as null|text, MAX_NAME_LEN)
 	if(src && input)
-		to_chat(M, "<span class='notice'>The machine now has a label reading '[input]'.</span>")
+		to_chat(M, SPAN_NOTICE("The machine now has a label reading '[input]'."))
 		name = input
 		return input
 	return null
@@ -242,7 +242,7 @@
 			return FALSE
 
 		if(add_circuit(attacking_item, user))
-			to_chat(user, "<span class='notice'>You slide \the [attacking_item] inside \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] inside \the [src]."))
 			playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 			interact(user)
 			return TRUE
@@ -260,7 +260,7 @@
 	else if(attacking_item.iscrowbar())
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		opened = !opened
-		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You [opened ? "open" : "close"] \the [src]."))
 		update_icon()
 		return TRUE
 
@@ -290,7 +290,7 @@
 		user.drop_from_inventory(cell,src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
+		to_chat(user, SPAN_NOTICE("You slot \the [cell] inside \the [src]'s power supply."))
 		interact(user)
 		return TRUE
 	else if(istype(attacking_item, /obj/item/device/integrated_electronics/detailer))

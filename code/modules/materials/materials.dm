@@ -126,7 +126,7 @@
 		return
 	used_stack.use(1)
 	target_stack.use(1)
-	to_chat(user, "<span class='notice'>You attach a rod to the [display_name].</span>")
+	to_chat(user, SPAN_NOTICE("You attach a rod to the [display_name]."))
 	var/obj/item/stack/S = new rod_product(get_turf(user))
 	S.add_fingerprint(user)
 	S.add_to_stacks(user)
@@ -141,7 +141,7 @@
 
 	used_stack.use(5)
 	target_stack.use(1)
-	to_chat(user, "<span class='notice'>You attach wires to the [display_name].</span>")
+	to_chat(user, SPAN_NOTICE("You attach wires to the [display_name]."))
 	var/obj/item/product = new wire_product(get_turf(user))
 	if(!(user.l_hand && user.r_hand))
 		user.put_in_hands(product)

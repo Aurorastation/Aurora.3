@@ -78,7 +78,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 
 	var/input = sanitizeSafe(input("What do you want to name the circuit?", "Rename", src.name) as null|text, MAX_NAME_LEN)
 	if(src && input && assembly.check_interactivity(M))
-		to_chat(M, "<span class='notice'>The circuit '[src.name]' is now labeled '[input]'.</span>")
+		to_chat(M, SPAN_NOTICE("The circuit '[src.name]' is now labeled '[input]'."))
 		displayed_name = input
 
 /obj/item/integrated_circuit/interact(mob/user)
@@ -299,7 +299,7 @@ a creative player the means to solve many problems.  Circuits are held inside an
 		forceMove(T)
 		assembly = null
 		playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
-		to_chat(usr, "<span class='notice'>You pop \the [src] out of the case, and slide it out.</span>")
+		to_chat(usr, SPAN_NOTICE("You pop \the [src] out of the case, and slide it out."))
 
 		if(istype(ea))
 			ea.interact(usr)

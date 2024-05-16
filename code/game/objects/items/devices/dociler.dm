@@ -14,7 +14,7 @@
 
 /obj/item/device/dociler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += "<span class='notice'>It is currently set to [mode] docile mode.</span>"
+	. += SPAN_NOTICE("It is currently set to [mode] docile mode.")
 
 /obj/item/device/dociler/attack_self(var/mob/user)
 	if(mode == "somewhat")

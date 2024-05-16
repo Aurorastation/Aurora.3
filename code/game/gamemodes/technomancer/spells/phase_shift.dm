@@ -50,7 +50,7 @@
 	if(user.stat)
 		return
 
-	to_chat(user, "<span class='notice'>You step out of the rift.</span>")
+	to_chat(user, SPAN_NOTICE("You step out of the rift."))
 	user.forceMove(get_turf(src))
 	qdel(src)
 

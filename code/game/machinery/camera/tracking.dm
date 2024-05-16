@@ -263,7 +263,7 @@
 /mob/living/silicon/robot/tracking_cancelled()
 	tracking_entities--
 	if(!tracking_entities && has_zeroth_law())
-		to_chat(src, "<span class='notice'>Internal camera is no longer being accessed.</span>")
+		to_chat(src, SPAN_NOTICE("Internal camera is no longer being accessed."))
 
 
 #undef TRACKING_POSSIBLE

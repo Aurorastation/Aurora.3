@@ -52,11 +52,11 @@
 /obj/item/clothing/suit/armor/tesla/proc/recharge(var/mob/user)
 	ready = TRUE
 	update_icon()
-	to_chat(user, "<span class='notice'>\The [src] is ready to protect you once more.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is ready to protect you once more."))
 
 /obj/item/clothing/suit/armor/tesla/attack_self(mob/user)
 	active = !active
-	to_chat(user, "<span class='notice'>You [active ? "" : "de"]activate \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [active ? "" : "de"]activate \the [src]."))
 	update_icon()
 	user.update_inv_wear_suit()
 	user.update_action_buttons()

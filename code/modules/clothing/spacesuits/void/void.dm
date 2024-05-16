@@ -192,7 +192,7 @@
 	if(H.wear_suit != src) return
 
 	if(H.head == helmet)
-		to_chat(H, "<span class='notice'>You retract your suit helmet.</span>")
+		to_chat(H, SPAN_NOTICE("You retract your suit helmet."))
 		playsound(loc, helmet_retract_sound, 30)
 		helmet.canremove = 1
 		H.drop_from_inventory(helmet,src)

@@ -48,8 +48,8 @@
 		playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 		if(do_after(user, 30))
 			user.visible_message(
-			"<span class='notice'>\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]</span>",
-			"<span class='notice'>You brush your teeth with \the [src].</span>")
+			SPAN_NOTICE("\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]"),
+			SPAN_NOTICE("You brush your teeth with \the [src]."))
 			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
 			update_icon()
 	return
@@ -93,7 +93,9 @@
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-			user.visible_message("<span class='notice'>\The [user] soaks [src] using [A].</span>", "<span class='notice'>You soak [src] using [A].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] soaks [src] using [A]."),
+									SPAN_NOTICE("You soak [src] using [A]."))
+
 			update_icon()
 		return
 

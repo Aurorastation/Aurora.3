@@ -156,12 +156,12 @@
 /obj/item/melee/energy/glaive/activate(mob/living/user)
 	..()
 	icon_state = "eglaive1"
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/glaive/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
@@ -202,12 +202,12 @@
 /obj/item/melee/energy/axe/activate(mob/living/user)
 	..()
 	icon_state = "axe1"
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/axe/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	to_chat(user, "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised. It's just a regular axe now."))
 
 /obj/item/melee/energy/axe/can_woodcut()
 	if(active)
@@ -262,14 +262,14 @@
 
 /obj/item/melee/energy/sword/activate(mob/living/user)
 	if(!active)
-		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 	..()
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	icon_state = "sword[blade_color]"
 
 /obj/item/melee/energy/sword/deactivate(mob/living/user)
 	if(active)
-		to_chat(user, "<span class='notice'>\The [src] deactivates!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] deactivates!"))
 	..()
 	attack_verb = list()
 	icon_state = initial(icon_state)

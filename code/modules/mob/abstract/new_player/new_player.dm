@@ -150,7 +150,7 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 	if(href_list["SelectedJob"])
 
 		if(!GLOB.config.enter_allowed)
-			to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+			to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 			return
 		else if(SSticker.mode && SSticker.mode.explosion_in_progress)
 			to_chat(usr, "<span class='danger'>The station is currently exploding. Joining would go poorly.</span>")
@@ -274,13 +274,13 @@ INITIALIZE_IMMEDIATE(/mob/abstract/new_player)
 		to_chat(usr, SPAN_WARNING("The round is either not ready, or has already finished..."))
 		return 0
 	if(!GLOB.config.enter_allowed)
-		to_chat(usr, "<span class='notice'>There is an administrative lock on entering the game!</span>")
+		to_chat(usr, SPAN_NOTICE("There is an administrative lock on entering the game!"))
 		return 0
 	if(GLOB.config.sql_saves && !client.prefs.current_character)
 		alert(usr, "You have not saved your character yet. Please do so before attempting to join.")
 		return 0
 	if(!IsJobAvailable(rank))
-		to_chat(usr, "<span class='notice'>[rank] is not available. Please try another.</span>")
+		to_chat(usr, SPAN_NOTICE("[rank] is not available. Please try another."))
 		return 0
 	if(!(spawning_at in SSatlas.current_map.allowed_spawns))
 		to_chat(usr, SPAN_NOTICE("Spawn location [spawning_at] invalid for [SSatlas.current_map]. Defaulting to [SSatlas.current_map.default_spawn]."))

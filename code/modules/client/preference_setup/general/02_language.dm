@@ -74,7 +74,7 @@
 
 		for (var/L in bad_langs)
 			if(pref.client)
-				to_chat(pref.client, "<span class='notice'>Removing the language \"[L]\" from your character.</span>")
+				to_chat(pref.client, SPAN_NOTICE("Removing the language \"[L]\" from your character."))
 			pref.alternate_languages -= L
 
 		var/datum/category_group/player_setup_category/cat = category

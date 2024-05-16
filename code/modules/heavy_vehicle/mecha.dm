@@ -151,10 +151,10 @@
 				else
 					. += "It is being <b>piloted</b> by <b>[pilot]</b>."
 	if(hardpoints.len)
-		. += "<span class='notice'>It has the following hardpoints:</span>"
+		. += SPAN_NOTICE("It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			. += "- <b>[hardpoint]</b>: [istype(I) ? "<span class='notice'><i>[I]</i></span>" : "nothing"]."
+			. += "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"]."
 	else
 		. += "It has <b>no visible hardpoints</b>."
 

@@ -66,14 +66,18 @@
 	if(isliving(user))
 		if(badge_string)
 			if(stored_name)
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name], [badge_string].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name], [badge_string].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name], [badge_string]."),
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name], [badge_string]."))
 			else
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [badge_string].</span>","<span class='notice'>You display your [src.name]. It reads: [badge_string].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [badge_string]."),
+										SPAN_NOTICE("You display your [src.name]. It reads: [badge_string]."))
 		else
 			if(stored_name)
-				user.visible_message("<span class='notice'>[user] displays their [src.name].\nIt reads: [stored_name].</span>","<span class='notice'>You display your [src.name].\nIt reads: [stored_name].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name].\nIt reads: [stored_name]."),
+										SPAN_NOTICE("You display your [src.name].\nIt reads: [stored_name]."))
 			else
-				user.visible_message("<span class='notice'>[user] displays their [src.name].</span>","<span class='notice'>You display your [src.name].</span>")
+				user.visible_message(SPAN_NOTICE("[user] displays their [src.name]."),
+										SPAN_NOTICE("You display your [src.name]."))
 
 /obj/item/clothing/accessory/badge/attack(mob/living/carbon/human/M, mob/living/user)
 	if(isliving(user))

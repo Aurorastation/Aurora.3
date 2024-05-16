@@ -156,7 +156,7 @@
 
 		if(range_in_typecache(src, 2, calmers))
 			if(feral > 0)
-				src.visible_message("<span class='notice'>The bees calm down!</span>")
+				src.visible_message(SPAN_NOTICE("The bees calm down!"))
 			feral = -15
 			target_mob = null
 			target_turf = null
@@ -216,7 +216,7 @@
 		if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
 			Move(get_step(src, get_dir(src,target_turf)))
 			if(prob(10))
-				visible_message("<span class='notice'>The bees swarm after [target_mob]!</span>")
+				visible_message(SPAN_NOTICE("The bees swarm after [target_mob]!"))
 		if(get_turf(src) == target_turf)
 			target_turf = null
 			wander = TRUE

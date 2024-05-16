@@ -12,11 +12,11 @@
 	deploy_path = /obj/machinery/power/supply_beacon/supermatter
 
 /obj/item/supply_beacon/attack_self(var/mob/user)
-	user.visible_message("<span class='notice'>\The [user] begins setting up \the [src].</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] begins setting up \the [src]."))
 	if(!do_after(user, deploy_time, src, DO_REPAIR_CONSTRUCT))
 		return
 	var/obj/S = new deploy_path(get_turf(user))
-	user.visible_message("<span class='notice'>\The [user] deploys \the [S].</span>")
+	user.visible_message(SPAN_NOTICE("\The [user] deploys \the [S]."))
 	user.unEquip(src)
 	qdel(src)
 
@@ -49,7 +49,7 @@
 			to_chat(user, SPAN_WARNING("This device must be placed over an exposed cable."))
 			return TRUE
 		anchored = !anchored
-		user.visible_message("<span class='notice'>\The [user] [anchored ? "secures" : "unsecures"] \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] [anchored ? "secures" : "unsecures"] \the [src]."))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		return TRUE
 	return ..()
@@ -75,11 +75,11 @@
 	if(expended)
 		return
 	if(surplus() < 500)
-		if(user) to_chat(user, "<span class='notice'>The connected wire doesn't have enough current.</span>")
+		if(user) to_chat(user, SPAN_NOTICE("The connected wire doesn't have enough current."))
 		return
 	set_light(3, 3, "#00CCAA")
 	icon_state = "beacon_active"
-	if(user) to_chat(user, "<span class='notice'>You activate the beacon. The supply drop will be dispatched soon.</span>")
+	if(user) to_chat(user, SPAN_NOTICE("You activate the beacon. The supply drop will be dispatched soon."))
 
 /obj/machinery/power/supply_beacon/proc/deactivate(var/mob/user, var/permanent)
 	if(permanent)
@@ -90,7 +90,7 @@
 	set_light(0)
 	update_use_power(POWER_USE_OFF)
 	target_drop_time = null
-	if(user) to_chat(user, "<span class='notice'>You deactivate the beacon.</span>")
+	if(user) to_chat(user, SPAN_NOTICE("You deactivate the beacon."))
 
 /obj/machinery/power/supply_beacon/Destroy()
 	if(use_power)

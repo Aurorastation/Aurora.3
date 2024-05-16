@@ -70,7 +70,7 @@
 	if(!do_after(user, 2 SECONDS, holder))
 		return 0
 	if(prob(20*(unlock_power/getComplexity())))
-		to_chat(user, "<span class='notice'>You pick open \the [holder]'s lock!</span>")
+		to_chat(user, SPAN_NOTICE("You pick open \the [holder]'s lock!"))
 		unlock(lock_data)
 		return 1
 	else if(prob(5 * unlock_power))

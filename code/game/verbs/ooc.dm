@@ -183,7 +183,7 @@
 	var/list/choice = list(2, 4, 6, 8, 10, 12, 20, 50, 100)
 	var/input = input("Select the Dice you want!", "Dice", null, null) in choice
 
-	to_chat(usr, "<span class='notice'>You roll [rand(1,input)] out of [input]!</span>")
+	to_chat(usr, SPAN_NOTICE("You roll [rand(1,input)] out of [input]!"))
 
 /client/verb/fit_viewport()
 	set name = "Fit Viewport"

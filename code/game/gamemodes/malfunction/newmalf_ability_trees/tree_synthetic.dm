@@ -123,14 +123,14 @@
 		return
 
 	if(A.aidisabled)
-		to_chat(user, "<span class='notice'>Unable to connect to APC. Please verify wire connection and try again.</span>")
+		to_chat(user, SPAN_NOTICE("Unable to connect to APC. Please verify wire connection and try again."))
 		return
 
 	if(!ability_prechecks(user, price) || !ability_pay(user, price))
 		return
 
 	if(A.infected == 1)
-		to_chat(user, "<span class='notice'>This APC is already infected!</span>")
+		to_chat(user, SPAN_NOTICE("This APC is already infected!"))
 		return
 
 	log_ability_use(user, "infect APC", A, 0)	// Does not notify admins, but it's still logged for reference.
@@ -147,9 +147,9 @@
 		if(A.infected == 1)
 			to_chat(user, "Hack successful. The next robotic thing to download files will be hacked.")
 		else
-			to_chat(user, "<span class='notice'>Hack failed. Connection to APC has been lost. Please verify wire connection and try again.</span>")
+			to_chat(user, SPAN_NOTICE("Hack failed. Connection to APC has been lost. Please verify wire connection and try again."))
 	else
-		to_chat(user, "<span class='notice'>Hack failed. Unable to locate APC. Please verify the APC still exists.</span>")
+		to_chat(user, SPAN_NOTICE("Hack failed. Unable to locate APC. Please verify the APC still exists."))
 	user.hacking = 0
 
 /datum/game_mode/malfunction/verb/overclock_borg(var/mob/living/silicon/robot/target as mob in get_linked_cyborgs(usr))

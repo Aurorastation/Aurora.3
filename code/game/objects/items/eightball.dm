@@ -51,7 +51,9 @@
 	else
 		return
 
-	user.visible_message("<span class='notice'>\The [user] starts shaking \the [src].</span>", "<span class='notice'>You start shaking \the [src].</span>", "You hear shaking and sloshing.")
+	user.visible_message(SPAN_NOTICE("\The [user] starts shaking \the [src]."),
+							SPAN_NOTICE("You start shaking \the [src]."),
+							"You hear shaking and sloshing.")
 
 	shaking = TRUE
 
@@ -59,7 +61,7 @@
 	if(do_after(user, shake_time))
 		var/answer = get_answer()
 
-		visible_message("<span class='notice'>\The [src] rattles, \"[answer]\".</span>")
+		visible_message(SPAN_NOTICE("\The [src] rattles, \"[answer]\"."))
 
 		on_cooldown = TRUE
 		addtimer(CALLBACK(src, PROC_REF(clear_cooldown)), cooldown_time)

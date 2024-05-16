@@ -75,7 +75,7 @@
 				return
 			var/datum/vampire/vampire = M.mind.antag_datums[MODE_VAMPIRE]
 			vampire.blood_usable += removed
-			to_chat(M, "<span class='notice'>You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale.</span>")
+			to_chat(M, SPAN_NOTICE("You have accumulated [vampire.blood_usable] unit\s of usable blood. It tastes quite stale."))
 			return
 	var/dose = M.chem_doses[type]
 	if(dose > 15)

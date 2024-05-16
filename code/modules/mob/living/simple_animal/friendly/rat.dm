@@ -222,7 +222,7 @@
 	if( ishuman(AM) )
 		if(!stat)
 			var/mob/M = AM
-			to_chat(M, "<span class='notice'>[icon2html(src, M)] Squeek!</span>")
+			to_chat(M, SPAN_NOTICE("[icon2html(src, M)] Squeek!"))
 			poke(1) //Wake up if stepped on
 			if (prob(95))
 				squeak(0)
@@ -238,7 +238,7 @@
 			return
 
 		src.visible_message(SPAN_WARNING("[src] joins the [K.swarm_name] of \the [K]"), \
-							"<span class='notice'>We join our brethren in \the [K.swarm_name]. Long live \the [K].</span>")
+							SPAN_NOTICE("We join our brethren in \the [K.swarm_name]. Long live \the [K]."))
 		K.absorb(src)
 	..()
 

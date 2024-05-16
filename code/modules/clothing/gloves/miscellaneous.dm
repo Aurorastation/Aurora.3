@@ -73,7 +73,7 @@
 		if(C.use(1))
 			var/obj/item/L = new src.balloon
 			user.drop_from_inventory(L,get_turf(src))
-			to_chat(user, "<span class='notice'>You make a balloon.</span>")
+			to_chat(user, SPAN_NOTICE("You make a balloon."))
 			qdel(src)
 		else
 			to_chat(user, SPAN_WARNING("You need one length of cable to finish the balloon!"))

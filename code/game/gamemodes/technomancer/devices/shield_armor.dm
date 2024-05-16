@@ -69,7 +69,7 @@
 
 /obj/item/clothing/suit/armor/shield/attack_self(mob/user)
 	active = !active
-	to_chat(user, "<span class='notice'>You [active ? "" : "de"]activate \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [active ? "" : "de"]activate \the [src]."))
 	update_icon()
 	user.update_inv_wear_suit()
 	user.update_action_buttons()

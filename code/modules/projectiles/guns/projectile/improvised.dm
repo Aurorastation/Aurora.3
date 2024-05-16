@@ -34,7 +34,7 @@
 
 /obj/item/gun/projectile/shotgun/improvised/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/surgery/circular_saw) || istype(attacking_item, /obj/item/melee/energy) || istype(attacking_item, /obj/item/gun/energy/plasmacutter) && w_class != 3)
-		to_chat(user, "<span class='notice'>You begin to shorten the barrel of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You begin to shorten the barrel of \the [src]."))
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
@@ -108,21 +108,21 @@
 	if(istype(attacking_item, /obj/item/pipe))
 		if(buildstate == 0)
 			qdel(attacking_item)
-			to_chat(user, "<span class='notice'>You place the pipe and the receiver together.</span>")
+			to_chat(user, SPAN_NOTICE("You place the pipe and the receiver together."))
 			buildstate++
 			update_icon()
 			return
 	else if(istype(attacking_item, /obj/item/stock))
 		if(buildstate == 1)
 			qdel(attacking_item)
-			to_chat(user, "<span class='notice'>You add the stock to the assembly.</span>")
+			to_chat(user, SPAN_NOTICE("You add the stock to the assembly."))
 			buildstate++
 			update_icon()
 			return
 	else if(istype(attacking_item, /obj/item/tape_roll))
 		if(buildstate == 2)
 			qdel(attacking_item)
-			to_chat(user, "<span class='notice'>You strap the pieces together with tape.</span>")
+			to_chat(user, SPAN_NOTICE("You strap the pieces together with tape."))
 			buildstate++
 			update_icon()
 			return
@@ -130,11 +130,11 @@
 		var/obj/item/stack/cable_coil/C = attacking_item
 		if(buildstate == 3)
 			if(C.use(10))
-				to_chat(user, "<span class='notice'>You tie the lengths of cable to the pipegun, making a sling.</span>")
+				to_chat(user, SPAN_NOTICE("You tie the lengths of cable to the pipegun, making a sling."))
 				new /obj/item/gun/projectile/shotgun/pump/rifle/magazine_fed/pipegun(get_turf(src))
 				qdel(src)
 			else
-				to_chat(user, "<span class='notice'>You need at least ten lengths of cable if you want to make a sling!</span>")
+				to_chat(user, SPAN_NOTICE("You need at least ten lengths of cable if you want to make a sling!"))
 			return
 
 		..()
@@ -193,21 +193,21 @@
 /obj/item/stock/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/material/hatchet))
 		if(buildstate == 0)
-			to_chat(user, "<span class='notice'>You carve the rifle stock.</span>")
+			to_chat(user, SPAN_NOTICE("You carve the rifle stock."))
 			buildstate++
 			update_icon()
 			return
 	else if(istype(attacking_item, /obj/item/receivergun))
 		if(buildstate == 1)
 			qdel(attacking_item)
-			to_chat(user, "<span class='notice'>You add the receiver to the assembly.</span>")
+			to_chat(user, SPAN_NOTICE("You add the receiver to the assembly."))
 			buildstate++
 			update_icon()
 			return
 	else if(istype(attacking_item, /obj/item/pipe))
 		if(buildstate == 2)
 			qdel(attacking_item)
-			to_chat(user, "<span class='notice'>You strap the pipe to the assembly.</span>")
+			to_chat(user, SPAN_NOTICE("You strap the pipe to the assembly."))
 			buildstate++
 			update_icon()
 			return
@@ -217,7 +217,7 @@
 			if(T.use(0,user))
 				if(!src || !T.isOn()) return
 				playsound(src.loc, 'sound/items/welder_pry.ogg', 100, 1)
-				to_chat(user, "<span class='notice'>You shorten the barrel with the welding tool.</span>")
+				to_chat(user, SPAN_NOTICE("You shorten the barrel with the welding tool."))
 				var/obj/item/gun/projectile/improvised_handgun/G = new(get_turf(src))
 				G.jam_chance = rand(1,100)
 				qdel(src)

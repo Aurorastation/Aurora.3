@@ -218,7 +218,7 @@
 	var/mob/living/carbon/C = src
 	if(!C.stat && alert("Are we sure we wish to fake our death?", , "Yes", "No") == "No") //Confirmation for living changelings if they want to fake their death
 		return
-	to_chat(C, "<span class='notice'>We will attempt to regenerate our form.</span>")
+	to_chat(C, SPAN_NOTICE("We will attempt to regenerate our form."))
 
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
@@ -267,7 +267,7 @@
 	// re-add out changeling powers
 	C.make_changeling()
 	// sending display messages
-	to_chat(C, "<span class='notice'>We have regenerated fully.</span>")
+	to_chat(C, SPAN_NOTICE("We have regenerated fully."))
 	remove_verb(C, /mob/proc/changeling_revive)
 
 /// Rip the changeling's head off as a last ditch effort to revive
@@ -368,9 +368,9 @@
 
 	var/mob/living/carbon/human/C = src
 	if(C.digitalcamo)
-		to_chat(C, "<span class='notice'>We return to normal.</span>")
+		to_chat(C, SPAN_NOTICE("We return to normal."))
 	else
-		to_chat(C, "<span class='notice'>We distort our form to prevent AI-tracking.</span>")
+		to_chat(C, SPAN_NOTICE("We distort our form to prevent AI-tracking."))
 	C.digitalcamo = !C.digitalcamo
 
 	spawn(0)
@@ -424,7 +424,7 @@
 		var/datum/absorbed_dna/current_dna = changeling.GetDNA(real_name)
 		changeling.mimicing = ""
 		changeling.mimiced_accent = current_dna.accent
-		to_chat(src, "<span class='notice'>We return our vocal glands to their original form.</span>")
+		to_chat(src, SPAN_NOTICE("We return our vocal glands to their original form."))
 		return
 
 	var/mimic_voice = sanitize(input(usr, "Enter a name to mimic.", "Mimic Voice", null), MAX_NAME_LEN)
@@ -438,8 +438,8 @@
 	changeling.mimicing = mimic_voice
 	changeling.mimiced_accent = chosen_accent
 
-	to_chat(src, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, using the <b>[chosen_accent]</b> accent. This will stop us from regenerating chemicals while active.</span>")
-	to_chat(src, "<span class='notice'>Use this power again to return to our original voice and reproduce chemicals again.</span>")
+	to_chat(src, SPAN_NOTICE("We shape our glands to take the voice of <b>[mimic_voice]</b>, using the <b>[chosen_accent]</b> accent. This will stop us from regenerating chemicals while active."))
+	to_chat(src, SPAN_NOTICE("Use this power again to return to our original voice and reproduce chemicals again."))
 
 	feedback_add_details("changeling_powers","MV")
 

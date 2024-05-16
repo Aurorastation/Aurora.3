@@ -814,7 +814,7 @@ var/global/enabled_spooking = 0
 	if(SSticker.current_state == GAME_STATE_PREGAME)
 		SSticker.current_state = GAME_STATE_SETTING_UP
 		log_admin("[usr.key] has started the game.")
-		message_admins("<span class='notice'>[usr.key] has started the game.</span>")
+		message_admins(SPAN_NOTICE("[usr.key] has started the game."))
 		feedback_add_details("admin_verb","SN") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 		return 1
 	else
@@ -831,7 +831,7 @@ var/global/enabled_spooking = 0
 	else
 		to_world("<B>New players may now enter the game.</B>")
 	log_admin("[key_name(usr)] toggled new player game entering.")
-	message_admins("<span class='notice'>[key_name_admin(usr)] toggled new player game entering.</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] toggled new player game entering."), 1)
 	world.update_status()
 	feedback_add_details("admin_verb","TE") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
@@ -857,7 +857,7 @@ var/global/enabled_spooking = 0
 		to_world("<B>You may now respawn.</B>")
 	else
 		to_world("<B>You may no longer respawn :(</B>")
-	message_admins("<span class='notice'>[key_name_admin(usr)] toggled respawn to [GLOB.config.abandon_allowed ? "On" : "Off"].</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] toggled respawn to [GLOB.config.abandon_allowed ? "On" : "Off"]."), 1)
 	log_admin("[key_name(usr)] toggled respawn to [GLOB.config.abandon_allowed ? "On" : "Off"].")
 	world.update_status()
 	feedback_add_details("admin_verb","TR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
@@ -880,7 +880,7 @@ var/global/enabled_spooking = 0
 	if (ROUND_IS_STARTED)
 		SSticker.delay_end = !SSticker.delay_end
 		log_admin("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].")
-		message_admins("<span class='notice'>[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"].</span>", 1)
+		message_admins(SPAN_NOTICE("[key_name(usr)] [SSticker.delay_end ? "delayed the round end" : "has made the round end normally"]."), 1)
 		return //alert("Round end delayed", null, null, null, null, null)
 	GLOB.round_progressing = !GLOB.round_progressing
 	if (!GLOB.round_progressing)
@@ -896,7 +896,7 @@ var/global/enabled_spooking = 0
 	set desc="Toggle admin jumping"
 	set name="Toggle Jump"
 	GLOB.config.allow_admin_jump = !(GLOB.config.allow_admin_jump)
-	message_admins("<span class='notice'>Toggled admin jumping to [GLOB.config.allow_admin_jump].</span>")
+	message_admins(SPAN_NOTICE("Toggled admin jumping to [GLOB.config.allow_admin_jump]."))
 	feedback_add_details("admin_verb","TJ") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/adspawn()
@@ -904,7 +904,7 @@ var/global/enabled_spooking = 0
 	set desc="Toggle admin spawning"
 	set name="Toggle Spawn"
 	GLOB.config.allow_admin_spawning = !(GLOB.config.allow_admin_spawning)
-	message_admins("<span class='notice'>Toggled admin item spawning to [GLOB.config.allow_admin_spawning].</span>")
+	message_admins(SPAN_NOTICE("Toggled admin item spawning to [GLOB.config.allow_admin_spawning]."))
 	feedback_add_details("admin_verb","TAS") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/adrev()
@@ -912,7 +912,7 @@ var/global/enabled_spooking = 0
 	set desc="Toggle admin revives"
 	set name="Toggle Revive"
 	GLOB.config.allow_admin_rev = !(GLOB.config.allow_admin_rev)
-	message_admins("<span class='notice'>Toggled reviving to [GLOB.config.allow_admin_rev].</span>")
+	message_admins(SPAN_NOTICE("Toggled reviving to [GLOB.config.allow_admin_rev]."))
 	feedback_add_details("admin_verb","TAR") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/immreboot()
@@ -1158,7 +1158,7 @@ var/global/enabled_spooking = 0
 	else
 		to_world("<B>Guests may now enter the game.</B>")
 	log_admin("[key_name(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed.")
-	message_admins("<span class='notice'>[key_name_admin(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed.</span>", 1)
+	message_admins(SPAN_NOTICE("[key_name_admin(usr)] toggled guests game entering [GLOB.config.guests_allowed?"":"dis"]allowed."), 1)
 	feedback_add_details("admin_verb","TGU") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 
 /datum/admins/proc/output_ai_laws()

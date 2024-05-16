@@ -29,7 +29,7 @@
 /obj/item/integrated_circuit/insert_slot/do_work()
 	for(var/obj/item/O in items_contained)
 		O.forceMove(get_turf(src))
-		visible_message("<span class='notice'>\The [src] drops [O] on the ground.</span>")
+		visible_message(SPAN_NOTICE("\The [src] drops [O] on the ground."))
 		items_contained -= O
 	set_pin_data(IC_OUTPUT, 1, FALSE)
 	push_data()
@@ -42,7 +42,7 @@
 			return FALSE
 		items_contained += O
 		user.drop_from_inventory(O,src)
-		to_chat(user, "<span class='notice'>You add [O] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You add [O] to \the [src]."))
 		set_pin_data(IC_OUTPUT, 1, TRUE)
 		return TRUE
 

@@ -29,7 +29,7 @@
 			to_chat(user, SPAN_WARNING("\The [src] is out of water!"))
 		else
 			reagents.trans_to_obj(attacking_item, 5)
-			to_chat(user, "<span class='notice'>You wet \the [attacking_item] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You wet \the [attacking_item] in \the [src]."))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
 		return ..()
 	update_icon()

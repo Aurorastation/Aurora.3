@@ -25,14 +25,14 @@
 		if(do_after(user, 4 SECONDS, src, DO_REPAIR_CONSTRUCT) && !wired && anchored)
 			if (cable.use(1))
 				wired = 1
-				to_chat(user, "<span class='notice'>You wire \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You wire \the [src]."))
 		return TRUE
 	else if(attacking_item.iswirecutter() && wired )
 		user.visible_message("[user] cuts the wires from \the [src].", "You start to cut the wires from \the [src].")
 
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You cut the wires!</span>")
+			to_chat(user, SPAN_NOTICE("You cut the wires!"))
 			new/obj/item/stack/cable_coil(src.loc, 1)
 			wired = 0
 		return TRUE
@@ -66,7 +66,7 @@
 				new /obj/item/stack/material/steel(src.loc, 2)
 				qdel(src)
 		else
-			to_chat(user, "<span class='notice'>You need more welding fuel.</span>")
+			to_chat(user, SPAN_NOTICE("You need more welding fuel."))
 		return TRUE
 	else
 		return ..()

@@ -21,7 +21,7 @@
 
 /datum/modifier/technomancer/mend_life
 	on_created_text = SPAN_WARNING("Sparkles begin to appear around you, and you feel really.. refreshed.")
-	on_expired_text = "<span class='notice'>The sparkles have faded, although you feel healthier than before.</span>"
+	on_expired_text = SPAN_NOTICE("The sparkles have faded, although you feel healthier than before.")
 
 /datum/modifier/technomancer/mend_life/process()
 	. = ..()

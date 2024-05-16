@@ -91,15 +91,15 @@
 		if(user == buckled)
 			delay *=2
 			user.visible_message(
-				"<span class='notice'>\The [user] tries to climb out of \the [src].</span>",
-				"<span class='notice'>You begin to pull yourself out of \the [src].</span>",
-				"<span class='notice'>You hear water sloushing.</span>"
+				SPAN_NOTICE("\The [user] tries to climb out of \the [src]."),
+				SPAN_NOTICE("You begin to pull yourself out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		else
 			user.visible_message(
-				"<span class='notice'>\The [user] begins pulling \the [buckled] out of \the [src].</span>",
-				"<span class='notice'>You begin to pull \the [buckled] out of \the [src].</span>",
-				"<span class='notice'>You hear water sloushing.</span>"
+				SPAN_NOTICE("\The [user] begins pulling \the [buckled] out of \the [src]."),
+				SPAN_NOTICE("You begin to pull \the [buckled] out of \the [src]."),
+				SPAN_NOTICE("You hear water sloushing.")
 				)
 		busy = 1
 		if(do_after(user, delay, src))
@@ -108,9 +108,9 @@
 				if(prob(80))
 					to_chat(user, SPAN_WARNING("You slip and fail to get out!"))
 					return
-				user.visible_message("<span class='notice'>\The [buckled] pulls himself out of \the [src].</span>")
+				user.visible_message(SPAN_NOTICE("\The [buckled] pulls himself out of \the [src]."))
 			else
-				user.visible_message("<span class='notice'>\The [buckled] has been freed from \the [src] by \the [user].</span>")
+				user.visible_message(SPAN_NOTICE("\The [buckled] has been freed from \the [src] by \the [user]."))
 			unbuckle()
 		else
 			busy = 0

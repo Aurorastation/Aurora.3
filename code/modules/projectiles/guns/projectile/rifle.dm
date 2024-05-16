@@ -187,7 +187,7 @@
 		loaded -= C
 
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle back the bolt on \the [src], ejecting the casing and allowing you to reload."))
 		playsound(user, 'sound/weapons/riflebolt.ogg', 60, 1)
 		icon_state = icon_retracted
 		item_state = icon_retracted
@@ -197,10 +197,10 @@
 		return 1
 
 	else if(retracted_bolt && loaded.len)
-		to_chat(user, "<span class='notice'>You cycle the loaded round into the chamber, allowing you to fire.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the loaded round into the chamber, allowing you to fire."))
 
 	else
-		to_chat(user, "<span class='notice'>You cycle the bolt back into position, leaving the gun empty.</span>")
+		to_chat(user, SPAN_NOTICE("You cycle the bolt back into position, leaving the gun empty."))
 
 	icon_state = initial(icon_state)
 	item_state = initial(item_state)
@@ -212,13 +212,13 @@
 
 /obj/item/gun/projectile/contender/load_ammo(var/obj/item/A, mob/user)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't load \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't load \the [src] without cycling the bolt."))
 		return
 	..()
 
 /obj/item/gun/projectile/contender/unload_ammo(mob/user, var/allow_dump=1)
 	if(!retracted_bolt)
-		to_chat(user, "<span class='notice'>You can't unload \the [src] without cycling the bolt.</span>")
+		to_chat(user, SPAN_NOTICE("You can't unload \the [src] without cycling the bolt."))
 		return
 	..()
 
@@ -295,12 +295,12 @@
 /obj/item/gun/projectile/shotgun/pump/rifle/vintage/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/ammo_magazine/boltaction/vintage))
 		if(!open_bolt)
-			to_chat(user, "<span class='notice'>You need to open the bolt of \the [src] first.</span>")
+			to_chat(user, SPAN_NOTICE("You need to open the bolt of \the [src] first."))
 			return
 		if(!has_clip)
 			user.drop_from_inventory(attacking_item, src)
 			has_clip = attacking_item
-			to_chat(user, "<span class='notice'>You load the clip into \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You load the clip into \the [src]."))
 			if(!has_clip.stored_ammo.len)
 				AddOverlays("springfield-clip-empty")
 			else if(has_clip.stored_ammo.len <= 3)
@@ -308,7 +308,7 @@
 			else
 				AddOverlays("springfield-clip-full")
 		else
-			to_chat(user, "<span class='notice'>There's already a clip in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("There's already a clip in \the [src]."))
 
 	else
 		..()
