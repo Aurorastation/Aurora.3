@@ -254,10 +254,6 @@
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/medical)
-"abZ" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aca" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -293,12 +289,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
-"acf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "acg" = (
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/exoplanet/basalt/tret,
@@ -383,19 +373,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
-"acw" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 6
-	},
-/obj/structure/cable{
-	icon_state = "2-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "acx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
@@ -434,13 +411,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
-"acK" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "acO" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -501,18 +471,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
-"adf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
-"adi" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 8
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/tret_industrial/outside/surface)
 "adj" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 10
@@ -1227,15 +1185,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
-"age" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/binary/pump/fuel{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "agi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -1958,14 +1907,6 @@
 "ajW" = (
 /turf/simulated/lava/tret,
 /area/tret_industrial/outside/surface)
-"ajY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "akn" = (
 /turf/simulated/mineral/lava/tret,
 /area/tret_industrial/outside/surface)
@@ -2087,12 +2028,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engi_storage)
-"alL" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/green{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "alM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/kois/rations,
@@ -2759,12 +2694,6 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/simulated/lava/tret,
 /area/tret_industrial/outside/surface)
-"asG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "asH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -2846,18 +2775,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/comms)
-"atG" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/aux{
-	dir = 4
-	},
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "atN" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -2948,24 +2865,6 @@
 /obj/effect/floor_decal/industrial/warning,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
-"auX" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "avf" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
@@ -3073,11 +2972,6 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"awl" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/mining/drill,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "awo" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -3103,9 +2997,6 @@
 /obj/structure/bed/stool/chair/shuttle,
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
-"awF" = (
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/outside/surface)
 "awI" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -3206,15 +3097,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
-"axm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "axo" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -3430,12 +3312,6 @@
 /obj/effect/map_effect/window_spawner/full/borosilicate/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/comms)
-"azN" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 10
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "aAg" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -3603,28 +3479,10 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/medical)
-"aBq" = (
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/high/north{
-	req_access = null
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "aBx" = (
 /obj/machinery/vending/hydronutrients/xenobotany,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
-"aBH" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aBI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -3797,19 +3655,6 @@
 /obj/item/storage/backpack/cloak/klax,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
-"aCX" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
-"aDe" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "aDp" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/modular_computer/laptop/preset/civilian{
@@ -3901,12 +3746,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
-"aDy" = (
-/obj/structure/sign/flag/klax{
-	pixel_x = 32
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "aDE" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -3952,12 +3791,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
-"aEh" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aEl" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
@@ -4262,15 +4095,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_east)
-"aGM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 9
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aGW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -4314,12 +4138,6 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
-"aHw" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/outside/surface)
 "aHA" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 6
@@ -4351,22 +4169,6 @@
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
-"aHP" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/obj/structure/cable/yellow{
-	icon_state = "0-8"
-	},
-/obj/machinery/power/apc/high/north{
-	req_access = null
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
-"aHT" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aHW" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -4378,13 +4180,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engineering)
-"aHY" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aIb" = (
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
@@ -4396,13 +4191,6 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
-"aIf" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aIj" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -4460,12 +4248,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
-"aIM" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aIN" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -4591,7 +4373,8 @@
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
 "aJU" = (
-/turf/simulated/floor/tiled/dark,
+/obj/effect/shuttle_landmark/tret_industrial/transit,
+/turf/space/transit/north,
 /area/tret_industrial/outside/surface)
 "aJV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -4780,12 +4563,6 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/engineering)
-"aMm" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 10
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/tret_industrial/outside/surface)
 "aMr" = (
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "tret_co2";
@@ -4925,13 +4702,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
-"aNJ" = (
-/obj/machinery/power/smes/buildable/third_party_shuttle,
-/obj/structure/cable/yellow{
-	icon_state = "0-4"
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aNV" = (
 /obj/machinery/portable_atmospherics/canister/phoron,
 /turf/simulated/floor/tiled/dark,
@@ -5168,16 +4938,6 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/engineering)
-"aQE" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
-"aQN" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aQO" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -5308,24 +5068,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
-"aSa" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
-"aSb" = (
-/obj/effect/floor_decal/industrial/hatch_door/red{
-	dir = 4
-	},
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "aSg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/gunmetal,
@@ -5486,13 +5228,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/botany)
-"aTy" = (
-/obj/machinery/atmospherics/portables_connector/fuel{
-	dir = 1
-	},
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aTz" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/green{
 	dir = 8
@@ -5527,13 +5262,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
-"aTJ" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aTQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cable{
@@ -5611,13 +5339,6 @@
 /obj/item/tank/hydrogen,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
-"aUE" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/mining/brace{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aUF" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
@@ -5638,15 +5359,6 @@
 /obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
-"aUP" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "aUT" = (
 /obj/machinery/mineral/processing_unit,
 /turf/simulated/floor/plating,
@@ -5673,14 +5385,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
-"aVp" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/manifold/hidden/green,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "aVy" = (
 /turf/simulated/wall/shuttle/raider,
 /area/tret_industrial/outside/surface)
@@ -5767,23 +5471,6 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/canteen)
-"aWk" = (
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
-"aWq" = (
-/obj/structure/table/reinforced/steel,
-/obj/machinery/button/distress{
-	pixel_y = 7;
-	pixel_x = 6
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/outside/surface)
 "aWB" = (
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5843,12 +5530,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
-"aWR" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "aWS" = (
 /obj/structure/closet/toolcloset,
 /obj/item/stack/cable_coil,
@@ -6097,9 +5778,6 @@
 /obj/random/powercell,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
-"bbq" = (
-/turf/simulated/wall,
-/area/tret_industrial/outside/surface)
 "bcB" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -6252,13 +5930,6 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
-"bMY" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 2
-	},
-/obj/structure/shuttle/engine/heater,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "bPF" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil{
 	color = "#777777"
@@ -6326,15 +5997,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
-"cyA" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/ore_box,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
-"cHi" = (
-/obj/structure/table/reinforced/steel,
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/outside/surface)
 "cJo" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
@@ -6516,16 +6178,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
-"egZ" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "eiu" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -6608,11 +6260,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
-"ePC" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "eUm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7001,15 +6648,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
-"hgy" = (
-/obj/machinery/door/airlock/external{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "hiu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -7077,12 +6715,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
-"hDV" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "hMu" = (
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
@@ -7109,10 +6741,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
-"hUa" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/outside/surface)
 "hYn" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
@@ -7172,12 +6800,6 @@
 "itk" = (
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
-"iBv" = (
-/obj/structure/cable/yellow{
-	icon_state = "4-8"
-	},
-/turf/simulated/wall,
-/area/tret_industrial/outside/surface)
 "iCP" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
@@ -7448,18 +7070,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
-"jUr" = (
-/obj/machinery/power/terminal{
-	dir = 1
-	},
-/obj/structure/cable{
-	icon_state = "0-4"
-	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "jWf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/flag/klax{
@@ -7509,10 +7119,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/storage_smelting)
-"kBb" = (
-/obj/structure/shuttle/engine/heater,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "kBE" = (
 /turf/unsimulated/marker/red,
 /area/tret_industrial/outside/surface)
@@ -7588,15 +7194,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
-"leC" = (
-/obj/machinery/door/airlock/external{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "lfy" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7746,12 +7343,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/inside/botany)
-"mCP" = (
-/obj/machinery/computer/ship/sensors/terminal{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/outside/surface)
 "mGh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -8013,22 +7604,9 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
-"okb" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/mining/brace{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "ooF" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/exoplanet/plating/tret,
-/area/tret_industrial/outside/surface)
-"oqR" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
 /area/tret_industrial/outside/surface)
 "otq" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
@@ -8046,12 +7624,6 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
-"ozy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 6
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/tret_industrial/outside/surface)
 "oBE" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 4
@@ -8169,12 +7741,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"pzf" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
-/area/tret_industrial/outside/surface)
 "pJZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -8242,11 +7808,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"qcy" = (
-/obj/machinery/atmospherics/portables_connector/fuel,
-/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "qgR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -8263,10 +7824,6 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
-"qhU" = (
-/obj/machinery/atmospherics/pipe/manifold4w/hidden/green,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "qlt" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -8284,11 +7841,6 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
-"qrQ" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/freezer/kois/rations,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "qte" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/drip{
@@ -8339,10 +7891,6 @@
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"qDq" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "qGV" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/botany)
@@ -8398,11 +7946,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/botany)
-"qSM" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/structure/closet/crate/miningcart,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "qSZ" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -8417,10 +7960,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
-"qWT" = (
-/obj/machinery/computer/ship/sensors/terminal,
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/outside/surface)
 "qZj" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
@@ -8484,10 +8023,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
-"rup" = (
-/obj/structure/bed/stool/chair/shuttle,
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/outside/surface)
 "ruC" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/kois/rations,
@@ -8806,9 +8341,6 @@
 /obj/structure/closet/firecloset/full,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
-"sYN" = (
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "tfr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -8941,13 +8473,6 @@
 "utB" = (
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
-"uuZ" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 8
-	},
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "uwM" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -9381,12 +8906,6 @@
 "xOB" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
-"xQF" = (
-/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/outside/surface)
 "xRJ" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/comms)
@@ -9414,12 +8933,6 @@
 "ycB" = (
 /obj/item/material/shard,
 /turf/simulated/floor/exoplanet/plating/tret,
-/area/tret_industrial/outside/surface)
-"yez" = (
-/obj/structure/bed/stool/chair/shuttle{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/outside/surface)
 
 (1,1,1) = {"
@@ -11229,22 +10742,22 @@ aZH
 aZH
 aZH
 aZH
-arD
-arD
-arD
-arD
-arD
-arD
-arD
-aVy
-aVy
-qDq
-aVy
-aVy
-arD
-arD
-arD
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -11486,22 +10999,22 @@ aZH
 aZH
 aZH
 aZH
-arD
-aVy
-qDq
-qDq
-qDq
-aVy
-arD
-aVy
-qcy
-asG
-aTy
-aVy
-arD
-arD
-arD
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -11743,22 +11256,22 @@ aZH
 aZH
 aZH
 aZH
-aVy
-aVy
-qrQ
-qSM
-ePC
-aVy
-aWR
-aVy
-aNJ
-jUr
-aTy
-aVy
-aVy
-aVy
-aVy
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -12000,22 +11513,22 @@ aZH
 aZH
 aZH
 aZH
-aVy
-okb
-sYN
-sYN
-sYN
-aVy
-aIf
-aVy
-aHP
-age
-sYN
-sYN
-kBb
-ozy
-aQE
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -12257,22 +11770,22 @@ aZH
 aZH
 aZH
 aZH
-aVy
-awl
-sYN
-aQN
-qSM
-rup
-hDV
-aVy
-aEh
-aWk
-acf
-acf
-bMY
-pzf
-aQE
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -12514,22 +12027,22 @@ aZH
 aZH
 aZH
 aZH
-aVy
-aUE
-sYN
-cyA
-aQN
-rup
-hDV
-aVy
-iBv
-auX
-bbq
-aVy
-aVy
-aVy
-aVy
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -12771,22 +12284,22 @@ aZH
 aZH
 aZH
 aZH
-aVy
-aVy
-aJU
-awF
-awF
-awF
-hDV
-aVy
-aSa
-axm
-aJU
-aTJ
-aVy
-aWR
-aVy
-aVy
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -13028,23 +12541,23 @@ aZH
 aZH
 aZH
 aZH
-sYN
-qDq
-aJU
-aJU
-aJU
-aJU
-azN
-hUa
-aDe
-acw
-ajY
-aVp
-egZ
-atG
-aBH
-leC
 aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aJU
 aZH
 aZH
 aZH
@@ -13285,22 +12798,22 @@ aZH
 aZH
 aZH
 aZH
-sYN
-qDq
-aJU
-aJU
-aJU
-aJU
-aDy
-aJU
-aSa
-aUP
-aJU
-alL
-acK
-qhU
-aIM
-aCX
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -13542,22 +13055,22 @@ aZH
 aZH
 aZH
 aZH
-aVy
-aVy
-qDq
-aSb
-qDq
-aVy
-aVy
-aVy
-aBq
-aUP
-aJU
-uuZ
-aVy
-oqR
-aVy
-aVy
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -13799,22 +13312,22 @@ aZH
 aZH
 aZH
 aZH
-qDq
-qWT
-cHi
-awF
-cHi
-aVy
-abZ
-aHY
-aHT
-aGM
-sYN
-aVy
-aVy
-aVy
-aVy
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -14056,22 +13569,22 @@ aZH
 aZH
 aZH
 aZH
-qDq
-qWT
-yez
-awF
-cHi
-aVy
-aWR
-aVy
-sYN
-adf
-acf
-acf
-bMY
-adi
-aQE
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -14313,22 +13826,22 @@ aZH
 aZH
 aZH
 aZH
-qDq
-qWT
-aHw
-aHw
-cHi
-aVy
-hgy
-aVy
-sYN
-sYN
-sYN
-sYN
-kBb
-aMm
-aQE
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -14570,22 +14083,22 @@ aZH
 aZH
 aZH
 aZH
-aVy
-aVy
-mCP
-mCP
-aWq
-aVy
-xQF
-aVy
-cyA
-aQN
-aQN
-aVy
-aVy
-aVy
-aVy
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -14827,22 +14340,22 @@ aZH
 aZH
 aZH
 aZH
-arD
-aVy
-qDq
-qDq
-qDq
-aVy
-arD
-aVy
-ePC
-qSM
-aQN
-aVy
-arD
-arD
-arD
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
@@ -15084,22 +14597,22 @@ aZH
 aZH
 aZH
 aZH
-arD
-arD
-arD
-arD
-arD
-arD
-arD
-aVy
-aVy
-qDq
-aVy
-aVy
-arD
-arD
-arD
-arD
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
+aZH
 aZH
 aZH
 aZH
