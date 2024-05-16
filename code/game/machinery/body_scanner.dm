@@ -282,13 +282,15 @@
 	update_icon()
 
 /obj/machinery/body_scanconsole/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if((stat & BROKEN) || (stat & NOPOWER))
 		return
 	else
 		if(!console_overlay)
-			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
-		add_overlay(console_overlay)
+			console_overlay = image(icon, "body_scannerconsole-screen")
+		var/emissive_overlay = emissive_appearance(icon, "body_scannerconsole-screen")
+		AddOverlays(console_overlay)
+		AddOverlays(emissive_overlay)
 		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/Initialize()
@@ -318,7 +320,7 @@
 	switch(action)
 		// shouldn't be reachable if occupant is invalid
 		if("print")
-			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, format_occupant_data(connected.get_occupant_data()), "Scan ([connected.occupant])", connected.occupant)
+			var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, format_occupant_data(connected.get_occupant_data()), "Scan ([connected.occupant]) ([worldtime2text()])", connected.occupant)
 			print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = usr)
 
 		if("eject")

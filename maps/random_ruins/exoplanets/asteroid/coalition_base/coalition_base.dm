@@ -11,6 +11,8 @@
 	planet_types = PLANET_ASTEROID|PLANET_BARREN
 	ruin_tags = RUIN_AIRLESS|RUIN_LOWPOP
 
+	unit_test_groups = list(2)
+
 /area/coalition_base
 	name = "coalition base"
 	icon_state = "unknown"

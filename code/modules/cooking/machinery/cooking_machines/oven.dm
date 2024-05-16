@@ -54,11 +54,11 @@
 		icon_state = "ovenclosed"
 	else
 		icon_state = "ovenopen"
-	cut_overlays()
+	ClearOverlays()
 	if (!stat)
 		var/image/glow = image('icons/obj/machinery/cooking_machines.dmi', "oven_on")
 		glow.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-		add_overlay(glow)
+		AddOverlays(glow)
 	..()
 
 /obj/machinery/appliance/cooker/oven/AltClick(var/mob/user)

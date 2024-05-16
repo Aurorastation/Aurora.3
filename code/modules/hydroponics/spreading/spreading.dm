@@ -185,7 +185,7 @@
 	if(!istype(our_icon))
 		crash_with("The plant didn't return an icon!")
 
-	add_overlay(our_icon)
+	AddOverlays(our_icon)
 
 	if(growth>2 && growth == max_growth)
 		layer = (seed && seed.force_layer) ? seed.force_layer : 5
@@ -202,9 +202,9 @@
 		density = 0
 
 /obj/effect/plant/proc/calc_dir()
-	set background = 1
 	var/turf/T = get_turf(src)
-	if(!istype(T)) return
+	if(!istype(T))
+		return
 
 	var/direction = 16
 

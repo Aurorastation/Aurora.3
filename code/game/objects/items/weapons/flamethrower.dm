@@ -65,19 +65,19 @@
 		location.hotspot_expose(700, 2)
 
 /obj/item/flamethrower/update_icon()
-	cut_overlays()
-	add_overlay("+[initial(welding_tool.icon_state)]")
+	ClearOverlays()
+	AddOverlays("+[initial(welding_tool.icon_state)]")
 
 	if(igniter)
-		add_overlay("+igniter[secured]")
+		AddOverlays("+igniter[secured]")
 
 	if(istype(gas_tank, /obj/item/tank/phoron))
-		add_overlay("+phoron_tank")
+		AddOverlays("+phoron_tank")
 	else if(istype(gas_tank, /obj/item/tank/hydrogen))
-		add_overlay("+hydro_tank")
+		AddOverlays("+hydro_tank")
 
 	if(lit)
-		add_overlay("+lit")
+		AddOverlays("+lit")
 		set_light(1.4, 2)
 		item_state = "flamethrower_1"
 	else

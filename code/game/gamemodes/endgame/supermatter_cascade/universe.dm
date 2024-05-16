@@ -14,10 +14,10 @@ var/global/universe_has_ended = 0
 
 /datum/universal_state/supermatter_cascade/OnTurfChange(var/turf/T)
 	if(T.name == "space")
-		T.add_overlay("end01")
+		T.AddOverlays("end01")
 		T.underlays -= "end01"
 	else
-		T.cut_overlay("end01")
+		T.CutOverlays("end01")
 
 /datum/universal_state/supermatter_cascade/DecayTurf(var/turf/T)
 	if(istype(T,/turf/simulated/wall))
@@ -60,7 +60,6 @@ var/global/universe_has_ended = 0
 
 	PlayerSet()
 
-	new /obj/singularity/narsie/large/exit(pick(GLOB.endgame_exits))
 	var/time = rand(30, 60)
 	LOG_DEBUG("universal_state/cascade: Announcing to world in [time] seconds.")
 	LOG_DEBUG("universal_state/cascade: Ending universe in [(time SECONDS + 5 MINUTES)/10] seconds.")
@@ -102,7 +101,7 @@ The access requirements on the Asteroid Shuttles' consoles have now been revoked
 	set waitfor = FALSE
 	for(var/turf/T in world)
 		if(istype(T, /turf/space))
-			T.add_overlay("end01")
+			T.AddOverlays("end01")
 		else
 			if (isNotAdminLevel(T.z))
 				T.underlays += "end01"

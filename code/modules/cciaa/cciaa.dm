@@ -47,7 +47,7 @@
 	if(!P.stamped)
 		P.stamped = new
 	P.stamped += /obj/item/stamp
-	P.add_overlay(stampoverlay)
+	P.AddOverlays(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the Central Command Quantum Relay.</i>"
 
 	if(fax.receivefax(P))

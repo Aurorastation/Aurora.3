@@ -43,8 +43,8 @@
 	if(color)
 		inv_overlay.color = color
 	if(build_from_parts && overlay_in_inventory)
-		inv_overlay.cut_overlays()
-		inv_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+		inv_overlay.ClearOverlays()
+		inv_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 	return inv_overlay
 
 /obj/item/clothing/accessory/proc/get_accessory_mob_overlay(var/mob/living/carbon/human/H, var/force = FALSE)
@@ -72,11 +72,11 @@
 			tmp_icon_state = "[UNDERSCORE_OR_NULL(src.icon_species_tag)][src.item_state][WORN_UNDER]"
 		accessory_mob_overlay = image("icon" = I, "icon_state" = "[tmp_icon_state]")
 		if(build_from_parts || has_accents)
-			accessory_mob_overlay.cut_overlays()
+			accessory_mob_overlay.ClearOverlays()
 		if(build_from_parts)
-			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
+			accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_[worn_overlay]", flags=RESET_COLOR)) //add the overlay w/o coloration of the original sprite
 		if(has_accents)
-			accessory_mob_overlay.add_overlay(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
+			accessory_mob_overlay.AddOverlays(overlay_image(I, "[tmp_icon_state]_acc", accent_color, flags=accent_flags))
 	if(color)
 		accessory_mob_overlay.color = color
 	accessory_mob_overlay.appearance_flags = RESET_ALPHA|RESET_COLOR
@@ -88,7 +88,7 @@
 		return
 	has_suit = S
 	loc = has_suit
-	has_suit.add_overlay(get_inv_overlay())
+	has_suit.AddOverlays(get_inv_overlay())
 	if(user)
 		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
 		src.add_fingerprint(user)
@@ -97,7 +97,7 @@
 /obj/item/clothing/accessory/proc/on_removed(var/mob/user)
 	if(!has_suit)
 		return
-	has_suit.cut_overlay(get_inv_overlay(user, TRUE))
+	has_suit.CutOverlays(get_inv_overlay(user, ATOM_ICON_CACHE_PROTECTED))
 	has_suit = null
 	if(user)
 		usr.put_in_hands(src)
@@ -337,8 +337,8 @@
 			if(color)
 				radial_button.color = color
 			if(build_from_parts&&worn_overlay)
-				radial_button.cut_overlays()
-				radial_button.add_overlay(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
+				radial_button.ClearOverlays()
+				radial_button.AddOverlays(overlay_image(icon, "[alternatives[i]]_[worn_overlay]", flags=RESET_COLOR))
 			options[i] = radial_button
 		var/alt = show_radial_menu(user, user, options, radius = 42, tooltips = TRUE)
 		if(!alt)
@@ -748,9 +748,9 @@
 	overlay_state = "trinary_shouldercape"
 
 /obj/item/clothing/accessory/poncho/assunzione
-	name = "assunzione robe"
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione."
-	icon = 'icons/clothing/suits/capes/assunzione_robe.dmi'
+	name = "\improper Luceian cloak"
+	desc = "A violet cloak adorned with gold inlays worn by devout adherents of Luceism, the dominant faith of Assunzione."
+	icon = 'icons/clothing/suits/capes/assunzione_cloak.dmi'
 	icon_override = null
 	icon_state = "assunzione_robe"
 	item_state = "assunzione_robe"
@@ -761,28 +761,14 @@
 	var/image/I = ..()
 	if(slot == slot_wear_suit_str)
 		var/image/robe_backing = image(mob_icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-		I.add_overlay(robe_backing)
+		I.AddOverlays(robe_backing)
 	return I
 
 /obj/item/clothing/accessory/poncho/assunzione/get_accessory_mob_overlay(mob/living/carbon/human/H, force)
 	var/image/base = ..()
 	var/image/robe_backing = image(icon, null, "robe_backing", H ? H.layer - 0.01 : MOB_LAYER - 0.01)
-	base.add_overlay(robe_backing)
+	base.AddOverlays(robe_backing)
 	return base
-
-/obj/item/clothing/accessory/poncho/assunzione/vine
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. This one features a lux vine \
-	inlay that allows the symbol of the Luceian Square to be faintly seen, even in darkness."
-	icon_state = "assunzione_robe_vine"
-	item_state = "assunzione_robe_vine"
-	overlay_state = "assunzione_robe_vine"
-
-/obj/item/clothing/accessory/poncho/assunzione/gold
-	desc = "A simple purple robe commonly worn by adherents to Luceism, the predominant religion on Assunzione. The Luceian Square, Luceism's \
-	holy symbol is present on the back in gold fabric."
-	icon_state = "assunzione_robe_gold"
-	item_state = "assunzione_robe_gold"
-	overlay_state = "assunzione_robe_gold"
 
 //tau ceti legion ribbons
 /obj/item/clothing/accessory/legion

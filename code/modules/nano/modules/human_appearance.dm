@@ -12,6 +12,7 @@
 	var/list/valid_genders = list()
 	var/list/valid_pronouns = list()
 	var/list/valid_hairstyles = list()
+	var/list/valid_gradient_styles = list()
 	var/list/valid_facial_hairstyles = list()
 	var/list/valid_cultures = list()
 	var/list/valid_origins = list()
@@ -113,6 +114,21 @@
 					var/g_hair = hex2num(copytext(new_hair, 4, 6))
 					var/b_hair = hex2num(copytext(new_hair, 6, 8))
 					if(owner.change_hair_color(r_hair, g_hair, b_hair))
+						update_dna()
+						. = TRUE
+		if("gradient")
+			if(can_change(APPEARANCE_HAIR) && (params["gradient"] in valid_gradient_styles))
+				if(owner.change_gradient(params["gradient"]))
+					update_dna()
+					. = TRUE
+		if("gradient_color")
+			if(can_change(APPEARANCE_HAIR_COLOR))
+				var/new_gradient = input("Please select gradient color.", "Gradient Color", rgb(owner.r_grad, owner.g_grad, owner.b_grad)) as color|null
+				if(new_gradient)
+					var/r_grad = hex2num(copytext(new_gradient, 2, 4))
+					var/g_grad = hex2num(copytext(new_gradient, 4, 6))
+					var/b_grad = hex2num(copytext(new_gradient, 6, 8))
+					if(owner.change_gradient_color(r_grad, g_grad, b_grad))
 						update_dna()
 						. = TRUE
 		if("facial_hair")
@@ -261,11 +277,16 @@
 	data["owner_hair_style"] = owner.h_style
 	data["valid_hair_styles"] = valid_hairstyles
 
+	data["change_gradient"] = can_change(APPEARANCE_HAIR)
+	data["owner_gradient_style"] = owner.g_style
+	data["valid_gradient_styles"] = valid_gradient_styles
+
 	data["change_facial_hair"] = can_change(APPEARANCE_FACIAL_HAIR)
 	data["owner_facial_hair_style"] = owner.f_style
 	data["valid_facial_hair_styles"] = valid_facial_hairstyles
 
 	data["change_hair_color"] = can_change(APPEARANCE_HAIR_COLOR)
+	data["change_gradient_color"] = can_change(APPEARANCE_HAIR_COLOR)
 	data["change_facial_hair_color"] = can_change(APPEARANCE_FACIAL_HAIR_COLOR)
 
 	return data
@@ -315,6 +336,7 @@
 	valid_genders = list()
 	valid_pronouns = list()
 	valid_hairstyles = list()
+	valid_gradient_styles = list()
 	valid_facial_hairstyles = list()
 	valid_cultures = list()
 	valid_origins = list()
@@ -338,6 +360,8 @@
 		valid_pronouns = owner.species.selectable_pronouns.Copy()
 	if(!length(valid_hairstyles) || !length(valid_facial_hairstyles))
 		valid_hairstyles = owner.generate_valid_hairstyles(check_gender = 1)
+	if(!length(valid_gradient_styles))
+		valid_gradient_styles = owner.generate_valid_gradients()
 	if(!length(valid_facial_hairstyles))
 		valid_facial_hairstyles = owner.generate_valid_facial_hairstyles()
 	if(!length(valid_cultures))

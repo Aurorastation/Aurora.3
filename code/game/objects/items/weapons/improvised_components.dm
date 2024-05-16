@@ -62,7 +62,7 @@
 	var/image/I = image(icon, null, "wiredrod_cable")
 	I.appearance_flags = RESET_COLOR
 	I.color = cable_color
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/material/wirerod/attackby(obj/item/attacking_item, mob/user)
 	..()

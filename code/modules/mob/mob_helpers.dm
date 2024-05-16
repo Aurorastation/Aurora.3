@@ -1310,3 +1310,25 @@ var/list/intents = list(I_HELP,I_DISARM,I_GRAB,I_HURT)
 ///Can the mob hear
 /mob/proc/can_hear()
 	return !isdeaf(src)
+
+
+/// Sends a message to the mob if the current world time is less than the previous' message next_message_time, additionally sends a floating message if show_floating_message is set to true. key is an optional replacement that'll go in the assoc list, used for stuff like picklists
+/mob/proc/notify_message(var/message, var/next_message_time = 1 SECOND, var/show_floating_message = FALSE, var/key)
+	// initializes the message_notifications list so we can use standard list handling from here on out
+	// it's only lazy to save memory
+	LAZYINITLIST(message_notifications)
+
+	// if we have a key, use that, otherwise check the message
+	var/key_check = key || message
+	if((key_check in message_notifications) && world.time < message_notifications[key_check])
+		return
+
+	to_chat(src, message)
+	if(show_floating_message)
+		balloon_alert(src, strip_html_full(message))
+
+	// we only keep 10 entries in the assoc list, this is an arbitrary number meant to keep it from ballooning in size and taking up memory
+	if(length(message_notifications) >= 10)
+		message_notifications.Cut(1, 2)
+
+	message_notifications[key_check] = world.time + next_message_time

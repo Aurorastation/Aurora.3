@@ -422,13 +422,13 @@
 /obj/machinery/door/firedoor/close()
 	if(!can_close())
 		return
-	cut_overlays()
+	ClearOverlays()
 	latetoggle()
 	START_PROCESSING_MACHINE(src, MACHINERY_PROCESS_SELF)
 	return ..()
 
 /obj/machinery/door/firedoor/open(forced = 0, user = usr)
-	cut_overlays()
+	ClearOverlays()
 	if(hatch_open)
 		hatch_open = 0
 		visible_message("The maintenance panel of \the [src] closes.")
@@ -445,7 +445,7 @@
 	return ..()
 
 /obj/machinery/door/firedoor/do_animate(animation)
-	compile_overlays()
+	UpdateOverlays()
 	switch(animation)
 		if("opening")
 			flick("door_opening", src)
@@ -455,18 +455,18 @@
 			playsound(src, close_sound, 37, 1)
 
 /obj/machinery/door/firedoor/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	set_light(0)
 	var/do_set_light = 0
 
 	if(density)
 		icon_state = "door_closed"
 		if(hatch_open)
-			add_overlay("hatch")
+			AddOverlays("hatch")
 		if(blocked)
-			add_overlay("welded")
+			AddOverlays("welded")
 		if(pdiff_alert)
-			add_overlay(overlay_image(icon, icon_state = "palert", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
+			AddOverlays(overlay_image(icon, icon_state = "palert", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
 			do_set_light = 1
 		if(dir_alerts)
 			for (var/d = 1; d <= 4; d++)
@@ -477,15 +477,15 @@
 				if (!dir_alerts[d])
 					continue
 				if (dir_alerts[d] & FIREDOOR_ALERT_COLD)
-					add_overlay(overlay_image(icon, icon_state = "alert_cold", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
+					AddOverlays(overlay_image(icon, icon_state = "alert_cold", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
 				if (dir_alerts[d] & FIREDOOR_ALERT_HOT)
-					add_overlay(overlay_image(icon, icon_state = "alert_hot", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
+					AddOverlays(overlay_image(icon, icon_state = "alert_hot", plane = EFFECTS_ABOVE_LIGHTING_PLANE))
 
 				do_set_light = TRUE
 	else
 		icon_state = "door_open"
 		if(blocked)
-			add_overlay("welded_open")
+			AddOverlays("welded_open")
 
 	if(do_set_light)
 		set_light(2, 0.5, COLOR_SUN)

@@ -132,7 +132,7 @@
 		right.queue_icon_update()
 
 /obj/machinery/crusher_base/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	var/obj/machinery/crusher_base/left = locate(/obj/machinery/crusher_base, get_step(src, WEST))
 	var/obj/machinery/crusher_base/right = locate(/obj/machinery/crusher_base, get_step(src, EAST))
 
@@ -155,15 +155,22 @@
 		asmtype = "standalone"
 		icon_state = asmtype
 
+	var/image_overlay
+	var/emissive_overlay
 	if(powered(EQUIP))
 		if(blocked == 1)
-			holographic_overlay(src, icon, "[asmtype]-overlay-red")
+			image_overlay = image(icon, "[asmtype]-overlay-red")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-red")
 		else if(action != "idle")
-			holographic_overlay(src, icon, "[asmtype]-overlay-orange")
+			image_overlay = image(icon, "[asmtype]-overlay-orange")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-orange")
 		else
-			holographic_overlay(src, icon, "[asmtype]-overlay-green")
+			image_overlay = image(icon, "[asmtype]-overlay-green")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-green")
+	AddOverlays(image_overlay)
+	AddOverlays(emissive_overlay)
 	if(panel_open)
-		add_overlay("[asmtype]-hatch")
+		AddOverlays("[asmtype]-hatch")
 	update_above()
 
 /obj/machinery/crusher_base/power_change()

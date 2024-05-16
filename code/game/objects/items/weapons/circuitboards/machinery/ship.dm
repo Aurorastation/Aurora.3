@@ -115,3 +115,17 @@
 		"/obj/item/stack/cable_coil" = 30,
 		"/obj/item/bluespace_crystal" = 1
 	)
+
+/obj/item/circuitboard/shipsensors/relay
+	name = T_BOARD("S-24 Beacon sensor array")
+	build_path = /obj/machinery/shipsensors/strong/relay
+	origin_tech = list(TECH_POWER = 6, TECH_ENGINEERING = 8, TECH_BLUESPACE = 5)
+	req_components = list(
+		"/obj/item/stock_parts/subspace/ansible" = 1,
+		"/obj/item/stock_parts/subspace/filter" = 1,
+		"/obj/item/stock_parts/subspace/treatment" = 1,
+		"/obj/item/stock_parts/subspace/analyzer" = 1,
+		"/obj/item/stock_parts/manipulator" = 6,
+		"/obj/item/stock_parts/scanning_module" = 3,
+		"/obj/item/stack/cable_coil" = 30
+	)

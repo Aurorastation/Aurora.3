@@ -106,6 +106,7 @@
 	#define MECH_DECAL_LAYER 4.09
 	//ABOVE_HUMAN
 	#define ABOVE_HUMAN_LAYER 4.10
+	#define ABOVE_ABOVE_HUMAN_LAYER 4.101
 	#define VEHICLE_LOAD_LAYER 4.11
 	#define CAMERA_LAYER 4.12
 	//BLOB
@@ -159,6 +160,12 @@
 	#define RADIAL_BACKGROUND_LAYER 5
 	#define RADIAL_BASE_LAYER 6
 	#define RADIAL_CONTENT_LAYER 7
+
+/// This plane masks out lighting, to create an "emissive" effect for e.g glowing screens in otherwise dark areas.
+#define EMISSIVE_PLANE 10
+#define EMISSIVE_TARGET "*emissive"
+	/// The layer you should use when you -really- don't want an emissive overlay to be blocked.
+	#define EMISSIVE_LAYER_UNBLOCKABLE 9999
 
 //-------------------- Rendering ---------------------
 

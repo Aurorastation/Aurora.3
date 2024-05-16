@@ -6,6 +6,10 @@
 	base_turf = /turf/space
 	ghostspawners_to_activate_on_shuttle_arrival = list("cult_base_cultist")
 
+/obj/effect/map_effect/marker/airlock/docking/cult_base
+	req_one_access = null
+	req_access = null
+
 // --------------------- shuttle
 
 /obj/effect/shuttle_landmark/cult_base/dock/hangar

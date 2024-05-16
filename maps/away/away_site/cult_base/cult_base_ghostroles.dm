@@ -6,21 +6,25 @@
 	name = "Cult Base Cultist"
 	tags = list("External")
 	desc = "\
-		You are a follower of the Geometer of Blood. Others have already left the material plane, but you were told to stay. \
-		You were part of some archeological expedition, but that is important no more. \
+		You are a follower of the Geometer of Blood. \
 		You wake up, visitors are coming, and they do not know the word of Nar-Sie yet. \
-		(OOC Note: This is an antagonist role.) \
+		"
+	desc_ooc = "\
+		This is an antagonist role. \
 		"
 	welcome_message = "\
 		You were part of an archeological expedition, hired by some independent scientist, to look for artifacts in a asteroid belt. \
-		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay. \
-		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, or be sacrificed if they refuse it. \
-		You live and die for the Dark One, but your death must not be in vain. \
+		But that is important no more, and you see the world clearly now. Others have already left the material plane, but you were told to stay, \
+		as your mind is impure, your thoughts are clouded, and you are to prove your worth before leaving the material plane. \
+		Now you wake up, visitors are coming, and they should learn the word of Nar-Sie too, or be left unbothered if they are unwilling. \
+		Your death must not be in vain, and your actions must not lead to the Cult being discovered. \
 		"
 	welcome_message_ooc = "\
 		This is an antagonist role which places typical antagonist expectations on you. \
 		You are expected to try to generate an interesting encounter with whoever has docked to the away site. \
 		You may try to blend in with the visitors, try to trick them, but you are not 'normal', you follow Nar-Sie. \
+		You are supposed to act covert, and not bring too much attention to Nar-Sie. \
+		You do not have the cult tome, but you may still use runes you find on the floor, or use cult languages. \
 		You may click a plasteel wall to push on it, and open a hidden door. \
 		Remember to follow basic escalation rules, and have fun! \
 		"
@@ -47,11 +51,8 @@
 /datum/ghostspawner/human/cult_base_cultist/more
 	short_name = "cult_base_cultist_more"
 	name = "Cult Base Cultist, More"
-	desc = "\
-		(OOC Note: This is enabled by staff if more cultists are desired. This is an antagonist role.) \
-		You are a follower of the Geometer of Blood. Others have already left the material plane, but you were told to stay. \
-		You were part of some archeological expedition, but that is important no more. \
-		You wake up, visitors are coming, and they do not know the word of Nar-Sie yet. \
+	desc_ooc = "\
+		This is enabled by staff if more cultists are desired. This is an antagonist role. \
 		"
 
 // ---------------------- corpses
@@ -135,6 +136,15 @@
 		/obj/item/clothing/shoes/sneakers/blue,
 		/obj/item/clothing/shoes/sneakers/brown,
 		/obj/item/clothing/shoes/sneakers/hitops/brown,
+	)
+	accessory = list(
+		/obj/item/clothing/accessory/storage/bayonet,
+		/obj/item/clothing/accessory/storage/brown_vest,
+		/obj/item/clothing/accessory/storage/overalls,
+		/obj/item/clothing/accessory/storage/pouches,
+		/obj/item/clothing/accessory/storage/pouches/white,
+		/obj/item/clothing/accessory/storage/webbing,
+		/obj/item/clothing/accessory/storage/webbingharness,
 	)
 	belt = list(
 		/obj/item/storage/belt/fannypack,
@@ -220,7 +230,7 @@
 
 	// make into a cultist
 	if(human.mind)
-		cult.add_antagonist(human.mind)
+		cult.add_antagonist(human.mind, do_not_equip=TRUE)
 
 	// add blood
 	if(prob(75))

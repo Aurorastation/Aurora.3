@@ -512,7 +512,7 @@
 	set name = "Rebuild Overlays"
 	set desc = "An OOC tool that rebuilds your overlays, useful if your talk bubble gets stuck to you."
 
-	cut_overlays()
+	ClearOverlays()
 	handle_panel_overlay()
 	set_intent(a_intent)
 

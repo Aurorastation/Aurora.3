@@ -2,6 +2,7 @@
 	name = "sensors console"
 	icon_screen = "sensors"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
 	var/obj/machinery/iff_beacon/identification
@@ -26,11 +27,21 @@
 	icon_keyboard = null
 	circuit = null
 
+/obj/machinery/computer/ship/sensors/cockpit/right
+	density = 0
+	icon = 'icons/obj/cockpit_console.dmi'
+	working_sound = 'sound/machines/sensors/ping.ogg'
+	icon_state = "right_wide"
+	icon_screen = "sensors_right"
+	icon_keyboard = null
+	circuit = null
+
 /obj/machinery/computer/ship/sensors/terminal
 	name = "sensors terminal"
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
+	icon_keyboard_emis = "teleport_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -454,7 +465,7 @@
 /obj/machinery/shipsensors/update_icon()
 	icon_state = "[base_icon_state]_off"
 	if(!use_power)
-		cut_overlays()
+		ClearOverlays()
 
 	if(use_power)
 		icon_state = "[base_icon_state]_on"
@@ -475,11 +486,11 @@
 	else
 		overlay = "[overlay]5"
 
-	cut_overlays()
-	add_overlay(overlay)
+	ClearOverlays()
+	AddOverlays(overlay)
 	var/heat_percentage = heat / critical_heat * 100
 	if(heat_percentage > 85)
-		add_overlay("sensors-effect-hot")
+		AddOverlays("sensors-effect-hot")
 
 /obj/machinery/shipsensors/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -640,3 +651,25 @@
 		/obj/item/bluespace_crystal,
 		/obj/item/stack/cable_coil = 30
 	)
+
+/obj/machinery/shipsensors/strong/relay
+	name = "\improper S-24 Beacon sensor array"
+	desc = "A vintage sensor array found on Solarian beacon relays throughout the galaxy. While it lacks deep scanning capabilities, it does have a high heat capacity."
+	icon = 'icons/obj/machinery/sensors_relay.dmi'
+	density = 1
+	layer = ABOVE_HUMAN_LAYER
+	sensor_strength = 3
+	heat_reduction = 7.1 //can sustain up to range 8
+	deep_scan_range = 0
+	component_types = list(
+		/obj/item/circuitboard/shipsensors/relay,
+		/obj/item/stock_parts/subspace/ansible,
+		/obj/item/stock_parts/subspace/filter,
+		/obj/item/stock_parts/subspace/treatment,
+		/obj/item/stock_parts/subspace/analyzer,
+		/obj/item/stock_parts/manipulator = 6,
+		/obj/item/stock_parts/scanning_module = 3,
+		/obj/item/stack/cable_coil = 30
+	)
+	pixel_x = -32
+	pixel_y = -16

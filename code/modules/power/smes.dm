@@ -162,27 +162,44 @@
 	return 0
 
 /obj/machinery/power/smes/update_icon()
-	cut_overlays()
+	ClearOverlays()
+	var/mutable_appearance/oc
+	var/mutable_appearance/oc_emis
+	var/mutable_appearance/og
+	var/mutable_appearance/og_emis
+	var/mutable_appearance/op
+	var/mutable_appearance/op_emis
 	if(!can_function())
 		return
 
-	if(inputting == 2)
-		add_overlay("[icon_state]-oc2")
-	else if (inputting == 1)
-		add_overlay("[icon_state]-oc1")
+	if(inputting == (1 || 2))
+		oc = overlay_image(icon, "[icon_state]-oc[inputting]")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc[inputting]")
 	else if (input_attempt)
-		add_overlay("[icon_state]-oc0")
+		oc = overlay_image(icon, "[icon_state]-oc0")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc0")
+
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		add_overlay("[icon_state]-og[clevel]")
+		og = overlay_image(icon, "[icon_state]-og[clevel]")
+		og_emis = emissive_appearance(icon, "[icon_state]-og[clevel]")
 
-	if(outputting == 2)
-		add_overlay("[icon_state]-op2")
-	else if (outputting == 1)
-		add_overlay("[icon_state]-op1")
+	if(outputting == 2 || 1)
+		op = overlay_image(icon, "[icon_state]-op[outputting]")
+		op_emis = emissive_appearance(icon, "[icon_state]-op[outputting]")
 	else
-		add_overlay("[icon_state]-op0")
+		op = overlay_image(icon, "[icon_state]-op0")
+		op_emis = emissive_appearance(icon, "[icon_state]-op0")
+
+	AddOverlays(list(
+		oc,
+		oc_emis,
+		og,
+		og_emis,
+		op,
+		op_emis
+	))
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))

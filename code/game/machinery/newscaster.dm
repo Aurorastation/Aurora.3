@@ -89,7 +89,6 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
-	var/global/list/screen_overlays
 
 /obj/machinery/newscaster/north
 	PRESET_NORTH
@@ -102,17 +101,6 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 /obj/machinery/newscaster/east
 	PRESET_EAST
-
-/obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["newscaster-screen"] = make_screen_overlay(icon, "newscaster-screen")
-	screen_overlays["newscaster-title"] = make_screen_overlay(icon, "newscaster-title")
-	screen_overlays["newscaster-wanted"] = make_screen_overlay(icon, "newscaster-wanted")
-	screen_overlays["newscaster-scanline"] = make_screen_overlay(icon, "newscaster-scanline")
-	for(var/i in 1 to 3)
-		screen_overlays["crack[i]"] = make_screen_overlay(icon, "crack[i]")
 
 /obj/machinery/newscaster/security_unit
 	name = "Security Newscaster"
@@ -137,7 +125,6 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	unit_no = allCasters.len + 1
 	if(dir & NORTH)
 		alpha = 127
-	generate_overlays()
 	update_icon() //for any custom ones on the map...
 
 	if(!mapload)
@@ -156,30 +143,106 @@ var/list/obj/machinery/newscaster/allCasters = list()
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
-			cut_overlays()
-			add_overlay(screen_overlays["crack3"])
+			ClearOverlays()
+			var/mutable_appearance/cracked_overlay = overlay_image(icon, "crack3")
+			var/mutable_appearance/cracked_overlay_emis = emissive_appearance(icon, "crack3")
+			AddOverlays(list(cracked_overlay, cracked_overlay_emis))
 		return
 
-	cut_overlays() //reset overlays
+	ClearOverlays() //reset overlays
 
-	add_overlay(screen_overlays["newscaster-screen"])
+	var/mutable_appearance/screen = overlay_image(icon, "newscaster-screen")
+	var/mutable_appearance/screen_hologram = overlay_image(icon, "newscaster-screen")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "newscaster-screen")
+	screen_hologram.filters += filter(type="color", color=list(
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+	))
+	screen.filters += filter(type="color", color=list(
+		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+		0, 0, 0, 1
+	))
+	screen_hologram.blend_mode = BLEND_MULTIPLY
+	screen.blend_mode = BLEND_ADD
+	AddOverlays(list(screen_hologram, screen, screen_emis))
 	set_light(1.4, 1.3, COLOR_CYAN)
 
-	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
-		add_overlay(screen_overlays["newscaster-title"])
+	if(!alert || !SSnews.wanted_issue)
+		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-title")
+		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-title")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-title")
+		screen_hologram_title.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+		))
+		screen_title.filters += filter(type="color", color=list(
+			HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+			0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+			0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+			0, 0, 0, 1
+		))
+		screen_hologram_title.blend_mode = BLEND_MULTIPLY
+		screen_title.blend_mode = BLEND_ADD
+		AddOverlays(screen_hologram_title)
+		AddOverlays(screen_title)
+		AddOverlays(screen_emis_title)
 
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		add_overlay(screen_overlays["newscaster-wanted"])
+		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-wanted")
+		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-wanted")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-wanted")
+		screen_hologram_title.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+		))
+		screen_title.filters += filter(type="color", color=list(
+			HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+			0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+			0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+			0, 0, 0, 1
+		))
+		screen_hologram_title.blend_mode = BLEND_MULTIPLY
+		screen_title.blend_mode = BLEND_ADD
+		AddOverlays(screen_hologram_title)
+		AddOverlays(screen_title)
+		AddOverlays(screen_emis_title)
 		return
 
 	if(alert) //new message alert overlay
-		add_overlay(screen_overlays["newscaster-alert"])
+		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-alert")
+		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-alert")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-alert")
+		screen_hologram_title.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+		))
+		screen_title.filters += filter(type="color", color=list(
+			HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+			0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+			0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+			0, 0, 0, 1
+		))
+		screen_hologram_title.blend_mode = BLEND_MULTIPLY
+		screen_title.blend_mode = BLEND_ADD
+		AddOverlays(screen_hologram_title)
+		AddOverlays(screen_title)
+		AddOverlays(screen_emis_title)
 
 	if(hitstaken == 0)
-		add_overlay(screen_overlays["newscaster-scanline"])
+		AddOverlays("newscaster-scanline")
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		add_overlay(screen_overlays["crack[hitstaken]"])
+		AddOverlays("crack[hitstaken]")
 
 	icon_state = initial(icon_state)
 	return

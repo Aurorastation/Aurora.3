@@ -10,6 +10,8 @@
 	prefix = "adhomai/"
 	suffixes = list("adhomai_silo.dmm")
 
+	unit_test_groups = list(2)
+
 /area/adhomai_silo
 	name = "Adhomian Missile Silo"
 	icon_state = "bluenew"
@@ -20,6 +22,12 @@
 	area_flags = AREA_FLAG_RAD_SHIELDED
 	ambience = AMBIENCE_HIGHSEC
 	area_blurb = "The closed doors on the ground ominously point to the sky."
+	is_outside = OUTSIDE_YES
+
+/area/adhomai_silo/cabin
+	name = "Adhomian Missile Silo Cabin"
+	icon_state = "security"
+	is_outside = FALSE
 
 //ghost roles
 

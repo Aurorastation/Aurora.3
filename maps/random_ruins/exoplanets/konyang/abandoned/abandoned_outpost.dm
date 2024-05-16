@@ -11,6 +11,8 @@
 
 	ban_ruins = list(/datum/map_template/ruin/exoplanet/konyang_telecomms_outpost)
 
+	unit_test_groups = list(1)
+
 /obj/effect/landmark/corpse/konyang_army
 	name = "Konyang Soldier"
 	corpseuniform = /obj/item/clothing/under/rank/konyang

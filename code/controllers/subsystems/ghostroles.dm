@@ -143,6 +143,7 @@ SUBSYSTEM_DEF(ghostroles)
 			"short_name" = G.short_name,
 			"name" = G.name,
 			"desc" = G.desc,
+			"desc_ooc" = G.desc_ooc,
 			"type" = G.type,
 			"cant_spawn" = cant_spawn,
 			"can_edit" = G.can_edit(user),

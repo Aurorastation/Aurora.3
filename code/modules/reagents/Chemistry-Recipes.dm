@@ -1879,6 +1879,20 @@
 		new /obj/item/reagent_containers/food/snacks/sliceable/cheesewheel(location)
 	return
 
+/datum/chemical_reaction/nakarka
+	name = "Nakarka Cheese"
+	id = "nakarka"
+	result = null
+	required_reagents = list(/singleton/reagent/drink/milk/nemiik = 40)
+	catalysts = list(/singleton/reagent/enzyme = 5)
+	result_amount = 1
+
+/datum/chemical_reaction/nakarka/on_reaction(var/datum/reagents/holder, var/created_volume)
+	var/location = get_turf(holder.my_atom)
+	for(var/i = 1, i <= created_volume, i++)
+		new /obj/item/reagent_containers/food/snacks/sliceable/nakarka(location)
+	return
+
 /datum/chemical_reaction/meatball
 	name = "Meatball"
 	id = "meatball"
@@ -3790,6 +3804,27 @@
 	id = "teathpaste"
 	result = /singleton/reagent/drink/toothpaste/teathpaste
 	required_reagents = list(/singleton/reagent/drink/tea = 2, /singleton/reagent/drink/toothpaste = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/mouthgarita
+	name = "Mouthgarita"
+	id = "mouthgarita"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/mouthgarita
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 2, /singleton/reagent/drink/limejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/caprician_sunrise
+	name = "Caprician Sunrise"
+	id = "caprician_sunrise"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/caprician_sunrise
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 2, /singleton/reagent/drink/orangejuice = 1)
+	result_amount = 3
+
+/datum/chemical_reaction/drink/flagsdale_mule
+	name = "Flagsdale Mule"
+	id = "flagsdale_mule"
+	result = /singleton/reagent/drink/toothpaste/mouthwash/flagsdale_mule
+	required_reagents = list(/singleton/reagent/drink/toothpaste/mouthwash = 1, /singleton/reagent/drink/toothpaste = 1, /singleton/reagent/drink/mintsyrup = 1)
 	result_amount = 3
 
 /datum/chemical_reaction/drink/thewake

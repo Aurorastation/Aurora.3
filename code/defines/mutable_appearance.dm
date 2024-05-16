@@ -10,10 +10,13 @@
 		plane = FLOAT_PLANE
 
 // Helper similar to image()
-/proc/mutable_appearance(icon, icon_state = "", layer = FLOAT_LAYER, plane = FLOAT_PLANE)
+/proc/mutable_appearance(icon, icon_state, color, flags = DEFAULT_APPEARANCE_FLAGS | RESET_COLOR | RESET_ALPHA, plane = FLOAT_PLANE, layer = FLOAT_LAYER)
+	RETURN_TYPE(/mutable_appearance)
 	var/mutable_appearance/MA = new()
 	MA.icon = icon
 	MA.icon_state = icon_state
-	MA.layer = layer
+	MA.color = color
+	MA.appearance_flags = flags
 	MA.plane = plane
+	MA.layer = layer
 	return MA

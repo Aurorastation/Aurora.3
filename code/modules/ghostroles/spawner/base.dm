@@ -7,6 +7,10 @@
 	/// Should have the most brief description and expectations for the role.
 	var/desc = null
 
+	/// Similar to the normal desc, but strictly for OOC warnings or notes.
+	/// For example, to say whether this is an antagonist role, or any other OOC considerations.
+	var/desc_ooc = null
+
 	/// Message shown to the player immediately after spawning.
 	/// Can be longer than the description, and more detailed.
 	/// Should also contain anything else specific to the role, for example:
@@ -27,6 +31,7 @@
 
 	var/list/spawnpoints = null //List of the applicable spawnpoints (by name) - Use loc_type: GS_LOC_POS
 	var/landmark_name = null //Alternatively you can specify a landmark name - Use loc_type: GS_LOC_POS
+	var/landmark_type = null //Specify a landmark type to look for, instead of the name, this takes precedence over landmark_name
 
 	var/loc_type = GS_LOC_POS
 
@@ -144,10 +149,13 @@
 					spawnpoints -= spawnpoint //Set the spawnpoint at the bottom of the list.
 					spawnpoints += spawnpoint
 				return T
-	if(!isnull(landmark_name))
+	if(!isnull(landmark_name) || !isnull(landmark_type))
 		var/list/possible_landmarks = list()
 		for(var/obj/effect/landmark/landmark in GLOB.landmarks_list)
-			if(landmark.name == landmark_name)
+			if(landmark_type)
+				if(istype(landmark, landmark_type))
+					possible_landmarks += landmark
+			else if(landmark.name == landmark_name)
 				possible_landmarks += landmark
 		if(length(possible_landmarks))
 			var/obj/effect/landmark/L = pick(possible_landmarks)

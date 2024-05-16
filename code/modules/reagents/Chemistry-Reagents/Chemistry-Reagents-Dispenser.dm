@@ -126,7 +126,7 @@
 	description = DESC_PARENT
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = REM * 5
+	ingest_met = REM * 2.5
 	fallback_specific_heat = 0.605
 	germ_adjust = 20 // as good as sterilizine, but only if you have pure ethanol. or rubbing alcohol if we get that eventually
 
@@ -169,7 +169,7 @@
 /singleton/reagent/alcohol/affect_ingest(mob/living/carbon/M, alien, removed, var/datum/reagents/holder)
 
 	if(alien != IS_DIONA)
-		M.intoxication += (strength / 100) * removed * 3.5
+		M.intoxication += (strength / 100) * removed * 6
 
 		if (druggy != 0)
 			M.druggy = max(M.druggy, druggy)
@@ -243,7 +243,7 @@
 	description = "A fairly harmless alcohol that has intoxicating effects on certain species."
 	reagent_state = LIQUID
 	color = "#404030"
-	ingest_met = REM * 0.5 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
+	ingest_met = REM * 0.25 //Extremely slow metabolic rate means the liver will generally purge it faster than it can intoxicate you
 	flammability_divisor = 7	//Butanol is a bit less flammable than ethanol
 
 	taste_description = "alcohol"
@@ -267,7 +267,7 @@
 		M.adjustHydrationLoss(-hydration_factor * removed)
 
 	if (alien == IS_UNATHI)
-		ingest_met = initial(ingest_met)*3
+		ingest_met = initial(ingest_met)*9
 
 	..()
 

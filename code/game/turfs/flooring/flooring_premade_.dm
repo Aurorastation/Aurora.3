@@ -100,7 +100,7 @@
 	. = ..()
 	var/image/rust = image('icons/turf/decals/damage.dmi', "rust")
 	rust.appearance_flags = RESET_COLOR
-	add_overlay(rust)
+	AddOverlays(rust)
 
 /turf/simulated/floor/tiled/rust/airless
 	initial_gas = null

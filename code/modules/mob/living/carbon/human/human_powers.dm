@@ -1483,8 +1483,8 @@
 			host.last_action = world.time + 10 MINUTES
 			return
 
-/mob/living/carbon/human/proc/hivevoid() //Destroys a Vaurca's neural socket.
-	set name = "Void Hivenet User"
+/mob/living/carbon/human/proc/hiveuntether() //Destroys a Vaurca's neural socket.
+	set name = "Untether Hivenet User"
 	set desc = "Permanently sever a Vaurca of your own Hive from the Hivenet, destroying their neural socket. Mouv Ta may attempt to use this on Vaurca of another Hive, though this may have severe diplomatic consequences!"
 	set category = "Hivenet"
 

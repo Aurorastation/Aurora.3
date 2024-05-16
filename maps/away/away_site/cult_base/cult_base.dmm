@@ -2635,7 +2635,7 @@
 /turf/simulated/floor/plating,
 /area/cult_base/engineering)
 "ajY" = (
-/obj/effect/rune/convert,
+/obj/effect/rune/ethereal,
 /turf/simulated/floor/cult,
 /area/cult_base/lounge)
 "ajZ" = (
@@ -5687,6 +5687,7 @@
 	pixel_x = 3;
 	pixel_y = 3
 	},
+/obj/item/device/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "aBH" = (
@@ -6045,8 +6046,8 @@
 	dir = 8
 	},
 /obj/item/folder/yellow{
-	pixel_x = 3;
-	pixel_y = 5
+	pixel_x = 1;
+	pixel_y = 2
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
@@ -6142,7 +6143,17 @@
 "aFg" = (
 /obj/structure/table/steel,
 /obj/item/modular_computer/handheld/pda/civilian{
-	pixel_y = 0
+	pixel_y = 4;
+	pixel_x = -3
+	},
+/obj/item/device/radio/hailing{
+	pixel_x = 6;
+	pixel_y = -8
+	},
+/obj/machinery/button/distress{
+	pixel_x = -22;
+	dir = 4;
+	pixel_y = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/bridge)
@@ -6400,7 +6411,7 @@
 	dir = 4
 	},
 /turf/simulated/floor/airless,
-/area/space)
+/area/cult_base/bridge)
 "aGZ" = (
 /obj/random/junk,
 /turf/simulated/floor/tiled/dark,
@@ -6902,6 +6913,9 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/hallways_west)
 "aJZ" = (
@@ -7214,15 +7228,12 @@
 /turf/simulated/floor/plating,
 /area/cult_base/maint_north)
 "aLu" = (
-/obj/item/book/tome{
-	pixel_y = 9;
-	pixel_x = 4
-	},
 /obj/effect/decal/cleanable/blood,
 /obj/item/material/knife/ritual/bloody{
 	pixel_x = 11;
-	pixel_y = -5
+	pixel_y = -10
 	},
+/obj/effect/decal/cleanable/blood/gibs/core,
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "aLx" = (
@@ -7583,6 +7594,15 @@
 	pixel_y = 5;
 	pixel_x = 4
 	},
+/obj/item/device/radio/hailing{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/machinery/button/distress{
+	pixel_x = 22;
+	dir = 8;
+	pixel_y = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/cult_base/crew)
 "aNk" = (
@@ -7806,7 +7826,7 @@
 /turf/simulated/floor/cult,
 /area/cult_base/crew_quarters)
 "aOB" = (
-/obj/effect/rune/convert,
+/obj/effect/rune/convert/no_equip,
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "aOC" = (
@@ -8716,9 +8736,7 @@
 /area/cult_base/crew_quarters)
 "aTL" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
+/obj/item/device/radio/intercom/hailing/north,
 /turf/simulated/floor/tiled/dark/full,
 /area/cult_base/bridge)
 "aTO" = (
@@ -10913,6 +10931,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/cult_base/docks_south)
+"ivn" = (
+/obj/machinery/shipsensors/weak,
+/obj/effect/floor_decal/industrial/warning{
+	dir = 5
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/airless,
+/area/cult_base/bridge)
 "iBG" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -11608,6 +11635,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/cult_base/docks_west)
+"mDt" = (
+/obj/effect/floor_decal/corner/mauve/diagonal,
+/obj/machinery/computer/ship/navigation/terminal,
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/turf/simulated/floor/tiled/dark,
+/area/cult_base/bridge)
 "nfG" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/material/knife/bloody{
@@ -12379,7 +12414,7 @@
 /turf/simulated/floor/cult,
 /area/shuttle/cult_base/cargo)
 "sqe" = (
-/obj/effect/rune/convert,
+/obj/effect/rune/convert/no_equip,
 /turf/simulated/floor/cult,
 /area/cult_base/asteroid)
 "srR" = (
@@ -52661,7 +52696,7 @@ aiK
 aXP
 aiK
 aXP
-aEE
+mDt
 aOW
 aAb
 aja
@@ -53947,7 +53982,7 @@ aZi
 auo
 aNT
 auo
-aSF
+ivn
 aGX
 auo
 auo

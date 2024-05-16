@@ -286,7 +286,7 @@
 	path = /obj/item/organ/internal/augment/tool/vaurcamag
 	sort_category = "Xenowear - Vaurca"
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
-	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel")
+	allowed_roles = list("Shaft Miner", "Engineer", "Atmospheric Technician", "Engineering Apprentice", "Xenoarchaeologist", "Engineering Personnel", "Operations Personnel", "First Responder", "Medical Personnel")
 
 /datum/gear/accessory/tret_passcard
 	display_name = "tret passcard"

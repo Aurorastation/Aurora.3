@@ -62,6 +62,9 @@
 	///The `/icon` of the mob that has this organ
 	var/icon/mob_icon
 
+	///A list of overlays for the organ
+	var/list/mutable_appearance/mob_overlays
+
 	var/gendered_icon = 0
 	var/force_icon
 
@@ -940,8 +943,7 @@ Note that amputating the affected organ does in fact remove the infection from t
 				cut_dam += W.damage
 
 		if(!(status & ORGAN_ROBOT) && W.bleeding() && (H && !(H.species.flags & NO_BLOOD)))
-			W.bleed_timer--
-			status |= ORGAN_BLEEDING
+			W.handle_bleeding(H, src)
 
 		clamped |= W.clamped
 

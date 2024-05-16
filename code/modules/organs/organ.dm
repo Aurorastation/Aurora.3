@@ -389,6 +389,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			name = "pacemaker-assisted [initial(name)]"
 		if(BP_EYES)
 			name = "retinal overlayed [initial(name)]"
+		if(BP_BRAIN)
+			name = "positronic-implanted [initial(name)]"
 		else
 			name = "mechanically assisted [initial(name)]"
 	icon_state = initial(icon_state)
@@ -401,7 +403,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	var/organ_fragility = 0.5
 
-	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assited ones only suffer half of it
+	if((status & ORGAN_ROBOT))	//fully robotic organs take the normal emp damage, assisted ones only suffer half of it
 		organ_fragility = 1
 
 	switch (severity)

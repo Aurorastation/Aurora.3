@@ -54,12 +54,9 @@
 	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
-	var/global/list/screen_overlays
-
 /obj/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
 	icon = 'icons/obj/cryogenics_split.dmi'
-	generate_overlays()
 	update_icon()
 	atmos_init()
 
@@ -89,19 +86,6 @@
 
 	if(panel_open)
 		. += "The maintenance hatch is open."
-
-/obj/machinery/atmospherics/unary/cryo_cell/proc/generate_overlays(force = FALSE)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["cryo-off"] = make_screen_overlay(icon, "lights_off")
-	screen_overlays["cryo-off-top"] = make_screen_overlay(icon, "lights_off_top")
-	screen_overlays["cryo-safe"] = make_screen_overlay(icon, "lights_safe")
-	screen_overlays["cryo-safe-top"] = make_screen_overlay(icon, "lights_safe_top")
-	screen_overlays["cryo-warn"] = make_screen_overlay(icon, "lights_warn")
-	screen_overlays["cryo-warn-top"] = make_screen_overlay(icon, "lights_warn_top")
-	screen_overlays["cryo-danger"] = make_screen_overlay(icon, "lights_danger")
-	screen_overlays["cryo-danger-top"] = make_screen_overlay(icon, "lights_danger_top")
 
 /obj/machinery/atmospherics/unary/cryo_cell/process()
 	..()
@@ -319,29 +303,29 @@
 					user.pulling = null
 
 /obj/machinery/atmospherics/unary/cryo_cell/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "pod[on]"
 	var/image/I
 
 	if(panel_open)
-		add_overlay("pod_panel")
+		AddOverlays("pod_panel")
 
 	I = image(icon, "pod[on]_top")
 	I.pixel_z = 32
-	add_overlay(I)
+	AddOverlays(I)
 
 	if(occupant)
 		var/image/pickle = image(occupant.icon, occupant.icon_state)
 		pickle.overlays = occupant.overlays
 		pickle.pixel_z = 11
-		add_overlay(pickle)
+		AddOverlays(pickle)
 
 	I = image(icon, "lid[on]")
-	add_overlay(I)
+	AddOverlays(I)
 
 	I = image(icon, "lid[on]_top")
 	I.pixel_z = 32
-	add_overlay(I)
+	AddOverlays(I)
 
 	if(powered())
 		var/warn_state = "off"
@@ -351,10 +335,15 @@
 				warn_state = "danger"
 			else if(air_contents.temperature >= temperature_warning_threshold)
 				warn_state = "warn"
-		add_overlay(screen_overlays["cryo-[warn_state]"])
-		I = screen_overlays["cryo-[warn_state]-top"]
+		I = overlay_image(icon, "lights_[warn_state]")
+		AddOverlays(I)
+		I = overlay_image(icon, "lights_[warn_state]_top")
 		I.pixel_z = 32
-		add_overlay(I)
+		AddOverlays(I)
+		AddOverlays(emissive_appearance(icon, "lights_mask"))
+		I = emissive_appearance(icon, "lights_mask_top")
+		I.pixel_z = 32
+		AddOverlays(I)
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/process_occupant()
 	if(air_contents.total_moles < 10)

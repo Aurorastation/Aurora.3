@@ -20,7 +20,7 @@ var/list/mineral_can_smooth_with = list(
 	/turf/unsimulated/wall
 )
 
-/turf/simulated/mineral //wall piece
+/turf/simulated/mineral
 	name = "rock"
 	icon = 'icons/turf/smooth/rock_dense.dmi'
 	icon_state = "preview_wall"
@@ -417,7 +417,7 @@ var/list/mineral_can_smooth_with = list(
 	new_turf.resources = old_resources
 	new_turf.resource_indicator = old_resource_indicator
 	if(new_turf.resource_indicator)
-		new_turf.add_overlay(new_turf.resource_indicator)
+		new_turf.AddOverlays(new_turf.resource_indicator)
 
 	return new_turf
 
@@ -605,6 +605,61 @@ var/list/mineral_can_smooth_with = list(
 			if(start.CanZPass(H, UP))
 				if(destination.CanZPass(H, UP))
 					H.climb(UP, src, 20)
+
+/** Preset mineral walls.
+ * These are used to spawn specific types of mineral walls in the map.
+ * Use one of the subtypes below or, in case a new ore is added but the preset isn't created, set preset_mineral_name to the ORE_X define.
+*/
+/turf/simulated/mineral/preset
+	var/preset_mineral_name
+
+/turf/simulated/mineral/preset/Initialize(mapload)
+	..()
+	return INITIALIZE_HINT_LATELOAD
+
+/turf/simulated/mineral/preset/LateInitialize()
+	. = ..()
+	change_mineral(preset_mineral_name, TRUE)
+
+/turf/simulated/mineral/preset/phoron
+	name = "phoron mineral wall"
+	preset_mineral_name = ORE_PHORON
+
+/turf/simulated/mineral/preset/coal
+	name = "coal mineral wall"
+	preset_mineral_name = ORE_COAL
+
+/turf/simulated/mineral/preset/gold
+	name = "gold mineral wall"
+	preset_mineral_name = ORE_GOLD
+
+/turf/simulated/mineral/preset/diamond
+	name = "diamond mineral wall"
+	preset_mineral_name = ORE_DIAMOND
+
+/turf/simulated/mineral/preset/iron
+	name = "iron mineral wall"
+	preset_mineral_name = ORE_IRON
+
+/turf/simulated/mineral/preset/platinum
+	name = "platinum mineral wall"
+	preset_mineral_name = ORE_PLATINUM
+
+/turf/simulated/mineral/preset/bauxite
+	name = "bauxite mineral wall"
+	preset_mineral_name = ORE_BAUXITE
+
+/turf/simulated/mineral/preset/galena
+	name = "galena mineral wall"
+	preset_mineral_name = ORE_GALENA
+
+/turf/simulated/mineral/preset/uranium
+	name = "uranium mineral wall"
+	preset_mineral_name = ORE_URANIUM
+
+/turf/simulated/mineral/preset/metallic_hydrogen
+	name = "metallic_hydrogen mineral wall"
+	preset_mineral_name = ORE_HYDROGEN
 
 // Some extra types for the surface to keep things pretty.
 /turf/simulated/mineral/surface
@@ -843,7 +898,7 @@ var/list/asteroid_floor_smooth = list(
 	return
 
 /turf/unsimulated/floor/asteroid/proc/gets_dug(mob/user)
-	add_overlay("asteroid_dug", TRUE)
+	AddOverlays("asteroid_dug", TRUE)
 
 	if(prob(75))
 		new /obj/item/ore/glass(src)
@@ -897,7 +952,7 @@ var/list/asteroid_floor_smooth = list(
 
 	if(dug <= 10)
 		dug += 1
-		add_overlay("asteroid_dug", TRUE)
+		AddOverlays("asteroid_dug", TRUE)
 	else
 		var/turf/below = GetBelow(src)
 		if(below)

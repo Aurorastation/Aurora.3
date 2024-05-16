@@ -1107,10 +1107,10 @@ All custom items with worn sprites must follow the contained sprite system: http
 	usr.visible_message("<b>[usr]</b> turns \the [src] [on ? "on" : "off"].", SPAN_NOTICE("You turn \the [src] [on ? "on" : "off"]."))
 	if(on)
 		playsound(loc, 'sound/machines/synth_yes.ogg', 50)
-		add_overlay(screen)
+		AddOverlays(screen)
 	else
 		playsound(loc, 'sound/machines/synth_no.ogg', 50)
-		cut_overlay(screen)
+		CutOverlays(screen)
 	update_icon()
 
 /obj/item/fluff/holoconsole/proc/remove_left()
@@ -1845,14 +1845,14 @@ All custom items with worn sprites must follow the contained sprite system: http
 	third_card = null
 
 	icon_state = "ielia_tarot_on"
-	cut_overlays()
+	ClearOverlays()
 
 	usr.visible_message("\The [usr] activates the [src].")
 	flick ("card_spawn",src)
 	activated = TRUE
 
 	icon_state = "card_spin"
-	add_overlay("card_spin_fx")
+	AddOverlays("card_spin_fx")
 	addtimer(CALLBACK(src, PROC_REF(finish_selection), usr), 3 SECONDS)
 
 /obj/item/fluff/ielia_tarot/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
@@ -1862,7 +1862,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 			. += "The following constellations are displayed on the starfinder: [first_card], [second_card], and [third_card]."
 
 /obj/item/fluff/ielia_tarot/proc/finish_selection(var/mob/user)
-	cut_overlays()
+	ClearOverlays()
 	flick("card_spin_stop",src)
 	icon_state = "ielia_tarot_on"
 	for(var/i = 1 to 3)
@@ -1874,25 +1874,25 @@ All custom items with worn sprites must follow the contained sprite system: http
 		else if(first_card && second_card)
 			third_card = P
 
-	cut_overlays()
-	add_overlay("card_display_fx")
-	add_overlay("card_display")
+	ClearOverlays()
+	AddOverlays("card_display_fx")
+	AddOverlays("card_display")
 
 	var/image/first_card_overlay = image(icon, src, first_card)
 	first_card_overlay.pixel_x = -8
-	add_overlay(first_card_overlay)
+	AddOverlays(first_card_overlay)
 
 	var/image/second_card_overlay = image(icon, src, second_card)
-	add_overlay(second_card_overlay)
+	AddOverlays(second_card_overlay)
 
 	var/image/third_card_overlay = image(icon, src, third_card)
 	third_card_overlay.pixel_x = 8
-	add_overlay(third_card_overlay)
+	AddOverlays(third_card_overlay)
 
 /obj/item/fluff/ielia_tarot/proc/reset_starfinder()
 	if(!activated)
 		return
-	cut_overlays()
+	ClearOverlays()
 	icon_state = "ielia_tarot"
 	activated = FALSE
 
@@ -2036,3 +2036,23 @@ All custom items with worn sprites must follow the contained sprite system: http
 /obj/item/device/versebook/fluff/guilty_men/Initialize()
 	. = ..()
 	randomquip = file2list("code/modules/customitems/imogen_guiltymen.txt")
+
+/obj/item/rig/light/offworlder/fluff/aayun
+	name = "prototype exo-stellar skeleton module"
+	suit_type = "exoskeleton voidsuit"
+	desc = "A prototype exo-stellar skeleton suit, made of extremely expensive, custom-made and proprietary parts, allowing for the comfortable existence of an off-worlder in normal worlder conditions. \
+	Features microdoses of medicine in the air supply to aid in lung pain, electrostimulants to assist in muscle rehabilitation, and innumerable other features. Unfortunately, due to design limitations, \
+	it is only capable of maintaining a lower internal pressure when exposed to normal environments, and is not spaceworthy nor immune to environmental conditions. This particular model bears a small mark \
+	of Zeng-Hu Pharmaceuticals on the main back piece, and was largely designed by a collaborative effort of experts in their fields on the Horizon. A new future for off-worlders, or a money pit?"
+	icon = 'icons/obj/custom_items/aayun_suit.dmi'
+	icon_state = "aayun_rig"
+	helm_type = /obj/item/clothing/head/lightrig/offworlder
+	chest_type = /obj/item/clothing/suit/lightrig/offworlder
+	glove_type = /obj/item/clothing/gloves/lightrig
+	boot_type = /obj/item/clothing/shoes/lightrig
+
+
+
+
+
+

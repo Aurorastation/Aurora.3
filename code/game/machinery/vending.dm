@@ -53,7 +53,8 @@
 	z_flags = ZMM_MANGLE_PLANES
 
 	var/icon_vend //Icon_state when vending
-	var/deny_time // How long the physical icon state lasts, used cut the deny overlay
+	var/icon_deny //Icon_state when denying
+	var/icon_screen
 
 	// Power
 	idle_power_usage = 10
@@ -122,14 +123,14 @@
 
 	var/vending_sound = 'sound/machines/vending/vending_drop.ogg'
 
-	var/global/list/screen_overlays
-	var/exclusive_screen = TRUE // Are we not allowed to show the deny and screen states at the same time?
+	///Lighting mask for vending machine
+	var/light_mask
 
 	var/ui_size = 80 // this is for scaling the ui buttons - i've settled on 80x80 for machines with prices, and 60x60 for those without and with large inventories (boozeomat)
 	var/datum/asset/spritesheet/vending/v_asset
 
 	light_range = 2
-	light_power = 1.3
+	light_power = 0.9
 
 /obj/machinery/vending/Initialize(mapload)
 	. = ..()
@@ -145,7 +146,7 @@
 	if(src.product_ads)
 		src.ads_list += text2list(src.product_ads, ";")
 
-	add_screen_overlay()
+	reset_light()
 	build_products()
 	build_inventory()
 	power_change()
@@ -158,17 +159,13 @@
 /obj/machinery/vending/proc/reset_light()
 	set_light(initial(light_range), initial(light_power), initial(light_color))
 
-/obj/machinery/vending/proc/add_screen_overlay(var/deny = FALSE)
-	if(!LAZYLEN(screen_overlays))
-		LAZYINITLIST(screen_overlays)
-	if(!("[icon_state]-screen" in screen_overlays) || (deny && !("[icon_state]-deny" in screen_overlays)))
-		var/list/states = icon_states(icon)
-		if ("[icon_state]-screen" in states)
-			screen_overlays["[icon_state]-screen"] = make_screen_overlay(icon, "[icon_state]-screen")
-		if ("[icon_state]-deny" in states)
-			screen_overlays["[icon_state]-deny"] = make_screen_overlay(icon, "[icon_state]-deny")
-	add_overlay(screen_overlays["[icon_state]-[deny ? "deny" : "screen"]"])
-	reset_light()
+/obj/machinery/vending/update_icon()
+	if(src.light_mask)
+		var/image/E = emissive_appearance(icon, light_mask)
+		AddOverlays(E)
+	if(src.icon_screen)
+		var/image/I = image(icon, icon_screen)
+		AddOverlays(I)
 
 /**
  *  Build src.products
@@ -295,10 +292,9 @@
 	else if(attacking_item.isscrewdriver())
 		src.panel_open = !src.panel_open
 		to_chat(user, "You [src.panel_open ? "open" : "close"] the maintenance panel.")
-		cut_overlays()
-		add_screen_overlay()
+		ClearOverlays()
 		if(src.panel_open)
-			add_overlay("[initial(icon_state)]-panel")
+			AddOverlays("[initial(icon_state)]-panel")
 		return TRUE
 	else if(attacking_item.ismultitool()||attacking_item.iswirecutter())
 		if(src.panel_open)
@@ -617,14 +613,9 @@
 		if (action == "vendItem" && vend_ready && !currently_vending)
 			if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 				to_chat(usr, SPAN_WARNING("Access denied."))	//Unless emagged of course
-				if(exclusive_screen)
-					cut_overlays()
-					addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
-				add_screen_overlay(deny = TRUE)
-				addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+				flick(src.icon_deny, src)
 				set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
-				addtimer(CALLBACK(src, PROC_REF(reset_light)), deny_time ? deny_time : 15)
-				addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
+				update_icon()
 				return
 
 			var/key = text2num(params["vendItem"])
@@ -675,13 +666,8 @@
 
 	if((!allowed(usr)) && !emagged && scan_id)	//For SECURE VENDING MACHINES YEAH
 		to_chat(usr, "<span class='warning'>Access denied.</span>")	//Unless emagged of course)
-		if(exclusive_screen)
-			cut_overlays()
-			addtimer(CALLBACK(src, PROC_REF(add_screen_overlay)), deny_time ? deny_time : 15)
-		add_screen_overlay(deny = TRUE)
-		addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), screen_overlays["[icon_state]-deny"]), deny_time ? deny_time : 15)
+		flick(src.icon_deny, src)
 		set_light(initial(light_range), initial(light_power), COLOR_RED_LIGHT)
-		addtimer(CALLBACK(src, PROC_REF(reset_light)), deny_time ? deny_time : 15)
 		return
 	src.vend_ready = 0 //One thing at a time!!
 	src.status_message = "Vending..."
@@ -798,14 +784,14 @@
 		stat |= NOPOWER
 	if(stat & BROKEN)
 		icon_state = "[initial(icon_state)]-broken"
-		cut_overlays()
+		ClearOverlays()
 		set_light(0)
 	else if(!(stat & NOPOWER))
 		icon_state = initial(icon_state)
-		add_screen_overlay()
+		update_icon()
 	else
 		icon_state = "[initial(icon_state)]-off"
-		cut_overlays()
+		ClearOverlays()
 		set_light(0)
 
 //Oh no we're malfunctioning!  Dump out some product and break.

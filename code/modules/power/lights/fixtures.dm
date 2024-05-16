@@ -230,7 +230,7 @@
 	pixel_y = pixel_y
 
 /obj/machinery/light/update_icon()
-	cut_overlays()
+	ClearOverlays()
 	if ((status == LIGHT_EMPTY) || !fitting_has_empty_icon)
 		icon_state = "[base_state]_empty"
 	else
@@ -248,21 +248,19 @@
 
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
-				if (!fitting_is_on_floor)
-					I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-				else
-					I.plane = plane
-				add_overlay(I)
+				var/image/E = emissive_appearance(icon, "[base_state]_on")
+				AddOverlays(I)
+				AddOverlays(E)
 			else
-				add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
+				AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 
 		if(LIGHT_BURNED)
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
+			AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_burned", brightness_color))
 			stat |= BROKEN
 			stat &= ~MAINT
 
 		if(LIGHT_BROKEN)
-			add_overlay(LIGHT_FIXTURE_CACHE(icon, "[base_state]_broken", brightness_color))
+			AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_broken", brightness_color))
 			stat |= BROKEN
 			stat &= ~MAINT
 

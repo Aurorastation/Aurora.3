@@ -44,14 +44,14 @@
 				spell_holder.client.screen -= O
 			O.handle_icon_updates = 0
 		showing = 0
-		cut_overlays()
-		add_overlay(closed_state)
+		ClearOverlays()
+		AddOverlays(closed_state)
 	else if(forced_state != 1)
 		open_spellmaster()
 		update_spells(1)
 		showing = 1
-		cut_overlays()
-		add_overlay(open_state)
+		ClearOverlays()
+		AddOverlays(open_state)
 
 /obj/screen/movable/spell_master/proc/open_spellmaster()
 	var/list/screen_loc_xy = text2list(screen_loc,",")
@@ -178,7 +178,7 @@
 	if((last_charge == spell.charge_counter || !handle_icon_updates) && !forced_update)
 		return //nothing to see here
 
-	cut_overlay(spell.hud_state)
+	CutOverlays(spell.hud_state)
 
 	if(spell.charge_type == Sp_RECHARGE || spell.charge_type == Sp_CHARGES)
 		if(spell.charge_counter < spell.charge_max)
@@ -186,27 +186,27 @@
 			if(spell.charge_counter > 0)
 				var/icon/partial_charge = icon(src.icon, "[spell_base]_spell_ready")
 				partial_charge.Crop(1, 1, partial_charge.Width(), round(partial_charge.Height() * spell.charge_counter / spell.charge_max))
-				add_overlay(partial_charge)
+				AddOverlays(partial_charge)
 				if(last_charged_icon)
-					cut_overlay(last_charged_icon)
+					CutOverlays(last_charged_icon)
 				last_charged_icon = partial_charge
 			else if(last_charged_icon)
-				cut_overlay(last_charged_icon)
+				CutOverlays(last_charged_icon)
 				last_charged_icon = null
 		else
 			icon_state = "[spell_base]_spell_ready"
 			if(last_charged_icon)
-				cut_overlay(last_charged_icon)
+				CutOverlays(last_charged_icon)
 	else
 		icon_state = "[spell_base]_spell_ready"
 
-	add_overlay(spell.hud_state)
+	AddOverlays(spell.hud_state)
 
 	last_charge = spell.charge_counter
 
-	cut_overlay("silence")
+	CutOverlays("silence")
 	if(spell.silenced)
-		add_overlay("silence")
+		AddOverlays("silence")
 
 /obj/screen/spell/Click()
 	if(!usr || !spell)

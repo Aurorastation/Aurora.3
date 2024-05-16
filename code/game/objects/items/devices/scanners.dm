@@ -472,10 +472,10 @@ BREATH ANALYZER
 	origin_tech = list(TECH_MAGNET = 4, TECH_BIO = 2)
 
 /obj/item/device/mass_spectrometer/adv/clear_blood_overlay()
-	cut_overlays()
+	ClearOverlays()
 
 /obj/item/device/mass_spectrometer/adv/add_blood_overlay(var/image/I)
-	add_overlay(I)
+	AddOverlays(I)
 
 /obj/item/device/reagent_scanner
 	name = "reagent scanner"
@@ -721,7 +721,7 @@ BREATH ANALYZER
 		add_fingerprint(user)
 
 /obj/item/device/advanced_healthanalyzer/proc/print_scan(var/mob/M, var/mob/living/user)
-	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name])", M)
+	var/obj/item/paper/medscan/R = new /obj/item/paper/medscan(src, connected.format_occupant_data(get_occupant_data(M)), "Scan ([M.name]) ([worldtime2text()])", M)
 	connected.print(R, message = "\The [src] beeps, printing \the [R] after a moment.", user = user)
 
 /obj/item/device/advanced_healthanalyzer/proc/get_occupant_data(var/mob/living/carbon/human/H)

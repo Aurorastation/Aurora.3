@@ -3,7 +3,8 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/orange,
 /obj/effect/ghostspawpoint{
-	identifier = "pirate"
+	identifier = "pirate";
+	name = "igs - pirate"
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
@@ -35,8 +36,17 @@
 /turf/simulated/floor/plating,
 /area/piratebase/power)
 "ag" = (
-/obj/effect/map_effect/airlock/long/square,
-/turf/simulated/wall/shuttle/raider,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/storage)
 "an" = (
 /obj/random/dirt_75,
@@ -82,9 +92,28 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
 "aD" = (
-/obj/effect/map_effect/airlock/s_to_n,
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/pirate_shuttle/living)
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/pirate_shuttle/storage)
 "aI" = (
 /obj/item/reagent_containers/glass/bucket/wood{
 	pixel_y = -7
@@ -205,7 +234,7 @@
 /obj/item/reagent_containers/bowl/plate{
 	pixel_x = 2
 	},
-/obj/item/reagent_containers/food/snacks/berrymuffin{
+/obj/item/reagent_containers/food/snacks/muffin/berry{
 	pixel_x = 3;
 	pixel_y = 4
 	},
@@ -338,6 +367,20 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/hallway_north)
+"bI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_pirate_base_shuttle";
+	name = "airlock_pirate_base_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/pirate_shuttle/living)
 "bN" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -1070,6 +1113,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/living)
+"fi" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = -32
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/airless,
+/area/shuttle/pirate_shuttle/storage)
 "fj" = (
 /obj/structure/dispenser/oxygen,
 /turf/simulated/floor/tiled/yellow,
@@ -1285,13 +1345,13 @@
 /area/piratebase/hallway_north)
 "gn" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/syndicate/black,
-/obj/item/clothing/head/helmet/space/syndicate/black,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/item/clothing/suit/space/void/freelancer,
+/obj/item/clothing/head/helmet/space/void/freelancer,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "gp" = (
@@ -1492,6 +1552,19 @@
 	},
 /turf/simulated/floor/exoplanet/barren,
 /area/piratebase/hallway_north)
+"hd" = (
+/obj/machinery/atmospherics/pipe/manifold/hidden/red,
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/pirate_shuttle/storage)
 "he" = (
 /obj/structure/reagent_dispensers/coolanttank,
 /obj/effect/floor_decal/industrial/outline/grey,
@@ -1718,10 +1791,9 @@
 /area/piratebase/maint_north)
 "ig" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/syndicate/black/engie,
-/obj/item/clothing/head/helmet/space/syndicate/black/engie,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "ik" = (
@@ -1894,6 +1966,12 @@
 	},
 /turf/simulated/floor/plating/asteroid,
 /area/piratebase/hallway_north)
+"jf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 4
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/pirate_shuttle/storage)
 "jg" = (
 /obj/machinery/body_scanconsole{
 	dir = 1;
@@ -2335,8 +2413,6 @@
 /area/piratebase/power)
 "lj" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/syndicate/black/green,
-/obj/item/clothing/head/helmet/space/syndicate/black/green,
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/machinery/light{
@@ -2344,6 +2420,7 @@
 	pixel_x = 0;
 	icon_state = "tube_empty"
 	},
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "ll" = (
@@ -3157,6 +3234,26 @@
 	},
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"pj" = (
+/obj/machinery/atmospherics/pipe/manifold/visible{
+	dir = 8
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = -26;
+	pixel_y = 12
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/pirate_shuttle/storage)
 "pn" = (
 /obj/effect/floor_decal/corner/paleblue/diagonal,
 /obj/structure/toilet{
@@ -3364,12 +3461,11 @@
 /area/piratebase/equipment)
 "qj" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/syndicate/black/med,
-/obj/item/clothing/head/helmet/space/syndicate/black/med,
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
 /obj/random/dirt_75,
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "qq" = (
@@ -3685,7 +3781,8 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/black,
 /obj/effect/ghostspawpoint{
-	identifier = "pirate"
+	identifier = "pirate";
+	name = "igs - pirate"
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
@@ -4584,11 +4681,10 @@
 /area/shuttle/pirate_shuttle/starboard)
 "xp" = (
 /obj/structure/table/rack,
-/obj/item/clothing/suit/space/syndicate/black,
-/obj/item/clothing/head/helmet/space/syndicate/black,
 /obj/effect/floor_decal/corner/grey{
 	dir = 10
 	},
+/obj/random/voidsuit/freebooter,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "xr" = (
@@ -4829,6 +4925,20 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/piratebase/maint_north)
+"yv" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	dir = 1;
+	pixel_x = 28;
+	pixel_y = 12
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_pirate_base_shuttle";
+	name = "airlock_pirate_base_shuttle"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/turf/simulated/floor/plating,
+/area/shuttle/pirate_shuttle/living)
 "yx" = (
 /obj/effect/landmark/entry_point/north{
 	name = "north, starboard engines"
@@ -4972,7 +5082,10 @@
 /turf/simulated/floor/tiled/yellow,
 /area/shuttle/pirate_shuttle/living)
 "zp" = (
-/obj/machinery/atmospherics/pipe/simple/visible,
+/obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/storage)
 "zq" = (
@@ -6129,7 +6242,8 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/blue,
 /obj/effect/ghostspawpoint{
-	identifier = "pirate_boss"
+	identifier = "pirate_boss";
+	name = "igs - pirate_boss"
 	},
 /turf/simulated/floor/wood,
 /area/piratebase/quarters)
@@ -6138,6 +6252,15 @@
 	pixel_x = 30
 	},
 /obj/item/storage/bag/inflatable,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/storage)
 "FU" = (
@@ -6434,7 +6557,8 @@
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /obj/effect/ghostspawpoint{
-	identifier = "pirate_prisoner"
+	identifier = "pirate_prisoner";
+	name = "igs - pirate_prisoner"
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/living)
@@ -6454,6 +6578,21 @@
 /obj/effect/landmark/entry_point/north{
 	name = "aft, airlock"
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/red{
+	dir = 5
+	},
+/obj/machinery/door/airlock/external,
+/obj/machinery/access_button{
+	pixel_x = -28
+	},
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/storage)
 "Hu" = (
@@ -6813,15 +6952,21 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
 "IX" = (
-/obj/structure/table/rack,
-/obj/item/clothing/suit/space/syndicate/black/red,
-/obj/item/clothing/head/helmet/space/syndicate/black/red,
-/obj/effect/floor_decal/corner/grey{
-	dir = 5
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = -21;
+	pixel_x = -6
 	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled,
-/area/piratebase/eva)
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/turf/simulated/floor/plating,
+/area/shuttle/pirate_shuttle/storage)
 "IZ" = (
 /obj/effect/floor_decal/spline/plain/black{
 	dir = 8
@@ -7378,6 +7523,27 @@
 /obj/machinery/alarm/east,
 /turf/simulated/floor/tiled,
 /area/piratebase/hallway_south)
+"LK" = (
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 8;
+	pixel_x = 20;
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_pirate_base_shuttle";
+	name = "airlock_pirate_base_shuttle"
+	},
+/obj/machinery/light/small{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/pirate_shuttle/living)
 "LM" = (
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
@@ -7713,7 +7879,8 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/rainbow,
 /obj/effect/ghostspawpoint{
-	identifier = "pirate"
+	identifier = "pirate";
+	name = "igs - pirate"
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
@@ -8322,11 +8489,10 @@
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
 "Qf" = (
-/obj/machinery/atmospherics/portables_connector{
-	dir = 4;
-	layer = 2.8
-	},
 /obj/machinery/portable_atmospherics/canister/air/airlock,
+/obj/machinery/atmospherics/portables_connector{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/living)
 "Qg" = (
@@ -8701,11 +8867,18 @@
 /turf/simulated/mineral/surface,
 /area/mine)
 "RQ" = (
-/obj/machinery/portable_atmospherics/canister/air/airlock,
-/obj/machinery/atmospherics/portables_connector{
-	dir = 1;
-	layer = 2.8
+/obj/machinery/atmospherics/pipe/simple/visible{
+	dir = 10
 	},
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/storage)
 "RR" = (
@@ -9382,7 +9555,8 @@
 	pixel_x = 7
 	},
 /obj/effect/ghostspawpoint{
-	identifier = "pirate"
+	identifier = "pirate";
+	name = "igs - pirate"
 	},
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
@@ -9880,7 +10054,7 @@
 /obj/effect/floor_decal/corner/grey{
 	dir = 5
 	},
-/obj/machinery/suit_cycler,
+/obj/machinery/suit_cycler/offship,
 /turf/simulated/floor/tiled,
 /area/piratebase/eva)
 "XG" = (
@@ -10049,6 +10223,15 @@
 /obj/machinery/light/small{
 	dir = 8
 	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/effect/map_effect/marker/airlock/shuttle{
+	cycle_to_external_air = 1;
+	master_tag = "pirate_ship_shuttle_dock";
+	name = "pirate_ship_shuttle_dock";
+	req_one_access = null;
+	shuttle_tag = "Wanted Vessel"
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
 /turf/simulated/floor/plating,
 /area/shuttle/pirate_shuttle/storage)
 "Yu" = (
@@ -42394,7 +42577,7 @@ eC
 bF
 xB
 QB
-IX
+qj
 Mu
 vs
 FU
@@ -45348,11 +45531,11 @@ Xn
 VB
 VZ
 Qz
-Qz
+IX
 VZ
 VZ
 VZ
-ag
+VZ
 sB
 sB
 bu
@@ -45606,8 +45789,8 @@ RZ
 CS
 Qz
 WL
-oE
-Qz
+pj
+ag
 Yt
 Ht
 ct
@@ -45863,10 +46046,10 @@ WQ
 VZ
 Qz
 fo
-Qz
-Qz
+RQ
+aD
 FT
-Qz
+hd
 sB
 sB
 bu
@@ -46123,7 +46306,7 @@ kK
 VZ
 VZ
 VZ
-VZ
+jf
 sB
 sB
 bu
@@ -46379,8 +46562,8 @@ Qz
 oE
 rU
 zp
-RQ
 VZ
+fi
 sB
 sB
 bu
@@ -47387,7 +47570,7 @@ sB
 Dm
 Xm
 Xm
-aD
+Xm
 Gy
 Xf
 my
@@ -47642,9 +47825,9 @@ sB
 sB
 sB
 sB
-my
-my
-Xf
+yv
+LK
+bI
 fm
 bp
 bp

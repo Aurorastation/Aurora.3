@@ -39,7 +39,7 @@
 /obj/machinery/mineral/processing_unit_console/Initialize(mapload, d, populate_components)
 	. = ..()
 	var/mutable_appearance/screen_overlay = mutable_appearance(icon, "production_console-screen", plane = EFFECTS_ABOVE_LIGHTING_PLANE)
-	add_overlay(screen_overlay)
+	AddOverlays(screen_overlay)
 	set_light(1.4, 1, COLOR_CYAN)
 
 	return INITIALIZE_HINT_LATELOAD
@@ -265,7 +265,7 @@
 	P.offset_y += 0
 	P.ico += "paper_stamp-cent"
 	P.stamped += /obj/item/stamp
-	P.add_overlay(stampoverlay)
+	P.AddOverlays(stampoverlay)
 	P.stamps += "<HR><i>This paper has been stamped by the SCC Ore Processing System.</i>"
 
 	user.visible_message("\The [src] rattles and prints out a sheet of paper.")
