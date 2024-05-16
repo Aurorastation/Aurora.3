@@ -393,7 +393,7 @@
 	set category = "IC"
 
 	sleeping_indefinitely = !sleeping_indefinitely
-	to_chat(M, SPAN_NOTICE("You will [sleeping_indefinitely ? "now" : "no longer"] sleep indefinitely."))
+	to_chat(usr, SPAN_NOTICE("You will [sleeping_indefinitely ? "now" : "no longer"] sleep indefinitely."))
 
 	if(!sleeping_indefinitely)
 		AdjustSleeping(-1*sleep_buffer)
