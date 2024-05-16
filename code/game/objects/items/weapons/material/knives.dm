@@ -57,7 +57,7 @@
 		var/obj/S = thing
 		usr.visible_message(SPAN_NOTICE("[usr] starts carefully digging out something in [H == usr ? "themselves" : H]..."))
 		O.take_damage(8, 0, DAMAGE_FLAG_SHARP|DAMAGE_FLAG_EDGE, src)
-		H.custom_pain("<font size=3><span class='danger'>It burns!</span></font>", 50)
+		H.custom_pain(SPAN_DANGER("<font size=3>It burns!</font>"), 50)
 		if(do_mob(usr, H, 100))
 			H.remove_implant(S, FALSE)
 			log_and_message_admins("has extracted [S] out of [key_name(H)]")

@@ -169,7 +169,7 @@ var/list/localhost_addresses = list(
 				query_details["new_status"] = "confirmed"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='good'><b>Account successfully linked!</b></span>"
+				feedback_message = SPAN_DANGER("<b>Account successfully linked!</b>")
 			if ("deny")
 				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
 				query_details["new_status"] = "rejected"

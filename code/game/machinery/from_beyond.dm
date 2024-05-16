@@ -69,7 +69,7 @@
 			L.see_invisible = SEE_INVISIBLE_CULT
 			if(prob(15))
 				var/message = pick(whispers)
-				to_chat(L, "<span class='cult'><b>[message]</b></span>")
+				to_chat(L, SPAN_CULT("<b>[message]</b>"))
 				L.hallucination += 50
 				L.adjustBrainLoss(5, 55)
 
@@ -81,7 +81,7 @@
 				playsound(src, 'sound/magic/lightningbolt.ogg', 40, 1)
 
 			if(prob(1))
-				to_chat(L, "<span class='cult'><b>Reality feels less stable...</b></span>")
+				to_chat(L, SPAN_CULT("<b>Reality feels less stable...</b>"))
 				src.visible_message(SPAN_WARNING("\The [src] screeches loudly!"))
 				playsound(src, 'sound/magic/dimensional_rend.ogg', 100, 1)
 				new /obj/effect/gateway/active/rift(src.loc)

@@ -196,7 +196,7 @@
 
 /obj/item/reagent_containers/glass/beaker/vial/antidote
 	name = "hylemnomil-zeta antidote vial"
-	desc = "<span class='cult'>Your lifeline. Defend it with your life.</span>"
+	desc = SPAN_CULT("Your lifeline. Defend it with your life.")
 	volume = 60
 	amount_per_transfer_from_this = 5
 	reagents_to_add = list(/singleton/reagent/antibodies = 60)

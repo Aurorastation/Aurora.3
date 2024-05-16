@@ -32,7 +32,7 @@
 			if(H.dna.unique_enzymes == marked)
 				target = WEAKREF(H)
 				countenance = H.dna.species
-				to_chat(H, "<span class='cult'>You feel a strange presence looming over you.</span>")
+				to_chat(H, SPAN_CULT("You feel a strange presence looming over you."))
 
 
 /obj/item/poppet/attack_self(mob/user as mob)

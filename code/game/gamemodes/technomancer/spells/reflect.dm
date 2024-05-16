@@ -72,8 +72,8 @@
 			var/obj/item/W = damage_source
 			if(attacker)
 				W.attack(attacker)
-				to_chat(attacker, "<span class='danger'>Your [damage_source.name] goes through \the [src] in one location, comes out \
-				on the same side, and hits you!</span>")
+				to_chat(attacker, SPAN_DANGER("Your [damage_source.name] goes through \the [src] in one location, comes out \
+				on the same side, and hits you!"))
 
 				spark(src, 5, GLOB.cardinal)
 				playsound(src, 'sound/weapons/blade.ogg', 50, 1)

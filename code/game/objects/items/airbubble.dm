@@ -220,11 +220,11 @@
 		bag.desc = "Special air bubble designed to protect people inside of it from decompressed environments. Has an integrated cooling unit to preserve a stable temperature inside. Requires a power cell to operate."
 		if(syndie)
 			bag.desc += " This does not seem like a regular color scheme"
-		bag.desc += " <span class='notice'>It appears to be poorly hand folded.</span>"
+		bag.desc += SPAN_NOTICE(" It appears to be poorly hand folded.")
 
 		if(ripped)
 			bag.icon_state = "[icon_state]_man_folded_ripped"
-			bag.desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
+			bag.desc += SPAN_DANGER(" It has hole in it! Maybe you shouldn't use it!")
 		else
 			bag.icon_state = "[icon_state]_man_folded"
 		qdel(src)
@@ -280,7 +280,7 @@
 	playsound(loc, sound_to_play, 100, 1)
 	break_open()
 	shake_animation()
-	desc += " <span class='danger'>It has hole in it! Maybe you shouldn't use it!</span>"
+	desc += SPAN_DANGER(" It has hole in it! Maybe you shouldn't use it!")
 
 // We are out finally, the bubble is ripped. So dump everything out from it. Especially air and user.
 /obj/structure/closet/airbubble/break_open()

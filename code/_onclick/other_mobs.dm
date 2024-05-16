@@ -126,7 +126,7 @@
 				if(prob(stunprob))
 					powerlevel = max(0, powerlevel-3)
 					M.visible_message(SPAN_DANGER("[src] has shocked [M]!"),
-										SPAN_DANGER("<span class='danger'>[src] has shocked you!"))
+										SPAN_DANGER("[src] has shocked you!"))
 
 					M.Weaken(power)
 					M.Stun(power)
@@ -138,12 +138,12 @@
 						M.adjustFireLoss(powerlevel * rand(6,10))
 				else if(prob(40))
 					M.visible_message(SPAN_DANGER("[src] has pounced at [M]!"),
-										SPAN_DANGER("<span class='danger'>[src] has pounced at you!"))
+										SPAN_DANGER("[src] has pounced at you!"))
 
 					M.Weaken(power)
 				else
 					M.visible_message(SPAN_DANGER("[src] has tried to pounce at [M]!"),
-										SPAN_DANGER("<span class='danger'>[src] has tried to pounce at you!"))
+										SPAN_DANGER("[src] has tried to pounce at you!"))
 
 				M.updatehealth()
 			if (I_GRAB) // We feed

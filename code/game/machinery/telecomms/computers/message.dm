@@ -18,7 +18,7 @@
 	//Sparks effect - For emag
 	var/datum/effect_system/sparks/spark_system
 	//Messages - Saves me time if I want to change something.
-	var/noserver = "<span class='alert'>ALERT: No server detected.</span>"
+	var/noserver = SPAN_ALERT("ALERT: No server detected.")
 	var/incorrectkey = SPAN_WARNING("ALERT: Incorrect decryption key!")
 	var/defaultmsg = SPAN_NOTICE("Welcome. Please select an option.")
 	var/rebootmsg = SPAN_WARNING("%$&(£: Critical %$$@ Error // !RestArting! <lOadiNg backUp iNput ouTput> - ?pLeaSe wAit!")
@@ -288,7 +288,7 @@
 
 		if(message_servers.len > 1)
 			linkedServer = input(usr,"Please select a server.", "Select a server.", null) as null|anything in message_servers
-			message = "<span class='alert'>NOTICE: Server selected.</span>"
+			message = SPAN_ALERT("NOTICE: Server selected.")
 		else if(message_servers.len > 0)
 			linkedServer = message_servers[1]
 			message =  SPAN_NOTICE("NOTICE: Only Single Server Detected - Server selected.")

@@ -216,12 +216,12 @@
 	var/brain_result = get_brain_result()
 	switch(brain_result)
 		if(0)
-			brain_result = "<span class='bad'>none, patient is braindead</span>"
+			brain_result = SPAN_BAD("none, patient is braindead")
 		if(-1)
 			brain_result = "<span class='average'>ERROR - Nonstandard biology</span>"
 		else
 			if(brain_result <= 50)
-				brain_result = "<span class='bad'>[brain_result]%</span>"
+				brain_result = SPAN_BAD("[brain_result]%")
 			else if(brain_result <= 80)
 				brain_result = "<span class='average'>[brain_result]%</span>"
 			else

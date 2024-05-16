@@ -578,7 +578,7 @@
 
 	user.visible_message(
 		SPAN_WARNING("\The [user] scans \the [target] with \the [src]."),
-		"<span class='alert'>You scan \the [target] with \the [src].</span>")
+		SPAN_ALERT("You scan \the [target] with \the [src]."))
 
 	if(istype(target,/obj/item/gun/custom_ka))
 		playsound(src, 'sound/machines/ping.ogg', 10, 1)

@@ -299,7 +299,7 @@
 		return
 
 	if(target.stat == DEAD)
-		to_chat(src,"<span class='cult'>Not even a [src.species.name] can speak to the dead.</span>")
+		to_chat(src,SPAN_CULT("Not even a [src.species.name] can speak to the dead."))
 		return
 
 	if (target.isSynthetic())
@@ -311,7 +311,7 @@
 		return
 
 	if (isvaurca(target))
-		to_chat (src, "<span class='cult'>You feel your thoughts pass right through a mind empty of psychic energy.</span>")
+		to_chat (src, SPAN_CULT("You feel your thoughts pass right through a mind empty of psychic energy."))
 		return
 
 	if(!(target in view(client.view, client.eye)))

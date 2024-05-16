@@ -64,7 +64,7 @@
 			return fizzle(user, A)
 		user.say("Sas'so c'arta forbici!")//Only you can stop auto-muting
 		user.visible_message(SPAN_WARNING("[user] disappears in a flash of red light!"), \
-		"<span class='cult'>You feel as if your body gets dragged through Redspace!</span>", \
+		SPAN_CULT("You feel as if your body gets dragged through Redspace!"), \
 		SPAN_WARNING("You hear a sickening crunch and sloshing of viscera."))
 		var/datum/rune/teleport/valid_rune = pick(possible_runes)
 		gibs(get_turf(user))

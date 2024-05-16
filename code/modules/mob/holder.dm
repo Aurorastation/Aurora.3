@@ -156,7 +156,7 @@ var/list/holder_mob_icon_cache = list()
 
 				if(I_HURT)
 					contained.adjustBruteLoss(3)
-					H.visible_message("<span class='alert'>[H] crushes [contained].</span>")
+					H.visible_message(SPAN_ALERT("[H] crushes [contained]."))
 	else
 		to_chat(M, "[contained] is dead.")
 

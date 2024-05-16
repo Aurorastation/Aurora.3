@@ -254,7 +254,7 @@
 		msg += "[get_pronoun("He")] [get_pronoun("is")] covered in some liquid.\n"
 
 	if(on_fire)
-		msg += "<span class='danger'>[get_pronoun("He")] [get_pronoun("is")] on fire!</span>\n"
+		msg += SPAN_DANGER("[get_pronoun("He")] [get_pronoun("is")] on fire!\n")
 
 	//when the player is winded by an admin
 	if(paralysis > 6000)
@@ -337,7 +337,7 @@
 	for(var/obj/item/organ/external/organ in src.organs)
 		for(var/obj/item/O in organ.implants)
 			if(!istype(O,/obj/item/implant) && !istype(O,/obj/item/material/shard/shrapnel))
-				msg += "<span class='danger'>[src] [get_pronoun("has")] \a [O] sticking out of [get_pronoun("his")] [organ.name]!</span>\n"
+				msg += SPAN_DANGER("[src] [get_pronoun("has")] \a [O] sticking out of [get_pronoun("his")] [organ.name]!\n")
 	if(digitalcamo)
 		msg += "[get_pronoun("He")] [get_pronoun("is")] a little difficult to identify.\n"
 

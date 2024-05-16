@@ -108,9 +108,9 @@
 			if(0)
 				damage_desc = "Unknown"
 			if(1 to 5)
-				damage_desc = "<span class='good'>negligible</span>"
+				damage_desc = SPAN_DANGER("negligible")
 			if(5 to 15)
-				damage_desc = "<span class='good'>light</span>"
+				damage_desc = SPAN_DANGER("light")
 			if(15 to 30)
 				damage_desc = "<font color='orange'>moderate</font>"
 			if(30 to 1000)

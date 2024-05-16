@@ -23,7 +23,8 @@
 /obj/item/gun/projectile/shotgun/improvised/special_check(var/mob/living/carbon/human/M)
 	if(prob(fail_chance))
 		M.visible_message(SPAN_DANGER("[M]'s weapon blows up, shattering into pieces!"),
-								SPAN_DANGER("<span class='danger'>[src] blows up in your face!"), "You hear a loud bang!")
+								SPAN_DANGER("[src] blows up in your face!"),
+								"You hear a loud bang!")
 
 		M.take_organ_damage(0,30)
 		M.drop_item()
@@ -41,7 +42,7 @@
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
 			user.visible_message(SPAN_DANGER("The shotgun goes off!"),
-									SPAN_DANGER("<span class='danger'>The shotgun goes off in your face!"))
+									SPAN_DANGER("The shotgun goes off in your face!"))
 
 			return
 		if(attacking_item.use_tool(src, user, 30, volume = 50))

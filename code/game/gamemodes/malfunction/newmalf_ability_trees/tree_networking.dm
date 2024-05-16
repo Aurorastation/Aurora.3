@@ -181,7 +181,7 @@
 			//	log_ability_use(user, "advanced encryption hack (FAIL - title: [reporttitle])")
 			//	return
 			log_ability_use(user, "advanced encryption hack (SUCCESS - title: [reporttitle])")
-			to_world("<span class='alert'>New [SSatlas.current_map.company_name] Update available at all communication consoles.</span>")
+			to_world(SPAN_ALERT("New [SSatlas.current_map.company_name] Update available at all communication consoles."))
 			sound_to(world, ('sound/AI/commandreport.ogg'))
 			post_comm_message(reporttitle, reportbody)
 
