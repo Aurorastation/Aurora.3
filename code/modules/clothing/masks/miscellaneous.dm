@@ -204,3 +204,10 @@
 	down_gas_transfer_coefficient = 1
 	down_body_parts_covered = null
 	adjustable = TRUE
+	icon_auto_adapt = TRUE
+	sprite_sheets = list()
+
+/obj/item/clothing/mask/snood/Initialize()
+	if(icon_auto_adapt)
+		build_and_apply_species_adaption()
+	. = ..()
