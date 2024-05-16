@@ -26,6 +26,9 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aaf" = (
@@ -38,7 +41,7 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow{
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
@@ -229,7 +232,7 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow{
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
 	dir = 8
 	},
 /turf/simulated/floor/plating,
@@ -289,6 +292,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
+"acf" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "acg" = (
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/exoplanet/basalt/tret,
@@ -373,6 +389,19 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
+"acw" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "acx" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 2
@@ -411,6 +440,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
+"acK" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_smelting)
 "acO" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -425,6 +462,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "acY" = (
@@ -726,7 +768,7 @@
 "aed" = (
 /obj/effect/step_trigger/teleporter,
 /turf/space/transit/north,
-/area/tret_industrial/outside/surface)
+/area/space)
 "aef" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 8
@@ -869,6 +911,10 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "aex" = (
@@ -1185,6 +1231,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
+"age" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "agi" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -1883,6 +1945,7 @@
 "ajM" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "ajR" = (
@@ -1906,6 +1969,10 @@
 /area/shuttle/tret_industrial/main)
 "ajW" = (
 /turf/simulated/lava/tret,
+/area/tret_industrial/outside/surface)
+"ajY" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
 "akn" = (
 /turf/simulated/mineral/lava/tret,
@@ -2028,6 +2095,20 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engi_storage)
+"alL" = (
+/obj/machinery/door/airlock/external{
+	dir = 4
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "alM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/freezer/kois/rations,
@@ -2075,6 +2156,26 @@
 "alU" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
+	},
+/obj/structure/closet/toolcloset,
+/obj/item/clothing/suit/storage/hazardvest/green,
+/obj/random/tool{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/random/tool{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/random/tech_supply,
+/obj/random/tech_supply,
+/obj/random/tool{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/random/tool{
+	pixel_x = 1;
+	pixel_y = 4
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
@@ -2161,7 +2262,7 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
 "ank" = (
-/obj/structure/closet/crate/freezer/kois/rations,
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
 "ano" = (
@@ -2525,6 +2626,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "ara" = (
@@ -2694,6 +2798,14 @@
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging,
 /turf/simulated/lava/tret,
 /area/tret_industrial/outside/surface)
+"asG" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "asH" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -2731,6 +2843,9 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "atq" = (
@@ -2972,6 +3087,11 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"awl" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_smelting)
 "awo" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -3479,10 +3599,34 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/medical)
+"aBq" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_smelting)
 "aBx" = (
 /obj/machinery/vending/hydronutrients/xenobotany,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
+"aBH" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "aBI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -3573,6 +3717,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "aCB" = (
@@ -3612,6 +3761,11 @@
 	name = "airlock_tret_industrial_outpost_east_3";
 	req_one_access = null;
 	cycle_to_external_air = 1
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
@@ -3655,6 +3809,36 @@
 /obj/item/storage/backpack/cloak/klax,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
+"aCX" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_comms)
+"aDe" = (
+/obj/machinery/door/airlock/external,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_comms)
 "aDp" = (
 /obj/structure/table/reinforced/steel,
 /obj/item/modular_computer/laptop/preset/civilian{
@@ -3758,6 +3942,10 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aDG" = (
@@ -3862,6 +4050,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "aEL" = (
@@ -4095,6 +4291,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_east)
+"aGM" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "aGW" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/portable_atmospherics/canister/empty,
@@ -4103,6 +4307,11 @@
 "aHa" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 5
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/shuttle/tret_industrial/main)
@@ -4136,6 +4345,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = 28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aHA" = (
@@ -4167,8 +4381,26 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"aHP" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "aHW" = (
 /obj/structure/table/steel,
 /obj/effect/floor_decal/industrial/warning/corner{
@@ -4189,8 +4421,27 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
+"aIf" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "aIj" = (
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
@@ -4323,6 +4574,16 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aJr" = (
@@ -4373,9 +4634,16 @@
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
 "aJU" = (
-/obj/effect/shuttle_landmark/tret_industrial/transit,
-/turf/space/transit/north,
-/area/tret_industrial/outside/surface)
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_smelting)
 "aJV" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
@@ -4457,6 +4725,11 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
+	},
+/obj/machinery/access_button{
+	pixel_x = 27;
+	pixel_y = 29;
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
@@ -4563,6 +4836,19 @@
 /obj/structure/table/steel,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/engineering)
+"aMm" = (
+/obj/machinery/door/airlock/external{
+	dir = 2
+	},
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 20;
+	pixel_y = -28;
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_smelting)
 "aMr" = (
 /obj/effect/map_effect/marker/large_tank{
 	master_tag = "tret_co2";
@@ -4882,6 +5168,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/botany)
 "aPL" = (
@@ -4938,6 +5225,10 @@
 /obj/item/storage/toolbox/mechanical,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/engineering)
+"aQN" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_smelting)
 "aQO" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
@@ -5042,6 +5333,11 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 10
 	},
+/obj/machinery/access_button{
+	pixel_x = 20;
+	pixel_y = 28;
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "aRP" = (
@@ -5068,6 +5364,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"aSb" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_3";
+	name = "airlock_tret_industrial_outpost_west_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "aSg" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/gunmetal,
@@ -5262,6 +5575,14 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
+"aTJ" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_smelting)
 "aTQ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cable{
@@ -5280,6 +5601,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "aUf" = (
@@ -5339,6 +5668,12 @@
 /obj/item/tank/hydrogen,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
+"aUE" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 9
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/tret_industrial/main)
 "aUF" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 4
@@ -5471,6 +5806,21 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/canteen)
+"aWq" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "aWB" = (
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -5530,6 +5880,23 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
+"aWR" = (
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_west_1";
+	name = "airlock_tret_industrial_outpost_west_1";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "aWS" = (
 /obj/structure/closet/toolcloset,
 /obj/item/stack/cable_coil,
@@ -5742,8 +6109,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "aZH" = (
+/obj/effect/shuttle_landmark/tret_industrial/transit,
 /turf/space/transit/north,
-/area/tret_industrial/outside/surface)
+/area/space)
 "aZP" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -5807,6 +6175,12 @@
 /obj/effect/shuttle_landmark/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bkk" = (
@@ -5816,6 +6190,7 @@
 "bpP" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
 "brN" = (
@@ -5842,6 +6217,11 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bul" = (
@@ -5860,9 +6240,6 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 6
 	},
 /obj/structure/cable{
 	icon_state = "2-8"
@@ -5883,6 +6260,14 @@
 "bGx" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bGE" = (
@@ -5902,6 +6287,12 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bJS" = (
@@ -5912,6 +6303,7 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "bMf" = (
@@ -5930,6 +6322,16 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
+"bMY" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "bPF" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil{
 	color = "#777777"
@@ -5950,6 +6352,9 @@
 	name = "airlock_tret_industrial_outpost_east_1";
 	req_one_access = null;
 	cycle_to_external_air = 1
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
@@ -6065,6 +6470,9 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "dey" = (
@@ -6137,6 +6545,16 @@
 /area/tret_industrial/outside/surface)
 "dMQ" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "dXt" = (
@@ -6172,10 +6590,27 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "efU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_smelting)
+"egZ" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 1
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "eiu" = (
@@ -6245,19 +6680,22 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "eNY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 9
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "eUm" = (
@@ -6298,6 +6736,7 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_comms)
 "fmr" = (
@@ -6358,6 +6797,12 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 12;
+	pixel_y = -28;
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "fQw" = (
@@ -6375,11 +6820,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/atmospherics/pipe/simple/hidden/yellow,
 /obj/machinery/access_button{
 	pixel_x = 28;
 	dir = 2
 	},
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "fRW" = (
@@ -6402,6 +6847,7 @@
 "fXB" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "fZa" = (
@@ -6465,6 +6911,9 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "gkr" = (
@@ -6503,6 +6952,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
 "gqY" = (
@@ -6593,6 +7050,12 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "gXo" = (
@@ -6630,6 +7093,14 @@
 /obj/machinery/atmospherics/binary/pump/fuel{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/generic{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/effect/decal/cleanable/generic{
+	pixel_x = 14;
+	pixel_y = -9
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
 "hbq" = (
@@ -6656,7 +7127,6 @@
 /area/tret_industrial/inside/crew)
 "hiz" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
@@ -6669,6 +7139,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "hnt" = (
@@ -6678,9 +7153,6 @@
 "hnG" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 9
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
@@ -6700,6 +7172,14 @@
 "huL" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
 "hyJ" = (
@@ -6715,6 +7195,14 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
+"hDV" = (
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/effect/decal/cleanable/generic{
+	pixel_y = -5;
+	pixel_x = 2
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/smelting_east)
 "hMu" = (
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
@@ -6760,6 +7248,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "iee" = (
@@ -6808,6 +7301,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "iGo" = (
@@ -6978,6 +7479,7 @@
 "jBP" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /obj/item/hullbeacon/green,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
 "jFL" = (
@@ -7006,6 +7508,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "jNu" = (
@@ -7027,6 +7534,12 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 29;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "jOS" = (
@@ -7070,6 +7583,9 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
+"jUr" = (
+/turf/space/transit/north,
+/area/space)
 "jWf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/flag/klax{
@@ -7095,6 +7611,14 @@
 "krp" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_smelting)
 "kvB" = (
@@ -7157,6 +7681,16 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
 	},
+/obj/machinery/embedded_controller/radio/airlock/docking_port{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "kYo" = (
@@ -7167,6 +7701,10 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -7179,6 +7717,11 @@
 	name = "airlock_tret_industrial_outpost_west_1";
 	req_one_access = null;
 	cycle_to_external_air = 1
+	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -7194,6 +7737,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
+"leC" = (
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_3";
+	name = "airlock_tret_industrial_outpost_east_3";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/random/dirt_75,
+/obj/machinery/airlock_sensor{
+	pixel_x = -20;
+	dir = 4;
+	pixel_y = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_botany)
 "lfy" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7204,6 +7764,11 @@
 	dir = 8
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "lli" = (
@@ -7304,6 +7869,14 @@
 "mgd" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_smelting)
 "mid" = (
@@ -7331,6 +7904,12 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "mxy" = (
@@ -7343,6 +7922,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/inside/botany)
+"mCP" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_botany)
 "mGh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -7431,9 +8016,7 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/engi_storage)
 "nkB" = (
-/obj/machinery/atmospherics/pipe/manifold/hidden/green{
-	dir = 1
-	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/green,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
 "nmL" = (
@@ -7443,6 +8026,7 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "nno" = (
@@ -7455,15 +8039,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
-"nBS" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/fuel{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/green{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/tret_industrial/main)
 "nDM" = (
 /obj/structure/girder/displaced,
 /turf/simulated/floor/exoplanet/plating/tret,
@@ -7477,7 +8052,7 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
-/obj/machinery/atmospherics/pipe/manifold/hidden/yellow,
+/obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/storage_smelting)
 "nGj" = (
@@ -7568,9 +8143,11 @@
 /area/tret_industrial/inside/hallway_medical)
 "nTK" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/atmospherics/pipe/manifold/hidden/green,
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
@@ -7593,6 +8170,7 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "ojt" = (
@@ -7604,6 +8182,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
+"okb" = (
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
+/turf/simulated/wall/r_wall,
+/area/tret_industrial/inside/hallway_docks)
 "ooF" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/exoplanet/plating/tret,
@@ -7671,6 +8253,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "oYA" = (
@@ -7718,6 +8305,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 12;
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "pqO" = (
@@ -7741,6 +8333,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"pzf" = (
+/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/machinery/atmospherics/pipe/simple/hidden/cyan{
+	dir = 9
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/canteen)
 "pJZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -7753,6 +8352,12 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "pLt" = (
@@ -7777,6 +8382,9 @@
 "pTh" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
 "pUL" = (
@@ -7787,6 +8395,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 26
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
 "pVO" = (
@@ -7806,6 +8422,16 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 8;
+	pixel_y = 6;
+	pixel_x = 20
+	},
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -6
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "qgR" = (
@@ -7822,8 +8448,18 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = 28
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
+"qhU" = (
+/obj/structure/reagent_dispensers/watertank,
+/turf/simulated/floor/exoplanet/basalt/tret,
+/area/tret_industrial/inside/botany)
 "qlt" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -7861,6 +8497,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 26
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 1
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
 "qwY" = (
@@ -7889,8 +8533,20 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"qDq" = (
+/obj/effect/floor_decal/corner/yellow{
+	dir = 8
+	},
+/obj/structure/closet/crate/freezer/kois/rations,
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/canteen)
 "qGV" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/botany)
@@ -7919,6 +8575,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -26
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_comms)
 "qPl" = (
@@ -7934,6 +8598,7 @@
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/random/dirt_75,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
 "qQk" = (
@@ -7989,6 +8654,11 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = -6
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/atmos)
 "rfR" = (
@@ -7997,6 +8667,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/shuttle/tret_industrial/main)
 "rmF" = (
@@ -8005,6 +8680,9 @@
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = null
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
@@ -8041,6 +8719,12 @@
 /obj/effect/shuttle_landmark/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	pixel_y = 12;
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "rzF" = (
@@ -8189,6 +8873,9 @@
 	},
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply,
+/obj/machinery/atmospherics/pipe/simple/hidden/green{
+	dir = 6
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "scG" = (
@@ -8250,6 +8937,10 @@
 /obj/machinery/door/airlock/external{
 	dir = 2
 	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
@@ -8275,6 +8966,12 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "suH" = (
@@ -8351,6 +9048,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "tmj" = (
@@ -8586,6 +9288,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = 28;
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "vAt" = (
@@ -8607,6 +9314,19 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "vMH" = (
@@ -8660,6 +9380,11 @@
 	req_one_access = null;
 	cycle_to_external_air = 1
 	},
+/obj/machinery/access_button{
+	pixel_x = -28;
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/manifold4w/hidden/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "vXE" = (
@@ -8680,6 +9405,14 @@
 "waQ" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "wbs" = (
@@ -8688,6 +9421,10 @@
 	},
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/access_button{
+	pixel_x = 28;
+	dir = 2
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "wch" = (
@@ -8717,6 +9454,17 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/embedded_controller/radio/airlock/airlock_controller{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = -6
+	},
+/obj/machinery/airlock_sensor{
+	dir = 2;
+	pixel_y = 28;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
 "wDc" = (
@@ -8730,6 +9478,11 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 1
+	},
+/obj/machinery/access_button{
+	pixel_x = 28;
+	pixel_y = 32;
+	dir = 2
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
@@ -8763,6 +9516,11 @@
 	},
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_1,
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -20;
+	pixel_y = -28;
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "wGD" = (
@@ -8773,6 +9531,11 @@
 /obj/structure/cable/yellow{
 	icon_state = "4-8"
 	},
+/obj/random/tool{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/random/tech_supply,
 /obj/random/tool{
 	pixel_x = 1;
 	pixel_y = 4
@@ -8844,6 +9607,11 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_x = -12;
+	pixel_y = -28;
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
 "xeq" = (
@@ -8866,6 +9634,7 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "xoH" = (
@@ -8876,6 +9645,14 @@
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	pixel_x = 20;
+	dir = 8;
+	pixel_y = -26
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume{
+	dir = 4
+	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/engineering)
 "xuD" = (
@@ -8906,6 +9683,17 @@
 "xOB" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
+"xQF" = (
+/obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -20;
+	pixel_x = 6
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_docks)
 "xRJ" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/comms)
@@ -8934,6 +9722,23 @@
 /obj/item/material/shard,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"yez" = (
+/obj/random/dirt_75,
+/obj/effect/map_effect/marker/airlock{
+	master_tag = "airlock_tret_industrial_outpost_east_2";
+	name = "airlock_tret_industrial_outpost_east_2";
+	req_one_access = null;
+	cycle_to_external_air = 1
+	},
+/obj/effect/map_effect/marker_helper/airlock/exterior,
+/obj/machinery/airlock_sensor{
+	dir = 1;
+	pixel_y = -19;
+	pixel_x = -39
+	},
+/obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
+/turf/simulated/floor/exoplanet/plating/tret,
+/area/tret_industrial/inside/hallway_comms)
 
 (1,1,1) = {"
 aed
@@ -9194,34 +9999,34 @@ amt
 "}
 (2,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -9451,34 +10256,34 @@ amt
 "}
 (3,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -9708,34 +10513,34 @@ amt
 "}
 (4,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -9965,34 +10770,34 @@ amt
 "}
 (5,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -10222,34 +11027,34 @@ amt
 "}
 (6,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -10479,34 +11284,34 @@ amt
 "}
 (7,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -10736,34 +11541,34 @@ amt
 "}
 (8,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -10993,34 +11798,34 @@ amt
 "}
 (9,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -11250,34 +12055,34 @@ amt
 "}
 (10,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -11507,34 +12312,34 @@ amt
 "}
 (11,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -11764,34 +12569,34 @@ amt
 "}
 (12,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -12021,34 +12826,34 @@ amt
 "}
 (13,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -12278,34 +13083,34 @@ amt
 "}
 (14,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -12535,34 +13340,34 @@ amt
 "}
 (15,1,1) = {"
 aed
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aJU
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -12792,34 +13597,34 @@ amt
 "}
 (16,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -13049,34 +13854,34 @@ amt
 "}
 (17,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -13306,34 +14111,34 @@ amt
 "}
 (18,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -13563,34 +14368,34 @@ amt
 "}
 (19,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -13820,34 +14625,34 @@ amt
 "}
 (20,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -14077,34 +14882,34 @@ amt
 "}
 (21,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -14334,34 +15139,34 @@ amt
 "}
 (22,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -14591,34 +15396,34 @@ amt
 "}
 (23,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -14848,34 +15653,34 @@ amt
 "}
 (24,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -15105,34 +15910,34 @@ amt
 "}
 (25,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -15362,34 +16167,34 @@ amt
 "}
 (26,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -15619,34 +16424,34 @@ amt
 "}
 (27,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -15876,34 +16681,34 @@ amt
 "}
 (28,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -16133,34 +16938,34 @@ amt
 "}
 (29,1,1) = {"
 aed
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
-aZH
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
+jUr
 aed
 amt
 amt
@@ -29112,7 +29917,7 @@ ajw
 fwF
 pLo
 stO
-fwF
+okb
 ajw
 arD
 arD
@@ -29368,8 +30173,8 @@ arD
 arD
 fwF
 waQ
-waQ
-fwF
+asG
+okb
 huL
 arD
 acg
@@ -29624,10 +30429,10 @@ arD
 arD
 arD
 fwF
+aBH
 aaa
-aaa
-fwF
-huL
+okb
+aHP
 arD
 arD
 uIp
@@ -31934,7 +32739,7 @@ rPv
 vtt
 rPv
 bhb
-bGx
+aGM
 uKc
 bdX
 wav
@@ -32192,7 +32997,7 @@ vtt
 rPv
 mvH
 bGx
-uKc
+bMY
 kYo
 aAt
 abw
@@ -32447,16 +33252,16 @@ rPv
 vtt
 vtt
 rPv
-fwF
-fwF
-fwF
+okb
+okb
+okb
 fwF
 aAt
 abw
 aAt
-fwF
-fwF
-fwF
+okb
+okb
+okb
 mIJ
 rPv
 rPv
@@ -32705,14 +33510,14 @@ rPv
 vtt
 rPv
 aMD
-bpP
-fwF
+xQF
+okb
 aQa
 aAt
 abw
 aAt
-fwF
-pTh
+okb
+acw
 aMD
 mIJ
 mIJ
@@ -32963,12 +33768,12 @@ mIJ
 mIJ
 arD
 bpP
-fwF
+okb
 aQa
 aAt
 abw
 aAt
-fwF
+okb
 pTh
 arD
 uIp
@@ -35276,7 +36081,7 @@ arD
 arD
 aEN
 fwF
-kZK
+aWR
 kZK
 fwF
 afP
@@ -35285,7 +36090,7 @@ btn
 rHp
 xnV
 vUX
-pUL
+aIf
 arD
 uIp
 uIp
@@ -35539,9 +36344,9 @@ fwF
 xLL
 aqU
 uVh
-rHp
-xnV
-vUX
+aSb
+age
+acf
 pUL
 awc
 uIp
@@ -36826,8 +37631,8 @@ axk
 aCq
 aER
 aNc
-efU
-mgd
+awl
+acK
 arD
 uIp
 uIp
@@ -37083,7 +37888,7 @@ ayN
 aCq
 acp
 aNc
-lsW
+aQN
 mgd
 aMD
 mIJ
@@ -37340,9 +38145,9 @@ ayN
 kvB
 acr
 lsW
-lsW
-lsW
-lsW
+aQN
+aQN
+aQN
 rPv
 vtt
 oDv
@@ -37827,7 +38632,7 @@ mnV
 cXx
 rWt
 eNY
-sUx
+vBj
 nkB
 hkA
 aON
@@ -37854,8 +38659,8 @@ adc
 add
 ade
 aRO
-arO
-ajM
+egZ
+aJU
 eLL
 mIJ
 rPv
@@ -38083,18 +38888,18 @@ inI
 inI
 inI
 rmF
-nBS
+hnG
 gqY
 aGk
 inI
 aHL
 inI
 inI
-lsW
+aQN
 lsW
 ljD
-ljD
-wFU
+aBq
+aMm
 lrl
 aFu
 aFu
@@ -38339,7 +39144,7 @@ aJi
 inI
 dMQ
 snM
-vBj
+aUE
 hnG
 gqY
 inI
@@ -38604,7 +39409,7 @@ cWG
 khD
 oQV
 uIp
-hMu
+ajY
 krp
 mPu
 dkD
@@ -38861,8 +39666,8 @@ gcj
 adj
 oQV
 uIp
-hMu
-krp
+ajY
+aTJ
 mPu
 lli
 gQH
@@ -39122,7 +39927,7 @@ awc
 mPu
 mPu
 vQp
-fXr
+hDV
 rDZ
 scQ
 gQH
@@ -45272,7 +46077,7 @@ arD
 arD
 lSw
 lSw
-flS
+yez
 aIb
 szG
 aAy
@@ -45530,7 +46335,7 @@ lfy
 lfy
 arD
 flS
-aIb
+aDe
 odS
 odS
 wKu
@@ -45788,7 +46593,7 @@ aEN
 akn
 akn
 nLp
-iCP
+aCX
 iCP
 nLp
 iiL
@@ -48869,7 +49674,7 @@ aBn
 aBn
 arD
 arD
-nTO
+pzf
 abu
 udQ
 udQ
@@ -48879,7 +49684,7 @@ aJK
 aUK
 jUl
 cYt
-gXo
+qDq
 gGH
 aWO
 utB
@@ -52724,7 +53529,7 @@ akn
 akn
 vNh
 mid
-vuv
+qhU
 xyu
 fDP
 xyu
@@ -52993,7 +53798,7 @@ hct
 akn
 akn
 gEM
-aCQ
+aWq
 nPf
 nmL
 cZg
@@ -53251,7 +54056,7 @@ akn
 akn
 gEM
 gEM
-fQl
+alL
 fQl
 gEM
 gEM
@@ -53507,8 +54312,8 @@ hct
 akn
 akn
 akn
-qPU
-eUm
+leC
+mCP
 mSA
 aEN
 arD
@@ -53765,7 +54570,7 @@ akn
 akn
 akn
 qPU
-eUm
+mCP
 gdv
 arD
 arD
