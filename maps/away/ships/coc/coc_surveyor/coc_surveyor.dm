@@ -52,35 +52,6 @@
 	designation = "[pick("Truffle Pig", "Sapphire", "Unto The Unknown", "Unto The Somewhat Known", "Carbon Hound", "Minerals For Days", "The Not-So-Final Frontier", "Phoron Hunter")]"
 	..()
 
-/obj/effect/shuttle_landmark/coc_survey_ship
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
-
-/obj/effect/shuttle_landmark/coc_survey_ship/nav1
-	name = "Port"
-	landmark_tag = "nav_surveyor_1"
-
-/obj/effect/shuttle_landmark/coc_survey_ship/nav2
-	name = "Starboard"
-	landmark_tag = "nav_surveyor_2"
-
-/obj/effect/shuttle_landmark/coc_survey_ship/nav3
-	name = "Aft"
-	landmark_tag = "nav_surveyor_3"
-
-/obj/effect/shuttle_landmark/coc_survey_ship/nav4
-	name = "Fore"
-	landmark_tag = "nav_surveyor_4"
-
-/obj/effect/shuttle_landmark/coc_survey_ship/port_dock
-	name = "Port Docking Bay"
-	landmark_tag = "nav_surveyor_portdock"
-	docking_controller = "airlock_coc_surveyor_port"
-
-/obj/effect/shuttle_landmark/coc_survey_ship/starboard_dock
-	name = "Starboard Docking Bay"
-	landmark_tag = "nav_surveyor_starboarddock"
-	docking_controller = "airlock_coc_surveyor_starboard"
 
 /obj/effect/overmap/visitable/ship/landable/coc_survey_shuttle
 	name = "COC Survey Shuttle"
@@ -113,15 +84,3 @@
 	dock_target = "surveyor_shuttle"
 	defer_initialisation = TRUE
 
-/obj/effect/shuttle_landmark/coc_survey_shuttle/hangar
-	name = "COC Survey Ship - Hangar"
-	landmark_tag = "nav_hangar_survey"
-	base_area = /area/coc_survey_ship/hangar
-	base_turf = /turf/simulated/floor/plating
-	docking_controller = "surveyor_shuttle_dock"
-	movable_flags = MOVABLE_FLAG_EFFECTMOVE
-
-/obj/effect/shuttle_landmark/coc_survey_shuttle/transit
-	name = "In transit"
-	landmark_tag = "nav_transit_survey_shuttle"
-	base_turf = /turf/space/transit/north

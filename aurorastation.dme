@@ -3835,6 +3835,7 @@
 #include "maps\away\ships\coc\coc_surveyor\coc_surveyor.dm"
 #include "maps\away\ships\coc\coc_surveyor\coc_surveyor_areas.dm"
 #include "maps\away\ships\coc\coc_surveyor\coc_surveyor_ghostroles.dm"
+#include "maps\away\ships\coc\coc_surveyor\coc_surveyor_landmarks.dm"
 #include "maps\away\ships\coc\gadpathur_patrol\gadpathur_patrol.dm"
 #include "maps\away\ships\coc\gadpathur_patrol\gadpathur_patrol_areas.dm"
 #include "maps\away\ships\coc\gadpathur_patrol\gadpathur_patrol_doors.dm"

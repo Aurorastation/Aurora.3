@@ -38,8 +38,8 @@
 	name = "Coalition Survey Ship - Kitchen"
 	icon_state = "kitchen"
 
-/area/coc_survey_ship/hangar
-	name = "Coalition Survey Ship - Hangar"
+/area/coc_survey_ship/aft_dock
+	name = "Coalition Survey Ship - Aft Dock"
 	icon_state = "exit"
 
 /area/coc_survey_ship/miningeva
@@ -54,8 +54,8 @@
 	name = "Coalition Survey Ship - Captain's Office"
 	icon_state = "captain"
 
-/area/coc_survey_ship/blaster
-	name = "Coalition Survey Ship - Mining Blaster"
+/area/coc_survey_ship/magazine
+	name = "Coalition Survey Ship - Ammo Magazine"
 	icon_state = "Tactical"
 
 /area/coc_survey_ship/grauwolf
@@ -82,6 +82,9 @@
 	name = "Coalition Survey Ship - Infirmary"
 	icon_state = "medbay"
 
+/area/coc_survey_ship/fore_hallway
+	name = "Coalition Survey Ship - Fore Hallway"
+	icon_state = "blue2"
 
 //Shuttle
 
