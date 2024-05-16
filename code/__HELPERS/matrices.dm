@@ -124,11 +124,12 @@
 #undef LUMB
 
 /**
-  * # Matrix math
-  * Given 2 matrices mxn and nxp (row major) it multiplies their members and return an mxp matrix
-  *
-  * Do make sure your lists actually have this many elements
-  */
+ *
+ * # Matrix math
+ * Given 2 matrices mxn and nxp (row major) it multiplies their members and return an mxp matrix
+ *
+ * Do make sure your lists actually have this many elements
+ */
 /proc/multiply_matrices(list/A, list/B, m, n, p)
 	var/list/result = list()
 	result.len = m * p
