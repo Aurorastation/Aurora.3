@@ -732,6 +732,9 @@
 	if(status_flags & GODMODE)
 		return 0
 
+	if(recently_slept)
+		recently_slept -= 1
+
 	//SSD check, if a logged player is awake put them back to sleep!
 	if(species.show_ssd && (!client && !vr_mob) && !teleop && ((world.realtime - disconnect_time) >= 5 MINUTES)) //only sleep after 5 minutes, should help those with intermittent internet connections
 		Sleeping(2)
@@ -758,7 +761,8 @@
 
 		if(paralysis || sleeping || InStasis())
 			blinded = TRUE
-			if(sleeping)
+			if(sleeping && !stat)
+				species.sleep_msg(src)
 				set_stat(UNCONSCIOUS)
 				if(!sleeping_msg_debounce)
 					sleeping_msg_debounce = TRUE
@@ -778,10 +782,13 @@
 			if(mind)
 				//Are they SSD? If so we'll keep them asleep but work off some of that sleep var in case of stoxin or similar.
 				if(client || sleeping > 3 || istype(bg))
-					AdjustSleeping(-1)
-			if(prob(2) && health && !failed_last_breath && !isSynthetic() && !InStasis())
+					if(sleeping_indefinitely)
+						sleep_buffer++
+					else
+						AdjustSleeping(-1)
+			if(prob(2) && health && !failed_last_breath && !InStasis())
 				if(!paralysis)
-					emote("snore")
+					emote(species.snore_key)
 
 		//CONSCIOUS
 		else if(!InStasis())

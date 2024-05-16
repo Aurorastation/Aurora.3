@@ -43,6 +43,7 @@
 	key ="chirp"
 	emote_message_3p = "USER chirps!"
 	emote_sound = 'sound/misc/nymphchirp.ogg'
+	conscious = 0
 
 /singleton/emote/audible/multichirp
 	key ="mchirp"
@@ -65,6 +66,7 @@
 	key = "chitter"
 	emote_message_3p = "USER chitters."
 	emote_sound = list('sound/voice/chitter1.ogg', 'sound/voice/chitter2.ogg', 'sound/voice/chitter3.ogg')
+	conscious = 0
 
 /singleton/emote/audible/click
 	key = "click"
