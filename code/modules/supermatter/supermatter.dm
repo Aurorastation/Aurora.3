@@ -334,7 +334,7 @@
 	else if (damage < emergency_point)
 		filters = null
 
-	SSradiation.radiate(src, power * radiation_release_modifier) //Better close those shutters!
+	SSradiation.radiate(src, power * RADIATION_RELEASE_MODIFIER) //Better close those shutters!
 	power -= (power/DECAY_FACTOR)**3		//energy losses due to radiation
 
 	return 1
