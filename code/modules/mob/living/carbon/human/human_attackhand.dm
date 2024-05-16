@@ -630,10 +630,10 @@
 		return 0
 
 	if(user == src)
-		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!"), 
+		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [user.get_pronoun("his")] [organ.name]!"),
 								SPAN_NOTICE("You start applying pressure to your [organ.name]!"))
 	else
-		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [src]'s [organ.name]!"), 
+		user.visible_message(SPAN_NOTICE("\The [user] starts applying pressure to [src]'s [organ.name]!"),
 								SPAN_NOTICE("You start applying pressure to [src]'s [organ.name]!"))
 	spawn(0)
 		organ.applied_pressure = user
@@ -647,7 +647,7 @@
 			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [user.get_pronoun("his")] [organ.name]!"),
 									SPAN_NOTICE("You stop applying pressure to your [organ.name]!"))
 		else
-			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [src]'s [organ.name]!"), 
+			user.visible_message(SPAN_NOTICE("\The [user] stops applying pressure to [src]'s [organ.name]!"),
 									SPAN_NOTICE("You stop applying pressure to [src]'s [organ.name]!"))
 
 	return 1

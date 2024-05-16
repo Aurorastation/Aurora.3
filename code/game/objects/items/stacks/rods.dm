@@ -73,7 +73,7 @@ var/global/list/datum/stack_recipe/rod_recipes = list(
 			var/obj/item/stack/material/steel/new_item = new(usr.loc)
 			new_item.add_to_stacks(usr)
 			for (var/mob/M in viewers(src))
-				M.show_message(SPAN_NOTICE("[src] is shaped into metal by [user.name] with the weldingtool."), 3, 
+				M.show_message(SPAN_NOTICE("[src] is shaped into metal by [user.name] with the weldingtool."), 3,
 								SPAN_NOTICE("You hear welding."), 2)
 
 			var/obj/item/stack/rods/R = src

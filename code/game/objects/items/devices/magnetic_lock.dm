@@ -286,7 +286,7 @@
 	if (!check_target(newtarget, user)) return
 
 	user.visible_message(SPAN_NOTICE("[user] starts mounting [src] onto [newtarget]."),
-							SPAN_NOTICE("You begin mounting [src] onto [newtarget].")) 
+							SPAN_NOTICE("You begin mounting [src] onto [newtarget]."))
 
 	if (do_after(user, 3.5 SECONDS))
 
