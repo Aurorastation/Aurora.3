@@ -188,6 +188,7 @@
 /obj/item/reagent_containers/food/snacks/meat/moghes
 	name = "moghresian meat"
 	desc = "A slab of meat from an animal native to Moghes."
+	icon_state = "moghesmeat"
 
 /obj/item/reagent_containers/food/snacks/meat/rat
 	name = "rat meat"
