@@ -14,6 +14,7 @@
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/coc_survey_shuttle)
 
 	unit_test_groups = list(1)
+	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
 
 /singleton/submap_archetype/coc_surveyor
 	map = "COC Survey Ship"

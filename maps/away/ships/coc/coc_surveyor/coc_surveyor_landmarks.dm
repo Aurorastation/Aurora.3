@@ -12,7 +12,6 @@
 	name = "Shuttle Dock"
 	landmark_tag = "coc_surveyor_shuttle"
 	master_tag = "airlock_coc_survey_shuttle_dock"
-// ----
 
 /obj/effect/shuttle_landmark/coc_survey_shuttle/transit
 	name = "In transit"
