@@ -180,7 +180,7 @@
 		if (!has_valid_aug && alien == IS_UNATHI) //unathi are poisoned by alcohol as well
 			M.adjustToxLoss(12 * removed * (strength / 100))
 			if(!M.lastpuke)
-				to_chat(M, SPAN_WARNING("Your gizzard lurches as the alcohol burns its way down your gullet!"))
+				to_chat(M, SPAN_WARNING("Your gizzard lurches as the alcohol burns its way down your gullet!"))//Make it clear that you should not be drinking this.
 			var/mob/living/carbon/human/H = M
 			H.delayed_vomit()
 
@@ -274,7 +274,7 @@
 		if (adj_temp < 0 && M.bodytemperature > targ_temp)
 			M.bodytemperature = min(targ_temp, M.bodytemperature - (adj_temp * TEMPERATURE_DAMAGE_COEFFICIENT))
 	else
-		strength = 0
+		strength = 0 //Only Unathi are intoxicated by butanol.
 		..()
 
 /singleton/reagent/hydrazine

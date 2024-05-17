@@ -100,8 +100,8 @@
 #define INTOX_JUDGEIMP   0.03
 #define INTOX_MUSCLEIMP  0.08
 #define INTOX_REACTION   0.10
-#define INTOX_VOMIT		 0.12
-#define INTOX_BALANCE    0.15
+#define INTOX_BALANCE    0.12
+#define INTOX_VOMIT		 0.15
 #define INTOX_BLACKOUT   0.20
 #define INTOX_CONSCIOUS  0.30
 #define INTOX_DEATH      0.45
