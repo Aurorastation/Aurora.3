@@ -178,8 +178,8 @@
 	return FALSE
 
 /datum/species/bug/sleep_msg(var/mob/M)
-	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] carrapace in place, becoming completely still."))
-	to_chat(M, SPAN_NOTICE("You lock your carrapace into place, becoming completely still."))
+	M.visible_message(SPAN_NOTICE("\The [M] locks [M.get_pronoun("his")] carapace in place, becoming completely still."))
+	to_chat(M, SPAN_NOTICE("You lock your carapace into place, becoming completely still."))
 
 /datum/species/bug/sleep_examine_msg(var/mob/M)
-	return SPAN_NOTICE("[M.get_pronoun("He")] has locked [M.get_pronoun("his")] carrapace in place, and is standing completely still.\n")
+	return SPAN_NOTICE("[M.get_pronoun("He")] has locked [M.get_pronoun("his")] carapace in place, and is standing completely still.\n")
