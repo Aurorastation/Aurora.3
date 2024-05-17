@@ -3340,12 +3340,6 @@
 /obj/structure/table/stone/marble,
 /obj/item/storage/box/fancy/mre/random,
 /obj/item/storage/box/fancy/mre/random,
-/obj/item/storage/box/fancy/mre/random,
-/obj/item/storage/box/fancy/mre/random,
-/obj/item/storage/box/fancy/mre/random,
-/obj/item/storage/box/fancy/mre/random,
-/obj/item/storage/box/fancy/mre/random,
-/obj/item/storage/box/fancy/mre/random,
 /obj/machinery/light,
 /obj/effect/decal/cleanable/generic{
 	layer = 2.81
@@ -5518,6 +5512,15 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
+"MQ" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 6
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "MR" = (
 /obj/effect/floor_decal/corner_wide/yellow/diagonal,
 /obj/effect/floor_decal/corner_wide/white/diagonal{
@@ -5857,6 +5860,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/miningeva)
+"Pj" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "Pk" = (
 /obj/effect/floor_decal/corner_wide/yellow/full{
 	dir = 1
@@ -6304,6 +6313,13 @@
 	},
 /turf/simulated/floor,
 /area/coc_survey_ship/miningeva)
+"Su" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux,
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "Sy" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/tiled/dark,
@@ -6508,6 +6524,12 @@
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/tiled,
 /area/coc_survey_ship/atmos)
+"TE" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 10
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/coc_survey_shuttle)
 "TF" = (
 /obj/machinery/door/airlock/hatch{
 	name = "Engineering";
@@ -7100,6 +7122,7 @@
 /obj/machinery/alarm/north{
 	req_one_access = null
 	},
+/obj/item/rig_module/storage,
 /turf/simulated/floor/carpet/lightblue,
 /area/coc_survey_ship/captain)
 "XC" = (
@@ -18205,13 +18228,13 @@ Yd
 Sk
 Yd
 BM
-xQ
+Pj
 hL
 wT
 jk
 bU
 uQ
-bU
+MQ
 yW
 qY
 GY
@@ -18363,7 +18386,7 @@ oo
 Ku
 WO
 WO
-WO
+Su
 Yf
 Cd
 Zw
@@ -18509,13 +18532,13 @@ Id
 Ym
 Id
 Id
-xQ
+Pj
 te
 xQ
 Tb
 xQ
 DV
-xQ
+TE
 dH
 oH
 Uv
