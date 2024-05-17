@@ -376,6 +376,9 @@
 	anchored = TRUE
 	icon = 'icons/obj/structure/stairs.dmi'
 	icon_state = "np_stair"
+	/**
+	 * If true, this strucutre will trigger the stairs_act() proc for other structures being moved across it.
+	 */
 	var/steps = TRUE
 
 /obj/structure/platform_stairs/Crossed(obj/O)
@@ -403,8 +406,7 @@
 
 /obj/structure/platform_stairs/ramp
 	name = "ramp"
-	desc = "An smooth yet archaic form of locomotion along the Z-axis."
-	layer = RUNE_LAYER
+	desc = "An smooth yet archaic form of locomotion along the vertical axis."
 	steps = FALSE
 
 /obj/structure/platform_stairs/ramp/north_south

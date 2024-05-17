@@ -25186,15 +25186,15 @@
 /turf/simulated/floor/tiled/dark,
 /area/storage/eva)
 "rpa" = (
-/obj/structure/platform{
-	dir = 1
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
 /obj/structure/platform_stairs/ramp/east_west{
 	dir = 8
+	},
+/obj/structure/platform{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
@@ -27319,14 +27319,14 @@
 /turf/simulated/floor/plating,
 /area/maintenance/engineering)
 "sRe" = (
-/obj/structure/platform{
-	dir = 1
-	},
 /obj/structure/railing/mapped,
 /obj/effect/floor_decal/corner/lime{
 	dir = 5
 	},
 /obj/structure/platform_stairs/ramp/east_west,
+/obj/structure/platform{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/white{
 	name = "cooled white floor";
 	temperature = 278.15

@@ -11504,15 +11504,15 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 10
 	},
-/obj/structure/platform/cutout,
-/obj/structure/platform{
-	dir = 1
-	},
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
 /obj/structure/platform_stairs/ramp/east_west{
 	dir = 8
 	},
+/obj/structure/platform{
+	dir = 1
+	},
+/obj/structure/platform/cutout,
 /turf/simulated/floor/tiled,
 /area/bridge/upperdeck)
 "hRV" = (
