@@ -34,3 +34,11 @@
 	icon = 'icons/obj/overmap/overmap_ships.dmi'
 	icon_state = "generic"
 	color = "#6d1217"
+	initial_generic_waypoints = list(
+		"nav_zavod_1",
+		"nav_zavod_2",
+		"nav_zavod_3",
+		"nav_zavod_4",
+		"nav_zavod_5",
+		"nav_zavod_6",
+	)
