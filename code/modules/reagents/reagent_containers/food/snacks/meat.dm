@@ -134,6 +134,7 @@
 /obj/item/reagent_containers/food/snacks/meat/human
 
 /obj/item/reagent_containers/food/snacks/meat/bug
+	name = "vaurca meat"
 	icon_state = "bugmeat"
 	filling_color = "#E6E600"
 	reagents_to_add = list(/singleton/reagent/nutriment/protein = 6, /singleton/reagent/nutriment/triglyceride = 2, /singleton/reagent/toxin/phoron = 27)
