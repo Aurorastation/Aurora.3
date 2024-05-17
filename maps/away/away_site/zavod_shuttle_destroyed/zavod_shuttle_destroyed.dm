@@ -26,3 +26,17 @@
 	base_turf = /turf/space
 	no_light_control = TRUE
 	area_flags = AREA_FLAG_HIDE_FROM_HOLOMAP
+
+/obj/effect/overmap/visitable/zavod_shuttle_destroyed
+	name = "Destroyed Zavodskoi Transport Shuttle"
+	desc = "An overly large shuttle with several storage facilities onboard, though seems to be offline. Signals show that there was previously a bounty out for this vessel and it's cargo if it is able to be returned to Zavodskoi Interstellar hands... salvaging rights for the vessel are authorised, though there seems to be some lifeforms aboard alongside some... other movements aboard. Caution is advised."
+	class = "ZIV"
+	icon = 'icons/obj/overmap/overmap_ships.dmi'
+	icon_state = "generic"
+	color = "#6d1217"
+	initial_generic_waypoints = list(
+		"nav_zavod_1",
+		"nav_zavod_2",
+		"nav_zavod_3",
+		"nav_zavod_4"
+	)
