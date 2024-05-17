@@ -22934,7 +22934,6 @@
 /area/horizon/zat)
 "kwS" = (
 /obj/structure/table/standard,
-/obj/item/gun/projectile/shotgun/foldable/cameragun,
 /obj/effect/floor_decal/corner/mauve{
 	dir = 9
 	},
@@ -22944,6 +22943,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/item/device/camera,
 /turf/simulated/floor/tiled/white,
 /area/rnd/xenobiology/foyer)
 "kwW" = (
