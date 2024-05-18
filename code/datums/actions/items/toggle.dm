@@ -9,3 +9,6 @@
 
 /datum/action/item_action/toggle_flashlight
 	name = "Toggle Flashlight"
+
+/datum/action/item_action/toggle_flashlight_brightness
+	name = "Toggle Flashlight Brightness"

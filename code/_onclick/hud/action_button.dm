@@ -1,4 +1,4 @@
-
+#define ACTION_BUTTON_DEFAULT_BACKGROUND "default"
 /obj/screen/movable/action_button
 	var/datum/action/linked_action
 	screen_loc = null
@@ -7,6 +7,7 @@
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"])
 		moved = 0
+		usr.update_action_buttons() //redraw buttons that are no longer considered "moved"
 		return 1
 	if(usr.next_move >= world.time) // Is this needed ?
 		return
@@ -19,6 +20,9 @@
 	icon = 'icons/obj/action_buttons/actions.dmi'
 	icon_state = "bg_default"
 	var/hidden = 0
+	var/hide_icon = 'icons/obj/action_buttons/actions.dmi'
+	var/hide_state = "hide"
+	var/show_state = "show"
 
 /obj/screen/movable/action_button/hide_toggle/Click(location,control,params)
 	var/list/modifiers = params2list(params)
@@ -45,9 +49,8 @@
 	return
 
 /obj/screen/movable/action_button/hide_toggle/proc/UpdateIcon()
-	overlays.Cut()
-	var/image/img = image(icon, src, hidden ? "show" : "hide")
-	overlays += img
+	ClearOverlays()
+	AddOverlays(mutable_appearance(hide_icon, hidden ? show_state : hide_state))
 	return
 
 
@@ -58,22 +61,26 @@
 /obj/screen/movable/action_button/MouseExited()
 	closeToolTip(usr)
 
-
+/**
+ * This is a silly proc used in hud code code to determine what icon and icon state we should be using
+ * for hud elements (such as action buttons) that don't have their own icon and icon state set.
+ *
+ * It returns a list, which is pretty much just a struct of info
+ */
+/datum/hud/proc/get_action_buttons_icons()
+	. = list()
+	.["bg_icon"] = ui_style2icon(mymob.client?.prefs.UI_style)
+	.["bg_state"] = "template"
+//	.["bg_state_active"] = "template_active"
 
 //used to update the buttons icon.
 /mob/proc/update_action_buttons_icon()
-	return
-
-/mob/living/update_action_buttons_icon()
 	for(var/X in actions)
 		var/datum/action/A = X
 		A.UpdateButtonIcon()
 
 //This is the proc used to update all the action buttons.
 /mob/proc/update_action_buttons(reload_screen)
-	return
-
-/mob/living/update_action_buttons(reload_screen)
 	if(!hud_used || !client)
 		return
 
@@ -104,8 +111,8 @@
 		hud_used.hide_actions_toggle.screen_loc = hud_used.ButtonNumberToScreenCoords(button_number+1)
 	else
 		hud_used.hide_actions_toggle.screen_loc = hud_used.hide_actions_toggle.moved
-	if(reload_screen)
-		client.screen += hud_used.hide_actions_toggle
+//	if(reload_screen)
+	client.screen += hud_used.hide_actions_toggle
 
 
 

@@ -151,6 +151,8 @@ var/list/global_huds
 
 /datum/hud/New(mob/owner)
 	mymob = owner
+	hide_actions_toggle = new
+	hide_actions_toggle.InitialiseIcon(src)
 	instantiate()
 	..()
 
@@ -169,6 +171,8 @@ var/list/global_huds
 	other = null
 	hotkeybuttons = null
 //	item_action_list = null // ?
+	qdel(hide_actions_toggle)
+	hide_actions_toggle = null
 	mymob = null
 
 	. = ..()
@@ -385,7 +389,7 @@ var/list/global_huds
 
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
-	update_action_buttons()
+	update_action_buttons(TRUE)
 
 //Similar to button_pressed_F12() but keeps zone_sel, gun_setting_icon, and healths.
 /mob/proc/toggle_zoom_hud()
@@ -422,7 +426,7 @@ var/list/global_huds
 
 	hud_used.hidden_inventory_update()
 	hud_used.persistant_inventory_update()
-	update_action_buttons()
+	update_action_buttons(TRUE)
 
 /mob/proc/add_click_catcher()
 	client.screen |= click_catchers
