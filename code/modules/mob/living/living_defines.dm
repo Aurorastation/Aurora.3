@@ -27,7 +27,6 @@
 	var/mob_always_swap = 0
 
 	var/mob/living/cameraFollow = null
-	var/list/datum/action/actions = list()
 
 	var/tod = null // Time of death
 	var/update_slimes = 1

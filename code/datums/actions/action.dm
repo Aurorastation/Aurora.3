@@ -6,20 +6,25 @@
 
 /datum/action
 	var/name = "Generic Action"
+	var/desc = null
 	var/obj/target = null
 	var/check_flags = 0
 	var/processing = 0
 	var/obj/screen/movable/action_button/button = null
 	var/button_icon = 'icons/obj/action_buttons/actions.dmi'
+	var/background_icon_state = ACTION_BUTTON_DEFAULT_BACKGROUND
+
+	var/icon_icon = 'icons/obj/action_buttons/actions.dmi'
 	var/button_icon_state = "default"
-	var/background_icon_state = "bg_default"
-	var/mob/living/owner
+	var/mob/owner
 
 /datum/action/New(Target)
 	target = Target
 	button = new
 	button.linked_action = src
 	button.name = name
+	if(desc)
+		button.desc = desc
 
 /datum/action/Destroy()
 	if(owner)
@@ -29,23 +34,23 @@
 	button = null
 	return ..()
 
-/datum/action/proc/Grant(mob/living/L)
+/datum/action/proc/Grant(mob/M)
 	if(owner)
-		if(owner == L)
+		if(owner == M)
 			return
 		Remove(owner)
-	owner = L
-	L.actions += src
-	if(L.client)
-		L.client.screen += button
-	L.update_action_buttons()
+	owner = M
+	M.actions += src
+	if(M.client)
+		M.client.screen += button
+	M.update_action_buttons()
 
-/datum/action/proc/Remove(mob/living/L)
-	if(L.client)
-		L.client.screen -= button
+/datum/action/proc/Remove(mob/M)
+	if(M.client)
+		M.client.screen -= button
 	button.moved = FALSE //so the button appears in its normal position when given to another owner.
-	L.actions -= src
-	L.update_action_buttons()
+	M.actions -= src
+	M.update_action_buttons()
 	owner = null
 
 /datum/action/proc/Trigger()
@@ -75,8 +80,14 @@
 
 /datum/action/proc/UpdateButtonIcon()
 	if(button)
-		button.icon = button_icon
-		button.icon_state = background_icon_state
+		button.name = name
+		button.desc = desc
+		if(owner?.hud_used && background_icon_state == ACTION_BUTTON_DEFAULT_BACKGROUND)
+			var/list/settings = owner.hud_used.get_action_buttons_icons()
+			if(button.icon != settings["bg_icon"])
+				button.icon = settings["bg_icon"]
+			if(button.icon_state != settings["bg_state"])
+				button.icon_state = settings["bg_state"]
 
 		ApplyIcon(button)
 
@@ -87,13 +98,13 @@
 			return 1
 
 /datum/action/proc/ApplyIcon(obj/screen/movable/action_button/current_button)
-	current_button.overlays.Cut()
+	current_button.ClearOverlays()
 	if(button_icon && button_icon_state)
-		var/image/img
-		img = image(button_icon, current_button, button_icon_state)
-		img.pixel_x = 0
-		img.pixel_y = 0
-		current_button.overlays += img
+		var/mutable_appearance/mut
+		mut = mutable_appearance(button_icon, current_button, button_icon_state)
+		mut.pixel_x = 0
+		mut.pixel_y = 0
+		current_button.AddOverlays(mut)
 
 
 

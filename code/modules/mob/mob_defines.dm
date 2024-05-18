@@ -161,6 +161,7 @@
 	var/seer = 0 //for cult//Carbon, probably Human
 
 	var/datum/hud/hud_used = null
+	var/list/datum/action/actions = list()
 
 	var/list/grabbed_by = list(  )
 	var/list/requests = list(  )
