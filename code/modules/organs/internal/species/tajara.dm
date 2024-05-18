@@ -2,8 +2,9 @@
 	name = "light sensitive eyes"
 	desc = "A pair of Tajaran eyes accustomed to the low light conditions of Adhomai."
 	icon = 'icons/obj/organs/tajara_organs.dmi'
-	action_button_name = "Activate Low Light Vision"
-	default_action_type = /datum/action/item_action/organ/night_eyes
+//	action_button_name = "Activate Low Light Vision"
+//	default_action_type = /datum/action/item_action/organ/night_eyes
+	actions_types = list()
 	relative_size = 8
 	var/night_vision = FALSE
 	var/datum/client_color/vision_color = /datum/client_color/monochrome

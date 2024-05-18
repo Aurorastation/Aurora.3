@@ -520,7 +520,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = SLOT_BACK
 	origin_tech = list(TECH_COMBAT = 8, TECH_MATERIAL = 6, TECH_MAGNET = 4, TECH_ILLEGAL = 7)
-	action_button_name = "Deploy the Laser Rifle"
+//	action_button_name = "Deploy the Laser Rifle"
+	actions_types = list()
 
 	var/obj/item/gun/energy/galatea/gun
 	var/armed = FALSE

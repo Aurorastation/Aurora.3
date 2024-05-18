@@ -19,7 +19,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/one_pick
 	name = "1/6 pick"
@@ -38,7 +38,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/two_pick
 	name = "1/3 pick"
@@ -57,7 +57,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/three_pick
 	name = "1/2 pick"
@@ -76,7 +76,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/four_pick
 	name = "2/3 pick"
@@ -95,7 +95,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/five_pick
 	name = "5/6 pick"
@@ -114,7 +114,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/six_pick
 	name = "1/1 pick"
@@ -133,7 +133,7 @@
 	w_class = WEIGHT_CLASS_SMALL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 /obj/item/pickaxe/hand
 	name = "hand pickaxe"
@@ -151,7 +151,7 @@
 	w_class = WEIGHT_CLASS_NORMAL
 	can_wield = 0
 
-	action_button_name = null
+	actions_types = list()
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Pack for holding pickaxes

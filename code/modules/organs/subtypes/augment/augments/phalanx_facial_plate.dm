@@ -5,7 +5,8 @@
 		+ " Enhanced sensory overlays and HUDs offer Phalanx members superior situational " \
 		+ "awareness and promote a sense of hive-thinking."
 	icon_state = "vaurca_plate"
-	action_button_name = "Toggle HUD"
+//	action_button_name = "Toggle HUD"
+	actions_types = list()
 	action_button_icon = "vaurca_plate"
 	on_mob_icon = 'icons/mob/human_races/augments_external.dmi'
 	sprite_sheets = list(

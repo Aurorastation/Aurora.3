@@ -7,7 +7,8 @@
 	contained_sprite = TRUE
 	slot_flags = SLOT_BELT
 	w_class = WEIGHT_CLASS_NORMAL
-	action_button_name = "Toggle Shield"
+//	action_button_name = "Toggle Shield"
+	actions_types = list()
 	var/obj/item/cell/cell
 	var/charge_per_shot = 200
 	var/upkeep_cost = 2

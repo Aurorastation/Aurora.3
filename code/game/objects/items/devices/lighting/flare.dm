@@ -8,7 +8,7 @@
 	light_color = LIGHT_COLOR_FLARE //"#E58775"
 	icon_state = "flare"
 	item_state = "flare"
-	action_button_name = null //just pull it manually, neckbeard.
+	actions_types = list()
 	var/fuel = 0
 	uv_intensity = 100
 	var/on_damage = 7

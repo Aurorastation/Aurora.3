@@ -5,8 +5,9 @@
 	implant_icon = "emp"
 	implant_color = "#249fde"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ILLEGAL = 2)
-	default_action_type = /datum/action/item_action/hands_free/activate/implant/emp
-	action_button_name = "Activate EMP Implant"
+//	default_action_type = /datum/action/item_action/hands_free/activate/implant/emp
+	actions_types = list()
+//	action_button_name = "Activate EMP Implant"
 	var/uses = 3
 
 /obj/item/implant/emp/activate()

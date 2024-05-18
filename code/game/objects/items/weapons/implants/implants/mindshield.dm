@@ -8,7 +8,8 @@
 	implant_icon = "excel"
 	implant_color = "#ffd079"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ILLEGAL = 3)
-	default_action_type = null
+//	default_action_type = null
+	actions_types = list()
 	known = TRUE
 
 /obj/item/implant/mindshield/get_data()

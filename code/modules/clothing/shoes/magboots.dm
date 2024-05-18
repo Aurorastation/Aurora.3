@@ -13,7 +13,8 @@
 	var/magpulse = 0
 	var/icon_base = "magboots"
 	var/slowdown_active = 3
-	action_button_name = "Toggle Magboots"
+//	action_button_name = "Toggle Magboots"
+	actions_types = list()
 	var/obj/item/clothing/shoes/shoes = null	//Undershoes
 	var/mob/living/carbon/human/wearer = null	//For shoe procs
 	drop_sound = 'sound/items/drop/toolbox.ogg'

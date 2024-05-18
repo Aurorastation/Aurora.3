@@ -5,7 +5,7 @@
 	icon_state = "geiger_off"
 	item_state = "multitool"
 	w_class = WEIGHT_CLASS_SMALL
-	action_button_name = "Toggle geiger counter"
+//	action_button_name = "Toggle geiger counter"
 	matter = list(MATERIAL_PLASTIC = 100, DEFAULT_WALL_MATERIAL = 100, MATERIAL_GLASS = 50)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
 	var/scanning = 0

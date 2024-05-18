@@ -11,8 +11,9 @@ ABSTRACT_TYPE(/obj/item/implant)
 	 * If the implant needs no action button, then null this out.
 	 * Or, if you want to add a unique action button, then replace this.
 	 */
-	default_action_type = /datum/action/item_action/hands_free/activate/implant
-	action_button_name = "Activate Implant"
+//	default_action_type = /datum/action/item_action/hands_free/activate/implant
+//	action_button_name = "Activate Implant"
+	actions_types = list()
 	var/implanted = null
 	///The mob that has been implanted with this
 	var/mob/imp_in = null

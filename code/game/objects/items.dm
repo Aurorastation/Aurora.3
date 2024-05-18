@@ -79,19 +79,8 @@
 	 */
 	var/min_pressure_protection
 
-	var/datum/action/item_action/action
-
-	/**
-	 * It is also the text which gets displayed on the action button
-	 *
-	 * If not set it defaults to 'Use [name]'
-	 *
-	 * If it's not set, there'll be no button
-	 */
-	var/action_button_name
-
-	///Specify the default type and behavior of the action button for this atom
-	var/default_action_type = /datum/action/item_action
+	var/list/actions = list() //list of /datum/action's that this item has.
+	var/list/actions_types = list() //list of paths of action datums to give to the item on New().
 
 	/**
 	 * This flag is used to determine when items in someone's inventory cover others. IE helmets making it so you can't see glasses, etc.
@@ -248,6 +237,11 @@
 	/// Holder var for the item outline filter, null when no outline filter on the item.
 	var/outline_filter
 
+/obj/item/New()
+	..()
+	for(var/path in actions_types)
+		new path(src)
+
 /obj/item/Initialize(mapload, ...)
 	. = ..()
 	if(islist(armor))
@@ -266,10 +260,8 @@
 		m.update_inv_r_hand()
 		m.update_inv_l_hand()
 		src.loc = null
-
-	if(!QDELETED(action))
-		QDEL_NULL(action) // /mob/living/proc/handle_actions() creates it, for ungodly reasons
-	action = null
+	for(var/X in actions)
+		qdel(X)
 
 	if(!QDELETED(hidden_uplink))
 		QDEL_NULL(hidden_uplink)
@@ -495,6 +487,10 @@
 
 	remove_item_verbs(user)
 
+	for(var/X in actions)
+		var/datum/action/A = X
+		A.Remove(user)
+
 	if(item_flags & ITEM_FLAG_HELD_MAP_TEXT)
 		check_maptext()
 
@@ -590,6 +586,10 @@
 	SEND_SIGNAL(user, COMSIG_MOB_EQUIPPED_ITEM, src, slot)
 	hud_layerise()
 	equip_slot = slot
+	for(var/X in actions)
+		var/datum/action/A = X
+		if(item_action_slot_check(slot, user)) //some items only give their actions buttons when in a specific slot.
+			A.Grant(user)
 	if(user.client)	user.client.screen |= src
 	if(user.pulling == src) user.stop_pulling()
 	in_inventory = TRUE
@@ -769,8 +769,8 @@ var/list/global/slot_flags_enumeration = list(
 //This proc is executed when someone clicks the on-screen UI button. To make the UI button show, set the 'icon_action_button' to the icon_state of the image of the button in screen1_action.dmi
 //The default action is attack_self().
 //Checks before we get to here are: mob is alive, mob is not restrained, paralyzed, asleep, resting, laying, item is on the mob.
-/obj/item/proc/ui_action_click()
-	attack_self(usr)
+/obj/item/proc/ui_action_click(mob/user, actiontype)
+	attack_self(user)
 
 //RETURN VALUES
 //handle_shield

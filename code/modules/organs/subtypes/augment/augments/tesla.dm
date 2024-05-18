@@ -45,7 +45,8 @@
 	cooldown = 50
 	emp_coeff = 1
 	action_button_icon = "tesla_spine"
-	action_button_name = "Activate Tesla Coil"
+//	action_button_name = "Activate Tesla Coil"
+	actions_types = list()
 	activable = TRUE
 
 /obj/item/organ/internal/augment/tesla/advanced/attack_self(var/mob/user)

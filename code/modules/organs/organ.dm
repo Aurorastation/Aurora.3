@@ -3,7 +3,8 @@
 	icon = 'icons/obj/organs/organs.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
 	pickup_sound = 'sound/items/pickup/flesh.ogg'
-	default_action_type = /datum/action/item_action/organ
+//	default_action_type = /datum/action/item_action/organ
+	actions_types = list()
 	germ_level = 0
 
 	var/mob/living/carbon/human/owner = null
@@ -101,8 +102,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	return ..()
 
-/obj/item/organ/proc/refresh_action_button()
-	return action
+///obj/item/organ/proc/refresh_action_button()
+//	return action
 
 /obj/item/organ/attack_self(var/mob/user)
 	return (owner && loc == owner && owner == user)
@@ -426,7 +427,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(!istype(owner))
 		return
 
-	action_button_name = null
+//	action_button_name = null
 
 	owner.internal_organs_by_name[organ_tag] = null
 	owner.internal_organs_by_name -= organ_tag
@@ -458,7 +459,7 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
-	action_button_name = initial(action_button_name)
+//	action_button_name = initial(action_button_name)
 	forceMove(owner) //just in case
 	if(BP_IS_ROBOTIC(src))
 		set_dna(owner.dna)

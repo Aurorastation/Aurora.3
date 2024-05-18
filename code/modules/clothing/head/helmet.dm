@@ -156,7 +156,8 @@
 		)
 	siemens_coefficient = 0.35
 	flags_inv = HIDEEARS
-	action_button_name = "Toggle Visor"
+//	action_button_name = "Toggle Visor"
+	actions_types = list()
 
 /obj/item/clothing/head/helmet/riot/attack_self(mob/user as mob)
 	if (use_check_and_message(user))
@@ -254,7 +255,8 @@
 	item_state = "civilprotection_helmet"
 	body_parts_covered = HEAD|FACE|EYES //face shield
 	flags_inv = HIDEEARS
-	action_button_name = "Toggle Visor"
+//	action_button_name = "Toggle Visor"
+	actions_types = list()
 
 /obj/item/clothing/head/helmet/swat/peacekeeper/attack_self(mob/user as mob)
 	if (use_check_and_message(user))
@@ -473,7 +475,8 @@
 		"Machine" = 'icons/mob/species/machine/helmet.dmi'
 	)
 
-	action_button_name = "Toggle Helmet Light"
+//	action_button_name = "Toggle Helmet Light"
+	actions_types = list()
 	light_overlay = "helmet_light_dual"
 	brightness_on = 6
 	light_wedge = LIGHT_WIDE

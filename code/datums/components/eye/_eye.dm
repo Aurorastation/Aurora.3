@@ -6,7 +6,7 @@
 	///The mob currently looking through the eye
 	var/mob/current_looker
 
-	///Actions used to pass commands from the eye to the holder. Must be subtypes of /datum/action/eye
+	///Actions used to pass commands from the eye to the holder. Must be subtypes of /datum/action/generic/eye
 	///Base type of the action, all subtypes of this are added to actions.
 	var/action_type
 	///The actions available to the eye
@@ -28,12 +28,12 @@
 
 	if(action_type)
 		for(var/atype in subtypesof(action_type))
-			var/datum/action/eye/action = new atype(src)
+			var/datum/action/generic/eye/action = new atype(src)
 			actions += action
 			action.Grant(current_looker)
 
 	//Manual unlooking for the looker
-	var/datum/action/eye/unlook/unlook_action = new(src)
+	var/datum/action/generic/eye/unlook/unlook_action = new(src)
 	actions += unlook_action
 	unlook_action.Grant(current_looker)
 
@@ -77,7 +77,7 @@
 	return get_turf(component_eye)
 
 //Every eye created using a subtype of this extension will have this action added for manual unlooking.
-/datum/action/eye/unlook
+/datum/action/generic/eye/unlook
 	name = "Stop looking"
 	procname = "unlook"
 	button_icon_state = "cancel"

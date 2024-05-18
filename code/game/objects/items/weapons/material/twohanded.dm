@@ -26,7 +26,8 @@
 	var/base_name
 	var/unwielded_force_divisor = 0.25
 	var/parry_chance = 15
-	action_button_name = "Wield two-handed weapon"
+//	action_button_name = "Wield two-handed weapon"
+	actions_types = list()
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
@@ -587,7 +588,8 @@
 	unbreakable = TRUE
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-	action_button_name = "Plant Flag"
+//	action_button_name = "Plant Flag"
+	actions_types = list()
 	var/planted = FALSE
 
 /obj/item/material/twohanded/pike/flag/verb/plant()

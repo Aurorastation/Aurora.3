@@ -6,7 +6,8 @@
 	flags_inv = HIDEFACE|BLOCKHAIR
 	body_parts_covered = FACE|HEAD
 	w_class = WEIGHT_CLASS_SMALL
-	action_button_name = "Toggle Face Concealing"
+	//action_button_name = "Toggle Face Concealing"
+	actions_types = list()
 
 /obj/item/clothing/mask/balaclava/attack_self(mob/user as mob)
 	if (use_check_and_message(user))

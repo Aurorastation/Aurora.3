@@ -113,7 +113,8 @@ BLIND     // can't see anything
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
 	item_state = "meson"
-	action_button_name = "Toggle Goggles"
+//	action_button_name = "Toggle Goggles"
+	actions_types = list()
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	toggleable = 1
 	vision_flags = SEE_TURFS
@@ -135,7 +136,8 @@ BLIND     // can't see anything
 	desc = "Modified aviator glasses with a toggled meson interface. Comes with bonus prescription overlay."
 	icon_state = "aviator_eng"
 	off_state = "aviator_eng_off"
-	action_button_name = "Toggle HUD"
+//	action_button_name = "Toggle HUD"
+	actions_types = list()
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
 
@@ -151,7 +153,8 @@ BLIND     // can't see anything
 	desc = "Modified aviator glasses with a toggled health HUD. Comes with bonus prescription overlay."
 	icon_state = "aviator_med"
 	item_state = "aviator_med"
-	action_button_name = "Toggle Mode"
+//	action_button_name = "Toggle Mode"
+	actions_types = list()
 	toggleable = 1
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
@@ -218,7 +221,8 @@ BLIND     // can't see anything
 	desc = "You can totally see in the dark now!"
 	icon_state = "night"
 	item_state = "glasses"
-	action_button_name = "Toggle Goggles"
+//	action_button_name = "Toggle Goggles"
+	actions_types = list()
 	origin_tech = list(TECH_MAGNET = 2)
 	darkness_view = 7
 	toggleable = 1
@@ -234,7 +238,8 @@ BLIND     // can't see anything
 	desc = "Modified aviator glasses with a toggled night vision interface. Comes with prescription overlay."
 	icon_state = "aviator_nv"
 	off_state = "aviator_off"
-	action_button_name = "Toggle Mode"
+//	action_button_name = "Toggle Mode"
+	actions_types = list()
 	toggleable = 1
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
@@ -268,7 +273,8 @@ BLIND     // can't see anything
 	item_state = "goggles_standard"
 	off_state = "goggles_standard"
 	var/base_icon_state
-	action_button_name = "Flip Goggles"
+//	action_button_name = "Flip Goggles"
+	actions_types = list()
 	var/change_item_state_on_flip = TRUE
 	var/flip_down = "down to protect your eyes."
 	var/flip_up = "up out of your face."
@@ -506,7 +512,8 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
-	action_button_name = "Toggle Goggles"
+//	action_button_name = "Toggle Goggles"
+	actions_types = list()
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
 	vision_flags = SEE_OBJS
@@ -517,7 +524,8 @@ BLIND     // can't see anything
 	desc = "Modified aviator glasses with a toggled ability to make your head ache. Comes with bonus prescription interface."
 	icon_state = "aviator_mat"
 	off_state = "aviator_off"
-	action_button_name = "Toggle Mode"
+//	action_button_name = "Toggle Mode"
+	actions_types = list()
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
 
@@ -726,7 +734,8 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
-	action_button_name = "Flip Welding Goggles"
+//	action_button_name = "Flip Welding Goggles"
+	actions_types = list()
 
 	var/up = 0
 	item_flags = ITEM_FLAG_THICK_MATERIAL
@@ -930,7 +939,8 @@ BLIND     // can't see anything
 	flash_protection = FLASH_PROTECTION_NONE
 	icon_state = "aviator_sec"
 	item_state = "aviator_sec"
-	action_button_name = "Toggle Mode"
+//	action_button_name = "Toggle Mode"
+	actions_types = list()
 	var/on = TRUE
 	toggleable = TRUE
 	activation_sound = 'sound/effects/pop.ogg'
@@ -1029,7 +1039,8 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
-	action_button_name = "Toggle Goggles"
+//	action_button_name = "Toggle Goggles"
+	actions_types = list()
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
 	vision_flags = SEE_MOBS
@@ -1070,7 +1081,7 @@ BLIND     // can't see anything
 /obj/item/clothing/glasses/thermal/plain
 	toggleable = 0
 	activation_sound = null
-	action_button_name = null
+	actions_types = list()
 	item_flags = ITEM_FLAG_AIRTIGHT
 
 /obj/item/clothing/glasses/thermal/plain/monocle
@@ -1095,7 +1106,8 @@ BLIND     // can't see anything
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
-	action_button_name = "Toggle HUD"
+//	action_button_name = "Toggle HUD"
+	actions_types = list()
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
 
@@ -1112,7 +1124,8 @@ BLIND     // can't see anything
 	icon_state = "hudpatch"
 	item_state = "hudpatch"
 	off_state = "hudpatch"
-	action_button_name = "Toggle iPatch"
+//	action_button_name = "Toggle iPatch"
+	actions_types = list()
 	prescription = 7 //To emulate not having one eyeball
 	toggleable = TRUE
 	toggle_changes_appearance = FALSE
@@ -1268,7 +1281,8 @@ BLIND     // can't see anything
 	desc = "You can almost feel the raw power radiating off these strange specs."
 	icon_state = "spiffygogs"
 	item_state = "spiffygogs"
-	action_button_name = "Adjust Goggles"
+//	action_button_name = "Adjust Goggles"
+	actions_types = list()
 	var/up = 0
 	item_flags = ITEM_FLAG_AIRTIGHT
 

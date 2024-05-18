@@ -1,6 +1,7 @@
 /obj/item/organ/internal/augment/gustatorial
 	name = "gustatorial centre"
-	action_button_name = "Activate Gustatorial Centre (tongue)"
+//	action_button_name = "Activate Gustatorial Centre (tongue)"
+	actions_types = list()
 	action_button_icon = "augment"
 	organ_tag = BP_AUG_GUSTATORIAL
 	parent_organ = BP_HEAD
@@ -32,7 +33,8 @@
 
 /obj/item/organ/internal/augment/gustatorial/hand
 	parent_organ = BP_R_HAND
-	action_button_name = "Activate Gustatorial Centre (hand)"
+//	action_button_name = "Activate Gustatorial Centre (hand)"
+	actions_types = list()
 
 	action_verb = "sticks their finger in"
 	self_action_verb = "stick your finger in"

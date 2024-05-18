@@ -174,7 +174,8 @@
 	capabilities.  The lens appear to be multiple optical matrices layered together, allowing the wearer to see almost anything \
 	across physical barriers."
 	icon_state = "omnisight"
-	action_button_name = "Toggle Goggles"
+//	action_button_name = "Toggle Goggles"
+	actions_types = list()
 	origin_tech = list(TECH_MAGNET = 6, TECH_ENGINEERING = 6)
 	toggleable = 1
 	vision_flags = SEE_TURFS|SEE_MOBS|SEE_OBJS
