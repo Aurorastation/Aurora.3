@@ -71,7 +71,7 @@
 	. = list()
 	.["bg_icon"] = ui_style2icon(mymob.client?.prefs.UI_style)
 	.["bg_state"] = "template"
-//	.["bg_state_active"] = "template_active"
+	.["bg_state_active"] = "template_active"
 
 //used to update the buttons icon.
 /mob/proc/update_action_buttons_icon()
