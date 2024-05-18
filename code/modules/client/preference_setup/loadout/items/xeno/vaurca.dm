@@ -83,6 +83,7 @@
 	description = "A selection of vaurca colored Hive cloaks."
 	path = /obj/item/clothing/suit/vaurca
 	cost = 1
+	slot = slot_wear_suit
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR, SPECIES_VAURCA_BULWARK)
 	sort_category = "Xenowear - Vaurca"
 
@@ -147,6 +148,7 @@
 	description = "A selection of vaurca colored shrouds."
 	path = /obj/item/clothing/head/shroud
 	cost = 1
+	slot = slot_head
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 
@@ -165,6 +167,7 @@
 	description = "A selection of vaurca colored shrouds."
 	path = /obj/item/clothing/head/shroud/colorable
 	cost = 1
+	slot = slot_head
 	whitelisted = list(SPECIES_VAURCA_WORKER, SPECIES_VAURCA_WARRIOR)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_COLOR_SELECTION
