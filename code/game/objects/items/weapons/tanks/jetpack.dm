@@ -43,7 +43,7 @@
 	var/stabilization_on = 0
 	var/warned = 0
 	var/volume_rate = 500              //Needed for borg jetpack transfer
-	action_button_name = "Toggle Jetpack"
+	actions_types = list(/datum/action/item_action/toggle_jetpack, /datum/action/item_action/jetpack_stabilization)
 
 /obj/item/tank/jetpack/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -117,8 +117,11 @@
 /obj/item/tank/jetpack/proc/reset_warning()
 	warned = 0
 
-/obj/item/tank/jetpack/ui_action_click()
-	toggle()
+/obj/item/tank/jetpack/ui_action_click(mob/user, actiontype)
+	if(actiontype == /datum/action/item_action/toggle_jetpack)
+		toggle_jetpack(user)
+	else if (actiontype == /datum/action/item_action/jetpack_stabilization)
+		toggle_rockets_stabilization(user)
 
 
 /obj/item/tank/jetpack/void

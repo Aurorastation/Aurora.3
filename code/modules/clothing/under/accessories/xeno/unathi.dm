@@ -8,7 +8,8 @@
 	slot_flags = SLOT_TIE|SLOT_HEAD|SLOT_EARS
 	flags_inv = BLOCKHAIR|BLOCKHEADHAIR
 	contained_sprite = TRUE
-	action_button_name = "Adjust Hood"
+//	action_button_name = "Adjust Hood"
+	actions_types = list()
 	var/up = TRUE
 
 /obj/item/clothing/accessory/sinta_hood/get_ear_examine_text(var/mob/user, var/ear_text = "left")

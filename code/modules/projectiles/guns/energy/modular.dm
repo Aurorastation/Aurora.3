@@ -74,7 +74,7 @@
 	fire_sound = initial(fire_sound)
 	force = initial(force)
 	is_wieldable = initial(is_wieldable)
-	action_button_name = initial(action_button_name)
+//	action_button_name = initial(action_button_name)
 
 /obj/item/gun/energy/laser/prototype/proc/updatetype(var/mob/user)
 	reset_vars()

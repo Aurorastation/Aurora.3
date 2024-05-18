@@ -9,8 +9,9 @@
 	implant_icon = "explosive"
 	implant_color = "#e46b5d"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ILLEGAL = 3)
-	default_action_type = /datum/action/item_action/hands_free/activate/implant/explosive
-	action_button_name = "Activate Explosive Implant"
+//	default_action_type = /datum/action/item_action/hands_free/activate/implant/explosive
+//	action_button_name = "Activate Explosive Implant"
+	actions_types = list()
 	hidden = TRUE
 	var/elevel = "Localized Limb"
 	var/explodes_on_death = FALSE

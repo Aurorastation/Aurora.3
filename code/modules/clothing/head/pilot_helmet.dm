@@ -15,7 +15,8 @@
 		bomb = ARMOR_BOMB_PADDED
 	)
 	siemens_coefficient = 0.35
-	action_button_name = "Toggle Visor"
+//	action_button_name = "Toggle Visor"
+	actions_types = list()
 
 	sprite_sheets = list(
 		BODYTYPE_TAJARA = 'icons/mob/species/tajaran/helmet.dmi',

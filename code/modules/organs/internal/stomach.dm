@@ -25,8 +25,8 @@
 	ingested = new /datum/reagents/metabolism(stomach_volume, owner, CHEM_INGEST)
 	if(!ingested.my_atom)
 		ingested.my_atom = src
-	if(species && species.gluttonous)
-		action_button_name = PUKE_ACTION_NAME
+//	if(species && species.gluttonous)
+//		action_button_name = PUKE_ACTION_NAME
 
 /obj/item/organ/internal/stomach/removed()
 	. = ..()
@@ -38,17 +38,17 @@
 	ingested.my_atom = owner
 	ingested.parent = owner
 
-/obj/item/organ/internal/stomach/refresh_action_button()
-	. = ..()
-	if(.)
-		action.button_icon_state = "puke"
-		if(action.button) action.button.update_icon()
+///obj/item/organ/internal/stomach/refresh_action_button()
+//	. = ..()
+//	if(.)
+///		action.button_icon_state = "puke"
+//		if(action.button) action.button.update_icon()
 
-/obj/item/organ/internal/stomach/attack_self(mob/user)
-	. = ..()
-	if(. && action_button_name == PUKE_ACTION_NAME && owner && !owner.incapacitated())
-		owner.vomit(deliberate = TRUE)
-		refresh_action_button()
+///obj/item/organ/internal/stomach/attack_self(mob/user)
+//	. = ..()
+//	if(. && action_button_name == PUKE_ACTION_NAME && owner && !owner.incapacitated())
+//		owner.vomit(deliberate = TRUE)
+//		refresh_action_button()
 
 /obj/item/organ/internal/stomach/proc/can_eat_atom(var/atom/movable/food)
 	return !isnull(get_devour_time(food))

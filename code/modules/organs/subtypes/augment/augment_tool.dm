@@ -1,6 +1,7 @@
 /obj/item/organ/internal/augment/tool
 	name = "retractable widget"
-	action_button_name = "Deploy Widget"
+//	action_button_name = "Deploy Widget"
+	actions_types = list()
 	cooldown = 10
 	activable = TRUE
 	var/obj/item/augment_type

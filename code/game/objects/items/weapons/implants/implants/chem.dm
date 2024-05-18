@@ -7,8 +7,9 @@
 	implant_icon = "chem"
 	implant_color = "#eba7eb"
 	origin_tech = list(TECH_MATERIAL = 2, TECH_BIO = 3)
-	default_action_type = /datum/action/item_action/hands_free/activate/implant/chemical
-	action_button_name = "Dispense Reagents from Chemical Implant"
+//	default_action_type = /datum/action/item_action/hands_free/activate/implant/chemical
+	actions_types = list()
+//	action_button_name = "Dispense Reagents from Chemical Implant"
 	known = TRUE
 
 /obj/item/implant/chem/get_data()

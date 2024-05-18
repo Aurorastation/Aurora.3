@@ -294,7 +294,7 @@
 	to_chat(usr, SPAN_NOTICE("You press the button on the exterior of \the [target_clothing]."))
 	target_clothing.action_circuit.activate_pin(1)
 
-/datum/action/eye
+/datum/action/generic/eye
 	action_type = AB_GENERIC
 	check_flags = AB_CHECK_LYING|AB_CHECK_STUNNED
 	///The type of /mob/abstract/eye used by the action.
@@ -302,7 +302,7 @@
 	///The relevant owner of the proc to be called by the eye action.
 	var/target_type = PARENT_TARGET
 
-/datum/action/eye/New(var/datum/component/eye/eye_component)
+/datum/action/generic/eye/New(var/datum/component/eye/eye_component)
 	if(!istype(eye_component))
 		crash_with("Attempted to generate eye action [src], but no eye component was provided!")
 	switch(target_type)
@@ -315,7 +315,7 @@
 		else
 			crash_with("Attempted to generate eye action [src] but an improper target_type ([target_type]) was defined.")
 
-/datum/action/eye/CheckRemoval(mob/living/user)
+/datum/action/generic/eye/CheckRemoval(mob/living/user)
 	if(!user.eyeobj || !istype(user.eyeobj, eye_type))
 		return TRUE
 

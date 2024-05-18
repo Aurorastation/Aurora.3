@@ -1,7 +1,8 @@
 /obj/item/organ/internal/augment/tool/crayon
 	name = "integrated crayon"
 	icon_state = "crayonaugment"
-	action_button_name = "Deploy Crayon"
+//	action_button_name = "Deploy Crayon"
+	actions_types = list()
 	action_button_icon = "crayonaugment"
 	organ_tag = BP_AUG_CRAYON
 	parent_organ = BP_R_HAND

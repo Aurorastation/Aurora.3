@@ -11,7 +11,8 @@
 	w_class = ITEMSIZE_SMALL
 	matter = list(MATERIAL_PLASTIC = 100, MATERIAL_ALUMINIUM = 50)
 	origin_tech = list(TECH_MAGNET = 1, TECH_ENGINEERING = 1)
-	action_button_name = "Toggle T-Ray scanner"
+//	action_button_name = "Toggle T-Ray scanner"
+	actions_types = list()
 
 	var/scan_range = 3
 

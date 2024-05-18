@@ -7,7 +7,8 @@
 	implant_icon = "freedom"
 	implant_color = "#eadb83"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_BLUESPACE = 2)
-	default_action_type = null
+//	default_action_type = null
+	actions_types = list()
 	known = TRUE
 	var/id = 1.0
 	var/lifespan_postmortem = 10 MINUTES

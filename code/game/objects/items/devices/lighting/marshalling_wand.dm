@@ -7,7 +7,7 @@
 	light_color = LIGHT_COLOR_RED
 	light_wedge = LIGHT_OMNI
 	brightness_on = 2
-	action_button_name = "Toggle Marshalling Wands"
+//	action_button_name = "Toggle Marshalling Wands"
 
 /obj/item/device/flashlight/marshallingwand/AltClick(mob/user)
 	if(!use_check_and_message(user))

@@ -6,7 +6,8 @@
 	item_state = "hardhat_yellow"
 	light_overlay = "hardhat_light"
 	contained_sprite = TRUE
-	action_button_name = "Toggle Headlamp"
+//	action_button_name = "Toggle Headlamp"
+	actions_types = list()
 	brightness_on = 4 //luminosity when on
 	armor = list(
 		melee = ARMOR_MELEE_RESISTANT,
