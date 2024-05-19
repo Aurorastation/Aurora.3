@@ -30,7 +30,9 @@ type Recipe = {
   sheets: number;
   can_make: BooleanLike;
   recipe: string;
+  security_level: string;
   hidden: BooleanLike;
+  enabled: BooleanLike;
 };
 
 type QueueItem = {
@@ -155,10 +157,22 @@ export const CategoryData = (props, context) => {
                         {capitalizeAll(recipe.name)}
                       </Box>
                     }
-                    disabled={recipe.can_make}
-                    color="transparent"
+                    tooltip={
+                      !recipe.enabled
+                        ? 'Security Level Needed: ' + recipe.security_level
+                        : ''
+                    }
+                    color={!recipe.enabled || recipe.can_make ? null : 'orange'}
+                    backgroundColor={
+                      !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                    }
+                    textColor={
+                      !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                    }
                     onClick={() =>
-                      act('make', { multiplier: 1, recipe: recipe.recipe })
+                      !recipe.enabled || recipe.can_make
+                        ? null
+                        : act('make', { multiplier: 1, recipe: recipe.recipe })
                     }
                   />
                   {recipe.max_sheets ? (
@@ -170,10 +184,22 @@ export const CategoryData = (props, context) => {
                             [x5]
                           </Box>
                         }
-                        disabled={recipe.can_make}
-                        color="transparent"
+                        color={
+                          !recipe.enabled || recipe.can_make ? null : 'orange'
+                        }
+                        backgroundColor={
+                          !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                        }
+                        textColor={
+                          !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                        }
                         onClick={() =>
-                          act('make', { multiplier: 5, recipe: recipe.recipe })
+                          !recipe.enabled || recipe.can_make
+                            ? null
+                            : act('make', {
+                              multiplier: 5,
+                              recipe: recipe.recipe,
+                            })
                         }
                       />
                       <Button
@@ -182,10 +208,22 @@ export const CategoryData = (props, context) => {
                             [x10]
                           </Box>
                         }
-                        disabled={recipe.can_make}
-                        color="transparent"
+                        color={
+                          !recipe.enabled || recipe.can_make ? null : 'orange'
+                        }
+                        backgroundColor={
+                          !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                        }
+                        textColor={
+                          !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                        }
                         onClick={() =>
-                          act('make', { multiplier: 10, recipe: recipe.recipe })
+                          !recipe.enabled || recipe.can_make
+                            ? null
+                            : act('make', {
+                              multiplier: 10,
+                              recipe: recipe.recipe,
+                            })
                         }
                       />
                       <Button
@@ -194,13 +232,22 @@ export const CategoryData = (props, context) => {
                             [x{recipe.max_sheets}]
                           </Box>
                         }
-                        disabled={recipe.can_make}
-                        color="transparent"
+                        color={
+                          !recipe.enabled || recipe.can_make ? null : 'orange'
+                        }
+                        backgroundColor={
+                          !recipe.enabled || recipe.can_make ? '#9c0000' : null
+                        }
+                        textColor={
+                          !recipe.enabled || recipe.can_make ? '#9e9e9e' : null
+                        }
                         onClick={() =>
-                          act('make', {
-                            multiplier: recipe.max_sheets,
-                            recipe: recipe.recipe,
-                          })
+                          !recipe.enabled || recipe.can_make
+                            ? null
+                            : act('make', {
+                              multiplier: recipe.max_sheets,
+                              recipe: recipe.recipe,
+                            })
                         }
                       />
                     </>

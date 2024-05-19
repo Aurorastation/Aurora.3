@@ -173,5 +173,20 @@
 /obj/item/ammo_pile/slug
 	ammo_type = /obj/item/ammo_casing/shotgun
 
+/obj/item/ammo_pile/shotgun_blanks
+	ammo_type = /obj/item/ammo_casing/shotgun/blank
+
+/obj/item/ammo_pile/shotgun_beanbag
+	ammo_type = /obj/item/ammo_casing/shotgun/beanbag
+
+/obj/item/ammo_pile/shotgun_flash
+	ammo_type = /obj/item/ammo_casing/shotgun/flash
+
+/obj/item/ammo_pile/shotgun_pellet
+	ammo_type = /obj/item/ammo_casing/shotgun/pellet
+
+/obj/item/ammo_pile/shotgun_stunshell
+	ammo_type = /obj/item/ammo_casing/shotgun/stunshell
+
 /obj/item/ammo_pile/fourty_five
 	ammo_type = /obj/item/ammo_casing/c45

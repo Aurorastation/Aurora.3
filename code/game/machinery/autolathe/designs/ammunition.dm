@@ -4,35 +4,51 @@
 
 	abstract_type = /singleton/autolathe_recipe/ammunition
 
+/singleton/autolathe_recipe/ammunition/New()
+	..()
+
+	if(ispath(path, /obj/item/ammo_pile))
+		var/obj/item/ammo_pile/pile = path
+		var/ammo_type = initial(pile.ammo_type)
+
+		var/obj/item/ammo_casing/ammo = new ammo_type
+		var/list/ammo_matter = ammo.matter.Copy()
+
+		resources = ammo_matter
+		for(var/material in resources)
+			resources[material] = resources[material] * ammo.max_stack
+
+		qdel(ammo)
+
 /singleton/autolathe_recipe/ammunition/syringegun_ammo
 	name = "syringe gun cartridge"
 	path = /obj/item/syringe_cartridge
 
-/singleton/autolathe_recipe/ammunition/shotgun_blanks
-	name = "shells (blank, shotgun)"
-	path = /obj/item/ammo_casing/shotgun/blank
-
-/singleton/autolathe_recipe/ammunition/shotgun_beanbag
-	name = "shells (beanbag, shotgun)"
-	path = /obj/item/ammo_casing/shotgun/beanbag
-
-/singleton/autolathe_recipe/ammunition/shotgun_flash
-	name = "shells (flash, shotgun)"
-	path = /obj/item/ammo_casing/shotgun/flash
-
 /singleton/autolathe_recipe/ammunition/shotgun
-	name = "shells (slug, shotgun)"
-	path = /obj/item/ammo_casing/shotgun
-	security_level = SEC_LEVEL_RED
+	name = "shells (blank, shotgun)"
+	path = /obj/item/ammo_pile/shotgun_blanks
 
-/singleton/autolathe_recipe/ammunition/shotgun_pellet
-	name = "shells (buckshot, shotgun)"
-	path = /obj/item/ammo_casing/shotgun/pellet
-	security_level = SEC_LEVEL_RED
+/singleton/autolathe_recipe/ammunition/shotgun/beanbag
+	name = "shells (beanbag, shotgun)"
+	path = /obj/item/ammo_pile/shotgun_beanbag
 
-/singleton/autolathe_recipe/ammunition/stunshell
+/singleton/autolathe_recipe/ammunition/shotgun/flash
+	name = "shells (flash, shotgun)"
+	path = /obj/item/ammo_pile/shotgun_flash
+
+/singleton/autolathe_recipe/ammunition/shotgun/stun
 	name = "shells (stun cartridge, shotgun)"
-	path = /obj/item/ammo_casing/shotgun/stunshell
+	path = /obj/item/ammo_pile/shotgun_stunshell
+
+/singleton/autolathe_recipe/ammunition/shotgun/slug
+	name = "shells (slug, shotgun)"
+	path = /obj/item/ammo_pile/slug
+	security_level = SEC_LEVEL_RED
+
+/singleton/autolathe_recipe/ammunition/shotgun/pellet
+	name = "shells (buckshot, shotgun)"
+	path = /obj/item/ammo_pile/shotgun_pellet
+	security_level = SEC_LEVEL_RED
 
 /singleton/autolathe_recipe/ammunition/magazine_revolver_1
 	name = "speed loader (.357)"
