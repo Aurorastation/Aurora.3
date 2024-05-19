@@ -1,0 +1,9 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Certain autolathe items can now be printed at Code Red without needing to be hacked. (though hacking allows you to access them without the level)"
+  - balance: "Certain autolathe items have had their hacking restrictions removed, such as the industrial welder. They are now printable by default."
+  - qol: "Reorganized the autolathe, drastically reduced the size of the General tab, and introduced new tabs, such as Dinnerware and Armaments."
+  - qol: "Shotgun shells now print in piles, instead of one shell at a time. The resource cost has been increased to compensate."
