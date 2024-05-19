@@ -277,9 +277,7 @@
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
-
-//	action_button_name = "Toggle the magclaws"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_magclaws)
 
 /obj/item/clothing/suit/space/void/scout
 	name = "scout armor"

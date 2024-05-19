@@ -1,22 +1,50 @@
-#define ACTION_BUTTON_DEFAULT_BACKGROUND "default"
 /obj/screen/movable/action_button
 	var/datum/action/linked_action
 	screen_loc = null
 
+	var/button_icon_state
+	var/appearance_cache
+
+	var/id
+
+/obj/screen/movable/action_button/proc/can_use(mob/user)
+	if(linked_action)
+		return linked_action.owner == user
+	else
+		return TRUE
+
+/obj/screen/movable/action_button/MouseDrop()
+	if(!can_use(usr))
+		return
+	return ..()
+
 /obj/screen/movable/action_button/Click(location,control,params)
+	if(!can_use(usr))
+		return
+
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"])
-		moved = 0
+		if(locked)
+			to_chat(usr, "<span class='warning'>Action button \"[name]\" is locked, unlock it first.</span>")
+			return TRUE
+		moved = FALSE
 		usr.update_action_buttons() //redraw buttons that are no longer considered "moved"
-		return 1
-	if(usr.next_move >= world.time) // Is this needed ?
+		return TRUE
+	if(modifiers["ctrl"])
+		locked = !locked
+		to_chat(usr, "<span class='notice'>Action button \"[name]\" [locked ? "" : "un"]locked.</span>")
+		if(id && usr.client) //try to (un)remember position
+			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = locked ? moved : null
+		return TRUE
+	if(usr.next_click >= world.time)
 		return
 	linked_action.Trigger()
-	return 1
+	return TRUE
 
 //Hide/Show Action Buttons ... Button
 /obj/screen/movable/action_button/hide_toggle
 	name = "Hide Buttons"
+	desc = "Shift-click any button to reset its position, and Control-click it to lock it in place. Alt-click this button to reset all buttons to their default positions."
 	icon = 'icons/obj/action_buttons/actions.dmi'
 	icon_state = "bg_default"
 	var/hidden = 0
@@ -25,10 +53,37 @@
 	var/show_state = "show"
 
 /obj/screen/movable/action_button/hide_toggle/Click(location,control,params)
+	if(!can_use(usr))
+		return
 	var/list/modifiers = params2list(params)
 	if(modifiers["shift"])
-		moved = 0
-		return 1
+		if(locked)
+			to_chat(usr, "<span class='warning'>Action button \"[name]\" is locked, unlock it first.</span>")
+			return TRUE
+		moved = FALSE
+		usr.update_action_buttons(TRUE)
+		return TRUE
+	if(modifiers["ctrl"])
+		locked = !locked
+		to_chat(usr, "<span class='notice'>Action button \"[name]\" [locked ? "" : "un"]locked.</span>")
+		if(id && usr.client) //try to (un)remember position
+			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = locked ? moved : null
+		return TRUE
+	if(modifiers["alt"])
+		for(var/V in usr.actions)
+			var/datum/action/A = V
+			var/obj/screen/movable/action_button/B = A.button
+			B.moved = FALSE
+			if(B.id && usr.client)
+				usr.client.prefs.action_buttons_screen_locs["[B.name]_[B.id]"] = null
+			B.locked = usr.client.prefs.buttons_locked
+		locked = usr.client.prefs.buttons_locked
+		moved = FALSE
+		if(id && usr.client)
+			usr.client.prefs.action_buttons_screen_locs["[name]_[id]"] = null
+		usr.update_action_buttons(TRUE)
+		to_chat(usr, SPAN_NOTICE("Action button positions have been reset."))
+		return TRUE
 	usr.hud_used.action_buttons_hidden = !usr.hud_used.action_buttons_hidden
 
 	hidden = usr.hud_used.action_buttons_hidden
@@ -48,6 +103,16 @@
 	UpdateIcon()
 	return
 
+/obj/screen/movable/action_button/hide_toggle/AltClick(mob/user)
+	for(var/V in user.actions)
+		var/datum/action/A = V
+		var/obj/screen/movable/action_button/B = A.button
+		B.moved = FALSE
+	if(moved)
+		moved = FALSE
+	user.update_action_buttons(TRUE)
+	to_chat(user, "<span class='notice'>Action button positions have been reset.</span>")
+
 /obj/screen/movable/action_button/hide_toggle/proc/UpdateIcon()
 	ClearOverlays()
 	AddOverlays(mutable_appearance(hide_icon, hidden ? show_state : hide_state))
@@ -55,7 +120,8 @@
 
 
 /obj/screen/movable/action_button/MouseEntered(location,control,params)
-	openToolTip(usr,src,params,title = name,content = desc)
+	if(!QDELETED(src))
+		openToolTip(usr,src,params,title = name,content = desc)
 
 
 /obj/screen/movable/action_button/MouseExited()
@@ -74,10 +140,10 @@
 	.["bg_state_active"] = "template_active"
 
 //used to update the buttons icon.
-/mob/proc/update_action_buttons_icon()
+/mob/proc/update_action_buttons_icon(status_only = FALSE)
 	for(var/X in actions)
 		var/datum/action/A = X
-		A.UpdateButtonIcon()
+		A.UpdateButtonIcon(status_only)
 
 //This is the proc used to update all the action buttons.
 /mob/proc/update_action_buttons(reload_screen)

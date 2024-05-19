@@ -18,8 +18,7 @@
 
 /obj/item/organ/external/head/skrell
 	var/obj/item/storage/internal/skrell/storage
-//	action_button_name = "Headtail Pocket"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/skrell_storage)
 
 /obj/item/organ/external/head/skrell/Initialize(mapload)
 	. = ..()
@@ -33,15 +32,6 @@
 	storage = new /obj/item/storage/internal/skrell(src)
 	if(owner)
 		storage.color = rgb(owner.r_hair, owner.g_hair, owner.b_hair)
-//	refresh_action_button()
-
-///obj/item/organ/external/head/skrell/refresh_action_button()
-//	. = ..()
-//	if(. && storage)
-//		action.button_icon_state = storage.icon_state
-//		action.button_icon_color = storage.color
-//		if(action.button)
-//			action.button.update_icon()
 
 /obj/item/organ/external/head/skrell/removed()
 	. = ..()

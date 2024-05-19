@@ -7,7 +7,6 @@
 	icon_state = "implant_chem" //Temporary
 	implant_icon = "chem" //Ditto
 	implant_color = "#eba7eb" //Ditto
-//	default_action_type = null
 	actions_types = list()
 
 /obj/item/implant/aggression/get_data()

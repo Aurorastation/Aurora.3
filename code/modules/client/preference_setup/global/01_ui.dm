@@ -105,6 +105,7 @@
 	dat += "-Color: <a href='?src=\ref[src];select_color=1'><b>[pref.UI_style_color]</b></a> [HTML_RECT(pref.UI_style_color)] - <a href='?src=\ref[src];reset=ui'>reset</a><br>"
 	dat += "-Alpha(transparency): <a href='?src=\ref[src];select_alpha=1'><b>[pref.UI_style_alpha]</b></a> - <a href='?src=\ref[src];reset=alpha'>reset</a><br>"
 	dat += "<b>Tooltip Style:</b> <a href='?src=\ref[src];select_tooltip_style=1'><b>[pref.tooltip_style]</b></a><br>"
+	dat += "<b>Action Buttons:</b> <a href='?_src_=\ref[src];action_buttons=1'><b>[pref.buttons_locked ? "Locked In Place" : "Unlocked"]</b></a><br>"
 	dat += "<b>TGUI Fancy:</b> <a href='?src=\ref[src];select_tguif=1'><b>[pref.tgui_fancy ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Lock:</b> <a href='?src=\ref[src];select_tguil=1'><b>[pref.tgui_lock ? "ON" : "OFF"]</b></a><br>"
 	dat += "<b>TGUI Inputs:</b> <a href='?src=\ref[src];tgui_inputs=1'><b>[pref.tgui_inputs ? "ON" : "OFF"]</b></a><br>"
@@ -137,6 +138,10 @@
 		var/UI_style_alpha_new = input(user, "Select UI alpha (transparency) level, between 50 and 255.", "Global Preference", pref.UI_style_alpha) as num|null
 		if(isnull(UI_style_alpha_new) || (UI_style_alpha_new < 50 || UI_style_alpha_new > 255) || !CanUseTopic(user)) return TOPIC_NOACTION
 		pref.UI_style_alpha = UI_style_alpha_new
+		return TOPIC_REFRESH
+
+	else if(href_list["action_buttons"])
+		pref.buttons_locked = !pref.buttons_locked
 		return TOPIC_REFRESH
 
 	else if(href_list["select_tguif"])

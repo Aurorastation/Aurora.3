@@ -7,9 +7,7 @@
 	implant_icon = "freedom"
 	implant_color = "#88f2e0"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_ILLEGAL = 2, TECH_BIO = 3)
-//	default_action_type = /datum/action/item_action/hands_free/activate/implant/freedom
-//	action_button_name = "Activate Freedom Implant"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/hands_free/implant/freedom_implant)
 	hidden = TRUE
 	var/uses = 1
 

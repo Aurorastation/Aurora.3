@@ -5,9 +5,6 @@
 	implant_icon = "chem" //Ditto
 	implant_color = "#eba7eb" //Ditto
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 2, TECH_ILLEGAL = 2)
-//	default_action_type = /datum/action/item_action/hands_free/activate/implant/adrenaline
-//	action_button_name = "Activate Adrenaline Implant"
-	actions_types = list()
 	var/uses = 3
 
 /obj/item/implant/adrenaline/get_data()

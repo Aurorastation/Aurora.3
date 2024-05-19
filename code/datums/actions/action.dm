@@ -1,9 +1,3 @@
-#define AB_CHECK_RESTRAINED 1
-#define AB_CHECK_STUNNED 2
-#define AB_CHECK_LYING 4
-#define AB_CHECK_CONSCIOUS 8
-
-
 /datum/action
 	var/name = "Generic Action"
 	var/desc = null
@@ -40,18 +34,38 @@
 			return
 		Remove(owner)
 	owner = M
+
+	//button id generation
+	var/counter = 0
+	var/bitfield = 0
+	for(var/datum/action/A in M.actions)
+		if(A.name == name && A.button.id)
+			counter += 1
+			bitfield |= A.button.id
+	bitfield = ~bitfield
+	var/bitflag = 1
+	for(var/i in 1 to (counter + 1))
+		if(bitfield & bitflag)
+			button.id = bitflag
+			break
+		bitflag *= 2
+
 	M.actions += src
 	if(M.client)
 		M.client.screen += button
+		button.locked = M.client.prefs.buttons_locked || button.id ? M.client.prefs.action_buttons_screen_locs["[name]_[button.id]"] : FALSE //even if it's not defaultly locked we should remember we locked it before
+		button.moved = button.id ? M.client.prefs.action_buttons_screen_locs["[name]_[button.id]"] : FALSE
 	M.update_action_buttons()
 
 /datum/action/proc/Remove(mob/M)
 	if(M.client)
 		M.client.screen -= button
 	button.moved = FALSE //so the button appears in its normal position when given to another owner.
+	button.locked = FALSE
 	M.actions -= src
 	M.update_action_buttons()
 	owner = null
+	button.id = null
 
 /datum/action/proc/Trigger()
 	if(!IsAvailable())
@@ -63,33 +77,39 @@
 
 /datum/action/proc/IsAvailable()
 	if(!owner)
-		return 0
+		return FALSE
 	if(check_flags & AB_CHECK_RESTRAINED)
 		if(owner.restrained())
-			return 0
+			return FALSE
 	if(check_flags & AB_CHECK_STUNNED)
 		if(owner.stunned || owner.weakened)
-			return 0
+			return FALSE
 	if(check_flags & AB_CHECK_LYING)
 		if(owner.lying)
-			return 0
+			return FALSE
 	if(check_flags & AB_CHECK_CONSCIOUS)
 		if(owner.stat)
-			return 0
-	return 1
+			return FALSE
+	return TRUE
 
-/datum/action/proc/UpdateButtonIcon()
+/datum/action/proc/UpdateButtonIcon(status_only = FALSE)
 	if(button)
-		button.name = name
-		button.desc = desc
-		if(owner?.hud_used && background_icon_state == ACTION_BUTTON_DEFAULT_BACKGROUND)
-			var/list/settings = owner.hud_used.get_action_buttons_icons()
-			if(button.icon != settings["bg_icon"])
-				button.icon = settings["bg_icon"]
-			if(button.icon_state != settings["bg_state"])
-				button.icon_state = settings["bg_state"]
+		if(!status_only)
+			button.name = name
+			button.desc = desc
+			if(owner && owner.hud_used && background_icon_state == ACTION_BUTTON_DEFAULT_BACKGROUND)
+				var/list/settings = owner.hud_used.get_action_buttons_icons()
+				if(button.icon != settings["bg_icon"])
+					button.icon = settings["bg_icon"]
+				if(button.icon_state != settings["bg_state"])
+					button.icon_state = settings["bg_state"]
+			else
+				if(button.icon != button_icon)
+					button.icon = button_icon
+				if(button.icon_state != background_icon_state)
+					button.icon_state = background_icon_state
 
-		ApplyIcon(button)
+			ApplyIcon(button)
 
 		if(!IsAvailable())
 			button.color = rgb(128,0,0,128)
@@ -98,13 +118,13 @@
 			return 1
 
 /datum/action/proc/ApplyIcon(obj/screen/movable/action_button/current_button)
-	current_button.ClearOverlays()
-	if(button_icon && button_icon_state)
-		var/mutable_appearance/mut
-		mut = mutable_appearance(button_icon, current_button, button_icon_state)
-		mut.pixel_x = 0
-		mut.pixel_y = 0
-		current_button.AddOverlays(mut)
+	if(icon_icon && button_icon_state && current_button.button_icon_state != button_icon_state)
+		var/image/img
+		img = image(icon_icon, current_button, button_icon_state)
+		img.pixel_x = 0
+		img.pixel_y = 0
+		current_button.overlays = list(img)
+		current_button.button_icon_state = button_icon_state
 
 
 
@@ -131,13 +151,20 @@
 	return 1
 
 /datum/action/item_action/ApplyIcon(obj/screen/movable/action_button/current_button)
-	current_button.overlays.Cut()
-	if(target)
+	if(button_icon && button_icon_state)
+		// If set, use the custom icon that we set instead
+		// of the item appearence
+		..(current_button)
+	if(target && current_button.appearance_cache != target.appearance) //replace with /ref comparison if this is not valid.
 		var/obj/item/I = target
-		var/old = I.layer
+		current_button.appearance_cache = I.appearance
+		var/old_layer = I.layer
+		var/old_plane = I.plane
 		I.layer = FLOAT_LAYER //AAAH
-		current_button.overlays += I
-		I.layer = old
+		I.plane = FLOAT_PLANE //^ what that guy said
+		current_button.overlays = list(I)
+		I.layer = old_layer
+		I.plane = old_plane
 
 /datum/action/item_action/organ_action
 	check_flags = AB_CHECK_CONSCIOUS

@@ -9,8 +9,7 @@
 	icon_state = "pmcg_modsuit"
 	item_state = "pmcg_modsuit"
 	contained_sprite = TRUE
-//	action_button_name = "Change Modsuit"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/transform_modsuit)
 	var/modsuit_mode = 0
 	var/list/names = list(
 		"\improper PMCG modsuit",

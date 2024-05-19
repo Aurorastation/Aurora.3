@@ -113,8 +113,7 @@ BLIND     // can't see anything
 	desc = "Used for seeing walls, floors, and stuff through anything."
 	icon_state = "meson"
 	item_state = "meson"
-//	action_button_name = "Toggle Goggles"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_goggles)
 	origin_tech = list(TECH_MAGNET = 2, TECH_ENGINEERING = 2)
 	toggleable = 1
 	vision_flags = SEE_TURFS
@@ -136,8 +135,7 @@ BLIND     // can't see anything
 	desc = "Modified aviator glasses with a toggled meson interface. Comes with bonus prescription overlay."
 	icon_state = "aviator_eng"
 	off_state = "aviator_eng_off"
-//	action_button_name = "Toggle HUD"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_hud)
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
 
@@ -221,8 +219,7 @@ BLIND     // can't see anything
 	desc = "You can totally see in the dark now!"
 	icon_state = "night"
 	item_state = "glasses"
-//	action_button_name = "Toggle Goggles"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_goggles)
 	origin_tech = list(TECH_MAGNET = 2)
 	darkness_view = 7
 	toggleable = 1
@@ -512,8 +509,7 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
-//	action_button_name = "Toggle Goggles"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_goggles)
 	origin_tech = list(TECH_MAGNET = 3, TECH_ENGINEERING = 3)
 	toggleable = 1
 	vision_flags = SEE_OBJS
@@ -1039,8 +1035,7 @@ BLIND     // can't see anything
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/eyes.dmi'
 	)
-//	action_button_name = "Toggle Goggles"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_goggles)
 	origin_tech = list(TECH_MAGNET = 3)
 	toggleable = 1
 	vision_flags = SEE_MOBS
@@ -1106,8 +1101,7 @@ BLIND     // can't see anything
 	icon_state = "aviator_thr"
 	off_state = "aviator_off"
 	item_state_slots = list(slot_r_hand_str = "sunglasses", slot_l_hand_str = "sunglasses")
-//	action_button_name = "Toggle HUD"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_hud)
 	activation_sound = 'sound/effects/pop.ogg'
 	prescription = 7
 

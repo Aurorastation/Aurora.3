@@ -5,8 +5,7 @@
 	icon_state = "holosuit_fem"
 	item_state = "holosuit_fem"
 	contained_sprite = TRUE
-//	action_button_name = "Transform Holoclothing"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/transform_holoclothing)
 	var/cooldown = 0
 	var/clothing_mode = 0
 	var/list/names = list(

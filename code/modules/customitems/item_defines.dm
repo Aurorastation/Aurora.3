@@ -1440,8 +1440,7 @@ All custom items with worn sprites must follow the contained sprite system: http
 	icon_state = "akara_mask"
 	item_state = "akara_mask"
 	contained_sprite = TRUE
-//	action_button_name = "Adjust mask"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/adjust)
 	flash_protection = FLASH_PROTECTION_NONE
 	tint = TINT_NONE
 

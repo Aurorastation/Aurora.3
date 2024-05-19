@@ -338,8 +338,7 @@
 	icon = 'icons/clothing/under/uniforms/lyodsuit_hoodie.dmi'
 	icon_state = "dom_thermal_hoodie"
 	item_state = "dom_thermal_hoodie"
-//	action_button_name = "Toggle Lyodsuit Mask"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/adjust)
 	var/obj/item/clothing/mask/breath/lyodsuit/mask
 	var/hood_raised = FALSE
 

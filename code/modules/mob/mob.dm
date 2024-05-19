@@ -889,6 +889,8 @@
 	else
 		density = initial(density)
 
+	update_action_buttons_icon(status_only=TRUE)
+
 	for(var/obj/item/grab/G in grabbed_by)
 		if(G.wielded)
 			canmove = FALSE

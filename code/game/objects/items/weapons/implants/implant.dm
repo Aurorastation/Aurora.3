@@ -6,14 +6,7 @@ ABSTRACT_TYPE(/obj/item/implant)
 	name = "implant"
 	icon = 'icons/obj/item/implants.dmi'
 	w_class = WEIGHT_CLASS_TINY
-	/**
-	 * This gives the user an action button that allows them to activate the implant.
-	 * If the implant needs no action button, then null this out.
-	 * Or, if you want to add a unique action button, then replace this.
-	 */
-//	default_action_type = /datum/action/item_action/hands_free/activate/implant
-//	action_button_name = "Activate Implant"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/hands_free/activate)
 	var/implanted = null
 	///The mob that has been implanted with this
 	var/mob/imp_in = null
@@ -36,7 +29,7 @@ ABSTRACT_TYPE(/obj/item/implant)
 /obj/item/implant/proc/trigger(emote, source)
 	return
 
-/obj/item/implant/ui_action_click()
+/obj/item/implant/ui_action_click(mob/user, actiontype)
 	INVOKE_ASYNC(src, PROC_REF(activate), "action_button")
 
 /obj/item/implant/item_action_slot_check(slot, mob/user)
@@ -54,6 +47,8 @@ ABSTRACT_TYPE(/obj/item/implant)
  * return TRUE if the implant succeeds (ex. Nonrevhead and loyalty implant.)
 */
 /obj/item/implant/proc/implanted(mob/source)
+	for(var/datum/action/implant_action as anything in actions)
+		implant_action.Grant(source)
 	return TRUE
 
 /obj/item/implant/proc/canImplant(mob/M, mob/user, target_zone)

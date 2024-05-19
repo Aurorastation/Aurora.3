@@ -26,8 +26,7 @@
 	var/base_name
 	var/unwielded_force_divisor = 0.25
 	var/parry_chance = 15
-//	action_button_name = "Wield two-handed weapon"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/wield_two_handed)
 	icon = 'icons/obj/weapons.dmi'
 	item_icons = list(
 		slot_l_hand_str = 'icons/mob/items/weapons/lefthand_twohanded.dmi',
@@ -177,6 +176,7 @@
 	pickup_sound = null
 	equip_sound = null
 	use_material_sound = FALSE
+	actions_types = list()
 
 /obj/item/material/twohanded/offhand/unwield()
 	if (ismob(loc))
@@ -588,8 +588,7 @@
 	unbreakable = TRUE
 	drop_sound = 'sound/items/drop/metalweapon.ogg'
 	pickup_sound = 'sound/items/pickup/metalweapon.ogg'
-//	action_button_name = "Plant Flag"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/wield_two_handed, /datum/action/item_action/plant_flag)
 	var/planted = FALSE
 
 /obj/item/material/twohanded/pike/flag/verb/plant()
@@ -619,8 +618,11 @@
 	else
 		..()
 
-/obj/item/material/twohanded/pike/flag/ui_action_click()
-	plant()
+/obj/item/material/twohanded/pike/flag/ui_action_click(mob/user, actiontype)
+	if(actiontype == /datum/action/item_action/plant_flag)
+		plant()
+	else if(src in usr)
+		attack_self(usr)
 
 /obj/item/material/twohanded/pike/flag/hegemony
 	name = "izweski hegemony flag"

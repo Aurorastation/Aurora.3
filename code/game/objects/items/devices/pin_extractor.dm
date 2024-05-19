@@ -6,8 +6,7 @@
 	item_state = "pin_extractor"
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = OBJ_FLAG_CONDUCTABLE
-//	action_button_name = "Toggle extractor"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_extractor)
 	var/on = 0
 	var/activation_sound = 'sound/effects/lighton.ogg'
 	origin_tech = list(TECH_MATERIAL = 3, TECH_ENGINEERING = 3, TECH_MAGNET = 4)
