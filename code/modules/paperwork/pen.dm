@@ -118,7 +118,7 @@
 	else
 		icon_state = "pen_[colour]"
 
-	to_chat(user, "<span class='notice'>Changed color to '[colour].'</span>")
+	to_chat(user, SPAN_NOTICE("Changed color to '[colour].'"))
 
 /obj/item/pen/attack_self(var/mob/user)
 	playsound(loc, 'sound/items/penclick.ogg', 50, 1)

@@ -89,7 +89,7 @@ var/list/admin_departments
 		if("send")
 			if (get_remaining_cooldown() > 0)
 				// Rate-limit sending faxes
-				to_chat(usr, "<span class='warning'>The fax machine isn't ready, yet!</span>")
+				to_chat(usr, SPAN_WARNING("The fax machine isn't ready, yet!"))
 				return
 
 			if(copy_item && is_authenticated())
@@ -106,9 +106,9 @@ var/list/admin_departments
 				copy_item.forceMove(loc)
 				if (get_dist(usr, src) < 2)
 					usr.put_in_hands(copy_item)
-					to_chat(usr, "<span class='notice'>You take \the [copy_item] out of \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You take \the [copy_item] out of \the [src]."))
 				else
-					to_chat(usr, "<span class='notice'>You eject \the [copy_item] from \the [src].</span>")
+					to_chat(usr, SPAN_NOTICE("You eject \the [copy_item] from \the [src]."))
 				copy_item = null
 				return TRUE
 
@@ -134,23 +134,23 @@ var/list/admin_departments
 		if("linkpda")
 			var/obj/item/modular_computer/pda = usr.get_active_hand()
 			if (!pda || !istype(pda))
-				to_chat(usr, "<span class='warning'>You need to be holding a PDA to link it.</span>")
+				to_chat(usr, SPAN_WARNING("You need to be holding a PDA to link it."))
 			else if (pda in alert_pdas)
-				to_chat(usr, "<span class='notice'>\The [pda] appears to be already linked.</span>")
+				to_chat(usr, SPAN_NOTICE("\The [pda] appears to be already linked."))
 				//Update the name real quick.
 				alert_pdas[pda] = pda.name
 				return TRUE
 			else
 				alert_pdas += pda
 				alert_pdas[pda] = pda.name
-				to_chat(usr, "<span class='notice'>You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine.</span>")
+				to_chat(usr, SPAN_NOTICE("You link \the [pda] to \the [src]. It will now ping upon the arrival of a fax to this machine."))
 				return TRUE
 
 		if("unlink")
 			var/obj/item/modular_computer/pda = locate(params["unlink"])
 			if (pda && istype(pda))
 				if (pda in alert_pdas)
-					to_chat(usr, "<span class='notice'>You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes.</span>")
+					to_chat(usr, SPAN_NOTICE("You unlink [alert_pdas[pda]] from \the [src]. It will no longer be notified of new faxes."))
 					alert_pdas -= pda
 					return TRUE
 
@@ -295,7 +295,7 @@ var/list/admin_departments
 
 
 /obj/machinery/photocopier/faxmachine/proc/message_admins(var/mob/sender, var/faxname, var/obj/item/sent, var/reply_type, font_colour="#006100")
-	var/msg = "<span class='notice'> <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[sender]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=\ref[sender]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=\ref[src];faxMachine=\ref[src]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a></span>"
+	var/msg = SPAN_NOTICE(" <b><font color='[font_colour]'>[faxname]: </font>[key_name(sender, 1)] (<A HREF='?_src_=holder;adminplayeropts=\ref[sender]'>PP</A>) (<A HREF='?_src_=vars;Vars=\ref[sender]'>VV</A>) (<A HREF='?_src_=holder;subtlemessage=\ref[sender]'>SM</A>) (<A HREF='?_src_=holder;adminplayerobservejump=\ref[sender]'>JMP</A>) (<A HREF='?_src_=holder;secretsadmin=check_antagonist'>CA</A>) (<a href='?_src_=holder;[reply_type]=\ref[src];faxMachine=\ref[src]'>REPLY</a>)</b>: Receiving '[sent.name]' via secure connection ... <a href='?_src_=holder;AdminFaxView=\ref[sent]'>view message</a>")
 
 	var/cciaa_present = 0
 	var/cciaa_afk = 0

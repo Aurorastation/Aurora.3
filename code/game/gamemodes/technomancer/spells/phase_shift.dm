@@ -50,7 +50,7 @@
 	if(user.stat)
 		return
 
-	to_chat(user, "<span class='notice'>You step out of the rift.</span>")
+	to_chat(user, SPAN_NOTICE("You step out of the rift."))
 	user.forceMove(get_turf(src))
 	qdel(src)
 
@@ -59,12 +59,12 @@
 	if(isturf(user.loc)) //Check if we're not already in a rift.
 		if(pay_energy(2000))
 			var/obj/effect/phase_shift/PS = new(get_turf(user))
-			visible_message("<span class='warning'>[user] vanishes into a pink rift!</span>")
+			visible_message(SPAN_WARNING("[user] vanishes into a pink rift!"))
 			to_chat(user, "<span class='info'>You create an unstable rift, and go through it.  Be sure to not stay too long.</span>")
 			user.forceMove(PS)
 			adjust_instability(10)
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You don't have enough energy to make a rift!</span>")
+			to_chat(user, SPAN_WARNING("You don't have enough energy to make a rift!"))
 	else //We're already in a rift or something like a closet.
-		to_chat(user, "<span class='warning'>Making a rift here would probably be a bad idea.</span>")
+		to_chat(user, SPAN_WARNING("Making a rift here would probably be a bad idea."))

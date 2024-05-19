@@ -273,10 +273,10 @@
 		if(!density)
 			to_chat(user, SPAN_NOTICE("You need to wrench \the [src] from back into place first."))
 			return
-		user.visible_message(anchored ? "<span class='notice'>\The [user] begins unscrewing \the [src].</span>" : "<span class='notice'>\The [user] begins fastening \the [src].</span>" )
+		user.visible_message(anchored ? SPAN_NOTICE("\The [user] begins unscrewing \the [src].") : SPAN_NOTICE("\The [user] begins fastening \the [src].") )
 		attacking_item.play_tool_sound(get_turf(src), 75)
 		if(do_after(user, 10, src) && density)
-			to_chat(user, (anchored ? "<span class='notice'>You have unfastened \the [src] from the floor.</span>" : "<span class='notice'>You have fastened \the [src] to the floor.</span>"))
+			to_chat(user, (anchored ? SPAN_NOTICE("You have unfastened \the [src] from the floor.") : SPAN_NOTICE("You have fastened \the [src] to the floor.")))
 			anchored = !anchored
 			update_icon()
 		return

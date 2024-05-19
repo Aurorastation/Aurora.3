@@ -43,13 +43,13 @@
 
 /obj/item/reagent_containers/toothbrush/attack_self(mob/user as mob)
 	if(!reagents.total_volume)
-		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
+		to_chat(user, SPAN_WARNING("The [initial(name)] is dry!"))
 	else
 		playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 		if(do_after(user, 30))
 			user.visible_message(
-			"<span class='notice'>\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]</span>",
-			"<span class='notice'>You brush your teeth with \the [src].</span>")
+			SPAN_NOTICE("\The [user] brushes [user.get_pronoun("his")] teeth with \the [src]"),
+			SPAN_NOTICE("You brush your teeth with \the [src]."))
 			reagents.trans_to_mob(user, amount_per_transfer_from_this, CHEM_BREATHE)
 			update_icon()
 	return
@@ -66,14 +66,14 @@
 		var/mob/living/M = target
 		if(ishuman(M))
 			if(!reagents.total_volume)
-				to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
+				to_chat(user, SPAN_WARNING("The [initial(name)] is dry!"))
 			else if(reagents.total_volume)
 				if(user.zone_sel.selecting == BP_MOUTH && !(M.wear_mask && M.wear_mask.item_flags & ITEM_FLAG_AIRTIGHT))
 					user.do_attack_animation(src)
-					user.visible_message("<span class='warning'>[user] is trying to brush \the [target]'s teeth \the [src]!</span>")
+					user.visible_message(SPAN_WARNING("[user] is trying to brush \the [target]'s teeth \the [src]!"))
 					playsound(loc, 'sound/effects/toothbrush.ogg', 15, 1)
 					if(do_after(user, 30))
-						user.visible_message("<span class='warning'>[user] has brushed \the [target]'s teeth with \the [src]!</span>")
+						user.visible_message(SPAN_WARNING("[user] has brushed \the [target]'s teeth with \the [src]!"))
 
 						reagents.trans_to_mob(target, amount_per_transfer_from_this, CHEM_BREATHE)
 						update_icon()
@@ -93,7 +93,9 @@
 
 		if(A.reagents && A.reagents.trans_to_obj(src, reagents.maximum_volume))
 			playsound(loc, 'sound/effects/slosh.ogg', 25, 1)
-			user.visible_message("<span class='notice'>\The [user] soaks [src] using [A].</span>", "<span class='notice'>You soak [src] using [A].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] soaks [src] using [A]."),
+									SPAN_NOTICE("You soak [src] using [A]."))
+
 			update_icon()
 		return
 
@@ -106,7 +108,7 @@
 
 /obj/item/reagent_containers/toothbrush/proc/wipe_down(atom/A, mob/user)
 	if(!reagents.total_volume)
-		to_chat(user, "<span class='warning'>The [initial(name)] is dry!</span>")
+		to_chat(user, SPAN_WARNING("The [initial(name)] is dry!"))
 	else
 		user.visible_message("\The [user] starts to brush down [A] with [src]!")
 		playsound(loc, 'sound/effects/mop.ogg', 25, 1)

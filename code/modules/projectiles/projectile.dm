@@ -214,7 +214,7 @@
 		if(PROJECTILE_FORCE_MISS)
 			if(!point_blank)
 				if(!suppressed)
-					target_mob.visible_message("<span class='notice'>\The [src] misses [target_mob] narrowly!</span>")
+					target_mob.visible_message(SPAN_NOTICE("\The [src] misses [target_mob] narrowly!"))
 					playsound(target_mob, /singleton/sound_category/bulletflyby_sound, 50, 1)
 				return FALSE
 		if(PROJECTILE_DODGED)
@@ -225,9 +225,10 @@
 	var/impacted_organ = target_mob.get_organ_name_from_zone(def_zone)
 	//hit messages
 	if(suppressed)
-		to_chat(target_mob, "<span class='danger'>You've been hit in the [impacted_organ] by \a [src]!</span>")
+		to_chat(target_mob, SPAN_DANGER("You've been hit in the [impacted_organ] by \a [src]!"))
 	else
-		target_mob.visible_message("<span class='danger'>\The [target_mob] is hit by \a [src] in the [impacted_organ]!</span>", "<span class='danger'><font size=2>You are hit by \a [src] in the [impacted_organ]!</font></span>")//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
+		target_mob.visible_message(SPAN_DANGER("\The [target_mob] is hit by \a [src] in the [impacted_organ]!"),
+									SPAN_DANGER("<font size=2>You are hit by \a [src] in the [impacted_organ]!</font>"))//X has fired Y is now given by the guns so you cant tell who shot you if you could not see the shooter
 
 	var/no_clients = FALSE
 	//admin logs

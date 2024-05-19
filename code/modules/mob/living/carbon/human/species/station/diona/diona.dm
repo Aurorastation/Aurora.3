@@ -56,8 +56,8 @@
 	organ_high_pain_message = "<b><font size=3>The nymph making up our %PARTNAME% screams out in pain!</font></b>"
 
 	organ_low_burn_message = "<b>The nymph making up our %PARTNAME% notes a burning injury.</b>"
-	organ_med_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% burns terribly!</font></span>"
-	organ_high_burn_message = "<span class='danger'><font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font></span>"
+	organ_med_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% burns terribly!</font>")
+	organ_high_burn_message = SPAN_DANGER("<font size=3>The nymph making up our %PARTNAME% screams in agony at the burning!</font>")
 
 	halloss_message = "creaks and crumbles to the floor."
 	halloss_message_self = "We can't take this much pain..."

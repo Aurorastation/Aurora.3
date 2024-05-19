@@ -119,7 +119,7 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 	if(vsc.plc.GENETIC_CORRUPTION)
 		if(rand(1,10000) < vsc.plc.GENETIC_CORRUPTION)
 			randmutb(src)
-			to_chat(src, "<span class='danger'>High levels of toxins cause you to spontaneously mutate!</span>")
+			to_chat(src, SPAN_DANGER("High levels of toxins cause you to spontaneously mutate!"))
 			domutcheck(src,null)
 
 
@@ -130,11 +130,11 @@ var/image/contamination_overlay = image('icons/effects/contamination.dmi')
 
 	var/obj/item/organ/internal/eyes/E = get_eyes(no_synthetic = TRUE)
 	if(E)
-		if(prob(20)) to_chat(src, "<span class='danger'>Your eyes burn!</span>")
+		if(prob(20)) to_chat(src, SPAN_DANGER("Your eyes burn!"))
 		E.damage += 2.5
 		eye_blurry = min(eye_blurry+1.5,50)
 		if (prob(max(0,E.damage - 15) + 1) &&!eye_blind)
-			to_chat(src, "<span class='danger'>You are blinded!</span>")
+			to_chat(src, SPAN_DANGER("You are blinded!"))
 			eye_blind += 20
 
 /mob/living/carbon/human/proc/pl_head_protected()

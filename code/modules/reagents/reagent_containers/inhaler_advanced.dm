@@ -40,29 +40,29 @@
 
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
-			. += "<span class='notice'>It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.</span>"
+			. += SPAN_NOTICE("It contains [round(reagents.total_volume, accuracy)] units of non-aerosol mix.")
 		else
-			. += "<span class='notice'>It is empty.</span>"
+			. += SPAN_NOTICE("It is empty.")
 	else
 		if(LAZYLEN(reagents.reagent_volumes))
-			. += "<span class='notice'>The reagents are secured in the aerosol mix.</span>"
+			. += SPAN_NOTICE("The reagents are secured in the aerosol mix.")
 		else
-			. += "<span class='notice'>The cartridge seems spent.</span>"
+			. += SPAN_NOTICE("The cartridge seems spent.")
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attack_self(mob/user as mob)
 	if(is_open_container())
 		if(LAZYLEN(reagents.reagent_volumes))
-			to_chat(user,"<span class='notice'>With a quick twist of \the [src]'s lid, you secure the reagents inside.</span>")
+			to_chat(user,SPAN_NOTICE("With a quick twist of \the [src]'s lid, you secure the reagents inside."))
 			atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
 		else
-			to_chat(user,"<span class='notice'>You can't secure \the [src] without putting reagents in!</span>")
+			to_chat(user,SPAN_NOTICE("You can't secure \the [src] without putting reagents in!"))
 	else
-		to_chat(user,"<span class='notice'>The reagents inside \the [src] are already secured.</span>")
+		to_chat(user,SPAN_NOTICE("The reagents inside \the [src] are already secured."))
 	return
 
 /obj/item/reagent_containers/personal_inhaler_cartridge/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver() && !is_open_container())
-		to_chat(user,"<span class='notice'>Using \the [attacking_item], you unsecure the inhaler cartridge's lid.</span>") // it locks shut after being secured
+		to_chat(user,SPAN_NOTICE("Using \the [attacking_item], you unsecure the inhaler cartridge's lid.")) // it locks shut after being secured
 		atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 		return
 	. = ..()
@@ -106,7 +106,7 @@
 	if(distance > 2)
 		return
 	if(stored_cartridge)
-		. += "<span class='notice'>\The [stored_cartridge] is attached to \the [src].</span>"
+		. += SPAN_NOTICE("\The [stored_cartridge] is attached to \the [src].")
 
 /obj/item/personal_inhaler/update_icon()
 	ClearOverlays()
@@ -121,7 +121,7 @@
 /obj/item/personal_inhaler/attack_self(mob/user as mob)
 	if(stored_cartridge)
 		user.put_in_hands(stored_cartridge)
-		to_chat(user,"<span class='warning'>You remove \the [stored_cartridge] from \the [src].</span>")
+		to_chat(user,SPAN_WARNING("You remove \the [stored_cartridge] from \the [src]."))
 		stored_cartridge.update_icon()
 		stored_cartridge = null
 	update_icon()
@@ -131,26 +131,28 @@
 	var/mob/living/carbon/human/H = M
 
 	if (!istype(H))
-		to_chat(user,"<span class='warning'>You can't find a way to use \the [src] on \the [M]!</span>")
+		to_chat(user,SPAN_WARNING("You can't find a way to use \the [src] on \the [M]!"))
 		return
 
 	if(!stored_cartridge)
-		to_chat(user,"<span class='warning'>\The [src] has no cartridge installed!</span>")
+		to_chat(user,SPAN_WARNING("\The [src] has no cartridge installed!"))
 		return
 
 	if(!stored_cartridge.reagents || !stored_cartridge.reagents.total_volume)
-		to_chat(user,"<span class='warning'>\The [src]'s cartridge is empty!</span>")
+		to_chat(user,SPAN_WARNING("\The [src]'s cartridge is empty!"))
 		return
 
 	if (((user.is_clumsy()) || (user.mutations & DUMB)) && prob(10))
-		to_chat(user,"<span class='danger'>Your hand slips from clumsiness!</span>")
+		to_chat(user,SPAN_DANGER("Your hand slips from clumsiness!"))
 		if(M.eyes_protected(src, FALSE))
 			eyestab(M,user)
-		user.visible_message("<span class='notice'>[user] accidentally sticks \the [src] in [M]'s eye!</span>","<span class='notice'>You accidentally stick the [src] in [M]'s eye!</span>")
+		user.visible_message(SPAN_NOTICE("[user] accidentally sticks \the [src] in [M]'s eye!"),
+								SPAN_NOTICE("You accidentally stick the [src] in [M]'s eye!"))
+
 		return
 
 	if (!user.IsAdvancedToolUser())
-		to_chat(user,"<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(user,SPAN_WARNING("You don't have the dexterity to do this!"))
 		return
 
 	if(user == H && !H.can_eat(src))
@@ -162,14 +164,19 @@
 	user.do_attack_animation(M)
 
 	if(user == M)
-		user.visible_message("<span class='notice'>[user] sticks \the [src] in their mouth and presses the injection button.</span>","<span class='notice'>You stick \the [src] in your mouth and press the injection button.</span>")
+		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in their mouth and presses the injection button."),
+								SPAN_NOTICE("You stick \the [src] in your mouth and press the injection button."))
+
 	else
-		user.visible_message("<span class='warning'>[user] attempts to administer \the [src] to [M]...</span>","<span class='notice'>You attempt to administer \the [src] to [M]...</span>")
+		user.visible_message(SPAN_WARNING("[user] attempts to administer \the [src] to [M]..."),
+								SPAN_NOTICE("You attempt to administer \the [src] to [M]..."))
 		if (!do_after(user, 1 SECONDS, M))
-			to_chat(user,"<span class='notice'>You and \the [M] need to be standing still in order to inject \the [src].</span>")
+			to_chat(user,SPAN_NOTICE("You and \the [M] need to be standing still in order to inject \the [src]."))
 			return
 
-		user.visible_message("<span class='notice'>[user] sticks \the [src] in [M]'s mouth and presses the injection button.</span>","<span class='notice'>You stick \the [src] in [M]'s mouth and press the injection button.</span>")
+		user.visible_message(SPAN_NOTICE("[user] sticks \the [src] in [M]'s mouth and presses the injection button."),
+								SPAN_NOTICE("You stick \the [src] in [M]'s mouth and press the injection button."))
+
 
 	if(M.reagents)
 		var/contained = stored_cartridge.reagentlist()
@@ -178,13 +185,13 @@
 		admin_inject_log(user, M, src, contained, temp, trans)
 		playsound(M.loc, 'sound/items/stimpack.ogg', 50, 1)
 		if(eject_when_empty)
-			to_chat(user,"<span class='notice'>\The [stored_cartridge] automatically ejects from \the [src].</span>")
+			to_chat(user,SPAN_NOTICE("\The [stored_cartridge] automatically ejects from \the [src]."))
 			stored_cartridge.forceMove(user.loc)
 			stored_cartridge.update_icon()
 			stored_cartridge = null
 			update_icon()
 	else
-		to_chat(user,"<span class='warning'>Nothing happens!</span>")
+		to_chat(user,SPAN_WARNING("Nothing happens!"))
 
 	update_icon()
 	return
@@ -193,10 +200,10 @@
 	var/obj/item/reagent_containers/personal_inhaler_cartridge/cartridge = attacking_item
 	if(istype(cartridge))
 		if(src.stored_cartridge)
-			to_chat(user,"<span class='notice'>\The [src] already has a cartridge.</span>")
+			to_chat(user,SPAN_NOTICE("\The [src] already has a cartridge."))
 			return
 		if(cartridge.is_open_container())
-			to_chat(user,"<span class='notice'>\The [cartridge] needs to be secured first.</span>")
+			to_chat(user,SPAN_NOTICE("\The [cartridge] needs to be secured first."))
 			return
 		user.remove_from_mob(cartridge)
 		src.stored_cartridge = cartridge

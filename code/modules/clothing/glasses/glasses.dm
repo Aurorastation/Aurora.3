@@ -1037,7 +1037,7 @@ BLIND     // can't see anything
 
 	if(istype(src.loc, /mob/living/carbon/human))
 		var/mob/living/carbon/human/M = src.loc
-		to_chat(M, "<span class='danger'>\The [src] overloads and blinds you!</span>")
+		to_chat(M, SPAN_DANGER("\The [src] overloads and blinds you!"))
 		if(M.glasses == src)
 			M.eye_blind = 3
 			M.eye_blurry = 5

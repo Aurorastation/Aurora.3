@@ -56,7 +56,7 @@ var/datum/antagonist/technomancer/technomancers
 		break
 	if(!survivor)
 		feedback_set_details("round_end_result","loss - technomancer killed")
-		to_world("<span class='danger'><font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed!</font></span>")
+		to_world(SPAN_DANGER("<font size = 3>The [(current_antagonists.len>1)?"[role_text_plural] have":"[role_text] has"] been killed!</font>"))
 
 /datum/antagonist/technomancer/print_player_summary()
 	..()

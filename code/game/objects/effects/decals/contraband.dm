@@ -33,12 +33,12 @@
 	//must place on a wall and user must not be inside a closet/mecha/whatever
 	var/turf/W = A
 	if (!iswall(W) || !isturf(user.loc))
-		to_chat(user, "<span class='warning'>You can't place this here!</span>")
+		to_chat(user, SPAN_WARNING("You can't place this here!"))
 		return
 
 	var/placement_dir = get_dir(user, W)
 	if (!(placement_dir in GLOB.cardinal))
-		to_chat(user, "<span class='warning'>You must stand directly in front of the wall you wish to place that on.</span>")
+		to_chat(user, SPAN_WARNING("You must stand directly in front of the wall you wish to place that on."))
 		return
 
 	//just check if there is a poster on or adjacent to the wall
@@ -54,10 +54,10 @@
 			break
 
 	if (stuff_on_wall)
-		to_chat(user, "<span class='notice'>There is already a poster there!</span>")
+		to_chat(user, SPAN_NOTICE("There is already a poster there!"))
 		return
 
-	to_chat(user, "<span class='notice'>You start placing the poster on the wall...</span>") //Looks like it's uncluttered enough. Place the poster.)
+	to_chat(user, SPAN_NOTICE("You start placing the poster on the wall...")) //Looks like it's uncluttered enough. Place the poster.)
 
 	var/obj/structure/sign/poster/P = new(user.loc, get_dir(user, W), serial_number)
 
@@ -71,7 +71,7 @@
 		return
 
 	if (iswall(W) && !QDELETED(user) && P.loc == user.loc)
-		to_chat(user, "<span class='notice'>You place the poster!</span>")
+		to_chat(user, SPAN_NOTICE("You place the poster!"))
 	else
 		P.roll_and_drop(P.loc)
 
@@ -130,10 +130,10 @@
 	if(attacking_item.iswirecutter())
 		playsound(loc, 'sound/items/Wirecutter.ogg', 100, 1)
 		if(ruined)
-			to_chat(user, "<span class='notice'>You remove the remnants of the poster.</span>")
+			to_chat(user, SPAN_NOTICE("You remove the remnants of the poster."))
 			qdel(src)
 		else
-			to_chat(user, "<span class='notice'>You carefully remove the poster from the wall.</span>")
+			to_chat(user, SPAN_NOTICE("You carefully remove the poster from the wall."))
 			roll_and_drop(user.loc)
 		return TRUE
 
@@ -147,7 +147,7 @@
 	if(alert("Do I want to rip the poster from the wall?","You think...","Yes","No") == "Yes")
 		if(ruined || !user.Adjacent(src))
 			return
-		visible_message("<span class='warning'>\The [user] rips \the [src] in a single, decisive motion!</span>" )
+		visible_message(SPAN_WARNING("\The [user] rips \the [src] in a single, decisive motion!") )
 		playsound(src.loc, 'sound/items/poster_ripped.ogg', 100, 1)
 		ruined = TRUE
 		icon_state = "poster_ripped"

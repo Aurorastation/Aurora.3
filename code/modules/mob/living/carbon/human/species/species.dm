@@ -136,9 +136,9 @@
 	var/organ_med_pain_message = "<b><font size=3>Your %PARTNAME% hurts badly!</font></b>"
 	var/organ_high_pain_message = "<b><font size=3>Your %PARTNAME% is screaming out in pain!</font></b>"
 
-	var/organ_low_burn_message = "<span class='danger'>Your %PARTNAME% burns.</span>"
-	var/organ_med_burn_message = "<span class='danger'><font size=3>Your %PARTNAME% burns horribly!</font></span>"
-	var/organ_high_burn_message = "<span class='danger'><font size=4>Your %PARTNAME% feels like it's on fire!</font></span>"
+	var/organ_low_burn_message = SPAN_DANGER("Your %PARTNAME% burns.")
+	var/organ_med_burn_message = SPAN_DANGER("<font size=3>Your %PARTNAME% burns horribly!</font>")
+	var/organ_high_burn_message = SPAN_DANGER("<font size=4>Your %PARTNAME% feels like it's on fire!</font>")
 
 	var/list/stutter_verbs = list("stammers", "stutters")
 
@@ -358,10 +358,10 @@
 	switch(msg_type)
 		if("cold")
 			if(!covered)
-				to_chat(H, "<span class='danger'>[pick(cold_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(cold_discomfort_strings)]"))
 		if("heat")
 			if(covered)
-				to_chat(H, "<span class='danger'>[pick(heat_discomfort_strings)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(heat_discomfort_strings)]"))
 
 /datum/species/proc/sanitize_name(var/name)
 	return sanitizeName(name)
@@ -443,12 +443,12 @@
 	if(H.on_fire)
 		target.fire_stacks += 1
 		target.IgniteMob()
-		H.visible_message("<span class='danger'>[H] taps [target], setting [target.get_pronoun("his")] ablaze!</span>", \
-						"<span class='warning'>You tap [target], setting [target.get_pronoun("him")] ablaze!</span>")
+		H.visible_message(SPAN_DANGER("[H] taps [target], setting [target.get_pronoun("his")] ablaze!"), \
+						SPAN_WARNING("You tap [target], setting [target.get_pronoun("him")] ablaze!"))
 		msg_admin_attack("[key_name(H)] spread fire to [target.name] ([target.ckey]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[H.x];Y=[H.y];Z=[H.z]'>JMP</a>)",ckey=key_name(H),ckey_target=key_name(target))
 	else
-		H.visible_message("<span class='notice'>[H] taps [target] to get [target.get_pronoun("his")] attention!</span>", \
-						"<span class='notice'>You tap [target] to get [target.get_pronoun("his")] attention!</span>")
+		H.visible_message(SPAN_NOTICE("[H] taps [target] to get [target.get_pronoun("his")] attention!"), \
+						SPAN_NOTICE("You tap [target] to get [target.get_pronoun("his")] attention!"))
 
 /datum/species/proc/remove_inherent_verbs(var/mob/living/carbon/human/H)
 	if(inherent_verbs)

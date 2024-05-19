@@ -38,16 +38,16 @@
 	if(player.current.client)
 		add_verb(player.current.client, /client/proc/aooc)
 
-	to_chat(player.current, "<span class='notice'>Once you decide on a goal to pursue, you can optionally display it to everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, and it otherwise has no bearing on your round.</span>")
+	to_chat(player.current, SPAN_NOTICE("Once you decide on a goal to pursue, you can optionally display it to everyone at the end of the shift with the <b>Set Ambition</b> verb, located in the IC tab.  You can change this at any time, and it otherwise has no bearing on your round."))
 	add_verb(player.current.client, /mob/living/proc/write_ambition)
 
 	// Handle only adding a mind and not bothering with gear etc.
 	if(nonstandard_role_type)
 		faction_members |= player
-		to_chat(player.current, "<span class='danger'><font size=3>You are \a [nonstandard_role_type]!</font></span>")
+		to_chat(player.current, SPAN_DANGER("<font size=3>You are \a [nonstandard_role_type]!</font>"))
 		player.special_role = nonstandard_role_type
 		if(nonstandard_role_msg)
-			to_chat(player.current, "<span class='notice'>[nonstandard_role_msg]</span>")
+			to_chat(player.current, SPAN_NOTICE("[nonstandard_role_msg]"))
 		update_icons_added(player)
 
 	// Log it
@@ -64,7 +64,7 @@
 	if(player in current_antagonists)
 		log_antagonist_remove()
 		if (show_message)
-			to_chat(player.current, "<span class='danger'><font size = 3>You are no longer a [role_text]!</font></span>")
+			to_chat(player.current, SPAN_DANGER("<font size = 3>You are no longer a [role_text]!</font>"))
 		current_antagonists -= player
 		faction_members -= player
 		player.special_role = null

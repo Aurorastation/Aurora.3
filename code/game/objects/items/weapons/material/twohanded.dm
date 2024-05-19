@@ -95,7 +95,7 @@
 //Allow a small chance of parrying melee attacks when wielded - maybe generalize this to other weapons someday
 /obj/item/material/twohanded/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(wielded && default_parry_check(user, attacker, damage_source) && prob(parry_chance))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		playsound(user.loc, /singleton/sound_category/punchmiss_sound, 50, 1)
 		return PROJECTILE_STOPPED
 	return FALSE
@@ -115,18 +115,18 @@
 	if(istype(user, /mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
 		if(issmall(H))
-			to_chat(user, "<span class='warning'>It's too heavy for you to wield fully.</span>")
+			to_chat(user, SPAN_WARNING("It's too heavy for you to wield fully."))
 			return
 	else
 		return
 
 	if(!istype(user.get_active_hand(), src))
-		to_chat(user, "<span class='warning'>You need to be holding the [name] in your active hand.</span>")
+		to_chat(user, SPAN_WARNING("You need to be holding the [name] in your active hand."))
 		return
 
 	if(wielded) //Trying to unwield it
 		unwield()
-		to_chat(user, "<span class='notice'>You are now carrying the [name] with one hand.</span>")
+		to_chat(user, SPAN_NOTICE("You are now carrying the [name] with one hand."))
 
 		var/obj/item/material/twohanded/offhand/O = user.get_inactive_hand()
 		if(O && istype(O))
@@ -138,10 +138,10 @@
 		if(offhand_item)
 			user.unEquip(offhand_item, FALSE, user.loc)
 		if(user.get_inactive_hand())
-			to_chat(user, "<span class='warning'>You need your other hand to be empty.</span>")
+			to_chat(user, SPAN_WARNING("You need your other hand to be empty."))
 			return
 		wield()
-		to_chat(user, "<span class='notice'>You grip the [base_name] with both hands.</span>")
+		to_chat(user, SPAN_NOTICE("You grip the [base_name] with both hands."))
 
 		var/obj/item/material/twohanded/offhand/O = new /obj/item/material/twohanded/offhand(user) ////Let's reserve his other hand~
 		O.name = "[base_name] - offhand"
@@ -270,7 +270,7 @@
 
 /obj/item/material/twohanded/spear/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/organ/external/head))
-		to_chat(user, "<span class='notice'>You stick the head onto the spear and stand it upright on the ground.</span>")
+		to_chat(user, SPAN_NOTICE("You stick the head onto the spear and stand it upright on the ground."))
 		var/obj/structure/headspear/HS = new /obj/structure/headspear(user.loc)
 		var/matrix/M = matrix()
 		attacking_item.transform = M
@@ -284,7 +284,7 @@
 		return
 
 	if(istype(attacking_item, /obj/item/grenade))
-		to_chat(user, "<span class='notice'>You strap \the [attacking_item] to \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You strap \the [attacking_item] to \the [src]."))
 		user.unEquip(attacking_item)
 		attacking_item.forceMove(src)
 		explosive = attacking_item
@@ -339,7 +339,7 @@
 	anchored = 1
 
 /obj/structure/headspear/attack_hand(mob/living/user)
-	user.visible_message("<span class='warning'>[user] kicks over \the [src]!</span>", "<span class='danger'>You kick down \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] kicks over \the [src]!"), SPAN_DANGER("You kick down \the [src]!"))
 	new /obj/item/material/twohanded/spear(user.loc, material)
 	for(var/obj/item/organ/external/head/H in src)
 		H.forceMove(user.loc)

@@ -20,8 +20,8 @@ var/list/dream_entries = list()
 			bg.ckey = ckey
 			bg.client = client
 			ckey = "@[bg.ckey]"
-			to_chat(bg, "<span class='notice'>As you lose consiousness, you feel yourself entering Srom.</span>")
-			to_chat(bg, "<span class='warning'>Whilst in shared dreaming, you find it difficult to hide your secrets.</span>")
+			to_chat(bg, SPAN_NOTICE("As you lose consiousness, you feel yourself entering Srom."))
+			to_chat(bg, SPAN_WARNING("Whilst in shared dreaming, you find it difficult to hide your secrets."))
 			if(willfully_sleeping)
 				to_chat(bg, "To wake up, use the \"Awaken\" verb in the IC tab.")
 			if(!srom_pulling && has_psionics())
@@ -83,7 +83,7 @@ var/list/dream_entries = list()
 				return_text = "You are ripped from the Srom." // You're dead - ensures there's no message about feeling weird or waking up.
 
 			return_mob.ckey = old_bg.ckey
-			old_bg.visible_message("<span class='notice'>[old_bg] begins to fade as they depart from the dream...</span>")
+			old_bg.visible_message(SPAN_NOTICE("[old_bg] begins to fade as they depart from the dream..."))
 			animate(old_bg, alpha=0, time = 20)
 			QDEL_IN(old_bg, 20)
 			to_chat(return_mob, SPAN_WARNING("[return_text]"))

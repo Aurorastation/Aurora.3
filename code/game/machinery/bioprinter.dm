@@ -54,7 +54,7 @@
 		visible_message("<span class='info'>The bioprinter spits out a new organ.</span>")
 
 	else
-		to_chat(user, "<span class='warning'>There is not enough matter in the printer.</span>")
+		to_chat(user, SPAN_WARNING("There is not enough matter in the printer."))
 
 /obj/machinery/bioprinter/attackby(obj/item/attacking_item, mob/user)
 

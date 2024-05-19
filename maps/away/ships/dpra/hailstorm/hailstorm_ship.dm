@@ -9,6 +9,7 @@
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/hailstorm_shuttle)
+	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_GAKAL = 2)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_GAKAL)
 	unit_test_groups = list(1)
 

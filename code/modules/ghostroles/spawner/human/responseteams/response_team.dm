@@ -21,5 +21,5 @@
 
 /datum/ghostspawner/human/ert/post_spawn(mob/user)
 	if(name)
-		to_chat(user, "<span class='danger'><font size=3>You are [max_count > 1 ? "a" : "the"] [name]!</font></span>")
+		to_chat(user, SPAN_DANGER("<font size=3>You are [max_count > 1 ? "a" : "the"] [name]!</font>"))
 	return ..()

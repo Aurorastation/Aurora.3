@@ -385,7 +385,7 @@ var/list/slot_equipment_priority = list( \
 			var/turf/end_T = get_turf(target)
 			if(start_T && end_T)
 				if(is_pacified())
-					to_chat(src, "<span class='notice'>You gently let go of [M].</span>")
+					to_chat(src, SPAN_NOTICE("You gently let go of [M]."))
 					src.remove_from_mob(item)
 					item.loc = src.loc
 					return TRUE
@@ -452,12 +452,12 @@ var/list/slot_equipment_priority = list( \
 		return TRUE
 
 	if(is_pacified())
-		to_chat(src, "<span class='notice'>You set [item] down gently on the ground.</span>")
+		to_chat(src, SPAN_NOTICE("You set [item] down gently on the ground."))
 		return TRUE
 
 	//actually throw it!
 	if(item)
-		src.visible_message("<span class='warning'>[src] throws \a [item].</span>")
+		src.visible_message(SPAN_WARNING("[src] throws \a [item]."))
 		if(!src.lastarea)
 			src.lastarea = get_area(src.loc)
 		if((istype(src.loc, /turf/space)) || (src.lastarea.has_gravity() == 0))

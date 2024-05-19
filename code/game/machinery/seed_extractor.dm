@@ -22,7 +22,7 @@
 			new_seed_type = SSplants.seeds[F.plantname]
 
 		if(new_seed_type)
-			to_chat(user, "<span class='notice'>You extract some seeds from [attacking_item].</span>")
+			to_chat(user, SPAN_NOTICE("You extract some seeds from [attacking_item]."))
 			var/produce = rand(1,4)
 			for(var/i = 0;i<=produce;i++)
 				var/obj/item/seeds/seeds = new(get_turf(src))
@@ -38,7 +38,7 @@
 	else if(istype(attacking_item, /obj/item/stack/tile/grass))
 		var/obj/item/stack/tile/grass/S = attacking_item
 		if (S.use(1))
-			to_chat(user, "<span class='notice'>You extract some seeds from the grass tile.</span>")
+			to_chat(user, SPAN_NOTICE("You extract some seeds from the grass tile."))
 			new /obj/item/seeds/grassseed(loc)
 		return TRUE
 

@@ -40,7 +40,7 @@
 		if(prob(chance))
 			health -= P.damage/2
 			if (health > 0)
-				visible_message("<span class='warning'>[P] hits \the [src]!</span>")
+				visible_message(SPAN_WARNING("[P] hits \the [src]!"))
 				return 0
 			else
 				visible_message(SPAN_WARNING("[src] breaks down!"))
@@ -81,8 +81,8 @@
 
 	if (user && anything_moved)
 		user.visible_message(
-		"<span class='notice'>[user] kicks everything off [src].</span>",
-		"<span class='notice'>You kick everything off [src].</span>"
+		SPAN_NOTICE("[user] kicks everything off [src]."),
+		SPAN_NOTICE("You kick everything off [src].")
 		)
 
 
@@ -96,8 +96,8 @@
 		return
 
 	user.visible_message(
-	"<span class='warning'>[user] starts climbing onto \the [src]!</span>",
-	"<span class='warning'>You start climbing onto \the [src]!</span>"
+	SPAN_WARNING("[user] starts climbing onto \the [src]!"),
+	SPAN_WARNING("You start climbing onto \the [src]!")
 	)
 	LAZYADD(climbers, user)
 
@@ -113,8 +113,8 @@
 
 	if (get_turf(user) == get_turf(src))
 		user.visible_message(
-		"<span class='warning'>[user] climbs onto \the [src]!</span>",
-		"<span class='warning'>You climb onto \the [src]!</span>"
+		SPAN_WARNING("[user] climbs onto \the [src]!"),
+		SPAN_WARNING("You climb onto \the [src]!")
 		)
 		if(ishuman(user))
 			var/mob/living/carbon/human/H = user
@@ -197,7 +197,7 @@
 			var/mob/living/M = G.affecting
 			var/obj/occupied = turf_is_crowded()
 			if(occupied)
-				to_chat(user, "<span class='danger'>There's \a [occupied] in the way.</span>")
+				to_chat(user, SPAN_DANGER("There's \a [occupied] in the way."))
 				return
 			if(!user.Adjacent(M))
 				return
@@ -207,7 +207,7 @@
 					if (prob(30 * (1 - blocked)))
 						M.Weaken(5)
 					M.apply_damage(8, DAMAGE_BRUTE, BP_HEAD)
-					visible_message("<span class='danger'>[G.assailant] slams [G.affecting]'s face against \the [src]!</span>")
+					visible_message(SPAN_DANGER("[G.assailant] slams [G.affecting]'s face against \the [src]!"))
 					if(material)
 						playsound(loc, material.tableslam_noise, 50, 1)
 					else
@@ -216,8 +216,8 @@
 					var/sanity_counter = 0
 					for(var/obj/item/material/shard/S in get_turf(src))
 						if(prob(50))
-							M.visible_message("<span class='danger'>\The [S] slices [M]'s face messily!</span>",
-												"<span class='danger'>\The [S] slices your face messily!</span>")
+							M.visible_message(SPAN_DANGER("\The [S] slices [M]'s face messily!"),
+												SPAN_DANGER("\The [S] slices your face messily!"))
 							M.apply_damage(10, DAMAGE_BRUTE, BP_HEAD)
 							sanity_counter++
 						if(sanity_counter >= 3)
@@ -226,11 +226,11 @@
 				else
 					G.affecting.forceMove(src.loc)
 					G.affecting.Weaken(rand(2,4))
-					visible_message("<span class='danger'>[G.assailant] puts [G.affecting] on \the [src].</span>")
+					visible_message(SPAN_DANGER("[G.assailant] puts [G.affecting] on \the [src]."))
 					qdel(attacking_item)
 				return
 			else
-				to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
+				to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 				return
 
 	if(!attacking_item.dropsafety())
@@ -245,8 +245,8 @@
 		return 1
 
 	if(carpeted && attacking_item.iscrowbar())
-		user.visible_message("<span class='notice'>\The [user] removes the carpet from \the [src].</span>",
-								"<span class='notice'>You remove the carpet from \the [src].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] removes the carpet from \the [src]."),
+								SPAN_NOTICE("You remove the carpet from \the [src]."))
 		new /obj/item/stack/tile/carpet(loc)
 		carpeted = 0
 		queue_icon_update()
@@ -255,13 +255,13 @@
 	if(!carpeted && material && istype(attacking_item, /obj/item/stack/tile/carpet))
 		var/obj/item/stack/tile/carpet/C = attacking_item
 		if(C.use(1))
-			user.visible_message("<span class='notice'>\The [user] adds \the [C] to \the [src].</span>",
-									"<span class='notice'>You add \the [C] to \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] adds \the [C] to \the [src]."),
+									SPAN_NOTICE("You add \the [C] to \the [src]."))
 			carpeted = 1
 			queue_icon_update()
 			return 1
 		else
-			to_chat(user, "<span class='warning'>You don't have enough carpet!</span>")
+			to_chat(user, SPAN_WARNING("You don't have enough carpet!"))
 
 	if(!reinforced && !carpeted && material && (attacking_item.iswrench() || istype(attacking_item, /obj/item/gun/energy/plasmacutter)))
 		remove_material(attacking_item, user)
@@ -281,11 +281,11 @@
 	if(health < maxhealth && attacking_item.iswelder())
 		var/obj/item/weldingtool/F = attacking_item
 		if(F.welding)
-			to_chat(user, "<span class='notice'>You begin reparing damage to \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You begin reparing damage to \the [src]."))
 			if(!attacking_item.use_tool(src, user, 20, volume = 50) || !F.use(1, user))
 				return
-			user.visible_message("<span class='notice'>\The [user] repairs some damage to \the [src].</span>",
-									"<span class='notice'>You repair some damage to \the [src].</span>")
+			user.visible_message(SPAN_NOTICE("\The [user] repairs some damage to \the [src]."),
+									SPAN_NOTICE("You repair some damage to \the [src]."))
 			health = max(health+(maxhealth/5), maxhealth) // 20% repair per application
 			return 1
 
@@ -309,12 +309,12 @@
 		blade.spark_system.queue()
 		playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
 		playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
-		user.visible_message("<span class='danger'>\The [src] was sliced apart by [user]!</span>")
+		user.visible_message(SPAN_DANGER("\The [src] was sliced apart by [user]!"))
 		break_to_parts()
 		return
 
 	if(can_plate && !material)
-		to_chat(user, "<span class='warning'>There's nothing to put \the [attacking_item] on! Try adding plating to \the [src] first.</span>")
+		to_chat(user, SPAN_WARNING("There's nothing to put \the [attacking_item] on! Try adding plating to \the [src] first."))
 		return
 
 
