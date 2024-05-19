@@ -41,7 +41,9 @@
 		if(covered && (stat & NOPOWER)) //Only bounce off if its powered (i.e. shield active)
 			. = ..()
 		else
-			user.visible_message("<span class='danger'>[src] has been hit by [user] with [attacking_item], but it bounces off the forcefield.</span>","<span class='danger'>You hit [src] with [attacking_item], but it bounces off the forcefield.</span>","You hear something bouncing off a forcefield.")
+			user.visible_message(SPAN_DANGER("[src] has been hit by [user] with [attacking_item], but it bounces off the forcefield."),
+									SPAN_DANGER("You hit [src] with [attacking_item], but it bounces off the forcefield."),
+									"You hear something bouncing off a forcefield.")
 			. = TRUE
 	update_icon()
 
@@ -49,7 +51,10 @@
 	if(!covered)
 		//Spam Check
 		if((last_toggle_time + timeout) > world.time)
-			user.visible_message("<span class='notice'>\The [user] presses the button, but nothing happens.</span>","<span class='notice'>You press the button, but it is not responding.</span>","You hear something being pressed.")
+			user.visible_message(SPAN_NOTICE("\The [user] presses the button, but nothing happens."),
+									SPAN_NOTICE("You press the button, but it is not responding."),
+									"You hear something being pressed.")
+
 			return ..()
 		last_toggle_time = world.time
 		if(!active)
@@ -86,12 +91,16 @@
 
 //Activate the button - Needs to return 1 for the activation to be successful
 /obj/machinery/case_button/proc/activate(mob/user)
-	user.visible_message("<span class='notice'>\The [user] presses the button.</span>","<span class='notice'>You press the button.</span>","You hear something being pressed.")
+	user.visible_message(SPAN_NOTICE("\The [user] presses the button."),
+							SPAN_NOTICE("<span class='notice'>You press the button."),
+							"You hear something being pressed.")
 	return 1
 
 //Deactivate Button - Needs ro return 1 for the activation to be successful
 /obj/machinery/case_button/proc/deactivate(mob/user)
-	user.visible_message("<span class='notice'>\The [user] resets the button.</span>","<span class='notice'>You reset the button.</span>","You hear something being pressed.")
+	user.visible_message(SPAN_NOTICE("\The [user] resets the button."),
+							SPAN_NOTICE("<span class='notice'>You reset the button."),
+							"You hear something being pressed.")
 	return 1
 
 

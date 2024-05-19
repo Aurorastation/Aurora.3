@@ -63,11 +63,11 @@
 
 /obj/machinery/door/attack_generic(var/mob/user, var/damage)
 	if(damage >= 10)
-		visible_message("<span class='danger'>\The [user] smashes into the [src]!</span>")
+		visible_message(SPAN_DANGER("\The [user] smashes into the [src]!"))
 		playsound(src.loc, hitsound, 60, 1)
 		take_damage(damage)
 	else
-		visible_message("<span class='notice'>\The [user] bonks \the [src] harmlessly.</span>")
+		visible_message(SPAN_NOTICE("\The [user] bonks \the [src] harmlessly."))
 		playsound(src.loc, hitsound_light, 8, TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
 	user.do_attack_animation(src)
 
@@ -245,7 +245,7 @@
 	if (damage > 90)
 		destroy_hits--
 		if (destroy_hits <= 0)
-			visible_message("<span class='danger'>\The [src.name] disintegrates!</span>")
+			visible_message(SPAN_DANGER("\The [src.name] disintegrates!"))
 			switch (Proj.damage_type)
 				if(DAMAGE_BRUTE)
 					new /obj/item/stack/material/steel(src.loc, 2)
@@ -335,14 +335,14 @@
 
 	if(repairing && attacking_item.iswelder())
 		if(!density)
-			to_chat(user, "<span class='warning'>\The [src] must be closed before you can repair it.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] must be closed before you can repair it."))
 			return TRUE
 
 		var/obj/item/weldingtool/welder = attacking_item
 		if(welder.use(0,user))
-			to_chat(user, "<span class='notice'>You start to fix dents and weld \the [repairing] into place.</span>")
+			to_chat(user, SPAN_NOTICE("You start to fix dents and weld \the [repairing] into place."))
 			if(welder.use_tool(src, user, 5 * repairing.amount, volume = 50) && welder && welder.isOn())
-				to_chat(user, "<span class='notice'>You finish repairing the damage to \the [src].</span>")
+				to_chat(user, SPAN_NOTICE("You finish repairing the damage to \the [src]."))
 				health = between(health, health + repairing.amount*DOOR_REPAIR_AMOUNT, maxhealth)
 				update_icon()
 				qdel(repairing)
@@ -350,7 +350,7 @@
 		return TRUE
 
 	if(repairing && attacking_item.iscrowbar())
-		to_chat(user, "<span class='notice'>You remove \the [repairing].</span>")
+		to_chat(user, SPAN_NOTICE("You remove \the [repairing]."))
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		repairing.forceMove(user.loc)
 		repairing = null
@@ -363,9 +363,9 @@
 		if(W.damtype == DAMAGE_BRUTE || W.damtype == DAMAGE_BURN)
 			user.do_attack_animation(src)
 			if(W.force < min_force)
-				user.visible_message("<span class='danger'>\The [user] hits \the [src] with \the [W] with no visible effect.</span>")
+				user.visible_message(SPAN_DANGER("\The [user] hits \the [src] with \the [W] with no visible effect."))
 			else
-				user.visible_message("<span class='danger'>\The [user] forcefully strikes \the [src] with \the [W]!</span>")
+				user.visible_message(SPAN_DANGER("\The [user] forcefully strikes \the [src] with \the [W]!"))
 				playsound(src.loc, hitsound, W.get_clamped_volume(), TRUE, extrarange = MEDIUM_RANGE_SOUND_EXTRARANGE)
 				take_damage(W.force)
 		return TRUE

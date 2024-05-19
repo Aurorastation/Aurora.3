@@ -5,7 +5,7 @@
 	if(!check_rights(R_DEV))
 		return
 	if(!establish_db_connection(GLOB.dbcon))
-		to_chat(src,"<span class='danger'>Failed to establish database connection.</span>")
+		to_chat(src,SPAN_DANGER("Failed to establish database connection."))
 		return
 	var/polltype = input("Choose poll type.","Poll Type") in list("Single Option","Text Reply","Rating","Multiple Choice")
 	var/choice_amount = 0
@@ -88,7 +88,7 @@
 		pollid = query_get_id.item[1]
 
 	log_admin("[key_name(src)] created the poll with id [pollid].")
-	message_admins("<span class='notice'>[key_name_admin(src)] created the poll with id [pollid].</span>")
+	message_admins(SPAN_NOTICE("[key_name_admin(src)] created the poll with id [pollid]."))
 
 	var/add_option = 1
 	if(polltype == "TEXT")

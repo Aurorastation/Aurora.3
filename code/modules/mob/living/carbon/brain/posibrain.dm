@@ -76,7 +76,6 @@
 	. = ..()
 
 	. += "This is [icon2html(src, user)] \a <EM>[src]</EM>!\n[desc]\n"
-	. += "<span class='warning'>"
 
 	if(brainmob?.key)
 		switch(brainmob.stat)
@@ -84,12 +83,11 @@
 				if(!src.brainmob.client)
 					. += "It appears to be in stand-by mode.\n" //afk
 			if(UNCONSCIOUS)
-				. += "<span class='warning'>It doesn't seem to be responsive.</span>\n"
+				. += SPAN_WARNING("It doesn't seem to be responsive.\n")
 			if(DEAD)
 				. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
 	else
 		. += "<span class='deadsay'>It appears to be completely inactive.</span>\n"
-	. += "</span>"
 
 /obj/item/device/mmi/digital/posibrain/ready_for_use(var/mob/user)
 	if(!brainmob)

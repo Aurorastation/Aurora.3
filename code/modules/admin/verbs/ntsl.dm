@@ -11,7 +11,7 @@
 
 		feedback_add_details("admin_verb","DNT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
-		to_chat(src, "<span class='warning'>NTSL2+ Daemon is already disconnected.</span>")
+		to_chat(src, SPAN_WARNING("NTSL2+ Daemon is already disconnected."))
 
 /client/proc/connect_ntsl()
 	set name = "NTSL Connect"
@@ -26,4 +26,4 @@
 
 		feedback_add_details("admin_verb","CNT") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 	else
-		to_chat(src, "<span class='warning'>NTSL2+ Daemon is already connected.</span>")
+		to_chat(src, SPAN_WARNING("NTSL2+ Daemon is already connected."))

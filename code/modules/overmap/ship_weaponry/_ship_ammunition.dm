@@ -153,7 +153,7 @@
 	return TRUE
 
 /obj/item/ship_ammunition/proc/get_additional_info()
-	. += "<span class='danger'>[name_override ? name_override : name]</span><br>"
+	. += SPAN_DANGER("[name_override ? name_override : name]<br>")
 	. += "[desc]<br>"
 	. += "Caliber: [caliber]<br>"
 	. += "Ammunition Type: [capitalize_first_letters(impact_type)]<br>"

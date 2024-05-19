@@ -47,7 +47,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.species && H.species.name != SPECIES_VAURCA_WARRIOR)
-			to_chat(user, "<span class='warning'>\The [src] does not respond to you!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] does not respond to you!"))
 			return FALSE
 	return ..()
 
@@ -86,7 +86,7 @@
 			if(H.species.name == SPECIES_VAURCA_WARRIOR)
 				..()
 				return
-		to_chat(user, "<span class='warning'>\The [src] is far too large for you to pick up.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] is far too large for you to pick up."))
 		return
 
 /obj/item/gun/energy/noisecannon/update_icon()

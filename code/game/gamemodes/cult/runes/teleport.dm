@@ -63,9 +63,9 @@
 			to_chat(user, SPAN_CULT("The rune is still recharging!"))
 			return fizzle(user, A)
 		user.say("Sas'so c'arta forbici!")//Only you can stop auto-muting
-		user.visible_message("<span class='warning'>[user] disappears in a flash of red light!</span>", \
-		"<span class='cult'>You feel as if your body gets dragged through Redspace!</span>", \
-		"<span class='warning'>You hear a sickening crunch and sloshing of viscera.</span>")
+		user.visible_message(SPAN_WARNING("[user] disappears in a flash of red light!"), \
+		SPAN_CULT("You feel as if your body gets dragged through Redspace!"), \
+		SPAN_WARNING("You hear a sickening crunch and sloshing of viscera."))
 		var/datum/rune/teleport/valid_rune = pick(possible_runes)
 		gibs(get_turf(user))
 		playsound(user, 'sound/magic/enter_blood.ogg', 50, 1)

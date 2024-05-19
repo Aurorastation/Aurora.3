@@ -92,7 +92,7 @@
 	if(battery)
 		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=\ref[src];remove_cell=1'>Remove</a>"
 	else
-		HTML += "<span class='danger'>No powercell detected!</span>"
+		HTML += SPAN_DANGER("No powercell detected!")
 	HTML += "<br><br>"
 	HTML += "Components:<hr>"
 	HTML += "Built in:<br>"
@@ -127,7 +127,7 @@
 	if(..())
 		return 1
 	if(!opened)
-		to_chat(usr, "<span class='warning'>\The [src] is not open!</span>")
+		to_chat(usr, SPAN_WARNING("\The [src] is not open!"))
 		return
 
 	if(href_list["rename"])
@@ -135,12 +135,12 @@
 
 	if(href_list["remove_cell"])
 		if(!battery)
-			to_chat(usr, "<span class='warning'>There's no power cell to remove from \the [src].</span>")
+			to_chat(usr, SPAN_WARNING("There's no power cell to remove from \the [src]."))
 		else
 			var/turf/T = get_turf(src)
 			battery.forceMove(T)
 			playsound(T, 'sound/items/crowbar_pry.ogg', 50, 1)
-			to_chat(usr, "<span class='notice'>You pull \the [battery] out of \the [src]'s power supply.</span>")
+			to_chat(usr, SPAN_NOTICE("You pull \the [battery] out of \the [src]'s power supply."))
 			battery = null
 
 	interact(usr) // To refresh the UI.
@@ -157,7 +157,7 @@
 
 	var/input = sanitizeSafe(input("What do you want to name this?", "Rename", src.name) as null|text, MAX_NAME_LEN)
 	if(src && input)
-		to_chat(M, "<span class='notice'>The machine now has a label reading '[input]'.</span>")
+		to_chat(M, SPAN_NOTICE("The machine now has a label reading '[input]'."))
 		name = input
 		return input
 	return null
@@ -203,21 +203,21 @@
 // Returns true if the circuit made it inside.
 /obj/item/device/electronic_assembly/proc/add_circuit(obj/item/integrated_circuit/IC, mob/user)
 	if(!opened)
-		to_chat(user, "<span class='warning'>\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar.</span>")
+		to_chat(user, SPAN_WARNING("\The [src] isn't opened, so you can't put anything inside.  Try using a crowbar."))
 		return FALSE
 
 	if(IC.w_class > w_class)
-		to_chat(user, "<span class='warning'>\The [IC] is way too big to fit into \the [src].</span>")
+		to_chat(user, SPAN_WARNING("\The [IC] is way too big to fit into \the [src]."))
 		return FALSE
 
 	var/total_part_size = get_part_size()
 	var/total_complexity = get_part_complexity()
 
 	if((total_part_size + IC.size) > max_components)
-		to_chat(user, "<span class='warning'>You can't seem to add the '[IC.name]', as there's insufficient space.</span>")
+		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', as there's insufficient space."))
 		return FALSE
 	if((total_complexity + IC.complexity) > max_complexity)
-		to_chat(user, "<span class='warning'>You can't seem to add the '[IC.name]', since this setup's too complicated for the case.</span>")
+		to_chat(user, SPAN_WARNING("You can't seem to add the '[IC.name]', since this setup's too complicated for the case."))
 		return FALSE
 
 	if(!IC.forceMove(src))
@@ -242,7 +242,7 @@
 			return FALSE
 
 		if(add_circuit(attacking_item, user))
-			to_chat(user, "<span class='notice'>You slide \the [attacking_item] inside \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You slide \the [attacking_item] inside \the [src]."))
 			playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
 			interact(user)
 			return TRUE
@@ -260,7 +260,7 @@
 	else if(attacking_item.iscrowbar())
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		opened = !opened
-		to_chat(user, "<span class='notice'>You [opened ? "open" : "close"] \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You [opened ? "open" : "close"] \the [src]."))
 		update_icon()
 		return TRUE
 
@@ -268,19 +268,20 @@
 		if(opened)
 			interact(user)
 		else
-			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't fiddle with the internal components.  \
-			Try using a crowbar.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] isn't open, so you can't fiddle with the internal components.  \
+			Try using a crowbar."))
+
 		return TRUE
 
 	else if(istype(attacking_item, /obj/item/cell/device))
 		if(!opened)
-			to_chat(user, "<span class='warning'>\The [src] isn't open, so you can't put anything inside.  Try using a crowbar.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] isn't open, so you can't put anything inside.  Try using a crowbar."))
 			for(var/obj/item/integrated_circuit/input/S in contents)
 				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE
 
 		if(battery)
-			to_chat(user, "<span class='warning'>\The [src] already has \a [battery] inside.  Remove it first if you want to replace it.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] already has \a [battery] inside.  Remove it first if you want to replace it."))
 			for(var/obj/item/integrated_circuit/input/S in contents)
 				S.attackby_react(attacking_item,user,user.a_intent)
 			return FALSE
@@ -289,7 +290,7 @@
 		user.drop_from_inventory(cell,src)
 		battery = cell
 		playsound(get_turf(src), 'sound/items/Deconstruct.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>You slot \the [cell] inside \the [src]'s power supply.</span>")
+		to_chat(user, SPAN_NOTICE("You slot \the [cell] inside \the [src]'s power supply."))
 		interact(user)
 		return TRUE
 	else if(istype(attacking_item, /obj/item/device/integrated_electronics/detailer))

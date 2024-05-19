@@ -174,11 +174,11 @@
 	if(attacking_item.item_flags & ITEM_FLAG_NO_BLUDGEON) return
 
 	if(attacking_item.isscrewdriver())
-		to_chat(user, ("<span class='notice'>It's a holowindow, you can't unfasten it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't unfasten it!")))
 	else if(attacking_item.iscrowbar() && reinf && state <= 1)
-		to_chat(user, ("<span class='notice'>It's a holowindow, you can't pry it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't pry it!")))
 	else if(attacking_item.iswrench() && !anchored && (!state || !reinf))
-		to_chat(user, ("<span class='notice'>It's a holowindow, you can't dismantle it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holowindow, you can't dismantle it!")))
 	else
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			hit(attacking_item.force)
@@ -212,7 +212,7 @@
 	if(src.density && istype(attacking_item, /obj/item) && !istype(attacking_item, /obj/item/card))
 		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message("<span class='danger'>[src] was hit by [attacking_item].</span>")
+		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return
@@ -247,7 +247,7 @@
 
 /obj/structure/bed/stool/chair/holochair/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		to_chat(user, ("<span class='notice'>It's a holochair, you can't dismantle it!</span>"))
+		to_chat(user, (SPAN_NOTICE("It's a holochair, you can't dismantle it!")))
 	return
 
 /obj/item/holo
@@ -280,7 +280,7 @@
 
 /obj/item/holo/esword/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 
 		spark(user.loc, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
@@ -298,13 +298,13 @@
 		icon_state = "sword[item_color]"
 		w_class = ITEMSIZE_LARGE
 		playsound(user, 'sound/weapons/saberon.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>[src] is now active.</span>")
+		to_chat(user, SPAN_NOTICE("[src] is now active."))
 	else
 		force = 3
 		icon_state = "sword0"
 		w_class = ITEMSIZE_SMALL
 		playsound(user, 'sound/weapons/saberoff.ogg', 50, 1)
-		to_chat(user, "<span class='notice'>[src] can now be concealed.</span>")
+		to_chat(user, SPAN_NOTICE("[src] can now be concealed."))
 
 	if(istype(user,/mob/living/carbon/human))
 		var/mob/living/carbon/human/H = user
@@ -339,16 +339,16 @@
 	if (istype(attacking_item, /obj/item/grab) && get_dist(src,user)<2)
 		var/obj/item/grab/G = attacking_item
 		if(G.state<2)
-			to_chat(user, "<span class='warning'>You need a better grip to do that!</span>")
+			to_chat(user, SPAN_WARNING("You need a better grip to do that!"))
 			return
 		G.affecting.forceMove(src.loc)
 		G.affecting.Weaken(5)
-		visible_message("<span class='warning'>[G.assailant] dunks [G.affecting] into the [src]!</span>", range = 3)
+		visible_message(SPAN_WARNING("[G.assailant] dunks [G.affecting] into the [src]!"), range = 3)
 		qdel(attacking_item)
 		return
 	else if (istype(attacking_item, /obj/item) && get_dist(src,user)<2)
 		user.drop_from_inventory(attacking_item, get_turf(src))
-		visible_message("<span class='notice'>[user] dunks [attacking_item] into the [src]!</span>", range = 3)
+		visible_message(SPAN_NOTICE("[user] dunks [attacking_item] into the [src]!"), range = 3)
 		return
 
 /obj/structure/holohoop/CanPass(atom/movable/mover, turf/target, height=0, air_group=0)
@@ -358,9 +358,9 @@
 			return
 		if(prob(50))
 			I.forceMove(src.loc)
-			visible_message("<span class='notice'>Swish! \the [I] lands in \the [src].</span>", range = 3)
+			visible_message(SPAN_NOTICE("Swish! \the [I] lands in \the [src]."), range = 3)
 		else
-			visible_message("<span class='warning'>\The [I] bounces off of \the [src]'s rim!</span>", range = 3)
+			visible_message(SPAN_WARNING("\The [I] bounces off of \the [src]'s rim!"), range = 3)
 		return 0
 	else
 		return ..(mover, target, height, air_group)
@@ -467,7 +467,7 @@
 	derez()
 
 /mob/living/simple_animal/hostile/carp/holodeck/proc/derez()
-	visible_message("<span class='notice'>\The [src] fades away!</span>")
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
 	qdel(src)
 
 //Holo-penguin
@@ -505,5 +505,5 @@
 	derez()
 
 /mob/living/simple_animal/penguin/holodeck/proc/derez()
-	visible_message("<span class='notice'>\The [src] fades away!</span>")
+	visible_message(SPAN_NOTICE("\The [src] fades away!"))
 	qdel(src)
