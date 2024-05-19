@@ -1,0 +1,6 @@
+author: Crosarius
+
+delete-after: True
+
+changes:
+  - bugfix: "Selecting diona nymph lunchbox in the loadout now correctly gives you the diona nymph lunchbox on spawn."
