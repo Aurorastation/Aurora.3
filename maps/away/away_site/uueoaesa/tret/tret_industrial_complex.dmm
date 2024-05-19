@@ -28,7 +28,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = null;
+	req_one_access = list(216);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -485,6 +485,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan{
 	dir = 4
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "act" = (
@@ -703,6 +704,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "adr" = (
@@ -1684,6 +1686,7 @@
 /obj/effect/floor_decal/corner/yellow{
 	dir = 9
 	},
+/obj/effect/decal/cleanable/flour,
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/canteen)
 "ahv" = (
@@ -1956,6 +1959,7 @@
 	pixel_y = 2;
 	pixel_x = -2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engineering)
 "aiZ" = (
@@ -2255,7 +2259,8 @@
 /obj/item/gun/energy/rifle/hegemony,
 /obj/item/gun/energy/rifle/hegemony,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = null;
+	req_one_access = list(216)
 	},
 /obj/item/melee/energy/vaurca,
 /turf/simulated/floor/tiled/gunmetal,
@@ -2547,7 +2552,8 @@
 /obj/item/gun/energy/vaurca/blaster,
 /obj/item/gun/energy/vaurca/blaster,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = null;
+	req_one_access = list(216)
 	},
 /obj/item/melee/energy/vaurca,
 /turf/simulated/floor/tiled/gunmetal,
@@ -2610,7 +2616,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -2817,6 +2825,12 @@
 	icon_state = "1-2"
 	},
 /obj/random/dirt_75,
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_engineering_storage";
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 2
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "aqZ" = (
@@ -3183,6 +3197,14 @@
 /area/tret_industrial/inside/storage_smelting)
 "auV" = (
 /obj/effect/floor_decal/industrial/warning,
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_storage";
+	pixel_x = 28;
+	pixel_y = -20;
+	dir = 2
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "auX" = (
@@ -3223,7 +3245,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile/glass{
-	dir = 2
+	dir = 2;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/comms)
@@ -3376,11 +3399,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "awQ" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "tret_shutters_smelting_storage"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/storage_smelting)
 "awS" = (
@@ -3569,6 +3595,7 @@
 /obj/machinery/atmospherics/valve{
 	name = "Thermal Relief Valve"
 	},
+/obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "ayV" = (
@@ -3786,11 +3813,14 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "aAE" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "tret_shutters_engineering_storage"
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
 "aAF" = (
@@ -3879,6 +3909,7 @@
 "aBH" = (
 /obj/effect/floor_decal/industrial/warning,
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "aBI" = (
@@ -3888,7 +3919,6 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/engineering)
 "aBO" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
@@ -3901,6 +3931,10 @@
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "tret_shutters_engineering_storage"
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
@@ -3926,7 +3960,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = null;
+	req_one_access = list(216);
 	cycle_to_external_air = 1
 	},
 /obj/random/dirt_75,
@@ -4033,11 +4067,15 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
 "aCW" = (
-/obj/item/clothing/under/vaurca,
+/obj/item/clothing/under/vaurca{
+	color = "#895a2a"
+	},
 /obj/item/storage/backpack/cloak/klax,
 /obj/structure/closet/cabinet,
 /obj/item/clothing/gloves/fingerless,
-/obj/item/storage/backpack/cloak,
+/obj/item/storage/backpack/cloak{
+	color = "#895a2a"
+	},
 /obj/item/clothing/head/expression/unathi{
 	color = "#336600"
 	},
@@ -4259,6 +4297,7 @@
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "aEo" = (
@@ -4458,6 +4497,7 @@
 /obj/machinery/power/apc/north{
 	req_access = null
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engi_storage)
 "aFJ" = (
@@ -4617,7 +4657,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = null;
+	req_one_access = list(216);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
@@ -4874,7 +4914,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = null;
+	req_one_access = list(216);
 	cycle_to_external_air = 1
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
@@ -5041,15 +5081,11 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
 "aKU" = (
-/obj/machinery/door/blast/shutters{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/hatch_door/red,
-/obj/machinery/door/firedoor/noid{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/smelting_east)
+/obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty/phoron,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/storage_engineering)
 "aLa" = (
 /obj/structure/table/reinforced/steel,
 /obj/structure/sign/flag/klax{
@@ -5096,6 +5132,12 @@
 /area/tret_industrial/inside/canteen)
 "aLN" = (
 /obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_west";
+	pixel_x = 20;
+	pixel_y = 28;
 	dir = 4
 	},
 /turf/simulated/floor/tiled/ridged,
@@ -5202,6 +5244,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 1
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "aMO" = (
@@ -5319,7 +5362,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
@@ -5694,6 +5738,7 @@
 /obj/structure/sign/flag/klax{
 	pixel_y = -32
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "aRQ" = (
@@ -5829,6 +5874,7 @@
 	pixel_x = 14;
 	pixel_y = -9
 	},
+/obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
 "aSW" = (
@@ -5964,7 +6010,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = null;
+	req_one_access = list(216);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -6383,7 +6429,8 @@
 /obj/item/clothing/head/helmet/unathi/klax,
 /obj/item/melee/energy/vaurca_zweihander,
 /obj/structure/closet/secure_closet/guncabinet{
-	req_access = null
+	req_access = null;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/eva)
@@ -6414,18 +6461,14 @@
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/medical)
 "aXC" = (
-/obj/machinery/mining/brace{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
 "aXM" = (
-/obj/machinery/mining/brace{
-	dir = 8
-	},
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
+/obj/machinery/portable_atmospherics/canister/empty,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
 "aXR" = (
@@ -6787,7 +6830,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/glass{
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
@@ -7270,6 +7314,18 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"fhJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_east";
+	pixel_x = 28;
+	pixel_y = 32;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "fhO" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/atmos)
@@ -7569,6 +7625,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
+"guV" = (
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "gwg" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
@@ -7649,6 +7709,20 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
+"gYr" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "gYu" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -7696,6 +7770,13 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"hbz" = (
+/obj/item/storage/backpack/heph{
+	pixel_x = 4;
+	pixel_y = 13
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/crew)
 "hct" = (
 /turf/simulated/mineral/lava/tret,
 /area/tret_industrial/inside/botany)
@@ -7704,6 +7785,13 @@
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"hdU" = (
+/obj/item/storage/backpack/duffel{
+	pixel_x = -6;
+	pixel_y = -2
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/crew)
 "hgy" = (
 /obj/effect/floor_decal/corner/yellow,
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
@@ -7884,6 +7972,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engi_storage)
+"idf" = (
+/obj/effect/floor_decal/industrial/hatch_door/red,
+/obj/machinery/door/firedoor/noid{
+	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 4;
+	id = "tret_shutters_smelting_east"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/smelting_east)
 "iee" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -8038,6 +8138,7 @@
 	dir = 1
 	},
 /obj/random/dirt_75,
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
 "jbX" = (
@@ -8063,7 +8164,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -8075,6 +8178,11 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/comms)
+"jkU" = (
+/obj/machinery/atmospherics/binary/pump/on,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/engineering)
 "jll" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 10
@@ -8125,11 +8233,14 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
 "jsY" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "tret_shutters_smelting_west"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_west)
 "jtL" = (
@@ -8259,12 +8370,18 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engi_storage)
 "jQY" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/miningcart,
 /obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/storage_smelting)
+"jRl" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil/streak,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "jRW" = (
@@ -8368,10 +8485,17 @@
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_smelting)
 "kvB" = (
-/obj/effect/floor_decal/industrial/outline/firefighting_closet,
-/obj/structure/closet/firecloset/full,
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_smelting)
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_engineering_storage";
+	pixel_x = -28;
+	pixel_y = 32;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/storage_engineering)
 "kAW" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
@@ -8536,6 +8660,7 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply{
 	dir = 2
 	},
+/obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
 "lrl" = (
@@ -8733,6 +8858,22 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
+"mUe" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "mUU" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
@@ -8958,13 +9099,28 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/canteen)
 "nWj" = (
-/obj/machinery/door/blast/shutters,
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
+/obj/machinery/door/blast/shutters{
+	dir = 2;
+	id = "tret_shutters_smelting_east"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_east)
+"nYF" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_storage";
+	pixel_x = -28;
+	pixel_y = 32;
+	dir = 1
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/storage_smelting)
 "odS" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
@@ -9000,6 +9156,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/eva)
+"omj" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_east";
+	pixel_x = -20;
+	pixel_y = 28;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/smelting_east)
 "ooF" = (
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/exoplanet/plating/tret,
@@ -9148,6 +9316,18 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
+"psJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_west";
+	pixel_x = -20;
+	pixel_y = -28;
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "psW" = (
 /obj/machinery/atmospherics/portables_connector/supply{
 	dir = 2
@@ -9405,6 +9585,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"qBi" = (
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_west";
+	pixel_x = -28;
+	pixel_y = -20;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/smelting_west)
 "qDq" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -9674,7 +9863,8 @@
 	dir = 4
 	},
 /obj/machinery/door/airlock/maintenance_hatch{
-	dir = 4
+	dir = 4;
+	req_one_access = list(216)
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -10022,6 +10212,18 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
+"tep" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_east";
+	pixel_x = 20;
+	pixel_y = -28;
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "tfr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -10049,6 +10251,11 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
+"tnC" = (
+/obj/random/dirt_75,
+/obj/effect/decal/cleanable/blood/oil,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/storage_engineering)
 "tpw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -10083,7 +10290,9 @@
 	dir = 1
 	},
 /obj/machinery/door/firedoor/noid,
-/obj/machinery/door/airlock/maintenance_hatch,
+/obj/machinery/door/airlock/maintenance_hatch{
+	req_one_access = list(216)
+	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
 	},
@@ -10133,6 +10342,15 @@
 /obj/machinery/mineral/stacking_machine,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"ucL" = (
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_west";
+	pixel_x = 28;
+	pixel_y = 32;
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_smelting)
 "udQ" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/canteen)
@@ -10195,6 +10413,7 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engi_storage)
 "upN" = (
+/obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engi_storage)
 "utB" = (
@@ -10291,6 +10510,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
+"vrh" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/engineering)
 "vrn" = (
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_west)
@@ -10301,12 +10525,13 @@
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/landing)
 "vun" = (
-/obj/machinery/door/blast/shutters{
-	dir = 4
-	},
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/firedoor/noid{
 	dir = 4
+	},
+/obj/machinery/door/blast/shutters{
+	dir = 4;
+	id = "tret_shutters_smelting_west"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_west)
@@ -10352,6 +10577,19 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"vBD" = (
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/warning,
+/obj/machinery/button/remote/blast_door{
+	id = "tret_shutters_smelting_east";
+	pixel_x = -28;
+	pixel_y = -20;
+	dir = 2
+	},
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/smelting_east)
 "vDt" = (
 /obj/structure/table/rack,
 /turf/simulated/floor/plating,
@@ -10712,7 +10950,7 @@
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
 	name = "airlock_tret_industrial_outpost_east_5";
-	req_one_access = null;
+	req_one_access = list(216);
 	cycle_to_external_air = 1
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -38178,7 +38416,7 @@ agR
 agR
 agR
 aiv
-vrn
+qBi
 jsY
 xOB
 xOB
@@ -38694,7 +38932,7 @@ rAt
 dGL
 vrn
 jsY
-xOB
+ucL
 xOB
 oxk
 axk
@@ -39212,7 +39450,7 @@ lsW
 lsW
 oxk
 ayN
-kvB
+aEh
 acr
 lsW
 aar
@@ -39459,7 +39697,7 @@ wFU
 lUc
 wVC
 wVC
-wVC
+psJ
 axl
 aHh
 qSZ
@@ -39467,9 +39705,9 @@ awP
 aeL
 oxk
 dYm
-oxk
-ayN
-oxk
+guV
+aQE
+guV
 agS
 sjT
 arO
@@ -39722,7 +39960,7 @@ aWY
 aeR
 axj
 acx
-acx
+mUe
 aEn
 acx
 adc
@@ -39971,9 +40209,9 @@ acf
 ljD
 aHY
 lrl
+aWq
 aFu
-aFu
-aFu
+tep
 aiy
 oxk
 oxk
@@ -40228,9 +40466,9 @@ mPu
 mPu
 mPu
 mPu
-aKU
-aKU
-aKU
+idf
+idf
+idf
 mPu
 mPu
 jbX
@@ -40485,7 +40723,7 @@ mPu
 dkD
 asP
 gQH
-awT
+omj
 awT
 awT
 aoC
@@ -40745,13 +40983,13 @@ aCX
 scQ
 fXr
 fXr
-alW
+vBD
 nWj
 aLh
-ayN
+aQE
 aBH
 awQ
-aAG
+nYF
 wfx
 qSM
 adm
@@ -41005,8 +41243,8 @@ beI
 alW
 nWj
 aLh
-aQE
-auV
+gYr
+aBH
 awQ
 mMl
 wfx
@@ -41261,12 +41499,12 @@ ahj
 amG
 alW
 nWj
-aLh
+fhJ
 aQE
 auV
 awQ
 aAG
-qSM
+jRl
 wfx
 qSM
 dBl
@@ -42034,7 +42272,7 @@ rHE
 mPu
 aWq
 alT
-aFu
+aWq
 dBl
 aKG
 jQY
@@ -43851,8 +44089,8 @@ aQb
 aQb
 aQb
 arD
-ajW
-ajW
+arD
+arD
 ajW
 ajW
 ajW
@@ -44108,7 +44346,7 @@ aQb
 xoH
 aQb
 aEN
-arD
+ahD
 ajW
 ajW
 ajW
@@ -44365,7 +44603,7 @@ xEO
 aTS
 xEO
 xEO
-arD
+ahD
 ajW
 ajW
 ajW
@@ -44622,7 +44860,7 @@ aJq
 aae
 aCc
 xEO
-arD
+ahD
 ajW
 aGd
 asA
@@ -44879,7 +45117,7 @@ xEO
 aHq
 xEO
 xEO
-arD
+ahD
 ajW
 aKp
 asA
@@ -45136,7 +45374,7 @@ aKt
 adx
 aNv
 xEO
-arD
+ahD
 ajW
 ajW
 ajW
@@ -45907,7 +46145,7 @@ aBI
 atv
 aKt
 xEO
-arD
+ahD
 ajW
 ajW
 ajW
@@ -46148,7 +46386,7 @@ aEu
 wDc
 nJV
 aAE
-ffN
+kvB
 aek
 aqG
 qVO
@@ -46157,7 +46395,7 @@ air
 air
 ahk
 alx
-awU
+jkU
 aTz
 auI
 aoH
@@ -46414,7 +46652,7 @@ arD
 lSw
 fMk
 aJU
-aJU
+vrh
 aAp
 ait
 azu
@@ -46928,7 +47166,7 @@ arD
 kVG
 xEO
 ajl
-aJU
+vrh
 aPF
 aOI
 aod
@@ -47178,7 +47416,7 @@ jBu
 aAU
 axZ
 iGo
-axZ
+aKU
 aAU
 akA
 arD
@@ -47434,7 +47672,7 @@ wDc
 nTv
 aAU
 gtP
-iGo
+tnC
 aXM
 aAU
 akA
@@ -50761,7 +50999,7 @@ aSa
 hnG
 anX
 xfA
-abS
+hbz
 aid
 aie
 aig
@@ -51540,7 +51778,7 @@ xfA
 aCW
 itk
 itk
-abS
+hdU
 xfA
 atd
 aMV
@@ -74022,7 +74260,7 @@ lfy
 arD
 arD
 arD
-kBE
+aBn
 kBE
 kBE
 akn
@@ -74278,9 +74516,9 @@ arD
 lSw
 lSw
 arD
-kBE
-kBE
-kBE
+aBn
+aBn
+aBn
 kBE
 akn
 akn
@@ -74533,9 +74771,9 @@ kBE
 kBE
 arD
 kBE
-kBE
-kBE
-kBE
+aBn
+aBn
+aBn
 kBE
 kBE
 kBE

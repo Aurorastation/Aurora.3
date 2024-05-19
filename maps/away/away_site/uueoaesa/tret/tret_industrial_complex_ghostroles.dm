@@ -29,6 +29,8 @@
 	short_name = "tret_industrial_bulwark"
 	desc = "You are a Vaurca Bulwark of the Hive K'lax in one of the many industrial facilities of Tret. Mine, extract and process valuable materials for the glory of the Hive K'lax."
 	max_count = 1
+
+	outfit = /obj/outfit/admin/tret_industrial/vaurca/bulwark
 	possible_species = list(SPECIES_VAURCA_BULWARK)
 	uses_species_whitelist = TRUE
 
@@ -41,14 +43,16 @@
 	short_name = "tret_industrial_warrior"
 	desc = "You are a Vaurca Warrior of the Hive K'lax, assigned to protecting one of the industrial facilities of Tret. Keep the Workers at this facility safe."
 	max_count = 2
+
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
 	uses_species_whitelist = TRUE
 	outfit = /obj/outfit/admin/tret_industrial/vaurca/warrior
+
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
 	welcome_message = "You are a Vaurca Warrior of the Hive K'lax, assigned to protect an industrial facility on Tret. Your primary duty is to keep the Workers of the facility safe from any threats."
 
-// ---------------------- corpses
+// ---------------------- dead sinta
 
 /obj/effect/landmark/corpse/tret_industrial_sinta
 	name = "Cult Base Cultist Corpse"
@@ -62,19 +66,58 @@
 // ---------------------- outfits
 
 /obj/outfit/admin/tret_industrial/vaurca
-	uniform = /obj/item/clothing/under/vaurca
-	shoes = /obj/item/clothing/shoes/vaurca
-	mask = /obj/item/clothing/mask/gas/vaurca/filter
-	back = /obj/item/storage/backpack/cloak/cargo
-	id = /obj/item/card/id
+	uniform = list(
+		/obj/item/clothing/under/vaurca,
+		/obj/item/clothing/under/vaurca/gearharness,
+		/obj/item/clothing/under/vaurca/gearharness/black,
+		/obj/item/clothing/under/gearharness,
+	)
+	shoes = list(/obj/item/clothing/shoes/vaurca)
+	mask = list(
+		/obj/item/clothing/mask/gas/vaurca/filter,
+		/obj/item/clothing/mask/gas/vaurca/filter,
+		/obj/item/clothing/mask/gas/vaurca,
+	)
+	back = list(
+		/obj/item/storage/backpack/duffel,
+		/obj/item/storage/backpack/heph,
+		/obj/item/storage/backpack/cloak/klax,
+		/obj/item/storage/backpack/cloak/cargo,
+	)
+	belt = list(/obj/item/storage/belt/mining/full)
+	accessory = list(
+		/obj/item/clothing/accessory/storage/brown_vest,
+		/obj/item/clothing/accessory/storage/pouches/brown,
+		/obj/item/clothing/accessory/storage/overalls/mining,
+		/obj/item/clothing/accessory/poncho,
+		/obj/item/clothing/accessory/poncho/vaurca,
+	)
+	id = /obj/item/card/id/hephaestus
 
 /obj/outfit/admin/tret_industrial/get_id_access()
-	return list(ACCESS_EXTERNAL_AIRLOCKS)
+	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
+
+/obj/outfit/admin/tret_industrial/vaurca/bulwark
+	uniform = list(/obj/item/clothing/under/vaurca/gearharness)
+	accessory = null
 
 /obj/outfit/admin/tret_industrial/vaurca/warrior
-	belt = /obj/item/melee/energy/vaurca
-	back = /obj/item/storage/backpack/cloak/sec
-	l_hand = /obj/item/martial_manual/vaurca
+	mask = list(
+		/obj/item/clothing/mask/gas/vaurca/filter,
+		/obj/item/clothing/mask/gas/vaurca,
+		/obj/item/clothing/mask/gas/vaurca/tactical,
+	)
+	back = list(/obj/item/storage/backpack/cloak/sec)
+	belt = list(
+		/obj/item/melee/energy/vaurca,
+		/obj/item/storage/belt/security/full/alt,
+	)
+	accessory = list(
+		/obj/item/clothing/accessory/storage/black_vest,
+		/obj/item/clothing/accessory/storage/pouches/black,
+		/obj/item/clothing/accessory/poncho/vaurca,
+	)
+	l_hand = list(/obj/item/martial_manual/vaurca)
 
 /obj/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	if(H?.wear_mask && H.species.has_organ[BP_PHORON_RESERVE])
@@ -86,6 +129,8 @@
 	var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 	B.replaced(H, affectedB)
 	H.update_body()
+
+// ---------------------- dead sinta outfit and fluff
 
 /obj/outfit/admin/tret_industrial/sinta
 	uniform = list(/obj/item/clothing/under/unathi/mogazali/blue, /obj/item/clothing/under/unathi/mogazali/orange)

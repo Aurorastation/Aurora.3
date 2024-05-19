@@ -35,6 +35,12 @@
 		"nav_tret_industrial_dock_outpost_3",
 		"nav_tret_industrial_dock_outpost_4",
 		"nav_tret_industrial_dock_outpost_5",
+		"nav_tret_industrial_surface_outpost_1",
+		"nav_tret_industrial_surface_outpost_2",
+		"nav_tret_industrial_surface_outpost_3",
+		"nav_tret_industrial_surface_outpost_4",
+		"nav_tret_industrial_surface_outpost_5",
+		"nav_tret_industrial_surface_far",
 	)
 
 // --------------------------------------------------- shuttle
