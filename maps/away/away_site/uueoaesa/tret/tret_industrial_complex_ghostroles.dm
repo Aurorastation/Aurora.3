@@ -9,7 +9,7 @@
 		Mine, extract and process valuable materials for the glory of the Hive K'lax.\
 	"
 	desc_ooc = "\
-		You are expected to know the basics of Vaurca lore before playing this role.
+		You are expected to know the basics of Vaurca lore before playing this role.\
 	"
 	tags = list("External")
 	spawnpoints = list("tret_industrial")
@@ -22,8 +22,12 @@
 	special_role = "Tret Industrial Worker"
 	respawn_flag = null
 
+	mob_name_prefix = "Ka'Akaix'"
 	mob_name_suffix = " K'lax"
-	mob_name_pick_message = "Pick a Vaurca Worker name."
+	mob_name_pick_message = "\
+		Pick a Vaurca Worker name. Prefix and suffix are applied automatically, \
+		so just need to input the <<XXXX>> part in <<Ka'Akaix'XXXX K'lax>>.\
+	"
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
@@ -50,12 +54,18 @@
 	possible_species = list(SPECIES_VAURCA_BULWARK)
 	uses_species_whitelist = TRUE
 
+	mob_name_prefix = "Ra'Akaix'"
 	mob_name_suffix = " K'lax"
-	mob_name_pick_message = "Pick a Vaurca Bulwark name."
+	mob_name_pick_message = "\
+		Pick a Vaurca Bulwark name. Prefix and suffix are applied automatically, \
+		so just need to input the <<XXXX>> part in <<Ra'Akaix'XXXX K'lax>>.\
+	"
+
 	welcome_message = "\
 		You are a Vaurca Bulwark of the Hive K'lax, working on an industrial facility on Tret. \
 		Remember, as a Bulwark you should not seek out conflict, but you may fight to defend yourself or the Workers beside you.\
 	"
+	welcome_message_ooc = null
 
 /datum/ghostspawner/human/tret_industrial/warrior
 	name = "Tret Industrial Warrior"
@@ -71,12 +81,18 @@
 	uses_species_whitelist = TRUE
 	outfit = /obj/outfit/admin/tret_industrial/vaurca/warrior
 
+	mob_name_prefix = "Za'Akaix'"
 	mob_name_suffix = " K'lax"
-	mob_name_pick_message = "Pick a Vaurca Warrior name."
+	mob_name_pick_message = "\
+		Pick a Vaurca Warrior name. Prefix and suffix are applied automatically, \
+		so just need to input the <<XXXX>> part in <<Za'Akaix'XXXX K'lax>>.\
+	"
+
 	welcome_message = "\
 		You are a Vaurca Warrior of the Hive K'lax, assigned to protect an industrial facility on Tret. \
 		Your primary duty is to keep the Workers of the facility safe from any threats.\
 	"
+	welcome_message_ooc = null
 
 // ---------------------- dead sinta
 
@@ -157,6 +173,9 @@
 	var/obj/item/organ/external/affectedB = H.get_organ(B.parent_organ)
 	B.replaced(H, affectedB)
 	H.update_body()
+
+	// some default color in case someone forgets to change it
+	H.change_skin_color(33, 63, 33)
 
 // ---------------------- dead sinta outfit and fluff
 

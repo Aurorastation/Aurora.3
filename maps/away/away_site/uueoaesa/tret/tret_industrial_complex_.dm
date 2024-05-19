@@ -79,7 +79,7 @@
 /datum/shuttle/autodock/overmap/tret_industrial
 	name = "Tret Mining Shuttle"
 	move_time = 20
-	shuttle_area = list(/area/shuttle/tret_industrial)
+	shuttle_area = list(/area/shuttle/tret_industrial/main, /area/shuttle/tret_industrial/propulsion)
 	dock_target = "airlock_tret_industrial_shuttle"
 	current_location = "nav_tret_industrial_dock_outpost_1"
 	logging_home_tag = "nav_tret_industrial_dock_outpost_1"
