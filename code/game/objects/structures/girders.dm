@@ -59,7 +59,7 @@
 /obj/structure/girder/proc/take_damage(var/damage)
 	health -= damage
 	if(health <= 0)
-		visible_message("<span class='warning'>\The [src] falls apart!</span>")
+		visible_message(SPAN_WARNING("\The [src] falls apart!"))
 		dismantle()
 
 /obj/structure/girder/proc/reset_girder()
@@ -75,15 +75,15 @@
 /obj/structure/girder/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench() && state == 0)
 		if(anchored && !reinf_material)
-			to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
+			to_chat(user, SPAN_NOTICE("Now disassembling the girder..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
 				if(!src) return
-				to_chat(user, "<span class='notice'>You dissasembled the girder!</span>")
+				to_chat(user, SPAN_NOTICE("You dissasembled the girder!"))
 				dismantle()
 		else if(!anchored)
-			to_chat(user, "<span class='notice'>Now securing the girder...</span>")
+			to_chat(user, SPAN_NOTICE("Now securing the girder..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
-				to_chat(user, "<span class='notice'>You secured the girder!</span>")
+				to_chat(user, SPAN_NOTICE("You secured the girder!"))
 				reset_girder()
 
 	else if(istype(attacking_item, /obj/item/gun/energy/plasmacutter))
@@ -100,73 +100,73 @@
 	else if(istype(attacking_item, /obj/item/melee/energy))
 		var/obj/item/melee/energy/WT = attacking_item
 		if(WT.active)
-			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+			to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 			if(attacking_item.use_tool(src, user, 30, volume = 50))
 				if(!src) return
-				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+				to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 				dismantle()
 		else
-			to_chat(user, "<span class='notice'>You need to activate the weapon to do that!</span>")
+			to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 			return
 
 	else if(istype(attacking_item, /obj/item/melee/energy/blade))
-		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+		to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+			to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 			dismantle()
 
 	else if(istype(attacking_item, /obj/item/melee/chainsword))
 		var/obj/item/melee/chainsword/WT = attacking_item
 		if(WT.active)
-			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+			to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 			if(WT.use_tool(src, user, 60, volume = 50))
 				if(!src) return
-				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+				to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 				dismantle()
 		else
-			to_chat(user, "<span class='notice'>You need to activate the weapon to do that!</span>")
+			to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 			return
 
 	else if(istype(attacking_item, /obj/item/pickaxe/diamonddrill))
-		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
+		to_chat(user, SPAN_NOTICE("You drill through the girder!"))
 		dismantle()
 
 	else if(istype(attacking_item, /obj/item/melee/arm_blade/))
-		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+		to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 		if(do_after(user,150))
 			if(!src)
 				return
-			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+			to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 			dismantle()
 
 	else if(attacking_item.isscrewdriver())
 		if(state == 2)
-			to_chat(user, "<span class='notice'>Now unsecuring support struts...</span>")
+			to_chat(user, SPAN_NOTICE("Now unsecuring support struts..."))
 			if(attacking_item.use_tool(src, user, 40, volume = 50))
 				if(!src)
 					return
-				to_chat(user, "<span class='notice'>You unsecured the support struts!</span>")
+				to_chat(user, SPAN_NOTICE("You unsecured the support struts!"))
 				state = 1
 		else if(anchored && !reinf_material)
 			attacking_item.play_tool_sound(get_turf(src), 50)
 			reinforcing = !reinforcing
-			to_chat(user, "<span class='notice'>\The [src] can now be [reinforcing? "reinforced" : "constructed"]!</span>")
+			to_chat(user, SPAN_NOTICE("\The [src] can now be [reinforcing? "reinforced" : "constructed"]!"))
 			return
 
 	else if(attacking_item.iswirecutter() && state == 1)
-		to_chat(user, "<span class='notice'>Now removing support struts...</span>")
+		to_chat(user, SPAN_NOTICE("Now removing support struts..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You removed the support struts!</span>")
+			to_chat(user, SPAN_NOTICE("You removed the support struts!"))
 			reinf_material = null
 			reset_girder()
 
 	else if(attacking_item.iscrowbar() && state == 0 && anchored)
-		to_chat(user, "<span class='notice'>Now dislodging the girder...</span>")
+		to_chat(user, SPAN_NOTICE("Now dislodging the girder..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
 			if(!src) return
-			to_chat(user, "<span class='notice'>You dislodged the girder!</span>")
+			to_chat(user, SPAN_NOTICE("You dislodged the girder!"))
 			icon_state = "displaced"
 			anchored = 0
 			health = 50
@@ -190,10 +190,10 @@
 		playsound(src, 'sound/weapons/smash.ogg', 50)
 		if(damage_to_deal > weaken && (damage_to_deal > MIN_DAMAGE_TO_HIT))
 			damage_to_deal -= weaken
-			visible_message("<span class='warning'>[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing" : "denting"] a support rod!</span>")
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], [is_sharp(attacking_item) ? "slicing" : "denting"] a support rod!"))
 			take_damage(damage_to_deal)
 		else
-			visible_message("<span class='warning'>[user] strikes \the [src] with \the [attacking_item], but it bounces off!</span>")
+			visible_message(SPAN_WARNING("[user] strikes \the [src] with \the [attacking_item], but it bounces off!"))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		return
 
@@ -201,7 +201,7 @@
 
 /obj/structure/girder/proc/construct_wall(obj/item/stack/material/S, mob/user)
 	if(S.get_amount() < 2)
-		to_chat(user, "<span class='notice'>There isn't enough material here to construct a wall.</span>")
+		to_chat(user, SPAN_NOTICE("There isn't enough material here to construct a wall."))
 		return 0
 
 	var/material/M = SSmaterials.get_material_by_name(S.default_type)
@@ -212,11 +212,11 @@
 	add_hiddenprint(usr)
 
 	if(M.integrity < 50)
-		to_chat(user, "<span class='notice'>This material is too soft for use in wall construction.</span>")
+		to_chat(user, SPAN_NOTICE("This material is too soft for use in wall construction."))
 		return 0
 
 	if(!plating)
-		to_chat(user, "<span class='notice'>You begin adding the plating...</span>")
+		to_chat(user, SPAN_NOTICE("You begin adding the plating..."))
 		plating = TRUE
 	else
 		return TRUE
@@ -228,9 +228,9 @@
 	plating = FALSE
 
 	if(anchored)
-		to_chat(user, "<span class='notice'>You added the plating!</span>")
+		to_chat(user, SPAN_NOTICE("You added the plating!"))
 	else
-		to_chat(user, "<span class='notice'>You create a false wall! Push on it to open or close the passage.</span>")
+		to_chat(user, SPAN_NOTICE("You create a false wall! Push on it to open or close the passage."))
 		wall_fake = 1
 
 	var/turf/Tsrc = get_turf(src)
@@ -247,11 +247,11 @@
 
 /obj/structure/girder/proc/reinforce_with_material(obj/item/stack/material/S, mob/user) //if the verb is removed this can be renamed.
 	if(reinf_material)
-		to_chat(user, "<span class='notice'>\The [src] is already reinforced.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is already reinforced."))
 		return 0
 
 	if(S.get_amount() < 2)
-		to_chat(user, "<span class='notice'>There isn't enough material here to reinforce the girder.</span>")
+		to_chat(user, SPAN_NOTICE("There isn't enough material here to reinforce the girder."))
 		return 0
 
 	var/material/M = SSmaterials.get_material_by_name(S.default_type)
@@ -259,10 +259,10 @@
 		to_chat(user, "You cannot reinforce \the [src] with that; it is too soft.")
 		return 0
 
-	to_chat(user, "<span class='notice'>Now reinforcing...</span>")
+	to_chat(user, SPAN_NOTICE("Now reinforcing..."))
 	if (!do_after(user,40) || !S.use(2))
 		return 1 //don't call parent attackby() past this point
-	to_chat(user, "<span class='notice'>You added reinforcement!</span>")
+	to_chat(user, SPAN_NOTICE("You added reinforcement!"))
 
 	reinf_material = M
 	reinforce_girder()
@@ -277,7 +277,7 @@
 
 /obj/structure/girder/attack_hand(mob/user as mob)
 	if((user.mutations & HULK))
-		visible_message("<span class='danger'>[user] smashes [src] apart!</span>")
+		visible_message(SPAN_DANGER("[user] smashes [src] apart!"))
 		dismantle()
 		return
 	return ..()
@@ -310,7 +310,7 @@
 	if(!damage || !wallbreaker)
 		return FALSE
 	user.do_attack_animation(src)
-	visible_message("<span class='danger'>[user] [attack_message] \the [src]!</span>")
+	visible_message(SPAN_DANGER("[user] [attack_message] \the [src]!"))
 	dismantle()
 	return TRUE
 
@@ -327,48 +327,48 @@
 
 /obj/structure/girder/cult/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.iswrench())
-		to_chat(user, "<span class='notice'>Now disassembling the girder...</span>")
+		to_chat(user, SPAN_NOTICE("Now disassembling the girder..."))
 		if(attacking_item.use_tool(src, user, 40, volume = 50))
-			to_chat(user, "<span class='notice'>You dissasembled the girder!</span>")
+			to_chat(user, SPAN_NOTICE("You dissasembled the girder!"))
 			dismantle()
 
 	else if(istype(attacking_item, /obj/item/gun/energy/plasmacutter))
-		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+		to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
-			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+			to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 		dismantle()
 
 	else if(istype(attacking_item, /obj/item/pickaxe/diamonddrill))
-		to_chat(user, "<span class='notice'>You drill through the girder!</span>")
+		to_chat(user, SPAN_NOTICE("You drill through the girder!"))
 		new /obj/effect/decal/remains/human(get_turf(src))
 		dismantle()
 
 	else if(istype(attacking_item, /obj/item/melee/energy))
 		var/obj/item/melee/energy/WT = attacking_item
 		if(WT.active)
-			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+			to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 			if(attacking_item.use_tool(src, user, 30, volume = 50))
-				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+				to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 			dismantle()
 		else
-			to_chat(user, "<span class='notice'>You need to activate the weapon to do that!</span>")
+			to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 			return
 
 	else if(istype(attacking_item, /obj/item/melee/energy/blade))
-		to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+		to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 		if(attacking_item.use_tool(src, user, 30, volume = 50))
-			to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+			to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 		dismantle()
 
 	else if(istype(attacking_item, /obj/item/melee/chainsword))
 		var/obj/item/melee/chainsword/WT = attacking_item
 		if(WT.active)
-			to_chat(user, "<span class='notice'>Now slicing apart the girder...</span>")
+			to_chat(user, SPAN_NOTICE("Now slicing apart the girder..."))
 			if(WT.use_tool(src, user, 60, volume = 50))
-				to_chat(user, "<span class='notice'>You slice apart the girder!</span>")
+				to_chat(user, SPAN_NOTICE("You slice apart the girder!"))
 			dismantle()
 		else
-			to_chat(user, "<span class='notice'>You need to activate the weapon to do that!</span>")
+			to_chat(user, SPAN_NOTICE("You need to activate the weapon to do that!"))
 			return
 
 

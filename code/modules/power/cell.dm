@@ -118,7 +118,7 @@
 
 			new /obj/item/device/radiojammer/improvised(assembly, src, user)
 		else
-			to_chat(user, "<span class='notice'>You'd need both devices to be signallers for this to work.</span>")
+			to_chat(user, SPAN_NOTICE("You'd need both devices to be signallers for this to work."))
 		return
 	else if(attacking_item.ismultitool() && ishuman(user) && user.get_inactive_hand() == src)
 		if(charge < 10)

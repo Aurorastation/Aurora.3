@@ -86,7 +86,7 @@
 	if(istype(target_mob, /obj/effect/energy_field))
 		var/obj/effect/energy_field/e = target_mob
 		e.Stress(rand(1,2))
-		visible_message("<span class='danger'>\the [src] bites \the [e]!</span>")
+		visible_message(SPAN_DANGER("\the [src] bites \the [e]!"))
 		src.do_attack_animation(e)
 		return e
 

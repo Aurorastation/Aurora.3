@@ -37,7 +37,7 @@
 
 /obj/item/gun/launcher/harpoon/special_check(mob/user)
 	if(!wielded)
-		to_chat(user, "<span class='warning'>You can't fire without stabilizing \the [src]!</span>")
+		to_chat(user, SPAN_WARNING("You can't fire without stabilizing \the [src]!"))
 		return FALSE
 	return ..()
 
@@ -46,10 +46,10 @@
 		if(harpoons.len < max_harpoons)
 			user.drop_from_inventory(attacking_item, src)
 			harpoons += attacking_item
-			to_chat(user, "<span class='notice'>You load \the [attacking_item] in \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You load \the [attacking_item] in \the [src]."))
 			update_icon()
 		else
-			to_chat(user, "<span class='warning'>\The [src] is already loaded.</span>")
+			to_chat(user, SPAN_WARNING("\The [src] is already loaded."))
 
 
 /obj/item/gun/launcher/harpoon/attack_hand(mob/user)

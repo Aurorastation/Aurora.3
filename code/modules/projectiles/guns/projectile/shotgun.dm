@@ -20,11 +20,13 @@
 		/obj/item/gun/energy/plasmacutter	// does this even work?
 	))
 	if(is_type_in_typecache(attacking_item, barrel_cutting_tools) && w_class != 3)
-		to_chat(user, "<span class='notice'>You begin to [sawnoff_workmsg] of \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You begin to [sawnoff_workmsg] of \the [src]."))
 		if(loaded.len)
 			for(var/i in 1 to max_shells)
 				Fire(user, user)	//will this work? //it will. we call it twice, for twice the FUN
-			user.visible_message("<span class='danger'>\The [src] goes off!</span>", "<span class='danger'>\The [src] goes off in your face!</span>")
+			user.visible_message(SPAN_DANGER("\The [src] goes off!"),
+									SPAN_DANGER("\The [src] goes off in your face!"))
+
 			return
 
 		sawing_in_progress = TRUE
@@ -38,7 +40,7 @@
 
 // called on a SUCCESSFUL saw-off.
 /obj/item/gun/projectile/shotgun/proc/saw_off(mob/user, obj/item/tool)
-	to_chat(user, "<span class='notice'>You attempt to cut [src]'s barrel with [tool], but nothing happens.</span>")
+	to_chat(user, SPAN_NOTICE("You attempt to cut [src]'s barrel with [tool], but nothing happens."))
 	LOG_DEBUG("shotgun: attempt to saw-off shotgun with no saw-off behavior.")
 
 /obj/item/gun/projectile/shotgun/pump
@@ -196,7 +198,7 @@
 	slot_flags |= (SLOT_BELT|SLOT_HOLSTER) //but you can wear it on your belt (poorly concealed under a trenchcoat, ideally) - or in a holster, why not.
 	name = "sawn-off shotgun"
 	desc = "Omar's coming!"
-	to_chat(user, "<span class='warning'>You shorten the barrel of \the [src]!</span>")
+	to_chat(user, SPAN_WARNING("You shorten the barrel of \the [src]!"))
 
 /obj/item/gun/projectile/shotgun/doublebarrel/sawn
 	name = "sawn-off shotgun"

@@ -43,7 +43,7 @@
 	var/damage_to_energy_cost = (damage_to_energy_multiplier * damage_blocked)
 
 	if(!user.technomancer_pay_energy(damage_to_energy_cost))
-		to_chat(user, "<span class='danger'>Your shield fades due to lack of energy!</span>")
+		to_chat(user, SPAN_DANGER("Your shield fades due to lack of energy!"))
 		active = 0
 		update_icon()
 		return 0
@@ -60,8 +60,8 @@
 			P.agony -= agony_blocked
 		P.damage = P.damage - damage_blocked
 
-	user.visible_message("<span class='danger'>\The [user]'s [src] absorbs [attack_text]!</span>")
-	to_chat(user, "<span class='warning'>Your shield has absorbed most of \the [damage_source].</span>")
+	user.visible_message(SPAN_DANGER("\The [user]'s [src] absorbs [attack_text]!"))
+	to_chat(user, SPAN_WARNING("Your shield has absorbed most of \the [damage_source]."))
 
 	spark(src, 5, GLOB.cardinal)
 	playsound(src, 'sound/weapons/blade.ogg', 50, 1)
@@ -69,7 +69,7 @@
 
 /obj/item/clothing/suit/armor/shield/attack_self(mob/user)
 	active = !active
-	to_chat(user, "<span class='notice'>You [active ? "" : "de"]activate \the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [active ? "" : "de"]activate \the [src]."))
 	update_icon()
 	user.update_inv_wear_suit()
 	user.update_action_buttons()

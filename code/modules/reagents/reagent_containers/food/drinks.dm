@@ -66,7 +66,10 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
 
 /obj/item/reagent_containers/food/drinks/proc/boom(mob/user as mob)
-	user.visible_message("<span class='danger'>\The [src] explodes all over [user] as they open it!</span>","<span class='danger'>\The [src] explodes all over you as you open it!</span>","You can hear a soda can explode.")
+	user.visible_message(SPAN_DANGER("\The [src] explodes all over [user] as they open it!"),
+							SPAN_DANGER("\The [src] explodes all over you as you open it!"),
+							"You can hear a soda can explode.")
+
 	playsound(loc,'sound/items/Soda_Burst.ogg', rand(20,50), 1)
 	reagents.clear_reagents()
 	atom_flags |= ATOM_FLAG_OPEN_CONTAINER
@@ -79,19 +82,19 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 
 /obj/item/reagent_containers/food/drinks/standard_feed_mob(var/mob/user, var/mob/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_dispenser_refill(var/mob/user, var/obj/structure/reagent_dispensers/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
 /obj/item/reagent_containers/food/drinks/standard_pour_into(var/mob/user, var/atom/target)
 	if(!is_open_container())
-		to_chat(user, "<span class='notice'>You need to open \the [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You need to open \the [src]!"))
 		return 1
 	return ..()
 
@@ -100,15 +103,15 @@ If you add a drink with an empty icon sprite, ensure it is in the same folder, e
 	if (distance > 1)
 		return
 	if(!reagents || reagents.total_volume == 0)
-		. += "<span class='notice'>\The [src] is empty!</span>"
+		. += SPAN_NOTICE("\The [src] is empty!")
 	else if (reagents.total_volume <= volume * 0.25)
-		. += "<span class='notice'>\The [src] is almost empty!</span>"
+		. += SPAN_NOTICE("\The [src] is almost empty!")
 	else if (reagents.total_volume <= volume * 0.66)
-		. += "<span class='notice'>\The [src] is half full!</span>"
+		. += SPAN_NOTICE("\The [src] is half full!")
 	else if (reagents.total_volume <= volume * 0.90)
-		. += "<span class='notice'>\The [src] is almost full!</span>"
+		. += SPAN_NOTICE("\The [src] is almost full!")
 	else
-		. += "<span class='notice'>\The [src] is full!</span>"
+		. += SPAN_NOTICE("\The [src] is full!")
 
 
 ////////////////////////////////////////////////////////////////////////////////

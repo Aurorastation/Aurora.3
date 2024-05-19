@@ -12,13 +12,13 @@
 	dir = 8;
 	pixel_y = -6
 	},
-/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /obj/machinery/light/small/emergency{
 	dir = 8
 	},
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "ac" = (
@@ -3871,6 +3871,11 @@
 	icon_state = "4-8"
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/map_effect/marker_helper/airlock/interior,
+/obj/machinery/access_button{
+	pixel_y = 27
+	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
 "nr" = (
@@ -3891,17 +3896,17 @@
 /area/kataphract_chapter/bruiser)
 "nt" = (
 /obj/machinery/door/airlock/external,
-/obj/effect/shuttle_landmark/kataphract_transport/hangar,
 /obj/machinery/access_button{
 	pixel_x = -28;
 	pixel_y = 12;
 	dir = 1
 	},
-/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/shuttle_landmark/kataphract_transport/hangar,
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "nw" = (
@@ -4233,13 +4238,6 @@
 "rt" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
-	},
-/obj/machinery/embedded_controller/radio/simple_docking_controller{
-	dir = 1;
-	pixel_y = -21;
-	name = "Kataphract Shuttle docking port controller";
-	frequency = 1380;
-	id_tag = "kataphract_dock"
 	},
 /turf/simulated/floor/tiled,
 /area/kataphract_chapter/hangar)
@@ -5846,15 +5844,11 @@
 "Ip" = (
 /obj/machinery/door/airlock/external,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux,
-/obj/machinery/access_button{
-	pixel_x = -28;
-	dir = 2
-	},
-/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/structure/cable{
 	icon_state = "1-2"
 	},
+/obj/effect/map_effect/marker/airlock/docking/kataphract_shuttle/hangar,
 /turf/simulated/floor/plating,
 /area/kataphract_chapter/hangar)
 "Iq" = (

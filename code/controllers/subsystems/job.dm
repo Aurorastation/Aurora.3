@@ -45,7 +45,7 @@ SUBSYSTEM_DEF(jobs)
 	occupations = list()
 	var/list/all_jobs = SSatlas.current_map.allowed_jobs
 	if(!all_jobs.len)
-		to_world("<span class='warning'>Error setting up jobs, no job datums found!</span>")
+		to_world(SPAN_WARNING("Error setting up jobs, no job datums found!"))
 		return FALSE
 
 	for(var/J in all_jobs)
@@ -105,7 +105,7 @@ SUBSYSTEM_DEF(jobs)
 			return FALSE
 
 		if(!(player.client.prefs.GetPlayerAltTitle(job) in player.client.prefs.GetValidTitles(job)))
-			to_chat(player, "<span class='warning'>Your character is too young!</span>")
+			to_chat(player, SPAN_WARNING("Your character is too young!"))
 			return FALSE
 
 		var/position_limit = job.get_total_positions()
@@ -432,7 +432,7 @@ SUBSYSTEM_DEF(jobs)
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cryogenic Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in cryo the whole time!</span>")
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in cryo the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Cryogenic Oversight")
 		var/rank= src.mind.assigned_role
@@ -450,7 +450,7 @@ SUBSYSTEM_DEF(jobs)
 
 	var/datum/spawnpoint/spawnpos = SSatlas.spawn_locations["Cyborg Storage"]
 	if(spawnpos && istype(spawnpos))
-		to_chat(src, "<span class='warning'>You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in robotic storage the whole time!</span>")
+		to_chat(src, SPAN_WARNING("You come to the sudden realization that you never left the [SSatlas.current_map.station_name] at all! You were in robotic storage the whole time!"))
 		src.forceMove(pick(spawnpos.turfs))
 		GLOB.global_announcer.autosay("[real_name], [mind.role_alt_title], [spawnpos.msg].", "Robotic Oversight")
 	else
@@ -462,12 +462,18 @@ SUBSYSTEM_DEF(jobs)
 /datum/controller/subsystem/jobs/proc/centcomm_despawn_mob(mob/living/H)
 	if(ishuman(H))
 		GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered long-term storage.", "[SSatlas.current_map.dock_name] Cryogenic Oversight")
-		H.visible_message("<span class='notice'>[H.name] makes their way to the [SSatlas.current_map.dock_short]'s cryostorage, and departs.</span>", "<span class='notice'>You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart.</span>", range = 3)
+
+		H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s cryostorage, and departs."),
+							SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s cryostorage, and depart."), range = 3)
+
 		DespawnMob(H)
 	else
 		if(!isDrone(H))
 			GLOB.global_announcer.autosay("[H.real_name], [H.mind.role_alt_title], has entered robotic storage.", "[SSatlas.current_map.dock_name] Robotic Oversight")
-			H.visible_message("<span class='notice'>[H.name] makes their way to the [SSatlas.current_map.dock_short]'s robotic storage, and departs.</span>", "<span class='notice'>You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart.</span>", range = 3)
+
+			H.visible_message(SPAN_NOTICE("[H.name] makes their way to the [SSatlas.current_map.dock_short]'s robotic storage, and departs."),
+								SPAN_NOTICE("You make your way into [SSatlas.current_map.dock_short]'s robotic storage, and depart."), range = 3)
+
 		DespawnMob(H)
 
 /datum/controller/subsystem/jobs/proc/LoadJobs(jobsfile)
@@ -610,7 +616,7 @@ SUBSYSTEM_DEF(jobs)
 		// them win or lose based on cryo is silly so we remove the objective.
 		if(O.target == H.mind)
 			if(O.owner && O.owner.current)
-				to_chat(O.owner.current, "<span class='warning'>You get the feeling your target is no longer within your reach...</span>")
+				to_chat(O.owner.current, SPAN_WARNING("You get the feeling your target is no longer within your reach..."))
 			qdel(O)
 
 	//Handle job slot/tater cleanup.
@@ -763,7 +769,7 @@ SUBSYSTEM_DEF(jobs)
 		var/obj/item/storage/B = locate() in H
 		if (B)
 			for (var/thing in items)
-				to_chat(H, "<span class='notice'>Placing \the [thing] in your [B.name]!</span>")
+				to_chat(H, SPAN_NOTICE("Placing \the [thing] in your [B.name]!"))
 				var/datum/gear/G = gear_datums[thing]
 				var/metadata
 				var/list/gear_test = prefs.gear[G.display_name]
@@ -775,7 +781,7 @@ SUBSYSTEM_DEF(jobs)
 				log_loadout("EIS/([H]): placed [thing] in [B].")
 
 		else
-			to_chat(H, "<span class='danger'>Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug.</span>")
+			to_chat(H, SPAN_DANGER("Failed to locate a storage object on your mob, either you spawned with no arms and no backpack or this is a bug."))
 			log_loadout("EIS/([H]): unable to equip; no storage.")
 
 	log_loadout("EIS/([H]): Complete.")

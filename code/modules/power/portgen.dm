@@ -500,7 +500,7 @@
 		temperature_gain = 60
 		reagents.remove_any(coolant_use)
 		if(prob(2))
-			audible_message("<span class='notice'>[src] churns happily.</span>")
+			audible_message(SPAN_NOTICE("[src] churns happily."))
 	else
 		temperature_gain = initial(temperature_gain)
 	..()
@@ -519,10 +519,10 @@
 		var/obj/item/reagent_containers/R = attacking_item
 		if(R.standard_pour_into(user, src))
 			if(reagents.has_reagent(/singleton/reagent/coolant))
-				audible_message("<span class='notice'>[src] blips happily!</span>")
+				audible_message(SPAN_NOTICE("[src] blips happily!"))
 				playsound(get_turf(src),'sound/machines/synth_yes.ogg', 50, 0)
 			else
-				audible_message("<span class='warning'>[src] blips in disappointment!</span>")
+				audible_message(SPAN_WARNING("[src] blips in disappointment!"))
 				playsound(get_turf(src), 'sound/machines/synth_no.ogg', 50, 0)
 		return
 	..()

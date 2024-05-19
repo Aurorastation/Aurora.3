@@ -129,7 +129,7 @@
 
 		var/thrall_response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 		if(thrall_response == "Yes")
-			to_chat(H, "<span class='notice'><i>... [text] ...</i></span>")
+			to_chat(H, SPAN_NOTICE("<i>... [text] ...</i>"))
 		else
 			thrall = null
 
@@ -143,7 +143,7 @@
 	if(!istype(H))
 		return
 
-	user.visible_message("<span class='warning'>[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!</span>")
+	user.visible_message(SPAN_WARNING("[user] begins to mesmerizingly wave [src] like a pendulum before [H]'s very eyes!"))
 
 	if(!do_mob(user, H, 10 SECONDS))
 		return
@@ -154,7 +154,7 @@
 	var/response = alert(H, "Do you believe in hypnosis?", "Willpower", "Yes", "No")
 
 	if(response == "Yes")
-		H.visible_message("<span class='warning'>[H] falls into a deep slumber!</span>", "<span class ='danger'>You fall into a deep slumber!</span>")
+		H.visible_message(SPAN_WARNING("[H] falls into a deep slumber!</span>"), SPAN_DANGER("You fall into a deep slumber!"))
 
 		H.sleeping = max(H.sleeping, 40)
 		H.drowsiness = max(H.drowsiness, 60)
@@ -183,12 +183,12 @@
 	if(attacking_item.iswrench())
 		attacking_item.play_tool_sound(get_turf(src), 50)
 		if(anchored)
-			to_chat(user, "<span class='notice'>You unanchor \the [src] and it destabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You unanchor \the [src] and it destabilizes."))
 			STOP_PROCESSING(SSfast_process, src)
 			icon_state = "metronome0"
 			anchored = 0
 		else
-			to_chat(user, "<span class='notice'>You anchor \the [src] and it restabilizes.</span>")
+			to_chat(user, SPAN_NOTICE("You anchor \the [src] and it restabilizes."))
 			START_PROCESSING(SSfast_process, src)
 			icon_state = "metronome1"
 			anchored = 1
@@ -212,5 +212,5 @@
 			ticktock = "Tock"
 		else
 			ticktock = "Tick"
-		to_chat(H, "<span class='notice'><i>[ticktock]. . .</i></span>")
+		to_chat(H, SPAN_NOTICE("<i>[ticktock]. . .</i>"))
 		sound_to(H, 'sound/effects/singlebeat.ogg')

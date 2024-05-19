@@ -206,7 +206,7 @@ emp_act
 		target_zone = user.zone_sel.selecting
 
 	if(!hit_zone)
-		visible_message("<span class='danger'>[user] misses [src] with \the [I]!</span>")
+		visible_message(SPAN_DANGER("[user] misses [src] with \the [I]!"))
 		return
 
 	if(check_shields(I.force, I, user, target_zone, "the [I.name]"))
@@ -214,7 +214,7 @@ emp_act
 
 	var/obj/item/organ/external/affecting = get_organ(hit_zone)
 	if (!affecting || affecting.is_stump())
-		to_chat(user, "<span class='danger'>They are missing that limb!</span>")
+		to_chat(user, SPAN_DANGER("They are missing that limb!"))
 		return
 
 	return hit_zone
@@ -224,7 +224,7 @@ emp_act
 	if(!affecting)
 		return //should be prevented by attacked_with_item() but for sanity.
 
-	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!</span>")
+	visible_message(SPAN_DANGER("[src] has been [LAZYPICK(I.attack_verb, "attacked")] in the [affecting.name] with [I] by [user]!"))
 	return standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
 /mob/living/carbon/human/standard_weapon_hit_effects(obj/item/I, mob/living/user, var/effective_force, var/hit_zone)
@@ -261,7 +261,7 @@ emp_act
 			if(headcheck(hit_zone))
 				//Harder to score a stun but if you do it lasts a bit longer
 				if(prob(effective_force) && head && !istype(head, /obj/item/clothing/head/helmet))
-					visible_message("<span class='danger'>[src] [species.knockout_message]</span>")
+					visible_message(SPAN_DANGER("[src] [species.knockout_message]"))
 					apply_effect(20, PARALYZE, blocked)
 
 		//Apply blood
@@ -312,7 +312,7 @@ emp_act
 
 	var/blocked_ratio = get_blocked_ratio(organ.limb_name, W.damtype, W.damage_flags(), W.armor_penetration, W.force)
 	if(prob(W.force * (1 - blocked_ratio)))
-		visible_message("<span class='danger'>[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!</span>")
+		visible_message(SPAN_DANGER("[src]'s [organ.joint] [pick("gives way","caves in","crumbles","collapses")]!"))
 		organ.dislocate(1)
 		return 1
 	return 0
@@ -320,12 +320,12 @@ emp_act
 /mob/living/carbon/human/emag_act(var/remaining_charges, mob/user, var/emag_source)
 	var/obj/item/organ/external/affecting = get_organ(user.zone_sel.selecting)
 	if(!affecting || !(affecting.status & ORGAN_ROBOT))
-		to_chat(user, "<span class='warning'>That limb isn't robotic.</span>")
+		to_chat(user, SPAN_WARNING("That limb isn't robotic."))
 		return -1
 	if(affecting.sabotaged)
-		to_chat(user, "<span class='warning'>[src]'s [affecting.name] is already sabotaged!</span>")
+		to_chat(user, SPAN_WARNING("[src]'s [affecting.name] is already sabotaged!"))
 		return -1
-	to_chat(user, "<span class='notice'>You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties.</span>")
+	to_chat(user, SPAN_NOTICE("You sneakily slide [emag_source] into the dataport on [src]'s [affecting.name] and short out the safeties."))
 	affecting.sabotaged = 1
 	return 1
 
@@ -338,7 +338,7 @@ emp_act
 			if(canmove && !restrained())
 				if(isturf(O.loc))
 					put_in_active_hand(O)
-					visible_message("<span class='warning'>[src] catches [O]!</span>")
+					visible_message(SPAN_WARNING("[src] catches [O]!"))
 					throw_mode_off()
 					return
 
@@ -367,7 +367,7 @@ emp_act
 				return
 
 		if(!zone)
-			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
 			playsound(src, 'sound/effects/throw_miss.ogg', rand(10, 50), 1)
 			return
 
@@ -376,7 +376,8 @@ emp_act
 		var/obj/item/organ/external/affecting = get_organ(zone)
 		var/hit_area = affecting.name
 
-		src.visible_message("<span class='warning'>[src] has been hit in the [hit_area] by [O].</span>", "<span class='warning'><font size=2>You're hit in the [hit_area] by [O]!</font></span>")
+		src.visible_message(SPAN_WARNING("[src] has been hit in the [hit_area] by [O]."),
+							SPAN_WARNING("<font size=2>You're hit in the [hit_area] by [O]!</font>"))
 		apply_damage(throw_damage, dtype, zone, used_weapon = O, damage_flags = O.damage_flags(), armor_pen = O.armor_penetration)
 
 		if(ismob(O.thrower))
@@ -415,7 +416,8 @@ emp_act
 		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throw_source, src)
 
-			visible_message("<span class='warning'>[src] staggers under the impact!</span>","<span class='warning'> You stagger under the impact!</span>")
+			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
+							SPAN_WARNING("You stagger under the impact!"))
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
 			if(!O || !src) return
@@ -523,12 +525,12 @@ emp_act
 	if(user == src || anchored)
 		return 0
 	if(user.is_pacified())
-		to_chat(user, "<span class='notice'>You don't want to risk hurting [src]!</span>")
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [src]!"))
 		return 0
 
 	for(var/obj/item/grab/G in user.grabbed_by)
 		if(G.assailant == user)
-			to_chat(user, "<span class='notice'>You already grabbed [src].</span>")
+			to_chat(user, SPAN_NOTICE("You already grabbed [src]."))
 			return
 
 	if (!attempt_grab(user))
@@ -539,7 +541,7 @@ emp_act
 
 	var/obj/item/grab/G = new /obj/item/grab(user, user, src)
 	if(buckled_to)
-		to_chat(user, "<span class='notice'>You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!</span>")
+		to_chat(user, SPAN_NOTICE("You cannot grab [src], [get_pronoun("he")] [get_pronoun("is")] buckled in!"))
 	if(!G)	//the grab will delete itself in New if affecting is anchored
 		return
 	user.put_in_active_hand(G)
@@ -553,9 +555,9 @@ emp_act
 		G.icon_state = "grabbed1"
 		G.hud.icon_state = "reinforce1"
 		G.last_action = world.time
-		visible_message("<span class='warning'>[user] gets a strong grip on [src]!</span>")
+		visible_message(SPAN_WARNING("[user] gets a strong grip on [src]!"))
 		return 1
-	visible_message("<span class='warning'>[user] has grabbed [src] passively!</span>")
+	visible_message(SPAN_WARNING("[user] has grabbed [src] passively!"))
 	return 1
 
 /mob/living/carbon/human/set_on_fire()

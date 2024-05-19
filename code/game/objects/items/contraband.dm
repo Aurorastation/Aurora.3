@@ -144,7 +144,7 @@
 		var/mob/living/carbon/human/H = user
 		var/obj/item/blocked = H.check_mouth_coverage()
 		if(blocked)
-			to_chat(user, "<span class='warning'>\The [blocked] is in the way!</span>")
+			to_chat(user, SPAN_WARNING("\The [blocked] is in the way!"))
 			return TRUE
 		if(!H.check_has_mouth())
 			to_chat(user, SPAN_WARNING("You cannot seem to snort \the [src]."))

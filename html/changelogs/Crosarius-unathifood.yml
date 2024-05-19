@@ -1,9 +1,0 @@
-author: Crosarius
-
-delete-after: True
-
-changes:
-  - rscadd: "Adds Moghresian Meat, obtainable by butchering Moghresian animals (otztek, threshbeast, etc)"
-  - rscadd: "Adds 'synthetic blood' to the biogenerator, for use in food/drink recipies that require blood."
-  - qol: "Some small tweaks to reagents_to_add of some Unathi foods."
-  - qol: "Changes some Unathi cultural foods to use Moghresian Meat instead of normal meat"

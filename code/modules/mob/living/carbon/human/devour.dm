@@ -17,13 +17,13 @@
 		eat_speed *= 3 //We want our bites to take a lot so as to not spam the chat.
 		do_gradual_devour(victim, eat_speed)
 		return
-	src.visible_message("<span class='danger'>\The [src] is attempting to devour \the [victim] whole!</span>")
+	src.visible_message(SPAN_DANGER("\The [src] is attempting to devour \the [victim] whole!"))
 	var/mob/target = victim
 	if(isobj(victim))
 		target = src
 	if(!do_mob(src,target,eat_speed))
 		return FALSE
-	src.visible_message("<span class='danger'>\The [src] devours \the [victim] whole!</span>")
+	src.visible_message(SPAN_DANGER("\The [src] devours \the [victim] whole!"))
 	if(ismob(victim))
 		admin_attack_log(src, victim, "Devoured.", "Was devoured by.", "devoured")
 	else
@@ -72,9 +72,9 @@
 	else
 		time_needed_string = "[time_needed_seconds] seconds"
 
-	src.visible_message("<span class='danger'>[src] starts to devour [victim]</span>!", \
-						"<span class='danger'>You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, \
-						but you can interrupt feeding anytime and leave with what you've already eaten.</span>")
+	src.visible_message(SPAN_DANGER("[src] starts to devour [victim]!"), \
+						SPAN_DANGER("You start devouring [victim], this will take approximately [time_needed_string]. You and the victim must remain still to continue, \
+						but you can interrupt feeding anytime and leave with what you've already eaten."))
 
 	for (var/i = 0 to num_bites_needed)
 		if(do_mob(src, victim, bite_delay * 10, extra_checks = CALLBACK(src, PROC_REF(devouring_equals), victim)))
@@ -83,20 +83,21 @@
 			var/obj/item/organ/internal/stomach/S = internal_organs_by_name[BP_STOMACH]
 			if(S)
 				S.ingested.add_reagent(victim.composition_reagent, (victim.composition_reagent_quantity * 0.5) * PEPB)
-			visible_message("<span class='danger'>[src] bites a chunk out of [victim]!</span>","<span class='danger'>[bitemessage(victim)]</span>")
+			visible_message(SPAN_DANGER("[src] bites a chunk out of [victim]!"),
+							SPAN_DANGER("[bitemessage(victim)]"))
 			if(messes < victim.mob_size - 1 && prob(50))
 				handle_devour_mess(src, victim)
 			if(victim.getBruteLoss() >= victim_maxhealth)
-				visible_message("<span class='danger'>[src] finishes devouring [victim].</span>","<span class='warning'>You finish devouring [victim].</span>")
+				visible_message(SPAN_DANGER("[src] finishes devouring [victim]."),SPAN_WARNING("You finish devouring [victim]."))
 				handle_devour_mess(src, victim, TRUE)
 				qdel(victim)
 		else
 			if(nutrition >= (max_nutrition - 60))
-				to_chat(src, "<span class='danger'>Your stomach is full!</span>")
+				to_chat(src, SPAN_DANGER("Your stomach is full!"))
 			if (victim && !QDELETED(victim) && victimloc != victim.loc) //This procs when the victim gets moved to nullspace.
-				to_chat(src, "<span class='danger'>[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first.</span>")
+				to_chat(src, SPAN_DANGER("[victim] moved away, you need to keep it still. Try grabbing, stunning or killing it first."))
 			else if (ourloc != src.loc)
-				to_chat(src, "<span class='danger'>You moved! Devouring cancelled.</span>")
+				to_chat(src, SPAN_DANGER("You moved! Devouring cancelled."))
 			break
 
 /mob/living/carbon/human/proc/devouring_equals(var/mob/victim)

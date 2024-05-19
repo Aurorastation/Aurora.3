@@ -194,7 +194,7 @@
 	set_flee_target(AM.thrower? AM.thrower : src.loc)
 
 /mob/living/simple_animal/cat/fall_impact()
-	src.visible_message("<span class='notice'>\The [src] lands softly on \the [loc]!</span>")
+	src.visible_message(SPAN_NOTICE("\The [src] lands softly on \the [loc]!"))
 	return FALSE
 
 //Basic friend AI
@@ -270,7 +270,7 @@
 		return
 
 	if (!(ishuman(usr) && befriend_job && usr.job == befriend_job))
-		to_chat(usr, "<span class='notice'>[src] ignores you.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] ignores you."))
 		return
 
 	friend = usr

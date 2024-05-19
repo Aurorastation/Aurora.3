@@ -247,7 +247,7 @@ var/list/channel_to_radio_key = new
 		verb = say_quote(message, speaking, is_singing, whisper)
 
 	if(is_muzzled())
-		to_chat(src, "<span class='danger'>You're muzzled and cannot speak!</span>")
+		to_chat(src, SPAN_DANGER("You're muzzled and cannot speak!"))
 		return
 
 	message = trim_left(message)

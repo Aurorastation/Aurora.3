@@ -36,13 +36,13 @@
 
 /turf/simulated/floor/exoplanet/attackby(obj/item/attacking_item, mob/user)
 	if(diggable && istype(attacking_item, /obj/item/shovel))
-		visible_message("<span class='notice'>\The [user] starts digging \the [src]</span>")
+		visible_message(SPAN_NOTICE("\The [user] starts digging \the [src]"))
 		if(attacking_item.use_tool(src, user, 50, volume = 50))
-			to_chat(user,"<span class='notice'>You dig a deep pit.</span>")
+			to_chat(user,SPAN_NOTICE("You dig a deep pit."))
 			new /obj/structure/pit(src)
 			diggable = 0
 		else
-			to_chat(user,"<span class='notice'>You stop shoveling.</span>")
+			to_chat(user,SPAN_NOTICE("You stop shoveling."))
 	else if(istype(attacking_item, /obj/item/stack/tile))
 		var/obj/item/stack/tile/T = attacking_item
 		if(T.use(1))

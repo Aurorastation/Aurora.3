@@ -737,7 +737,7 @@
 		var/obj/item/tray/T = attacking_item
 		if(T.current_weight > 0)
 			T.spill(user)
-			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
+			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
 	if(istype(attacking_item, /obj/item/device/hand_labeler))

@@ -88,7 +88,7 @@ var/list/global/random_stock_large = list()
 /proc/spawn_cargo_stock()
 	var/start_time = world.timeofday
 	new /datum/cargospawner()
-	admin_notice("<span class='danger'>Cargo Stock generation completed in [round(0.1*(world.timeofday-start_time),0.1)] seconds.</span>", R_DEBUG)
+	admin_notice(SPAN_DANGER("Cargo Stock generation completed in [round(0.1*(world.timeofday-start_time),0.1)] seconds."), R_DEBUG)
 
 /datum/cargospawner
 	var/list/containers = list()
@@ -125,7 +125,7 @@ var/list/global/random_stock_large = list()
 
 /datum/cargospawner/proc/start()
 	if (!SSatlas.current_map.warehouse_basearea || !warehouse || !warehouseturfs.len)
-		admin_notice("<span class='danger'>ERROR: Cargo spawner failed to locate warehouse. Terminating.</span>", R_DEBUG)
+		admin_notice(SPAN_DANGER("ERROR: Cargo spawner failed to locate warehouse. Terminating."), R_DEBUG)
 		qdel(src)
 		return
 
