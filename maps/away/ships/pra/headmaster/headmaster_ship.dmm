@@ -1267,6 +1267,9 @@
 	pixel_y = -21;
 	dir = 1
 	},
+/obj/effect/shuttle_landmark/headmaster_shuttle/hangar{
+	dir = 1
+	},
 /turf/simulated/floor,
 /area/headmaster_ship/hangar)
 "dp" = (
@@ -2533,9 +2536,6 @@
 	icon_state = "2-4"
 	},
 /obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/obj/effect/shuttle_landmark/headmaster_shuttle/hangar{
 	dir = 1
 	},
 /turf/simulated/floor/plating/cooled,
