@@ -277,16 +277,13 @@
 		BODYTYPE_VAURCA_WARFORM = 'icons/mob/species/warriorform/shoes.dmi',
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/shoes.dmi'
 	)
-
-//	action_button_name = "Toggle the magclaws"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/toggle_magclaws)
 
 /obj/item/clothing/shoes/magboots/vaurca/aug
 	name = "integrated mag-claws"
 	desc = "A magnetic-grip system similar to a set of magboots integrated into a Vaurca's leg chitin."
 	magpulse = 1
 	slowdown = 3
-//	action_button_name = null
 	actions_types = list()
 	item_flags = ITEM_FLAG_THICK_MATERIAL|ITEM_FLAG_AIRTIGHT|ITEM_FLAG_INJECTION_PORT|ITEM_FLAG_NO_SLIP
 	canremove = FALSE

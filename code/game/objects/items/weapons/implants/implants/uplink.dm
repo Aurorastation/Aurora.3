@@ -5,7 +5,6 @@
 	implant_icon = "uplink"
 	implant_color = "#ffd4a3"
 	var/activation_emote = "chuckle"
-//	default_action_type = null
 	actions_types = list()
 	hidden = TRUE
 

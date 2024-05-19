@@ -8,7 +8,6 @@
 	implant_icon = "deathalarm"
 	implant_color = "#9cdb43"
 	origin_tech = list(TECH_MATERIAL = 1, TECH_BIO = 3, TECH_DATA = 2)
-//	default_action_type = null
 	actions_types = list()
 	known = TRUE
 	var/mobname = "Will Robinson"
@@ -77,7 +76,7 @@
 /obj/item/implant/death_alarm/implanted(mob/source as mob)
 	mobname = source.real_name
 	START_PROCESSING(SSprocessing, src)
-	return TRUE
+	. = ..()
 
 #undef MALFUNCTION_TEMPORARY
 #undef MALFUNCTION_PERMANENT

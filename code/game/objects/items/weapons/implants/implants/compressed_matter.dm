@@ -5,9 +5,7 @@
 	implant_icon = "storage"
 	implant_color = "#143464"
 	origin_tech = list(TECH_MATERIAL = 4, TECH_BIO = 2, TECH_ILLEGAL = 2)
-//	default_action_type = /datum/action/item_action/hands_free/activate/implant/compressed
-//	action_button_name = "Retrieve Item from Compressed Implant"
-	actions_types = list()
+	actions_types = list(/datum/action/item_action/hands_free/implant/compressed_implant)
 	hidden = TRUE
 	var/obj/item/scanned = null
 
@@ -60,7 +58,7 @@
 	qdel(src)
 
 /obj/item/implant/compressed/implanted(mob/source as mob)
-	return TRUE
+	. = ..()
 
 /obj/item/implant/compressed/isLegal()
 	return FALSE

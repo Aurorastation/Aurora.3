@@ -153,6 +153,8 @@ var/list/global_huds
 	mymob = owner
 	hide_actions_toggle = new
 	hide_actions_toggle.InitialiseIcon(src)
+	if(mymob.client)
+		hide_actions_toggle.locked = mymob.client.prefs.buttons_locked
 	instantiate()
 	..()
 
