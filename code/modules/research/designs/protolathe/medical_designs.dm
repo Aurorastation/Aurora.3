@@ -101,7 +101,7 @@
 	desc = "A medical hoverbed, designed by Zeng-Hu Pharmaceuticals in conjunction with the Nralakk Federation."
 	req_tech = list(TECH_MAGNET = 5, TECH_BIO = 5)
 	materials = list(DEFAULT_WALL_MATERIAL = 15000, MATERIAL_GLASS = 5000, MATERIAL_SILVER = 2000)
-	build_path = /obj/item/roller/zeng
+	build_path = /obj/item/roller/hover/zeng
 
 /datum/design/item/beaker
 	p_category = "Advanced Beaker Design"

@@ -4,3 +4,4 @@ delete-after: True
 
 changes:
   - rscadd: "Added a Zeng-Hu hoverbed variant, able to be produced by R&D."
+  - rscadd: "Both regular and Zeng-Hu hoverbeds require a powercell to function now. Zeng-Hu beds are more powerhungry."
