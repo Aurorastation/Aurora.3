@@ -4,7 +4,13 @@
 /datum/ghostspawner/human/tret_industrial
 	name = "Tret Industrial Worker"
 	short_name = "tret_industrial"
-	desc = "You are a Vaurca Worker of the Hive K'lax in one of the many industrial facilities of Tret. Mine, extract and process valuable materials for the glory of the Hive K'lax."
+	desc = "\
+		You are a Vaurca Worker of the Hive K'lax in one of the many industrial facilities of Tret. \
+		Mine, extract and process valuable materials for the glory of the Hive K'lax.\
+	"
+	desc_ooc = "\
+		You are expected to know the basics of Vaurca lore before playing this role.
+	"
 	tags = list("External")
 	spawnpoints = list("tret_industrial")
 	max_count = 4
@@ -21,13 +27,23 @@
 
 	extra_languages = list(LANGUAGE_VAURCA)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
-	welcome_message = "You are a Vaurca Worker of the Hive K'lax in an industrial mining facility on the planet Tret. Remember, as a Worker you are generally averse to violence, and should rely on the protection of Warriors where possible. \
-	IMPORTANT - Vaurca are a very alien species, and can be difficult to roleplay. It is recommended that you read the Aurorastation wiki page for the species, as well as the Vaurca Hives page for information on K'lax coloration."
+	welcome_message = "\
+		You are a Vaurca Worker of the Hive K'lax in an industrial mining facility on the planet Tret. \
+		Remember, as a Worker you are generally averse to violence, and should rely on the protection of Warriors where possible.\
+	"
+	welcome_message_ooc = "\
+		Vaurca are a very alien species, and can be difficult to roleplay. \
+		It is recommended that you read the Aurorastation wiki page for the species, as well as the Vaurca Hives page for information on K'lax coloration.\
+	"
 
 /datum/ghostspawner/human/tret_industrial/bulwark
 	name = "Tret Industrial Bulwark"
 	short_name = "tret_industrial_bulwark"
-	desc = "You are a Vaurca Bulwark of the Hive K'lax in one of the many industrial facilities of Tret. Mine, extract and process valuable materials for the glory of the Hive K'lax."
+	desc = "\
+		You are a Vaurca Bulwark of the Hive K'lax in one of the many industrial facilities of Tret. \
+		Mine, extract and process valuable materials for the glory of the Hive K'lax.\
+	"
+	desc_ooc = null
 	max_count = 1
 
 	outfit = /obj/outfit/admin/tret_industrial/vaurca/bulwark
@@ -36,12 +52,19 @@
 
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "Pick a Vaurca Bulwark name."
-	welcome_message = "You are a Vaurca Bulwark of the Hive K'lax, working on an industrial facility on Tret. Remember, as a Bulwark you should not seek out conflict, but you may fight to defend yourself or the Workers beside you."
+	welcome_message = "\
+		You are a Vaurca Bulwark of the Hive K'lax, working on an industrial facility on Tret. \
+		Remember, as a Bulwark you should not seek out conflict, but you may fight to defend yourself or the Workers beside you.\
+	"
 
 /datum/ghostspawner/human/tret_industrial/warrior
 	name = "Tret Industrial Warrior"
 	short_name = "tret_industrial_warrior"
-	desc = "You are a Vaurca Warrior of the Hive K'lax, assigned to protecting one of the industrial facilities of Tret. Keep the Workers at this facility safe."
+	desc = "\
+		You are a Vaurca Warrior of the Hive K'lax, assigned to protecting one of the industrial facilities of Tret. \
+		Keep the Workers at this facility safe.\
+	"
+	desc_ooc = null
 	max_count = 2
 
 	possible_species = list(SPECIES_VAURCA_WARRIOR)
@@ -50,7 +73,10 @@
 
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "Pick a Vaurca Warrior name."
-	welcome_message = "You are a Vaurca Warrior of the Hive K'lax, assigned to protect an industrial facility on Tret. Your primary duty is to keep the Workers of the facility safe from any threats."
+	welcome_message = "\
+		You are a Vaurca Warrior of the Hive K'lax, assigned to protect an industrial facility on Tret. \
+		Your primary duty is to keep the Workers of the facility safe from any threats.\
+	"
 
 // ---------------------- dead sinta
 
@@ -92,6 +118,7 @@
 		/obj/item/clothing/accessory/poncho,
 		/obj/item/clothing/accessory/poncho/vaurca,
 	)
+	l_pocket = list(/obj/item/storage/bag/ore)
 	id = /obj/item/card/id/hephaestus
 
 /obj/outfit/admin/tret_industrial/get_id_access()
@@ -117,6 +144,7 @@
 		/obj/item/clothing/accessory/storage/pouches/black,
 		/obj/item/clothing/accessory/poncho/vaurca,
 	)
+	l_pocket = list(/obj/item/storage/bag/ore)
 	l_hand = list(/obj/item/martial_manual/vaurca)
 
 /obj/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
