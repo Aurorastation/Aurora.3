@@ -1,0 +1,6 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Augments such as the Idris Faceplate are now visible in the character preview screen."
