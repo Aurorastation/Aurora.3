@@ -129,6 +129,8 @@
 			return
 	if(deployed && isliving(AM))
 		var/mob/living/L = AM
+		if(L.pass_flags & PASSTABLE)
+			return
 		attack_mob(L)
 		update_icon()
 		shake_animation()
