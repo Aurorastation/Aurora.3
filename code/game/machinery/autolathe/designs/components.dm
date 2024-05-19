@@ -53,13 +53,3 @@
 /singleton/autolathe_recipe/components/microlaser
 	name = "micro-laser"
 	path = /obj/item/stock_parts/micro_laser
-
-/singleton/autolathe_recipe/components/electropack
-	name = "electropack"
-	path = /obj/item/device/radio/electropack
-	hack_only = TRUE
-
-/singleton/autolathe_recipe/components/trap
-	name = "mechanical trap"
-	path = /obj/item/trap
-	hack_only = TRUE

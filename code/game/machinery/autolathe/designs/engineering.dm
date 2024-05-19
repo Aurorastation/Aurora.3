@@ -39,3 +39,17 @@
 /singleton/autolathe_recipe/engineering/debugger
 	name = "debugger"
 	path = /obj/item/device/debugger
+
+/singleton/autolathe_recipe/engineering/floor_light
+	name = "floor light"
+	path = /obj/machinery/floor_light
+
+/singleton/autolathe_recipe/engineering/tile_circuit_blue
+	name = "circuit tile, blue"
+	path = /obj/item/stack/tile/circuit_blue
+	is_stack = TRUE
+
+/singleton/autolathe_recipe/engineering/tile_circuit_green
+	name = "circuit tile, green"
+	path = /obj/item/stack/tile/circuit_green
+	is_stack = TRUE
