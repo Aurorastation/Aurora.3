@@ -86,6 +86,7 @@
 
 /obj/machinery/autolathe/ui_data(mob/user)
 	. = ..()
+
 	var/list/data = list()
 	data["disabled"] = disabled
 	data["material_efficiency"] = mat_efficiency
@@ -95,16 +96,28 @@
 	for(var/material in stored_material)
 		data["materials"] += list(list("material" = material, "stored" = stored_material[material], "max_capacity" = storage_capacity[material]))
 	data["recipes"] = list()
+
+	var/ship_security_level = seclevel2num(get_security_level())
+	var/is_on_ship = isStationLevel(z) // since ship security levels are global FOR NOW, we'll ignore the alert check for offship autolathes
 	for(var/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
 		var/singleton/autolathe_recipe/R = recipe
 		if(R.IsAbstract())
 			continue
-		if(R.hack_only && !hacked)
-			continue
+
+		var/is_enabled = TRUE
+		if(!hacked)
+			if(R.hack_only)
+				continue
+			if(is_on_ship && ship_security_level < R.security_level)
+				is_enabled = FALSE
+
 		var/list/recipe_data = list()
 		recipe_data["name"] = R.name
 		recipe_data["recipe"] = R.type
+		recipe_data["security_level"] = R.security_level ? capitalize(num2seclevel(R.security_level)) : "None"
 		recipe_data["hidden"] = R.hack_only
+		recipe_data["enabled"] = is_enabled
+
 		var/list/resources = list()
 		for(var/resource in R.resources)
 			resources += "[R.resources[resource] * mat_efficiency] [resource]"

@@ -9,3 +9,6 @@
 
 	/// If true, the autolathe needs to be hacked before it can print this design
 	var/hack_only
+
+	/// If set, the ship needs to be at this alert level before autolathes on it can print this design
+	var/security_level

@@ -23,7 +23,6 @@
 /singleton/autolathe_recipe/tools/welder_industrial
 	name = "industrial welding tool"
 	path = /obj/item/weldingtool/largetank
-	hack_only = TRUE
 
 /singleton/autolathe_recipe/tools/screwdriver
 	name = "screwdriver"
