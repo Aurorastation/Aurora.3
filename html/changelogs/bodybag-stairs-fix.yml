@@ -1,0 +1,6 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - bigfix: "Fixes bodybags being affected by stairs."
