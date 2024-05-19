@@ -27,6 +27,7 @@
 	if(!imp && istype(attacking_item, /obj/item/implant) && user.unEquip(attacking_item, src))
 		to_chat(usr, SPAN_NOTICE("You slide \the [attacking_item] into \the [src]."))
 		imp = attacking_item
+		attacking_item.forceMove(src)
 		update_icon()
 	else
 		..()

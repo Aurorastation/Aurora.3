@@ -1329,3 +1329,19 @@
 		/obj/item/reagent_containers/food/snacks/grown/konyang_tea/jaekseol = 7
 	)
 
+/obj/item/storage/box/telefreedom_kit
+	name = "telefreedom kit"
+	desc = "A box containing a telefreedom full kit."
+	starts_with = list(/obj/item/implant/telefreedom = 4,
+					/obj/item/implanter = 1,
+					//Telepad construction items
+					/obj/item/circuitboard/telesci_pad = 1,
+					/obj/item/bluespace_crystal/artificial = 2,
+					/obj/item/stock_parts/capacitor = 1,
+					/obj/item/stock_parts/console_screen = 1,
+					)
+
+/obj/item/storage/box/telefreedom_kit/fill()
+	. = ..()
+	new /obj/item/stack/cable_coil(src, 6)
+	new /obj/item/stack/material/steel(src, 2)
