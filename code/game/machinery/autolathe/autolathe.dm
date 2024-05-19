@@ -97,12 +97,14 @@
 	data["recipes"] = list()
 	for(var/recipe in GET_SINGLETON_SUBTYPE_LIST(/singleton/autolathe_recipe))
 		var/singleton/autolathe_recipe/R = recipe
-		if(R.hidden && !hacked)
+		if(R.IsAbstract())
+			continue
+		if(R.hack_only && !hacked)
 			continue
 		var/list/recipe_data = list()
 		recipe_data["name"] = R.name
 		recipe_data["recipe"] = R.type
-		recipe_data["hidden"] = R.hidden
+		recipe_data["hidden"] = R.hack_only
 		var/list/resources = list()
 		for(var/resource in R.resources)
 			resources += "[R.resources[resource] * mat_efficiency] [resource]"
