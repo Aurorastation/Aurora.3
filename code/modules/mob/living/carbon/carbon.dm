@@ -306,7 +306,25 @@
 							M.resting = 0
 
 				else if(istype(tapper))
-					tapper.species.tap(tapper,src)
+					if(on_fire)
+						tapper.species.tap(tapper,src)
+					else if(tapper.zone_sel.selecting in list(BP_L_HAND, BP_R_HAND, BP_L_ARM, BP_R_ARM))
+						var/emote_type = /singleton/overhead_emote/highfive
+						if(tapper.zone_sel.selecting == BP_L_HAND || tapper.zone_sel.selecting == BP_R_HAND)
+							emote_type = /singleton/overhead_emote/fistbump
+						else if(tapper.zone_sel.selecting == BP_L_ARM || tapper.zone_sel.selecting == BP_R_ARM)
+							emote_type = /singleton/overhead_emote/highfive
+
+						var/datum/component/overhead_emote/emote_component = GetComponent(/datum/component/overhead_emote)
+						if(emote_component)
+							var/singleton/overhead_emote/emote_singleton = GET_SINGLETON(emote_component.emote_type)
+							emote_singleton.reciprocate_emote(tapper, src, emote_type)
+						else
+							tapper.AddComponent(/datum/component/overhead_emote, emote_type, src)
+
+						return
+					else
+						tapper.species.tap(tapper,src)
 				else
 					M.visible_message("<b>[M]</b> taps [src] to get their attention!", \
 								SPAN_NOTICE("You tap [src] to get their attention!"))
