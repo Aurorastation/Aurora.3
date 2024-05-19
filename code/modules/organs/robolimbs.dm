@@ -45,6 +45,8 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 	)
 	/// If this prosthetic type is paintable.
 	var/paintable = 0
+	/// If this prosthetic glows in the dark
+	var/emissive = FALSE
 	/// Which IPC species this prosthetic type will create.
 	var/linked_frame = SPECIES_IPC_UNBRANDED
 	/// How resistant this prosthetic type is to brute damage.
@@ -80,6 +82,13 @@ GLOBAL_DATUM(basic_robolimb, /datum/robolimb)
 
 /datum/robolimb/proc/malfunctioning_check()
 	return FALSE
+
+/datum/robolimb/emissive
+	company = PROSTHETIC_UNBRANDED_EMISSIVE
+	emissive = TRUE
+
+	allowed_internal_organs = list(BP_EYES)
+	allowed_external_organs = list()
 
 /datum/robolimb/bishop
 	company = PROSTHETIC_BC
