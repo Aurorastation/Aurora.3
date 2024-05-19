@@ -608,6 +608,10 @@
 		hover = FALSE
 	START_PROCESSING(SSprocessing, src)
 
+/obj/structure/bed/roller/hover/Destroy()
+	QDEL_NULL(cell)
+	return ..()
+
 // Same as parent, but doesn't kill processing (We need that for power drain)
 /obj/structure/bed/roller/hover/detach_iv(mob/living/carbon/human/target, mob/user)
 	user.visible_message(SPAN_NOTICE("<b>[user]</b> takes [target] off the IV on \the [src]."), SPAN_NOTICE("You take the IV off \the [target]."))
@@ -734,27 +738,6 @@
 	R.add_fingerprint(user)
 	qdel(src)
 
-/obj/item/roller_holder
-	name = "roller bed rack"
-	desc = "A rack for carrying a collapsed roller bed."
-	icon = 'icons/obj/rollerbed.dmi'
-	icon_state = "standard_folded"
-	var/obj/item/roller/held
-
-/obj/item/roller_holder/New()
-	..()
-	held = new /obj/item/roller(src)
-
-/obj/item/roller_holder/attack_self(mob/user as mob)
-	if(!held)
-		to_chat(user, SPAN_NOTICE("The rack is empty."))
-		return
-	to_chat(user, SPAN_NOTICE("You deploy the roller bed."))
-	var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
-	R.add_fingerprint(user)
-	qdel(held)
-	held = null
-
 /obj/item/roller/hover
 	name = "medical hoverbed"
 	desc = "A collapsed hoverbed that can be carried around."
@@ -764,6 +747,10 @@
 	origin_type = /obj/structure/bed/roller/hover
 	var/obj/item/cell/cell
 	var/cell_open = FALSE
+
+/obj/item/roller/hover/Destroy()
+	QDEL_NULL(cell)
+	return ..()
 
 /obj/item/roller/hover/attackby(obj/item/attacking_item, mob/user)
 	. = ..()
@@ -799,6 +786,27 @@
 	base_icon = "zeng"
 	item_state = "rbed_zeng"
 	origin_type = /obj/structure/bed/roller/hover/zeng
+
+/obj/item/roller_holder
+	name = "roller bed rack"
+	desc = "A rack for carrying a collapsed roller bed."
+	icon = 'icons/obj/rollerbed.dmi'
+	icon_state = "standard_folded"
+	var/obj/item/roller/held
+
+/obj/item/roller_holder/New()
+	..()
+	held = new /obj/item/roller(src)
+
+/obj/item/roller_holder/attack_self(mob/user as mob)
+	if(!held)
+		to_chat(user, SPAN_NOTICE("The rack is empty."))
+		return
+	to_chat(user, SPAN_NOTICE("You deploy the roller bed."))
+	var/obj/structure/bed/roller/R = new /obj/structure/bed/roller(user.loc)
+	R.add_fingerprint(user)
+	qdel(held)
+	held = null
 
 /**
  * # Roller Rack
