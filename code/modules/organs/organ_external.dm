@@ -62,6 +62,9 @@
 	///The `/icon` of the mob that has this organ
 	var/icon/mob_icon
 
+	///A list of overlays for the organ
+	var/list/mutable_appearance/mob_overlays
+
 	var/gendered_icon = 0
 	var/force_icon
 

@@ -12,8 +12,8 @@
 	emote_sounds = list('sound/effects/creatures/monstergrowl.ogg')
 	turns_per_move = 5
 	speak_chance = 5
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 10
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 40
 	organ_names = list("chest", "lower body", "left arm", "right arm", "left leg", "right leg", "head")
 	response_help  = "pets"
 	response_disarm = "shoves"
@@ -130,9 +130,9 @@
 	environment_smash = 1
 
 	flying = TRUE
-	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 1)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 2
+	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 1, /obj/item/reagent_containers/food/snacks/meat/bat = 2)
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 10
 	var/shriek_time = 0
 
 /mob/living/simple_animal/hostile/shrieker/proc/shriek(turf/T, mob/living/M)

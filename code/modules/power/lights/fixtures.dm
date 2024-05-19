@@ -248,11 +248,9 @@
 
 			if (on)
 				var/image/I = LIGHT_FIXTURE_CACHE(icon, "[base_state]_on", target_color)
-				if (!fitting_is_on_floor)
-					I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
-				else
-					I.plane = plane
+				var/image/E = emissive_appearance(icon, "[base_state]_on")
 				AddOverlays(I)
+				AddOverlays(E)
 			else
 				AddOverlays(LIGHT_FIXTURE_CACHE(icon, "[base_state]_off", target_color))
 

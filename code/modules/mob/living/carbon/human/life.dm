@@ -934,6 +934,27 @@
 						no_damage = 0
 					health_images += E.get_damage_hud_image()
 
+				// Add wound overlays
+				for(var/obj/item/organ/external/O in organs)
+					if(O.damage_state == "00") continue
+					var/cache_index = "[O.damage_state]/[O.icon_name]/[species.blood_color]/[species.get_bodytype()]"
+					var/list/damage_icon_parts = SSicon_cache.damage_icon_parts
+					var/icon/DI = damage_icon_parts[cache_index]
+					if(!DI)
+						DI = new /icon(species.damage_overlays, O.damage_state)			// the damage icon for whole human
+						DI.Blend(new /icon(species.damage_mask, O.icon_name), ICON_MULTIPLY)	// mask with this organ's pixels
+						DI.Blend(species.blood_color, ICON_MULTIPLY)
+						damage_icon_parts[cache_index] = DI
+					health_images += DI
+					if(O.is_stump())
+						continue
+					var/bandage_icon = species.bandages_icon
+					if(!bandage_icon)
+						continue
+					var/bandage_level = O.bandage_level()
+					if(bandage_level)
+						health_images += image(bandage_icon, "[O.icon_name][bandage_level]")
+
 				// Apply a fire overlay if we're burning.
 				if(on_fire)
 					var/image/burning_image = image('icons/mob/screen1_health.dmi', "burning", pixel_x = species.healths_overlay_x)
@@ -1537,8 +1558,8 @@
 	return germs
 
 /mob/living/carbon/human/proc/do_fever_effects(var/fever)
-	if(prob(20/3)) // every 30 seconds, roughly
-		to_chat(src, SPAN_WARNING(pick("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")))
+	var/list/fever_messages = list("You feel cold and clammy...", "You shiver as if a breeze has passed through.", "Your muscles ache.", "You feel tired and fatigued.")
+	notify_message(SPAN_WARNING(pick(fever_messages)), 30 SECONDS, key = "fever_effect_message")
 	if(prob(25)) // once every 8 seconds, roughly
 		drowsiness += 5
 	if(prob(20))

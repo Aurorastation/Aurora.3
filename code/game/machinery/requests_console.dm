@@ -119,7 +119,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 
 	///List of PDAs we alert upon a request receipt
 	var/list/obj/item/modular_computer/alert_pdas = list()
-	var/global/list/screen_overlays
 
 /obj/machinery/requests_console/north
 	PRESET_NORTH
@@ -133,41 +132,50 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 /obj/machinery/requests_console/east
 	PRESET_EAST
 
-/obj/machinery/requests_console/proc/generate_overlays(var/force = 0)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["req_comp-idle"] = make_screen_overlay(icon, "req_comp-idle")
-	screen_overlays["req_comp-alert"] = make_screen_overlay(icon, "req_comp-alert")
-	screen_overlays["req_comp-redalert"] = make_screen_overlay(icon, "req_comp-redalert")
-	screen_overlays["req_comp-yellowalert"] = make_screen_overlay(icon, "req_comp-yellowalert")
-	screen_overlays["req_comp-scanline"] = make_screen_overlay(icon, "req_comp-scanline")
-
 /obj/machinery/requests_console/power_change()
 	..()
 	update_icon()
 
 /obj/machinery/requests_console/update_icon()
 	ClearOverlays()
+	var/mutable_appearance/screen = overlay_image(icon, "req_comp-idle")
+	var/mutable_appearance/screen_hologram = overlay_image(icon, "req_comp-idle")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "req_comp-idle")
+	screen_hologram.filters += filter(type="color", color=list(
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+	))
+	screen.filters += filter(type="color", color=list(
+		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+		0, 0, 0, 1
+	))
+	screen_hologram.blend_mode = BLEND_MULTIPLY
+	screen.blend_mode = BLEND_ADD
 	if(stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 	else
 		switch(newmessagepriority)
 			if(0)
-				AddOverlays(screen_overlays["req_comp-idle"])
+				screen = overlay_image(icon, "req_comp-idle")
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(1)
-				AddOverlays(screen_overlays["req_comp-alert"])
+				screen = overlay_image(icon, "req_comp-alert")
 				set_light(1.4, 1.3, COLOR_CYAN)
 			if(2)
-				AddOverlays(screen_overlays["req_comp-redalert"])
+				screen = overlay_image(icon, "req_comp-redalert")
 				set_light(1.4, 1.3, COLOR_ORANGE)
 			if(3)
-				AddOverlays(screen_overlays["req_comp-yellowalert"])
+				screen = overlay_image(icon, "req_comp-yellowalert")
 				set_light(1.4, 1.3, COLOR_ORANGE)
-
-		AddOverlays(screen_overlays["req_comp-scanline"])
+		AddOverlays(screen_hologram)
+		AddOverlays(screen)
+		AddOverlays(screen_emis)
+		AddOverlays(overlay_image(icon, "req_comp-scanline"))
 
 /obj/machinery/requests_console/Initialize(mapload, var/dir, var/building = 0)
 	. = ..()
@@ -177,7 +185,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 			src.set_dir(dir)
 		if(src.dir & NORTH)
 			alpha = 127
-		generate_overlays()
 		update_icon()
 
 		if(!mapload)
@@ -199,7 +206,6 @@ var/list/obj/machinery/requests_console/allConsoles = list()
 		req_console_supplies |= department
 	if (departmentType & RC_INFO)
 		req_console_information |= department
-	generate_overlays()
 	update_icon()
 
 	if(!mapload)

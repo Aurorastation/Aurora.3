@@ -124,13 +124,20 @@
 		var/image/panel = image(icon, "panel", layer = ABOVE_HUMAN_LAYER)
 		AddOverlays(panel)
 
+	var/mutable_appearance/lights_emissive = emissive_appearance(icon, "light_radiation")
 	if(irradiating)
-		var/image/irradiating_lights = make_screen_overlay(icon, "light_radiation")
-		AddOverlays(irradiating_lights)
+		var/image/irradiating_lights = overlay_image(icon, "light_radiation")
+		AddOverlays(list(
+			irradiating_lights,
+			lights_emissive
+		))
 		set_light(3, 0.8, COLOR_RED_LIGHT)
 	else if(active)
-		var/image/active_lights = make_screen_overlay(icon, "light_active")
-		AddOverlays(active_lights)
+		var/image/active_lights = overlay_image(icon, "light_active")
+		AddOverlays(list(
+			active_lights,
+			lights_emissive
+		))
 		set_light(3, 0.8, COLOR_YELLOW)
 	else
 		set_light(0)
@@ -620,12 +627,12 @@
 				suit.icon_state = "syndie"
 		if("Research")
 			if(helmet)
-				helmet.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				helmet.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 				helmet.name = "research voidsuit helmet"
 				helmet.icon_state = "research_helm"
 				helmet.item_state = "research_helm"
 			if(suit)
-				suit.icon = 'icons/obj/clothing/voidsuit/station/captain.dmi'
+				suit.icon = 'icons/obj/clothing/voidsuit/station/research.dmi'
 				suit.name = "research voidsuit"
 				suit.item_state = "research"
 				suit.icon_state = "research"

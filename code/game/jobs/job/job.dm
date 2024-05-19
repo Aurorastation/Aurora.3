@@ -107,21 +107,8 @@
 		species_modifier = human_species.economic_modifier
 
 	var/money_amount = initial_funds_override ? initial_funds_override : (rand(5,50) + rand(5, 50)) * econ_status * economic_modifier * species_modifier
-	var/datum/money_account/M = SSeconomy.create_account(H.real_name, money_amount, null, public_account)
-	if(H.mind)
-		var/remembered_info = ""
-		remembered_info += "<b>Your account number is:</b> #[M.account_number]<br>"
-		remembered_info += "<b>Your account pin is:</b> [M.remote_access_pin]<br>"
-		remembered_info += "<b>Your account funds are:</b> [M.money]电<br>"
-
-		if(M.transactions.len)
-			var/datum/transaction/T = M.transactions[1]
-			remembered_info += "<b>Your account was created:</b> [T.time], [T.date] at [T.source_terminal]<br>"
-		H.mind.store_memory(remembered_info)
-
-		H.mind.initial_account = M
-
-	to_chat(H, "<span class='notice'><b>Your account number is: [M.account_number], your account pin is: [M.remote_access_pin]</b></span>")
+	var/datum/money_account/account = SSeconomy.create_and_assign_account(H, null, money_amount, public_account)
+	to_chat(H, SPAN_BOLD(SPAN_NOTICE("Your account number is: [account.account_number], your account pin is: [account.remote_access_pin]")))
 
 // overrideable separately so AIs/borgs can have cardborg hats without unneccessary new()/del()
 /datum/job/proc/equip_preview(mob/living/carbon/human/H, var/alt_title, var/faction_override)

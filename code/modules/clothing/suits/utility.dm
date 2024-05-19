@@ -35,6 +35,13 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 
+/obj/item/clothing/suit/fire/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "firesuit-emissive", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/suit/fire/atmos
 	name = "atmospheric technician firesuit"
 	desc = "A suit that protects against fire and heat, this one is designed for atmospheric technicians."
@@ -45,6 +52,13 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
+
+/obj/item/clothing/suit/fire/atmos/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "atmos_firesuit-emissive", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
 
 /*
  * Bomb protection

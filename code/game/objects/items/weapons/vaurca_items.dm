@@ -38,7 +38,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
 	)
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
-	body_parts_covered = HEAD|FACE|EYES
+	body_parts_covered = HEAD|EYES
 
 /obj/item/clothing/head/expression
 	name = "human expression mask"

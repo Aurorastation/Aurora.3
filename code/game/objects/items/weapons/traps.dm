@@ -785,7 +785,7 @@
 			if(isvaurca(L) && prob(50))
 				return
 
-			organ.germ_level += INFECTION_LEVEL_THREE
+			organ.germ_level += INFECTION_LEVEL_TWO
 
 /obj/item/trap/punji/proc/reveal_message(mob/living/victim)
 	if(!message)
@@ -835,3 +835,9 @@
 		to_chat(usr, SPAN_NOTICE("You begin carving the message inside the trap..."))
 		if(do_after(usr, 10 SECONDS))
 			src.message = strip_html_readd_newlines(added_message)
+
+/obj/item/trap/punji/deployed
+	deployed = TRUE
+	anchored = TRUE
+	icon_state = "punji1"
+

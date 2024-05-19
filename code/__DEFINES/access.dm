@@ -723,6 +723,16 @@
 	id = ACCESS_HOUSE_VOLVALAAD_SHIP
 	access_type = ACCESS_TYPE_CENTCOM
 
+#define ACCESS_OZEUOI 227
+/datum/access/moghes_wasteland_ozeuoi
+	id = ACCESS_OZEUOI
+	access_type = ACCESS_TYPE_CENTCOM
+
+#define ACCESS_AUTAKH 228
+/datum/access/autakh
+	id = ACCESS_AUTAKH
+	access_type = ACCESS_TYPE_CENTCOM
+
 //guest rooms - for any ship/event that requires hotel-esque rooms
 
 #define ACCESS_GUEST_ROOMS 230 //use with req_one_access
@@ -789,3 +799,7 @@
 /datum/access/guest_room_10
 	id = ACCESS_GUEST_ROOM_10
 	desc = "Guest Room 10"
+
+#define ACCESS_FISHING_LEAGUE 241
+	id = ACCESS_FISHING_LEAGUE
+	desc = "General Fishing Trawler Access"

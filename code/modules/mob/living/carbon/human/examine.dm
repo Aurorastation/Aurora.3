@@ -487,11 +487,11 @@
 		return height_string
 
 	switch(height - examiner.height)
-		if(-999 to -100)
+		if(-999 to -51)
 			height_descriptor = "absolutely tiny compared to"
-		if(-99 to -51)
+		if(-50 to -31)
 			height_descriptor = "much smaller than"
-		if(-50 to -21)
+		if(-30 to -21)
 			height_descriptor = "significantly shorter than"
 		if(-20 to -11)
 			height_descriptor = "shorter than"
@@ -503,9 +503,9 @@
 			height_descriptor = "slightly taller than"
 		if(11 to 20)
 			height_descriptor = "taller than"
-		if(21 to 50)
+		if(21 to 30)
 			height_descriptor = "significantly taller than"
-		if(51 to 100)
+		if(31 to 50)
 			height_descriptor = "much larger than"
 		else
 			height_descriptor = "to tower over"

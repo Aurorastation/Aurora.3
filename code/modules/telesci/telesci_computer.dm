@@ -3,6 +3,7 @@
 	desc = "Used to create bluespace portals using the telescience telepad."
 	icon_screen = "teleport"
 	icon_keyboard = "lightblue_key"
+	icon_keyboard_emis = "lightblue_key_mask"
 	light_color = LIGHT_COLOR_BLUE
 	circuit = /obj/item/circuitboard/telesci_console
 	var/sending = 1

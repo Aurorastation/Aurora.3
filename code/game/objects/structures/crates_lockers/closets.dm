@@ -765,6 +765,19 @@
 		QDEL_NULL(linked_teleporter)
 	return ..()
 
+/obj/structure/closet/stair_act()
+	if(opened || !can_open())
+		return
+
+	visible_message(SPAN_WARNING("\The [src] flies open as it bounces on the stairs!"))
+	for(var/thing in src)
+		var/atom/movable/AM = thing
+		AM.forceMove(get_turf(src))
+		AM.throw_at_random(TRUE, 1, 2)
+	open()
+
+	return ..()
+
 /*
 ==========================
 	Contents Scanner

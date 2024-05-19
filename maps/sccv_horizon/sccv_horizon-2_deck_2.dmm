@@ -2428,10 +2428,7 @@
 "aZR" = (
 /obj/effect/floor_decal/corner/white/diagonal,
 /obj/structure/table/standard,
-/obj/item/roller,
-/obj/item/roller{
-	pixel_y = 4
-	},
+/obj/structure/roller_rack/two,
 /turf/simulated/floor/tiled,
 /area/medical/first_responder)
 "ban" = (
@@ -6994,7 +6991,9 @@
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar)
 "din" = (
-/obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
+/obj/effect/map_effect/window_spawner/full/reinforced/polarized/firedoor{
+	id = "bar"
+	},
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/bar/backroom)
 "dit" = (
@@ -9301,6 +9300,7 @@
 /obj/machinery/power/apc/low/north,
 /obj/machinery/alarm/west,
 /obj/structure/closet/secure_closet/operations_manager,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/tiled,
 /area/operations/qm)
 "epN" = (
@@ -17450,7 +17450,7 @@
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 4
 	},
-/obj/machinery/firealarm/west,
+/obj/machinery/alarm/west,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "hSU" = (
@@ -20988,7 +20988,17 @@
 	c_tag = "Second Deck - Commissary Backroom";
 	dir = 1
 	},
-/obj/item/folder/yellow,
+/obj/item/folder/yellow{
+	pixel_y = 3
+	},
+/obj/item/device/price_scanner{
+	pixel_y = 4;
+	pixel_x = -16
+	},
+/obj/item/device/quikpay{
+	destinationact = "Operations";
+	pixel_y = 3
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/commissary)
 "jAo" = (
@@ -26970,6 +26980,7 @@
 /obj/structure/table/rack,
 /obj/item/towel,
 /obj/random/soap,
+/obj/item/bikehorn/rubberducky,
 /turf/simulated/floor/tiled/white,
 /area/operations/break_room)
 "muQ" = (
@@ -28010,18 +28021,10 @@
 	pixel_x = -17;
 	pixel_y = 2
 	},
-/obj/item/roller{
-	pixel_y = 3
-	},
-/obj/item/roller{
-	pixel_y = 3
-	},
-/obj/item/roller{
-	pixel_y = 3
-	},
 /obj/effect/floor_decal/corner_wide/green{
 	dir = 10
 	},
+/obj/structure/roller_rack/three,
 /turf/simulated/floor/tiled/white,
 /area/medical/gen_treatment)
 "mPq" = (
@@ -29105,15 +29108,13 @@
 /turf/simulated/floor/tiled,
 /area/storage/primary)
 "nmD" = (
-/obj/structure/table/stone/marble{
-	color = "#ccc3b8"
-	},
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
+/obj/structure/table/stone/marble,
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "nmG" = (
@@ -30671,16 +30672,8 @@
 /obj/structure/table/standard,
 /obj/structure/window/reinforced,
 /obj/effect/floor_decal/corner/grey/diagonal,
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
-/obj/item/roller{
-	pixel_y = 4
-	},
 /obj/machinery/firealarm/east,
+/obj/structure/roller_rack/three,
 /turf/simulated/floor/tiled/white,
 /area/medical/reception)
 "oeK" = (
@@ -31227,10 +31220,6 @@
 /turf/simulated/floor/plating,
 /area/maintenance/wing/starboard/far)
 "oqB" = (
-/obj/machinery/light_switch{
-	pixel_x = 9;
-	pixel_y = -19
-	},
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 4
 	},
@@ -32024,6 +32013,15 @@
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 10
+	},
+/obj/item/storage/bag/trash,
+/obj/item/storage/bag/trash{
+	pixel_x = -9;
+	pixel_y = 2
+	},
+/obj/item/storage/bag/trash{
+	pixel_x = -4;
+	pixel_y = -2
 	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial/auxiliary)
@@ -37549,6 +37547,7 @@
 	pixel_y = 5
 	},
 /obj/item/pen/black,
+/obj/item/device/price_scanner,
 /turf/simulated/floor/tiled,
 /area/operations/office)
 "rqS" = (
@@ -40146,10 +40145,7 @@
 /turf/simulated/floor/tiled/dark/full,
 /area/horizon/kitchen)
 "sGq" = (
-/obj/machinery/camera/network/service{
-	c_tag = "Service - Deck 2 - Bar Backroom";
-	dir = 1
-	},
+/obj/machinery/firealarm/south,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "sGR" = (
@@ -40545,7 +40541,9 @@
 /turf/simulated/floor/plating,
 /area/engineering/engine_room)
 "sSZ" = (
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /obj/machinery/door/airlock/freezer{
 	dir = 4;
 	name = "Freezer";
@@ -43399,9 +43397,6 @@
 /area/medical/cryo)
 "uhw" = (
 /obj/structure/table/wood,
-/obj/machinery/alarm/north{
-	req_one_access = list(24,11,55)
-	},
 /obj/item/storage/box/lights/colored/blue{
 	pixel_x = 6;
 	pixel_y = 10
@@ -43425,6 +43420,17 @@
 /obj/item/storage/box/lights/colored/yellow{
 	pixel_x = -6;
 	pixel_y = 2
+	},
+/obj/machinery/button/switch/windowtint{
+	dir = 1;
+	id = "bar";
+	pixel_y = 30;
+	pixel_x = 5
+	},
+/obj/machinery/light_switch{
+	pixel_x = -5;
+	pixel_y = 30;
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
@@ -45300,6 +45306,10 @@
 /area/horizon/exterior)
 "uZh" = (
 /obj/structure/closet/secure_closet/cabinet/beer/horizon,
+/obj/machinery/camera/network/service{
+	c_tag = "Service - Deck 2 - Bar Backroom";
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
 /area/horizon/bar/backroom)
 "uZi" = (
@@ -46921,12 +46931,8 @@
 	},
 /obj/structure/table/wood,
 /obj/item/device/flashlight/lamp/green{
-	pixel_x = 8;
+	pixel_x = 1;
 	pixel_y = 3
-	},
-/obj/item/bananapeel{
-	pixel_x = -7;
-	pixel_y = 1
 	},
 /turf/simulated/floor/carpet,
 /area/horizon/bar/backroom)
