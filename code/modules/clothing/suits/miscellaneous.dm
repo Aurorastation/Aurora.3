@@ -422,11 +422,10 @@
 	icon = 'icons/clothing/kit/highvis.dmi'
 	icon_state = "jacket_highvis_alt"
 	item_state = "jacket_highvis_alt"
-	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/dropper, /obj/item/reagent_containers/hypospray, /obj/item/reagent_containers/syringe, \
-	/obj/item/device/healthanalyzer, /obj/item/device/flashlight, /obj/item/device/radio, /obj/item/tank/emergency_oxygen, /obj/item/device/breath_analyzer, /obj/item/reagent_containers/blood, /obj/item/clothing/head/hardhat/first_responder, \
-	/obj/item/gun, /obj/item/reagent_containers/spray/pepper, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee/baton, /obj/item/handcuffs, /obj/item/device/flashlight, /obj/item/device/analyzer, /obj/item/device/flashlight, \
-	/obj/item/device/multitool, /obj/item/device/pipe_painter, /obj/item/device/radio, /obj/item/device/t_scanner, \
-	/obj/item/crowbar, /obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/tank/emergency_oxygen, /obj/item/clothing/mask/gas, /obj/item/taperoll/engineering, /obj/item/storage/bag/inflatable)
+	allowed = list(/obj/item/stack/medical, /obj/item/reagent_containers/, \
+	/obj/item/device, /obj/item/tank/emergency_oxygen, /obj/item/clothing/head/hardhat, \
+	/obj/item/gun, /obj/item/ammo_magazine, /obj/item/ammo_casing, /obj/item/melee, /obj/item/handcuffs, \
+	/obj/item/crowbar, /obj/item/screwdriver, /obj/item/weldingtool, /obj/item/wirecutters, /obj/item/wrench, /obj/item/clothing/mask/gas, /obj/item/taperoll, /obj/item/storage/bag/inflatable)
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
