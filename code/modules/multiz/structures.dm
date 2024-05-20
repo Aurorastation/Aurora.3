@@ -408,6 +408,7 @@
 	name = "ramp"
 	desc = "An smooth yet archaic form of locomotion along the vertical axis."
 	steps = FALSE
+	layer = ABOVE_TILE_LAYER //They sit ontop of turfs, but below most other things
 
 /obj/structure/platform_stairs/ramp/north_south
 	icon_state = "p_ramp_sn_full_cap"

@@ -3100,10 +3100,10 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/platform/cutout,
 /obj/structure/platform_stairs/ramp/east_west{
-	dir = 8
+	dir = 4
 	},
+/obj/structure/platform/ledge,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "bpa" = (
@@ -14760,11 +14760,10 @@
 	},
 /obj/structure/platform_stairs/ramp/north_south{
 	dir = 1;
-	pixel_x = -16
+	pixel_x = 16
 	},
 /obj/structure/platform_stairs/ramp/north_south{
-	dir = 8;
-	pixel_x = 16
+	pixel_x = -16
 	},
 /turf/simulated/floor/tiled/white,
 /area/rnd/lab)
@@ -18201,13 +18200,13 @@
 /turf/simulated/floor/tiled/dark,
 /area/operations/office)
 "ikB" = (
-/obj/structure/platform/cutout,
+/obj/structure/platform_stairs/ramp/east_west{
+	dir = 4
+	},
 /obj/structure/platform{
 	dir = 1
 	},
-/obj/structure/platform_stairs/ramp/east_west{
-	dir = 8
-	},
+/obj/structure/platform/ledge,
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist/surgicalbay)
 "ikT" = (
@@ -21225,11 +21224,11 @@
 /turf/simulated/floor/tiled,
 /area/horizon/security/brig)
 "jDU" = (
-/obj/structure/filingcabinet/filingcabinet{
-	pixel_x = -7
-	},
 /obj/machinery/papershredder{
 	pixel_x = 7
+	},
+/obj/structure/filingcabinet/filingcabinet{
+	pixel_x = -7
 	},
 /obj/structure/platform,
 /turf/simulated/floor/tiled/dark,
@@ -39937,9 +39936,6 @@
 /turf/simulated/floor/wood,
 /area/rnd/hallway)
 "syj" = (
-/obj/structure/platform/cutout{
-	dir = 8
-	},
 /obj/structure/platform_stairs/ramp/east_west,
 /turf/simulated/floor/tiled/dark/full,
 /area/operations/lower/machinist)
@@ -41241,10 +41237,8 @@
 /obj/structure/cable/green{
 	icon_state = "4-8"
 	},
-/obj/structure/platform/cutout{
-	dir = 8
-	},
 /obj/structure/platform_stairs/ramp/east_west,
+/obj/structure/platform/ledge,
 /turf/simulated/floor/tiled,
 /area/hallway/engineering)
 "thL" = (
@@ -41955,11 +41949,12 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers,
 /obj/structure/disposalpipe/segment,
 /obj/structure/platform_stairs/ramp/north_south{
-	pixel_x = -16
+	dir = 8;
+	pixel_x = 16
 	},
 /obj/structure/platform_stairs/ramp/north_south{
 	dir = 4;
-	pixel_x = 16
+	pixel_x = -16
 	},
 /turf/simulated/floor/tiled/dark,
 /area/rnd/lab)
@@ -44120,7 +44115,9 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/structure/platform_stairs/ramp/north_south,
+/obj/structure/platform_stairs/ramp/north_south{
+	dir = 4
+	},
 /turf/simulated/floor/tiled,
 /area/operations/lower/machinist)
 "uuI" = (
@@ -50403,7 +50400,7 @@
 /obj/machinery/door/firedoor,
 /obj/machinery/light,
 /obj/structure/platform_stairs/ramp/east_west{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/platform{
 	dir = 1
@@ -50735,9 +50732,9 @@
 	},
 /obj/machinery/door/firedoor,
 /obj/structure/platform_stairs/ramp/east_west{
-	dir = 8
+	dir = 4
 	},
-/obj/structure/platform/cutout,
+/obj/structure/platform/ledge,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_quarters/lounge/bar)
 "xxa" = (

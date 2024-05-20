@@ -25191,7 +25191,7 @@
 	dir = 5
 	},
 /obj/structure/platform_stairs/ramp/east_west{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/platform{
 	dir = 1
@@ -34993,7 +34993,9 @@
 /turf/simulated/floor/tiled,
 /area/rnd/eva)
 "xRv" = (
-/obj/structure/platform_stairs/ramp/north_south,
+/obj/structure/platform_stairs/ramp/north_south{
+	dir = 8
+	},
 /turf/simulated/floor/plating,
 /area/hangar/auxiliary)
 "xRF" = (
@@ -62663,7 +62665,7 @@ fIp
 xtK
 rrR
 ows
-xRv
+fIi
 bJa
 bJa
 bJa
@@ -62866,7 +62868,7 @@ shb
 xtK
 kIz
 ows
-fIi
+xRv
 bJa
 bJa
 bJa
