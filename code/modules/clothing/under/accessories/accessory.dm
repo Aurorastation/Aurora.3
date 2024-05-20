@@ -1310,3 +1310,23 @@
 	I.plane = EFFECTS_ABOVE_LIGHTING_PLANE
 	I.appearance_flags |= KEEP_APART
 	return I
+
+//Leg warmers
+
+/obj/item/clothing/accessory/legwarmers
+	name = "thigh-length leg warmers"
+	desc = "A comfy pair of leg warmers."
+	item_state = "legwarmers_long"
+	icon_state = "legwarmers_long"
+	icon = 'icons/clothing/accessories/legwarmers.dmi'
+	contained_sprite = TRUE
+
+/obj/item/clothing/accessory/legwarmers/medium
+	name = "medium-length leg warmers"
+	item_state = "legwarmers_medium"
+	icon_state = "legwarmers_medium"
+
+/obj/item/clothing/accessory/legwarmers/short
+	name = "short leg warmers"
+	item_state = "legwarmers_short"
+	icon_state = "legwarmers_short"

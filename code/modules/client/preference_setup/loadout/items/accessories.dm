@@ -701,3 +701,17 @@
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+datum/gear/accessory/legwarmers
+	display_name = "leg warmers selection (colorable)"
+	description = "A selection of various lengths of leg warmers."
+	path = /obj/item/clothing/accessory/legwarmers
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/legwarmers/New()
+	..()
+	var/list/legwarmers = list()
+	legwarmers["long leg warmers"] = /obj/item/clothing/accessory/legwarmers
+	legwarmers["medium leg warmers"] = /obj/item/clothing/accessory/legwarmers/medium
+	legwarmers["short leg warmers"] = /obj/item/clothing/accessory/legwarmers/short
+	gear_tweaks += new /datum/gear_tweak/path(legwarmers)
