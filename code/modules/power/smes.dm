@@ -163,26 +163,43 @@
 
 /obj/machinery/power/smes/update_icon()
 	ClearOverlays()
+	var/mutable_appearance/oc
+	var/mutable_appearance/oc_emis
+	var/mutable_appearance/og
+	var/mutable_appearance/og_emis
+	var/mutable_appearance/op
+	var/mutable_appearance/op_emis
 	if(!can_function())
 		return
 
-	if(inputting == 2)
-		AddOverlays("[icon_state]-oc2")
-	else if (inputting == 1)
-		AddOverlays("[icon_state]-oc1")
+	if(inputting == (1 || 2))
+		oc = overlay_image(icon, "[icon_state]-oc[inputting]")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc[inputting]")
 	else if (input_attempt)
-		AddOverlays("[icon_state]-oc0")
+		oc = overlay_image(icon, "[icon_state]-oc0")
+		oc_emis = emissive_appearance(icon, "[icon_state]-oc0")
+
 
 	var/clevel = chargedisplay()
 	if(clevel)
-		AddOverlays("[icon_state]-og[clevel]")
+		og = overlay_image(icon, "[icon_state]-og[clevel]")
+		og_emis = emissive_appearance(icon, "[icon_state]-og[clevel]")
 
-	if(outputting == 2)
-		AddOverlays("[icon_state]-op2")
-	else if (outputting == 1)
-		AddOverlays("[icon_state]-op1")
+	if(outputting == 2 || 1)
+		op = overlay_image(icon, "[icon_state]-op[outputting]")
+		op_emis = emissive_appearance(icon, "[icon_state]-op[outputting]")
 	else
-		AddOverlays("[icon_state]-op0")
+		op = overlay_image(icon, "[icon_state]-op0")
+		op_emis = emissive_appearance(icon, "[icon_state]-op0")
+
+	AddOverlays(list(
+		oc,
+		oc_emis,
+		og,
+		og_emis,
+		op,
+		op_emis
+	))
 
 /obj/machinery/power/smes/proc/chargedisplay()
 	return round(5.5*charge/(capacity ? capacity : 5e6))
@@ -285,7 +302,7 @@
 //Will return 1 on failure
 /obj/machinery/power/smes/proc/make_terminal(const/mob/user)
 	if (user.loc == loc)
-		to_chat(user, "<span class='warning'>You must not be on the same tile as the [src].</span>")
+		to_chat(user, SPAN_WARNING("You must not be on the same tile as the [src]."))
 		return 1
 
 	//Direction the terminal will face to
@@ -297,13 +314,13 @@
 			tempDir = WEST
 	var/turf/tempLoc = get_step(src, reverse_direction(tempDir))
 	if (istype(tempLoc, /turf/space))
-		to_chat(user, "<span class='warning'>You can't build a terminal on space.</span>")
+		to_chat(user, SPAN_WARNING("You can't build a terminal on space."))
 		return 1
 	else if (istype(tempLoc))
 		if(!tempLoc.is_plating())
-			to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
+			to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			return 1
-	to_chat(user, "<span class='notice'>You start adding cable to the [src].</span>")
+	to_chat(user, SPAN_NOTICE("You start adding cable to the [src]."))
 	if(do_after(user, 5 SECONDS, src, DO_REPAIR_CONSTRUCT))
 		terminal = new /obj/machinery/power/terminal(tempLoc)
 		terminal.set_dir(tempDir)
@@ -335,27 +352,27 @@
 				return
 			open_hatch = 1
 			user.visible_message(\
-				"<span class='notice'>\The [user] opens the maintenance hatch of \the [src].</span>",\
-				"<span class='notice'>You open the maintenance hatch of \the [src].</span>",\
+				SPAN_NOTICE("\The [user] opens the maintenance hatch of \the [src]."),\
+				SPAN_NOTICE("You open the maintenance hatch of \the [src]."),\
 				range = 4)
 			return 0
 		else
 			open_hatch = 0
 			user.visible_message(\
-				"<span class='notice'>\The [user] closes the maintenance hatch of \the [src].</span>",\
-				"<span class='notice'>You close the maintenance hatch of \the [src].</span>",\
+				SPAN_NOTICE("\The [user] closes the maintenance hatch of \the [src]."),\
+				SPAN_NOTICE("You close the maintenance hatch of \the [src]."),\
 				range = 4)
 			return 0
 
 	if (!open_hatch)
-		to_chat(user, "<span class='warning'>You need to open access hatch on [src] first!</span>")
+		to_chat(user, SPAN_WARNING("You need to open access hatch on [src] first!"))
 		return 0
 
 	if(attacking_item.iscoil() && !terminal && !building_terminal)
 		building_terminal = 1
 		var/obj/item/stack/cable_coil/CC = attacking_item
 		if (CC.get_amount() <= 10)
-			to_chat(user, "<span class='warning'>You need more cables.</span>")
+			to_chat(user, SPAN_WARNING("You need more cables."))
 			building_terminal = 0
 			return 0
 		if (make_terminal(user))
@@ -364,8 +381,8 @@
 		building_terminal = 0
 		CC.use(10)
 		user.visible_message(\
-			"<span class='notice'>[user.name] has added cables to the [src].</span>",\
-			"<span class='notice'>You added cables to the [src].</span>")
+			SPAN_NOTICE("[user.name] has added cables to the [src]."),\
+			SPAN_NOTICE("You added cables to the [src]."))
 		terminal.connect_to_network()
 		stat = 0
 		return 0
@@ -375,9 +392,9 @@
 		var/turf/tempTDir = terminal.loc
 		if (istype(tempTDir))
 			if(!tempTDir.is_plating())
-				to_chat(user, "<span class='warning'>You must remove the floor plating first.</span>")
+				to_chat(user, SPAN_WARNING("You must remove the floor plating first."))
 			else
-				to_chat(user, "<span class='notice'>You begin to cut the cables...</span>")
+				to_chat(user, SPAN_NOTICE("You begin to cut the cables..."))
 				if(attacking_item.use_tool(src, user, 50, volume = 50))
 					if (prob(50) && electrocute_mob(usr, terminal.powernet, terminal))
 						big_spark.queue()
@@ -386,8 +403,8 @@
 							return 0
 					new /obj/item/stack/cable_coil(loc,10)
 					user.visible_message(\
-						"<span class='notice'>[user.name] cut the cables and dismantled the power terminal.</span>",\
-						"<span class='notice'>You cut the cables and dismantle the power terminal.</span>")
+						SPAN_NOTICE("[user.name] cut the cables and dismantled the power terminal."),\
+						SPAN_NOTICE("You cut the cables and dismantle the power terminal."))
 					qdel(terminal)
 		building_terminal = 0
 		return 0
@@ -457,8 +474,6 @@
 			output_level = clamp(params["output"], 0, output_level_max)	// clamp to range
 			. = TRUE
 
-	investigate_log("input/output; <font color='[input_level>output_level?"green":"red"][input_level]/[output_level]</font> | Output-mode: [output_attempt?"<font color='green'>on</font>":"<span class='warning'>off</span>"] | Input-mode: [input_attempt?"<font color='green'>auto</font>":"<span class='warning'>off</span>"] by [usr.key]","singulo")
-
 /obj/machinery/power/smes/proc/energy_fail(var/duration)
 	failure_timer = max(failure_timer, duration)
 
@@ -466,7 +481,7 @@
 	if(isStationLevel(src.z))
 		if(prob(1)) //explosion
 			for(var/mob/M in viewers(src))
-				M.show_message("<span class='warning'>The [src.name] is making strange noises!</span>", 3, "<span class='warning'>You hear sizzling electronics.</span>", 2)
+				M.show_message(SPAN_WARNING("The [src.name] is making strange noises!"), 3, SPAN_WARNING("You hear sizzling electronics."), 2)
 			sleep(10*pick(4,5,6,7,10,14))
 			var/datum/effect/effect/system/smoke_spread/smoke = new /datum/effect/effect/system/smoke_spread()
 			smoke.set_up(3, 0, src.loc)

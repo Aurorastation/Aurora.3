@@ -44,21 +44,21 @@
 			if(buckled.buckled_to == src)
 				if(buckled != user)
 					buckled.visible_message(\
-						"<span class='notice'>[user.name] frees [buckled.name] from \the [src].</span>",\
-						"<span class='notice'>[user.name] frees you from \the [src].</span>",\
-						"<span class='warning'>You hear shredding and ripping.</span>")
+						SPAN_NOTICE("[user.name] frees [buckled.name] from \the [src]."),\
+						SPAN_NOTICE("[user.name] frees you from \the [src]."),\
+						SPAN_WARNING("You hear shredding and ripping."))
 				else
 					buckled.visible_message(\
-						"<span class='notice'>[buckled.name] struggles free of \the [src].</span>",\
-						"<span class='notice'>You untangle \the [src] from around yourself.</span>",\
-						"<span class='warning'>You hear shredding and ripping.</span>")
+						SPAN_NOTICE("[buckled.name] struggles free of \the [src]."),\
+						SPAN_NOTICE("You untangle \the [src] from around yourself."),\
+						SPAN_WARNING("You hear shredding and ripping."))
 			unbuckle()
 		else
 			var/text = pick("rip","tear","pull")
 			user.visible_message(\
-				"<span class='notice'>[user.name] [text]s at \the [src].</span>",\
-				"<span class='notice'>You [text] at \the [src].</span>",\
-				"<span class='warning'>You hear shredding and ripping.</span>")
+				SPAN_NOTICE("[user.name] [text]s at \the [src]."),\
+				SPAN_NOTICE("You [text] at \the [src]."),\
+				SPAN_WARNING("You hear shredding and ripping."))
 	return
 
 /obj/effect/plant/proc/entangle(var/mob/living/victim)
@@ -77,11 +77,11 @@
 			if(H.Check_Shoegrip(FALSE))
 				can_grab = 0
 		if(can_grab)
-			src.visible_message("<span class='danger'>Tendrils lash out from \the [src] and drag \the [victim] in!</span>")
+			src.visible_message(SPAN_DANGER("Tendrils lash out from \the [src] and drag \the [victim] in!"))
 			victim.forceMove(src.loc)
 
 	//entangling people
 	if(victim.loc == src.loc)
 		buckle(victim)
 		victim.set_dir(pick(GLOB.cardinal))
-		to_chat(victim, "<span class='danger'>Tendrils tighten around you!</span>")
+		to_chat(victim, SPAN_DANGER("Tendrils tighten around you!"))

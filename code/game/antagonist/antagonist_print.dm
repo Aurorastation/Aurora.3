@@ -22,7 +22,7 @@
 					text += "<font color='green'><B>Success!</B></font>"
 					feedback_add_details(feedback_tag,"[O.type]|SUCCESS")
 				else
-					text += "<span class='warning'>Fail.</span>"
+					text += SPAN_WARNING("Fail.")
 					feedback_add_details(feedback_tag,"[O.type]|FAIL")
 					failed = 1
 				num++
@@ -47,7 +47,7 @@
 		if(O.check_completion())
 			text += "<font color='green'><B>Success!</B></font>"
 		else
-			text += "<span class='warning'>Fail.</span>"
+			text += SPAN_WARNING("Fail.")
 	return text
 
 /datum/antagonist/proc/print_special_role_report(var/datum/mind/ply)

@@ -32,12 +32,12 @@
 	if(istype(attacking_item, /obj/item/gun))
 		var/obj/item/gun/gun = attacking_item
 		if(installed_gun)
-			to_chat(user, "<span class='warning'>There's already a weapon installed.</span>")
+			to_chat(user, SPAN_WARNING("There's already a weapon installed."))
 			return
 		user.drop_from_inventory(gun,src)
 		installed_gun = gun
 		size += gun.w_class
-		to_chat(user, "<span class='notice'>You slide \the [gun] into the firing mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("You slide \the [gun] into the firing mechanism."))
 		playsound(src.loc, /singleton/sound_category/crowbar_sound, 50, 1)
 	else
 		..()
@@ -45,12 +45,12 @@
 /obj/item/integrated_circuit/manipulation/weapon_firing/attack_self(var/mob/user)
 	if(installed_gun)
 		installed_gun.forceMove(get_turf(src))
-		to_chat(user, "<span class='notice'>You slide \the [installed_gun] out of the firing mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("You slide \the [installed_gun] out of the firing mechanism."))
 		size = initial(size)
 		playsound(loc, /singleton/sound_category/crowbar_sound, 50, 1)
 		installed_gun = null
 	else
-		to_chat(user, "<span class='notice'>There's no weapon to remove from the mechanism.</span>")
+		to_chat(user, SPAN_NOTICE("There's no weapon to remove from the mechanism."))
 
 /obj/item/integrated_circuit/manipulation/weapon_firing/do_work()
 	if(!installed_gun)
@@ -142,9 +142,9 @@
 	var/obj/item/grenade/G = attacking_item
 	if(istype(G))
 		if(attached_grenade)
-			to_chat(user, "<span class='warning'>There is already a grenade attached!</span>")
+			to_chat(user, SPAN_WARNING("There is already a grenade attached!"))
 		else if(user.unEquip(G, force=1))
-			user.visible_message("<span class='warning'>\The [user] attaches \a [G] to \the [src]!</span>", "<span class='notice'>You attach \the [G] to \the [src].</span>")
+			user.visible_message(SPAN_WARNING("\The [user] attaches \a [G] to \the [src]!"), SPAN_NOTICE("You attach \the [G] to \the [src]."))
 			attach_grenade(G)
 			G.forceMove(src)
 	else
@@ -152,7 +152,7 @@
 
 /obj/item/integrated_circuit/manipulation/grenade/attack_self(var/mob/user)
 	if(attached_grenade)
-		user.visible_message("<span class='warning'>\The [user] removes \an [attached_grenade] from \the [src]!</span>", "<span class='notice'>You remove \the [attached_grenade] from \the [src].</span>")
+		user.visible_message(SPAN_WARNING("\The [user] removes \an [attached_grenade] from \the [src]!"), SPAN_NOTICE("You remove \the [attached_grenade] from \the [src]."))
 		user.put_in_any_hand_if_possible(attached_grenade) || attached_grenade.dropInto(loc)
 		detach_grenade()
 	else
@@ -336,10 +336,10 @@
 	if(!T.Adjacent(M))
 		return //Can't reach
 	if(shocktime + (5 SECONDS) > world.time)
-		to_chat(M, "<span class='danger'>You feel a light tingle from [src]. Luckily it was charging!</span>")
+		to_chat(M, SPAN_DANGER("You feel a light tingle from [src]. Luckily it was charging!"))
 		return
 	else
-		to_chat(M, "<span class='danger'>You feel a sharp shock from the [src]!</span>")
+		to_chat(M, SPAN_DANGER("You feel a sharp shock from the [src]!"))
 		spark(get_turf(M), 3, 1)
 		M.stun_effect_act(0, Clamp(get_pin_data(IC_INPUT, 2),0,20), null)
 		shocktime = world.time

@@ -3,7 +3,7 @@
 	set category = null
 	set name = "Admin PM Mob"
 	if(!holder)
-		to_chat(src, "<span class='warning'>Error: Admin-PM-Context: Only administrators may use this command.</span>")
+		to_chat(src, SPAN_WARNING("Error: Admin-PM-Context: Only administrators may use this command."))
 		return
 	if( !ismob(M) || !M.client )	return
 	cmd_admin_pm(M.client,null)
@@ -14,7 +14,7 @@
 	set category = "Admin"
 	set name = "Admin PM"
 	if(!holder)
-		to_chat(src, "<span class='warning'>Error: Admin-PM-Panel: Only administrators may use this command.</span>")
+		to_chat(src, SPAN_WARNING("Error: Admin-PM-Panel: Only administrators may use this command."))
 		return
 	var/list/client/targets[0]
 	for(var/p in GLOB.clients)
@@ -41,8 +41,8 @@
 
 /client/proc/cmd_admin_pm(var/client/C, var/msg = null, var/datum/ticket/ticket = null)
 	if(!istype(C, /client))
-		if(holder)	to_chat(src, "<span class='warning'>Error: Private-Message: Client not found.</span>")
-		else		to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</span>")
+		if(holder)	to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found."))
+		else		to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!"))
 		return
 
 	var/receive_pm_type = "Player"
@@ -55,7 +55,7 @@
 			receive_pm_type = holder.rank
 
 	else if(!C.holder)
-		to_chat(src, "<span class='warning'>Error: Admin-PM: Non-admin to non-admin PM communication is forbidden.</span>")
+		to_chat(src, SPAN_WARNING("Error: Admin-PM: Non-admin to non-admin PM communication is forbidden."))
 		return
 
 	//get message text, limit it's length.and clean/escape html
@@ -67,9 +67,9 @@
 			return
 		if(!C)
 			if(holder)
-				to_chat(src, "<span class='warning'>Error: Admin-PM: Client not found.</span>")
+				to_chat(src, SPAN_WARNING("Error: Admin-PM: Client not found."))
 			else
-				to_chat(src, "<span class='warning'>Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!</span>")
+				to_chat(src, SPAN_WARNING("Error: Private-Message: Client not found. They may have lost connection, so try using an adminhelp!"))
 			return
 
 		if(!check_rights(R_SERVER|R_DEBUG, 0))
@@ -94,10 +94,10 @@
 			ticket = new /datum/ticket(C.ckey)
 			ticket.take(src)
 		else
-			to_chat(src, "<span class='notice'>You do not have an open ticket. Please use the adminhelp verb to open a ticket.</span>")
+			to_chat(src, SPAN_NOTICE("You do not have an open ticket. Please use the adminhelp verb to open a ticket."))
 			return
 	else if(ticket.status != TICKET_ASSIGNED && src.ckey == ticket.owner)
-		to_chat(src, "<span class='notice'>Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp.</span>")
+		to_chat(src, SPAN_NOTICE("Your ticket is not open for conversation. Please wait for an administrator to receive your adminhelp."))
 		return
 
 	// if the sender is an admin and they're not assigned to the ticket, ask them if they want to take/join it, unless the admin is responding to their own ticket
@@ -164,7 +164,7 @@
 
 /client/proc/cmd_admin_discord_pm(sender)
 	if(prefs.muted & MUTE_ADMINHELP)
-		to_chat(src, "<span class='warning'>Error: Private-Message: You are unable to use PM-s (muted).</span>")
+		to_chat(src, SPAN_WARNING("Error: Private-Message: You are unable to use PM-s (muted)."))
 		return
 
 	var/msg = input(src,"Message:", "Reply private message to [sender] on Discord") as text|null

@@ -41,7 +41,7 @@
 		var/throw_dist = get_dist(throw_source, loc)
 		if(speed >= throw_speed && smash_check(throw_dist)) //not as reliable as smashing directly
 			if(reagents)
-				hit_atom.visible_message("<span class='notice'>The contents of \the [src] splash all over [hit_atom]!</span>")
+				hit_atom.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [hit_atom]!"))
 				reagents.splash(hit_atom, reagents.total_volume)
 			src.smash(loc, hit_atom)
 
@@ -105,7 +105,7 @@
 	if(!(drink_flags & IS_GLASS) || rag)
 		return
 	if(user.unEquip(R))
-		to_chat(user, "<span class='notice'>You stuff [R] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You stuff [R] into [src]."))
 		rag = R
 		rag.forceMove(src)
 		atom_flags &= ~ATOM_FLAG_OPEN_CONTAINER
@@ -170,15 +170,15 @@
 	var/mob/living/carbon/human/H = target
 	if(istype(H) && H.headcheck(hit_zone))
 		var/obj/item/organ/affecting = H.get_organ(hit_zone) //headcheck should ensure that affecting is not null
-		user.visible_message("<span class='danger'>[user] smashes [src] into [H]'s [affecting.name]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes [src] into [H]'s [affecting.name]!"))
 		if(weaken_duration)
 			target.apply_effect(min(weaken_duration, 5), WEAKEN, blocked) // Never weaken more than a flash!
 	else
-		user.visible_message("<span class='danger'>\The [user] smashes [src] into [target]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] smashes [src] into [target]!"))
 
 	//The reagents in the bottle splash all over the target, thanks for the idea Nodrak
 	if(reagents)
-		user.visible_message("<span class='notice'>The contents of \the [src] splash all over [target]!</span>")
+		user.visible_message(SPAN_NOTICE("The contents of \the [src] splash all over [target]!"))
 		reagents.splash(target, reagents.total_volume)
 
 	//Finally, smash the bottle. This kills (qdel) the bottle.

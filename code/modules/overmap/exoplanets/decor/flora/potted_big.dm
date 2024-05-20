@@ -40,13 +40,13 @@
 			if(attacking_item.w_class <= ITEMSIZE_NORMAL)
 				user.drop_from_inventory(attacking_item, src)
 				stored_item = attacking_item
-				to_chat(user,"<span class='notice'>You hide \the [attacking_item] in [src].</span>")
+				to_chat(user,SPAN_NOTICE("You hide \the [attacking_item] in [src]."))
 				return
 			else
-				to_chat(user,"<span class='notice'>\The [attacking_item] can't be hidden in [src], it's too big.</span>")
+				to_chat(user,SPAN_NOTICE("\The [attacking_item] can't be hidden in [src], it's too big."))
 				return
 		else
-			to_chat(user,"<span class='notice'>There is something hidden in [src].</span>")
+			to_chat(user,SPAN_NOTICE("There is something hidden in [src]."))
 			return
 	return ..()
 
@@ -55,14 +55,14 @@
 	playsound(loc, 'sound/effects/plantshake.ogg', 50, 1)
 	if(do_after(user, 40, src))
 		if(!stored_item)
-			to_chat(user,"<span class='notice'>There is nothing hidden in [src].</span>")
+			to_chat(user,SPAN_NOTICE("There is nothing hidden in [src]."))
 		else
 			if(istype(stored_item, /obj/item/device/paicard))
 				stored_item.forceMove(src.loc)
-				to_chat(user,"<span class='notice'>You reveal \the [stored_item] from [src].</span>")
+				to_chat(user,SPAN_NOTICE("You reveal \the [stored_item] from [src]."))
 			else
 				user.put_in_hands(stored_item)
-				to_chat(user,"<span class='notice'>You take \the [stored_item] from [src].</span>")
+				to_chat(user,SPAN_NOTICE("You take \the [stored_item] from [src]."))
 			stored_item = null
 
 /obj/structure/flora/pottedplant/bullet_act(var/obj/item/projectile/Proj)

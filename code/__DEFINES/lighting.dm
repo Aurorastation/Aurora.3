@@ -123,9 +123,9 @@
 #define L_WALLMOUNT_HI_POWER 1	// For red/delta alert on fire alarms.
 #define L_WALLMOUNT_HI_RANGE 4
 // This controls by how much console sprites are dimmed before being overlayed.
-#define HOLOSCREEN_ADDITION_FACTOR 0.5
 #define HOLOSCREEN_MULTIPLICATION_FACTOR 0.5
-#define HOLOSCREEN_ADDITION_OPACITY 0.5
+#define HOLOSCREEN_ADDITION_OPACITY 0.75
+#define HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY 0.5
 #define HOLOSCREEN_MULTIPLICATION_OPACITY 1
 
 // Just so we can avoid unneeded proc calls when profiling is disabled.

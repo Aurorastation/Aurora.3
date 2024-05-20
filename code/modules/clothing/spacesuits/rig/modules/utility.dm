@@ -340,8 +340,9 @@
 	desc = "A complex web of tubing and needles suitable for hardsuit use."
 
 	charges = list(
-		list("dexalin",			"dexalin",		/singleton/reagent/dexalin,			5),
-		list("inaprovaline",	"inaprovaline",	/singleton/reagent/inaprovaline,	5)
+		list("dexalin",			"dexalin",			/singleton/reagent/dexalin,			5),
+		list("inaprovaline",	"inaprovaline",		/singleton/reagent/inaprovaline,	5),
+		list("RMT supplement",	"RMT supplement",	/singleton/reagent/rmt,				25),
 		)
 
 	interface_name = "chem dispenser"

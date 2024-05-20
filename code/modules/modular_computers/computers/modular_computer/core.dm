@@ -172,12 +172,32 @@
 		return
 	if(!enabled)
 		if(icon_state_screensaver && working)
-			if (is_holographic)
-				holographic_overlay(src, src.icon, icon_state_screensaver)
-			else
-				AddOverlays(icon_state_screensaver)
+			var/mutable_appearance/I = overlay_image(src.icon, icon_state_screensaver)
+			if(is_holographic)
+				var/mutable_appearance/I_holographic = overlay_image(src.icon, icon_state_screensaver)
+				I_holographic.filters += filter(type="color", color=list(
+					0, 0, 0, 0,
+					0, 0, 0, 0,
+					0, 0, 0, 0,
+					HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+				))
+				I.filters += filter(type="color", color=list(
+					HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY, 0, 0, 0,
+					0, HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY, 0, 0,
+					0, 0, HOLOSCREEN_ADDITION_SCREENSAVER_OPACITY, 0,
+					0, 0, 0, 1
+				))
+				I_holographic.blend_mode = BLEND_MULTIPLY
+				I.blend_mode = BLEND_ADD
+				AddOverlays(I_holographic)
+			var/mutable_appearance/E = emissive_appearance(src.icon, icon_state_screensaver)
+			AddOverlays(I)
+			AddOverlays(E)
 		if(icon_state_screensaver_key && working)
-			AddOverlays(icon_state_screensaver_key)
+			var/image/EK = emissive_appearance(src.icon, icon_state_screensaver_key)
+			var/image/IK = image(src.icon, icon_state_screensaver_key)
+			AddOverlays(EK)
+			AddOverlays(IK)
 
 		if (screensaver_light_range && working && !flashlight)
 			set_light(screensaver_light_range, light_power, screensaver_light_color ? screensaver_light_color : "#FFFFFF")
@@ -185,21 +205,56 @@
 			set_light(0)
 		return
 	if(active_program)
-		var/state = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
+		var/state_program = active_program.program_icon_state ? active_program.program_icon_state : icon_state_menu
+		var/mutable_appearance/state = overlay_image(src.icon, state_program)
 		var/state_key = active_program.program_key_icon_state ? active_program.program_key_icon_state : icon_state_menu_key // for corresponding keyboards.
-		if (is_holographic)
-			holographic_overlay(src, src.icon, state)
-		else
-			AddOverlays(state)
-		AddOverlays(state_key)
+		if(is_holographic)
+			var/mutable_appearance/state_holographic = overlay_image(src.icon, state_program)
+			state_holographic.filters += filter(type="color", color=list(
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			state.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			state.blend_mode = BLEND_ADD
+			state_holographic.blend_mode = BLEND_MULTIPLY
+			AddOverlays(state_holographic)
+		AddOverlays(list(state, state_key))
+		var/emissive_image = emissive_appearance(src.icon, state_program)
+		var/emissive_image_key = emissive_appearance(src.icon, "[state_key]_mask")
+		AddOverlays(list(emissive_image, emissive_image_key))
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = active_program.color)
 	else
-		if (is_holographic)
-			holographic_overlay(src, src.icon, icon_state_menu)
-		else
-			AddOverlays(icon_state_menu)
-		AddOverlays(icon_state_menu_key)
+		var/mutable_appearance/menu = overlay_image(src.icon, icon_state_menu)
+		if(is_holographic)
+			var/mutable_appearance/holographic_menu = overlay_image(src.icon, icon_state_menu)
+			holographic_menu.filters += filter(type="color", color=list(
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			menu.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			menu.blend_mode = BLEND_ADD
+			holographic_menu.blend_mode = BLEND_MULTIPLY
+			AddOverlays(holographic_menu)
+		AddOverlays(list(menu, icon_state_menu_key))
+		var/emissive_menu = emissive_appearance(src.icon, icon_state_menu)
+		var/emissive_menu_key = emissive_appearance(src.icon, "[icon_state_menu_key]_mask")
+		AddOverlays(emissive_menu)
+		AddOverlays(emissive_menu_key)
 		if(!flashlight)
 			set_light(light_range, light_power, l_color = menu_light_color)
 

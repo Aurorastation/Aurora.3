@@ -35,6 +35,13 @@
 	max_heat_protection_temperature = FIRESUIT_MAX_HEAT_PROTECTION_TEMPERATURE
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 
+/obj/item/clothing/suit/fire/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "firesuit-emissive", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/suit/fire/atmos
 	name = "atmospheric technician firesuit"
 	desc = "A suit that protects against fire and heat, this one is designed for atmospheric technicians."
@@ -45,6 +52,13 @@
 	sprite_sheets = list(
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/fire.dmi'
 	)
+
+/obj/item/clothing/suit/fire/atmos/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "atmos_firesuit-emissive", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
 
 /*
  * Bomb protection
@@ -106,7 +120,9 @@
 /obj/item/clothing/suit/bomb_suit/equipped(var/mob/user, var/slot)
 	if (slot == slot_wear_suit)
 		var/mob/living/carbon/human/H = user
-		H.visible_message("<span class='notice'>[H] starts putting on \the [src]...</span>", "<span class='notice'>You start putting on \the [src]...</span>")
+		H.visible_message(SPAN_NOTICE("[H] starts putting on \the [src]..."),
+							SPAN_NOTICE("You start putting on \the [src]..."))
+
 		if(!do_after(H,50))
 			if(H && H.wear_suit == src)
 				H.wear_suit = null
@@ -116,7 +132,7 @@
 			return
 
 		wearer = user
-		to_chat(wearer, "<span class='Notice'>You struggle into the [src]. It feels hot, heavy and uncomfortable</span>")
+		to_chat(wearer, SPAN_NOTICE("You struggle into the [src]. It feels hot, heavy and uncomfortable"))
 		START_PROCESSING(SSprocessing, src)
 	else
 		wearer = null

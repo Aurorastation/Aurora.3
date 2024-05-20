@@ -14,7 +14,7 @@
 
 /obj/item/device/dociler/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
-	. += "<span class='notice'>It is currently set to [mode] docile mode.</span>"
+	. += SPAN_NOTICE("It is currently set to [mode] docile mode.")
 
 /obj/item/device/dociler/attack_self(var/mob/user)
 	if(mode == "somewhat")
@@ -28,11 +28,11 @@
 	if(!proximity) return
 
 	if(!istype(L, /mob/living/simple_animal))
-		to_chat(user, "<span class='warning'>\The [src] has no effect on \the [L].</span>")
+		to_chat(user, SPAN_WARNING("\The [src] has no effect on \the [L]."))
 		return
 
 	if(!loaded)
-		to_chat(user, "<span class='warning'>\The [src] isn't loaded!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] isn't loaded!"))
 		return
 
 	user.visible_message("\The [user] thrusts \the [src] deep into \the [L]'s head, injecting something!")
@@ -44,7 +44,7 @@
 	if(istype(L,/mob/living/simple_animal/hostile))
 		var/mob/living/simple_animal/hostile/H = L
 		if(!H.tameable)
-			to_chat(user, "<span class='warning'>\The [src] has no effect on \the [L].</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has no effect on \the [L]."))
 			return
 		else
 			H.LoseTarget()

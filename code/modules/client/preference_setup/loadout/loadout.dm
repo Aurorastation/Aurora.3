@@ -159,16 +159,16 @@ var/list/gear_datums = list()
 	var/list/player_valid_gear_choices = valid_gear_choices()
 	for(var/gear_name in pref.gear)
 		if(!gear_datums[gear_name])
-			to_chat(preference_mob, "<span class='warning'>You cannot have more than one of the \the [gear_name]</span>")
+			to_chat(preference_mob, SPAN_WARNING("You cannot have more than one of the \the [gear_name]"))
 			pref.gear -= gear_name
 		else if(!(gear_name in player_valid_gear_choices))
-			to_chat(preference_mob, "<span class='warning'>You cannot take \the [gear_name] as you are not whitelisted for the species.</span>")
+			to_chat(preference_mob, SPAN_WARNING("You cannot take \the [gear_name] as you are not whitelisted for the species."))
 			pref.gear -= gear_name
 		else
 			var/datum/gear/G = gear_datums[gear_name]
 			if(total_cost + G.cost > GLOB.config.loadout_cost)
 				pref.gear -= gear_name
-				to_chat(preference_mob, "<span class='warning'>You cannot afford to take \the [gear_name]</span>")
+				to_chat(preference_mob, SPAN_WARNING("You cannot afford to take \the [gear_name]"))
 			else
 				total_cost += G.cost
 

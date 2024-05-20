@@ -87,7 +87,7 @@
 			return
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(1))
-			to_chat(user, "<span class='notice'>Constructing support lattice ...</span>")
+			to_chat(user, SPAN_NOTICE("Constructing support lattice ..."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			ReplaceWithLattice()
 		return
@@ -104,7 +104,7 @@
 			ChangeTurf(/turf/simulated/floor/airless)
 			return
 		else
-			to_chat(user, "<span class='warning'>The plating is going to need some support.</span>")
+			to_chat(user, SPAN_WARNING("The plating is going to need some support."))
 
 	..()
 
@@ -112,7 +112,7 @@
 
 /turf/space/Entered(atom/movable/A as mob|obj)
 	if(movement_disabled)
-		to_chat(usr, "<span class='warning'>Movement is admin-disabled.</span>") //This is to identify lag problems)
+		to_chat(usr, SPAN_WARNING("Movement is admin-disabled.")) //This is to identify lag problems)
 		return
 	..(A, A.loc)
 	if ((!(A) || src != A.loc))	return
