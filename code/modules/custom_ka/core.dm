@@ -103,7 +103,7 @@
 	return round(installed_cell.stored_charge / cost_increase)
 
 /obj/item/gun/custom_ka/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
-	to_chat(user,"<span class='warning'>You override the safeties on the [src]...</span>")
+	to_chat(user,SPAN_WARNING("You override the safeties on the [src]..."))
 	is_emagged = 1
 	return 1
 
@@ -116,7 +116,7 @@
 /obj/item/gun/custom_ka/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 
 	if(require_wield && !wielded)
-		to_chat(user,"<span class='warning'>\The [src] is too heavy to fire with one hand!</span>")
+		to_chat(user,SPAN_WARNING("\The [src] is too heavy to fire with one hand!"))
 		return
 
 	if(!fire_checks(target,user,clickparams,pointblank,reflex))
@@ -181,13 +181,13 @@
 	else
 		switch(disaster)
 			if("spark")
-				to_chat(user,"<span class='danger'>\The [src] sparks!</span>")
+				to_chat(user,SPAN_DANGER("\The [src] sparks!"))
 				spark(src.loc, 3, GLOB.alldirs)
 			if("overheat")
-				to_chat(user,"<span class='danger'>\The [src] turns red hot!</span>")
+				to_chat(user,SPAN_DANGER("\The [src] turns red hot!"))
 				user.IgniteMob()
 			if("explode")
-				to_chat(user,"<span class='danger'>\The [src] violently explodes!</span>")
+				to_chat(user,SPAN_DANGER("\The [src] violently explodes!"))
 				explosion(get_turf(src.loc), 0, 1, 2, 4)
 				qdel(src)
 
@@ -389,7 +389,7 @@
 	. = ..()
 
 	if(!wielded)
-		to_chat(user,"<span class='warning'>You must be holding \the [src] with two hands to do this!</span>")
+		to_chat(user,SPAN_WARNING("You must be holding \the [src] with two hands to do this!"))
 		return
 
 	if(installed_cell)
@@ -577,8 +577,8 @@
 /obj/item/device/kinetic_analyzer/afterattack(var/atom/target, var/mob/living/user, proximity, params)
 
 	user.visible_message(
-		"<span class='warning'>\The [user] scans \the [target] with \the [src].</span>",
-		"<span class='alert'>You scan \the [target] with \the [src].</span>")
+		SPAN_WARNING("\The [user] scans \the [target] with \the [src]."),
+		SPAN_ALERT("You scan \the [target] with \the [src]."))
 
 	if(istype(target,/obj/item/gun/custom_ka))
 		playsound(src, 'sound/machines/ping.ogg', 10, 1)
@@ -596,8 +596,8 @@
 		Software Version: [ka.mod_limit_increase].[ka.mod_limit_increase*32 % 10].[ka.mod_limit_increase*64 % 324]<br>\
 		Available Power Flow: [ka.capacity_increase*10]kW<br>"
 
-		to_chat(user,"<span class='notice'>[total_message]</span>")
+		to_chat(user,SPAN_NOTICE("[total_message]"))
 	else
-		to_chat(user,"<span class='notice'>Nothing happens.</span>")
+		to_chat(user,SPAN_NOTICE("Nothing happens."))
 
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)

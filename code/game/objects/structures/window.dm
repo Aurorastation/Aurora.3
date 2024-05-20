@@ -170,7 +170,7 @@
 	if(istype(mover) && mover.checkpass(PASSGLASS))
 		return 1
 	if(is_full_window())
-		return 0	//full tile window, you can't move into it!
+		return !density	//full tile window, you can't move into it if it's solid!
 	if(get_dir(loc, target) & dir)
 		return !density
 	else

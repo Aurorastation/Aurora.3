@@ -133,4 +133,4 @@
 
 
 		if(hologram_message)
-			visible_message("<span class='notice'>[hologram_message]</span>")
+			visible_message(SPAN_NOTICE("[hologram_message]"))

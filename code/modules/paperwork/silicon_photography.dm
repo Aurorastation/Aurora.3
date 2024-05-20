@@ -39,7 +39,7 @@
 	var/list/nametemp = list()
 	var/find
 	if(cam.aipictures.len == 0)
-		to_chat(usr, "<span class='notice'>No images saved</span>")
+		to_chat(usr, SPAN_NOTICE("No images saved"))
 		return
 	for(var/obj/item/photo/t in cam.aipictures)
 		nametemp += t.name

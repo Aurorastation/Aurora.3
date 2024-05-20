@@ -229,13 +229,13 @@ var/global/const/base_law_type = /datum/ai_laws/nanotrasen
 			continue
 		var/mob/M = who
 		if(law == zeroth_law)
-			to_chat(who, "<span class='danger'>[law.get_index()]. [law.law]</span>")
+			to_chat(who, SPAN_DANGER("[law.get_index()]. [law.law]"))
 			if(ismob(who) && M.vr_mob)
-				to_chat(M.vr_mob, "<span class='danger'>[law.get_index()]. [law.law]</span>")
+				to_chat(M.vr_mob, SPAN_DANGER("[law.get_index()]. [law.law]"))
 		else
 			to_chat(who, "[law.get_index()]. [law.law]")
 			if(ismob(who) && M.vr_mob)
-				to_chat(M.vr_mob, "<span class='danger'>[law.get_index()]. [law.law]</span>")
+				to_chat(M.vr_mob, SPAN_DANGER("[law.get_index()]. [law.law]"))
 
 /datum/ai_laws/proc/get_laws(var/who)
 	. = list()
@@ -245,13 +245,13 @@ var/global/const/base_law_type = /datum/ai_laws/nanotrasen
 			continue
 		var/mob/M = who
 		if(law == zeroth_law)
-			. += "<span class='danger'>[law.get_index()]. [law.law]</span>"
+			. += SPAN_DANGER("[law.get_index()]. [law.law]")
 			if(ismob(who) && M.vr_mob)
-				. += "<span class='danger'>[law.get_index()]. [law.law]</span>"
+				. += SPAN_DANGER("[law.get_index()]. [law.law]")
 		else
 			. += "[law.get_index()]. [law.law]"
 			if(ismob(who) && M.vr_mob)
-				. += "<span class='danger'>[law.get_index()]. [law.law]</span>"
+				. += SPAN_DANGER("[law.get_index()]. [law.law]")
 
 /********************
 *	Stating Laws	*

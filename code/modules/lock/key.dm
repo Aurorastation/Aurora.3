@@ -25,7 +25,7 @@
 	uses--
 	if(uses <= 0)
 		user.drop_from_inventory(src,user)
-		to_chat(user, "<span class='warning'>\The [src] crumbles in your hands!</span>")
+		to_chat(user, SPAN_WARNING("\The [src] crumbles in your hands!"))
 		qdel(src)
 	return ..()
 

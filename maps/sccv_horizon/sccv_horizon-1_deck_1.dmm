@@ -18184,7 +18184,9 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 4
 	},
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 8
+	},
 /turf/simulated/floor/tiled,
 /area/hangar/intrepid)
 "mxX" = (
@@ -21240,6 +21242,9 @@
 	pixel_y = 8
 	},
 /obj/structure/table/rack,
+/obj/item/device/spaceflare,
+/obj/item/device/spaceflare,
+/obj/item/device/spaceflare,
 /obj/item/device/spaceflare,
 /obj/item/device/spaceflare,
 /obj/item/device/spaceflare,
@@ -30462,7 +30467,7 @@
 	dir = 6
 	},
 /obj/structure/table/standard,
-/obj/item/storage/firstaid,
+/obj/item/storage/firstaid/regular,
 /turf/simulated/floor/tiled/dark,
 /area/teleporter)
 "uWc" = (
@@ -33974,7 +33979,9 @@
 "xmc" = (
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /obj/machinery/door/firedoor,
-/obj/structure/plasticflaps/airtight,
+/obj/structure/plasticflaps/airtight{
+	dir = 4
+	},
 /obj/machinery/door/airlock/glass_mining{
 	dir = 4;
 	name = "Fuel Bay";
@@ -34147,6 +34154,15 @@
 	},
 /obj/effect/floor_decal/industrial/outline/custodial,
 /obj/machinery/power/apc/super/south,
+/obj/item/storage/bag/trash,
+/obj/item/storage/bag/trash{
+	pixel_x = -9;
+	pixel_y = 2
+	},
+/obj/item/storage/bag/trash{
+	pixel_x = -4;
+	pixel_y = -2
+	},
 /turf/simulated/floor/tiled,
 /area/horizon/custodial)
 "xqn" = (

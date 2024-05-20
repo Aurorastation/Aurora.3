@@ -72,6 +72,8 @@
 	assigned_role = "Orion Express Captain"
 	special_role = "Orion Express Captain"
 
+	idris_account_min = 1200
+	idris_account_max = 2500
 
 /obj/outfit/admin/orion_express_courier/captain
 	name = "Orion Express Captain"

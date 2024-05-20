@@ -2,6 +2,7 @@
 	name = "sensors console"
 	icon_screen = "sensors"
 	icon_keyboard = "cyan_key"
+	icon_keyboard_emis = "cyan_key_mask"
 	light_color = LIGHT_COLOR_CYAN
 	extra_view = 4
 	var/obj/machinery/iff_beacon/identification
@@ -40,6 +41,7 @@
 	icon = 'icons/obj/machinery/modular_terminal.dmi'
 	icon_screen = "teleport"
 	icon_keyboard = "teleport_key"
+	icon_keyboard_emis = "teleport_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE
@@ -441,13 +443,13 @@
 			return
 
 		if(WT.use(0,user))
-			to_chat(user, "<span class='notice'>You start repairing the damage to [src].</span>")
+			to_chat(user, SPAN_NOTICE("You start repairing the damage to [src]."))
 			playsound(src, 'sound/items/Welder.ogg', 100, 1)
 			if(WT.use_tool(src, user, max(5, damage / 5), volume = 50) && WT && WT.isOn())
-				to_chat(user, "<span class='notice'>You finish repairing the damage to [src].</span>")
+				to_chat(user, SPAN_NOTICE("You finish repairing the damage to [src]."))
 				take_damage(-damage)
 		else
-			to_chat(user, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+			to_chat(user, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 		return
 	..()
@@ -495,9 +497,9 @@
 	if(health <= 0)
 		. += "\The [src] is wrecked."
 	else if(health < max_health * 0.25)
-		. += "<span class='danger'>\The [src] looks like it's about to break!</span>"
+		. += SPAN_DANGER("\The [src] looks like it's about to break!")
 	else if(health < max_health * 0.5)
-		. += "<span class='danger'>\The [src] looks seriously damaged!</span>"
+		. += SPAN_DANGER("\The [src] looks seriously damaged!")
 	else if(health < max_health * 0.75)
 		. += "\The [src] shows signs of damage!"
 
@@ -527,7 +529,7 @@
 		if(desired_range-range <= -max_range/2)
 			set_range(range-1) // if working hard, spool down faster too
 		if(heat > critical_heat)
-			src.visible_message("<span class='danger'>\The [src] violently spews out sparks!</span>")
+			src.visible_message(SPAN_DANGER("\The [src] violently spews out sparks!"))
 			spark(src, 3, GLOB.alldirs)
 			take_damage(rand(10,50))
 			toggle()

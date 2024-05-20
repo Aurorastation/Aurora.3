@@ -38,7 +38,7 @@
 		BODYTYPE_VAURCA_BULWARK = 'icons/mob/species/bulwark/head.dmi'
 	)
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
-	body_parts_covered = HEAD|FACE|EYES
+	body_parts_covered = HEAD|EYES
 
 /obj/item/clothing/head/expression
 	name = "human expression mask"
@@ -129,7 +129,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/vaurca/deactivate(mob/living/user)
 	..()
@@ -140,7 +140,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/vaurca/box
 	name = "puzzle box"
@@ -152,25 +152,25 @@
 /obj/item/vaurca/box/attack_self(mob/user as mob)
 
 	if(isvaurca(user))
-		to_chat(user, "<span class='notice'>You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious.</span>")
+		to_chat(user, SPAN_NOTICE("You are familiar with the box's solution, and open it to reveal an ancient thing. How tedious."))
 		var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 		user.remove_from_mob(src)
 		user.put_in_hands(X)
 		qdel(src)
 
 	else if(isipc(user))
-		to_chat(user, "<span class='notice'>You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)</span>")
+		to_chat(user, SPAN_NOTICE("You analyze the box's markings, and begin to calculate with robotic efficiency every possible combination. (You must stand still to complete the puzzle box.)"))
 		if(do_after(user, 100))
-			to_chat(user, "<span class='notice'>Calculations complete. You begin to brute-force the box with a mechanical determination.</span>")
+			to_chat(user, SPAN_NOTICE("Calculations complete. You begin to brute-force the box with a mechanical determination."))
 			if(do_after(user, 600))
-				to_chat(user, "<span class='notice'>After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing.</span>")
+				to_chat(user, SPAN_NOTICE("After a minute of brute-force puzzle solving, the box finally opens to reveal an ancient thing."))
 				var/obj/item/archaeological_find/X = new /obj/item/archaeological_find
 				user.remove_from_mob(src)
 				user.put_in_hands(X)
 				qdel(src)
 
 	else
-		to_chat(user, "<span class='notice'>You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)</span>")
+		to_chat(user, SPAN_NOTICE("You stare at the box for a few seconds, trying to even comprehend what you're looking at... (You must stand still to complete the puzzle box.)"))
 		if(do_after(user, 60))
 			to_chat(user, "<span class = 'notice'>After a few more seconds, you hesitantly turn the first piece of the puzzle box.</span>")
 			if(do_after(user,30))
@@ -178,11 +178,11 @@
 				if(do_after(user,200))
 					to_chat(user, "<span class = 'notice'>Twenty seconds pass, and suddenly you're feeling a lot less confident. You struggle on...</span>")
 					if(do_after(user,100))
-						to_chat(user, "<span class='notice'>You blink, and suddenly you've lost your place, your thoughts, your mind...</span>")
+						to_chat(user, SPAN_NOTICE("You blink, and suddenly you've lost your place, your thoughts, your mind..."))
 						if(do_after(user,20))
-							to_chat(user, "<span class='notice'>You find yourself again, and get back to turning pieces. At this point it is just randomly.</span>")
+							to_chat(user, SPAN_NOTICE("You find yourself again, and get back to turning pieces. At this point it is just randomly."))
 							if(do_after(user,600))
-								to_chat(user, "<span class='notice'>A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs.</span>")
+								to_chat(user, SPAN_NOTICE("A minute goes by, and with one final turn the box looks just like it did when you started. Fucking bugs."))
 
 /obj/item/melee/vaurca/navcomp
 	name = "navcomp coordinate archive"
@@ -437,7 +437,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/vaurca_zweihander/deactivate(mob/living/user)
 	..()
@@ -448,7 +448,7 @@
 		var/mob/living/carbon/human/H = user
 		H.update_inv_l_hand()
 		H.update_inv_r_hand()
-	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/gun/launcher/crossbow/vaurca
 	name = "gauss rifle"
@@ -490,10 +490,10 @@
 	if(bolt)
 		if(tension < max_tension)
 			if(do_after(M, 5 * tension))
-				to_chat(M, "<span class='warning'>You pump [src], charging the magnetic coils.</span>")
+				to_chat(M, SPAN_WARNING("You pump [src], charging the magnetic coils."))
 				tension++
 		else
-			to_chat(M, "<span class='notice'>\The [src]'s magnetic coils are at maximum charge.</span>")
+			to_chat(M, SPAN_NOTICE("\The [src]'s magnetic coils are at maximum charge."))
 		return
 	var/obj/item/next
 	if(belt.len)
@@ -502,27 +502,27 @@
 		if(next)
 			belt -= next //Remove grenade from loaded list.
 			bolt = next
-			to_chat(M, "<span class='warning'>You pump [src], loading \a [next] into the chamber.</span>")
+			to_chat(M, SPAN_WARNING("You pump [src], loading \a [next] into the chamber."))
 		else
-			to_chat(M, "<span class='warning'>You pump [src], but the magazine is empty.</span>")
+			to_chat(M, SPAN_WARNING("You pump [src], but the magazine is empty."))
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/load(obj/item/W, mob/user)
 	if(belt.len >= belt_size)
-		to_chat(user, "<span class='warning'>[src] is full.</span>")
+		to_chat(user, SPAN_WARNING("[src] is full."))
 		return
 	user.remove_from_mob(W)
 	W.forceMove(src)
 	belt.Insert(1, W) //add to the head of the list, so that it is loaded on the next pump
-	user.visible_message("[user] inserts \a [W] into [src].", "<span class='notice'>You insert \a [W] into [src].</span>")
+	user.visible_message("[user] inserts \a [W] into [src].", SPAN_NOTICE("You insert \a [W] into [src]."))
 
 /obj/item/gun/launcher/crossbow/vaurca/proc/unload(mob/user)
 	if(belt.len)
 		var/obj/item/arrow/rod/R = belt[belt.len]
 		belt.len--
 		user.put_in_hands(R)
-		user.visible_message("[user] removes \a [R] from [src].", "<span class='notice'>You remove \a [R] from [src].</span>")
+		user.visible_message("[user] removes \a [R] from [src].", SPAN_NOTICE("You remove \a [R] from [src]."))
 	else
-		to_chat(user, "<span class='warning'>[src] is empty.</span>")
+		to_chat(user, SPAN_WARNING("[src] is empty."))
 
 /obj/item/gun/launcher/crossbow/vaurca/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/arrow))

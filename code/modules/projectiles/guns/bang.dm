@@ -23,7 +23,7 @@
 
 /obj/item/gun/bang/handle_click_empty(mob/user)
 	if (user)
-		to_chat(user, "<span class='danger'>The flag is already out!</span>")
+		to_chat(user, SPAN_DANGER("The flag is already out!"))
 
 /obj/item/gun/bang/Fire(atom/target, mob/living/user, clickparams, pointblank=0, reflex=0)
 	if(!user || !target) return
@@ -35,9 +35,9 @@
 	add_fingerprint(user)
 
 	if (user)
-		user.visible_message("<span class='danger'>A flag pops out of the barrel!</span>")
+		user.visible_message(SPAN_DANGER("A flag pops out of the barrel!"))
 	else
-		src.visible_message("<span class='danger'>A flag pops out of the barrel of \the [src.name]'s barrel!</span>")
+		src.visible_message(SPAN_DANGER("A flag pops out of the barrel of \the [src.name]'s barrel!"))
 	playsound(src, fire_sound, 20, 1)
 	src.AddOverlays(bang_flag)
 	fired_gun = 1
@@ -45,7 +45,9 @@
 /obj/item/gun/bang/attack_hand(mob/user as mob)
 	if(user.get_inactive_hand() == src && fired_gun)
 		src.CutOverlays(bang_flag)
-		user.visible_message("<span class='notice'>\The [user] pushes the flag back into the barrel of \the [src.name].</span>", "<span class='notice'>You push the flag back into the barrel of \the [src.name].</span>")
+		user.visible_message(SPAN_NOTICE("\The [user] pushes the flag back into the barrel of \the [src.name]."),
+								SPAN_NOTICE("You push the flag back into the barrel of \the [src.name]."))
+
 		playsound(src.loc, 'sound/weapons/TargetOff.ogg', 50,1)
 		fired_gun = 0
 	else

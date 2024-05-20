@@ -7,6 +7,12 @@
 	w_class = ITEMSIZE_SMALL
 	var/list/valid_z_levels = list()
 	var/area_prefix
+	///Will these blueprints display the wire schema?
+	var/show_wires = TRUE
+	///Airlock wires
+	var/datum/wires/airlock/blueprint/airlock_wires
+	///Vending machine wires
+	var/datum/wires/vending/blueprint/vending_wires
 
 /obj/item/blueprints/Initialize(mapload, ...)
 	. = ..()
@@ -14,6 +20,9 @@
 
 /obj/item/blueprints/LateInitialize()
 	. = ..()
+	if(show_wires)
+		airlock_wires = new(src)
+		vending_wires = new(src)
 	desc = "Blueprints of the [station_name()]. There is a \"Classified\" stamp and several coffee stains on it."
 	if(set_valid_z_levels())
 		create_blueprint_component()
@@ -22,6 +31,15 @@
 	if(use_check_and_message(usr, USE_DISALLOW_SILICONS) || usr.get_active_hand() != src)
 		return
 	add_fingerprint(user)
+	if(show_wires)
+		var/choice = tgui_alert(user, "Select blueprint action", "Blueprints", list("Airlock Wire Schema", "Vending Wire Schema", "Use Blueprints"))
+		if(choice == "Airlock Wire Schema")
+			airlock_wires.get_wire_diagram(user)
+		else if(choice == "Vending Wire Schema")
+			vending_wires.get_wire_diagram(user)
+		if(choice != "Use Blueprints") //Don't do the normal blueprints stuff if the user just wants wires
+			return
+
 	var/datum/component/eye/blueprints = GetComponent(/datum/component/eye)
 	if(!(user.z in valid_z_levels))
 		to_chat(user, SPAN_WARNING("The markings on this are entirely irrelevant to your whereabouts!"))
@@ -60,6 +78,7 @@
 /obj/item/blueprints/outpost
 	name = "outpost blueprints"
 	icon_state = "blueprints2"
+	show_wires = FALSE
 
 /obj/item/blueprints/outpost/attack_self(mob/user)
 	if(!length(valid_z_levels) || !valid_z_levels) //Outpost blueprints can initialize before exoplanets, so put this in here to doublecheck it.

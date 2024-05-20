@@ -57,13 +57,13 @@
 	if (attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		if(WT.use(1, user))
-			to_chat(user, "<span class='notice'>Slicing lattice joints ...</span>")
+			to_chat(user, SPAN_NOTICE("Slicing lattice joints ..."))
 		new /obj/item/stack/rods(src.loc)
 		qdel(src)
 	if (istype(attacking_item, /obj/item/stack/rods))
 		var/obj/item/stack/rods/R = attacking_item
 		if (R.use(2))
-			to_chat(user, "<span class='notice'>Constructing catwalk ...</span>")
+			to_chat(user, SPAN_NOTICE("Constructing catwalk ..."))
 			playsound(src, 'sound/weapons/Genhit.ogg', 50, 1)
 			new /obj/structure/lattice/catwalk(src.loc)
 			qdel(src)
