@@ -2108,7 +2108,7 @@
 /area/rnd/isolation_c)
 "aff" = (
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half,
 /obj/item/clothing/gloves/latex/nitrile,
 /obj/item/clothing/suit/hazmat/anomaly,
@@ -5150,7 +5150,7 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
 	pixel_y = -4
@@ -5202,7 +5202,7 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
 	pixel_y = -4
@@ -10203,7 +10203,7 @@
 	req_access = list(7)
 	},
 /obj/structure/table/rack,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/item/clothing/mask/gas/half{
 	pixel_x = -6;
 	pixel_y = -4

@@ -5719,7 +5719,7 @@
 	req_access = null
 	},
 /obj/random/loot,
-/obj/item/clothing/glasses/science,
+/obj/item/clothing/glasses/safety/goggles/science,
 /obj/structure/cable{
 	icon_state = "0-2"
 	},
