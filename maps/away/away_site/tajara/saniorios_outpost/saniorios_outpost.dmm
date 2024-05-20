@@ -2275,6 +2275,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
