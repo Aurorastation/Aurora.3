@@ -479,6 +479,12 @@ Follow by example and make good judgement based on length which list to include 
 	length = 3
 	chatname = "hair drills"
 
+/datum/sprite_accessory/hair/eagle
+	name = "Eagle"
+	icon_state = "hair_eagle"
+	length = 1
+	chatname = "short hair"
+
 /datum/sprite_accessory/hair/emo
 	name = "Emo"
 	icon_state = "hair_emo"
@@ -564,6 +570,12 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Fade, None"
 	icon_state = "hair_fade_none"
 	chatname = "short hair"
+
+/datum/sprite_accessory/hair/falcon
+	name = "Falcon"
+	icon_state = "hair_falcon"
+	length = 3
+	chatname = "very long hair"
 
 /datum/sprite_accessory/hair/father
 	name = "Father"
@@ -702,6 +714,12 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_hitop"
 	chatname = "hitop"
 
+/datum/sprite_accessory/hair/hummingbird
+	name = "Hummingbird"
+	icon_state = "hair_hummingbird"
+	length = 2
+	chatname = "long hair"
+
 /datum/sprite_accessory/hair/jade
 	name = "Jade"
 	icon_state = "hair_jade"
@@ -758,6 +776,18 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_long_verylong"
 	length = 4
 	chatname = "very long hair"
+
+/datum/sprite_accessory/hair/macaw
+	name = "Macaw"
+	icon_state = "hair_macaw"
+	length = 2
+	chatname = "long hair"
+
+/datum/sprite_accessory/hair/macaw
+	name = "Magpie"
+	icon_state = "hair_magpie"
+	length = 2
+	chatname = "long hair"
 
 /datum/sprite_accessory/hair/marysue
 	name = "Mary Sue"
@@ -911,6 +941,12 @@ Follow by example and make good judgement based on length which list to include 
 	name = "Overeye, Very Short Alt"
 	icon_state = "hair_overeye_veryshort_alt"
 	chatname = "short hair"
+
+/datum/sprite_accessory/hair/owl
+	name = "Owl"
+	icon_state = "hair_owl"
+	length = 2
+	chatname = "long hair"
 
 /datum/sprite_accessory/hair/oxton
 	name = "Oxton"
@@ -1409,6 +1445,18 @@ Follow by example and make good judgement based on length which list to include 
 	icon_state = "hair_spiky"
 	species_allowed = list(/datum/species/human,/datum/species/human/offworlder,/datum/species/machine/shell,/datum/species/machine/shell/rogue,/datum/species/zombie)
 	chatname = "mighty spikes"
+
+/datum/sprite_accessory/hair/starling
+	name = "Starling"
+	icon_state = "hair_starling"
+	length = 2
+	chatname = "long hair"
+
+/datum/sprite_accessory/hair/stork
+	name = "Stork"
+	icon_state = "hair_stork"
+	length = 2
+	chatname = "long hair"
 
 /datum/sprite_accessory/hair/straightlong
 	name = "Straight Long"
