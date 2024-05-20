@@ -277,3 +277,56 @@
   - qol: Brings the fuel tank of the Tajaran Smuggler vessel into the modern age.
   - bugfix: Fixes all the un-pixelshifted lights, and adds an airlock where someone
       forgot to add one again when pulling out the old deprecated airlocks.
+2024-05-20:
+  Acetrea:
+  - rscadd: Added sprites for moghresian meat.
+  - rscadd: Added a name for vaurca meat.
+  - balance: Made stok meat type moghresian.
+  - bugfix: Fixed bugmeat sprite.
+  Ben10083:
+  - balance: Some Tajaran ships have different spawn weights in certain allied sectors.
+  - rscdel: Xanu Frigate removed from Badlands.
+  - rscdel: Coalition ship spawn chance in Badlands reduced
+  CourierBravo:
+  - qol: Made various changes to the Iris Wreck away site to make it look more pretty
+      and in line with our current ship designs.
+  - bugfix: Idris Wreck seemed to use two different colors of steel tiles. One for
+      airless and one for pressurized They're nearly identical, but there's a very
+      slight color difference. Standardized on one style of tiles.
+  - bugfix: Fixed some misplaced lighting and infrastructure in the Idris Wreck
+  - bugfix: Replaced the APC in the starboard docking arm with a standard sized APC
+  Crosarius:
+  - bugfix: Selecting diona nymph lunchbox in the loadout now correctly gives you
+      the diona nymph lunchbox on spawn.
+  - rscadd: Added chewing koko. An chewable form of the Unathi narcotic 'Koko', available
+      in vending machines and the loadout.
+  Evandorf:
+  - bugfix: Corrected Dock Target, verified vars, and removed extra docking controller
+      to resolve the Kataphract shuttle not docking properly.
+  FluffyGhost:
+  - refactor: Minor span refactoring.
+  - rscadd: Added telefreedom implants, including a box with (almost) everything you
+      need to make them work for 4 people, and added it to the uplink. The implant
+      allows you to teleport to the linked telepad (you link it by clicking on the
+      telepad with the implent in hand before implanting) one time before melting.
+  - bugfix: Fixed implanters not taking the implant and dropping it to the ground
+      when hit by one (while keeping it referenced).
+  - bugfix: Fixed newline issue in custom item descriptions.
+  Hazelmouse:
+  - rscadd: Added more hivebots to the Hivebot Hub offsite.
+  - bugfix: Fixed airlock on the Izharshan Shuttle offship.
+  - bugfix: Fixed port CO2 console on Scarab Salvager offship.
+  - qol: Various quality-of-life tweaks to the Scarab Salvager and Izharshan Shuttle
+      offships.
+  Pirouette:
+  - bugfix: Replaced a camera gun mapped into research with an actual camera.
+  RustingWithYou:
+  - qol: Blueprints display wire schemas again.
+  SimpleMaroon:
+  - qol: Made some of the pixels for Mecha Eyes for Vaurca Workers and Warriors much
+      less bright, improving the look overall.
+  Tzui5020:
+  - bugfix: Fixes the Aft Airlock on the Ranger Gunship not working.
+  - qol: Adds an Autolathe to the Ranger Gunship.
+  - qol: Adds more navpoints for Boarding actions or anything else
+  - qol: Adds some Lights to the Thrusters too so you can see
