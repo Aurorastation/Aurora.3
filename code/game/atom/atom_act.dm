@@ -10,6 +10,9 @@
  * Respond to fire being used on our atom
  *
  * Default behaviour is to send [COMSIG_ATOM_FIRE_ACT] and return
+ *
+ * * exposed_temperature - The temperature the atom was exposed to, in kelvin
+ * * exposed_volume - The volume the atom was exposed to, in units
  */
 /atom/proc/fire_act(exposed_temperature, exposed_volume)
 	SHOULD_CALL_PARENT(TRUE)
