@@ -21,14 +21,14 @@
 
 /obj/item/gun/energy/wand/handle_click_empty(mob/user = null)
 	if (user)
-		user.visible_message("*fizzle*", "<span class='danger'>*fizzle*</span>")
+		user.visible_message("*fizzle*", SPAN_DANGER("*fizzle*"))
 	else
 		src.visible_message("*fizzle*")
 	playsound(src.loc, 'sound/effects/sparks1.ogg', 100, 1)
 
 /obj/item/gun/energy/wand/special_check(var/mob/living/user)
 	if((user.mutations & HULK))
-		to_chat(user, "<span class='danger'>In your rage you momentarily forget the operation of this wand!</span>")
+		to_chat(user, SPAN_DANGER("In your rage you momentarily forget the operation of this wand!"))
 		return 0
 	return 1
 

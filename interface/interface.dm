@@ -14,7 +14,7 @@
 
 		send_link(src, to_open)
 	else
-		to_chat(src, "<span class='warning'>The wiki URL is not set in the server configuration.</span>")
+		to_chat(src, SPAN_WARNING("The wiki URL is not set in the server configuration."))
 
 /client/verb/forum()
 	set name = "forum"
@@ -25,7 +25,7 @@
 			return
 		send_link(src, GLOB.config.forumurl)
 	else
-		to_chat(src, "<span class='warning'>The forum URL is not set in the server configuration.</span>")
+		to_chat(src, SPAN_WARNING("The forum URL is not set in the server configuration."))
 	return
 
 /client/verb/reportbug()

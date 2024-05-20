@@ -57,7 +57,7 @@ GLOBAL_LIST_EMPTY(mecha_icon_cache)
 				if(far_icon_state in mecha_weapon_overlays)
 					new_overlays += get_mech_image(far_icon_state, 'icons/mecha/mecha_weapon_overlays.dmi', null, MOB_LAYER)
 
-	overlays = new_overlays
+	SetOverlays(new_overlays)
 
 /mob/living/heavy_vehicle/regenerate_icons()
 	return

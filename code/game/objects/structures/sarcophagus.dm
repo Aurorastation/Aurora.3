@@ -41,7 +41,7 @@
 	if(open)
 		return
 	if(istype(attacking_item, /obj/item/sarcophagus_key))
-		to_chat(usr, "<span class='notice'>You slide \the [attacking_item] inside an opening in \the [src].</span>")
+		to_chat(usr, SPAN_NOTICE("You slide \the [attacking_item] inside an opening in \the [src]."))
 		open()
 
 /obj/structure/sarcophagus/proc/open()

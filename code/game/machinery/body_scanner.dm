@@ -287,8 +287,10 @@
 		return
 	else
 		if(!console_overlay)
-			console_overlay = make_screen_overlay(icon, "body_scannerconsole-screen")
+			console_overlay = image(icon, "body_scannerconsole-screen")
+		var/emissive_overlay = emissive_appearance(icon, "body_scannerconsole-screen")
 		AddOverlays(console_overlay)
+		AddOverlays(emissive_overlay)
 		set_light(1.4, 1, COLOR_PURPLE)
 
 /obj/machinery/body_scanconsole/Initialize()
@@ -828,7 +830,7 @@
 		dat += "</table>"
 
 	if(occ["missing_limbs"] != "Nothing")
-		dat += text("<span class='warning'>Missing limbs : [occ["missing_limbs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing limbs : [occ["missing_limbs"]]<BR>")
 
 	dat += "<br><b>Internal Organ Status<HR></b>"
 
@@ -852,7 +854,7 @@
 		dat += "</table>"
 
 	if(occ["missing_organs"] != "Nothing")
-		dat += text("<span class='warning'>Missing organs : [occ["missing_organs"]]</span><BR>")
+		dat += SPAN_WARNING("Missing organs : [occ["missing_organs"]]<BR>")
 
 	dat += "</font></font>"
 

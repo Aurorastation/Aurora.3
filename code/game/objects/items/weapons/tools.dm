@@ -443,7 +443,7 @@
 		return
 	if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && !welding)
 		O.reagents.trans_to_obj(src, max_fuel)
-		to_chat(user, "<span class='notice'>You refuel your welder.</span>")
+		to_chat(user, SPAN_NOTICE("You refuel your welder."))
 		playsound(src.loc, 'sound/effects/refill.ogg', 50, 1, -6)
 		return
 	else if(istype(O, /obj/structure/reagent_dispensers/fueltank) && O.Adjacent(user) && welding)
@@ -452,9 +452,9 @@
 			return
 		var/obj/structure/reagent_dispensers/fueltank/tank = O
 		if(tank.armed)
-			to_chat(user, "<span class='warning'>You are already heating \the [O]!</span>")
+			to_chat(user, SPAN_WARNING("You are already heating \the [O]!"))
 			return
-		user.visible_message("<span class='warning'>[user] begins heating \the [O]...</span>", "<span class='warning'>You start to heat \the [O]!</span>")
+		user.visible_message(SPAN_WARNING("[user] begins heating \the [O]..."), SPAN_WARNING("You start to heat \the [O]!"))
 		switch(alert("Are you sure you want to do this? It is quite dangerous and could get you in trouble.", "Heat up fuel tank", "No", "Yes"))
 			if("Yes")
 				log_and_message_admins("is attempting to welderbomb", user)
@@ -534,9 +534,9 @@
 	if(set_welding && !welding)
 		if (get_fuel() > 0)
 			if(M)
-				to_chat(M, "<span class='notice'>You switch the [src] on.</span>")
+				to_chat(M, SPAN_NOTICE("You switch the [src] on."))
 			else if(T)
-				T.visible_message("<span class='danger'>\The [src] turns on.</span>")
+				T.visible_message(SPAN_DANGER("\The [src] turns on."))
 			playsound(loc, 'sound/items/welder_activate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 			force = 22
 			damtype = DAMAGE_BURN
@@ -548,14 +548,14 @@
 			set_processing(TRUE)
 		else
 			if(M)
-				to_chat(M, "<span class='notice'>You need more welding fuel to complete this task.</span>")
+				to_chat(M, SPAN_NOTICE("You need more welding fuel to complete this task."))
 			return
 	//Otherwise
 	else if(!set_welding && welding)
 		if(M)
-			to_chat(M, "<span class='notice'>You switch \the [src] off.</span>")
+			to_chat(M, SPAN_NOTICE("You switch \the [src] off."))
 		else if(T)
-			T.visible_message("<span class='warning'>\The [src] turns off.</span>")
+			T.visible_message(SPAN_WARNING("\The [src] turns off."))
 		playsound(loc, 'sound/items/welder_deactivate.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 		force = 3
 		damtype = DAMAGE_BRUTE

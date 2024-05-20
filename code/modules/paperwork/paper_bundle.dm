@@ -22,7 +22,7 @@
 	if (istype(attacking_item, /obj/item/paper/carbon))
 		var/obj/item/paper/carbon/C = attacking_item
 		if (!C.iscopy && !C.copied)
-			to_chat(user, "<span class='notice'>Take off the carbon copy first.</span>")
+			to_chat(user, SPAN_NOTICE("Take off the carbon copy first."))
 			add_fingerprint(user)
 			return
 	// adding sheets
@@ -43,7 +43,7 @@
 			pages.Add(O)
 			amount++
 
-		to_chat(user, "<span class='notice'>You add \the [attacking_item.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		to_chat(user, SPAN_NOTICE("You add \the [attacking_item.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 		attack_self(usr) //Update the browsed page.
 		qdel(attacking_item)
 	else
@@ -60,9 +60,9 @@
 
 /obj/item/paper_bundle/proc/insert_sheet_at(mob/user, var/index, obj/item/sheet)
 	if(istype(sheet, /obj/item/paper))
-		to_chat(user, "<span class='notice'>You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "paper") ? "the paper" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 	else if(istype(sheet, /obj/item/photo))
-		to_chat(user, "<span class='notice'>You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name].</span>")
+		to_chat(user, SPAN_NOTICE("You add [(sheet.name == "photo") ? "the photo" : sheet.name] to [(src.name == "paper bundle") ? "the paper bundle" : src.name]."))
 
 	user.drop_from_inventory(sheet,src)
 
@@ -89,14 +89,14 @@
 				qdel(src)
 
 			else
-				to_chat(user, "<span class='warning'>You must hold \the [P] steady to burn \the [src].</span>")
+				to_chat(user, SPAN_WARNING("You must hold \the [P] steady to burn \the [src]."))
 
 /obj/item/paper_bundle/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(is_adjacent)
 		src.show_content(user)
 	else
-		. += "<span class='notice'>It is too far away.</span>"
+		. += SPAN_NOTICE("It is too far away.")
 
 /obj/item/paper_bundle/proc/show_content(mob/user as mob)
 	var/dat
@@ -251,7 +251,7 @@
 	set category = "Object"
 	set src in usr
 
-	to_chat(usr, "<span class='notice'>You loosen the bundle.</span>")
+	to_chat(usr, SPAN_NOTICE("You loosen the bundle."))
 	for(var/obj/O in src)
 		O.forceMove(usr.loc)
 		O.reset_plane_and_layer()

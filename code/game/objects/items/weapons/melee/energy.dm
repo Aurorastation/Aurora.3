@@ -47,8 +47,8 @@
 /obj/item/melee/energy/attack_self(mob/living/user as mob)
 	if(active)
 		if ((user.is_clumsy()) && prob(50))
-			user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
-			"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
+			user.visible_message(SPAN_DANGER("\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src]."),\
+			SPAN_DANGER("You accidentally cut yourself with \the [src]."))
 			user.take_organ_damage(5,5)
 		deactivate(user)
 	else
@@ -64,7 +64,7 @@
 
 /obj/item/melee/energy/handle_shield(mob/user, var/on_back, var/damage, atom/damage_source = null, mob/attacker = null, var/def_zone = null, var/attack_text = "the attack")
 	if(active && default_parry_check(user, attacker, damage_source) && prob(50))
-		user.visible_message("<span class='danger'>\The [user] parries [attack_text] with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] parries [attack_text] with \the [src]!"))
 		spark(src, 5)
 		playsound(user.loc, 'sound/weapons/blade.ogg', 50, 1)
 		return PROJECTILE_STOPPED
@@ -96,7 +96,7 @@
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(P.starting && prob(reflectchance))
-						visible_message("<span class='danger'>\The [user]'s [src.name] reflects [attack_text]!</span>")
+						visible_message(SPAN_DANGER("\The [user]'s [src.name] reflects [attack_text]!"))
 
 						// Find a turf near or on the original location to bounce to
 						var/new_x = P.starting.x + pick(0, 0, 0, 0, 0, -1, 1, -2, 2)
@@ -108,7 +108,7 @@
 
 						return PROJECTILE_CONTINUE // complete projectile permutation
 					else
-						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return PROJECTILE_STOPPED
 
 				else if(istype(damage_source, /obj/item/projectile/bullet) && can_block_bullets)
@@ -116,7 +116,7 @@
 					if(!(def_zone in list(BP_CHEST, BP_GROIN,BP_HEAD)))
 						reflectchance /= 2
 					if(prob(reflectchance))
-						user.visible_message("<span class='danger'>\The [user] blocks [attack_text] with \the [src]!</span>")
+						user.visible_message(SPAN_DANGER("\The [user] blocks [attack_text] with \the [src]!"))
 						return PROJECTILE_STOPPED
 
 /obj/item/melee/energy/get_print_info()
@@ -156,12 +156,12 @@
 /obj/item/melee/energy/glaive/activate(mob/living/user)
 	..()
 	icon_state = "eglaive1"
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/glaive/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	to_chat(user, "<span class='notice'>\The [src] is de-energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised."))
 
 /obj/item/melee/energy/glaive/attack(mob/living/carbon/human/M as mob, mob/living/carbon/user as mob)
 	user.setClickCooldown(16)
@@ -202,12 +202,12 @@
 /obj/item/melee/energy/axe/activate(mob/living/user)
 	..()
 	icon_state = "axe1"
-	to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 
 /obj/item/melee/energy/axe/deactivate(mob/living/user)
 	..()
 	icon_state = initial(icon_state)
-	to_chat(user, "<span class='notice'>\The [src] is de-energised. It's just a regular axe now.</span>")
+	to_chat(user, SPAN_NOTICE("\The [src] is de-energised. It's just a regular axe now."))
 
 /obj/item/melee/energy/axe/can_woodcut()
 	if(active)
@@ -262,14 +262,14 @@
 
 /obj/item/melee/energy/sword/activate(mob/living/user)
 	if(!active)
-		to_chat(user, "<span class='notice'>\The [src] is now energised.</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] is now energised."))
 	..()
 	attack_verb = list("attacked", "slashed", "stabbed", "sliced", "torn", "ripped", "diced", "cut")
 	icon_state = "sword[blade_color]"
 
 /obj/item/melee/energy/sword/deactivate(mob/living/user)
 	if(active)
-		to_chat(user, "<span class='notice'>\The [src] deactivates!</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] deactivates!"))
 	..()
 	attack_verb = list()
 	icon_state = initial(icon_state)
@@ -413,8 +413,8 @@
 /obj/item/melee/energy/sword/powersword/attack_self(mob/living/user as mob)
 	..()
 	if(prob(30))
-		user.visible_message("<span class='danger'>\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src].</span>",\
-		"<span class='danger'>You accidentally cut yourself with \the [src].</span>")
+		user.visible_message(SPAN_DANGER("\The [user] accidentally cuts [user.get_pronoun("himself")] with \the [src]."),\
+		SPAN_DANGER("You accidentally cut yourself with \the [src]."))
 		user.take_organ_damage(5,5)
 /*
  *Energy Blade

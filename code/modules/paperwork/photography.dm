@@ -62,9 +62,9 @@ var/global/photo_count = 0
 	. = ..()
 	if(distance <= 1)
 		show(user)
-		. += "<span class='notice'>[picture_desc]</span>"
+		. += SPAN_NOTICE("[picture_desc]")
 	else
-		. += "<span class='notice'>You are too far away to discern its contents.</span>"
+		. += SPAN_NOTICE("You are too far away to discern its contents.")
 
 /obj/item/photo/proc/show(mob/user as mob)
 	send_rsc(user, img, "tmp_photo_[id].png")
@@ -167,7 +167,7 @@ var/global/photo_count = 0
 	var/nsize = input("Photo Size","Pick a size of resulting photo.") as null|anything in list(1,3,5,7)
 	if(nsize)
 		size = nsize
-		to_chat(usr, "<span class='notice'>Camera will now take [size]x[size] photos.</span>")
+		to_chat(usr, SPAN_NOTICE("Camera will now take [size]x[size] photos."))
 
 /obj/item/device/camera/attack(mob/living/carbon/human/M as mob, mob/user as mob)
 	return
@@ -184,9 +184,9 @@ var/global/photo_count = 0
 /obj/item/device/camera/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/device/camera_film))
 		if(pictures_left)
-			to_chat(user, "<span class='notice'>[src] still has some film in it!</span>")
+			to_chat(user, SPAN_NOTICE("[src] still has some film in it!"))
 			return TRUE
-		to_chat(user, "<span class='notice'>You insert [attacking_item] into [src].</span>")
+		to_chat(user, SPAN_NOTICE("You insert [attacking_item] into [src]."))
 		user.drop_from_inventory(attacking_item, get_turf(src))
 		qdel(attacking_item)
 		pictures_left = pictures_max
@@ -222,7 +222,7 @@ var/global/photo_count = 0
 	do_photo_sound()
 
 	pictures_left--
-	to_chat(user, "<span class='notice'>[pictures_left] photos left.</span>")
+	to_chat(user, SPAN_NOTICE("[pictures_left] photos left."))
 	icon_state = icon_off
 	on = 0
 	spawn(64)

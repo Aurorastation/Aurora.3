@@ -283,7 +283,7 @@ Class Procs:
 		return 1
 	if ( ! (istype(usr, /mob/living/carbon/human) || \
 			istype(usr, /mob/living/silicon)))
-		to_chat(usr, "<span class='warning'>You don't have the dexterity to do this!</span>")
+		to_chat(usr, SPAN_WARNING("You don't have the dexterity to do this!"))
 		return 1
 /*
 	//distance checks are made by atom/proc/DblClick
@@ -293,10 +293,10 @@ Class Procs:
 	if (ishuman(user))
 		var/mob/living/carbon/human/H = user
 		if(H.getBrainLoss() >= 60)
-			visible_message("<span class='warning'>[H] stares cluelessly at [src] and drools.</span>")
+			visible_message(SPAN_WARNING("[H] stares cluelessly at [src] and drools."))
 			return 1
 		else if(prob(H.getBrainLoss()))
-			to_chat(user, "<span class='warning'>You momentarily forget how to use [src].</span>")
+			to_chat(user, SPAN_WARNING("You momentarily forget how to use [src]."))
 			return 1
 
 	src.add_fingerprint(user)
@@ -401,7 +401,7 @@ Class Procs:
 		return FALSE
 	S.play_tool_sound(get_turf(src), 50)
 	panel_open = !panel_open
-	to_chat(user, "<span class='notice'>You [panel_open ? "open" : "close"] the maintenance hatch of [src].</span>")
+	to_chat(user, SPAN_NOTICE("You [panel_open ? "open" : "close"] the maintenance hatch of [src]."))
 	update_icon()
 	return TRUE
 
@@ -429,7 +429,7 @@ Class Procs:
 						component_parts -= G
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[G.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[G.name] replaced with [B.name]."))
 						break
 		for(var/obj/item/stock_parts/A in component_parts)
 			for(var/D in CB.req_components)
@@ -445,13 +445,13 @@ Class Procs:
 						component_parts -= A
 						component_parts += B
 						B.forceMove(src)
-						to_chat(user, "<span class='notice'>[A.name] replaced with [B.name].</span>")
+						to_chat(user, SPAN_NOTICE("[A.name] replaced with [B.name]."))
 						parts_replaced = TRUE
 						break
 		RefreshParts()
 		update_icon()
 	else
-		to_chat(user, "<span class='notice'>The following parts have been detected in \the [src]:</span>")
+		to_chat(user, SPAN_NOTICE("The following parts have been detected in \the [src]:"))
 		to_chat(user, counting_english_list(component_parts))
 	if(parts_replaced) //only play sound when RPED actually replaces parts
 		playsound(src, 'sound/items/rped.ogg', 40, TRUE)
