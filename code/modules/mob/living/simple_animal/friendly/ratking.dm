@@ -38,7 +38,7 @@
 	body_color = "gray"
 
 	say_dead_direct("An heir to the rat throne has risen, all rejoice and celebrate.")
-	announceToRodents("<span class='notice'>The rat king has risen! Go at once and join his kingdom, long live the king!</span>")
+	announceToRodents(SPAN_NOTICE("The rat king has risen! Go at once and join his kingdom, long live the king!"))
 
 /mob/living/simple_animal/rat/king/death()
 	while(rats.len)
@@ -165,7 +165,7 @@
 	set name = "Decree"
 
 	if( !health )
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	var/input = sanitize(input(usr, "Please enter the [lowertext( announce_name )] for your whole kingdom.", "What?", "") as message|null, extra = 0)
@@ -183,18 +183,18 @@
 	set name = "Mighty Roar"
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
-		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
+		to_chat(usr, SPAN_WARNING("We must wait a little while before we can use this ability again!"))
 		return
 
 	if(!canRoar())
-		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
+		to_chat(usr, SPAN_WARNING("Our [swarm_name] must grow larger before we can use this ability!"))
 		return
 
-	src.visible_message("<span class='warning'>[src] lets loose a mighty roar!</span>")
+	src.visible_message(SPAN_WARNING("[src] lets loose a mighty roar!"))
 	for( var/obj/machinery/light/L in range( 3, src ))
 		if( canRoarBreakLights() && prob(( rats.len/RAT_EMPEROR_LEVEL )*100 ))
 			L.broken()
@@ -212,28 +212,28 @@
 		return
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>You are dead, you cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("You are dead, you cannot use any abilities!"))
 		return
 
 	if(!canEatCorpse())
-		to_chat(usr, "<span class='warning'>Our [swarm_name] must grow larger before we can use this ability!</span>")
+		to_chat(usr, SPAN_WARNING("Our [swarm_name] must grow larger before we can use this ability!"))
 		return
 
 	if(last_special > world.time)
-		to_chat(usr, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
+		to_chat(usr, SPAN_WARNING("We must wait a little while before we can use this ability again!"))
 		return
 
 	if(target.stat != DEAD)
-		to_chat(usr, "<span class='warning'>We can only devour the dead!</span>")
+		to_chat(usr, SPAN_WARNING("We can only devour the dead!"))
 		return
 
-	usr.visible_message("<span class='danger'>\The [usr] swarms the body of \the [target], ripping flesh from bone!</span>" )
+	usr.visible_message(SPAN_DANGER("\The [usr] swarms the body of \the [target], ripping flesh from bone!") )
 
 	if(!do_after(usr,200))
-		to_chat(src, "<span class='warning'>You need to wait longer to consume the body of [target]!</span>")
+		to_chat(src, SPAN_WARNING("You need to wait longer to consume the body of [target]!"))
 		return 0
 
-	src.visible_message("<span class='danger'>\The [usr] consumed the body of \the [target]!</span>")
+	src.visible_message(SPAN_DANGER("\The [usr] consumed the body of \the [target]!"))
 	target.gib()
 	rejuvenate()
 	updatehealth()

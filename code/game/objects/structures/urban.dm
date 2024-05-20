@@ -168,7 +168,7 @@
 		playsound(src.loc, 'sound/effects/stonedoor_openclose.ogg', 50, 1)
 		to_chat(user, "You forcibly relocate the manhole, hopefully in the right way.")
 	if(!open)
-		visible_message("<span class='warning'>A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made.</span>")
+		visible_message(SPAN_WARNING("A horrid smell erupts from the abyss of the manhole, not one any soul should inhale. Some mistakes were made."))
 		icon_state = "manhole_open"
 		desc = "This looks pretty dangerous, stinks horribly, and doesn't have a ladder inside. Watch out!"
 		open = 1
@@ -176,7 +176,7 @@
 		turf.is_hole = TRUE
 		return
 	if(open)
-		visible_message("<span class='warning'>The manhole clunks and seals back into place, safely burying our problems underground for someone else later.</span>")
+		visible_message(SPAN_WARNING("The manhole clunks and seals back into place, safely burying our problems underground for someone else later."))
 		icon_state = "manhole_closed"
 		desc = "It looks recently opened and sloppily closed."
 		open = 0

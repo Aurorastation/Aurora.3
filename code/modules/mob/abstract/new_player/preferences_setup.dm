@@ -260,6 +260,7 @@
 	if(gender)
 		mannequin.change_gender(gender)
 	dress_preview_mob(mannequin)
+	mannequin.ClearOverlays()
 	return mannequin
 
 /datum/preferences/proc/update_preview_icon()

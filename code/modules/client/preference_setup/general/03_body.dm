@@ -765,7 +765,7 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 				limb = BP_HEAD
 				carries_organs = 1
 			else
-				to_chat(user, "<span class='notice'>Cancelled.</span>")
+				to_chat(user, SPAN_NOTICE("Cancelled."))
 				return TOPIC_NOACTION
 
 		var/list/available_states = mob_species.possible_external_organs_modifications
@@ -965,9 +965,9 @@ var/global/list/valid_bloodtypes = list("A+", "A-", "B+", "B-", "AB+", "AB-", "O
 
 	if(restricted)
 		if(restricted == 1)
-			dat += "<span class='warning'><b>You cannot play as this species.</br><small>If you wish to be whitelisted, you can make an application post on <a href='?src=\ref[user];preference=open_whitelist_forum'>the forums</a>.</small></b></span></br>"
+			dat += SPAN_WARNING("<b>You cannot play as this species.</br><small>If you wish to be whitelisted, you can make an application post on <a href='?src=\ref[user];preference=open_whitelist_forum'>the forums</a>.</small></b></br>")
 		else if(restricted == 2)
-			dat += "<span class='warning'><b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></span></br>"
+			dat += SPAN_WARNING("<b>You cannot play as this species.</br><small>This species is not available for play as a station race.</small></b></br>")
 	if(!restricted || check_rights(R_ADMIN, 0))
 		dat += "\[<a href='?src=\ref[src];set_species=[html_encode(pref.species_preview)]'>select</a>\]"
 	dat += "</center>"

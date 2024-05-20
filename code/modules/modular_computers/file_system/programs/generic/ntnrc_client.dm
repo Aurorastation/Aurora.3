@@ -64,7 +64,7 @@
 		else
 			if((!computer.registered_id && !computer.register_account(src)))
 				return
-	if(service_state == PROGRAM_STATE_DISABLED)
+	if(service_state <= PROGRAM_STATE_KILLED) // Killed or disabled.
 		computer.enable_service(null, user, src)
 	if(computer.hidden_uplink && syndi_auth)
 		if(alert(user, "Resume or close and secure?", filedesc, "Resume", "Close") == "Resume")

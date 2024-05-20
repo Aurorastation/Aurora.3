@@ -169,7 +169,7 @@
 	secondary_fire_sound = null
 
 /obj/item/gun/energy/rifle/pulse/destroyer/toggle_firing_mode(mob/living/user)
-	to_chat(user, "<span class='warning'>[src.name] has three settings, and they are all DESTROY.</span>")
+	to_chat(user, SPAN_WARNING("[src.name] has three settings, and they are all DESTROY."))
 
 /obj/item/gun/energy/rifle/laser/tachyon
 	name = "tachyon rifle"
@@ -196,7 +196,7 @@
 	if(wielded)
 		toggle_scope(2.0, usr)
 	else
-		to_chat(usr, "<span class='warning'>You can't look through the scope without stabilizing the rifle!</span>")
+		to_chat(usr, SPAN_WARNING("You can't look through the scope without stabilizing the rifle!"))
 
 /obj/item/gun/energy/rifle/ionrifle
 	name = "ion rifle"
