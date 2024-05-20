@@ -208,7 +208,7 @@
 	filled = TRUE
 
 /obj/item/storage/toolbox/lunchbox/nymph
-	name = "\improper diona nymph lunchbox"
+	name = "Diona Nymph Lunchbox"
 	icon_state = "lunchbox_dionanymph"
 	item_state = "lunchbox_dionanymph"
 	desc = "A little lunchbox. This one has a diona nymph on the side."

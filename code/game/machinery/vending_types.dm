@@ -23,7 +23,6 @@
 	desc = "The mother of all vendors, from which vending itself comes!"
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
-	deny_time = 6
 	vend_id = "admin"
 	req_access = list(ACCESS_JANITOR)
 	products = list(
@@ -51,7 +50,7 @@
 	desc = "A technological marvel, supposedly able to mix just the mixture you'd like to drink the moment you ask for one."
 	icon_state = "boozeomat"        //////////////18 drink entities below, plus the glasses, in case someone wants to edit the number of bottles
 	icon_vend = "boozeomat-vend"
-	deny_time = 16
+	light_mask = "boozeomat-lightmask"
 	vend_id = "booze"
 	products = list(
 		/obj/item/reagent_containers/food/drinks/bottle/applejack = 5,
@@ -164,7 +163,6 @@
 	random_itemcount = 0
 	vending_sound = 'sound/machines/vending/vending_cans.ogg'
 	light_color = COLOR_PALE_BLUE_GRAY
-	exclusive_screen = FALSE
 	ui_size = 60
 
 /obj/machinery/vending/boozeomat/ui_data(mob/user)
@@ -222,6 +220,7 @@
 	vend_id = "tools"
 	icon_state = "generic"
 	icon_vend = "generic-vend"
+	light_mask = "generic-lightmask"
 	products = list(
 		/obj/item/device/assembly/prox_sensor = 5,
 		/obj/item/device/assembly/igniter = 3,
@@ -246,6 +245,7 @@
 	desc = "Just a normal vending machine - nothing to see here."
 	icon_state = "generic"
 	icon_vend = "generic-vend"
+	light_mask = "generic-lightmask"
 	contraband = null
 	random_itemcount = 0
 	products = list(
@@ -265,6 +265,8 @@
 	product_ads = "Have a drink!;Drink up!;It's good for you!;Would you like a hot joe?;I'd kill for some coffee!;The best beans in the galaxy.;Only the finest brew for you.;Mmmm. Nothing like a coffee.;I like coffee, don't you?;Coffee helps you work!;Try some tea.;We hope you like the best!;Try our new chocolate!;Admin conspiracies"
 	icon_state = "coffee"
 	icon_vend = "coffee-vend"
+	icon_screen = "coffee-screen"
+	light_mask = "coffee-lightmask"
 	vend_delay = 34
 	idle_power_usage = 211 //refrigerator - believe it or not, this is actually the average power consumption of a refrigerated vending machine according to NRCan.
 	vend_id = "coffee"
@@ -318,6 +320,7 @@
 	product_ads = "The healthiest!;Award-winning chocolate bars!;Mmm! So good!;Oh my god it's so juicy!;Have a snack.;Snacks are good for you!;Have some more Getmore!;Best quality snacks straight from mars.;We love chocolate!;Try our new jerky!"
 	icon_state = "snack"
 	icon_vend = "snack-vend"
+	light_mask = "snack-lightmask"
 	vend_id = "snacks"
 	products = list(
 		/obj/item/reagent_containers/food/snacks/candy = 6,
@@ -425,6 +428,9 @@
 	desc = "A soft drink vendor provided by an Idris subsidiary."
 	icon_state = "cola_machine"
 	icon_vend = "cola_machine-vend"
+	icon_deny = "cola_machine-deny"
+	icon_screen = "cola_machine-screen"
+	light_mask = "cola_machine-lightmask"
 	product_slogans = "Idris Re-Fresh: the more expensive the place, the more of us you'll seee!"
 	product_ads = "Refreshing!;Hope you're thirsty!;Thirsty? Why not cola?;Please, have a drink!;Drink up!;The best drinks in space."
 	vend_id = "cola"
@@ -533,6 +539,7 @@
 		/obj/item/storage/chewables/tobacco/fine = 5,
 		/obj/item/storage/chewables/tobacco/federation = 2,
 		/obj/item/storage/chewables/tobacco/dyn = 2,
+		/obj/item/storage/chewables/tobacco/koko = 2,
 		/obj/item/storage/chewables/oracle = 4,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 3,
 		/obj/item/storage/cigfilters = 6,
@@ -582,6 +589,7 @@
 		/obj/item/storage/chewables/tobacco/dyn = 85,
 		/obj/item/storage/box/fancy/chewables/tobacco/nico = 91,
 		/obj/item/storage/chewables/oracle = 76,
+		/obj/item/storage/chewables/tobacco/koko = 86,
 		/obj/item/storage/box/fancy/matches = 12,
 		/obj/item/flame/lighter/random = 12,
 		/obj/item/storage/cigfilters = 28,
@@ -626,7 +634,6 @@
 	desc = "Medical drug dispenser."
 	icon_state = "med"
 	icon_vend = "med-vend"
-	deny_time = 15
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?;Ping!"
 	req_access = list(ACCESS_MEDICAL_EQUIP)
 	vend_id = "meds"
@@ -701,7 +708,6 @@
 	desc = "A wall-mounted version of the NanoMed."
 	product_ads = "Go save some lives!;The best stuff for your medbay.;Only the finest tools.;Natural chemicals!;This stuff saves lives.;Don't you want some?"
 	icon_state = "wallmed"
-	deny_time = 15
 	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -733,7 +739,6 @@
 	name = "\improper NanoMed Mini"
 	desc = "A wall-mounted version of the NanoMed, containing only vital first aid equipment."
 	icon_state = "wallmed"
-	deny_time = 15
 	req_access = list(ACCESS_MEDICAL)
 	density = 0 //It is wall-mounted, and thus, not dense. --Superxpdude
 	vend_id = "meds"
@@ -767,7 +772,6 @@
 	product_ads = "Crack capitalist skulls!;Beat some heads in!;Don't forget - harm is good!;Your weapons are right here.;Handcuffs!;Freeze, scumbag!;Don't tase me bro!;Tase them, bro.;Why not have a donut?"
 	icon_state = "sec"
 	icon_vend = "sec-vend"
-	deny_time = 16
 	req_access = list(ACCESS_SECURITY)
 	vend_id = "security"
 	products = list(
@@ -798,7 +802,6 @@
 	restock_items = 1
 	random_itemcount = 0
 	light_color = COLOR_BABY_BLUE
-	exclusive_screen = FALSE
 	manufacturer = "zavodskoi"
 
 /obj/machinery/vending/hydronutrients
@@ -808,7 +811,6 @@
 	product_ads = "We like plants!;Don't you want some?;The greenest thumbs ever.;We like big plants.;Soft soil..."
 	icon_state = "nutri"
 	icon_vend = "nutri-vend"
-	deny_time = 6
 	vend_id = "hydro"
 	products = list(
 		/obj/item/reagent_containers/glass/fertilizer/ez = 6,
@@ -1036,6 +1038,7 @@
 	product_ads = "Mm, food stuffs!;Food and food accessories.;Get your plates!;You like forks?;I like forks.;Woo, utensils.;You don't really need these..."
 	icon_state = "dinnerware"
 	icon_vend = "dinnerware-vend"
+	light_mask = "dinnerware-lightmask"
 	vend_id = "cutlery"
 	products = list(
 		/obj/item/material/kitchen/utensil/fork = 12,
@@ -1156,7 +1159,6 @@
 	desc = "Tools for tools."
 	icon_state = "tool"
 	icon_vend = "tool-vend"
-	deny_time = 6
 	vend_id = "tools"
 	//req_access = list(ACCESS_MAINT_TUNNELS) //Maintenance access
 	products = list(
@@ -1192,7 +1194,6 @@
 	desc = "Spare tool vending. What? Did you expect some witty description?"
 	icon_state = "engivend"
 	icon_vend = "engivend-vend"
-	deny_time = 6
 	req_access = list(ACCESS_ENGINE)
 	vend_id = "tools"
 	products = list(
@@ -1223,7 +1224,6 @@
 	name = "Tactical Express"
 	desc = "Everything you need to ensure corporate bureaucracy makes it another day."
 	icon_state = "tact"
-	deny_time = 19
 	req_access = list(ACCESS_SECURITY)
 	vend_id = "tactical"
 	products = list(
@@ -1281,7 +1281,6 @@
 	desc = "Everything you need for do-it-yourself station repair."
 	icon_state = "engi"
 	icon_vend = "engi-vend"
-	deny_time = 6
 	req_access = list(ACCESS_ENGINE_EQUIP)
 	vend_id = "tools"
 	products = list(
@@ -1328,7 +1327,6 @@
 	desc = "All the tools you need to create your own robot army."
 	icon_state = "robotics"
 	icon_vend = "robotics-vend"
-	deny_time = 14
 	req_access = list(ACCESS_ROBOTICS)
 	vend_id = "robo-tools"
 	products = list(

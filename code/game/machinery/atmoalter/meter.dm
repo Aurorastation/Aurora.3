@@ -14,6 +14,9 @@
 	var/image/button_overlay
 	var/image/atmos_overlay
 
+	var/mutable_appearance/button_emissive
+	var/mutable_appearance/atmos_emissive
+
 
 /obj/machinery/meter/Initialize()
 	. = ..()
@@ -58,8 +61,10 @@
 	else
 		atmos_overlay_name = "pressure4"
 
-	button_overlay = image(icon, button_overlay_name)
-	atmos_overlay = image(icon, atmos_overlay_name)
+	button_overlay = overlay_image(icon, button_overlay_name)
+	atmos_overlay = overlay_image(icon, atmos_overlay_name)
+	button_emissive = emissive_appearance(icon, button_overlay_name)
+	atmos_emissive = emissive_appearance(icon, atmos_overlay_name)
 
 	var/env_temperature = environment.temperature
 
@@ -90,6 +95,8 @@
 
 	AddOverlays(button_overlay)
 	AddOverlays(atmos_overlay)
+	AddOverlays(button_emissive)
+	AddOverlays(atmos_emissive)
 
 	if(frequency)
 		var/datum/radio_frequency/radio_connection = SSradio.return_frequency(frequency)
@@ -140,11 +147,11 @@
 /obj/machinery/meter/attackby(obj/item/attacking_item, mob/user)
 	if (!attacking_item.iswrench())
 		return ..()
-	to_chat(user, "<span class='notice'>You begin to unfasten \the [src]...</span>")
+	to_chat(user, SPAN_NOTICE("You begin to unfasten \the [src]..."))
 	if(attacking_item.use_tool(src, user, 40, volume = 50))
 		user.visible_message( \
-			"<span class='notice'>\The [user] unfastens \the [src].</span>", \
-			"<span class='notice'>You have unfastened \the [src].</span>", \
+			SPAN_NOTICE("\The [user] unfastens \the [src]."), \
+			SPAN_NOTICE("You have unfastened \the [src]."), \
 			"You hear ratchet.")
 		new /obj/item/pipe_meter(src.loc)
 		qdel(src)

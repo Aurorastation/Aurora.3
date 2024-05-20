@@ -186,7 +186,7 @@ var/global/list/breach_burn_descriptors = list(
 			return
 
 		if(istype(src.loc,/mob/living))
-			to_chat(user, "<span class='warning'>How do you intend to patch a voidsuit while someone is wearing it?</span>")
+			to_chat(user, SPAN_WARNING("How do you intend to patch a voidsuit while someone is wearing it?"))
 			return
 
 		if(!damage || !burn_damage)
@@ -202,7 +202,7 @@ var/global/list/breach_burn_descriptors = list(
 	else if(attacking_item.iswelder())
 
 		if(istype(src.loc,/mob/living))
-			to_chat(user, "<span class='warning'>How do you intend to patch a voidsuit while someone is wearing it?</span>")
+			to_chat(user, SPAN_WARNING("How do you intend to patch a voidsuit while someone is wearing it?"))
 			return
 
 		if (!damage || ! brute_damage)
@@ -211,7 +211,7 @@ var/global/list/breach_burn_descriptors = list(
 
 		var/obj/item/weldingtool/WT = attacking_item
 		if(!WT.use(5))
-			to_chat(user, "<span class='warning'>You need more welding fuel to repair this suit.</span>")
+			to_chat(user, SPAN_WARNING("You need more welding fuel to repair this suit."))
 			return
 
 		repair_breaches(DAMAGE_BRUTE, 3, user)
@@ -223,7 +223,7 @@ var/global/list/breach_burn_descriptors = list(
 	. = ..()
 	if(can_breach && breaches && breaches.len)
 		for(var/datum/breach/B in breaches)
-			. += "<span class='danger'>It has \a [B.descriptor].</span>"
+			. += SPAN_DANGER("It has \a [B.descriptor].")
 
 /obj/item/clothing/suit/space/get_pressure_weakness(pressure)
 	. = ..()

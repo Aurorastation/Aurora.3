@@ -2,6 +2,7 @@
 	name = "item"
 	icon = 'icons/obj/items.dmi'
 	w_class = ITEMSIZE_NORMAL
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	///This saves our blood splatter overlay, which will be processed not to go over the edges of the sprite
 	var/image/blood_overlay
@@ -370,10 +371,10 @@
 		if (user.hand)
 			temp = H.organs_by_name[BP_L_HAND]
 		if(temp && !temp.is_usable())
-			to_chat(user, "<span class='notice'>You try to move your [temp.name], but cannot!</span>")
+			to_chat(user, SPAN_NOTICE("You try to move your [temp.name], but cannot!"))
 			return
 		if(!temp)
-			to_chat(user, "<span class='notice'>You try to use your hand, but realize it is no longer attached!</span>")
+			to_chat(user, SPAN_NOTICE("You try to use your hand, but realize it is no longer attached!"))
 			return
 	if(!do_additional_pickup_checks(user))
 		return
@@ -637,7 +638,7 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_l_store, slot_r_store)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			if( w_class > 2 && !(slot_flags & SLOT_POCKET) )
 				return 0
@@ -649,11 +650,11 @@ var/list/global/slot_flags_enumeration = list(
 				return TRUE
 			if(!H.wear_suit && (slot_wear_suit in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a suit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a suit before you can attach this [name]."))
 				return 0
 			if(H.wear_suit && !length(H.wear_suit.allowed))
 				if(!disable_warning)
-					to_chat(usr, "<span class='warning'>You somehow have a suit with no defined allowed items for suit storage, stop that.</span>")
+					to_chat(usr, SPAN_WARNING("You somehow have a suit with no defined allowed items for suit storage, stop that."))
 				return 0
 			if(!istype(src, /obj/item/modular_computer) && !ispen() && !is_type_in_list(src, H.wear_suit.allowed))
 				return 0
@@ -682,12 +683,12 @@ var/list/global/slot_flags_enumeration = list(
 		if(slot_tie)
 			if(!H.w_uniform && (slot_w_uniform in mob_equip))
 				if(!disable_warning)
-					to_chat(H, "<span class='warning'>You need a jumpsuit before you can attach this [name].</span>")
+					to_chat(H, SPAN_WARNING("You need a jumpsuit before you can attach this [name]."))
 				return 0
 			var/obj/item/clothing/under/uniform = H.w_uniform
 			if(LAZYLEN(uniform.accessories) && !uniform.can_attach_accessory(src))
 				if (!disable_warning)
-					to_chat(H, "<span class='warning'>You already have an accessory of this type attached to your [uniform].</span>")
+					to_chat(H, SPAN_WARNING("You already have an accessory of this type attached to your [uniform]."))
 				return 0
 	return 1
 
@@ -745,30 +746,30 @@ var/list/global/slot_flags_enumeration = list(
 
 		if(H != user)
 			M.visible_message(
-				"<span class='danger'>[user] stabs [M] in the [eyes.singular_name] with [src]!</span>",
-				"<span class='danger'>[user] stabs you in the [eyes.singular_name] with [src]!</span>"
+				SPAN_DANGER("[user] stabs [M] in the [eyes.singular_name] with [src]!"),
+				SPAN_DANGER("[user] stabs you in the [eyes.singular_name] with [src]!")
 			)
 		else
 			user.visible_message( \
-				"<span class='danger'>[user] stabs themself in the [eyes.singular_name] with [src]!</span>", \
-				"<span class='danger'>You stab yourself in the [eyes.singular_name] with [src]!</span>" \
+				SPAN_DANGER("[user] stabs themself in the [eyes.singular_name] with [src]!"), \
+				SPAN_DANGER("You stab yourself in the [eyes.singular_name] with [src]!") \
 			)
 
 		eyes.take_damage(rand(3,4))
 		if(eyes.damage >= eyes.min_bruised_damage)
 			if(H.stat != DEAD)
 				if(eyes.robotic <= 1) //robot eyes bleeding might be a bit silly
-					to_chat(H, "<span class='danger'>Your eyes start to bleed profusely!</span>")
+					to_chat(H, SPAN_DANGER("Your eyes start to bleed profusely!"))
 			if(prob(50))
 				if(H.stat != DEAD)
-					to_chat(H, "<span class='warning'>You drop what you're holding and clutch at your eyes!</span>")
+					to_chat(H, SPAN_WARNING("You drop what you're holding and clutch at your eyes!"))
 					H.drop_item()
 				H.eye_blurry += 10
 				H.Paralyse(1)
 				H.Weaken(4)
 			if (eyes.damage >= eyes.min_broken_damage)
 				if(H.stat != DEAD)
-					to_chat(H, "<span class='warning'>You go blind!</span>")
+					to_chat(H, SPAN_WARNING("You go blind!"))
 		var/obj/item/organ/external/affecting = H.get_organ(BP_HEAD)
 		if(affecting.take_damage(7, 0, damage_flags(), src))
 			H.UpdateDamageIcon()
@@ -999,7 +1000,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			hit_mobs++
 
 	if(hit_mobs)
-		to_chat(user, "<span class='danger'>You used \the [src] to attack [hit_mobs] other target\s!</span>")
+		to_chat(user, SPAN_DANGER("You used \the [src] to attack [hit_mobs] other target\s!"))
 	cleaving = FALSE
 
 // Used for non-adjacent melee attacks with specific weapons capable of reaching more than one tile.

@@ -163,6 +163,7 @@
 	icon_state = "computer"
 	icon_screen = "helm"
 	icon_keyboard = "security_key"
+	icon_keyboard_emis = "security_key_mask"
 	is_connected = TRUE
 	has_off_keyboards = TRUE
 	can_pass_under = FALSE

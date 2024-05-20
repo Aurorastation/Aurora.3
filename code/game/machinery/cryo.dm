@@ -54,12 +54,9 @@
 	var/slow_stasis_mult = 1.7
 	var/current_stasis_mult = 1
 
-	var/global/list/screen_overlays
-
 /obj/machinery/atmospherics/unary/cryo_cell/Initialize()
 	. = ..()
 	icon = 'icons/obj/cryogenics_split.dmi'
-	generate_overlays()
 	update_icon()
 	atmos_init()
 
@@ -89,19 +86,6 @@
 
 	if(panel_open)
 		. += "The maintenance hatch is open."
-
-/obj/machinery/atmospherics/unary/cryo_cell/proc/generate_overlays(force = FALSE)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["cryo-off"] = make_screen_overlay(icon, "lights_off")
-	screen_overlays["cryo-off-top"] = make_screen_overlay(icon, "lights_off_top")
-	screen_overlays["cryo-safe"] = make_screen_overlay(icon, "lights_safe")
-	screen_overlays["cryo-safe-top"] = make_screen_overlay(icon, "lights_safe_top")
-	screen_overlays["cryo-warn"] = make_screen_overlay(icon, "lights_warn")
-	screen_overlays["cryo-warn-top"] = make_screen_overlay(icon, "lights_warn_top")
-	screen_overlays["cryo-danger"] = make_screen_overlay(icon, "lights_danger")
-	screen_overlays["cryo-danger-top"] = make_screen_overlay(icon, "lights_danger_top")
 
 /obj/machinery/atmospherics/unary/cryo_cell/process()
 	..()
@@ -268,14 +252,18 @@
 		if(!bucklestatus)
 			return TRUE
 
-		user.visible_message("<span class='notice'>[user] starts putting [L] into [src].</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into [src]."),
+								SPAN_NOTICE("You start putting [L] into [src]."), range = 3)
+
 		if(do_mob(user, L, 30, needhand = 0))
 			for(var/mob/living/carbon/slime/M in range(1, L))
 				if(M.victim == L)
 					to_chat(user, SPAN_WARNING("[L] will not fit into the cryo because they have a slime latched onto their head."))
 					return TRUE
 			if(put_mob(L))
-				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
+										SPAN_NOTICE("You put [L] into [src]."), range = 3)
+
 				qdel(attacking_item)
 
 	else if(default_deconstruction_screwdriver(user, attacking_item))
@@ -303,18 +291,26 @@
 		return
 
 	if(L == user)
-		user.visible_message("<span class='notice'>[user] starts climbing into [src].</span>", "<span class='notice'>You start climbing into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts climbing into [src]."),
+								SPAN_NOTICE("<span class='notice'>You start climbing into [src]."), range = 3)
+
 	else
-		user.visible_message("<span class='notice'>[user] starts putting [L] into the cryopod.</span>", "<span class='notice'>You start putting [L] into [src].</span>", range = 3)
+		user.visible_message(SPAN_NOTICE("[user] starts putting [L] into the cryopod."),
+								SPAN_NOTICE("<span class='notice'>You start putting [L] into [src]."), range = 3)
+
 	if (do_mob(user, L, 30, needhand = 0))
 		if (bucklestatus == 2)
 			var/obj/structure/LB = L.buckled_to
 			LB.user_unbuckle(user)
 		if(put_mob(L))
 			if(L == user)
-				user.visible_message("<span class='notice'>[user] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] climbs into [src]."),
+										SPAN_NOTICE("<span class='notice'>You climb into [src]."), range = 3)
+
 			else
-				user.visible_message("<span class='notice'>[user] puts [L] into [src].</span>", "<span class='notice'>You put [L] into [src].</span>", range = 3)
+				user.visible_message(SPAN_NOTICE("[user] puts [L] into [src]."),
+										SPAN_NOTICE("<span class='notice'>You put [L] into [src]."), range = 3)
+
 				if(user.pulling == L)
 					user.pulling = null
 
@@ -351,8 +347,13 @@
 				warn_state = "danger"
 			else if(air_contents.temperature >= temperature_warning_threshold)
 				warn_state = "warn"
-		AddOverlays(screen_overlays["cryo-[warn_state]"])
-		I = screen_overlays["cryo-[warn_state]-top"]
+		I = overlay_image(icon, "lights_[warn_state]")
+		AddOverlays(I)
+		I = overlay_image(icon, "lights_[warn_state]_top")
+		I.pixel_z = 32
+		AddOverlays(I)
+		AddOverlays(emissive_appearance(icon, "lights_mask"))
+		I = emissive_appearance(icon, "lights_mask_top")
 		I.pixel_z = 32
 		AddOverlays(I)
 
@@ -404,19 +405,19 @@
 
 /obj/machinery/atmospherics/unary/cryo_cell/proc/put_mob(mob/living/carbon/human/M as mob)
 	if (stat & (NOPOWER|BROKEN))
-		to_chat(usr, "<span class='warning'>The cryo cell is not functioning.</span>")
+		to_chat(usr, SPAN_WARNING("The cryo cell is not functioning."))
 		return
 	if (!istype(M))
-		to_chat(usr, "<span class='danger'>The cryo cell cannot handle such a lifeform!</span>")
+		to_chat(usr, SPAN_DANGER("The cryo cell cannot handle such a lifeform!"))
 		return
 	if (occupant)
-		to_chat(usr, "<span class='danger'>The cryo cell is already occupied!</span>")
+		to_chat(usr, SPAN_DANGER("The cryo cell is already occupied!"))
 		return
 	if (M.abiotic())
-		to_chat(usr, "<span class='warning'>Subject may not have abiotic items on.</span>")
+		to_chat(usr, SPAN_WARNING("Subject may not have abiotic items on."))
 		return
 	if(!node)
-		to_chat(usr, "<span class='warning'>The cell is not correctly connected to its pipe network!</span>")
+		to_chat(usr, SPAN_WARNING("The cell is not correctly connected to its pipe network!"))
 		return
 	if (M.client)
 		M.client.perspective = EYE_PERSPECTIVE
@@ -425,7 +426,7 @@
 	M.forceMove(src)
 	M.ExtinguishMob()
 	if(M.health > -100 && (M.health < 0 || M.sleeping))
-		to_chat(M, "<span class='notice'><b>You feel a cold liquid surround you. Your skin starts to freeze up.</b></span>")
+		to_chat(M, SPAN_NOTICE("<b>You feel a cold liquid surround you. Your skin starts to freeze up.</b>"))
 	occupant = M
 	current_heat_capacity = HEAT_CAPACITY_HUMAN
 	update_use_power(POWER_USE_ACTIVE)
@@ -441,7 +442,7 @@
 	if(usr == occupant)//If the user is inside the tube...
 		if (usr.stat == 2)//and he's not dead....
 			return
-		to_chat(usr, "<span class='notice'>Release sequence activated. This will take two minutes.</span>")
+		to_chat(usr, SPAN_NOTICE("Release sequence activated. This will take two minutes."))
 		sleep(1200)
 		if(!src || !usr || !occupant || (occupant != usr)) //Check if someone's released/replaced/bombed him already
 			return
@@ -463,7 +464,9 @@
 			return
 	if (usr.stat != 0)
 		return
-	usr.visible_message("<span class='notice'>[usr] climbs into [src].</span>", "<span class='notice'>You climb into [src].</span>", range = 3)
+	usr.visible_message(SPAN_NOTICE("[usr] climbs into [src]."),
+						SPAN_NOTICE("You climb into [src]."), range = 3)
+
 	put_mob(usr)
 	return
 

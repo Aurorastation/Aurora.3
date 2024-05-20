@@ -91,7 +91,9 @@
 		var/mob/living/carbon/human/M = user
 		M.apply_damage(45, DAMAGE_BRUTE, user.get_active_hand())
 		M.apply_damage(45, DAMAGE_PAIN)
-		M.visible_message("<span class='danger'>[user]'s hand catches in the [src]!</span>", "<span class='danger'>Your hand gets caught in the [src]!</span>")
+		M.visible_message(SPAN_DANGER("[user]'s hand catches in the [src]!"),
+							SPAN_DANGER("Your hand gets caught in the [src]!"))
+
 		M.say("*scream")
 		return TRUE
 	if(default_deconstruction_screwdriver(user, attacking_item))
@@ -104,10 +106,10 @@
 	//Stuff you can do if the maint hatch is open
 	if(panel_open)
 		if(attacking_item.iswrench())
-			to_chat(user, "<span class='notice'>You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src].</span>")
+			to_chat(user, SPAN_NOTICE("You start [valve_open ? "closing" : "opening"] the pressure relief valve of [src]."))
 			if(attacking_item.use_tool(src, user, 50, volume = 50))
 				valve_open = !valve_open
-				to_chat(user, "<span class='notice'>You [valve_open ? "open" : "close"] the pressure relief valve of [src].</span>")
+				to_chat(user, SPAN_NOTICE("You [valve_open ? "open" : "close"] the pressure relief valve of [src]."))
 				if(valve_open)
 					blocked = 0
 					action = "retract"
@@ -118,7 +120,7 @@
 	if(!istype(C))
 		return 0
 	if(num_progress != 0) //Piston needs to be retracted before you are able to deconstruct it
-		to_chat(user, "<span class='notice'>You can not deconstruct [src] while the piston is extended.</span>")
+		to_chat(user, SPAN_NOTICE("You can not deconstruct [src] while the piston is extended."))
 		return 0
 	return ..()
 
@@ -155,13 +157,20 @@
 		asmtype = "standalone"
 		icon_state = asmtype
 
+	var/image_overlay
+	var/emissive_overlay
 	if(powered(EQUIP))
 		if(blocked == 1)
-			holographic_overlay(src, icon, "[asmtype]-overlay-red")
+			image_overlay = image(icon, "[asmtype]-overlay-red")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-red")
 		else if(action != "idle")
-			holographic_overlay(src, icon, "[asmtype]-overlay-orange")
+			image_overlay = image(icon, "[asmtype]-overlay-orange")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-orange")
 		else
-			holographic_overlay(src, icon, "[asmtype]-overlay-green")
+			image_overlay = image(icon, "[asmtype]-overlay-green")
+			emissive_overlay = emissive_appearance(icon, "[asmtype]-overlay-green")
+	AddOverlays(image_overlay)
+	AddOverlays(emissive_overlay)
 	if(panel_open)
 		AddOverlays("[asmtype]-hatch")
 	update_above()

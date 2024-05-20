@@ -6,6 +6,7 @@
 	suffixes = list("coc_ship.dmm")
 
 	sectors = list(SECTOR_BADLANDS, ALL_COALITION_SECTORS)
+	spawn_weight_sector_dependent = list(ALL_BADLAND_SECTORS = 0.3)
 	sectors_blacklist = list(SECTOR_HANEUNIM, SECTOR_BURZSIA)
 	spawn_weight = 1
 	ship_cost = 1
@@ -108,7 +109,9 @@
 
 	initial_generic_waypoints = list(
 		"nav_ranger_corvette_1",
-		"nav_ranger_corvette_2"
+		"nav_ranger_corvette_2",
+		"nav_ranger_corvette_3",
+		"nav_ranger_corvette_4"
 	)
 
 	invisible_until_ghostrole_spawn = TRUE
@@ -132,6 +135,18 @@
 /obj/effect/shuttle_landmark/ranger_corvette/nav2
 	name = "Ranger Gunboat - Dock Airlock"
 	landmark_tag = "nav_ranger_corvette_2"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ranger_corvette/nav3
+	name = "Ranger Gunboat - Starboard Side"
+	landmark_tag = "nav_ranger_corvette_3"
+	base_turf = /turf/space/dynamic
+	base_area = /area/space
+
+/obj/effect/shuttle_landmark/ranger_corvette/nav4
+	name = "Ranger Gunboat - Aft side"
+	landmark_tag = "nav_ranger_corvette_4"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 

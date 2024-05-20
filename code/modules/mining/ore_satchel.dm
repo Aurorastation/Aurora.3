@@ -45,7 +45,7 @@
 	var/turf/location = get_turf(user)
 
 	if(location)
-		pickup_items_from_loc_and_feedback(user, location)
+		pickup_items_from_loc_and_feedback(user, location, explicit_request = FALSE)
 
 /obj/item/storage/bag/ore/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()

@@ -15,6 +15,7 @@
 	var/icon_screen = "computer_generic"
 	var/icon_scanline
 	var/icon_keyboard = "green_key"
+	var/icon_keyboard_emis = "green_key_mask"
 	var/light_range_on = 2
 	var/light_power_on = 1.3
 	var/overlay_layer
@@ -109,7 +110,26 @@
 			AddOverlays(icon_broken)
 	else if (icon_screen)
 		if (is_holographic)
-			holographic_overlay(src, src.icon, icon_screen)
+			var/mutable_appearance/screen_overlay = overlay_image(src.icon, icon_screen)
+			var/mutable_appearance/screen_overlay_holographic = overlay_image(src.icon, icon_screen)
+			screen_overlay_holographic.filters += filter(type="color", color=list(
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				0, 0, 0, 0,
+				HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+			))
+			screen_overlay.filters += filter(type="color", color=list(
+				HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+				0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+				0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+				0, 0, 0, 1
+			))
+			screen_overlay.blend_mode = BLEND_ADD
+			screen_overlay_holographic.blend_mode = BLEND_MULTIPLY
+			var/mutable_appearance/screen_overlay_emis = emissive_appearance(src.icon, icon_screen)
+			AddOverlays(screen_overlay_holographic)
+			AddOverlays(screen_overlay)
+			AddOverlays(screen_overlay_emis)
 		if (icon_scanline)
 			AddOverlays(icon_scanline)
 		if (icon_keyboard)
@@ -117,6 +137,9 @@
 				AddOverlays("[icon_keyboard]_off")
 			else
 				AddOverlays(icon_keyboard)
+				if(icon_keyboard_emis)
+					var/mutable_appearance/emis = emissive_appearance(icon, icon_keyboard_emis)
+					AddOverlays(emis)
 		else if (overlay_layer != layer)
 			AddOverlays(image(icon, icon_screen, overlay_layer))
 		else

@@ -176,3 +176,157 @@
   - rscdel: Removed punpun's banana peel to prevent noise complaints.
   RustingWithYou:
   - rscadd: Adds several Ouerea ruins.
+2024-05-12:
+  FluffyGhost:
+  - server: Updated CI to use Rust 3.1.0-a1
+  - bugfix: Ore satchel won't spam failed pickups anymore unless the user does an
+      explicit pickup request (clicking on a turf/item).
+  Jasorn:
+  - bugfix: Fixes the 9mm pistol becoming invisible when removing the magazine.
+  SimpleMaroon:
+  - qol: Changed the name of the Hivenet Voiding verb to Untethering, by request of
+      Vaurca lore.
+2024-05-13:
+  4000daniel1:
+  - rscadd: Added instruments to the loadout for use by off-duties and passengers
+      under the general tab. Also ported some in-hand sprites for them from TG.
+  CactusMouth:
+  - rscadd: Added a new awaysite, the Zavod Shuttle.
+  CourierBravo:
+  - qol: Added several pice scanners and an extra quikpay to operations.
+  - qol: Added more trash bags to janitorial.
+  - qol: Doubled the number of bluespace flares, to encourage their use.
+  - bugfix: Replaced an empty first aid kit in teleporter room with an actual first
+      aid kit.
+  - bugfix: Removed a floor light under a door that shouldn't be there.
+  - bugfix: Properly orented the airtight flaps in the fuel bay and the kitchen.
+  - bugfix: Finally added the rubber ducky mentioned in July, 2022.
+  DreamySkrell:
+  - balance: Lower Badlands spawn weight of some CoC ships.
+  - rscadd: 'Disables ships that do not follow current standards: Wildlands Militia,
+      Taj Migrant, Diona Serz, Diona Rokz.'
+  Evandorf:
+  - rscadd: Adds a new civilian unathi ship, intended to fly into shoals to harvest
+      carp.
+  FluffyGhost:
+  - code_imp: DMDoc'd the vars of /datum/bounty/item.
+  - bugfix: All the two types of gas grenades are now allowed for the gas grenade
+      bounty.
+  - server: Updated the rustg dll to our 3.1.0+a1 version.
+  - rscadd: Added an initial implementation of field howitzers.
+  Geeves:
+  - rscadd: Crates, closets, rollerbeds and wheelchairs now cannot safely traverse
+      stairs.
+  - rscadd: The majority of ghost roles now spawn with an Idris account and some funds.
+  GeneralCamo:
+  - rscadd: Added emissives, objects that can alpha mask the lighting plane while
+      being blocked by blockers.
+  - refactor: Converted all screen overlays and holographic overlays to the new system.
+  - rscdel: Removed bloom.
+  - imageadd: Restored the intended scrubber animation.
+  Hollyhock:
+  - rscadd: 'Gives chaplains a new alternate title, meant for Preimminent chaplains:
+      Shaper.'
+  Karl Johansson:
+  - rscadd: Added wounds and bandages to the health doll.
+  Lavillastrangiato:
+  - qol: Adds many quality of life features to various offships.
+  - bugfix: Adds missing buttons, bad tiles, and other missing things.
+  - qol: Gives the xenoarchaeology belt one extra slot. Adds miscellaneous investigation
+      items to the security belt.
+  MattAtlas:
+  - bugfix: Fixed command announcement encoding.
+  - qol: Made some command console inputs into TGUIs like the rest of the console.
+  SimpleMaroon:
+  - qol: Allows Vaurcae wearing shaper helmets to consume food or drink without having
+      to remove the helmet.
+  - bugfix: Research voidsuit suit cyclers no longer make the voidsuit inside invisible
+      when applying species customization routines.
+  Sparky_hotdog:
+  - bugfix: Fixed an issue where you couldn't access either of the Intrepid copilot
+      chairs without climbing over them.
+  hazelmouse:
+  - rscadd: Adds tinted windows to the bar backroom, so you can have your shady dealings
+      in private.
+  nauticall:
+  - rscadd: Added Aayun Kaiser's custom item, a custom offworlder ESS suit.
+  - qol: The ESS injector module now comes with RMT.
+2024-05-16:
+  ClemTheDuck:
+  - bugfix: Fixed Hegemony Navy voidsuits not having a sprite
+  Crosarius:
+  - rscadd: Adds Moghresian Meat, obtainable by butchering Moghresian animals (otztek,
+      threshbeast, etc)
+  - rscadd: Adds 'synthetic blood' to the biogenerator, for use in food/drink recipies
+      that require blood.
+  - qol: Some small tweaks to reagents_to_add of some Unathi foods.
+  - qol: Changes some Unathi cultural foods to use Moghresian Meat instead of normal
+      meat
+  - qol: Makes the 'They are absolutely tiny compared to you' and 'they tower over
+      you!' height descriptor messages appear at 50 cm height difference instead of
+      100 cm
+  DreamySkrell:
+  - rscadd: Allows Vaurca FR to take mag-claws.
+  Geeves:
+  - refactor: Tweaked some messages to be based on time since last message, instead
+      of being based on probability. This includes low blood messages, infected liver
+      messages, fever messages, and some drug messages.
+  Llywelwyn:
+  - bugfix: Fixed PDA Chat Client not working properly after a PDA loses charge.
+  LynxSolstice:
+  - qol: Brings the fuel tank of the Tajaran Smuggler vessel into the modern age.
+  - bugfix: Fixes all the un-pixelshifted lights, and adds an airlock where someone
+      forgot to add one again when pulling out the old deprecated airlocks.
+2024-05-20:
+  Acetrea:
+  - rscadd: Added sprites for moghresian meat.
+  - rscadd: Added a name for vaurca meat.
+  - balance: Made stok meat type moghresian.
+  - bugfix: Fixed bugmeat sprite.
+  Ben10083:
+  - balance: Some Tajaran ships have different spawn weights in certain allied sectors.
+  - rscdel: Xanu Frigate removed from Badlands.
+  - rscdel: Coalition ship spawn chance in Badlands reduced
+  CourierBravo:
+  - qol: Made various changes to the Iris Wreck away site to make it look more pretty
+      and in line with our current ship designs.
+  - bugfix: Idris Wreck seemed to use two different colors of steel tiles. One for
+      airless and one for pressurized They're nearly identical, but there's a very
+      slight color difference. Standardized on one style of tiles.
+  - bugfix: Fixed some misplaced lighting and infrastructure in the Idris Wreck
+  - bugfix: Replaced the APC in the starboard docking arm with a standard sized APC
+  Crosarius:
+  - bugfix: Selecting diona nymph lunchbox in the loadout now correctly gives you
+      the diona nymph lunchbox on spawn.
+  - rscadd: Added chewing koko. An chewable form of the Unathi narcotic 'Koko', available
+      in vending machines and the loadout.
+  Evandorf:
+  - bugfix: Corrected Dock Target, verified vars, and removed extra docking controller
+      to resolve the Kataphract shuttle not docking properly.
+  FluffyGhost:
+  - refactor: Minor span refactoring.
+  - rscadd: Added telefreedom implants, including a box with (almost) everything you
+      need to make them work for 4 people, and added it to the uplink. The implant
+      allows you to teleport to the linked telepad (you link it by clicking on the
+      telepad with the implent in hand before implanting) one time before melting.
+  - bugfix: Fixed implanters not taking the implant and dropping it to the ground
+      when hit by one (while keeping it referenced).
+  - bugfix: Fixed newline issue in custom item descriptions.
+  Hazelmouse:
+  - rscadd: Added more hivebots to the Hivebot Hub offsite.
+  - bugfix: Fixed airlock on the Izharshan Shuttle offship.
+  - bugfix: Fixed port CO2 console on Scarab Salvager offship.
+  - qol: Various quality-of-life tweaks to the Scarab Salvager and Izharshan Shuttle
+      offships.
+  Pirouette:
+  - bugfix: Replaced a camera gun mapped into research with an actual camera.
+  RustingWithYou:
+  - qol: Blueprints display wire schemas again.
+  SimpleMaroon:
+  - qol: Made some of the pixels for Mecha Eyes for Vaurca Workers and Warriors much
+      less bright, improving the look overall.
+  Tzui5020:
+  - bugfix: Fixes the Aft Airlock on the Ranger Gunship not working.
+  - qol: Adds an Autolathe to the Ranger Gunship.
+  - qol: Adds more navpoints for Boarding actions or anything else
+  - qol: Adds some Lights to the Thrusters too so you can see

@@ -27839,7 +27839,6 @@
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 5
 	},
-/obj/machinery/power/apc/low/north,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -27849,6 +27848,7 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
+/obj/machinery/power/apc/north,
 /turf/simulated/floor/tiled,
 /area/horizon/hallway/deck_three/primary/starboard/docks)
 "sOs" = (
@@ -29903,9 +29903,6 @@
 "uly" = (
 /obj/effect/floor_decal/corner/dark_green{
 	dir = 5
-	},
-/obj/machinery/light/floor{
-	dir = 1
 	},
 /obj/machinery/door/airlock/glass{
 	dir = 4

@@ -30,7 +30,7 @@
 	if(C && C.active)
 		C.attack_self(src)//Should shut it off
 		update_icon()
-		to_chat(src, "<span class='notice'>Your [C.name] was disrupted!</span>")
+		to_chat(src, SPAN_NOTICE("Your [C.name] was disrupted!"))
 		Stun(2)
 
 	//Being hit while using a deadman switch
@@ -38,7 +38,7 @@
 		var/obj/item/device/assembly/signaler/signaler = get_active_hand()
 		if(signaler.deadman && prob(80))
 			log_and_message_admins("has triggered a signaler deadman's switch")
-			src.visible_message("<span class='warning'>[src] triggers their deadman's switch!</span>")
+			src.visible_message(SPAN_WARNING("[src] triggers their deadman's switch!"))
 			signaler.signal()
 
 	//Armor
@@ -143,7 +143,7 @@
 
 //Called when the mob is hit with an item in combat. Returns the blocked result
 /mob/living/proc/hit_with_weapon(obj/item/I, mob/living/user, var/effective_force, var/hit_zone, var/ground_zero)
-	visible_message("<span class='danger'>[src] has been [LAZYPICK(I.attack_verb,"attacked")] with [I] by [user]!</span>")
+	visible_message(SPAN_DANGER("[src] has been [LAZYPICK(I.attack_verb,"attacked")] with [I] by [user]!"))
 
 	. = standard_weapon_hit_effects(I, user, effective_force, hit_zone)
 
@@ -180,11 +180,11 @@
 			miss_chance = max(15*(distance-2), 0)
 
 		if (prob(miss_chance))
-			visible_message("<span class='notice'>\The [O] misses [src] narrowly!</span>")
+			visible_message(SPAN_NOTICE("\The [O] misses [src] narrowly!"))
 			playsound(src, 'sound/effects/throw_miss.ogg', 50, 1)
 			return
 
-		src.visible_message("<span class='warning'>[src] has been hit by [O].</span>")
+		src.visible_message(SPAN_WARNING("[src] has been hit by [O]."))
 		apply_damage(throw_damage, dtype, null, damage_flags = O.damage_flags(), used_weapon = O)
 
 		O.throwing = 0		//it hit, so stop moving
@@ -208,7 +208,9 @@
 		if(O.throw_source && momentum >= THROWNOBJ_KNOCKBACK_SPEED)
 			var/dir = get_dir(O.throw_source, src)
 
-			visible_message("<span class='warning'>[src] staggers under the impact!</span>","<span class='warning'>You stagger under the impact!</span>")
+			visible_message(SPAN_WARNING("[src] staggers under the impact!"),
+							SPAN_WARNING("You stagger under the impact!"))
+
 			src.throw_at(get_edge_target_turf(src,dir),1,momentum)
 
 			if(!O || !src)
@@ -222,7 +224,9 @@
 
 				if(T)
 					src.forceMove(T)
-					visible_message("<span class='warning'>[src] is pinned to the wall by [O]!</span>","<span class='warning'>You are pinned to the wall by [O]!</span>")
+					visible_message(SPAN_WARNING("[src] is pinned to the wall by [O]!"),
+									SPAN_WARNING("You are pinned to the wall by [O]!"))
+
 					src.anchored = 1
 					src.pinned += O
 
@@ -232,7 +236,7 @@
 	add_verb(src, /mob/proc/yank_out_object)
 
 /mob/living/proc/turf_collision(var/atom/T, var/speed = THROWFORCE_SPEED_DIVISOR, var/sound_to_play = 'sound/effects/bangtaper.ogg')
-	visible_message("<span class='danger'>[src] slams into \the [T]!</span>")
+	visible_message(SPAN_DANGER("[src] slams into \the [T]!"))
 	playsound(T, sound_to_play, 50, 1, 1)//so it plays sounds on the turf instead, makes for awesome carps to hull collision and such
 	apply_damage(speed*5, DAMAGE_BRUTE)
 
@@ -259,7 +263,7 @@
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>attacked [src.name] ([src.ckey])</span>")
 	src.attack_log += text("\[[time_stamp()]\] <font color='orange'>was attacked by [user.name] ([user.ckey])</font>")
 	if (attack_message)
-		src.visible_message("<span class='danger'>[user] has [attack_message] [src]!</span>")
+		src.visible_message(SPAN_DANGER("[user] has [attack_message] [src]!"))
 	user.do_attack_animation(src)
 
 	apply_damage(damage, damage_type, user.zone_sel?.selecting, armor_pen = armor_penetration, damage_flags = attack_flags)

@@ -90,7 +90,7 @@
 	loc = has_suit
 	has_suit.AddOverlays(get_inv_overlay())
 	if(user)
-		to_chat(user, "<span class='notice'>You attach \the [src] to \the [has_suit].</span>")
+		to_chat(user, SPAN_NOTICE("You attach \the [src] to \the [has_suit]."))
 		src.add_fingerprint(user)
 	update_light()
 
@@ -396,7 +396,7 @@
 
 	if(allow_tail_hiding)
 		flags_inv ^= HIDETAIL
-		to_chat(usr, "<span class='notice'>[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail.</span>")
+		to_chat(usr, SPAN_NOTICE("[src] will now [flags_inv & HIDETAIL ? "hide" : "show"] your tail."))
 
 /obj/item/clothing/accessory/poncho/big
 	name = "large poncho"

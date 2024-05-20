@@ -27,7 +27,7 @@
 /obj/item/plastique/attackby(obj/item/attacking_item, mob/user)
 	if(attacking_item.isscrewdriver())
 		open_panel = !open_panel
-		to_chat(user, "<span class='notice'>You [open_panel ? "open" : "close"] the wire panel.</span>")
+		to_chat(user, SPAN_NOTICE("You [open_panel ? "open" : "close"] the wire panel."))
 		return TRUE
 	else if(attacking_item.iswirecutter() || attacking_item.ismultitool() || istype(attacking_item, /obj/item/device/assembly/signaler ))
 		wires.interact(user)

@@ -39,8 +39,6 @@ pixel_x = 8;
 	///If the pinging is in cooldown, boolean
 	var/pinged = FALSE
 
-	var/global/list/screen_overlays
-
 /obj/machinery/ringer/north
 	PRESET_NORTH
 
@@ -60,7 +58,6 @@ pixel_x = 8;
 
 	if(src.dir & NORTH)
 		alpha = 127
-	generate_overlays()
 	update_icon()
 
 	if(!mapload)
@@ -78,32 +75,43 @@ pixel_x = 8;
 	QDEL_NULL(ringers)
 	return ..()
 
-/obj/machinery/ringer/proc/generate_overlays(var/force = 0)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["bell-active"] = make_screen_overlay(icon, "bell-active")
-	screen_overlays["bell-alert"] = make_screen_overlay(icon, "bell-alert")
-	screen_overlays["bell-scanline"] = make_screen_overlay(icon, "bell-scanline")
-	screen_overlays["bell-standby"] = make_screen_overlay(icon, "bell-standby")
-
 /obj/machinery/ringer/update_icon()
 	ClearOverlays()
+	var/mutable_appearance/screen = overlay_image(icon, "bell-standby")
+	var/mutable_appearance/screen_hologram = overlay_image(icon, "bell-standby")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "bell-standby")
+	screen_hologram.filters += filter(type="color", color=list(
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+	))
+	screen.filters += filter(type="color", color=list(
+		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+		0, 0, 0, 1
+	))
+	screen_hologram.blend_mode = BLEND_MULTIPLY
+	screen.blend_mode = BLEND_ADD
 	if(!on || stat & NOPOWER)
 		icon_state = initial(icon_state)
 		set_light(FALSE)
 		return
 	if(rings_pdas || rings_pdas.len)
-		AddOverlays(screen_overlays["bell-active"])
+		screen = overlay_image(icon, "bell-active")
 		set_light(1.4, 1, COLOR_CYAN)
 	if(pinged)
-		AddOverlays(screen_overlays["bell-alert"])
+		screen = overlay_image(icon, "bell-alert")
 		set_light(1.4, 1, COLOR_CYAN)
 	if(on)
-		AddOverlays(screen_overlays["bell-scanline"])
+		AddOverlays("bell-scanline")
 	else
-		AddOverlays(screen_overlays["bell-standby"])
+		screen = overlay_image(icon, "bell-standby")
 		set_light(1.4, 1, COLOR_CYAN)
+	AddOverlays(screen_hologram)
+	AddOverlays(screen)
+	AddOverlays(screen_emis)
 
 /obj/machinery/ringer/attackby(obj/item/attacking_item, mob/user)
 	if(stat & (BROKEN|NOPOWER) || !istype(user,/mob/living))
@@ -111,13 +119,13 @@ pixel_x = 8;
 
 	if (istype(attacking_item, /obj/item/modular_computer))
 		if(!check_access(attacking_item))
-			to_chat(user, "<span class='warning'>Access Denied.</span>")
+			to_chat(user, SPAN_WARNING("Access Denied."))
 			return TRUE
 		else if (attacking_item in rings_pdas)
-			to_chat(user, "<span class='notice'>You unlink \the [attacking_item] from \the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You unlink \the [attacking_item] from \the [src]."))
 			remove_pda(attacking_item)
 			return TRUE
-		to_chat(user, "<span class='notice'>You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You link \the [attacking_item] to \the [src], it will now ring upon someone using \the [src]."))
 		rings_pdas += attacking_item
 		// WONT FIX: This requires callbacks fuck my dick.
 		GLOB.destroyed_event.register(attacking_item, src, PROC_REF(remove_pda))
@@ -136,11 +144,11 @@ pixel_x = 8;
 		return
 
 	if(!on)
-		to_chat(user, "<span class='notice'>You turn \the [src] on, now all PDAs linked to it will be notified.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] on, now all PDAs linked to it will be notified."))
 		on = TRUE
 
 	else
-		to_chat(user, "<span class='notice'>You turn \the [src] off.</span>")
+		to_chat(user, SPAN_NOTICE("You turn \the [src] off."))
 		on = FALSE
 
 	update_icon()

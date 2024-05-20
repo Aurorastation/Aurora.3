@@ -97,12 +97,14 @@
 						if(length(message2) > CHARS_PER_LINE)
 							message2 = "Error"
 					update_display(message1, message2)
+					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 				else if(evacuation_controller.has_eta())
 					message1 = "-ETA-"
 					message2 = get_shuttle_timer()
 					if(length(message2) > CHARS_PER_LINE)
 						message2 = "Error"
 					update_display(message1, message2)
+					AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 				return 1
 		if(STATUS_DISPLAY_MESSAGE)	//custom messages
 			var/line1
@@ -126,13 +128,16 @@
 				if(index2 > message2_len)
 					index2 -= message2_len
 			update_display(line1, line2)
+			AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 			return 1
 		if(STATUS_DISPLAY_ALERT)
 			set_picture(picture_state)
+			AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 			return 1
 		if(STATUS_DISPLAY_TIME)
 			message1 = "TIME"
 			message2 = worldtime2text()
+			AddOverlays(emissive_appearance(icon, "outline", src, alpha = src.alpha))
 			update_display(message1, message2)
 			return 1
 	return 0

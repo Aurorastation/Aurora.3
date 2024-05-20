@@ -330,6 +330,7 @@
 		/obj/item/device/hailer,
 		/obj/item/device/megaphone,
 		/obj/item/melee,
+		/obj/item/crowbar,
 		/obj/item/gun/projectile/sec,
 		/obj/item/gun/energy/disruptorpistol,
 		/obj/item/taperoll/police,
@@ -337,7 +338,11 @@
 		/obj/item/shield/energy,
 		/obj/item/shield/riot/tact,
 		/obj/item/device/holowarrant,
-		/obj/item/device/radio
+		/obj/item/device/taperecorder,
+		/obj/item/device/radio,
+		/obj/item/device/laser_pointer,
+		/obj/item/device/camera,
+		/obj/item/clipboard,
 		)
 	content_overlays = TRUE
 

@@ -1,6 +1,7 @@
 /mob/living/carbon
 	gender = MALE
 	accent = ACCENT_CETI
+	blocks_emissive = EMISSIVE_BLOCK_UNIQUE
 	var/datum/species/species //Contains icon generation and language information, set during New().
 	//stomach contents redefined at mob/living level, removed from here
 
