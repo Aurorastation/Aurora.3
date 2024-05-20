@@ -2,6 +2,7 @@
 	icon = 'icons/obj/structures.dmi'
 	w_class = ITEMSIZE_IMMENSE
 	layer = STRUCTURE_LAYER
+	blocks_emissive = EMISSIVE_BLOCK_GENERIC
 
 	var/material_alteration = MATERIAL_ALTERATION_ALL // Overrides for material shit. Set them manually if you don't want colors etc. See wood chairs/office chairs.
 	var/climbable
@@ -49,8 +50,8 @@
 				attack_generic(user,1,"slices")
 
 	if(LAZYLEN(climbers) && !(user in climbers))
-		user.visible_message("<span class='warning'>[user] shakes \the [src].</span>", \
-					"<span class='notice'>You shake \the [src].</span>")
+		user.visible_message(SPAN_WARNING("[user] shakes \the [src]."), \
+					SPAN_NOTICE("You shake \the [src]."))
 		structure_shaken()
 
 	return ..()
@@ -155,28 +156,28 @@
 		if(user.loc == TT)
 			TT = get_turf(src)
 
-	user.visible_message("<span class='warning'>[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!</span>")
+	user.visible_message(SPAN_WARNING("[user] [atom_flags & ATOM_FLAG_CHECKS_BORDER ? "leaps over" : "climbs onto"] \the [src]!"))
 	user.forceMove(TT)
 	LAZYREMOVE(climbers, user)
 
 /obj/structure/proc/structure_shaken()
 	for(var/mob/living/M in climbers)
 		M.Weaken(1)
-		to_chat(M, "<span class='danger'>You topple as you are shaken off \the [src]!</span>")
+		to_chat(M, SPAN_DANGER("You topple as you are shaken off \the [src]!"))
 		LAZYREMOVE(climbers, M)
 
 	for(var/mob/living/M in get_turf(src))
 		if(M.lying) return //No spamming this on people.
 
 		M.Weaken(3)
-		to_chat(M, "<span class='danger'>You topple as \the [src] moves under you!</span>")
+		to_chat(M, SPAN_DANGER("You topple as \the [src] moves under you!"))
 
 		if(prob(25))
 
 			var/damage = rand(15,30)
 			var/mob/living/carbon/human/H = M
 			if(!istype(H))
-				to_chat(H, "<span class='danger'>You land heavily!</span>")
+				to_chat(H, SPAN_DANGER("You land heavily!"))
 				M.adjustBruteLoss(damage)
 				return
 
@@ -195,12 +196,12 @@
 					affecting = H.get_organ(BP_HEAD)
 
 			if(affecting)
-				to_chat(M, "<span class='danger'>You land heavily on your [affecting.name]!</span>")
+				to_chat(M, SPAN_DANGER("You land heavily on your [affecting.name]!"))
 				affecting.take_damage(damage, 0)
 				if(affecting.parent)
 					affecting.parent.add_autopsy_data("Misadventure", damage)
 			else
-				to_chat(H, "<span class='danger'>You land heavily!</span>")
+				to_chat(H, SPAN_DANGER("You land heavily!"))
 				H.adjustBruteLoss(damage)
 
 			H.UpdateDamageIcon()
@@ -213,19 +214,19 @@
 	if(!Adjacent(user))
 		return 0
 	if (user.restrained() || user.buckled_to)
-		to_chat(user, "<span class='notice'>You need your hands and legs free for this.</span>")
+		to_chat(user, SPAN_NOTICE("You need your hands and legs free for this."))
 		return 0
 	if (user.stat || user.paralysis || user.sleeping || user.lying || user.weakened)
 		return 0
 	if (issilicon(user))
-		to_chat(user, "<span class='notice'>You need hands for this.</span>")
+		to_chat(user, SPAN_NOTICE("You need hands for this."))
 		return 0
 	return 1
 
 /obj/structure/attack_generic(var/mob/user, var/damage, var/attack_verb, var/wallbreaker)
 	if(!breakable || !damage || !wallbreaker)
 		return 0
-	visible_message("<span class='danger'>[user] [attack_verb] the [src] apart!</span>")
+	visible_message(SPAN_DANGER("[user] [attack_verb] the [src] apart!"))
 	user.do_attack_animation(src)
 	spawn(1)
 		qdel(src)

@@ -404,6 +404,13 @@
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
 
+/obj/item/clothing/suit/storage/toggle/highvis/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_open_su_emis" : "jacket_highvis_su_emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
+
 /obj/item/clothing/suit/storage/toggle/highvis_alt
 	name = "high visibility jacket"
 	desc = "A bright yellow jacket with reflective stripes. For use in operations, engineering, and sometimes even law enforcement, in cold and poor weather or when visibility is low."
@@ -412,6 +419,13 @@
 	item_state = "jacket_highvis_alt"
 	body_parts_covered = UPPER_TORSO|ARMS
 	contained_sprite = TRUE
+
+/obj/item/clothing/suit/storage/toggle/highvis_alt/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
+	var/image/I = ..()
+	if(slot == slot_wear_suit_str)
+		var/image/emissive_overlay = emissive_appearance(mob_icon, "[opened ? "jacket_highvis_alt_open_su-emis" : "jacket_highvis_alt_su-emis"]", alpha = src.alpha)
+		I.AddOverlays(emissive_overlay)
+	return I
 
 /obj/item/clothing/suit/storage/toggle/track
 	name = "track jacket"

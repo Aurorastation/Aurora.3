@@ -116,13 +116,13 @@ field_generator power level display
 				src.anchored = 0
 				update_icon()
 			if(2)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be unwelded from the floor.</span>")
+				to_chat(user, SPAN_WARNING("The [src.name] needs to be unwelded from the floor."))
 				return
 	else if(attacking_item.iswelder())
 		var/obj/item/weldingtool/WT = attacking_item
 		switch(state)
 			if(0)
-				to_chat(user, "<span class='warning'>The [src.name] needs to be wrenched to the floor.</span>")
+				to_chat(user, SPAN_WARNING("The [src.name] needs to be wrenched to the floor."))
 				return
 			if(1)
 				if (WT.use(0,user))

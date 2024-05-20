@@ -35,6 +35,18 @@
 
 	mob_name = null
 
+	/// Determines whether the mob will have an Idris banking account when they spawn in
+	var/has_idris_account = TRUE
+
+	/// Determines whether the Idris banking account will be visible on the station's account terminal
+	var/is_idris_account_public = FALSE
+
+	/// The minimum amount of money the account can spawn with
+	var/idris_account_min = 100
+
+	/// The maximum amount of money the account can spawn with
+	var/idris_account_max = 500
+
 //Return a error message if the user CANT spawn. Otherwise FALSE
 /datum/ghostspawner/human/cant_spawn(mob/user)
 	//If whitelist is required, check if user can spawn in ANY of the possible species
@@ -143,6 +155,9 @@
 	if(!age)
 		age = rand(35, 50)
 	M.age = Clamp(age, 21, 65)
+
+	if(has_idris_account)
+		SSeconomy.create_and_assign_account(M, null, rand(idris_account_min, idris_account_max), is_idris_account_public)
 
 	//Setup the Outfit
 	if(picked_species in species_outfits)

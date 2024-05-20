@@ -76,7 +76,7 @@
 	stop_modifier()
 	playsound(src, 'sound/effects/phasein.ogg', 10, 1, -2)//Cloaking is quieter than uncloaking
 	if (owner)
-		to_chat(owner, "<span class='notice'>\The [src] is now active.</span>")
+		to_chat(owner, SPAN_NOTICE("\The [src] is now active."))
 		start_modifier()
 
 /obj/item/cloaking_device/proc/deactivate()
@@ -85,7 +85,7 @@
 	active = 0
 	src.icon_state = "shield0"
 	if (owner)
-		to_chat(owner, "<span class='notice'>\The [src] is now inactive.</span>")
+		to_chat(owner, SPAN_NOTICE("\The [src] is now inactive."))
 
 	playsound(src, 'sound/effects/phasein.ogg', 50, 1)
 	stop_modifier()
@@ -123,17 +123,17 @@
 		if(!cell)
 			user.drop_from_inventory(attacking_item, src)
 			cell = attacking_item
-			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You install a cell in [src]."))
 			update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has a cell."))
 
 	else if(attacking_item.isscrewdriver())
 		if(cell)
 			cell.update_icon()
 			cell.forceMove(get_turf(src.loc))
 			cell = null
-			to_chat(user, "<span class='notice'>You remove the cell from the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove the cell from the [src]."))
 			deactivate()
 			return
 	..()

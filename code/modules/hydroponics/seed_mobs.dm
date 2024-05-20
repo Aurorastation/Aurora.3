@@ -16,7 +16,7 @@
 		SSghostroles.remove_spawn_atom(product_spawner_type, host)
 		host.death()  // This seems redundant, but a lot of mobs don't
 		host.stat = DEAD // handle death() properly. Better safe than etc.
-		host.visible_message("<span class='danger'>[host] is malformed and unable to survive. It expires pitifully, leaving behind some seeds.</span>")
+		host.visible_message(SPAN_DANGER("[host] is malformed and unable to survive. It expires pitifully, leaving behind some seeds."))
 
 		var/total_yield = rand(1,3)
 		for(var/j = 0;j<=total_yield;j++)

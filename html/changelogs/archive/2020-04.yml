@@ -322,7 +322,7 @@
   - bugfix: Air alarms and APCs now self-destruct when they detect their area as being
       within a mine or space area.
   chada1:
-  - tweak: Moved the help/harm overlays for 'borgs back to add_overlay.
+  - tweak: Moved the help/harm overlays for 'borgs back to AddOverlays.
   - bugfix: Fixed a bug that caused ss_overlays to blank the 'borg eyes if they had
       another overlay added to them.
 2020-04-21:

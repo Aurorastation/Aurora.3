@@ -573,6 +573,19 @@
 /obj/structure/sign/flag/ouerea/old/large/west/Initialize(mapload)
 	. = ..(mapload, WEST)
 
+/obj/item/flag/fishingleague
+	name = "\improper Fishing League flag"
+	desc = "The standard of the Fishing League guild."
+	flag_path = "fishingleague"
+	flag_structure = /obj/structure/sign/flag/fishingleague
+
+/obj/structure/sign/flag/fishingleague
+	name = "\improper Fishing League flag"
+	desc = "The standard of the Fishing League guild."
+	icon_state = "fishingleague"
+	flag_path = "fishingleague"
+	flag_item = /obj/item/flag/fishingleague
+
 // Nralakk
 
 /obj/item/flag/nralakk

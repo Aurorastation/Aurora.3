@@ -23,7 +23,7 @@
 		return
 
 	layer = ABOVE_TILE_LAYER
-	to_chat(usr, "<span class='notice'>You hide \the [src].</span>")
+	to_chat(usr, SPAN_NOTICE("You hide \the [src]."))
 
 
 /obj/item/landmine/attack_self(mob/user)
@@ -33,14 +33,14 @@
 		return
 	if(!deployed && !use_check(user, USE_DISALLOW_SILICONS))
 		user.visible_message(
-			"<span class='danger'>[user] starts to deploy \the [src].</span>",
-			"<span class='danger'>You begin deploying \the [src]!</span>"
+			SPAN_DANGER("[user] starts to deploy \the [src]."),
+			SPAN_DANGER("You begin deploying \the [src]!")
 			)
 
 		if (do_after(user, 6 SECONDS, do_flags = DO_REPAIR_CONSTRUCT))
 			user.visible_message(
-				"<span class='danger'>[user] has deployed \the [src].</span>",
-				"<span class='danger'>You have deployed \the [src]!</span>"
+				SPAN_DANGER("[user] has deployed \the [src]."),
+				SPAN_DANGER("You have deployed \the [src]!")
 				)
 
 			deploy(user)
@@ -85,9 +85,9 @@
 			var/mob/living/L = AM
 			if(L.mob_size >= 5)
 				L.visible_message(
-					"<span class='danger'>[L] steps on \the [src].</span>",
-					"<span class='danger'>You step on \the [src]!</span>",
-					"<span class='danger'>You hear a mechanical click!</span>"
+					SPAN_DANGER("[L] steps on \the [src]."),
+					SPAN_DANGER("You step on \the [src]!"),
+					SPAN_DANGER("You hear a mechanical click!")
 					)
 				trigger(L)
 	..()

@@ -607,8 +607,8 @@
 
 	else if(prob(30) && combat_roll >= 1)//landed on their head
 		apply_damage(limb_damage, DAMAGE_BRUTE, BP_HEAD)
-		visible_message("<span class='warning'>\The [src] falls and lands on their face!</span>",
-			"<span class='danger'>With a loud thud, you land on your head. Hard.</span>", "You hear a thud!")
+		visible_message(SPAN_WARNING("\The [src] falls and lands on their face!"),
+			SPAN_DANGER("With a loud thud, you land on your head. Hard."), "You hear a thud!")
 
 		var/obj/item/organ/external/head = get_organ(BP_HEAD)
 		if(prob(20) && head && head.dislocated != -1)

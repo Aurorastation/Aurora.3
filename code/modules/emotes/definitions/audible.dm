@@ -200,9 +200,9 @@
 
 /singleton/emote/audible/slap
 	key = "slap"
-	emote_message_1p_target = "<span class='warning'>You slap TARGET across the face!</span>"
+	emote_message_1p_target = SPAN_WARNING("You slap TARGET across the face!")
 	emote_message_1p = "You slap yourself across the face!"
-	emote_message_3p_target = "<span class='warning'>USER slaps TARGET across the face!</span>"
+	emote_message_3p_target = SPAN_WARNING("USER slaps TARGET across the face!")
 	emote_message_3p = "USER slaps USER_SELF across the face!"
 	emote_sound = 'sound/effects/snap.ogg'
 

@@ -6,7 +6,7 @@
 	suffixes = list("militia_ship.dmm")
 
 	sectors = list(SECTOR_ROMANOVICH, SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	spawn_weight = 1
+	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
 	ship_cost = 1
 	id = "militia_ship"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/militia_shuttle)

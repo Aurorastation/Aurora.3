@@ -8,7 +8,7 @@
 		return
 
 	if(!ishuman(src))
-		to_chat(src, "<span class='warning'>We cannot perform this ability as this form!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability as this form!"))
 		return
 
 	var/list/names = list()
@@ -41,7 +41,7 @@
 /mob/proc/handle_changeling_transform(var/datum/absorbed_dna/chosen_dna)
 	if(ishuman(src))
 		var/mob/living/carbon/human/H = src
-		H.visible_message("<span class='warning'>[H] transforms!</span>")
+		H.visible_message(SPAN_WARNING("[H] transforms!"))
 		var/newSpecies = chosen_dna.speciesName
 		H.set_species(newSpecies, 1)
 		if(mind) //likely transfomration sting on ghosted corpse if no mind
@@ -72,13 +72,13 @@
 		return
 
 	if(src.has_brain_worms()) //why the fuck does brain worms prevent you from turning into a monkey
-		to_chat(src, "<span class='warning'>We cannot perform this ability at the present time!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability at the present time!"))
 		return
 
 	var/mob/living/carbon/human/H = src
 
 	if(!istype(H) || !H.species.primitive_form)
-		to_chat(src, "<span class='warning'>We cannot perform this ability in this form!</span>")
+		to_chat(src, SPAN_WARNING("We cannot perform this ability in this form!"))
 		return
 
 	if(!isturf(loc)) // so people can't transform inside places they should not, like sleepers
@@ -93,9 +93,9 @@
 		H.buckled_to.unbuckle()
 
 	changeling.use_charges(1)
-	H.visible_message("<span class='warning'>[H] transforms!</span>")
+	H.visible_message(SPAN_WARNING("[H] transforms!"))
 	changeling.geneticdamage = 30
-	to_chat(H, "<span class='warning'>Our genes cry out!</span>")
+	to_chat(H, SPAN_WARNING("Our genes cry out!"))
 
 	var/mob/living/simple_animal/hostile/lesser_changeling/ling = new (get_turf(H))
 
@@ -149,7 +149,7 @@
 
 	changeling.use_charges(1)
 	C.remove_changeling_powers()
-	C.visible_message("<span class='warning'>[C] transforms!</span>")
+	C.visible_message(SPAN_WARNING("[C] transforms!"))
 	C.dna = chosen_dna.Clone()
 
 	var/list/implants = list()
@@ -218,7 +218,7 @@
 	var/mob/living/carbon/C = src
 	if(!C.stat && alert("Are we sure we wish to fake our death?", , "Yes", "No") == "No") //Confirmation for living changelings if they want to fake their death
 		return
-	to_chat(C, "<span class='notice'>We will attempt to regenerate our form.</span>")
+	to_chat(C, SPAN_NOTICE("We will attempt to regenerate our form."))
 
 	C.status_flags |= FAKEDEATH		//play dead
 	C.update_canmove()
@@ -267,7 +267,7 @@
 	// re-add out changeling powers
 	C.make_changeling()
 	// sending display messages
-	to_chat(C, "<span class='notice'>We have regenerated fully.</span>")
+	to_chat(C, SPAN_NOTICE("We have regenerated fully."))
 	remove_verb(C, /mob/proc/changeling_revive)
 
 /// Rip the changeling's head off as a last ditch effort to revive
@@ -368,9 +368,9 @@
 
 	var/mob/living/carbon/human/C = src
 	if(C.digitalcamo)
-		to_chat(C, "<span class='notice'>We return to normal.</span>")
+		to_chat(C, SPAN_NOTICE("We return to normal."))
 	else
-		to_chat(C, "<span class='notice'>We distort our form to prevent AI-tracking.</span>")
+		to_chat(C, SPAN_NOTICE("We distort our form to prevent AI-tracking."))
 	C.digitalcamo = !C.digitalcamo
 
 	spawn(0)
@@ -424,7 +424,7 @@
 		var/datum/absorbed_dna/current_dna = changeling.GetDNA(real_name)
 		changeling.mimicing = ""
 		changeling.mimiced_accent = current_dna.accent
-		to_chat(src, "<span class='notice'>We return our vocal glands to their original form.</span>")
+		to_chat(src, SPAN_NOTICE("We return our vocal glands to their original form."))
 		return
 
 	var/mimic_voice = sanitize(input(usr, "Enter a name to mimic.", "Mimic Voice", null), MAX_NAME_LEN)
@@ -438,8 +438,8 @@
 	changeling.mimicing = mimic_voice
 	changeling.mimiced_accent = chosen_accent
 
-	to_chat(src, "<span class='notice'>We shape our glands to take the voice of <b>[mimic_voice]</b>, using the <b>[chosen_accent]</b> accent. This will stop us from regenerating chemicals while active.</span>")
-	to_chat(src, "<span class='notice'>Use this power again to return to our original voice and reproduce chemicals again.</span>")
+	to_chat(src, SPAN_NOTICE("We shape our glands to take the voice of <b>[mimic_voice]</b>, using the <b>[chosen_accent]</b> accent. This will stop us from regenerating chemicals while active."))
+	to_chat(src, SPAN_NOTICE("Use this power again to return to our original voice and reproduce chemicals again."))
 
 	feedback_add_details("changeling_powers","MV")
 
@@ -463,7 +463,7 @@
 	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		to_chat(M, SPAN_DANGER("Your hands are full."))
 		return
 
 	if(M.handcuffed)
@@ -474,9 +474,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
-			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque arm blades!</span>",
-								"<span class='danger'>We tear through the [H.wear_suit] with our arm blades!</span>",
-								"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque arm blades!"),
+								SPAN_DANGER("We tear through the [H.wear_suit] with our arm blades!"),
+								SPAN_DANGER("You hear cloth ripping and tearing!"))
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -484,9 +484,9 @@
 	blade.creator = M
 	M.put_in_hands(blade)
 	playsound(loc, 'sound/weapons/bloodyslice.ogg', 30, 1)
-	src.visible_message("<span class='danger'>A grotesque blade forms around [M]\'s arm!</span>",
-							"<span class='danger'>Our arm twists and mutates, transforming it into a deadly blade.</span>",
-							"<span class='danger'>You hear organic matter ripping and tearing!</span>")
+	src.visible_message(SPAN_DANGER("A grotesque blade forms around [M]\'s arm!"),
+							SPAN_DANGER("Our arm twists and mutates, transforming it into a deadly blade."),
+							SPAN_DANGER("You hear organic matter ripping and tearing!"))
 
 /mob/proc/changeling_shield()
 	set category = "Changeling"
@@ -501,7 +501,7 @@
 	var/mob/living/carbon/M = src
 
 	if(M.l_hand && M.r_hand)
-		to_chat(M, "<span class='danger'>Your hands are full.</span>")
+		to_chat(M, SPAN_DANGER("Your hands are full."))
 		return
 
 	if(M.handcuffed)
@@ -512,9 +512,9 @@
 	if(ishuman(M))
 		var/mob/living/carbon/human/H = M
 		if(istype(H.wear_suit, /obj/item/clothing/suit/straight_jacket))
-			src.visible_message("<span class='danger'>[H] tears through the [H.wear_suit] with their grotesque shield!</span>",
-							"<span class='danger'>We tear through the [H.wear_suit] with our newly formed shield!</span>",
-							"<span class='danger'>You hear cloth ripping and tearing!</span>")
+			src.visible_message(SPAN_DANGER("[H] tears through the [H.wear_suit] with their grotesque shield!"),
+							SPAN_DANGER("We tear through the [H.wear_suit] with our newly formed shield!"),
+							SPAN_DANGER("You hear cloth ripping and tearing!"))
 			QDEL_IN(H.wear_suit, 0)
 			H.unEquip(H.wear_suit, force = TRUE)
 
@@ -522,9 +522,9 @@
 	shield.creator = M
 	M.put_in_hands(shield)
 	playsound(loc, 'sound/effects/blobattack.ogg', 30, 1)
-	src.visible_message("<span class='danger'>The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!</span>",
-							"<span class='warning'>We inflate our hand into a robust shield.</span>",
-							"<span class='warning'>You hear organic matter ripping and tearing!</span>")
+	src.visible_message(SPAN_DANGER("The end of [M]\'s hand inflates rapidly, forming a huge shield-like mass!"),
+							SPAN_WARNING("We inflate our hand into a robust shield."),
+							SPAN_WARNING("You hear organic matter ripping and tearing!"))
 
 /mob/proc/horror_form()
 	set category = "Changeling"
@@ -545,14 +545,14 @@
 
 	changeling.use_charges(50)
 
-	M.visible_message("<span class='danger'>[M] writhes and contorts, their body expanding to inhuman proportions!</span>", \
-						"<span class='danger'>We begin our transformation to our true form!</span>")
+	M.visible_message(SPAN_DANGER("[M] writhes and contorts, their body expanding to inhuman proportions!"), \
+						SPAN_DANGER("We begin our transformation to our true form!"))
 	if(!do_after(src, 6 SECONDS, do_flags = DO_DEFAULT | DO_USER_UNIQUE_ACT))
-		M.visible_message("<span class='danger'>[M]'s transformation abruptly reverts itself!</span>", \
-							"<span class='danger'>Our transformation has been interrupted!</span>")
+		M.visible_message(SPAN_DANGER("[M]'s transformation abruptly reverts itself!"), \
+							SPAN_DANGER("Our transformation has been interrupted!"))
 		return FALSE
 
-	M.visible_message("<span class='danger'>[M] grows into an abomination and lets out an awful scream!</span>")
+	M.visible_message(SPAN_DANGER("[M] grows into an abomination and lets out an awful scream!"))
 	playsound(loc, 'sound/effects/greaterling.ogg', 100, 1)
 
 	var/mob/living/simple_animal/hostile/true_changeling/ling = new (get_turf(M))

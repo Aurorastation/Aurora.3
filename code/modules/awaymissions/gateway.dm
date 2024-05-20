@@ -83,10 +83,10 @@
 	if(linked_gateways.len != 8)	return
 	if(!powered())		return
 	if(!awaygate)
-		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
+		to_chat(user, SPAN_NOTICE("Error: No destination found."))
 		return
 	if(world.time < wait)
-		to_chat(user, "<span class='notice'>Error: Warpspace triangulation in progress. Estimated time to completion: [round(((wait - world.time) / 10) / 60)] minutes.</span>")
+		to_chat(user, SPAN_NOTICE("Error: Warpspace triangulation in progress. Estimated time to completion: [round(((wait - world.time) / 10) / 60)] minutes."))
 		return
 
 	for(var/obj/machinery/gateway/G in linked_gateways)
@@ -187,7 +187,7 @@
 	if(!ready)			return
 	if(linked_gateways.len != 8)	return
 	if(!stationgate)
-		to_chat(user, "<span class='notice'>Error: No destination found.</span>")
+		to_chat(user, SPAN_NOTICE("Error: No destination found."))
 		return
 
 	for(var/obj/machinery/gateway/G in linked_gateways)
@@ -234,6 +234,6 @@
 			to_chat(user, "\black The gate is already calibrated, there is no work for you to do here.")
 			return
 		else
-			to_chat(user, "<span class='notice'><b>Recalibration successful!</b>: \black This gate's systems have been fine tuned.  Travel to this gate will now be on target.</span>")
+			to_chat(user, SPAN_NOTICE("<b>Recalibration successful!</b>: \black This gate's systems have been fine tuned.  Travel to this gate will now be on target."))
 			calibrated = 1
 			return
