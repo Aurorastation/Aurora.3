@@ -702,7 +702,7 @@
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
-datum/gear/accessory/legwarmers
+/datum/gear/accessory/legwarmers
 	display_name = "leg warmers selection (colorable)"
 	description = "A selection of various lengths of leg warmers."
 	path = /obj/item/clothing/accessory/legwarmers
