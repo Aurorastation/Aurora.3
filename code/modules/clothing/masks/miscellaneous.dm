@@ -208,6 +208,6 @@
 	sprite_sheets = list()
 
 /obj/item/clothing/mask/snood/Initialize()
+	. = ..()
 	if(icon_auto_adapt)
 		build_and_apply_species_adaption()
-	. = ..()
