@@ -59,3 +59,7 @@ changes:
   - bugfix: "Vaurca shoes and clothes can now be properly colored for Bulwarks."
   - bugfix: "The tunnel cloak backing now remains properly when the cloak's hood is pulled up."
   - bugfix: "The Tret passcard can now be taken by K'lax Breeders."
+  - bugfix: "Fixes the misaligned sombrero sprite for Bulwarks."
+  - bugfix: "Moves the Bulwark sprites for the webbing vests and waistcoat to accessories.dmi where they belong."
+  - rscdel: "Removed Bulwark sprites for the defunct Internal Affairs jacket and blue lawyer jacket."
+  - bugfix: "Added the proper suffixes to Bulwark sprites needed to work with the contained sprite system."
