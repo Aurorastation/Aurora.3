@@ -932,10 +932,6 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		var/mob/living/carbon/human/H = M
 		H.handle_vision()
 
-/obj/item/proc/pwr_drain()
-	return 0 // Process Kill
-
-
 //a proc that any worn thing can call to update its itemstate
 //Should be cheaper than calling regenerate icons on the mob
 /obj/item/proc/update_worn_icon()

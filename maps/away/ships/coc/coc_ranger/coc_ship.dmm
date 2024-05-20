@@ -1450,7 +1450,6 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	cell_type = /obj/item/cell/hyper
 	},
 /turf/simulated/floor/tiled/dark,
 /area/ship/ranger_corvette/engine1)
@@ -2106,7 +2105,6 @@
 	},
 /obj/machinery/power/apc/north{
 	req_access = null;
-	cell_type = /obj/item/cell/hyper
 	},
 /obj/machinery/autolathe,
 /turf/simulated/floor/tiled/dark,

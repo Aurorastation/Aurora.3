@@ -6238,7 +6238,6 @@
 	},
 /obj/machinery/power/apc/high/north{
 	req_access = null;
-	cell_type = /obj/item/cell/super
 	},
 /obj/machinery/computer/ship/navigation/terminal{
 	dir = 8

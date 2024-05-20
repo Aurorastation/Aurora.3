@@ -3285,10 +3285,7 @@
 	dir = 10
 	},
 /obj/machinery/alarm/north,
-/obj/machinery/power/apc/west{
-	dir = 4;
-	pixel_x = 12
-	},
+/obj/machinery/power/apc/west,
 /obj/structure/cable/green{
 	icon_state = "0-2"
 	},
@@ -19082,10 +19079,7 @@
 /obj/item/stamp/denied,
 /obj/item/folder/blue,
 /obj/item/folder/white,
-/obj/machinery/power/apc/south{
-	dir = 8;
-	pixel_x = -14
-	},
+/obj/machinery/power/apc/south,
 /obj/structure/cable/green{
 	icon_state = "0-4"
 	},
@@ -23054,9 +23048,7 @@
 /obj/effect/floor_decal/spline/fancy/wood{
 	dir = 7
 	},
-/obj/machinery/power/apc/south{
-	pixel_y = -12
-	},
+/obj/machinery/power/apc/south,
 /obj/structure/cable/green,
 /obj/machinery/light,
 /turf/simulated/floor/wood,
@@ -26037,9 +26029,7 @@
 /obj/structure/cable/green{
 	icon_state = "1-4"
 	},
-/obj/machinery/power/apc/hyper/south{
-	pixel_y = -12
-	},
+/obj/machinery/power/apc/hyper/south,
 /obj/effect/floor_decal/industrial/warning/cee{
 	dir = 1
 	},
@@ -33293,9 +33283,6 @@
 	},
 /obj/machinery/power/apc/north{
 	is_critical = 1;
-	pixel_y = 0;
-	dir = 4;
-	pixel_x = 15
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
