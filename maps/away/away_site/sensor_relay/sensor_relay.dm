@@ -110,3 +110,11 @@
 /obj/effect/shuttle_landmark/sensor_relay/southeast
 	name = "Sensor Relay - Space, Southeast"
 	landmark_tag = "relay_se"
+
+/obj/effect/shuttle_landmark/sensor_relay/east
+	name = "Sensor Relay - Space, East"
+	landmark_tag = "relay_e"
+
+/obj/effect/shuttle_landmark/sensor_relay/west
+	name = "Sensor Relay - Space, West"
+	landmark_tag = "relay_w"

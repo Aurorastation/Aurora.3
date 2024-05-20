@@ -621,7 +621,7 @@
 /area/sensor_relay/airlocks)
 "act" = (
 /obj/structure/lattice,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "acL" = (
 /obj/effect/floor_decal/corner/dark_green{
@@ -667,7 +667,8 @@
 "adF" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -708,7 +709,8 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_eng";
-	name = "sensor_relay_eng"
+	name = "sensor_relay_eng";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -790,7 +792,8 @@
 "aer" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -854,7 +857,8 @@
 "agb" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan,
 /obj/structure/lattice/catwalk/indoor/grate,
@@ -864,7 +868,8 @@
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_eng";
-	name = "sensor_relay_eng"
+	name = "sensor_relay_eng";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/exterior,
 /obj/machinery/access_button{
@@ -975,7 +980,7 @@
 /turf/simulated/floor/tiled/full,
 /area/sensor_relay/dining)
 "aht" = (
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "ahL" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
@@ -1043,7 +1048,8 @@
 "aiL" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_eng";
-	name = "sensor_relay_eng"
+	name = "sensor_relay_eng";
+	req_one_access = null
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	dir = 8;
@@ -1091,6 +1097,8 @@
 /obj/item/stack/rods/full,
 /obj/item/stack/material/plastic/full,
 /obj/item/stack/material/wood/full,
+/obj/item/clothing/shoes/workboots,
+/obj/item/clothing/shoes/workboots,
 /turf/simulated/floor/tiled/dark/full,
 /area/sensor_relay/maintenance)
 "aiW" = (
@@ -1341,7 +1349,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/machinery/light/colored/red,
 /obj/random/dirt_75,
@@ -1381,7 +1390,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden/cyan,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -1476,24 +1486,21 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay/hydroponics)
 "aqs" = (
-/obj/structure/table/rack,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 6
 	},
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 6
 	},
-/obj/random/dirt_75,
-/obj/item/clothing/shoes/workboots,
-/obj/item/clothing/shoes/workboots,
-/obj/item/clothing/head/hardhat/orange,
-/obj/item/clothing/head/hardhat/orange,
-/obj/item/clothing/gloves/yellow,
-/obj/item/clothing/gloves/yellow,
 /obj/structure/sign/poster{
 	pixel_x = -32
 	},
-/obj/item/storage/box/fancy/cigarettes/dromedaryco,
+/obj/structure/filingcabinet/chestdrawer{
+	pixel_x = -6
+	},
+/obj/structure/filingcabinet{
+	pixel_x = 9
+	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "aqB" = (
@@ -1530,6 +1537,8 @@
 	},
 /obj/random/seed,
 /obj/random/tech_supply,
+/obj/item/ore/coal,
+/obj/item/ore/coal,
 /turf/simulated/floor/tiled/white,
 /area/sensor_relay/dining)
 "arb" = (
@@ -1608,7 +1617,8 @@
 /obj/machinery/atmospherics/pipe/simple/hidden,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /obj/machinery/access_button{
@@ -1672,7 +1682,7 @@
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
 	},
-/turf/simulated/floor/airless,
+/turf/space/dynamic,
 /area/sensor_relay)
 "atR" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/cyan{
@@ -1680,7 +1690,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -1691,7 +1702,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/machinery/airlock_sensor{
 	pixel_x = -20;
@@ -1708,7 +1720,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/machinery/light/colored/red,
 /obj/random/dirt_75,
@@ -1719,7 +1732,9 @@
 	d2 = 8;
 	icon_state = "0-8"
 	},
-/obj/machinery/power/solar_control,
+/obj/machinery/power/solar_control{
+	dir = 1
+	},
 /obj/machinery/light/colored/decayed{
 	dir = 1
 	},
@@ -1756,7 +1771,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/bitile{
@@ -1779,6 +1795,8 @@
 /obj/random/junk,
 /obj/structure/extinguisher_cabinet/west,
 /obj/item/stack/cable_coil/yellow,
+/obj/item/clothing/head/hardhat/orange,
+/obj/item/clothing/head/hardhat/orange,
 /turf/simulated/floor/tiled/dark/full,
 /area/sensor_relay/maintenance)
 "awM" = (
@@ -1893,7 +1911,8 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/cyan,
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/structure/lattice/catwalk/indoor/grate,
 /turf/simulated/floor/plating,
@@ -1903,6 +1922,7 @@
 /obj/item/bedsheet/dorms,
 /obj/random/dirt_75,
 /obj/random/plushie,
+/obj/structure/curtain/open,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "azs" = (
@@ -2059,7 +2079,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/machinery/light/colored/red{
 	dir = 4
@@ -2073,7 +2094,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/machinery/light/colored/red{
 	dir = 8
@@ -2189,7 +2211,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28
@@ -2358,6 +2381,8 @@
 	},
 /obj/random/tool,
 /obj/item/inflatable/wall,
+/obj/item/clothing/gloves/yellow,
+/obj/item/clothing/gloves/yellow,
 /turf/simulated/floor/tiled/dark/full,
 /area/sensor_relay/maintenance)
 "aGQ" = (
@@ -2494,6 +2519,12 @@
 	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
+"aJV" = (
+/obj/effect/shuttle_landmark/sensor_relay/east{
+	dir = 8
+	},
+/turf/template_noop,
+/area/space)
 "aKd" = (
 /obj/machinery/light/colored/dying,
 /obj/effect/floor_decal/corner/dark_blue{
@@ -2709,7 +2740,8 @@
 "aOC" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_ext";
-	name = "sensor_relay_ext"
+	name = "sensor_relay_ext";
+	req_one_access = null
 	},
 /obj/machinery/door/airlock/external,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -2811,6 +2843,7 @@
 /obj/item/toy/comic{
 	pixel_y = 16
 	},
+/obj/item/storage/box/fancy/cigarettes/dromedaryco,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "aRK" = (
@@ -2840,6 +2873,7 @@
 	pixel_y = 2;
 	pixel_x = 4
 	},
+/obj/structure/extinguisher_cabinet/west,
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "aSa" = (
@@ -3146,7 +3180,8 @@
 	},
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "sensor_relay_int";
-	name = "sensor_relay_int"
+	name = "sensor_relay_int";
+	req_one_access = null
 	},
 /obj/machinery/embedded_controller/radio/airlock/airlock_controller{
 	pixel_y = 28
@@ -3301,13 +3336,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/grille/firedoor,
 /turf/simulated/floor/plating,
 /area/sensor_relay/dining)
-"fCA" = (
-/obj/structure/window_frame,
-/obj/structure/grille/over,
-/obj/structure/inflatable/wall,
-/obj/machinery/door/firedoor,
-/turf/simulated/floor/plating,
-/area/sensor_relay)
 "fHz" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 6
@@ -3336,7 +3364,7 @@
 "gvY" = (
 /obj/structure/lattice,
 /obj/item/hullbeacon/red,
-/turf/space,
+/turf/space/dynamic,
 /area/space)
 "gQM" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3355,7 +3383,7 @@
 /turf/simulated/floor/plating,
 /area/sensor_relay/airlocks)
 "gTQ" = (
-/obj/structure/window_frame,
+/obj/structure/window_frame/empty,
 /obj/structure/grille/over,
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -3408,7 +3436,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "iJt" = (
-/obj/structure/window_frame,
+/obj/structure/window_frame/empty,
 /obj/structure/grille/over,
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -3536,6 +3564,7 @@
 /obj/structure/bed/padded,
 /obj/item/bedsheet/dorms,
 /obj/random/junk,
+/obj/structure/curtain/open,
 /turf/simulated/floor/carpet/green,
 /area/sensor_relay/quarters)
 "lyl" = (
@@ -3578,7 +3607,7 @@
 /turf/simulated/floor/airless,
 /area/sensor_relay)
 "mQU" = (
-/obj/structure/window_frame,
+/obj/structure/window_frame/empty,
 /obj/structure/grille/over,
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -3665,6 +3694,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
+"pRg" = (
+/obj/effect/shuttle_landmark/sensor_relay/west{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
 "pZW" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -3723,7 +3758,7 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay)
 "qUV" = (
-/obj/structure/window_frame,
+/obj/structure/window_frame/empty,
 /obj/structure/grille/over,
 /obj/machinery/door/firedoor{
 	dir = 4
@@ -4024,17 +4059,13 @@
 /turf/simulated/floor/tiled,
 /area/sensor_relay/hydroponics)
 "wXv" = (
-/obj/structure/extinguisher_cabinet/east,
-/obj/structure/filingcabinet/chestdrawer{
-	pixel_x = -6
-	},
-/obj/structure/filingcabinet{
-	pixel_x = 9
-	},
 /obj/effect/floor_decal/spline/fancy{
 	dir = 4
 	},
 /obj/random/dirt_75,
+/obj/machinery/computer/ship/sensors/terminal{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/sensor_relay/quarters)
 "xdX" = (
@@ -21923,7 +21954,7 @@ anw
 anw
 anw
 anw
-anw
+pRg
 anw
 anw
 anw
@@ -29093,7 +29124,7 @@ anw
 anw
 anw
 anw
-anw
+sHu
 anw
 anw
 anw
@@ -30168,7 +30199,7 @@ anw
 anw
 anw
 anw
-anw
+mWz
 anw
 anw
 anw
@@ -30883,7 +30914,7 @@ anw
 anw
 anw
 anw
-sHu
+anw
 anw
 anw
 anw
@@ -31955,7 +31986,6 @@ act
 act
 aZQ
 aht
-aht
 anw
 anw
 anw
@@ -31981,7 +32011,8 @@ anw
 anw
 anw
 anw
-mWz
+anw
+anw
 anw
 anw
 anw
@@ -33746,7 +33777,7 @@ djv
 ajJ
 ahr
 ajJ
-ajJ
+djv
 uRP
 aRK
 aAf
@@ -35029,7 +35060,7 @@ aEA
 aEA
 aef
 deH
-fCA
+gTQ
 aao
 aap
 aaN
@@ -39151,7 +39182,7 @@ act
 act
 aZQ
 aht
-aht
+anw
 anw
 anw
 anw
@@ -39876,7 +39907,7 @@ anw
 anw
 anw
 anw
-aBm
+anw
 anw
 anw
 anw
@@ -40713,7 +40744,7 @@ anw
 anw
 anw
 anw
-yif
+anw
 anw
 anw
 anw
@@ -41174,7 +41205,7 @@ anw
 anw
 anw
 anw
-anw
+aBm
 anw
 anw
 anw
@@ -41986,7 +42017,7 @@ anw
 anw
 anw
 anw
-anw
+yif
 anw
 anw
 anw
@@ -48137,7 +48168,7 @@ anw
 anw
 anw
 anw
-anw
+aJV
 anw
 anw
 anw
