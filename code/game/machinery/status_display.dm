@@ -101,7 +101,6 @@
 			if(evacuation_controller)
 				if(evacuation_controller.is_prepared())
 					message1 = "-ETD-"
-					message2 = "Test"
 					if (evacuation_controller.waiting_to_leave())
 						message2 = "Launch"
 					else
