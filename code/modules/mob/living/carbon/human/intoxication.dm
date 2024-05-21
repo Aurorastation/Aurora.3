@@ -26,53 +26,57 @@
 
 	if(bac > INTOX_BUZZED*SR && bac < INTOX_MUSCLEIMP*SR)
 		sprint_cost_factor += -0.1
-		if(prob(5))
-			to_chat(src, SPAN_NOTICE("You feel buzzed."))
+		if(prob(3))
+			to_chat(src, SPAN_GOOD(pick("You feel buzzed.","You feel good!","You feel less inhibited.","You feel relaxed.")))
 
 	if(bac > INTOX_JUDGEIMP*SR)
 		if (dizziness == 0)
-			to_chat(src, SPAN_NOTICE("You feel a little tipsy."))
+			to_chat(src, SPAN_GOOD("You feel a little tipsy!"))
 		var/target_dizziness = BASE_DIZZY + ((bac - INTOX_JUDGEIMP*SR)*DIZZY_ADD_SCALE*100)
 		make_dizzy(target_dizziness - dizziness)
 
 	if(bac > INTOX_MUSCLEIMP*SR && bac < INTOX_REACTION*SR)
-		slurring = max(slurring, 25)
-		if (prob(5))
-			to_chat(src, SPAN_NOTICE("You feel drunk!"))
+		if (prob(3))
+			to_chat(src, SPAN_GOOD(pick("You feel drunk!", "You feel great!", "Your inhibitions fall away...", "All your anxieties melt away.")))
 		move_delay_mod += 2
 		sprint_cost_factor += 0.2
 
 	if(bac > INTOX_REACTION*SR)
-		if (prob(5))
-			to_chat(src, SPAN_NOTICE("You feel absolutely smashed!"))
+		if (prob(3) && bac < INTOX_BALANCE*SR)
+			to_chat(src, SPAN_GOOD(pick("You feel very drunk!", "You feel reckless!", "You don't have a care in the world!", "You feel amazing!")))
 		if (confused == 0)
 			to_chat(src, SPAN_WARNING("You feel uncoordinated and unsteady on your feet!"))
+		var/target_slurring = BASE_SLUR + ((bac - INTOX_REACTION*SR)*SLUR_ADD_SCALE*100)
+		slurring = max(slurring, target_slurring)
 		confused = max(confused, 10)
-		slurring = max(slurring, 50)
+		eye_blurry = max(eye_blurry, 10)
+		move_delay_mod += 2
+		sprint_cost_factor += 0.2
 
 	if(bac > INTOX_VOMIT*SR)//Vomiting starts here. 1% chance every 10 ticks, escalating with increased intoxication (1% per 0.01 BAC)
-		if (prob(5))
-			to_chat(src, SPAN_NOTICE("You feel a little nauseous..."))
+		if (prob(3))
+			to_chat(src, SPAN_WARNING("You feel a little nauseous..."))
 		if (life_tick % 10 == 1)
-			var/chance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
-			if (prob(chance))
+			var/vomitchance = BASE_VOMIT_CHANCE + ((bac - INTOX_VOMIT*SR)*VOMIT_CHANCE_SCALE*100)
+			if (prob(vomitchance))
 				delayed_vomit()
 
-	if(bac > INTOX_BALANCE*SR)//Can no longer walk properly. Will fall to the ground very often.
+	if(bac > INTOX_BALANCE*SR)//Can no longer walk properly. Will fall to the ground very often. Good drunkeness messages replaced by alcohol dysphoria and confusion
 		var/fallchance = ((bac - INTOX_BALANCE*SR)*100)
-		slurring = max(slurring, 100)
-		if (prob(5))
-			to_chat(src, SPAN_NOTICE("You feel the room spinning..."))
+		if (prob(3))
+			to_chat(src, SPAN_WARNING(pick("You feel the room spinning...", "It's hard to think...", "You can't see straight...", "You feel absolutely hammered!")))
 		if (life_tick % 4 == 1 && !lying && !buckled_to && prob(fallchance))
 			src.visible_message(SPAN_WARNING("[src] loses balance and falls to the ground!"),SPAN_WARNING("You lose balance and fall to the ground!"))
 			Paralyse(3 SECONDS)
 			if(prob(33) && stat == CONSCIOUS && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine))
 				slurring = max(slurring, 70)
-				to_chat(src,SPAN_WARNING("You decide that you like the ground and spend a few seconds to rest."))
+				to_chat(src,SPAN_GOOD("You decide that you like the ground and spend a few seconds to rest."))
 				sleeping  = max(sleeping, 6 SECONDS)
 				adjustBrainLoss(1,5)
 
 	if(bac > INTOX_BLACKOUT*SR && bac < INTOX_CONSCIOUS*SR && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine))//Alcohol poisoing causing short blackouts.
+		if (prob(3) && bac < INTOX_BLACKOUT*SR)
+			to_chat(src, SPAN_GOOD(pick("You feel very drunk!", "You feel invincible!", "You don't have a care in the world!", "You feel amazing!")))
 		if (life_tick % 4 == 1 && prob(5) && stat == CONSCIOUS)
 			src.visible_message(SPAN_DANGER("[src] blacks out!"),SPAN_DANGER("You black out!"))
 			paralysis = max(paralysis, 6 SECONDS)
@@ -87,14 +91,14 @@
 			adjustBrainLoss(5,30)
 		if(losebreath && losebreath < 15)//Patient's breathing is suppressed. If already not breathing, don't start again. Stay not breathing.
 			losebreath++
-		if(prob(1) && life_tick % 4 == 1 && stat == UNCONSCIOUS && bac < INTOX_DEATH*SR)//1% chance every 4 ticks to stop breathing while unconscious.
+		if(prob(1) && life_tick % 10 == 1 && stat == UNCONSCIOUS && bac < INTOX_DEATH*SR)//2.5% chance every minute, roughly, to stop breathing while unconscious.
 			if (!losebreath)//To prevent this message from being spammed.
-				to_chat(src, SPAN_WARNING("You stop breathing!"))
+				src.visible_message(SPAN_DANGER("[src] stops breathing!"),SPAN_DANGER("You stop breathing!"))
 			losebreath += 15
 
 	if (bac > INTOX_DEATH*SR && !src.reagents.has_reagent(/singleton/reagent/ethylredoxrazine)) //Fatal alcohol poisoning. Central nervous system no longer able to promote unconscious breathing
 		if (!losebreath)//To prevent this message from being spammed.
-			to_chat(src, SPAN_WARNING("You stop breathing!"))
+			src.visible_message(SPAN_DANGER("[src] stops breathing!"),SPAN_DANGER("You stop breathing!"))
 		if(losebreath < 15)//Stop breathing
 			losebreath++
 
