@@ -6,8 +6,8 @@
 	suffixes = list("tajara_safehouse.dmm")
 
 	sectors = list(SECTOR_CORP_ZONE, SECTOR_VALLEY_HALE, SECTOR_BADLANDS)
-	spawn_weight = 1
-	ship_cost = 2
+	spawn_weight = 0 // outdated and not following current standards, could be enabled after it's fixed
+	ship_cost = 1
 	id = "tajara_safehouse"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/tajara_safehouse_shuttle)
 

@@ -94,38 +94,38 @@
 		return
 
 	if(src.is_devouring)
-		to_chat(src, "<span class='warning'>We are already feasting on something!</span>")
+		to_chat(src, SPAN_WARNING("We are already feasting on something!"))
 		return 0
 
 	if(!health)
-		to_chat(src, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		to_chat(src, SPAN_NOTICE("We are dead, we cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
-		to_chat(src, "<span class='warning'>We must wait a little while before we can use this ability again!</span>")
+		to_chat(src, SPAN_WARNING("We must wait a little while before we can use this ability again!"))
 		return
 
-	src.visible_message("<span class='warning'>[src] begins ripping apart and feasting on [target]!</span>")
+	src.visible_message(SPAN_WARNING("[src] begins ripping apart and feasting on [target]!"))
 	src.is_devouring = TRUE
 
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
+		to_chat(src, SPAN_WARNING("You need to wait longer to devour \the [target]!"))
 		src.is_devouring = FALSE
 		return 0
 
-	src.visible_message("<span class='warning'>[src] tears a chunk from \the [target]'s flesh!</span>")
+	src.visible_message(SPAN_WARNING("[src] tears a chunk from \the [target]'s flesh!"))
 
 	target.adjustBruteLoss(35)
 
 	if(!do_after(src,150))
-		to_chat(src, "<span class='warning'>You need to wait longer to devour \the [target]!</span>")
+		to_chat(src, SPAN_WARNING("You need to wait longer to devour \the [target]!"))
 		src.is_devouring = FALSE
 		return 0
 
-	src.visible_message("<span class='warning'>[target] is completely devoured by [src]!</span>", \
-						"<span class='danger'>You completely devour \the [target]!</span>")
+	src.visible_message(SPAN_WARNING("[target] is completely devoured by [src]!"), \
+						SPAN_DANGER("You completely devour \the [target]!"))
 	target.gib()
 	rejuvenate()
 	updatehealth()
@@ -222,7 +222,7 @@
 				occupant.client.init_verbs()
 			occupant = null
 
-		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
+		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"))
 		gibs(src.loc)
 		qdel(src)
 		return
@@ -233,7 +233,7 @@
 	set category = "Changeling"
 
 	if(!health)
-		to_chat(usr, "<span class='notice'>We are dead, we cannot use any abilities!</span>")
+		to_chat(usr, SPAN_NOTICE("We are dead, we cannot use any abilities!"))
 		return
 
 	if(last_special > world.time)
@@ -251,6 +251,6 @@
 			mind.transfer_to(occupant)
 		occupant.client.init_verbs()
 		occupant = null
-		visible_message("<span class='warning'>\The [src] explodes into a shower of gore!</span>")
+		visible_message(SPAN_WARNING("\The [src] explodes into a shower of gore!"))
 		gibs(src.loc)
 		qdel(src)

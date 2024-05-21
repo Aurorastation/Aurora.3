@@ -202,7 +202,7 @@
 	else if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 		var/mob/living/affecting = G.affecting
-		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
+		user.visible_message(SPAN_NOTICE("[user] attempts to buckle [affecting] into \the [src]!"))
 		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)
@@ -307,6 +307,21 @@
 			msg_admin_attack("[pulling.name] ([pulling.ckey]) has thrusted [occupant.name]'s ([occupant.ckey]) [name] into \a [A] (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[pulling.x];Y=[pulling.y];Z=[pulling.z]'>JMP</a>)",ckey=key_name(pulling),ckey_target=key_name(occupant))
 		else
 			occupant.visible_message(SPAN_DANGER("[occupant] crashed into \the [A]!"))
+
+/obj/structure/bed/stair_act()
+	if(!buckled)
+		return
+
+	var/atom/movable/unbuckled_atom = unbuckle()
+	if(!unbuckled_atom)
+		return
+
+	unbuckled_atom.visible_message("<b>\The [unbuckled_atom]</b> goes flying out of \the [src] as it bounces on the stairs!", SPAN_WARNING("You go flying out of \the [src] as it bounces on the stairs!"))
+	unbuckled_atom.throw_at_random(FALSE, 1, 2)
+
+	if(ismob(unbuckled_atom))
+		var/mob/unbuckled_mob = unbuckled_atom
+		unbuckled_mob.Paralyse(5)
 
 /obj/structure/bed/psych
 	name = "psychiatrist's couch"
@@ -564,6 +579,9 @@
 /obj/structure/bed/roller/hover/Initialize()
 	.=..()
 	set_light(2,1,LIGHT_COLOR_CYAN)
+
+/obj/structure/bed/roller/hover/stair_act()
+	return
 
 /obj/item/roller
 	name = "roller bed"

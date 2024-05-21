@@ -89,7 +89,6 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 	var/datum/feed_channel/viewing_channel = null
 	var/datum/feed_message/viewing_message = null
-	var/global/list/screen_overlays
 
 /obj/machinery/newscaster/north
 	PRESET_NORTH
@@ -102,17 +101,6 @@ var/list/obj/machinery/newscaster/allCasters = list()
 
 /obj/machinery/newscaster/east
 	PRESET_EAST
-
-/obj/machinery/newscaster/proc/generate_overlays(var/force = 0)
-	if(LAZYLEN(screen_overlays) && !force)
-		return
-	LAZYINITLIST(screen_overlays)
-	screen_overlays["newscaster-screen"] = make_screen_overlay(icon, "newscaster-screen")
-	screen_overlays["newscaster-title"] = make_screen_overlay(icon, "newscaster-title")
-	screen_overlays["newscaster-wanted"] = make_screen_overlay(icon, "newscaster-wanted")
-	screen_overlays["newscaster-scanline"] = make_screen_overlay(icon, "newscaster-scanline")
-	for(var/i in 1 to 3)
-		screen_overlays["crack[i]"] = make_screen_overlay(icon, "crack[i]")
 
 /obj/machinery/newscaster/security_unit
 	name = "Security Newscaster"
@@ -137,7 +125,6 @@ var/list/obj/machinery/newscaster/allCasters = list()
 	unit_no = allCasters.len + 1
 	if(dir & NORTH)
 		alpha = 127
-	generate_overlays()
 	update_icon() //for any custom ones on the map...
 
 	if(!mapload)
@@ -157,29 +144,105 @@ var/list/obj/machinery/newscaster/allCasters = list()
 		set_light(FALSE)
 		if(isbroken) //If the thing is smashed, add crack overlay on top of the unpowered sprite.
 			ClearOverlays()
-			AddOverlays(screen_overlays["crack3"])
+			var/mutable_appearance/cracked_overlay = overlay_image(icon, "crack3")
+			var/mutable_appearance/cracked_overlay_emis = emissive_appearance(icon, "crack3")
+			AddOverlays(list(cracked_overlay, cracked_overlay_emis))
 		return
 
 	ClearOverlays() //reset overlays
 
-	AddOverlays(screen_overlays["newscaster-screen"])
+	var/mutable_appearance/screen = overlay_image(icon, "newscaster-screen")
+	var/mutable_appearance/screen_hologram = overlay_image(icon, "newscaster-screen")
+	var/mutable_appearance/screen_emis = emissive_appearance(icon, "newscaster-screen")
+	screen_hologram.filters += filter(type="color", color=list(
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		0, 0, 0, 0,
+		HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+	))
+	screen.filters += filter(type="color", color=list(
+		HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+		0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+		0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+		0, 0, 0, 1
+	))
+	screen_hologram.blend_mode = BLEND_MULTIPLY
+	screen.blend_mode = BLEND_ADD
+	AddOverlays(list(screen_hologram, screen, screen_emis))
 	set_light(1.4, 1.3, COLOR_CYAN)
 
-	if(!alert || !SSnews.wanted_issue) // since we're transparent I don't want overlay nonsense
-		AddOverlays(screen_overlays["newscaster-title"])
+	if(!alert || !SSnews.wanted_issue)
+		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-title")
+		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-title")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-title")
+		screen_hologram_title.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+		))
+		screen_title.filters += filter(type="color", color=list(
+			HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+			0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+			0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+			0, 0, 0, 1
+		))
+		screen_hologram_title.blend_mode = BLEND_MULTIPLY
+		screen_title.blend_mode = BLEND_ADD
+		AddOverlays(screen_hologram_title)
+		AddOverlays(screen_title)
+		AddOverlays(screen_emis_title)
 
 	if(SSnews.wanted_issue) //wanted icon state, there can be no overlays on it as it's a priority message
-		AddOverlays(screen_overlays["newscaster-wanted"])
+		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-wanted")
+		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-wanted")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-wanted")
+		screen_hologram_title.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+		))
+		screen_title.filters += filter(type="color", color=list(
+			HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+			0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+			0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+			0, 0, 0, 1
+		))
+		screen_hologram_title.blend_mode = BLEND_MULTIPLY
+		screen_title.blend_mode = BLEND_ADD
+		AddOverlays(screen_hologram_title)
+		AddOverlays(screen_title)
+		AddOverlays(screen_emis_title)
 		return
 
 	if(alert) //new message alert overlay
-		AddOverlays(screen_overlays["newscaster-alert"])
+		var/mutable_appearance/screen_title = overlay_image(icon, "newscaster-alert")
+		var/mutable_appearance/screen_hologram_title = overlay_image(icon, "newscaster-alert")
+		var/mutable_appearance/screen_emis_title = emissive_appearance(icon, "newscaster-alert")
+		screen_hologram_title.filters += filter(type="color", color=list(
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			0, 0, 0, 0,
+			HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_FACTOR, HOLOSCREEN_MULTIPLICATION_OPACITY
+		))
+		screen_title.filters += filter(type="color", color=list(
+			HOLOSCREEN_ADDITION_OPACITY, 0, 0, 0,
+			0, HOLOSCREEN_ADDITION_OPACITY, 0, 0,
+			0, 0, HOLOSCREEN_ADDITION_OPACITY, 0,
+			0, 0, 0, 1
+		))
+		screen_hologram_title.blend_mode = BLEND_MULTIPLY
+		screen_title.blend_mode = BLEND_ADD
+		AddOverlays(screen_hologram_title)
+		AddOverlays(screen_title)
+		AddOverlays(screen_emis_title)
 
 	if(hitstaken == 0)
-		AddOverlays(screen_overlays["newscaster-scanline"])
+		AddOverlays("newscaster-scanline")
 
 	if(hitstaken > 0) //Cosmetic damage overlay
-		AddOverlays(screen_overlays["crack[hitstaken]"])
+		AddOverlays("crack[hitstaken]")
 
 	icon_state = initial(icon_state)
 	return
@@ -271,7 +334,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 						if(FC.is_admin_channel)
 							dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen '><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A></font></B><BR>"
 						else
-							dat+="<B><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR></B>"
+							dat+="<B><A href='?src=\ref[src];show_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR></B>"
 				dat+="<BR><HR><A href='?src=\ref[src];refresh=1'>Refresh</A>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(2)
@@ -345,7 +408,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 			if(9)
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[created by: <span class='boldannounce'>[src.viewing_channel.author]</span>\]</font><HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -375,7 +438,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				else
 					for(var/channel in SSnews.network_channels)
 						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR>"
+						dat+="<A href='?src=\ref[src];pick_censor_channel=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR>"
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Cancel</A>"
 			if(11)
 				dat+="<B>[SSatlas.current_map.company_name] D-Notice Handler</B><HR>"
@@ -387,7 +450,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				else
 					for(var/channel in SSnews.network_channels)
 						var/datum/feed_channel/FC = SSnews.GetFeedChannel(channel)
-						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? ("<span class='warning'>***</span>") : null]<BR>"
+						dat+="<A href='?src=\ref[src];pick_d_notice=\ref[FC]'>[FC.channel_name]</A> [(FC.censored) ? (SPAN_WARNING("***")) : null]<BR>"
 
 				dat+="<BR><A href='?src=\ref[src];setScreen=[0]'>Back</A>"
 			if(12)
@@ -406,7 +469,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 				dat+="<B>[src.viewing_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <span class='boldannounce'>[src.viewing_channel.author]</span> \]</font><BR>"
 				dat+="Channel messages listed below. If you deem them dangerous to the station, you can <A href='?src=\ref[src];toggle_d_notice=\ref[src.viewing_channel]'>Bestow a D-Notice upon the channel</A>.<HR>"
 				if(src.viewing_channel.censored)
-					dat+="<span class='warning'><B>ATTENTION:</B></span> This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
+					dat += SPAN_WARNING("<B>ATTENTION:</B> ") + "This channel has been deemed as threatening to the welfare of the station, and marked with a [SSatlas.current_map.company_name] D-Notice.<BR>"
 					dat+="No further feed story additions are allowed while the D-Notice is in effect.<BR><BR>"
 				else
 					if( isemptylist(src.viewing_channel.messages) )
@@ -836,7 +899,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 						O.show_message("[user.name] forcefully slams the [src.name] with the [attacking_item.name]!" )
 					playsound(src.loc, 'sound/effects/glass_hit.ogg', 100, 1)
 		else
-			to_chat(user, "<span class='notice'>This does nothing.</span>")
+			to_chat(user, SPAN_NOTICE("This does nothing."))
 	src.update_icon()
 
 /datum/news_photo
@@ -1034,7 +1097,7 @@ var/list/obj/machinery/newscaster/allCasters = list()
 									SPAN_NOTICE("You unroll \the [src] to write on it."))
 			rolled()
 		if(src.scribble_page == src.curr_page)
-			to_chat(user, "<span class='notice'>There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?</span>")
+			to_chat(user, SPAN_NOTICE("There's already a scribble in this page... You wouldn't want to make things too cluttered, would you?"))
 		else
 			var/s = sanitize( tgui_input_text(user, "Write something", "Newspaper", "") )
 			if (!s)

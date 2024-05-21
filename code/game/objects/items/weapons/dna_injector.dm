@@ -105,7 +105,7 @@
 	if(inuse)
 		return 0
 
-	user.visible_message("<span class='danger'>\The [user] is trying to inject \the [M] with \the [src]!</span>")
+	user.visible_message(SPAN_DANGER("\The [user] is trying to inject \the [M] with \the [src]!"))
 	inuse = 1
 	s_time = world.time
 	spawn(50)
@@ -117,11 +117,11 @@
 	user.setClickCooldown(DEFAULT_QUICK_COOLDOWN)
 	user.do_attack_animation(M)
 
-	M.visible_message("<span class='danger'>\The [M] has been injected with \the [src] by \the [user].</span>")
+	M.visible_message(SPAN_DANGER("\The [M] has been injected with \the [src] by \the [user]."))
 
 	var/mob/living/carbon/human/H = M
 	if(!istype(H))
-		to_chat(user, "<span class='warning'>Apparently it didn't work...</span>")
+		to_chat(user, SPAN_WARNING("Apparently it didn't work..."))
 		return
 
 	if(H.species && H.species.flags & NO_SCAN)
@@ -130,7 +130,7 @@
 	// Used by admin log.
 	var/injected_with_monkey = ""
 	if((buf.types & DNA2_BUF_SE) && (block ? (GetState() && block == MONKEYBLOCK) : GetState(MONKEYBLOCK)))
-		injected_with_monkey = " <span class='danger'>(MONKEY)</span>"
+		injected_with_monkey = SPAN_DANGER(" (MONKEY)")
 
 	M.attack_log += text("\[[time_stamp()]\] <font color='orange'>Has been injected with [name] by [user.name] ([user.ckey])</font>")
 	user.attack_log += text("\[[time_stamp()]\] <span class='warning'>Used the [name] to inject [M.name] ([M.ckey])</span>")

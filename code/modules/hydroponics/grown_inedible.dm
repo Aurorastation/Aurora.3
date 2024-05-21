@@ -51,7 +51,7 @@
 	if(istype(attacking_item, /obj/item/surgery/circular_saw) || istype(attacking_item, /obj/item/material/hatchet) || \
 				istype(attacking_item, /obj/item/material/kitchen/utensil/knife) || istype(attacking_item, /obj/item/material/knife) || \
 				istype(attacking_item, /obj/item/material/knife/ritual))
-		to_chat(user, "<span class='notice'>You use [attacking_item] to fashion a pipe out of the corn cob!</span>")
+		to_chat(user, SPAN_NOTICE("You use [attacking_item] to fashion a pipe out of the corn cob!"))
 		new /obj/item/clothing/mask/smokable/pipe/cobpipe (user.loc)
 		qdel(src)
 		return

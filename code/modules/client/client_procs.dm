@@ -102,7 +102,7 @@ var/list/localhost_addresses = list(
 
 	if(href_list["discord_msg"])
 		if(!holder && received_discord_pm < world.time - 6000) //Worse they can do is spam IRC for 10 minutes
-			to_chat(usr, "<span class='warning'>You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you</span>")
+			to_chat(usr, SPAN_WARNING("You are no longer able to use this, it's been more then 10 minutes since an admin on Discord has responded to you"))
 			return
 		if(mute_discord)
 			to_chat(usr, "<span class='warning'You cannot use this as your client has been muted from sending messages to the admins on Discord</span>")
@@ -145,7 +145,7 @@ var/list/localhost_addresses = list(
 		var/request_id = text2num(href_list["linkingrequest"])
 
 		if (!establish_db_connection(GLOB.dbcon))
-			to_chat(src, "<span class='warning'>Action failed! Database link could not be established!</span>")
+			to_chat(src, SPAN_WARNING("Action failed! Database link could not be established!"))
 			return
 
 
@@ -153,11 +153,11 @@ var/list/localhost_addresses = list(
 		check_query.Execute(list("id" = request_id))
 
 		if (!check_query.NextRow())
-			to_chat(src, "<span class='warning'>No request found!</span>")
+			to_chat(src, SPAN_WARNING("No request found!"))
 			return
 
 		if (ckey(check_query.item[1]) != ckey || check_query.item[2] != "new")
-			to_chat(src, "<span class='warning'>Request authentication failed!</span>")
+			to_chat(src, SPAN_WARNING("Request authentication failed!"))
 			return
 
 		var/query_contents = ""
@@ -169,15 +169,15 @@ var/list/localhost_addresses = list(
 				query_details["new_status"] = "confirmed"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='good'><b>Account successfully linked!</b></span>"
+				feedback_message = SPAN_DANGER("<b>Account successfully linked!</b>")
 			if ("deny")
 				query_contents = "UPDATE ss13_player_linking SET status = :new_status:, deleted_at = NOW() WHERE id = :id:"
 				query_details["new_status"] = "rejected"
 				query_details["id"] = request_id
 
-				feedback_message = "<span class='warning'><b>Link request rejected!</b></span>"
+				feedback_message = SPAN_WARNING("<b>Link request rejected!</b>")
 			else
-				to_chat(src, "<span class='warning'>Invalid command sent.</span>")
+				to_chat(src, SPAN_WARNING("Invalid command sent."))
 				return
 
 		var/DBQuery/update_query = GLOB.dbcon.NewQuery(query_contents)
@@ -216,7 +216,7 @@ var/list/localhost_addresses = list(
 			// Forum link from various panels.
 			if ("github")
 				if (!GLOB.config.githuburl)
-					to_chat(src, "<span class='danger'>GitHub URL not set in the config. Unable to open the site.</span>")
+					to_chat(src, SPAN_DANGER("GitHub URL not set in the config. Unable to open the site."))
 				else if (alert("This will open the GitHub page in your browser. Are you sure?",, "Yes", "No") == "Yes")
 					if (href_list["pr"])
 						var/pr_link = "[GLOB.config.githuburl]pull/[href_list["pr"]]"
@@ -272,7 +272,7 @@ var/list/localhost_addresses = list(
 
 		if (spam_alert > 3 && !(prefs.muted & mute_type))
 			cmd_admin_mute(src.mob, mute_type, 1)
-			to_chat(src, "<span class='danger'>You have tripped the macro-trigger. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have tripped the macro-trigger. An auto-mute was applied."))
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped macro-trigger, now muted.")
 			return TRUE
 
@@ -290,13 +290,13 @@ var/list/localhost_addresses = list(
 		LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter. Last message count: [last_message_count]. Message: [message]")
 
 		if(last_message_count >= SPAM_TRIGGER_AUTOMUTE)
-			to_chat(src, "<span class='danger'>You have exceeded the spam filter limit for identical messages. An auto-mute was applied.</span>")
+			to_chat(src, SPAN_DANGER("You have exceeded the spam filter limit for identical messages. An auto-mute was applied."))
 			cmd_admin_mute(mob, mute_type, 1)
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now muted.")
 			last_message_count = 0
 			return TRUE
 		else if(last_message_count >= SPAM_TRIGGER_WARNING)
-			to_chat(src, "<span class='danger'>You are nearing the spam filter limit for identical messages.</span>")
+			to_chat(src, SPAN_DANGER("You are nearing the spam filter limit for identical messages."))
 			LOG_DEBUG("SPAM_PROTECT: [src] tripped duplicate message filter, now warned.")
 			return FALSE
 	else
@@ -308,7 +308,7 @@ var/list/localhost_addresses = list(
 	. = FALSE
 
 	if (prefs.muted & mute_type)
-		to_chat(src, "<span class='warning'>You are muted and cannot send messages.</span>")
+		to_chat(src, SPAN_WARNING("You are muted and cannot send messages."))
 		. = TRUE
 	else if (GLOB.config.automute_on && !holder && length(message))
 		. = . || automute_by_time(mute_type)
@@ -321,13 +321,13 @@ var/list/localhost_addresses = list(
 //This stops files larger than UPLOAD_LIMIT being sent from client to server via input(), client.Import() etc.
 /client/AllowUpload(filename, filelength)
 	if(filelength > UPLOAD_LIMIT)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): File Upload too large. Upload Limit: [UPLOAD_LIMIT/1024]KiB."))
 		return 0
 /*	//Don't need this at the moment. But it's here if it's needed later.
 	//Helps prevent multiple files being uploaded at once. Or right after eachother.
 	var/time_to_wait = fileaccess_timer - world.time
 	if(time_to_wait > 0)
-		to_chat(src, "<span class='warning'>Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds.</span>")
+		to_chat(src, SPAN_WARNING("Error: AllowUpload(): Spam prevention. Please wait [round(time_to_wait/10)] seconds."))
 		return 0
 	fileaccess_timer = world.time + FTPDELAY	*/
 	return 1
@@ -360,7 +360,7 @@ var/list/localhost_addresses = list(
 	if (LAZYLEN(GLOB.config.client_blacklist_version))
 		var/client_version = "[byond_version].[byond_build]"
 		if (client_version in GLOB.config.client_blacklist_version)
-			to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is explicitly blacklisted from joining this server!</b></span>")
+			to_chat_immediate(src, SPAN_DANGER("<b>Your version of BYOND is explicitly blacklisted from joining this server!</b>"))
 			to_chat_immediate(src, "Your current version: [client_version].")
 			to_chat_immediate(src, "Visit http://www.byond.com/download/ to download a different version. Try looking for a newer one, or go one lower.")
 			log_access("Failed Login: [key] [computer_id] [address] - Blacklisted BYOND version: [client_version].")
@@ -450,7 +450,7 @@ var/list/localhost_addresses = list(
 	log_client_to_db()
 
 	if (byond_version < GLOB.config.client_error_version)
-		to_chat_immediate(src, "<span class='danger'><b>Your version of BYOND is too old!</b></span>")
+		to_chat_immediate(src, SPAN_DANGER("<b>Your version of BYOND is too old!</b>"))
 		to_chat_immediate(src, GLOB.config.client_error_message)
 		to_chat_immediate(src, "Your version: [byond_version].")
 		to_chat_immediate(src, "Required version: [GLOB.config.client_error_version] or later.")
@@ -467,7 +467,7 @@ var/list/localhost_addresses = list(
 		if (GLOB.config.access_deny_new_players && player_age == -1)
 			log_access("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - New player attempting connection during panic bunker.")
-			to_chat_immediate(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from never before seen players.</span>")
+			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from never before seen players."))
 			del(src)
 			return 0
 
@@ -475,7 +475,7 @@ var/list/localhost_addresses = list(
 		if (GLOB.config.access_deny_new_accounts != -1 && account_age != -1 && account_age <= GLOB.config.access_deny_new_accounts)
 			log_access("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.", ckey = ckey)
 			message_admins("Failed Login: [key] [computer_id] [address] - Account too young to play. [account_age] days.")
-			to_chat_immediate(src, "<span class='danger'>Apologies, but the server is currently not accepting connections from BYOND accounts this young.</span>")
+			to_chat_immediate(src, SPAN_DANGER("Apologies, but the server is currently not accepting connections from BYOND accounts this young."))
 			del(src)
 			return 0
 
@@ -792,7 +792,7 @@ var/list/localhost_addresses = list(
 			if (!holder)
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
 				log_admin("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a proxy/VPN. They are being kicked because of this.")
-				to_chat(src, "<span class='danger'>Usage of proxies is not permitted by the rules. You are being kicked because of this.</span>")
+				to_chat(src, SPAN_DANGER("Usage of proxies is not permitted by the rules. You are being kicked because of this."))
 				del(src)
 			else
 				message_admins("Proxy Detection: [key_name_admin(src)] IP intel rated [res.intel*100]% likely to be a Proxy/VPN.")

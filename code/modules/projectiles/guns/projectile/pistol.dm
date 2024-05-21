@@ -35,7 +35,7 @@
 	var/mob/M = usr
 	if(!M.mind)	return 0
 	if(!M.mind.assigned_role == "Detective")
-		to_chat(M, "<span class='notice'>You don't feel cool enough to name this gun, chump.</span>")
+		to_chat(M, SPAN_NOTICE("You don't feel cool enough to name this gun, chump."))
 		return 0
 
 	var/input = sanitizeSafe(input("What do you want to name the gun?", ,""), MAX_NAME_LEN)
@@ -343,9 +343,9 @@
 /obj/item/gun/projectile/pistol/update_icon()
 	..()
 	if(!(ammo_magazine && ammo_magazine.stored_ammo.len))
-		icon_state = "[icon_state]-e"
+		icon_state = "[initial(icon_state)]-e"
 	else
-		icon_state = "pistol"
+		icon_state = "[initial(icon_state)]"
 
 /obj/item/gun/projectile/pirate
 	name = "zip gun"

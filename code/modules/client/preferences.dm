@@ -298,7 +298,8 @@ var/list/preferences_datums = list()
 			client.screen |= O
 		O.appearance = MA
 		O.dir = D
-		O.plane = HUD_PLANE
+		O.hud_layerise()
+		O.plane = 11 //THIS IS DUMB. Figure out a way to remove emissive blockers from the mob and their overlays.
 		var/list/screen_locs = preview_screen_locs["[D]"]
 		var/screen_x = screen_locs[1]
 		var/screen_x_minor = screen_locs[2]
@@ -336,7 +337,7 @@ var/list/preferences_datums = list()
 		if(GLOB.config.forumurl)
 			send_link(user, GLOB.config.forumurl)
 		else
-			to_chat(user, "<span class='danger'>The forum URL is not set in the server configuration.</span>")
+			to_chat(user, SPAN_DANGER("The forum URL is not set in the server configuration."))
 			return
 	return 1
 
@@ -362,7 +363,7 @@ var/list/preferences_datums = list()
 		close_load_dialog(usr)
 	else if(href_list["new_character_sql"])
 		new_setup(1)
-		to_chat(usr, "<span class='notice'>Your setup has been refreshed.</span>")
+		to_chat(usr, SPAN_NOTICE("Your setup has been refreshed."))
 		usr.client.prefs.update_preview_icon()
 		close_load_dialog(usr)
 	else if(href_list["close_load_dialog"])
@@ -686,11 +687,11 @@ var/list/preferences_datums = list()
 		return
 
 	if (!current_character)
-		to_chat(C, "<span class='notice'>You do not have a character loaded.</span>")
+		to_chat(C, SPAN_NOTICE("You do not have a character loaded."))
 		return
 
 	if (!establish_db_connection(GLOB.dbcon))
-		to_chat(C, "<span class='notice'>Unable to establish database connection.</span>")
+		to_chat(C, SPAN_NOTICE("Unable to establish database connection."))
 		return
 
 	var/DBQuery/query = GLOB.dbcon.NewQuery("UPDATE ss13_characters SET deleted_at = NOW(), deleted_by = \"player\" WHERE id = :char_id:")
@@ -699,7 +700,7 @@ var/list/preferences_datums = list()
 	// Create a new character.
 	new_setup(1)
 
-	to_chat(C, "<span class='warning'>Character successfully deleted! Please make a new one or load an existing setup.</span>")
+	to_chat(C, SPAN_WARNING("Character successfully deleted! Please make a new one or load an existing setup."))
 
 /datum/preferences/proc/get_species_datum()
 	if (species)

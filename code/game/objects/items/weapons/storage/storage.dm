@@ -113,7 +113,7 @@
 
 		//If we found a turf, pick up things from there
 		if(location_to_pickup)
-			pickup_items_from_loc_and_feedback(user, location_to_pickup)
+			pickup_items_from_loc_and_feedback(user, location_to_pickup, explicit_request = TRUE)
 
 	//Pick up one thing at a time
 	else
@@ -127,13 +127,15 @@
  *
  * * user - The user trying to pick up things
  * * location - A `/turf` to pick up things from
+ * * explicit_request - Boolean, if the request to pick up was explicit (eg. user clicking on something) or not (eg. auto-grabbing),
+ * suppresses the failure if nothing was picked up
  */
-/obj/item/storage/proc/pickup_items_from_loc_and_feedback(mob/user, turf/location)
+/obj/item/storage/proc/pickup_items_from_loc_and_feedback(mob/user, turf/location, explicit_request = FALSE)
 	set waitfor = FALSE
 
 	//pickup_result[1] is if there's any success, pickup_result[2] is if there's any failure
 	//both are booleans
-	var/list/pickup_result = pickup_items_from_loc(user, location)
+	var/list/pickup_result = pickup_items_from_loc(user, location, detail_insertions = explicit_request)
 
 	//Choose the feedback message depending on what happened and send it to the user
 	var/pickup_feedback_message
@@ -143,7 +145,7 @@
 	else if(pickup_result[1] && pickup_result[2])
 		pickup_feedback_message = SPAN_NOTICE("You put some things in \the [src].")
 
-	else if(!pickup_result[1] && pickup_result[2])
+	else if(explicit_request && (!pickup_result[1] && pickup_result[2]))
 		pickup_feedback_message = SPAN_NOTICE("You fail to pick anything up with \the [src].")
 
 	//Check if we got a feedback message and, if so, send it to the user
@@ -158,8 +160,9 @@
  *
  * * user - The user trying to pick up things
  * * location - A `/turf` to pick up things from
+ * * detail_insertions - A boolean, if `TRUE`, `can_be_inserted()` will be told to give feedbacks
  */
-/obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location)
+/obj/item/storage/proc/pickup_items_from_loc(mob/user, turf/location, detail_insertions = TRUE)
 
 	//In the format of list(SUCCESS, FAILURE)
 	var/list/return_status = list(FALSE, FALSE)
@@ -177,7 +180,7 @@
 		if (user && get_turf(user) != original_location)
 			break
 
-		if(!can_be_inserted(item))	// Note can_be_inserted still makes noise when the answer is no
+		if(!can_be_inserted(item, !detail_insertions))	// Note can_be_inserted still makes noise when the answer is no
 			rejections[item.type] = TRUE	// therefore full bags are still a little spammy
 			return_status[2] = TRUE
 			CHECK_TICK
@@ -734,7 +737,7 @@
 		var/obj/item/tray/T = attacking_item
 		if(T.current_weight > 0)
 			T.spill(user)
-			to_chat(user, "<span class='warning'>Trying to place a loaded tray into [src] was a bad idea.</span>")
+			to_chat(user, SPAN_WARNING("Trying to place a loaded tray into [src] was a bad idea."))
 			return
 
 	if(istype(attacking_item, /obj/item/device/hand_labeler))

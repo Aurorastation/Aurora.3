@@ -27,8 +27,8 @@
 	brush = /obj/item/reagent_containers/glass/rag
 
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 6)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 4
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 20
 	vehicle_version = /obj/vehicle/animal/threshbeast
 	natural_armor = list(
 		melee = ARMOR_MELEE_MEDIUM,
@@ -76,8 +76,8 @@
 	brush = /obj/item/reagent_containers/glass/rag
 
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 10)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 6
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 30
 	vehicle_version = /obj/vehicle/animal/hegeranzi
 	natural_armor = list( //big tough war beast, has some more armor particularly against bullets and melee
 		melee = ARMOR_MELEE_MAJOR,
@@ -124,8 +124,8 @@
 	brush = /obj/item/reagent_containers/glass/rag
 	speed = -1
 	butchering_products = list(/obj/item/stack/material/animalhide/lizard = 4)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
-	meat_amount = 3
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
+	meat_amount = 16
 
 /mob/living/simple_animal/miervesh
 	name = "miervesh"
@@ -151,7 +151,7 @@
 	attacktext = "swatted"
 	flying = TRUE
 	butchering_products = list(/obj/item/stack/material/animalhide = 1)
-	meat_type = /obj/item/reagent_containers/food/snacks/meat
+	meat_type = /obj/item/reagent_containers/food/snacks/meat/moghes
 	meat_amount = 1
 	var/chosen_icon
 

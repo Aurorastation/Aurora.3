@@ -47,13 +47,13 @@
 		strength -= 1
 		if (strength <= 0)
 			if (prob(25))//probability to reduce spam
-				src.visible_message("<span class='warning'>The bee swarm completely dissipates.</span>")
+				src.visible_message(SPAN_WARNING("The bee swarm completely dissipates."))
 			qdel(src)
 			return
 		else
 			health = maxHealth
 			if (prob(25))//probability to reduce spam
-				src.visible_message("<span class='warning'>The bee swarm starts to thin out a little.</span>")
+				src.visible_message(SPAN_WARNING("The bee swarm starts to thin out a little."))
 
 		update_icon()
 	else
@@ -103,7 +103,7 @@
 			if(prob(max(80, strength * 10))) //If there's enough of a swarm, it can also cause breathing trouble. Yes, even without being allergic.
 				M.apply_damage(venom_strength, DAMAGE_OXY)
 			update_icon()
-			to_chat(M, "<span class='warning'>You have been stung!</span>")
+			to_chat(M, SPAN_WARNING("You have been stung!"))
 			M.flash_pain(5)
 	else
 		step_to(src, target_mob)
@@ -156,7 +156,7 @@
 
 		if(range_in_typecache(src, 2, calmers))
 			if(feral > 0)
-				src.visible_message("<span class='notice'>The bees calm down!</span>")
+				src.visible_message(SPAN_NOTICE("The bees calm down!"))
 			feral = -15
 			target_mob = null
 			target_turf = null
@@ -216,7 +216,7 @@
 		if (!(DirBlocked(get_step(src, get_dir(src,target_turf)),get_dir(src,target_turf)))) // Check for windows and doors!
 			Move(get_step(src, get_dir(src,target_turf)))
 			if(prob(10))
-				visible_message("<span class='notice'>The bees swarm after [target_mob]!</span>")
+				visible_message(SPAN_NOTICE("The bees swarm after [target_mob]!"))
 		if(get_turf(src) == target_turf)
 			target_turf = null
 			wander = TRUE

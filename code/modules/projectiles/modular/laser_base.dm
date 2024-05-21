@@ -21,11 +21,11 @@
 /obj/item/laser_components/attackby(obj/item/attacking_item, mob/user)
 	if(!istype(attacking_item, repair_item))
 		return ..()
-	to_chat(user, "<span class='warning'>You begin repairing \the [src].</span>")
+	to_chat(user, SPAN_WARNING("You begin repairing \the [src]."))
 	if(do_after(user, 20) && repair_module(attacking_item))
-		to_chat(user, "<span class='notice'>You repair \the [src].</span>")
+		to_chat(user, SPAN_NOTICE("You repair \the [src]."))
 	else
-		to_chat(user, "<span class='warning'>You fail to repair \the [src].</span>")
+		to_chat(user, SPAN_WARNING("You fail to repair \the [src]."))
 
 /obj/item/laser_components/proc/repair_module(var/obj/item/D)
 	return 1
@@ -48,7 +48,7 @@
 	. = ..()
 	if(distance <= 1)
 		if(malus > base_malus)
-			. += "<span class='warning'>\The [src] appears damaged.</span>"
+			. += SPAN_WARNING("\The [src] appears damaged.")
 
 /obj/item/laser_components/modifier/degrade(var/increment = 1)
 	if(increment)
@@ -88,7 +88,7 @@
 /obj/item/laser_components/capacitor/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 && condition > 0)
-		. += "<span class='warning'>\The [src] appears damaged.</span>"
+		. += SPAN_WARNING("\The [src] appears damaged.")
 
 /obj/item/laser_components/capacitor/proc/small_fail(var/mob/user, var/obj/item/gun/energy/laser/prototype/prototype)
 	return
@@ -121,7 +121,7 @@
 /obj/item/laser_components/focusing_lens/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
 	if(distance <= 1 && condition > 0)
-		. += "<span class='warning'>\The [src] appears damaged.</span>"
+		. += SPAN_WARNING("\The [src] appears damaged.")
 
 /obj/item/laser_components/modulator
 	name = "laser modulator"
@@ -196,7 +196,7 @@
 
 	else
 		return ..()
-	to_chat(user, "<span class='notice'>You insert \the [A] into the assembly.</span>")
+	to_chat(user, SPAN_NOTICE("You insert \the [A] into the assembly."))
 	update_icon()
 	if(check_completion())
 		success = 2 // meaning complete
