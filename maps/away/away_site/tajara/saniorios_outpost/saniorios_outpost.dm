@@ -9,7 +9,7 @@
 	id = "saniorios_outpost"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/saniorios_outpost)
 	unit_test_groups = list(1)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED
+
 /singleton/submap_archetype/saniorios_outpost
 	map = "Sani'Orios"
 	descriptor = "A gas giant composed of ammonia. Its planetary ring is home to several spaceship wrecks and hidden smuggler bases."
