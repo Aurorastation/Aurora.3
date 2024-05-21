@@ -264,6 +264,8 @@
  * * source - An object caused electrocuting (airlock, grille, etc)
  * * siemens_coeff - Layman's terms, conductivity
  * * contact_zone - Where the electrocution is happening, see BP_* defines in `code\__DEFINES\mobs.dm`
+ *
+ * Returns the amount of energy that was used to electrocute the mob, or `null` / `FALSE` if the electrocution didn't happen
  */
 /proc/electrocute_mob(mob/living/carbon/victim, power_source, obj/source, siemens_coeff = 1.0, contact_zone = "hand")
 
