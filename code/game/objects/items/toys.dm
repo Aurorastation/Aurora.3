@@ -1282,7 +1282,7 @@
 
 //Norinori plushie
 /obj/item/toy/plushie/norinori
-	name = "\improper NoriNori plushie"
+	name = "\improper Norinori plushie"
 	desc = "A plump and fluffy plushie depicting Up!Burger's mascot Norinori the Onigiri! It smells faintly of rice."
 	icon_state = "norinori"
 	phrase = "Buy. Up!Burger!"
