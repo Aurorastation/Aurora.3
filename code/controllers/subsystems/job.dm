@@ -820,8 +820,7 @@ SUBSYSTEM_DEF(jobs)
 		log_loadout("EA/([H]): Abort: invalid arguments.")
 		return FALSE
 
-	var/datum/job/rank = GetJob(H.mind.assigned_role)
-
+	var/datum/job/rank = H.mind ? GetJob(H.mind.assigned_role) : prefs.return_chosen_high_job()
 	switch (rank.title)
 		if ("AI", "Cyborg")
 			log_loadout("EA/([H]): Abort: synthetic.")
