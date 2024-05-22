@@ -18,7 +18,7 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 /world/New()
 	CAN_BE_REDEFINED(TRUE)
 	if(GLOB.config.enable_byond_tracy)
-		prof_init("tracy_disk") // This start's Affectedarc07's version of Tracy. Writing a .utracy file to the disk.
+		prof_init(DISK_VERSION) // This start's Affectedarc07's version of Tracy. Writing a .utracy file to the disk.
 	. = ..()
 
 /world/Del()
@@ -71,6 +71,8 @@ GLOBAL_VAR_INIT(byond_tracy_path, FALSE)
 				lib = "libprof-disk.so" //this doesn't currently exist btw
 			else
 				CRASH("unsupported platform")
+		else
+			CRASH("unsupported byond-tracy version [version]")
 
 	GLOB.byond_tracy_path = lib
 	var/init = call_ext(lib, "init")()
