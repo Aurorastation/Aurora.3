@@ -1234,6 +1234,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 /obj/item/proc/get_head_examine_text(var/mob/user)
 	return "on [user.get_pronoun("his")] head"
 
+/obj/item/proc/get_wrist_examine_text(var/mob/user)
+	return "around [user.get_pronoun("his")] [gender==PLURAL?"wrists":"wrist"]"
+
 /obj/item/proc/should_equip() // when you press E with an empty hand, will this item be pulled from suit storage / back slot and put into your hand
 	return FALSE
 

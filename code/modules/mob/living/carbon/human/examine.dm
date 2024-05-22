@@ -200,7 +200,7 @@
 
 	//wrists
 	if(wrists && !skipwrists)
-		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wrists]'>\a [wrists]</a> on [get_pronoun("his")] [wrists.gender==PLURAL?"wrists":"wrist"].\n"
+		msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(wrists, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[wrists]'>\a [wrists]</a> [wrists.get_wrist_examine_text(src)].\n"
 
 	//Jitters
 	if(is_jittery)
