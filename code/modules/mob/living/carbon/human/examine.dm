@@ -268,6 +268,8 @@
 		have_client = bg.client
 		inactivity =  have_client ? bg.client.inactivity : null
 
+	if(sleeping)
+		msg += species.sleep_examine_msg(src)
 
 	if(species.show_ssd && (!species.has_organ[BP_BRAIN] || has_brain()) && stat != DEAD && !(status_flags & FAKEDEATH))
 		if(!vr_mob && !key)

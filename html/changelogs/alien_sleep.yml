@@ -1,0 +1,9 @@
+author: Sparky_hotdog
+
+delete-after: True
+
+changes:
+  - rscadd: "Vaurcae, IPCs & Dionae will now all remain upright when sleeping."
+  - rscadd: "Added unique messages when entering sleep for alien species, as well as unique sleep examine text."
+  - rscadd: "Added unique different snoring replacements for alien species."
+  - rscadd: "Varcae, IPCs & Dionae can now all choose to remain asleep indefinitely."
