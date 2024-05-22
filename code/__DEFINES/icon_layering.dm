@@ -31,13 +31,15 @@
 #define R_EAR_LAYER           30
 #define FACEMASK_LAYER        31
 #define HEAD_LAYER            32
-#define GLASSES_LAYER_OVER    33
-#define COLLAR_LAYER          34
-#define WRISTS_LAYER_OVER     35
-#define HANDCUFF_LAYER        36
-#define LEGCUFF_LAYER         37
-#define L_HAND_LAYER          38
-#define R_HAND_LAYER          39
-#define FIRE_LAYER_UPPER      40
-#define TOTAL_LAYERS          40
+#define L_EAR_LAYER_ALT		  33
+#define R_EAR_LAYER_ALT       34
+#define GLASSES_LAYER_OVER    35
+#define COLLAR_LAYER          36
+#define WRISTS_LAYER_OVER     37
+#define HANDCUFF_LAYER        38
+#define LEGCUFF_LAYER         39
+#define L_HAND_LAYER          40
+#define R_HAND_LAYER          41
+#define FIRE_LAYER_UPPER      42
+#define TOTAL_LAYERS          42
 ////////////////////////////
