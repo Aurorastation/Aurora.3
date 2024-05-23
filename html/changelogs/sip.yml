@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - rscadd: "Drinks can now select a transfer rate as low as 1 unit, allowing for smaller sips."
