@@ -1,0 +1,7 @@
+author: Geeves
+
+delete-after: True
+
+changes:
+  - rscadd: "Added a mounted ballistic automatic rifle to the mecha fabricator."
+  - balance: "Rebalanced the material costs of most of the mech fab equipment. Overall, steel costs will be a bit cheaper, and more glass will be used."

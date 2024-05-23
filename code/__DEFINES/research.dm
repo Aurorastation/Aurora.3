@@ -1,4 +1,5 @@
 #define SHEET_MATERIAL_AMOUNT 2000
+#define MATERIAL_AMOUNT_FOR_SHEETS(amount) (amount * SHEET_MATERIAL_AMOUNT)
 
 #define TECH_MATERIAL "materials"
 #define TECH_ENGINEERING "engineering"
