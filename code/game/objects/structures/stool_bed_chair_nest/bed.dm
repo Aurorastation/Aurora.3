@@ -202,7 +202,7 @@
 	else if(istype(attacking_item, /obj/item/grab))
 		var/obj/item/grab/G = attacking_item
 		var/mob/living/affecting = G.affecting
-		user.visible_message("<span class='notice'>[user] attempts to buckle [affecting] into \the [src]!</span>")
+		user.visible_message(SPAN_NOTICE("[user] attempts to buckle [affecting] into \the [src]!"))
 		if(do_after(user, 2 SECONDS, affecting, DO_UNIQUE))
 			affecting.forceMove(loc)
 			spawn(0)

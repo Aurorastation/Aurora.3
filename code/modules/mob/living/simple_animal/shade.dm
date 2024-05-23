@@ -39,7 +39,7 @@
 
 /mob/living/simple_animal/shade/death()
 	. = ..()
-	visible_message("<span class='warning'>[src] lets out a contented sigh as their form unwinds.</span>")
+	visible_message(SPAN_WARNING("[src] lets out a contented sigh as their form unwinds."))
 	new residue(loc)
 	qdel(src)
 
@@ -146,7 +146,7 @@
 			adjustCloneLoss(2)
 			if(!heard_dying_message)
 				heard_dying_message = 1
-				to_chat(src, "<span class='danger'>You feel yourself begin to fade away!</span>")
+				to_chat(src, SPAN_DANGER("You feel yourself begin to fade away!"))
 	..()
 
 /mob/living/simple_animal/shade/bluespace/Life()
@@ -159,14 +159,14 @@
 	if(L.stat == DEAD)
 		adjustCloneLoss(2)
 		if(!heard_dying_message)
-			to_chat(src, "<span class='danger'>You feel yourself unable to sustain yourself on your host, and begin to fade away!</span>")
+			to_chat(src, SPAN_DANGER("You feel yourself unable to sustain yourself on your host, and begin to fade away!"))
 			heard_dying_message = 1
 
 	else if(L.sleeping)
 		adjustCloneLoss(2)
 		possession_heard_message = 0
 		if(!heard_dying_message)
-			to_chat(src, "<span class='danger'>Your host's lifestream is obfuscated in their dreams as they sleep, and you begin to fade away!</span>")
+			to_chat(src, SPAN_DANGER("Your host's lifestream is obfuscated in their dreams as they sleep, and you begin to fade away!"))
 			heard_dying_message = 1
 
 	else
@@ -182,7 +182,7 @@
 			var/list/nagging_doubts = list("You feel empowered by the ancestors!","You feel ancestral might flowing through your veins!","You feel the power of your forebears!", \
 											"You feel the blood of the warrior!", "You feel the glory of a warrior's death!", "You feel mighty!","You feel the strength of the spirits!")
 			if(prob(5) || !possession_heard_message)
-				to_chat(H, "<span class='danger'>[pick(nagging_doubts)]</span>")
+				to_chat(H, SPAN_DANGER("[pick(nagging_doubts)]"))
 				possession_heard_message = 1
 
 		else
@@ -192,7 +192,7 @@
 				var/list/nagging_doubts = list("You feel a nagging doubt in the back of your head.","You feel a vacancy in your thoughts.","You feel momentarily forgetful.", \
 												"You feel temporarily occupied.", "You feel a little worried.", "You feel a hostile presence.","You feel watched.")
 				if(prob(5) || !possession_heard_message)
-					to_chat(L, "<span class='notice'>[pick(nagging_doubts)]</span>")
+					to_chat(L, SPAN_NOTICE("[pick(nagging_doubts)]"))
 					possession_heard_message = 1
 
 /mob/living/simple_animal/shade/bluespace/hear_say(var/message, var/verb = "says", var/datum/language/language = null, var/alt_name = "", var/italics = 0, var/mob/speaker = null, var/sound/speech_sound, var/sound_vol)
@@ -203,7 +203,7 @@
 		adjustCloneLoss(-2)
 		if(heard_dying_message)
 			heard_dying_message = 0
-			to_chat(src, "<span class='notice'>The soothing echoes of life reinvigorate you.</span>")
+			to_chat(src, SPAN_NOTICE("The soothing echoes of life reinvigorate you."))
 
 /mob/living/simple_animal/shade/bluespace/say(var/message, var/datum/language/speaking = null, var/verb="says", var/alt_name="", var/ghost_hearing = GHOSTS_ALL_HEAR, var/whisper = FALSE)
 	if(!possessive)
@@ -222,14 +222,14 @@
 		message = slur(message,15)
 		..()
 	else
-		to_chat(src, "<span class='warning'>You cannot muster a voice when possessing another!</span>")
+		to_chat(src, SPAN_WARNING("You cannot muster a voice when possessing another!"))
 
 /mob/living/simple_animal/shade/bluespace/verb/show_last_message()
 	set name = "Current Echo"
 	set category = "Bluespace Echo"
 	set desc = "Privately display the last message you heard."
 
-	to_chat(src, "<span class='notice'><b>[last_message_heard]</b></span>")
+	to_chat(src, SPAN_NOTICE("<b>[last_message_heard]</b>"))
 
 /mob/living/simple_animal/shade/bluespace/verb/flicker()
 	set name = "Flicker Lights"
@@ -237,7 +237,7 @@
 	set desc = "Oh, Nosferatu!"
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
 	visible_message("<span class ='notice'>\The [src] pulses.</span>")
@@ -250,11 +250,11 @@
 	set desc = "Teleport a small item to where you are."
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
 	if(message_countdown < 20)
-		to_chat(src, "<span class='warning'>You are too faded to warp an item through bluespace.</span>")
+		to_chat(src, SPAN_WARNING("You are too faded to warp an item through bluespace."))
 		return
 
 	var/list/obj/item/choices = list()
@@ -263,7 +263,7 @@
 			choices += I
 
 	if(!choices.len)
-		to_chat(src, "<span class='warning'>There are no suitable items nearby.</span>")
+		to_chat(src, SPAN_WARNING("There are no suitable items nearby."))
 		return
 
 	var/obj/item/choice = input(src, "What item would you like to warp?") as null|anything in choices
@@ -281,11 +281,11 @@
 	set desc = "Draw yourself towards the original cradle of your soul."
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You cannot affect the world outside your host!</span>")
+		to_chat(src, SPAN_WARNING("You cannot affect the world outside your host!"))
 		return
 
 	if(!original_body)
-		to_chat(src, "<span class='danger'>You feel an immeasurable hollowness as you realize that the original cradle of your soul is no more.</span>")
+		to_chat(src, SPAN_DANGER("You feel an immeasurable hollowness as you realize that the original cradle of your soul is no more."))
 		return
 
 
@@ -293,7 +293,7 @@
 	var/turf/T2 = get_turf(src)
 
 	if(T1.z != T2.z)
-		to_chat(src, "<span class='warning'>The original cradle of your soul is too distant from you, perhaps somewhere above or below?</span>")
+		to_chat(src, SPAN_WARNING("The original cradle of your soul is too distant from you, perhaps somewhere above or below?"))
 		return
 
 	forceMove(get_step(src, get_dir(T2, T1)))
@@ -304,11 +304,11 @@
 	set desc = "Meld into the mind of another, sustaining yourself off of their lifeforce."
 
 	if(possessive)
-		to_chat(src, "<span class='warning'>You are already possessing a host!</span>")
+		to_chat(src, SPAN_WARNING("You are already possessing a host!"))
 		return
 
 	if(message_countdown < 50)
-		to_chat(src, "<span class='warning'>You are too faded to squeeze into another's lifestream.</span>")
+		to_chat(src, SPAN_WARNING("You are too faded to squeeze into another's lifestream."))
 		return
 
 	var/list/mob/living/carbon/human/choices = list()
@@ -317,7 +317,7 @@
 			choices += H
 
 	if(!choices.len)
-		to_chat(src, "<span class='warning'>There are no suitable lifestreams nearby.</span>")
+		to_chat(src, SPAN_WARNING("There are no suitable lifestreams nearby."))
 		return
 
 	var/mob/living/carbon/human/H = input(src, "What lifestream would you like to meld with?") as null|anything in choices
@@ -340,7 +340,7 @@
 	set desc = "Seperate yourself from the lifestream of another."
 
 	if(!possessive)
-		to_chat(src, "<span class='warning'>You are not currently possessing a host!</span>")
+		to_chat(src, SPAN_WARNING("You are not currently possessing a host!"))
 		return
 
 	forceMove(get_turf(possessed_body))

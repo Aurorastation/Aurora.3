@@ -64,26 +64,26 @@
 	if(!distance <= 1)
 		return
 	if(bcell)
-		. += "<span class='notice'>The baton is [round(bcell.percent())]% charged.</span>"
+		. += SPAN_NOTICE("The baton is [round(bcell.percent())]% charged.")
 	else
-		. += "<span class='warning'>The baton does not have a power source installed.</span>"
+		. += SPAN_WARNING("The baton does not have a power source installed.")
 
 /obj/item/melee/baton/attackby(obj/item/attacking_item, mob/user)
 	if(istype(attacking_item, /obj/item/cell))
 		if(!bcell)
 			user.drop_from_inventory(attacking_item, src)
 			bcell = attacking_item
-			to_chat(user, "<span class='notice'>You install a cell in [src].</span>")
+			to_chat(user, SPAN_NOTICE("You install a cell in [src]."))
 			update_icon()
 		else
-			to_chat(user, "<span class='notice'>[src] already has a cell.</span>")
+			to_chat(user, SPAN_NOTICE("[src] already has a cell."))
 
 	else if(attacking_item.isscrewdriver())
 		if(bcell)
 			bcell.update_icon()
 			bcell.forceMove(get_turf(src))
 			bcell = null
-			to_chat(user, "<span class='notice'>You remove the cell from the [src].</span>")
+			to_chat(user, SPAN_NOTICE("You remove the cell from the [src]."))
 			status = 0
 			update_icon()
 			return
@@ -93,22 +93,22 @@
 /obj/item/melee/baton/attack_self(mob/user)
 	if(bcell && bcell.charge > hitcost)
 		status = !status
-		to_chat(user, "<span class='notice'>[src] is now [status ? "on" : "off"].</span>")
+		to_chat(user, SPAN_NOTICE("[src] is now [status ? "on" : "off"]."))
 		playsound(loc, /singleton/sound_category/spark_sound, 75, 1, -1)
 		update_icon()
 	else
 		status = 0
 		if(!bcell)
-			to_chat(user, "<span class='warning'>[src] does not have a power source!</span>")
+			to_chat(user, SPAN_WARNING("[src] does not have a power source!"))
 		else
-			to_chat(user, "<span class='warning'>[src] is out of charge.</span>")
+			to_chat(user, SPAN_WARNING("[src] is out of charge."))
 	add_fingerprint(user)
 
 /obj/item/melee/baton/attack(mob/living/L, mob/user, var/hit_zone)
 	if(!L) return
 
 	if(status && (user.is_clumsy()) && prob(50))
-		to_chat(user, "<span class='danger'>You accidentally hit yourself with the [src]!</span>")
+		to_chat(user, SPAN_DANGER("You accidentally hit yourself with the [src]!"))
 		user.Weaken(30)
 		deductcharge(hitcost)
 		return
@@ -121,7 +121,7 @@
 	var/stun = stunforce
 
 	if(user.is_pacified())
-		to_chat(user, "<span class='notice'>You don't want to risk hurting [L]!</span>")
+		to_chat(user, SPAN_NOTICE("You don't want to risk hurting [L]!"))
 		return 0
 
 	var/target_zone = check_zone(hit_zone)
@@ -152,17 +152,17 @@
 				target_zone = get_zone_with_miss_chance(user.zone_sel.selecting, L)
 
 			if(!target_zone)
-				L.visible_message("<span class='warning'>[user] misses [L] with \the [src]!</span>")
+				L.visible_message(SPAN_WARNING("[user] misses [L] with \the [src]!"))
 				return 0
 
 			var/mob/living/carbon/human/H = L
 			var/obj/item/organ/external/affecting = H.get_organ(target_zone)
 			if (affecting)
 				if(!status)
-					L.visible_message("<span class='warning'>[L] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off.</span>")
+					L.visible_message(SPAN_WARNING("[L] has been prodded in the [affecting.name] with \the [src] by [user]. Luckily it was off."))
 					return 1
 				else
-					H.visible_message("<span class='danger'>[L] has been prodded in the [affecting.name] with \the [src] by [user]!</span>")
+					H.visible_message(SPAN_DANGER("[L] has been prodded in the [affecting.name] with \the [src] by [user]!"))
 					var/intent = "(INTENT: [user? uppertext(user.a_intent) : "N/A"])"
 					admin_attack_log(user, L, "was stunned by this mob with [src] [intent]", "stunned this mob with [src] [intent]", "stunned with [src]")
 					if(!sheathed)
@@ -170,10 +170,10 @@
 		if(isslime(L))
 			var/mob/living/carbon/slime/S =  L
 			if(!status)
-				L.visible_message("<span class='warning'>[S] has been prodded with \the [src] by [user]. Too bad it was off.</span>")
+				L.visible_message(SPAN_WARNING("[S] has been prodded with \the [src] by [user]. Too bad it was off."))
 				return TRUE
 			else
-				L.visible_message("<span class='danger'>[S] has been prodded with \the [src] by [user]!</span>")
+				L.visible_message(SPAN_DANGER("[S] has been prodded with \the [src] by [user]!"))
 
 			S.discipline++
 			if(prob(1))
@@ -182,10 +182,10 @@
 
 		else
 			if(!status)
-				L.visible_message("<span class='warning'>[L] has been prodded with \the [src] by [user]. Luckily it was off.</span>")
+				L.visible_message(SPAN_WARNING("[L] has been prodded with \the [src] by [user]. Luckily it was off."))
 				return TRUE
 			else
-				L.visible_message("<span class='danger'>[L] has been prodded with \the [src] by [user]!</span>")
+				L.visible_message(SPAN_DANGER("[L] has been prodded with \the [src] by [user]!"))
 
 	//stun effects
 	L.stun_effect_act(stun, agony, target_zone, src)

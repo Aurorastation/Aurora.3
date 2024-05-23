@@ -73,10 +73,10 @@
 		if(C.use(1))
 			var/obj/item/L = new src.balloon
 			user.drop_from_inventory(L,get_turf(src))
-			to_chat(user, "<span class='notice'>You make a balloon.</span>")
+			to_chat(user, SPAN_NOTICE("You make a balloon."))
 			qdel(src)
 		else
-			to_chat(user, "<span class='warning'>You need one length of cable to finish the balloon!</span>")
+			to_chat(user, SPAN_WARNING("You need one length of cable to finish the balloon!"))
 	. = ..()
 
 /obj/item/clothing/gloves/latex/nitrile
@@ -245,7 +245,7 @@
 
 	if(prob(50) && (user.a_intent == I_HURT))
 		playsound(user, 'sound/weapons/beartrap_shut.ogg', 50, 1, -1)
-		user.visible_message("<span class='danger'>\The [user] slams \the [L] away with \the [src]!</span>")
+		user.visible_message(SPAN_DANGER("\The [user] slams \the [L] away with \the [src]!"))
 		var/T = get_turf(user)
 		spark(T, 3, GLOB.alldirs)
 		L.throw_at(get_edge_target_turf(loc, loc.dir), 5, 1)

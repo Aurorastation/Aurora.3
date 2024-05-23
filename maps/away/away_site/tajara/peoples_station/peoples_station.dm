@@ -6,7 +6,7 @@
 	suffixes = list("peoples_station.dmm")
 
 	sectors = list(SECTOR_SRANDMARR)
-	spawn_weight = 1
+	spawn_weight = 2.5
 	spawn_cost = 1
 	id = "peoples_station"
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/peoples_station_fang, /datum/shuttle/autodock/overmap/peoples_station_transport)

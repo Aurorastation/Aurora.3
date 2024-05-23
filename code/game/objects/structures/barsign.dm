@@ -14,9 +14,9 @@
 	if(istype(card))
 		if(check_access(card))
 			set_sign()
-			to_chat(user, "<span class='notice'>You change the sign.</span>")
+			to_chat(user, SPAN_NOTICE("You change the sign."))
 		else
-			to_chat(user, "<span class='warning'>Access denied.</span>")
+			to_chat(user, SPAN_WARNING("Access denied."))
 		return
 
 	return ..()

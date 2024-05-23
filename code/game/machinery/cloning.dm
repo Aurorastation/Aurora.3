@@ -118,7 +118,7 @@
 
 	clonemind.transfer_to(H)
 	H.ckey = R.ckey
-	to_chat(H, "<span class='notice'><b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i></span>")
+	to_chat(H, SPAN_NOTICE("<b>Consciousness slowly creeps over you as your body regenerates.</b><br><i>So this is what cloning feels like?</i>"))
 
 	// -- Mode/mind specific stuff goes here
 	callHook("clone", list(H))
@@ -222,25 +222,25 @@
 			return TRUE
 	if(attacking_item.GetID())
 		if(!check_access(attacking_item.GetID()))
-			to_chat(user, "<span class='warning'>Access Denied.</span>")
+			to_chat(user, SPAN_WARNING("Access Denied."))
 			return TRUE
 		if((!locked) || (isnull(occupant)))
 			return TRUE
 		if((occupant.health < -20) && (occupant.stat != 2))
-			to_chat(user, "<span class='warning'>Access Refused.</span>")
+			to_chat(user, SPAN_WARNING("Access Refused."))
 			return TRUE
 		else
 			locked = 0
 			to_chat(user, "System unlocked.")
 	else if(istype(attacking_item, /obj/item/reagent_containers/food/snacks/meat))
-		to_chat(user, "<span class='notice'>\The [src] processes \the [attacking_item].</span>")
+		to_chat(user, SPAN_NOTICE("\The [src] processes \the [attacking_item]."))
 		biomass += 50
 		user.drop_from_inventory(attacking_item, src)
 		qdel(attacking_item)
 		return TRUE
 	else if(attacking_item.iswrench())
 		if(locked && (anchored || occupant))
-			to_chat(user, "<span class='warning'>Can not do that while [src] is in use.</span>")
+			to_chat(user, SPAN_WARNING("Can not do that while [src] is in use."))
 		else
 			if(anchored)
 				anchored = 0
