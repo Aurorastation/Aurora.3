@@ -111,9 +111,8 @@
 /area/adhomai_village)
 "hR" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
 	},
 /area/adhomai_village)
 "if" = (
@@ -331,9 +330,8 @@
 /obj/structure/toilet{
 	dir = 8
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
 	},
 /area/adhomai_village)
 "vJ" = (
@@ -354,9 +352,8 @@
 /obj/structure/mirror{
 	pixel_y = 32
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
 	},
 /area/adhomai_village)
 "ww" = (
@@ -382,9 +379,8 @@
 /area/adhomai_village)
 "wY" = (
 /obj/machinery/light/small,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
 	},
 /area/adhomai_village)
 "xc" = (
@@ -438,9 +434,8 @@
 	},
 /area/exoplanet/adhomai)
 "Aq" = (
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
 	},
 /area/adhomai_village)
 "AU" = (
@@ -457,9 +452,8 @@
 /obj/structure/table/rack,
 /obj/item/towel,
 /obj/item/soap/uranium_soap,
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
 	},
 /area/adhomai_village)
 "BR" = (
@@ -815,9 +809,8 @@
 /obj/item/reagent_containers/toothpaste{
 	pixel_y = 10
 	},
-/obj/effect/floor_decal/corner/blue/diagonal,
-/turf/simulated/floor/tiled/white{
-	temperature = 278.15
+/turf/simulated/floor/tiled/freezer{
+	temperature = 268.15
 	},
 /area/adhomai_village)
 "Sg" = (
