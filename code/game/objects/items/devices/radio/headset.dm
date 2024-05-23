@@ -672,7 +672,7 @@
 	item_state = "wristset_sec"
 	ks2type = /obj/item/device/encryptionkey/headset_sec
 
-/obj/item/device/radio/headset/wrist/sec
+/obj/item/device/radio/headset/wrist/clip/sec
 	name = "clip-on security radio"
 	icon_state = "clip_sec"
 	item_state = "clip_sec"
