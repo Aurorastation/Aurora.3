@@ -62,7 +62,7 @@
 	standing_jump_range = 3
 	stamina = 80 // As opposed to 90
 	brute_mod = 1.3 // More Brute Damage
-	ethanol_resistance = 0.6 // Species Default 0.8
+	ethanol_resistance = 0.7 // Species Default 0.9
 
 	maneuvers = list(
 		/singleton/maneuver/leap/tajara/msai

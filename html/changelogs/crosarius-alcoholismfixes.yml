@@ -1,0 +1,16 @@
+author: Crosarius
+
+delete-after: True
+
+changes:
+  - refactor: "Fixed up alcohol and butanol affect_ingest()"
+  - qol: "Generally buffed intoxication resistances for Unathi, Tajara, and Skrell, to compensate for recent changes to alcohol potency."
+  - qol: "Alcohol poisoning now no longer kills you by destroying your liver. Instead, it causes the patient to fall into a coma, and stop breathing."
+  - qol: "Better messages for drunkeness."
+  - qol: "Ethylredoxrazine now prevents people from falling into comas from alcohol toxicity alltogether."
+  - qol: "Vomiting from being intoxicated now happens much less often, and at a higher level of intoxication."
+  - qol: "Being drunk enough to cause vomiting now has a pulsing message to go along with other drunkeness messages."
+  - bugfix: "You can now correctly black out or fall into an alcoholic coma while buckled to a bed or laying down."
+  - bugfix: "Unathi are no longer poisoned by butanol."
+  - bugfix: "Unathi are now correctly poisoned by alcohol"
+  - bugfix: "Non-Unathi are no longer intoxicated by butanol."
