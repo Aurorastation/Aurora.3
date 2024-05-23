@@ -88,6 +88,7 @@
 
 /obj/structure/heavy_vehicle_frame/update_icon()
 	//As mech icons uses a caching system, any changes here, particularly to layers, must be reflected in /mob/living/heavy_vehicle/update_icon().
+	ClearOverlays()
 	AddOverlays(get_mech_icon(list(body), MECH_BASE_LAYER))
 	if(body)
 		density = TRUE
