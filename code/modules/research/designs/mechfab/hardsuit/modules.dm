@@ -1,7 +1,7 @@
 /datum/design/hardsuitmodules
 	build_type = MECHFAB
 	category = "Hardsuit (Modules)"
-	time = 10
+	time = 10 SECONDS
 
 /datum/design/hardsuitmodules/storage
 	name = "Storage Module"
