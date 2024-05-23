@@ -61,3 +61,4 @@ changes:
   - rscadd: "Added the RFD as a roundstart printable protolathe design."
   - code_imp: "Made the mining vendor list a GLOB variable."
   - bugfix: "Resolved a runtime on vehicles trying to turn on without a cell being present."
+  - rscadd: "Mining vendor pizzas now have a random pizza subtype."
