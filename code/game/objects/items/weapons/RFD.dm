@@ -610,6 +610,10 @@
 	. = ..()
 	. += FONT_SMALL(SPAN_WARNING("The printed mining units have to either be placed down in order, or linked manually after deployment."))
 
+#undef RFD_MINING_MODE_MINE_TRACK
+#undef RFD_MINING_MODE_MINE_CART
+#undef RFD_MINING_MODE_MINE_CART_ENGINE
+
 
 // Malf AI RFD Transformer
 
