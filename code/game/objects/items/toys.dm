@@ -1280,6 +1280,13 @@
 	icon_state = "cockatoo"
 	phrase = "Chirp!"
 
+//Norinori plushie
+/obj/item/toy/plushie/norinori
+	name = "\improper Norinori plushie"
+	desc = "A plump and fluffy plushie depicting Up!Burger's mascot Norinori the Onigiri! It smells faintly of rice."
+	icon_state = "norinori"
+	phrase = "Buy. Up!Burger!"
+
 //Toy cult sword
 /obj/item/toy/cultsword
 	name = "foam sword"
