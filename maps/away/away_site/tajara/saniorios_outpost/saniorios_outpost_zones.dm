@@ -31,7 +31,7 @@
 	name = "Sani'Orios Asteroid Outpost Armory"
 	icon_state = "armory"
 
-	/area/saniorios_outpost/medbay
+/area/saniorios_outpost/medbay
 	name = "Sani'Orios Asteroid Outpost Armory"
 	icon_state = "medbay"
 
