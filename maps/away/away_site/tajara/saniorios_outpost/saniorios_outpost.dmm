@@ -3121,7 +3121,7 @@
 "UQ" = (
 /obj/machinery/computer/general_air_control/large_tank_control/terminal{
 	name = "Carbon Dioxide Supply Monitor";
-	sensors = list(""saniorios_co2_sensor""="Tank");
+	sensors = list("saniorios_co2_sensor"="Tank");
 	input_tag = "saniorios_co2_in";
 	output_tag = "saniorios_co2_out"
 	},
