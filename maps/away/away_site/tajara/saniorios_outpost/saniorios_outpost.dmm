@@ -1297,13 +1297,11 @@
 	},
 /obj/item/tank/jetpack/carbondioxide,
 /obj/item/tank/jetpack/carbondioxide,
+/obj/item/tank/jetpack/carbondioxide,
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
 /obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/radio,
-/obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
 /obj/item/device/gps,
@@ -3102,14 +3100,6 @@
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
-/area/saniorios_outpost)
-"UI" = (
-/obj/machinery/door/airlock/engineering{
-	name = "Atmos";
-	req_access = list(214);
-	dir = 4
-	},
-/turf/simulated/wall/shuttle/space_ship/mercenary,
 /area/saniorios_outpost)
 "UK" = (
 /obj/structure/ship_weapon_dummy,
@@ -28254,7 +28244,7 @@ mz
 mz
 mz
 mz
-UI
+mz
 mz
 mz
 mz
