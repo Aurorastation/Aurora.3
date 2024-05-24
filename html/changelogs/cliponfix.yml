@@ -1,6 +1,0 @@
-author: Sparky_hotdog
-
-delete-after: True
-
-changes:
-  - bugfix: "Clip-on Security radios now spawn correctly."
