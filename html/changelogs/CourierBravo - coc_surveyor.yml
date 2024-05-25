@@ -55,4 +55,7 @@ delete-after: True
 # Also, this gets changed to [] after reading.  Just remove the brackets when you add new shit.
 # Please surround your changes in  double quotes ("). It works without them, but if you use certain characters it screws up compiling. The quotes will not show up in the changelog.
 changes:
-  - maptweak: Reworks the CoC Surveyor ship to suck significantly less, and be up to mapping standards.
+  - qol: "Reworked the CoC Survey Ship, dramatically improving its flow and design in many aspects."
+  - qol: "Reconfigured the CoC Survey Ship's shuttle from a hanger to a docking port."
+  - qol: "Fixed the Survey Ship shuttle's unintended and unfortunate shape and color."
+  - balance: "Removed the mining blaster from the CoC Survey Ship, replacing it with a magazine. To compensate, it how has more ammo and a significantly larger amount of sensor rounds."
