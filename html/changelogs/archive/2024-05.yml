@@ -410,3 +410,6 @@
       by hostile wildlife and die.
   Sparky_hotdog:
   - bugfix: Clip-on Security radios now spawn correctly.
+2024-05-25:
+  GeneralCamo:
+  - rscadd: Added a Norinori plushie to the loadout and random plush spawns.
