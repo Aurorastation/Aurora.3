@@ -297,3 +297,13 @@
 	culture_restriction = list(/singleton/origin_item/culture/klax)
 	sort_category = "Xenowear - Vaurca"
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
+
+/datum/gear/accessory/vaurcarockstone
+	display_name = "rockstone cape"
+	description = "A cape for Moghesian nobility for a K'lax Vaurca."
+	path = /obj/item/clothing/accessory/vaurca_breeder/rockstone_cape
+	cost = 1
+	whitelisted = list(SPECIES_VAURCA_BREEDER)
+	culture_restriction = list(/singleton/origin_item/culture/klax_breeder)
+	sort_category = "Xenowear - Vaurca"
+	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION | GEAR_HAS_ACCENT_COLOR_SELECTION

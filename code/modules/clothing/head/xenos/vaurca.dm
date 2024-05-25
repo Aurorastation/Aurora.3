@@ -56,3 +56,18 @@
 	desc = "Large shroud used by K'lax Izweski Hegemony representatives."
 	item_state = "hive_rep_shroud_hegemony"
 	icon_state = "hive_rep_shroud_hegemony"
+
+/obj/item/clothing/accessory/vaurca_breeder/rockstone_cape
+	name = "k'lax rockstone cape"
+	desc = "A cape seen exclusively on nobility. The chain is adorned with precious, multi-color stones, hence its name. This one is fitted to a K'lax Vaurca Gyne's arm."
+	desc_extended = "A simple drape over the shoulder is done easily; the distinguishing part between the commoners and \
+	nobility is the sheer elegance of the rockstone cape. Vibrant stones adorn the heavy collar, and the cape itself \
+	is embroidered with gold."
+	icon = 'icons/mob/species/breeder/accessories.dmi'
+	icon_state = "gynerockstone"
+	item_state = "gynerockstone"
+	icon_override = null
+	contained_sprite = TRUE
+	build_from_parts = TRUE
+	worn_overlay =  "chain"
+	has_accents = TRUE
