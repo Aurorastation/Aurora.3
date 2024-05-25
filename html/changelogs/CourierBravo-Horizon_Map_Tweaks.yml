@@ -58,5 +58,5 @@ changes:
   - qol: "Moves a floor light in the science wing that breaks the pattern of floor lights in the hallway."
   - qol: "Moves a floor light in the deck 3 central primary hallway, to maintain the pattern of floor lights being spaced 4 tiles apart."
   - bugfix: "Removes an access level door helper effect, which I believe is causing the Consular Office B door to be accessible to anyone with that access."
-  - balence: "Replaces a table in the CIC with a charger, allowing for IPC members of command or command support to charge safely in the bunker."
+  - balance: "Replaces a table in the CIC with a charger, allowing for IPC members of command or command support to charge safely in the bunker."
   - rscadd: "Places another rubber ducky... somewhere."
