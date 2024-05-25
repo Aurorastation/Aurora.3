@@ -5019,6 +5019,9 @@
 /obj/structure/cable/green{
 	icon_state = "1-8"
 	},
+/obj/machinery/light/floor{
+	dir = 1
+	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
 "cdq" = (
@@ -30608,9 +30611,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "2-8"
-	},
-/obj/machinery/light/floor{
-	dir = 1
 	},
 /turf/simulated/floor/tiled,
 /area/rnd/hallway)
