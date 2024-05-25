@@ -12,6 +12,13 @@
 
 	min_broken_damage = 10 //Internal organs are frail, man.
 
+/obj/item/organ/internal/Initialize()
+	. = ..()
+//	if(owner)
+	for(var/datum/action/action as anything in actions)
+		action.Grant(owner)
+
+
 /obj/item/organ/internal/Destroy()
 	if(owner)
 		owner.internal_organs.Remove(src)

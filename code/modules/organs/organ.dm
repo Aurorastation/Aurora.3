@@ -3,7 +3,6 @@
 	icon = 'icons/obj/organs/organs.dmi'
 	drop_sound = 'sound/items/drop/flesh.ogg'
 	pickup_sound = 'sound/items/pickup/flesh.ogg'
-//	default_action_type = /datum/action/item_action/organ
 	actions_types = list()
 	germ_level = 0
 
@@ -101,9 +100,6 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	QDEL_NULL(dna)
 
 	return ..()
-
-///obj/item/organ/proc/refresh_action_button()
-//	return action
 
 /obj/item/organ/attack_self(var/mob/user)
 	return (owner && loc == owner && owner == user)
@@ -208,6 +204,9 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 /obj/item/organ/proc/clear_surge_effects()
 	return
+
+/obj/item/organ/item_action_slot_check(slot, mob/user)
+	return //So we don't grant the organ's action to mobs who pick up the organ
 
 /obj/item/organ/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
 	. = ..()
@@ -427,7 +426,8 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(!istype(owner))
 		return
 
-//	action_button_name = null
+	for(var/datum/action/action as anything in actions)
+		action.Remove(owner)
 
 	owner.internal_organs_by_name[organ_tag] = null
 	owner.internal_organs_by_name -= organ_tag
@@ -454,12 +454,14 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			msg_admin_attack("[user.name] ([user.ckey]) removed a vital organ ([src]) from [owner.name] ([owner.ckey]) (INTENT: [uppertext(user.a_intent)]) (<A HREF='?_src_=holder;adminplayerobservecoodjump=1;X=[user.x];Y=[user.y];Z=[user.z]'>JMP</a>)",ckey=key_name(user),ckey_target=key_name(owner))
 		owner.death()
 
-	owner.update_action_buttons()
 	owner = null
 
 /obj/item/organ/proc/replaced(var/mob/living/carbon/human/target, var/obj/item/organ/external/affected)
 	owner = target
-//	action_button_name = initial(action_button_name)
+
+	for(var/datum/action/action as anything in actions)
+		action.Grant(owner)
+
 	forceMove(owner) //just in case
 	if(BP_IS_ROBOTIC(src))
 		set_dna(owner.dna)
