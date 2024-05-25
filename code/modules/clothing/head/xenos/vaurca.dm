@@ -28,7 +28,7 @@
 	user.update_inv_head()
 
 /obj/item/clothing/head/vaurca_breeder/klax
-	name = "k'lax represenatitve shroud"
+	name = "k'lax representative shroud"
 	desc = "Large shroud used by K'lax representatives."
 	item_state = "hive_rep_shroud_klax"
 	icon_state = "hive_rep_shroud_klax"
