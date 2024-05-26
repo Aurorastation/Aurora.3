@@ -105,7 +105,9 @@
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		cookoff(TRUE)
 
-/obj/item/ship_ammunition/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/ship_ammunition/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(ammunition_flags & SHIP_AMMO_FLAG_INFLAMMABLE)
 		if(exposed_temperature >= T0C+200)
 			cookoff(TRUE)

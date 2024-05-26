@@ -355,16 +355,6 @@
 				L.source_atom.update_light()
 		GLOB.dir_set_event.raise_event(src, old_dir, dir)
 
-/atom/proc/ex_act()
-	set waitfor = FALSE
-	return
-
-/atom/proc/emag_act(var/remaining_charges, var/mob/user, var/emag_source)
-	return NO_EMAG_ACT
-
-/atom/proc/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
-	return
-
 /atom/proc/melt()
 	return
 
