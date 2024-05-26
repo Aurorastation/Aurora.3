@@ -5,6 +5,7 @@
 	icon_state = "aodai"
 	item_state = "aodai"
 	contained_sprite = TRUE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
 
 /obj/item/clothing/accessory/aodai/masc
 	desc = "A split tunic worn over trousers. This one is in a men's sizing. A common choice for festivals or formal occasions."

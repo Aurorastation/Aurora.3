@@ -118,29 +118,7 @@
 
 // Helmet Slots
 /obj/item/storage/internal/helmet
-	var/list/helmet_storage_types = list(
-		/obj/item/storage/box/fancy/cigarettes = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/acmeco = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/blank = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/dromedaryco = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/nicotine = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/rugged = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/pra = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/dpra = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/nka = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/federation = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/dyn = HELMET_GARB_PASS_ICON,
-		/obj/item/storage/box/fancy/cigarettes/wulu = HELMET_GARB_PASS_ICON,
-		/obj/item/clothing/head/hachimaki = HELMET_GARB_PASS_ICON,
-		/obj/item/clothing/head/leader_headband = HELMET_GARB_PASS_ICON
-	)
-	can_hold_strict = TRUE
-
-/obj/item/storage/internal/helmet/Initialize(mapload, defer_shrinkwrap)
-	. = ..()
-	can_hold = list()
-	for(var/thing_type in helmet_storage_types)
-		can_hold += thing_type
+	can_hold = list(/obj/item/storage/box/fancy/cigarettes)
 
 /obj/item/storage/internal/helmet/handle_item_insertion(obj/item/W, prevent_messages)
 	. = ..()

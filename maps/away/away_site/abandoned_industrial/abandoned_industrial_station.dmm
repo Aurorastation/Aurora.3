@@ -10712,7 +10712,7 @@
 /obj/structure/closet,
 /obj/random/colored_jumpsuit,
 /obj/item/clothing/head/softcap/colorable/random,
-/obj/item/clothing/head/hachimaki,
+/obj/item/clothing/accessory/headband/hachimaki,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled{
 	burnt = 3

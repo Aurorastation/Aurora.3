@@ -237,7 +237,7 @@
 		var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 		var/obj/item/clothing/accessory/chaps/chaps = new(src)
 		var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
-		var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
+		var/obj/item/clothing/accessory/wcoat/rec/waistcoat = new(src)
 		var/obj/item/clothing/head/cowboy/hat = new(src)
 
 		pants.attach_accessory(null, shirt)
@@ -260,7 +260,7 @@
 	var/obj/item/clothing/accessory/dressshirt/rolled/shirt = new(src)
 	var/obj/item/clothing/accessory/chaps/chaps = new(src)
 	var/obj/item/clothing/accessory/suspenders/suspenders = new(src)
-	var/obj/item/clothing/accessory/wcoat_rec/waistcoat = new(src)
+	var/obj/item/clothing/accessory/wcoat/rec/waistcoat = new(src)
 	var/obj/item/clothing/head/cowboy/hat = new(src)
 
 	pants.attach_accessory(null, shirt)

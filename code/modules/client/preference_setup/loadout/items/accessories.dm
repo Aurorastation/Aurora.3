@@ -14,13 +14,13 @@
 
 /datum/gear/accessory/waistcoat
 	display_name = "waistcoat"
-	path = /obj/item/clothing/accessory/wcoat_rec
+	path = /obj/item/clothing/accessory/wcoat/rec
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
 
 /datum/gear/accessory/waistcoat/New()
 	..()
 	var/list/waistcoats = list()
-	waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat_rec
+	waistcoats["waistcoat"] = /obj/item/clothing/accessory/wcoat/rec
 	waistcoats["waistcoat, alt"] = /obj/item/clothing/accessory/silversun/wcoat
 	gear_tweaks += new /datum/gear_tweak/path(waistcoats)
 
@@ -280,15 +280,15 @@
 	shirt["dress shirt, deep v-neck"] = /obj/item/clothing/accessory/dressshirt/deepv
 	shirt["dress shirt, deep v-neck rolled up"] = /obj/item/clothing/accessory/dressshirt/deepv/rolled
 	shirt["dress shirt, asymmetric"] = /obj/item/clothing/accessory/dressshirt/asymmetric
-	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/longsleeve
-	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/longsleeve_s
-	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/longsleeve_sb
-	shirt["t-shirt"] = /obj/item/clothing/accessory/tshirt
-	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/tshirt_crop
-	shirt["blouse"] = /obj/item/clothing/accessory/blouse
-	shirt["long-sleeved blouse"] = /obj/item/clothing/accessory/longblouse
-	shirt["puffy blouse"] = /obj/item/clothing/accessory/puffyblouse
-	shirt["halter top"] = /obj/item/clothing/accessory/haltertop
+	shirt["long-sleeved shirt"] = /obj/item/clothing/accessory/dressshirt/longsleeve
+	shirt["long-sleeved shirt, black striped"] = /obj/item/clothing/accessory/dressshirt/longsleeve_s
+	shirt["long-sleeved shirt, blue striped"] = /obj/item/clothing/accessory/dressshirt/longsleeve_sb
+	shirt["t-shirt"] = /obj/item/clothing/accessory/dressshirt/tshirt
+	shirt["t-shirt, cropped"] = /obj/item/clothing/accessory/dressshirt/tshirt_crop
+	shirt["blouse"] = /obj/item/clothing/accessory/dressshirt/blouse
+	shirt["long-sleeved blouse"] = /obj/item/clothing/accessory/dressshirt/blouse
+	shirt["puffy blouse"] = /obj/item/clothing/accessory/dressshirt/blouse
+	shirt["halter top"] = /obj/item/clothing/accessory/dressshirt/haltertop
 	gear_tweaks += new /datum/gear_tweak/path(shirt)
 
 /datum/gear/accessory/silversun
@@ -307,18 +307,18 @@
 
 /datum/gear/accessory/university
 	display_name = "university sweatshirt selection"
-	path = /obj/item/clothing/accessory/university
+	path = /obj/item/clothing/accessory/dressshirt/university
 	description = "A selection of university sweatshirts."
 	flags = GEAR_HAS_NAME_SELECTION | GEAR_HAS_DESC_SELECTION
 
 /datum/gear/accessory/university/New()
 	..()
 	var/list/university = list()
-	university["grey university sweatshirt"] = /obj/item/clothing/accessory/university
-	university["crimson university sweatshirt"] = /obj/item/clothing/accessory/university/red
-	university["mustard university sweatshirt"] = /obj/item/clothing/accessory/university/yellow
-	university["navy university sweatshirt"] = /obj/item/clothing/accessory/university/blue
-	university["black university sweatshirt"] = /obj/item/clothing/accessory/university/black
+	university["grey university sweatshirt"] = /obj/item/clothing/accessory/dressshirt/university
+	university["crimson university sweatshirt"] = /obj/item/clothing/accessory/dressshirt/university/red
+	university["mustard university sweatshirt"] = /obj/item/clothing/accessory/dressshirt/university/yellow
+	university["navy university sweatshirt"] = /obj/item/clothing/accessory/dressshirt/university/blue
+	university["black university sweatshirt"] = /obj/item/clothing/accessory/dressshirt/university/black
 	gear_tweaks += new /datum/gear_tweak/path(university)
 
 /datum/gear/accessory/scarf

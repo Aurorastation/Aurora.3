@@ -67,6 +67,7 @@
 	icon = 'icons/clothing/under/shirts/fine_shirt.dmi'
 	contained_sprite = TRUE
 	has_accents = TRUE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
 
 /obj/item/clothing/accessory/goldendeep/pompous
 	name = "pompous shirt"

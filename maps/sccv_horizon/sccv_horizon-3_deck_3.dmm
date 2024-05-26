@@ -14257,7 +14257,7 @@
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/head/leader_headband,
+/obj/item/clothing/accessory/headband,
 /obj/effect/floor_decal/corner/dark_blue{
 	dir = 9
 	},
@@ -17443,7 +17443,7 @@
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/accessory/armband/scc,
 /obj/item/clothing/accessory/armband/scc,
-/obj/item/clothing/head/leader_headband,
+/obj/item/clothing/accessory/headband,
 /turf/simulated/floor/tiled/dark,
 /area/horizon/crew_armoury)
 "lTQ" = (

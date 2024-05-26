@@ -134,9 +134,11 @@
 /obj/item/clothing/accessory/gadpathurian_leader
 	name = "section leader badge"
 	desc = "A Section Leader's badge is typically worn below one's overwear, in order to ensure that the hated Solarians will be unable to easily identify a leader in a crowd."
+	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "gadpathurleaderbadge"
 	item_state = "gadpathurleaderbadge"
 	overlay_state = "gadpathurleaderbadge"
+	accessory_slots = ACCESSORY_SLOT_UNIFORM | ACCESSORY_SLOT_SUIT | ACCESSORY_SLOT_ARMOR
 
 	flippable = TRUE
 

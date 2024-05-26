@@ -2168,7 +2168,7 @@
 /area/piratebase/hallway_south)
 "kn" = (
 /obj/structure/closet,
-/obj/item/clothing/accessory/tshirt,
+/obj/item/clothing/accessory/dressshirt/tshirt,
 /obj/item/clothing/accessory/holster/utility/machete,
 /obj/item/material/hatchet/machete/steel,
 /turf/simulated/floor/tiled/yellow,
@@ -10087,7 +10087,7 @@
 /obj/item/clothing/under/pants/black,
 /obj/item/clothing/under/tactical,
 /obj/item/clothing/under/syndicate/tacticool,
-/obj/item/clothing/accessory/longsleeve_s,
+/obj/item/clothing/accessory/dressshirt/longsleeve_s,
 /obj/item/clothing/suit/storage/toggle/leather_jacket/flight,
 /turf/simulated/floor/tiled,
 /area/piratebase/quarters)
@@ -10388,7 +10388,7 @@
 /obj/item/clothing/suit/storage/toggle/varsity,
 /obj/item/clothing/under/pants/tacticool,
 /obj/item/clothing/under/pants/ripped,
-/obj/item/clothing/accessory/university/black,
+/obj/item/clothing/accessory/dressshirt/university/black,
 /obj/item/clothing/suit/storage/toggle/track/red,
 /obj/item/clothing/suit/storage/toggle/flannel/gray,
 /obj/item/clothing/head/beret,

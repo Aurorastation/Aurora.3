@@ -7,10 +7,12 @@
 /obj/item/clothing/accessory/badge
 	name = "badge"
 	desc = "A corporate security badge, made from gold and set on false leather."
+	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	overlay_state = "marshalbadge"
 	slot_flags = SLOT_BELT | SLOT_TIE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM | ACCESSORY_SLOT_SUIT | ACCESSORY_SLOT_ARMOR
 
 	var/stored_name
 	var/badge_string = "Corporate Security"
@@ -23,8 +25,8 @@
 	name = "corporate press pass"
 	desc = "A corporate reporter's pass, emblazoned with the SCC logo."
 	icon_state = "pressbadge"
-	item_state = "pbadge"
-	overlay_state = "pbadge"
+	item_state = "pressbadge"
+	overlay_state = "pressbadge"
 	badge_string = "Corporate Reporter"
 	w_class = ITEMSIZE_TINY
 
@@ -41,6 +43,7 @@
 	name = "plastic press pass"
 	desc = "A journalist's 'pass' shaped, for whatever reason, like a security badge. It is made of plastic."
 	icon_state = "pbadge"
+	item_state = "pbadge"
 	badge_string = "Sicurity Journelist"
 	w_class = ITEMSIZE_SMALL
 
@@ -48,6 +51,7 @@
 	name = "faded badge"
 	desc = "A faded security badge, backed with leather."
 	icon_state = "badge_round"
+	item_state = "badge_round"
 	overlay_state = "badge_round"
 
 /obj/item/clothing/accessory/badge/proc/set_name(var/new_name)
@@ -166,6 +170,7 @@
 	name = "security officer's badge"
 	desc = "A bronze security badge."
 	icon_state = "bronzebadge"
+	item_state = "bronzebadge"
 	overlay_state = "bronzebadge"
 	slot_flags = SLOT_TIE
 
@@ -173,6 +178,7 @@
 	name = "warden's badge"
 	desc = "A silver security badge."
 	icon_state = "silverbadge"
+	item_state = "silverbadge"
 	overlay_state = "silverbadge"
 	slot_flags = SLOT_TIE
 
@@ -180,6 +186,7 @@
 	name = "head of security's badge"
 	desc = "An immaculately polished gold security badge."
 	icon_state = "goldbadge"
+	item_state = "goldbadge"
 	overlay_state = "goldbadge"
 	slot_flags = SLOT_TIE
 
@@ -188,6 +195,7 @@
 	desc = "A silver badge, set in purple leather, denoting the wearer as an agent of the Biesel Security Services Bureau."
 	desc_extended = "The overseeing authority of the domestic agencies that operate within the Republic of Biesel. In reality, the Biesel Security Services Bureau has become incredibly important to the enforcement of the Republic's laws. The BSSB was founded with the goal of monitoring the planetary policing forces within the Republic of Biesel and stepping in when needed. Most of the BSSB was sponsored by NanoTrasen, with even its headquarters having been constructed by the megacorporation. The agency quickly found its footing within the Republic and found itself being labelled as Biesel's most skilled law enforcement agency despite the accusation of bribery on behalf of NanoTrasen. Today, the BSSB has become an easily recognisable organization with several action movies and novels produced within the Republic of Biesel making it a centrepiece of the Republic's image. It is headed by Director Clarrise Lyon."
 	icon_state = "badge_round_bssb"
+	item_state = "badge_round_bssb"
 	overlay_state = "badge_round_bssb"
 	slot_flags = SLOT_TIE
 	contained_sprite = TRUE
@@ -197,12 +205,14 @@
 	name = "\improper BSSB senior agent's badge"
 	desc = "A golden badge, set in purple leather, denoting the wearer as a senior agent of the Biesel Security Services Bureau."
 	icon_state = "badge_round_bssb_sen"
+	item_state = "badge_round_bssb_sen"
 	overlay_state = "badge_round_bssb_sen"
 
 /obj/item/clothing/accessory/badge/sol_visa
 	name = "\improper ASSN visa recommendation slip"
 	desc = "A compact piece of legal paperwork that can replace the enormous amounts of documents required to obtain a Sol Alliance visa."
 	icon_state = "sol-visa"
+	item_state = "sol-visa"
 	overlay_state = "sol-visa"
 	slot_flags = SLOT_TIE
 	badge_string = "Priority ASSN Visa Applicant"
@@ -214,6 +224,7 @@
 	name = "\improper TCAF enlistment"
 	desc = "A compact piece of legal paperwork, making one an official recruit of the Tau Ceti Armed Forces. Go Biesel!"
 	icon_state = "tc-visa"
+	item_state = "tc-visa"
 	overlay_state = "tc-visa"
 	slot_flags = SLOT_TIE
 	badge_string = "Tau Ceti Armed Forces Recruit"
@@ -243,6 +254,7 @@
 	name = "sheriff badge"
 	desc = "A star-shaped brass badge denoting who the law is around these parts."
 	icon_state = "sheriff"
+	item_state = "sheriff"
 	overlay_state = "sheriff"
 	badge_string = "County Sheriff"
 
@@ -256,6 +268,7 @@
 	name = "\improper investigator badge"
 	desc = "This badge marks the holder as an investigative agent."
 	icon_state = "invbadge"
+	item_state = "invbadge"
 	overlay_state = "invbadge"
 	badge_string = "Corporate Investigator"
 

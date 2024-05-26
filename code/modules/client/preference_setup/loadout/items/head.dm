@@ -336,7 +336,7 @@
 
 /datum/gear/head/hachimaki
 	display_name = "konyanger hachimaki"
-	path = /obj/item/clothing/head/hachimaki
+	path = /obj/item/clothing/accessory/headband/hachimaki
 	flags = GEAR_HAS_DESC_SELECTION
 
 /datum/gear/head/iac

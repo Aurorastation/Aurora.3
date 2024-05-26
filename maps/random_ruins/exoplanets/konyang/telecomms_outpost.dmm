@@ -199,8 +199,8 @@
 /area/konyang_telecomms_outpost)
 "kl" = (
 /obj/structure/table/wood,
-/obj/item/clothing/head/hachimaki,
-/obj/item/clothing/head/hachimaki{
+/obj/item/clothing/accessory/headband/hachimaki,
+/obj/item/clothing/accessory/headband/hachimaki{
 	pixel_x = -6;
 	pixel_y = 8
 	},

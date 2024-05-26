@@ -1,8 +1,12 @@
 /obj/item/clothing/accessory/storage
 	name = "load bearing equipment"
 	desc = "Used to hold things when you don't have enough hands."
+	icon = 'icons/obj/item/clothing/accessory/utility.dmi'
 	icon_state = "webbing"
-	slot = ACCESSORY_SLOT_UTILITY
+	item_state = "webbing"
+	contained_sprite = TRUE
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
+	accessory_type = ACCESSORY_UTILITY
 	var/slots = 3
 	var/obj/item/storage/internal/hold
 	w_class = ITEMSIZE_NORMAL
@@ -51,8 +55,6 @@
 /obj/item/clothing/accessory/storage/webbing
 	name = "webbing"
 	desc = "Sturdy mess of synthcotton belts and buckles, ready to share your burden."
-	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
-	contained_sprite = TRUE
 	icon_state = "webbing"
 	item_state = "webbing"
 
@@ -63,8 +65,6 @@
 /obj/item/clothing/accessory/storage/black_vest
 	name = "black webbing vest"
 	desc = "Robust black synthcotton vest with lots of pockets to hold whatever you need, but cannot hold in hands."
-	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
-	contained_sprite = TRUE
 	icon_state = "vest_black"
 	item_state = "vest_black"
 	slots = 5
@@ -72,8 +72,6 @@
 /obj/item/clothing/accessory/storage/brown_vest
 	name = "brown webbing vest"
 	desc = "Worn brownish synthcotton vest with lots of pockets to unload your hands."
-	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
-	contained_sprite = TRUE
 	icon_state = "vest_brown"
 	item_state = "vest_brown"
 	slots = 5
@@ -81,8 +79,6 @@
 /obj/item/clothing/accessory/storage/white_vest
 	name = "white webbing vest"
 	desc = "Durable white synthcotton vest with lots of pockets to carry essentials."
-	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
-	contained_sprite = TRUE
 	icon_state = "vest_white"
 	item_state = "vest_white"
 	slots = 5
@@ -90,8 +86,6 @@
 /obj/item/clothing/accessory/storage/webbingharness
 	name = "webbing harness"
 	desc = "Durable mess of synthcotton belts and buckles. Has some pouches, but not a lot."
-	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
-	contained_sprite = TRUE
 	icon_state = "vest_harness"
 	item_state = "vest_harness"
 

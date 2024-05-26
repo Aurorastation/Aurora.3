@@ -8,9 +8,25 @@
 	var/list/species_restricted = null 				//Only these species can wear this kit.
 	var/list/gunshot_residue //Used by forensics.
 
+	/**
+	 * List of all our accessories
+	 */
 	var/list/accessories
-	var/list/valid_accessory_slots
-	var/list/restricted_accessory_slots
+	/**
+	 * Flag of what accessories we can fit
+	 */
+	var/valid_accessory_slot
+	/**
+	 * Flag(s) of what accessory types we can have
+	 */
+	var/valid_accessory_types = ACCESSORY_GENERIC
+	/**
+	 * Flag(s) of any accessory types we can only have one of
+	 */
+	var/restricted_accessory_types
+	/**
+	 * List of accessories we start with
+	 */
 	var/list/starting_accessories
 	/*
 		Sprites used when the clothing item is refit. This is done by setting icon_override.
@@ -587,7 +603,7 @@
 	drop_sound = 'sound/items/drop/hat.ogg'
 	pickup_sound = 'sound/items/pickup/hat.ogg'
 
-	valid_accessory_slots = list(ACCESSORY_SLOT_HEAD)
+	valid_accessory_slot = ACCESSORY_SLOT_HEAD
 
 	var/allow_hair_covering = TRUE //in case if you want to allow someone to switch the BLOCKHEADHAIR var from the helmet or not
 
@@ -1039,7 +1055,7 @@
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
 	species_restricted = list("exclude",BODYTYPE_VAURCA_BREEDER,BODYTYPE_VAURCA_WARFORM,BODYTYPE_TESLA_BODY)
-	valid_accessory_slots = list(ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE, ACCESSORY_SLOT_UTILITY_MINOR)
+	valid_accessory_slot = ACCESSORY_SLOT_SUIT
 
 	var/fire_resist = T0C+100
 	var/blood_overlay_type = "suit"
@@ -1064,7 +1080,8 @@
 	var/image/I = ..()
 	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
-			A.accessory_mob_overlay.ClearOverlays()
+			if(A.accessory_mob_overlay)
+				A.accessory_mob_overlay.ClearOverlays()
 	else
 		for(var/obj/item/clothing/accessory/A in accessories)
 			var/image/accessory_image = A.get_accessory_mob_overlay(H)
@@ -1125,8 +1142,9 @@
 	///Convenience var for defining the icon state for the overlay used when the clothing is worn. Also used by rolling/unrolling.
 	var/worn_state = null
 
-	valid_accessory_slots = list(ACCESSORY_SLOT_UTILITY, ACCESSORY_SLOT_UTILITY_MINOR, ACCESSORY_SLOT_ARMBAND, ACCESSORY_SLOT_GENERIC, ACCESSORY_SLOT_CAPE)
-	restricted_accessory_slots = list(ACCESSORY_SLOT_UTILITY)
+	valid_accessory_slot = ACCESSORY_SLOT_UNIFORM
+	valid_accessory_types = ACCESSORY_GENERIC | ACCESSORY_UTILITY
+	restricted_accessory_types = ACCESSORY_UTILITY
 
 /obj/item/clothing/under/attack_hand(var/mob/user)
 	if(LAZYLEN(accessories))

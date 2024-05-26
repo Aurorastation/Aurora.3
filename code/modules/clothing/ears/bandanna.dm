@@ -5,9 +5,10 @@
 /obj/item/clothing/accessory/bandanna
 	name = "red bandanna"
 	desc = "A plain red bandanna."
-	icon = 'icons/obj/clothing/ears.dmi'
+	icon = 'icons/obj/item/clothing/accessory/bandanas.dmi'
 	icon_state = "band_r"
 	item_state = "band_r"
+	contained_sprite = TRUE
 	w_class = ITEMSIZE_TINY
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
 

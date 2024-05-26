@@ -114,6 +114,8 @@
 #define WORN_ID		"_id"
 #define WORN_MASK	"_ma"
 #define WORN_WRISTS	"_wr"
+// Accessory specific suffixes
+#define WORN_HELMET	"_ht"
 
 // Bitflags for clothing parts.
 #define HEAD        0x1

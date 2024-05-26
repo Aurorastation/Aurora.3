@@ -8,7 +8,8 @@
 	icon_state = "holster"
 	item_state = "holster"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_UTILITY
+	accessory_slots = ACCESSORY_SLOT_UNIFORM
+	accessory_type = ACCESSORY_UTILITY
 	slot_flags = SLOT_BELT | SLOT_TIE
 	var/obj/item/holstered = null
 	var/sound_in = 'sound/weapons/holster/holsterin.ogg'
@@ -206,7 +207,7 @@
 	icon_state = "modular_holster"
 	item_state = "modular_holster"
 	contained_sprite = TRUE
-	slot = ACCESSORY_SLOT_ARMOR_POCKETS
+	accessory_slots = ACCESSORY_SLOT_ARMOR
 	flippable = FALSE
 
 /*##### Utility Holsters Start #####*/

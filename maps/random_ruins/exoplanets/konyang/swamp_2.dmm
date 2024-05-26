@@ -104,7 +104,7 @@
 	pixel_x = 4;
 	pixel_y = 14
 	},
-/obj/item/clothing/head/hachimaki{
+/obj/item/clothing/accessory/headband/hachimaki{
 	pixel_x = 10;
 	pixel_y = 2;
 	layer = 2.0
