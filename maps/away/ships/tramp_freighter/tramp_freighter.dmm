@@ -789,6 +789,9 @@
 	d2 = 2;
 	icon_state = "1-2"
 	},
+/obj/structure/cable/green{
+	icon_state = "2-4"
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
 "jZ" = (
@@ -960,9 +963,6 @@
 	},
 /obj/structure/cable/green{
 	icon_state = "0-8"
-	},
-/obj/structure/cable/green{
-	icon_state = "2-4"
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tramp_freighter/hangar)
@@ -2854,10 +2854,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/yellow,
 /area/tramp_freighter/lounge)
-"JT" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "JY" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
@@ -2910,9 +2906,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tramp_freighter/cargo)
-"KD" = (
-/turf/simulated/floor/airless,
-/area/space)
 "KK" = (
 /obj/structure/lattice/catwalk/indoor/grate,
 /obj/structure/railing/mapped{
@@ -3268,7 +3261,7 @@
 /obj/structure/bed/handrail{
 	dir = 8
 	},
-/turf/simulated/floor/airless,
+/turf/template_noop,
 /area/space)
 "OR" = (
 /obj/item/spacecash/c500,
@@ -32220,12 +32213,12 @@ hX
 hX
 hX
 hX
-JT
-JT
-JT
-JT
-JT
-JT
+hX
+hX
+hX
+hX
+hX
+hX
 hX
 hX
 hX
@@ -32476,13 +32469,13 @@ hX
 hX
 hX
 hX
-JT
-JT
+hX
+hX
 OL
-KD
-KD
+hX
+hX
 OL
-JT
+hX
 hX
 hX
 hX
@@ -32733,14 +32726,14 @@ hX
 hX
 hX
 hX
-JT
-JT
+hX
+hX
 uU
 Mn
 Bf
 uU
-JT
-JT
+hX
+hX
 hX
 hX
 hX
@@ -32997,8 +32990,8 @@ dU
 fB
 uU
 bR
-JT
-JT
+hX
+hX
 hX
 hX
 hX
@@ -33255,8 +33248,8 @@ lR
 uU
 bR
 bR
-JT
-JT
+hX
+hX
 hX
 hX
 hX
@@ -33513,7 +33506,7 @@ uU
 mA
 bR
 bR
-JT
+hX
 hX
 hX
 hX

@@ -63,34 +63,60 @@
 	return skybox_image
 
 /obj/effect/shuttle_landmark/tramp_freighter/nav1
-	name = "Tramp Freighter - Fore"
+	name = "Independent Freighter - Fore"
 	landmark_tag = "nav_tramp_freighter_1"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tramp_freighter/nav2
-	name = "Tramp Freighter - Aft"
+	name = "Independent Freighter - Aft"
 	landmark_tag = "nav_tramp_freighter_2"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tramp_freighter/nav3
-	name = "Tramp Freighter - Port"
+	name = "Independent Freighter - Port"
 	landmark_tag = "nav_tramp_freighter_3"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
 /obj/effect/shuttle_landmark/tramp_freighter/nav4
-	name = "Tramp Freighter - Starboard"
+	name = "Independent Freighter - Starboard"
 	landmark_tag = "nav_tramp_freighter_4"
 	base_turf = /turf/space/dynamic
 	base_area = /area/space
 
-/obj/effect/shuttle_landmark/tramp_freighter/dock
-	name = "Tramp Freighter - Port Airlock"
-	landmark_tag = "nav_tramp_freighter_dock"
-	base_turf = /turf/space/dynamic
-	base_area = /area/space
+//starboard docking arm
+/obj/effect/shuttle_landmark/tramp_freighter/starboard_aft
+	name = "Independent Freighter - Starboard Aft Dock"
+	landmark_tag = "nav_tramp_freighter_stbd_aft"
+	docking_controller = "airlock_tramp_freighter_dock_stbd_aft"
+
+/obj/effect/shuttle_landmark/tramp_freighter/starboard_fore
+	name = "Independent Freighter - Starboard Fore Dock"
+	landmark_tag = "nav_tramp_freighter_stbd_fore"
+	docking_controller = "airlock_tramp_freighter_dock_stbd_fore"
+
+/obj/effect/shuttle_landmark/tramp_freighter/starboard_berth
+	name = "Independent Freighter - Starboard Berthing Dock"
+	landmark_tag = "nav_tramp_freighter_stbd_berth"
+	docking_controller = "airlock_tramp_freighter_dock_stbd_berth"
+
+//port docking arm
+/obj/effect/shuttle_landmark/tramp_freighter/port_aft
+	name = "Independent Freighter - Port Aft Dock"
+	landmark_tag = "nav_tramp_freighter_port_aft"
+	docking_controller = "airlock_tramp_freighter_dock_port_aft"
+
+/obj/effect/shuttle_landmark/tramp_freighter/port_fore
+	name = "Independent Freighter - Port Fore Dock"
+	landmark_tag = "nav_tramp_freighter_port_fore"
+	docking_controller = "airlock_tramp_freighter_dock_port_fore"
+
+/obj/effect/shuttle_landmark/tramp_freighter/port_berth
+	name = "Independent Freighter - Port Berthing Dock"
+	landmark_tag = "nav_tramp_freighter_port_berth"
+	docking_controller = "airlock_tramp_freighter_dock_port_berth"
 
 /obj/effect/shuttle_landmark/tramp_freighter/transit
 	name = "In transit"
