@@ -20,6 +20,8 @@
 /obj/effect/overmap/visitable/sector/peoples_station
 	name = "People's Space Station"
 	desc = "Built in the interwar period, the People's Space Station bears the prestige of being the first space installation designed, constructed, and manned by Tajara."
+	class = "PRAS" //People's Republic of Adhomai Station (PRASS might not be a good prefix...)
+	designation= "People's Space Station"
 
 	icon = 'icons/obj/overmap/overmap_stationary.dmi'
 	icon_state = "battlestation"

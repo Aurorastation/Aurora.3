@@ -1032,7 +1032,9 @@
 /obj/machinery/mech_recharger,
 /obj/effect/floor_decal/industrial/hatch/yellow,
 /mob/living/heavy_vehicle/premade/ripley/loader,
-/obj/structure/sign/flag/pra/large/north,
+/obj/structure/sign/flag/pra/large/north{
+	pixel_y = 32
+	},
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
 	},
@@ -3469,7 +3471,9 @@
 /obj/effect/floor_decal/corner/red/full{
 	dir = 8
 	},
-/obj/machinery/media/jukebox/phonograph,
+/obj/machinery/media/jukebox/phonograph{
+	anchored = 1
+	},
 /obj/structure/table/standard,
 /turf/simulated/floor/tiled/dark{
 	temperature = 278.15
