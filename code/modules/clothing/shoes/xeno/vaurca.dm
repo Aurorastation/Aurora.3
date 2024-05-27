@@ -20,6 +20,12 @@
 	species_restricted = list(BODYTYPE_VAURCA, BODYTYPE_VAURCA_BULWARK)
 	contained_sprite = TRUE
 
+/obj/item/clothing/shoes/vaurca/brown
+	color = "#784020"
+
+/obj/item/clothing/shoes/vaurca/red
+	color = "#d62b2b"
+
 /obj/item/clothing/shoes/vaurca/breeder
 	name = "zo'ra representative shoes"
 	desc = "Large shoes used by Zo'ra representatives."

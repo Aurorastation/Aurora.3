@@ -16,6 +16,7 @@
 
 /area/tret_industrial/outside/landing
 	name = "Tret - Landing Pad"
+	icon_state = "yellow"
 
 /area/tret_industrial/outside/surface
 	name = "Tret - Surface"

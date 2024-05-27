@@ -26,7 +26,7 @@
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "\
 		Pick a Vaurca Worker name. Prefix and suffix are applied automatically, \
-		so just need to input the <<XXXX>> part in <<Ka'Akaix'XXXX K'lax>>.\
+		so just need to input the XXXX part in Ka'Akaix'XXXX K'lax.\
 	"
 
 	extra_languages = list(LANGUAGE_VAURCA)
@@ -58,7 +58,7 @@
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "\
 		Pick a Vaurca Bulwark name. Prefix and suffix are applied automatically, \
-		so just need to input the <<XXXX>> part in <<Ra'Akaix'XXXX K'lax>>.\
+		so just need to input the XXXX part in Ka'Akaix'XXXX K'lax.\
 	"
 
 	welcome_message = "\
@@ -85,7 +85,7 @@
 	mob_name_suffix = " K'lax"
 	mob_name_pick_message = "\
 		Pick a Vaurca Warrior name. Prefix and suffix are applied automatically, \
-		so just need to input the <<XXXX>> part in <<Za'Akaix'XXXX K'lax>>.\
+		so just need to input the XXXX part in Ka'Akaix'XXXX K'lax.\
 	"
 
 	welcome_message = "\
@@ -114,7 +114,11 @@
 		/obj/item/clothing/under/vaurca/gearharness/black,
 		/obj/item/clothing/under/gearharness,
 	)
-	shoes = list(/obj/item/clothing/shoes/vaurca)
+	shoes = list(
+		/obj/item/clothing/shoes/vaurca,
+		/obj/item/clothing/shoes/vaurca/brown,
+		/obj/item/clothing/shoes/vaurca/red,
+	)
 	mask = list(
 		/obj/item/clothing/mask/gas/vaurca/filter,
 		/obj/item/clothing/mask/gas/vaurca/filter,
@@ -134,13 +138,14 @@
 		/obj/item/clothing/accessory/poncho,
 		/obj/item/clothing/accessory/poncho/vaurca,
 	)
-	l_pocket = list(/obj/item/storage/bag/ore)
+	l_pocket = list(/obj/item/reagent_containers/food/snacks/koisbar)
 	id = /obj/item/card/id/hephaestus
 
 /obj/outfit/admin/tret_industrial/get_id_access()
 	return list(ACCESS_EXTERNAL_AIRLOCKS, ACCESS_HEPHAESTUS)
 
 /obj/outfit/admin/tret_industrial/vaurca/bulwark
+	mask = list(/obj/item/clothing/mask/gas/vaurca/filter)
 	uniform = list(/obj/item/clothing/under/vaurca/gearharness)
 	accessory = null
 
@@ -160,7 +165,6 @@
 		/obj/item/clothing/accessory/storage/pouches/black,
 		/obj/item/clothing/accessory/poncho/vaurca,
 	)
-	l_pocket = list(/obj/item/storage/bag/ore)
 	l_hand = list(/obj/item/martial_manual/vaurca)
 
 /obj/outfit/admin/tret_industrial/vaurca/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)

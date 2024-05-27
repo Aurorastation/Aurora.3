@@ -78,7 +78,7 @@
 	landmark_tag = "nav_tret_industrial_dock_outpost_5"
 	master_tag = "airlock_tret_industrial_dock_outpost_5"
 
-// --------------------- surface
+// --------------------- surface, outpost
 
 /obj/effect/shuttle_landmark/tret_industrial/surface/outpost_1
 	name = "Surface, Landing Pad 1"
@@ -100,8 +100,22 @@
 	name = "Surface, Landing Pad 5"
 	landmark_tag = "nav_tret_industrial_surface_outpost_5"
 
-/obj/effect/shuttle_landmark/tret_industrial/surface/far
-	name = "Surface, Far"
-	landmark_tag = "nav_tret_industrial_surface_far"
+// --------------------- surface, far
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/far_1
+	name = "Surface, Far 1"
+	landmark_tag = "nav_tret_industrial_surface_far_1"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/far_2
+	name = "Surface, Far 2"
+	landmark_tag = "nav_tret_industrial_surface_far_2"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/far_3
+	name = "Surface, Far 3"
+	landmark_tag = "nav_tret_industrial_surface_far_3"
+
+/obj/effect/shuttle_landmark/tret_industrial/surface/far_4
+	name = "Surface, Far 4"
+	landmark_tag = "nav_tret_industrial_surface_far_4"
 
 // --------------------- fin
