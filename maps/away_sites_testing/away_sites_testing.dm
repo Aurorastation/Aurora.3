@@ -45,7 +45,7 @@
 
 	//Spawn the away sites selected in the previous step
 	for(var/datum/map_template/ruin/away_site/away_site in away_sites_to_spawn)
-		away_site.load_new_z()
+		away_site.load_new_z(themes=away_site.exoplanet_themes)
 		testing("[ascii_green]LOADING AWAY SITE:[ascii_reset] Spawning [away_site] on Z [english_list(GetConnectedZlevels(world.maxz))]")
 
 #else
