@@ -51,7 +51,7 @@
 	desc = "\
 		Commonly used by the Miners' Guild, Glizkin-class shuttles are short-range mining vessels, designed for persistent mining of celestial bodies. \
 		They are viewed by their crews as small, yet reliable and enduring - much like the Tza Prairie folk hero for which they are named. \
-		They are usually found attached to larger stations or mining vessels.\
+		They are usually found attached to larger stations, outposts, or mining vessels.\
 		"
 	designation = "Xk'tiik"
 	shuttle = "Tret Mining Shuttle"

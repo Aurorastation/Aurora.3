@@ -7001,6 +7001,10 @@
 /area/shuttle/tret_industrial/main)
 "bMI" = (
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/port{
+	name = "port, aft";
+	dir = 4
+	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
 "bMY" = (
@@ -7086,6 +7090,14 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"cmj" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aft";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "cqb" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -7278,6 +7290,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
+"dxj" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, port";
+	dir = 2
+	},
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/tret_industrial/main)
 "dxA" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -8959,6 +8978,16 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
+"kMO" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/propulsion)
 "kRT" = (
 /obj/effect/decal/cleanable/floor_damage/random_tiled_burned,
 /turf/simulated/floor/exoplanet/plating/tret,
@@ -9390,6 +9419,14 @@
 /obj/machinery/atmospherics/pipe/manifold4w/hidden/green,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"nlS" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cockpit";
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "nmL" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_3";
@@ -9548,6 +9585,14 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/canteen)
+"nUZ" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cockpit";
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "nWj" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -10216,6 +10261,16 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/atmos)
+"rbf" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/propulsion)
 "rdI" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -10716,6 +10771,14 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"sVC" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "sVJ" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -38763,7 +38826,7 @@ uIp
 uIp
 inI
 aJa
-aJa
+sVC
 aJa
 inI
 uIp
@@ -39531,7 +39594,7 @@ arD
 uIp
 uIp
 uIp
-inI
+dxj
 hpB
 aFy
 jnb
@@ -39545,7 +39608,7 @@ rPQ
 gkr
 aev
 acj
-oQV
+kMO
 uIp
 arD
 lIs
@@ -41330,7 +41393,7 @@ arD
 uIp
 uIp
 uIp
-aJa
+nUZ
 kqh
 aMc
 dCy
@@ -41344,7 +41407,7 @@ qQk
 qQk
 cWG
 khD
-oQV
+rbf
 uIp
 bbq
 ksJ
@@ -42104,7 +42167,7 @@ uIp
 uIp
 inI
 aJa
-aJa
+nlS
 aJa
 inI
 uIp
@@ -42367,7 +42430,7 @@ uIp
 uIp
 inI
 inI
-aJa
+cmj
 inI
 inI
 uIp

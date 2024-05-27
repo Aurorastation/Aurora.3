@@ -216,8 +216,7 @@
 	desc = "A written, unfinished inspection report."
 	language = LANGUAGE_UNATHI
 	info = "\
-		TO: REGION COMMAND<br>\
-		FROM:<br>\
+		TO: TRET REGION COMMAND<br>\
 		INSPECTOR ID: 3526071-39352<br>\
 		SUBJECT: INSPECTION REPORT<br>\
 		LOCATION: OUTPOST 200-14D<br>\
@@ -236,3 +235,5 @@
 		UNAPPROVED KOIS GROWING<br>\
 		<br>\
 		"
+
+// ---------------------- fin
