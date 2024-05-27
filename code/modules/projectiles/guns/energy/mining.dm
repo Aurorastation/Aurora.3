@@ -2,7 +2,8 @@
 
 /obj/item/gun/energy/plasmacutter
 	name = "plasma cutter"
-	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff."
+	desc = "A mining tool capable of expelling concentrated plasma bursts. You could use it to cut limbs off of xenos! Or, you know, mine stuff. "
+	desc_extended = "Hephaestus advises against using the Plasma Cutter™️ to slice any manner of baked good."
 	charge_meter = FALSE
 	icon = 'icons/obj/guns/plasma_cutter.dmi'
 	icon_state = "plasma"
