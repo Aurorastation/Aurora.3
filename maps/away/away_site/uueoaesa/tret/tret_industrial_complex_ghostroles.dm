@@ -29,6 +29,7 @@
 		so just need to input the XXXX part in Ka'Akaix'XXXX K'lax.\
 	"
 
+	culture_restriction = list(/singleton/origin_item/culture/klax)
 	extra_languages = list(LANGUAGE_VAURCA)
 	allow_appearance_change = APPEARANCE_PLASTICSURGERY
 	welcome_message = "\
@@ -37,7 +38,7 @@
 	"
 	welcome_message_ooc = "\
 		Vaurca are a very alien species, and can be difficult to roleplay. \
-		It is recommended that you read the Aurorastation wiki page for the species, as well as the Vaurca Hives page for information on K'lax coloration.\
+		It is recommended that you read the wiki page for the species, as well as the Vaurca Hives page for information on K'lax coloration.\
 	"
 
 /datum/ghostspawner/human/tret_industrial/bulwark
@@ -157,7 +158,6 @@
 	)
 	back = list(/obj/item/storage/backpack/cloak/sec)
 	belt = list(
-		/obj/item/melee/energy/vaurca,
 		/obj/item/storage/belt/security/full/alt,
 	)
 	accessory = list(
