@@ -1,6 +1,6 @@
 /datum/design/item/robot_upgrade
 	build_type = MECHFAB
-	time = 12
+	time = 12 SECONDS
 	materials = list(DEFAULT_WALL_MATERIAL = 10000)
 	category = "Cyborg Upgrade Modules"
 

@@ -8,13 +8,13 @@
 
 	if(!legs)
 		if(user)
-			to_chat(user, "<span class='warning'>\The [src] has no means of propulsion!</span>")
+			to_chat(user, SPAN_WARNING("\The [src] has no means of propulsion!"))
 		next_mecha_move = world.time + 3 // Just to stop them from getting spammed with messages.
 		return
 
 	if(!legs.motivator || legs.total_damage > 45)
 		if(user)
-			to_chat(user, "<span class='warning'>Your motivators are damaged! You can't move!</span>")
+			to_chat(user, SPAN_WARNING("Your motivators are damaged! You can't move!"))
 		next_mecha_move = world.time + 15
 		return
 
@@ -22,13 +22,13 @@
 
 	if(maintenance_protocols)
 		if(user)
-			to_chat(user, "<span class='warning'>Maintenance protocols are in effect.</span>")
+			to_chat(user, SPAN_WARNING("Maintenance protocols are in effect."))
 		return
 
 	var/obj/item/cell/C = get_cell()
 	if(!C || !C.check_charge(legs.power_use * CELLRATE))
 		if(user)
-			to_chat(user, "<span class='warning'>The power indicator flashes briefly.</span>")
+			to_chat(user, SPAN_WARNING("The power indicator flashes briefly."))
 		return
 
 	return TRUE

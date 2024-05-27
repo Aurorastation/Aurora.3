@@ -1348,11 +1348,6 @@
 /obj/machinery/atmospherics/pipe/manifold/hidden/scrubbers,
 /obj/machinery/atmospherics/pipe/manifold/hidden/supply,
 /obj/structure/cable/green{
-	d1 = 1;
-	d2 = 4;
-	icon_state = "1-4"
-	},
-/obj/structure/cable/green{
 	icon_state = "1-8"
 	},
 /obj/effect/overmap/visitable/sector/saniorios_outpost,
@@ -1389,6 +1384,9 @@
 	icon_state = "0-4"
 	},
 /obj/effect/floor_decal/corner/white/full,
+/obj/machinery/power/apc/high/west{
+	req_access = list(209)
+	},
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},
@@ -2277,6 +2275,7 @@
 /obj/effect/floor_decal/corner/white{
 	dir = 5
 	},
+/obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled{
 	temperature = 278.15
 	},

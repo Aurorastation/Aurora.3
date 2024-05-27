@@ -155,7 +155,9 @@
 /obj/item/warhead/longbow/ex_act(severity)
 	cookoff(TRUE)
 
-/obj/item/warhead/longbow/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/warhead/longbow/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature >= T0C+200)
 		cookoff(TRUE)
 

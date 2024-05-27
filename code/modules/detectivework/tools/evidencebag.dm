@@ -48,15 +48,15 @@
 		return
 
 	if(istype(I, /obj/item/evidencebag))
-		to_chat(user, "<span class='notice'>You find putting a plastic bag in another plastic bag to be slightly absurd and think better of it.</span>")
+		to_chat(user, SPAN_NOTICE("You find putting a plastic bag in another plastic bag to be slightly absurd and think better of it."))
 		return
 
 	if(I.w_class > 3)
-		to_chat(user, "<span class='notice'>[I] won't fit in [src].</span>")
+		to_chat(user, SPAN_NOTICE("[I] won't fit in [src]."))
 		return
 
 	if(contents.len)
-		to_chat(user, "<span class='notice'>[src] already has something inside it.</span>")
+		to_chat(user, SPAN_NOTICE("[src] already has something inside it."))
 		return
 
 	user.visible_message("<b>[user]</b> puts \the [I] into \the [src].", SPAN_NOTICE("You put \the [I] inside \the [src]."),\
@@ -106,7 +106,7 @@
 		if(length(tmp_label) > MAX_NAME_LEN)
 			to_chat(user, SPAN_NOTICE("The label can be at most [MAX_NAME_LEN] characters long."))
 		else
-			to_chat(user, "<span class='notice'>You set the label to \"[tmp_label]\".</span>")
+			to_chat(user, SPAN_NOTICE("You set the label to \"[tmp_label]\"."))
 			label_text = tmp_label
 			update_name_label()
 		return

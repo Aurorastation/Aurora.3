@@ -234,7 +234,7 @@
 
 /obj/item/cane/concealed/attack_self(var/mob/user)
 	if(concealed_blade)
-		user.visible_message("<span class='warning'>[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!</span>", "You unsheathe \the [concealed_blade] from \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has unsheathed \a [concealed_blade] from [user.get_pronoun("his")] [src]!"), "You unsheathe \the [concealed_blade] from \the [src].")
 		// Calling drop/put in hands to properly call item drop/pickup procs
 		playsound(user.loc, 'sound/weapons/holster/sheathout.ogg', 50, 1)
 		user.drop_from_inventory(src)
@@ -250,7 +250,7 @@
 /obj/item/cane/concealed/attackby(obj/item/attacking_item, mob/user)
 	var/obj/item/canesword/attacking_canesword = attacking_item
 	if(!src.concealed_blade && istype(attacking_canesword))
-		user.visible_message("<span class='warning'>[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!</span>", "You sheathe \the [attacking_canesword] into \the [src].")
+		user.visible_message(SPAN_WARNING("[user] has sheathed \a [attacking_canesword] into [user.get_pronoun("his")] [src]!"), "You sheathe \the [attacking_canesword] into \the [src].")
 		playsound(user.loc, 'sound/weapons/holster/sheathin.ogg', 50, 1)
 		user.drop_from_inventory(attacking_canesword)
 		attacking_canesword.forceMove(src)
@@ -473,7 +473,7 @@
 		if (C.bugged && C.status)
 			cameras.Add(C)
 	if (length(cameras) == 0)
-		to_chat(usr, "<span class='warning'>No bugged functioning cameras found.</span>")
+		to_chat(usr, SPAN_WARNING("No bugged functioning cameras found."))
 		return
 
 	var/list/friendly_cameras = new/list()

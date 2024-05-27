@@ -38,13 +38,13 @@
 			if(isturf(T) && !!T.is_plating())
 				attached = locate() in T
 				if(!attached)
-					to_chat(user, "<span class='warning'>No exposed cable here to attach to.</span>")
+					to_chat(user, SPAN_WARNING("No exposed cable here to attach to."))
 				else
 					anchored = 1
 					mode = 1
-					visible_message("<span class='notice'>\The [user] attaches \the [src] to the cable!</span>")
+					visible_message(SPAN_NOTICE("\The [user] attaches \the [src] to the cable!"))
 			else
-				to_chat(user, "<span class='warning'>\The [src] must be placed over an exposed cable to attach to it.</span>")
+				to_chat(user, SPAN_WARNING("\The [src] must be placed over an exposed cable to attach to it."))
 			return TRUE
 		else
 			if (mode == 2)
@@ -52,7 +52,7 @@
 				GLOB.processing_power_items.Remove(src)
 			anchored = 0
 			mode = 0
-			visible_message("<span class='notice'>\The [user] detaches \the [src] from the cable!</span>")
+			visible_message(SPAN_NOTICE("\The [user] detaches \the [src] from the cable!"))
 			set_light(0)
 			icon_state = "powersink0"
 			item_state = "powersink0"
@@ -69,14 +69,14 @@
 		if(0)
 			..()
 		if(1)
-			visible_message("<span class='notice'>\The [user] activates \the [src]!</span>")
+			visible_message(SPAN_NOTICE("\The [user] activates \the [src]!"))
 			mode = 2
 			icon_state = "powersink1"
 			item_state = "powersink1"
 			START_PROCESSING_POWER_OBJECT(src)
 			GLOB.processing_power_items += src
 		if(2)  //This switch option wasn't originally included. It exists now. --NeoFite
-			visible_message("<span class='notice'>\The [user] deactivates \the [src]!</span>")
+			visible_message(SPAN_NOTICE("\The [user] deactivates \the [src]!"))
 			mode = 1
 			set_light(0)
 			icon_state = "powersink0"

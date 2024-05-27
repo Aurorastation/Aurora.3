@@ -9,6 +9,7 @@
 	ship_cost = 1
 	spawn_weight = 1
 	shuttles_to_initialise = list(/datum/shuttle/autodock/overmap/headmaster_shuttle)
+	spawn_weight_sector_dependent = list(SECTOR_SRANDMARR = 2, SECTOR_NRRAHRAHUL = 2)
 	sectors = list(SECTOR_BADLANDS, SECTOR_SRANDMARR, SECTOR_NRRAHRAHUL)
 
 	unit_test_groups = list(3)
@@ -26,7 +27,7 @@
 	colors = list("#8C8A81")
 	vessel_mass = 10000
 	max_speed = 1/(2 SECONDS)
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_SMALL
 	scanimage = "headmaster.png"
 	designer = "People's Republic of Adhomai"
@@ -109,7 +110,7 @@
 	max_speed = 1/(3 SECONDS)
 	burn_delay = 2 SECONDS
 	vessel_mass = 3000 //very inefficient pod
-	fore_dir = NORTH
+	fore_dir = SOUTH
 	vessel_size = SHIP_SIZE_TINY
 
 /obj/machinery/computer/shuttle_control/explore/terminal/headmaster_shuttle

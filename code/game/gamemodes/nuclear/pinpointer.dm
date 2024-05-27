@@ -16,7 +16,7 @@
 	if(!active)
 		active = 1
 		START_PROCESSING(SSfast_process, src)
-		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
+		to_chat(usr, SPAN_NOTICE("You activate the pinpointer"))
 	else
 		active = 0
 		STOP_PROCESSING(SSfast_process, src)
@@ -77,12 +77,12 @@
 		if(mode == 2)
 			workobj()
 		START_PROCESSING(SSfast_process, src)
-		to_chat(usr, "<span class='notice'>You activate the pinpointer</span>")
+		to_chat(usr, SPAN_NOTICE("You activate the pinpointer"))
 	else
 		active = 0
 		icon_state = "pinoff"
 		ClearOverlays()
-		to_chat(usr, "<span class='notice'>You deactivate the pinpointer</span>")
+		to_chat(usr, SPAN_NOTICE("You deactivate the pinpointer"))
 
 /obj/item/pinpointer/advpinpointer/process()
 	switch(mode)
@@ -225,15 +225,15 @@
 		START_PROCESSING(SSfast_process, src)
 		if(!mode)
 			workdisk()
-			to_chat(user, "<span class='notice'>Authentication Disk Locator active.</span>")
+			to_chat(user, SPAN_NOTICE("Authentication Disk Locator active."))
 		else
 			worklocation()
-			to_chat(user, "<span class='notice'>Shuttle Locator active.</span>")
+			to_chat(user, SPAN_NOTICE("Shuttle Locator active."))
 	else
 		active = 0
 		STOP_PROCESSING(SSfast_process, src)
 		icon_state = "pinoff"
-		to_chat(user, "<span class='notice'>You deactivate the pinpointer.</span>")
+		to_chat(user, SPAN_NOTICE("You deactivate the pinpointer."))
 
 /obj/item/pinpointer/nukeop/process()
 	if (mode)
@@ -280,7 +280,7 @@
 		mode = 0
 		workdisk()
 		playsound(loc, 'sound/machines/twobeep.ogg', 50, 1)
-		visible_message("<span class='notice'>Authentication Disk Locator active.</span>")
+		visible_message(SPAN_NOTICE("Authentication Disk Locator active."))
 		return
 	if(!home)
 		home = locate()

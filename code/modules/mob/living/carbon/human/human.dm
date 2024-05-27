@@ -1925,11 +1925,11 @@
 		return
 	var/datum/category_item/underwear/UWI = all_underwear[UWC.name]
 	if(!UWI || UWI.name == "None")
-		to_chat(src, "<span class='notice'>You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"].</span>")
+		to_chat(src, SPAN_NOTICE("You do not have [UWC.gender==PLURAL ? "[UWC.display_name]" : "any [UWC.display_name]"]."))
 		return
 	hide_underwear[UWC.name] = !hide_underwear[UWC.name]
 	update_underwear(1)
-	to_chat(src, "<span class='notice'>You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name].</span>")
+	to_chat(src, SPAN_NOTICE("You [hide_underwear[UWC.name] ? "take off" : "put on"] your [UWC.display_name]."))
 
 /mob/living/carbon/human/verb/pull_punches()
 	set name = "Pull Punches"
@@ -2278,9 +2278,9 @@
 			visible_message(SPAN_NOTICE("[src] looks up."), SPAN_NOTICE("You look up."))
 			reset_view(z_eye)
 			return
-		to_chat(src, "<span class='notice'>You can see \the [above ? above : "ceiling"].</span>")
+		to_chat(src, SPAN_NOTICE("You can see \the [above ? above : "ceiling"]."))
 	else
-		to_chat(src, "<span class='notice'>You can't look up right now.</span>")
+		to_chat(src, SPAN_NOTICE("You can't look up right now."))
 
 /mob/living/verb/lookdown()
 	set name = "Look Down"
@@ -2305,9 +2305,9 @@
 				visible_message(SPAN_NOTICE("[src] leans over to look below."), SPAN_NOTICE("You lean over to look below."))
 				reset_view(z_eye)
 				return
-		to_chat(src, "<span class='notice'>You can see \the [T ? T : "floor"].</span>")
+		to_chat(src, SPAN_NOTICE("You can see \the [T ? T : "floor"]."))
 	else
-		to_chat(src, "<span class='notice'>You can't look below right now.</span>")
+		to_chat(src, SPAN_NOTICE("You can't look below right now."))
 
 /mob/living/carbon/human/get_speech_bubble_state_modifier()
 	if(speech_bubble_type)

@@ -138,7 +138,8 @@
 	if(istype(H) && H.species.can_shred(H))
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		user.visible_message("<span class='danger'>[user] smashes against [src].</span>", "<span class='danger'>You smash against [src]!</span>")
+		user.visible_message(SPAN_DANGER("[user] smashes against [src]."),
+								SPAN_DANGER("You smash against [src]!"))
 		take_damage(25)
 		return
 	else
@@ -165,7 +166,7 @@
 			spark(src.loc, 5)
 			playsound(src.loc, /singleton/sound_category/spark_sound, 50, 1)
 			playsound(src.loc, 'sound/weapons/blade.ogg', 50, 1)
-			visible_message("<span class='warning'>The glass door was sliced open by [user]!</span>")
+			visible_message(SPAN_WARNING("The glass door was sliced open by [user]!"))
 		return TRUE
 
 	//If it's emagged, crowbar can pry electronics out.
@@ -197,7 +198,7 @@
 		user.setClickCooldown(DEFAULT_ATTACK_COOLDOWN)
 		var/aforce = attacking_item.force
 		playsound(src.loc, 'sound/effects/glass_hit.ogg', 75, 1)
-		visible_message("<span class='danger'>[src] was hit by [attacking_item].</span>")
+		visible_message(SPAN_DANGER("[src] was hit by [attacking_item]."))
 		if(attacking_item.damtype == DAMAGE_BRUTE || attacking_item.damtype == DAMAGE_BURN)
 			take_damage(aforce)
 		return TRUE

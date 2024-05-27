@@ -151,10 +151,10 @@
 				else
 					. += "It is being <b>piloted</b> by <b>[pilot]</b>."
 	if(hardpoints.len)
-		. += "<span class='notice'>It has the following hardpoints:</span>"
+		. += SPAN_NOTICE("It has the following hardpoints:")
 		for(var/hardpoint in hardpoints)
 			var/obj/item/I = hardpoints[hardpoint]
-			. += "- <b>[hardpoint]</b>: [istype(I) ? "<span class='notice'><i>[I]</i></span>" : "nothing"]."
+			. += "- <b>[hardpoint]</b>: [istype(I) ? SPAN_NOTICE("<i>[I]</i>") : "nothing"]."
 	else
 		. += "It has <b>no visible hardpoints</b>."
 
@@ -166,11 +166,11 @@
 			if(1)
 				damage_string = "undamaged"
 			if(2)
-				damage_string = "<span class='warning'>damaged</span>"
+				damage_string = SPAN_WARNING("damaged")
 			if(3)
-				damage_string = "<span class='warning'>badly damaged</span>"
+				damage_string = SPAN_WARNING("badly damaged")
 			if(4)
-				damage_string = "<span class='danger'>destroyed</span>"
+				damage_string = SPAN_DANGER("destroyed")
 		. += "Its <b>[thing.name]</b> [thing.gender == PLURAL ? "are" : "is"] [damage_string]."
 
 /mob/living/heavy_vehicle/Topic(href,href_list[])
@@ -289,7 +289,7 @@
 		user.set_machine(src)
 		interact(user)
 	else
-		to_chat(user, "<span class='warning'>The radio is too damaged to function.</span>")
+		to_chat(user, SPAN_WARNING("The radio is too damaged to function."))
 
 /obj/item/device/radio/exosuit/CanUseTopic()
 	. = ..()

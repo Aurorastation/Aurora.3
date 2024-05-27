@@ -17,5 +17,5 @@
 	var/range_dev = GLOB.max_explosion_range *0.25
 	var/range_high = GLOB.max_explosion_range *0.5
 	var/range_low = GLOB.max_explosion_range
-	message_admins("<span class='danger'>[key_name_admin(user)] changed the bomb cap to [range_dev], [range_high], [range_low]</span>", 1)
+	message_admins(SPAN_DANGER("[key_name_admin(user)] changed the bomb cap to [range_dev], [range_high], [range_low]"), 1)
 	log_admin("[key_name(user)] changed the bomb cap to [GLOB.max_explosion_range]",admin_key=key_name(user))

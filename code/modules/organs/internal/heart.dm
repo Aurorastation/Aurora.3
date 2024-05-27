@@ -69,7 +69,7 @@
 		should_stop = should_stop || (prob(5) && pulse == PULSE_THREADY) //erratic heart patterns, usually caused by oxyloss
 		should_stop = should_stop || owner.chem_effects[CE_NOPULSE]
 		if(should_stop) // The heart has stopped due to going into traumatic or cardiovascular shock.
-			to_chat(owner, "<span class='danger'>Your heart has stopped!</span>")
+			to_chat(owner, SPAN_DANGER("Your heart has stopped!"))
 			pulse = PULSE_NONE
 			return
 
@@ -172,8 +172,8 @@
 			blood_max *= 0.8
 
 		if(world.time >= next_blood_squirt && istype(owner.loc, /turf) && do_spray.len)
-			owner.visible_message("<span class='danger'>Blood squirts from \the [owner]'s [pick(do_spray)]!</span>", \
-								"<span class='danger'><font size=3>Blood sprays out of your [pick(do_spray)]!</font></span>")
+			owner.visible_message(SPAN_DANGER("Blood squirts from \the [owner]'s [pick(do_spray)]!"), \
+								SPAN_DANGER("<font size=3>Blood sprays out of your [pick(do_spray)]!</font>"))
 			owner.eye_blurry = 2
 			owner.Stun(1)
 			next_blood_squirt = world.time + 100

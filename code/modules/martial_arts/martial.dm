@@ -41,7 +41,7 @@
 	var/obj/item/organ/external/affecting = D.get_organ(hit_zone)
 
 	if(!affecting || affecting.is_stump())
-		to_chat(A, "<span class='danger'>They are missing that limb!</span>")
+		to_chat(A, SPAN_DANGER("They are missing that limb!"))
 		return 1
 
 	switch(D.a_intent)
@@ -85,7 +85,7 @@
 	if(!attack_message)
 		attack.show_attack(A, D, hit_zone, rand_damage)
 	else
-		D.visible_message("<span class='danger'>[attack_message]</span>")
+		D.visible_message(SPAN_DANGER("[attack_message]"))
 
 	playsound(D.loc, ((miss_type) ? (miss_type == 1 ? attack.miss_sound : 'sound/weapons/thudswoosh.ogg') : attack.attack_sound), 25, 1, -1)
 	A.attack_log += text("\[[time_stamp()]\] <span class='warning'>[miss_type ? (miss_type == 1 ? "Missed" : "Blocked") : "[pick(attack.attack_verb)]"] [D.name] ([D.ckey])</span>")

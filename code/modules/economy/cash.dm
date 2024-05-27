@@ -38,7 +38,7 @@
 			h_user.drop_from_inventory(src)
 			h_user.drop_from_inventory(bundle)
 			h_user.put_in_hands(bundle)
-		to_chat(user, "<span class='notice'>You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now.</span>")
+		to_chat(user, SPAN_NOTICE("You add [src.worth] credits worth of money to the bundles.<br>It holds [bundle.worth] credits now."))
 		qdel(src)
 
 /obj/item/spacecash/bundle
@@ -202,16 +202,16 @@
 /obj/item/spacecash/ewallet/lotto/attack_self(mob/user)
 
 	if(scratches_remaining <= 0)
-		to_chat(user, "<span class='warning'>The card flashes: \"No scratches remaining!\"</span>")
+		to_chat(user, SPAN_WARNING("The card flashes: \"No scratches remaining!\""))
 		return
 
 	if(next_scratch > world.time)
-		to_chat(user, "<span class='warning'>The card flashes: \"Please wait!\"</span>")
+		to_chat(user, SPAN_WARNING("The card flashes: \"Please wait!\""))
 		return
 
 	next_scratch = world.time + 6 SECONDS
 
-	to_chat(user, "<span class='notice'>You initiate the simulated scratch action process on the [src]...</span>")
+	to_chat(user, SPAN_NOTICE("You initiate the simulated scratch action process on the [src]..."))
 	playsound(src.loc, 'sound/items/drumroll.ogg', 20, 0, -4)
 	if(do_after(user,4.5 SECONDS))
 		var/won = 0
@@ -252,9 +252,9 @@
 		worth += won
 		sleep(1 SECONDS)
 		if(scratches_remaining > 0)
-			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!</span>")
+			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! Scratch again!"))
 		else
-			to_chat(user, "<span class='notice'>The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!</span>")
+			to_chat(user, SPAN_NOTICE("The card flashes: You have: [scratches_remaining] SCRATCHES remaining! You won a total of: [worth] CREDITS. Thanks for playing the space lottery!"))
 
 		owner_name = user.name
 

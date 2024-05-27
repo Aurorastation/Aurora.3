@@ -313,7 +313,9 @@ update_flag
 		AddOverlays(indicator_overlay)
 		set_light(1.4, 1, COLOR_BRIGHT_GREEN)
 
-/obj/machinery/portable_atmospherics/canister/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/machinery/portable_atmospherics/canister/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature > temperature_resistance)
 		health -= 5
 		healthcheck()

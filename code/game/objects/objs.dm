@@ -64,7 +64,7 @@
 /obj/CanUseTopic(var/mob/user, var/datum/ui_state/state)
 	if(user.CanUseObjTopic(src))
 		return ..()
-	to_chat(user, "<span class='danger'>[icon2html(src, user)]Access Denied!</span>")
+	to_chat(user, SPAN_DANGER("[icon2html(src, user)]Access Denied!"))
 	return STATUS_CLOSE
 
 /mob/living/silicon/CanUseObjTopic(var/obj/O)

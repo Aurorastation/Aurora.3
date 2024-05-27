@@ -143,6 +143,6 @@
 	attack_verb = list("banned")
 
 /obj/item/banhammer/attack(mob/M as mob, mob/user as mob)
-	to_chat(M, "<span class='warning'><b> You have been banned FOR NO REISIN by [user]</b></span>")
-	to_chat(user, "<span class='warning'> You have <b>BANNED</b> [M]</span>")
+	to_chat(M, SPAN_WARNING("<b> You have been banned FOR NO REISIN by [user]</b>"))
+	to_chat(user, SPAN_WARNING(" You have <b>BANNED</b> [M]"))
 	playsound(loc, 'sound/effects/adminhelp.ogg', 15)
