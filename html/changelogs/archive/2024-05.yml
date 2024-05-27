@@ -413,3 +413,8 @@
 2024-05-25:
   GeneralCamo:
   - rscadd: Added a Norinori plushie to the loadout and random plush spawns.
+2024-05-27:
+  FluffyGhost:
+  - refactor: Refactored fire_act() to be in line with TG version, removed useless
+      parameter, added signal, made non sleepable and forced to call parent.
+  - refactor: Added atom_act.dm file for the various *_act procs.
