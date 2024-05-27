@@ -523,11 +523,8 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "acv" = (
-/obj/effect/floor_decal/industrial/outline/grey,
-/obj/machinery/alarm/west{
-	req_one_access = null
-	},
 /obj/structure/table/rack,
+/obj/item/storage/bag/ore,
 /obj/item/shovel{
 	pixel_x = -5
 	},
@@ -539,7 +536,11 @@
 	pixel_x = 3;
 	pixel_y = -8
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/gun/custom_ka/frame02/prebuilt,
+/obj/machinery/alarm/west{
+	req_one_access = null
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
 "acw" = (
@@ -1481,11 +1482,6 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
-"afZ" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
 "aga" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 5
@@ -2309,6 +2305,12 @@
 /obj/item/hullbeacon/green,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"ajx" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/crew)
 "ajF" = (
 /obj/machinery/chem_master,
 /turf/simulated/floor/tiled/slate,
@@ -2595,16 +2597,6 @@
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
-"amr" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, port";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/tret_industrial/propulsion)
 "amt" = (
 /turf/unsimulated/mineral,
 /area/tret_industrial/outside/surface)
@@ -3278,8 +3270,12 @@
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
 	},
-/obj/machinery/light/small/emergency,
-/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "asA" = (
@@ -3427,6 +3423,14 @@
 	},
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/botany)
+"aus" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, cockpit";
+	dir = 2
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "auv" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
@@ -3608,6 +3612,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/storage_engineering)
+"avP" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "awc" = (
 /obj/effect/map_effect/map_helper/ruler_tiles_3,
 /turf/simulated/floor/exoplanet/basalt/tret,
@@ -3620,11 +3631,11 @@
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/atmos)
 "awl" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
+/area/tret_industrial/inside/hallway_medical)
 "awo" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
@@ -4217,21 +4228,9 @@
 "aBH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
-/obj/structure/table/rack,
-/obj/item/shovel{
-	pixel_x = -5
-	},
-/obj/item/pickaxe{
-	pixel_x = 3;
-	pixel_y = -3
-	},
-/obj/item/pickaxe/drill{
-	pixel_x = 3;
-	pixel_y = -8
-	},
-/obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/plating,
-/area/tret_industrial/inside/smelting_west)
+/area/tret_industrial/inside/storage_smelting)
 "aBI" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 5
@@ -4582,15 +4581,6 @@
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"aEc" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
 "aEe" = (
 /obj/machinery/atmospherics/pipe/manifold/visible/black{
 	dir = 4
@@ -5486,8 +5476,8 @@
 /area/tret_industrial/inside/hallway_botany)
 "aKU" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -6575,8 +6565,8 @@
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
 "aUO" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
+/obj/item/storage/bag/ore,
 /obj/item/shovel{
 	pixel_x = -5
 	},
@@ -6588,6 +6578,7 @@
 	pixel_x = 3;
 	pixel_y = -8
 	},
+/obj/effect/floor_decal/industrial/outline/grey,
 /obj/item/gun/energy/vaurca/thermaldrill,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
@@ -7183,6 +7174,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"blg" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "bpP" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -7218,6 +7214,13 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/canteen)
+"bsS" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "btn" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -7271,23 +7274,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
-"bBR" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/maint_center)
 "bBZ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/mining/brace{
@@ -7395,6 +7381,39 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
+"cbi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
+"cgj" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, port";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/propulsion)
+"cgn" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "cgU" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 2
@@ -7438,18 +7457,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
-"ciC" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 8
-	},
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "ckw" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
@@ -7482,12 +7489,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
-"csb" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "cyA" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 6
@@ -7495,25 +7496,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"cCH" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
-"cFw" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
 "cHi" = (
 /obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_straight/red{
@@ -7563,6 +7545,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
+"cPm" = (
+/obj/effect/floor_decal/industrial/warning/corner,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/smelting_west)
 "cPs" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
@@ -7658,6 +7645,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
+"dll" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "dlC" = (
 /obj/machinery/button/remote/blast_door{
 	id = "tret_shutters_smelting_west";
@@ -7671,8 +7665,8 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "dol" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
+/obj/item/storage/bag/ore,
 /obj/item/shovel{
 	pixel_x = -5
 	},
@@ -7685,15 +7679,19 @@
 	pixel_y = -8
 	},
 /obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
-"dqr" = (
+"dpq" = (
+/obj/random/dirt_75,
 /obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/inside/comms)
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "dtC" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 1
@@ -7729,6 +7727,14 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"dzW" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "dBl" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/storage_smelting)
@@ -7736,8 +7742,8 @@
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
 "dGL" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
+/obj/item/storage/bag/ore,
 /obj/item/shovel{
 	pixel_x = -5
 	},
@@ -7750,17 +7756,13 @@
 	pixel_y = -8
 	},
 /obj/item/gun/custom_ka/frame01/prebuilt,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
 "dGY" = (
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
-"dHs" = (
-/obj/structure/table/rack,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/tret_industrial/main)
 "dJB" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
@@ -7774,12 +7776,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
-"dJV" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "dLA" = (
 /obj/item/material/shard{
 	icon_state = "small";
@@ -7810,13 +7806,14 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
-"dTL" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
+"dXd" = (
+/obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
+/area/shuttle/tret_industrial/main)
 "dXt" = (
 /obj/random/dirt_75,
 /turf/unsimulated/marker/red,
@@ -7865,18 +7862,6 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
-"edO" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
 "efU" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -7897,16 +7882,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
-"eiv" = (
-/obj/effect/floor_decal/industrial/warning/corner{
+"eiG" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/ridged,
-/area/tret_industrial/inside/smelting_west)
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "eiK" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
@@ -7936,18 +7918,24 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
-"eqP" = (
+"eqj" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 8
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
+/area/tret_industrial/inside/hallway_botany)
 "erF" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_medical)
+"etA" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/crew)
 "exN" = (
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/medical)
@@ -8040,31 +8028,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
-"eSA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
-"eTn" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "eUm" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -8094,19 +8057,10 @@
 /obj/effect/floor_decal/industrial/hatch/red,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_east)
-"fdt" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
-"ffe" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
+"ffn" = (
+/obj/effect/floor_decal/industrial/warning,
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/smelting_west)
 "ffN" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -8138,6 +8092,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
+"fkY" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "flS" = (
 /obj/random/dirt_75,
 /obj/effect/map_effect/marker/airlock{
@@ -8173,6 +8137,19 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"frt" = (
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/shuttle/tret_industrial/main)
+"fvd" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/comms)
 "fwF" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_docks)
@@ -8196,17 +8173,6 @@
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_east)
-"fCy" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
 "fDP" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil{
 	color = "#777777"
@@ -8221,13 +8187,6 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"fLS" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/slate,
-/area/tret_industrial/inside/canteen)
 "fMk" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -8264,10 +8223,6 @@
 /obj/random/junk,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/maint_center)
-"fRb" = (
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "fRP" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -8315,6 +8270,7 @@
 /area/tret_industrial/outside/surface)
 "fXr" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
 "fXB" = (
@@ -8397,6 +8353,23 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/shuttle/tret_industrial/main)
+"giL" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/maint_center)
 "gkp" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
@@ -8462,9 +8435,6 @@
 "gqY" = (
 /obj/structure/table/rack,
 /obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
 "gsf" = (
@@ -8541,9 +8511,28 @@
 /obj/item/folder/yellow,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/comms)
+"gDM" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "gEM" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_botany)
+"gFO" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "gGH" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/canteen)
@@ -8576,17 +8565,37 @@
 /obj/random/loot,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/eva)
+"gPW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "gQH" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/ore_box,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
-"gRv" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
+"gRO" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
 	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/canteen)
 "gSL" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
@@ -8599,13 +8608,6 @@
 	icon_state = "4-8"
 	},
 /turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_medical)
-"gVE" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
 "gWd" = (
 /obj/machinery/door/airlock/external{
@@ -8627,6 +8629,13 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
+"gXa" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "gXo" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -8697,12 +8706,6 @@
 /obj/effect/decal/cleanable/floor_damage/random_tiled_broken,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
-"hdI" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/engineering)
 "hem" = (
 /obj/machinery/door/firedoor/noid{
 	dir = 4
@@ -8729,6 +8732,15 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/white,
 /area/tret_industrial/inside/botany)
+"hhK" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "hiu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 5
@@ -8745,6 +8757,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"hjS" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "hkA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/green,
 /obj/machinery/door/airlock/external{
@@ -8763,6 +8782,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"hnm" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "hnt" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -8788,16 +8813,6 @@
 "hrv" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/eva)
-"hrM" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
 "huL" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -8811,6 +8826,18 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
+"hwP" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "hyJ" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 4
@@ -8818,26 +8845,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"hBb" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/eva)
 "hCb" = (
 /obj/machinery/light/small/emergency,
 /obj/structure/table/steel,
@@ -8878,6 +8885,21 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
+"hOG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "hOM" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/random/dirt_75,
@@ -8890,25 +8912,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"hRi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "hRk" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 8
@@ -8920,27 +8923,23 @@
 /obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 1
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/crew)
+/area/tret_industrial/inside/hallway_medical)
+"hUH" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "hYn" = (
 /obj/structure/mopbucket,
 /obj/item/mop,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
-"hYV" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
-"hZJ" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
 "hZW" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -8977,21 +8976,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/engi_storage)
-"icg" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "idf" = (
 /obj/effect/floor_decal/industrial/hatch_door/red,
 /obj/machinery/door/firedoor/noid{
@@ -9048,11 +9032,6 @@
 /obj/machinery/portable_atmospherics/canister/air/airlock,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
-"ikK" = (
-/obj/effect/floor_decal/industrial/warning/corner,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/ridged,
-/area/tret_industrial/inside/smelting_west)
 "inI" = (
 /turf/simulated/wall/shuttle/raider,
 /area/shuttle/tret_industrial/main)
@@ -9065,29 +9044,39 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"ioQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "ipU" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
-"irt" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
-"isJ" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
+"isI" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
+/area/tret_industrial/inside/hallway_docks)
 "isW" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/flag/klax{
@@ -9098,31 +9087,11 @@
 "itk" = (
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
-"itr" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
-"ivR" = (
-/obj/random/dirt_75,
-/obj/item/clothing/mask/breath{
-	pixel_x = 8;
-	pixel_y = 5
-	},
-/turf/simulated/floor/exoplanet/basalt/tret,
-/area/tret_industrial/outside/surface)
-"ivZ" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+"izG" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
 "iBv" = (
@@ -9164,32 +9133,18 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
-"iIX" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
+"iMq" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
 	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_botany)
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "iNU" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 6
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
-"iPq" = (
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "iPF" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cable{
@@ -9211,15 +9166,6 @@
 /obj/effect/map_effect/marker/airlock/shuttle/tret_industrial_shuttle,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
-"iWs" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/machinery/light/small/emergency,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "iXD" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -9264,6 +9210,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
+"jao" = (
+/obj/structure/survey_probe/hegemony,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "jbs" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -9291,6 +9241,16 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"jhZ" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 10
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "jjT" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -9318,8 +9278,8 @@
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
 "jmZ" = (
-/obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/table/rack,
+/obj/item/storage/bag/ore,
 /obj/item/shovel{
 	pixel_x = -5
 	},
@@ -9327,11 +9287,12 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/item/pickaxe/diamonddrill{
+/obj/item/pickaxe/drill{
 	pixel_x = 3;
 	pixel_y = -8
 	},
 /obj/item/gun/custom_ka/frame02/prebuilt,
+/obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
 "jnb" = (
@@ -9444,11 +9405,16 @@
 "jGg" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
-"jKd" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
+"jGq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/green,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
 /turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
+/area/shuttle/tret_industrial/main)
 "jKN" = (
 /obj/machinery/atmospherics/portables_connector/aux{
 	dir = 1
@@ -9478,6 +9444,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"jKZ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "jMJ" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -9605,6 +9581,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
+"jUG" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/maint_center)
 "jWf" = (
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /obj/structure/sign/flag/klax{
@@ -9615,6 +9597,7 @@
 "jXp" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/machinery/light/small/emergency,
+/obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "jZh" = (
@@ -9632,26 +9615,23 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
-"kdm" = (
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/inside/crew)
-"khv" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
+"keF" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/shuttle/tret_industrial/main)
+"kgF" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, aft";
+	dir = 8
+	},
 /turf/simulated/floor/plating,
-/area/tret_industrial/inside/maint_center)
+/area/shuttle/tret_industrial/main)
 "khD" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/fuel{
 	dir = 8
@@ -9696,15 +9676,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engineering)
-"kwb" = (
+"kAV" = (
 /obj/random/dirt_75,
-/obj/random/dirt_75,
-/obj/item/tank/emergency_oxygen{
-	pixel_x = 5;
-	pixel_y = -3
-	},
-/turf/simulated/floor/exoplanet/basalt/tret,
-/area/tret_industrial/outside/surface)
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "kAW" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_west_4";
@@ -9738,19 +9714,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
-"kGQ" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
-"kLe" = (
-/obj/effect/floor_decal/industrial/warning,
-/turf/simulated/floor/tiled/ridged,
-/area/tret_industrial/inside/smelting_west)
 "kMb" = (
 /obj/machinery/atmospherics/binary/pump,
 /turf/simulated/floor/plating,
@@ -9775,15 +9738,6 @@
 /obj/item/stack/rods/full,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"kUn" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "kUC" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_4,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
@@ -9827,13 +9781,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"kYW" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
 "kZK" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -9851,6 +9798,22 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"lbS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/maint_center)
 "ldA" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 4
@@ -9877,28 +9840,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"lfD" = (
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/corner/yellow{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/slate,
-/area/tret_industrial/inside/botany)
-"lhu" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
 "ljg" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 10
@@ -9949,6 +9890,10 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
+"loz" = (
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "lrl" = (
 /obj/effect/floor_decal/industrial/warning/corner,
 /obj/effect/floor_decal/industrial/outline_door/red{
@@ -9962,10 +9907,15 @@
 "lsW" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_smelting)
-"ltf" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/canteen)
+"lvg" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "lww" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 4
@@ -9979,6 +9929,18 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
+"lBQ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "lCb" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/random/dirt_75,
@@ -10009,6 +9971,10 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"lTp" = (
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/crew)
 "lUc" = (
 /obj/effect/floor_decal/industrial/warning/corner{
 	dir = 8
@@ -10021,23 +9987,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
-"lUi" = (
-/obj/effect/floor_decal/industrial/outline_straight/grey{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/tret_industrial/main)
-"lWc" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
-"lYr" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "lZk" = (
 /obj/machinery/atmospherics/portables_connector/fuel{
 	dir = 1
@@ -10077,19 +10026,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
-"mfN" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 4
-	},
-/obj/random/dirt_75,
-/obj/machinery/light/small/emergency{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "mgd" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
 /obj/effect/map_effect/marker_helper/airlock/exterior,
@@ -10098,6 +10034,13 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_smelting)
+"mgj" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "mgq" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/ore_box,
@@ -10117,12 +10060,13 @@
 /obj/structure/girder,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/inside/botany)
-"miF" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
+"mkW" = (
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/maint_center)
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "mmV" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -10142,6 +10086,21 @@
 /obj/effect/decal/cleanable/floor_damage/random_broken,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
+"mug" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "mvH" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -10162,30 +10121,10 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"mxq" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "mxy" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/engi_storage)
-"mAz" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/machinery/light/small/emergency{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "mBL" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -10203,21 +10142,6 @@
 /obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
-"mFd" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "mGh" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/closet/crate/loot,
@@ -10236,21 +10160,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/eva)
-"mKA" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "mMl" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -10264,12 +10173,6 @@
 	},
 /turf/simulated/floor/tiled/dark/full,
 /area/tret_industrial/inside/hallway_comms)
-"mOh" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "mPu" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/smelting_east)
@@ -10313,6 +10216,12 @@
 /obj/random/highvalue/cash,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"nae" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/engineering)
 "ndo" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 9
@@ -10393,9 +10302,15 @@
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
-"nrM" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
+"noc" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_smelting)
@@ -10412,6 +10327,21 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
+"nvi" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "nvo" = (
 /obj/item/storage/box/dynamite{
 	pixel_x = 4;
@@ -10419,6 +10349,10 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"nvT" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/canteen)
 "nBS" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/fuel{
 	dir = 4
@@ -10486,6 +10420,18 @@
 "nLp" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/hallway_comms)
+"nLY" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
+"nNH" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/maint_center)
 "nOc" = (
 /obj/machinery/atmospherics/unary/engine{
 	dir = 1
@@ -10517,15 +10463,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
-"nSr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
 "nTc" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -10578,6 +10515,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/smelting_east)
+"nWu" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 4
+	},
+/obj/random/dirt_75,
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "odS" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_2";
@@ -10590,15 +10536,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
-"ogE" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "ojt" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -10648,16 +10585,11 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/outside/surface)
-"oqk" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/shuttle/tret_industrial/main)
+"ooM" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "oqR" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 8
@@ -10665,16 +10597,6 @@
 /obj/structure/closet/crate/freezer/kois/rations,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
-"osg" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
 "otq" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
@@ -10731,12 +10653,6 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
-"oJe" = (
-/obj/effect/floor_decal/industrial/outline_straight/grey{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/shuttle/tret_industrial/main)
 "oNr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -10753,6 +10669,21 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
+"oXo" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/maint_center)
 "oYs" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -10796,16 +10727,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"pbo" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
 "pci" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/vaurca,
@@ -10822,6 +10743,29 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
+"pjd" = (
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/effect/floor_decal/corner/yellow{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/slate,
+/area/tret_industrial/inside/botany)
+"ppy" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 1
+	},
+/obj/random/dirt_75,
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/eva)
 "ppZ" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -10842,14 +10786,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"pqz" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, aft";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/tret_industrial/main)
 "pqO" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -10871,25 +10807,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"pvi" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
+"pxK" = (
+/obj/effect/landmark/entry_point/fore{
+	name = "fore, port";
+	dir = 2
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
-"pwv" = (
-/obj/structure/trash_pile,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/maint_center)
+/turf/simulated/wall/shuttle/raider,
+/area/shuttle/tret_industrial/main)
 "pzf" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_5,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume{
@@ -10916,13 +10840,18 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
-"pID" = (
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
+"pIS" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
 	},
 /turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
+/area/tret_industrial/inside/hallway_docks)
 "pJZ" = (
 /obj/machinery/atmospherics/unary/vent_pump/on{
 	dir = 8
@@ -10961,15 +10890,17 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/crew)
+"pOY" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "pSc" = (
 /obj/structure/trash_pile,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/atmos)
-"pSB" = (
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/obj/structure/closet/emcloset,
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_botany)
 "pTg" = (
 /obj/effect/floor_decal/industrial/outline_straight/yellow{
 	dir = 8
@@ -11003,14 +10934,6 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
-"pVz" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "pVO" = (
 /obj/machinery/portable_atmospherics/hydroponics/soil{
 	color = "#777777"
@@ -11018,6 +10941,11 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/vaurca,
 /area/tret_industrial/inside/botany)
+"pVR" = (
+/obj/structure/closet/emcloset,
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_docks)
 "pWc" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -11048,6 +10976,18 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
+"qdX" = (
+/obj/machinery/alarm/north{
+	req_one_access = null
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "qgR" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 9
@@ -11078,12 +11018,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"qiI" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/shuttle/tret_industrial/main)
 "qlt" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 4
@@ -11114,6 +11048,15 @@
 /obj/structure/closet/crate/loot,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
+"qqS" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "qrl" = (
 /obj/effect/floor_decal/corner/orange{
 	dir = 6
@@ -11121,7 +11064,9 @@
 /obj/machinery/light/small/emergency{
 	dir = 4
 	},
-/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 4
 	},
@@ -11163,6 +11108,31 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_docks)
+"qvq" = (
+/obj/structure/trash_pile,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/maint_center)
+"qwq" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 2
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 2
+	},
+/obj/structure/cable{
+	icon_state = "1-2"
+	},
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/eva)
 "qwY" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/aux{
 	dir = 8
@@ -11170,6 +11140,11 @@
 /obj/effect/map_effect/window_spawner/full/shuttle/raider,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"qxl" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "qyg" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -11212,13 +11187,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"qFt" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 10
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
 "qGV" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/botany)
@@ -11240,6 +11208,16 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
+"qMF" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/shuttle/tret_industrial/main)
 "qNf" = (
 /obj/random/dirt_75,
 /obj/structure/closet/crate/loot,
@@ -11396,23 +11374,6 @@
 /obj/machinery/light/small/emergency,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_botany)
-"rjP" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
-"rli" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
 "rmF" = (
 /obj/structure/cable/yellow{
 	icon_state = "0-8"
@@ -11431,16 +11392,6 @@
 	},
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/crew)
-"rtg" = (
-/obj/machinery/atmospherics/unary/engine{
-	dir = 1
-	},
-/obj/effect/landmark/entry_point/aft{
-	name = "aft, starboard";
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/tret_industrial/propulsion)
 "rtG" = (
 /obj/structure/cable{
 	icon_state = "0-2"
@@ -11556,6 +11507,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
+"rGn" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "rGu" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -11569,12 +11528,6 @@
 /obj/effect/floor_decal/industrial/outline_door/red,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
-"rHk" = (
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/inside/eva)
 "rHp" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -11629,6 +11582,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
+"rOJ" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "rPv" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -11671,6 +11630,19 @@
 	},
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
+"rTM" = (
+/obj/effect/floor_decal/corner/orange{
+	dir = 6
+	},
+/obj/machinery/light/small/emergency{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "rUb" = (
 /obj/effect/shuttle_landmark/tret_industrial/surface/outpost_2{
 	dir = 1
@@ -11685,6 +11657,13 @@
 /obj/structure/lattice/catwalk/indoor/grate/dark,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
+"rZb" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "saC" = (
 /obj/machinery/computer/ship/navigation/terminal,
 /turf/simulated/floor/tiled/gunmetal,
@@ -11721,22 +11700,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
-"sgj" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/maint_center)
 "siE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
 	dir = 2
@@ -11767,6 +11730,12 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
+"skB" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "snM" = (
 /obj/machinery/door/airlock/external{
 	dir = 2
@@ -11786,13 +11755,12 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
-"srj" = (
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, port";
-	dir = 2
+"sqF" = (
+/obj/effect/floor_decal/industrial/outline_straight/yellow{
+	dir = 8
 	},
-/turf/simulated/wall/shuttle/raider,
-/area/shuttle/tret_industrial/main)
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/eva)
 "ssD" = (
 /obj/random/dirt_75,
 /obj/random/dirt_75,
@@ -11826,6 +11794,14 @@
 /obj/effect/floor_decal/industrial/warning/cee,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"stS" = (
+/obj/random/dirt_75,
+/obj/item/clothing/mask/breath{
+	pixel_x = 8;
+	pixel_y = 5
+	},
+/turf/simulated/floor/exoplanet/basalt/tret,
+/area/tret_industrial/outside/surface)
 "suH" = (
 /obj/machinery/atmospherics/unary/vent_scrubber/on{
 	dir = 8
@@ -11885,6 +11861,14 @@
 /obj/machinery/door/firedoor/noid,
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"sOJ" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 8
+	},
+/obj/machinery/light/small/emergency,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "sRX" = (
 /obj/machinery/mining/brace{
 	dir = 4
@@ -11934,9 +11918,6 @@
 /area/tret_industrial/inside/comms)
 "sUx" = (
 /obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
 	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
@@ -11964,24 +11945,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"sWt" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 2
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 2
-	},
-/obj/structure/cable{
-	icon_state = "1-2"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "sWU" = (
 /obj/effect/floor_decal/industrial/outline/firefighting_closet,
 /obj/structure/closet/firecloset/full,
@@ -11999,14 +11962,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/exoplanet/plating/tret,
 /area/tret_industrial/inside/hallway_botany)
-"tfp" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/effect/landmark/entry_point/fore{
-	name = "fore, cockpit";
-	dir = 2
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/tret_industrial/main)
 "tfr" = (
 /obj/effect/map_effect/window_spawner/full/reinforced/firedoor,
 /turf/simulated/floor/plating,
@@ -12030,21 +11985,6 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"thK" = (
-/obj/effect/floor_decal/industrial/outline_straight/yellow{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/grey{
-	dir = 1
-	},
-/obj/random/dirt_75,
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/inside/eva)
-"tkt" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_docks)
 "tmj" = (
 /obj/effect/floor_decal/industrial/outline/grey,
 /obj/structure/cable,
@@ -12059,6 +11999,15 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_engineering)
+"toX" = (
+/obj/random/dirt_75,
+/obj/random/dirt_75,
+/obj/item/tank/emergency_oxygen{
+	pixel_x = 5;
+	pixel_y = -3
+	},
+/turf/simulated/floor/exoplanet/basalt/tret,
+/area/tret_industrial/outside/surface)
 "tpw" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 8
@@ -12096,6 +12045,21 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
+"tLf" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "tLY" = (
 /obj/effect/floor_decal/industrial/hatch_door/red{
 	dir = 1
@@ -12127,6 +12091,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/propulsion)
+"tNC" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_botany)
 "tPR" = (
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
@@ -12141,6 +12114,7 @@
 /area/tret_industrial/outside/surface)
 "tSu" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/plating,
 /area/shuttle/tret_industrial/main)
 "tTg" = (
@@ -12155,16 +12129,15 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
-"tYa" = (
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/inside/crew)
 "uar" = (
 /obj/machinery/mineral/stacking_machine,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"udA" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/storage_smelting)
 "udQ" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/canteen)
@@ -12175,21 +12148,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"ufr" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/simple/hidden/supply{
-	dir = 4
-	},
-/obj/structure/cable{
-	icon_state = "4-8"
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/maint_center)
 "uhq" = (
 /obj/random/dirt_75,
 /obj/effect/decal/cleanable/blood/drip{
@@ -12198,13 +12156,6 @@
 	},
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/surface)
-"uiv" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "ujr" = (
 /obj/effect/floor_decal/corner/yellow{
 	dir = 10
@@ -12240,6 +12191,7 @@
 /area/tret_industrial/inside/hallway_comms)
 "unN" = (
 /obj/effect/floor_decal/industrial/outline/grey,
+/obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
 "uor" = (
@@ -12261,6 +12213,13 @@
 "utB" = (
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_botany)
+"utW" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "uuZ" = (
 /obj/structure/reagent_dispensers/watertank,
 /turf/simulated/floor/exoplanet/basalt/tret,
@@ -12286,58 +12245,14 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/propulsion)
-"uFX" = (
-/obj/machinery/alarm/north{
-	req_one_access = null
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
 "uIp" = (
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/outside/landing)
-"uIH" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 8
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
-"uIK" = (
-/obj/effect/floor_decal/industrial/warning{
-	dir = 1
-	},
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/hallway_smelting)
 "uKc" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_2,
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"uOD" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/aux{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_docks)
-"uQq" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "uQM" = (
 /obj/machinery/atmospherics/unary/vent_pump/on,
 /obj/random/dirt_75,
@@ -12346,14 +12261,6 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_medical)
-"uSP" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/effect/landmark/entry_point/port{
-	name = "port, fore";
-	dir = 4
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/tret_industrial/main)
 "uTb" = (
 /obj/machinery/atmospherics/pipe/manifold/hidden/aux{
 	dir = 8
@@ -12380,18 +12287,14 @@
 /obj/effect/map_effect/marker_helper/airlock/interior,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"uXB" = (
-/obj/effect/floor_decal/corner/orange{
-	dir = 6
+"uXM" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/starboard{
+	name = "starboard, cockpit";
+	dir = 8
 	},
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_medical)
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "uXX" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 1
@@ -12436,11 +12339,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/gunmetal,
 /area/tret_industrial/inside/eva)
-"vdk" = (
-/obj/structure/trash_pile,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/maint_center)
 "vdz" = (
 /obj/structure/bed/stool/chair/shuttle,
 /obj/machinery/alarm/west{
@@ -12469,6 +12367,12 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_west)
+"vqs" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "vrn" = (
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/smelting_west)
@@ -12523,6 +12427,16 @@
 /obj/effect/floor_decal/industrial/warning/full,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
+"vyH" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "vAt" = (
 /obj/effect/floor_decal/corner/paleblue{
 	dir = 1
@@ -12555,8 +12469,17 @@
 /area/tret_industrial/inside/hallway_smelting)
 "vDt" = (
 /obj/structure/table/rack,
+/obj/structure/survey_probe/hegemony,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_medical)
+"vFX" = (
+/obj/effect/map_effect/window_spawner/full/shuttle/raider,
+/obj/effect/landmark/entry_point/port{
+	name = "port, fore";
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "vGD" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_4";
@@ -12594,6 +12517,12 @@
 /obj/effect/floor_decal/industrial/outline/grey,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"vRY" = (
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "vTf" = (
 /obj/structure/table/standard,
 /obj/machinery/recharger{
@@ -12613,12 +12542,6 @@
 "vUg" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/engi_storage)
-"vUh" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_smelting)
 "vUm" = (
 /obj/machinery/alarm/west{
 	req_one_access = null
@@ -12663,14 +12586,6 @@
 	},
 /turf/simulated/floor/tiled/ridged,
 /area/tret_industrial/inside/storage_smelting)
-"vVR" = (
-/obj/effect/map_effect/window_spawner/full/shuttle/raider,
-/obj/effect/landmark/entry_point/starboard{
-	name = "starboard, cockpit";
-	dir = 8
-	},
-/turf/simulated/floor/plating,
-/area/shuttle/tret_industrial/main)
 "vXE" = (
 /obj/machinery/atmospherics/pipe/simple/hidden/supply{
 	dir = 2
@@ -12698,6 +12613,13 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
+"waw" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "waQ" = (
 /obj/effect/map_effect/marker/airlock/docking/tret_industrial/dock/outpost_3,
 /obj/effect/map_effect/marker_helper/airlock/out,
@@ -12741,19 +12663,27 @@
 	},
 /turf/simulated/floor/tiled/dark,
 /area/shuttle/tret_industrial/main)
+"wef" = (
+/obj/effect/floor_decal/industrial/outline/emergency_closet,
+/obj/structure/closet/emcloset,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
 "wfx" = (
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/storage_smelting)
-"wjB" = (
-/obj/machinery/atmospherics/pipe/simple/hidden/green,
+"wkB" = (
 /obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 1
+	dir = 8
 	},
 /obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 4
+	dir = 1
 	},
 /turf/simulated/floor/tiled/dark,
-/area/shuttle/tret_industrial/main)
+/area/tret_industrial/inside/hallway_smelting)
+"wkQ" = (
+/obj/effect/floor_decal/industrial/outline_door/red,
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_medical)
 "wmn" = (
 /obj/machinery/shipsensors/weak,
 /turf/simulated/floor/exoplanet/plating/tret,
@@ -12779,15 +12709,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
-"wov" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 4
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red{
-	dir = 1
-	},
-/turf/simulated/floor/tiled/gunmetal,
-/area/tret_industrial/inside/comms)
 "wsY" = (
 /obj/machinery/atmospherics/pipe/simple/heat_exchanging{
 	dir = 9
@@ -12909,6 +12830,15 @@
 	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_comms)
+"wLW" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
 "wNd" = (
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux{
 	dir = 1
@@ -12951,6 +12881,15 @@
 	},
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/canteen)
+"wRX" = (
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/gunmetal,
+/area/tret_industrial/inside/comms)
 "wVC" = (
 /obj/effect/floor_decal/industrial/warning{
 	dir = 8
@@ -12979,6 +12918,13 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/smelting_east)
+"xcq" = (
+/obj/random/dirt_75,
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_smelting)
 "xdG" = (
 /obj/machinery/door/airlock/external{
 	dir = 4
@@ -13009,9 +12955,42 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
+"xeE" = (
+/obj/machinery/atmospherics/unary/engine{
+	dir = 1
+	},
+/obj/effect/landmark/entry_point/aft{
+	name = "aft, starboard";
+	dir = 1
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/propulsion)
 "xfA" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/crew)
+"xjZ" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 6
+	},
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_botany)
+"xnu" = (
+/obj/effect/floor_decal/industrial/warning/corner{
+	dir = 8
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/tiled/ridged,
+/area/tret_industrial/inside/smelting_west)
 "xnV" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_west_3";
@@ -13023,11 +13002,6 @@
 /obj/machinery/atmospherics/unary/vent_pump/high_volume/aux,
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_docks)
-"xoF" = (
-/obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_botany)
 "xoH" = (
 /obj/effect/map_effect/marker/airlock{
 	master_tag = "airlock_tret_industrial_outpost_east_5";
@@ -13053,11 +13027,6 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/tiled/slate,
 /area/tret_industrial/inside/botany)
-"xvv" = (
-/obj/structure/closet/emcloset,
-/obj/effect/floor_decal/industrial/outline/emergency_closet,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
 "xxY" = (
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -13074,14 +13043,48 @@
 /obj/random/dirt_75,
 /turf/simulated/floor/exoplanet/basalt/tret,
 /area/tret_industrial/inside/botany)
+"xBT" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/aux{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 1
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_docks)
+"xCD" = (
+/obj/machinery/atmospherics/pipe/simple/hidden/scrubbers{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/hidden/supply{
+	dir = 4
+	},
+/obj/structure/cable{
+	icon_state = "4-8"
+	},
+/obj/effect/floor_decal/industrial/outline_door/red{
+	dir = 4
+	},
+/obj/effect/floor_decal/industrial/outline_straight/red,
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/maint_center)
+"xDJ" = (
+/obj/effect/floor_decal/industrial/outline_straight/grey{
+	dir = 4
+	},
+/turf/simulated/floor/plating,
+/area/shuttle/tret_industrial/main)
 "xEO" = (
 /turf/simulated/wall/r_wall,
 /area/tret_industrial/inside/engineering)
-"xHk" = (
+"xKt" = (
 /obj/random/dirt_75,
-/obj/effect/floor_decal/industrial/outline_straight/red,
-/turf/simulated/floor/plating,
-/area/tret_industrial/inside/storage_smelting)
+/obj/effect/floor_decal/industrial/outline_door/red,
+/obj/effect/floor_decal/industrial/outline_straight/red{
+	dir = 4
+	},
+/turf/simulated/floor/tiled/dark,
+/area/tret_industrial/inside/hallway_comms)
 "xLL" = (
 /obj/machinery/alarm/north{
 	req_one_access = null
@@ -13095,6 +13098,12 @@
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_docks)
 "xOB" = (
+/turf/simulated/floor/plating,
+/area/tret_industrial/inside/hallway_smelting)
+"xPg" = (
+/obj/effect/floor_decal/industrial/warning{
+	dir = 1
+	},
 /turf/simulated/floor/plating,
 /area/tret_industrial/inside/hallway_smelting)
 "xQF" = (
@@ -13116,13 +13125,6 @@
 /area/tret_industrial/inside/comms)
 "xUF" = (
 /obj/effect/floor_decal/corner/orange,
-/turf/simulated/floor/tiled/dark,
-/area/tret_industrial/inside/hallway_comms)
-"xYk" = (
-/obj/effect/floor_decal/industrial/outline_door/red{
-	dir = 8
-	},
-/obj/effect/floor_decal/industrial/outline_straight/red,
 /turf/simulated/floor/tiled/dark,
 /area/tret_industrial/inside/hallway_comms)
 "xYr" = (
@@ -34371,8 +34373,8 @@ arD
 arD
 arD
 fwF
-pvi
-dTL
+lBQ
+utW
 fwF
 bJS
 qyX
@@ -34628,7 +34630,7 @@ arD
 arD
 arD
 gMI
-hrM
+isI
 asr
 hZW
 pWc
@@ -35913,8 +35915,8 @@ fwF
 fwF
 fwF
 fwF
-fdt
-fCy
+vqs
+cbi
 aQa
 fwF
 fwF
@@ -36172,7 +36174,7 @@ uKc
 bdX
 wav
 alL
-itr
+mgj
 oYS
 fXB
 tfJ
@@ -36427,7 +36429,7 @@ mvH
 sVJ
 rup
 kYo
-uOD
+xBT
 alL
 asr
 ppZ
@@ -36684,9 +36686,9 @@ aad
 aai
 hDV
 fwF
-nSr
+wLW
 abw
-kYW
+izG
 aaj
 aai
 aap
@@ -36940,8 +36942,8 @@ rPv
 aMD
 bpP
 aan
-tkt
-nSr
+pVR
+wLW
 abw
 aAt
 aao
@@ -37198,9 +37200,9 @@ arD
 aDy
 aap
 aQa
-edO
-ivZ
-pbo
+cgn
+pIS
+fkY
 aad
 pTh
 arD
@@ -37713,7 +37715,7 @@ fwF
 abE
 abE
 bcB
-eSA
+hOG
 ajl
 fwF
 arD
@@ -40254,7 +40256,7 @@ uIp
 uIp
 inI
 aJa
-uSP
+vFX
 aJa
 inI
 uIp
@@ -40279,11 +40281,11 @@ ayy
 auD
 auD
 aIJ
-ikK
+cPm
 jeE
 ozs
 qpn
-kUn
+wkB
 aca
 qWT
 iNU
@@ -40538,7 +40540,7 @@ agR
 aiv
 ayJ
 jsY
-uIK
+xPg
 xOB
 oxk
 acc
@@ -40793,9 +40795,9 @@ bGE
 vjz
 rAt
 unN
-kLe
+ffn
 eUP
-uIK
+xPg
 xOB
 oxk
 axk
@@ -41022,7 +41024,7 @@ arD
 uIp
 uIp
 uIp
-srj
+pxK
 hpB
 aFy
 jnb
@@ -41036,21 +41038,21 @@ rPQ
 gkr
 aev
 acj
-amr
+cgj
 uIp
 arD
 lIs
 foW
 dGL
 jmZ
-aBH
+dGL
 lCb
 ack
 dtC
 unN
 rAt
 dPA
-kLe
+ffn
 jsY
 dlC
 xOB
@@ -41307,7 +41309,7 @@ acl
 aSx
 abg
 cHi
-eiv
+xnu
 jeE
 aJv
 sUQ
@@ -41539,8 +41541,8 @@ uIp
 inI
 inI
 yeU
-oJe
-oJe
+frt
+frt
 dCy
 trD
 eGC
@@ -41795,7 +41797,7 @@ uIp
 uIp
 pgD
 aJa
-qiI
+sUx
 avf
 bxg
 avf
@@ -41823,11 +41825,11 @@ aHh
 qSZ
 awP
 aeL
-pID
+hUH
 dYm
-aKU
+xcq
 aQE
-uiv
+aKU
 agS
 sjT
 arO
@@ -42052,7 +42054,7 @@ uIp
 uIp
 wmn
 aJa
-sUx
+keF
 nhu
 cXx
 igo
@@ -42071,7 +42073,7 @@ aqZ
 aiH
 acu
 aZP
-cCH
+noc
 aEf
 aEf
 aEf
@@ -42082,7 +42084,7 @@ axj
 acx
 vCY
 aEn
-sWt
+ioQ
 adc
 add
 ade
@@ -42317,7 +42319,7 @@ inI
 inI
 rmF
 ioP
-dHs
+gqY
 aGk
 inI
 aHL
@@ -42333,10 +42335,10 @@ aWq
 aFu
 qmi
 aiy
-nrM
-vUh
-icg
-uQq
+skB
+rOJ
+mug
+dll
 dBl
 dBl
 dBl
@@ -42567,14 +42569,14 @@ uIp
 aJa
 aMS
 kqB
-oqk
+qMF
 aJi
 inI
 dMQ
 snM
-wjB
+jGq
 nBS
-gqY
+dXd
 inI
 inI
 inI
@@ -42821,7 +42823,7 @@ arD
 uIp
 uIp
 uIp
-tfp
+aus
 kqh
 aMc
 dCy
@@ -42835,7 +42837,7 @@ qQk
 qQk
 cWG
 khD
-rtg
+xeE
 uIp
 bbq
 ksJ
@@ -43087,8 +43089,8 @@ inI
 aKK
 inI
 dxA
-lUi
-lUi
+xDJ
+xDJ
 aFy
 gcj
 adj
@@ -43595,7 +43597,7 @@ uIp
 uIp
 inI
 aJa
-vVR
+uXM
 aJa
 inI
 uIp
@@ -43626,7 +43628,7 @@ awQ
 aAG
 jRl
 wfx
-xHk
+udA
 dBl
 gdY
 gdY
@@ -43858,7 +43860,7 @@ uIp
 uIp
 inI
 inI
-pqz
+kgF
 inI
 inI
 uIp
@@ -43881,7 +43883,7 @@ aOS
 aMK
 dBl
 amJ
-aDe
+aBH
 kMI
 ruC
 dBl
@@ -44390,9 +44392,9 @@ bku
 aVG
 rHE
 mPu
-mfN
+gFO
 alT
-iWs
+nWu
 dBl
 aKG
 jQY
@@ -46703,9 +46705,9 @@ aox
 aXq
 hrv
 hrv
-ciC
-alN
 asz
+alN
+sOJ
 vUg
 aWJ
 uor
@@ -46955,14 +46957,14 @@ hrv
 hrv
 hrv
 vcF
-thK
-rHk
+ppy
+sqF
 pTg
 aoB
 hrv
-gVE
+pOY
 adr
-fRb
+loz
 vUg
 alJ
 aGW
@@ -47490,7 +47492,7 @@ ahn
 ari
 aqD
 agG
-hdI
+nae
 adx
 aNv
 xEO
@@ -47723,7 +47725,7 @@ ady
 jjT
 aec
 okb
-hBb
+qwq
 tLY
 aHH
 aef
@@ -47731,9 +47733,9 @@ aeg
 siE
 aeh
 hrv
-uFX
-gRv
-iPq
+qdX
+gDM
+mkW
 vUg
 upN
 jOS
@@ -48246,7 +48248,7 @@ hrv
 hrv
 hrv
 uZi
-dJV
+iMq
 aer
 aAU
 nOq
@@ -48488,8 +48490,8 @@ nLp
 xRJ
 aaF
 aSi
-wov
-dqr
+wRX
+fvd
 aPQ
 xRJ
 gej
@@ -48497,8 +48499,8 @@ rNO
 hYn
 erF
 aqm
-hRi
-irt
+gPW
+rGn
 aqF
 erF
 abf
@@ -48751,11 +48753,11 @@ xRJ
 xRJ
 erF
 eJp
-hYV
+hjS
 erF
 joA
 adr
-mxq
+qxl
 vDt
 erF
 aYU
@@ -49003,7 +49005,7 @@ nLp
 ajT
 aep
 wPH
-xYk
+avP
 aKa
 mNt
 erF
@@ -49011,8 +49013,8 @@ erF
 qlt
 erF
 aqF
-mKA
-fRb
+tLf
+loz
 aqm
 erF
 aww
@@ -49264,15 +49266,15 @@ xeq
 afc
 afd
 afR
-eqP
-dJV
+hUa
+iMq
 aXp
-mOh
+vRY
 afe
 wDc
-pVz
+dzW
 leC
-uIH
+vyH
 aQN
 wDc
 aLb
@@ -49519,17 +49521,17 @@ gsf
 qZJ
 kBb
 kBb
-afZ
+kAV
 age
-lWc
+rZb
 aQN
 afl
 kCE
 ach
 wDc
-lYr
+wkQ
 afR
-csb
+awl
 wDc
 wDc
 jBu
@@ -49769,25 +49771,25 @@ aaw
 wKu
 nsn
 kBb
-rjP
+xKt
 age
-isJ
+dpq
 ycv
 aOM
 ipU
 xUF
 cYS
 afR
-mAz
+qrl
 eUv
 aoV
 rdI
-mFd
-ogE
-qrl
+nvi
+lvg
+rTM
 afR
-uXB
-ogE
+hwP
+lvg
 wDc
 nTv
 aAU
@@ -50044,8 +50046,8 @@ alP
 alP
 alP
 alP
-jKd
-eTn
+ooM
+jKZ
 auv
 aAU
 aAU
@@ -50289,15 +50291,15 @@ fhO
 fhO
 uls
 kBb
-qFt
+bsS
 alP
 ukd
 syt
 asG
 avF
-miF
-ufr
-miF
+jUG
+oXo
+jUG
 fQw
 ana
 bva
@@ -50552,11 +50554,11 @@ agi
 agj
 fiU
 nGu
-bBR
+giL
 agv
 aIM
 aha
-vdk
+qvq
 bva
 aJV
 ozy
@@ -50803,7 +50805,7 @@ aJX
 fhO
 nLp
 kBb
-qFt
+bsS
 alP
 cPs
 ahq
@@ -50813,7 +50815,7 @@ aay
 alP
 alP
 ahc
-khv
+lbS
 nTc
 aQQ
 aSA
@@ -51058,8 +51060,8 @@ aAF
 jqD
 aot
 fhO
-xvv
-hZJ
+nLY
+waw
 spv
 alP
 cPs
@@ -51573,7 +51575,7 @@ ara
 aqK
 fhO
 sWU
-aEc
+qqS
 mCP
 alP
 rtG
@@ -51834,8 +51836,8 @@ eiu
 acY
 alP
 qPl
-pwv
-sgj
+nNH
+xCD
 alP
 axe
 awS
@@ -52087,8 +52089,8 @@ wQx
 aNa
 gGH
 jGg
-rli
-osg
+eqj
+jhZ
 alP
 xfA
 xfA
@@ -52344,7 +52346,7 @@ lww
 aeK
 gGH
 jGg
-awl
+hnm
 aKO
 jGg
 xfA
@@ -52598,14 +52600,14 @@ acK
 aOD
 aWi
 lww
-fLS
+gRO
 aUt
-kGQ
+hhK
 utB
 aSa
-ffe
+eiG
 qyg
-hUa
+etA
 pLt
 itk
 aoW
@@ -52857,7 +52859,7 @@ aFx
 lww
 avv
 bsI
-lhu
+tNC
 aSa
 aSa
 ahw
@@ -52867,7 +52869,7 @@ ahx
 rps
 hOn
 xfA
-tYa
+ajx
 itk
 itk
 itk
@@ -53105,7 +53107,7 @@ arD
 nTO
 abu
 udQ
-ltf
+nvT
 aLL
 gXo
 aJK
@@ -53379,7 +53381,7 @@ xfA
 xfA
 itk
 aYP
-kdm
+lTp
 xfA
 aDw
 awZ
@@ -54144,7 +54146,7 @@ aOz
 aYF
 qRq
 utB
-xoF
+blg
 afp
 rhs
 xfA
@@ -54647,7 +54649,7 @@ aHf
 kMb
 agr
 pqO
-lfD
+pjd
 avK
 xxY
 aix
@@ -54660,7 +54662,7 @@ qRq
 acb
 vXE
 aje
-jGg
+jao
 gEM
 arD
 arD
@@ -55940,7 +55942,7 @@ aKy
 vNh
 akn
 gEM
-pSB
+wef
 otq
 dle
 arX
@@ -56201,7 +56203,7 @@ aal
 uTb
 ajn
 utB
-iIX
+xjZ
 ecL
 gpC
 gEM
@@ -56457,7 +56459,7 @@ gEM
 hRk
 hRk
 tTg
-cFw
+gXa
 hRk
 gEM
 vGD
@@ -62283,7 +62285,7 @@ kBE
 lSw
 lfy
 lSw
-kwb
+toX
 lfy
 lSw
 arD
@@ -64614,7 +64616,7 @@ kBE
 arD
 lfy
 lfy
-ivR
+stS
 lSw
 lSw
 lSw

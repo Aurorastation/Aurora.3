@@ -43,6 +43,17 @@
 		"nav_tret_industrial_surface_far",
 	)
 
+/obj/effect/overmap/visitable/sector/tret_industrial_complex/generate_ground_survey_result()
+	..()
+	ground_survey_result += "<br>Aphanitic and phaneritic rocks on the surface, rich in magnesium, iron, carbon"
+	ground_survey_result += "<br>Trace elements of phoron detected in local atmosphere"
+	ground_survey_result += "<br>Rich mineral deposits detected in basalt rock"
+	ground_survey_result += "<br>Lava lakes and rivers present on the surface, rich in silicates"
+	ground_survey_result += "<br>Lava tubes present in the subsurface"
+	ground_survey_result += "<br>K'ois spores detected in local soil, sample destruction recommended"
+	ground_survey_result += "<br>High geothermal activity observed in the planetary core"
+	ground_survey_result += "<br>High seismic activity, long-term observation recommended to determine risk of earthquakes"
+
 // --------------------------------------------------- shuttle
 
 /obj/effect/overmap/visitable/ship/landable/tret_industrial
