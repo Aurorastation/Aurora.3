@@ -1116,7 +1116,7 @@
 	if(cell && !shorted)
 		update_time()
 		// draw power from cell as before to power the area
-		cellused = min(cell.charge, (CELLRATE * lastused_total) * seconds_per_tick)	// clamp deduction to a max, amount left in cell
+		cellused = min(cell.charge, (CELLRATE * lastused_total))	// clamp deduction to a max, amount left in cell
 		cell.use(cellused)
 		var/draw = 0
 		if(excess > lastused_total)		// if power excess recharge the cell
@@ -1145,7 +1145,7 @@
 		if(attempt_charging())
 			if(excess > 0)		// check to make sure we have enough to charge
 				// Max charge is capped to % per second constant
-				var/ch = min(excess*CELLRATE, cell.maxcharge*chargelevel*seconds_per_tick)
+				var/ch = min(excess*CELLRATE, cell.maxcharge*chargelevel)
 
 				ch = draw_power(ch/CELLRATE) // Removes the power we're taking from the grid
 				cell.give(ch*CELLRATE) // actually recharge the cell
