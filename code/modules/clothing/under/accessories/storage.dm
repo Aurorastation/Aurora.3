@@ -2,9 +2,9 @@
 	name = "load bearing equipment"
 	desc = "Used to hold things when you don't have enough hands."
 	icon = 'icons/obj/item/clothing/accessory/webbing.dmi'
+	contained_sprite = TRUE
 	icon_state = "webbing"
 	item_state = "webbing"
-	contained_sprite = TRUE
 	accessory_slots = ACCESSORY_SLOT_UNIFORM
 	accessory_type = ACCESSORY_UTILITY
 	var/slots = 3

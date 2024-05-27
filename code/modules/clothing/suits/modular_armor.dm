@@ -891,6 +891,7 @@
 	icon = 'icons/obj/item/clothing/accessory/security_mask.dmi'
 	icon_state = "sec_mask"
 	item_state = "sec_mask"
+	contained_sprite = TRUE
 	accessory_slots = ACCESSORY_SLOT_HELMET
 	/**
 	 * What the mask resembles, displayed after the examine text
