@@ -1,10 +1,9 @@
 /obj/item/clothing/accessory
 	name = "tie"
 	desc = "A neosilk clip-on tie."
-	icon = 'icons/obj/item/clothing/accessory/ties.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "bluetie"
 	item_state = "bluetie"	//no inhands
-	contained_sprite = TRUE
 	overlay_state = null
 	slot_flags = SLOT_TIE
 	w_class = ITEMSIZE_SMALL
@@ -45,8 +44,8 @@
 	else if(contained_sprite)
 		I = icon
 		accessory_mob_overlay = null // reset the overlay
-	else //Should only occur if we're not using a contained sprite and haven't overriden the icon. Don't do this.
-		return
+	else
+		I = INV_ACCESSORIES_DEF_ICON
 	var/tmp_icon_state = "[overlay_state? "[overlay_state]" : "[icon_state]"]"
 	if(!inv_overlay || force)
 		if(icon_override)
@@ -270,6 +269,7 @@
 	name = "neck ribbon parent item"
 	desc = DESC_PARENT
 	icon = 'icons/obj/item/clothing/accessory/neck_ribbons.dmi'
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/ribbon/neck
 	name = "neck ribbon"
@@ -295,6 +295,7 @@
 	icon = 'icons/obj/item/clothing/accessory/necklace.dmi'
 	icon_state = "necklace"
 	item_state = "necklace"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/stethoscope
 	name = "stethoscope"
@@ -304,6 +305,7 @@
 	icon = 'icons/clothing/accessories/stethoscope.dmi'
 	icon_state = "stethoscope"
 	item_state = "stethoscope"
+	contained_sprite = TRUE
 	flippable = 1
 	var/auto_examine = FALSE
 
@@ -352,7 +354,6 @@
 /obj/item/clothing/accessory/suspenders
 	name = "suspenders"
 	desc = "They suspend the illusion of the mime's play."
-	icon = 'icons/obj/item/clothing/accessory/misc.dmi'
 	icon_state = "suspenders"
 	item_state = "suspenders"
 
@@ -362,6 +363,7 @@
 	icon = 'icons/obj/clothing/scarves.dmi'
 	icon_state = "scarf0"
 	item_state = "scarf0"
+	contained_sprite = TRUE
 	var/list/alternatives = list(
 		"drape" = "scarf0",
 		"drape, flipped" = "scarf0_f",
@@ -402,7 +404,6 @@
 /obj/item/clothing/accessory/chaps
 	name = "brown chaps"
 	desc = "A pair of loose, brown leather chaps."
-	icon = 'icons/obj/item/clothing/accessory/misc.dmi'
 	icon_state = "chaps"
 	item_state = "chaps"
 
@@ -428,6 +429,7 @@
 	accessory_slots = ACCESSORY_SLOT_UNIFORM | ACCESSORY_SLOT_SUIT | ACCESSORY_SLOT_ARMOR
 	siemens_coefficient = 0.9
 	w_class = ITEMSIZE_NORMAL
+	contained_sprite = TRUE
 	var/allow_tail_hiding = TRUE //in case if you want to allow someone to switch the HIDETAIL var or not
 
 /obj/item/clothing/accessory/poncho/verb/toggle_hide_tail()
@@ -537,6 +539,7 @@
 	icon = 'icons/clothing/accessories/sash.dmi'
 	item_state = "sash"
 	icon_state = "sash"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/sash/red
 	name = "red sash"
@@ -587,9 +590,10 @@
 /obj/item/clothing/accessory/poncho/roles/cloak
 	name = "quartermaster's cloak"
 	desc = "An elaborate brown and gold cloak."
-	icon = 'icons/obj/item/clothing/accessory/poncho/cloaks.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "qmcloak"
 	item_state = "qmcloak"
+	contained_sprite = FALSE
 	body_parts_covered = null
 
 /obj/item/clothing/accessory/poncho/roles/cloak/ce
@@ -686,10 +690,11 @@
 	name = "shoulder cape"
 	desc = "A simple shoulder cape."
 	desc_extended = "In Skrellian tradition, the length of cape typically signifies experience in various fields."
-	icon = 'icons/obj/item/clothing/accessory/poncho/capes.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "starcape"
 	item_state = "starcape"
 	flippable = TRUE
+	contained_sprite = FALSE
 
 /obj/item/clothing/accessory/poncho/shouldercape/star
 	name = "star cape"
@@ -756,14 +761,16 @@
 	icon_state = "ZH_cape"
 	item_state = "ZH_cape"
 	flippable = FALSE
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/poncho/trinary
 	name = "trinary perfection cape"
 	desc = "A brilliant red and brown cape, commonly worn by those who serve the Trinary Perfection."
-	icon = 'icons/obj/item/clothing/accessory/poncho/capes.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "trinary_cape"
 	item_state = "trinary_cape"
 	overlay_state = "trinary_cape"
+	contained_sprite = FALSE
 
 /obj/item/clothing/accessory/poncho/trinary/pellegrina
 	name = "trinary perfection pellegrina"
@@ -805,7 +812,6 @@
 /obj/item/clothing/accessory/legion
 	name = "seniority ribbons"
 	desc = "A ribbon meant to attach to the chest and sling around the shoulder accompanied by two medallions, marking seniority in the Tau Ceti Armed Forces."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "senior_ribbon"
 	item_state = "senior_ribbon"
 	overlay_state = "senior_ribbon"
@@ -823,6 +829,7 @@
 	name = "venter assembly"
 	desc = "A series of complex tubing meant to dissipate heat from the skin passively."
 	icon = 'icons/obj/item/clothing/accessory/offworlder.dmi'
+	contained_sprite = TRUE
 	icon_state = "venter"
 	item_state = "venter"
 
@@ -842,7 +849,6 @@
 /obj/item/clothing/accessory/tc_pin
 	name = "Tau Ceti pin"
 	desc = "A small, Tau Ceti flag pin of the Republic of Tau Ceti."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "tc-pin"
 	item_state = "tc-pin"
 	overlay_state = "tc-pin"
@@ -866,6 +872,7 @@
 	icon = 'icons/clothing/accessories/dogtags.dmi'
 	icon_state = "dogtags"
 	item_state = "dogtags"
+	contained_sprite = TRUE
 	slot_flags = SLOT_MASK | SLOT_TIE
 	overlay_state = "tags"
 	drop_sound = 'sound/items/drop/accessory.ogg'
@@ -909,7 +916,6 @@
 /obj/item/clothing/accessory/ribbon
 	name = "ribbon"
 	desc = "A small ribbon to commemorate or support a cause."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "ribbon"
 	item_state = "ribbon"
 	slot_flags = SLOT_TIE
@@ -919,7 +925,6 @@
 /obj/item/clothing/accessory/sleevepatch
 	name = "sleeve patch"
 	desc = "An embroidered patch which can be attached to the shoulder sleeve of clothing."
-	icon = 'icons/obj/item/clothing/accessory/sleeve.dmi'
 	icon_state = "patch"
 	overlay_state = "patch"
 	flippable = 1
@@ -963,6 +968,7 @@
 	icon = 'icons/clothing/accessories/kneepads.dmi'
 	icon_state = "kneepads"
 	item_state = "kneepads"
+	contained_sprite = TRUE
 	gender = PLURAL
 
 /obj/item/clothing/accessory/blood_patch
@@ -970,6 +976,7 @@
 	desc = "An embroidered patch indicating the wearer's blood type as O NEGATIVE."
 	icon = 'icons/clothing/accessories/blood_patch.dmi'
 	icon_state = "onegtag"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/blood_patch/opos
 	name = "O+ blood patch"
@@ -1014,6 +1021,7 @@
 	icon = 'icons/obj/item/clothing/department_uniforms/service.dmi'
 	icon_state = "nt_tie"
 	item_state = "nt_tie"
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/tie/corporate/zeng
 	icon_state = "zeng_tie"
@@ -1047,6 +1055,7 @@
 	item_state = "nt_liaison_badge"
 	drop_sound = 'sound/items/drop/ring.ogg'
 	pickup_sound = 'sound/items/pickup/ring.ogg'
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/pin/corporate/zeng
 	desc = "A shiny button which reads, <i>'Zeng-Hu - Building a brighter future.'</i>"
@@ -1085,6 +1094,7 @@
 	icon = 'icons/clothing/accessories/bz_mantle.dmi'
 	icon_state = "ipcmantle"
 	item_state = "ipcmantle"
+	contained_sprite = TRUE
 	icon_override = null
 	body_parts_covered = UPPER_TORSO
 
@@ -1102,6 +1112,7 @@
 	body_parts_covered = HEAD
 	icon_state = "goon_coif"
 	item_state = "goon_coif"
+	contained_sprite = TRUE
 	icon_auto_adapt = TRUE
 	icon_supported_species_tags = list("una", "taj")
 	slot_flags = SLOT_MASK | SLOT_EARS | SLOT_TIE
@@ -1121,6 +1132,7 @@
 	icon = 'icons/obj/item/clothing/accessory/aprons.dmi'
 	icon_state = "apron"
 	item_state = "apron"
+	contained_sprite = TRUE
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO
 	no_overheat = TRUE
@@ -1197,6 +1209,7 @@
 	icon = 'icons/obj/item/clothing/accessory/overalls.dmi'
 	icon_state = "overalls"
 	item_state = "overalls"
+	contained_sprite = TRUE
 	slot_flags = SLOT_OCLOTHING | SLOT_TIE
 	body_parts_covered = UPPER_TORSO | LOWER_TORSO | LEGS
 
@@ -1278,6 +1291,7 @@
 	worn_overlay = "over"
 	drop_sound = 'sound/items/drop/card.ogg'
 	pickup_sound = 'sound/items/pickup/card.ogg'
+	contained_sprite = TRUE
 	build_from_parts = TRUE
 	overlay_in_inventory = FALSE
 
@@ -1316,6 +1330,7 @@
 	icon_state = "led_collar"
 	item_state = "led_collar"
 	plane = EFFECTS_ABOVE_LIGHTING_PLANE
+	contained_sprite = TRUE
 
 /obj/item/clothing/accessory/led_collar/Initialize()
 	. = ..()

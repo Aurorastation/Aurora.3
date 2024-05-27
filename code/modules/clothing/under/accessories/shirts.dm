@@ -112,7 +112,7 @@
 /obj/item/clothing/accessory/dressshirt
 	name = "dress shirt"
 	desc = "A casual dress shirt."
-	icon = 'icons/obj/item/clothing/accessory/shirts.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "dressshirt"
 	item_state = "dressshirt"
 	accessory_slots = ACCESSORY_SLOT_UNIFORM
@@ -232,7 +232,7 @@
 /obj/item/clothing/accessory/wcoat
 	name = "waistcoat"
 	desc = "For some classy, murderous fun."
-	icon = 'icons/obj/item/clothing/accessory/misc.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "wcoat"
 	item_state = "wcoat"
 	accessory_slots = ACCESSORY_SLOT_UNIFORM
@@ -328,7 +328,7 @@
 /obj/item/clothing/accessory/silversun/wcoat
 	name = "waistcoat"
 	desc = "A slick waistcoat."
-	icon = 'icons/obj/item/clothing/accessory/misc.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "det_vest"
 	item_state = "det_vest"
 	contained_sprite = FALSE

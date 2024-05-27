@@ -178,7 +178,6 @@
 /obj/item/clothing/accessory/dpra_badge
 	name = "almariist pin"
 	desc = "A pin worn by supporters of the Democratic People's Republic of Adhomai and the ideals of almariism."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "dpra-badge"
 	item_state = "dpra-badge"
 	overlay_state = "dpra-badge"
@@ -197,7 +196,6 @@
 /obj/item/clothing/accessory/nka_badge
 	name = "royalist badge"
 	desc = "A badge worn by the supporters of the New Kingdom of Adhomai and its royalist ideals."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "nka-badge"
 	item_state = "nka-badge"
 	overlay_state = "nka-badge"
@@ -215,7 +213,6 @@
 /obj/item/clothing/accessory/hadii_pin
 	name = "hadiist party pin"
 	desc = "A small, red flag pin worn by members of the Hadiist party."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "hadii-pin"
 	item_state = "hadii-pin"
 	overlay_state = "hadii-pin"
@@ -232,7 +229,6 @@
 /obj/item/clothing/accessory/dpra_pin
 	name = "almariist representative pin"
 	desc = "A small, black flag pin worn by government officials of the Democratic People's Republic of Adhomai."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
 	icon_state = "pin-ala"
 	item_state = "pin-ala"
 	overlay_state = "pin-ala"
@@ -263,7 +259,7 @@
 /obj/item/clothing/accessory/badge/pra_passport
 	name = "people's republic of adhomai passport"
 	desc = "A passport issued to the citizens of the People's Republic of Adhomai."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "pra-passport"
 	item_state = "pra-passport"
 	overlay_state = "pra-passport"
@@ -281,7 +277,7 @@
 /obj/item/clothing/accessory/badge/dpra_passport
 	name = "democratic people's republic of adhomai passport"
 	desc = "A passport issued to the citizens of the Democratic People's Republic of Adhomai."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "dpra-passport"
 	item_state = "dpra-passport"
 	overlay_state = "dpra-passport"
@@ -299,7 +295,7 @@
 /obj/item/clothing/accessory/badge/nka_passport
 	name = "new kingdom of adhomai passport"
 	desc = "A passport issued to the citizens of the New Kingdom of Adhomai."
-	icon = 'icons/clothing/accessories/passcards.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "nka-passport"
 	item_state = "nka-passport"
 	overlay_state = "nka-passport"

@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/locket
 	name = "silver locket"
 	desc = "A silver locket that seems to have space for a photo within."
-	icon = 'icons/obj/item/clothing/accessory/necklace.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "locket"
 	item_state = "locket"
 	slot_flags = 0

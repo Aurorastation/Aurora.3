@@ -1,7 +1,7 @@
 /obj/item/clothing/accessory/armband
 	name = "red armband"
 	desc = "A fancy red armband!"
-	icon = 'icons/obj/item/clothing/accessory/sleeve.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "red"
 	item_state = "red"
 	flippable = TRUE

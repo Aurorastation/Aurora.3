@@ -7,7 +7,7 @@
 /obj/item/clothing/accessory/badge
 	name = "badge"
 	desc = "A corporate security badge, made from gold and set on false leather."
-	icon = 'icons/obj/item/clothing/accessory/badges.dmi'
+	icon = 'icons/obj/clothing/ties.dmi'
 	icon_state = "badge"
 	item_state = "marshalbadge"
 	overlay_state = "marshalbadge"
