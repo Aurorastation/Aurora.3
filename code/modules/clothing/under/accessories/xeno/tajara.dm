@@ -228,7 +228,7 @@
 	desc = "A small, black flag pin worn by government officials of the Democratic People's Republic of Adhomai."
 	icon_state = "pin-ala"
 	item_state = "pin-ala"
-	overlay_state = "pin-ala
+	overlay_state = "pin-ala"
 	desc_extended = "The government of the DPRA seeks to dismantle the ethnic caste system present in Tajaran society. Instead of creating policies and using the force of the state \
 	to do so, they believe that this goal can be reached by giving the necessary opportunities and freedom from external influences to the Tajara species. Local autonomy and regional \
 	cultures are protected by the authorities. Traditional Zhan communities, rock nomads and Amohdan lodges are allowed to thrive in the territories of the Democratic People's Republic. \
