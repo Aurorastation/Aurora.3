@@ -41,15 +41,6 @@
 		hold.max_storage_space = slots * ITEMSIZE_SMALL
 		hold.max_w_class = ITEMSIZE_SMALL
 
-/obj/item/clothing/head/helmet/get_mob_overlay(var/mob/living/carbon/human/H, var/mob_icon, var/mob_state, var/slot)
-	var/image/I = ..()
-	if(has_storage && slot == slot_head_str && length(hold.contents))
-		for(var/obj/item/thing in hold.contents)
-			if(!is_type_in_list(accessories, /obj/item/clothing/accessory/headband))
-				I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
-			I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, initial(thing.icon_state)))
-	return I
-
 /obj/item/clothing/head/helmet/attack_hand(mob/user)
 	if(has_storage && !hold.handle_attack_hand(user))
 		return

@@ -881,3 +881,32 @@
 	contained_sprite = TRUE
 	accessory_slots = ACCESSORY_SLOT_ARMOR
 	flippable = FALSE
+
+// Helmet Accessories
+/obj/item/clothing/accessory/sec_mask
+	name = "corporate protective mask"
+	desc = "A generic camera-assisted mask issued to members of SCC security teams. Mainly used to protect the user \
+	from dust and other irritants, but lacks the capability for much else. While some may complain about the generic \
+	appearance, the Conglomerate continue with their tagline: \"Through uniformity, obedience.\""
+	icon = 'icons/obj/item/clothing/accessory/security_mask.dmi'
+	icon_state = "sec_mask"
+	item_state = "sec_mask"
+	accessory_slots = ACCESSORY_SLOT_HELMET
+	/**
+	 * What the mask resembles, displayed after the examine text
+	 */
+	var/design = "This one vaguely resembles a Human face."
+
+/obj/item/clothing/accessory/sec_mask/get_examine_text(mob/user, distance, is_adjacent, infix, suffix)
+	. = ..()
+	. += design
+
+/obj/item/clothing/accessory/sec_mask/unathi
+	icon_state = "sec_mask_unathi"
+	item_state = "sec_mask_unathi"
+	design = "This one vaguely resembles an Unathi face."
+
+/obj/item/clothing/accessory/sec_mask/hoplan
+	icon_state = "sec_mask_hoplan"
+	item_state = "sec_mask_hoplan"
+	design = "This one vaguely resembles a Hoplan face."

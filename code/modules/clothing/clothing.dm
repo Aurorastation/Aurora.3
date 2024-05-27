@@ -737,6 +737,13 @@
 
 /obj/item/clothing/head/get_mob_overlay(mob/living/carbon/human/H, mob_icon, mob_state, slot)
 	var/image/I = ..()
+	if(istype(src, /obj/item/clothing/head/helmet))
+		var/obj/item/clothing/head/helmet/helm = src
+		if(helm.has_storage && slot == slot_head_str && length(helm.hold.contents))
+			for(var/obj/item/thing in helm.hold.contents)
+				I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, "helmet_band"))
+				I.AddOverlays(image('icons/clothing/kit/helmet_garb.dmi', null, initial(thing.icon_state)))
+
 	if(slot == slot_l_hand_str || slot == slot_r_hand_str)
 		for(var/obj/item/clothing/accessory/A in accessories)
 			A.accessory_mob_overlay.ClearOverlays()

@@ -1,0 +1,7 @@
+author: Sparky_hotdog (code), Noblerow (sprites)
+
+delete-after: True
+
+changes:
+  - rscadd: "Added corporate protective masks to the loadout, selectable by security to equip to helmets. Now you too can be a faceless corporate goon!"
+  - refactor: "Redesigned the accessory system to be more universal and less designed for uniforms and suits only."

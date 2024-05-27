@@ -701,3 +701,19 @@
 	display_name = "visegradi patterned sweater"
 	path = /obj/item/clothing/accessory/sweater/visegradi
 	flags = GEAR_HAS_DESC_SELECTION | GEAR_HAS_COLOR_SELECTION
+
+/datum/gear/accessory/sec_mask
+	display_name = "corporate protective mask selection"
+	description = "A generic camera-assisted mask issued to members of SCC security teams."
+	path = /obj/item/clothing/accessory/sec_mask
+	flags = 0
+	allowed_roles = list("Security Officer", "Head of Security", "Warden", "Security Cadet", "Investigator", "Security Personnel")
+
+/datum/gear/accessory/sec_mask/New()
+	..()
+	var/list/masks = list()
+	masks["corporate protective mask, human"] = /obj/item/clothing/accessory/sec_mask
+	masks["corporate protective mask, unathi"] = /obj/item/clothing/accessory/sec_mask/unathi
+	masks["corporate protective mask, hoplan"] = /obj/item/clothing/accessory/sec_mask/hoplan
+	gear_tweaks += new /datum/gear_tweak/path(masks)
+

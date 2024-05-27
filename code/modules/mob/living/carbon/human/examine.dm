@@ -86,10 +86,24 @@
 
 	//head
 	if(head)
+		var/tie_msg
+		var/tie_msg_warn
+		if(istype(head,/obj/item/clothing/head))
+			var/obj/item/clothing/head/U = head
+			if(LAZYLEN(U.accessories))
+				tie_msg += ". Attached to it is"
+				tie_msg_warn += "! Attached to it is"
+				var/list/accessory_descs = list()
+				for(var/accessory in U.accessories)
+					accessory_descs += "<a href='?src=\ref[src];lookitem_desc_only=\ref[accessory]'>\a [accessory]</a>"
+
+				tie_msg += " [lowertext(english_list(accessory_descs))]"
+				tie_msg_warn += " [lowertext(english_list(accessory_descs))]"
+
 		if(head.blood_color)
-			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> [head.get_head_examine_text(src)]!\n")
+			msg += SPAN_WARNING("[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] [head.gender==PLURAL?"some":"a"] [fluid_color_type_map(head.blood_color)]-stained <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>[head.name]</a> [head.get_head_examine_text(src)]! [tie_msg_warn]\n")
 		else
-			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> [head.get_head_examine_text(src)].\n"
+			msg += "[get_pronoun("He")] [get_pronoun("is")] wearing [icon2html(head, user)] <a href='?src=\ref[src];lookitem_desc_only=\ref[head]'>\a [head]</a> [head.get_head_examine_text(src)]. [tie_msg_warn]\n"
 
 	//suit/armor
 	if(wear_suit)
