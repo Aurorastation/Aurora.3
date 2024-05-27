@@ -306,13 +306,21 @@
 
 	for (var/datum/map_template/template in selected)
 		// get the theme if any
-		var/list/exoplanet_themes = null
-		var/datum/map_template/ruin/away_site/away_site = template
-		if(istype(away_site) && away_site.exoplanet_themes)
-			exoplanet_themes = away_site.exoplanet_themes
+		// var/list/exoplanet_themes = null
+		// var/datum/map_template/ruin/away_site/away_site = template
+		// if(istype(away_site) && away_site.exoplanet_themes)
+		// 	exoplanet_themes = away_site.exoplanet_themes
 
 		// actually load it
-		if (template.load_new_z(themes=exoplanet_themes))
+		if (template.load_new_z())
+			// do away site exoplanet generation, if needed
+			var/datum/map_template/ruin/away_site/away_site = template
+			if(istype(away_site) && away_site.exoplanet_themes)
+				for(var/marker_turf_type in away_site.exoplanet_themes)
+					var/datum/exoplanet_theme/exoplanet_theme_type = away_site.exoplanet_themes[marker_turf_type]
+					var/datum/exoplanet_theme/exoplanet_theme = new exoplanet_theme_type()
+					exoplanet_theme.generate_map(world.maxz, 1, 1, 254, 254, marker_turf_type)
+			// fin
 			log_admin("Loaded away site [template]!")
 		else
 			log_admin("Failed loading away site [template]!")
