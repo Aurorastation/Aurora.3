@@ -33968,10 +33968,6 @@
 /area/shuttle/intrepid/crew_compartment)
 "xmb" = (
 /obj/structure/table/standard,
-/obj/item/stack/nanopaste{
-	pixel_y = 9
-	},
-/obj/item/stack/nanopaste,
 /obj/item/device/radio/intercom/north,
 /obj/effect/floor_decal/industrial/outline/yellow,
 /turf/simulated/floor/carpet/rubber,
