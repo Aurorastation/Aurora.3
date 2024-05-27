@@ -6,7 +6,7 @@
 	description = "An industrial complex on Tret."
 	prefix = "away_site/uueoaesa/tret/"
 	suffixes = list("tret_industrial_complex.dmm")
-	sectors = list(SECTOR_UUEOAESA, ALL_POSSIBLE_SECTORS) // TODO: REMOVE ALL_POSSIBLE_SECTORS
+	sectors = list(SECTOR_UUEOAESA)
 	spawn_weight = 1
 	spawn_cost = 1
 	id = "tret_industrial_complex"
@@ -16,7 +16,6 @@
 		/turf/unsimulated/marker/red  = /datum/exoplanet_theme/volcanic/tret/mountain
 	)
 	unit_test_groups = list(3)
-	template_flags = TEMPLATE_FLAG_SPAWN_GUARANTEED // TODO: REMOVE THIS
 
 /singleton/submap_archetype/tret_industrial_complex
 	map = "Tret Industrial Complex"
