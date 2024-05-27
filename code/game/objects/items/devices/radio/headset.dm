@@ -213,7 +213,7 @@
 	item_state = "wristset"
 	slot_flags = SLOT_WRISTS
 	canhear_range = 1
-	var/normal_layer = TRUE
+	var/mob_wear_layer = WRISTS_LAYER_OVER
 	EarSound = FALSE
 
 /obj/item/device/radio/headset/wrist/verb/change_layer()
@@ -221,11 +221,59 @@
 	set name = "Change Wrist Layer"
 	set src in usr
 
-	normal_layer = !normal_layer
-	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [normal_layer ? "over" : "under"] your outerwear."))
-	if (ismob(src.loc))
-		var/mob/M = src.loc
-		M.update_inv_wrists()
+	if(mob_wear_layer == WRISTS_LAYER_OVER)
+		mob_wear_layer = WRISTS_LAYER_UNIFORM
+	else
+		mob_wear_layer = WRISTS_LAYER_OVER
+	to_chat(usr, SPAN_NOTICE("\The [src] will now layer [mob_wear_layer == WRISTS_LAYER_OVER ? "over" : "under"] your outerwear."))
+	if (ishuman(src.loc))
+		var/mob/living/carbon/human/H = src.loc
+		if(H.wrists == src)
+			H.update_inv_wrists()
+		else if(H.l_ear == src)
+			H.update_inv_l_ear()
+		else if(H.r_ear == src)
+			H.update_inv_r_ear()
+
+
+/obj/item/device/radio/headset/wrist/clip
+	name = "clip-on radio"
+	desc = "A radio designed to clip onto your clothes. Often known for broadcasting loudly enough that those closeby might overhear it."
+	desc_info = "This radio can be heard by people standing next to the one wearing it."
+	icon = 'icons/obj/item/tools/radio/clip.dmi'
+	icon_state = "clip"
+	item_state = "clip"
+	slot_flags = SLOT_WRISTS | SLOT_EARS
+	contained_sprite = TRUE
+
+/obj/item/device/radio/headset/wrist/clip/verb/flip_radio()
+	set category = "Object"
+	set name = "Flip Radio"
+	set src in usr
+
+	if(item_state == initial(item_state))
+		item_state = "[initial(item_state)]_r"
+	else
+		item_state = initial(item_state)
+	to_chat(usr, SPAN_NOTICE("\The [src] will now be worn on your [(item_state == initial(item_state)) ? "left" : "right"] side."))
+	if (ishuman(src.loc))
+		var/mob/living/carbon/human/H = src.loc
+		if(H.wrists == src)
+			H.update_inv_wrists()
+		else if(H.l_ear == src)
+			H.update_inv_l_ear()
+		else if(H.r_ear == src)
+			H.update_inv_r_ear()
+
+/obj/item/device/radio/headset/wrist/clip/get_wrist_examine_text(mob/living/carbon/human/user)
+	if(!istype(user))
+		return ..()
+	return "clipped to [user.get_pronoun("his")] [(mob_wear_layer == WRISTS_LAYER_OVER) && user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
+
+/obj/item/device/radio/headset/wrist/clip/get_ear_examine_text(mob/living/carbon/human/user)
+	if(!istype(user))
+		return ..()
+	return "clipped to [user.get_pronoun("his")] [user.wear_suit ? user.wear_suit.name : user.w_uniform ? user.w_uniform.name : "chest"]"
 
 /*
  * Civillian
@@ -254,6 +302,12 @@
 	item_state = "wristset_srv"
 	ks2type = /obj/item/device/encryptionkey/headset_service
 
+/obj/item/device/radio/headset/wrist/clip/service
+	name = "clip-on service radio"
+	icon_state = "clip_srv"
+	item_state = "clip_srv"
+	ks2type = /obj/item/device/encryptionkey/headset_service
+
 /obj/item/device/radio/headset/heads/xo
 	name = "executive officer's headset"
 	desc = "The headset of the guy who will one day be captain."
@@ -275,6 +329,12 @@
 	name = "executive officer's wristbound radio"
 	icon_state = "wristset_HoP"
 	item_state = "wristset_HoP"
+	ks2type = /obj/item/device/encryptionkey/heads/xo
+
+/obj/item/device/radio/headset/wrist/clip/xo
+	name = "executive officer's clip-on radio"
+	icon_state = "clip_HoP"
+	item_state = "clip_HoP"
 	ks2type = /obj/item/device/encryptionkey/heads/xo
 
 /*
@@ -304,6 +364,12 @@
 	item_state = "wristset_eng"
 	ks2type = /obj/item/device/encryptionkey/headset_eng
 
+/obj/item/device/radio/headset/wrist/clip/eng
+	name = "clip-on engineering radio"
+	icon_state = "clip_eng"
+	item_state = "clip_eng"
+	ks2type = /obj/item/device/encryptionkey/headset_eng
+
 /obj/item/device/radio/headset/heads/ce
 	name = "chief engineer's headset"
 	desc = "The headset of the guy who is in charge of morons."
@@ -327,6 +393,11 @@
 	item_state = "wristset_CE"
 	ks2type = /obj/item/device/encryptionkey/heads/ce
 
+/obj/item/device/radio/headset/wrist/clip/ce
+	name = "chief engineer's clip-on radio"
+	icon_state = "clip_CE"
+	item_state = "clip_CE"
+	ks2type = /obj/item/device/encryptionkey/heads/ce
 
 /*
  * Cargo
@@ -355,6 +426,11 @@
 	item_state = "wristset_cargo"
 	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
+/obj/item/device/radio/headset/wrist/clip/cargo
+	name = "clip-on cargo radio"
+	icon_state = "clip_cargo"
+	item_state = "clip_cargo"
+	ks2type = /obj/item/device/encryptionkey/headset_cargo
 
 /obj/item/device/radio/headset/headset_mining
 	name = "mining radio headset"
@@ -378,6 +454,11 @@
 	icon_state = "wristset_mine"
 	item_state = "wristset_mine"
 
+/obj/item/device/radio/headset/wrist/clip/cargo/mining
+	name = "clip-on mining radio"
+	icon_state = "clip_mine"
+	item_state = "clip_mine"
+
 /obj/item/device/radio/headset/operations_manager
 	name = "operations manager's headset"
 	desc = "A headset used by the head honcho of paper pushing."
@@ -399,6 +480,12 @@
 	name = "wristbound operations manager radio"
 	icon_state = "wristset_QM"
 	item_state = "wristset_QM"
+	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
+
+/obj/item/device/radio/headset/wrist/clip/cargo/operations_manager
+	name = "clip-on operations manager radio"
+	icon_state = "clip_QM"
+	item_state = "clip_QM"
 	ks2type = /obj/item/device/encryptionkey/headset_operations_manager
 
 /*
@@ -428,6 +515,12 @@
 	item_state = "wristset_med"
 	ks2type = /obj/item/device/encryptionkey/headset_med
 
+/obj/item/device/radio/headset/wrist/clip/med
+	name = "clip-on medical radio"
+	icon_state = "clip_med"
+	item_state = "clip_med"
+	ks2type = /obj/item/device/encryptionkey/headset_med
+
 /obj/item/device/radio/headset/heads/cmo
 	name = "chief medical officer's headset"
 	desc = "The headset of the highly trained medical chief."
@@ -449,6 +542,12 @@
 	name = "chief medical officer's wristbound radio"
 	icon_state = "wristset_CMO"
 	item_state = "wristset_CMO"
+	ks2type = /obj/item/device/encryptionkey/heads/cmo
+
+/obj/item/device/radio/headset/wrist/clip/cmo
+	name = "chief medical officer's clip-on radio"
+	icon_state = "clip_CMO"
+	item_state = "clip_CMO"
 	ks2type = /obj/item/device/encryptionkey/heads/cmo
 
 /*
@@ -477,6 +576,12 @@
 	item_state = "wristset_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_sci
 
+/obj/item/device/radio/headset/wrist/clip/sci
+	name = "clip-on science radio"
+	icon_state = "clip_sci"
+	item_state = "clip_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_sci
+
 /obj/item/device/radio/headset/headset_xenoarch
 	name = "xenoarchaeology radio headset"
 	desc = "A sciency headset for Xenoarchaeologists."
@@ -497,6 +602,12 @@
 	name = "wristbound xenoarchaeology radio"
 	icon_state = "wristset_sci"
 	item_state = "wristset_sci"
+	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
+
+/obj/item/device/radio/headset/wrist/clip/xenoarch
+	name = "clip-on xenoarchaeology radio"
+	icon_state = "clip_sci"
+	item_state = "clip_sci"
 	ks2type = /obj/item/device/encryptionkey/headset_xenoarch
 
 /obj/item/device/radio/headset/headset_rob
@@ -528,6 +639,12 @@
 	item_state = "wristset_RD"
 	ks2type = /obj/item/device/encryptionkey/heads/rd
 
+/obj/item/device/radio/headset/wrist/clip/rd
+	name = "research director's clip-on radio"
+	icon_state = "clip_RD"
+	item_state = "clip_RD"
+	ks2type = /obj/item/device/encryptionkey/heads/rd
+
 /*
  * Security
  */
@@ -555,6 +672,12 @@
 	item_state = "wristset_sec"
 	ks2type = /obj/item/device/encryptionkey/headset_sec
 
+/obj/item/device/radio/headset/wrist/clip/sec
+	name = "clip-on security radio"
+	icon_state = "clip_sec"
+	item_state = "clip_sec"
+	ks2type = /obj/item/device/encryptionkey/headset_sec
+
 /obj/item/device/radio/headset/headset_warden
 	name = "warden radio headset"
 	desc = "This is used by your all-powerful overseer."
@@ -572,6 +695,10 @@
 
 /obj/item/device/radio/headset/wrist/sec/warden
 	name = "wristbound warden radio"
+	ks2type = /obj/item/device/encryptionkey/headset_warden
+
+/obj/item/device/radio/headset/wrist/clip/sec/warden
+	name = "clip-on warden radio"
 	ks2type = /obj/item/device/encryptionkey/headset_warden
 
 /obj/item/device/radio/headset/headset_penal
@@ -603,6 +730,12 @@
 	item_state = "wristset_HoS"
 	ks2type = /obj/item/device/encryptionkey/heads/hos
 
+/obj/item/device/radio/headset/wrist/clip/hos
+	name = "head of security's clip-on radio"
+	icon_state = "clip_HoS"
+	item_state = "clip_HoS"
+	ks2type = /obj/item/device/encryptionkey/heads/hos
+
 /*
  * Captain
  */
@@ -630,6 +763,12 @@
 	item_state = "wristset_com"
 	ks2type = /obj/item/device/encryptionkey/headset_com
 
+/obj/item/device/radio/headset/wrist/clip/command
+	name = "clip-on command radio"
+	icon_state = "clip_com"
+	item_state = "clip_com"
+	ks2type = /obj/item/device/encryptionkey/headset_com
+
 /obj/item/device/radio/headset/heads/captain
 	name = "captain's headset"
 	desc = "The headset of the boss."
@@ -651,6 +790,12 @@
 	name = "captain's wristbound radio"
 	icon_state = "wristset_cap"
 	item_state = "wristset_cap"
+	ks2type = /obj/item/device/encryptionkey/heads/captain
+
+/obj/item/device/radio/headset/wrist/clip/captain
+	name = "captain's clip-on radio"
+	icon_state = "clip_cap"
+	item_state = "clip_cap"
 	ks2type = /obj/item/device/encryptionkey/heads/captain
 
 /*

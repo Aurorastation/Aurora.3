@@ -64,7 +64,7 @@
 	var/race_key = 0       	                             // Used for mob icon cache string.
 	var/icon/icon_template                               // Used for mob icon generation for non-32x32 species.
 	var/mob_size	= MOB_MEDIUM
-	var/show_ssd = "fast asleep"
+	var/show_ssd = "in a deep slumber"
 	var/short_sighted
 	var/bald = 0
 
@@ -309,6 +309,20 @@
 	var/psi_deaf = FALSE
 	///Which species-unique robolimb types can this species take?
 	var/list/valid_prosthetics
+
+	//Sleeping stuff
+	/**
+	 * Does this species sleep standing up?
+	 */
+	var/sleeps_upright = FALSE
+	/**
+	 * The key of the emote to play when this species is sleeping
+	 */
+	var/snore_key = "snore"
+	/**
+	 * Whether this species can choose to sleep indefinitely
+	 */
+	var/indefinite_sleep = FALSE
 
 /datum/species/proc/get_eyes(var/mob/living/carbon/human/H)
 	return
@@ -881,3 +895,16 @@
 
 /datum/species/proc/get_species_record_sex(var/mob/living/carbon/human/H)
 	return H.gender
+
+/**
+ * The message which displays when this species falls asleep
+ */
+/datum/species/proc/sleep_msg(var/mob/M)
+	M.visible_message(SPAN_NOTICE("\The [M] lies down, falling asleep."))
+	to_chat(M, SPAN_NOTICE("You lie down, falling asleep."))
+
+/**
+ * Shown when this species is asleep and examined
+ */
+/datum/species/proc/sleep_examine_msg(var/mob/M)
+	return SPAN_NOTICE("[M.get_pronoun("He")] appears to be fast asleep.\n")

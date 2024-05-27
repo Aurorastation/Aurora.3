@@ -220,7 +220,7 @@
 
 	..()
 
-/obj/structure/reagent_dispensers/fueltank/fire_act(datum/gas_mixture/air, temperature, volume)
+/obj/structure/reagent_dispensers/fueltank/fire_act(temperature, volume)
 	if (is_leaking)
 		ex_act(2.0)
 	else if (temperature > T0C+500)
