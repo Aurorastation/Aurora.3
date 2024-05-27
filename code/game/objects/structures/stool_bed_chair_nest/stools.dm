@@ -323,7 +323,9 @@
 	anchored = FALSE
 	density = FALSE
 
-/obj/structure/flora/log_bench/fire_act()
+/obj/structure/flora/log_bench/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	for(var/obj/structure/bonfire/B in get_turf(src))
 		if(B.on_fire)
 			B.fuel = min(B.max_fuel, B.fuel + 300)

@@ -206,7 +206,9 @@
 			wipe_down(A, user)
 		return
 
-/obj/item/reagent_containers/glass/rag/fire_act(datum/gas_mixture/air, exposed_temperature, exposed_volume)
+/obj/item/reagent_containers/glass/rag/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(exposed_temperature >= 50 + T0C)
 		ignite()
 	if(exposed_temperature >= 900 + T0C)

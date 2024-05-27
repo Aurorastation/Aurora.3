@@ -329,6 +329,8 @@
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "upper"))
 		AddOverlays(image("icon" = 'icons/mob/burning/burning_generic.dmi', "icon_state" = "lower"))
 
-/mob/living/silicon/robot/fire_act()
+/mob/living/silicon/robot/fire_act(exposed_temperature, exposed_volume)
+	. = ..()
+
 	if(!on_fire) // Silicons don't gain stacks from hotspots, but hotspots can ignite them.
 		IgniteMob()
